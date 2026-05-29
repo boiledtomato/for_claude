@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 """
-Send a daily email digest of new Zscaler articles via SendGrid.
+Send a daily email digest of new Zscaler articles via Gmail SMTP.
 
 Required environment variables:
-  SENDGRID_API_KEY  - SendGrid API key (set in GitHub Secrets)
-  NOTIFY_EMAIL_FROM - Verified sender address in SendGrid (default: same as TO)
-  DASHBOARD_URL     - Published dashboard URL (optional)
+  GMAIL_APP_PASSWORD - Gmail app password (Google Account → Security → App passwords)
+  NOTIFY_EMAIL_FROM  - Gmail address to send from (default: ciderred1239@gmail.com)
 """
 
 import json
 import os
+import smtplib
+import ssl
 import sys
 from datetime import datetime, timezone
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
@@ -20,7 +23,7 @@ NOTIFIED_FILE = SCRIPT_DIR.parent / "data" / "last_notified.json"
 
 RECIPIENT = "ciderred1239@gmail.com"
 SENDER = os.environ.get("NOTIFY_EMAIL_FROM", RECIPIENT)
-SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "")
+GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "")
 DASHBOARD_URL = os.environ.get(
     "DASHBOARD_URL", "https://boiledtomato.github.io/for_claude/"
 )
@@ -41,8 +44,7 @@ TAG_CSS = {"ZIA": "tag-zia", "ZPA": "tag-zpa", "ZDX": "tag-zdx"}
 
 def load_last_notified() -> str:
     try:
-        data = json.loads(NOTIFIED_FILE.read_text())
-        return data.get("last_notified_at", "")
+        return json.loads(NOTIFIED_FILE.read_text()).get("last_notified_at", "")
     except Exception:
         return ""
 
@@ -54,16 +56,14 @@ def save_last_notified(ts: str) -> None:
 
 def load_articles() -> list[dict]:
     try:
-        data = json.loads(DATA_FILE.read_text())
-        return data.get("articles", [])
+        return json.loads(DATA_FILE.read_text()).get("articles", [])
     except Exception as e:
-        print(f"[ERROR] Failed to load articles.json: {e}")
+        print(f"[ERROR] articles.json の読み込み失敗: {e}")
         return []
 
 
 def get_new_articles(articles: list[dict], since: str) -> list[dict]:
     if not since:
-        # 初回実行: 最新 MAX_IN_EMAIL 件を送る
         return articles[:MAX_IN_EMAIL]
     return [a for a in articles if a.get("date", "") > since]
 
@@ -87,15 +87,13 @@ def render_article(a: dict) -> str:
     )
     summary_html = (
         f'<div class="article-summary">{esc(a["summary"])}</div>'
-        if a.get("summary")
-        else ""
+        if a.get("summary") else ""
     )
-    date_str = a.get("date", "")[:10]
     return f"""
     <div class="article">
       <span class="article-category {cat_css}">{esc(cat_label)}</span>
       <div class="article-title"><a href="{esc(a['url'])}">{esc(a['title'])}</a></div>
-      <div class="article-meta">{esc(a['source'])} &nbsp;·&nbsp; {esc(date_str)}</div>
+      <div class="article-meta">{esc(a['source'])} &nbsp;·&nbsp; {esc(a.get('date','')[:10])}</div>
       {summary_html}
       <div class="tags">{tags_html}</div>
     </div>"""
@@ -106,10 +104,9 @@ def build_html(articles: list[dict]) -> str:
     articles_html = "".join(render_article(a) for a in articles)
     count = len(articles)
     more_note = (
-        '<p style="color:#64748b;font-size:13px;">他にも新着記事があります。'
-        "ダッシュボードで全件確認できます。</p>"
-        if count >= MAX_IN_EMAIL
-        else ""
+        '<p style="color:#64748b;font-size:13px;margin-top:8px;">'
+        "他にも新着記事があります。ダッシュボードで全件確認できます。</p>"
+        if count >= MAX_IN_EMAIL else ""
     )
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -122,11 +119,10 @@ def build_html(articles: list[dict]) -> str:
   .wrap{{max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;
          box-shadow:0 4px 24px rgba(0,0,0,.08)}}
   .hdr{{background:linear-gradient(135deg,#0c1a36 0%,#0f2457 100%);padding:28px 24px;text-align:center}}
-  .hdr h1{{color:#38bdf8;margin:0;font-size:22px;letter-spacing:-.3px}}
+  .hdr h1{{color:#38bdf8;margin:0;font-size:22px}}
   .hdr p{{color:#94a3b8;margin:6px 0 0;font-size:13px}}
   .bdy{{padding:24px}}
   .intro{{font-size:15px;color:#334155;margin-bottom:20px;line-height:1.6}}
-  .intro strong{{color:#0f172a}}
   .article{{border:1px solid #e2e8f0;border-radius:10px;padding:18px;margin-bottom:14px;background:#fafbfc}}
   .article-category{{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
                       padding:3px 9px;border-radius:4px;display:inline-block;margin-bottom:10px}}
@@ -181,48 +177,39 @@ def build_text(articles: list[dict]) -> str:
 
 
 def send(articles: list[dict]) -> bool:
-    if not SENDGRID_API_KEY:
-        print("[ERROR] SENDGRID_API_KEY が設定されていません。")
-        print("  GitHub の Settings → Secrets → SENDGRID_API_KEY を追加してください。")
-        return False
-
-    try:
-        import sendgrid
-        from sendgrid.helpers.mail import Mail
-    except ImportError:
-        print("[ERROR] sendgrid パッケージが見つかりません: pip install sendgrid")
+    if not GMAIL_APP_PASSWORD:
+        print("[ERROR] GMAIL_APP_PASSWORD が設定されていません。")
+        print("  設定手順:")
+        print("  1. Googleアカウント → セキュリティ → 2段階認証を有効化")
+        print("  2. 「アプリパスワード」を発行（16文字）")
+        print("  3. GitHub の Settings → Secrets → GMAIL_APP_PASSWORD に登録")
         return False
 
     today = datetime.now(timezone.utc).strftime("%Y年%m月%d日")
     subject = f"[Zscaler] 本日の新着記事 {today} ({len(articles)}件)"
 
-    message = Mail(
-        from_email=SENDER,
-        to_emails=RECIPIENT,
-        subject=subject,
-        html_content=build_html(articles),
-        plain_text_content=build_text(articles),
-    )
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = SENDER
+    msg["To"] = RECIPIENT
+    msg.attach(MIMEText(build_text(articles), "plain", "utf-8"))
+    msg.attach(MIMEText(build_html(articles), "html", "utf-8"))
 
     try:
-        sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
-        resp = sg.send(message)
-        print(f"SendGrid レスポンス: {resp.status_code}")
-        if resp.status_code in (200, 202):
-            return True
-        print(f"[ERROR] 予期しないステータスコード: {resp.status_code}")
-        print(f"  ボディ: {resp.body}")
+        context = ssl.create_default_context()
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.ehlo()
+            server.starttls(context=context)
+            server.login(SENDER, GMAIL_APP_PASSWORD)
+            server.sendmail(SENDER, RECIPIENT, msg.as_bytes())
+        print("メール送信完了")
+        return True
+    except smtplib.SMTPAuthenticationError:
+        print("[ERROR] 認証失敗。アプリパスワードが正しいか確認してください。")
+        print("  ※ 通常のGmailパスワードは使えません。アプリパスワードが必要です。")
         return False
     except Exception as e:
-        print(f"[ERROR] メール送信に失敗しました: {e}")
-        if hasattr(e, "body"):
-            print(f"  詳細: {e.body}")
-        print(
-            "  よくある原因:\n"
-            "  1. 送信元メールアドレスがSendGridで未認証\n"
-            "  2. API Keyの権限不足 (Mail Send が必要)\n"
-            "  3. SendGridアカウントの送信制限"
-        )
+        print(f"[ERROR] 送信失敗: {e}")
         return False
 
 
@@ -233,7 +220,7 @@ def main():
     articles = load_articles()
     print(f"記事数: {len(articles)}")
     if not articles:
-        print("[SKIP] articles.json に記事がありません。fetch_articles.py を先に実行してください。")
+        print("[SKIP] 記事なし。fetch_articles.py を先に実行してください。")
         return
 
     last_notified = load_last_notified()

@@ -33,14 +33,14 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-        run: pip install requests sendgrid
+        run: pip install requests
 
       - name: Fetch articles
         run: python scripts/fetch_articles.py
 
       - name: Send email notification
         env:
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           NOTIFY_EMAIL_FROM: ${{ secrets.NOTIFY_EMAIL_FROM }}
           DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
         run: python scripts/send_notification.py
