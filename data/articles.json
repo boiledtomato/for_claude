@@ -1,5 +1,2010 @@
 {
-  "last_updated": "2026-05-29T00:00:00Z",
-  "total": 0,
-  "articles": []
+  "last_updated": "2026-05-29T22:57:09Z",
+  "total": 200,
+  "articles": [
+    {
+      "id": "cf84f55fc3501dfc",
+      "title": "Stocks making big moves this week: Viasat, Agilent, Verra Mobility, Torrid, and Zscaler",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOc082cy15b3ZYc1RZeC1raTIwMHQxWk4yZnQwX0ZEOUZ1ZUlycnZ3Y0Z4WjVsc0NwQ2lxMm9ic1VSbVZtUmJNLVdHNkhtRnlSYWxiMi1TVlczdE5FaldOcnlzR25zZVdlLUF3empGTGxzbjBldHNWNDVIdE9ncG5hU2VRMkxQQXdNbkt3TWZ1MFJNVUVmT1JwTQ?oc=5",
+      "summary": "Stocks making big moves this week: Viasat, Agilent, Verra Mobility, Torrid, and Zscaler Yahoo Finance",
+      "date": "2026-05-29T21:12:38Z",
+      "source": "Yahoo Finance",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "61245798b715e9d9",
+      "title": "Tech stocks lead Nasdaq's weekly gainers; Costco, Zscaler see bloodbath post results (MU:NASDAQ)",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOM3lhQ2hfbm9vdDdIN3VEWlhBM25UWHByQ3BsQ3RzTzNCU1JzRDJmOWlvMXNFNlphWWxaWHNFX3Njd3BPRjNKUEZNMHg0amM0MHRySldpd3JZZjRFcTl3RlpBNnhEeFVxWnQyVzdFSHFTZzhMRnBZd21HeC1jNTc5NmlCSnVQZGdyeTJ2RWlwU3NXQndCVHFUUmM4ZFh2VGNBQzBUUFhYNHJxdk02OG12ZkVTeGYtTkgxV1Nr?oc=5",
+      "summary": "Tech stocks lead Nasdaq's weekly gainers; Costco, Zscaler see bloodbath post results (MU:NASDAQ) Seeking Alpha",
+      "date": "2026-05-29T20:27:38Z",
+      "source": "Seeking Alpha",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "70ca59bcb3658a20",
+      "title": "$ゼットスケーラー (ZS.US)$",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5OT2I1M2kxYzlVc09GelhFbHZ5OGc4Q0h5bEJiTFRxaVhjSXNxdGE4WlcwUkh1c2tmZkhvcXlIM2laZnJ3d1d2ekhtRERwS2F2Q2JZajZYM1A2WWhhcWcwenZtX0gxTDktT2RYM3BhX0dpYlh1Y1BPOWlR?oc=5",
+      "summary": "$ゼットスケーラー (ZS.US)$ Moomoo",
+      "date": "2026-05-29T16:12:35Z",
+      "source": "Moomoo",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "907a578fd083d6e6",
+      "title": "$ゼットスケーラー (ZS.US)$ うわー、何を買っているかはよくわからないけど、 下げでエントリーする",
+      "url": "https://news.google.com/rss/articles/CBMi7wJBVV95cUxPOExzREhaa1NTTWNQOTV0V2VZSy1jdnZEN0VRZnVnZTN5Q0dVZXR1ekkzTi1ZWEFKRnc0QkVYSGhhN0QtNW40LW1qaHJwN3FISTE5cnRvVDV0MmE5NnBtWjVCOHNkNWtKRzNQM2tJNjIwbEtwVm1vRFdTYWxEYlBTRmgwZjN0T0xwZ0lEOW0tR1hBNm9vc3VzRVZwbENVT2s4LWNSTTJCbUk0YWlIR21jVXNPSHo2Zmk5Z1pzX2JTcFBCam5vVG1xaWZ0RS16Vjh5RlZNN0NKeXRNTHN0YWhVZk9nNktlaXp6bkU5S2RvMGVDaElocWphT1piQXROUHZYZE1udkJRZnhJZkh5MllnOTNZbGZsMmRYZEduTEdNb3lEdGJsNHdoNFBRd0NPWE1mZUVDakFBbjBIX0xPb2VRUGlHSnRPc2VlX3B1Qll0WEtWQkxnVDBSVVRxQS14Z3Joc0FDdlFmcHNfWndYYUZr?oc=5",
+      "summary": "$ゼットスケーラー (ZS.US)$ うわー、何を買っているかはよくわからないけど、 下げでエントリーする Moomoo",
+      "date": "2026-05-29T15:36:27Z",
+      "source": "Moomoo",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "cd2c7f5673ccb0d3",
+      "title": "$ゼットスケーラー (ZS.US)$ 下落は常に買い場",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNRjVEYTJzUWJTTjZ6RWxtME9uLV9Ic3Z2aG9McC1teEdOcURQNDJqVTFfVDRVYjlRNFZkNFZLc1pZTUZVUWJ3QmpnMzN6eXY3OW9NeXEtclZuQmNub2FmaVVVbUU3YkQ1aURia2Z0VElpVURaTDEtWlhQdjBTcVpZeTViRkp2b3dPb0J3SWtTeHRDb2s?oc=5",
+      "summary": "$ゼットスケーラー (ZS.US)$ 下落は常に買い場 Moomoo",
+      "date": "2026-05-29T15:02:36Z",
+      "source": "Moomoo",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "ae59d5d06db5c827",
+      "title": "UBS Phoenix Autocallable Notes linked to Zscaler (AMUB) — $10,000 issue",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZGVTSDkteUE5YlFlQWRjM1ExZkxnNWZ4LWNHY2dPRTZEWHNVdVU5bW9VYW95UmotS3ZSSlhQUVlrLXN4RDRhUWVDMGtaaFlIREM3b2NKUkpTNC1Reld6NkFWNGY3Y1ZFQllxSkVKRWNyMDlXWEUyTkxBc2lJV0w0SEJodmFGVkI5LU1vS1RwZGVkdWVtclFoSEswNmk?oc=5",
+      "summary": "UBS Phoenix Autocallable Notes linked to Zscaler (AMUB) — $10,000 issue Stock Titan",
+      "date": "2026-05-29T14:26:25Z",
+      "source": "Stock Titan",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "a89f346d23fd3edc",
+      "title": "Zscaler Earnings: Sales Shakeup And Weak Guidance Overshadow AI Narrative",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPV1hmS1VwWlBBUm10YW9FS2pIbkFnWVdXV0dxSmUzeE1DNlc3a080UGFnczlBa3hZVGtrYVBocW9kaEhabVQxUWpvRHIyLUYzYy15SHY5VmIwdkJPbEFXTVM5X0I4V2FBUkRxbnViMVBjT1RMMGYtU2JwM3ZDdHc0d1paTVNVR09lLWgxQ2g5UGlrOFh5V2Q5eHdOOTZ3RG83WEpFQzBDM2EyckdOcFpYMWVaQkF1a19LUkU3bG41Nld3WnpnVnJwbWZVOA?oc=5",
+      "summary": "Zscaler Earnings: Sales Shakeup And Weak Guidance Overshadow AI Narrative Trefis",
+      "date": "2026-05-29T11:00:39Z",
+      "source": "Trefis",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "c98c8a42886e5101",
+      "title": "Analysts Are Bullish on These Technology Stocks: Zscaler (ZS), Braze (BRZE)",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNTzM5TjJESXFQSjEydW5xcFh4amdNQzlPb1prNkliRDRQb3lRbE5nQWc3dUpMVWU5RXpzRTRtbGlEY0lLS1I4MkNWOWVabVRRRGJaXzY1X2cxRDBtUUttdF9TM0ljQzY5WUNJbmNxRTN2M2pxaU40V2NER041NTVSaFRwYTdtSlQxTnZEbHlmSXRFT0VYYUZPcXUwWUhscWI4Tl9OUmNBQl9venFCTG9GRGFyWHBwb3VRV19DQ2xvUy14bnREZFFhbjhaSW1aY1FMMzNRYUMxV19tSlpELTduSUtnbjdscWZLekE?oc=5",
+      "summary": "Analysts Are Bullish on These Technology Stocks: Zscaler (ZS), Braze (BRZE) The Globe and Mail",
+      "date": "2026-05-29T09:46:06Z",
+      "source": "The Globe and Mail",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "d9d50c874b1d06d1",
+      "title": "Jefferies Keeps Their Buy Rating on Zscaler (ZS)",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPSmgxSVBQWVpjeHNEX2F3ZE84R2RBVFVDVnBIMDM5N19XVlYzYjI1OGsya2ROZ3kyVjdnMjJWRjFwZ2poS1NJR2J6ZUU4Vkl3WWRuMjBkd2dWeEFwTk1wSmotOEpQNUJqTFFuRUxwT19hdjhCNG51MmRyMXlIZFZ4QkVJQVMyZkxYV05pS01KNklTcXhqU1A1VnJPa2tmd3RQZHJ3SGNabHlIQ0R4NHhRZTRSX2JpbjIyX2hNSTAtcEh5enduVmxaaFIxWQ?oc=5",
+      "summary": "Jefferies Keeps Their Buy Rating on Zscaler (ZS) The Globe and Mail",
+      "date": "2026-05-29T09:29:06Z",
+      "source": "The Globe and Mail",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "41166fd00f90a707",
+      "title": "AI対AIの今、“時代遅れ”なアーキテクチャで自社を守れるか？AI駆動型SOCの転換に着手すべき理由",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5ISjkxYTBJVWpiTlNuU3AxMGc0ZVJMWDRwbUxxUU1BdG1wNnVKMlB5enRTU1pyLV8taTRpcHpMSkZsWGoyM0pBc0RmellHbHBXejdvVFZMdFk0QQ?oc=5",
+      "summary": "AI対AIの今、“時代遅れ”なアーキテクチャで自社を守れるか？AI駆動型SOCの転換に着手すべき理由 EnterpriseZine",
+      "date": "2026-05-29T01:01:53Z",
+      "source": "EnterpriseZine",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "0b7f82fa7db42807",
+      "title": "Why Is Zscaler Stock Crashing and is it a Generational Buying Opportunity?",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQZXFWdWwyTHdVVU9NN1Job3A0SjBDemloRTFCaGV4RURaTkRqWkI1bkdMVnBWeTFVTTdzNTRSZFNfQUNCRVM3LVBjeER3cUpXNzE3WHhFSko2NzB4QVZWMVlYMl96eUNUYmh1T1p5SDdhLU1TQkVCRzRuMURQdFB1ZHhPVmlkQjUzVlExWnFwbm9tUW5HNXVWMA?oc=5",
+      "summary": "Why Is Zscaler Stock Crashing and is it a Generational Buying Opportunity? The Motley Fool",
+      "date": "2026-05-28T23:21:39Z",
+      "source": "The Motley Fool",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "a04919f0ed7a2a01",
+      "title": "出自で決まる「SASE」の最適解 主要外資ベンダー5社のコンセプトと強み (1/3)",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9icWJyWERILVc1NFhJckM2QW5ISE55d1VFM0lpWGt5MHFIMWdiSGNSOEdSbEpaaE8zTXNIMnlzTHR6cUNsUUV5UHJMN2dHdy05R3lmXw?oc=5",
+      "summary": "出自で決まる「SASE」の最適解 主要外資ベンダー5社のコンセプトと強み (1/3) ASCII.jp",
+      "date": "2026-05-28T23:00:00Z",
+      "source": "ASCII.jp",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "e179d18f1c1f56f2",
+      "title": "Zscaler (ZS)は、売上高が増加する中、フリーキャッシュフロー・マージンのガイダンスをカットした後、27.5％ダウンしている。",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOWnNUTlFJcnlSckFOUGtNd3B4RmxHU2NyZ2V6U1BnUUU0aElJR054YUROdXFXNzVQcllZZXpwNXhKbjRxUVNob3NLV0JxcUV2RFpQdWJ6NUhCNllRWlF1bm9vQkp5QWZYY3BfLVRfU0twU21SbHJiVURCZzNzejFwNUp1dXlnZmJZZHk0WkFyeFrSAZABQVVfeXFMTlpzVE5RSXJ5UnJBTlBrTXdweEZsR1NjcmdlelNQZ1FFNGhJSUdOeGFETnVxVzc1UHJZWWV6cDV4Sm40cVFTaG9zS1dCcXFFdkRaUHViejVIQjZZUVpRdW5vb0JKeUFmWGNwXy1UX1NLcFNtUmxyYlVEQmczc3oxcDVKdXV5Z2ZiWWR5NFpBcnha?oc=5",
+      "summary": "Zscaler (ZS)は、売上高が増加する中、フリーキャッシュフロー・マージンのガイダンスをカットした後、27.5％ダウンしている。 simplywall.st",
+      "date": "2026-05-28T21:02:09Z",
+      "source": "simplywall.st",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "c93d468b31800840",
+      "title": "Zscaler (ZS) Stock Is Up, What You Need To Know",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOVzZ0aGtGNUF5UkNsSTFhcVVURHVMQ3lNY25PNFNYNUc4allXM2w2R1dBRnhJYTFYZERTZ0poY0ZZTUk0THJHTDBablFYM2tHTmRPOVpjRFhHSlFaUWtxbzhUVXRoZVpFTWNkNDE5bW4zQXZpem5ER0FhT1dYanZXalRoYWYxelFtWG9OSWJJMEl3QWFDOWMzSDhhMUhsR0g5NzNHNTR3UjE?oc=5",
+      "summary": "Zscaler (ZS) Stock Is Up, What You Need To Know TradingView",
+      "date": "2026-05-28T20:55:49Z",
+      "source": "TradingView",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "6a3c6f9b024512a7",
+      "title": "The Zscaler Sell-Off: Has the Market Overreacted?",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWlh1RVhzVUtlV0NCZmx6NUs5cnJpUFBja05mbVVxYUpJRlVqWHdMaGktc19oZFl0eUo3X3pxd2h0OVkyU1p1WjQtVTJaZml6SUpXWHgzdzFDSnhhVUw5am4zSHJBU0JkZS0weU0yNDRoaHd5WlYxNnNLZ1o2Y0xhY1p6M2I5ZU43d2p1REc5VGszN1NX?oc=5",
+      "summary": "The Zscaler Sell-Off: Has the Market Overreacted? The Motley Fool",
+      "date": "2026-05-28T19:30:00Z",
+      "source": "The Motley Fool",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "346402ee241e8574",
+      "title": "Zscaler Stock (ZS) Opinions on Recent Earnings Report",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPSjYzSkpjTzNwa1lYQnAyNGJnZkNhSDBpNnZyYmhlT1dJYmNLczdHclJLQWlieXhLWkxKVC1jSGkxLUhsTjVfc1ZhX3VEeENjdHlrbkdwMHRkeW1qZWtKVTBBOHlBYkFMRmMxdHVXYjBwWmNhcXl3enBJdnFFSFU1WXM3ZmdwTkRqb1R1MTkwYU1HM1I2?oc=5",
+      "summary": "Zscaler Stock (ZS) Opinions on Recent Earnings Report Quiver Quantitative",
+      "date": "2026-05-28T17:33:00Z",
+      "source": "Quiver Quantitative",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "4f60f8857515adee",
+      "title": "Zscaler CEO’s 2-word warning leads to $8B market cap loss",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQMzVoX0RJSDVldWVfU2YyWnJJQ0RzWWpTNG10VFc3QWFtejJjRUk4SkZ1aENVMERMNUFud0dJNS1PUXBMOGdIRUlWRWtQdFdjcjd2cGZndjNvU2pFR2JKY1NzU2JIWlFLb3BsbTZVZTh5aHZPS0ZMaW5jZW4xT2UyQTRGcVN5bG44dnp3LVhBZk0wOFRtaDFRbWlXOHdrZEk?oc=5",
+      "summary": "Zscaler CEO’s 2-word warning leads to $8B market cap loss thestreet.com",
+      "date": "2026-05-28T17:07:00Z",
+      "source": "thestreet.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "94a4b639df0dc055",
+      "title": "Zscaler Stock Plunges on Weak Guidance. Investors Were Maybe Right to Worry About an AI Apocalypse.",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOVk5VS0pWampTREQzbjZQZmJZTUl5d2JSY0VlS09RU2JjOUlKWHJoQVFsbkFrRndoU0xCMHJGZVhaYjhfQlVnLXBaUXFyS1lfUkl4amdKdWFpOG13UGZlWVg3SEIwRHkzUFNHVVNpeDF3UjVvSGZQUmRnOEo2c0NSeGVBT0NHMFk3SXRYNk9BZDNfMkMtLTJIN1pYOXhCcDU5WERPcTY1M1lmODJ0QW9WVVdlWGtuMnNTM0E1TFBPOGZCekJqWHQ3c3Fyc2hpMVNfX19ZcnI2UXg?oc=5",
+      "summary": "Zscaler Stock Plunges on Weak Guidance. Investors Were Maybe Right to Worry About an AI Apocalypse. Barchart.com",
+      "date": "2026-05-28T16:37:02Z",
+      "source": "Barchart.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "16b334d5968ab9fc",
+      "title": "寄り付きで下がった時、パニック売りしそうになったよ😭😭 さあ、上昇を楽しもう！ディップ買いした人たち、おめでとう！",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOMng5TldMaDMxcEJVOUcwZ0k3akxaTDdHcTU1eGhhNVpjdHJMakcyd3ZWR2JEMXZFelRObjM3WW9pY2lpb1JLUkZZSjdPa3Q0SXFjSmVVTTNwVzhGVDdvTVQ5M0VmczFYNE51V09JdWlKM0xZajRtTU1QSVlBYXBOU2IyODdWVWJGLUpadVQzWWRNc1JlMFJBS0Q3SDNZWVNGeGdr?oc=5",
+      "summary": "寄り付きで下がった時、パニック売りしそうになったよ😭😭 さあ、上昇を楽しもう！ディップ買いした人たち、おめでとう！ Moomoo",
+      "date": "2026-05-28T16:36:35Z",
+      "source": "Moomoo",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "f6c8f6366464be05",
+      "title": "Mike Khouw: I was wrong about Zscaler. Here's how I'm managing the trade",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxORmlLM21uSHg5TnU3Tzgwa2RYZjJXX3AwbThLenA1NmFnaW5EalNQQUF2U1A1Rkc0MTAxalJoY3pobUduRnBTb0k4SDhsb2FvVGVpd2d2QlF1eXNIR3E4RFl5b1dGUUctME5GS2lKY3hBUWM0MmhZNW8yeENYeWttVlhKQVhpcnhIblBaamFPa25Sa2RiTFk3SVhQQ2dOQVRyWkpyZGZOUGXSAa4BQVVfeXFMTVNfd2xYblRjelE4cmkzY3MwcXZLakZXMEZTREF2b0lBWmNDSTg2Tko1c0ozdTZYQ3d6VVVCcm9YUk8zUmpIZmhxbTI1SmltcDRJSlpKbmhDTnRHem9jUlFJcnFXS0t4R0d4U3JhVHpzWEpGM3pOd2tyNk85d09WOXlPeWJVRXMyeE5oanM0Zi1UZnQ3YWhlNXhMLWVHZHpVT1R4djZMMWJoS3JDRURR?oc=5",
+      "summary": "Mike Khouw: I was wrong about Zscaler. Here's how I'm managing the trade CNBC",
+      "date": "2026-05-28T15:32:18Z",
+      "source": "CNBC",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "253df18f3d198eb7",
+      "title": "Zscaler plunges after disappointing guidance. Here’s how options traders should pivot",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQVHNKbW1BMWY0RmJ3c2hGcVM1SGdwQkJnLUtPUlZxYkVMTW9qYkhUUkVkVzEycEp0dHg0dlV0ZFJpcjlDckhNRkh2aTB5S2wxcGRGNk9IX2RNbDVrODRQbGdsX29DNFdJc0pFMlJ5cUxXRkh4anNQSnU2SVBrd3FMLVpDbUNJeTExRkRoTmdiWlhxLUlMTnUwMjA2UWpIU1haMm52U1pjS0Q2aDdOUjNZWnpyWnR3UVB3M0FGYWkxd3hkOEI5?oc=5",
+      "summary": "Zscaler plunges after disappointing guidance. Here’s how options traders should pivot CNBC",
+      "date": "2026-05-28T15:30:00Z",
+      "source": "CNBC",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "34444e48fe19869a",
+      "title": "Stocks making big moves yesterday: HighPeak Energy, Zscaler, Halliburton, Viasat, and CrowdStrike",
+      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPVTlISExEUTFoaERGWFZaaDllNlRpX3AyMWx3RVBHQzBtdDh3TTNSenpXUTYwbVJZUXpaejV4czFyc1hBUEVaYXhIQW1SSTdzMVVpZXhMRzBIMFp6MUFndEpZTlpHeDBRU2VNa2xHU2E4X2ItdHdRZU5LX0FhQ2l1a0l4M0UtTWJ3a0Q2dEQyM2ZsQTVYUEdCelA0ZlJvb2p3NDJhdVZ6eExYV1VKZVpCVE1JbkpuS3hkOHpVQ1FQS2luSjVTUVg5Z0dKeXJGRkFGWHpZTTlfeHhxOEM4Z1NablR2Rk9fendjenVJSmMxTUwtLTln?oc=5",
+      "summary": "Stocks making big moves yesterday: HighPeak Energy, Zscaler, Halliburton, Viasat, and CrowdStrike StockStory",
+      "date": "2026-05-28T14:57:55Z",
+      "source": "StockStory",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "506f573755bf11f0",
+      "title": "Zscaler Stock Drops 30%: Why the Dip Is a Buy Opportunity",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNblFSandVMFdlNWFtZ01NZEdCREVWVmRqSy1oSFBCQUlEVG14Z1N6QzlMR21RcHpwVEIwUlEwWnpXNGtGZjN0WkZKcUlncjJVQW5HLVdfRFVFSFNDeVZ1b29SWjFzRVNpU2NwZUhmVUlKUWxMem4tenRSWmhRbG9ZaXRCTVNiQWh0YW40Qzl3MHhiWHdSTklESW9yNlVndUxPYkE?oc=5",
+      "summary": "Zscaler Stock Drops 30%: Why the Dip Is a Buy Opportunity Investing.com",
+      "date": "2026-05-28T12:57:44Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "ad01dc062db9d252",
+      "title": "Analysts Offer Insights on Technology Companies: Zscaler (ZS), F5, Inc. (FFIV) and Palo Alto Networks (PANW)",
+      "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxNa0pzVG1uRUhnYUpvN0k3TDJ6b3pmeWZ2NnZzSHVSRnVScl8zeXVqX25YdHRsVUFWb2VzWjJhTGJwTnk3eTRPZjVqejlEZERoRmNwdWdySlhJN0FKRDF2QjAyaG5CUWJZSzhSNUU1b3AxZnVvYUpRc2ZNS3AtUTM1TEI2UzdRV09PS3Y4eHlzMnViMjZqOGhnaC15TW1fUUsxNEZ4a3Jqa3htMURfOTJhcGZiSmlkcW9zT3BqaFJtOFNoNkhacUQ0amxBdl9RSjVnN3JnandFTGp5MEppYUpvdVQwN0s4eWJ6LVpCODN5RUE2Y3Y1WFhVVHBkU1l5X29PRGZwa3R2WHk1V0FPdlE?oc=5",
+      "summary": "Analysts Offer Insights on Technology Companies: Zscaler (ZS), F5, Inc. (FFIV) and Palo Alto Networks (PANW) The Globe and Mail",
+      "date": "2026-05-28T12:41:24Z",
+      "source": "The Globe and Mail",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "609f32a6f737b10f",
+      "title": "Zscaler shares tumble more than 31% despite earnings beat, raising investor concerns (ZS)",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNT1VJQXQzRUdnTjBVWGtoV2U3UnViaXMzMXlURzgyUmZPQlRsUWx2eGJGeF9EdUNDWnVYT1hxekUzampTYWRiNVJrOGRyaVBad0g5RHBIUGZzemhNWl9IaFoyOXRRSDNvMmdKbUNsblJ3bjVzb1VRbUl6SjhQNF9NZGI2ejE2c1J6ZG5XbjE4eGFCOGFIWWl5QjVB?oc=5",
+      "summary": "Zscaler shares tumble more than 31% despite earnings beat, raising investor concerns (ZS) Yahoo Finance",
+      "date": "2026-05-28T11:14:41Z",
+      "source": "Yahoo Finance",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "89b20e4b6db6b5ee",
+      "title": "Zscaler Acquires Symmetry Systems to Map & Secure AI Agents",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQNVFCU25PdkxsRXZfQlpuU0p1LTlEeVNaQVRRWmpESmtPYy1PNUl1cXJVdk93RFhTQVZ6RDhoVXlFWUtMS0szTUdhTERCRy1oQTItaUY1ZkI0RFZLUjViTDViWWdWOVludDlBWTk5dk9NdVhnLWM1MzhfZERETnJxMlExejNzSm9kdzdKa0pMQ25XQQ?oc=5",
+      "summary": "Zscaler Acquires Symmetry Systems to Map & Secure AI Agents Cyber Magazine",
+      "date": "2026-05-28T10:47:33Z",
+      "source": "Cyber Magazine",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "0a49b6367f234108",
+      "title": "Zscaler Stock To $164?",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOMUpJOEJjZEpWN2R2VEd3Zm1lQVBRenRfT2pXYXptMzN2c2ZsRFVkNEdFQWJneUs5aGxHekJONU01c2Z0bFNQUE03N0drOExJVHFQampqUmcxamRObkVRbHJhV053SXZNeHRMMkQ4czZDeDFUNmRXVXUwanRaekEtbEdZdjZ5UQ?oc=5",
+      "summary": "Zscaler Stock To $164? Trefis",
+      "date": "2026-05-28T08:50:20Z",
+      "source": "Trefis",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "3f9f0b32cdd3e27f",
+      "title": "Quarterly results: Snowflake impresses, Salesforce Flattens Out, Zscaler Slumps",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPQXl0TlMtNDNOenBvY2JadGFxYkVIUG1CSzJ1bHIxa3dpcGRGSWFNMWxNcHVjdkpMcGUzNmZiRXFuaVlHb3RRRzBiTm1pX0kwNWdvTEd6d3lTcHJjWkxhZzJPQ0Nvb255R2loM0hBYTNocFB6ZzlqNUtYb0ZPdjBBMEdfZDRGczRoajBoaVJuY1FON2t2S2xYZF9XZVhXY2JNLWRVcDNQSXFqaVpQVzFkQ1JkSk8zbmptNG05bTltbmpjY0Zz?oc=5",
+      "summary": "Quarterly results: Snowflake impresses, Salesforce Flattens Out, Zscaler Slumps Techzine Global",
+      "date": "2026-05-28T08:27:38Z",
+      "source": "Techzine Global",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "867fa57d8ca2bd5f",
+      "title": "Zscaler (ZS) Is Down 27.5% After Cutting Free Cash Flow Margin Guidance Amid Higher Revenue",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOdEgza2puOHdPMTZSMWtNQkpudERWMWp5bkNPN3BpaHhtTS1EVUlNUTFlQ0hFd0wtMDJiQTFIcGFLWU1JZnY4U2hMUmVCNi1kSThScmFONFdiM2lhdWxPMHVFY0tlNUpJN2xKTWF2SC12ajZQQWxDRUQ4ZmpyT3FQUmFjN2NGX3hZc1pRN1RWXzExQU1xTmxZSEoyenp3dHE4cWc4NzlQRVlrOHRoOHF5UWEweUwwVGJaejZyNmVkRmd1UdIBxwFBVV95cUxPa2E4Qm5XNE5tMFg5THl5RjNpT2FhdFB2SlgzWHAtakUyQ2xPekI5UmFRN29PYy1aMjlTSU5sUHRnWU5aTXJJR1hMZjV1b1dRWWJjN3hMT0M4UXNSc2E5WUFKZFM3T0xDWHFwY3ZiT0pHcFpqQm9DSm5lTmI4NXEwV0VzOHE5S1pSRGJCeE9PdzlDdzFjSmt5cUU2dW0zSVZydUw3YUZqSmZYS1o0OWYzZWNLYW1yWVducmxWanhWRXFHMEE3QjQ0?oc=5",
+      "summary": "Zscaler (ZS) Is Down 27.5% After Cutting Free Cash Flow Margin Guidance Amid Higher Revenue simplywall.st",
+      "date": "2026-05-28T06:29:14Z",
+      "source": "simplywall.st",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "475f5e2c7a2d9720",
+      "title": "Shareholder Alert: Ademi LLP Investigates Claims of Securities Fraud against Zscaler, Inc.",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNck13Y2kxcFA5Z2pHRFlZcjBJUHB6eWtrejZMLUFPbDlhVVVnWjMyN2g0Ulp5N01LMFI0MWN5MThucjBkZWxreFZJc0ZCeVR2TldWY0RucTZxR1d3UGFwUVBXdzhUaTVjaFNFd3lMTk0wOUVYSGlzOXNwZWc1cWxsd3E5M043anQzdG51X3RMbno5eXNMTlktX3gwWUVWQ3kycFVkVDBleUIxU0FIcUlydVA5WkpRaElkeUExYWxMNjhyVVotNjZSbm9zQ3lXTU5BVHdIZUdHczBMWWM?oc=5",
+      "summary": "Shareholder Alert: Ademi LLP Investigates Claims of Securities Fraud against Zscaler, Inc. PR Newswire",
+      "date": "2026-05-28T03:01:00Z",
+      "source": "PR Newswire",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "74c69129a522cfe1",
+      "title": "Zscaler Investigation Initiated: SueWallSt Investigates the Officers and Directors of Zscaler (ZS)",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNTmYxR0xTaG1LSm50MWs0YnlBb3duYjFwT2ZFbzBuZmktV2pSRTJmUGY4emFwc19WQTBQNzlqQjZLbmkwbGpXLUQweU9CdXctWnA5d1I2YUUwWmJoQVZlWFZvU1ZjQzJWZ1NqRmY0VDRua1ZzOGUwSFQwb3lqUnJpS1pDamRvYWJiRUJPTTM1ZHR1LWs4WmY0QmpydlhwU3Z3VUVYWlhpdHlpMnpwSTZuNGdTV2VMUFFvd09iTTZiV1Rib2U0NzNFZFdSaWotcDV0dEcxdFZBb1k3YUtaT3hIQlZreTlTdw?oc=5",
+      "summary": "Zscaler Investigation Initiated: SueWallSt Investigates the Officers and Directors of Zscaler (ZS) PR Newswire",
+      "date": "2026-05-28T02:39:00Z",
+      "source": "PR Newswire",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "5eccb3b1d7a43a71",
+      "title": "Zscaler株が急落、弱い業績見通しを嫌気",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbzhOc25aYWk3QTdZZDV6U0JJcWdSc1duZjU2Y2NaQVBpMndPTUZGQUFXVUFGcDUzdGY2Q2VpMHgzYVN0ZTc4WXZQM2g4dE5oWDVCRTduLWpFRkVJUVIyTzEybEo4NkFUQW1jY0R1VENvcXI2RXVDNEFhRVBkV3V4YmZVcjFON1VWR0hrSFhIWU1Sdm9wcG5qdzJlVGowb0ctNm1qcFIySTBIQQ?oc=5",
+      "summary": "Zscaler株が急落、弱い業績見通しを嫌気 디지털투데이",
+      "date": "2026-05-28T02:09:04Z",
+      "source": "디지털투데이",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "9c07e884af1c7256",
+      "title": "米ゼットスケーラー－急落 5-7月期見通しが予想に届かず",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBSaGNpTXdzblEyYWJNN3NZY1JSWGU2TmhMUHJHUEd2TVhSemR5UUFIZGNlVC1UanNSTEplU0Q2TFZyVEd5LXRyWUxOSkdUOENuUmI4?oc=5",
+      "summary": "米ゼットスケーラー－急落 5-7月期見通しが予想に届かず Moomoo",
+      "date": "2026-05-28T00:16:00Z",
+      "source": "Moomoo",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "c91decbafa46072f",
+      "title": "Watch Zscaler CEO: Anthropic's Mythos Has Added 'Fuel to the Fire'",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPMUVjX09VLXQ1OHVDamNldXVVTnJ2dkFYRkxScFctYVZPNGt1T1hsblctRVlUbVlsbmhIWHR2alN0OVpQQmFha1k3cHVVb2x5VmtJLUowNEFpem9jYVo4OFNjYW02NGtja3h5TDJlWXEyZGRFbzd5R1ZnVTNNeDFPNURBU2dSaTcybEJlamZhMi1wQ1RnMnRCanJvX1gxNHZjLVE?oc=5",
+      "summary": "Watch Zscaler CEO: Anthropic's Mythos Has Added 'Fuel to the Fire' Bloomberg.com",
+      "date": "2026-05-28T00:00:00Z",
+      "source": "Bloomberg.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "5740d01fbb7d801c",
+      "title": "Zscaler CEO says Mythos is a ‘tailwind,’ not a threat to cybersecurity firms",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1xMWF6T1ZmMndMcWpQZWpiWk9GNFlBWW0zN19CbnB0TVpHRFVNUVlBb0ZLdnNDeEthVkxWT2QwSHlJNm9PTjVGaGZ0QUR4Y3RMeFp2dHZZNVJ6ZVE?oc=5",
+      "summary": "Zscaler CEO says Mythos is a ‘tailwind,’ not a threat to cybersecurity firms Fox Business",
+      "date": "2026-05-27T22:43:33Z",
+      "source": "Fox Business",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "0bc30c9a0ef05b92",
+      "title": "Is the AI Security Rally Over? Analyzing the PANW and CRWD Pullback",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPa0dBTDZlYlYtMENnOGhhMGlPRnlEN0t3R01QR1ZuOVdZMXdheklPWHAzVENQZFhlRzJpTGFVRzJfVVFWS1ZZTWF2cEprUlcxMHdkSW81dTI0RW9TYTBQQ09fWnJtRm9qcHFyZXJaZVhyUU1jSUc5UzZZZFM1Nmt5TGpNMkl6U2I5N2NMbzd5UkdGX09ONUJiemcyM0F3Zw?oc=5",
+      "summary": "Is the AI Security Rally Over? Analyzing the PANW and CRWD Pullback Barron's",
+      "date": "2026-05-27T22:38:00Z",
+      "source": "Barron's",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "1a05b5f509ed4219",
+      "title": "Zscaler Stock Tumbles After Its Best Quarter on Record. Here’s What Spooked Investors.",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNbFZhTHA3MVdtVHQ3SndZY1ZqWGJfdXlObGU4ZFZxS29EWUxGX1pKdnlQQzU4ZjllZzZ4SWZ3cXNnSnJaTEZ5OThCQ0dTR2JwVDYxbDZWeExyQWhYY3F0eENNVzB6RUoyaEZXblFaY0doX3owR0lUcXc5T3BCSXlLWXVfLWhkcWU2OGtVQU5BOWVJM0J3WThEVGRmZExsMGlFREF2TDNMU3VEWnVZU19IVFpB?oc=5",
+      "summary": "Zscaler Stock Tumbles After Its Best Quarter on Record. Here’s What Spooked Investors. TIKR.com",
+      "date": "2026-05-27T22:31:20Z",
+      "source": "TIKR.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "ba1928753344666f",
+      "title": "Zscaler secures systems integrators, courts VARs",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQbnhxeGlNZ0c1cW1wQUJ4SHpvMU9YakdOR3dMQWlaOUtYVjItR2kza0d1Znd4alM5OVF6NGp5VDllaHhVQ0lnUmdPNHdOWmlCaUlQOERBb0dlb1NkNkRMUURqMHZqd1RZbnVfampqVWVFMnFGenZ6TWVuZkYzc1ItdENZMTl4c0M2TDJKMHZwUzhzUl95ZXRUU0JNcEs?oc=5",
+      "summary": "Zscaler secures systems integrators, courts VARs Channel Dive",
+      "date": "2026-05-27T22:22:12Z",
+      "source": "Channel Dive",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "235f7f71aa2b78f4",
+      "title": "【ウォール街】クラウドストライクの目標株価をAI追い風で750ドルへ引き上げ 一方でZscalerの警告がサイバーセキュリティ株の重石に",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9pSFltaVhyaDZfV2loSE5DekZCWWRDNGI1dUU3bEMyQWw5emFjN2g2ekVoMVhNWGdJTTN0N2ZFRUxmV2NnaVM5Q3V6SFBIb0FnYTlFWXk5dGVsNzB2Ym44?oc=5",
+      "summary": "【ウォール街】クラウドストライクの目標株価をAI追い風で750ドルへ引き上げ 一方でZscalerの警告がサイバーセキュリティ株の重石に finance.biggo.jp",
+      "date": "2026-05-27T21:55:00Z",
+      "source": "finance.biggo.jp",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "3fc89fd0c1f82356",
+      "title": "Is It Time To Revisit Zscaler (ZS) After Sharp Price Swings And DCF Upside Signals",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNUnFGQk03OUNpOXRZeVNfcWF2Mk1qaXp2VTZSaENyeUJvdXQ3OHRKcjB2ZUprQ0xqdDc3M1pfVnE1WG8zUDkteUJIYmdHMW9KWkxDWlNHbXItZDR6TndQQ00zRGJSY1pkVjdWb0tBaHA5QWJrRHBNaThrZ0FBTGozRDNXWmZ2bEVJMlhYOVJvUVRKa3V2TEJzRE1B?oc=5",
+      "summary": "Is It Time To Revisit Zscaler (ZS) After Sharp Price Swings And DCF Upside Signals Yahoo Finance",
+      "date": "2026-05-27T21:10:32Z",
+      "source": "Yahoo Finance",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "f690baed18e97dc5",
+      "title": "Marvell, United, Zscaler, and These Stocks Explain the Market Today",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE80VXZITnNoYnJhRlFXeDdoMms3Wl9maGxrTS0tUXZiT0owbWFoczlQZ2tsVWs4cUJPcnN5RWh2dlNWcWZRMHhhMWEwWXJwY1Z6bWZNb3hBdjlNR3dhYVhlclgyQ25RRGhUdTl4OHdlOA?oc=5",
+      "summary": "Marvell, United, Zscaler, and These Stocks Explain the Market Today Barron's",
+      "date": "2026-05-27T20:37:00Z",
+      "source": "Barron's",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "deb7b760baa15be7",
+      "title": "Zscaler tanks 31% for worst day ever on 'prudent' guidance, sales shakeup",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ZMFFQdzlrUm01OHFHSHNUeTJua0hFRGI5VlF3OUF4VmNyc2lvbFhkXzdLX0tMbzJGMXZ5SHNhRTYzMnVZRlBXMHJJMFBwcVN5REJIeHF1S2RMUmZxSkJ2OVE5RDVuMmVZUjZORGtCT0U2d9IBd0FVX3lxTE1oWlhoY3ljQVZzQ3pVeS0tX0VfSXVKY3dqLXJac1RsdW52ODhSY2FBRWlYcGMwa3VEb09najkxMHliY3VkS3dDRjdpYkV4WENmV2ZUMFVudlVhM2wxYlF0eFRGbUhfVGlZSENSRjF4NjE5anNoajYw?oc=5",
+      "summary": "Zscaler tanks 31% for worst day ever on 'prudent' guidance, sales shakeup CNBCZscaler: Golden Buying Opportunity (NASDAQ:ZS) Seeking AlphaThe Zscaler Sell-Off: Has the Market Overreacted? Yahoo Finance",
+      "date": "2026-05-27T20:34:55Z",
+      "source": "CNBC",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "e300159d67695aa8",
+      "title": "Zscaler’s stock sees record drop after investors are blindsided by a disappointing outlook",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOdE9RbkUyMUZLTEppNDZDVWtPai10bm95NTZXblhsM1pkNlRldklZSXBRQTBua1ZFcFNXYTIweTdmV05sZVRwU1BvTTJSdGxSVlhPelpmdjNId3hHMUVEbm9LTVd3QkxyVEZsU1VQV193aXpNaTZubU1QVUhvMVhmZjd6c3UwZEFHdkJBelVoZ0NIUUJFMG8xRFhRZWZuZy1na0VfZE9meERiZFRjUUNsNVZmbVY2UDNwZmhFdWRuR3VOMWNGcUNiVU1xcHF5azQ?oc=5",
+      "summary": "Zscaler’s stock sees record drop after investors are blindsided by a disappointing outlook MarketWatch",
+      "date": "2026-05-27T19:26:00Z",
+      "source": "MarketWatch",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "8f697736123c8687",
+      "title": "Zscaler, Inc. Stock 12‑Month Price Target Cut to $197.22, Implies 7% Upside",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOUERGeTdKSng0VXFjTGRGclFWaW9VMU93bGQxSElWRHB1aDRBY182S25MYWNDeUxOalRmQXBmYmlLYm1rUWpwS2F4SUpubFNYN2RFY0IxU0JaUWhRNXF5Z0JfOUZaSmJhS3c2dEQtYzZDWVM2blkyam9UWWN5REJjczJXSmV6MFJ4ZDQ3ZHBVVXZsTHZDMjRZNWVlSjdRaTItcjBfODltX0p0c1JNX1A5VnpvdTNZZk1felJMRkRUV0lGRHZaTFUtczFSb0o?oc=5",
+      "summary": "Zscaler, Inc. Stock 12‑Month Price Target Cut to $197.22, Implies 7% Upside TradingView",
+      "date": "2026-05-27T19:20:06Z",
+      "source": "TradingView",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "70ce62415a4f2c83",
+      "title": "Zscaler reports 25% revenue growth as security bookings top $100M",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxORWxKd01xVG0tZGNMRjVOOXkxWnRNTEs2VDNoMU1pNUtvUGE3a1Jya19jUjZhbFBIdWE2NDRSQ2F3eXRNdjVlc1JtLXRlVnk2MWU4ODNDQk9FNjdnalJpc0pZU0pqMjBGcHZKRjM3Z09OSXBwZmdMZS0zMzczcWo4SkNMMC1mOXpac0xpQzZDTWh1Q1ZrTVEtVk5rZVI?oc=5",
+      "summary": "Zscaler reports 25% revenue growth as security bookings top $100M The Business Journals",
+      "date": "2026-05-27T19:12:00Z",
+      "source": "The Business Journals",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "30407fd1de310f81",
+      "title": "Why Zscaler (ZS) Stock Is Trading Lower Today",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQcUxGUmNDaF9tRmFsdzJKZ2hfbVVNUGl1aExwd040bl9XUFloSDlqZl9XZVpJQnBwYWhZTEZQQ1Q1SVFfck8xWkViYkduTm9vQXJiV0Z1YktYYjBGMjB4aFQ3dlg0QUJSZFF0MEEzNVZXNVprXzB3LVg2RWprMUVFdzBHZnZ1VEYxTFdORVpyUzlXaEZvcmNBeVJZSkNSMjhCLVU1cHdEeTk?oc=5",
+      "summary": "Why Zscaler (ZS) Stock Is Trading Lower Today StockStory",
+      "date": "2026-05-27T19:02:50Z",
+      "source": "StockStory",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "ece9b03732e4645e",
+      "title": "Zscaler shares plunge 30% on weak billings guidance, dragging peers down",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE05bC1ORHNjUEs5OFY4bzRLLU11NE93dlNla2JhczFvUTB2aThfM1VIM2VjS09VSWFxbjNYSS0zUWwyVkQzM2FycDBPLTNmM3VfZ2xOU3F3SzBNUHNSYlVzZlpVSUM2U1FodGtlcEQ2SUNMNElvSVdjcmEtU0Y?oc=5",
+      "summary": "Zscaler shares plunge 30% on weak billings guidance, dragging peers down Crypto Briefing",
+      "date": "2026-05-27T18:52:34Z",
+      "source": "Crypto Briefing",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "bb7bfa35736b1fa3",
+      "title": "Zscaler 3Q Seen as 'Messy' -- Market Talk",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPbDJIcTN5VGFld0dIaU9BUVhySHlab0x2cDU2N08xOGpfdk5QcG1aYlJCZTZGekpRcnZsUlg5N095c2YtQ1k4RTVXVnROejJVbFFUVUt3YUw5S0dmQ1ZDNk1Fd0dUOV81R0p5UmdGX3pRMnZqNWtId1kxT0hGVDhlaHJMZFU?oc=5",
+      "summary": "Zscaler 3Q Seen as 'Messy' -- Market Talk Moomoo",
+      "date": "2026-05-27T18:37:35Z",
+      "source": "Moomoo",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "1b5916cbe1236363",
+      "title": "UBSはZscalerの目標株価を225ドルに引き下げました",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBCVmxOaU5JVVloSk5ZZXRiRlR2Tl80emUxbUFPNTltSnBNcmNKcHZzQlhYWDBidFNnbjdxcU1Va1lmTWtoM01NaVdrSXozR0tkX1ItOFNtaVF6cmNWaG5nZTBn0gFnQVVfeXFMUFluX3FrcjRTUkcyOU4zcTJrc2ZIRHVNcmROeWpGSy1aeFFlUUhDTlBRSTFMcVZMaUxyemNibUttUGlXaWNlbXJyd1ZfYjVlb1JCWGQ0WkxPZWF2emNtZlI2ZW5lUVBVUQ?oc=5",
+      "summary": "UBSはZscalerの目標株価を225ドルに引き下げました Bitget",
+      "date": "2026-05-27T18:31:33Z",
+      "source": "Bitget",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "76dc89d4fb749a85",
+      "title": "Zscaler Q3 Earnings Surpass Estimates, Revenues Increase Y/Y",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObzU5c2hDeXZEaXoyQ2VMS283MWFkNFV3WDNFOXVNUFllMHB3QlpkNF83QUpmZklNWHlsZFliSTdjTG5VbW5DTldFbDh1amJXeUY0UFY2bXFSNjFsVG1sS1hGTUJnanNKYk1CMlh4MGE3MkNYVmlKSDVRZ0FNaGZxanRXNXkyRXJYMFFqZko0cVBmS19aS25fZ2NkV2g0THh1RVRRYw?oc=5",
+      "summary": "Zscaler Q3 Earnings Surpass Estimates, Revenues Increase Y/Y Yahoo Finance",
+      "date": "2026-05-27T18:10:00Z",
+      "source": "Yahoo Finance",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "8744851ce63444fa",
+      "title": "Zscaler shares plunge 25% on weak guidance, dragging cybersecurity peers down with it",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9uclNWZVpNSDBzT3pmbGRmYV9abXV3RV92S09HWnpiZm4yLThLRnFTVkxRNE9uOG43TC1IMTF5bEFhaDQ3YklBa2ZnOHY3a3hkTVA2ek1fS1doMnNObm10em1tTml1R1VOZ3RYLTdfUW0?oc=5",
+      "summary": "Zscaler shares plunge 25% on weak guidance, dragging cybersecurity peers down with it Crypto Briefing",
+      "date": "2026-05-27T18:07:10Z",
+      "source": "Crypto Briefing",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "2745dee532d85775",
+      "title": "Can Zscaler and Its GSI Partners Govern the Agentic Enterprise?",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPZXU1THd3ZFgxcnB3WExRWVdzbUhsWkNiMG9JbFVfV2hLSklmNXduS05iVUlZT01YNDlNZHR4RmI1LVJVUGFKQ3k5U01WOEUwaXpoSjFiaDM4NnF6MFdheG5BV0R0dWlJck9qcFNoeW1KdGlpQnM3dXkwUHdsdzFfTVdIZHJUeDhiM1d2RzFza2NKUXJmMXBudWV3VXFYUQ?oc=5",
+      "summary": "Can Zscaler and Its GSI Partners Govern the Agentic Enterprise? The Futurum Group",
+      "date": "2026-05-27T17:24:17Z",
+      "source": "The Futurum Group",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "db520c01641f01cd",
+      "title": "Jay Chaudhry, Zscaler CEO: Fortt Knox Earnings",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOeEVuZGtiZTl2LVUwc2x3Wi1xYkFvWXBETG16UUhrdjlkYjZFVFVKZVZpcnBOV2xPb1k3em1SdUhfeXlKUkxvQ2VrbXY3bUw2OGdDUVF3UFRnSlREM2dvMDA3a3Z4SFdwNHVEd1I5SjJ2MXV2S2tZX0ZsazFUM1AtMmwyS1Ewd19TZHRtS1Jaelc?oc=5",
+      "summary": "Jay Chaudhry, Zscaler CEO: Fortt Knox Earnings CNBC",
+      "date": "2026-05-27T17:14:00Z",
+      "source": "CNBC",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "e9bbc6dadcb0fb33",
+      "title": "Zscaler, Inc. Stock 12‑Month Price Target Cut to $199.12, Implies 8% Upside",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNeXNFUG1yTDgwa3FFbDdTelcyd0ltTThIakN0bDFPaVlmcmJiZjFkeVpEc1VjMVMyeFBSc3RCWG5FZFVmQzdvLXd0ZGJ4bERQOWlqVUl4RHg2SWRibnpPckk5LVY0ZWp2SUdnaW5xWUN0T0VRS0UzcEJIZFBXR3JoSlpjeng4TzQyUDBoU1IxTzdvLXlSRTVvLWZKZGRvYkQ4NnRnQ3ZCNENFVUJ1Q3JycG5GbWlTWlpGRF9TXzdUUF9IeEw4d0taeFhVSkc?oc=5",
+      "summary": "Zscaler, Inc. Stock 12‑Month Price Target Cut to $199.12, Implies 8% Upside TradingView",
+      "date": "2026-05-27T16:20:04Z",
+      "source": "TradingView",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "cadf249f9900b074",
+      "title": "Zscaler sinks on earnings",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE51YVlBUk9wM014aFhXT3NlMktBM0FNdXI1dHNmU0IwQ01XTDBjOV8xSDJpU2hSM3BvY2dPNE1OMWNHdDdQenhza0hMZDdfZkhnMDVGSkwxZTFXSmQ3Qmd1d2lHV3F0X3Y1eDJ4cWdsU1BnU3FSWkow?oc=5",
+      "summary": "Zscaler sinks on earnings CNBC",
+      "date": "2026-05-27T16:09:00Z",
+      "source": "CNBC",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "50541fa459db65b3",
+      "title": "ZS Investors Have Opportunity to Join Zscaler, Inc. Fraud Investigation with the Schall Law Firm",
+      "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOcEhfc01Sb2hfWnkyckxEam93cGRiMW40RURoanBZRFFHc0ZVdldBYTdZZkU4azItWGNEU3lRMUhGSDdSTlF1UnlJX1JyVkNLekl1OV8wWVF2LUctaEMySDA3SEN6emtEcHAtNmtPckFhU0dxb0pMQUhadU9ZWFZEbUlPZm81Y2VZamU2dnZ3d1luamI5eVZidWN5a3dyRGdrX3o5SHJET2JXYTc0R016RTZ3X2tJTlctNVNxU1E1VUtCejEwZ2JPa3NhQTMwMTh4WTFJcFFMTXpyQlBQTGVxLXMtZUFBZ3M?oc=5",
+      "summary": "ZS Investors Have Opportunity to Join Zscaler, Inc. Fraud Investigation with the Schall Law Firm Business Wire",
+      "date": "2026-05-27T16:07:00Z",
+      "source": "Business Wire",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "7d5aafb80f72c2a0",
+      "title": "Zscaler Guidance Overshadows Q3 Beat, Analysts Cut Forecasts",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOa2EzQmZkcHgtbnFLUkNydlcybWdUVHdIcDJoeEg1Nlc3RE52d3Vsc1RTcEpkX014OTBfSmxISHZSeW9HamoxWGp1Yjc0bkxDQ2NSVVl6dnFSVzB2SzgwYU9Tc3JicEpkNkJHQndPWTRjalpNdlNrMUtxUVFLdk1FaV9xWFlFRFNUR2hORGU2Sk94VzBOM1BoeERiR3B2TUFlS01heGU3aTVZRzdIRVNoNGFSOVBkemtDRE5ycm5vcXZfeXN0R0FaUHE4cV9UTXM?oc=5",
+      "summary": "Zscaler Guidance Overshadows Q3 Beat, Analysts Cut Forecasts Benzinga",
+      "date": "2026-05-27T15:57:40Z",
+      "source": "Benzinga",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "fa133b4f53d9a91e",
+      "title": "Why Zscaler Stock Is Crashing Today",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNV0pfX29BR1NDa0xlN0JDYzk4LWRNYVdfVGRndjdMU05ROGhNSWZtcXdtdGs1blhkLVJoY3ZNQ2VvT240ejlPdmFsOFMwUXRpSFJVcmtyb2FmRUhIMkV3S3gtTkhkV2k0VkhYYUZXaEdFRGs5eHpFUDZsV0ZpclpkMzBOWUw?oc=5",
+      "summary": "Why Zscaler Stock Is Crashing Today The Motley Fool",
+      "date": "2026-05-27T15:41:00Z",
+      "source": "The Motley Fool",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "8b5aa267a98c8878",
+      "title": "Micron, Semtech spike premarket; Zscaler tumbles",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPcmMyNjVDZlRtVVRDZGhrZmN0cTFHZ1g5RGlNMk1SYzBnSWpMNFFSSGV5cVotMTNRMkRRQ2NYRDNzM3JSclA2MTg4dTJQSnJCVTFSeXFHZ01xYUtreEZqTW5BTWphZkNFeloxWC0wbDBXSnZBbEVDY1pCQU90elE4MU5vUDFvN29FWU13YWljWlI3Y1VTMG11Zmxxd0pNdFg3bkVuT3V3?oc=5",
+      "summary": "Micron, Semtech spike premarket; Zscaler tumbles Investing.com",
+      "date": "2026-05-27T15:21:11Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "111dc097cc2a6572",
+      "title": "Zscaler Earnings: Disappointing Early Look at 2027 as Shares Sell Off",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPand0YS0xZWh6TUNBOENpeUJJWFUteFRjdjhoUEJwWXV5U0ZWc3M5QVpJWUZ4SWZHQ0s5cjc2NXJOaXU1TlEzZml4NHFDaWNCdVZxOGlrQi1ibkc1YU53MzA2dll4QnYwRkJFS0puaEZ4dG5pZUlxclpEYjRiMEswdGQ4ZjNlb0lJVEJTM01QMC02NlQ0d29nTGFyTUM1dw?oc=5",
+      "summary": "Zscaler Earnings: Disappointing Early Look at 2027 as Shares Sell Off Morningstar",
+      "date": "2026-05-27T14:48:29Z",
+      "source": "Morningstar",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "0bf52330d7f8b4bd",
+      "title": "Qualcomm, Zscaler among market cap stock movers on Wednesday",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPWVpoSHJrcGJqZ21iRjVCVXdYQ0JVRzBhZ2oxdlZuRXBVbWgxaE1GWHN2QjI4OGt2bDNFMEdrRlJfV0xzRFF0Nm54SUZ6Q3JGY0JXTm1RU05zU2kwRmlYYUFJSThvM2dpTlVqYzR0c1UwYW0ySVNOa0dWajN4NjJEZTdfU3pQWk5Va1VycWdxOEJIVHRqeGpTVDUyWXFJT3h1YTA2bWh5bHVBYWJ2bUZDdUYydnVDY3ZFWkRiVW1R?oc=5",
+      "summary": "Qualcomm, Zscaler among market cap stock movers on Wednesday Investing.com",
+      "date": "2026-05-27T14:37:01Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "7752668598b226b0",
+      "title": "FBN Securities lowers Zscaler stock price target on growth concerns",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMlVEVktsTXpna2FQRUpVUXZhWDZsdUh0MTNFUmR2dDhQMEtVZjFEOGNpNzc1V0dHamx0NnVhZGZXcHFXclNIUjI4dmg1OWVoRHNpSmhjR1V5SmNzWjkwSkJjX1A0R3BlalE3bU5oR3pFZ3F3RjM5U3ZYemRCaThQNkJFM1dLTUUyWXV3RFlpSVZTb1dUeFo4NFVCSUVFOXBWWHhlS0p2cU5fTEFLWEgycU5sd1ZQOFMtMm1YcEJkeGJFMTROZnc?oc=5",
+      "summary": "FBN Securities lowers Zscaler stock price target on growth concerns Investing.com",
+      "date": "2026-05-27T14:11:36Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "111690d0430e40b3",
+      "title": "Zscaler Stock Rattles Cybersecurity Sector on Guidance Whiff",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPR2xXbGI5M3RQVlhORVZvQWhNN3VtWmNIZXJwaURKSVV1SkVYdHoyTUFDUjRzZkRuTEhQUlB6cDFtZWMyZTYwUU9EbHNBRl9WVVVBTDZkVElzcU1wZy1jb2F3Mk9yc1NPREwwejFUeXZwdUFJTUNCSjBLWmNyUTNrdzNTWEU1bHNSNkp4VXVzQTZNN2RwSUdRNGl5NzZRRm5OU3JHOG1LMURReXA0NUpIVFRUQUN0Sl9sUkZF?oc=5",
+      "summary": "Zscaler Stock Rattles Cybersecurity Sector on Guidance Whiff Schaeffer's Investment Research",
+      "date": "2026-05-27T14:08:10Z",
+      "source": "Schaeffer's Investment Research",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "23f554c2f29468b3",
+      "title": "Can Zscaler Own the AI Agent Control Plane?",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQMjY3a3o2UVhiYWgyUHIxVWMtV1VBVHJibUZfS1FfUDJFTmllMTFIaWFubWdHc1hiZDRvYlh4S2tvOXNKb1gzRmtWWWtsYnNYY2lWVUdYdTBRa2hqQ28zMkNWS2ltUWVZa0JfTU1vQ29QRHdLcGd1elhkRWZGdGNNcG9tbw?oc=5",
+      "summary": "Can Zscaler Own the AI Agent Control Plane? The Futurum Group",
+      "date": "2026-05-27T13:49:23Z",
+      "source": "The Futurum Group",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "0afca9abe4b46b28",
+      "title": "Zscaler Blames Sales Leadership Departures for a Disappointing Outlook. The Stock Is Tumbling.",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPSkFfWUJ5VW1aZDY3Qng4bDNPNHZScC05V2ZhckwzdHpZX1huWlE2cHBmQ3h2aWRLV1BqY2RtZkpXMWlHQmtRc3FFeHNnbk10SzhWaGtSeTNPNER6V0JXS0JyQ3ctNy16UjB2SXVwN1RKOWlTLVZFd21jSk03bkxxQzFsVGJQRFpqMUtQaEtJMjVNNGw1V1NFWWZSRnRJTXp6U2FjNUVhc1RSQ0NzN01fZlB4Q0tVWHo4WHRBZzVvSHVmbF9rcnQ3UlJVQl9JUQ?oc=5",
+      "summary": "Zscaler Blames Sales Leadership Departures for a Disappointing Outlook. The Stock Is Tumbling. Investopedia",
+      "date": "2026-05-27T13:47:09Z",
+      "source": "Investopedia",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "f40b2e730cd7f0ec",
+      "title": "Zscaler stock sinks 23% after cautious outlook; analysts trim price targets",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOT1ZWUTU2LXNIVEZzemlZQmdXSnFMZy1jbFI4ZHlDd1Naby1qTXFQSlJMUTdnblZUN3pmbGhFYllIQ0o1dkZrNzBHM2czdlhic2dRWWp6ZXN4Y1FscVlIeGdSVVZFbWJsc0lHVldwY1FDQjdHaUVxMVBvMk9sNFdXZmNXMXNGZVF4SWt2UHBMdnJUdTUxOS1LcDJYbEFDdndWdkhSNEo2MnNNZDg4T0JjSEpuM09VYXgwVy16MkZyV0Y0TzBDLVZhWWp3?oc=5",
+      "summary": "Zscaler stock sinks 23% after cautious outlook; analysts trim price targets TradingView",
+      "date": "2026-05-27T13:10:42Z",
+      "source": "TradingView",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "538e45b6bebbd6ad",
+      "title": "Zscaler collapses over outlook; analysts lower targets but remain upbeat on strong NRR",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOU0RhU25KeWQwMElSNDlkcFhwVTFaTWFhVlFSOEVPUWF0U2V6aGJrYkhpVUZmTnZwaTZ1SXB3ZVE0WjM5enBVaWk0V2FYeEZZbHlOaU9jaVQtSlVqMGxMLVFHeWpSZ1ZicmNSQnVoaVNJQW9hTHQzWWdDMkxZbFJaeW5tdnZuaHZJRkdGN3VLQS12Sy14Y0RxQ0Q2M1FzZmswS01XTXg4NTZmN2lGNFFrUE90dnN4Y0FFZUgtNmtTb1M?oc=5",
+      "summary": "Zscaler collapses over outlook; analysts lower targets but remain upbeat on strong NRR Seeking Alpha",
+      "date": "2026-05-27T12:54:45Z",
+      "source": "Seeking Alpha",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "6238d81d3f4d63f2",
+      "title": "Zscaler Q1: I Was Right (Rating Downgrade) (NASDAQ:ZS)",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNV3AtV05DUlNIU2ZlTjdyRU16dVdpc0w5aGNkV3dIWl9NNmRRS1NlREtndklyWm1CWU9kek40TjRlYjhwaFpPdlByWXhrdVZFSzZfUGdQUVdMS2VXejVWWGtRSFlMbFhCd3JTNENiZktLUlQwNzN5ZEJSem1KZnJyZEppSnF6blU?oc=5",
+      "summary": "Zscaler Q1: I Was Right (Rating Downgrade) (NASDAQ:ZS) Seeking Alpha",
+      "date": "2026-05-27T12:31:53Z",
+      "source": "Seeking Alpha",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "9bfbd876092521c7",
+      "title": "Verra Mobility, Zscaler, Box And Other Big Stocks Moving Lower In Wednesday's Pre-Market Session",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOa2tPQ2l1eG4yQXhHNk1fS2NtRTRuSlhHQnBMNFlUQjlLbGdPR0NOVktqQktTTmo1YnVMckxNZlRidVoyTzl4dXBLd1NkYi03akV4SFBNRUVwVGtUM1h3N3ZfR1hETURZamZjYm1HcnhhNlRFMHZFeFd0UW9zaURHLXItQV9BZ1JLc2QwV3N4cVNQZC13c1pnLWw2THJVeTBWS0k0RFZISUxOVFVmc0ZuZmtpeXdVTm9zMWpKUG9DZDctRGpRdTZHQXFtcVU4YndpMW5RTG84MVgyYktKNnBMaFRmM2JpdlRvWkE?oc=5",
+      "summary": "Verra Mobility, Zscaler, Box And Other Big Stocks Moving Lower In Wednesday's Pre-Market Session Benzinga",
+      "date": "2026-05-27T12:02:15Z",
+      "source": "Benzinga",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "44cf5f2b012b932e",
+      "title": "Earnings live updates: Zscaler stock plunges 24% premarket on cautious guidance",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNbVZsRlhWbE5yVnFmUS1RRmdGSlMwOVlKNmZ2QU5vUFNuNzA0LXhKbXhuSkZmakczd0NzVlJYUTQyQS1ueWthUEhSUVhQemZVMS1IQW5ZMlVJd3A4cURJRWtyMFp2Vl9SN2lfZmlDV3NPMTdDYVYzS1dQd2RHc0VDa0dyLXltSy1leFk1bEZSNTVWcjFHYUs2RTV1eGZBbGRnZzhPWjhjS1BWU0ZNNkRlcFhJSGlLdWdXNFRfbmtrdXdjUDhsREV1OXFydw?oc=5",
+      "summary": "Earnings live updates: Zscaler stock plunges 24% premarket on cautious guidance Yahoo Finance",
+      "date": "2026-05-27T11:54:14Z",
+      "source": "Yahoo Finance",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "e0d4da2a9e6445b5",
+      "title": "These Analysts Cut Their Forecasts On Zscaler After Q3 Results",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOUW5PV09ITTJGMVI0ZGxhV1JfRm5KNnNyTUN2T3dRTmVUNDA5UV9FVklhNWh2R3dvRGM5NUJNM3ZCMVdvQjFBai1kTjB0TVVkOUlleGdUVHhYMXozemJSbVVaS1FQNE01eTZNUnRKV0t5cVoxZ3dtRFNOWkEwR0NKMktpTF9sRmw1TTNmZVFEVlQyYnBhd3FLZE8tWTQ1dGdLbHFiVFRxd0ZveTE0a05kXzlDZjBuOUNtbUJCLVR4ZkNBTG9iS05MLWZtWFNoMndzTTlz?oc=5",
+      "summary": "These Analysts Cut Their Forecasts On Zscaler After Q3 Results Benzinga",
+      "date": "2026-05-27T11:52:56Z",
+      "source": "Benzinga",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "2d86f4b11c7b96ed",
+      "title": "Zscaler Plunges On Weak Guidance Amid Sales Shake-Up",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNWWExMFdiak1vME5GTkdmYVR5ZGw3NmJxbzFPeDJkdkJKbWV0SFlxYUVQV3dHek4tYUZIRnM5Y1c5ZklOQ0hyaU5nbzVmOHFXWmxaaF93cHhiSlludHdIdHp2TnVjdmlaRk1rUm5pMTNLZVpOWklwMF9ZNGtMMnhQWFA2blVvZzdMNkwxNw?oc=5",
+      "summary": "Zscaler Plunges On Weak Guidance Amid Sales Shake-Up Investor's Business Daily",
+      "date": "2026-05-27T11:51:00Z",
+      "source": "Investor's Business Daily",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "bffc9c1251a36531",
+      "title": "JPMorgan cuts Zscaler stock price target on FY27 outlook concerns",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQekZTc3Z1SkJxSmZlS0lCTHIyaGwxYm1idkJyUjVxRDh2clZhOFg3QWF5clBfb2M0eTBsVHFUam15b2o1di1sc3JwdGFIeE9NTXhRTkwyR25PbWtaZmkwcXJjakNXdDZfbVgyWXBCTVp0UERiYWJqUXdHQWYwYjB4cVRnTkRJeF84TmhNcV9xTWxhQzZlZzMwaDhUcnFrQWhPLUxyWGEyYkRNS0hEczk2RVhJX3QwcmUzTFBCSWFacUtVWnM?oc=5",
+      "summary": "JPMorgan cuts Zscaler stock price target on FY27 outlook concerns Investing.com",
+      "date": "2026-05-27T11:42:54Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "f0b4c43f27f9754c",
+      "title": "Stocks making the biggest moves premarket: Micron, ZScaler, MGM, Bath & Body Works and more",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPNUJieXZSWm5rTmxBVzNzeWUwcGpEdHRLQ3FEakdVTk5xOVRPTV9pQ2FGTXp5Z0RuZGZBTk1QUktKelNERjlCaHVSQjZmeHFIUW84SHZoRUZqODNtdVFMdmtzNXFMZG1GT0JPSVNmV2dyeTNFR2ZBbTcxQ0dXY3RaWW5HOG1leERQWks0Q25FY0F5NkhzSUlaVg?oc=5",
+      "summary": "Stocks making the biggest moves premarket: Micron, ZScaler, MGM, Bath & Body Works and more CNBC",
+      "date": "2026-05-27T11:34:24Z",
+      "source": "CNBC",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "95d77462be9973da",
+      "title": "Zscaler plummets after revenue guidance falls short of estimates",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOQVVrM3hwenNqSlJXZURMYTVKb1cwX2xPek5pcW1GNVBDMFVRaEhseEZWMldWOTUwRWJDdzg3QkVDR2tRamNScTZRbkwzNEhSU0IwN1lSSXBnYnlrbkkycWhtOGtFZXRLeGxxTGtKcFRHN3k5WG5jb29lZ3d0UWd6NWlic18xdWJROVF5aWZLWXdRNzU4ZURpanUyRQ?oc=5",
+      "summary": "Zscaler plummets after revenue guidance falls short of estimates Sherwood News",
+      "date": "2026-05-27T11:30:08Z",
+      "source": "Sherwood News",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "b61e9d93d674535f",
+      "title": "S&P 500 Futures Climb in Premarket Trading; Zscaler, Assurant Lag",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPS1hUcW9aNnhQWk92N29WRUFoVk1aOVJ2dFpvV2hDWjhkOC0xNkxJVy10X2VrOEVrMTFUVnRLWW5nMEczZnEyeGo0YlBfZlFjMFUzb29jVm1kU3MyZXR1SkFpS1lNamhQUGJkS3hveXhEU3RESlMwWnM1VWkzTmN0OXZZR01ud0RUc1JDNjNwMEhReEZYa1N0QzBTWXR3aHdqZGpfY0hjNjA?oc=5",
+      "summary": "S&P 500 Futures Climb in Premarket Trading; Zscaler, Assurant Lag Barron's",
+      "date": "2026-05-27T11:30:00Z",
+      "source": "Barron's",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "dd7e54345c57057b",
+      "title": "RBCはゼットスケーラーの株価目標を205ドルから200ドルに引き下げましたが、アウトパフォーム（推奨）格付けは維持しました。",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPamM5bTZVa0V5bmlNQ203c3B5QXJSdkhEc1A3VlctcmFFeDNxclF1c0RXSFY5MW1mLWpGMXJMZVNiZ200elVrTWtSSjc5YmVUcmR5OU45S0k0TzZwbXJ3MURKMjNzRy1HQlZpd2NISGFSWVNZYUNETkNkZ1J3QlphTXJEdzNWRnBybDhNUkVMRUNTMWNtdFlnb1BB?oc=5",
+      "summary": "RBCはゼットスケーラーの株価目標を205ドルから200ドルに引き下げましたが、アウトパフォーム（推奨）格付けは維持しました。 Moomoo",
+      "date": "2026-05-27T11:26:29Z",
+      "source": "Moomoo",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "594f6a79ddf39b02",
+      "title": "Goldman Sachs cuts Zscaler stock price target on business maturity",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNR1FnWnJvUUZtRWlBbC14ZHJTRlUtTXNwS3Nfdjkxd2p5dDJyVGV3WjdDd19mNXk0emtKMC0zYURleW9sQ2tsXzktdEppTF9DeVpERzlqT3UtSlAxWmVCSUNiRXJ3ZEZqcjNnRUlZZU9vWTZROHBwT01CeDBQaWcweWZWOUR3MnZadzg5WXF1cHBzcDR6R3hIR1dVaFM2M0prMFpDcGxIN3hoeDVsOHFFRzhUTlVaV3lKM1ZVak53MHo3TFdh?oc=5",
+      "summary": "Goldman Sachs cuts Zscaler stock price target on business maturity Investing.com",
+      "date": "2026-05-27T11:23:06Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "1de34f18aefe33c6",
+      "title": "Zscaler shares fall sharply on weaker-than-expected growth forecast",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNRHBhZGNWSWp0aEFDdnB1czRFcGREQnVPSGkwb0s3RzcySHB1emNIQllXZUUzN3JIcFBXZzZZb0VqNlN1QUtBSE9aZzQ3c3JJZE5rc1J2Nnd5WmYzM3pnUU9FdGdLVk5fVU9FZ3VZckZ2Zlk3bUJIbG5DUWZuVUdaSVcwVlBPN1o2bWxYQjF1MXZxUldTelhmS3FxU3NuOUtHYVpnVjVhcl9tM3IwQmc2RWxjZEQzMnZjRkQ5amJ6WkE0Sk5TdkV6bVJac3JCRkJwTEltWg?oc=5",
+      "summary": "Zscaler shares fall sharply on weaker-than-expected growth forecast Proactive financial news",
+      "date": "2026-05-27T10:50:00Z",
+      "source": "Proactive financial news",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "ef813719bec88fa8",
+      "title": "Zscaler Short Sellers Double Down as Sales Shakeup Overshadows Record Quarter: Short Seller Tracker",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQRUNSekxJN3dWejFrS2ZHT1RKZmRUV1FmNG5FcEd6WlF1bnBVRjF1MFZJNzVNWjZqSUtwaWhEOEdUcXVPUkNqY0lwUU1hUFBsekY2ZXk0MzRPLXRwRXU4NXZwWjJQVWhaUzh0a0MtT3hsUjVGLW5BckpkQkpTUUs4WFJzSnJ5VkxUbTNMb1hOUkw1VjlBOF9GVXpfT3RCZGhQWFB4NTc3eWhDUjlJeHY2cFdUVXhIbnFPY2JzcGp2Yjg?oc=5",
+      "summary": "Zscaler Short Sellers Double Down as Sales Shakeup Overshadows Record Quarter: Short Seller Tracker Moomoo",
+      "date": "2026-05-27T10:22:53Z",
+      "source": "Moomoo",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "6ba000f31b0a0a28",
+      "title": "ゼットスケーラー：営業体制の混乱が最高益四半期を覆い隠す中、空売り勢が倍増 - 空売りトラッカー",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOX2lzajBURWwxQUZwQXZZZWNaYUhLdURrTWFidkgwUzVtVEJrOGtrc1Z1eGs4aDVSMi1iM1dMZFQxb290eDAtZUJuSU9JUTNMbmRtS2N2WnNuMkdkaFVYNDEzTklUX0ZDV3ZRalVFUmR4RWtucGlDbWZPSk41TVJoOHhaRVlMSjJZV3ZocUh1eFQwaXg5bDhzcnQtY0g5UDRSQlhncmRrNjVJOFFOUDk0NFFuM3ZnTWJycWF4MkdiMWhUa3c?oc=5",
+      "summary": "ゼットスケーラー：営業体制の混乱が最高益四半期を覆い隠す中、空売り勢が倍増 - 空売りトラッカー Moomoo",
+      "date": "2026-05-27T10:22:53Z",
+      "source": "Moomoo",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "81594c24aa6ce3fb",
+      "title": "Zscaler Shares Sink After Free Cash Flow Outlook Cut Overshadows Strong Q3 Results (ZS)",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQRFRtTE5GUzF2MDk0UUtwaE1IVWZzb19tT0p5X2lBbnJ6eE5FeG84SnMzNXNqMWVUbzNDZnY1TkFNT05JUDVPUmZYRVptZzZTUmpWN0RCQVhQNUlYZmcwMGVsVlNxWldfSnpPNWpReXRjdmxGc0JWSl8xQ0paMVBob1JiYy1jeUhLVnpIX1pEaUJOblp4em5WUkdn?oc=5",
+      "summary": "Zscaler Shares Sink After Free Cash Flow Outlook Cut Overshadows Strong Q3 Results (ZS) Yahoo Finance",
+      "date": "2026-05-27T09:51:09Z",
+      "source": "Yahoo Finance",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "f0c5ebfd4850d74a",
+      "title": "Truist cuts Zscaler stock price target on conservative outlook",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOZ2UxcVpFS0o0cGJoZ3pfZWZjWGgtb3FpUTVvOE5lVmFkRUp6bWZwTHdzWk0ySzV1RWlfekZmT3k4LXdBRllZclhSdEFpOFFIVV9qX1Y3VE0wRHJ5bS1TTk1VNDBmNGY3S1Yzd2FQNnM5VU9WX2dVZEQ0T3BzNEwtT1EyTUhVc3JyU2xtZUZ3dGswRmJWUWVXZllGQzhVVTloRmlleldWV0k4Qnk2by1kOFRRcDJ1aHY1NldSNjlsMA?oc=5",
+      "summary": "Truist cuts Zscaler stock price target on conservative outlook Investing.com",
+      "date": "2026-05-27T09:39:11Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "367f7795039978ae",
+      "title": "Zscaler shares crater 21% in premarket after FCF guidance cut eclipses Q3 beat",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVzhQUzhZaG9pZ1ozZTlpWUl4M3FLb0c0QjRQR2VzRVpVbGNGQzNjZFRBeUhkWFBNSDdLZXRQM28xWlBsUlRNQURuYlhkSEFyMGhCams5ZC14WS0wTmVJUi0yeFBTeDFJWDNSZEU2aHJyZ2htR045R1k0NnBfb3I3TXlNX0hsN2cyYzZuUGotR2R1Ty1LcjRPUGNlMGZMX1ZVcW9UUU4tcVVwR2drSVRKOTBHUkZjbll3NWxYeHdvM1Q3dkVubndRZExR?oc=5",
+      "summary": "Zscaler shares crater 21% in premarket after FCF guidance cut eclipses Q3 beat Investing.com",
+      "date": "2026-05-27T09:26:13Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "a0f594d42dfef82a",
+      "title": "B.Riley Upgrades Zscaler (ZS) Rating to Buy Amid Product Line Expansion",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQXlCaThRZk85UXBZaktDeWhSSHd2UTVGenB6T2ttS0JZczZySGhyMjJXWW9CaTBzdjBCY1c2VHBZX1V0Y1EybU1rV1htZEFDV0xKSThRTVFzdGV0STBQOTVtbkFETmNFWHIyc2xQOWVmakRxMGR2alZ3SXZXbm0ySGh0bmpIaEtta091Q0ttZGFaRGpCSmNfRENKUDk2NGxLalBvV1FycmZweVdwZDY5TVZEb9IBuwFBVV95cUxNQy1BUjZQc3ZNWUtzRTFTWkZieGVuXzVVYy1kRmlfcTItZEp6czJYUmhnd0VLM1VTR2RvNEY4UzBWWHEyQTlJTHBsT0dha3F3UlNGTE1ESVlPWXhLMWtHVFp4S0NWZFM4NVRNaFlYdWNpNmFSVGlZY2hCWHNuX1NPNUZSMXBhTDRTT3h0TjNmbVZvaHFiRXBqd3Z2UVNfek5sXzA4QUtiNUUwOWV6Wk1EekNBbGZCb2xTXzdZ?oc=5",
+      "summary": "B.Riley Upgrades Zscaler (ZS) Rating to Buy Amid Product Line Expansion Insider Monkey",
+      "date": "2026-05-27T09:24:43Z",
+      "source": "Insider Monkey",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "02bb4f92df9b62d2",
+      "title": "RBC cuts Zscaler stock price target on sales leadership changes",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNSFd0WmR4Zm5ud09QSmU2SUxJOWg3aXpoXzhvNWlXWWtMU3R1eV9PQXJzNk9xQ3JyaW5sV3dKUDJFNjUwdUpqczVfUzR1OGRRV2VlR2NKV29wZ0M0SS03SEZjRl9CMWZISjRXejg3QXJRdldVQ09BU2RZOXp1bUJmZWhpZkxtSS1STWlySlZXOURreVYtLW1STXJRaHpzb2YxQzVRN3A2dG1sTnBxZ3NKSEJLMXhIMEd0OElNS3E1VWQ?oc=5",
+      "summary": "RBC cuts Zscaler stock price target on sales leadership changes Investing.com",
+      "date": "2026-05-27T09:09:19Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "4112390c139e25e0",
+      "title": "Mizuho cuts Zscaler stock price target on guidance concerns",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPTUh1YWZnamcyY1hBTzNrZkxVQy1kTWZDTHRUaWJXc0lpamIxT2hkSFlFRjUtSlQ1czVTRUtPcWRId001RTl5THZrUnVCLWhpNmc3cDdzY3hoRjNYMUYtNWRVTEdXclBQUW55b0pSY1YyRXJncGRFdFBVUE1XWDNjN29CZ3FnTVdDRzhpa3d0LXhpc2pCMFRia3VwT1Q0dlBFNlNOb3VEQ3Q4NklyeV94TDNFeER1TURla3Nv?oc=5",
+      "summary": "Mizuho cuts Zscaler stock price target on guidance concerns Investing.com",
+      "date": "2026-05-27T09:09:18Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "4de216e0d893e4bf",
+      "title": "Zscaler Stock Plunges 21% on Weak Fourth-Quarter Guidance",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9CZVdqaXF5LVp1OW1ZQ0poNkNBSUt6OE1qVXFkb0J0STdyd29GN21EUEFhZlVPQ1Z2YlUxendtLVVjeFNmQnl6NUlicXpBMUFyanFZSVNBMHlSbU1Mak5XYVdkZk9Qd3pvaExEaGpMeEJhTHpNbVg0ZnNn?oc=5",
+      "summary": "Zscaler Stock Plunges 21% on Weak Fourth-Quarter Guidance Barron's",
+      "date": "2026-05-27T08:58:00Z",
+      "source": "Barron's",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "2729c24f6f2b2f9b",
+      "title": "Stocks to Watch Wednesday Recap: Marvell Technology, PDD, Zscaler",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOa2NvV2ZHTXptamdfeldJclJpLWhUR3NDRGE0T3gzZ1hWeWNYV1ZyaDJ2WnVibVBzZEI3NWpUVTlsVUs0ODRTU1Zhb2s5QjlFZFZRdEgyUlZKWGh4cTFJZl9kS0ZqSGZxMS1aOW9fRlVMQ0cxMGM5M3Rjdnl1OVpsS2s0LXQ5d1lBNXdpeHMyZ2Z1bHhWZzlYN2RMNTB2ZU9sSUFHY3Q2X0xWaWo0ejNOOVVJcmZld1IwR3JKN3JWWWJrTnRWbWppQnotaUZlLUsyM0h0WEo1azE0XzdFWnNGUXE4OUVkbWZmRG9j?oc=5",
+      "summary": "Stocks to Watch Wednesday Recap: Marvell Technology, PDD, Zscaler WSJ",
+      "date": "2026-05-27T07:54:00Z",
+      "source": "WSJ",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "fa61ce8b75ecba5e",
+      "title": "Zscaler, Inc. Stock 12‑Month Price Target Cut to $209.44, Implies 13% Upside",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQVHc3Qjh1ZlJodENicDRORjhtR1lmNF9Ed3VGSHYzTUVGRFVBZkFRZHBYSHFTZVp2TmZ3ZjJKUU4zZVhhX3VXMWZxNEtSTHNVdm9fMXZpa3M1RUM0TEQxZ0JhSjhMaHg1dWJTYmcwM3dXYWsxdVg0czRlTXN3ZjJwSUhmS3FkT3VuTDZTTXdjOGNyU3V3Sk05XzZxZ3lOOEtPTkp2UVFQaHJaMTZ1TWtNYlZlMi1qVnRqeUtWSldpQm1EUFBOcEFVMGlhSHAyZw?oc=5",
+      "summary": "Zscaler, Inc. Stock 12‑Month Price Target Cut to $209.44, Implies 13% Upside TradingView",
+      "date": "2026-05-27T07:20:04Z",
+      "source": "TradingView",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "5c6179065c60a31d",
+      "title": "Zscaler Remains a Leader in Network Security",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNbmhXTzFVWkRhbkZqMEFCbVZHZllmZmtfcWM1MmpKMVV2c29PRFQ3ZnpLd0hQQXhjSHJKVVU1NnZielFrU3dfbEhOU2kwZU1GWTNOaEx3VGNhS2Q4OE9qMlMyX1R4cGd3MmVkTjk1QnM0WV9JMHF5eWE1dG9sWDIwbDFoTXFXWjA2YVRkQ3JlTnhWS05OZkVGd0N4M1I?oc=5",
+      "summary": "Zscaler Remains a Leader in Network Security Morningstar",
+      "date": "2026-05-27T07:06:38Z",
+      "source": "Morningstar",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "4320b23e9584ae9e",
+      "title": "Evercore ISI's Peter Levine on his Zscaler downgrade",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQOGEzYTdQVl9XQmZMR3laTHowYmJHT3laeXBKRmJaTUozV3BWX1I0WGRuZGo4eFhrdEZVVkFtc05xQXgwOFBCRzRDUVl1eGNfNm5faE5lVU1GWjJ1Z0VtZ2NSLWFfMGJwdlZ3cTNKN1gtdUdoUFhnWTZBY0tDRTRfSENuaVVzZFlfd0tEOV9JYlQ2eGxRci1Ybk9xdGpRSmUybnBjWWZmV2g?oc=5",
+      "summary": "Evercore ISI's Peter Levine on his Zscaler downgrade MSN",
+      "date": "2026-05-27T07:00:00Z",
+      "source": "MSN",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "281b952bce46c348",
+      "title": "Jim Cramer Warns Of 'Slowing Sales' As Zscaler Stock Crashes After Soft Q4 Guidance, Leadership Shakeup",
+      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOaTI5QWJKQWxXLXBNTXAxTk1PcWp6a3J1bEhzV2RqVmdPZGdpMUEweTVQQUhTTFo4M0E2dzB1ako5cjRSZUFqbjRybC1COW1kNERwZzBNeGwyVVNoNzlLMnFmQTAydTVNbVVSNnZjQlF2MHgwd25rZUZPOXpucE96TGN6QjBpMjVIdFNBdEdsczFSbGQ5Y2ZwV1E1ekRSdU4wZXYtMDZfTElBdnlLclBJR1diRy1iVExCR19GOHA3dG1BWXdzdW9XRkdUMzliVkROdDFUalNpUi15MkV5Ym1HNWN5Uk5xc1lvd0dNYkpn?oc=5",
+      "summary": "Jim Cramer Warns Of 'Slowing Sales' As Zscaler Stock Crashes After Soft Q4 Guidance, Leadership Shakeup Benzinga",
+      "date": "2026-05-27T06:13:02Z",
+      "source": "Benzinga",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "94b55949ba92afc6",
+      "title": "Morgan Stanley cuts Zscaler stock price target on competition concerns",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOMTJ5TDRFU2hRX2lzVEFhS3d4enpsV2NlMUZ3R3hHS1pCekpqc2c3RzY3akR3LW54S29qdU13dDJaYWpOUGFzZGRRTlJEQVRmdkU0WTc1NWZZNmFDQW5CMnVkZE1UMFNNZEszWTY1Y195MURKTU1SZFIzOUppcVdXNnh5T2IxVDFzYVJWanRXYktxc1ZuVXpYRlNKa2g1ajdnQUszX29vWE5ucHA5LWVOTFlGTE9rVGNyZDlZNDdZTWowcFc0eEJicmZ3?oc=5",
+      "summary": "Morgan Stanley cuts Zscaler stock price target on competition concerns Investing.com",
+      "date": "2026-05-27T05:48:13Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "146d0687fe37b3f6",
+      "title": "Zscaler Struggles to Win New Customers Despite AI Fears",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNcmIxa2toTWFTZVhuR09iZjdNN0Y0MzUyZ0RYaWRSSjJweEVERG8tMklrV1FPc3RVZEVYckl0ak1Ib3pYWDVQaVU5cVNwWXBxeVJ5aDEwNmhzNVNuR1pGMU5KYUJabURSejRCdmNqY0wtQlRMYUxxNGJDVmVMZzZCcl9jMVZRM3dNNGpxZzZfOXBUOTV6Ql9LcU5wN2c?oc=5",
+      "summary": "Zscaler Struggles to Win New Customers Despite AI Fears BankInfoSecurity",
+      "date": "2026-05-27T04:43:33Z",
+      "source": "BankInfoSecurity",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "a08207a84edf2372",
+      "title": "AIが「攻撃側」に回る時代へ──Zscaler決算が映すサイバーセキュリティの転換",
+      "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTE04ekpBZUdLMGwtSTVmLTRIREFpQUVXaGFLTTJIaHA3eXlnbERSWWdqZzdQekRCcERtT1l2UjFzSGNrSXZi?oc=5",
+      "summary": "AIが「攻撃側」に回る時代へ──Zscaler決算が映すサイバーセキュリティの転換 ストレイナー",
+      "date": "2026-05-27T04:00:00Z",
+      "source": "ストレイナー",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "eae7ee1dd00bc2bc",
+      "title": "Assessing Zscaler (ZS) Valuation After AI Acquisitions And Strong Revenue Growth",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOZHpMeXczN1M0TXRqQ0hxZ3ZrUkNXdERlWHFlYXVpUm9xaDJEbElTZG9zSVpxTVQwNjRlMHlCUmZIajZBd2s1VzNJdnlkZGVOVVZ6c0E2aEZkSHZnMXR6VTNkYnVJNGZ2SnliSFQxa2cwZzVZb0RHVjUzcy1MSUlKS2FtVGQ4Y2loRG1PZEtrNE9jbzF0RDNzVjFWWkNjbHhNdGg1YW5YUVRWLVFrVmZ6dWpGbzk0dmp4T2xkTjJlSXgzQdIBxwFBVV95cUxQa3l0dHhuaXFKV0d0cjFfYnpOYWJxY3lJZm4tUS1nQlo3cVJTcTdBcEF3SXRlZG5pY3laNHMxQWVra0liN2hvbXBKNGZzWHNCNTV4RVJYUWthejJjbUdrWm1oNGZsbnZhMXhaYTVMX0VuZFJYbVdNOV9xSUhUbWZsa1pSLVNRSVdsZjAtLXpxdHBaMkFWdGkxRHNUSGs5N29SRW5uVXQtMGRBTjFvcll5b1lSNWJrbXVIbk1ITUdqRC1HakJ3SllR?oc=5",
+      "summary": "Assessing Zscaler (ZS) Valuation After AI Acquisitions And Strong Revenue Growth simplywall.st",
+      "date": "2026-05-27T03:21:21Z",
+      "source": "simplywall.st",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "4a14124e2a3b6ea2",
+      "title": "Zscaler tops estimates and lifts guidance, but free cash flow cut sends shares lower",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPeGFkNnhKVFEwTW5yZDhOa1NaZTdtcHdBdVQ5NG5DWnlBUVFVUHBvSW0xaEpOaVFPTkgxakNlS202VkJPWm9jZFkwMGxBM1did2N1S0hXVUNnbnFOMkpvSE1peTdHNVp6RjE5Z0pjZTBoOXRBU1B5aUsxcjUtUXFmcDdtY1pkdVR0Sl9sR0lLQ0EwMGFiUGJ0ZnJoODhxWkxXTEJEb2dKNUN4Qnljd3RxTGpn?oc=5",
+      "summary": "Zscaler tops estimates and lifts guidance, but free cash flow cut sends shares lower SiliconANGLE",
+      "date": "2026-05-26T22:21:53Z",
+      "source": "SiliconANGLE",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "369370ddeab505bc",
+      "title": "Earnings call transcript: Zscaler beats Q3 2026 forecasts, stock rises",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNdmc5b21zREh3X0hjU3M5akpSY3A5WFVLb1pITWlxOHhlUzdQWktXNFQ1XzZTRkU3RTk1aUtQbkhXTVJ2SHQ4OG9pRllVbmNZOHhiUEQxdlR4NGhoaWptNGtkQkQxVlhFSFlxUXVKa0M5TjBIQ1FpZnFLd25rM2ZNT3RMeW5LZDlyZjhrdmZ6c2lHOWFzU0M5aWFPdWNmeXpfOFQ5dW4zbmtQYTNnRDRRTVNZTjJSX18xWVR1U1VuSDA4Zw?oc=5",
+      "summary": "Earnings call transcript: Zscaler beats Q3 2026 forecasts, stock rises Investing.com",
+      "date": "2026-05-26T21:56:08Z",
+      "source": "Investing.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "e890b7c7c57cf6d4",
+      "title": "Zscaler slides as lower free-cash-flow outlook outweighs upbeat Q3 results",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQYlhBb0d2M2NFek5XTWRyaElucy1jQWl6MzlBM2tCV0FheWRJakFhQ3VXMjZ0V185TXMteVpIckswVndmdDFCdnd5NXhOTDRIbGthVmpVcGdYZ3BKNmY4dC1XSmpuZXJjcklURFVqOW5JbFJnUThMa2x3V29kREp0enVlX1FwZXROalJYc0hjSmxHalpGblJEcWNhYm5OSmoxRFU2aU1CbFRNQ28?oc=5",
+      "summary": "Zscaler slides as lower free-cash-flow outlook outweighs upbeat Q3 results Quiver Quantitative",
+      "date": "2026-05-26T21:20:00Z",
+      "source": "Quiver Quantitative",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "cfbbed36fafccd1e",
+      "title": "Zscaler Q3 strong, outlook hit by component costs, sales turnover",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPYUtGaWVUYnhFbmluSTZKdVdjRlZDSG85cTdpbE9LamVxT3dCZzB0RXl0dVc0X0J0c1NOcE51d1RhMDhlVy0wY0pBYVJ6Z19rN0Y1bzZ3Y05ObDl1UTBDN0xfbGt6S0J4bWI3VEN2a19oV053Ry1HZExTaVlQeWpWMEhkLTlPcWZBTTUzN1pfdzRUblE0aFdqS0JOTUo5QWxyUG5PMnZWb04?oc=5",
+      "summary": "Zscaler Q3 strong, outlook hit by component costs, sales turnover Constellation Research",
+      "date": "2026-05-26T21:16:02Z",
+      "source": "Constellation Research",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "4a0098ca66d51321",
+      "title": "Zscaler (ZS) Q3 Earnings and Revenues Top Estimates",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNanRHdGdZMXkxcmhPbVQ1dlZUX0w4STJ2YkpUcTZzRW10b1VabnFmUVdGb0dGeHhveTZsam56QzlvaEV6dTMwMjlweW1FS2Zobk9Dbk9aNHFTTGRQcGJlc2tVWk90OFIyX2ZLVUk0Y3FSSWxFb29qeHJGLTJaYnpkTkgxM2dXTXc?oc=5",
+      "summary": "Zscaler (ZS) Q3 Earnings and Revenues Top Estimates Yahoo! Finance Canada",
+      "date": "2026-05-26T21:15:01Z",
+      "source": "Yahoo! Finance Canada",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "b913f980712b4136",
+      "title": "Zscaler’s (NASDAQ:ZS) Q1 CY2026: Beats On Revenue But Stock Drops 16.1%",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxONFBJRmxoaG1LREJZSlFvMVB5M291dk14b20zV0NnSU5wNnhBb1J4ZGFtRjFjQjNtcHh0WnprQWVITWxLNzRBREY3SnFoaXk5TV9Lc0x4bFBSaDVmY0VEcEwxQXdST204RC14bEVqcXlTVkUySFd5UUdDblY3XzV2TlJpNl94NEdSNWtGd0xaV3lMdjJmVVh5bGhQbWUzU3l2YlBESnZuVVBocHNLcjd1WDI5T2ZQZWE0VFlKYmZ1Nmlta3dZaC00?oc=5",
+      "summary": "Zscaler’s (NASDAQ:ZS) Q1 CY2026: Beats On Revenue But Stock Drops 16.1% StockStory",
+      "date": "2026-05-26T20:30:00Z",
+      "source": "StockStory",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "befe49d86d570395",
+      "title": "Zscaler earnings beat by $0.07, revenue topped estimates",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNUG5HV1hILUZmZm5vc3Y3RkhxY2tfa21wS3lrVFVVSUxmaGhCWWNheUM0djhPS0dVaVJXaHdQUzZ3MzN6MGxUVFpGWGpLaVJkVmlyNUE3SmRUaGI3cDVKdXNEcTNoQUg2TDZTSWV4T3htaW84ak1pS1RnVjFvTGxQaUtjTnVaR0RvUlktTTZ5STY5Y242RlNkMG84dWx0X1d0UHc?oc=5",
+      "summary": "Zscaler earnings beat by $0.07, revenue topped estimates Investing.com Nigeria",
+      "date": "2026-05-26T20:29:12Z",
+      "source": "Investing.com Nigeria",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "fd45071ea2623941",
+      "title": "Zscaler Stock Tumbles On Q3 Earnings: Key Details From The Report",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOcGZqaXhSY3lISThUbE5VQkxLSzhPc1V5aUY0YkpDZi1Uczd1cUpIVXB4Q09UM2F3bTU4OHA0YTVmMkZPUk1VeGV6bHhDSmFoWXZZYTRrS3JsWG5zOGlsQTRJSjJMSl9PbFIwNjNmZEJxTHF3U19leDg4bjk0R1lBRVktdDhWeUUzckxYR1VxQnFMa19Pa2RRcWItMUVjeERtZ3BvWVBRczNIU09wZ1NGVElXdndSOGJnZDZXc1ptRm1zR2M?oc=5",
+      "summary": "Zscaler Stock Tumbles On Q3 Earnings: Key Details From The Report Benzinga",
+      "date": "2026-05-26T20:25:04Z",
+      "source": "Benzinga",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "2d156fe520fad299",
+      "title": "Zscaler tumbles as mixed guidance outshines strong Q3 results (ZS:NASDAQ)",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPSlptc3RMYVl4WDFJRFloTzhJNjlHdjg2azNfbWFRdmhjTXZOYmZyZnhyUHBOQXBsZmdZQXBvZ2FDamlqcVhHenFQMTlaNHJUYlBOa0RKTlFoUGNlWTdnZDZYdGxtT0ZuX3ZVMXgyX3A4TXBHTFc3Q2g3SEROdHpGQjJOeUx4LUdzNDBScHU0Sl9POUlhZzBHbGVKdXV4LWZi?oc=5",
+      "summary": "Zscaler tumbles as mixed guidance outshines strong Q3 results (ZS:NASDAQ) Seeking Alpha",
+      "date": "2026-05-26T20:18:09Z",
+      "source": "Seeking Alpha",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "00cfa0c94323c1b9",
+      "title": "Zscaler: Fiscal Q3 Earnings Snapshot",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNQXV2RWlMcEpDRGh6RGhVVGNhclVnVGR3aHlDcWFVLUl5Z016TTdzeTlPYURSOVZmWXZQeVZIeHhNQjVTcGRsaHRTYy16R1hxQk01MmZtaHdRcVdmTnpiZjZjUTRaenpPUVVnd2xpQTd1UEVXNU9CQWJCa0laUUVHcWxfbXJoM19ZeGtjZGwwWGdXUVg3VVFzVjkyNmJsNU5CV3ZTV3BLUWxSV0NhV3E3ZlJ6MFV4UXlhcU1yMnYzMERkNEFYaS1mcXdKcTdIUQ?oc=5",
+      "summary": "Zscaler: Fiscal Q3 Earnings Snapshot KVUE",
+      "date": "2026-05-26T20:15:00Z",
+      "source": "KVUE",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "fb56c2b81f1924fe",
+      "title": "Zscaler (NASDAQ: ZS) grows Q3 2026 revenue and cash flow despite net loss",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOeUNOTWNKN2dSZ0RZdWVLSmttcUZIbzlSZ2Nab1hCUFhhNlpBT01iVk4xRDZsYm5DN0pHNndsbW1EWVJvMEJXWEVHaUoyZGh3Wk1LYVlIY1VuYUEtSkRSck9WQ0luVFR1SkM3TkkyZlBYc25EdXREcmFLSy1yTnlMbkJoWHlnUmxOeGxLOTJndzhwelM1c0tNbE9SNWtwa3NsLXRtaw?oc=5",
+      "summary": "Zscaler (NASDAQ: ZS) grows Q3 2026 revenue and cash flow despite net loss Stock Titan",
+      "date": "2026-05-26T20:09:52Z",
+      "source": "Stock Titan",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "e515e8bc1c92973a",
+      "title": "Zscaler (NASDAQ: ZS) raises FY 2026 outlook as ARR hits $3.5B",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQOGZJODRNVVBRZ21vSHpjZTZrVjNrcG16QnhTZFdMY3JwbTZhcXlIT2FOM3BFTWJZY25hVFhtd1RaTmhVM0xLLXM4amNDbTN3T2RXTFcwUVN2dTh6Smo3RzlnT19PcHlsZUV1N0hqV2Ntc3ZoZkxVdDAyRFdsZ0pQR19uTV93RFlaTHlPWGtYSzFzMDNMSmlhbk9fMHFoNWM?oc=5",
+      "summary": "Zscaler (NASDAQ: ZS) raises FY 2026 outlook as ARR hits $3.5B Stock Titan",
+      "date": "2026-05-26T20:08:28Z",
+      "source": "Stock Titan",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "397810db53310423",
+      "title": "Zscaler teams with Anthropic, OpenAI as revenue jumps 25%",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcUg0NzByUWtVYVlmSmFUY2tsRVNhemJuMFJtUHByaTB3SVc3UXA3a3hPQmQ0dGJGel9NSi1GdGdRV2FBZlpIMGxPNXF5Nzd4ZEZBdmJ6X1NRMTFscHZvbmFUdDVpTVl0WDZKdGZQbmZhY193TzdIbEF4SktZd0p6MkdSS2thLXY1bVhjVjViTFRnSXdGZFFReEVlN1N3RWFVQzZ3Wi1B?oc=5",
+      "summary": "Zscaler teams with Anthropic, OpenAI as revenue jumps 25% Stock Titan",
+      "date": "2026-05-26T20:05:00Z",
+      "source": "Stock Titan",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "9a85ff9734fde569",
+      "title": "Zscaler Acquires Symmetry Systems to Gain Data Graph",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPdUV3OUw1ckhNVVUxRkNrZGZ4X3dwS2JvN2VPRVJHMmpoVURjNlIzQk4xWFMxWFJ0VDMxWXRjekJ5Nzd6WURxdkM3T2phNWtjMmw4RUxyT0NTdGdESE0yNUx3WEVkZlJGUkMtdDZXalphYkk5T2pKbk5Oazh2V2I2eno5ZjcyenFSdEdnTnBOc1I3NmVTV3c?oc=5",
+      "summary": "Zscaler Acquires Symmetry Systems to Gain Data Graph Security Boulevard",
+      "date": "2026-05-26T14:01:11Z",
+      "source": "Security Boulevard",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "f38b68b19cb5bcc7",
+      "title": "Zscaler（ZS）の最近の株価急騰を再評価する時か？",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPbFp1QVdob3FBdkNuSG9rNTRwUFhyT2tCLTRRRkhhYVRyUHpHeEdxX0VhUlJsT2M1TUN1TlNGSUl4ODFFcDFXUE1HVkN5RzVhaEpDU3RpZlVVeWt0SXRKR3RIS0ZOTjg1Y3dnS1dCNXBnZXBaUVBkdTZqeFVhdzBTV21kMTBvSlE5SDVN0gGQAUFVX3lxTE1leGtZcjZlb010bkZoeTl6VlNGb1ZaNXQ4b09WTkJIbGVmWUtiWVpEaU1HdGVlRHVrVXctRFpDdHdvZl9IbUcydllDeDNrZlVhOGJGT01tLXd0RkhQZk5tMFB0OUpOWTJDVVNLYXU3OFZRWHE3b3FselhFOHk0MGlmZ05oS05aTUpoT3ZLOHdUMw?oc=5",
+      "summary": "Zscaler（ZS）の最近の株価急騰を再評価する時か？ simplywall.st",
+      "date": "2026-05-26T03:37:42Z",
+      "source": "simplywall.st",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "a3d4fa74b0d1d407",
+      "title": "Zscaler Earnings: What To Look For From ZS",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOMlRxc2Jwb3BMV1JkX3k5dHNBQnRKR2dpNDJ1aVVPNHUwUjgtUk01dU5jUm1NOGU4Tm5POXNkUEw0WkVYTFlvN3VqZ083VTBDSnQ0VGxxRzZPVExCcHJLNThiX2NSSUhiWnRlNDRrdUdacnhOMjExMmFkZlU3ald6aW9HU3NsVWlQWUVFOUhobkQxcFU?oc=5",
+      "summary": "Zscaler Earnings: What To Look For From ZS Yahoo Finance",
+      "date": "2026-05-25T03:41:00Z",
+      "source": "Yahoo Finance",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "f71c056efae4fe65",
+      "title": "【6月29日(月)/Webセミナー】「サプライチェーン・セキュリティ対策評価制度（SCS評価制度）」攻略セミナー診断から始める、Zscalerを活用した高度化する脅威への対策を開催いたします",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE0zVk5XSmIwUEdHSWhMdDRnQ3JqbUpKbGFoT0hRYVNiNHl3cERVUFNmRmczQnluT2V5cVVOVWhzbHV0Z2ZReWRJdkpkWDVxeVo0Zi1RbA?oc=5",
+      "summary": "【6月29日(月)/Webセミナー】「サプライチェーン・セキュリティ対策評価制度（SCS評価制度）」攻略セミナー診断から始める、Zscalerを活用した高度化する脅威への対策を開催いたします ASCII.jp",
+      "date": "2026-05-25T03:18:57Z",
+      "source": "ASCII.jp",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "ffb17d7c7a12114d",
+      "title": "QTnet、Zscalerの「DSAパートナー」に認定 企業リリース",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9jVFFxNTJkMGdEYUY1WGFVQW1ZSlpqRDdPRGJ3blBOMk4wd1dyNms5ZXVyRjNKemRueUJpam9SR2VtWUFtRnh5RlBKWGtsYmFablh4ZU9tcE0?oc=5",
+      "summary": "QTnet、Zscalerの「DSAパートナー」に認定 企業リリース 日刊工業新聞",
+      "date": "2026-05-25T01:14:24Z",
+      "source": "日刊工業新聞",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "6679d6f2e88d6229",
+      "title": "Zscaler、Symmetry Systemsを買収 AIエージェント向けセキュリティ強化",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPUWVJYmtUYkI5YkpVQWQ1UVMwb2xldjFpbmxhOFp4N1BQdXhXRGNIWnNqUnQ5RzI2YWpOeVVrMTRiQ0prMGNNX2VwYzJqRXBSLUU5Ty0zUXpwVlFSUFRMWHBfUWFJaEtNbWI1SDJ5cUpjTm5xWXNRUDNRX09sMW1OamdpTDcxNXdnVUxVOVpmRl83d1BRbE1GUXE1S25wbVBFVHh2YUZOWQ?oc=5",
+      "summary": "Zscaler、Symmetry Systemsを買収 AIエージェント向けセキュリティ強化 디지털투데이",
+      "date": "2026-05-22T04:59:41Z",
+      "source": "디지털투데이",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "e8649f26d405bfe4",
+      "title": "QTnet、Zscalerの「DSAパートナー」に認定記事 - QTnet、Zscalerの「DSAパートナー」に認定 - 写真・画像(1/1)",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9nVllrQWw1NmxNdmtQdHh2eXluTC1YTGVKcTFnUFJjTlBxajkwYVhHUTN1eW9FcndrSmhkb2lQN0szc01GZUNtNVAwX21nT1dja0xXbE9LMA?oc=5",
+      "summary": "QTnet、Zscalerの「DSAパートナー」に認定記事 - QTnet、Zscalerの「DSAパートナー」に認定 - 写真・画像(1/1) 西日本新聞me",
+      "date": "2026-05-21T09:03:19Z",
+      "source": "西日本新聞me",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "c48a7ad320341156",
+      "title": "QTnet、Zscalerの「DSAパートナー」に認定：時事ドットコム",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBzWFBYTEw1M1lfc1h2dDVsOWFSU1BnUFp3cHM3MG5VQzlRX2J4al9BM2dhSGFtdTcwNzVvUk1hdU9CVC1Eb2g3QnJnYWFudjdsUVhDLWY2R0FxSndUR0hjMGFYTHNreENiZF9v?oc=5",
+      "summary": "QTnet、Zscalerの「DSAパートナー」に認定：時事ドットコム 時事ドットコム",
+      "date": "2026-05-21T08:46:00Z",
+      "source": "時事ドットコム",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "604869d7ac39ae4e",
+      "title": "QTnet、Zscalerの「DSAパートナー」に認定",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9kS3hVaEU2c3k4WWxHNldLM2JZSHRJUG5PVzNYYXFuOVBaNmE2UThuckl5TjBIQ3ZDX1FEQzZ0T0RlZFhqTjZfNHIzNU1meUJzek53Z2g4bHExY2lwVTc4czJQY0I1YWxuUFE?oc=5",
+      "summary": "QTnet、Zscalerの「DSAパートナー」に認定 PR TIMES",
+      "date": "2026-05-21T07:00:19Z",
+      "source": "PR TIMES",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "93066a2c2fcf865d",
+      "title": "Zscaler Stock Has Fallen 34% Year to Date. Is the Selloff Creating a Real Opportunity?",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPLXlwdkZwLXQ3VDFmSUxncnVlOEkyTDJXY3NoTHg1ZnU2c1NUS3hkc2VNbFg1ZFFWQjhRV2R6YUgxLUVTaW9HNUoxLTFod3BfTENOX0pSSlR5cmZTeXZLR01MQWpWRDlzZEh6d2NfTnBkTnhQUC1QVHhIOGlXYzRVeEI2cWJCeGhxMEs5MmZtMFp1OTJ3R01EOVlLTHROZFY5NDNRWS1FX1d4SERhc00yY3Fn?oc=5",
+      "summary": "Zscaler Stock Has Fallen 34% Year to Date. Is the Selloff Creating a Real Opportunity? TIKR.com",
+      "date": "2026-05-13T07:00:00Z",
+      "source": "TIKR.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "a6bc99badb4ffad8",
+      "title": "中小企業の『境界型セキュリティの限界』に現実解、小さく始めるゼロトラスト導入を提案",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5ZdjlNdFVvOTZtYjRNeDlFVXp6UVY3Mm5iS05XeHV6aVNPT2lpcnRrYlhsb1NEVDJVQTVBYTI1Zjh5c0tLWnpJRlJCYm9rT3BIVGhOQWliSDNBaFAwOXJGLUxlYTBpZE1GekE?oc=5",
+      "summary": "中小企業の『境界型セキュリティの限界』に現実解、小さく始めるゼロトラスト導入を提案 PR TIMES",
+      "date": "2026-05-13T07:00:00Z",
+      "source": "PR TIMES",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "cbe71000aec32702",
+      "title": "Zscaler (ZS)はIoT SIMにZero Trustを組み込み、プラットフォームの優位性を深めているのか？",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPY3pqc3V4UmgwbWw0ZGRiQ25TbFJzQ05ZS3JfelhGOE9DSWMwWUQtTk02alllaXpHeWV0M05qMFJ2cTdYanlWbVpZRzJZenBjeTNRb1hsQlVoOEk1LWF2c3B1VTdEZUpRTlhpNk1LWmtJaWUxLS1mQndYZW94cVlJZlFNZk1uSXFrbFhr0gGQAUFVX3lxTE9oOHQ3RktrT2Z1TnRGcDRuYS12R1VZdnAwTWtJc25OamxtQ0NCVklCR3Nvb0FYR0xzYW9hcVRqTlo4RXNMYkpqcUY1UG5yS0poNzU1ZU1EemtNWm5BdnZCYzhzQW1uaEpzaHpCOEY5OW1RamNZVjE5OHRUbVJZd3U0ek9MTUJxNFZiOWYzbWktSw?oc=5",
+      "summary": "Zscaler (ZS)はIoT SIMにZero Trustを組み込み、プラットフォームの優位性を深めているのか？ simplywall.st",
+      "date": "2026-05-09T07:00:00Z",
+      "source": "simplywall.st",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "7f23273223cc954e",
+      "title": "Malicious OpenClaw DeepSeek Skill Exploits Agentic AI Workflows to Deliver RAT and Stealer",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPd2dQbDBnSVBGU1dNNzBMNWZFd3BhQzgta01MZzdPNlR2TmduamFiMFJsRDZmRjAxWmpWVDdfenhBQmRwSFh0Z3RkR0tremVQMS1QZmh5Q2tkX2hSMnRHUWNmWHdBQWZsWkRzREZWV3RvbngzMWdkOE1DWDMwZXRNdVBZd3p1REp3YXVzMtIBkgFBVV95cUxNaTh0N0x2M2IwY1Q2RGJDWFpfOVpVdktGOEd4V0hzNUhTTVBjaUJJRWFQOGMzWTUtRG5qSUp0eS1reXc5eGZubnRUQnlCZ0JwaDUyN2o4QktZSnVhY083Rzk4ckE2ZlZVS2tFMHBxdFVsVlA0ZTNFUTJSVXN1ZGZCdG13TTliQnk1ZWZSZ2ZKTGVOUQ?oc=5",
+      "summary": "Malicious OpenClaw DeepSeek Skill Exploits Agentic AI Workflows to Deliver RAT and Stealer CyberSecurityNews",
+      "date": "2026-05-06T07:00:00Z",
+      "source": "CyberSecurityNews",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "c13f4317b2d10474",
+      "title": "Zscaler browser isolation integrates zero trust for safer web use",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcHFNNXlXdHRhemp1MmY0MktJN2pIQVc2T1JYTjR5VTBVMk02OXZfZ0NJeE51bHJDdnZQcFpwVWFucFlWQ1ZlTkFjdlNWamdEdm9GcURFSl9IbjAydVVFanlnOXVSa29Gd2pGRFpDZk1Udi1sR0xtdlFHVzR1U1RCX2xocUF6NkpuVmtiTDRWM2NlSzlxYV84RVRvX2EzV2c0MDZaMy1UTzhiVklYSzROQkoyWWFfQVk?oc=5",
+      "summary": "Zscaler browser isolation integrates zero trust for safer web use MSN",
+      "date": "2026-05-04T07:00:00Z",
+      "source": "MSN",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "72e50b4af37f6ffc",
+      "title": "IoTにおけるSIMレベルのゼロトラスト化は、Zscaler（ZS）の物語を変えるか？",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUFVIOVN4YmZIU1gxd3dkR2xiM3F4c3lxY1B0VmhuOWp0am5PdDJjYi1yOG9sWXdfMlBJODNwMEU4UVlpUU03NlJiX25WcVExTW5DbjdwNGpuOXFSOWRYMHpOMU91SWZJZGxRSWxmZVhCRWphNnJxM0J3cXZUeDNoX3Vfek1iRFFSTHJZ0gGQAUFVX3lxTE9jS1lCcTNPYUJVT3NYZkxPY3Z6bTZRMk9tSUk0eFNRbHgwUjlvSEhkM2pKM3NNdWw4VFo4NHpGcjZBUlN3ZUFZaXBOX0liNW1iOWVScmF4WmNoWEFtTFlnT1RMWjRqYjVlS3AxRFROQUxYTnZOSEU1TGtsWUdTUm9nWURObHdKZHRUR1dWTDdYNg?oc=5",
+      "summary": "IoTにおけるSIMレベルのゼロトラスト化は、Zscaler（ZS）の物語を変えるか？ simplywall.st",
+      "date": "2026-05-01T07:00:00Z",
+      "source": "simplywall.st",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "db4b317a9f2794b5",
+      "title": "Fake Document Reader On Google Play With 10K Downloads Installing Anatsa Malware",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE90MlJwZWFnQk9pOUlsSEZ6NWVkNzlfMmJsZnQyT2NwaExzeC1sTS1valppRE1oN1F3a1hRMFZtc0pQSEk1UUpvMkxZNTdyT2xQS1pqSUhQZnpvOHZqd2pjUXZHdmhTbnRVRFQ3amFxMk5lazlV0gF6QVVfeXFMTXFObFpQOE5jOF81SjdRU0NKQUJvZ21tV3NpWVQ2dDFqa2xtUjl2ZDVBTnlrcDZzOFE1UlhpUllrYUl5cjhHUi1XZVFDWUZPS2Q0NzBvOHNneEROQ21iRU1NamtwVnlXUm1wZTdVYVI2eGtRV0tEeEhxSUE?oc=5",
+      "summary": "Fake Document Reader On Google Play With 10K Downloads Installing Anatsa Malware CyberSecurityNews",
+      "date": "2026-04-28T07:00:00Z",
+      "source": "CyberSecurityNews",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "135ae624b75decb1",
+      "title": "Zscaler Stock Fell 60% From Its High. Here’s What Could Drive a Recovery to $201",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQeGp1SnRFMDl5WVphTlpXRVpGbjA2dldLNHpsd2FWczl2dWRkTFJIZXN3X21pS0Z4VjkzZE8yLXdpV24wZ0MzX09uN3hJaERDSHFDNmFCbWFEZ3lvOHZOVkhiMjdXR1VVS0x4aHVxS2dVTGVUTklwTGtYR0tyYWZjTWRaWWFsaWp6VUc0d2V1NVFIN2lGLW5QOFhydmkxT0hJaTlTUHdERVM?oc=5",
+      "summary": "Zscaler Stock Fell 60% From Its High. Here’s What Could Drive a Recovery to $201 TIKR.com",
+      "date": "2026-04-27T07:00:00Z",
+      "source": "TIKR.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "4449baaadbd915ac",
+      "title": "Morgan Stanley Downgrades Zscaler Stock Citing Concerns Over Platform Expansion",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPN2IwVmdRVGh0dy1wbjRxZHVvU1RuVENhakZXWExUZ0Q3dFFzSElqYmlnWmtKSENYOU9MRUZEQjA2bnpBMmhLNkdQYVVOS25HaGtNUTdNRFJMTTk2T3JmOG1fSDVrdHhSX0dkT2o1SkcwMFZRMTkydXlWWVRJM1VtSzJub1JQOVY2OTNpZ05JbDFOM1N0cVIyUURiQVYxc21xOVpwcWxFdVlpbldja2hyRkpB?oc=5",
+      "summary": "Morgan Stanley Downgrades Zscaler Stock Citing Concerns Over Platform Expansion TIKR.com",
+      "date": "2026-04-23T07:00:00Z",
+      "source": "TIKR.com",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "077f07a25a911e2f",
+      "title": "Tropic Trooper Deploys Custom Beacon and VS Code Tunnels in Fresh APT Assault",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9hTTNKTTFMVGl5RmMxWEIyY2VnX0JJV3owOVJGSUZORFFFdFZzdTJxR3QwbVlDWXAxUTBGUy1wVUdmeGViSmlaZDlQcFRUTnB1QS1od3NCZHUxVTZoM255U2tqb3h0dw?oc=5",
+      "summary": "Tropic Trooper Deploys Custom Beacon and VS Code Tunnels in Fresh APT Assault cyberpress.org",
+      "date": "2026-04-23T07:00:00Z",
+      "source": "cyberpress.org",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "76dc2d07cb7366eb",
+      "title": "Zscaler (ZS) Downgraded by Morgan Stanley Amid Competitive Press",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSW9FQTFKYWxFU3BfWkRrNHRqcHVZamhkX0lwMlJ0WlROWjRLR3VGOHlCdWtiRUdQb25ETEEyZ2oyOG1yOW9VcE50VXRYZXI5b256YlBrM0VnS2ZNMk9QZ0hFNUxHZ25KXzFEcWplMzdtN0xOc0s5NnJrWGlyYWJXU1ZvQ2htWU5kN1BLY3ZuRXIzY3FaX2JTamE5enBGakpOUDY5TjhiU25yWXRlTndzd2QxWDZNU2l0?oc=5",
+      "summary": "Zscaler (ZS) Downgraded by Morgan Stanley Amid Competitive Press GuruFocus",
+      "date": "2026-04-22T07:00:00Z",
+      "source": "GuruFocus",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "ef1ece6f225e9594",
+      "title": "Tropic Trooper Pivots to AdaptixC2 and Custom Beacon Listener",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQa18wV0FVNE1aWGtzVVhPV21IVjhTS3lvUjNuYWJZSUY2dkpnM3BBOUFyenFFS2RiakNPTHZYZ0Z5STZyaDFTbFBpVm15Z0VSVDFUMEN4a2VRQ0hHSEI2TmxhM2p4c0luNGtXWGd3RW9leV9sRl95bmd6QThYU2lrLWlQczJOeXoyd2hpSU5pV1FhWGlOel9Pd1p5VVJLUTdabnc?oc=5",
+      "summary": "Tropic Trooper Pivots to AdaptixC2 and Custom Beacon Listener Security Boulevard",
+      "date": "2026-04-22T07:00:00Z",
+      "source": "Security Boulevard",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "9d9428f45fea18a6",
+      "title": "ネットワールド、AWS Marketplace DSORでZscaler製品の再販を開始（BCN）",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0tVzlhU3IzU1NfN1BselNrQ3h3TVJUR2E3bGZvS3RudFMtX2MtNndGMUZWLUszUnN2T29ZS3lVZExtZVRRTG9oaU10QWljMWJqMlY1bngtVHp5X0tJQUlqdlhsdGNGUkR4NFJnWkZWVVJRa29Oa1RYb0x3cVdfaHM?oc=5",
+      "summary": "ネットワールド、AWS Marketplace DSORでZscaler製品の再販を開始（BCN） Yahoo!ニュース",
+      "date": "2026-04-20T07:00:00Z",
+      "source": "Yahoo!ニュース",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "307d3f21a51f9101",
+      "title": "Zscaler Stock Lost Third Its Value in 2026: The ARR Growth Tells a Different Story",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxORU45U1dEcmM5MTE4YXNaMHRqeE5TbnB2VXRBV0ZIeFU5RFFkSkpoQlF1eE45cDF5VGtHcmZHYktNVUhfT181OWt3TnhjQ29uRl9jRlFDVzItcjRzODJ6VU1qYlR4UV9BMVlhd3JfUXdqR0xrV3hWTXJHSXUwYTI1U19YTHdSeWM0U0FvZXBQRlhYT3g3NHVxVlI3bzlQV3BYVDlfTzRaZ1BRQ0xPTVo0?oc=5",
+      "summary": "Zscaler Stock Lost Third Its Value in 2026: The ARR Growth Tells a Different Story TIKR.com",
+      "date": "2026-04-17T07:00:00Z",
+      "source": "TIKR.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "2e53840b2bbd1a02",
+      "title": "Zscaler Fell 14% This Week. Here’s Where the Stock Could Go in 2026",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNX25PX1d2NTlWN1VWYUU4T1NfVkh6ZjZFc0tJZ1NacnZmWWRUWWxhOUJ2OTRXVUhORy0yemY4SzNzNmh0eFZBUHl1Y0Q0YXJHazlSeUdiZWpFTDJmcFRyRkRBR1BUNXRjcG1wRWo3RHZWTHR2eTJmM2RvNk5wWGktcVVranJNRUNLNG04YXRXa0kwdXZDNi1jdw?oc=5",
+      "summary": "Zscaler Fell 14% This Week. Here’s Where the Stock Could Go in 2026 TIKR.com",
+      "date": "2026-04-15T07:00:00Z",
+      "source": "TIKR.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "c4648a20abf84ab1",
+      "title": "CBIT launches six-day FDP on Zscaler Zero Trust Cloud Security",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOMDFvZTFmbkhVdC1XUnJyWnNiUmttS21pS2Q1X1ZUcGVTdHZqLTE2X3RDeGZsOV9Wc2M0YkZLZ0xybmJEWUUyYVhsV20tSjdENDJDRnhaZG55bnFVeExPTmFXanJlNi1OREdKUFhMRGF0MFE0Z2hqOGFKWUxSTTdQTXRKYlFFdEJfZ2RvbFJhdGFmcEE?oc=5",
+      "summary": "CBIT launches six-day FDP on Zscaler Zero Trust Cloud Security Telangana Today",
+      "date": "2026-04-14T07:00:00Z",
+      "source": "Telangana Today",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "7fdc5014cf7886f9",
+      "title": "AI is Now Default Enterprise Accelerator – Deepen Desai – RSAC26 #7",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNWXhMQ0tfLV9HUWVYT1pyYkd2Y05vSy1tUGZDUzNCS3BCQVhyNUxmYzM2cV9ncWNXLUhRNFJNSVVKeDFELWRiU2Z2Y1N6R3RWT0tMUWJfa0c3aXFyUllXYnBNRmJobTdwWW5JOVRLUURlc2IxRHRzNTRIX29hQy1TbFpkX18yWVotMXBtRFhyYTY4UzJla3pZakdkTkN2cU50cl9xX2dpV0FyYnJ2?oc=5",
+      "summary": "AI is Now Default Enterprise Accelerator – Deepen Desai – RSAC26 #7 SC Media",
+      "date": "2026-04-10T07:00:00Z",
+      "source": "SC Media",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "c93c70b97842f619",
+      "title": "株式会社ビーイングホールディングス | 導入事例 | 法人のお客さま",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9xZ2xXYVlzQkVFYnpYZU5PbHlwSDh4UGpablRVY0dUblA1R01qQWFrV0J2M0lIRGZpRGNzWURYQ01XNll2R3kwQ2dOTnU0c3lLNDVqZnppZlQwd3A1eDViRnVGdWM3TDA?oc=5",
+      "summary": "株式会社ビーイングホールディングス | 導入事例 | 法人のお客さま ソフトバンク",
+      "date": "2026-04-08T17:07:15Z",
+      "source": "ソフトバンク",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "a802aca92fc64bbf",
+      "title": "「9割が90分以内、最速は1秒」 企業AIシステム侵害の絶望的なスピード感：Zscalerの脆弱性テスト結果",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBPMG9sUl95TjJnYTloemw1eGd6dTFtdmE0UDllSDdQSUZsUDZzNjYxempGOEowUDVYSkJpYWlVSTRlMTE3d1FXcFMtdGppMlV5ZW1WeEFQN2FMQVIzRkF1YmZmeGY2RWdVM3BDcVg1Tm1EUQ?oc=5",
+      "summary": "「9割が90分以内、最速は1秒」 企業AIシステム侵害の絶望的なスピード感：Zscalerの脆弱性テスト結果 ITmedia",
+      "date": "2026-03-31T07:00:00Z",
+      "source": "ITmedia",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "2f0b545b198491d6",
+      "title": "オープンハウスグループ | 導入事例 | 法人のお客さま",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9pRHQwSWJBdlhYSHFRT2x2cDRsTVJIendMend1MTB0Q21QVzd3MmtEazItdFl5VVpqTlh2SHBfM3VEMUF1UUdfU1FVaUk2OGY5YVBIbUQ4MDlLa2tqTzJBTG5CQ0lXUmNnSUhrcg?oc=5",
+      "summary": "オープンハウスグループ | 導入事例 | 法人のお客さま ソフトバンク",
+      "date": "2026-03-30T14:46:30Z",
+      "source": "ソフトバンク",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "24c7c4d325347d49",
+      "title": "Zscaler Stock Fell 12% Last Week. Here’s What the Market Is Pricing After Q2",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOV3F6WXRLTmF6LXdnejN6dmdEV3lhbDdzYmxQY0N3MGhjd3JhQVVRWkNELVFJWDFZUGQ3N1dfNEowR2VGcFBtRlpyTU1aZnFhQ3VtNHFVQ0ZQQ0JLeGdBU0h0U3Jtc0RaZ0F5MmtPMDhzZlRjS1d5cUdXU0I2b05XVXAxNDl5dW9JWDkxOVVGd2ZqUzJCUkVWbXRzaW5PdUc3aGFlVQ?oc=5",
+      "summary": "Zscaler Stock Fell 12% Last Week. Here’s What the Market Is Pricing After Q2 TIKR.com",
+      "date": "2026-03-28T07:00:00Z",
+      "source": "TIKR.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "2053460e63e27160",
+      "title": "Zscaler Secures DoW IL5 for Zero Trust Platforms",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9fV0NaZmZGTEhXb3R2ZnRSNFM3QkpMUVNOUnl1eHJGMnhEODctYjQ1RjJ0dU15N0Y2cWVNdkF0dzdZOVRBZGZlMHVQNmM1MVNiNXpkLVl4U1hrRENleDAyUTg2TTlrYW5WaHFXVzA0Y282Wnota3FjN1pWLUI?oc=5",
+      "summary": "Zscaler Secures DoW IL5 for Zero Trust Platforms ExecutiveBiz",
+      "date": "2026-03-23T07:00:00Z",
+      "source": "ExecutiveBiz",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "9cefc97065648d71",
+      "title": "Versa Simplifies Secure Branch Connectivity with Automated Integration for Zscaler Internet Access",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPNVZWZW4zM0R3TlNjc3Z6Uno1ODgxY1hRTzZnd1VOTnlDZGVWTFVQRTZXM3hjUXhqaUxCdW4xRXZ0aDROd0RSbldTS0xVVENFRnFoTDZXdVlmMHFaM3F4b0staC1ZdEFXZTZmQmFvYVFrekhVZXdzSzFKeHlxc2hueVAwdXk1LWd4RFN0eWdGcEUtWDRSV2RSWHlUcVVFRlJoRDRQMUl4NUVOWWc1b0lJZnZrYkN2RjdDcDVuamloUHVlYmNZelB1SHQ3emlzWlY3cm1qTFR1S0w3WHRCLWc0QlQtZ052dWVKeUtZ?oc=5",
+      "summary": "Versa Simplifies Secure Branch Connectivity with Automated Integration for Zscaler Internet Access Business Wire",
+      "date": "2026-03-23T07:00:00Z",
+      "source": "Business Wire",
+      "category": "industry_news",
+      "tags": [
+        "ZIA"
+      ]
+    },
+    {
+      "id": "7fa880b0b46fc9ca",
+      "title": "Zscaler ThreatLabz 2026 VPN Risk Report: VPN Risks in the AI Era",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNbGtkRDd0UmJLVjR0OFlfRlcwVWItNVdkLTJaUHZpWk8tSDB4VnRHRm1ISG15ZkZZcmV1UmRBWWkzdUxKZkZ5NjBLbjJQbWFZbE9HbkREN3lRTEZWUFlNMUg0SUFZVEdNSUx3RDVYd1liUTZxdGUxbEhEblJzcWVtZ2JhbVVhTmlG?oc=5",
+      "summary": "Zscaler ThreatLabz 2026 VPN Risk Report: VPN Risks in the AI Era Zscaler",
+      "date": "2026-03-23T07:00:00Z",
+      "source": "Zscaler",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "e82615f695366686",
+      "title": "Zscaler Internet Access Secures DOW IL5 Authorization",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA1d2tWOHEtMUtXV2xrUDJtc0ZWR19rb1hONlhyNjhjVmNXQnRnRWxSZEYwX3RVWTF4ZXVBSE1UY0dSNVJDZ1VjRG9RMlIyeE5oR3R4LW5tOUY0R1FIaldoWjVyZVdzOXJHMEdJZVByTThzS3dLUkFLRmtFQW9sZw?oc=5",
+      "summary": "Zscaler Internet Access Secures DOW IL5 Authorization ExecutiveBiz",
+      "date": "2026-03-19T07:00:00Z",
+      "source": "ExecutiveBiz",
+      "category": "industry_news",
+      "tags": [
+        "ZIA"
+      ]
+    },
+    {
+      "id": "f326b288aa982a57",
+      "title": "SnappyClient Implant Blends Remote Access, Data Theft, and Stealth Evasion",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE43MlljeEdGdUtDUXcyLWtnMWdsR1VkajU5cUp4SGdPbExkX04tLUFCbFdmQk91d1FFdU5DVXVxdE9PTERfQmhMcTJyekJ3RWlrRmZSQ3dR?oc=5",
+      "summary": "SnappyClient Implant Blends Remote Access, Data Theft, and Stealth Evasion gbhackers.com",
+      "date": "2026-03-19T07:00:00Z",
+      "source": "gbhackers.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "325eeedea6ca9163",
+      "title": "Zscaler and Bharti Airtel announce launch of AI & Cyber Threat Research Center",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeWViZDI3dW5ZVUlwOVR3WlVUMEtxcGlvN0lSajNiZW92YjNjT1NwN004VFkwa2hSOFM4a29YNFhaQnJXUjJDS05PTE5nQVZBTEJQb2RoMFJ2MndRUkhuMFRVWFY4Q2dMclBHbUpOREtyVEowU2l2NFNnMWp2eUhma0w0eVIxSjVBQU1jU0hKUVBUdVBHclo0LUhXM1drdGZoVE1hckFUYnBPY2FnQ0taSmFfdlVGc0NlUVRoUWpnZjNUQQ?oc=5",
+      "summary": "Zscaler and Bharti Airtel announce launch of AI & Cyber Threat Research Center Intelligent CIO",
+      "date": "2026-03-18T07:00:00Z",
+      "source": "Intelligent CIO",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "53829a41b2f86478",
+      "title": "世界最高水準の創薬の実現に向けて DX戦略「CHUGAI DIGITAL VISION 2030」を 支えるセキュリティー対策",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1iN1NSSVFqMVN5RHh4U3NnQkh5bXJXZ2FPNFBuQ2JDaVdnb0VHNXAwLXNHLXllcEJ4V3I2RFRWTFVwSXB3ai1QNDlVVldFYmQ3di12djRMUGtJNzFqTVh0OEZUbWp6ZjM1Y244dFJnUnpqQms?oc=5",
+      "summary": "世界最高水準の創薬の実現に向けて DX戦略「CHUGAI DIGITAL VISION 2030」を 支えるセキュリティー対策 mitsubishielectric.co.jp",
+      "date": "2026-03-16T10:07:04Z",
+      "source": "mitsubishielectric.co.jp",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "945ab7ade812ccff",
+      "title": "TCS、Zscalerと戦略的パートナーシップを拡大：AIを活用したソリューションでエンタープライズ・ワークスペースの進化を加速",
+      "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNMXhrTDlqUzlXVnRZRTNhQTNkSWxRNnhSM0ZwNThFNjZnV3lDVnJLb2dUVjhwczF5R2RTTlZxM3UzRGdFWkpHMXpfLWJ0cGg2MU8tOWRHbEVTVUhLdkE4d1Z3NTkzc3lHSXZ4cVZIOWVlN19JakpyeDZMdzJaVm9GN0t3SG1KUDQ2U3FnSGE1YVRwZU1ZeW5zeVl1Rm9IUUp4YmQ5al94REVtWWRISkktYzBSZU13YTBQSElsY3BpY1pIR253R2xROUZQV2dFd1M1bGZxQ1ppdXhPY2FITHk1QTlqLThFSXRPb1B1QWJMUTZiTDlTYlFLOXhYOA?oc=5",
+      "summary": "TCS、Zscalerと戦略的パートナーシップを拡大：AIを活用したソリューションでエンタープライズ・ワークスペースの進化を加速 Tata Consultancy Services",
+      "date": "2026-03-16T07:00:00Z",
+      "source": "Tata Consultancy Services",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "a9dfaf3f52ba8311",
+      "title": "AI: The Default Enterprise Accelerator - Key Insights from the ThreatLabz 2026 AI Security Report",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQbjAxRkJRQnoweThWUTdTNzkzUmM3Z3BiQlc5ZE9RanZicGM1cnFBbWFXYkRTV05mNUg3UWwtbUNqaFBPV2tMVlV4NUxvbVpTNGpWMDVXY0JyUGk5M1Qxd29Dazd4aWc4QXp1akZ0TTAta1I3ejA0VXQzRmJMN25hQk9Bb2Q1Zk5sUmpRRjh5djNKQm90aVpVbU1GY1V3N25QU3lqbm0zakp0VGVydm84eVBTMXo5dXUzUmJfb0FxV1E4X1MyM2dzTWVDSDdIYXc0MWdj?oc=5",
+      "summary": "AI: The Default Enterprise Accelerator - Key Insights from the ThreatLabz 2026 AI Security Report cio.com",
+      "date": "2026-03-11T07:00:00Z",
+      "source": "cio.com",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "97de783b3214f429",
+      "title": "TCS, Zscaler partner for AI-powered workspace solution",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE94N0JhVVdBS0loRVVadnBHWnNMNk1GWWRjNlN0TGZjY0lWckcyNDhRcU9DMVNsaUJ3NkdyT2Z4QlJ2MmJxdVp4d0Zxc29LZVdfSjlCTWhYbTBodw?oc=5",
+      "summary": "TCS, Zscaler partner for AI-powered workspace solution Outsource Accelerator",
+      "date": "2026-03-10T07:00:00Z",
+      "source": "Outsource Accelerator",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "da41c4dc9540b684",
+      "title": "Middle East Conflict Fuels Opportunistic Cyber Attacks",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYlFSUThEOWNieW4yVlN3dXJRaXhTN1UwVU91SUdIYzJRS0V5M2Z0RExoaWdfVlJyQ2FTYmItbGVkejJGVmYxMFNFLXZXbVhKVTNRc1gxTFZmdk1ic1k5OHlTeEp6aG8xUml4cERUYm5rVGN4Ukd2akFqT0pBNTljRXg4R244Vk9CYTh0Z0l4dmczNkgxRkszdg?oc=5",
+      "summary": "Middle East Conflict Fuels Opportunistic Cyber Attacks Security Boulevard",
+      "date": "2026-03-06T08:00:00Z",
+      "source": "Security Boulevard",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "914950b7760ad302",
+      "title": "Iran-nexus APT Dust Specter targets Iraq officials with new malware",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbFpuenVsaEUta1ZueTREZ2ljaGpIMzhaTzF4SE85QTdlLVVoMXdXQjBGRmY1REdMeE1jTUlSWTJBREJHbHg0ZVJGTjN5RHlwRndJWjBCeWtGN1QwUFdaOUJ2aHMyaWRQZDVrZGxEcW9CVEpSeUpqVHZBN2JKRElMYjlzWi1TcWdyVGdjZ1JZN212R01DdWdMR3RrUGZnaFY1WjRhWDFRWUx6cmVPZGt1Tw?oc=5",
+      "summary": "Iran-nexus APT Dust Specter targets Iraq officials with new malware Security Affairs",
+      "date": "2026-03-06T08:00:00Z",
+      "source": "Security Affairs",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "4661a2e56b164e0c",
+      "title": "Idaho National Lab Cyber Breach Accelerates Shift to Zero Trust",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQd3RValN6OWZmRUE3N3ZoQUZTQ1VNQThvanI5VGJKVnpQbFdWdFJxWVFUaDlGZUJrdGY0TFktYnlUbHp6Wnc2RHB3amhGME9IWGVLSkZDRGpjc21GWDhGb09Ibi1OVUJaSEdpc3lrcUhhelp3cFJqMjFhMlJmeHNRMHprM1dHLXMwYkxEXzRVMEZxc05YMVlLbENybkYtY28?oc=5",
+      "summary": "Idaho National Lab Cyber Breach Accelerates Shift to Zero Trust MeriTalk",
+      "date": "2026-03-04T08:00:00Z",
+      "source": "MeriTalk",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "37d635f7e17f7842",
+      "title": "Zscaler, Airtel Launch AI & Cyber Threat Research Center in India",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNTUw5ZGw2bURNeFNCOS1zRlcybkZCNDZUU1dMbk14U0x6a0lnMFBMUjA1T2phc2N2bGpqTnFTRmZ6d1JvVnBTYzhfTjRHOGF3OWloU1ZyYW5lRzZ5aWpYeU5jMXJhY2pwWk41RDFJTlptSVJyNEl5WlpTSXZNQ09aT1lMRTBvNTRjS1o1eW5xa3lOOUJyME5NeW1wWEZoU0pVMkcyZ1k0WXp1S2wxN0dyRmU3U09RYlRWTld3YkpVWkc?oc=5",
+      "summary": "Zscaler, Airtel Launch AI & Cyber Threat Research Center in India The Fast Mode",
+      "date": "2026-03-04T02:02:32Z",
+      "source": "The Fast Mode",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "cdd5350c9da2105a",
+      "title": "Iranian Cyber Threat Actor Targets Iraqi Government Officials in AI-Powered Campaign",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9TRWRSNFhPWnp5emlqYkE5NmVWTFpvSGtia0FGUnhDQzdYbDdQZlU3MF9BOWtzNzkxN25zQks3VDdvS1BIajEtcXNZVGRQeE9PaG05Vzd4Vk94ZGYwTTltWlFOeFA0dkVfTzRfbTBMbTI1YlNuS0xnWWdkT1Y?oc=5",
+      "summary": "Iranian Cyber Threat Actor Targets Iraqi Government Officials in AI-Powered Campaign Infosecurity Magazine",
+      "date": "2026-03-03T08:00:00Z",
+      "source": "Infosecurity Magazine",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "4b207098909593b6",
+      "title": "TCS Expands Strategic Partnership with Zscaler to Redefine Enterprise Workspace Innovation with New AI-powered Solution",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOeGlMcmZwVGc5eGpuVDdjUGQyczh0M0lwOVhscDNOdWJRM290cS1KSHFOQVFLdHRlTVIwYmtVVWNRVVpSYWFTcFJpLWhvNnF3STdueXk4aEdmLVlMMHZFRW1PNGFxa0ZfdndENlJ5NUViTmxuQkYtVTNnNU1HV0pteXJla3doUU1SZlBJRVpqY0JHT0lkWVZ4bkFUdGRjR0NUM2twRXFWWHRScThodWVFSmJzSE5pQy03aEZQRkpSekRRSnhJU210X1FqWDNaZ1JjZGhCWXhnbTVPaUlaRy1tMU8tYU1MUFJFR0ZsSm9KY19aQQ?oc=5",
+      "summary": "TCS Expands Strategic Partnership with Zscaler to Redefine Enterprise Workspace Innovation with New AI-powered Solution Tata Consultancy Services",
+      "date": "2026-03-02T08:00:00Z",
+      "source": "Tata Consultancy Services",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "7e05c08594363411",
+      "title": "TCS expands Zscaler partnership to launch AI-led digital workspace platform",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOTndCQ1M5dUdPNTFCT0NqUTFLTnNZc1pqSGNlQll1d1Z5MmtmZGtWb00xNWxqR2loTFhTLXE5b0Rrazl6RV9ESWhncEVJU1EtdThKcjhMY3ZDR0pKZXpRal9xMTE4ZWdRR3JUTkhCaWVHdzJramN4RlBJOFlJZVlBTlVGcEZLanhTMWpHTVBib3lVd21EeUhtMnd5NWJKd2FNREk3VUhLQzd4WFBHSlRXYXhpckVMV2R5UXBiVVlsSUNCcTRIblB4N0JpT0NOeTdIeXVEWm1RaE9fNnVyamR3N2Raa9IB6AFBVV95cUxOSUNRS1Myd29WVEdRN0JOMEZfVm5wZDBOTXdOdEtKQkpqeTRjbllaZE8xSlJDQWR1X3NUTmtuMGZoU1ZINW5DNGNxMm5GNV9QSTRMWTRjLUdQcmtKbC1NYnN1T0JNRmJMQ3g5WmcxdlY1b3VIc2hXbnVXMl9DNU9ESzhRVFA4RVlzUXpCbUw1ejVNb25KT29TNV92QVN3ODFNV3FJUks5bmdkcWVVY0VTSUxKa1pDdllfOUl1OWFEdExYSUFMQ196Zi1JOEZKTmNmUlFMYnhiam55eGhXVTN2YlduVWlIaVdK?oc=5",
+      "summary": "TCS expands Zscaler partnership to launch AI-led digital workspace platform Indiatimes",
+      "date": "2026-03-02T08:00:00Z",
+      "source": "Indiatimes",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "a29cf799cc46ed41",
+      "title": "TCS Expands Zscaler Partnership with AI-Powered Workspace Experience Studio",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPSEhwbWlCZ0Fta3dGSW5oM204Q0tLeXhybHlmaEdoQjRiR3lPSFozYUsxZjNBV05CS25ZRVlvUVB5cUdfRFJremhlajNVSWkyOFhtVVZLTlIzNno4aEpiTjBpaVZwcm5pb2ZxNFhWOEplTVJFbEM0WjFXNzdsSHJOMFJFc2hib1JtcUt1QlZCSFpWYmhxOGxza2ttS3A2RE5FNThhbm9fQUpZcE5BMWh4bHNabw?oc=5",
+      "summary": "TCS Expands Zscaler Partnership with AI-Powered Workspace Experience Studio Analytics India Magazine",
+      "date": "2026-03-02T08:00:00Z",
+      "source": "Analytics India Magazine",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "9606a55086003e90",
+      "title": "TCS, Zscaler launch AI-driven workspace platform for enterprises",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOMktxQ0JCMlFvVVlrSFIyV1Zpakl3dGFMYVlLWjE0OEJ1OUx1b01ISzdiX2lXS19sTWh4TWVEbkZoTFJTTF9zQ3ZiWnN4TG1DRGJLc3M5QVVZc2hwSDBlNXUwaXNUTktsX0hyNHF4MUl6ZkxrdzBRN1NmeGZLam9lZ2lzbm5kbFZiZWQwcDk2QmxuSE84Y1FkVVhsWEJQVndOdUhZ?oc=5",
+      "summary": "TCS, Zscaler launch AI-driven workspace platform for enterprises Techcircle",
+      "date": "2026-03-02T08:00:00Z",
+      "source": "Techcircle",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "d7f99e03d0c3b0ca",
+      "title": "TCS and Zscaler revolutionize digital workspaces with AI-powered Experience Studio — boost productivity by up to 30%!",
+      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNcTFrMllYZFBVd2ZkeDFWVXBsZFZiMWh0TzllQjJzUklqREhXSTlUMXppT3pSVlVHSWFuY0h5WjdyckQtOGNVS3BGd2RQTFRYY3FMVXV5Sk9WNFlQSjdhWHVET2NBMHdwNElsaFNidzFNX3V2UENKTUZJeXhzX0RxRnh2Rm1PWWxCc0t4R0xiaHlWQ05SOHllMlpZWTd4T3BwZVdWMmd1Yjc0N3JnY3dGV3JwVXZTQlZjMVd2d1dYZlVXVEppQ2l1bV9vTnZDOWJjUXNzNnR3UEdZbW1ES0pMb21EWGR5UWVsTXc?oc=5",
+      "summary": "TCS and Zscaler revolutionize digital workspaces with AI-powered Experience Studio — boost productivity by up to 30%! Indiablooms",
+      "date": "2026-03-02T08:00:00Z",
+      "source": "Indiablooms",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "bc7e21672c54034a",
+      "title": "TCS Launches AI-Powered Workspace Solution with Zscaler, Targets $160 Billion Digital Workspace Market",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNU3RnR251cmhXMDhZN1VCbVNMMmE4S2l3ZG1RcHdibms5ZVF0YjExeDNaNGVJV0JtQlNBSC1tNjZsMHNmYUdobUQ4SVFoMnJ3UFFhQVpvR25sQThOVWpTS3hnVThVNDQxZFYzT1lVREpwVnpfSklsOERuMlAwUGNEcDhLYzNlSlhXSHp3Wmk4WmI1VS1nVk1pVTZ6U0tiUk5tcDZWMi1icml4dmIydDN1ag?oc=5",
+      "summary": "TCS Launches AI-Powered Workspace Solution with Zscaler, Targets $160 Billion Digital Workspace Market PSU Connect",
+      "date": "2026-03-02T08:00:00Z",
+      "source": "PSU Connect",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "07e2efbac4b19bc0",
+      "title": "Tata Consultancy Services Expands Strategic Partnership with Zscaler for AI-Powered Workspace Innovation",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPNUNUNURLVG5sU1lMd0xKMmVnYkxTVXRaeVBhTTNuWmd0UnJtOTVQTXpqbzRFbm1oMGxMX3JXa1RFY09DOTNvWkNONTVBRWhnei1meW5OcTRPYk5wNHlleHA5ZEVXM1V3WVB1UDdIb0FXZm9yMEhFLTJRMllpTU9NM1lES0lfVUZ2OTJJNkhCSm5DOWJrcWlPTFE2UVZwZw?oc=5",
+      "summary": "Tata Consultancy Services Expands Strategic Partnership with Zscaler for AI-Powered Workspace Innovation InvestyWise",
+      "date": "2026-03-02T08:00:00Z",
+      "source": "InvestyWise",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "238aa1fbc13e62e1",
+      "title": "APT37 combines cloud storage and USB implants to infiltrate air-gapped systems",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPZ3A4VTNwRDB1aFk1bTkxNmRmUFl0Qnk2ZE5pTEZ5eTR6N2ZyWGllX3lUNHR1Sm9Hb3FfLUhpeWhDX0pQZmRtNUdFR0JrYnRvRG5DLWhHUW9OME5EeXB5OTBrdmZuQ19naHZaQTFSSmJxQzRaTGdYQXZHYlI3Y3NjQmhzVkRwMko3OFRrbWpsYldDMTJWTi1LenVtUGU1VnFydk9UM2g0RlpDeEdmMUJYQl9wVlVaTDlULXNJZkdPTQ?oc=5",
+      "summary": "APT37 combines cloud storage and USB implants to infiltrate air-gapped systems Security Affairs",
+      "date": "2026-03-02T08:00:00Z",
+      "source": "Security Affairs",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "5fce7361622f5720",
+      "title": "Zscaler Stock Drops 12% Despite “Zenith” Growth: Do Analysts See a Rebound to $365 in 2026?",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbHZTSTZhN0ZkeThkbDB1WWZKZk0zelVFTDZIZUZhOXNfdzZhUHByTUo0Z2F6WXVaeWcyUVBoaGtYd01uTktXcHYzOXRSQlRLZmpHOFJrdWgtRWs0UlVEU2dEbFI1M0M5b01xR2NIbktzaGxiRU83Z2dBaHJZS1JqYlRQOXp5LVJwR3VPMTZUNXFQT0ZiZWpLS0loYS01WDBXRFkwVGsxakNPd3lwNUR4NkFlcW8?oc=5",
+      "summary": "Zscaler Stock Drops 12% Despite “Zenith” Growth: Do Analysts See a Rebound to $365 in 2026? TIKR.com",
+      "date": "2026-03-01T08:00:00Z",
+      "source": "TIKR.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "f61eb620f6829ae8",
+      "title": "Zscaler: The “Rule of 62” Conundrum and the Cybersecurity Re-Pricing of 2026",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOUzZXc0lkeng0Xy1NaTdyLWNLTXQtSVA4S1k3akRGNS1id2pXMXpjTnMycVhKZEhKWnQ3Q09QUkloSGdqTXlZSUdHZWt4SDRXMEZSLWNyYlJLa0RLZms2cjBUVFhwaTZqNW9LTXZMMi1TZUZGbTQ2bVJBZnBnZmV4Uk81eVYzNUl0RFBQS3R0RnQ2TEYyOFhaajh6QnZfcDJGc1c1Zjk1VTc0WDlhQk05aEQ3a3F4OHRsVFQ4ZGc0YzE1S1d5dFR6Y1hOOWZ6NVNDeUJCdWRobjZfY2FX?oc=5",
+      "summary": "Zscaler: The “Rule of 62” Conundrum and the Cybersecurity Re-Pricing of 2026 FinancialContent",
+      "date": "2026-02-27T08:00:00Z",
+      "source": "FinancialContent",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "96f2afa71c65e633",
+      "title": "Zscaler Q2 Earnings Surpass Estimates, Revenues Increase Y/Y",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOTkNnckpQV2lxYlJkek9lbGxxbzFoT0YyVUY4X0htTldXTTV5anF0R21zWEZNWnZOOFhSVlBCNG5uN01qUGVtOU52Yl9IVHZZUHY4UDBuaWxMQ0lrZlFrT0VQVXJ3dTdIRWRPbWhOT0Z1ejE4LTRFMEktVElSd3VGVFNmWkFGUm5vVGVtbjNqWDYwbmNzV3Mzc1NyOGJCbWZpYm1sOEVoZ3ZXblpWUXFNVVBVbFBwUQ?oc=5",
+      "summary": "Zscaler Q2 Earnings Surpass Estimates, Revenues Increase Y/Y TradingView",
+      "date": "2026-02-27T08:00:00Z",
+      "source": "TradingView",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "b5484bfb34b4ba74",
+      "title": "Zscaler to Report Q2 Earnings: What's in Store for the Stock?",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNOU5nMVU4NGl5S3ViYm5GNTZETEFOTm9WblVpbUtscXJmeHZILV9ORThTVE1vNmJSNjFTY0JhS05aRktBRm1QZ1pWV09lZDN6SndwVUR1bmh5SUYyOHdaOEozckh4Q3U0NEw3STRydFhyY2sxeWd2OWtIUV9Xc3JmU3JxTC1KRElNalQ2LWg4ZFVOcklPaFhDWW5idUVHUXZSV3haX1dwR2VNTHRmTVI4bGM2NGZPZw?oc=5",
+      "summary": "Zscaler to Report Q2 Earnings: What's in Store for the Stock? TradingView",
+      "date": "2026-02-23T08:00:00Z",
+      "source": "TradingView",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "2217201607d768cf",
+      "title": "Zscaler、第2四半期決算を発表へ：株価への影響は？",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB0OTcyLUlJNzJjY3hINjJpTndTbDV6d1ZUSlNlTDNRcFo4M2pfa0pkdVBqeFVqem5oNUZ3NlViaEZxb081dUVBbEZyTzFuOFZSX25PRHIxYW5UcHNQYU03MFJB0gFnQVVfeXFMT1dsRkVKckNGX09iaXN1M2dFQkUwUk9QUHFtUkU2OGxka18zVFlTYjBIck00S0FYbnZOa2xhVlkxTXFyVmJOakVZczhyb0pRQlJlVjdzVnhQYTRoeWJ4M3hJdkd4WV9OQQ?oc=5",
+      "summary": "Zscaler、第2四半期決算を発表へ：株価への影響は？ Bitget",
+      "date": "2026-02-23T08:00:00Z",
+      "source": "Bitget",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "1e256a635162b68e",
+      "title": "なぜZscaler（ZS）の株価が本日下落しているのか",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9iZzFhR2o0ODl5S294TDU1Q1dySjFlenpuOVBPcjhVM1p4dE5HS2lxbERkb2NEMUtRRXhZWEd4dXZGeDNHRnNZQVlVZ2twMkxNVU9GX0ZaTU9udjh5dDduNzhn0gFnQVVfeXFMT2pMVlRXZV9Sc0xBdWxmYmw4ak85SWdicVg1TG5rTzA4OHhhZGNxVDk5d2ZaTFkwT015MlNuaWswdjhUN0tUWmE4ZzVxdk1yLTdXZXM2VFJnX0RZMHV5OWhScFljd01mQQ?oc=5",
+      "summary": "なぜZscaler（ZS）の株価が本日下落しているのか Bitget",
+      "date": "2026-02-23T08:00:00Z",
+      "source": "Bitget",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "63732600e4143221",
+      "title": "Zscaler and Airtel launch AI cyber threat research centre in India",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOVVFhNXhDMTRxT2o4MlJsTnpYN2RRNmhQX3VqS3ZQb2l3bHlPc1otX3cydDZnYlFOeXJLaVNmdy1sR3JBZWZtNjh0WFFBNnMxU2Z1S25CZFNwWUJYb2NoT3JXeE9TbGFpUk43SjdqcVpMTk5DYVJnZV9jaUhQY1ItN3BqdzBsRXkySHBaX3I5QWsxU3l4X3VIUExqZUNHWjlldm5zVDFYUdIBpwFBVV95cUxOVVFhNXhDMTRxT2o4MlJsTnpYN2RRNmhQX3VqS3ZQb2l3bHlPc1otX3cydDZnYlFOeXJLaVNmdy1sR3JBZWZtNjh0WFFBNnMxU2Z1S25CZFNwWUJYb2NoT3JXeE9TbGFpUk43SjdqcVpMTk5DYVJnZV9jaUhQY1ItN3BqdzBsRXkySHBaX3I5QWsxU3l4X3VIUExqZUNHWjlldm5zVDFYUQ?oc=5",
+      "summary": "Zscaler and Airtel launch AI cyber threat research centre in India dqindia.com",
+      "date": "2026-02-23T08:00:00Z",
+      "source": "dqindia.com",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "b6b3c4e382694cda",
+      "title": "Bharti Airtel, Zscaler launch AI & cyber threat research centre in India",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9iYS10WmN0NXJCZ0hrMl9JNXRLUE5JWGhZYkdmbDFUNnM0ZVRvMnZuSXdVMDkxaDdvZFVtTUR0UGxuYnBWbC1FaGVBUFlSbWh0ZTBidERqaU9SNS1sdEpZZVVDeE1YQW9FUC1tTg?oc=5",
+      "summary": "Bharti Airtel, Zscaler launch AI & cyber threat research centre in India capacityglobal.com",
+      "date": "2026-02-23T08:00:00Z",
+      "source": "capacityglobal.com",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "c570b33c5b570993",
+      "title": "Zscaler, Bharti Airtel launch AI-led cyber research centre",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE83T3BQcHlyN19PRVg0ZXBzR242V3A4SnV3VUtVWERjV3FYN2NmcTAwc0tQX1o2RTB6UUN6UHRUMGZMYU5TNnFGeDUtNkZ6a3VGVEx1Rlk2SXRqTjBoVm4tTEdtaFA4dXlkY05vWXhWcXdlLXJSR1E4?oc=5",
+      "summary": "Zscaler, Bharti Airtel launch AI-led cyber research centre Manufacturing Today India",
+      "date": "2026-02-23T08:00:00Z",
+      "source": "Manufacturing Today India",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "3793bd20d197ede4",
+      "title": "Zscaler, Airtel launch AI & Cyber Threat Research centre in India",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOM1FGRS0xSW1hd0ZucldRUUVLVmNhT3M3dlZ5eUlnVFV2cGVwSlNVTGpMLUhvWVRwVjMyUWxUcFhWUU5vbXZrUFJVVjVUMmUwdkhzWXJQMEIxdWtmVkFGdkktR0Q1TTNaUWQzR1diMHk2MjhPU2dqWlRHWnVNQXpyNjVpXzZITTU2RVVOcE9hb05jdjVmQU1lREJZclBGbXNxM3lHbVln0gGqAUFVX3lxTE5tZGpZWndWaXRWbFM4dTA4X2VhbkZtR252ZHNLNUU5aUpqamI0dnBfajlRaWMxc0prRVlTMkJfcXY0VWZxV2pZY1QwTlR1eW1CSjRTY0RlUEVKWDYwSlZQek1NTzZ6bERlSGVJSXJicmtVSURBUVpnN2hVUFlOZmZIWlR4OU8xZ3VCYThfc1ZZTzMtU0NVNlRfWjVqLVAycWRpdV9rSWxucXRR?oc=5",
+      "summary": "Zscaler, Airtel launch AI & Cyber Threat Research centre in India Greater Kashmir",
+      "date": "2026-02-22T08:00:00Z",
+      "source": "Greater Kashmir",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "d8fc9dcde7ab8ce5",
+      "title": "Zscaler, Airtel launch joint AI & Cyber Threat Research Centre in India",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNXVtZ1lGc3paTWtOTHU3TDlRejdrbWgwaVVnQWZnNWo2cFh1SFZEREMyNllBcDFXLU1NcC1JUktaYUNhNlp1aGFnZkdPNFM2UjFualVVUm1YdHBnX2VmdkJBLXB0bjg2djI0dWdmQmVqeGxCd0VwOFdOX2ROM3FhUGlUT3YwWWtUTzNRQXVhQi10WHpmNWxsc09VSWNGTnh6Umk5VlhuSFd0akh3VldJSA?oc=5",
+      "summary": "Zscaler, Airtel launch joint AI & Cyber Threat Research Centre in India Telecompaper",
+      "date": "2026-02-22T07:39:05Z",
+      "source": "Telecompaper",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "2cd7d7a1e41be5a8",
+      "title": "Zscaler partners with Bharti Airtel to launch AI & cyber threat research center",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQR1FTbjEzMnljTXBQUHRCb0JZY0hLYzhwU1NLNU95UG15cmZzRHRJUE1mYW9weVc4YnZ3Vl84Vnoxa1cwei1WQXo5RjdkQm5fUy1BMUk5aFNoU0tRWTlsemdiZ2hHM25NV25UQ0loRU9McmM4bG1keV9iVlNjOFpEaE51ZXJkc3B4ZFY4bHFMUV9jU0VTejZocEUtOUd6a3dPdWp5RWQ3UThOR2hhd1VIaWUxcVZnQm9KUE1tZHZoVEtXVHY4WHlYUTc0N0wwektO0gHWAUFVX3lxTE9PVEx1cVM4c2NPMEtvRzA4QjdNalpyMm9YNFNtVG1QQWNCel9sbE5RNkp1SGw5a2xoRnhmTXMxS1RIeHc4ZTlISEJfS1NKS3N5ZEF1TUdYa2tac04yQ0xfV1l1ZTNoN3ROUDdSSTZjVkZMVVdwelhLaG1SS2tRM1VzQXpvc3FLRWNrSmJEYkpzWGZpTkdUcE1HSGRQVnkxbjFuRXhGY084TWsxQ3lneFlfbWkwLUFHMHBnakdLU0VwdUJ2bHd2ckpwUzZiYUxIVTVJZHNFX0E?oc=5",
+      "summary": "Zscaler partners with Bharti Airtel to launch AI & cyber threat research center Mint",
+      "date": "2026-02-21T08:00:00Z",
+      "source": "Mint",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "dc804f78731f62f9",
+      "title": "Bharti Airtel and Zscaler join hands to launch the AI & Cyber Threat Research Center- India",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxON2VHelNHVC1sOUFxRW5ldHgzZy1hMDJySC1lbFM0R2haMllzV2RUUmp6SFR5ZlZTdVc5TktteTNaQVkwdDhqZ3M1Nkx5M3VuSTRBTlppZi10Z0VyZUhYNzJ5NVJVWjJ6bmhHcmNjZFBVdlNNS29qMUV3UnE2Sk1DcGR3TXkxSFk4WWdkYmduZjNvczYwQTZRVGFwenlveU92NmJ4dWh2akFCRWxSaVMzZjdKTk9DS2gzRzY5d3ZYejQ3UF9qREtlanRsUVBzUmc?oc=5",
+      "summary": "Bharti Airtel and Zscaler join hands to launch the AI & Cyber Threat Research Center- India The Tech Outlook",
+      "date": "2026-02-21T08:00:00Z",
+      "source": "The Tech Outlook",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "cdaa2adf33189dc5",
+      "title": "Zscaler and Airtel Launch AI Cyber Center",
+      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNcFhtVjdVX0tndUoyWV9hMEJGSzhNTkUxRmd5YjQyM3dXeFpxd1cxdFd2SE9DOFR4Y0RMNng0dURjcnhZenVnLWluQjdYVUU1dDBrZUpjN3RQelp3RUM0bE1faEVCbWp2TFA5QW40N0RWWTlKeTJEbGFLQ1VhTDRxU3JrN2trdHhHaTVDdzJvSUlVTEREeHZuMG4zeTMxSjhmV1ppYjI3OVlFMnlzWXlxZVozWGRLV0dBbTFXY0xFUGJqWmZUSjlabEI5SkZXWHpoSHkxOUZIMHQ5OWVsbzNYWDdzOXRBa0Q4Z1JKVnI3YnlrczZldlBJWHBpZ2s5VWEtb2c1Uk5aSXo?oc=5",
+      "summary": "Zscaler and Airtel Launch AI Cyber Center Passionate In Marketing",
+      "date": "2026-02-21T08:00:00Z",
+      "source": "Passionate In Marketing",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "301168390b5a45f9",
+      "title": "Zscaler, Bharti Airtel Launch AI & Cyber Threat Research Center in India",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOX0o4ekY0d1lsdVdSdnA0T1pwdFhBQU95aVQxODJYMThfNE1aSUlqVG5meTk0LUFub01FWWVkdlJWeXZXZkIzd1VaZTA0ZV9fai1LTUV1X18zWXl6VkU0NjUxM1M1bXFRb3kydmV2RGgtSWJKQ1hZbzdXRmtWMmRUM1V6c0ZleUlGRktUenAzZnJhazJqVy1sSHJseTR4bDQ?oc=5",
+      "summary": "Zscaler, Bharti Airtel Launch AI & Cyber Threat Research Center in India Kashmir Convener",
+      "date": "2026-02-21T08:00:00Z",
+      "source": "Kashmir Convener",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "8f2cb9986d9d538d",
+      "title": "Bharti Airtel Says Zscaler And Bharti Airtel Launch AI & Cyber Threat Research Center",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOZjN0ZGxSRE5QNUFiZ2lLWW5hQTd1NkY1QUw1WlpXbEdLS3pZOTRVX2hvTUU4SFBHeGI3ZHdpem1lQ25OYkp4LVB0WVhvNWIzSUJDYTdhcWM5TTEtUGFHaGtqYVdRc09sYjBaeEFWdEZrTThpbHNpM2FDOHRoWUM2eUxmMjBWMTlhWXczbUlXbklrT2dQdVRidFN6R3BGZURfa252RFh3OXdHc08wTGxJbzA0VzhEVXdGOXJCaUVUV2pYWE5NTlMtUncxT2lwZ3p5UnRVTU5kZmRPVUl1bC1HYWRWQWhNZjdt?oc=5",
+      "summary": "Bharti Airtel Says Zscaler And Bharti Airtel Launch AI & Cyber Threat Research Center TradingView",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "TradingView",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "c22594e65c32444b",
+      "title": "Bharti Airtel partners with Zscaler to launch AI & Cyber Threat Research Center",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQZVlmR0thTDM0d19IeUo4UnM2V0oyMWlGeW1HS2p0QUNUc3BaMGpfZ3pqZU9qVW1XSU1BaGFLUmFNcW9qbjdVeEdYMzZLeTNsOVpUellFQzd4TERSNkpUTGlqTVlfWkhFVGdYcDNhWGJYVlJrWFR6anVJVklkTFdkcEVvMU1xRUlpdHJsVlVDY194SUZBTFdfNTRnR1ZSNDluRVRhcXcxMTdhSEY3YjJ3Tll5U1dKRldoM0JCaEtwZkFid0cwR1EzSTBodGZkVWpLdGJaMFgteEt6Y0ZQMnFhNWRmLXpGb0VyMTFKSElKeDk2UdIB9wFBVV95cUxQR0k5TEk2bjBzQURYSTdTb3BnWEtHMGFkSUwteDFQWjFHX1RWUzlLcXFZZENuU2x4ME44cVFQdE9rR0xMbnROaHFSeGNENTV0MkU0SEREQ3lCT1BpajRRV0VIdGpRZFBCVHN5eUhqVzFBNnhzSlRFdWwyTU1jWFltX2NnM1FyVWU5bHFqeWhEZUFranM1dFhLdjFTLXZlLVhuY1N4ZTI1WjZHdVNCdkJQejB2emVLM0pYekFBYW0xbnYybkxya0dvNVhhX21WSkZPZG5zdkh1ZG53OXFrbFYtOElNdXFHRjZHUmVnRW8tQkJVdzVRZjlz?oc=5",
+      "summary": "Bharti Airtel partners with Zscaler to launch AI & Cyber Threat Research Center The Times of India",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "The Times of India",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "4e797e0ce9bc42a8",
+      "title": "Zscaler and Airtel launch AI and cyber threat research center to strengthen India’s digital resilience",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPLXVnQnlxdFNkTUtZTElYZ3dpNEw4aFIwZGVaMHVQRDg3cVVJRVRkb240YmxKWUtOT2YyR0duQUU4YThRcEFIWU04VmItY2x1QmZuRXdIdjNRZk80ekVyUHVXTjJZQ05MN1FMSXpoX3dWV2prYWFEUEZMU2hlbEtGZWxuc2d0bWV4dnMzZWJRdGxUb0xfeXFDZGRCaGRRb0pkZVZvSXIwbjA5Z3pnUnJuRnRfTFNTMzdldTcwV05fVll0enVFU19iYUlXaWk5REFTUW95YXlhZ3hxdXJJa2fSAeMBQVVfeXFMTWg0U28wVkJtbi1UU2tOUDBlbHl6UW1jcFZrMkw3dm9VdUFvUTBqbG1KSWdJT1BfOUNoeWlNSU8xTGhYbGgxS3I0R1NqRU9QR1dmNmpHNDV4dnV2aHFaOThCYlZFUV9kb25ZWG9vYkt6VV8ydXZrUVNvMzJxeUk5NW5Jd045T2JkMFZBRzRTOUM3MEJuREkyZGtmOW5pRVM4TDZKWnk0RGhvLXdMTDdoLWE1dEM4WHFIUjRJOVgxcHBaQWFRdl9tYWNqZndwb0xZU0RGX1RWUjVkQUpvcTQ0dEJMRjg?oc=5",
+      "summary": "Zscaler and Airtel launch AI and cyber threat research center to strengthen India’s digital resilience Express Computer",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "Express Computer",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "6caf994e4b5e04da",
+      "title": "Zscaler, Bharti Airtel team up to launch ‘AI & Cyber Threat Research Center’ in India",
+      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxQSktGRk1DSHBSVjFHTU1oTExjTW9zTmFuNnB6ZGdOdXBXeTlCRVdSYWVrSzhhZ0lTWmZvNll0S2pGZG01OGIzN19pNjdCRTZsaXdqU0NnOXB1bXloZ3ZhY19aWU4yZ2o4RUo1V1RBMm9IdEl6Y2UwYUxMcUEtXzRtcWpFUnp6WkxIWld0QV9EM05EN19HOUcwQXhUdUVnY1E4MHFEUndtLXFCcmhCOTZpdDB6RzZjQjUzb2NPMklCd0dtT2czNFJVWk0xRnBoc0RZQnhpME5OZU5fOXRSVGxOZWhFTUpvOUJienljdks1UFNiVEZPX1R30gH8AUFVX3lxTE1raFdiNE5GemR0SWpfQURUOGh6dnhvSzFyclpHRlQ2S1o4Yi05bnF0RUx0aWVaYXFWSExHSWU3QlFhMDBacWMtLThnOVdXeS0zazBsbmptS3hZUGxqTTdMYUNHdVFIRi1oM3VCUU4xa3p5S3dvN1QyZWRVMzByaDVQR2NncGtYZTVSWXRWejZFN09OSGxibkJ1cHNmRUFHX0xENGo3d21CU0hIRFd1cXFWaEw5SVk0SEJrOVJpR3dwcFJlbkVYV20wdjV3b0I2dS05MzFOTFdNbWNPajJUZ18xZVBpV3UyWkdmbWR3amZMNDVmQmJTS3dkaE1pYw?oc=5",
+      "summary": "Zscaler, Bharti Airtel team up to launch ‘AI & Cyber Threat Research Center’ in India ET Telecom",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "ET Telecom",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "63b478eb9f6fa3a0",
+      "title": "Zscaler and Airtel launch AI & Cyber Threat Research Center",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQbU5NaElRcmRkY1RxVElKSmczVWRsWXhCSU4zdjRqaDJPeGl1M25qVXR2bzhPbFh3MDY2eWdUcXZzYmRkVHlFOFB1aUFONEdNQnBGYnRQRm5BYlRiTmJmRVUwSlM1VTRuOUszc2hZZGtHcl9UNFNkcHhiMnc1SVVuak1kWEdLX1FDdjY3Q3FyMlJkbU96T0RMYnJxNmxZN2c1bHfSAacBQVVfeXFMTzJZX1dwT0hpRmNTc2xPaEcyZUJ0b2g3RldiUjhETEdlWktkWXNCbHVveWc0YUdURF9VY1VraExDOF9tS2ZhQzBmR3ROdHd6NS00a0hqNUdMWHcxVlBjV3BGWl9fQ2dBVklrNXdGdTNrRlAtYUlpM1YzaUtvRjFfQ0RUZUFoYUFPTlo0dTFLTF9meS1OeFNISVIyQkhUc1FBWkNPTUFpVzg?oc=5",
+      "summary": "Zscaler and Airtel launch AI & Cyber Threat Research Center FoneArena.com",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "FoneArena.com",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "821afd0f300e83ed",
+      "title": "Airtel partners with Zscaler to launch AI & Cyber threat research center in India",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPaXJTdkVma1c3YnFkODE1Yy1CNkRDNzVTRVNZSFV0VGhVMTRjVW02TlJCbUVnOHNpRm5LcUw5ekdhbTFFckJSaXZVUE9ZejRud1BNWU1fRXRKWlM0V0JrOWxwTm13bTU4eV9GUXFzMWQ1UjdKaGsxR29RT0pJSzFHendfZEczbDJoZVg3RDdiUWhMZUxURmdLS3JpbFdEOGRpa0FjbVZhYnc2ZktNaFhfUXJKRkxEdmJ6cmFmdzJPZkQ4QVJGZFVQZGVTWHpmZ9IB2wFBVV95cUxOeVlFREFUY2hoR293dVNlVjhmWkY3Tk5rWVJGY0NVSU9XeldmWGpFODFzVXZ1U0xzeHhodFJQZUhPMlNBLVBZOVZHVUtNVTZsSC1pOTNURUpidXZOcUhXWjBkcDZibFFrVUpBZjZEVUtYamI4bnFEVVlJdFI5b1NUMFN3WGlDWmg3Tl9aNnJkaV8ySDlkSHU1MzlOUzhFWmZSaTkwM19TZG42VzM5VmNvb01NMWo3eDhlaHBxZ2ZwT3Nxb3RRMXhOLWtobUJ4V3JmOUw4MTN3OWVHS1E?oc=5",
+      "summary": "Airtel partners with Zscaler to launch AI & Cyber threat research center in India The New Indian Express",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "The New Indian Express",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "47d47905c18ef315",
+      "title": "Govt weighs new cyber framework as Airtel unveils AI Threat Research Centre",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNU2VUcWVxT2VDa0NTTlZtY1lfbTQ3YmVkeFNDUENmSHpQYUdDcnpYdlpTMy1PSmlUMkhFZmxHM0tOYTJnVi04ZGprc1pEbnptdHZLYXJCS0FydlVDdG9BZGdibDZqYmFkcDhNRnNFak1yMF80dHByeGtZb3Q5ajJZcm9KMXNkcXNyMnUtUlByb1VzckttZXFiNC1CeURPdlA5SzNFSU0wSXlzeE91ZmZ4Y200dGhqT0xOcnhkeURzd2YyVUY1MG9ac1h2OXBXa3ZTUGRad3hWSHRubGdrZmk1NNIB5gFBVV95cUxQMVRORkp6WE5qQWdPSHdCaVBpdDNOV2R3M1lpSFRlLXR1WlNzdXA3dmZPeDl1NTUxY0VxcmR1dG14Vkx1U3hLdjBhOERDQjhlV3dWXzB1NEdvdlQ4U2xrN1lPM1pXOXB3dWFFV3FHTzF0WlRuN2ZIamRtX3F0ZmJ5VnBJRG5MYmRWQWdHdktvcHVTS2Z1NFIxOEpjQUhValNOUVg2aHNRTEZTOWl6cjJSQXkzUTNjekZRQ3VKamVTM01GTXVnZHRmVFRaT0RQbk1IakJ5UU5PU3pRQjItZUNoMUplNG5qUQ?oc=5",
+      "summary": "Govt weighs new cyber framework as Airtel unveils AI Threat Research Centre Mint",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "Mint",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "968f36f755b16ef7",
+      "title": "Bharti Airtel, Zscaler launch AI and Cyber Threat Research Centre",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQOTl4SVlEQlByeENZcm5vYnBYa3JjRlhfWFFDcmhYVnZoTVlpQ1JhdXNCM2tqclFfU0dGZjQ1aHNVMVdsTWQydWFDS2pzVldiaHFVTG5DV24tcmFZOEM5YjhDZllhUFFFRHhwUzh5VGREU1Z4eGdKQkxoeGZPQmFJc2FSVkp0UVN3VEVnQ3FLY2U4ZU51T0g4eTdCcG81WU5QaDY4N041SVRONlZwOEUtR3BGVk9ua0stSEo2NFA2R3QyNG5kSVNwWXdIUzlkSjQ2NXFkdW9B0gHbAUFVX3lxTE5FWDFfdlVSU1ljYUdwbGx6Zmd4NTRmekxXblZ0a2pPRllTdzREUGZ4cm5Hd2Z4ZWNTdTc0V0RnNXBVVWtpQ1hpOTE4MUFXV3BrOUhQenhXVjJ4SjhUZzB3QmhTMEJVOWhvOUFRdUpUckhUSmIyUmRnS19wN0dxbXZlQVRIeEFKendjc2NjdjFSdzVoVW02SExlakZJQ2d1eEtmQXRWS1NYTk5mTkJHeXA4eEJDbUVqalM2OFcxcXFkUXVPeDk0S3QxN3VSQnU3clBJd2UwVFdhbEVxbw?oc=5",
+      "summary": "Bharti Airtel, Zscaler launch AI and Cyber Threat Research Centre Business Standard",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "Business Standard",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "01cf80fd9773d4bc",
+      "title": "Bharti Airtel launches AI & Cyber Threat Research Centre in India with Zscaler",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPamFFQUJlWnd0cUduanRvRFF2cU1mS1NIS0J1VDUzYTkwUXNHNzl5djN4Si1PYWRocXh6MUdCQ0U3RDItNmRfa3ZQU0JxTDlGZEZYdmhPa0RYN2VGTk0yY2ZtLUVqRmQyOThYWk9wTkRxbS1iWWlsUzlOREZ6ZzQwbXN4MkZSMXI0OEhxNEpIdEZsOWZTT1ItdUx0VGpURjlaWU52YVNKWVFjcjExUTUweUQtZnZPcHVoMHB4UnJZbjA4bmtISzJIZHFCajBlMFRSUXlxQtIB2gFBVV95cUxQeUxMWTkzWnVrRVlnczI1aklwNU1ZRlhGVFA4Z3R2SlA4d0VkbU5jUDFJWHBKMWp4Rm9aTlJuWmt0X0xzdkcxUVpJbmNkdXgwcDhRWTRxbFVxakJ4U1ptcW5keXVTX0hGdG9hbm14clFyVkhUWXoxVWI1VVFLX0V4TU9Udmd2V2Z3MFVoc1ZCb1BHcGVFSUpDb1QwYjZGVThITW5aSDdYWkIweVA0UFI5VUR2U1B6ZlgtNzRRcFJiYVVDOFp2TWFDTDRjcWRIcUNSRGhKVUsxaVNFdw?oc=5",
+      "summary": "Bharti Airtel launches AI & Cyber Threat Research Centre in India with Zscaler CNBC TV18",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "CNBC TV18",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "e4170becf6cbfa31",
+      "title": "Bharti Airtel Partners with Zscaler to Launch AI and Cyber Threat Research Center",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOQW16YkVSYy02aEVMNDNGZ1JiWnZHT0h4bjZCaFN4REFidWRITm9wM1hHRnRaRUlEUnNYeGtFZV9DZ0RtcmZnMW9LU2ZwbHVJazN6azk2NVF5ZlBGdXdJVDVTdzJ0Z1RyWHhOXzZpR3NTOV9PdXVnNDNBVG1NQmFwbzB1MHR2YkdoQWZRU2c3al9tOXY2c0QwaHNoZmh0ZV9ucFZnMjNuRnpYanJPZ2kyQVRBYk42RzNvZy1aQmszZmotaURGV2ZvaFBTYzU3akJ0?oc=5",
+      "summary": "Bharti Airtel Partners with Zscaler to Launch AI and Cyber Threat Research Center scanx.trade",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "scanx.trade",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "3d03d5506b6421d2",
+      "title": "Zscaler, Bharti Airtel announce launch of AI & Cyber Threat Research Centre",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPOGlNc19EcHZBQWczTzc1U0lqVkMxZU91NE9kNnYxeTZpMGlLdDB2SGt6QlBQZTVueHQyUm9VeG00VE9zR2h2U3dDa1hFamJrblJoTjN5MHZ5Y1YyX0NRZ3pmSWF6b040dWtydGRyZ1RCRE1MRUtDRjkxOVliV3pHdldDeGlnN0hBSDlSM1FrS2xYYVA1ZXJvX1J3OVVXUUlGR2t2a2FQdHozUGFnTDByOTl5Tzc?oc=5",
+      "summary": "Zscaler, Bharti Airtel announce launch of AI & Cyber Threat Research Centre India's News.Net",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "India's News.Net",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "ce80bfc33a197377",
+      "title": "Airtel and Zscaler Launch AI & Cyber Threat Research Center in India",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPR25BLVVPYl95NmNubUNaSHQ4ek5zOTN6dUFhYzdRTmV0Nm9mcC1wWFFXVm9sRW42SWVPT0NSVVBFd3k2aVE5dy04LUluaFpUa2dlRkkxNE1BbjB5SkJ5ZG1QOXFaN1lqTEFwb1lsM3VvQ2dPc3RScmhCTTNYbDhUOXNIdkRrUko5cEctMHpXcWx0SzNKOE5nQzFqelRBX3p4cHc5b0x5MFRSNkk?oc=5",
+      "summary": "Airtel and Zscaler Launch AI & Cyber Threat Research Center in India PSU Connect",
+      "date": "2026-02-20T08:00:00Z",
+      "source": "PSU Connect",
+      "category": "product_update",
+      "tags": []
+    },
+    {
+      "id": "5639c7ceb0f42144",
+      "title": "‘They are able to move fast now’: AI is expanding attack surfaces – and hackers are looking to reap the same rewards as enterprises with the technology",
+      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNd0ZicExFVzhSVDAyWUFkR09CRDgxWElrV3FxX2E4UkcwY3h4cWw0T2gzZFZKdnRQa2llLS1uYVlKcnJtVnRzSWdBRjI0MC1DR052VkEyODNsRDkxZTBxZmtETjBxU1J2aVVQeGVkeEEwXy1BM0JvdXNXcXBBck4zY01zajc5dDRSNjYyZEdaaXJjX29zNHpSMlhZN0dwNXJvVm5xZlYwYkQ4eGhvQnppX3F4eHJBazJfZkx0NnN5MFhpQ3V6c0o3dm5iVDN6dHpvSTl6UmtDODhLNWU0NTBPTnVCSXc4TXF3YnphT2hsUFpmRUd5YjdaTGFrY281QlA0Nms2X01aTkE?oc=5",
+      "summary": "‘They are able to move fast now’: AI is expanding attack surfaces – and hackers are looking to reap the same rewards as enterprises with the technology IT Pro",
+      "date": "2026-02-16T08:00:00Z",
+      "source": "IT Pro",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "4d33db49a5af3a00",
+      "title": "Down 18% In Last 12 Months, Can Zscaler Stock Deliver Strong Returns in 2026?",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQU1ZMd0ZzN0stQTRaMjJYLVlmYmJhNkxrcWI0ZEt6S3JaLXF3anVDUGtKWTZRUHFYZlNURTgyS2h0NVgyUXhPdkkxT1dneGZDYVFESXRCeEswREgyYWVOUmZDTWpITURnbThQOGZRaUFxS2x5bm9OUHN2STFNTnhUUU9maDhrdTByMmQzaXJKVWhhbTJtRlcwbl8tSUpISVloaFd0c3BZYkRMRXlxM2hN?oc=5",
+      "summary": "Down 18% In Last 12 Months, Can Zscaler Stock Deliver Strong Returns in 2026? TIKR.com",
+      "date": "2026-02-11T08:00:00Z",
+      "source": "TIKR.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "38dd00b945e9ca37",
+      "title": "ゼットスケーラー、SquareXを買収しAI時代におけるゼロトラスト ブラウザー セキュリティを強化",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE16c1VFZEFpUS1OaS1TcWRNVWZIcGdaWTRBajdndVVLSkozX3A1RU9UcjA4bU1RX01rb3B2UGhzeVlBaFFSS3djVlVaRUsxTVI1ZU9KcDhvR1ByX2ZLTDMwT2xPNGR6UjVxWlE?oc=5",
+      "summary": "ゼットスケーラー、SquareXを買収しAI時代におけるゼロトラスト ブラウザー セキュリティを強化 PR TIMES",
+      "date": "2026-02-10T08:00:00Z",
+      "source": "PR TIMES",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "418283fa0cabdea8",
+      "title": "ゼットスケーラーがブラウザセキュリティのSquareXを買収|セキュリティニュースのセキュリティ対策Lab",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPbEkxUjNDY21Jd1VhQi1Bd2s3ZVdlX3hUamUxalhrT0lsM0RpSGNBZFBhMEwtUjBaRjhidkVuM2lhWERIMVEyd2htM19iMVJNTHB2azdwNF9KV1FJbDVvUmhQdENjR2RPNjRkZjJLc2pFaUxlM3hYR1ZaQXpTX0xzTzhodXZ2YmFpVVdoVS1wa01xUUNEeEtNNWpGeEJSeVU?oc=5",
+      "summary": "ゼットスケーラーがブラウザセキュリティのSquareXを買収|セキュリティニュースのセキュリティ対策Lab 合同会社ロケットボーイズ",
+      "date": "2026-02-10T08:00:00Z",
+      "source": "合同会社ロケットボーイズ",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "64af8ff632c4c809",
+      "title": "India leads APJ in enterprise AI adoption, ranks second globally: Zscaler ThreatLabz Report",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPWUY5V04zcU1EdWJXM1BYN19tYXdEMW5yV0RPczJUcS0tVTd5bmI4cENvMHVEY3FIZTZEeGp4dTltUFN1RW5MMTZQR0hhVGdhRWptZDdEYlZkVFhmMENiMDV2LTVPS1pveUlWbFVrOENZS0U0NjVWSTFmck1LTUdaa0x0TExQX0xsZVdRZ25GY01wRjZCWGtTeGF5V0IwbVBVWkIwNVJzRkszT2ltR2VNU1QyRGp1U0k5ZFlORmNWN3BTd2RQZ1hGcmhfQmNBd9IB0wFBVV95cUxPeDZCT3ZqRGwzc1FEYWdsOWNaRlZOZjVtWlJaM1RiOEwzcHQ5MzZ4ZlVqQjZEbERtNkpOTnhZbjV3UVNyUGx0TThFWHVMdmVJMnJzd2pmYUtWb0pXWHJ5X245ZUdBbUJTQ04tSEI2NzhZbXhKcXJkaVhVbENLLWN3ZkkyaHlkQkZKQ0ZVWjRyTGNTclZoYWpTeHljR3hkS0JneGtuTXlLUnc5OWJsYTR2SVZvaUtGOXRQb3h6YURpRE9Rd1gteHltejg0a3p3WWxkbUpz?oc=5",
+      "summary": "India leads APJ in enterprise AI adoption, ranks second globally: Zscaler ThreatLabz Report Express Computer",
+      "date": "2026-02-10T08:00:00Z",
+      "source": "Express Computer",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "2ebdaa9fae66c31e",
+      "title": "Zscaler Finds Enterprises Unprepared For AI-Driven Cyber Threats",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPRG9xUE9aRmNNS05XMVEwbnNDdWtrdmdxT3VrZ0xIN19yTno2ZTNSRDhuOW9HSC16c0xNN2pNaG1zU3RRd0VpSjBHaGlzaFQyenRQLVhKdXpjRE5kQzh2bUphSzc5ZVU0cmo3Y0l1N2pIVnk4XzZZUlR5ZHJUTHVnSHpZMURTd21JaEtRN25kcTdWRVJDUHRMM3VNSy1FUnVqZFJONVJ4QVk?oc=5",
+      "summary": "Zscaler Finds Enterprises Unprepared For AI-Driven Cyber Threats SMEStreet",
+      "date": "2026-02-10T08:00:00Z",
+      "source": "SMEStreet",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "b7dcfc23bd1cd71e",
+      "title": "India ranks 2nd globally in enterprise AI usage; security risks loom",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNUGpYREVMaktod0t1a29pTmhxQkF1S1EyQ3VfQjJBZHhLczJiT2FJUUJZNmVESlFjSGZRWDBueVZfYUgzejdWVGtoX2x4b1k1YUhRVl9nVkxWQVlzNmctSUFtdUpIX3h3NVhHQjRRWTNrTGdBWko3YTJ6dUxWN2dWUGpiQmZ1UGZpbXBmMjhsamprRTFzZGRZc0NwRy1oaXZlNU5tTTNuZk1EYmZRaDVHRXRwTnZMZDQ4aE80RWpaYmNKTmt4aFIxei1aTUZNTXc2eEQ2eWprM3k4VUt5QktqWU9JQ2VZVkM30gHuAUFVX3lxTFAtLU9FbkhWOF9uMWVZc0luc09Fb1YtUFhRVnB2WkhnNTBvS20tS2p6TXBOazVfS213UHNyaHNrcW5kdC1vQWZsTUhyUWpKWlJIWHdJZmYzZnAtbUZOYWNWRkszYktaZU1HMlkxM3F3V2ZsOWQxRVhkVUx6M2tPODJOY3k4LUZvU1BQWU5mUEQ4Vm9WcWR4RlpqU2dxamVuQjBpWkk3V1hHM3dWY3lyR1R3eEZCbmlJeEtQZW5yaFlFVHdZVWo1b0pULWxmY3hQd3dvb2JBZEpVbElmTDN4M2dCTnV2VGFxeXIxLW82MXc?oc=5",
+      "summary": "India ranks 2nd globally in enterprise AI usage; security risks loom The Times of India",
+      "date": "2026-02-10T08:00:00Z",
+      "source": "The Times of India",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "3c81e1f04dafddfc",
+      "title": "Zscaler Crashed 15% to 52-Week Lows: Why Analysts Expect a $366 Recovery in 2026",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNT19KTFFGX2l4SmswRGJkNWVFSG1qSl8zZEVfT1VsX2N3UENRY0UtU28tRlBfUGhsRGlQT002cjJ3VGoydmM2S1pZSF9NSlNiNmRHMm1EcEpMeVJ5aC1NS3hSelhJUGlSUVI3cEFZdmFLS2JSS2JrZmJtWThmZVB6X0Z1VWxpaGg3YkRHOWF2ZWktSnVORU4xNU95WmFUV0VLNGgtYlMxWTBBdw?oc=5",
+      "summary": "Zscaler Crashed 15% to 52-Week Lows: Why Analysts Expect a $366 Recovery in 2026 TIKR.com",
+      "date": "2026-02-07T08:00:00Z",
+      "source": "TIKR.com",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "3c25f74f96e4d687",
+      "title": "安全なAI導入には「可視化」と「制御」が鍵に--ゼットスケーラーが提供する、AI変革を加速させる基盤",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5wZDVxZ0ZnLXBVeF90RGJ4UlVjbENROEVFQlNjYUt0T3NiU2xTcFFQVGZWOS1lX2xGUjJPVnlYdWdhREhaNndHUl82OFdQQktNRldr?oc=5",
+      "summary": "安全なAI導入には「可視化」と「制御」が鍵に--ゼットスケーラーが提供する、AI変革を加速させる基盤 ZDNET Japan",
+      "date": "2026-02-05T08:00:00Z",
+      "source": "ZDNET Japan",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "ff1329086ab3db7c",
+      "title": "AI Security社、クラウドセキュリティ分野のグローバルリーダーであるZscaler社とのパートナーシップ契約を締結",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1OZ2ZzNS1YdE5EV2RLNWxpYUEtTlpRb0VjWm9rUXNsSXBtX1RMLU9hZ01EOGFpVWxXVGxtLW1KYnBLR1JtY3NYWFpWQVk3N0MzeklsamFBUWxRa3lsbm1XcVZVaktoSVJWdFE?oc=5",
+      "summary": "AI Security社、クラウドセキュリティ分野のグローバルリーダーであるZscaler社とのパートナーシップ契約を締結 PR TIMES",
+      "date": "2026-02-03T08:00:00Z",
+      "source": "PR TIMES",
+      "category": "industry_news",
+      "tags": []
+    }
+  ]
 }

@@ -5,6 +5,7 @@ Send a daily email digest of new Zscaler articles via SendGrid.
 Required environment variables:
   SENDGRID_API_KEY  - SendGrid API key (set in GitHub Secrets)
   NOTIFY_EMAIL_FROM - Verified sender address in SendGrid (default: same as TO)
+  DASHBOARD_URL     - Published dashboard URL (optional)
 """
 
 import json
@@ -20,7 +21,9 @@ NOTIFIED_FILE = SCRIPT_DIR.parent / "data" / "last_notified.json"
 RECIPIENT = "ciderred1239@gmail.com"
 SENDER = os.environ.get("NOTIFY_EMAIL_FROM", RECIPIENT)
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "")
-DASHBOARD_URL = os.environ.get("DASHBOARD_URL", "https://boiledtomato.github.io/for_claude/")
+DASHBOARD_URL = os.environ.get(
+    "DASHBOARD_URL", "https://boiledtomato.github.io/for_claude/"
+)
 MAX_IN_EMAIL = 5
 
 CATEGORY_LABEL = {
@@ -53,18 +56,26 @@ def load_articles() -> list[dict]:
     try:
         data = json.loads(DATA_FILE.read_text())
         return data.get("articles", [])
-    except Exception:
+    except Exception as e:
+        print(f"[ERROR] Failed to load articles.json: {e}")
         return []
 
 
-def new_articles(articles: list[dict], since: str) -> list[dict]:
+def get_new_articles(articles: list[dict], since: str) -> list[dict]:
     if not since:
+        # 初回実行: 最新 MAX_IN_EMAIL 件を送る
         return articles[:MAX_IN_EMAIL]
     return [a for a in articles if a.get("date", "") > since]
 
 
 def esc(s: str) -> str:
-    return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+    return (
+        (s or "")
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
 
 
 def render_article(a: dict) -> str:
@@ -76,7 +87,8 @@ def render_article(a: dict) -> str:
     )
     summary_html = (
         f'<div class="article-summary">{esc(a["summary"])}</div>'
-        if a.get("summary") else ""
+        if a.get("summary")
+        else ""
     )
     date_str = a.get("date", "")[:10]
     return f"""
@@ -90,12 +102,15 @@ def render_article(a: dict) -> str:
 
 
 def build_html(articles: list[dict]) -> str:
-    today = datetime.now(timezone.utc).strftime("%Y年%-m月%-d日")
+    today = datetime.now(timezone.utc).strftime("%Y年%m月%d日")
     articles_html = "".join(render_article(a) for a in articles)
     count = len(articles)
-    more_note = ""
-    if count >= MAX_IN_EMAIL:
-        more_note = f'<p style="color:#64748b;font-size:13px;">他にも新着記事があります。ダッシュボードで全件確認できます。</p>'
+    more_note = (
+        '<p style="color:#64748b;font-size:13px;">他にも新着記事があります。'
+        "ダッシュボードで全件確認できます。</p>"
+        if count >= MAX_IN_EMAIL
+        else ""
+    )
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -112,17 +127,14 @@ def build_html(articles: list[dict]) -> str:
   .bdy{{padding:24px}}
   .intro{{font-size:15px;color:#334155;margin-bottom:20px;line-height:1.6}}
   .intro strong{{color:#0f172a}}
-  .article{{border:1px solid #e2e8f0;border-radius:10px;padding:18px;margin-bottom:14px;
-             background:#fafbfc}}
-  .article-category{{font-size:10px;font-weight:700;text-transform:uppercase;
-                      letter-spacing:.06em;padding:3px 9px;border-radius:4px;
-                      display:inline-block;margin-bottom:10px}}
+  .article{{border:1px solid #e2e8f0;border-radius:10px;padding:18px;margin-bottom:14px;background:#fafbfc}}
+  .article-category{{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+                      padding:3px 9px;border-radius:4px;display:inline-block;margin-bottom:10px}}
   .cat-product{{background:#fff3e0;color:#c2410c}}
   .cat-tech{{background:#dcfce7;color:#166534}}
   .cat-news{{background:#f3e8ff;color:#7e22ce}}
   .article-title{{font-size:15px;font-weight:600;margin-bottom:6px;line-height:1.4}}
   .article-title a{{color:#0069C2;text-decoration:none}}
-  .article-title a:hover{{text-decoration:underline}}
   .article-meta{{font-size:12px;color:#64748b;margin-bottom:10px}}
   .article-summary{{font-size:13px;color:#475569;line-height:1.65;margin-bottom:10px}}
   .tags{{display:flex;flex-wrap:wrap;gap:4px}}
@@ -131,8 +143,7 @@ def build_html(articles: list[dict]) -> str:
   .tag-zpa{{background:#ede9fe;color:#5b21b6}}
   .tag-zdx{{background:#d1fae5;color:#065f46}}
   .btn{{display:block;text-align:center;background:#0069C2;color:#fff;text-decoration:none;
-        padding:13px 24px;border-radius:9px;font-weight:700;font-size:14px;margin-top:22px;
-        letter-spacing:.2px}}
+        padding:13px 24px;border-radius:9px;font-weight:700;font-size:14px;margin-top:22px}}
   .ftr{{background:#f8fafc;padding:16px 24px;text-align:center;font-size:12px;
         color:#94a3b8;border-top:1px solid #e2e8f0}}
 </style>
@@ -149,9 +160,7 @@ def build_html(articles: list[dict]) -> str:
     {more_note}
     <a class="btn" href="{DASHBOARD_URL}">ダッシュボードで全件確認する →</a>
   </div>
-  <div class="ftr">
-    このメールはZscaler学習ダッシュボードから自動送信されています。
-  </div>
+  <div class="ftr">このメールはZscaler学習ダッシュボードから自動送信されています。</div>
 </div>
 </body>
 </html>"""
@@ -161,7 +170,9 @@ def build_text(articles: list[dict]) -> str:
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     lines = [f"Zscaler 学習ダッシュボード — {today}", f"{len(articles)}件の新着記事\n"]
     for i, a in enumerate(articles, 1):
-        lines.append(f"{i}. [{CATEGORY_LABEL.get(a['category'], a['category'])}] {a['title']}")
+        lines.append(
+            f"{i}. [{CATEGORY_LABEL.get(a['category'], a['category'])}] {a['title']}"
+        )
         if a.get("summary"):
             lines.append(f"   {a['summary'][:120]}…")
         lines.append(f"   {a['url']}\n")
@@ -170,18 +181,19 @@ def build_text(articles: list[dict]) -> str:
 
 
 def send(articles: list[dict]) -> bool:
+    if not SENDGRID_API_KEY:
+        print("[ERROR] SENDGRID_API_KEY が設定されていません。")
+        print("  GitHub の Settings → Secrets → SENDGRID_API_KEY を追加してください。")
+        return False
+
     try:
         import sendgrid
-        from sendgrid.helpers.mail import Mail, Content, To
+        from sendgrid.helpers.mail import Mail
     except ImportError:
-        print("[ERROR] sendgrid package not installed. Run: pip install sendgrid")
+        print("[ERROR] sendgrid パッケージが見つかりません: pip install sendgrid")
         return False
 
-    if not SENDGRID_API_KEY:
-        print("[ERROR] SENDGRID_API_KEY environment variable is not set.")
-        return False
-
-    today = datetime.now(timezone.utc).strftime("%Y年%-m月%-d日")
+    today = datetime.now(timezone.utc).strftime("%Y年%m月%d日")
     subject = f"[Zscaler] 本日の新着記事 {today} ({len(articles)}件)"
 
     message = Mail(
@@ -192,34 +204,55 @@ def send(articles: list[dict]) -> bool:
         plain_text_content=build_text(articles),
     )
 
-    sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
-    resp = sg.send(message)
-    print(f"SendGrid response: {resp.status_code}")
-    return resp.status_code in (200, 202)
+    try:
+        sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_API_KEY)
+        resp = sg.send(message)
+        print(f"SendGrid レスポンス: {resp.status_code}")
+        if resp.status_code in (200, 202):
+            return True
+        print(f"[ERROR] 予期しないステータスコード: {resp.status_code}")
+        print(f"  ボディ: {resp.body}")
+        return False
+    except Exception as e:
+        print(f"[ERROR] メール送信に失敗しました: {e}")
+        if hasattr(e, "body"):
+            print(f"  詳細: {e.body}")
+        print(
+            "  よくある原因:\n"
+            "  1. 送信元メールアドレスがSendGridで未認証\n"
+            "  2. API Keyの権限不足 (Mail Send が必要)\n"
+            "  3. SendGridアカウントの送信制限"
+        )
+        return False
 
 
 def main():
+    print(f"送信先: {RECIPIENT}")
+    print(f"送信元: {SENDER}")
+
     articles = load_articles()
+    print(f"記事数: {len(articles)}")
     if not articles:
-        print("No articles found. Skipping notification.")
+        print("[SKIP] articles.json に記事がありません。fetch_articles.py を先に実行してください。")
         return
 
     last_notified = load_last_notified()
-    print(f"Last notified: {last_notified or '(never)'}")
+    print(f"前回通知: {last_notified or '(初回)'}")
 
-    new = new_articles(articles, last_notified)[:MAX_IN_EMAIL]
+    new = get_new_articles(articles, last_notified)[:MAX_IN_EMAIL]
     if not new:
-        print("No new articles since last notification. Skipping.")
+        print("[SKIP] 前回通知以降の新着記事なし。")
         return
 
-    print(f"Sending notification for {len(new)} new articles…")
+    print(f"{len(new)}件の新着記事をメール送信します…")
     ok = send(new)
+
     if ok:
         now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         save_last_notified(now)
-        print(f"Notification sent. Updated last_notified to {now}")
+        print(f"送信完了。last_notified を {now} に更新しました。")
     else:
-        print("Failed to send notification.", file=sys.stderr)
+        print("[FAIL] メール送信に失敗しました。", file=sys.stderr)
         sys.exit(1)
 
 

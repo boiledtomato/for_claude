@@ -33,7 +33,7 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-        run: pip install feedparser requests sendgrid
+        run: pip install requests sendgrid
 
       - name: Fetch articles
         run: python scripts/fetch_articles.py
