@@ -1,4 +1,4 @@
-name: Daily Zscaler Update & Deploy
+name: Daily Zscaler Update
 
 on:
   schedule:
@@ -8,19 +8,10 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
-  fetch-and-deploy:
+  update:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
@@ -55,15 +46,3 @@ jobs:
             git commit -m "chore: daily article update $(date -u '+%Y-%m-%d')"
             git push origin HEAD
           fi
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "."
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
