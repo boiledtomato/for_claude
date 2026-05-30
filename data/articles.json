@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-30T02:14:04Z",
+  "last_updated": "2026-05-30T02:08:57Z",
   "total": 20,
   "articles": [
     {
@@ -15,36 +15,32 @@
       "date": "2026-05-18T19:12:44Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA"
-      ]
+      "tags": ["ZIA"]
     },
     {
       "id": "90e9c16af711d041",
       "title": "MCP, A2A, and WebSockets: Why Firewalls Fail on AI Traffic (and the Fix)",
       "url": "https://www.zscaler.com/blogs/product-insights/ai-traffic-security-mcp-a2a-websockets",
-      "summary": "Overview AI traffic breaks legacy security because it’s conversational, persistent, and tool-driven—often over WebSockets and agent protocols like MCP and A2A. Firewalls can see connections and domains, but they can’t inspect multi-turn prompts/responses, agent actions, or fragmented streaming payloads. The fix is session-aware, inline content inspection with AI-aware access controls, DLP on promp",
+      "summary": "Overview AI traffic breaks legacy security because it's conversational, persistent, and tool-driven—often over WebSockets and agent protocols like MCP and A2A. Firewalls can see connections and domains, but they can't inspect multi-turn prompts/responses, agent actions, or fragmented streaming payloads. The fix is session-aware, inline content inspection with AI-aware access controls, DLP on promp",
       "bullets": [
-        "Overview AI traffic breaks legacy security because it’s conversational, persistent, and tool-driven—often over WebSockets and agent protocols like MCP and A2A.",
-        "Firewalls can see connections and domains, but they can’t inspect multi-turn prompts/responses, agent actions, or fragmented streaming payloads.",
+        "Overview AI traffic breaks legacy security because it's conversational, persistent, and tool-driven—often over WebSockets and agent protocols like MCP and A2A.",
+        "Firewalls can see connections and domains, but they can't inspect multi-turn prompts/responses, agent actions, or fragmented streaming payloads.",
         "The fix is session-aware, inline content inspection with AI-aware access controls, DLP on prompts/responses, and continuous discovery (AI-SPM) to govern shadow and embedded AI."
       ],
       "date": "2026-05-05T14:11:34Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA"
-      ]
+      "tags": ["ZIA"]
     },
     {
       "id": "892be0b345e11e58",
       "title": "AI, APIs, and Anxiety: The New BFSI Security Trinity",
       "url": "https://www.zscaler.com/blogs/product-insights/ai-apis-and-anxiety-new-bfsi-security-trinity",
-      "summary": "I’ve seen my share of \"platform shifts\" over the years. Most arrive with outsized boardroom promises and settle into incremental progress. What’s happening in the BFSI sector right now, though, feels different. Today, barely 29% of Americans prefer physical branches, while 89% are all-in on digital . The traditional bank vault has been replaced by a hyper-complex web of cloud workloads, APIs, and ",
+      "summary": "I've seen my share of \"platform shifts\" over the years. Most arrive with outsized boardroom promises and settle into incremental progress. What's happening in the BFSI sector right now, though, feels different. Today, barely 29% of Americans prefer physical branches, while 89% are all-in on digital . The traditional bank vault has been replaced by a hyper-complex web of cloud workloads, APIs, and ",
       "bullets": [
-        "I’ve seen my share of \"platform shifts\" over the years.",
+        "I've seen my share of \"platform shifts\" over the years.",
         "Most arrive with outsized boardroom promises and settle into incremental progress.",
-        "What’s happening in the BFSI sector right now, though, feels different."
+        "What's happening in the BFSI sector right now, though, feels different."
       ],
       "date": "2026-05-03T17:41:44Z",
       "source": "Zscaler 公式ブログ",
@@ -64,9 +60,7 @@
       "date": "2026-04-24T19:28:40Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA"
-      ]
+      "tags": ["ZIA"]
     },
     {
       "id": "8b233063ae18459f",
@@ -76,7 +70,7 @@
       "bullets": [
         "The 2026 Zscaler Public Sector Summit marks a homecoming for me and several others here at Zscaler who have recently hung up their federal spurs, and I feel a renewed sense of pass",
         "I find myself reflecting on the common thread that binds Zscaler and the varied operational communities we support: the mission.",
-        "Having recently retired from the front lines of government IT, I understand that our “customers” aren’t just users; they are the American people, all focused on protecting our coun"
+        "Having recently retired from the front lines of government IT, I understand that our ‘customers’ aren't just users; they are the American people, all focused on protecting our coun"
       ],
       "date": "2026-02-09T04:34:12Z",
       "source": "Zscaler 公式ブログ",
@@ -96,54 +90,47 @@
       "date": "2026-01-28T21:52:22Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA",
-        "ZPA"
-      ]
+      "tags": ["ZIA", "ZPA"]
     },
     {
       "id": "4fe0f3771f3fd5c6",
       "title": "Accelerating AI Initiatives with Zero Trust",
       "url": "https://www.zscaler.com/blogs/product-insights/accelerating-ai-initiatives-zero-trust",
-      "summary": "Act Fast. Stay Secure. This is the critical mission for enterprise organizations in the rapidly evolving world of AI. Today we launch exciting new innovations to Zscaler’s AI security portfolio, paving the way for accelerating AI initiatives with confidence. Since Chat GPT’s debut three short years ago, the proliferation of AI in various forms is unlike anything the tech world has ever seen. It be",
+      "summary": "Act Fast. Stay Secure. This is the critical mission for enterprise organizations in the rapidly evolving world of AI. Today we launch exciting new innovations to Zscaler's AI security portfolio, paving the way for accelerating AI initiatives with confidence. Since Chat GPT's debut three short years ago, the proliferation of AI in various forms is unlike anything the tech world has ever seen. It be",
       "bullets": [
         "This is the critical mission for enterprise organizations in the rapidly evolving world of AI.",
-        "Today we launch exciting new innovations to Zscaler’s AI security portfolio, paving the way for accelerating AI initiatives with confidence.",
-        "Since Chat GPT’s debut three short years ago, the proliferation of AI in various forms is unlike anything the tech world has ever seen."
+        "Today we launch exciting new innovations to Zscaler's AI security portfolio, paving the way for accelerating AI initiatives with confidence.",
+        "Since Chat GPT's debut three short years ago, the proliferation of AI in various forms is unlike anything the tech world has ever seen."
       ],
       "date": "2026-01-26T06:25:28Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA"
-      ]
+      "tags": ["ZIA"]
     },
     {
       "id": "abc061c39dc50f05",
       "title": "2025 ZDX Recap: Elevating IT Operations with Customer-Driven Innovations",
       "url": "https://www.zscaler.com/blogs/product-insights/2025-zdx-recap-elevating-it-operations-customer-driven-innovations",
-      "summary": "As we ring in 2026, it’s a great moment to reflect on the significant advancements Zscaler Digital Experience (ZDX) has delivered throughout 2025. While ZDX made headlines with major, groundbreaking capabilities that redefined device, network, and application monitoring and troubleshooting - read the launch recap blog and the new innovations blog to learn more - ZDX also had a continuous stream of",
+      "summary": "As we ring in 2026, it's a great moment to reflect on the significant advancements Zscaler Digital Experience (ZDX) has delivered throughout 2025. While ZDX made headlines with major, groundbreaking capabilities that redefined device, network, and application monitoring and troubleshooting - read the launch recap blog and the new innovations blog to learn more - ZDX also had a continuous stream of",
       "bullets": [
-        "As we ring in 2026, it’s a great moment to reflect on the significant advancements Zscaler Digital Experience (ZDX) has delivered throughout 2025.",
+        "As we ring in 2026, it's a great moment to reflect on the significant advancements Zscaler Digital Experience (ZDX) has delivered throughout 2025.",
         "While ZDX made headlines with major, groundbreaking capabilities that redefined device, network, and application monitoring and troubleshooting - read the launch recap blog and the",
         "These customer-driven advancements demonstrate ZDX's commitment to ongoing product velocity, delivering enhancements that streamline workflows, sharpen insights, and empower IT tea"
       ],
       "date": "2026-01-23T18:18:35Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZDX"
-      ]
+      "tags": ["ZDX"]
     },
     {
       "id": "cd09378e9250f31b",
-      "title": "2025 Reflections and 2026 Predictions: Healthcare’s Cybersecurity Frontier",
+      "title": "2025 Reflections and 2026 Predictions: Healthcare's Cybersecurity Frontier",
       "url": "https://www.zscaler.com/blogs/product-insights/2025-reflections-and-2026-predictions-healthcare-s-cybersecurity-frontier",
       "summary": "As cybersecurity professionals, one of the most valuable things we can do is reflect on the lessons of the past while preparing thoughtfully for the challenges ahead. Healthcare is a uniquely complex field, and its evolving cybersecurity landscape demands fresh perspectives and intentional strategies. On the latest episode of We Have Trust Issues, we (Tamer and Steven) invited Carter Groome, CEO o",
       "bullets": [
         "As cybersecurity professionals, one of the most valuable things we can do is reflect on the lessons of the past while preparing thoughtfully for the challenges ahead.",
         "Healthcare is a uniquely complex field, and its evolving cybersecurity landscape demands fresh perspectives and intentional strategies.",
-        "On the latest episode of We Have Trust Issues, we (Tamer and Steven) invited Carter Groome, CEO of First Health Advisory, to join us in dissecting 2025’s major healthcare trends an"
+        "On the latest episode of We Have Trust Issues, we (Tamer and Steven) invited Carter Groome, CEO of First Health Advisory, to join us in dissecting 2025's major healthcare trends an"
       ],
       "date": "2026-01-06T22:09:06Z",
       "source": "Zscaler 公式ブログ",
@@ -163,9 +150,7 @@
       "date": "2025-12-11T17:21:40Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZPA"
-      ]
+      "tags": ["ZPA"]
     },
     {
       "id": "96d3a6cf690cf23d",
@@ -184,21 +169,18 @@
     },
     {
       "id": "4cdf9e32c0fcefbc",
-      "title": "Anthropic AI-Orchestrated Attack: The Detection Shift CISOs Can’t Ignore",
+      "title": "Anthropic AI-Orchestrated Attack: The Detection Shift CISOs Can't Ignore",
       "url": "https://www.zscaler.com/blogs/product-insights/anthropic-ai-orchestrated-attack-detection-shift-cisos-can-t-ignore",
-      "summary": "For the longest time, we’ve resisted the urge to talk about why Deception is a great way to counter end-to-end AI-orchestrated cyber attacks. Why? Because when you discuss fighting back against a threat that's just hypothetical, you’re just spreading FUD (fear, uncertainty, and doubt) and confusion. Until yesterday, no credible report of AI being used to pull off sophisticated autonomous attacks –",
+      "summary": "For the longest time, we've resisted the urge to talk about why Deception is a great way to counter end-to-end AI-orchestrated cyber attacks. Why? Because when you discuss fighting back against a threat that's just hypothetical, you're just spreading FUD (fear, uncertainty, and doubt) and confusion. Until yesterday, no credible report of AI being used to pull off sophisticated autonomous attacks –",
       "bullets": [
-        "For the longest time, we’ve resisted the urge to talk about why Deception is a great way to counter end-to-end AI-orchestrated cyber attacks.",
-        "Because when you discuss fighting back against a threat that's just hypothetical, you’re just spreading FUD (fear, uncertainty, and doubt) and confusion.",
+        "For the longest time, we've resisted the urge to talk about why Deception is a great way to counter end-to-end AI-orchestrated cyber attacks.",
+        "Because when you discuss fighting back against a threat that's just hypothetical, you're just spreading FUD (fear, uncertainty, and doubt) and confusion.",
         "Until yesterday, no credible report of AI being used to pull off sophisticated autonomous attacks – that changed yesterday when Anthropic published a report detailing the first rep"
       ],
       "date": "2025-11-14T21:58:09Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA",
-        "ZPA"
-      ]
+      "tags": ["ZIA", "ZPA"]
     },
     {
       "id": "15972895a60dd590",
@@ -213,10 +195,7 @@
       "date": "2025-11-04T19:00:08Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA",
-        "ZPA"
-      ]
+      "tags": ["ZIA", "ZPA"]
     },
     {
       "id": "7d2061fe3e5fe50c",
@@ -231,19 +210,17 @@
       "date": "2025-09-24T19:42:00Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZPA"
-      ]
+      "tags": ["ZPA"]
     },
     {
       "id": "056c37b0dfbd72b3",
       "title": "Detecting Kerberos attacks and other Active Directory maladies with Deception",
       "url": "https://www.zscaler.com/blogs/product-insights/active-directory-kerberoasting-deception-detection",
-      "summary": "We on the Deception team here at Zscaler love talking about Active Directory. Why? Because most of us are career red teamers who used to take immense pleasure in getting domain admin in their past lives. Which is why we understand just how messed up Active Directory (AD) is and that a successful attack against AD almost always puts organizations in ‘game over’ territory. And while it might be an a",
+      "summary": "We on the Deception team here at Zscaler love talking about Active Directory. Why? Because most of us are career red teamers who used to take immense pleasure in getting domain admin in their past lives. Which is why we understand just how messed up Active Directory (AD) is and that a successful attack against AD almost always puts organizations in 'game over' territory. And while it might be an a",
       "bullets": [
         "We on the Deception team here at Zscaler love talking about Active Directory.",
         "Because most of us are career red teamers who used to take immense pleasure in getting domain admin in their past lives.",
-        "Which is why we understand just how messed up Active Directory (AD) is and that a successful attack against AD almost always puts organizations in ‘game over’ territory."
+        "Which is why we understand just how messed up Active Directory (AD) is and that a successful attack against AD almost always puts organizations in 'game over' territory."
       ],
       "date": "2025-09-12T15:05:18Z",
       "source": "Zscaler 公式ブログ",
@@ -258,16 +235,12 @@
       "bullets": [
         "In an era marked by relentless cyber threats and increasing complexity, government agencies and defense organizations must continuously evolve their technology strategies to ensure",
         "At the forefront of this evolution are GovClouds—key platforms designed to empower agencies with robust solutions to safeguard critical information, enhance operational agility, an",
-        "We’re excited to introduce a new wave of upcoming innovations purpose-built for Zscaler’s GovCloud, empowering federal teams and defense organizations with the tools they need to m"
+        "We're excited to introduce a new wave of upcoming innovations purpose-built for Zscaler's GovCloud, empowering federal teams and defense organizations with the tools they need to m"
       ],
       "date": "2025-09-09T10:35:06Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA",
-        "ZPA",
-        "ZDX"
-      ]
+      "tags": ["ZIA", "ZPA", "ZDX"]
     },
     {
       "id": "84126ccb06f52849",
@@ -282,11 +255,7 @@
       "date": "2025-08-14T14:17:30Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA",
-        "ZPA",
-        "ZDX"
-      ]
+      "tags": ["ZIA", "ZPA", "ZDX"]
     },
     {
       "id": "f3e1bbd50b4708a3",
@@ -301,15 +270,13 @@
       "date": "2025-07-22T20:34:06Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZIA"
-      ]
+      "tags": ["ZIA"]
     },
     {
       "id": "9c01fc0cc7a7767b",
       "title": "AI-powered App Segmentation: Unlocking Zero Trust at Scale",
       "url": "https://www.zscaler.com/blogs/product-insights/ai-powered-app-segmentation-unlocking-zero-trust-scale",
-      "summary": "Imagine a castle surrounded by strong stone walls and a deep moat designed to keep unwanted visitors out. The drawbridge is tightly guarded, and all of the focus is placed on making sure no one from the outside gets in. But what happens when someone crosses the bridge? Inside the castle walls, it’s a free for all. There are no locked doors, no security for treasures, and no checks on where people ",
+      "summary": "Imagine a castle surrounded by strong stone walls and a deep moat designed to keep unwanted visitors out. The drawbridge is tightly guarded, and all of the focus is placed on making sure no one from the outside gets in. But what happens when someone crosses the bridge? Inside the castle walls, it's a free for all. There are no locked doors, no security for treasures, and no checks on where people ",
       "bullets": [
         "Imagine a castle surrounded by strong stone walls and a deep moat designed to keep unwanted visitors out.",
         "The drawbridge is tightly guarded, and all of the focus is placed on making sure no one from the outside gets in.",
@@ -318,13 +285,11 @@
       "date": "2025-07-18T18:25:30Z",
       "source": "Zscaler 公式ブログ",
       "category": "product_update",
-      "tags": [
-        "ZPA"
-      ]
+      "tags": ["ZPA"]
     },
     {
       "id": "c0ee1b667fe0b26d",
-      "title": "Adopting Zero Trust Principles with CISA’s Maturity Model",
+      "title": "Adopting Zero Trust Principles with CISA's Maturity Model",
       "url": "https://www.zscaler.com/blogs/product-insights/adopting-zero-trust-principles-cisa-s-maturity-model",
       "summary": "The cybersecurity landscape has transformed rapidly, bringing with it sophisticated threats that render traditional perimeter-based defenses insufficient. Digital transformation, cloud adoption, remote access, and the rise of interconnected systems demand a more adaptive security model to protect critical systems and sensitive data across all types of organizations. Enter Zero Trust—a modern frame",
       "bullets": [

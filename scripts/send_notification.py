@@ -102,7 +102,6 @@ def render_article_html(a: dict) -> str:
     # 箇条書きサマリー
     bullets = a.get("bullets") or []
     if not bullets and a.get("summary"):
-        # bullets フィールドがない場合はサマリーをそのまま1行として扱う
         bullets = [a["summary"][:200]]
 
     bullets_html = ""
