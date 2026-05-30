@@ -1,6 +1,8 @@
 name: Daily Zscaler Update & Deploy
 
 on:
+  push:
+    branches: [main]
   schedule:
     # 毎日 9:00 JST (00:00 UTC)
     - cron: "0 0 * * *"
