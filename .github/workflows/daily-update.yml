@@ -33,20 +33,23 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-        run: pip install feedparser requests
+        run: pip install feedparser requests beautifulsoup4
 
       - name: Fetch articles
         run: python scripts/fetch_articles.py
+
+      - name: Fetch knowledge base
+        run: python scripts/fetch_knowledge.py
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/articles.json
+          git add data/articles.json data/knowledge_base.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: daily article update $(date -u '+%Y-%m-%d')"
+            git commit -m "chore: daily data update $(date -u '+%Y-%m-%d')"
             git push origin HEAD
           fi
 
