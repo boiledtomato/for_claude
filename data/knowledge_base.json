@@ -1,602 +1,808 @@
 {
-  "version": "1.0",
-  "last_updated": "2026-05-30T08:38:29Z",
-  "total": 27,
+  "version": "2.0",
+  "last_updated": "2026-05-30T00:00:00Z",
+  "total": 35,
   "topics": [
-    {
-      "id": "zia-overview",
-      "title": "ZIA（Zscaler Internet Access）概要",
-      "category": "ZIA",
-      "subcategory": "基本概念",
-      "summary": "ZIAはクラウドネイティブなWebセキュリティゲートウェイです。企業のインターネットトラフィックをZscalerのグローバルクラウドへ転送し、URLフィルタリング・SSLインスペクション・マルウェア防御などを提供します。",
-      "content": "ZIA（Zscaler Internet Access）は、従来のオンプレミス型プロキシやファイアウォールをクラウドに置き換えたセキュリティサービスです。\n\n## 主な特徴\n\n**クラウドネイティブアーキテクチャ**\nZscalerが世界150以上のデータセンター（ZENノード）を運営し、ユーザーに最も近いノードでトラフィックを処理します。これにより、物理的な場所に依存しない一貫したセキュリティポリシーを適用できます。\n\n**インライン処理**\nすべてのHTTP/HTTPSトラフィックはZscalerクラウドを経由します。リアルタイムにURLカテゴリ判定・マルウェアスキャン・DLPチェックを実行します。\n\n## 主要機能\n\n- URLフィルタリング（200以上のカテゴリ）\n- SSLインスペクション（証明書検証・コンテンツスキャン）\n- クラウドサンドボックス（未知マルウェア検出）\n- DLP（データ損失防止）\n- CASB（クラウドアクセスセキュリティブローカー）\n- クラウドファイアウォール（L4-L7）\n- 帯域制御\n- アプリケーションコントロール\n\n## トラフィック転送方法\n\n1. **GREトンネル** — 拠点からZscalerへのトンネル（推奨）\n2. **IPSecトンネル** — GREよりも強固な暗号化\n3. **PAC（Proxy Auto-Config）ファイル** — クライアントブラウザのプロキシ設定\n4. **Zscaler Client Connector** — エンドポイントエージェント（モバイル・リモート対応）",
-      "tags": [
-        "ZIA",
-        "クラウドプロキシ",
-        "Webセキュリティ",
-        "概要",
-        "アーキテクチャ"
-      ],
-      "relatedTopicIds": [
-        "zia-url-filtering",
-        "zia-ssl-inspection",
-        "zia-forwarding",
-        "arch-zscaler-cloud"
-      ],
-      "configExample": null
-    },
     {
       "id": "zia-url-filtering",
       "title": "URLフィルタリング",
       "category": "ZIA",
-      "subcategory": "コンテンツフィルタリング",
-      "summary": "URLフィルタリングは、WebサイトのURLをリアルタイムにカテゴリ分類し、ポリシーに基づいてアクセスを許可・ブロック・警告する機能です。200以上のカテゴリをサポートします。",
-      "content": "URLフィルタリングはZIAの中核機能の一つです。ユーザーがアクセスしようとするURLをリアルタイムに評価し、設定されたポリシーに従ってアクセスを制御します。\n\n## カテゴリ分類\n\nZscalerは200以上のURLカテゴリを保持し、AIと機械学習を用いて常時更新しています。主要カテゴリ例：\n\n- **Social Media**: Facebook、Instagram、Twitter/X、LinkedIn\n- **Streaming Media**: YouTube、Netflix、Abema TV\n- **Malware/Phishing**: 既知の悪意あるサイト\n- **Adult Content**: 成人向けコンテンツ\n- **Gambling**: ギャンブルサイト\n- **Cloud Storage**: Dropbox、Box、Google Drive\n- **Business Applications**: Salesforce、ServiceNow\n\n## ポリシー設定\n\nポリシーはルール番号順（昇順）に評価され、最初にマッチしたルールが適用されます。\n\n### 設定できるアクション\n| アクション | 説明 |\n|---|---|\n| 許可 | アクセスを通過させる |\n| ブロック | アクセスを遮断し警告ページを表示 |\n| 注意 | ユーザーに警告を表示するが通過は可能 |\n| 分離（RBI） | リモートブラウザ分離で表示 |\n\n## ユーザー・グループ別制御\n\n- Active Directory / LDAPグループ単位でポリシーを差別化\n- IT管理者グループにはバイパス権限を付与するのが一般的\n- 時間帯条件（平日9〜18時のみSNSをブロックなど）\n\n## 注意点\n\n- カスタムカテゴリを作成して自社ブラックリストを管理可能\n- HTTPS通信はSSLインスペクションを有効にしないとURLのパス部分が見えない場合がある",
+      "subcategory": "Webセキュリティ",
+      "summary": "ZIAのURLフィルタリングは、カテゴリベースのポリシーによりWebアクセスを制御します。許可・ブロック・警告・分離の4つのアクションを使い分け、カスタムカテゴリやオーバーライドも設定可能です。",
+      "content": "ZIAのURLフィルタリングは、200以上の定義済みURLカテゴリを使用してWebトラフィックを制御する中核機能です。ポリシーアクションには「許可（Allow）」「ブロック（Block）」「警告（Caution）」「分離（Isolate）」の4種類があります。警告はユーザーに確認を促しつつアクセスを許可し、分離はCloud Browser Isolationと連携してリモートブラウザ経由でコンテンツを表示します。\n\nカスタムURLカテゴリでは、特定のURLやドメインを独自のカテゴリに分類し、既存の定義済みカテゴリよりも優先させることができます。OverrideポリシーはURLフィルタリングのブロックルールに対して例外を設け、特定のユーザーやグループに一時的または恒久的なアクセスを許可します。\n\nポリシーは上から順に評価され、最初にマッチしたルールが適用されます。そのため、より具体的なルールを上位に配置することが重要です。ユーザー・グループ・部署・場所（Location）などの条件を組み合わせ、きめ細かいアクセス制御を実現できます。SafeSearch強制、YouTube制限モード、Google for Educationドメイン制限などの追加機能も提供されています。",
       "tags": [
         "URLフィルタリング",
         "カテゴリ",
-        "ポリシー",
         "ブロック",
-        "ZIA"
-      ],
-      "relatedTopicIds": [
-        "zia-ssl-inspection",
-        "zia-cloud-firewall",
-        "zia-admin-portal"
-      ],
-      "configExample": "【URLポリシー設定例】\n\nルール1: IT管理者バイパス\n  条件: ユーザーグループ = IT管理者\n  アクション: 許可（全カテゴリ）\n\nルール2: マルウェア・フィッシングブロック\n  条件: カテゴリ = Malware OR Phishing\n  アクション: ブロック\n\nルール3: 業務時間中SNSブロック\n  条件: カテゴリ = Social Media\n         時間帯 = 平日 09:00-18:00\n  アクション: ブロック\n\nルール99: デフォルト許可\n  条件: なし（全てに適用）\n  アクション: 許可"
-    },
-    {
-      "id": "zia-ssl-inspection",
-      "title": "SSLインスペクション",
-      "category": "ZIA",
-      "subcategory": "トラフィック検査",
-      "summary": "SSLインスペクションはHTTPS通信の暗号化を一時的に解除してコンテンツを検査する機能です。マルウェア・DLP・URLフィルタリングの効果をHTTPS通信にも適用するために不可欠です。",
-      "content": "現代のWebトラフィックの90%以上がHTTPS（暗号化）です。SSLインスペクションを無効にすると、Zscalerのセキュリティ機能の多くがHTTPS通信に対して機能しません。\n\n## 仕組み\n\n1. クライアントがHTTPS接続を試みる\n2. Zscalerが中間に介入（Man-in-the-Middle）\n3. ZscalerがオリジンサーバーとのSSLセッションを確立\n4. Zscaler自身の証明書でクライアントとのSSLセッションを確立\n5. 平文状態でコンテンツを検査\n6. 安全と判断したら再暗号化してクライアントに転送\n\n## 証明書配布（重要）\n\nSSLインスペクションを有効にするには、ZscalerのルートCA証明書をすべての端末にインストールする必要があります。\n\n**配布方法:**\n- **Active Directory GPO** — ドメイン参加端末に一括配布（推奨）\n- **MDM（Jamf、Intune等）** — モバイル・非ドメイン端末\n- **Zscaler Client Connector** — エージェント展開時に自動配布可能\n\n## SSLバイパス設定\n\n以下のカテゴリ・ドメインはバイパス（検査除外）推奨：\n\n- **金融機関**: ネットバンキング、証券（プライバシー・法規制上の理由）\n- **医療関連**: 電子カルテシステム\n- **ビデオ会議**: Zoom、Teams（パフォーマンス確保）\n- **クラウドインフラ**: AWS、Azure（証明書ピンニングの問題）\n- **証明書ピンニングアプリ**: 独自証明書を強制するアプリ\n\n## 注意点\n\n- SSLバイパスを広げすぎると検査漏れが発生する\n- 証明書の有効期限管理を徹底する（通常3〜5年）\n- URLフィルタリングはSNI（Server Name Indication）を使えばHTTPSでも一部機能するが、パス以降のフィルタリングにはSSLインスペクションが必要",
-      "tags": [
-        "SSLインスペクション",
-        "HTTPS",
-        "証明書",
-        "バイパス",
-        "セキュリティ",
-        "ZIA"
-      ],
-      "relatedTopicIds": [
-        "zia-url-filtering",
-        "zia-dlp",
-        "zia-overview"
-      ],
-      "configExample": "【SSLバイパスリスト設定例】\n\n除外カテゴリ:\n  - Financial Services\n  - Health\n\n除外ドメイン:\n  - zoom.us\n  - teams.microsoft.com\n  - meet.google.com\n  - *.amazonaws.com\n  - *.azure.com\n  - login.microsoftonline.com\n\n証明書ピンニング除外:\n  - *.apple.com\n  - *.google.com（一部サービス）"
-    },
-    {
-      "id": "zia-cloud-firewall",
-      "title": "クラウドファイアウォール",
-      "category": "ZIA",
-      "subcategory": "ネットワークセキュリティ",
-      "summary": "ZIAのクラウドファイアウォールはL4〜L7のファイアウォール機能をクラウドで提供します。HTTP/HTTPS以外のプロトコル（DNS、FTP、SMTPなど）のトラフィックも制御できます。",
-      "content": "クラウドファイアウォールは、Zscalerのクラウド上でL4〜L7のファイアウォールポリシーを適用します。従来のオンプレミスファイアウォールをクラウドに移行し、拠点間で一貫したポリシーを適用できます。\n\n## 対応プロトコル\n\n- **HTTP/HTTPS**: プロキシモードで検査\n- **DNS**: DNSフィルタリング・DGA（Domain Generation Algorithm）検出\n- **FTP**: FTPコントロールチャネルの制御\n- **SMTP/IMAP**: メールプロトコル\n- **カスタムポート**: 任意のTCP/UDPポート\n\n## FQDNカテゴリフィルタリング\n\n非HTTPトラフィックに対しても、FQDNカテゴリに基づいてブロック/許可が可能です。これにより、悪意あるサーバーへのC2（コマンド&コントロール）通信などをブロックできます。\n\n## IPSシグネチャ\n\nクラウドIDS/IPS機能により、既知の攻撃パターンを検出してブロックします。\n\n## 設定ポイント\n\n- デフォルトではHTTP/HTTPS以外のトラフィックはどう処理するかを決める必要がある\n- ゼロトラスト観点では「デフォルト拒否、必要なもののみ許可」が推奨\n- ログは必ずすべてのトラフィックについて記録する設定を推奨\n\n## DNSセキュリティ\n\n- Zscalerは独自のDNSリゾルバを提供\n- フィッシング・マルウェアドメインへのDNS解決をブロック\n- DGA（自動生成ドメイン）を機械学習で検出",
-      "tags": [
-        "ファイアウォール",
-        "DNS",
-        "IPS",
-        "L4-L7",
-        "FQDNカテゴリ",
-        "ZIA"
-      ],
-      "relatedTopicIds": [
-        "zia-url-filtering",
-        "zia-overview",
-        "arch-zscaler-cloud"
-      ],
-      "configExample": "【クラウドファイアウォール設定例】\n\nDNSポリシー:\n  - カテゴリ: Malware → ブロック\n  - カテゴリ: Phishing → ブロック\n  - DGA検出: 有効\n\nファイアウォールルール:\n  Rule 1: 社内業務ツール（FQDN指定）→ 許可\n  Rule 2: P2Pポート（6881-6889）→ ブロック\n  Rule 3: TorネットワークIP → ブロック\n  Rule 99: デフォルト → ブロック（未許可通信を遮断）"
-    },
-    {
-      "id": "zia-dlp",
-      "title": "DLP（データ損失防止）",
-      "category": "ZIA",
-      "subcategory": "データ保護",
-      "summary": "DLP（Data Loss Prevention）は、企業の機密データがクラウドやWebを通じて外部に流出することを防ぐ機能です。クレジットカード番号・個人情報・機密文書などを検出しポリシーを適用します。",
-      "content": "ZIAのDLP機能は、インライン処理によってHTTPS通信を検査し、機密データの送信をリアルタイムにブロックまたは警告します。\n\n## 検出できるデータタイプ\n\n### 事前定義データパターン（Predefined）\n- **PII（個人識別情報）**: 氏名、住所、メールアドレス\n- **PCI DSS**: クレジットカード番号（VISA、MasterCard、AMEX等）\n- **PHI（医療情報）**: 診察記録、保険番号\n- **マイナンバー**: 日本の個人番号\n- **パスポート番号**: 各国フォーマット\n\n### カスタムパターン（正規表現）\n独自の文書番号・社員番号・製品コードなど、企業固有のパターンを正規表現で定義できます。\n\n## 辞書マッチング\n\n特定のキーワード・フレーズのリストを作成し、文書内に含まれている場合にポリシーを適用します。例：「極秘」「Confidential」「内部限定」\n\n## ファイルタイプ制御\n\n- 特定のファイルタイプ（CAD図面、実行ファイル等）のアップロードをブロック\n- ファイルサイズ制限\n\n## DLPアクション\n\n| アクション | 説明 |\n|---|---|\n| ブロック | 送信を完全に遮断 |\n| 許可（ログのみ） | 通過させるが記録 |\n| 通知 | ユーザーに警告 |\n| 隔離 | 管理者確認待ちに |\n\n## 注意点\n\n- DLPはSSLインスペクションが有効な場合のみHTTPS通信に適用可能\n- 誤検知（False Positive）が多い場合はデータパターンの閾値や確信度を調整する\n- 大量ドキュメントの検出にはZscaler CASB（インラインCASB）との組み合わせが効果的",
-      "tags": [
-        "DLP",
-        "データ保護",
-        "機密情報",
-        "個人情報",
-        "PCI DSS",
-        "マイナンバー",
+        "Caution",
+        "Isolate",
+        "カスタムカテゴリ",
         "ZIA"
       ],
       "relatedTopicIds": [
         "zia-ssl-inspection",
         "zia-casb",
-        "zia-overview"
+        "zia-admin",
+        "arch-zte"
       ],
-      "configExample": "【DLPプロファイル設定例】\n\nプロファイル名: 金融情報保護\n  検出ルール:\n    - クレジットカード番号 (PCI DSS)\n      閾値: 1件以上\n      アクション: ブロック\n    - 銀行口座番号 (カスタム正規表現)\n      パターン: [0-9]{7,8}-[0-9]\n      閾値: 1件以上\n      アクション: ブロック\n\nプロファイル名: マイナンバー保護\n  検出ルール:\n    - 個人番号（12桁）\n      アクション: ブロック\n    - 法人番号（13桁）\n      アクション: 許可（ログのみ）"
+      "configExample": "# URLフィルタリングポリシー設定例\n# ルール名: ソーシャルメディアブロック（営業時間内）\n# 条件:\n#   - カテゴリ: Social Networking\n#   - ユーザーグループ: 全社員\n#   - 時間帯: 平日 09:00-18:00\n# アクション: Block\n# カスタムブロックページ: 「業務時間中はソーシャルメディアへのアクセスは制限されています」\n\n# カスタムカテゴリ例\n# カテゴリ名: 社内承認済みSaaS\n# URL一覧: salesforce.com, slack.com, box.com\n# アクション: Allow（他のブロックルールより上位に配置）"
+    },
+    {
+      "id": "zia-ssl-inspection",
+      "title": "SSLインスペクション",
+      "category": "ZIA",
+      "subcategory": "Webセキュリティ",
+      "summary": "ZIAのSSLインスペクションはHTTPS通信を復号してセキュリティポリシーを適用する機能です。中間CA証明書の配布、証明書ピンニングのバイパス設定、パフォーマンスへの影響を考慮した運用が必要です。",
+      "content": "ZIAのSSLインスペクション（HTTPS解読）は、暗号化されたWebトラフィックを復号し、マルウェア検知・DLP・URLフィルタリングなどのセキュリティポリシーを適用した後、再暗号化してユーザーに転送します。このプロセスには「Bump（バンプ）」とも呼ばれる中間者（MITM）技術が使われます。\n\nZscalerの中間CA証明書をエンドポイントの信頼済みルートストアに配布することが前提条件です。Active Directory・MDM（Intune/JAMF等）・GPOなどを使って企業端末に展開します。\n\n証明書ピンニング（Certificate Pinning）を使用するアプリケーション（モバイルアプリや特定の業務アプリ等）はSSLインスペクションによって通信が失敗することがあります。このようなアプリに対してはSSLバイパスリストにFQDNやIPを登録して復号を除外します。バイパスカテゴリとしてFinancial Services・Health Care等の機密カテゴリを標準で設定することも推奨されています。\n\nSSLインスペクションはCPUリソースを消費するため、Zscalerデータセンター（PoP）のスペックで吸収されますが、実施するカテゴリを選別することでレイテンシへの影響を最小化できます。管理コンソールでSSLポリシーを作成し、インスペクション対象・バイパス対象を細かく制御します。",
+      "tags": [
+        "SSLインスペクション",
+        "HTTPS復号",
+        "証明書ピンニング",
+        "SSL bypass",
+        "中間CA",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-url-filtering",
+        "zia-dlp",
+        "zia-sandbox",
+        "bp-ssl-ops"
+      ],
+      "configExample": "# SSLインスペクション バイパスルール設定例\n# ルール名: 金融機関バイパス\n# 条件: URLカテゴリ = Financial Services\n# アクション: Do Not Inspect（バイパス）\n\n# ルール名: 証明書ピンニングアプリバイパス\n# 条件: FQDN = *.example-pinned-app.com\n# アクション: Do Not Inspect\n\n# 中間CA証明書配布（GPO例）\n# Certificate Store: Trusted Root Certification Authorities\n# 証明書ファイル: ZscalerRootCA.crt"
+    },
+    {
+      "id": "zia-firewall",
+      "title": "クラウドファイアウォール",
+      "category": "ZIA",
+      "subcategory": "ネットワークセキュリティ",
+      "summary": "ZIAのクラウドファイアウォールはL4〜L7でのトラフィック制御を提供します。DNS/アプリケーション制御、IP/ポートルールにより、従来のネットワークファイアウォールをクラウドで代替します。",
+      "content": "ZIAクラウドファイアウォール（Cloud Firewall）は、すべてのZscalerクラウドを経由するトラフィックに対してL4〜L7のステートフルインスペクションを提供します。これにより、従来のオンプレミスNGFWをクラウドで代替し、リモートユーザーや支社のトラフィックにも一貫したポリシーを適用できます。\n\nIPCおよびポートベースのファイアウォールルール（FW Filtering Rules）により、送信元/宛先IP、ポート、プロトコル（TCP/UDP/ICMP）の組み合わせでトラフィックを制御します。IPSec/GREトンネル経由の拠点トラフィックにも適用されます。\n\nDNSコントロール機能では、DNSクエリを検査しマルウェアドメインやフィッシングドメインへの解決をブロックします。DNSアプリケーション制御では、特定のDNSクエリタイプ（例：TXTレコード）を制限してDNSトンネリングを防止します。\n\nアプリケーション制御（App Control）は、トラフィックのシグネチャ解析によってアプリケーションを識別し、特定のアプリのアップロード・ダウンロード操作を個別に制御します。例えばDropboxは許可しつつアップロードのみブロックするといった細かい制御が可能です。NAT（Network Address Translation）設定によりZscaler経由の出口IPも管理できます。",
+      "tags": [
+        "クラウドファイアウォール",
+        "L4-L7",
+        "DNSフィルタリング",
+        "アプリケーション制御",
+        "NGFW",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-dns",
+        "zia-url-filtering",
+        "zia-bandwidth",
+        "arch-tunnel"
+      ],
+      "configExample": "# クラウドファイアウォール ルール例\n# ルール名: Telnet/FTP禁止\n# 送信元: 全ユーザー\n# 宛先ポート: 23 (Telnet), 21 (FTP)\n# アクション: Block\n\n# ルール名: アプリ制御 - Dropboxアップロード禁止\n# アプリケーション: Dropbox\n# 操作: Upload\n# アクション: Block"
+    },
+    {
+      "id": "zia-dlp",
+      "title": "データ損失防止（DLP）",
+      "category": "ZIA",
+      "subcategory": "データ保護",
+      "summary": "ZIA DLPはWebトラフィックのコンテンツを検査し、機密情報の外部流出を防ぎます。ファイル制御、通知・隔離・ブロックのアクション、カスタム辞書による企業固有の機密データ保護が可能です。",
+      "content": "ZIA DLP（Data Loss Prevention）は、HTTPSを含むWebトラフィックをリアルタイムで検査し、機密データの意図しない流出や持ち出しを防止します。SSLインスペクションと組み合わせることで暗号化通信内の機密情報も検出できます。\n\nDLPエンジンは、クレジットカード番号（PCI DSS）・個人情報（PII）・医療情報（HIPAA）などの標準辞書に加え、自社固有のキーワード・正規表現・ファイルフィンガープリントを使ったカスタム辞書を作成できます。日本語固有のマイナンバー・運転免許証番号のパターンもサポートされています。\n\nDLPポリシーのアクションは「通知（Notify）」「隔離（Quarantine）」「ブロック（Block）」の3段階から選択可能です。通知はユーザーへの警告メッセージを表示しながらアクセスを許可、隔離は管理者が内容を確認してから許可・拒否を判断、ブロックは即時にデータ送信を遮断します。\n\nファイル制御では、アップロード可能なファイルタイプ（拡張子・MIMEタイプ）を制限し、実行ファイルや暗号化ZIPファイルなどの危険なファイルの送信をブロックできます。ウォーターマーク検出や類似コンテンツ検知（Exact Data Match）も高度なDLPシナリオに対応します。インシデントレポートはSIEMと統合してセキュリティ運用に活用できます。",
+      "tags": [
+        "DLP",
+        "データ損失防止",
+        "コンテンツ検査",
+        "PCI DSS",
+        "PII",
+        "カスタム辞書",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-ssl-inspection",
+        "zia-casb",
+        "zia-sandbox",
+        "bp-dlp-policy"
+      ],
+      "configExample": "# DLPポリシー設定例\n# ルール名: クレジットカード番号の外部送信禁止\n# 検査対象: HTTPSアップロード全般\n# DLP辞書: Credit Cards (PCI DSS 標準辞書)\n# スコアしきい値: 3件以上一致\n# アクション: Block\n# 通知: 管理者メール通知 + ユーザー警告ページ表示\n\n# カスタム辞書例\n# 辞書名: 社外秘キーワード\n# パターン: \"社外秘\", \"Confidential\", \"取扱注意\"\n# マッチ条件: いずれか1件以上"
+    },
+    {
+      "id": "zia-sandbox",
+      "title": "クラウドサンドボックス",
+      "category": "ZIA",
+      "subcategory": "脅威対策",
+      "summary": "ZIAクラウドサンドボックスは未知のファイルを隔離環境で動的解析し、ゼロデイ攻撃を防ぎます。解析結果はBenign・Suspicious・Maliciousの3段階で判定され、ブロックポリシーと連動します。",
+      "content": "ZIAクラウドサンドボックス（Cloud Sandbox）は、シグネチャベースの検出を回避するゼロデイマルウェアや未知の脅威に対応するために、怪しいファイルを安全な隔離環境（サンドボックス）で実行・動的解析する機能です。\n\nファイルがZscalerクラウドを通過する際、既存のシグネチャや脅威インテリジェンスで判定できない場合にサンドボックス解析が実行されます。解析は数秒〜数分で完了し、結果は「無害（Benign）」「疑わしい（Suspicious）」「悪意あり（Malicious）」の3段階で返されます。Maliciousと判定されたファイルは即座にブロックされます。\n\nサポートされるファイルタイプはPE実行ファイル（.exe/.dll）・PDFドキュメント・Officeファイル（Word/Excel/PowerPoint）・JavaScriptファイル・アーカイブファイル（ZIP/RAR）など多岐にわたります。解析機能にはメモリ解析・ネットワーク挙動監視・レジストリ変更追跡・プロセス監視が含まれます。\n\nCaution（待機）モードを設定することで、解析完了まで一時的にファイルのダウンロードを保留し、判定後に再配信する「Hold for Analysis」フローも構成可能です。解析レポートは管理コンソールで確認でき、IOC（侵害の痕跡）情報をSIEMに連携してインシデント対応に役立てられます。",
+      "tags": [
+        "サンドボックス",
+        "ゼロデイ",
+        "マルウェア解析",
+        "動的解析",
+        "脅威対策",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-ssl-inspection",
+        "zia-dlp",
+        "zia-firewall",
+        "bp-incident"
+      ],
+      "configExample": null
     },
     {
       "id": "zia-casb",
       "title": "CASB（クラウドアクセスセキュリティブローカー）",
       "category": "ZIA",
-      "subcategory": "クラウドアプリ制御",
-      "summary": "CASBはSaaSアプリケーション（Microsoft 365、Google Workspace、Salesforceなど）のアクセスを可視化・制御する機能です。インラインCASBとAPIベースCASBの2種類があります。",
-      "content": "CASB（Cloud Access Security Broker）は、クラウドサービスの利用を安全に管理するためのセキュリティ機能です。\n\n## インラインCASB（ZIA経由）\n\nすべてのHTTPS通信がZscalerを経由するため、SaaSアプリへのアクセスをリアルタイムに制御できます。\n\n### 機能\n- クラウドアプリの可視化（Shadow IT検出）\n- テナント制御（自社テナントのみ許可）\n- アクティビティ制御（アップロード・ダウンロード・共有の制限）\n- DLPとの組み合わせによるデータ保護\n\n### テナント制御の例\n```\nMicrosoft 365:\n  許可テナント: companyname.onmicrosoft.com\n  個人テナント: ブロック\n\nGoogle Workspace:\n  許可ドメイン: @company.com\n  個人アカウント(@gmail.com): ブロック\n```\n\n## APIベースCASB（Zscaler CASB）\n\nSaaSアプリのAPIと直接連携し、クラウド内のデータを検査・制御します。\n\n### 対応サービス例\n- Microsoft OneDrive / SharePoint\n- Google Drive\n- Box\n- Salesforce\n- Slack\n\n### 機能\n- 既存ファイルのDLPスキャン\n- マルウェアスキャン\n- 設定ミス検出（SaaSの設定監査）\n- コラボレーション制御（外部共有リンクの検出）\n\n## Shadow IT対策\n\nZscalerのCloud App Controlは10,000以上のクラウドアプリをデータベース化しており、リスクスコアを付与します。許可されていないアプリへのアクセスをブロックまたは制限できます。",
+      "subcategory": "SaaSセキュリティ",
+      "summary": "ZIA CASBはインラインCASBとAPIベースCASBの2方式でSaaSアプリのセキュリティを強化します。シャドーIT検出、承認済み/未承認アプリの制御、テナント制限機能を提供します。",
+      "content": "ZIA CASB（Cloud Access Security Broker）は、クラウドサービスの利用を可視化・制御するセキュリティレイヤーです。ZIAのインラインCASBはZscalerクラウドを経由するトラフィックをリアルタイムで検査します。\n\nシャドーIT検出機能では、社員が使用しているすべてのクラウドサービスを自動的に検出し、リスクスコア（1〜10）と共にレポートします。25,000以上のクラウドアプリケーションのカタログから利用状況を把握し、未承認のアプリ利用を把握・制限できます。\n\n承認済みアプリ（Sanctioned Apps）と未承認アプリ（Unsanctioned Apps）を区別し、未承認アプリへのアクセスをブロックしたり帯域制限をかけたりすることが可能です。承認済みSaaSアプリには細かいアクセス制御（例：OneDriveの個人アカウントはブロックし企業アカウントのみ許可）も設定できます。\n\nテナント制御（Tenant Restriction）は、Office 365やG Suiteなどで自社テナント以外のアカウントへのアクセスを禁止する機能です。HTTPヘッダーへのテナント情報付与（X-TenantID等）によって実現します。\n\nAPIベースCASB（ZIA Advanced Cloud App Control）はSaaS APIと直接連携し、保存済みデータのDLPスキャンや設定ミス（誤公開ファイル等）の検出も可能です。",
       "tags": [
         "CASB",
+        "シャドーIT",
         "SaaS",
-        "Microsoft 365",
-        "Google Workspace",
-        "Shadow IT",
-        "テナント制御",
+        "テナント制限",
+        "承認済みアプリ",
         "ZIA"
       ],
       "relatedTopicIds": [
+        "zia-url-filtering",
         "zia-dlp",
-        "zia-url-filtering",
-        "zia-overview"
-      ],
-      "configExample": "【テナント制御設定例（Microsoft 365）】\n\nHTTPヘッダー挿入:\n  Restrict-Access-To-Tenants: companyname.onmicrosoft.com\n  Restrict-Access-Context: companyname.onmicrosoft.com\n\n効果:\n  - 会社テナント(companyname): アクセス可\n  - 個人Microsoftアカウント: ブロック\n  - 他社テナント: ブロック"
-    },
-    {
-      "id": "zia-sandbox",
-      "title": "クラウドサンドボックス（Threat Emulation）",
-      "category": "ZIA",
-      "subcategory": "マルウェア防御",
-      "summary": "未知のファイルを隔離された仮想環境（サンドボックス）で実行し、マルウェアかどうかを判定する機能です。シグネチャで検出できないゼロデイ攻撃に対応します。",
-      "content": "クラウドサンドボックスは、ダウンロードされようとしているファイルを実際に仮想マシン上で実行して動作を観察し、マルウェアかどうかを判定します。\n\n## 処理フロー\n\n1. ユーザーがファイルをダウンロード要求\n2. Zscalerがファイルを中継・サンドボックスへ送付\n3. 仮想環境でファイルを実行し動作を分析\n4. 「安全」または「悪意あり」の判定を返す\n5. 判定結果に基づいてファイルを配信またはブロック\n\n## 分析エンジン\n\n- **静的分析**: ファイル構造・メタデータ・既知シグネチャ照合\n- **動的分析**: 実行時の動作監視（ネットワーク通信、レジストリ変更、ファイル操作）\n- **機械学習**: AIによるパターン判定（Zscaler AI/ML）\n\n## 対応ファイルタイプ\n\n実行ファイル（EXE、DLL、MSI）、ドキュメント（PDF、Office）、スクリプト（PowerShell、JavaScript）、アーカイブ（ZIP、RAR）など\n\n## ホールド vs ストリーミング\n\n| モード | 特徴 |\n|---|---|\n| ホールドモード | 判定完了まで配信を待機（最大30秒程度） |\n| ストリーミングモード | 分析と並行して配信（高速だが完全な保護ではない） |\n\n## 注意点\n\n- 分析には数秒〜数十秒かかるため、ユーザー体験への影響を考慮\n- 暗号化されたアーカイブ（パスワード付きZIP）はサンドボックスでは検査不能\n- 既知のハッシュ（MDシグネチャ）はサンドボックスより先に判定される",
-      "tags": [
-        "サンドボックス",
-        "マルウェア",
-        "ゼロデイ",
-        "ThreatLabz",
-        "ZIA"
-      ],
-      "relatedTopicIds": [
-        "zia-ssl-inspection",
-        "zia-url-filtering",
-        "zia-overview"
-      ],
-      "configExample": "【サンドボックスポリシー設定例】\n\nファイルスキャン対象:\n  - 実行ファイル（EXE, DLL, MSI, PS1）\n  - ドキュメント（PDF, DOCX, XLSX, PPTX）\n  - アーカイブ（ZIP, RAR, 7z）\n\n判定時動作:\n  安全: 即座に配信\n  疑わしい（Suspicious）: ログ記録 + 管理者通知\n  悪意あり（Malicious）: ブロック + インシデント作成\n\nスキャン除外:\n  - 社内のDCからのダウンロード（信頼済みソース）\n  - ハッシュホワイトリスト登録済みファイル"
-    },
-    {
-      "id": "zia-authentication",
-      "title": "認証設定（ZIA）",
-      "category": "ZIA",
-      "subcategory": "認証・ID管理",
-      "summary": "ZIAはSAML、Kerberos、LDAP、証明書ベースなど複数の認証方式をサポートします。IdP（Identity Provider）と連携してシングルサインオンを実現できます。",
-      "content": "ZIAは複数の認証方式をサポートしており、企業の既存のIdP（Identity Provider）と連携できます。\n\n## 認証方式\n\n### 1. SAML 2.0（推奨）\n- Azure AD、Okta、Google Workspace、PingIdentityなどと連携\n- シングルサインオン（SSO）を実現\n- ユーザーグループ情報をSAMLアサーションで受け取り、ポリシーに利用\n\n### 2. Kerberos（Active Directory）\n- ドメイン参加Windowsクライアントで透過的認証\n- ユーザーが追加ログインする必要がない\n- 拠点内（GREトンネル接続）での使用に適している\n\n### 3. LDAP\n- Active Directoryに直接問い合わせて認証\n- ユーザー名/パスワード入力が必要\n\n### 4. IPアドレスベース\n- 拠点のIPアドレスでロケーションを判定\n- 個人認識は不可（ロケーション単位のポリシー適用）\n\n## SAMLフェデレーション設定例（Azure AD）\n\n```\nService Provider（Zscaler側）:\n  Entity ID: https://login.zscaler.net\n  ACS URL: https://login.zscaler.net/authn/saml\n  \nIdentity Provider（Azure AD側）:\n  シングルサインオンURL: Azure ADが提供するURL\n  証明書: Azure ADのSAML署名証明書\n```\n\n## ユーザーDB同期\n\n- ZscalerのSCIM（System for Cross-domain Identity Management）機能でAzure AD / Okta等からユーザー・グループを自動同期\n- 手動インポートも可能\n\n## 注意点\n\n- 認証が正しく機能しないとゲストポリシーが適用される可能性がある\n- Zscaler Client Connectorを使う場合はIdP認証と連携設定が必要",
-      "tags": [
-        "SAML",
-        "認証",
-        "Azure AD",
-        "Okta",
-        "Kerberos",
-        "SSO",
-        "ZIA"
-      ],
-      "relatedTopicIds": [
-        "zia-forwarding",
-        "zpa-idp",
-        "zia-overview"
-      ],
-      "configExample": "【SAML設定手順（Azure AD + ZIA）】\n\n1. ZIA管理画面 → Administration → Authentication\n2. IdP Type: Azure Active Directory を選択\n3. SAML Portal URL: Azure ADの「ログインURL」を入力\n4. IdP Certificate: Azure ADのSAML証明書をアップロード\n5. Azure AD側でZscalerエンタープライズアプリケーションを追加\n6. Attribute Mappings:\n   - user.mail → email\n   - user.displayname → displayName\n   - user.assignedroles → memberOf"
-    },
-    {
-      "id": "zia-forwarding",
-      "title": "転送設定（Forwarding / PAC / GRE / IPSec）",
-      "category": "ZIA",
-      "subcategory": "トラフィック転送",
-      "summary": "ZIAへのトラフィック転送方法には、GREトンネル・IPSecトンネル・PACファイル・Zscaler Client Connectorの4種類があります。拠点やユーザー環境に応じて適切な方式を選択します。",
-      "content": "ZIAが機能するには、企業のトラフィックをZscalerクラウドへ転送する必要があります。転送方法の選択は環境によって異なります。\n\n## 転送方式比較\n\n| 方式 | 対象 | 特徴 |\n|---|---|---|\n| GREトンネル | 拠点（ルーター/UTM） | 最も一般的、認証情報不要、L3 |\n| IPSecトンネル | 拠点（ルーター/UTM） | 暗号化あり、GREより設定複雑 |\n| PACファイル | クライアントPC | ブラウザのみ対応、管理が煩雑 |\n| Client Connector | クライアントPC/スマートフォン | フルトンネル対応、モバイル最適 |\n\n## GREトンネル設定\n\nGREトンネルはルーターやFW（FortiGate、Palo Alto等）からZscalerのPrimary VIPとSecondary VIPに向けて張ります。\n\n```\nトンネル先:\n  Primary:   162.243.y.x:0（ZscalerのVIP）\n  Secondary: 162.243.y.z:0（冗長用VIP）\n\n帯域目安:\n  GRE最大帯域: 1Gbps（VIPあたり）\n```\n\n## PACファイル\n\nPAC（Proxy Auto-Config）ファイルはJavaScriptで記述し、どのトラフィックをZscalerプロキシ経由にするかを制御します。\n\n```javascript\n// PAC例\nfunction FindProxyForURL(url, host) {\n  // ローカルIPはバイパス\n  if (isInNet(host, \"192.168.0.0\", \"255.255.0.0\")) {\n    return \"DIRECT\";\n  }\n  // それ以外はZscalerへ\n  return \"PROXY gateway.zscaler.net:80\";\n}\n```\n\n## Zscaler Client Connector\n\n端末にインストールするエージェントで、すべてのアプリケーショントラフィック（ブラウザ以外も含む）をZscalerへ転送します。リモートワーカーには必須です。\n\n## Forwarding Profile\n\nZscaler Client Connectorの挙動をコントロールする設定。どのトラフィックをZscaler経由にするか（フルトンネル or スプリットトンネル）を定義します。",
-      "tags": [
-        "GRE",
-        "IPSec",
-        "PAC",
-        "転送",
-        "Client Connector",
-        "トンネル",
-        "ZIA"
-      ],
-      "relatedTopicIds": [
-        "zia-overview",
-        "zia-authentication",
-        "arch-gre-ipsec"
-      ],
-      "configExample": "【Forwarding Profile 設定例（スプリットトンネル）】\n\nZscaler Cloud転送（ZIA経由）:\n  - 0.0.0.0/0（インターネット全般）\n\nダイレクト接続（バイパス）:\n  - 192.168.0.0/16（社内ネットワーク）\n  - 10.0.0.0/8（VPN接続先）\n  - *.internal.company.com"
-    },
-    {
-      "id": "zia-bandwidth-control",
-      "title": "帯域制御（Bandwidth Control）",
-      "category": "ZIA",
-      "subcategory": "QoS・パフォーマンス",
-      "summary": "帯域制御機能は、特定のカテゴリやアプリケーションが消費する帯域幅を制限し、業務に重要なアプリケーションの通信品質を保護します。",
-      "content": "ZIAの帯域制御機能を使うと、ビデオストリーミングやP2P通信などの非業務トラフィックの帯域を制限し、業務アプリケーションの通信品質を優先できます。\n\n## 帯域制御クラス\n\n帯域制御クラスを定義し、URLポリシーまたはクラウドApp Controlに適用します。\n\n### 設定できる項目\n- 最大帯域幅（Mbps）\n- 最大セッション数\n- 対象カテゴリ / アプリケーション\n\n## 設定例\n\n| クラス名 | 対象 | 上限 |\n|---|---|---|\n| ストリーミング制限 | Streaming Media | 5 Mbps/ユーザー |\n| P2P制限 | Peer-to-Peer | 1 Mbps |\n| 業務優先 | Business Apps | 制限なし |\n\n## 時間帯による変動\n\n業務時間（9〜18時）は帯域を厳しく制限し、業務時間外は緩和するという設定も可能です。\n\n## 注意点\n\n- 帯域制御はZscalerクラウド上で適用されるため、実際の回線帯域とは異なる\n- 拠点の物理回線が混雑している場合はGREトンネルの帯域設計も見直しが必要",
-      "tags": [
-        "帯域制御",
-        "QoS",
-        "ストリーミング",
-        "パフォーマンス",
-        "ZIA"
-      ],
-      "relatedTopicIds": [
-        "zia-url-filtering",
-        "zia-forwarding"
-      ],
-      "configExample": "【帯域制御クラス設定例】\n\nClass 1: 業務優先（Business Priority）\n  適用: Office 365, Salesforce, Webex\n  帯域上限: 無制限（優先）\n\nClass 2: ストリーミング制限\n  適用: カテゴリ = Streaming Media\n  帯域上限: 5Mbps/ユーザー\n  適用時間: 平日 09:00-18:00\n\nClass 3: P2P制限\n  適用: カテゴリ = Peer-to-Peer\n  帯域上限: 1Mbps\n  適用時間: 常時"
-    },
-    {
-      "id": "zpa-overview",
-      "title": "ZPA（Zscaler Private Access）概要",
-      "category": "ZPA",
-      "subcategory": "基本概念",
-      "summary": "ZPAはゼロトラストネットワークアクセス（ZTNA）を実現するサービスです。従来のVPNを置き換え、ユーザーをネットワークに接続するのではなく特定のアプリケーションのみへのアクセスを許可します。",
-      "content": "ZPA（Zscaler Private Access）は、社内アプリケーションへのアクセスをゼロトラスト原則に基づいて提供するサービスです。\n\n## VPNとZPAの違い\n\n| 項目 | 従来VPN | ZPA（ZTNA） |\n|---|---|---|\n| アクセス単位 | ネットワーク全体 | 特定アプリのみ |\n| 社内ネットワーク露出 | 大（侵害されると横移動可能） | なし |\n| アプリのインターネット公開 | 不要（VPNサーバーは公開） | 不要 |\n| スケーラビリティ | 限定的 | クラウドで自動スケール |\n| パフォーマンス | VPNサーバー経由でボトルネック | 最適なコネクター経由 |\n\n## コンポーネント\n\n### Zscaler Client Connector（クライアント側）\n- ユーザーの端末にインストールするエージェント\n- ZPAサービスと認証し、アプリへのアクセスを仲介\n- Windows、macOS、iOS、Android対応\n\n### App Connector（サーバー側）\n- 社内に配置するソフトウェア（VMまたはコンテナ）\n- ZPAクラウドに対してアウトバウンド接続のみ行う（インバウンドポート開放不要）\n- 実際のアプリケーションサーバーへの通信を代行\n\n### Zscaler Private Access Cloud\n- ブローカーとして機能し、クライアントとApp Connectorをつなぐ\n- ポリシーに基づいてアクセス可否を判断\n\n## アクセスフロー\n\n1. ユーザーがアプリにアクセス\n2. Client ConnectorがZPAに認証情報を送信\n3. ZPAがポリシーを評価（ユーザー・デバイス・アプリ）\n4. 許可されたらApp Connectorにマイクロトンネルを確立\n5. App ConnectorがバックエンドのアプリにTCP接続\n6. ユーザーはアプリにアクセスできる（社内ネットワーク全体への接触なし）",
-      "tags": [
-        "ZPA",
-        "ZTNA",
-        "ゼロトラスト",
-        "プライベートアクセス",
-        "VPN代替",
-        "概要"
-      ],
-      "relatedTopicIds": [
-        "zpa-app-connectors",
-        "zpa-access-policy",
-        "zpa-idp",
-        "arch-zero-trust"
+        "zia-ssl-inspection"
       ],
       "configExample": null
     },
     {
-      "id": "zpa-app-connectors",
-      "title": "App Connector（アプリコネクター）",
-      "category": "ZPA",
-      "subcategory": "インフラコンポーネント",
-      "summary": "App ConnectorはZPAの核心コンポーネントで、社内ネットワークに配置してZPAクラウドとの接続を確立します。アウトバウンド接続のみ使うため、ファイアウォールの受信ポート開放が不要です。",
-      "content": "App ConnectorはZPAの内側（社内・クラウド内）に配置するソフトウェアで、ZPAクラウドへの接続を確立し、ユーザーからのアクセスを受け付けます。\n\n## 配置オプション\n\n### オンプレミス（VMware、Hyper-V、KVM）\n- 仮想アプライアンス（OVA形式）として展開\n- 社内DCやブランチオフィスに配置\n\n### パブリッククラウド\n- **AWS**: EC2インスタンス（Amazon Machine Image提供）\n- **Azure**: Virtual Machine\n- **GCP**: Compute Engine\n- **コンテナ**: Docker / Kubernetes対応\n\n## ネットワーク要件\n\nApp Connectorはアウトバウンド通信のみで動作します。\n\n```\n必要なアウトバウンドアクセス:\n  - *.zscaler.net:443（ZPA Cloud）\n  - *.zscalerpartner.net:443\n  - *.zpagov.net:443（GovCloud利用時）\n\nインバウンドポート開放:\n  不要（ゼロトラスト設計の利点）\n```\n\n## App Connectorグループ\n\n複数のApp Connectorをグループにまとめ、アプリセグメントに割り当てます。グループ内で負荷分散と冗長化が自動的に行われます。\n\n### 推奨構成\n- 本番環境: 1グループにApp Connector 2台以上（冗長化）\n- 拠点ごとに独立したグループを作成\n\n## ヘルスチェック\n\nZPAクラウドがApp Connectorの死活監視を行い、障害時は自動的に別のApp Connectorへフェイルオーバーします。\n\n## スケーリング\n\nApp Connectorの台数を増やすことで水平スケールが可能。トラフィック増加に合わせて後からでも追加可能。",
-      "tags": [
-        "App Connector",
-        "コネクター",
-        "インフラ",
-        "冗長化",
-        "AWS",
-        "Azure",
-        "ZPA"
-      ],
-      "relatedTopicIds": [
-        "zpa-overview",
-        "zpa-app-segments",
-        "zpa-access-policy"
-      ],
-      "configExample": "【App Connector展開手順（Linux VM）】\n\n1. ZPA管理画面 → App Connectors → Add New\n2. プロビジョニングキーを生成\n3. LinuxサーバーにApp Connectorをインストール:\n   curl https://installer.zscaler.com/dl/linux/appconnector/install.sh | \\\n     bash -s -- --provisioning-key YOUR_KEY\n4. サービス起動確認:\n   systemctl status zpa-connector\n5. 管理画面でステータスが\"Connected\"になることを確認\n\n推奨スペック:\n  CPU: 2コア以上\n  メモリ: 4GB以上\n  OS: RHEL/CentOS 7/8, Ubuntu 18.04/20.04"
-    },
-    {
-      "id": "zpa-app-segments",
-      "title": "アプリセグメントとサーバーグループ",
-      "category": "ZPA",
-      "subcategory": "アクセス設計",
-      "summary": "アプリセグメントはZPAでアクセス制御の対象となるアプリケーションを定義するオブジェクトです。FQDN・IPアドレス・ポートを指定してアプリケーションの「エントリーポイント」を定義します。",
-      "content": "アプリセグメントはZPAの基本的な設定単位です。ユーザーがアクセスしたいアプリケーションを、FQDN・IP・ポートの組み合わせで定義します。\n\n## アプリセグメントの定義\n\n1つのアプリセグメントに含めるもの：\n- **Domain / IP**: アプリのFQDN、IPアドレス、またはワイルドカード\n- **ポート**: TCP/UDPポート番号（例: 443, 8080, 22）\n- **プロトコル**: TCP / UDP / HTTP / HTTPS\n- **App Connectorグループ**: どのコネクター経由でアクセスするか\n\n## 設計のベストプラクティス\n\n### アプリケーションを機能単位で分割\n```\n悪い例（全部まとめる）:\n  App Segment: All-Internal\n    Domains: *.internal.company.com\n    Ports: All\n  \n良い例（機能単位に分割）:\n  App Segment: HR-System\n    Domain: hr.internal.company.com\n    Ports: 443\n\n  App Segment: Dev-Jenkins\n    Domain: jenkins.dev.company.com\n    Ports: 8080\n```\n\n### ワイルドカードの活用\n- `*.internal.company.com` で社内全ドメインをカバー可能\n- ただし過度なワイルドカードはゼロトラスト原則に反するため注意\n\n## サーバーグループ\n\nサーバーグループは、アプリセグメントのバックエンドサーバーを定義するオブジェクトです。\n- 「動的ディスカバリー」モード: App ConnectorがDNSで解決したIPに接続\n- 「静的」モード: 特定のIPアドレスに固定\n\n## アクセスポリシーとの関連\n\nアプリセグメントは、アクセスポリシーで「どのユーザーがどのアプリセグメントにアクセスできるか」を定義するときに参照されます。",
-      "tags": [
-        "アプリセグメント",
-        "サーバーグループ",
-        "FQDN",
-        "ポート",
-        "設計",
-        "ZPA"
-      ],
-      "relatedTopicIds": [
-        "zpa-app-connectors",
-        "zpa-access-policy",
-        "zpa-overview"
-      ],
-      "configExample": "【アプリセグメント設定例】\n\nApp Segment: Intranet-Portal\n  Domain Names:\n    - intranet.company.co.jp\n    - *.intranet.company.co.jp\n  TCP Ports: 443\n  App Connector Group: Tokyo-Connectors\n  Health Check: Enabled\n  Bypass: Never\n\nApp Segment: SSH-Bastion\n  Domain Names:\n    - bastion.ops.company.co.jp\n  TCP Ports: 22\n  App Connector Group: Tokyo-Connectors\n  注意: SSH鍵認証とZPAポリシーを組み合わせてセキュリティを強化"
-    },
-    {
-      "id": "zpa-access-policy",
-      "title": "アクセスポリシー（ZPA）",
-      "category": "ZPA",
-      "subcategory": "ポリシー管理",
-      "summary": "ZPAのアクセスポリシーは、どのユーザー・グループがどのアプリセグメントにアクセスできるかを定義します。ユーザーID・グループ・デバイスポスチャー・時間帯などの条件を組み合わせて細かく制御できます。",
-      "content": "ZPAのアクセスポリシーはZIAのURLポリシーと同様、ルール番号順（優先度順）に評価され、最初にマッチしたルールが適用されます。\n\n## ポリシーの構成要素\n\n### 条件（AND/OR）\n- **IdPグループ**: Azure ADグループ、Oktaグループ等\n- **ユーザー名**: 特定ユーザーへの個別適用\n- **デバイスポスチャー**: 端末の状態（管理デバイス・非管理デバイス）\n- **OSバージョン**: 特定OSバージョン以上を要求\n- **Client Connectorバージョン**: 特定バージョン以上を要求\n- **認証タイプ**: SAML・証明書ベース等\n- **時間帯スケジュール**: 特定時間帯のみアクセス許可\n\n### アクション\n- **許可（Allow）**: アクセスを通す\n- **拒否（Deny）**: アクセスをブロック\n\n### 対象（アプリセグメント）\n- 特定のApp Segmentを指定\n- またはApp Segment Group（複数セグメントのまとめ）\n\n## 設計例\n\n```\nルール1（優先度最高）: セキュリティチーム全アクセス\n  条件: IdPグループ = Security-Team\n  アプリ: All-App-Segments（*）\n  アクション: 許可\n\nルール2: 一般ユーザー 業務アプリ（管理端末のみ）\n  条件: IdPグループ = All-Employees\n         デバイスポスチャー = Managed-Device\n  アプリ: Business-Apps-Segment\n  アクション: 許可\n\nルール3: 外部委託 限定アプリ\n  条件: IdPグループ = Contractors\n  アプリ: Contractor-App-Segment\n  アクション: 許可\n\nルール99（デフォルト）: 全拒否\n  条件: なし\n  アプリ: *\n  アクション: 拒否\n```\n\n## デバイスポスチャー確認\n\nZPAはデバイスポスチャーを確認することで、管理端末のみにアクセスを限定できます。\n\n確認できる項目：\n- MDM登録状態（Intune、Jamf）\n- ディスク暗号化の有無（BitLocker、FileVault）\n- OSバージョン\n- セキュリティソフトウェアの存在",
-      "tags": [
-        "アクセスポリシー",
-        "ZPA",
-        "IdP",
-        "デバイスポスチャー",
-        "ゼロトラスト",
-        "グループ"
-      ],
-      "relatedTopicIds": [
-        "zpa-app-segments",
-        "zpa-idp",
-        "zpa-app-connectors"
-      ],
-      "configExample": "【アクセスポリシー設定画面の項目】\n\nPolicy Name: General-Staff-Business-Apps\nOrder: 10\n\nConditions (AND):\n  - Group membership: All-Employees (Azure AD)\n  - Device Posture: Managed Device Profile\n    - Requires: Intune enrolled = True\n    - Requires: Disk Encryption = True\n    - OS: Windows 10/11 Build 19041 以上\n\nApplication Segments:\n  - Intranet-Portal\n  - HR-System\n  - Groupware\n\nAction: ALLOW\nAlert: 拒否時は管理者にメール通知"
-    },
-    {
-      "id": "zpa-idp",
-      "title": "IdP連携・SAML認証（ZPA）",
-      "category": "ZPA",
+      "id": "zia-auth",
+      "title": "認証とIdP連携",
+      "category": "ZIA",
       "subcategory": "認証・ID管理",
-      "summary": "ZPAはSAML 2.0ベースのIdP連携をサポートします。Azure AD、Okta、PingIdentity等と連携し、ユーザー認証とグループ情報の取得を行います。",
-      "content": "ZPAのアクセスポリシーはIdPから取得したユーザー・グループ情報を使って評価されます。そのため、IdPとの正確な連携が必要です。\n\n## 対応IdP\n\n- Microsoft Azure Active Directory\n- Okta\n- PingIdentity\n- Google Workspace\n- OneLogin\n- ADFS（Active Directory Federation Services）\n- その他 SAML 2.0 対応IdP\n\n## 設定フロー（Azure AD）\n\n```\n1. ZPA管理画面 → Configuration → IdP Configuration\n2. IdP Type: OKTA / Azure AD / etc. を選択\n3. IdPメタデータXMLをアップロード（またはURL入力）\n4. 属性マッピングを設定:\n   - NameID: user.email\n   - displayName: user.displayName\n   - memberOf: user.groups\n5. Azure AD側でZscaler ZPAのエンタープライズアプリを追加\n6. ユーザー・グループを割り当て\n```\n\n## SCIM プロビジョニング\n\nSCIMを使うと、IdP上のユーザー・グループ変更が自動的にZPAに反映されます。\n\n- ユーザー追加 → ZPAへ自動反映\n- グループメンバー変更 → ポリシー評価が即時更新\n- ユーザー削除（退職） → ZPAアクセスが自動無効化\n\n## 認証フロー\n\n```\n1. ユーザーがアプリにアクセス（Client Connector経由）\n2. ZPAがIdPにリダイレクト（SAMLリクエスト）\n3. ユーザーがIdPにログイン（MFAも含む）\n4. IdPがSAMLアサーション（グループ情報含む）をZPAに返す\n5. ZPAがアクセスポリシーを評価\n6. 許可されたらApp Connectorへトンネル確立\n```\n\n## MFA（多要素認証）\n\nZPA自身はMFAを持たないため、IdP側でMFAを設定します。ユーザーはIdP（Azure MFA、Okta Verifyなど）でMFAを完了してからZPAにアクセスします。",
+      "summary": "ZIAはSAML SSOによるシングルサインオンをサポートし、Azure AD・Okta・G Suiteなど主要IdPと統合できます。SCIMによる自動プロビジョニングとIPベース認証も提供します。",
+      "content": "ZIAの認証機能はSAML 2.0を使用したシングルサインオン（SSO）をサポートし、Azure Active Directory・Okta・G Suite・OneLogin・PingIdentityなど主要なIdPと連携できます。ユーザーがWebアクセス時にZscalerがSAML認証リクエストをIdPに転送し、認証成功後にポリシーが適用されます。\n\nSCIM（System for Cross-domain Identity Management）プロトコルを使用することで、IdPのユーザー・グループ情報をZIAに自動同期できます。ユーザーの追加・変更・削除がIdPから即座にZIAに反映されるため、手動管理の負担が大幅に軽減されます。\n\nIPベース認証は、送信元IPアドレスによってユーザーを識別する方式で、プロキシ認証ポップアップが表示できない環境（サーバーやIoT機器等）向けです。GRE/IPSecトンネルで接続する拠点のトラフィックは送信元IP（ロケーション設定）で自動識別されます。\n\nゲストユーザーや外部パートナーは、ZscalerのセルフサービスポータルまたはSMSワンタイムパスワード認証を使用して一時的なアクセスを付与できます。多要素認証（MFA）はIdP側で設定します。Kerberos認証もWindows環境での透過的な認証方式として利用可能です。",
       "tags": [
-        "IdP",
         "SAML",
+        "SSO",
         "Azure AD",
         "Okta",
         "SCIM",
-        "認証",
-        "MFA",
+        "IdP連携",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-locations",
+        "zia-admin",
+        "zpa-idp",
+        "zia-zcc"
+      ],
+      "configExample": "# SAML IdP設定例（Azure AD連携）\n# IdPタイプ: Microsoft Azure AD\n# エンティティID: https://login.microsoftonline.com/<tenant-id>/\n# SSO URL: https://login.microsoftonline.com/<tenant-id>/saml2\n# 証明書: Azure ADのSAML署名証明書をアップロード\n# 属性マッピング:\n#   - NameID → user.userprincipalname\n#   - Department → user.department\n#   - Groups → user.groups"
+    },
+    {
+      "id": "zia-bandwidth",
+      "title": "帯域制御・QoS",
+      "category": "ZIA",
+      "subcategory": "ネットワーク管理",
+      "summary": "ZIA帯域制御では帯域クラスの定義、アプリケーション別スロットリング、優先キューイングにより、業務に重要なトラフィックを優先し、ストリーミングメディア等の帯域消費を制限します。",
+      "content": "ZIAの帯域制御（Bandwidth Control）機能は、企業ネットワークの帯域幅を効率的に管理し、ビジネスクリティカルなアプリケーションのパフォーマンスを確保します。\n\n帯域クラス（Bandwidth Classes）では、最大帯域幅（Maximum Bandwidth）と最低保証帯域幅（Guaranteed Bandwidth）をパーセンテージで定義します。例えば、UCaaS（Microsoft Teams/Zoom等）に帯域の40%を保証し、ストリーミングメディアは最大10%に制限するといった設定が可能です。\n\nアプリケーションスロットリングはアプリ識別と組み合わせて動作します。YouTubeやNetflixなどのコンシューマー向け動画配信サービスのトラフィックを検出し、設定したレート制限を適用します。これにより業務時間中の帯域の無駄遣いを防止します。\n\n優先キューイング（Priority Queuing）では、トラフィックの優先度を高・中・低の3段階に設定できます。VoIP/ビデオ会議を高優先度に設定することで、帯域が競合する状況でもリアルタイム通信の品質を維持します。\n\nパケットフィルタリングポリシー（PFP）と組み合わせることで、特定のIPアドレス・ポート・アプリケーションに対して詳細な帯域管理が可能です。なお帯域制御はZscalerのデータセンター（PoP）で適用されるため、ForwardProxy方式（Zscaler Client ConnectorまたはGRE/IPSecトンネル）でのトラフィック転送が前提です。",
+      "tags": [
+        "帯域制御",
+        "QoS",
+        "スロットリング",
+        "優先キューイング",
+        "UCaaS",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-firewall",
+        "zia-locations",
+        "zia-casb"
+      ],
+      "configExample": "# 帯域クラス設定例\n# クラス名: UCaaS（高優先）\n#   保証帯域: 40%  最大帯域: 70%  優先度: 高\n#   対象アプリ: Microsoft Teams, Zoom, Webex\n\n# クラス名: ストリーミングメディア（低優先）\n#   保証帯域: 0%   最大帯域: 10%  優先度: 低\n#   対象カテゴリ: Streaming Media"
+    },
+    {
+      "id": "zia-dns",
+      "title": "DNSセキュリティ",
+      "category": "ZIA",
+      "subcategory": "ネットワークセキュリティ",
+      "summary": "ZIA DNSセキュリティは悪意のあるドメインのブロック、DoHの制御、DNSトンネリング検出などを提供します。クラウドファイアウォールとのDNS制御統合により、DNSベースの攻撃を防止します。",
+      "content": "ZIA DNSセキュリティは、DNSレイヤーで動作する脅威対策機能です。ZscalerのThreat Intelligence（脅威インテリジェンス）データベースに基づき、マルウェアのC2（コマンド＆コントロール）サーバー、フィッシングサイト、ランサムウェア配布サイトなどのドメインへのDNS解決をブロックします。\n\nDNS Filtering Rulesでは、URLカテゴリやカスタムドメインリストに基づいてDNSクエリを制御します。ブロック、サイレントドロップ、カスタムIPへのリダイレクト（シンクホール）などのアクションが選択できます。\n\nDNS over HTTPS（DoH）は従来のDNSトラフィック検査を回避する可能性があるため、ZIAはDoHプロバイダー（Google/Cloudflare/Firefox DoH等）へのアクセスをファイアウォールルールでブロックし、すべてのDNSクエリをZscalerのDNSリゾルバー経由に強制します。\n\nDNSトンネリング検出機能は、DNSクエリのエントロピー分析やTXTレコードの異常検知によって、DNSを使った秘密通信チャネルの確立を検出・遮断します。過度に長いサブドメインやBase64エンコードされたペイロードなどのパターンを検出します。\n\nZscaler Client Connector（ZCC）を使用している場合、エンドポイントのDNSクエリもすべてZscalerクラウド経由となり、デバイスがどこにあっても一貫したDNSセキュリティが適用されます。",
+      "tags": [
+        "DNSセキュリティ",
+        "DNSフィルタリング",
+        "DoH",
+        "DNSトンネリング",
+        "C2",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-firewall",
+        "zia-url-filtering",
+        "zia-zcc"
+      ],
+      "configExample": null
+    },
+    {
+      "id": "zia-locations",
+      "title": "ロケーション設定",
+      "category": "ZIA",
+      "subcategory": "展開・接続設定",
+      "summary": "ZIAロケーション設定では拠点をGRE/IPSecトンネルで接続し、IPベース認証やXFFヘッダーを構成します。サブロケーションを使って支社や部門ごとに異なるポリシーを適用できます。",
+      "content": "ZIAのロケーション（Locations）設定は、企業の各拠点をZscalerクラウドに接続するための設定です。ロケーションは主にGREトンネルまたはIPSecトンネルを使って接続し、拠点のインターネット出口トラフィックをZscalerにリダイレクトします。\n\n各ロケーションには送信元IP（公開IPアドレス）を設定し、そのIPから来るトラフィックを該当ロケーションのポリシーで処理します。この方式をIPベース認証と呼び、エンドポイントへのエージェントインストールが不要なため、管理外デバイス（IoT機器、プリンター等）にも対応できます。\n\nXFF（X-Forwarded-For）ヘッダーは、プロキシ経由でZscalerに到達するトラフィックに含まれるエンドユーザーの実際のIPアドレスを伝えます。ZIAのXFF転送設定を有効にすることで、ユーザーIP単位のポリシー適用とログ記録が可能になります。\n\nサブロケーション（Sub-Locations）は、同一拠点内をIPレンジやVLANで分割し、異なるポリシーや帯域制限を適用するための機能です。例えば、ゲストWi-Fi（サブロケーション1）と社員ネットワーク（サブロケーション2）に異なるポリシーを適用できます。\n\n拠点のフェイルオーバーには、プライマリ・セカンダリトンネルの設定と、Zscalerが提供するVIPアドレス（PoP固有のエニーキャストIP）の利用が推奨されます。",
+      "tags": [
+        "ロケーション",
+        "GREトンネル",
+        "IPSec",
+        "IPベース認証",
+        "XFF",
+        "サブロケーション",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "arch-tunnel",
+        "zia-auth",
+        "zia-pac",
+        "zia-bandwidth"
+      ],
+      "configExample": "# ロケーション設定例（東京本社）\n# ロケーション名: Tokyo-HQ\n# 送信元IP: 203.0.113.1（インターネット出口IP）\n# 認証方式: IPベース認証\n# タイムゾーン: Asia/Tokyo\n# プロファイル: 本社標準ポリシー\n\n# GREトンネル設定\n# プライマリVIP: gre1.zscaler.net（東京PoP）\n# セカンダリVIP: gre2.zscaler.net（大阪PoP）\n# ソースIP: 203.0.113.1\n# トンネルID: ZSTOKEN（API経由で取得）"
+    },
+    {
+      "id": "zia-pac",
+      "title": "PACファイルと転送設定",
+      "category": "ZIA",
+      "subcategory": "展開・接続設定",
+      "summary": "ZIAへのトラフィック誘導にはPACファイル・WPAD・明示的プロキシ・透過型プロキシの4方式があります。PACファイルではZscalerのクラウドプロキシアドレスを指定し、バイパスルールも定義します。",
+      "content": "ZIAへのWebトラフィックを誘導する方式は複数あります。最も一般的なのはPAC（Proxy Auto-Configuration）ファイルを使った明示的プロキシ方式です。\n\nPACファイルはブラウザがどのトラフィックをどのプロキシに送るかを決定するJavaScript関数（FindProxyForURL）を含むファイルです。ZIAの場合、ZscalerのクラウドプロキシFQDN（例：proxy.zscaler.net:80またはproxy.zscaler.net:443）を返すよう設定します。ZscalerのAdmin Portalから自動生成されたPACファイルをダウンロードして使用することも可能です。\n\nWPAD（Web Proxy Auto-Discovery）は、DHCPオプション252またはDNSのwpad.ドメイン名レコードでPACファイルのURLを自動配布します。これによりクライアント設定なしで自動的にプロキシ設定が適用されます。\n\nバイパスルールは、ZscalerをスキップすべきトラフィックをPACファイル内で定義します。内部ネットワーク（RFC1918アドレス）、ループバックアドレス、ZPA経由で保護されるアプリのFQDN等はプロキシをバイパスするよう設定します。\n\n透過型プロキシ方式ではクライアント設定不要ですが、SSLインスペクションには証明書配布が必要です。Zscaler Client Connector（ZCC）を使用する場合はPACファイル不要で、エージェントがOS全体のトラフィックをZscalerに転送します。",
+      "tags": [
+        "PAC",
+        "WPAD",
+        "プロキシ",
+        "透過型プロキシ",
+        "転送設定",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-zcc",
+        "zia-locations",
+        "zia-ssl-inspection"
+      ],
+      "configExample": "// PACファイル設定例\nfunction FindProxyForURL(url, host) {\n  // ループバック・内部IPはバイパス\n  if (isPlainHostName(host) || isInNet(host, \"10.0.0.0\", \"255.0.0.0\") ||\n      isInNet(host, \"192.168.0.0\", \"255.255.0.0\")) {\n    return \"DIRECT\";\n  }\n  // ZPAアプリはバイパス（ZCCが処理）\n  if (dnsDomainIs(host, \".internal.example.com\")) {\n    return \"DIRECT\";\n  }\n  // それ以外はZscalerプロキシへ\n  return \"PROXY proxy.zscalertwo.net:80; PROXY proxy2.zscalertwo.net:80; DIRECT\";\n}"
+    },
+    {
+      "id": "zia-zcc",
+      "title": "Zscaler Client Connector",
+      "category": "ZIA",
+      "subcategory": "エンドポイント",
+      "summary": "Zscaler Client Connector（ZCC）はエンドポイントにインストールするエージェントで、Z-Tunnel 1.0/2.0モードでトラフィックをZscalerに転送します。ZIAとZPAを一つのエージェントで提供します。",
+      "content": "Zscaler Client Connector（ZCC）は、Windows・macOS・iOS・Androidに対応したエンドポイントエージェントで、ZIAとZPAの両機能を単一のクライアントで提供します。ZCCをインストールすることで、オフィス外にいるユーザーのトラフィックもZscalerクラウドを経由させ、一貫したセキュリティポリシーを適用できます。\n\nトンネルモードにはZ-Tunnel 1.0（ZT1）とZ-Tunnel 2.0（ZT2）があります。ZT1はHTTP/HTTPSポートのWebトラフィックのみをZscalerに転送します。ZT2はすべてのIPトラフィック（任意のポート・プロトコル）をZscalerに転送するため、クラウドファイアウォールやDNSセキュリティなどすべての機能が利用できます。現在はZT2が推奨モードです。\n\nZCCの展開にはMDM（Mobile Device Management）との連携が一般的です。Intune・JAMF・VMware Workspace ONE等のMDMソリューションからZCCのインストールパッケージを自動配布し、設定プロファイルを自動適用できます。\n\nZCCのForwarding Profileでは、どのトラフィックをZscalerに転送し、何をバイパスするかを細かく設定できます。Trusted Network Detection（TND）機能で、社内ネットワーク接続時はZCCのプロキシを無効にしてGRE/IPSecトンネルに任せるといった設定も可能です。",
+      "tags": [
+        "ZCC",
+        "Zscaler Client Connector",
+        "Z-Tunnel",
+        "エンドポイント",
+        "MDM",
+        "Intune",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-pac",
+        "zia-auth",
+        "zia-locations",
+        "zpa-overview"
+      ],
+      "configExample": "# ZCC Forwarding Profile設定例\n# プロファイル名: 標準ユーザープロファイル\n# トンネルモード: Z-Tunnel 2.0\n# Trusted Network Detection: 有効\n#   - 検出方法: DNSサフィックス (corp.example.com)\n#   - 社内NW接続時: ZCCトンネル停止（GRE/IPSecに委譲）\n# バイパスFQDN:\n#   - *.internal.example.com（ZPAで保護するアプリ）\n#   - localtest.me（ローカルテスト用）"
+    },
+    {
+      "id": "zia-admin",
+      "title": "管理者ポータルと権限管理",
+      "category": "ZIA",
+      "subcategory": "管理・運用",
+      "summary": "ZIA管理者ポータルではロールベースのアクセス制御（RBAC）、API管理、監査ログ、ポリシー順序管理が提供されます。スーパー管理者と委任管理者を使い分けた権限設計が重要です。",
+      "content": "ZIA管理者ポータル（admin.zscaler.net等）はブラウザベースの管理コンソールで、全ZIAポリシーの設定と監視が行えます。\n\nロールベースアクセス制御（RBAC）では、スーパー管理者（Super Admin）・管理者・読み取り専用管理者など複数のロールが定義されています。部門別管理や機能別管理（URLポリシーのみ変更可能な担当者等）が実現でき、最小権限の原則に基づいた権限設計が可能です。\n\nZscaler APIを使用することで、ポリシーの自動管理・ユーザープロビジョニング・設定のバックアップ・変更の自動化が実現できます。APIキーはAdmin Portalで発行し、有効期限管理が推奨されます。API呼び出しはOAuth 2.0またはAPIキー+タイムスタンプのHMAC署名で認証されます。\n\n監査ログ（Audit Logs）には管理者の操作履歴（誰が・いつ・何を変更したか）が記録され、コンプライアンス要件への対応と変更管理に使用できます。ログはAdmin Portal内で閲覧可能なほか、外部のSIEMへのストリーミング送信も設定できます。\n\nポリシー順序は非常に重要で、URLフィルタリング・ファイアウォール・DLPの各ポリシールールは上から順に評価されます。最も具体的なルールを上位に配置し、一般的なルールを下位に配置する設計が基本原則です。設定変更後は「Activate」ボタンで変更を反映させる必要があります。",
+      "tags": [
+        "管理者ポータル",
+        "RBAC",
+        "API",
+        "監査ログ",
+        "ポリシー管理",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-auth",
+        "zia-alerts",
+        "bp-zia-deploy",
+        "bp-incident"
+      ],
+      "configExample": "# 管理者ロール設定例\n# ロール名: URLポリシー管理者\n# 権限スコープ:\n#   - URLフィルタリングポリシー: 読み取り・書き込み\n#   - カスタムURLカテゴリ: 読み取り・書き込み\n#   - その他の設定: 読み取りのみ\n# 対象グループ: IT-Security-Team-JP\n\n# API設定\n# APIキー有効期限: 90日\n# 許可送信元IP: 10.0.0.0/8（内部ネットワークのみ）"
+    },
+    {
+      "id": "zia-alerts",
+      "title": "アラートと通知",
+      "category": "ZIA",
+      "subcategory": "管理・運用",
+      "summary": "ZIAのアラートシステムでは脅威検出・ポリシー違反・サービス異常などのイベントに対しメール通知やSIEM連携、Webhookを設定できます。適切なアラート設計でセキュリティ運用の効率化が図れます。",
+      "content": "ZIAのアラート機能は、セキュリティインシデント・ポリシー違反・サービスの異常を管理者に通知するための仕組みです。\n\nアラートの種類には、脅威アラート（マルウェア・フィッシング・C2通信の検出）、コンプライアンスアラート（DLPポリシー違反）、サービスアラート（PoP接続障害・証明書期限切れ）、管理アラート（設定変更・管理者ログイン）などがあります。\n\nメール通知では、アラートの重要度（Critical/High/Medium/Low）でフィルタリングし、適切な担当者・チームに通知を振り分けます。過剰な通知を防ぐため、しきい値設定や通知頻度制限が重要です。\n\nSIEM連携はNSS（Nanolog Streaming Service）を使用して実現します。NSSはZscalerのログデータ（Webログ・ファイアウォールログ・DNSログ・DLPインシデントログ等）をリアルタイムでSIEM（Splunk・Microsoft Sentinel・IBM QRadar等）に転送します。NSS VMをオンプレミスに配置し、Zscalerクラウドからログを受信してSIEMに転送する構成が標準です。\n\nWebhook通知は、HTTPSでのJSON/XMLペイロード送信によりSIEM・SOAR・チャットツール（Slack・Teamsなど）との柔軟な連携を実現します。インシデント対応の自動化（SOAR Playbookのトリガー）にも活用できます。",
+      "tags": [
+        "アラート",
+        "通知",
+        "NSS",
+        "Nanolog",
+        "SIEM",
+        "Webhook",
+        "ZIA"
+      ],
+      "relatedTopicIds": [
+        "zia-admin",
+        "zia-dlp",
+        "zia-sandbox",
+        "bp-incident"
+      ],
+      "configExample": null
+    },
+    {
+      "id": "zpa-overview",
+      "title": "ZPA概要とゼロトラストネットワークアクセス",
+      "category": "ZPA",
+      "subcategory": "概要・アーキテクチャ",
+      "summary": "ZPAはゼロトラストの原則に基づくアプリケーションアクセスソリューションです。従来のVPNと異なりネットワークではなくアプリケーション単位でアクセスを制御し、過剰なアクセス権を排除します。",
+      "content": "ZPA（Zscaler Private Access）は、ゼロトラストネットワークアクセス（ZTNA）の原則に基づいたアプリケーションアクセスプラットフォームです。従来のVPN（仮想プライベートネットワーク）はユーザーをネットワーク全体に接続するため、内部の横移動（ラテラルムーブメント）リスクが高まりますが、ZPAはアプリケーション単位の精密なアクセス制御を提供します。\n\nZPAの主要コンポーネントは4つです。①ZPAクラウド：アクセスポリシーの評価とブローカー機能を提供するゼロトラストエクスチェンジ。②App Connector：プライベートネットワーク内（オンプレミス・IaaS）に配置し、ZPAクラウドとのアウトバウンド接続を維持するコネクタ。③Zscaler Client Connector（ZCC）：ユーザー端末にインストールするエージェント。④Browser Access：エージェントレスのWebブラウザ経由アクセス。\n\nアクセスフローは「インサイドアウト」方式です。ユーザーがアプリケーションにアクセスしようとすると、ZCCがZPAクラウドにリクエストを送り、ZPAクラウドがポリシーを評価します。ポリシーが満たされた場合、App ConnectorとユーザーZCC間にマイクロトンネルが確立されます。App Connectorはインバウンドポートを一切開放しないため、アプリケーションがインターネットから直接見えることはありません。これによりアタックサーフェスが大幅に縮小されます。",
+      "tags": [
+        "ZPA",
+        "ZTNA",
+        "ゼロトラスト",
+        "VPN代替",
+        "App Connector",
+        "ZCC"
+      ],
+      "relatedTopicIds": [
+        "zpa-app-connector",
+        "zpa-app-segment",
+        "zpa-access-policy",
+        "arch-ztna-concept"
+      ],
+      "configExample": null
+    },
+    {
+      "id": "zpa-app-connector",
+      "title": "App Connector設定",
+      "category": "ZPA",
+      "subcategory": "コンポーネント設定",
+      "summary": "App ConnectorはZPAのオンプレミス側コンポーネントで、VM・Docker・ベアメタルで展開できます。アウトバウンドのみの接続でZPAクラウドと通信し、HA構成とライフサイクル管理が重要です。",
+      "content": "App ConnectorはZPAのオンプレミスコンポーネントであり、保護対象アプリケーションと同じネットワークセグメントまたはルーティング可能な場所に配置します。App ConnectorはZPAクラウド（HTTPS/443）への永続的なアウトバウンド接続を維持し、ユーザーとアプリケーション間のトラフィックをブローカーします。インバウンドポートは一切不要です。\n\n展開オプションはVM（VMware ESXi/Hyper-V/KVM）・Docker/Podman・ベアメタルサーバー・クラウドIaaS（AWS/Azure/GCP）から選択できます。ZscalerはApp Connector用のOVAテンプレートを提供しており、最小構成は2vCPU・4GB RAMです。同時接続数に応じてサイジングガイドラインに従いスペックを調整します。\n\n可用性確保（HA）のためには、同一ロケーションに最低2台のApp Connectorを配置し、同一Connector Groupに所属させます。ZPAクラウドが負荷分散と冗長化を自動的に管理します。1台が障害発生した場合は残りのコネクタにセッションが自動移行されます。\n\nApp Connectorのアップグレードは管理コンソールから実施でき、手動または自動アップグレードが選択できます。自動アップグレードには定期メンテナンスウィンドウを設定することが推奨されます。コネクタのヘルス状態（接続状態・CPUメモリ使用率等）はAdmin Portalでリアルタイム監視できます。",
+      "tags": [
+        "App Connector",
+        "VM",
+        "Docker",
+        "HA",
+        "アップグレード",
         "ZPA"
       ],
       "relatedTopicIds": [
-        "zpa-access-policy",
         "zpa-overview",
-        "zia-authentication"
+        "zpa-connector-group",
+        "zpa-app-segment",
+        "bp-zpa-design"
       ],
-      "configExample": "【Azure AD + ZPA SAML設定】\n\nZPA側設定:\n  IdP Name: AzureAD-Production\n  SAML Config URL: （Azure ADが発行するメタデータURL）\n  Sign Authn Request: Yes\n  \nAzure AD 側設定（エンタープライズアプリ）:\n  アプリ名: Zscaler ZPA\n  サポートされるアカウント: この組織のみ\n  \n属性マッピング:\n  user.mail → nameidentifier\n  user.displayname → displayName  \n  user.groups → groups（グループIDを送信）\n\nグループ変換（ZPA側）:\n  Azure AD Group ID → ZPA IdPグループ名 として登録"
+      "configExample": "# App Connector 展開後の確認コマンド（Linux）\n# サービス状態確認\nsystemctl status zpa-connector\n\n# 接続状態確認（ZPAクラウドへのアウトバウンド）\nzpa-connector status\n\n# ログ確認\njournalctl -u zpa-connector -f\n\n# App Connector が ZPA クラウドに接続するために必要な通信許可\n# 宛先: *.zpath.net, *.zpnproxy.net (TCP 443)\n# 宛先: *.zscaler.net (TCP 443)"
+    },
+    {
+      "id": "zpa-app-segment",
+      "title": "アプリケーションセグメント",
+      "category": "ZPA",
+      "subcategory": "アプリケーション設定",
+      "summary": "アプリケーションセグメントはZPAで保護するアプリを定義する単位です。FQDN・IPアドレス・ワイルドカードでアプリを指定し、ポート・プロトコル・ヘルスチェックを設定します。",
+      "content": "アプリケーションセグメント（Application Segment）は、ZPAで保護するアプリケーションリソースを定義するオブジェクトです。1つのアプリケーションセグメントには複数のFQDN・IPアドレス・ワイルドカードドメインを含めることができます。\n\nFQDNによる指定（例：erp.corp.example.com）は最も一般的な方式です。ワイルドカード（例：*.internal.example.com）を使用することで、サブドメイン全体をまとめて保護できます。IPアドレスとCIDRレンジも指定可能です。ZCCがこれらの宛先へのDNSクエリ・接続をインターセプトしてZPA経由に転送します。\n\nポートとプロトコル（TCP/UDP）をアプリごとに定義します。HTTP（80）・HTTPS（443）・SSH（22）・RDP（3389）・カスタムポートなど幅広く設定できます。App Connector側でのヘルスチェック（TCP接続確認）間隔と失敗しきい値も設定可能です。\n\nセグメントグループ（Segment Groups）はアプリケーションセグメントを論理的にグループ化するオブジェクトです。アクセスポリシーの対象としてセグメントグループ単位で設定できるため、類似アプリをまとめて管理しやすくなります。\n\nドメインの追加・変更は管理コンソールから即座に反映され、ユーザーはアクセスポリシーに変更がなければ新しいアプリにもすぐアクセスできます。",
+      "tags": [
+        "アプリケーションセグメント",
+        "FQDN",
+        "ワイルドカード",
+        "ポート設定",
+        "ヘルスチェック",
+        "ZPA"
+      ],
+      "relatedTopicIds": [
+        "zpa-overview",
+        "zpa-access-policy",
+        "zpa-connector-group",
+        "zpa-app-connector"
+      ],
+      "configExample": "# アプリケーションセグメント設定例\n# セグメント名: 社内ERPシステム\n# ドメイン: erp.corp.example.com\n#           erp-dev.corp.example.com\n# ポート/プロトコル: TCP 443, TCP 80\n# セグメントグループ: 基幹業務アプリ\n# ヘルスチェック: 有効（間隔: 30秒）\n# App Connectorグループ: Tokyo-DC-Connectors"
+    },
+    {
+      "id": "zpa-access-policy",
+      "title": "アクセスポリシー設計",
+      "category": "ZPA",
+      "subcategory": "ポリシー管理",
+      "summary": "ZPAアクセスポリシーはユーザー・グループ・デバイスポスチャー・時刻などの条件を組み合わせてアプリアクセスを制御します。ポリシー評価順序と最小権限の原則に基づいた設計が重要です。",
+      "content": "ZPAアクセスポリシー（Access Policy）は、誰がどのアプリケーションにアクセスできるかを定義するルールセットです。各ポリシールールには条件と対象リソースを設定します。\n\nポリシー条件には以下の要素を組み合わせて使用できます：①ユーザー/グループ（IdPから同期）：特定のユーザーやADグループ。②デバイスポスチャー（Device Posture）：マネージドデバイス・OSバージョン・ディスク暗号化・アンチウイルス状態などのデバイスセキュリティ要件。③クライアントタイプ：ZCC・Browser Accessなど。④プラットフォーム：Windows/macOS/iOS/Android。⑤時間帯：業務時間のみアクセス許可など。\n\nポリシーアクションは「許可（Allow）」または「拒否（Deny）」です。暗黙のデフォルトDenyにより、明示的に許可されていないすべてのアクセスは拒否されます。これがゼロトラストの基本原則です。\n\nポリシーの評価は上から順に行われ、最初にマッチしたルールが適用されます。より具体的なルール（個人ユーザー向け）を上位に、より一般的なルール（全社員向け）を下位に配置します。\n\nデバイスポスチャー評価は、ZCCから収集したデバイス情報に基づきリアルタイムで行われます。デバイスのコンプライアンス状態が変化すると（例：アンチウイルスが無効化された）、既存のセッションも影響を受けます。最小権限の原則に従い、ユーザーが必要とするアプリのみアクセス許可することが強く推奨されます。",
+      "tags": [
+        "アクセスポリシー",
+        "最小権限",
+        "ゼロトラスト",
+        "デバイスポスチャー",
+        "ZTNA",
+        "ZPA"
+      ],
+      "relatedTopicIds": [
+        "zpa-overview",
+        "zpa-idp",
+        "zpa-app-segment",
+        "bp-zpa-design"
+      ],
+      "configExample": "# アクセスポリシールール設定例\n# ルール名: 経理部門 - ERPアクセス許可\n# 条件:\n#   - ユーザーグループ: Finance-Team (Azure AD)\n#   - デバイスポスチャー: マネージドデバイス必須\n#   - プラットフォーム: Windows, macOS\n#   - 時間帯: 平日 07:00-22:00\n# 対象アプリ: セグメントグループ「基幹業務アプリ」\n# アクション: Allow\n\n# ルール名: デフォルト（全拒否）\n# 条件: なし（全員）\n# アクション: Deny"
+    },
+    {
+      "id": "zpa-idp",
+      "title": "IdP連携（SAML/SCIM）",
+      "category": "ZPA",
+      "subcategory": "認証・ID管理",
+      "summary": "ZPAはSAML 2.0によるSSO認証とSCIMによるユーザー/グループ同期をサポートします。複数のIdPを設定でき、SAMLアサーション属性のマッピングでグループ・部署情報をポリシーに活用します。",
+      "content": "ZPAのIdP（Identity Provider）連携は、ユーザー認証とグループ情報の取得に使用されます。ZPAはSAML 2.0プロトコルをサポートし、Azure AD・Okta・OneLogin・ADFS・G Suiteなどの主要IdPと連携できます。\n\nSAML設定ではIdPのメタデータXMLをZPAにインポートするか、手動でエンティティID・SSO URL・証明書を設定します。ユーザーがZPA経由のアプリにアクセスすると、ZCCがZPAクラウドに認証リクエストを送り、ZPAがIdPにSAML認証を委譲します。\n\nSAMLアサーションの属性マッピングは特に重要です。IdPから送信されるグループ情報（例：AD Security Groupメンバーシップ）をZPAのユーザー属性として取り込み、アクセスポリシーの条件として使用できます。カスタム属性（部署・役職・コスト番号等）もポリシー条件に利用できます。\n\nSCIM（System for Cross-domain Identity Management）を使用すると、IdPのユーザー・グループ変更がZPAにリアルタイムで反映されます。退職者のアカウント無効化がIdP側で行われると、ZPAのアクセス権も即座に失効します。\n\n複数IdPの設定が可能なため、M&Aで異なるIdPを持つ組織が統合された場合や、社員と契約社員で別のIdPを使う場合にも対応できます。各IdPに異なるポリシーを紐づけることができます。",
+      "tags": [
+        "SAML",
+        "SCIM",
+        "IdP",
+        "Azure AD",
+        "Okta",
+        "SSO",
+        "ZPA"
+      ],
+      "relatedTopicIds": [
+        "zpa-overview",
+        "zpa-access-policy",
+        "zia-auth"
+      ],
+      "configExample": "# ZPA SAML IdP設定例（Okta連携）\n# IdP名: Okta-Corp\n# エンティティID: http://www.okta.com/<okta-id>\n# SSO URL: https://company.okta.com/app/zscalerZPA/sso/saml\n# 署名証明書: Oktaからエクスポートした証明書\n\n# 属性マッピング\n# user.email → Email\n# user.login → Username\n# memberOf → Groups（ポリシー条件で使用）"
     },
     {
       "id": "zpa-machine-tunnel",
-      "title": "マシントンネル（Machine Tunnel）",
+      "title": "マシントンネル",
       "category": "ZPA",
-      "subcategory": "高度な設定",
-      "summary": "マシントンネルはユーザーログイン前にデバイス認証でZPAに接続する機能です。ドメインログイン・端末管理・GPO適用をVPNなしで実現します。",
-      "content": "マシントンネル（Machine Pre-Authentication Tunnel）は、Windowsのユーザーログイン前（デバイス起動時）に、コンピューターアカウントを使って自動的にZPAに接続する機能です。\n\n## 用途\n\n- **ドメインログイン**: 社外からでもActive Directoryにアクセスしてドメインログインを実行\n- **GPO適用**: ドメインコントローラーにアクセスしてグループポリシーを受け取る\n- **SCCM/Intuneポリシー**: 端末管理ツールへのアクセス\n- **証明書更新**: 証明書の自動更新\n\n## 仕組み\n\n```\n通常トンネル（ユーザートンネル）:\n  認証: ユーザーのSAML/IdP認証\n  確立タイミング: ユーザーログイン後\n  \nマシントンネル:\n  認証: コンピューター証明書（Machine Certificate）\n  確立タイミング: Windowsログイン画面が表示される前\n  目的: DC・ADへのアクセス確保\n```\n\n## 設定要件\n\n1. Intuneなどで端末に**クライアント証明書**を配布\n2. ZPA IdP ConfigでCertificate-based認証を設定\n3. Forwarding ProfileでMachine Tunnel Profileを設定\n4. Machine Tunnel専用のアプリセグメントを作成（ADサーバー、DCなど）\n5. Machine Tunnelポリシー: コンピューター証明書が条件\n\n## ユーザートンネルとの共存\n\nWindowsでは通常、マシントンネルとユーザートンネルが共存します：\n- 起動時: マシントンネルで接続（ADにログイン可能）\n- ユーザーログイン後: ユーザートンネルに切り替え（業務アプリにアクセス可能）",
+      "subcategory": "高度な機能",
+      "summary": "ZPAマシントンネルはユーザーログイン前にデバイスをZPA接続し、ドメイン参加や事前認証シナリオを実現します。証明書ベース認証を使用し、ユーザートンネルと組み合わせて運用します。",
+      "content": "ZPAマシントンネル（Machine Tunnel）は、デバイスがユーザーログイン前の状態でもZPA経由の接続を確立できる機能です。ユーザートンネルがユーザー認証（SAML等）ベースであるのに対し、マシントンネルはデバイスの機械証明書（Machine Certificate）ベースで認証されます。\n\n主要なユースケースは以下の通りです。①ドメイン参加処理：ユーザーがログインする前にWindowsデバイスがActive Directoryドメインに接続するためのネットワークアクセスが必要な場合。②グループポリシーの取得：ログイン前のGPO適用やWindows Update等のシステムレベルの通信。③MDMエンロールメント前の接続要件への対応。\n\nマシントンネルの設定ではZCCのDevice Policy（デバイスポリシー）でマシントンネルを有効にし、マシントンネル専用のアプリケーションセグメント・アクセスポリシーを作成します。このポリシーではユーザー認証を条件とせず、デバイス証明書のみを認証条件とします。\n\nマシントンネルは機器認証のみで動作するため、アクセス可能なアプリケーションはドメインコントローラー・WSUSサーバー・MDMサーバーなどのシステム用途に限定することが強く推奨されます。ユーザー向けの業務アプリケーションはユーザートンネルで保護します。\n\nZCCのバージョン3.7以降でWindows・macOSのマシントンネルがサポートされています。",
       "tags": [
         "マシントンネル",
-        "ドメインログイン",
-        "Active Directory",
-        "証明書",
+        "証明書認証",
+        "ドメイン参加",
+        "ZCC",
+        "GPO",
         "ZPA"
       ],
       "relatedTopicIds": [
+        "zpa-overview",
         "zpa-access-policy",
-        "zpa-app-connectors",
-        "zpa-overview"
+        "zia-zcc"
       ],
-      "configExample": "【マシントンネル設定手順】\n\n1. IdP Configuration → Add Certificate IdP\n   証明書タイプ: Machine Certificate (Intune)\n\n2. App Segment: AD-Domain-Controllers\n   Domain: *.corp.company.co.jp\n   Ports: 389, 636, 3268, 3269, 88, 464, 53\n   Connector: Tokyo-Connectors\n\n3. Machine Tunnel Policy:\n   Condition: Certificate IdP = Machine-Cert-IdP\n   App Segment: AD-Domain-Controllers\n   Action: Allow\n\n4. Forwarding Profile:\n   Machine Tunnel Profile: 上記ポリシーを割り当て"
+      "configExample": null
+    },
+    {
+      "id": "zpa-browser-access",
+      "title": "Browser Access",
+      "category": "ZPA",
+      "subcategory": "アクセス方式",
+      "summary": "ZPA Browser Accessはエージェント不要でWebブラウザからプライベートアプリにアクセスする機能です。HTTP/HTTPS/RDP/SSHプロトコルをサポートし、BYOD・外部パートナーのユースケースに対応します。",
+      "content": "ZPA Browser Access（BA）は、Zscaler Client Connector（ZCC）エージェントをインストールすることなく、通常のWebブラウザからZPAで保護されたプライベートアプリケーションにアクセスできる機能です。\n\nBrowser AccessはZPAクラウド上に展開されたリバースプロキシ（Browser Access Service）を経由してアプリにアクセスします。ユーザーはZPAが発行した外部向けのURL（例：app.company.zscloud.net）にアクセスし、SAML認証後に内部アプリに転送されます。\n\nサポートされるプロトコルと用途：①HTTP/HTTPSアプリ（社内Webポータル・GitLab・Jira等）のブラウザアクセス。②RDP over HTTPSにより、ブラウザからWindowsデスクトップ/サーバーにHTML5経由でリモートデスクトップ接続。③SSH over HTTPSにより、ブラウザからLinuxサーバーにWebターミナル経由でSSH接続。\n\n主要なユースケースはBYOD（Bring Your Own Device）端末からの社内アプリアクセスと、外部パートナー・請負業者への限定的なアプリアクセス付与です。エージェントを配布できない管理外デバイスでも利用できます。\n\nBrowser Accessのセキュリティポリシーはアクセスポリシーで通常のZCCアクセスと分けて定義でき、BYODには厳しい制限（ファイルダウンロード禁止・コピー&ペースト制限等）を適用するといった差別化が可能です。",
+      "tags": [
+        "Browser Access",
+        "エージェントレス",
+        "BYOD",
+        "RDP",
+        "SSH",
+        "ZPA"
+      ],
+      "relatedTopicIds": [
+        "zpa-overview",
+        "zpa-access-policy",
+        "zpa-idp"
+      ],
+      "configExample": null
+    },
+    {
+      "id": "zpa-connector-group",
+      "title": "Connector GroupとServer Group",
+      "category": "ZPA",
+      "subcategory": "コンポーネント設定",
+      "summary": "Connector GroupはApp Connectorを論理的にグループ化し、地理的分散や負荷分散を実現します。Server GroupはConnector Groupとアプリケーションセグメントを紐づける設定オブジェクトです。",
+      "content": "Connector Group（コネクターグループ）は、同じネットワーク・拠点・クラウドリージョンに配置されたApp Connectorをまとめる論理グループです。App Connectorは必ずいずれかのConnector Groupに所属します。\n\nConnector Groupの設定では、グループ名・関連するApp Connectorのリスト・デフォルトのIPロケーション（地理情報）を設定します。同一Connector Group内のコネクタ間でセッションの負荷分散が自動的に行われます。\n\n地理的分散の設計では、東京・大阪・海外拠点ごとに別々のConnector Groupを作成し、それぞれにApp Connectorを配置します。ZPAクラウドはユーザーの地理的位置と各Connector Groupのコネクタ状態に基づいて最適なコネクタを選択します。\n\nServer Group（サーバーグループ）は、Connector GroupとApplication Segmentを紐づけるオブジェクトです。アプリケーションセグメントの設定ではServer Groupを指定し、そのアプリへのアクセスにどのConnector Groupを使用するかを決定します。これにより、特定のアプリは特定の拠点のApp Connector経由でのみアクセスできるという制御が実現できます。\n\nアフィニティルール（Connector Affinity）では、特定のユーザーグループが常に特定のConnector Groupを優先使用するよう設定でき、地理的近接性によるレイテンシ最適化に役立ちます。",
+      "tags": [
+        "Connector Group",
+        "Server Group",
+        "負荷分散",
+        "地理的分散",
+        "App Connector",
+        "ZPA"
+      ],
+      "relatedTopicIds": [
+        "zpa-app-connector",
+        "zpa-app-segment",
+        "bp-zpa-design"
+      ],
+      "configExample": "# Connector Group設定例\n# グループ名: Tokyo-DC-Connectors\n# メンバー: app-connector-tokyo-01, app-connector-tokyo-02\n# IPロケーション: 日本・東京\n\n# Server Group設定例\n# グループ名: Tokyo-App-Servers\n# Connector Group: Tokyo-DC-Connectors\n# 動的ディスカバリー: 無効\n# Server一覧: 10.10.0.0/16（内部アプリサーバーレンジ）"
     },
     {
       "id": "zdx-overview",
-      "title": "ZDX（Zscaler Digital Experience）概要",
+      "title": "ZDX概要",
       "category": "ZDX",
-      "subcategory": "基本概念",
-      "summary": "ZDXはエンドユーザーのデジタル体験（パフォーマンス）を可視化・監視するサービスです。アプリケーションの応答時間・経路のボトルネック・デバイスの状態を一元的に把握できます。",
-      "content": "ZDX（Zscaler Digital Experience）は、「アプリが遅い」「繋がらない」というユーザーの問題を素早く特定するためのデジタル体験監視サービスです。\n\n## 主な機能\n\n### アプリケーション体験監視\n- Webアプリの応答時間測定（HTTP/HTTPSプローブ）\n- SaaSアプリ（Microsoft 365、Zoom、Salesforceなど）のパフォーマンス測定\n- ネットワーク経路分析（Cloud Path Trace）\n\n### デバイス状態監視\n- CPU・メモリ使用率\n- Wi-Fi信号強度\n- バッテリー状態\n- Zscaler Client Connectorの状態\n\n### ユーザーエクスペリエンス スコア\n- デバイス・ネットワーク・アプリのスコアを0〜100で表示\n- スコアが低いユーザーを素早くフィルタリング可能\n\n## トラブルシューティング活用\n\n従来は「アプリが遅い」というユーザーレポートを受けてから原因調査が始まっていましたが、ZDXでは問題発生前からデータが蓄積されるため、報告後すぐに「いつから・どこで・なぜ遅くなったか」を特定できます。\n\n## データ収集\n\nZscaler Client ConnectorがインストールされたすべてのデバイスからZDXデータが収集されます。エージェントレスは不可。\n\n## アラート機能\n\n- スコアが閾値を下回った場合にメール・Slack通知\n- 影響ユーザー数のしきい値によるアラート（例: 10人以上が影響を受けた場合）",
+      "subcategory": "概要・アーキテクチャ",
+      "summary": "ZDXはエンドユーザーのデジタル体験を監視するDEM（デジタルエクスペリエンスモニタリング）プラットフォームです。ZDXスコアでデバイス・ネットワーク・アプリのセグメント別に体験品質を可視化します。",
+      "content": "ZDX（Zscaler Digital Experience）は、エンドユーザーのデジタル体験品質をリアルタイムで監視・分析するDEM（Digital Experience Monitoring）プラットフォームです。ユーザーがSaaSアプリやプライベートアプリを利用する際の体験品質を、デバイス・ネットワーク・アプリケーションの3つのセグメントに分解して可視化します。\n\nZDXスコアは0〜100の数値で体験品質を表し、スコアが高いほど良好な体験を示します。このスコアはZscalerのPoP経由のネットワークメトリクス・アプリケーションレスポンスタイム・デバイスのリソース使用率などを組み合わせて算出されます。\n\nZDXはZscaler Client Connector（ZCC）に内蔵されたプローブエージェントが各エンドポイントからアプリへの到達性・レイテンシ・スループットを定期的に計測します。これにより「特定のユーザーが特定のアプリを使用するときの体験」を個別に把握できます。\n\n管理コンソールのZDXダッシュボードでは、ユーザー一覧・アプリ一覧・デバイス一覧のそれぞれのZDXスコアを確認でき、スコアの低下が検出された際のアラートも設定できます。ヘルプデスクチームはユーザーのリアルタイム体験データにアクセスし、障害の切り分けと解決時間の短縮に活用できます。",
       "tags": [
         "ZDX",
-        "デジタル体験",
-        "パフォーマンス監視",
-        "トラブルシューティング",
-        "概要"
+        "DEM",
+        "デジタルエクスペリエンス",
+        "ZDXスコア",
+        "監視",
+        "パフォーマンス"
       ],
       "relatedTopicIds": [
-        "zdx-probes",
+        "zdx-web-probe",
+        "zdx-app-probe",
         "zdx-alerts",
-        "zdx-cloud-path"
+        "zia-zcc"
       ],
       "configExample": null
     },
     {
-      "id": "zdx-probes",
-      "title": "ZDXプローブ（Web Probe / Cloud Path）",
+      "id": "zdx-web-probe",
+      "title": "Webプローブ設定",
       "category": "ZDX",
-      "subcategory": "監視設定",
-      "summary": "ZDXのプローブはClient Connectorからアプリへの定期的な測定を行います。Web ProbeはHTTPの応答時間、Cloud Path Traceはネットワーク経路上のレイテンシを測定します。",
-      "content": "ZDXプローブは、ユーザーのClient Connectorから定期的に測定を実行してパフォーマンスデータを収集します。\n\n## プローブの種類\n\n### Web Probe\n- HTTPまたはHTTPSリクエストを送信し、応答時間（レスポンスタイム）を測定\n- DNSルックアップ時間・TCP接続時間・TLSハンドシェイク時間・コンテンツ転送時間を分解して表示\n- 間隔: 1〜60分（デフォルト15分）\n\n### Cloud Path Trace\n- ユーザーから対象サーバーまでの経路上の各ホップのレイテンシを測定\n- Zscaler ZEN（プロキシノード）・インターネット・宛先サーバーの区間を区別\n- どの区間でレイテンシが発生しているかを特定可能\n\n## 測定項目例（Microsoft 365）\n\n```\nWeb Probe → outlook.office365.com\n\n測定結果:\n  DNS解決: 5ms\n  TCP接続: 15ms\n  TLSハンドシェイク: 35ms\n  最初のバイト受信（TTFB）: 120ms\n  総応答時間: 175ms\n\nCloud Path:\n  ユーザーPC → Wi-Fi → ルーター: 2ms\n  ルーター → Zscaler Tokyo ZEN: 8ms\n  Zscaler ZEN → Microsoft Azure: 25ms\n```\n\n## プローブ設定のポイント\n\n- 重要なSaaSアプリ（Zoom、Teams、Salesforce等）を優先的に監視\n- ユーザー体験に直結するURLをプローブ対象に設定\n- 測定間隔は短いほど精度が上がるが、トラフィックも増える\n\n## デバイスプローブ（Device Score）\n\nClient ConnectorがデバイスのCPU・メモリ・Wi-Fi・バッテリーを定期測定し、ZDXダッシュボードに表示します。",
+      "subcategory": "プローブ設定",
+      "summary": "ZDXのWebプローブはエンドポイントから指定URLへのHTTPアクセスを定期的に計測します。URL・計測間隔・しきい値を設定し、DNS解決時間・TCP接続時間・HTTPレスポンスタイムを取得します。",
+      "content": "ZDXのWebプローブ（Web Probe）は、エンドポイントの機器から指定したURLに対して定期的にHTTP/HTTPSリクエストを送り、アプリケーションの応答性とネットワーク経路の品質を計測する機能です。\n\nWebプローブの設定パラメータ：①監視URL：計測対象のURL（例：https://portal.example.com/health）。②計測間隔：5分・10分・15分・30分・60分から選択可能。頻度が高いほど詳細なデータが得られますが、エンドポイントとZscalerへの負荷も増加します。③タイムアウトしきい値：レスポンスタイムがこの値を超えるとアラートを発火。④HTTPステータスコード：期待するステータスコード（200等）と異なる場合に異常検知。\n\n計測されるHTTPパフォーマンスメトリクス：①DNS解決時間（DNSレイテンシ）：FQDNの名前解決にかかった時間。②TCP接続時間：TCP SYN〜SYN-ACKの往復時間。③TLS/SSLハンドシェイク時間：HTTPS接続の暗号化処理時間。④Time to First Byte（TTFB）：HTTPリクエスト送信からレスポンスの最初のバイト受信まで。⑤コンテンツダウンロード時間：ページコンテンツの取得完了まで。\n\nこれらの詳細メトリクスにより、遅延の原因がDNSか・ネットワーク経路か・アプリケーションサーバーかを切り分けることができます。Zscaler PoP経由の計測と直接アクセスの比較も可能です。",
       "tags": [
+        "Webプローブ",
+        "HTTPレスポンスタイム",
+        "DNS解決",
+        "TTFB",
         "ZDX",
-        "Web Probe",
-        "Cloud Path",
-        "レイテンシ",
-        "測定",
         "監視"
       ],
       "relatedTopicIds": [
         "zdx-overview",
-        "zdx-alerts",
-        "zdx-cloud-path"
+        "zdx-app-probe",
+        "zdx-alerts"
       ],
-      "configExample": "【Web Probe 設定例】\n\nProbe Name: Microsoft-Teams-Monitor\nTarget URL: https://teams.microsoft.com/_\nHTTP Method: GET\nExpected Status: 200\nFrequency: 5分間隔\nTimeout: 10秒\n\nAlert Conditions:\n  Response Time > 3000ms: 警告\n  Response Time > 5000ms: 重大\n  HTTP 5xx: 即時アラート\n  Consecutive Failures: 3回連続 → アラート\n\nAssign To:\n  - 全ユーザーグループ\n  または\n  - 特定の地域/グループ"
+      "configExample": "# Webプローブ設定例\n# プローブ名: 社内ポータル監視\n# URL: https://intranet.example.com/\n# 計測間隔: 10分\n# タイムアウト: 5000ms\n# 期待ステータス: 200\n# 対象デバイスグループ: 全社員\n# アラートしきい値: レスポンスタイム > 3000ms が3回連続"
+    },
+    {
+      "id": "zdx-app-probe",
+      "title": "アプリケーションプローブ",
+      "category": "ZDX",
+      "subcategory": "プローブ設定",
+      "summary": "ZDXにはMicrosoft 365・Zoom・Webexなどのビルトインプローブが用意されています。カスタムアプリプローブも作成でき、エンタープライズアプリケーションの体験品質を詳細に監視できます。",
+      "content": "ZDXのアプリケーションプローブには、主要なSaaSアプリ向けのビルトインプローブとカスタムプローブの2種類があります。\n\nビルトインアプリプローブは、主要なクラウドサービスに特化した計測を提供します。Microsoft 365プローブはExchange Online・SharePoint・Teams等のエンドポイントごとのレスポンス品質を計測します。Zoomプローブはミーティング接続品質（音声・映像のパケットロス・ジッター・レイテンシ）を監視します。Webexプローブも同様にビデオ会議品質の計測に対応しています。\n\nカスタムアプリプローブでは、社内開発アプリやビルトインプローブが存在しないSaaSに対して独自の計測設定を作成できます。HTTP/HTTPSプローブの場合はURLとパラメータを設定します。\n\nZDXの「Cloud Path」機能は、エンドポイントからZscaler PoPを経由してアプリケーションサーバーまでの各ホップのレイテンシを可視化します。これによりボトルネックがエンドポイント〜PoP間か、PoP〜アプリ間かを特定できます。\n\nデバイス情報（CPU使用率・メモリ使用率・Wi-Fi信号強度・バッテリー状態）もZDXで収集され、ユーザー体験の劣化がデバイス側の問題か、ネットワーク側の問題かを切り分けるのに役立ちます。",
+      "tags": [
+        "アプリプローブ",
+        "Microsoft 365",
+        "Zoom",
+        "Webex",
+        "Cloud Path",
+        "ZDX"
+      ],
+      "relatedTopicIds": [
+        "zdx-overview",
+        "zdx-web-probe",
+        "zdx-alerts"
+      ],
+      "configExample": null
     },
     {
       "id": "zdx-alerts",
-      "title": "ZDXアラート設定",
+      "title": "ZDXアラートとダッシュボード",
       "category": "ZDX",
-      "subcategory": "アラート・通知",
-      "summary": "ZDXはプローブ結果やデバイススコアに基づいて、しきい値を超えたときにメール・Webhook・Slackで通知します。問題を早期発見するための正しい閾値設定が重要です。",
-      "content": "ZDXアラートを適切に設定することで、ユーザーからの「遅い」という報告を受ける前に問題を検知できます。\n\n## アラートの種類\n\n### アプリベースアラート\n- 特定のプローブの応答時間が閾値を超えた場合\n- プローブが失敗した場合（HTTP 4xx/5xx / タイムアウト）\n- 影響ユーザー数が閾値を超えた場合\n\n### デバイスベースアラート\n- ユーザーのDevice Scoreが閾値を下回った場合\n- CPU使用率が高い状態が継続\n\n## 通知チャネル\n\n- **メール**: 管理者・チームへの通知\n- **Webhook**: PagerDuty、OpsGenie等のインシデント管理ツールへ\n- **Slack**: Slackチャネルへの通知\n- **ServiceNow**: チケット自動作成（連携設定が必要）\n\n## 閾値設定の考え方\n\n```\nベースライン確認:\n  まず1週間プローブを実施して平常値を把握する\n  例: Teamsの平均応答時間 = 200ms\n\n閾値設定例:\n  Warning:  200ms × 2.0 = 400ms\n  Critical: 200ms × 5.0 = 1000ms\n  Alert: 影響ユーザー数 >= 10人\n```\n\n## アラート疲れ防止\n\n- 閾値が低すぎると誤報が多くなりアラート疲れを引き起こす\n- 「影響ユーザー数」条件を追加することで個別ユーザーの問題に過剰反応しない\n- 業務時間外（夜間・休日）はアラートを抑制するスケジュール設定を推奨",
+      "subcategory": "監視・アラート",
+      "summary": "ZDXダッシュボードではユーザー体験スコアをヒートマップで可視化し、問題の範囲と影響度を即座に把握できます。アラートポリシーと連動したトラブルシューティングワークフローで解決時間を短縮します。",
+      "content": "ZDXのダッシュボードとアラート機能は、エンドユーザーの体験品質問題を迅速に検出・対応するためのツールです。\n\nZDXダッシュボードのメインビューでは、組織全体のZDXスコアの推移グラフと、ユーザー/デバイス/アプリごとのスコアランキングが表示されます。スコアが低下したユーザーや地域を一覧から素早く特定できます。\n\nヒートマップ（Experience Heat Map）は、時間軸と地理的分布でZDXスコアの変化をカラーコード表示します。特定の時間帯や特定の拠点で体験品質が悪化したパターンを視覚的に把握できるため、障害の範囲と発生時刻の特定が容易になります。\n\nアラートポリシーでは、ZDXスコアが設定したしきい値を下回った場合にメール・Webhook経由で通知を発送します。アラートはユーザーグループ・アプリ・デバイスタイプごとに設定でき、影響を受けているユーザー数が一定数を超えた場合のみ通知するといった設定も可能です。\n\nトラブルシューティングワークフローでは、特定ユーザーのZDXスコア詳細ページから「デバイス状態」「ネットワーク経路（Cloud Path）」「アプリ応答時間」の各セグメントのデータを確認し、問題の根本原因を特定します。ヘルプデスクはチケット対応時にZDXデータをリアルタイム参照することで、ユーザーへの状況ヒアリングの手間を省けます。",
       "tags": [
-        "ZDX",
-        "アラート",
-        "Slack",
-        "Webhook",
-        "閾値",
-        "監視"
+        "ZDXアラート",
+        "ダッシュボード",
+        "ヒートマップ",
+        "トラブルシューティング",
+        "ZDXスコア",
+        "ZDX"
       ],
       "relatedTopicIds": [
         "zdx-overview",
-        "zdx-probes"
-      ],
-      "configExample": "【ZDXアラート設定例】\n\nAlert Name: Teams-Performance-Alert\nTrigger:\n  Probe: Microsoft-Teams-Monitor\n  Condition: Response Time > 2000ms\n  Duration: 5分間継続\n  Affected Users: 5人以上\n\nNotification:\n  Email: it-ops@company.co.jp\n  Slack Webhook: #it-alerts チャネル\n  \nMessage Template:\n  \"⚠️ [ZDX Alert] Microsoft Teamsのパフォーマンス低下を検知\n   影響ユーザー: {affected_users}人\n   応答時間: {response_time}ms（閾値: 2000ms）\n   発生時刻: {timestamp}\""
-    },
-    {
-      "id": "arch-zscaler-cloud",
-      "title": "Zscalerクラウドアーキテクチャ",
-      "category": "アーキテクチャ",
-      "subcategory": "基盤設計",
-      "summary": "Zscalerは世界150以上の拠点に分散したマルチテナントのセキュリティクラウドです。各拠点のZEN（Zscaler Enforcement Node）がトラフィックを処理し、ユーザーに最も近いノードに自動的に誘導されます。",
-      "content": "Zscalerのプラットフォームは、世界中に分散配置されたセキュリティクラウドです。\n\n## ZEN（Zscaler Enforcement Node）\n\nZENはZscalerのクラウドデータセンターの処理ノードです。\n\n- 世界150以上のデータセンターに配置\n- 日本国内: 東京、大阪\n- ユーザーのトラフィックを最近傍のZENで処理\n- すべてのセキュリティ機能（URLフィルタリング、SSLインスペクション等）をZENで実行\n\n## マルチテナントアーキテクチャ\n\n- 複数の顧客が同じクラウドインフラを共有\n- データは完全に分離されており、他テナントからアクセス不可\n- 専用ハードウェアが不要なため、高速展開・低コスト\n\n## クラウドへのトラフィック経路\n\n```\n拠点ユーザー:\n  PC → 社内ルーター → GRE/IPSecトンネル → Zscaler ZEN → インターネット\n\nモバイル/リモートユーザー:\n  PC → Zscaler Client Connector → Zscaler ZEN → インターネット\n                                             ↓\n                                     ZPA App Connector → 社内アプリ\n```\n\n## HA（高可用性）設計\n\n- 各テナントにPrimary ZENとSecondary ZENが割り当て\n- Primary障害時は自動的にSecondaryへフェイルオーバー\n- SLA: 99.999%（年間約5分のダウンタイム）\n\n## パフォーマンス最適化\n\n- トラフィックは最近傍ZENで処理（レイテンシ最小化）\n- Zscalerクラウド内の通信は専用バックボーンネットワーク\n- キャッシュ機能によりHTTPコンテンツを一時保存してパフォーマンス向上",
-      "tags": [
-        "ZEN",
-        "アーキテクチャ",
-        "クラウド",
-        "HA",
-        "データセンター",
-        "グローバル"
-      ],
-      "relatedTopicIds": [
-        "zia-overview",
-        "zpa-overview",
-        "arch-gre-ipsec"
+        "zdx-web-probe",
+        "zdx-app-probe",
+        "zia-alerts"
       ],
       "configExample": null
     },
     {
-      "id": "arch-gre-ipsec",
-      "title": "GREトンネルとIPSecの比較・設計",
+      "id": "arch-zte",
+      "title": "Zero Trust Exchangeアーキテクチャ",
       "category": "アーキテクチャ",
-      "subcategory": "ネットワーク設計",
-      "summary": "ZIAへのトラフィック転送にはGREとIPSecの2種類のトンネル方式があります。それぞれの特徴を理解して適切な方式を選択することが重要です。",
-      "content": "GREとIPSecはどちらもZscalerへのサイトトラフィックを転送するためのトンネル方式です。\n\n## GRE（Generic Routing Encapsulation）\n\n### 特徴\n- シンプルなL3カプセル化\n- 暗号化なし（平文トンネル）\n- オーバーヘッドが小さい（ヘッダー24バイト程度）\n- 設定がシンプル\n\n### 適した環境\n- 拠点内ネットワーク（物理的に安全な環境）\n- 高スループットが必要な拠点（1Gbps超）\n- 暗号化が不要な場合（または外側でMPLS等で保護）\n\n### 制限事項\n- MTUの考慮が必要（GREヘッダー分を引いた値に設定）\n- 一部のルーターでGREがサポートされていない場合がある\n\n## IPSec\n\n### 特徴\n- AES-256等の強力な暗号化\n- IKEv2対応\n- オーバーヘッドはGREより大きい\n\n### 適した環境\n- インターネットVPN経由（暗号化が必要な場合）\n- コンプライアンス要件で暗号化が必須の場合\n\n## 設定パラメーター比較\n\n| 項目 | GRE | IPSec |\n|---|---|---|\n| 暗号化 | なし | AES-256 |\n| 認証 | なし | PSK / 証明書 |\n| MTU推奨 | 1476 | 1400程度 |\n| 設定難易度 | 低 | 中 |\n\n## MSS（Maximum Segment Size）クランピング\n\nGRE/IPSecトンネルではMTUが小さくなるため、TCPのMSSをクランプする設定が必要です。\n\n```\nGREの場合:\n  MTU: 1500 - 24(GREヘッダー) = 1476\n  MSS: 1476 - 40(IP+TCP) = 1436\n```\n\n## デュアルトンネル（冗長化）\n\n各拠点からZscalerへのトンネルは、Primary / Secondary の2本を張ることを推奨します。",
+      "subcategory": "プラットフォーム概要",
+      "summary": "Zscaler Zero Trust Exchange（ZTE）はグローバル150以上のPoP上に構築されたクラウドセキュリティプラットフォームです。トラフィックはインライン検査チェーンを通過し、複数のセキュリティエンジンで処理されます。",
+      "content": "Zscaler Zero Trust Exchange（ZTE）は、ZIA・ZPA・ZDXなどZscaler全製品の基盤となるグローバルクラウドプラットフォームです。世界150以上のデータセンター（Point of Presence：PoP）を擁し、ユーザーのトラフィックは最寄りのPoPに転送されて処理されます。この「クラウドでのインスペクション」設計により、企業はオンプレミスのセキュリティアプライアンスを不要にできます。\n\nトラフィックの処理フローは以下の順番でセキュリティエンジンを通過します：①認証・ポリシールックアップ（ユーザー/デバイス確認）→ ②SSLインスペクション（HTTPS復号）→ ③URLフィルタリング →④クラウドファイアウォール → ⑤IPS（侵入防止）→ ⑥マルウェア対策・サンドボックス → ⑦DLP → ⑧CASB → ⑨SSL再暗号化（発信）。これらの処理はすべてZscalerのPoP内で行われます。\n\nアーキテクチャの主な特徴：①シングルパスアーキテクチャ：1回の検査パスで複数のセキュリティエンジンが並行処理を行い、レイテンシを最小化。②エラスティックスケーリング：トラフィック量に応じてPoP内のリソースが自動スケールアウト。③グローバルなスレットインテリジェンス：すべてのPoPで最新の脅威情報をリアルタイム共有。\n\nZscaler Private Serviceは顧客の機密性要件に対応するため、データを特定のリージョン（日本データセンター等）のみで処理するオプションも提供されています。",
+      "tags": [
+        "Zero Trust Exchange",
+        "ZTE",
+        "PoP",
+        "クラウドプラットフォーム",
+        "インライン検査",
+        "アーキテクチャ"
+      ],
+      "relatedTopicIds": [
+        "zia-ssl-inspection",
+        "zpa-overview",
+        "arch-ztna-concept",
+        "arch-tunnel"
+      ],
+      "configExample": null
+    },
+    {
+      "id": "arch-tunnel",
+      "title": "GRE/IPSecトンネル設定",
+      "category": "アーキテクチャ",
+      "subcategory": "接続方式",
+      "summary": "ZIAへの拠点接続にはGREトンネルまたはIPSecトンネルを使用します。プライマリ/セカンダリの冗長構成、ヘルス監視、MTU/MSS調整が安定した接続維持に重要です。",
+      "content": "ZIAへの拠点接続方式として、GRE（Generic Routing Encapsulation）トンネルとIPSec（Internet Protocol Security）トンネルの2つがサポートされています。どちらを選ぶかは、既存のルーターやファイアウォールの対応状況、セキュリティ要件、運用の複雑さによって決まります。\n\nGREトンネルは設定がシンプルで、多くのルーターでサポートされています。トラフィックを暗号化しない（平文でZscalerに送信）ため、ISPとのインターネット経路ではトラフィックが平文になります。一方でIPSecは暗号化を提供するため、ISPの傍受リスクを排除したい場合に適しています。ただしZscalerのPoPに到達後はSSLインスペクションを含む完全なセキュリティ検査が行われます。\n\nプライマリ/セカンダリトンネルの冗長構成が強く推奨されます。プライマリトンネルが接続先PoPに障害発生した場合、セカンダリトンネルが自動的にフェイルオーバーします。ZscalerはPoP固有のVIPアドレス（エニーキャストIP）を提供し、ルーターが正しいPoPに接続するよう誘導します。\n\nMTU（Maximum Transmission Unit）とMSS（Maximum Segment Size）の設定はトンネル接続で特に重要です。GREオーバーヘッドが24バイト、IPSecオーバーヘッドが約60バイト程度加算されるため、MTUを1400〜1450バイト程度に設定してフラグメンテーションを防ぎます。MSS ClampingはTCPセッション確立時にMSSを適切に調整します。\n\nトンネルのヘルスモニタリングにはBFD（Bidirectional Forwarding Detection）やICMPヘルスチェックを使用します。",
       "tags": [
         "GRE",
         "IPSec",
         "トンネル",
+        "冗長構成",
+        "フェイルオーバー",
         "MTU",
-        "MSS",
-        "ネットワーク設計",
-        "冗長化"
-      ],
-      "relatedTopicIds": [
-        "zia-forwarding",
-        "arch-zscaler-cloud",
-        "zia-overview"
-      ],
-      "configExample": "【Cisco IOS GREトンネル設定例】\n\ninterface Tunnel0\n description Zscaler Primary GRE Tunnel\n ip address 10.0.0.1 255.255.255.252\n ip mtu 1476\n ip tcp adjust-mss 1436\n tunnel source GigabitEthernet0/0\n tunnel destination 165.225.x.x  ! Zscaler Primary VIP\n\ninterface Tunnel1\n description Zscaler Secondary GRE Tunnel\n ip address 10.0.0.5 255.255.255.252\n ip mtu 1476\n ip tcp adjust-mss 1436\n tunnel source GigabitEthernet0/0\n tunnel destination 165.225.y.y  ! Zscaler Secondary VIP\n\n! デフォルトルートをトンネルへ\nip route 0.0.0.0 0.0.0.0 Tunnel0 track 1\nip route 0.0.0.0 0.0.0.0 Tunnel1 5"
-    },
-    {
-      "id": "arch-zero-trust",
-      "title": "ゼロトラストアーキテクチャとZscaler",
-      "category": "アーキテクチャ",
-      "subcategory": "セキュリティフレームワーク",
-      "summary": "ゼロトラストは「すべてを信頼しない」という原則に基づくセキュリティモデルです。Zscalerはこのゼロトラスト原則をZIA・ZPA・ZDXを通じて実現します。",
-      "content": "ゼロトラスト（Zero Trust）とは、ネットワークの内外を問わず、すべてのアクセスを検証・制御するセキュリティアーキテクチャです。\n\n## 従来型モデルの問題点\n\n```\n従来型（境界型セキュリティ）:\n  外部: 信頼しない（ファイアウォールで遮断）\n  内部: 信頼する（社内ネットワーク = 安全と仮定）\n  \n問題: 一度侵入されると社内を自由に横移動できる\n      クラウドやリモートワーク環境に対応できない\n```\n\n## ゼロトラストの原則\n\n1. **Never Trust, Always Verify** — 誰も無条件に信頼しない\n2. **Least Privilege Access** — 必要最小限のアクセスのみ許可\n3. **Assume Breach** — 侵害されることを前提に設計\n4. **Verify Explicitly** — 常にIDとデバイスを明示的に検証\n\n## ZscalerのZTNA（Zero Trust Network Access）実装\n\n### ZPA = ネットワーク不可視化\n- ユーザーをネットワーク全体に接続するのではなく、特定アプリのみに接続\n- 社内IPアドレスをインターネットに公開しない\n- ネットワークへのアクセスを排除し、アプリへのアクセスのみを提供\n\n### ZIA = トラフィック可視化と制御\n- すべてのインターネットアクセスをZscaler経由で検査\n- 場所やデバイスに依存しない一貫したポリシー適用\n\n### ZDX = 体験の可視化\n- ユーザー体験を定量化し、問題を早期発見\n\n## SASE（Secure Access Service Edge）\n\nZscalerはSASE（サッシー）フレームワークの実装例です。\n- セキュリティ機能（ZIA）とネットワーク機能（SD-WAN代替）をクラウドで統合\n- ユーザーがどこにいても最適なパフォーマンスとセキュリティを提供",
-      "tags": [
-        "ゼロトラスト",
-        "ZTNA",
-        "SASE",
-        "セキュリティ設計",
-        "NeverTrust",
         "アーキテクチャ"
       ],
       "relatedTopicIds": [
+        "zia-locations",
+        "arch-zte",
+        "bp-zia-deploy"
+      ],
+      "configExample": "# Cisco IOS GREトンネル設定例\ninterface Tunnel0\n description Primary-Zscaler-GRE\n ip address 10.255.0.1 255.255.255.252\n ip mtu 1400\n ip tcp adjust-mss 1360\n tunnel source GigabitEthernet0/0/0\n tunnel destination <Zscaler-Primary-VIP>\n\ninterface Tunnel1\n description Secondary-Zscaler-GRE\n ip address 10.255.0.5 255.255.255.252\n ip mtu 1400\n ip tcp adjust-mss 1360\n tunnel source GigabitEthernet0/0/0\n tunnel destination <Zscaler-Secondary-VIP>"
+    },
+    {
+      "id": "arch-ztna-concept",
+      "title": "ゼロトラストの概念と原則",
+      "category": "アーキテクチャ",
+      "subcategory": "概念・フレームワーク",
+      "summary": "ゼロトラストは「決して信頼せず、常に検証する」を原則とするセキュリティモデルです。最小権限・マイクロセグメンテーション・アイデンティティ中心のセキュリティにより内部脅威とラテラルムーブメントを防止します。",
+      "content": "ゼロトラスト（Zero Trust）セキュリティモデルは、「ネットワーク境界内のトラフィックは信頼できる」というペリメーターセキュリティの前提を否定し、場所やネットワークに関わらずすべてのアクセスを継続的に検証するセキュリティアーキテクチャです。\n\nゼロトラストの核心原則は「Never Trust, Always Verify（決して信頼せず、常に検証する）」です。これはすべてのユーザー・デバイス・アプリケーションのリクエストを、それがネットワーク内部から来ても、認証済みのユーザーからであっても、毎回検証することを意味します。\n\n最小権限の原則（Least Privilege）は、ユーザーやシステムに必要最低限のアクセス権のみを付与します。ZPAのアプリケーション単位のアクセス制御はこの原則の実装です。ユーザーはアクセス許可を受けたアプリのみ利用でき、ネットワーク全体に「乗り入れる」ことはできません。\n\nマイクロセグメンテーションは、ネットワークを細かいセグメントに分割し、セグメント間の通信を厳密に制御します。仮にある端末が侵害された場合でも、攻撃者のネットワーク内での横移動（ラテラルムーブメント）を最小限に抑えます。\n\nアイデンティティ中心のセキュリティ（Identity-Centric Security）は、IPアドレスではなくユーザー/デバイスのアイデンティティを信頼の根拠とします。MFAやデバイスポスチャー評価と組み合わせることで、適切な認証と認可が継続的に確保されます。\n\nNIST SP 800-207はゼロトラストアーキテクチャの標準的なガイダンスとして広く参照されています。",
+      "tags": [
+        "ゼロトラスト",
+        "Never Trust Always Verify",
+        "最小権限",
+        "マイクロセグメンテーション",
+        "アイデンティティ"
+      ],
+      "relatedTopicIds": [
         "zpa-overview",
-        "zia-overview",
-        "arch-zscaler-cloud"
+        "arch-zte",
+        "zpa-access-policy",
+        "arch-tenant"
       ],
       "configExample": null
     },
     {
-      "id": "best-practice-deployment",
-      "title": "Zscaler展開ベストプラクティス",
-      "category": "ベストプラクティス",
-      "subcategory": "導入設計",
-      "summary": "Zscalerの導入を成功させるための主要なベストプラクティスをまとめます。段階的な展開・ユーザー教育・モニタリング体制が重要です。",
-      "content": "Zscalerの導入を成功させるには、段階的なアプローチと適切な設計が重要です。\n\n## 展開フェーズ\n\n### Phase 1: 設計・準備（1〜2ヶ月）\n- ネットワーク構成の棚卸し（拠点数・回線・ユーザー数）\n- IdP（Azure AD等）との連携設計\n- SSLバイパスリストの作成\n- PoCスコープの決定（少人数でテスト）\n\n### Phase 2: PoC（1〜2ヶ月）\n- 小規模グループ（IT部門等）でのテスト\n- ポリシーの調整\n- ユーザー体験の確認\n- 問題点の洗い出し\n\n### Phase 3: 段階展開（2〜4ヶ月）\n- 拠点ごと・部門ごとに順次展開\n- ヘルプデスクへの教育\n- ユーザー向けコミュニケーション\n\n### Phase 4: 完全移行\n- 全ユーザーへの展開\n- 旧プロキシ・VPNの廃止\n- 継続的なポリシー最適化\n\n## 設計上の重要ポイント\n\n### 1. SSLバイパスリストを慎重に管理\n- 最初は広めに設定し、段階的に絞り込む\n- 定期的に見直して不要なバイパスを削除\n\n### 2. ポリシーは「最小権限原則」で設計\n- デフォルト拒否を原則に、必要なものだけ許可\n- ユーザーグループを細かく分けてポリシーを差別化\n\n### 3. ログ・レポートを活用\n- Cloud App Discovery でShadow ITを把握\n- Top Blocked Destinations でセキュリティ脅威を確認\n- User Risk Score で危険なユーザーを特定\n\n### 4. 帯域設計\n- ZENへのトンネル帯域は現在のインターネット帯域 × 1.5倍程度を目安に\n- クリティカルアプリには帯域保証設定を入れる",
+      "id": "arch-tenant",
+      "title": "テナントとポリシー階層",
+      "category": "アーキテクチャ",
+      "subcategory": "管理構造",
+      "summary": "Zscalerのテナント構造では組織全体の設定を一元管理します。ポリシー継承とサブロケーション、マルチテナント管理（パートナー向け）の仕組みを理解することで効率的な管理が実現できます。",
+      "content": "Zscalerのテナント（Tenant）は組織ごとに独立した管理単位で、ZIA/ZPAのすべてのポリシーとユーザーデータを含みます。テナントはZscalerによってプロビジョニングされ、管理コンソールのURLもテナントごとに異なります（例：admin.zscalertwo.net）。\n\nZIAのポリシー階層では、テナント全体に適用されるグローバルポリシーの下に、ロケーション・ユーザーグループ・個人ユーザーレベルのポリシーが積み重なります。より具体的な（低位の）ポリシーがより一般的な（高位の）ポリシーをオーバーライドします。例えば、グローバルポリシーでソーシャルメディアをブロックしながら、特定のグループ（広報部門）にはアクセスを許可するといった設定が可能です。\n\nサブロケーション（Sub-Locations）は同一拠点内を細分化する機能で、ポリシーの継承と上書きがロケーション階層に沿って行われます。\n\nZscaler Partner Portal（パートナーポータル）はMSP（マネージドサービスプロバイダー）やリセラーが複数の顧客テナントを一元管理するためのプラットフォームです。各テナントの管理権限を適切に制御しながら、複数顧客の設定・監視を効率的に行えます。\n\nテナント間のデータ分離はZscalerのマルチテナントアーキテクチャによって保証されており、あるテナントのデータが他のテナントに漏れることはありません。コンプライアンス要件に応じてデータの保存リージョンを指定することも可能です。",
       "tags": [
-        "ベストプラクティス",
+        "テナント",
+        "ポリシー階層",
+        "マルチテナント",
+        "パートナーポータル",
+        "ポリシー継承",
+        "アーキテクチャ"
+      ],
+      "relatedTopicIds": [
+        "zia-admin",
+        "zia-locations",
+        "arch-zte",
+        "zpa-overview"
+      ],
+      "configExample": null
+    },
+    {
+      "id": "bp-zia-deploy",
+      "title": "ZIA展開ベストプラクティス",
+      "category": "ベストプラクティス",
+      "subcategory": "展開・移行",
+      "summary": "ZIA展開は段階的ロールアウト、パイロットグループでのテスト、SSLバイパスの調整、ユーザーへのコミュニケーションを計画的に進めることで、影響を最小化しながら本番移行を実現します。",
+      "content": "ZIAの展開を成功させるためには、段階的かつ計画的なアプローチが重要です。\n\nフェーズ1（計画）：現行のWebトラフィックパターンと使用アプリケーションを把握し、SSL証明書ピンニングを使うアプリのリストを作成します。IT部門・セキュリティ担当・ネットワーク担当・経営層との合意形成も重要です。\n\nフェーズ2（パイロット）：IT部門・セキュリティ担当者など10〜50名の小規模グループでZIAを先行展開します。パイロット期間中は「モニタリングモード」でポリシーを適用し、ブロックせずにデータ収集のみを行います。SSLインスペクションのバイパスリストを精査し、アプリケーションの動作影響を確認します。\n\nフェーズ3（段階的展開）：部門・拠点単位で順次展開します。展開前にユーザーへの事前通知（プロキシ変更・SSL証明書の変化・帯域ポリシーの説明）が離職率と問合わせ件数を大幅に削減します。\n\nSSLバイパスチューニングのポイント：証明書ピンニングアプリ・金融機関・医療機関・個人情報取扱サービスをバイパスリストに追加します。段階的にバイパスを縮小してインスペクションカバレッジを向上させます。\n\n本番移行後：アラートしきい値の調整・ポリシールールの最適化・不要ルールの整理を定期的に実施します。四半期ごとのポリシーレビューをプロセスに組み込むことが推奨されます。",
+      "tags": [
         "展開",
-        "導入",
-        "PoC",
-        "段階展開",
-        "設計"
-      ],
-      "relatedTopicIds": [
-        "zia-overview",
-        "zpa-overview",
-        "arch-zero-trust"
-      ],
-      "configExample": "【展開チェックリスト】\n\n□ IdP連携（Azure AD / Okta）\n□ SCIM プロビジョニング設定\n□ GRE/IPSecトンネル設定（主要拠点）\n□ SSLバイパスリスト作成\n□ URLポリシー設定（最小限から開始）\n□ App Connector展開（2台以上）\n□ Client Connector展開（MDM経由）\n□ ZDXプローブ設定（主要SaaSアプリ）\n□ アラート設定（管理者への通知）\n□ ヘルプデスク教育\n□ ユーザー向けアナウンス"
-    },
-    {
-      "id": "best-practice-ssl",
-      "title": "SSLインスペクション運用ベストプラクティス",
-      "category": "ベストプラクティス",
-      "subcategory": "セキュリティ運用",
-      "summary": "SSLインスペクションを安全かつ効果的に運用するためのベストプラクティスです。証明書管理・バイパスリスト・ユーザーコミュニケーションが重要な要素です。",
-      "content": "SSLインスペクションはセキュリティ上非常に重要ですが、適切に設定しないと問題が発生します。\n\n## 証明書管理\n\n### 配布方法の優先順位\n1. **Active Directory GPO**（ドメイン参加Windows端末 — 最優先）\n2. **MDM（Intune/Jamf）**（管理端末全般）\n3. **Zscaler Client Connector**（エージェント経由で自動配布）\n4. **手動配布**（緊急時のみ）\n\n### 証明書有効期限管理\n- ZscalerのルートCA証明書の有効期限を必ず管理\n- 期限切れの3ヶ月前に更新作業を開始\n- 配布完了の確認（MDMのコンプライアンスレポートで確認）\n\n## バイパスリストの管理\n\n### 定期見直し（四半期推奨）\n- 不要になったバイパスを削除\n- 新たに必要になったサービスを追加\n- Zscalerの自動推奨リスト（Recommended Bypass）を参考に\n\n### バイパス追加の基準\n- 証明書ピンニングを使用しているアプリ\n- 規制・法律上インスペクションが禁止されているサービス\n- パフォーマンスへの大きな影響が確認されているサービス\n\n## ユーザーへのコミュニケーション\n\n導入前にユーザーへ以下を説明することを強く推奨：\n\n1. ZscalerがHTTPS通信を検査していること\n2. プライバシーポリシーとの関係（個人情報保護）\n3. 個人用デバイス（BYOD）での取り扱い\n4. ブロックされた場合の申請方法\n\n## モニタリング\n\n- SSLインスペクションによるブロック数を定期確認\n- エラーが急増した場合は原因を調査（証明書エラーが多い場合はバイパス追加を検討）",
-      "tags": [
-        "SSLインスペクション",
-        "ベストプラクティス",
-        "証明書",
-        "バイパス",
-        "運用"
-      ],
-      "relatedTopicIds": [
-        "zia-ssl-inspection",
-        "zia-url-filtering",
-        "best-practice-deployment"
-      ],
-      "configExample": "【SSLバイパス 定期見直しテンプレート】\n\n見直し項目:\n1. バイパスリストの全ドメインの現在の必要性を確認\n2. Zscaler推奨バイパスリストとの差分確認\n3. SSLエラーレポートからバイパス追加候補を特定\n4. 不要バイパスの削除\n5. 変更履歴（台帳）への記録\n\n見直し頻度: 四半期（3ヶ月）に1回\n担当: ネットワーク/セキュリティチーム"
-    },
-    {
-      "id": "best-practice-policy",
-      "title": "ポリシー設計・管理のベストプラクティス",
-      "category": "ベストプラクティス",
-      "subcategory": "ポリシー管理",
-      "summary": "ZIA/ZPAのポリシーを長期的に管理しやすい形で設計するためのベストプラクティスです。命名規則・階層構造・変更管理プロセスが重要です。",
-      "content": "ポリシーは時間の経過とともに増加・複雑化しやすく、適切な設計と管理プロセスがなければ「誰も触れないブラックボックス」になります。\n\n## 命名規則\n\n一貫した命名規則を最初から決めておきます。\n\n```\n形式: [対象]-[用途]-[アクション]\n例:\n  ALL-Users-DefaultAllow\n  IT-Admin-FullBypass\n  CORP-SocialMedia-WorkHoursBlock\n  CONTRACTOR-LimitedApps-Allow\n  GUEST-WiFi-BasicAllow\n```\n\n## ポリシー階層設計（ZIA）\n\n```\n優先度高 → 低\n\n1. セキュリティ強制ルール（変更不可）\n   - マルウェア/フィッシングブロック\n   - CnCサーバーブロック\n\n2. 特権グループルール\n   - IT管理者バイパス\n   - セキュリティチームバイパス\n\n3. 業務要件ルール\n   - 部門別ルール\n   - 時間帯ルール\n   - ロケーション別ルール\n\n4. デフォルトルール（最低優先度）\n   - デフォルト許可 or デフォルト拒否\n```\n\n## 変更管理プロセス\n\n1. **申請**: Webフォームまたはチケットシステムで申請\n2. **レビュー**: セキュリティチームが審査\n3. **承認**: 責任者の承認\n4. **実施**: テスト環境で確認後、本番適用\n5. **記録**: 変更台帳への記録（理由・申請者・実施日）\n\n## 定期メンテナンス\n\n- 四半期ごとに未使用ルールを確認して削除\n- ルール数が多くなりすぎたら再整理（リファクタリング）\n- 各ルールの「最終ヒット日時」を確認して、長期間ヒットしていないルールを見直す",
-      "tags": [
-        "ポリシー管理",
-        "命名規則",
-        "変更管理",
-        "設計",
+        "ロールアウト",
+        "パイロット",
+        "SSLバイパス",
+        "ZIA",
         "ベストプラクティス"
       ],
       "relatedTopicIds": [
-        "zia-url-filtering",
+        "zia-ssl-inspection",
+        "zia-locations",
+        "zia-zcc",
+        "bp-ssl-ops"
+      ],
+      "configExample": null
+    },
+    {
+      "id": "bp-ssl-ops",
+      "title": "SSL運用ベストプラクティス",
+      "category": "ベストプラクティス",
+      "subcategory": "SSL/TLS管理",
+      "summary": "SSL運用では中間CA証明書の定期更新・バイパスリストの継続的なメンテナンス・証明書ピンニング例外管理が重要です。適切な運用プロセスの確立がSSL関連障害を防止します。",
+      "content": "ZIAのSSLインスペクション運用を安定させるためには、継続的な管理プロセスが必要です。\n\n証明書管理：ZscalerのルートCA証明書は有効期限があるため、期限切れ前に更新が必要です。管理コンソールでは証明書の有効期限を確認でき、期限切れのアラートを設定することを推奨します。新しい証明書はMDMやGPO経由で全端末に配布します。古い証明書と新しい証明書を重複期間中は両方を信頼済みにしておくことが移行時の障害を防ぎます。\n\nバイパスリスト管理：SSLバイパスリストは定期的に見直しが必要です。追加すべき新しいアプリが登場したり、証明書ピンニングを廃止したアプリをリストから除外したりと、継続的な更新が求められます。バイパス変更の理由・申請者・承認日をドキュメント化し、変更管理プロセスに組み込みます。\n\n証明書ピンニング例外：新しいビジネスアプリを導入する際は、事前にSSLインスペクション環境でテストし、証明書ピンニングの有無を確認します。問題が発見された場合のバイパス申請プロセスをあらかじめ定義しておきます。\n\nインシデント対応：SSLインスペクションが原因と思われる通信障害（「接続が安全ではない」等のエラー）を受け付ける際は、まずバイパスリストへの一時追加で切り分けを行い、恒久対応を検討します。",
+      "tags": [
+        "SSL証明書",
+        "バイパスリスト",
+        "証明書ピンニング",
+        "CA証明書",
+        "ZIA",
+        "ベストプラクティス"
+      ],
+      "relatedTopicIds": [
+        "zia-ssl-inspection",
+        "bp-zia-deploy",
+        "zia-admin"
+      ],
+      "configExample": null
+    },
+    {
+      "id": "bp-zpa-design",
+      "title": "ZPA設計ベストプラクティス",
+      "category": "ベストプラクティス",
+      "subcategory": "設計・アーキテクチャ",
+      "summary": "ZPA設計ではApp Connectorの適切な配置・HA構成・ポリシー設計・最小権限の徹底が成功の鍵です。段階的なVPN代替移行とネットワークトポロジーの考慮も重要な設計ポイントです。",
+      "content": "ZPAの設計・展開を成功させるためのベストプラクティスをまとめます。\n\nApp Connector配置：保護対象アプリと同じネットワークセグメントまたはルーティング可能な場所に配置します。異なるデータセンター・クラウドリージョン・拠点にそれぞれ最低2台ずつ配置してHAを確保します。App ConnectorからZPAクラウドへのアウトバウンド通信（TCP 443）を確保し、FQDN単位でファイアウォール許可ルールを設定します（IPアドレスは変動するため）。\n\nネットワークトポロジー：App ConnectorがDNS解決できる環境（社内DNSサーバーへの疎通）を確保します。App ConnectorからアプリサーバーへはFQDN・IPどちらでも到達可能にします。\n\nポリシー設計：アプリケーションセグメントは業務ドメイン単位（例：「人事システム」「営業システム」）で作成し、管理しやすい粒度に保ちます。アクセスポリシーは最小権限の原則に基づき、必要なグループのみ必要なアプリにアクセスできるよう設計します。デバイスポスチャーチェックを組み込み、管理対象外デバイスからのアクセスを制限します。\n\nVPN代替移行：既存のVPNとZPAを並行運用する期間を設け、アプリを段階的にZPA経由に移行します。ZPA化が完了したアプリのVPN分割トンネリングから除外し、最終的にVPNを廃止します。\n\nロギング：ZPAのアクセスログはSIEMに転送し、異常なアクセスパターンを検出するルールを作成します。",
+      "tags": [
+        "ZPA設計",
+        "HA",
+        "App Connector",
+        "最小権限",
+        "VPN代替",
+        "ベストプラクティス"
+      ],
+      "relatedTopicIds": [
+        "zpa-app-connector",
+        "zpa-connector-group",
         "zpa-access-policy",
-        "best-practice-deployment"
+        "arch-ztna-concept"
       ],
-      "configExample": "【ポリシー変更申請テンプレート】\n\n申請日: YYYY-MM-DD\n申請者: 氏名 / 所属部門\n対象製品: ZIA / ZPA\n変更種別: 追加 / 変更 / 削除\n\n変更内容:\n  ポリシー名: \n  現在の設定: （変更・削除の場合）\n  変更後の設定:\n  \n変更理由:\n  業務要件: \n  セキュリティリスク評価:\n  \n影響範囲:\n  対象ユーザー/グループ:\n  影響する機能:\n  \n承認者: \n承認日:"
+      "configExample": null
     },
     {
-      "id": "zia-admin-portal",
-      "title": "ZIA管理ポータル操作ガイド",
-      "category": "ZIA",
-      "subcategory": "管理・運用",
-      "summary": "ZIA管理ポータル（admin.zscaler.net）の主要な操作方法と注意点をまとめます。設定変更には「Activate」の実行が必要で、保存しただけでは反映されません。",
-      "content": "ZIA管理ポータルへのアクセスはhttps://admin.zscaler.net （または顧客固有のURLhttps://<cloud>.zscaler.net）から行います。\n\n## ログイン\n\n- 管理者アカウントでログイン\n- MFA（多要素認証）が必要な場合が多い\n- SAML SSO対応（会社のIdPでログイン可能）\n\n## 重要：設定の反映方法\n\nZIAでは、設定変更後に**Activate（アクティベート）** を実行しないと変更が反映されません。これは意図せぬ設定変更を防ぐための安全機構です。\n\n```\n設定変更フロー:\n  設定変更 → [Save]ボタンで保存（下書き状態）\n             ↓\n  画面右上の[Activate]ボタンをクリック\n             ↓\n  変更がZscalerクラウド全体に反映（通常数秒〜数分）\n```\n\n## 主要メニュー構成\n\n### Policy メニュー\n- **URL & Cloud App Control** — URLフィルタリングポリシー\n- **Malware Protection** — マルウェア防御設定\n- **DLP** — データ損失防止ポリシー\n- **Firewall** — クラウドファイアウォール設定\n\n### Administration メニュー\n- **Locations** — 拠点設定（GRE/IPSecトンネル登録）\n- **User Management** — ユーザー・グループ管理\n- **Authentication** — 認証方式設定\n- **SSL Inspection** — SSLインスペクション設定\n\n### Analytics メニュー\n- **Web Insights** — Webアクセスログの分析\n- **Security Reports** — セキュリティインシデントのレポート\n- **Application Usage** — クラウドアプリ使用状況\n\n## ロールベースアクセス制御（RBAC）\n\n管理者ロールを複数定義して、担当者ごとに操作範囲を制限できます。\n\n例:\n- **Super Admin**: 全権限\n- **Network Admin**: ロケーション・トンネル設定のみ\n- **Security Analyst**: ログ閲覧・レポートのみ（変更不可）\n\n## API活用\n\nZIAはREST APIを提供しており、ポリシーの自動化・CICDへの組み込みが可能です。",
+      "id": "bp-dlp-policy",
+      "title": "DLPポリシー管理",
+      "category": "ベストプラクティス",
+      "subcategory": "データ保護",
+      "summary": "DLPポリシーは開発サイクルに基づいた段階的な実装が重要です。誤検知のチューニング、ユーザー啓発プログラムとの組み合わせ、定期的なポリシーレビューでDLP運用の成熟度を高めます。",
+      "content": "効果的なDLPポリシー管理のベストプラクティスを解説します。\n\nDLPポリシー開発サイクル：①調査フェーズ：どのようなデータが保護対象か（個人情報・営業秘密・財務情報等）を特定し、どの経路で漏洩リスクがあるかを分析します。②設計フェーズ：保護すべきデータに対応するDLP辞書を選定または作成します。標準辞書（PCI DSS/PII/HIPAA等）とカスタム辞書を組み合わせます。③テストフェーズ：監視モード（アクション：Notify/ログのみ）で一定期間運用し、誤検知の傾向を把握します。④本番フェーズ：誤検知のチューニング完了後にブロックアクションを有効にします。\n\n誤検知（False Positive）チューニング：DLPルールのしきい値（マッチ件数の最小値）や対象ファイルタイプを絞り込むことで誤検知を削減します。許可リスト（Allowed Domains/URLs）を適切に設定し、正当なビジネス用途のデータ転送をブロックしないよう調整します。\n\nユーザー啓発：DLPはテクノロジーだけでは機能しません。従業員への情報セキュリティ教育（機密情報の取り扱いルール・DLPアラートの意味・インシデント報告手順）を定期的に実施することで、意図しない違反を減らします。\n\n定期レビュー：DLPポリシーは四半期ごとに見直し、新しい業務プロセス・新規クラウドサービスの利用・法規制の変更に対応します。インシデントレポートを分析して新たなリスクパターンを早期発見します。",
       "tags": [
-        "管理ポータル",
-        "Activate",
-        "RBAC",
-        "API",
-        "運用",
-        "ZIA"
+        "DLPポリシー",
+        "誤検知",
+        "チューニング",
+        "ユーザー啓発",
+        "ポリシー管理",
+        "ベストプラクティス"
       ],
       "relatedTopicIds": [
-        "zia-overview",
-        "zia-url-filtering",
-        "best-practice-policy"
+        "zia-dlp",
+        "zia-ssl-inspection",
+        "zia-casb",
+        "bp-incident"
       ],
-      "configExample": "【ZIA API 認証例】\n\n# APIキー取得（管理ポータルで生成）\ncurl -X POST 'https://zsapi.zscaler.net/api/v1/authenticatedSession' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"username\": \"admin@company.zscaler.net\",\n    \"password\": \"PASSWORD\",\n    \"apiKey\": \"YOUR_API_KEY\",\n    \"timestamp\": \"1234567890123\"\n  }'\n\n# URLカテゴリ一覧取得\ncurl -X GET 'https://zsapi.zscaler.net/api/v1/urlCategories' \\\n  -H 'Cookie: JSESSIONID=XXXXX'"
+      "configExample": null
     },
     {
-      "id": "zia-mobile-users",
-      "title": "モバイル・リモートユーザー対応",
-      "category": "ZIA",
-      "subcategory": "エンドポイント",
-      "summary": "社外からZIAに接続するモバイル・リモートユーザー向けの設定です。Zscaler Client ConnectorをMDMで展開し、常時ZIA経由の通信を実現します。",
-      "content": "テレワークやモバイルワークが普及した現代では、社外ユーザーも同じセキュリティポリシーで保護することが重要です。\n\n## Zscaler Client Connector\n\n端末にインストールするエージェントで、すべてのトラフィックをZscalerへ転送します。\n\n### 対応プラットフォーム\n- Windows 10/11\n- macOS 11 以降\n- iOS 14 以降\n- Android 9 以降\n- Linux（Beta）\n\n## MDMによる展開\n\n### Microsoft Intune\n1. Intune管理センターでZscaler Client ConnectorのVPNプロファイルを作成\n2. アプリをIntuneで展開（App Storeから）\n3. Forwarding ProfileをIntune経由でデプロイ\n\n### Jamf（macOS/iOS）\n1. Jamf ProでZscaler Client ConnectorのVPNペイロードを設定\n2. プロビジョニングプロファイルと一緒に展開\n\n## Forwarding Profile\n\nClient Connectorの挙動を制御する設定ファイル。\n\n- **フルトンネル**: 全トラフィックをZscaler経由\n- **スプリットトンネル**: 社内IP向けはダイレクト接続、それ以外はZscaler経由\n\n## Trusted Networks\n\n「Trusted Network」を設定すると、社内ネットワーク（オフィス）ではClient Connectorが自動的にバイパスモードになります（GREトンネルで保護されているため）。\n\n```\nTrusted Network Detection:\n  検出方法: 特定のDNSサーバー / 特定のSSID\n  例: DNS = 192.168.1.53（社内DNSサーバー）\n      SSID = CORP-WiFi\n  動作: 社内ネットワーク検出時はトンネルをOFF\n```",
+      "id": "bp-incident",
+      "title": "インシデント対応とログ調査",
+      "category": "ベストプラクティス",
+      "subcategory": "セキュリティ運用",
+      "summary": "ZIAのインシデント対応ではAdmin PortalのログとNSS/Nanologを活用します。一般的な調査シナリオのワークフローとSIEM連携の設計が、迅速なインシデント解決と証跡管理に不可欠です。",
+      "content": "ZIAを使用したセキュリティインシデント対応と調査のベストプラクティスを解説します。\n\nログアクセス：ZIAの管理コンソールでは「Insights」セクションからWebトラフィックログ・ファイアウォールログ・DNSログ・DLPインシデントログへアクセスできます。フィルタリング条件にユーザー・IPアドレス・ドメイン・時間範囲・アクション（ブロック/許可）を指定して絞り込みます。ログはデフォルトで過去6ヶ月分が保持されます。\n\nNSS（Nanolog Streaming Service）はリアルタイムログをSIEMに転送するための仕組みです。NSS仮想マシンをオンプレミスに配置してZscalerからログを受け取り、Splunk・Sentinel・QRadar等のSIEMに転送します。Zscalerは主要SIEMプラットフォーム向けのログパーサーアプリを提供しています。\n\n一般的な調査シナリオと手順：①マルウェア感染疑い：感染端末のIPを軸にDNSログでC2ドメインへのアクセスを確認→サンドボックスログで悪意のファイルダウンロードを特定→Webログで初期感染経路を追跡。②DLP違反調査：DLPインシデントログから違反ユーザー・宛先URL・データタイプを確認→URLログでアップロード先サービスを特定→ユーザーへのヒアリングと証拠保全。③不審なユーザー活動：User Risk Insightsダッシュボードで異常スコアの高いユーザーを特定→アクティビティログで具体的な行動を確認。\n\nSIEM連携設計：Zscalerログの正規化・インデックス作成・相関ルール作成を通じて、Zscalerのセキュリティイベントを他のセキュリティデータと組み合わせた脅威検出が実現できます。",
       "tags": [
-        "Client Connector",
-        "モバイル",
-        "リモートワーク",
-        "MDM",
-        "Intune",
-        "Jamf",
-        "ZIA"
+        "インシデント対応",
+        "ログ調査",
+        "NSS",
+        "Nanolog",
+        "SIEM",
+        "フォレンジック",
+        "ベストプラクティス"
       ],
       "relatedTopicIds": [
-        "zia-forwarding",
-        "zia-authentication",
-        "zia-overview"
+        "zia-alerts",
+        "zia-dlp",
+        "zia-sandbox",
+        "zia-admin"
       ],
-      "configExample": "【Forwarding Profile設定例（スプリットトンネル）】\n\nProfile Name: Standard-Employee-Profile\n\nZscaler Tunnel へ転送:\n  0.0.0.0/0 （インターネット全般）\n\nダイレクト接続（Zscaler をバイパス）:\n  10.0.0.0/8\n  172.16.0.0/12\n  192.168.0.0/16\n  *.internal.company.co.jp\n\nTrusted Network:\n  DNS: 192.168.1.53, 192.168.1.54\n  Action: Client Connectorをサイレントモードに\n\nConnection Options:\n  Always On: 有効（ユーザーが手動でOFFできない）\n  Login Required: ZPA認証後にZIAを有効化"
+      "configExample": "# Splunk用ZIAログ調査クエリ例\n# マルウェア通信疑いのあるユーザー検索\n# index=zscaler sourcetype=zscalernss-web\n# | where action=\"Blocked\" AND category=\"Malware Sites\"\n# | stats count by src_ip, user, url, action\n# | sort -count\n\n# DLPインシデント検索\n# index=zscaler sourcetype=zscalernss-web\n# | where dlp_dict_names!=\"\" \n# | table _time, user, url, dlp_dict_names, action\n# | sort -_time"
     }
   ]
 }
