@@ -17,6 +17,9 @@ struct MainTabView: View {
 
             SettingsView()
                 .tabItem { Label("設定", systemImage: "gearshape.fill") }
+
+            URLLookupView()
+                .tabItem { Label("URL Lookup", systemImage: "magnifyingglass.circle.fill") }
         }
         .tint(.cyan)
     }

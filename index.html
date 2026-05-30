@@ -321,6 +321,51 @@
     @keyframes fadeIn  { from { opacity:0; transform: translateX(-50%) translateY(10px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
     @keyframes fadeOut { to   { opacity:0; transform: translateX(-50%) translateY(10px); } }
 
+    /* ── URL Lookup panel ── */
+    .lookup-hero { text-align:center; margin-bottom:24px; }
+    .lookup-hero h2 { font-size:22px; margin-bottom:6px; }
+    .lookup-hero p { color:var(--muted); font-size:14px; }
+    .lookup-input-wrap { display:flex; gap:8px; margin-bottom:12px; }
+    .sample-chips { display:inline-flex; flex-wrap:wrap; gap:6px; }
+    .sample-chip {
+      background:var(--bg3); border:1px solid var(--border);
+      color:var(--muted); padding:3px 10px; border-radius:20px;
+      cursor:pointer; font-size:12px; transition:all .15s;
+    }
+    .sample-chip:hover { border-color:var(--cyan); color:var(--cyan); }
+    .lookup-result-header { display:flex; align-items:center; gap:10px; margin-bottom:16px; flex-wrap:wrap; }
+    .lookup-fqdn { font-family:monospace; font-size:17px; font-weight:700; color:var(--cyan); word-break:break-all; }
+    .match-badge { font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; }
+    .match-exact    { background:rgba(52,211,153,.15); color:var(--green);  border:1px solid rgba(52,211,153,.3); }
+    .match-parent   { background:rgba(56,189,248,.15); color:var(--cyan);   border:1px solid rgba(56,189,248,.3); }
+    .match-estimate { background:rgba(251,191,36,.15); color:var(--yellow); border:1px solid rgba(251,191,36,.3); }
+    .match-unknown  { background:rgba(148,163,184,.1); color:var(--muted);  border:1px solid var(--border); }
+    .lookup-cards { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+    @media(max-width:600px){ .lookup-cards { grid-template-columns:1fr; } }
+    .lookup-card {
+      background:var(--bg2); border:1px solid var(--border);
+      border-radius:var(--radius); padding:16px;
+      border-left:3px solid var(--border);
+    }
+    .lookup-card.cat-card { border-left-color:var(--cyan2); }
+    .lookup-card.app-card { border-left-color:var(--purple); }
+    .lc-label { font-size:11px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; }
+    .lc-value { font-size:15px; font-weight:700; margin-bottom:3px; }
+    .lc-sub { font-size:12px; color:var(--muted); }
+    .lookup-meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:8px; }
+    .meta-box { background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:10px 12px; }
+    .meta-lbl { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; margin-bottom:3px; }
+    .meta-val { font-size:13px; font-weight:600; }
+    .lookup-risk-low     { color:var(--green);  }
+    .lookup-risk-medium  { color:var(--yellow); }
+    .lookup-risk-high    { color:var(--orange); }
+    .lookup-risk-critical{ color:var(--red);    }
+    .lookup-action-allow  { color:var(--green);  }
+    .lookup-action-caution{ color:var(--yellow); }
+    .lookup-action-block  { color:var(--red);    }
+    @keyframes lookupFadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    .lookup-anim { animation:lookupFadeIn .25s ease-out; }
+
     /* ── Responsive ── */
     @media(max-width:640px) {
       .header-inner { flex-wrap: wrap; height: auto; padding: 8px 0; gap: 8px; }
@@ -345,6 +390,7 @@
       <button class="tab-btn" onclick="showTab('sim')" id="btn-sim">⚙️ シミュレーター</button>
       <button class="tab-btn" onclick="showTab('logs')" id="btn-logs">📋 ログ</button>
       <button class="tab-btn" onclick="showTab('settings')" id="btn-settings">🔧 設定</button>
+      <button class="tab-btn" onclick="showTab('lookup')" id="btn-lookup">🔎 URL Lookup</button>
     </nav>
   </div>
 </header>
@@ -553,6 +599,43 @@
       <div class="settings-row"><span class="settings-label">ナレッジベース</span><span class="settings-value" id="kb-topic-count">読み込み中...</span></div>
       <div class="settings-row"><span class="settings-label">最終更新</span><span class="settings-value" id="kb-last-updated">-</span></div>
     </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ URL LOOKUP ═══════════════════════ -->
+<div class="panel" id="panel-lookup">
+  <div class="lookup-hero">
+    <h2>🔎 URL Lookup シミュレーター</h2>
+    <p>FQDNを入力して、ZscalerのURLカテゴリとCloud Application Controlカテゴリを確認できます</p>
+  </div>
+  <div class="card" style="max-width:680px;margin:0 auto 20px">
+    <div class="lookup-input-wrap">
+      <input class="search-input" id="lookup-input"
+             placeholder="例: www.google.com, github.com, slack.com"
+             autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"
+             onkeydown="if(event.key==='Enter')runLookup()">
+      <button class="btn" onclick="runLookup()">検索</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <span style="font-size:12px;color:var(--muted)">例：</span>
+      <span class="sample-chips">
+        <span class="sample-chip" onclick="lookupSample('google.com')">google.com</span>
+        <span class="sample-chip" onclick="lookupSample('facebook.com')">facebook.com</span>
+        <span class="sample-chip" onclick="lookupSample('github.com')">github.com</span>
+        <span class="sample-chip" onclick="lookupSample('netflix.com')">netflix.com</span>
+        <span class="sample-chip" onclick="lookupSample('slack.com')">slack.com</span>
+        <span class="sample-chip" onclick="lookupSample('zscaler.com')">zscaler.com</span>
+        <span class="sample-chip" onclick="lookupSample('tiktok.com')">tiktok.com</span>
+        <span class="sample-chip" onclick="lookupSample('dropbox.com')">dropbox.com</span>
+      </span>
+    </div>
+  </div>
+  <div id="lookup-result-area" style="max-width:680px;margin:0 auto"></div>
+  <div class="card" style="max-width:680px;margin:16px auto 0;background:rgba(251,191,36,.04);border-color:rgba(251,191,36,.2)">
+    <p style="font-size:12px;color:var(--muted);line-height:1.65">
+      ⚠️ このURL Lookupはシミュレーターです。実際のZscalerポータルの機能とは異なる場合があります。
+      本番環境では <strong>Zscaler Admin Portal → URL Lookup</strong> をご利用ください。
+    </p>
   </div>
 </div>
 
@@ -1292,6 +1375,352 @@ function showToast(msg) {
 // ═══════════════════════════════════════════════════════════
 function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ═══════════════════════════════════════════════════════════
+// URL LOOKUP
+// ═══════════════════════════════════════════════════════════
+const LOOKUP_DB = {
+  // ── Web Search ──────────────────────────────────────────
+  'google.com':          { urlCat:'Web Search',                cloudApp:'Google Search',        cloudAppCat:'Web Search',              risk:'low',    action:'allow'   },
+  'google.co.jp':        { urlCat:'Web Search',                cloudApp:'Google Search',        cloudAppCat:'Web Search',              risk:'low',    action:'allow'   },
+  'bing.com':            { urlCat:'Web Search',                cloudApp:'Microsoft Bing',       cloudAppCat:'Web Search',              risk:'low',    action:'allow'   },
+  'yahoo.com':           { urlCat:'Web Search',                cloudApp:'Yahoo Search',         cloudAppCat:'Web Search',              risk:'low',    action:'allow'   },
+  'yahoo.co.jp':         { urlCat:'Web Search',                cloudApp:'Yahoo! JAPAN',         cloudAppCat:'Web Search',              risk:'low',    action:'allow'   },
+  'duckduckgo.com':      { urlCat:'Web Search',                cloudApp:'DuckDuckGo',           cloudAppCat:'Web Search',              risk:'low',    action:'allow'   },
+  'baidu.com':           { urlCat:'Web Search',                cloudApp:'Baidu',                cloudAppCat:'Web Search',              risk:'medium', action:'caution' },
+  'yandex.com':          { urlCat:'Web Search',                cloudApp:'Yandex',               cloudAppCat:'Web Search',              risk:'medium', action:'caution' },
+  'naver.com':           { urlCat:'Web Search',                cloudApp:'Naver',                cloudAppCat:'Web Search',              risk:'low',    action:'allow'   },
+  'perplexity.ai':       { urlCat:'Web Search',                cloudApp:'Perplexity AI',        cloudAppCat:'AI/ML Services',          risk:'low',    action:'allow'   },
+  // ── Office Productivity ──────────────────────────────────
+  'docs.google.com':     { urlCat:'Business and Economy',      cloudApp:'Google Docs',          cloudAppCat:'Office Productivity',     risk:'low',    action:'allow'   },
+  'sheets.google.com':   { urlCat:'Business and Economy',      cloudApp:'Google Sheets',        cloudAppCat:'Office Productivity',     risk:'low',    action:'allow'   },
+  'slides.google.com':   { urlCat:'Business and Economy',      cloudApp:'Google Slides',        cloudAppCat:'Office Productivity',     risk:'low',    action:'allow'   },
+  'calendar.google.com': { urlCat:'Business and Economy',      cloudApp:'Google Calendar',      cloudAppCat:'Office Productivity',     risk:'low',    action:'allow'   },
+  'drive.google.com':    { urlCat:'Online Storage and Backup', cloudApp:'Google Drive',         cloudAppCat:'File Storage/Sharing',    risk:'low',    action:'allow'   },
+  'mail.google.com':     { urlCat:'Web-based Email',           cloudApp:'Gmail',                cloudAppCat:'Email',                   risk:'low',    action:'allow'   },
+  'gmail.com':           { urlCat:'Web-based Email',           cloudApp:'Gmail',                cloudAppCat:'Email',                   risk:'low',    action:'allow'   },
+  'meet.google.com':     { urlCat:'Web Conferencing',          cloudApp:'Google Meet',          cloudAppCat:'Video Conferencing',      risk:'low',    action:'allow'   },
+  'classroom.google.com':{ urlCat:'Education',                 cloudApp:'Google Classroom',     cloudAppCat:'Training',                risk:'low',    action:'allow'   },
+  'office.com':          { urlCat:'Business and Economy',      cloudApp:'Microsoft 365',        cloudAppCat:'Office Productivity',     risk:'low',    action:'allow'   },
+  'microsoft.com':       { urlCat:'Computer and Internet Info',cloudApp:'Microsoft',            cloudAppCat:'Technology',              risk:'low',    action:'allow'   },
+  'outlook.com':         { urlCat:'Web-based Email',           cloudApp:'Microsoft Outlook',    cloudAppCat:'Email',                   risk:'low',    action:'allow'   },
+  'outlook.office.com':  { urlCat:'Web-based Email',           cloudApp:'Microsoft Outlook',    cloudAppCat:'Email',                   risk:'low',    action:'allow'   },
+  'sharepoint.com':      { urlCat:'Online Storage and Backup', cloudApp:'Microsoft SharePoint', cloudAppCat:'File Storage/Sharing',    risk:'low',    action:'allow'   },
+  'onedrive.live.com':   { urlCat:'Online Storage and Backup', cloudApp:'Microsoft OneDrive',   cloudAppCat:'File Storage/Sharing',    risk:'low',    action:'allow'   },
+  'teams.microsoft.com': { urlCat:'Instant Messaging',         cloudApp:'Microsoft Teams',      cloudAppCat:'Collaboration',           risk:'low',    action:'allow'   },
+  'skype.com':           { urlCat:'Instant Messaging',         cloudApp:'Skype',                cloudAppCat:'Communication',           risk:'low',    action:'allow'   },
+  'azure.microsoft.com': { urlCat:'Computer and Internet Info',cloudApp:'Microsoft Azure',      cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  // ── Collaboration & Messaging ─────────────────────────────
+  'slack.com':           { urlCat:'Instant Messaging',         cloudApp:'Slack',                cloudAppCat:'Collaboration',           risk:'low',    action:'allow'   },
+  'zoom.us':             { urlCat:'Web Conferencing',          cloudApp:'Zoom',                 cloudAppCat:'Video Conferencing',      risk:'low',    action:'allow'   },
+  'webex.com':           { urlCat:'Web Conferencing',          cloudApp:'Cisco Webex',          cloudAppCat:'Video Conferencing',      risk:'low',    action:'allow'   },
+  'gotomeeting.com':     { urlCat:'Web Conferencing',          cloudApp:'GoTo Meeting',         cloudAppCat:'Video Conferencing',      risk:'low',    action:'allow'   },
+  'goto.com':            { urlCat:'Web Conferencing',          cloudApp:'GoTo Meeting',         cloudAppCat:'Video Conferencing',      risk:'low',    action:'allow'   },
+  'discord.com':         { urlCat:'Instant Messaging',         cloudApp:'Discord',              cloudAppCat:'Collaboration',           risk:'medium', action:'caution' },
+  'whatsapp.com':        { urlCat:'Instant Messaging',         cloudApp:'WhatsApp',             cloudAppCat:'Communication',           risk:'low',    action:'allow'   },
+  'telegram.org':        { urlCat:'Instant Messaging',         cloudApp:'Telegram',             cloudAppCat:'Communication',           risk:'medium', action:'caution' },
+  'signal.org':          { urlCat:'Instant Messaging',         cloudApp:'Signal',               cloudAppCat:'Communication',           risk:'low',    action:'allow'   },
+  'line.me':             { urlCat:'Instant Messaging',         cloudApp:'LINE',                 cloudAppCat:'Communication',           risk:'low',    action:'allow'   },
+  'miro.com':            { urlCat:'Business and Economy',      cloudApp:'Miro',                 cloudAppCat:'Collaboration',           risk:'low',    action:'allow'   },
+  // ── Social Networking ─────────────────────────────────────
+  'facebook.com':        { urlCat:'Social Networking',         cloudApp:'Facebook',             cloudAppCat:'Social Media',            risk:'medium', action:'caution' },
+  'instagram.com':       { urlCat:'Social Networking',         cloudApp:'Instagram',            cloudAppCat:'Social Media',            risk:'medium', action:'caution' },
+  'twitter.com':         { urlCat:'Social Networking',         cloudApp:'Twitter/X',            cloudAppCat:'Social Media',            risk:'medium', action:'caution' },
+  'x.com':               { urlCat:'Social Networking',         cloudApp:'Twitter/X',            cloudAppCat:'Social Media',            risk:'medium', action:'caution' },
+  'linkedin.com':        { urlCat:'Social Networking',         cloudApp:'LinkedIn',             cloudAppCat:'Social Media',            risk:'low',    action:'allow'   },
+  'tiktok.com':          { urlCat:'Social Networking',         cloudApp:'TikTok',               cloudAppCat:'Social Media',            risk:'high',   action:'caution' },
+  'snapchat.com':        { urlCat:'Social Networking',         cloudApp:'Snapchat',             cloudAppCat:'Social Media',            risk:'medium', action:'caution' },
+  'pinterest.com':       { urlCat:'Social Networking',         cloudApp:'Pinterest',            cloudAppCat:'Social Media',            risk:'low',    action:'caution' },
+  'reddit.com':          { urlCat:'Social Networking',         cloudApp:'Reddit',               cloudAppCat:'Social Media',            risk:'medium', action:'caution' },
+  'tumblr.com':          { urlCat:'Social Networking',         cloudApp:'Tumblr',               cloudAppCat:'Social Media',            risk:'medium', action:'caution' },
+  'nicovideo.jp':        { urlCat:'Streaming Media',           cloudApp:'Niconico',             cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'ameblo.jp':           { urlCat:'Personal Sites and Blogs',  cloudApp:'Ameba Blog',           cloudAppCat:'Social Media',            risk:'low',    action:'allow'   },
+  'note.com':            { urlCat:'Personal Sites and Blogs',  cloudApp:'note',                 cloudAppCat:'Social Media',            risk:'low',    action:'allow'   },
+  'mixi.jp':             { urlCat:'Social Networking',         cloudApp:'mixi',                 cloudAppCat:'Social Media',            risk:'low',    action:'allow'   },
+  // ── Streaming Media ───────────────────────────────────────
+  'youtube.com':         { urlCat:'Streaming Media',           cloudApp:'YouTube',              cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'youtu.be':            { urlCat:'Streaming Media',           cloudApp:'YouTube',              cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'netflix.com':         { urlCat:'Streaming Media',           cloudApp:'Netflix',              cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'hulu.com':            { urlCat:'Streaming Media',           cloudApp:'Hulu',                 cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'disneyplus.com':      { urlCat:'Streaming Media',           cloudApp:'Disney+',              cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'max.com':             { urlCat:'Streaming Media',           cloudApp:'Max (HBO)',             cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'peacocktv.com':       { urlCat:'Streaming Media',           cloudApp:'Peacock TV',           cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'primevideo.com':      { urlCat:'Streaming Media',           cloudApp:'Amazon Prime Video',   cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'twitch.tv':           { urlCat:'Streaming Media',           cloudApp:'Twitch',               cloudAppCat:'Video Streaming',         risk:'medium', action:'caution' },
+  'vimeo.com':           { urlCat:'Streaming Media',           cloudApp:'Vimeo',                cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'spotify.com':         { urlCat:'Streaming Media',           cloudApp:'Spotify',              cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'soundcloud.com':      { urlCat:'Streaming Media',           cloudApp:'SoundCloud',           cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'dazn.com':            { urlCat:'Streaming Media',           cloudApp:'DAZN',                 cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'abema.tv':            { urlCat:'Streaming Media',           cloudApp:'ABEMA',                cloudAppCat:'Video Streaming',         risk:'low',    action:'allow'   },
+  'dailymotion.com':     { urlCat:'Streaming Media',           cloudApp:'Dailymotion',          cloudAppCat:'Video Streaming',         risk:'medium', action:'caution' },
+  // ── File Storage / Sharing ────────────────────────────────
+  'dropbox.com':         { urlCat:'Online Storage and Backup', cloudApp:'Dropbox',              cloudAppCat:'File Storage/Sharing',    risk:'low',    action:'allow'   },
+  'box.com':             { urlCat:'Online Storage and Backup', cloudApp:'Box',                  cloudAppCat:'File Storage/Sharing',    risk:'low',    action:'allow'   },
+  'wetransfer.com':      { urlCat:'Online Storage and Backup', cloudApp:'WeTransfer',           cloudAppCat:'File Storage/Sharing',    risk:'medium', action:'caution' },
+  'mega.nz':             { urlCat:'Online Storage and Backup', cloudApp:'MEGA',                 cloudAppCat:'File Storage/Sharing',    risk:'high',   action:'caution' },
+  'mediafire.com':       { urlCat:'Online Storage and Backup', cloudApp:'MediaFire',            cloudAppCat:'File Storage/Sharing',    risk:'medium', action:'caution' },
+  'icloud.com':          { urlCat:'Online Storage and Backup', cloudApp:'iCloud',               cloudAppCat:'File Storage/Sharing',    risk:'low',    action:'allow'   },
+  // ── E-commerce / Shopping ─────────────────────────────────
+  'amazon.com':          { urlCat:'Online Shopping',           cloudApp:'Amazon',               cloudAppCat:'E-commerce',              risk:'low',    action:'allow'   },
+  'amazon.co.jp':        { urlCat:'Online Shopping',           cloudApp:'Amazon Japan',         cloudAppCat:'E-commerce',              risk:'low',    action:'allow'   },
+  'ebay.com':            { urlCat:'Online Shopping',           cloudApp:'eBay',                 cloudAppCat:'E-commerce',              risk:'low',    action:'allow'   },
+  'shopify.com':         { urlCat:'Business and Economy',      cloudApp:'Shopify',              cloudAppCat:'E-commerce',              risk:'low',    action:'allow'   },
+  'walmart.com':         { urlCat:'Online Shopping',           cloudApp:'Walmart',              cloudAppCat:'E-commerce',              risk:'low',    action:'allow'   },
+  'etsy.com':            { urlCat:'Online Shopping',           cloudApp:'Etsy',                 cloudAppCat:'E-commerce',              risk:'low',    action:'allow'   },
+  'alibaba.com':         { urlCat:'Online Shopping',           cloudApp:'Alibaba',              cloudAppCat:'E-commerce',              risk:'medium', action:'caution' },
+  'aliexpress.com':      { urlCat:'Online Shopping',           cloudApp:'AliExpress',           cloudAppCat:'E-commerce',              risk:'medium', action:'caution' },
+  'rakuten.co.jp':       { urlCat:'Online Shopping',           cloudApp:'楽天市場',             cloudAppCat:'E-commerce',              risk:'low',    action:'allow'   },
+  'mercari.com':         { urlCat:'Online Shopping',           cloudApp:'Mercari',              cloudAppCat:'E-commerce',              risk:'low',    action:'allow'   },
+  'bestbuy.com':         { urlCat:'Online Shopping',           cloudApp:'Best Buy',             cloudAppCat:'E-commerce',              risk:'low',    action:'allow'   },
+  // ── News & Media ──────────────────────────────────────────
+  'cnn.com':             { urlCat:'News and Media',            cloudApp:'CNN',                  cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'bbc.com':             { urlCat:'News and Media',            cloudApp:'BBC',                  cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'bbc.co.uk':           { urlCat:'News and Media',            cloudApp:'BBC',                  cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'reuters.com':         { urlCat:'News and Media',            cloudApp:'Reuters',              cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'nytimes.com':         { urlCat:'News and Media',            cloudApp:'New York Times',       cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'theguardian.com':     { urlCat:'News and Media',            cloudApp:'The Guardian',         cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'bloomberg.com':       { urlCat:'News and Media',            cloudApp:'Bloomberg',            cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'techcrunch.com':      { urlCat:'News and Media',            cloudApp:'TechCrunch',           cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'wired.com':           { urlCat:'News and Media',            cloudApp:'WIRED',                cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'apnews.com':          { urlCat:'News and Media',            cloudApp:'AP News',              cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'nikkei.com':          { urlCat:'News and Media',            cloudApp:'日本経済新聞',         cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'asahi.com':           { urlCat:'News and Media',            cloudApp:'朝日新聞',             cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'yomiuri.co.jp':       { urlCat:'News and Media',            cloudApp:'読売新聞',             cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'mainichi.jp':         { urlCat:'News and Media',            cloudApp:'毎日新聞',             cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'nhk.or.jp':           { urlCat:'News and Media',            cloudApp:'NHK',                  cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'nhk.jp':              { urlCat:'News and Media',            cloudApp:'NHK',                  cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'itmedia.co.jp':       { urlCat:'News and Media',            cloudApp:'ITmedia',              cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'gigazine.net':        { urlCat:'News and Media',            cloudApp:'GIGAZINE',             cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  'zdnet.com':           { urlCat:'News and Media',            cloudApp:'ZDNet',                cloudAppCat:'News',                    risk:'low',    action:'allow'   },
+  // ── Finance ───────────────────────────────────────────────
+  'chase.com':           { urlCat:'Finance',                   cloudApp:'Chase Bank',           cloudAppCat:'Finance',                 risk:'low',    action:'allow'   },
+  'bankofamerica.com':   { urlCat:'Finance',                   cloudApp:'Bank of America',      cloudAppCat:'Finance',                 risk:'low',    action:'allow'   },
+  'wellsfargo.com':      { urlCat:'Finance',                   cloudApp:'Wells Fargo',          cloudAppCat:'Finance',                 risk:'low',    action:'allow'   },
+  'paypal.com':          { urlCat:'Finance',                   cloudApp:'PayPal',               cloudAppCat:'Finance',                 risk:'low',    action:'allow'   },
+  'stripe.com':          { urlCat:'Business and Economy',      cloudApp:'Stripe',               cloudAppCat:'Finance',                 risk:'low',    action:'allow'   },
+  'coinbase.com':        { urlCat:'Finance',                   cloudApp:'Coinbase',             cloudAppCat:'Finance',                 risk:'medium', action:'caution' },
+  'binance.com':         { urlCat:'Finance',                   cloudApp:'Binance',              cloudAppCat:'Finance',                 risk:'medium', action:'caution' },
+  'robinhood.com':       { urlCat:'Finance',                   cloudApp:'Robinhood',            cloudAppCat:'Finance',                 risk:'medium', action:'caution' },
+  'fidelity.com':        { urlCat:'Finance',                   cloudApp:'Fidelity',             cloudAppCat:'Finance',                 risk:'low',    action:'allow'   },
+  'moneyforward.com':    { urlCat:'Finance',                   cloudApp:'Money Forward',        cloudAppCat:'Finance',                 risk:'low',    action:'allow'   },
+  'freee.co.jp':         { urlCat:'Business and Economy',      cloudApp:'freee',                cloudAppCat:'Finance',                 risk:'low',    action:'allow'   },
+  // ── Technology / Developer ────────────────────────────────
+  'github.com':          { urlCat:'Computer and Internet Info',cloudApp:'GitHub',               cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'gitlab.com':          { urlCat:'Computer and Internet Info',cloudApp:'GitLab',               cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'bitbucket.org':       { urlCat:'Computer and Internet Info',cloudApp:'Bitbucket',            cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'stackoverflow.com':   { urlCat:'Computer and Internet Info',cloudApp:'Stack Overflow',       cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'aws.amazon.com':      { urlCat:'Computer and Internet Info',cloudApp:'AWS',                  cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'amazonaws.com':       { urlCat:'Computer and Internet Info',cloudApp:'AWS',                  cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'cloud.google.com':    { urlCat:'Computer and Internet Info',cloudApp:'Google Cloud',         cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'cloudflare.com':      { urlCat:'Computer and Internet Info',cloudApp:'Cloudflare',           cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'vercel.com':          { urlCat:'Computer and Internet Info',cloudApp:'Vercel',               cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'netlify.com':         { urlCat:'Computer and Internet Info',cloudApp:'Netlify',              cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'digitalocean.com':    { urlCat:'Computer and Internet Info',cloudApp:'DigitalOcean',         cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'heroku.com':          { urlCat:'Computer and Internet Info',cloudApp:'Heroku',               cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'npmjs.com':           { urlCat:'Computer and Internet Info',cloudApp:'npm',                  cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'pypi.org':            { urlCat:'Computer and Internet Info',cloudApp:'PyPI',                 cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'docker.com':          { urlCat:'Computer and Internet Info',cloudApp:'Docker Hub',           cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'figma.com':           { urlCat:'Computer and Internet Info',cloudApp:'Figma',                cloudAppCat:'Developer Tools',         risk:'low',    action:'allow'   },
+  'canva.com':           { urlCat:'Business and Economy',      cloudApp:'Canva',                cloudAppCat:'Office Productivity',     risk:'low',    action:'allow'   },
+  // ── CRM / Enterprise ──────────────────────────────────────
+  'salesforce.com':      { urlCat:'Business and Economy',      cloudApp:'Salesforce',           cloudAppCat:'CRM',                     risk:'low',    action:'allow'   },
+  'force.com':           { urlCat:'Business and Economy',      cloudApp:'Salesforce',           cloudAppCat:'CRM',                     risk:'low',    action:'allow'   },
+  'hubspot.com':         { urlCat:'Business and Economy',      cloudApp:'HubSpot',              cloudAppCat:'CRM',                     risk:'low',    action:'allow'   },
+  'zendesk.com':         { urlCat:'Business and Economy',      cloudApp:'Zendesk',              cloudAppCat:'ITSM/Project Management', risk:'low',    action:'allow'   },
+  'servicenow.com':      { urlCat:'Business and Economy',      cloudApp:'ServiceNow',           cloudAppCat:'ITSM/Project Management', risk:'low',    action:'allow'   },
+  'workday.com':         { urlCat:'Business and Economy',      cloudApp:'Workday',              cloudAppCat:'HR/HCM',                  risk:'low',    action:'allow'   },
+  'sap.com':             { urlCat:'Business and Economy',      cloudApp:'SAP',                  cloudAppCat:'ERP/Finance',             risk:'low',    action:'allow'   },
+  'oracle.com':          { urlCat:'Business and Economy',      cloudApp:'Oracle',               cloudAppCat:'ERP/Finance',             risk:'low',    action:'allow'   },
+  'concur.com':          { urlCat:'Business and Economy',      cloudApp:'SAP Concur',           cloudAppCat:'ERP/Finance',             risk:'low',    action:'allow'   },
+  // ── Project Management ────────────────────────────────────
+  'atlassian.com':       { urlCat:'Business and Economy',      cloudApp:'Atlassian',            cloudAppCat:'ITSM/Project Management', risk:'low',    action:'allow'   },
+  'jira.com':            { urlCat:'Business and Economy',      cloudApp:'Jira',                 cloudAppCat:'ITSM/Project Management', risk:'low',    action:'allow'   },
+  'confluence.com':      { urlCat:'Business and Economy',      cloudApp:'Confluence',           cloudAppCat:'ITSM/Project Management', risk:'low',    action:'allow'   },
+  'trello.com':          { urlCat:'Business and Economy',      cloudApp:'Trello',               cloudAppCat:'ITSM/Project Management', risk:'low',    action:'allow'   },
+  'asana.com':           { urlCat:'Business and Economy',      cloudApp:'Asana',                cloudAppCat:'ITSM/Project Management', risk:'low',    action:'allow'   },
+  'monday.com':          { urlCat:'Business and Economy',      cloudApp:'Monday.com',           cloudAppCat:'ITSM/Project Management', risk:'low',    action:'allow'   },
+  'notion.so':           { urlCat:'Business and Economy',      cloudApp:'Notion',               cloudAppCat:'Office Productivity',     risk:'low',    action:'allow'   },
+  'airtable.com':        { urlCat:'Business and Economy',      cloudApp:'Airtable',             cloudAppCat:'Office Productivity',     risk:'low',    action:'allow'   },
+  // ── AI / LLM ──────────────────────────────────────────────
+  'openai.com':          { urlCat:'Computer and Internet Info',cloudApp:'OpenAI',               cloudAppCat:'AI/ML Services',          risk:'low',    action:'allow'   },
+  'chatgpt.com':         { urlCat:'Computer and Internet Info',cloudApp:'ChatGPT',              cloudAppCat:'AI/ML Services',          risk:'low',    action:'allow'   },
+  'claude.ai':           { urlCat:'Computer and Internet Info',cloudApp:'Claude (Anthropic)',   cloudAppCat:'AI/ML Services',          risk:'low',    action:'allow'   },
+  'anthropic.com':       { urlCat:'Computer and Internet Info',cloudApp:'Anthropic',            cloudAppCat:'AI/ML Services',          risk:'low',    action:'allow'   },
+  'gemini.google.com':   { urlCat:'Computer and Internet Info',cloudApp:'Google Gemini',        cloudAppCat:'AI/ML Services',          risk:'low',    action:'allow'   },
+  'copilot.microsoft.com':{ urlCat:'Computer and Internet Info',cloudApp:'Microsoft Copilot',  cloudAppCat:'AI/ML Services',          risk:'low',    action:'allow'   },
+  'huggingface.co':      { urlCat:'Computer and Internet Info',cloudApp:'Hugging Face',         cloudAppCat:'AI/ML Services',          risk:'low',    action:'allow'   },
+  // ── Security ──────────────────────────────────────────────
+  'zscaler.com':         { urlCat:'Computer and Internet Info',cloudApp:'Zscaler',              cloudAppCat:'Security',                risk:'low',    action:'allow'   },
+  'zscalerone.net':      { urlCat:'Computer and Internet Info',cloudApp:'Zscaler',              cloudAppCat:'Security',                risk:'low',    action:'allow'   },
+  'zscloud.net':         { urlCat:'Computer and Internet Info',cloudApp:'Zscaler',              cloudAppCat:'Security',                risk:'low',    action:'allow'   },
+  'crowdstrike.com':     { urlCat:'Computer and Internet Info',cloudApp:'CrowdStrike',          cloudAppCat:'Security',                risk:'low',    action:'allow'   },
+  'paloaltonetworks.com':{ urlCat:'Computer and Internet Info',cloudApp:'Palo Alto Networks',   cloudAppCat:'Security',                risk:'low',    action:'allow'   },
+  'okta.com':            { urlCat:'Business and Economy',      cloudApp:'Okta',                 cloudAppCat:'Security',                risk:'low',    action:'allow'   },
+  'auth0.com':           { urlCat:'Computer and Internet Info',cloudApp:'Auth0',                cloudAppCat:'Security',                risk:'low',    action:'allow'   },
+  'haveibeenpwned.com':  { urlCat:'Computer and Internet Info',cloudApp:'Have I Been Pwned',    cloudAppCat:'Security',                risk:'low',    action:'allow'   },
+  // ── Gaming ────────────────────────────────────────────────
+  'steampowered.com':    { urlCat:'Games',                     cloudApp:'Steam',                cloudAppCat:'Gaming',                  risk:'low',    action:'caution' },
+  'epicgames.com':       { urlCat:'Games',                     cloudApp:'Epic Games',           cloudAppCat:'Gaming',                  risk:'low',    action:'caution' },
+  'ea.com':              { urlCat:'Games',                     cloudApp:'EA Games',             cloudAppCat:'Gaming',                  risk:'low',    action:'caution' },
+  'battle.net':          { urlCat:'Games',                     cloudApp:'Battle.net',           cloudAppCat:'Gaming',                  risk:'low',    action:'caution' },
+  'roblox.com':          { urlCat:'Games',                     cloudApp:'Roblox',               cloudAppCat:'Gaming',                  risk:'low',    action:'caution' },
+  'minecraft.net':       { urlCat:'Games',                     cloudApp:'Minecraft',            cloudAppCat:'Gaming',                  risk:'low',    action:'caution' },
+  'playstation.com':     { urlCat:'Games',                     cloudApp:'PlayStation Network',  cloudAppCat:'Gaming',                  risk:'low',    action:'caution' },
+  'xbox.com':            { urlCat:'Games',                     cloudApp:'Xbox Network',         cloudAppCat:'Gaming',                  risk:'low',    action:'caution' },
+  'nintendo.com':        { urlCat:'Games',                     cloudApp:'Nintendo',             cloudAppCat:'Gaming',                  risk:'low',    action:'allow'   },
+  // ── Education ─────────────────────────────────────────────
+  'coursera.org':        { urlCat:'Education',                 cloudApp:'Coursera',             cloudAppCat:'Training',                risk:'low',    action:'allow'   },
+  'udemy.com':           { urlCat:'Education',                 cloudApp:'Udemy',                cloudAppCat:'Training',                risk:'low',    action:'allow'   },
+  'edx.org':             { urlCat:'Education',                 cloudApp:'edX',                  cloudAppCat:'Training',                risk:'low',    action:'allow'   },
+  'khanacademy.org':     { urlCat:'Education',                 cloudApp:'Khan Academy',         cloudAppCat:'Training',                risk:'low',    action:'allow'   },
+  'wikipedia.org':       { urlCat:'Education',                 cloudApp:'Wikipedia',            cloudAppCat:'Reference',               risk:'low',    action:'allow'   },
+  'pluralsight.com':     { urlCat:'Education',                 cloudApp:'Pluralsight',          cloudAppCat:'Training',                risk:'low',    action:'allow'   },
+  // ── Health / Travel ───────────────────────────────────────
+  'webmd.com':           { urlCat:'Health',                    cloudApp:'WebMD',                cloudAppCat:'Health',                  risk:'low',    action:'allow'   },
+  'mayoclinic.org':      { urlCat:'Health',                    cloudApp:'Mayo Clinic',          cloudAppCat:'Health',                  risk:'low',    action:'allow'   },
+  'booking.com':         { urlCat:'Travel',                    cloudApp:'Booking.com',          cloudAppCat:'Travel',                  risk:'low',    action:'allow'   },
+  'expedia.com':         { urlCat:'Travel',                    cloudApp:'Expedia',              cloudAppCat:'Travel',                  risk:'low',    action:'allow'   },
+  'airbnb.com':          { urlCat:'Travel',                    cloudApp:'Airbnb',               cloudAppCat:'Travel',                  risk:'low',    action:'allow'   },
+  'tripadvisor.com':     { urlCat:'Travel',                    cloudApp:'TripAdvisor',          cloudAppCat:'Travel',                  risk:'low',    action:'allow'   },
+  'jal.co.jp':           { urlCat:'Travel',                    cloudApp:'JAL',                  cloudAppCat:'Travel',                  risk:'low',    action:'allow'   },
+  'ana.co.jp':           { urlCat:'Travel',                    cloudApp:'ANA',                  cloudAppCat:'Travel',                  risk:'low',    action:'allow'   },
+  // ── CDN & Infrastructure ──────────────────────────────────
+  'cloudfront.net':      { urlCat:'CDN',                       cloudApp:'Amazon CloudFront',    cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'fastly.net':          { urlCat:'CDN',                       cloudApp:'Fastly CDN',           cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'akamaized.net':       { urlCat:'CDN',                       cloudApp:'Akamai CDN',           cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'akamai.com':          { urlCat:'Computer and Internet Info',cloudApp:'Akamai',               cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'gstatic.com':         { urlCat:'CDN',                       cloudApp:'Google CDN',           cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  'googleapis.com':      { urlCat:'Computer and Internet Info',cloudApp:'Google APIs',          cloudAppCat:'Cloud Infrastructure',    risk:'low',    action:'allow'   },
+  // ── Anonymous Proxy / High-Risk ───────────────────────────
+  'pastebin.com':        { urlCat:'Anonymous Proxy/Anonymizer',cloudApp:'Pastebin',             cloudAppCat:'File Storage/Sharing',    risk:'high',   action:'caution' },
+  'proxyfree.com':       { urlCat:'Anonymous Proxy/Anonymizer',cloudApp:'ProxyFree',            cloudAppCat:'Proxy/Anonymizer',        risk:'high',   action:'block'   },
+  'hidemyass.com':       { urlCat:'Anonymous Proxy/Anonymizer',cloudApp:'HideMyAss',            cloudAppCat:'Proxy/Anonymizer',        risk:'high',   action:'block'   },
+  // ── Misc ──────────────────────────────────────────────────
+  'medium.com':          { urlCat:'Personal Sites and Blogs',  cloudApp:'Medium',               cloudAppCat:'Social Media',            risk:'low',    action:'allow'   },
+  'substack.com':        { urlCat:'Personal Sites and Blogs',  cloudApp:'Substack',             cloudAppCat:'Social Media',            risk:'low',    action:'allow'   },
+  'wordpress.com':       { urlCat:'Personal Sites and Blogs',  cloudApp:'WordPress.com',        cloudAppCat:'Web Hosting',             risk:'low',    action:'allow'   },
+  'apple.com':           { urlCat:'Computer and Internet Info',cloudApp:'Apple',                cloudAppCat:'Technology',              risk:'low',    action:'allow'   },
+  'pixiv.net':           { urlCat:'Arts',                      cloudApp:'pixiv',                cloudAppCat:'Entertainment',           risk:'low',    action:'allow'   },
+  'dmm.com':             { urlCat:'Entertainment',             cloudApp:'DMM',                  cloudAppCat:'Entertainment',           risk:'medium', action:'caution' },
+  'google-analytics.com':{ urlCat:'Web Ads/Analytics',         cloudApp:'Google Analytics',     cloudAppCat:'Marketing',               risk:'low',    action:'allow'   },
+  'googletagmanager.com':{ urlCat:'Web Ads/Analytics',         cloudApp:'Google Tag Manager',   cloudAppCat:'Marketing',               risk:'low',    action:'allow'   },
+  'doubleclick.net':     { urlCat:'Web Ads/Analytics',         cloudApp:'Google Ads',           cloudAppCat:'Marketing',               risk:'low',    action:'allow'   },
+};
+
+const LOOKUP_TLD_HINTS = [
+  { tld:'gov.jp', urlCat:'Government',                cloudAppCat:'Government',    risk:'low'    },
+  { tld:'gov',    urlCat:'Government',                cloudAppCat:'Government',    risk:'low'    },
+  { tld:'mil',    urlCat:'Government/Military',       cloudAppCat:'Government',    risk:'low'    },
+  { tld:'ac.jp',  urlCat:'Education',                 cloudAppCat:'Training',      risk:'low'    },
+  { tld:'edu',    urlCat:'Education',                 cloudAppCat:'Training',      risk:'low'    },
+  { tld:'or.jp',  urlCat:'Non-Profit/Advocacy Groups',cloudAppCat:'Non-Profit',   risk:'low'    },
+  { tld:'org',    urlCat:'Non-Profit/Advocacy Groups',cloudAppCat:'Non-Profit',   risk:'low'    },
+  { tld:'co.jp',  urlCat:'Business and Economy',      cloudAppCat:'Business Apps', risk:'low'   },
+  { tld:'ne.jp',  urlCat:'Computer and Internet Info',cloudAppCat:'ISP',           risk:'low'   },
+];
+
+function normalizeLookupFQDN(raw) {
+  return raw.trim().toLowerCase()
+    .replace(/^https?:\/\//i,'').split('/')[0].split(':')[0].replace(/^\./,'');
+}
+
+function performLookup(fqdn) {
+  const noWww = fqdn.replace(/^www\./,'');
+  // 1. Exact
+  if (LOOKUP_DB[fqdn])   return { ...LOOKUP_DB[fqdn],   matchType:'exact', matchedAs:fqdn   };
+  if (LOOKUP_DB[noWww])  return { ...LOOKUP_DB[noWww],  matchType:'exact', matchedAs:noWww  };
+  if (LOOKUP_DB['www.'+noWww]) return { ...LOOKUP_DB['www.'+noWww], matchType:'exact', matchedAs:'www.'+noWww };
+  // 2. Parent domain walk
+  const parts = noWww.split('.');
+  for (let i = 1; i < parts.length - 1; i++) {
+    const p = parts.slice(i).join('.');
+    if (LOOKUP_DB[p]) return { ...LOOKUP_DB[p], matchType:'parent', matchedAs:p };
+  }
+  // 3. TLD heuristic (longest first)
+  for (const h of LOOKUP_TLD_HINTS) {
+    if (noWww.endsWith('.'+h.tld) || noWww === h.tld)
+      return { urlCat:h.urlCat, cloudApp:'—', cloudAppCat:h.cloudAppCat, risk:h.risk, action:'allow', matchType:'estimate', matchedAs:noWww };
+  }
+  // 4. Keyword heuristic on SLD
+  const sld = noWww.split('.').slice(0,-1).join('.');
+  if (/news|press|media|times|post|daily|report/.test(sld))
+    return { urlCat:'News and Media',            cloudApp:'—', cloudAppCat:'News',               risk:'low',    action:'allow',   matchType:'estimate', matchedAs:noWww };
+  if (/shop|store|buy|cart|market/.test(sld))
+    return { urlCat:'Online Shopping',           cloudApp:'—', cloudAppCat:'E-commerce',         risk:'low',    action:'allow',   matchType:'estimate', matchedAs:noWww };
+  if (/bank|finance|pay|money|credit/.test(sld))
+    return { urlCat:'Finance',                   cloudApp:'—', cloudAppCat:'Finance',            risk:'medium', action:'caution', matchType:'estimate', matchedAs:noWww };
+  if (/health|medical|hospital|clinic/.test(sld))
+    return { urlCat:'Health',                    cloudApp:'—', cloudAppCat:'Health',             risk:'low',    action:'allow',   matchType:'estimate', matchedAs:noWww };
+  if (/game|play|gaming/.test(sld))
+    return { urlCat:'Games',                     cloudApp:'—', cloudAppCat:'Gaming',             risk:'low',    action:'caution', matchType:'estimate', matchedAs:noWww };
+  if (/learn|school|edu|course|university/.test(sld))
+    return { urlCat:'Education',                 cloudApp:'—', cloudAppCat:'Training',           risk:'low',    action:'allow',   matchType:'estimate', matchedAs:noWww };
+  if (/cloud|saas|api|dev/.test(sld))
+    return { urlCat:'Computer and Internet Info',cloudApp:'—', cloudAppCat:'Cloud Infrastructure',risk:'low',  action:'allow',   matchType:'estimate', matchedAs:noWww };
+  return { urlCat:'Miscellaneous', cloudApp:'—', cloudAppCat:'—', risk:'unknown', action:'caution', matchType:'unknown', matchedAs:noWww };
+}
+
+const LKUP_RISK_LABELS   = { low:'低 (Low)', medium:'中 (Medium)', high:'高 (High)', critical:'重大 (Critical)', unknown:'不明' };
+const LKUP_ACTION_LABELS = { allow:'✅ 許可 (Allow)', caution:'⚠ 注意 (Caution)', block:'🚫 ブロック (Block)' };
+const LKUP_MATCH_LABELS  = { exact:'DB一致', parent:'親ドメイン一致', estimate:'推定', unknown:'不明' };
+const LKUP_MATCH_CLS     = { exact:'match-exact', parent:'match-parent', estimate:'match-estimate', unknown:'match-unknown' };
+
+function runLookup() {
+  const raw = document.getElementById('lookup-input').value;
+  if (!raw.trim()) return;
+  const fqdn = normalizeLookupFQDN(raw);
+  const area = document.getElementById('lookup-result-area');
+  if (!/^[a-z0-9][a-z0-9\-\.]*\.[a-z]{2,}$/.test(fqdn)) {
+    area.innerHTML = '<div class="card" style="color:var(--red)">⚠️ 有効なFQDN形式で入力してください（例: www.example.com）</div>';
+    return;
+  }
+  area.innerHTML = '<div class="card" style="display:flex;align-items:center;gap:10px;color:var(--muted)"><span class="spinner"></span>検索中...</div>';
+  setTimeout(() => renderLookupResult(fqdn, performLookup(fqdn)), 350);
+}
+
+function lookupSample(domain) {
+  document.getElementById('lookup-input').value = domain;
+  runLookup();
+}
+
+function renderLookupResult(fqdn, r) {
+  const rc = 'lookup-risk-'   + r.risk;
+  const ac = 'lookup-action-' + r.action;
+  const mc = LKUP_MATCH_CLS[r.matchType] || 'match-unknown';
+  document.getElementById('lookup-result-area').innerHTML = `
+    <div class="lookup-anim">
+      <div class="lookup-result-header">
+        <span class="lookup-fqdn">${esc(fqdn)}</span>
+        <span class="match-badge ${mc}">${LKUP_MATCH_LABELS[r.matchType]||'不明'}</span>
+      </div>
+      <div class="lookup-cards">
+        <div class="lookup-card cat-card">
+          <div class="lc-label">📋 URL カテゴリ</div>
+          <div class="lc-value">${esc(r.urlCat)}</div>
+          <div class="lc-sub">Zscaler URL Filtering</div>
+        </div>
+        <div class="lookup-card app-card">
+          <div class="lc-label">☁️ Cloud App Control カテゴリ</div>
+          <div class="lc-value">${esc(r.cloudAppCat)}</div>
+          <div class="lc-sub">${esc(r.cloudApp)}</div>
+        </div>
+      </div>
+      <div class="lookup-meta">
+        <div class="meta-box">
+          <div class="meta-lbl">リスクレベル</div>
+          <div class="meta-val ${rc}">${LKUP_RISK_LABELS[r.risk]||r.risk}</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-lbl">推奨アクション</div>
+          <div class="meta-val ${ac}">${LKUP_ACTION_LABELS[r.action]||r.action}</div>
+        </div>
+        <div class="meta-box">
+          <div class="meta-lbl">マッチング</div>
+          <div class="meta-val" style="font-family:monospace;font-size:11px">${esc(r.matchedAs)}</div>
+        </div>
+      </div>
+    </div>`;
 }
 
 // ═══════════════════════════════════════════════════════════
