@@ -536,27 +536,13 @@
 <div class="panel" id="panel-settings">
   <div class="card" style="max-width:600px">
     <div class="settings-group">
-      <h3>🔑 Anthropic API キー</h3>
-      <div class="form-row">
-        <label>APIキー</label>
-        <div class="api-input-wrap">
-          <input class="input-field" id="api-key-input" type="password" placeholder="sk-ant-api03-..." style="padding-right:40px">
-          <button class="toggle-vis" onclick="toggleApiVis()" id="vis-btn">👁</button>
-        </div>
-      </div>
-      <button class="btn" onclick="saveApiKey()" style="margin-top:4px">保存する</button>
+      <h3>🔍 検索エンジン</h3>
+      <div class="settings-row"><span class="settings-label">方式</span><span class="settings-value">ローカルKB検索（無料）</span></div>
+      <div class="settings-row"><span class="settings-label">外部API</span><span class="settings-value">不使用</span></div>
+      <div class="settings-row"><span class="settings-label">応答速度</span><span class="settings-value">即時（オフライン対応）</span></div>
       <p style="font-size:12px;color:var(--muted);margin-top:8px">
-        APIキーは <strong>localStorage</strong> にのみ保存されます（サーバーには送信されません）。<br>
-        取得先: <em>console.anthropic.com</em>
+        ナレッジベース（27トピック）から関連情報を検索・合成して回答します。外部サービスへのアクセスは一切不要です。
       </p>
-    </div>
-
-    <div class="divider"></div>
-    <div class="settings-group">
-      <h3>🤖 AIモデル</h3>
-      <div class="settings-row"><span class="settings-label">使用モデル</span><span class="settings-value">claude-opus-4-8</span></div>
-      <div class="settings-row"><span class="settings-label">最大トークン</span><span class="settings-value">4,096</span></div>
-      <div class="settings-row"><span class="settings-label">応答言語</span><span class="settings-value">日本語</span></div>
     </div>
 
     <div class="divider"></div>
@@ -669,45 +655,36 @@ function showTab(name) {
   });
 })();
 
-async function runSearch() {
+function runSearch() {
   const q = document.getElementById('search-q').value.trim();
   if (!q) return;
-  const apiKey = localStorage.getItem('zscaler_hub_api_key') || '';
-  if (!apiKey) { alert('設定タブでAnthropicのAPIキーを入力してください。'); showTab('settings'); return; }
 
   document.getElementById('search-btn').disabled = true;
   document.getElementById('search-btn-inner').innerHTML = '<span class="spinner"></span> 検索中...';
   document.getElementById('search-output').style.display = 'none';
 
   const relevant = searchKB(q, 6);
-  const ctx = relevant.map(t => `【${t.title}】\n${t.content || t.summary}`).join('\n\n---\n\n');
+  const answer = buildLocalAnswer(q, relevant);
 
-  try {
-    const answer = await callClaude(q, ctx, apiKey);
-    document.getElementById('search-result').textContent = answer;
-    document.getElementById('search-output').style.display = 'block';
+  document.getElementById('search-result').textContent = answer;
+  document.getElementById('search-output').style.display = 'block';
 
-    if (relevant.length) {
-      document.getElementById('sources-area').style.display = 'block';
-      const sl = document.getElementById('sources-list');
-      sl.innerHTML = '';
-      relevant.forEach(t => {
-        const span = document.createElement('span');
-        span.className = 'source-tag';
-        span.textContent = t.title;
-        sl.appendChild(span);
-      });
-    } else {
-      document.getElementById('sources-area').style.display = 'none';
-    }
-
-    saveSearchLog(q, answer, relevant.map(t => t.title));
-    renderRecentSearches();
-  } catch(e) {
-    document.getElementById('search-result').textContent = 'エラー: ' + e.message;
-    document.getElementById('search-output').style.display = 'block';
+  if (relevant.length) {
+    document.getElementById('sources-area').style.display = 'block';
+    const sl = document.getElementById('sources-list');
+    sl.innerHTML = '';
+    relevant.forEach(t => {
+      const span = document.createElement('span');
+      span.className = 'source-tag';
+      span.textContent = t.title;
+      sl.appendChild(span);
+    });
+  } else {
     document.getElementById('sources-area').style.display = 'none';
   }
+
+  saveSearchLog(q, answer, relevant.map(t => t.title));
+  renderRecentSearches();
 
   document.getElementById('search-btn').disabled = false;
   document.getElementById('search-btn-inner').textContent = '検索';
@@ -727,38 +704,37 @@ function searchKB(query, n=6) {
     .map(x => x.topic);
 }
 
-async function callClaude(query, context, apiKey) {
-  const system = `あなたはZscaler製品の専門家AIアシスタントです。ZIA（Zscaler Internet Access）、ZPA（Zscaler Private Access）、ZDX（Zscaler Digital Experience）について日本語で詳しく回答します。
-以下のナレッジベースを参照して、正確で実践的な回答を提供してください。ナレッジベースにない情報は、一般的なZscalerの知識に基づいて回答してください。
-回答は構造的にわかりやすく、具体的な手順や設定例を含めてください。`;
-
-  const userMsg = context
-    ? `参照ナレッジベース:\n${context}\n\n質問: ${query}`
-    : `質問: ${query}`;
-
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true',
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: 'claude-opus-4-8',
-      max_tokens: 4096,
-      system,
-      messages: [{ role: 'user', content: userMsg }],
-    }),
-  });
-
-  if (resp.status === 429) throw new Error('レートリミットに達しました。しばらく待ってから再試行してください。');
-  if (!resp.ok) {
-    const err = await resp.json().catch(() => ({}));
-    throw new Error(err.error?.message || `APIエラー (${resp.status})`);
+function buildLocalAnswer(query, topics) {
+  if (!topics.length) {
+    return `「${query}」に関連する情報がナレッジベースに見つかりませんでした。\n\nより具体的なキーワード（例：ZIA、ZPA、ZDX、SSL、DLP、App Connector など）を使って検索してみてください。\nまたは「ドキュメント」タブからカテゴリ別にトピックを閲覧できます。`;
   }
-  const data = await resp.json();
-  return data.content?.[0]?.text || '回答を取得できませんでした。';
+
+  const main = topics[0];
+  let lines = [];
+
+  lines.push(`■ ${main.title}`);
+  lines.push('');
+  lines.push(main.content || main.summary || '');
+
+  if (main.configExample) {
+    lines.push('');
+    lines.push('【設定例】');
+    lines.push(main.configExample);
+  }
+
+  if (topics.length > 1) {
+    lines.push('');
+    lines.push('─────────────────────');
+    lines.push('▶ 関連トピック');
+    lines.push('');
+    topics.slice(1, 4).forEach(t => {
+      lines.push(`◆ ${t.title}`);
+      lines.push(t.summary || '');
+      lines.push('');
+    });
+  }
+
+  return lines.join('\n');
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -1288,21 +1264,8 @@ function renderRecentSearches() {
 // SETTINGS
 // ═══════════════════════════════════════════════════════════
 (function initSettings() {
-  const saved = localStorage.getItem('zscaler_hub_api_key') || '';
-  document.getElementById('api-key-input').value = saved;
   renderRecentSearches();
 })();
-
-function saveApiKey() {
-  const key = document.getElementById('api-key-input').value.trim();
-  localStorage.setItem('zscaler_hub_api_key', key);
-  showToast('✅ APIキーを保存しました');
-}
-
-function toggleApiVis() {
-  const inp = document.getElementById('api-key-input');
-  inp.type = inp.type === 'password' ? 'text' : 'password';
-}
 
 function showToast(msg) {
   const el = document.createElement('div');
