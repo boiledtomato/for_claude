@@ -24,7 +24,9 @@ HEADERS = {
     )
 }
 
+# サイトマップからサンプリングする候補数
 CANDIDATE_LIMIT = 80
+# 最終的に保存する記事数
 MAX_ARTICLES = 20
 
 CATEGORY_MAP = {
@@ -42,6 +44,8 @@ PRODUCT_TAGS = {
 }
 
 
+# ── ユーティリティ ──────────────────────────────────────────────
+
 def _strip_html(html: str) -> str:
     text = re.sub(r"<[^>]+>", " ", html or "")
     for entity, repl in [("&amp;", "&"), ("&lt;", "<"), ("&gt;", ">"),
@@ -51,11 +55,14 @@ def _strip_html(html: str) -> str:
 
 
 def _to_bullets(body_html: str) -> list[str]:
+    """HTML本文から箇条書き用の要点リストを生成する。"""
     text = _strip_html(body_html)
+    # 文区切りで分割
     sentences = re.split(r"(?<=[。\.\!\?])\s+", text)
     bullets = []
     for s in sentences:
         s = s.strip()
+        # ノイズ除外: Disclaimer / 短すぎる / URLのみ
         if len(s) < 40:
             continue
         if "disclaimer" in s.lower() or s.startswith("http"):
@@ -85,6 +92,8 @@ def _unix_to_iso(ts) -> str:
         return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+# ── Zscaler Next.js API ────────────────────────────────────────
+
 def get_build_id() -> str:
     print("build ID を取得中…")
     r = requests.get(
@@ -101,6 +110,7 @@ def get_build_id() -> str:
 
 
 def get_candidate_urls() -> list[str]:
+    """sitemapから対象ブログURLを取得し、最新記事を優先するよう並び替える。"""
     print("sitemapからURLを取得中…")
     r = requests.get(
         "https://www.zscaler.com/sitemap.xml", headers=HEADERS, timeout=20
@@ -112,6 +122,7 @@ def get_candidate_urls() -> list[str]:
         u for u in all_urls
         if "/product-insights/" in u or "/security-research/" in u
     ]
+    # 年付きスラッグ（2024-, 2025-, 2026-）を優先
     recent = [u for u in target if re.search(r"/202[4-9]-", u)]
     others = [u for u in target if u not in set(recent)]
     candidates = (recent + others)[:CANDIDATE_LIMIT]
@@ -120,6 +131,7 @@ def get_candidate_urls() -> list[str]:
 
 
 def fetch_article(url: str, build_id: str) -> dict | None:
+    """1件の記事をZscaler Next.js APIから取得して整形する。"""
     slug = url.replace("https://www.zscaler.com/", "")
     api_url = f"https://www.zscaler.com/_next/data/{build_id}/{slug}.json"
     try:
@@ -137,6 +149,7 @@ def fetch_article(url: str, build_id: str) -> dict | None:
         for p in paragraphs:
             typename = p.get("__typename", "")
 
+            # タイトル・日付・カテゴリ
             if typename == "ParagraphBlogPostHeaderModule":
                 post = p.get("post") or {}
                 title = post.get("title", "")
@@ -144,12 +157,14 @@ def fetch_article(url: str, build_id: str) -> dict | None:
                 cat = post.get("mainCategory") or {}
                 main_category_slug = cat.get("slug", "") if isinstance(cat, dict) else ""
 
+            # 本文（コンテナ内のWYSIWYGを結合）
             elif typename == "ParagraphBlogContainer":
                 for rp in p.get("fieldReusableParagraphs") or []:
                     fb = rp.get("fieldBody") or {}
                     if isinstance(fb, dict):
                         body_html += fb.get("value", "")
 
+            # トップレベルWYSIWYG
             elif typename == "ParagraphWysiwygModule":
                 fb = p.get("fieldBody") or {}
                 if isinstance(fb, dict):
@@ -160,6 +175,7 @@ def fetch_article(url: str, build_id: str) -> dict | None:
         if not title or not created_ts:
             return None
 
+        # カテゴリをURLから補完
         for key, cat in CATEGORY_MAP.items():
             if f"/{key}/" in url:
                 category = cat
@@ -182,9 +198,11 @@ def fetch_article(url: str, build_id: str) -> dict | None:
             "category": category,
             "tags": _detect_tags(combined),
         }
-    except Exception:
+    except Exception as e:
         return None
 
+
+# ── メイン ─────────────────────────────────────────────────────
 
 def main():
     build_id = get_build_id()
@@ -200,9 +218,11 @@ def main():
             if result:
                 articles.append(result)
 
+    # 日付降順ソート → 最新 MAX_ARTICLES 件
     articles.sort(key=lambda a: a["created_ts"], reverse=True)
     articles = articles[:MAX_ARTICLES]
 
+    # created_ts は保存不要
     for a in articles:
         a.pop("created_ts", None)
 
