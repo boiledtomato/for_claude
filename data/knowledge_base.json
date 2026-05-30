@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-05-30T08:05:48Z",
+  "last_updated": "2026-05-30T08:24:23Z",
   "total": 39,
   "topics": [
     {
@@ -19,7 +19,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zia/about-url-filtering",
-      "fetched_at": "2026-05-30T08:05:30.559361+00:00"
+      "fetched_at": "2026-05-30T08:24:05.851501+00:00"
     },
     {
       "id": "74b55639369c",
@@ -37,7 +37,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zia/about-ssl-inspection",
-      "fetched_at": "2026-05-30T08:05:32.130028+00:00"
+      "fetched_at": "2026-05-30T08:24:07.473129+00:00"
     },
     {
       "id": "4aed7a626c2c",
@@ -55,7 +55,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zia/about-cloud-firewall",
-      "fetched_at": "2026-05-30T08:05:33.702604+00:00"
+      "fetched_at": "2026-05-30T08:24:09.020617+00:00"
     },
     {
       "id": "f7cd198acd64",
@@ -73,7 +73,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zia/about-data-loss-prevention",
-      "fetched_at": "2026-05-30T08:05:35.252282+00:00"
+      "fetched_at": "2026-05-30T08:24:10.572918+00:00"
     },
     {
       "id": "fb0201e9bfc6",
@@ -91,7 +91,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zia/about-cloud-sandboxing",
-      "fetched_at": "2026-05-30T08:05:36.868294+00:00"
+      "fetched_at": "2026-05-30T08:24:12.122338+00:00"
     },
     {
       "id": "ecc1f3c6fad5",
@@ -109,7 +109,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zia/about-bandwidth-control",
-      "fetched_at": "2026-05-30T08:05:38.448547+00:00"
+      "fetched_at": "2026-05-30T08:24:13.737796+00:00"
     },
     {
       "id": "64db6b71eaa8",
@@ -127,7 +127,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zpa/about-zscaler-private-access",
-      "fetched_at": "2026-05-30T08:05:40.059918+00:00"
+      "fetched_at": "2026-05-30T08:24:15.295791+00:00"
     },
     {
       "id": "a57e36330933",
@@ -144,7 +144,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zpa/configuring-app-connectors",
-      "fetched_at": "2026-05-30T08:05:41.631542+00:00"
+      "fetched_at": "2026-05-30T08:24:16.846502+00:00"
     },
     {
       "id": "ad53399adea6",
@@ -162,7 +162,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zpa/about-application-segments",
-      "fetched_at": "2026-05-30T08:05:43.200541+00:00"
+      "fetched_at": "2026-05-30T08:24:18.397011+00:00"
     },
     {
       "id": "a11b75ae0ab5",
@@ -180,7 +180,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zpa/about-access-policy",
-      "fetched_at": "2026-05-30T08:05:44.769572+00:00"
+      "fetched_at": "2026-05-30T08:24:19.946902+00:00"
     },
     {
       "id": "cd0015279b10",
@@ -198,7 +198,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zdx/about-zdx",
-      "fetched_at": "2026-05-30T08:05:46.383374+00:00"
+      "fetched_at": "2026-05-30T08:24:21.494597+00:00"
     },
     {
       "id": "8adbf1b3e089",
@@ -216,7 +216,7 @@
       "relatedTopicIds": [],
       "configExample": null,
       "source_url": "https://help.zscaler.com/zdx/about-web-probes",
-      "fetched_at": "2026-05-30T08:05:47.953290+00:00"
+      "fetched_at": "2026-05-30T08:24:23.042272+00:00"
     },
     {
       "id": "zia-overview",
