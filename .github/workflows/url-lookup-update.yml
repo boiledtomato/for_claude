@@ -55,7 +55,7 @@ jobs:
           server_address: smtp.gmail.com
           server_port: 587
           secure: false
-          username: ${{ secrets.GMAIL_USERNAME }}
+          username: ciderred1239@gmail.com
           password: ${{ secrets.GMAIL_APP_PASSWORD }}
           subject: "[URL Lookup] データ更新レポート ${{ steps.date.outputs.today }}"
           to: ciderred1239@gmail.com
