@@ -709,10 +709,18 @@ function buildLocalAnswer(query, topics) {
     return `「${query}」に関連する情報がナレッジベースに見つかりませんでした。\n\nより具体的なキーワード（例：ZIA、ZPA、ZDX、SSL、DLP、App Connector など）を使って検索してみてください。\nまたは「ドキュメント」タブからカテゴリ別にトピックを閲覧できます。`;
   }
 
-  const main = topics[0];
-  let lines = [];
+  const q = query.toLowerCase();
+  const lines = [];
 
-  lines.push(`■ ${main.title}`);
+  // Header with query
+  lines.push(`【検索キーワード】${query}`);
+  lines.push('');
+
+  // Primary topic — full content
+  const main = topics[0];
+  lines.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+  lines.push(`▌ ${main.title}　[${main.category}${main.subcategory ? ' / ' + main.subcategory : ''}]`);
+  lines.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
   lines.push('');
   lines.push(main.content || main.summary || '');
 
@@ -722,16 +730,20 @@ function buildLocalAnswer(query, topics) {
     lines.push(main.configExample);
   }
 
-  if (topics.length > 1) {
+  // Secondary topics — summary only
+  const secondary = topics.slice(1, 4);
+  if (secondary.length) {
     lines.push('');
-    lines.push('─────────────────────');
-    lines.push('▶ 関連トピック');
+    lines.push('──────────────────────────────');
+    lines.push('▌ 関連トピック');
     lines.push('');
-    topics.slice(1, 4).forEach(t => {
-      lines.push(`◆ ${t.title}`);
-      lines.push(t.summary || '');
+    secondary.forEach((t, i) => {
+      lines.push(`${i + 1}. ${t.title}　[${t.category}]`);
+      const s = t.summary || t.content || '';
+      lines.push(s.slice(0, 200) + (s.length > 200 ? '…' : ''));
       lines.push('');
     });
+    lines.push('※「ドキュメント」タブでカテゴリ別の全文を参照できます。');
   }
 
   return lines.join('\n');

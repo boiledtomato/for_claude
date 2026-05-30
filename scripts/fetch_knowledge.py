@@ -177,6 +177,11 @@ def scrape_help_page(url: str, category: str, subcategory: str, tags: list[str])
         print(f"  [SKIP] {url}: content too short after cleaning")
         return None
 
+    # Reject JS-rendered pages that returned fallback error text
+    if "javascript has been disabled" in raw.lower() or "enable js to make" in raw.lower():
+        print(f"  [SKIP] {url}: JS-rendered page, no static content available")
+        return None
+
     # Derive a short summary (first meaningful paragraph)
     lines = [l.strip() for l in raw.split("\n") if len(l.strip()) > 40]
     summary = lines[0][:300] if lines else raw[:300]
