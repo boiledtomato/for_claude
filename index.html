@@ -631,10 +631,19 @@
     </div>
   </div>
   <div id="lookup-result-area" style="max-width:680px;margin:0 auto"></div>
-  <div class="card" style="max-width:680px;margin:16px auto 0;background:rgba(251,191,36,.04);border-color:rgba(251,191,36,.2)">
+  <div class="card" style="max-width:680px;margin:16px auto 0">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+      <span style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em">データソース</span>
+      <span style="font-size:11px;color:var(--muted)">最終更新: <span id="lookup-db-updated">読み込み中...</span></span>
+    </div>
+    <p style="font-size:12px;color:var(--muted);line-height:1.6">
+      VirusTotal の無料 API 経由でカテゴリを取得（毎日 JST 0:00 自動更新）。
+      Zscaler・Forcepoint・Webroot 等のベンダーカテゴリを Zscaler 体系にマッピング。
+    </p>
+  </div>
+  <div class="card" style="max-width:680px;margin:8px auto 0;background:rgba(251,191,36,.04);border-color:rgba(251,191,36,.2)">
     <p style="font-size:12px;color:var(--muted);line-height:1.65">
-      ⚠️ このURL Lookupはシミュレーターです。実際のZscalerポータルの機能とは異なる場合があります。
-      本番環境では <strong>Zscaler Admin Portal → URL Lookup</strong> をご利用ください。
+      ⚠️ 完全な正確性は保証されません。本番環境では <strong>Zscaler Admin Portal → URL Lookup</strong> をご利用ください。
     </p>
   </div>
 </div>
@@ -1723,10 +1732,37 @@ function renderLookupResult(fqdn, r) {
     </div>`;
 }
 
+// ─── 動的 URL Lookup データのロード ───────────────────────────────────────────
+// data/url-lookup.json (GitHub Actions が毎日更新) を読み込み、
+// 静的な LOOKUP_DB に上書きマージする。ファイルが存在しない場合は LOOKUP_DB をそのまま使用。
+let lookupLastUpdated = null;
+
+async function loadLookupDB() {
+  try {
+    const r = await fetch('data/url-lookup.json');
+    if (!r.ok) throw new Error('not found');
+    const data = await r.json();
+    const records = data.records || {};
+    const count   = Object.keys(records).length;
+    // 静的 DB に JSON のレコードをマージ（JSON 優先）
+    Object.assign(LOOKUP_DB, records);
+    lookupLastUpdated = data.last_updated
+      ? data.last_updated.slice(0, 10)
+      : null;
+    log.debug && log.debug(`URL Lookup DB: ${count} 件のレコードをロード`);
+    // 設定画面の表示を更新
+    const el = document.getElementById('lookup-db-updated');
+    if (el) el.textContent = lookupLastUpdated || '-';
+  } catch {
+    // JSON なし → 静的 LOOKUP_DB のみで動作（問題なし）
+  }
+}
+
 // ═══════════════════════════════════════════════════════════
 // BOOT
 // ═══════════════════════════════════════════════════════════
 loadKB();
+loadLookupDB();
 </script>
 </body>
 </html>
