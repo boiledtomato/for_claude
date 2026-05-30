@@ -41,3 +41,23 @@ jobs:
             git commit -m "chore: URL Lookup データ更新 $(date -u '+%Y-%m-%d')"
             git push origin HEAD
           fi
+
+      - name: Generate email report
+        run: python scripts/generate_email_report.py > /tmp/email_body.txt
+
+      - name: Set report date
+        id: date
+        run: echo "today=$(date -u '+%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
+      - name: Send update report email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "[URL Lookup] データ更新レポート ${{ steps.date.outputs.today }}"
+          to: ciderred1239@gmail.com
+          from: Zscaler Hub <${{ secrets.GMAIL_USERNAME }}>
+          body: file:///tmp/email_body.txt

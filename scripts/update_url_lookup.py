@@ -425,6 +425,8 @@ def main() -> None:
     queried = 0
     skipped = 0
     batch_count = 0
+    updated_entries: list[dict] = []
+    errors: list[str] = []
 
     for domain, cloud_app, cloud_app_cat in targets:
         # 同日内に更新済みならスキップ
@@ -446,13 +448,13 @@ def main() -> None:
             risk, action     = assess_risk(vt, url_cat)
             source           = "virustotal"
         else:
-            # VT 取得失敗時は既存データを維持
             prev = records.get(domain, {})
             url_cat  = prev.get("urlCat",  "Miscellaneous")
             raw_cat  = prev.get("rawCategory", "")
             risk     = prev.get("risk",    "unknown")
             action   = prev.get("action",  "caution")
             source   = "fallback"
+            errors.append(domain)
 
         records[domain] = {
             "urlCat":      url_cat,
@@ -464,18 +466,43 @@ def main() -> None:
             "rawCategory": raw_cat,
             "updated":     datetime.now(timezone.utc).isoformat(),
         }
+        updated_entries.append({
+            "domain":      domain,
+            "cloudApp":    cloud_app,
+            "cloudAppCat": cloud_app_cat,
+            "urlCat":      url_cat,
+            "risk":        risk,
+            "action":      action,
+            "source":      source,
+        })
 
         queried += 1
         batch_count += 1
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    now_iso = datetime.now(timezone.utc).isoformat()
     output = {
-        "last_updated": datetime.now(timezone.utc).isoformat(),
+        "last_updated": now_iso,
         "total":        len(records),
         "records":      records,
     }
     OUTPUT.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
     log.info(f"完了: 更新 {queried} 件 / スキップ {skipped} 件 → {OUTPUT}")
+
+    # メール送信用レポートファイルを出力（GitHub Actions がメール本文として使用）
+    report = {
+        "run_at":    now_iso,
+        "force_all": force_all,
+        "day_group": "all" if force_all else (datetime.now(timezone.utc).timetuple().tm_yday % NUM_GROUPS),
+        "total_domains": len(DOMAINS),
+        "queried":   queried,
+        "skipped":   skipped,
+        "errors":    errors,
+        "updated":   updated_entries,
+    }
+    report_path = ROOT / "data" / "url-lookup-report.json"
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    log.info(f"レポートファイル出力: {report_path}")
 
 
 if __name__ == "__main__":
