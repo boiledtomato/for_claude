@@ -1,16 +1,5 @@
 {
-  "last_updated": "2026-06-01T02:58:51Z",
-  "total": 1,
-  "articles": [
-    {
-      "id": "e9aa06cc50d6bd4d",
-      "title": "Netskope extends data localization capabilities with NewEdge updates",
-      "url": "https://www.helpnetsecurity.com/2026/05/29/netskope-newedge-network-enhancements/",
-      "summary": "Netskope has enhanced its NewEdge Network infrastructure, expanding data sovereignty capabilities to more regions than any other SASE cloud provider. The NewEdge Network architecture provides national data localization features that address requirements for network transport, data processing, and metadata governance in major regions worldwide, while enabling Netskope to extend this coverage to add",
-      "date": "2026-05-29T07:26:38Z",
-      "source": "Help Net Security",
-      "category": "industry_news",
-      "tags": []
-    }
-  ]
+  "last_updated": "2026-06-02T02:56:14Z",
+  "total": 0,
+  "articles": []
 }
