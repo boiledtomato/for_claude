@@ -15,6 +15,8 @@ jobs:
   monitor:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: write   # seen状態ファイルをコミットするために必要
 
     steps:
       - name: Checkout
@@ -50,10 +52,20 @@ jobs:
         run: |
           python scripts/zscaler_monitor.py
 
-      - name: Upload generated notes as artifact
+      - name: Save seen articles state
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/zscaler_seen.json || true
+          git diff --cached --quiet || git commit -m "chore: update zscaler seen articles state"
+          git push || true
+
+      - name: Upload debug HTML and notes as artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: fleeting-notes-${{ github.run_number }}
-          path: output/fleeting_notes/
+          name: zscaler-output-${{ github.run_number }}
+          path: |
+            output/debug_page.html
+            output/fleeting_notes/
           if-no-files-found: ignore
