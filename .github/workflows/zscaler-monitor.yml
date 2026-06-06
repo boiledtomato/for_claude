@@ -44,9 +44,8 @@ jobs:
 
       - name: Run Zscaler monitor
         env:
-          GMAIL_ADDRESS:      ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          RECIPIENT_EMAIL:    ${{ secrets.RECIPIENT_EMAIL }}
+          NOTIFY_EMAIL_FROM:  ${{ secrets.NOTIFY_EMAIL_FROM }}
           MONTH_FILTER:       ${{ github.event.inputs.month_filter || 'May' }}
         run: |
           python scripts/zscaler_monitor.py

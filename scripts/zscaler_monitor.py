@@ -25,9 +25,9 @@ TARGET_URL = "https://help.zscaler.com/zia/release-upgrade-summary-2026"
 RCLONE_DEST = "onedrive:drive_folder/Obsidian/my_repository/00_Fleeting_notes"
 OUTPUT_DIR  = Path("output/fleeting_notes")
 
-GMAIL_ADDRESS      = os.environ["GMAIL_ADDRESS"]
+GMAIL_ADDRESS      = "ciderred1239@gmail.com"
 GMAIL_APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]
-RECIPIENT_EMAIL    = os.environ.get("RECIPIENT_EMAIL", GMAIL_ADDRESS)
+RECIPIENT_EMAIL    = os.environ["NOTIFY_EMAIL_FROM"]
 MONTH_FILTER       = os.environ.get("MONTH_FILTER", "May")
 
 
