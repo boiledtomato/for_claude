@@ -22,7 +22,7 @@ from playwright.sync_api import sync_playwright
 # ── Config ────────────────────────────────────────────────────────────────────
 TARGET_URL = "https://help.zscaler.com/zia/release-upgrade-summary-2026"
 # rclone remote name + path inside OneDrive
-RCLONE_DEST = "onedrive:drive_folder/Obsidian/my_repository/00_Fleeting_notes"
+RCLONE_DEST = "onedrive:drive_folder/Obsidian/my_repository/000_Fleeting-Notes"
 OUTPUT_DIR  = Path("output/fleeting_notes")
 
 GMAIL_ADDRESS      = "ciderred1239@gmail.com"
