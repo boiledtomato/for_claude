@@ -42,7 +42,7 @@ MONTH_JP = {
 MONTH_PAT = re.compile(
     r"(January|February|March|April|May|June|July|August|"
     r"September|October|November|December)"
-    r"[\s,]*\d{1,2}[,\s]*\d{4}",
+    r"(?:[\s,]*\d{1,2})?[,\s]*\d{4}",
     re.IGNORECASE,
 )
 
@@ -204,11 +204,15 @@ def parse_updates(html: str, month_filter: str) -> list[UpdateItem]:
             if block.name not in ("section", "article", "div", "main"):
                 continue
 
-            # 内部のサブセクションを機能ごとに分割
+            # 内部のサブセクションを機能ごとに分割（h2-h5 → strong → p順に試行）
             sub_heads = block.find_all(re.compile(r"^h[2-5]$"))
             if sub_heads:
                 for sh in sub_heads:
                     feature = sh.get_text(" ", strip=True)
+                    date_label = f"{month_filter} 2026"
+                    m = MONTH_PAT.search(feature)
+                    if m:
+                        date_label = m.group(0).strip()
                     sub_content = []
                     for sib in sh.find_next_siblings():
                         if sib.name and re.match(r"^h[2-5]$", sib.name):
@@ -218,12 +222,45 @@ def parse_updates(html: str, month_filter: str) -> list[UpdateItem]:
                         body = "\n".join(element_to_md(e) for e in sub_content)
                         body = re.sub(r"\n{3,}", "\n\n", body).strip()
                         if len(body) > 30:
-                            items.append(UpdateItem(
-                                feature, f"{month_filter} 2026", feature, body
-                            ))
+                            items.append(UpdateItem(feature, date_label, feature, body))
                 if items:
                     break
-            else:
+
+            # <strong> をセクション区切りとして使う
+            if not items:
+                strongs = block.find_all("strong")
+                if len(strongs) >= 2:
+                    print(f"[DEBUG] Trying strong-based split: {len(strongs)} strong tags")
+                    for strong in strongs:
+                        feature = strong.get_text(" ", strip=True)
+                        if len(feature) < 5 or len(feature) > 200:
+                            continue
+                        # strong の後続兄弟要素を収集（次の strong まで）
+                        sub_content = []
+                        node = strong.parent
+                        # strongのparentが<p>なら、そのpの次兄弟を集める
+                        if node and node.name == "p":
+                            for sib in node.find_next_siblings():
+                                next_strong = sib.find("strong")
+                                if next_strong and len(next_strong.get_text(strip=True)) > 5:
+                                    break
+                                sub_content.append(sib)
+                        else:
+                            for sib in strong.find_next_siblings():
+                                if sib.find("strong"):
+                                    break
+                                sub_content.append(sib)
+                        if sub_content:
+                            body = "\n".join(element_to_md(e) for e in sub_content)
+                            body = re.sub(r"\n{3,}", "\n\n", body).strip()
+                            if len(body) > 30:
+                                items.append(UpdateItem(
+                                    feature, f"{month_filter} 2026", feature, body
+                                ))
+                    if items:
+                        break
+
+            if not items:
                 body = element_to_md(block)
                 body = re.sub(r"\n{3,}", "\n\n", body).strip()
                 heading = block.find(re.compile(r"^h[1-5]$"))
@@ -231,6 +268,7 @@ def parse_updates(html: str, month_filter: str) -> list[UpdateItem]:
                 items.append(UpdateItem(title, f"{month_filter} 2026", title, body))
                 break
 
+    print(f"[DEBUG] Total items after parse: {len(items)}")
     return items
 
 

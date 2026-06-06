@@ -58,6 +58,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/zscaler_seen.json || true
           git diff --cached --quiet || git commit -m "chore: update zscaler seen articles state"
+          git pull --rebase origin main || true
           git push || true
 
       - name: Upload debug HTML and notes as artifact
