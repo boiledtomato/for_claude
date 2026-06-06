@@ -248,16 +248,34 @@ def write_md_files(items: list[UpdateItem]) -> list[Path]:
 
 # ── rclone Upload ─────────────────────────────────────────────────────────────
 def upload_via_rclone(src_dir: Path) -> bool:
+    # ファイル一覧を表示してから転送
+    files = list(src_dir.glob("*.md"))
+    print(f"[RCLONE] Uploading {len(files)} file(s):")
+    for f in files:
+        print(f"  - {f.name} ({f.stat().st_size} bytes)")
+
     result = subprocess.run(
         ["rclone", "copy", str(src_dir), RCLONE_DEST,
-         "--transfers", "4", "--log-level", "INFO"],
+         "--transfers", "4", "--verbose"],
         capture_output=True, text=True,
     )
+    print("[RCLONE STDOUT]", result.stdout[:1000])
+    print("[RCLONE STDERR]", result.stderr[:1000])
+
     if result.returncode == 0:
-        print(f"[RCLONE] Upload OK → {RCLONE_DEST}")
-        return True
-    print(f"[RCLONE ERROR] {result.stderr[:400]}")
-    return False
+        print(f"[RCLONE] Copy finished → {RCLONE_DEST}")
+    else:
+        print(f"[RCLONE ERROR] exit code {result.returncode}")
+        return False
+
+    # 転送後にOneDrive上のファイル一覧を確認
+    ls_result = subprocess.run(
+        ["rclone", "lsf", RCLONE_DEST],
+        capture_output=True, text=True,
+    )
+    print("[RCLONE] Files in OneDrive destination:")
+    print(ls_result.stdout or "(empty)")
+    return True
 
 
 # ── Email ─────────────────────────────────────────────────────────────────────
