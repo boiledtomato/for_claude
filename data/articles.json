@@ -1,5 +1,16 @@
 {
-  "last_updated": "2026-06-08T02:56:41Z",
-  "total": 0,
-  "articles": []
+  "last_updated": "2026-06-09T02:34:30Z",
+  "total": 1,
+  "articles": [
+    {
+      "id": "ebef16f2aa2e868a",
+      "title": "Cybersecurity M&A Roundup: 26 Deals Announced in May 2026",
+      "url": "https://www.securityweek.com/cybersecurity-ma-roundup-26-deals-announced-in-may-2026/",
+      "summary": "Significant cybersecurity M&#038;A deals announced by Akamai, Check Point, Cisco, Cyera, Dragos, WatchGuard and Zscaler. The post Cybersecurity M&#038;A Roundup: 26 Deals Announced in May 2026 appeared first on SecurityWeek.",
+      "date": "2026-06-08T12:38:45Z",
+      "source": "SecurityWeek",
+      "category": "industry_news",
+      "tags": []
+    }
+  ]
 }
