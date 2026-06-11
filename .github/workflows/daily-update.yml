@@ -42,11 +42,18 @@ jobs:
       - name: Fetch knowledge base
         run: python scripts/fetch_knowledge.py
 
+      - name: Send email notification
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NOTIFY_EMAIL_FROM: ${{ secrets.NOTIFY_EMAIL_FROM }}
+          DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
+        run: python scripts/send_notification.py
+
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/articles.json data/knowledge_base.json
+          git add data/articles.json data/knowledge_base.json data/last_notified.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
