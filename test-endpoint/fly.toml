@@ -1,0 +1,14 @@
+app = "zscaler-test-5349"
+primary_region = "nrt"
+
+[build]
+
+[[services]]
+  internal_port = 5349
+  protocol = "tcp"
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[services.ports]]
+    port = 5349
