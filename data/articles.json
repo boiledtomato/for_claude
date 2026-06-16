@@ -1,16 +1,5 @@
 {
-  "last_updated": "2026-06-15T03:32:31Z",
-  "total": 1,
-  "articles": [
-    {
-      "id": "ecc72f371d00c145",
-      "title": "Cybercriminals are moving away from mass phishing campaigns",
-      "url": "https://www.helpnetsecurity.com/2026/06/12/zscaler-report-phishing-activity-trends/",
-      "summary": "Phishing activity declined by roughly 20% in both 2024 and 2025, according to research from Zscaler&#8217;s ThreatLabz team. The drop followed years of growth that pushed phishing activity above 2 billion hits in 2023. &#8220;Phishing volume measured by blocked emails is no longer a reliable proxy for phishing risk.&#8221; Researchers found greater use of targeted phishing campaigns designed to re",
-      "date": "2026-06-12T10:47:20Z",
-      "source": "Help Net Security",
-      "category": "industry_news",
-      "tags": []
-    }
-  ]
+  "last_updated": "2026-06-16T03:29:43Z",
+  "total": 0,
+  "articles": []
 }
