@@ -1,0 +1,116 @@
+# category_map.yaml
+#
+# help.zscaler.com のURLをカテゴリ(Googleドキュメントのバケツ)に
+# 分類するための定義ファイル。scraper.py / main.py はこのファイルを
+# 読み込み、カテゴリ単位でページを集約する。
+#
+# 各カテゴリのキー:
+#   display_name  : Googleドキュメントのタイトルに使う表示名
+#   url_prefixes  : このカテゴリに属するURLパスプレフィックスのリスト
+#                   (https://help.zscaler.com/ より後のパスに対して前方一致判定。
+#                   例: "zscaler-client-connector" は
+#                   https://help.zscaler.com/zscaler-client-connector/... にマッチ)
+#   google_doc_id : 生成済みGoogleドキュメントのID。
+#                   初回実行時は空文字のままでよい。gdocs_writer.py が
+#                   ドキュメント作成後にこの値を書き戻す。
+#
+# 制約:
+#   - カテゴリ(バケツ)数は最大100。tests/test_category_map.py で検証する。
+#   - url_prefixes が重複/競合する場合、category_map.yaml内で先に
+#     出現したカテゴリが優先される (scraper.py の解決順)。
+#   - どのprefixにもマッチしないURLは "other" カテゴリに落ちる。
+#
+# 既存の scripts/generate_notebooklm_urls.py および
+# scripts/scrape_for_notebooklm.py の PRODUCTS 定義と対応関係を保つこと。
+
+categories:
+  zia:
+    display_name: "ZIA (Zscaler Internet Access)"
+    url_prefixes:
+      - "zia"
+    google_doc_id: ""
+
+  zpa:
+    display_name: "ZPA (Zscaler Private Access)"
+    url_prefixes:
+      - "zpa"
+    google_doc_id: ""
+
+  zcc:
+    display_name: "ZCC (Zscaler Client Connector)"
+    url_prefixes:
+      - "zscaler-client-connector"
+    google_doc_id: ""
+
+  zdx:
+    display_name: "ZDX (Zscaler Digital Experience)"
+    url_prefixes:
+      - "zdx"
+    google_doc_id: ""
+
+  dspm:
+    display_name: "DSPM (Data Security Posture Management)"
+    url_prefixes:
+      - "dspm"
+    google_doc_id: ""
+
+  cloud_branch_connector:
+    display_name: "Cloud Branch Connector"
+    url_prefixes:
+      - "cloud-branch-connector"
+    google_doc_id: ""
+
+  soc_workbench:
+    display_name: "SOC Workbench"
+    url_prefixes:
+      - "soc-workbench"
+    google_doc_id: ""
+
+  ai_asset_mgmt:
+    display_name: "AI Asset Management"
+    url_prefixes:
+      - "ai-asset-mgmt"
+    google_doc_id: ""
+
+  zero_trust_browser:
+    display_name: "Zero Trust Browser"
+    url_prefixes:
+      - "zero-trust-browser"
+    google_doc_id: ""
+
+  ztw:
+    display_name: "ZTW (Zero Trust Workloads)"
+    url_prefixes:
+      - "ztw"
+    google_doc_id: ""
+
+  posture_control:
+    display_name: "Posture Control"
+    url_prefixes:
+      - "posture-control"
+    google_doc_id: ""
+
+  zws:
+    display_name: "Zscaler Workload Segmentation"
+    url_prefixes:
+      - "zscaler-workload-segmentation"
+    google_doc_id: ""
+
+  zscaler_deception:
+    display_name: "Zscaler Deception"
+    url_prefixes:
+      - "zscaler-deception"
+    google_doc_id: ""
+
+  legacy_apis:
+    display_name: "Legacy APIs"
+    url_prefixes:
+      - "legacy-apis"
+    google_doc_id: ""
+
+  # フォールバック: 上記のどのprefixにもマッチしないURLはここに集約される。
+  # url_prefixes は空のまま — scraper.py が明示的にフォールバック扱いする。
+  other:
+    display_name: "Other / Uncategorized"
+    url_prefixes: []
+    google_doc_id: ""
