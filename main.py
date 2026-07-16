@@ -22,10 +22,9 @@ help.zscaler.com 配下のページをカテゴリ単位でスクレイピング
     python main.py --categories zia zpa   # 特定カテゴリのみ
     python main.py --force           # ハッシュ比較を無視して強制再生成
 
-注意:
-    scraper.py / state_store.py / doc_builder.py / gdocs_writer.py は
-    現時点では骨組み(関数シグネチャのみ)であり、実行すると
-    NotImplementedError で停止する。各モジュールを後続タスクで実装する。
+環境変数 (gdocs_writer.py が要求):
+    GOOGLE_SERVICE_ACCOUNT_JSON  サービスアカウントの認証情報(JSON文字列)
+    GDRIVE_FOLDER_ID             ドキュメントを配置するDriveフォルダID（任意）
 """
 
 from __future__ import annotations
@@ -59,7 +58,9 @@ def load_category_map(path: Path = CATEGORY_MAP_PATH) -> dict:
     return categories
 
 
-def sync_category(name: str, display_name: str, urls: list[str], force: bool) -> bool:
+def sync_category(
+    name: str, display_name: str, urls: list[str], force: bool, fallback_doc_id: str = ""
+) -> bool:
     """1カテゴリ分の同期処理。ドキュメントを更新した場合は True を返す。"""
     pages = [p for p in (scraper.scrape_page(url) for url in urls) if p is not None]
     if not pages:
@@ -73,9 +74,12 @@ def sync_category(name: str, display_name: str, urls: list[str], force: bool) ->
     content = doc_builder.build_category_document(display_name, pages)
     doc_builder.check_length_limit(name, content)
 
-    doc_id = gdocs_writer.upsert_document(name, display_name, content)
+    # state.json に既存のdoc_idがあればそれを優先し、なければ
+    # category_map.yaml の手動上書き値にフォールバックする
+    existing_doc_id = state_store.get_doc_id(name) or fallback_doc_id or None
+    doc_id = gdocs_writer.upsert_document(name, display_name, content, doc_id=existing_doc_id)
 
-    state_store.update_state(name, pages)
+    state_store.update_state(name, pages, doc_id=doc_id)
     append_changelog(name, display_name, doc_id, len(pages))
     print(f"[update] {name}: {len(pages)} ページを反映 (doc_id={doc_id})")
     return True
@@ -134,7 +138,10 @@ def main() -> None:
             print(f"[skip] {name}: 対象URLなし")
             continue
         try:
-            if sync_category(name, cfg["display_name"], urls, args.force):
+            if sync_category(
+                name, cfg["display_name"], urls, args.force,
+                fallback_doc_id=cfg.get("google_doc_id", ""),
+            ):
                 updated += 1
         except Exception as e:
             failed += 1

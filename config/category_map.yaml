@@ -10,9 +10,11 @@
 #                   (https://help.zscaler.com/ より後のパスに対して前方一致判定。
 #                   例: "zscaler-client-connector" は
 #                   https://help.zscaler.com/zscaler-client-connector/... にマッチ)
-#   google_doc_id : 生成済みGoogleドキュメントのID。
-#                   初回実行時は空文字のままでよい。gdocs_writer.py が
-#                   ドキュメント作成後にこの値を書き戻す。
+#   google_doc_id : 生成済みGoogleドキュメントのIDを手動で固定したい場合の
+#                   任意の上書き値。通常は空文字のままでよい。
+#                   パイプラインが実際に読み書きするIDは state.json 側
+#                   (state_store.py が管理)が正であり、コメント付きの
+#                   本ファイルへの自動書き戻しは行わない。
 #
 # 制約:
 #   - カテゴリ(バケツ)数は最大100。tests/test_category_map.py で検証する。
