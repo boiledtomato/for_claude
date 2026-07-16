@@ -1,16 +1,29 @@
 """
 Zscaler Help Center ページスクレイパー
 
-単一URLを取得し、メインコンテンツ(title, body_text)を抽出する。
-readability-lxml でナビゲーション/フッター等を除去し、本文のみを残す。
-robots.txt と crawl-delay を尊重し、リクエスト間にレート制限を挟む。
+help.zscaler.com はJavaScriptレンダリングのSPAのため、生HTMLを直接
+取得しても本文が得られない（"please enable JS" のプレースホルダーのみ）。
+そのため Playwright + headless Chromium でレンダリングしたHTMLを取得し、
+readability-lxml でナビゲーション/フッター等を除去して本文のみを抽出する。
+（本リポジトリの scripts/zscaler_monitor.py と同じ、この対象サイトに対して
+実績のあるレンダリング方式）
+
+カテゴリによっては対象URLが数百件に及ぶため、1ページずつ直列に処理すると
+現実的な時間で終わらない（実測: ZIA単体862ページ、直列で約1〜1.5時間）。
+そのため playwright.async_api + asyncio で複数ページを並列レンダリングする。
+crawl-delayは「リクエスト開始間隔」としてグローバルに1本のディスパッチャで
+尊重し、並列数(MAX_CONCURRENCY)はレンダリング待ち時間の重なりを利用して
+スループットを上げる目的にとどめる（サーバーへの同時接続数の目安として
+妥当な範囲に抑える）。
 
 使い方:
-    pip install requests readability-lxml lxml
+    pip install playwright requests readability-lxml lxml
+    playwright install chromium
 """
 
 from __future__ import annotations
 
+import asyncio
 import re
 import time
 import urllib.robotparser as robotparser
@@ -27,6 +40,13 @@ DEFAULT_DELAY = 1.0
 USER_AGENT = "Mozilla/5.0 (compatible; ZscalerHelpSync/1.0; +https://github.com/boiledtomato/for_claude)"
 
 SITEMAP_URL = "https://help.zscaler.com/sitemap.xml"
+
+# ページ読み込み後、SPAのハイドレーションが落ち着くまでの追加待機時間(ms)
+RENDER_SETTLE_MS = 2000
+PAGE_GOTO_TIMEOUT_MS = 30_000
+
+# 同時にレンダリングするページ数の上限（サーバー負荷とスループットのバランス）
+MAX_CONCURRENCY = 5
 
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": USER_AGENT})
@@ -77,7 +97,7 @@ def crawl_delay_for(url: str) -> float:
 
 
 def _extract_last_modified(html_text: str) -> str | None:
-    """本文中の更新日時らしき文字列を推定する（疑似情報）。取得できなければNone。"""
+    """レンダリング済みHTML中の更新日時らしき値を推定する（疑似情報）。"""
     for pattern in _LAST_MODIFIED_PATTERNS:
         m = pattern.search(html_text)
         if m:
@@ -85,23 +105,10 @@ def _extract_last_modified(html_text: str) -> str | None:
     return None
 
 
-def scrape_page(url: str) -> ScrapedPage | None:
-    """1URLを取得し ScrapedPage を返す。取得/抽出に失敗した場合は None。"""
-    if not is_allowed_by_robots(url):
-        print(f"  [SKIP] {url} — robots.txtにより許可されていません")
-        return None
-
-    time.sleep(crawl_delay_for(url))
-
+def _extract_page(url: str, html: str, header_last_modified: str | None) -> ScrapedPage | None:
+    """レンダリング済みHTMLから本文を抽出する（同期・CPU処理）。"""
     try:
-        resp = SESSION.get(url, timeout=DEFAULT_TIMEOUT)
-        resp.raise_for_status()
-    except Exception as e:
-        print(f"  [SKIP] {url} — {e}")
-        return None
-
-    try:
-        doc = Document(resp.text)
+        doc = Document(html)
         title = doc.short_title().strip()
         body_text = lxml_html.fromstring(doc.summary()).text_content()
         body_text = re.sub(r"[ \t]+", " ", body_text)
@@ -118,8 +125,87 @@ def scrape_page(url: str) -> ScrapedPage | None:
         url=url,
         title=title,
         body_text=body_text,
-        last_modified=_extract_last_modified(resp.text),
+        last_modified=header_last_modified or _extract_last_modified(html),
     )
+
+
+class _RateLimiter:
+    """複数ワーカーが共有する、リクエスト開始間隔を保証するディスパッチャ。"""
+
+    def __init__(self, delay: float) -> None:
+        self._delay = delay
+        self._lock = asyncio.Lock()
+        self._last_dispatch = 0.0
+
+    async def wait_turn(self) -> None:
+        async with self._lock:
+            loop = asyncio.get_event_loop()
+            now = loop.time()
+            wait = self._last_dispatch + self._delay - now
+            if wait > 0:
+                await asyncio.sleep(wait)
+            self._last_dispatch = loop.time()
+
+
+async def _scrape_one(context, url: str, limiter: _RateLimiter, semaphore: asyncio.Semaphore) -> ScrapedPage | None:
+    if not is_allowed_by_robots(url):
+        print(f"  [SKIP] {url} — robots.txtにより許可されていません")
+        return None
+
+    async with semaphore:
+        await limiter.wait_turn()
+
+        page = await context.new_page()
+        try:
+            response = await page.goto(url, wait_until="networkidle", timeout=PAGE_GOTO_TIMEOUT_MS)
+            await page.wait_for_timeout(RENDER_SETTLE_MS)
+            html = await page.content()
+            header_last_modified = response.headers.get("last-modified") if response else None
+        except Exception as e:
+            print(f"  [SKIP] {url} — レンダリング失敗: {e}")
+            return None
+        finally:
+            await page.close()
+
+    return _extract_page(url, html, header_last_modified)
+
+
+async def _scrape_pages_async(urls: list[str]) -> list[ScrapedPage]:
+    from playwright.async_api import async_playwright
+
+    if not urls:
+        return []
+
+    delay = crawl_delay_for(urls[0])
+    limiter = _RateLimiter(delay)
+    semaphore = asyncio.Semaphore(MAX_CONCURRENCY)
+
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(args=["--no-sandbox"])
+        try:
+            context = await browser.new_context()
+            tasks = [_scrape_one(context, url, limiter, semaphore) for url in urls]
+            results = await asyncio.gather(*tasks)
+        finally:
+            await browser.close()
+
+    return [r for r in results if r is not None]
+
+
+def scrape_pages(urls: list[str]) -> list[ScrapedPage]:
+    """複数URLを並列にスクレイピングする（メインのエントリポイント）。
+
+    クロールの礼儀としてリクエスト開始間隔は crawl-delay に従うが、
+    レンダリング待ち時間はMAX_CONCURRENCY件まで並列で重ねることで
+    直列処理よりスループットを上げる。
+    """
+    return asyncio.run(_scrape_pages_async(urls))
+
+
+def scrape_page(url: str) -> ScrapedPage | None:
+    """1URLだけを取得する簡易版（テスト・デバッグ用途）。"""
+    pages = scrape_pages([url])
+    return pages[0] if pages else None
 
 
 def _fetch_sitemap_urls(sitemap_url: str = SITEMAP_URL) -> list[str]:

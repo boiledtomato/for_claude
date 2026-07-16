@@ -24,6 +24,16 @@
 #
 # 既存の scripts/generate_notebooklm_urls.py および
 # scripts/scrape_for_notebooklm.py の PRODUCTS 定義と対応関係を保つこと。
+#
+# 2026-07-16: 実際の https://help.zscaler.com/sitemap.xml (4,191 URL) を
+# scraper.resolve_category_urls() に通して検証した結果に基づき更新。
+# - zscaler_deception の url_prefixes が誤り ("zscaler-deception" は0件
+#   ヒット) だったため実際のパス "deception" に修正。
+# - "other" フォールバックに落ちていた上位セグメント(21種、計約1,500件)を
+#   新規カテゴリとして追加し、"other" を実質的な取りこぼしのみに縮小。
+# - ztw / posture_control / zws は現行サイトマップで0件ヒットのままだが、
+#   今後ページが追加された場合に備えて定義を残す
+#   (main.pyはurls=0件のカテゴリを自動でskipする)。
 
 categories:
   zia:
@@ -101,13 +111,141 @@ categories:
   zscaler_deception:
     display_name: "Zscaler Deception"
     url_prefixes:
-      - "zscaler-deception"
+      - "deception"
     google_doc_id: ""
 
   legacy_apis:
     display_name: "Legacy APIs"
     url_prefixes:
       - "legacy-apis"
+    google_doc_id: ""
+
+  # ── 2026-07-16 実サイトマップ調査で判明した追加カテゴリ ──────────────
+
+  uvm:
+    display_name: "UVM (Unified Vulnerability Management)"
+    url_prefixes:
+      - "uvm"
+    google_doc_id: ""
+
+  zscaler_technology_partners:
+    display_name: "Zscaler Technology Partners"
+    url_prefixes:
+      - "zscaler-technology-partners"
+    google_doc_id: ""
+
+  aem:
+    display_name: "AEM (Asset Exposure Management)"
+    url_prefixes:
+      - "aem"
+    google_doc_id: ""
+
+  unified:
+    display_name: "Zscaler Unified Portal / Getting Started"
+    url_prefixes:
+      - "unified"
+    google_doc_id: ""
+
+  authentication_service:
+    display_name: "Authentication Service"
+    url_prefixes:
+      - "authentication-service"
+    google_doc_id: ""
+
+  business_insights:
+    display_name: "Business Insights"
+    url_prefixes:
+      - "business-insights"
+    google_doc_id: ""
+
+  zero_trust_branch:
+    display_name: "Zero Trust Branch"
+    url_prefixes:
+      - "zero-trust-branch"
+    google_doc_id: ""
+
+  logs_fair_use:
+    display_name: "Logs & Fair Use"
+    url_prefixes:
+      - "logs-fair-use"
+    google_doc_id: ""
+
+  zsdk:
+    display_name: "Zscaler SDK for Mobile Apps"
+    url_prefixes:
+      - "zsdk"
+    google_doc_id: ""
+
+  workflow_automation:
+    display_name: "Workflow Automation"
+    url_prefixes:
+      - "workflow-automation"
+    google_doc_id: ""
+
+  risk360:
+    display_name: "Risk360"
+    url_prefixes:
+      - "risk360"
+    google_doc_id: ""
+
+  troubleshooting_runbooks:
+    display_name: "Zscaler Support Troubleshooting Runbooks"
+    url_prefixes:
+      - "troubleshooting-runbooks"
+    google_doc_id: ""
+
+  easm:
+    display_name: "EASM (External Attack Surface Management)"
+    url_prefixes:
+      - "easm"
+    google_doc_id: ""
+
+  product_usage_terms:
+    display_name: "Product Usage Terms & Policies"
+    url_prefixes:
+      - "product-usage-terms"
+    google_doc_id: ""
+
+  zscaler_deployments_operations:
+    display_name: "Zscaler Deployments & Operations"
+    url_prefixes:
+      - "zscaler-deployments-operations"
+    google_doc_id: ""
+
+  identity_protection:
+    display_name: "Identity Protection"
+    url_prefixes:
+      - "identity-protection"
+    google_doc_id: ""
+
+  zscaler_cellular:
+    display_name: "Zscaler Cellular"
+    url_prefixes:
+      - "zscaler-cellular"
+    google_doc_id: ""
+
+  multi_tenant_portal:
+    display_name: "Multi-Tenant Portal"
+    url_prefixes:
+      - "multi-tenant-portal"
+    google_doc_id: ""
+
+  secure_ai_users:
+    display_name: "Secure Access to AI Apps"
+    url_prefixes:
+      - "secure-ai-users"
+    google_doc_id: ""
+
+  secure_ai_apps_infra:
+    display_name: "Secure AI Apps & Infrastructure"
+    url_prefixes:
+      - "secure-ai-apps-infra"
+    google_doc_id: ""
+
+  breach_predictor:
+    display_name: "Breach Predictor"
+    url_prefixes:
+      - "breach-predictor"
     google_doc_id: ""
 
   # フォールバック: 上記のどのprefixにもマッチしないURLはここに集約される。

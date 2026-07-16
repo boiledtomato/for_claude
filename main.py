@@ -16,8 +16,9 @@ help.zscaler.com 配下のページをカテゴリ単位でスクレイピング
     6. changelog.md に変更ログを追記
 
 使い方:
-    pip install pyyaml requests readability-lxml \
+    pip install pyyaml requests readability-lxml lxml playwright \
                 google-api-python-client google-auth google-auth-httplib2
+    playwright install chromium
     python main.py                   # 全カテゴリを同期
     python main.py --categories zia zpa   # 特定カテゴリのみ
     python main.py --force           # ハッシュ比較を無視して強制再生成
@@ -62,7 +63,7 @@ def sync_category(
     name: str, display_name: str, urls: list[str], force: bool, fallback_doc_id: str = ""
 ) -> bool:
     """1カテゴリ分の同期処理。ドキュメントを更新した場合は True を返す。"""
-    pages = [p for p in (scraper.scrape_page(url) for url in urls) if p is not None]
+    pages = scraper.scrape_pages(urls)
     if not pages:
         print(f"[skip] {name}: 取得できたページがありません")
         return False

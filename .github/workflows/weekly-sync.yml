@@ -21,7 +21,11 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # help.zscaler.comはJSレンダリングのSPAのためPlaywrightでレンダリングする。
+    # scraper.pyはMAX_CONCURRENCY(既定5)で並列化しているが、実サイトマップでは
+    # 全カテゴリ合計で約2,650対象ページ(2026-07-16調査時点)あり、
+    # 概算スループット(~1ページ/秒)でも1時間前後かかりうるため長めに確保。
+    timeout-minutes: 150
 
     steps:
       - name: Checkout
@@ -34,8 +38,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pyyaml requests readability-lxml lxml \
+          pip install pyyaml requests readability-lxml lxml playwright \
                       google-api-python-client google-auth google-auth-httplib2
+          playwright install chromium
+          playwright install-deps chromium
 
       - name: Run weekly sync
         env:
