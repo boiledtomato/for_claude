@@ -1,0 +1,69 @@
+name: NotebookLM Docs Weekly Update
+
+on:
+  schedule:
+    # 毎週月曜 09:00 JST (月曜 00:00 UTC)
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "incremental = 変更分のみ / full = 全記事を再取得"
+        type: choice
+        options: [incremental, full]
+        default: incremental
+      categories:
+        description: "対象カテゴリ（空欄で全て。例: zia zpa api）"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: notebooklm-docs
+  cancel-in-progress: false
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    # 差分更新は通常数分。mode=full の全4,200記事再取得は2時間前後かかる。
+    timeout-minutes: 330
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Build / update docs
+        run: |
+          ARGS=""
+          if [ "${{ inputs.mode }}" = "full" ]; then
+            ARGS="--full"
+          fi
+          if [ -n "${{ inputs.categories }}" ]; then
+            ARGS="$ARGS --categories ${{ inputs.categories }}"
+          fi
+          python scripts/build_help_docs.py $ARGS
+
+      - name: Commit updated docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add notebooklm_docs data/help_docs_index.json data/help_bulletins.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: Zscaler ヘルプドキュメント週次更新 $(date -u '+%Y-%m-%d')"
+            for i in 1 2 3 4; do
+              git push origin HEAD && break
+              echo "push failed, retrying in $((2 ** i))s"
+              sleep $((2 ** i))
+            done
+          fi
