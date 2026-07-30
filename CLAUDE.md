@@ -19,14 +19,18 @@ for_claude/
 ├── index.html                        # Single-page app (HTML + CSS + JS, self-contained)
 ├── scripts/
 │   ├── fetch_articles.py             # RSS aggregation script
-│   └── build_help_docs.py            # help.zscaler.com → NotebookLM Markdown builder
+│   ├── build_help_docs.py            # help.zscaler.com → NotebookLM Markdown builder
+│   └── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
 ├── data/
 │   ├── articles.json                 # Generated output — do not hand-edit
 │   ├── help_docs_index.json          # Per-article state for build_help_docs.py
-│   └── help_bulletins.json           # "New & Improved Articles" snapshot
+│   ├── help_bulletins.json           # "New & Improved Articles" snapshot
+│   └── notebooklm_sync_state.json    # Per-file hash + source id for sync_notebooklm.py
 ├── notebooklm_docs/                  # Generated Markdown for NotebookLM — not published
 │   ├── README.md                     # File list + word counts
 │   └── <category>/<category>_partN.md
+├── docs/
+│   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
 │   └── workflows/
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy

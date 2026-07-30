@@ -51,15 +51,20 @@ jobs:
         run: pip install requests beautifulsoup4 lxml
 
       - name: Build / update docs
+        # inputs は env 経由で渡す（run: に直接展開するとシェルに解釈されてしまう）
+        env:
+          MODE: ${{ inputs.mode }}
+          CATEGORIES: ${{ inputs.categories }}
         run: |
-          ARGS=""
-          if [ "${{ inputs.mode }}" = "full" ]; then
-            ARGS="--full"
+          set --
+          if [ "$MODE" = "full" ]; then
+            set -- --full
           fi
-          if [ -n "${{ inputs.categories }}" ]; then
-            ARGS="$ARGS --categories ${{ inputs.categories }}"
+          if [ -n "$CATEGORIES" ]; then
+            # 空白区切りのカテゴリ名を個別の引数に展開する
+            set -- "$@" --categories $CATEGORIES
           fi
-          python scripts/build_help_docs.py $ARGS
+          python scripts/build_help_docs.py "$@"
 
       - name: Commit updated docs
         run: |
@@ -81,11 +86,13 @@ jobs:
       # その場合は notebooklm_docs/ を手動でアップロードすればよい。
       - name: Sync to NotebookLM
         if: ${{ env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && inputs.sync != 'skip' }}
+        env:
+          SYNC_MODE: ${{ inputs.sync }}
         run: |
           pip install notebooklm-py
           printf '%s' "$NOTEBOOKLM_STORAGE_STATE_JSON" > "$RUNNER_TEMP/storage_state.json"
           export NOTEBOOKLM_STORAGE_STATE="$RUNNER_TEMP/storage_state.json"
-          if [ "${{ inputs.sync }}" = "dry-run" ]; then
+          if [ "$SYNC_MODE" = "dry-run" ]; then
             python scripts/sync_notebooklm.py --dry-run
           else
             python scripts/sync_notebooklm.py

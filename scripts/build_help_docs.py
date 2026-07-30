@@ -793,7 +793,20 @@ Markdown へまとめたものです。NotebookLM に読み込ませる用途を
 - ファイル数: **{total_files}** / 総語数: **{total_words:,}**
 - 最終更新: {index.get('generated_at', '')}
 
-## NotebookLM への読み込み手順
+## NotebookLM への読み込み
+
+### 自動（推奨）
+
+```bash
+python scripts/sync_notebooklm.py --dry-run   # 差分の確認
+python scripts/sync_notebooklm.py             # 実行
+```
+
+`Zscaler_help_docs` ノートブックに対し、内容が変わったファイルのソースだけを
+差し替えます。初回の認証設定は `docs/notebooklm-setup.md` を参照してください。
+GitHub Actions の Secret を登録すれば週次で自動同期されます。
+
+### 手動
 
 1. NotebookLM で新規ノートブックを作成する
 2. 「ソースを追加」→「ファイルをアップロード」
