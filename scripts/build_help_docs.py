@@ -528,8 +528,10 @@ def fetch_article(path: str, delay: float) -> dict | None:
             return None
 
         crumbs = [c.get("title", "") for c in body.get("breadcrumbs", []) if c.get("title")]
+        canonical = (info.get("metatags", {}) or {}).get("canonical", "") or ""
         return {
             "path": path,
+            "canonical": canonical.replace(BASE_URL, ""),
             "title": body.get("title") or info.get("metatags", {}).get("title", path),
             "product": body.get("product_type", ""),
             "breadcrumbs": " > ".join(crumbs),
@@ -554,6 +556,78 @@ def fetch_many(paths: list[str], workers: int, delay: float) -> dict[str, dict]:
             if done % 100 == 0 or done == total:
                 print(f"  {done}/{total} 取得完了 (成功 {len(results)})")
     return results
+
+
+def fetch_canonical(path: str, delay: float) -> str:
+    """記事の canonical URL のパスだけを取得する。分からなければ空文字。"""
+    if delay:
+        time.sleep(delay)
+    url = (f"{ZAPI}/fetch-data?url_alias={quote(path)}&view_type=full&cloud=null"
+           f"&domain=help.zscaler.com&applicable_category=&applicable_version="
+           f"&applicable_parent_version=&applicable_product=&keyword="
+           f"&language=en&_format=json")
+    try:
+        info = _get_with_retry(url).json().get("data", {}).get("info", {})
+        canonical = (info.get("metatags", {}) or {}).get("canonical", "") or ""
+        return canonical.replace(BASE_URL, "")
+    except Exception as e:
+        print(f"  [SKIP] canonical {path} — {e}")
+        return ""
+
+
+def find_alias_duplicates(
+    known: dict[str, dict],
+    fetched: dict[str, dict],
+    delay: float,
+) -> list[str]:
+    """同一記事が複数パスで sitemap に載っているものを検出し、非正規側を返す。
+
+    Zscaler は同じ記事を複数の製品パスで公開している
+    (例: /aem/aging-assets, /soc-workbench/aging-assets, /unified/aging-assets,
+     /uvm/aging-assets はすべて同一 nid)。1つのノートブックに全カテゴリを
+    入れると重複ソースになるため、canonical URL と一致するパスだけを残す。
+    """
+    view: dict[str, dict] = {}
+    for path, meta in known.items():
+        view[path] = {"nid": meta.get("nid"), "canonical": meta.get("canonical")}
+    for path, art in fetched.items():
+        view[path] = {"nid": art["nid"], "canonical": art.get("canonical", "")}
+
+    groups: dict[str, list[str]] = {}
+    for path, v in view.items():
+        if v["nid"]:
+            groups.setdefault(v["nid"], []).append(path)
+
+    dupes = {nid: paths for nid, paths in groups.items() if len(paths) > 1}
+    if not dupes:
+        return []
+
+    print(f"[dedupe] 同一記事が複数パスにある nid: {len(dupes)} 件 — canonical を確認します")
+    dropped: list[str] = []
+    for nid, paths in sorted(dupes.items()):
+        canon: dict[str, str] = {}
+        for path in paths:
+            c = view[path].get("canonical")
+            if c is None:
+                # 既存 index には canonical が無いので一度だけ取得し、以後は記録する
+                c = fetch_canonical(path, delay)
+                if path in known:
+                    known[path]["canonical"] = c
+            canon[path] = c or ""
+
+        keeper = next((p for p in sorted(paths) if canon[p] == p), None)
+        if keeper is None:
+            # canonical が自分自身のパスと一致するものが無い場合は、
+            # canonical の指す先が候補に含まれていればそれを、無ければ先頭を残す
+            targets = sorted({c for c in canon.values() if c in paths})
+            keeper = targets[0] if targets else sorted(paths)[0]
+
+        for path in sorted(paths):
+            if path != keeper:
+                dropped.append(path)
+        print(f"  nid={nid}: 残す {keeper} / 落とす {len(paths) - 1} 件")
+
+    return dropped
 
 
 # ── カテゴリ分類 ──────────────────────────────────────────────────────────────
@@ -820,6 +894,14 @@ def main() -> int:
     if failed:
         print(f"[WARN] {len(failed)} 記事は取得できませんでした（404 等）")
 
+    # ── 同一記事の別パス（エイリアス）を落とす ──────────────────────────────
+    aliases = find_alias_duplicates(known, fetched, args.delay)
+    if aliases:
+        print(f"[dedupe] 非正規パス {len(aliases)} 件を除外します")
+        for path in aliases:
+            fetched.pop(path, None)
+        removed = list(dict.fromkeys(removed + aliases))
+
     # ── カテゴリごとに part ファイルを書き直す ──────────────────────────────
     touched: set[str] = set()
     for path in list(fetched) + removed:
@@ -869,6 +951,7 @@ def main() -> int:
             "lastmod": sitemap.get(path, ""),
             "nid": art["nid"],
             "hash": block_hash(block),
+            "canonical": art.get("canonical", ""),
             "in_bulletins": path in bulletin_paths,
         }
     # 今回取得しなかった記事も bulletins 掲載状態は反映する
