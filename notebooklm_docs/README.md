@@ -7,7 +7,7 @@ Markdown へまとめたものです。NotebookLM に読み込ませる用途を
 - 更新: `.github/workflows/notebooklm-weekly.yml`（毎週月曜 09:00 JST）
 - 記事数: **4,211**
 - ファイル数: **34** / 総語数: **4,067,179**
-- 最終更新: 2026-07-30T13:43:15Z
+- 最終更新: 2026-07-30T13:44:16Z
 
 ## NotebookLM への読み込み
 
