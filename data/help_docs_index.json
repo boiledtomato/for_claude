@@ -31721,9 +31721,10 @@
    "title": "Zscaler Client Connector and Charles Proxy Interoperability"
   },
   "/zscaler-client-connector/zscaler-app-registry-keys": {
+   "canonical": "/zscaler-client-connector/zscaler-app-registry-keys",
    "category": "zcc",
    "hash": "cbac699652e3bf4c",
-   "in_bulletins": false,
+   "in_bulletins": true,
    "lastmod": "2026-07-29T16:49Z",
    "nid": "1358826",
    "title": "Zscaler Client Connector: Windows Registry Keys"
@@ -33705,5 +33706,5 @@
    "title": "ZSDK Platform Release Upgrade Summary (2025)"
   }
  },
- "generated_at": "2026-07-30T10:54:13Z"
+ "generated_at": "2026-07-30T13:36:19Z"
 }
