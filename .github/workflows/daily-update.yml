@@ -66,10 +66,21 @@ jobs:
         with:
           enablement: true
 
+      # notebooklm_docs/ は Zscaler ヘルプ記事の全文複製なので、
+      # GitHub Pages で公開しないようステージング時に除外する
+      - name: Stage site files
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          tar -c --exclude=./.git --exclude=./_site --exclude=./notebooklm_docs . \
+            | tar -x -C _site
+          echo "--- staged (top level) ---"
+          ls -a _site
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."
+          path: "_site"
 
       - name: Deploy to GitHub Pages
         id: deployment
