@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:36 UTC
+Generated: 2026-07-30 13:43 UTC
 Articles in this file: 119
 
 ---

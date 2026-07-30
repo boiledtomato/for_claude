@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-07-30T13:36:19Z",
- "total": 280,
+ "checked_at": "2026-07-30T13:43:15Z",
+ "total": 279,
  "articles": [
   {
    "title": "Configuring Google Cloud Storage Outegration",
@@ -1355,11 +1355,6 @@
   {
    "title": "Deploying Zscaler Client Connector with Workspace ONE UEM for macOS",
    "url": "/zscaler-client-connector/deploying-zscaler-client-connector-workspace-one-uem-macos",
-   "product": "Client Connector"
-  },
-  {
-   "title": "Zscaler Client Connector: Windows Registry Keys",
-   "url": "/zscaler-client-connector/zscaler-app-registry-keys",
    "product": "Client Connector"
   },
   {
