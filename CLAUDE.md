@@ -183,14 +183,53 @@ nested lists, GFM tables, links and code. API reference articles come back as
 OpenAPI 3 JSON — `openapi_to_md` renders those into endpoint/parameter/response
 tables.
 
+### `scripts/sync_notebooklm.py`
+
+Pushes the generated Markdown into NotebookLM. **One fixed notebook, only changed
+files replaced** — a new notebook per run would re-upload all ~29 MB every week and
+throw away the notebook's chat history, saved notes and custom instructions.
+
+NotebookLM has no public consumer API. This uses the community library
+[`notebooklm-py`](https://github.com/teng-lin/notebooklm-py), which drives Google's
+**undocumented internal API** — it can break without notice. When it does, the
+fallback is uploading `notebooklm_docs/` by hand; nothing else in the pipeline depends
+on it.
+
+| | |
+|---|---|
+| Notebook title | `Zscaler_help_docs` (`--notebook-title` / `NOTEBOOKLM_NOTEBOOK_TITLE`) |
+| Auth | Playwright `storage_state.json`; path via `NOTEBOOKLM_STORAGE_STATE`, else the library's default profile |
+| State | `data/notebooklm_sync_state.json` — notebook id + per-file `sha256` and `source_id` |
+| Source naming | The md filename (`zia_part1.md`) is the NotebookLM source title — that is how local files and remote sources are matched |
+
+**Sync algorithm:** hash every `notebooklm_docs/*/*_part*.md`; skip files whose hash
+matches the recorded one *and* whose source still exists; otherwise delete the old
+source and re-add the file. Remote sources with no corresponding local file are
+deleted (suppressed under `--only`, which sees just a subset).
+
+Flags: `--dry-run` (report adds/updates/deletes without touching anything),
+`--only <category…>`, `--wait-timeout`.
+
+**Security:** `storage_state.json` holds live Google session cookies — effectively full
+account access. Prefer a dedicated Google account for this notebook rather than a
+personal one.
+
 ### `.github/workflows/notebooklm-weekly.yml`
 
 - **Trigger:** `cron: "0 0 * * 1"` (Monday 00:00 UTC = 09:00 JST) + `workflow_dispatch`
   with `mode` (`incremental` / `full`) and `categories` inputs
+- **Trigger inputs:** also `sync` (`enabled` / `dry-run` / `skip`)
 - **Permissions:** `contents: write` only — this workflow does not deploy Pages
 - **Timeout:** 330 min (a `--full` rebuild of all ~4,200 articles takes ~2 h)
 - Writes a job summary listing every changed article
 - **Commit message format:** `docs: Zscaler ヘルプドキュメント週次更新 YYYY-MM-DD`
+- **Steps:** build → commit docs → sync to NotebookLM → commit sync state. Docs are
+  committed *before* the sync so a sync failure never loses the fetched content.
+- The sync steps are skipped entirely when the `NOTEBOOKLM_STORAGE_STATE_JSON` secret
+  is absent; the job summary then says to upload by hand. Note that `secrets` cannot be
+  referenced in a step `if:`, so it is lifted to a job-level `env` for that test — and
+  because `workflow_dispatch` inputs are empty on scheduled runs, the conditions test
+  `inputs.sync != 'dry-run' && inputs.sync != 'skip'` rather than `== 'enabled'`.
 
 ## Development Workflows
 

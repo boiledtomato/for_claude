@@ -15,6 +15,11 @@ on:
         description: "対象カテゴリ（空欄で全て。例: zia zpa api）"
         type: string
         default: ""
+      sync:
+        description: "NotebookLM への同期"
+        type: choice
+        options: [enabled, dry-run, skip]
+        default: enabled
 
 permissions:
   contents: write
@@ -28,6 +33,10 @@ jobs:
     runs-on: ubuntu-latest
     # 差分更新は通常数分。mode=full の全4,200記事再取得は2時間前後かかる。
     timeout-minutes: 330
+
+    # secrets は if: 条件で直接参照できないので、job の env に持ち上げて判定する
+    env:
+      NOTEBOOKLM_STORAGE_STATE_JSON: ${{ secrets.NOTEBOOKLM_STORAGE_STATE_JSON }}
 
     steps:
       - name: Checkout
@@ -67,3 +76,43 @@ jobs:
               sleep $((2 ** i))
             done
           fi
+
+      # NOTEBOOKLM_STORAGE_STATE_JSON が未設定なら丸ごとスキップされる。
+      # その場合は notebooklm_docs/ を手動でアップロードすればよい。
+      - name: Sync to NotebookLM
+        if: ${{ env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && inputs.sync != 'skip' }}
+        run: |
+          pip install notebooklm-py
+          printf '%s' "$NOTEBOOKLM_STORAGE_STATE_JSON" > "$RUNNER_TEMP/storage_state.json"
+          export NOTEBOOKLM_STORAGE_STATE="$RUNNER_TEMP/storage_state.json"
+          if [ "${{ inputs.sync }}" = "dry-run" ]; then
+            python scripts/sync_notebooklm.py --dry-run
+          else
+            python scripts/sync_notebooklm.py
+          fi
+
+      - name: Commit sync state
+        # schedule 実行では inputs が空になるため、"dry-run/skip でないこと" で判定する
+        if: ${{ always() && env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && inputs.sync != 'dry-run' && inputs.sync != 'skip' }}
+        run: |
+          git add data/notebooklm_sync_state.json
+          if git diff --staged --quiet; then
+            echo "No sync state changes"
+          else
+            git commit -m "chore: NotebookLM 同期状態を更新 $(date -u '+%Y-%m-%d')"
+            for i in 1 2 3 4; do
+              git push origin HEAD && break
+              echo "push failed, retrying in $((2 ** i))s"
+              sleep $((2 ** i))
+            done
+          fi
+
+      - name: Notify that manual upload is needed
+        if: ${{ env.NOTEBOOKLM_STORAGE_STATE_JSON == '' }}
+        run: |
+          {
+            echo "### NotebookLM への取り込み"
+            echo
+            echo "\`NOTEBOOKLM_STORAGE_STATE_JSON\` secret が未設定のため、同期はスキップしました。"
+            echo "更新されたファイルを \`notebooklm_docs/\` から手動でアップロードしてください。"
+          } >> "$GITHUB_STEP_SUMMARY"
