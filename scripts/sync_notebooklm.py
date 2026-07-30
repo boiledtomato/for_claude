@@ -229,10 +229,18 @@ async def sync(args) -> int:
                 recorded.pop(name, None)
 
         # ── ローカルから消えた part ファイルのソースを削除 ────────────────
-        # (--only 指定時は対象カテゴリのファイルだけを見ているので削除しない)
+        # 削除するのは「このスクリプトが登録した」と記録にあるソースだけ。
+        # 手動で追加されたソースや他用途のソースには触らない（既存のノートブックに
+        # 向けても中身を消してしまわないようにするため）。
+        # --only 指定時は対象カテゴリしか見ていないので削除自体を行わない。
         if not args.only:
+            foreign: list[str] = []
             for name, src in sorted(remote_by_name.items()):
                 if name in local:
+                    continue
+                if name not in recorded:
+                    # 表示は NotebookLM 上の実際のタイトルを使う（name は .md を補ったキー）
+                    foreign.append(getattr(src, "title", name))
                     continue
                 print(f"  [DELETE] {name} (ローカルに対応ファイルなし)")
                 if args.dry_run:
@@ -245,6 +253,11 @@ async def sync(args) -> int:
                 except Exception as e:
                     print(f"    [FAIL] {name} の削除 — {e}")
                     failures.append(name)
+
+            if foreign:
+                print(f"  [KEEP] このスクリプト管理外のソース {len(foreign)} 件は"
+                      f"そのまま残します: {', '.join(foreign[:5])}"
+                      f"{' ...' if len(foreign) > 5 else ''}")
 
         if not args.dry_run:
             state["notebook"] = {"id": nb.id, "title": nb.title}

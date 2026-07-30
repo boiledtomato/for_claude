@@ -208,8 +208,11 @@ on it.
 
 **Sync algorithm:** hash every `notebooklm_docs/*/*_part*.md`; skip files whose hash
 matches the recorded one *and* whose source still exists; otherwise delete the old
-source and re-add the file. Remote sources with no corresponding local file are
-deleted (suppressed under `--only`, which sees just a subset).
+source and re-add the file. A remote source with no corresponding local file is deleted
+**only when the state file says this script uploaded it** — sources it does not know
+about are left alone and reported as `[KEEP]`, so pointing the sync at a notebook that
+already holds other material does not wipe it. Deletion is skipped entirely under
+`--only`, which only sees a subset of the local files.
 
 Flags: `--dry-run` (report adds/updates/deletes without touching anything),
 `--only <category…>`, `--wait-timeout`.
