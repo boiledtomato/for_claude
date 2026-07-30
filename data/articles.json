@@ -1,7 +1,17 @@
 {
-  "last_updated": "2026-07-29T01:59:28Z",
-  "total": 1,
+  "last_updated": "2026-07-30T01:50:23Z",
+  "total": 2,
   "articles": [
+    {
+      "id": "4e76614db0dc8efe",
+      "title": "FortiGate 1200G brings FortiSASE Outpost to customer-controlled environments",
+      "url": "https://www.helpnetsecurity.com/2026/07/29/fortinet-fortigate-1200g/",
+      "summary": "Fortinet has announced the FortiGate 1200G series, the newest addition to the FortiGate G series with FortiSASE Outpost, which brings cloud-delivered security services into customer-controlled environments. By combining high-performance threat protection, connectivity, hardware-rooted platform security, and cloud-delivered security capabilities, the solution gives organizations the flexibility to ",
+      "date": "2026-07-29T08:38:45Z",
+      "source": "Help Net Security",
+      "category": "industry_news",
+      "tags": []
+    },
     {
       "id": "e5e6a527b664ed39",
       "title": "TELESHIM Abuses Telegram for C2 in Attacks Against Middle East Governments",
