@@ -66,13 +66,15 @@ jobs:
         with:
           enablement: true
 
-      # notebooklm_docs/ は Zscaler ヘルプ記事の全文複製なので、
-      # GitHub Pages で公開しないようステージング時に除外する
+      # notebooklm_docs/ は Zscaler ヘルプ記事の全文複製、community_docs/ は
+      # ユーザー投稿（投稿者名を含む）の全文複製なので、GitHub Pages で公開
+      # しないようステージング時に除外する
       - name: Stage site files
         run: |
           rm -rf _site
           mkdir -p _site
-          tar -c --exclude=./.git --exclude=./_site --exclude=./notebooklm_docs . \
+          tar -c --exclude=./.git --exclude=./_site \
+                 --exclude=./notebooklm_docs --exclude=./community_docs . \
             | tar -x -C _site
           echo "--- staged (top level) ---"
           ls -a _site

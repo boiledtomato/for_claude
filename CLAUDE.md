@@ -20,23 +20,51 @@ for_claude/
 ├── scripts/
 │   ├── fetch_articles.py             # RSS aggregation script
 │   ├── build_help_docs.py            # help.zscaler.com → NotebookLM Markdown builder
+│   ├── build_community_docs.py       # community.zscaler.com → NotebookLM Markdown builder
+│   ├── certs/
+│   │   └── community-zscaler-chain.pem   # Intermediate cert the community site omits
 │   └── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
 ├── data/
 │   ├── articles.json                 # Generated output — do not hand-edit
 │   ├── help_docs_index.json          # Per-article state for build_help_docs.py
 │   ├── help_bulletins.json           # "New & Improved Articles" snapshot
-│   └── notebooklm_sync_state.json    # Per-file hash + source id for sync_notebooklm.py
-├── notebooklm_docs/                  # Generated Markdown for NotebookLM — not published
+│   ├── community_docs_index.json     # Per-post state for build_community_docs.py
+│   ├── notebooklm_sync_state.json    # Sync state for the help-docs notebook
+│   └── community_notebooklm_sync_state.json  # Sync state for the community notebook
+├── notebooklm_docs/                  # help.zscaler.com Markdown — not published
 │   ├── README.md                     # File list + word counts
 │   └── <category>/<category>_partN.md
+├── community_docs/                   # Zenith Community Markdown — not published
+│   ├── README.md
+│   └── <category>/community_<category>_partN.md
 ├── docs/
 │   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
 │   └── workflows/
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy
-│       └── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
+│       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
+│       └── community-weekly.yml      # Weekly community.zscaler.com doc refresh
 └── README.md
 ```
+
+## Two independent NotebookLM pipelines
+
+They share `sync_notebooklm.py` but nothing else. Keep them separate.
+
+| | help docs | community |
+|---|---|---|
+| Source site | `help.zscaler.com` | `community.zscaler.com` (Zenith Community) |
+| Builder | `build_help_docs.py` | `build_community_docs.py` |
+| Output dir | `notebooklm_docs/` | `community_docs/` |
+| Index | `data/help_docs_index.json` | `data/community_docs_index.json` |
+| Sync state | `data/notebooklm_sync_state.json` | `data/community_notebooklm_sync_state.json` |
+| Notebook | `Zscaler_help_docs` | `Zscaler_community` |
+| Workflow | `notebooklm-weekly.yml` (Mon 00:00 UTC) | `community-weekly.yml` (Mon 01:00 UTC) |
+
+Official documentation is reviewed; forum posts are not. Mixing them into one
+notebook makes NotebookLM cite unvetted, sometimes years-old answers as
+authoritative — that is why the notebooks are separate, and why every community
+block carries a "not an official Zscaler statement" note plus its post date.
 
 ## Data Flow
 
@@ -187,6 +215,73 @@ nested lists, GFM tables, links and code. API reference articles come back as
 OpenAPI 3 JSON — `openapi_to_md` renders those into endpoint/parameter/response
 tables.
 
+### `scripts/build_community_docs.py`
+
+Builds NotebookLM-ready Markdown from `community.zscaler.com` (Zenith Community) —
+the user forum, **not** the help documentation.
+
+**Why it does not scrape HTML:** the site is a Salesforce Experience Cloud (Aura)
+SPA. Every URL returns the same ~576 KB shell with zero body text — verified: the
+shell for `/s/` and for an individual question are byte-identical.
+
+**Content inventory** from `/s/sitemap.xml` (robots.txt is `Allow: /`):
+
+| Sitemap | Count | URL shape |
+|---|---|---|
+| `question` | ~2,766 | `/s/question/<id>/<slug>` |
+| `zenith_article__c` | ~426 | `/s/Articles/<id>/<slug>` |
+| `zenith_guide__c` | ~406 | `/s/Guides/<id>/<slug>` |
+| `zenith_blog__c` | ~388 | `/s/Blogs/<id>/<slug>` |
+
+`topic` / `tag__c` / `collaborationgroup` / `view` are listing pages and are skipped.
+
+**Two fetch modes** (`--fetch-mode`), because neither is strictly better:
+
+- **`api`** (default) — calls the Aura endpoint `/s/sfsites/aura` as a guest, the
+  same API the SPA uses. `fwuid` is re-read from the shell on every run because it
+  changes with each Salesforce release; hardcoding it breaks silently.
+  **Hard limits, all verified against the live site:**
+  - `FeedComment` (answer bodies) → *"Object FeedComment is not supported in UI API"*
+  - the `FeedComments` related list → *"The related lists UI API currently does not
+    support this related list"*
+  - `Zenith_Article__c` / `_Guide__c` / `_Blog__c` → guest field-level security
+    exposes only system fields (`Id`, `Name`, dates); no body field is visible
+
+  So this mode yields **question bodies and metadata only** — no answers, no
+  articles/guides/blogs. Those are counted and reported as "本文取得不可".
+- **`prerender`** — reads the server-side-rendered page Salesforce returns to
+  search engines, which contains the question, every answer (with author role and
+  date), and the custom-object bodies. It is only returned to recognised crawler
+  UAs (Googlebot/bingbot verified; Chrome and a custom UA both get the empty
+  shell), so using it means **claiming to be Googlebot**. Off by default; the
+  script prints a warning when it is enabled.
+
+**TLS gotcha:** `community.zscaler.com` serves its leaf certificate without the
+DigiCert intermediate. Browsers recover via AIA fetching; `requests`/OpenSSL do
+not, so certifi alone fails with `unable to get local issuer certificate` — in CI
+too. `scripts/certs/community-zscaler-chain.pem` is committed for this, and
+`build_session()` concatenates it with certifi (plus any existing
+`REQUESTS_CA_BUNDLE`, so proxied environments keep working).
+
+**Categories** — the community's own topic taxonomy is unusable directly: it mixes
+product topics with autogenerated junk (`ffffff`, `0064b4`, `pr1`, `validate`), and
+has no API topic at all. Instead `CATEGORIES` maps curated keyword sets, matched
+against title + slug first and the body only as a fallback:
+`zcc`, `zpa`, `zdx`, `zia`, `api`, `branch`, `data_security`, `deception`,
+`platform`, plus `other`.
+
+**Exclusions** — `EXCLUDE_PATTERNS` drops marketing/event/community-ops posts
+(webinars, Zenith Live, discounts, newsletters, member spotlights). Most of
+`Guides` and `Blogs` is this kind of content; leaving it in dilutes NotebookLM's
+answers.
+
+**Change detection** — the sitemap carries per-URL `lastmod`, and a thread's
+`lastmod` advances when a new reply is posted, so incremental runs pick up new
+answers. There are also `*-weekly.xml` sitemaps (a few dozen entries) confirming
+the site changes slowly. Posts that drop out of the sitemap are removed from their
+part file. Switching `--fetch-mode` forces a full refetch, since the two modes
+produce different body text.
+
 ### `scripts/sync_notebooklm.py`
 
 Pushes the generated Markdown into NotebookLM. **One fixed notebook, only changed
@@ -203,8 +298,19 @@ on it.
 |---|---|
 | Notebook title | `Zscaler_help_docs` (`--notebook-title` / `NOTEBOOKLM_NOTEBOOK_TITLE`) |
 | Auth | Playwright `storage_state.json`; path via `NOTEBOOKLM_STORAGE_STATE`, else the library's default profile |
-| State | `data/notebooklm_sync_state.json` — notebook id + per-file `sha256` and `source_id` |
+| Docs dir | `notebooklm_docs` (`--docs-dir` / `NOTEBOOKLM_DOCS_DIR`) |
+| State | `data/notebooklm_sync_state.json` (`--state-file` / `NOTEBOOKLM_STATE_FILE`) — notebook id + per-file `sha256` and `source_id` |
 | Source naming | The md filename (`zia_part1.md`) is the NotebookLM source title — that is how local files and remote sources are matched |
+
+**Pointing it at a second doc set:** pass `--docs-dir`, `--state-file` and
+`--notebook-title` together. Two rules, both load-bearing:
+
+- **Never share a state file between doc sets.** Deletion is driven by "recorded in
+  state but not present locally", so a shared state file makes each run delete the
+  other notebook's sources.
+- **Filenames must not collide across doc sets**, because the filename *is* the
+  source title used for matching. `build_community_docs.py` therefore emits
+  `community_<category>_partN.md`.
 
 **Sync algorithm:** hash every `notebooklm_docs/*/*_part*.md`; skip files whose hash
 matches the recorded one *and* whose source still exists; otherwise delete the old
@@ -215,7 +321,7 @@ already holds other material does not wipe it. Deletion is skipped entirely unde
 `--only`, which only sees a subset of the local files.
 
 Flags: `--dry-run` (report adds/updates/deletes without touching anything),
-`--only <category…>`, `--wait-timeout`.
+`--only <category…>`, `--wait-timeout`, `--docs-dir`, `--state-file`.
 
 **Security:** `storage_state.json` holds live Google session cookies — effectively full
 account access. Prefer a dedicated Google account for this notebook rather than a
@@ -237,6 +343,19 @@ personal one.
   referenced in a step `if:`, so it is lifted to a job-level `env` for that test — and
   because `workflow_dispatch` inputs are empty on scheduled runs, the conditions test
   `inputs.sync != 'dry-run' && inputs.sync != 'skip'` rather than `== 'enabled'`.
+
+### `.github/workflows/community-weekly.yml`
+
+Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
+
+- **Trigger:** `cron: "0 1 * * 1"` (Monday 01:00 UTC = 10:00 JST) + `workflow_dispatch`
+  with `mode`, `fetch_mode` (`api` / `prerender`), `categories`, `sync` inputs
+- **Deliberately one hour after `notebooklm-weekly.yml`** — both workflows commit and
+  push to the same branch, so overlapping runs would collide on push
+- **Timeout:** 180 min (`--full` in `api` mode takes ~20 min)
+- **Commit message format:** `docs: Zenith Community 週次更新 YYYY-MM-DD`
+- Syncs with `--docs-dir community_docs --state-file
+  data/community_notebooklm_sync_state.json --notebook-title Zscaler_community`
 
 ## Development Workflows
 
@@ -287,12 +406,40 @@ Then upload the `notebooklm_docs/<category>/*.md` files as NotebookLM sources.
 NotebookLM has no public API, so that upload step is manual — see
 `notebooklm_docs/README.md`.
 
+### Rebuilding the Zenith Community documentation set
+
+```bash
+pip install requests beautifulsoup4 lxml certifi
+
+# Weekly-equivalent incremental run
+python scripts/build_community_docs.py
+
+# Full rebuild (~3,800 posts, ~20 min in api mode)
+python scripts/build_community_docs.py --full
+
+# Include answers and article bodies — reads the crawler-facing prerender,
+# which means presenting a Googlebot UA. Read the warning first.
+python scripts/build_community_docs.py --full --fetch-mode prerender
+
+# Quick sanity check
+python scripts/build_community_docs.py --full --categories zia --limit 5
+```
+
+Then sync with the community-specific flags (see `docs/notebooklm-setup.md`) or
+upload `community_docs/<category>/*.md` by hand — into the **`Zscaler_community`
+notebook, not the help-docs one**.
+
 ### Adding a category to the documentation set
 
 1. Add an entry to `CATEGORIES` in `build_help_docs.py`: `stem: (display name, [url prefixes])`
 2. Run `python scripts/build_help_docs.py --full --categories <stem>` to build it
 3. Articles matching no prefix fall into `other` — check that bucket after
    Zscaler adds a new product area to the sitemap
+
+For `build_community_docs.py` the shape is `stem: (display name, [keywords])` and
+matching is on title/slug/body rather than URL prefix, since community URLs carry
+no product path. Order matters — the first matching category wins, so put the more
+specific product (e.g. `zcc`) above the broader one (`zia`).
 
 ## Conventions
 
@@ -344,14 +491,28 @@ Commit bodies may be written in Japanese.
 - **Deduplication is URL-based** via SHA-256 ID. Changing a feed's URL for an existing article will cause it to appear as a new entry.
 - **General feeds are noisy** — `ZSCALER_KEYWORDS` and `PRODUCT_TAGS` keywords must stay conservative to avoid unrelated articles.
 - **GitHub Pages serves a staged copy of the repo root** — `daily-update.yml` copies
-  everything except `.git`, `_site` and `notebooklm_docs` into `_site/` and publishes
-  that. Do not place sensitive files at the top level, and keep `notebooklm_docs`
-  excluded: it is a full-text reproduction of Zscaler's copyrighted documentation and
-  must not be served publicly.
+  everything except `.git`, `_site`, `notebooklm_docs` and `community_docs` into
+  `_site/` and publishes that. Do not place sensitive files at the top level, and keep
+  both doc directories excluded: `notebooklm_docs` is a full-text reproduction of
+  Zscaler's copyrighted documentation, and `community_docs` reproduces user posts
+  including author display names. Neither may be served publicly. **Adding a new doc
+  directory means adding a matching `--exclude` to that `tar` command.**
 - **`notebooklm_docs/*.md` are machine-managed** — the `<!-- ZS-ARTICLE {…} -->` markers
   are how `build_help_docs.py` locates and replaces individual articles on an
   incremental run. Hand-editing a part file will be silently overwritten, and removing
-  a marker orphans that article.
+  a marker orphans that article. `community_docs/*.md` works the same way with
+  `<!-- ZS-POST {…} -->` markers.
+- **The community `api` fetch mode cannot see answers** — Salesforce UI API excludes
+  `FeedComment` and the custom objects' body fields from guest access. A question
+  block will show `Answers: 5` with no answer text. This is a platform limit, not a
+  bug; only `--fetch-mode prerender` closes it, at the cost of presenting a crawler
+  User-Agent.
+- **`community.zscaler.com` omits its TLS intermediate** — certifi alone fails with
+  `unable to get local issuer certificate`, in CI as well as locally. The fix is the
+  committed `scripts/certs/community-zscaler-chain.pem`; do not work around it by
+  disabling verification.
+- **Aura `fwuid` rotates with every Salesforce release** — `AuraClient.bootstrap()`
+  re-reads it from the shell HTML on each run. Never hardcode it.
 - **NotebookLM cannot be automated** — it has no public API. The weekly workflow keeps
   the Markdown current; re-uploading the changed files into the notebook is a manual
   step. Read the job summary of `notebooklm-weekly.yml` to see which categories changed.

@@ -60,6 +60,28 @@ python scripts/sync_notebooklm.py
 python scripts/sync_notebooklm.py --only zdx --dry-run
 ```
 
+### Zenith Community 側（別ノートブック）
+
+`community_docs/` は**別のノートブックに読み込みます**。ユーザー投稿は査読されて
+おらず、公式ドキュメントと同じノートに混ぜると誤った回答を権威づけてしまうため
+です。`--docs-dir` / `--state-file` / `--notebook-title` の3つを必ず一緒に指定
+してください。
+
+```bash
+python scripts/sync_notebooklm.py \
+  --docs-dir community_docs \
+  --state-file data/community_notebooklm_sync_state.json \
+  --notebook-title Zscaler_community \
+  --dry-run
+```
+
+**状態ファイルを共有してはいけません。** 共有すると、片方の実行がもう片方の
+ソースを「ローカルに対応ファイルなし」と判定して削除します。同じ理由で、生成
+されるファイル名も `community_` 接頭辞でヘルプ側と衝突しないようにしています
+（ソース名＝ファイル名で突き合わせているため）。
+
+認証情報は両方のノートブックで同じものを使えます。
+
 ## 4. GitHub Actions に登録する
 
 `storage_state.json` の中身を `NOTEBOOKLM_STORAGE_STATE_JSON` という名前の

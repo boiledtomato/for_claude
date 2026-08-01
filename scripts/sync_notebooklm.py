@@ -43,6 +43,10 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+# 既定は help.zscaler.com のドキュメントセット。--docs-dir / --state-file で
+# 別のドキュメントセット（例: community_docs → 別ノートブック）にも向けられる。
+# 状態ファイルはドキュメントセットごとに必ず分けること。共有すると、片方の実行が
+# もう片方のソースを「ローカルに存在しない＝削除対象」と判定してしまう。
 DOCS_DIR = Path("notebooklm_docs")
 STATE_FILE = Path("data/notebooklm_sync_state.json")
 DEFAULT_NOTEBOOK_TITLE = "Zscaler_help_docs"
@@ -151,7 +155,8 @@ async def sync(args) -> int:
     local = collect_local(set(args.only) if args.only else None)
     if not local:
         print(f"[ERROR] {DOCS_DIR} に *_part*.md が見つかりません。"
-              f"先に scripts/build_help_docs.py を実行してください。", file=sys.stderr)
+              f"先にビルドスクリプト (build_help_docs.py / build_community_docs.py) "
+              f"を実行してください。", file=sys.stderr)
         return 1
 
     print(f"ローカルの対象ファイル: {len(local)} 件")
@@ -287,14 +292,16 @@ def write_step_summary(added, updated, deleted, skipped, failures, title, dry_ru
         lines.append("")
         lines += [f"  - `{f}`" for f in failures[:20]]
         lines.append("")
-        lines.append("> 失敗したファイルは `notebooklm_docs/` から手動でアップロードできます。")
+        lines.append(f"> 失敗したファイルは `{DOCS_DIR}/` から手動でアップロードできます。")
     with open(summary_path, "a", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
 
 def main() -> int:
+    global DOCS_DIR, STATE_FILE
+
     ap = argparse.ArgumentParser(
-        description="notebooklm_docs/*.md を固定ノートブックへ差分同期する")
+        description="生成済み Markdown を固定ノートブックへ差分同期する")
     ap.add_argument("--notebook-title",
                     default=os.environ.get("NOTEBOOKLM_NOTEBOOK_TITLE",
                                            DEFAULT_NOTEBOOK_TITLE),
@@ -306,7 +313,18 @@ def main() -> int:
                     help="実際には変更せず、追加/更新/削除の対象だけ表示する")
     ap.add_argument("--wait-timeout", type=float, default=600.0,
                     help="1ソースの取り込み完了を待つ秒数 (既定: 600)")
+    ap.add_argument("--docs-dir",
+                    default=os.environ.get("NOTEBOOKLM_DOCS_DIR", str(DOCS_DIR)),
+                    help=f"同期元ディレクトリ (既定: {DOCS_DIR})")
+    ap.add_argument("--state-file",
+                    default=os.environ.get("NOTEBOOKLM_STATE_FILE", str(STATE_FILE)),
+                    help=f"同期状態ファイル (既定: {STATE_FILE})。"
+                         f"ドキュメントセットごとに必ず分けること")
     args = ap.parse_args()
+
+    DOCS_DIR = Path(args.docs_dir)
+    STATE_FILE = Path(args.state_file)
+    print(f"[config] docs={DOCS_DIR} state={STATE_FILE} notebook={args.notebook_title}")
 
     try:
         return asyncio.run(sync(args))
