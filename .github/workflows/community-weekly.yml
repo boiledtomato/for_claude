@@ -13,10 +13,14 @@ on:
         options: [incremental, full]
         default: incremental
       fetch_mode:
-        description: "api = Aura UI API（質問本文のみ） / prerender = 全文（クローラUAを名乗る）"
+        description: "prerender = 全文（クローラUAを名乗る） / api = Aura UI API（質問本文のみ）"
         type: choice
-        options: [api, prerender]
-        default: api
+        options: [prerender, api]
+        # api では回答本文と記事/ガイド/ブログ本文が取得できず、更新を検知しても
+        # 回答数のカウンタしか変わらないため prerender を既定にしている。
+        # ここを api に戻すとモード変更扱いで全件が取り直され、prerender で
+        # 収集した本文が失われる点に注意。
+        default: prerender
       categories:
         description: "対象カテゴリ（空欄で全て。例: zia zpa api）"
         type: string
