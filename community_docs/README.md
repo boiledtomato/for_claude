@@ -1,8 +1,8 @@
 # Zenith Community — NotebookLM ソース
 
-生成: 2026-08-01 13:56 UTC  
+生成: 2026-08-01 14:12 UTC  
 取得モード: `api`  
-収録: 2,649 件 / 10 ファイル / 約 401,885 語
+収録: 2,657 件 / 10 ファイル / 約 403,151 語
 
 出典: <https://community.zscaler.com>
 
@@ -18,12 +18,12 @@
 | ファイル | カテゴリ | 語数 |
 |---|---|---|
 | `api/community_api_part1.md` | API / 自動化 | 8,656 |
-| `branch/community_branch_part1.md` | Branch / Cloud Connector / SD-WAN | 12,667 |
+| `branch/community_branch_part1.md` | Branch / Cloud Connector / SD-WAN | 12,879 |
 | `data_security/community_data_security_part1.md` | Data Security / DSPM / Posture | 680 |
 | `deception/community_deception_part1.md` | Deception / Threat | 637 |
-| `other/community_other_part1.md` | その他 | 86,255 |
+| `other/community_other_part1.md` | その他 | 86,998 |
 | `platform/community_platform_part1.md` | Platform / 認証 / 管理 / ログ | 35,179 |
-| `zcc/community_zcc_part1.md` | ZCC — Zscaler Client Connector | 99,555 |
-| `zdx/community_zdx_part1.md` | ZDX — Digital Experience Monitoring | 4,606 |
+| `zcc/community_zcc_part1.md` | ZCC — Zscaler Client Connector | 99,797 |
+| `zdx/community_zdx_part1.md` | ZDX — Digital Experience Monitoring | 4,675 |
 | `zia/community_zia_part1.md` | ZIA — Internet & SaaS | 119,218 |
 | `zpa/community_zpa_part1.md` | ZPA — Private Access | 34,432 |

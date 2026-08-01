@@ -1,6 +1,6 @@
 {
  "fetch_mode": "api",
- "generated_at": "2026-08-01T13:56:28Z",
+ "generated_at": "2026-08-01T14:12:13Z",
  "posts": {
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
    "category": "zcc",
@@ -6806,6 +6806,13 @@
    "title": "How to check if traffic correctly forwarded by zapp or not",
    "type": "question"
   },
+  "https://community.zscaler.com/s/question/0D54u00009evmveCAA/rss-feed-for-updated-zscaler-client-connector-version-or-email-newsletter": {
+   "category": "zcc",
+   "hash": "abf1e45bd5873185",
+   "lastmod": "2023-05-31T08:14:02.000Z",
+   "title": "RSS Feed for updated Zscaler Client Connector version or E-Mail Newsletter?",
+   "type": "question"
+  },
   "https://community.zscaler.com/s/question/0D54u00009evmvfCAA/zscaler-client-connector-not-updating": {
    "category": "zcc",
    "hash": "dc7ed64f4348f66a",
@@ -8792,6 +8799,13 @@
    "hash": "52638d59761fe71e",
    "lastmod": "2023-05-31T08:51:51.000Z",
    "title": "Zscaler App and Tunnel Client",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D54u00009evn1FCAQ/can-zscaler-allow-for-only-register-devices-win-ios-": {
+   "category": "zcc",
+   "hash": "73c2fbd2e81103b1",
+   "lastmod": "2023-05-31T08:51:51.000Z",
+   "title": "Can Zscaler allow for only register devices (Win iOS ..)?",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D54u00009evn1GCAQ/newly-registered-domain-block-enforcement": {
@@ -11951,6 +11965,13 @@
    "title": "STEP 2 - Build your profile",
    "type": "question"
   },
+  "https://community.zscaler.com/s/question/0D54u00009ezGNECA2/step-1-how-to-register-for-an-account": {
+   "category": "other",
+   "hash": "6984854ac18e527f",
+   "lastmod": "2024-06-03T09:15:45.000Z",
+   "title": "STEP 1 - How to register for an account",
+   "type": "question"
+  },
   "https://community.zscaler.com/s/question/0D54u00009ezjVDCAY/how-to-respond-to-phishing-attacks": {
    "category": "zia",
    "hash": "473cee740344da86",
@@ -14478,6 +14499,13 @@
    "title": "Zscalar certification",
    "type": "question"
   },
+  "https://community.zscaler.com/s/question/0D54u0000AWUfHTCQ1/its-time-to-levelup-your-cybersecurity-defense-register-for-india-roadshows": {
+   "category": "other",
+   "hash": "fcaa309587004b0c",
+   "lastmod": "2024-07-11T06:32:06.000Z",
+   "title": "It's time to level-up your cybersecurity defense! Register for India roadshows",
+   "type": "question"
+  },
   "https://community.zscaler.com/s/question/0D54u0000AWUhNkCQL/new-zsync-sessions-for-july-are-up-explore-and-save-a-seat": {
    "category": "other",
    "hash": "875b0763def68af5",
@@ -14658,6 +14686,13 @@
    "hash": "36c027df9a9d5dff",
    "lastmod": "2024-08-10T09:09:45.000Z",
    "title": "Browser Access to Public Website",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D54u0000AZH4OmCQL/branch-connector-dns-record-registration": {
+   "category": "branch",
+   "hash": "7c678788a6dbf2c7",
+   "lastmod": "2024-07-30T18:13:34.000Z",
+   "title": "Branch Connector DNS record registration",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D54u0000AZHIRaCQP/get-trained-certified-with-zscaler-for-users-essentials-learning-path-now": {
@@ -16578,6 +16613,13 @@
    "title": "t64 libs version selected instead of required by Linux connector installer",
    "type": "question"
   },
+  "https://community.zscaler.com/s/question/0D5PJ00000XWDUX0A5/pearsonvue-new-test-location-how-to-register-wha-is-zscaler-candidate-id": {
+   "category": "other",
+   "hash": "24a1acbe76a00ecf",
+   "lastmod": "2026-01-02T15:47:18.000Z",
+   "title": "Pearsonvue - New test location - How to register? Wha is ZScaler Candidate ID?",
+   "type": "question"
+  },
   "https://community.zscaler.com/s/question/0D5PJ00000XXEVq0AP/tips-and-tricks-for-zscaler-log-analysis": {
    "category": "zia",
    "hash": "941d31419af543ac",
@@ -18034,6 +18076,13 @@
    "title": "Zscaler Client connector version 4.7.0.202 or 4.8.0.115",
    "type": "question"
   },
+  "https://community.zscaler.com/s/question/0D5PJ00000pvgib0AA/zdte-exam-not-able-to-register-for-zdte-exam-through-pearson-vue": {
+   "category": "other",
+   "hash": "66db34b80ac9575f",
+   "lastmod": "2026-02-24T18:47:22.000Z",
+   "title": "ZDTE exam - Not able to register for ZDTE exam through Pearson Vue",
+   "type": "question"
+  },
   "https://community.zscaler.com/s/question/0D5PJ00000q12K20AI/zpa-issues-after-upgrading-to-macos-263": {
    "category": "zpa",
    "hash": "6f3c14c806d3ffd8",
@@ -18335,6 +18384,13 @@
    "title": "Antigravity & ZIA",
    "type": "question"
   },
+  "https://community.zscaler.com/s/question/0D5PJ00000vGnrz0AC/cannot-register-zdx-operationalization-edu310": {
+   "category": "zdx",
+   "hash": "b1b3b4add7baf310",
+   "lastmod": "2026-05-26T17:52:09.000Z",
+   "title": "Cannot register ZDX Operationalization (EDU-310)",
+   "type": "question"
+  },
   "https://community.zscaler.com/s/question/0D5PJ00000vNDk00AG/zcc-for-vdi-webbrowser-use-for-users-authentication": {
    "category": "zcc",
    "hash": "949b95060316c008",
@@ -18589,6 +18645,7 @@
   "https://community.zscaler.com/s/Articles/aSmPJ00000GeEB70AN/zscaler-certifications-now-recognized-by-isc2-accelerate-your-path-to-cissp": "2025-11-21T15:05:26.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000GeECj0AN/zscaler-pulse-meet-the-engineers": "2025-11-21T18:05:58.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000GeEJB0A3/zero-trust-branch-splunk-integration-guide": "2025-11-24T14:55:04.000Z",
+  "https://community.zscaler.com/s/Articles/aSmPJ00000GeEKn0AN/launch-and-register-zt-branch-vm-over-esxi": "2025-11-24T14:54:56.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000GeEXh0AN/domain-reclassification-requests-on-community": "2025-11-24T14:57:16.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000GeFTl0AN/worth-the-read-embedded-ai": "2025-12-19T14:17:33.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000GeFf30AF/-a-certified-holiday-gift-for-you-for-real-this-time-": "2025-12-29T22:03:02.000Z",
@@ -18939,6 +18996,7 @@
   "https://community.zscaler.com/s/Articles/aSmPJ00000GeUuD0AV/looking-for-practical-answers-to-realworld-technical-questions": "2026-06-15T15:24:15.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000GeV770AF/zscaler-mcp-server-installation-and-integration-guide-on-mac-os": "2026-06-24T14:31:28.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000GeXwv0AF/how-to-ztfw-filtering-using-fqdnwfqdn": "2026-07-01T18:36:47.000Z",
+  "https://community.zscaler.com/s/Articles/aSmPJ00000GeaJh0AJ/new-sessions-available-register-for-the-edu100-workshop": "2026-07-07T15:40:09.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000Gecmv0AB/completed-ztca-or-edu104-your-next-nocost-step-before-edu200-lab": "2026-07-14T22:00:18.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000Ged330AB/zero-trust-branch-enhanced-ha": "2026-07-15T06:19:49.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000Ged4f0AB/zero-trust-branch-appliance-version-manager": "2026-07-15T17:31:58.000Z",

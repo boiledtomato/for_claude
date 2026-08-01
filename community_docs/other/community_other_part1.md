@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — その他 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 13:55 UTC
-Posts in this file: 715
+Generated: 2026-08-01 14:12 UTC
+Posts in this file: 719
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -10071,6 +10071,23 @@ Thanks
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009ezGNECA2/step-1-how-to-register-for-an-account","lastmod":"2024-06-03T09:15:45.000Z","id":"0D54u00009ezGNECA2"} -->
+## STEP 1 - How to register for an account
+
+- Source: https://community.zscaler.com/s/question/0D54u00009ezGNECA2/step-1-how-to-register-for-an-account
+- Type: Q&A
+- Posted: 2023-06-03T18:36:50.000Z
+- Last activity: 2024-06-03T09:15:45.000Z
+- Answers: 0
+- Likes: 4
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p><span style="font-family: Arial; font-size: 10.5pt;">Registering to the Zenith Community is simple and comes with many benefits!</span></p><p><br></p><p><span style="font-family: Arial; font-size: 10.5pt;">You’ll get access to member-only areas, be able to participate in conversations and provide solutions, and stay informed by subscribing to boards and receiving notifications.</span></p><p><br></p><p><span style="font-family: Arial; font-size: 10.5pt;">Here is how you create your new account.</span></p><p><br></p><p><span style="font-family: Arial; font-size: 10.5pt;">Click “Register” on the top nav</span></p><p><br></p><p><img src="/zenith/sfc/servlet.shepherd/version/download/0684u00000aBFNN?asPdf=false&amp;operationContext=CHATTER"></p><p><br></p><p><span style="font-family: Arial; font-size: 10.5pt;">A pop-up registration form will be presented to you</span></p><p><br></p><p><img src="/zenith/sfc/servlet.shepherd/version/download/0684u00000aBFNS?asPdf=false&amp;operationContext=CHATTER"></p><p><br></p><p><span style="font-family: Arial; font-size: 10.5pt;">If you are a </span><strong style="font-family: Arial; font-size: 10.5pt;">Customer or Partner</strong><span style="font-family: Arial; font-size: 10.5pt;">, please use your business email to create your account. If you are a student, you may use your school email address or your personal email address. If you are an employee, please use your Zscaler email to register.</span></p><p><br></p><p><strong style="font-family: Arial; font-size: 10.5pt;"><em>Note:</em> <em>If you already have a Zscaler support account, please create your account with the same email address.</em></strong></p><p><br></p><p><strong><em>Tip:</em></strong><strong style="font-family: Arial; font-size: 10.5pt;"> <em>Passwords are case-sensitive. Include capital and lowercase letters and numbers to make your password more secure</em></strong><em style="font-family: Arial; font-size: 10.5pt;">.</em></p><p><br></p><ol><li><span style="font-family: Arial; font-size: 10.5pt;">Complete the form </span></li><li><span style="font-family: Arial; font-size: 10.5pt;">Create your username</span></li><li><span style="font-family: Arial; font-size: 10.5pt;">Answer a few simple questions on what your relationship to Zscaler is </span></li><li><span style="font-family: Arial; font-size: 10.5pt;">Submit the form</span></li><li><span style="font-family: Arial; font-size: 10.5pt;">Check your inbox for a verification email</span></li><li><span style="font-family: Arial; font-size: 10.5pt;">Once you verify your email, you will receive a “Create Password” email</span></li><li><span style="font-family: Arial; font-size: 10.5pt;">Go ahead and create your password to be redirected to Zenith Community</span></li></ol><p><span style="font-family: Arial; font-size: 10.5pt;"> </span></p><p><span style="font-family: Arial; font-size: 10.5pt;">You are now officially a Zenith Community member!</span></p><p><br></p><p><a href="https://community.zscaler.com/zenith/s/question/0D54u00009ezGJWCA2/step-2-build-your-profile" rel="noopener noreferrer" target="_blank">Up Next: Build your profile</a></p><p><br></p><p><br></p>
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009fsvyaCAA/er3097-update","lastmod":"2023-06-14T07:33:00.000Z","id":"0D54u00009fsvyaCAA"} -->
 ## ER-3097 update
 
@@ -11942,6 +11959,23 @@ How ever, we are able to telnet to the AWS IP on 3389 Port with out any issue.
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWUfHTCQ1/its-time-to-levelup-your-cybersecurity-defense-register-for-india-roadshows","lastmod":"2024-07-11T06:32:06.000Z","id":"0D54u0000AWUfHTCQ1"} -->
+## It's time to level-up your cybersecurity defense! Register for India roadshows
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AWUfHTCQ1/its-time-to-levelup-your-cybersecurity-defense-register-for-india-roadshows
+- Type: Q&A
+- Posted: 2024-07-01T15:07:07.000Z
+- Last activity: 2024-07-11T06:32:06.000Z
+- Answers: 1
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p><a href="https://info.zscaler.com/zscaler-training-roadshows-2024" rel="noopener noreferrer" target="_blank"><img src="/sfc/servlet.shepherd/version/download/0684u00000iEUiK?asPdf=false&amp;operationContext=CHATTER" title=""></a></p><p><span style="font-size: 14px; font-family: -apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif;">Are you ready to level up your cybersecurity defense? We have FREE 'Zscaler for Users- Essentials (EDU-200)'&nbsp;training workshop for our customers in India. Seats are limited. Hurry up and register now! </span><a href="https://lnkd.in/gUVnApe5" rel="noopener noreferrer" target="_blank" style="font-size: 14px; font-family: -apple-system, system-ui, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Fira Sans&quot;, Ubuntu, Oxygen, &quot;Oxygen Sans&quot;, Cantarell, &quot;Droid Sans&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Lucida Grande&quot;, Helvetica, Arial, sans-serif;">https://lnkd.in/gUVnApe5</a></p>
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWUhNkCQL/new-zsync-sessions-for-july-are-up-explore-and-save-a-seat","lastmod":"2024-07-05T15:55:58.000Z","id":"0D54u0000AWUhNkCQL"} -->
 ## New Z-sync sessions for July are up! Explore and save a seat!
 
@@ -13455,6 +13489,23 @@ How ever, we are able to telnet to the AWS IP on 3389 Port with out any issue.
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000XWDUX0A5/pearsonvue-new-test-location-how-to-register-wha-is-zscaler-candidate-id","lastmod":"2026-01-02T15:47:18.000Z","id":"0D5PJ00000XWDUX0A5"} -->
+## Pearsonvue - New test location - How to register? Wha is ZScaler Candidate ID?
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000XWDUX0A5/pearsonvue-new-test-location-how-to-register-wha-is-zscaler-candidate-id
+- Type: Q&A
+- Posted: 2025-05-12T16:29:24.000Z
+- Last activity: 2026-01-02T15:47:18.000Z
+- Answers: 3
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>I'm trying to register with the new test site <a href="https://www.pearsonvue.com/us/en/zscaler.html" rel="noopener noreferrer" target="_blank">Zscaler Certification testing with Pearson VUE</a> and it is asking me about my "<span style="font-family: &quot;Open Sans&quot;, Arial, Verdana, Helvetica, san-serif; font-size: 16px;">ZScaler Candidate ID". There is no information about where or how to find or obtain it. Has anyone tried to register?</span></p>
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000XZsr50AD/3-years-and-counting-zscaler-slow-internet-for-pldt-users-in-philippines-january-2022-until-may-2025","lastmod":"2025-05-16T19:07:40.000Z","id":"0D5PJ00000XZsr50AD"} -->
 ## 3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
 
@@ -14326,6 +14377,23 @@ Workaround is hit back and try again but that is annoying to see this.
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>I am trying to access asn application but my IT team says i need Zscaler to access the app. however when I click on my icon for zscaler, it says connection error in the service status. we have clicked retry, we have uninstalled and reinstalled the app, updates aap and policies. at one point it popped up on my IT ticket that altiris agent might be having issues. She also said there is something stopping zscaler form connecting to my network</p><p><br></p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000pvgib0AA/zdte-exam-not-able-to-register-for-zdte-exam-through-pearson-vue","lastmod":"2026-02-24T18:47:22.000Z","id":"0D5PJ00000pvgib0AA"} -->
+## ZDTE exam - Not able to register for ZDTE exam through Pearson Vue
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000pvgib0AA/zdte-exam-not-able-to-register-for-zdte-exam-through-pearson-vue
+- Type: Q&A
+- Posted: 2026-02-24T17:28:27.000Z
+- Last activity: 2026-02-24T18:47:22.000Z
+- Answers: 1
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>Hi Support Team,</p><p>I am writing to request assistance with registering for the Zscaler ZDTE exam.</p><p>Currently, I can see the exam registration link and my promo code on the Zscaler Partner Portal. However, when I click the link and log into Pearson VUE, there is no option available to register for the ZDTE exam.</p><p>I understand that Zscaler no longer requires prerequisites for this exam, so my account should be eligible. Could you please check if there is an account syncing issue or advise on how I can proceed with my registration?</p><p><br></p>
 <!-- /ZS-POST -->
 
 ---

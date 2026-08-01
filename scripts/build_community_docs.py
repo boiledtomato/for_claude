@@ -162,13 +162,22 @@ OTHER = "other"
 # マーケティング・イベント・コミュニティ運営系は技術ナレッジではないので除外する。
 # Guides / Blogs の多くがこれに該当する。
 EXCLUDE_PATTERNS = [
-    r"\bwebinar\b", r"\bregister\b", r"\bregistration\b", r"\brsvp\b",
+    r"\bwebinar\b", r"\brsvp\b",
+    # "register" / "registration" は技術的な文脈（デバイス登録、DNSレコード登録）
+    # でも使われるため、イベント告知の言い回しに限定する
+    r"\bregister\s+(now|today|here)\b",
+    r"\bregister\s+for\s+(the\s+|a\s+|free\s+)*(webinar|event|training|session|roadshow|workshop|lab)",
+    r"\bregistration\s+(is\s+)?(now\s+)?open\b", r"\bevent\s+registration\b",
     r"zenith\s*live", r"\bzenithlive", r"\broadshow\b", r"\bmeetup\b",
     r"\bconference\b", r"\bsummit\b", r"\bkeynote\b",
     r"\d+%\s*off", r"\bdiscount\b", r"\bpromo\b", r"\bgiveaway\b",
     r"\bsweepstake", r"\braffle\b", r"\bcontest\b", r"\bswag\b",
     r"\bhappy\s+(holi|new\s+year|holidays)", r"\bseason'?s\s+greetings\b",
-    r"\bnewsletter\b", r"\bmember\s+spotlight\b", r"\bmember\s+recognition\b",
+    # "newsletter" 単体だと「更新通知を受け取る方法」のような技術的な質問も
+    # 拾ってしまうため、コミュニティ運営のニュースレターに限定する
+    r"\b(zenith|community|monthly|weekly)\s+newsletter\b",
+    r"\bnewsletter\s+(sign-?up|subscri)", r"\bunsubscribe\s+from\s+the\s+newsletter\b",
+    r"\bmember\s+spotlight\b", r"\bmember\s+recognition\b",
     r"\bcommunity\s+highlights?\b", r"\bmonthly\s+recap\b",
     r"\bcommunity\s+spotlight\b", r"\bcommunity\s+tip\b",
     r"\bauto\s+bumped\s+topics?\b", r"\bwhat\s+to\s+do\s+when\s+topic\s+is\s+closed\b",

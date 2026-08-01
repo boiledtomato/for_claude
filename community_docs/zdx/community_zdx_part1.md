@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 13:55 UTC
-Posts in this file: 28
+Generated: 2026-08-01 14:12 UTC
+Posts in this file: 29
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -575,6 +575,23 @@ Best regards
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>Is there a similar program to zscaler analyzer output or can it still be downloaded somewhere? I know its already EOL. </p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000vGnrz0AC/cannot-register-zdx-operationalization-edu310","lastmod":"2026-05-26T17:52:09.000Z","id":"0D5PJ00000vGnrz0AC"} -->
+## Cannot register ZDX Operationalization (EDU-310)
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000vGnrz0AC/cannot-register-zdx-operationalization-edu310
+- Type: Q&A
+- Posted: 2026-05-25T09:27:27.000Z
+- Last activity: 2026-05-26T17:52:09.000Z
+- Answers: 1
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>Hi Teams, </p><p>Could you please help me, why i cannot register this course? </p><p>Whenever i click on Register...nothing happen.</p><p>Thanks</p><p>Please check the sceenshot below: </p><p><img src="/zenith/sfc/servlet.shepherd/version/download/068PJ00000cPisp?asPdf=false&amp;operationContext=CHATTER"></p>
 <!-- /ZS-POST -->
 
 ---

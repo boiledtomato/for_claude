@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 13:55 UTC
-Posts in this file: 655
+Generated: 2026-08-01 14:12 UTC
+Posts in this file: 657
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -7438,6 +7438,28 @@ Hi all
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmveCAA/rss-feed-for-updated-zscaler-client-connector-version-or-email-newsletter","lastmod":"2023-05-31T08:14:02.000Z","id":"0D54u00009evmveCAA"} -->
+## RSS Feed for updated Zscaler Client Connector version or E-Mail Newsletter?
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evmveCAA/rss-feed-for-updated-zscaler-client-connector-version-or-email-newsletter
+- Type: Q&A
+- Posted: 2020-10-15T08:25:55.000Z
+- Last activity: 2023-05-31T08:14:02.000Z
+- Answers: 0
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+Hi,
+
+Is there a RSS feed for updated ZscalerClient Connector versions or a E-Mail Newsletter? Or how can I get notified about new version?
+
+Best Regards,
+ Patrick
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmvfCAA/zscaler-client-connector-not-updating","lastmod":"2023-05-31T08:14:02.000Z","id":"0D54u00009evmvfCAA"} -->
 ## Zscaler Client Connector not updating
 
@@ -10000,6 +10022,35 @@ When this tunnel client is running the ZAPP fails to connect. Is there any way t
 Is it the route that is the issue? Or will there be a clash somewhere else that could be causing this?
 
 Is there any way to move zscaler off the 100.64 network ?
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn1FCAQ/can-zscaler-allow-for-only-register-devices-win-ios-","lastmod":"2023-05-31T08:51:51.000Z","id":"0D54u00009evn1FCAQ"} -->
+## Can Zscaler allow for only register devices (Win iOS ..)?
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn1FCAQ/can-zscaler-allow-for-only-register-devices-win-ios-
+- Type: Q&A
+- Posted: 2019-09-25T06:41:47.000Z
+- Last activity: 2023-05-31T08:51:51.000Z
+- Answers: 3
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+Hello,
+
+I am Zscaler beginner, just starting PoC. My discussion as below.
+
+Employee uses company corporate devices (laptop, mobile,…) and installed Zscaler app that can access company specific things. (so far so good)
+ But I would like to restrict the employee home computer or personal devices to use Company Zscaler environment that could be installing zscaler app and login to use company specific things.
+
+For example, can we register MAC addresses as an enroll device in advance that we only want to allow for Zscaler mobile user. So unregistered device cannot use the environment even login credential is correct.
+
+Or is there any other way UUID restriction in Zscaler to protect unauthorized device connection?
+
+Regars,
+ mmh
 <!-- /ZS-POST -->
 
 ---

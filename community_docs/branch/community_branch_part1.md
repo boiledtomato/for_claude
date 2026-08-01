@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Branch / Cloud Connector / SD-WAN (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 13:55 UTC
-Posts in this file: 36
+Generated: 2026-08-01 14:12 UTC
+Posts in this file: 37
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -824,6 +824,23 @@ Hello everyone, please find the attached solution guide describing the various w
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>Hi There,</p><p><br></p><p>We're planning to install Cloud connector in Azure and while going through the below link it seems that Azure key vault needs to be allowed from All public networks. If my understanding is correct, Zscaler Cloud connector VM will try to reach out to key vault for creds and try ti connect with the Cloud connector portal for registration via management interface which is a private IP.</p><p><br></p><p>So, in this case, we can restrict the Azure key vault networking settings specific to this Vnet/Internal IP range and UDR of the management subnet can be configured to reach the Key vault via service tags (MS backbone network).</p><p><br></p><p>Can someone please advise why "Allow access from: Select All networks' (Public) should be selected as per Zscaler recommendation?</p><p><br></p><p>Thank you.</p><p><br></p><p><a href="https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure" rel="noopener noreferrer" target="_blank">Deploying Zscaler Cloud Connector with Microsoft Azure | Zscaler</a></p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AZH4OmCQL/branch-connector-dns-record-registration","lastmod":"2024-07-30T18:13:34.000Z","id":"0D54u0000AZH4OmCQL"} -->
+## Branch Connector DNS record registration
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AZH4OmCQL/branch-connector-dns-record-registration
+- Type: Q&A
+- Posted: 2024-07-30T10:38:33.000Z
+- Last activity: 2024-07-30T18:13:34.000Z
+- Answers: 2
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>Hi, we've just deployed a Virtual Branch Connector as part of the Proof of Value Project. </p><p><br></p><p>Azure has App Connector and Cloud Connector deployed.</p><p>One domain controller in Azure has been promoted and is running as a DC for the new test domain.</p><p>The app connector in Azure is pointing to Azure DC for DNS.</p><p><br></p><p>The branch site has a new Branch Connector with an integrated App Connector deployed.</p><p>App Connector in Branch is pointing to DC in Azure for DNS.</p><p><br></p><p>I am trying to deploy a new server in the branch and join it to the domain. </p><p><br></p><p>The Domain Join is working; however, when I look at the DC in Azure, no DNS A record is being created. </p><p><br></p><p>I want to promote the server in the branch to Domain Controller, but without performing DNS registration, I think this will never work. </p><p><br></p><p>Is there a policy change I must update to allow DNS registration to work?</p><p><br></p><p>In ZPA I have the wildcard policy set with *.domain.com.</p><p><br></p><p>Let me know if I missed any further information.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
 <!-- /ZS-POST -->
 
 ---
