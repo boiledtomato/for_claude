@@ -1,0 +1,59 @@
+{
+ "notebook": {
+  "id": "69981c25-a078-484a-813a-9ed40fa3af0b",
+  "title": "Zscaler_community"
+ },
+ "sources": {
+  "community_api_part1.md": {
+   "rel": "api/community_api_part1.md",
+   "sha256": "1a809124ae9fa2475577df8673f30879c71a91a6b76d8f5d262e0e49c90c41ee",
+   "source_id": "26d6954a-172c-4aa7-9345-0bd1336f650a"
+  },
+  "community_branch_part1.md": {
+   "rel": "branch/community_branch_part1.md",
+   "sha256": "e07a0fa13765934d8a106487beb3d5f822cee136e62aef3216e818e304e724b9",
+   "source_id": "d86b4549-5096-4492-8bb4-e398f570d79c"
+  },
+  "community_data_security_part1.md": {
+   "rel": "data_security/community_data_security_part1.md",
+   "sha256": "cb135a3251e038a5cdb676380be5487e61e9b63cdcbbaa362909e15a42de305a",
+   "source_id": "4aaab43a-43db-4d78-bcdb-e2bad437a034"
+  },
+  "community_deception_part1.md": {
+   "rel": "deception/community_deception_part1.md",
+   "sha256": "7c33e1b893548abed2a56ac9fd80ec96a3671b1e5bd1d3c345962731fc960abb",
+   "source_id": "7d317d0f-5740-4dce-bca9-33ea4eb89a32"
+  },
+  "community_other_part1.md": {
+   "rel": "other/community_other_part1.md",
+   "sha256": "85d6593704e572f9993195355050265b081ccc6bcc0718dcd87127851b90db65",
+   "source_id": "c10e20bf-9472-4f76-855e-b453692ea483"
+  },
+  "community_platform_part1.md": {
+   "rel": "platform/community_platform_part1.md",
+   "sha256": "a5e6ab64a6dc618f6ef22c031ea72e8691f0e72d6b900f79c41cdd06a033f88a",
+   "source_id": "4ada7e4b-5549-4a9b-846e-b27bc558e53e"
+  },
+  "community_zcc_part1.md": {
+   "rel": "zcc/community_zcc_part1.md",
+   "sha256": "0c28ad22c45b84d6d8f5e488df3950e3babaa7ca45f21d69397da003d4c53d22",
+   "source_id": "ae1953be-9128-421f-a083-b29391964334"
+  },
+  "community_zdx_part1.md": {
+   "rel": "zdx/community_zdx_part1.md",
+   "sha256": "4f0e10415b3f1c77cd69c39e10dfa6d33f3f75173a22acb647a9a62cd0fed3fb",
+   "source_id": "f2d904ab-59d8-4114-b76f-194d66c0ffb2"
+  },
+  "community_zia_part1.md": {
+   "rel": "zia/community_zia_part1.md",
+   "sha256": "efef1d604fe29a1eb61c6a05db3ee5a93278a8b1f654b8d38563480dc910ddd3",
+   "source_id": "966d8888-d08f-40c8-9e03-ca74c04c28fe"
+  },
+  "community_zpa_part1.md": {
+   "rel": "zpa/community_zpa_part1.md",
+   "sha256": "564c9aa3bbb5eb147776d6ad3408e90f81e28be3b951dda05139682f612074c9",
+   "source_id": "5ed28b89-0468-48bb-929a-1a03adcff108"
+  }
+ },
+ "synced_at": "2026-08-01T14:17:04Z"
+}
