@@ -282,6 +282,23 @@ the site changes slowly. Posts that drop out of the sitemap are removed from the
 part file. Switching `--fetch-mode` forces a full refetch, since the two modes
 produce different body text.
 
+`index["unavailable"]` records the URL+`lastmod` of every post whose body could not
+be retrieved, so the ~1,150 articles/guides/blogs that `api` mode can never read are
+not re-requested every week. Without it a weekly run costs 1,157 requests instead of
+about 4. `--full` and a `--fetch-mode` change both clear the record.
+
+**`--recategorize`** re-buckets the already-fetched part files against the current
+`CATEGORIES` and `EXCLUDE_PATTERNS` with **no network access** — the blocks stored in
+the part files are the only copy of the text, so tuning keywords does not require
+re-crawling the site. Use it after editing either constant.
+
+**Part filenames carry a `community_` prefix** (`community_zia_part1.md`). This is
+load-bearing, not cosmetic: NotebookLM uses the filename as the source title and
+matches sources by it, so a bare `zia_part1.md` would collide with the help-docs
+notebook. `part_name()` / `part_glob()` are the single source of truth — earlier the
+glob in `parse_existing()` disagreed with the writer, which silently made every
+incremental run drop all previously fetched content.
+
 ### `scripts/sync_notebooklm.py`
 
 Pushes the generated Markdown into NotebookLM. **One fixed notebook, only changed
@@ -423,7 +440,15 @@ python scripts/build_community_docs.py --full --fetch-mode prerender
 
 # Quick sanity check
 python scripts/build_community_docs.py --full --categories zia --limit 5
+
+# After tuning CATEGORIES / EXCLUDE_PATTERNS — re-buckets without re-crawling
+python scripts/build_community_docs.py --recategorize
 ```
+
+Current split of the 2,649 collected posts: `zia` 727, `other` 715, `zcc` 655,
+`zpa` 230, `platform` 208, `api` 39, `branch` 36, `zdx` 28, `data_security` 6,
+`deception` 5. The `other` bucket is genuinely cross-cutting forum chatter; tune
+`CATEGORIES` and re-run `--recategorize` if it grows.
 
 Then sync with the community-specific flags (see `docs/notebooklm-setup.md`) or
 upload `community_docs/<category>/*.md` by hand — into the **`Zscaler_community`

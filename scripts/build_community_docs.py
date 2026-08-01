@@ -37,10 +37,17 @@ Zenith Community は Salesforce Experience Cloud (Aura) の SPA で、どのURL�
     # カテゴリを絞る / 小さく試す
     python scripts/build_community_docs.py --full --categories zia --limit 5
 
+    # CATEGORIES のキーワードを調整したあと、再取得せずに分類だけやり直す
+    python scripts/build_community_docs.py --recategorize
+
 出力:
-    community_docs/<category>/<category>_partN.md   ← NotebookLMにアップロードする
+    community_docs/<category>/community_<category>_partN.md  ← NotebookLMに入れる
     community_docs/README.md                        ← ファイル一覧・語数
     data/community_docs_index.json                  ← 記事ごとの更新状態
+
+ファイル名の `community_` 接頭辞は必須。NotebookLM ではファイル名がソース名に
+なり、ソースの突き合わせもファイル名で行うため、ヘルプ側の `zia_part1.md` と
+同名になると互いのソースを消し合う。
 """
 
 import argparse
@@ -98,25 +105,37 @@ CONTENT_TYPES = {
 CATEGORIES: dict[str, tuple[str, list[str]]] = {
     "zcc": ("ZCC — Zscaler Client Connector", [
         "client connector", "client-connector", "zapp", "z-app", "zscaler app",
-        "zcc", "tunnel 2.0", "tunnel 1.0",
+        "zcc", "tunnel 2.0", "tunnel 1.0", "zscalertunnel", "zpc",
+        "machine tunnel", "captive portal", "enrollment", "app profile",
+        "zsatunnel", "zstunnel", "packet filter driver", "z-tunnel",
     ]),
     "zpa": ("ZPA — Private Access", [
         "zpa", "private access", "app connector", "connector group",
         "browser access", "privileged remote access", "app segment",
-        "segment group", "server group",
+        "segment group", "server group", "service edge", "double encryption",
+        "application segment", "health reporting",
     ]),
     "zdx": ("ZDX — Digital Experience Monitoring", [
         "zdx", "digital experience", "probe", "cloudpath", "web probe",
+        "user experience score", "deep tracing",
     ]),
     "zia": ("ZIA — Internet & SaaS", [
         "zia", "internet access", "url filtering", "ssl inspection",
         "cloud firewall", "sandbox", "dlp", "casb", "bandwidth control",
         "gre tunnel", "ipsec", "pac file", "location management",
-        "sub-location", "surrogate ip", "threatlabz",
+        "sub-location", "surrogate ip", "threatlabz", "vzen",
+        "firewall", "dns control", "dns tunnel", "malware", "antivirus",
+        "url lookup", "url category", "url categorization", "web filtering",
+        "youtube", "streaming media", "ssl interception", "ssl decryption",
+        "proxy", "explicit proxy", "tenant restriction", "cloud app control",
+        "file type control", "ips", "advanced threat", "atp", "safe search",
+        "ssl bypass", "bypass list", "sub location",
     ]),
     "api": ("API / 自動化", [
         "api", "sdk", "postman", "terraform", "ansible", "rest call",
         "oneapi", "api key", "swagger", "python script", "powershell script",
+        "powershell", "rest api", "json response", "curl command",
+        "automation script", "graph api",
     ]),
     "branch": ("Branch / Cloud Connector / SD-WAN", [
         "branch connector", "cloud connector", "cellular", "sd-wan", "sdwan",
@@ -132,7 +151,10 @@ CATEGORIES: dict[str, tuple[str, list[str]]] = {
     "platform": ("Platform / 認証 / 管理 / ログ", [
         "saml", "scim", "idp", "okta", "azure ad", "entra", "authentication",
         "admin portal", "nss", "log streaming", "lss", "audit log",
-        "provisioning", "certificate",
+        "provisioning", "certificate", "sso", "single sign", "ldap",
+        "active directory", "kerberos", "ipv6", "license", "subscription",
+        "admin role", "sandbox report", "siem", "splunk", "syslog",
+        "user provisioning", "directory sync",
     ]),
 }
 OTHER = "other"
@@ -148,6 +170,9 @@ EXCLUDE_PATTERNS = [
     r"\bhappy\s+(holi|new\s+year|holidays)", r"\bseason'?s\s+greetings\b",
     r"\bnewsletter\b", r"\bmember\s+spotlight\b", r"\bmember\s+recognition\b",
     r"\bcommunity\s+highlights?\b", r"\bmonthly\s+recap\b",
+    r"\bcommunity\s+spotlight\b", r"\bcommunity\s+tip\b",
+    r"\bauto\s+bumped\s+topics?\b", r"\bwhat\s+to\s+do\s+when\s+topic\s+is\s+closed\b",
+    r"\binternational\s+women'?s\s+day\b", r"\bdark\s+mode\s+or\s+light\s+mode\b",
     r"\bcongratulations\b", r"\bwelcome\s+to\s+the\s+(zenith|community)",
     r"\bpodcast\b", r"\blast\s+chance\b", r"\bdon'?t\s+miss\b",
     r"\bsave\s+the\s+date\b", r"\bcyber\s+academy\b",
@@ -624,9 +649,36 @@ def _part_number(path: Path) -> int:
     return int(m.group(1)) if m else 0
 
 
+def part_name(stem: str, part: int) -> str:
+    """part ファイル名。ヘルプ側 (`zia_part1.md`) と衝突させないため接頭辞を付ける。
+
+    NotebookLM 側ではファイル名がそのままソース名になり、ソースの突き合わせも
+    ファイル名で行うため、同名になると別ドキュメントセットのソースを上書き・
+    削除してしまう。
+    """
+    return f"community_{stem}_part{part}.md"
+
+
+def part_glob(stem: str) -> str:
+    return f"community_{stem}_part*.md"
+
+
+def block_title_and_body(block: str) -> tuple[str, str]:
+    """既存ブロックから見出しと本文を取り出す（再分類用）。"""
+    m = BLOCK_RE.search(block)
+    inner = m.group("body") if m else block
+    lines = inner.split("\n")
+    title = lines[0][3:].strip() if lines and lines[0].startswith("## ") else ""
+    # ヘッダー(- で始まる箇条書き)を読み飛ばして本文の開始位置を探す
+    i = 1
+    while i < len(lines) and (not lines[i].strip() or lines[i].startswith("- ")):
+        i += 1
+    return title, "\n".join(lines[i:])
+
+
 def parse_existing(stem: str) -> dict[str, str]:
     blocks: dict[str, str] = {}
-    for path in sorted((OUTPUT_DIR / stem).glob(f"{stem}_part*.md"), key=_part_number):
+    for path in sorted((OUTPUT_DIR / stem).glob(part_glob(stem)), key=_part_number):
         text = path.read_text(encoding="utf-8")
         for m in BLOCK_RE.finditer(text):
             try:
@@ -641,7 +693,7 @@ def parse_existing(stem: str) -> dict[str, str]:
 def write_parts(stem: str, blocks: dict[str, str]) -> list[Path]:
     out_dir = OUTPUT_DIR / stem
     out_dir.mkdir(parents=True, exist_ok=True)
-    for old in out_dir.glob(f"{stem}_part*.md"):
+    for old in out_dir.glob(part_glob(stem)):
         old.unlink()
     if not blocks:
         return []
@@ -656,7 +708,7 @@ def write_parts(stem: str, blocks: dict[str, str]) -> list[Path]:
         nonlocal buf, size, part
         if not buf:
             return
-        path = out_dir / f"community_{stem}_part{part}.md"
+        path = out_dir / part_name(stem, part)
         head = (f"# Zscaler Zenith Community — {display} (part {part})\n\n"
                 f"Source: {BASE_URL}\n"
                 f"Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}\n"
@@ -688,7 +740,7 @@ def load_index() -> dict:
             return json.loads(INDEX_FILE.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             print("[index] 破損しているため作り直します")
-    return {"generated_at": "", "fetch_mode": "", "posts": {}}
+    return {"generated_at": "", "fetch_mode": "", "posts": {}, "unavailable": {}}
 
 
 def save_index(index: dict) -> None:
@@ -712,7 +764,7 @@ def write_readme(index: dict, fetch_mode: str) -> None:
     total_words = 0
     total_files = 0
     for stem in sorted({p["category"] for p in index["posts"].values()}):
-        files = sorted((OUTPUT_DIR / stem).glob(f"community_{stem}_part*.md"), key=_part_number)
+        files = sorted((OUTPUT_DIR / stem).glob(part_glob(stem)), key=_part_number)
         for f in files:
             words = len(f.read_text(encoding="utf-8").split())
             total_words += words
@@ -773,6 +825,69 @@ def write_step_summary(stats: dict) -> None:
 
 # ── メイン ───────────────────────────────────────────────────────────────────
 
+def recategorize() -> int:
+    """取得済みの part ファイルだけを使って分類をやり直す。
+
+    CATEGORIES のキーワードを調整したあと、サイトに再度アクセスせずに
+    バケットを組み直すための経路。
+    """
+    index = load_index()
+    posts: dict[str, dict] = index.get("posts") or {}
+    if not posts:
+        print(f"[ERROR] {INDEX_FILE} が空です。先に通常のビルドを実行してください。",
+              file=sys.stderr)
+        return 1
+
+    stems = sorted({p.get("category", OTHER) for p in posts.values()})
+    all_blocks: dict[str, str] = {}
+    for stem in stems:
+        all_blocks.update(parse_existing(stem))
+    print(f"[recat] part ファイルから {len(all_blocks):,} ブロックを読み込みました")
+
+    moved = 0
+    dropped = 0
+    before = {u: posts[u].get("category") for u in posts}
+    for url, block in all_blocks.items():
+        meta = posts.get(url)
+        if meta is None:
+            continue
+        title, body = block_title_and_body(block)
+        slug = url.rstrip("/").rsplit("/", 1)[-1]
+        # EXCLUDE_PATTERNS を足したあとの取り下げもここで反映する
+        if is_excluded(title or meta.get("title", ""), slug):
+            posts.pop(url, None)
+            dropped += 1
+            continue
+        stem = categorize(title or meta.get("title", ""), slug, body)
+        if stem != meta.get("category"):
+            moved += 1
+        meta["category"] = stem
+        meta["_block"] = block
+
+    print(f"[recat] カテゴリが変わった投稿: {moved:,} 件 / 除外対象になった投稿: {dropped:,} 件")
+
+    touched = set(stems) | {p["category"] for p in posts.values()}
+    for stem in sorted(touched):
+        blocks = {u: p["_block"] for u, p in posts.items()
+                  if p.get("category") == stem and p.get("_block")}
+        write_parts(stem, blocks)
+
+    for meta in posts.values():
+        meta.pop("_block", None)
+    index["posts"] = posts
+    save_index(index)
+    write_readme(index, index.get("fetch_mode", "api"))
+
+    after: dict[str, int] = {}
+    for p in posts.values():
+        after[p["category"]] = after.get(p["category"], 0) + 1
+    print("\n再分類後の内訳:")
+    for stem, n in sorted(after.items(), key=lambda kv: -kv[1]):
+        prev = sum(1 for u, c in before.items() if c == stem)
+        print(f"  {stem:15s} {n:5d}  ({n - prev:+d})")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="community.zscaler.com → NotebookLM 用 Markdown")
@@ -787,7 +902,13 @@ def main() -> int:
                     help="取得件数の上限（動作確認用）")
     ap.add_argument("--workers", type=int, default=DEFAULT_WORKERS)
     ap.add_argument("--delay", type=float, default=DEFAULT_DELAY)
+    ap.add_argument("--recategorize", action="store_true",
+                    help="取得済みの part ファイルを CATEGORIES で分類し直す。"
+                         "ネットワークアクセスなし（キーワード調整後に使う）")
     args = ap.parse_args()
+
+    if args.recategorize:
+        return recategorize()
 
     if args.fetch_mode == "prerender":
         print("[warn] prerender モードは Googlebot の User-Agent を名乗ります。"
@@ -815,12 +936,25 @@ def main() -> int:
         targets[url] = e
     print(f"[2/5] マーケ・イベント系を除外: {excluded:,} 件 → 対象 {len(targets):,} 件")
 
+    # 本文が取得できないと判明済みの投稿（api モードの記事/ガイド/ブログなど）。
+    # 記録しておかないと毎回 1,000 件超を無駄に取りに行くことになる。
+    # モードが変われば本文が取れる可能性があるので、その時は無視する。
+    unavailable_seen: dict[str, str] = index.get("unavailable") or {}
+    if args.full or mode_changed:
+        unavailable_seen = {}
+
     # 変更検出
     todo: list[tuple[str, dict]] = []
+    skipped_known_unavailable = 0
     for url, e in targets.items():
         prev = posts.get(url)
+        if not (args.full or mode_changed) and unavailable_seen.get(url) == e["lastmod"]:
+            skipped_known_unavailable += 1
+            continue
         if args.full or mode_changed or prev is None or prev.get("lastmod") != e["lastmod"]:
             todo.append((url, e))
+    if skipped_known_unavailable:
+        print(f"      本文取得不可と判明済みのためスキップ: {skipped_known_unavailable:,} 件")
     if args.categories:
         todo = [(u, e) for u, e in todo
                 if posts.get(u, {}).get("category") in args.categories
@@ -858,6 +992,7 @@ def main() -> int:
                 continue
             if post.get("unavailable"):
                 unavailable += 1
+                unavailable_seen[url] = e["lastmod"]
                 continue
             if is_excluded(post["title"], e["slug"]):
                 # slug では拾えず本文取得後に判明した除外対象。以前に収録されて
@@ -866,6 +1001,7 @@ def main() -> int:
                 continue
             if not post["body_md"].strip():
                 unavailable += 1
+                unavailable_seen[url] = e["lastmod"]
                 continue
             fetched[url] = post
 
@@ -920,6 +1056,8 @@ def main() -> int:
         meta.pop("_block", None)
     index["posts"] = posts
     index["fetch_mode"] = args.fetch_mode
+    # sitemap から消えたものは記録からも落とす
+    index["unavailable"] = {u: lm for u, lm in unavailable_seen.items() if u in targets}
     save_index(index)
     write_readme(index, args.fetch_mode)
 
