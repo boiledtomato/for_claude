@@ -1,16 +1,5 @@
 {
-  "last_updated": "2026-07-31T02:08:17Z",
-  "total": 1,
-  "articles": [
-    {
-      "id": "e5e6a527b664ed39",
-      "title": "TELESHIM Abuses Telegram for C2 in Attacks Against Middle East Governments",
-      "url": "https://thehackernews.com/2026/07/teleshim-abuses-telegram-for-c2-in.html",
-      "summary": "Cybersecurity researchers have flagged fresh malicious cyber activity by a threat actor with ties to East Asia targeting government entities in the Middle East. The intrusions have resulted in the deployment of previously unreported malware families dubbed TELESHIM, MIXEDKEY, and BINDCLOAK, according to Zscaler ThreatLabz. The cybersecurity firm said it detected the campaign earlier this month.",
-      "date": "2026-07-27T08:48:47Z",
-      "source": "The Hacker News",
-      "category": "industry_news",
-      "tags": []
-    }
-  ]
+  "last_updated": "2026-08-01T02:09:51Z",
+  "total": 0,
+  "articles": []
 }
