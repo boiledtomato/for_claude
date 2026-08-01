@@ -18,9 +18,10 @@ Zenith Community は Salesforce Experience Cloud (Aura) の SPA で、どのURL�
   prerender  Salesforce が検索エンジン向けに返すサーバサイドレンダリング版を
              読む。質問+全回答+記事/ガイド/ブログ本文がすべて揃う唯一の経路
              だが、これを返させるには Googlebot 等のクローラを名乗る必要が
-             あり、身元を偽ることになる。既定では無効。
+             あり、身元を偽ることになる。この点を承知のうえで既定にしている。
 
-どちらを使うかは --fetch-mode で選ぶ。既定は api。
+どちらを使うかは --fetch-mode で選ぶ。既定は prerender。
+api では回答本文が取れず、更新を検知しても回答数のカウンタしか変わらない。
 
 使い方:
     pip install requests beautifulsoup4 lxml
@@ -31,8 +32,8 @@ Zenith Community は Salesforce Experience Cloud (Aura) の SPA で、どのURL�
     # 全件を取得して再構築
     python scripts/build_community_docs.py --full
 
-    # 回答・記事本文まで取り込む（クローラUAを名乗る。上記の注意を読むこと）
-    python scripts/build_community_docs.py --full --fetch-mode prerender
+    # 回答本文を諦めて Aura API だけで取る（UAを偽装しないが内容は大幅に欠ける）
+    python scripts/build_community_docs.py --full --fetch-mode api
 
     # カテゴリを絞る / 小さく試す
     python scripts/build_community_docs.py --full --categories zia --limit 5
@@ -61,6 +62,7 @@ import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import unquote
 
 import requests
 from bs4 import BeautifulSoup, NavigableString, Tag
@@ -162,13 +164,22 @@ OTHER = "other"
 # マーケティング・イベント・コミュニティ運営系は技術ナレッジではないので除外する。
 # Guides / Blogs の多くがこれに該当する。
 EXCLUDE_PATTERNS = [
-    r"\bwebinar\b", r"\bregister\b", r"\bregistration\b", r"\brsvp\b",
+    r"\bwebinar\b", r"\brsvp\b",
+    # "register" / "registration" は技術的な文脈（デバイス登録、DNSレコード登録）
+    # でも使われるため、イベント告知の言い回しに限定する
+    r"\bregister\s+(now|today|here)\b",
+    r"\bregister\s+for\s+(the\s+|a\s+|free\s+)*(webinar|event|training|session|roadshow|workshop|lab)",
+    r"\bregistration\s+(is\s+)?(now\s+)?open\b", r"\bevent\s+registration\b",
     r"zenith\s*live", r"\bzenithlive", r"\broadshow\b", r"\bmeetup\b",
     r"\bconference\b", r"\bsummit\b", r"\bkeynote\b",
     r"\d+%\s*off", r"\bdiscount\b", r"\bpromo\b", r"\bgiveaway\b",
     r"\bsweepstake", r"\braffle\b", r"\bcontest\b", r"\bswag\b",
     r"\bhappy\s+(holi|new\s+year|holidays)", r"\bseason'?s\s+greetings\b",
-    r"\bnewsletter\b", r"\bmember\s+spotlight\b", r"\bmember\s+recognition\b",
+    # "newsletter" 単体だと「更新通知を受け取る方法」のような技術的な質問も
+    # 拾ってしまうため、コミュニティ運営のニュースレターに限定する
+    r"\b(zenith|community|monthly|weekly)\s+newsletter\b",
+    r"\bnewsletter\s+(sign-?up|subscri)", r"\bunsubscribe\s+from\s+the\s+newsletter\b",
+    r"\bmember\s+spotlight\b", r"\bmember\s+recognition\b",
     r"\bcommunity\s+highlights?\b", r"\bmonthly\s+recap\b",
     r"\bcommunity\s+spotlight\b", r"\bcommunity\s+tip\b",
     r"\bauto\s+bumped\s+topics?\b", r"\bwhat\s+to\s+do\s+when\s+topic\s+is\s+closed\b",
@@ -491,7 +502,10 @@ def fetch_sitemap() -> dict[str, dict]:
                     continue
                 entries[loc] = {
                     "type": ctype, "lastmod": lastmod,
-                    "record_id": m.group(1), "slug": m.group(2),
+                    "record_id": m.group(1),
+                    # 日本語タイトルの slug は percent-encoded で入っている。
+                    # デコードしないと分類・除外判定が効かない。
+                    "slug": unquote(m.group(2)),
                 }
         print(f"[sitemap] {ctype:20s} {sum(1 for e in entries.values() if e['type'] == ctype):5d} 件")
     return entries
@@ -563,6 +577,10 @@ def fetch_via_api(aura: AuraClient, url: str, entry: dict) -> dict | None:
     }
 
 
+# 記事/ガイド/ブログのページが返す汎用 <title>
+GENERIC_TITLE_RE = re.compile(r"^(Article|Guide|Blog|Question|Topic)\s+Details$", re.I)
+POSTED_RE = re.compile(r"posted\s+an?\s+(article|guide|blog)", re.I)
+
 _NOISE_LINES = {
     "Loading", "×", "Sorry to interrupt", "CSS Error", "Refresh", "close",
     "Expand Post", "Like", "Liked", "Unlike", "Reply", "Share", "Answer",
@@ -593,6 +611,21 @@ def fetch_via_prerender(url: str, entry: dict) -> dict | None:
         if body and body[-1] == l:
             continue
         body.append(l)
+    # 記事/ガイド/ブログのページは <title> が "Article Details" のような汎用文字列で、
+    # 実タイトルは本文中にしかない。構造は
+    #   [カテゴリ, 投稿者, "(Role) posted an Article", 日付, タイトル, 本文…]
+    # なので "posted a/an <Type>" の2つ後ろを拾い、駄目なら slug から作る。
+    if not title or GENERIC_TITLE_RE.match(title):
+        title = ""
+        for i, line in enumerate(body):
+            if POSTED_RE.search(line) and i + 2 < len(body):
+                cand = body[i + 2].strip()
+                if 0 < len(cand) <= 200:
+                    title = cand
+                break
+        if not title:
+            title = slug_text(entry["slug"]).strip().title()
+
     # タイトルはヘッダーで別途出すので本文先頭の重複を落とす
     while body and title and body[0] == title:
         body.pop(0)
@@ -893,9 +926,9 @@ def main() -> int:
         description="community.zscaler.com → NotebookLM 用 Markdown")
     ap.add_argument("--full", action="store_true",
                     help="差分ではなく全件を取得して再構築する")
-    ap.add_argument("--fetch-mode", choices=["api", "prerender"], default="api",
-                    help="api: Aura UI API（既定・質問本文のみ） / "
-                         "prerender: クローラ向けSSR（全文だがUAを偽装する）")
+    ap.add_argument("--fetch-mode", choices=["api", "prerender"], default="prerender",
+                    help="prerender: クローラ向けSSR（既定・全文だがUAを偽装する） / "
+                         "api: Aura UI API（質問本文のみ、回答・記事本文は取得不可）")
     ap.add_argument("--categories", nargs="*", metavar="STEM",
                     help="対象カテゴリを絞る")
     ap.add_argument("--limit", type=int, default=0,
