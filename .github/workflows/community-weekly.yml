@@ -1,0 +1,143 @@
+name: Zenith Community Docs Weekly Update
+
+on:
+  schedule:
+    # 毎週月曜 10:00 JST (月曜 01:00 UTC)
+    # notebooklm-weekly.yml (00:00 UTC) と 1 時間ずらし、push の衝突を避ける
+    - cron: "0 1 * * 1"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "incremental = 変更分のみ / full = 全件を再取得"
+        type: choice
+        options: [incremental, full]
+        default: incremental
+      fetch_mode:
+        description: "api = Aura UI API（質問本文のみ） / prerender = 全文（クローラUAを名乗る）"
+        type: choice
+        options: [api, prerender]
+        default: api
+      categories:
+        description: "対象カテゴリ（空欄で全て。例: zia zpa api）"
+        type: string
+        default: ""
+      sync:
+        description: "NotebookLM への同期"
+        type: choice
+        options: [enabled, dry-run, skip]
+        default: enabled
+
+permissions:
+  contents: write
+
+concurrency:
+  group: community-docs
+  cancel-in-progress: false
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    # 差分更新は数分。mode=full の全 3,800 件取得は api で 20 分前後、
+    # prerender では 1 ページあたりの転送量が大きいぶん長くなる。
+    timeout-minutes: 180
+
+    # secrets は if: 条件で直接参照できないので、job の env に持ち上げて判定する
+    env:
+      NOTEBOOKLM_STORAGE_STATE_JSON: ${{ secrets.NOTEBOOKLM_STORAGE_STATE_JSON }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml certifi
+
+      - name: Build / update community docs
+        # inputs は env 経由で渡す（run: に直接展開するとシェルに解釈されてしまう）
+        env:
+          MODE: ${{ inputs.mode }}
+          FETCH_MODE: ${{ inputs.fetch_mode }}
+          CATEGORIES: ${{ inputs.categories }}
+        run: |
+          set --
+          if [ "$MODE" = "full" ]; then
+            set -- --full
+          fi
+          if [ -n "$FETCH_MODE" ]; then
+            set -- "$@" --fetch-mode "$FETCH_MODE"
+          fi
+          if [ -n "$CATEGORIES" ]; then
+            # 空白区切りのカテゴリ名を個別の引数に展開する
+            set -- "$@" --categories $CATEGORIES
+          fi
+          python scripts/build_community_docs.py "$@"
+
+      - name: Commit updated docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add community_docs data/community_docs_index.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: Zenith Community 週次更新 $(date -u '+%Y-%m-%d')"
+            for i in 1 2 3 4; do
+              git push origin HEAD && break
+              echo "push failed, retrying in $((2 ** i))s"
+              sleep $((2 ** i))
+            done
+          fi
+
+      # ヘルプドキュメントとは別のノートブック・別の状態ファイルを使う。
+      # 状態ファイルを共有すると、片方の実行がもう片方のソースを削除してしまう。
+      - name: Sync to NotebookLM
+        if: ${{ env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && inputs.sync != 'skip' }}
+        env:
+          SYNC_MODE: ${{ inputs.sync }}
+        run: |
+          pip install notebooklm-py
+          printf '%s' "$NOTEBOOKLM_STORAGE_STATE_JSON" > "$RUNNER_TEMP/storage_state.json"
+          export NOTEBOOKLM_STORAGE_STATE="$RUNNER_TEMP/storage_state.json"
+          set -- \
+            --docs-dir community_docs \
+            --state-file data/community_notebooklm_sync_state.json \
+            --notebook-title "Zscaler_community"
+          if [ "$SYNC_MODE" = "dry-run" ]; then
+            set -- "$@" --dry-run
+          fi
+          python scripts/sync_notebooklm.py "$@"
+
+      - name: Commit sync state
+        # schedule 実行では inputs が空になるため、"dry-run/skip でないこと" で判定する
+        if: ${{ always() && env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && inputs.sync != 'dry-run' && inputs.sync != 'skip' }}
+        run: |
+          git add data/community_notebooklm_sync_state.json
+          if git diff --staged --quiet; then
+            echo "No sync state changes"
+          else
+            git commit -m "chore: Zenith Community 同期状態を更新 $(date -u '+%Y-%m-%d')"
+            for i in 1 2 3 4; do
+              git push origin HEAD && break
+              echo "push failed, retrying in $((2 ** i))s"
+              sleep $((2 ** i))
+            done
+          fi
+
+      - name: Notify that manual upload is needed
+        if: ${{ env.NOTEBOOKLM_STORAGE_STATE_JSON == '' }}
+        run: |
+          {
+            echo "### NotebookLM への取り込み"
+            echo
+            echo "\`NOTEBOOKLM_STORAGE_STATE_JSON\` secret が未設定のため、同期はスキップしました。"
+            echo "更新されたファイルを \`community_docs/\` から手動でアップロードしてください。"
+            echo
+            echo "> ヘルプドキュメントとは**別のノートブック** (\`Zscaler_community\`) に"
+            echo "> 読み込んでください。査読されていないフォーラム投稿を公式ドキュメントと"
+            echo "> 同じノートに混ぜると、誤った回答を権威づけてしまいます。"
+          } >> "$GITHUB_STEP_SUMMARY"
