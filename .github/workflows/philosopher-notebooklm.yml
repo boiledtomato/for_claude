@@ -68,7 +68,16 @@ jobs:
           if [ -n "$(git status --porcelain data/philosopher_notebooklm_sync_state.json)" ]; then
             git add data/philosopher_notebooklm_sync_state.json
             git commit -m "chore: 哲学者リソース NotebookLM 同期状態を更新 $(date -u +%Y-%m-%d)"
-            git push
+            # 投入に20分以上かかるので、その間に別のコミットが載っていることがある。
+            # fetch-depth:1 の浅いクローンなので unshallow してから rebase する。
+            for i in 1 2 3; do
+              git push && exit 0
+              git fetch --unshallow origin "$GITHUB_REF_NAME" 2>/dev/null \
+                || git fetch origin "$GITHUB_REF_NAME"
+              git rebase "origin/$GITHUB_REF_NAME" || exit 1
+            done
+            echo "push に3回失敗しました" >&2
+            exit 1
           else
             echo "同期状態に変化なし"
           fi
