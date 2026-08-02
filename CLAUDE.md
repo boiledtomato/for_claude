@@ -410,6 +410,28 @@ python scripts/build_philosopher_docs.py --check --write-status   # verify all l
 `philosopher_docs` is excluded from the GitHub Pages tar in `daily-update.yml` — it is
 unrelated to the Zscaler dashboard.
 
+### `scripts/sync_philosopher_notebooklm.py`
+
+Registers the philosopher links themselves as NotebookLM **web sources** —
+`client.sources.add_url()`, not the file upload path `sync_notebooklm.py` uses. The
+Markdown files are link lists, so uploading them would give NotebookLM the citations
+without the texts they point at.
+
+| | |
+|---|---|
+| Notebook | `哲学者リソース` (`--notebook-title` / `PHILOSOPHER_NOTEBOOK_TITLE`) |
+| Sources | the 127 unique URLs in `data/philosophers.json` |
+| State | `data/philosopher_notebooklm_sync_state.json` |
+| Auth | same `NOTEBOOKLM_STORAGE_STATE` storage_state as `sync_notebooklm.py` |
+| Workflow | `.github/workflows/philosopher-notebooklm.yml` (manual dispatch) |
+
+Adding is idempotent — existing sources are matched by `Source.url` and skipped, so the
+workflow can be re-run safely. `--write-url-list` regenerates `data/philosopher_urls.txt`
+for pasting into NotebookLM's "ウェブサイト" dialog by hand, and needs no auth.
+
+**A free NotebookLM account allows 50 sources per notebook**, so all 127 in one notebook
+requires Pro. Split with `--eras <id…>` plus a distinct `--notebook-title` otherwise.
+
 ## Development Workflows
 
 ### Running the fetch script locally
