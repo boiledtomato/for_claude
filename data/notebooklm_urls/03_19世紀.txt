@@ -1,0 +1,26 @@
+# NotebookLM 手動投入用のURL一覧
+# NotebookLM →「ソースを追加」→「ウェブサイト」に、# 以外の行をまとめて貼り付ける
+# 生成: 2026-08-02 / 20 件
+
+
+# ── 06_19世紀 ──
+https://archive.org/download/cu31924091023832/cu31924091023832.pdf
+https://plato.stanford.edu/entries/hegel/
+https://www.earlymoderntexts.com/assets/pdfs/schopenhauer1818.pdf
+https://www.earlymoderntexts.com/assets/pdfs/schopenhauer1818bookiv.pdf
+https://plato.stanford.edu/entries/schopenhauer/
+https://archive.org/download/selectionsfromwr00kieruoft/selectionsfromwr00kieruoft.pdf
+https://plato.stanford.edu/entries/kierkegaard/
+https://www.earlymoderntexts.com/assets/pdfs/mill1859.pdf
+https://www.earlymoderntexts.com/assets/pdfs/mill1863.pdf
+https://www.earlymoderntexts.com/assets/pdfs/mill1873a.pdf
+https://plato.stanford.edu/entries/mill/
+https://archive.org/download/the-communist-manifesto_202507/The%20Communist%20Manifesto.pdf
+https://plato.stanford.edu/entries/marx/
+https://archive.org/download/thusspokezarathu00nietuoft/thusspokezarathu00nietuoft.pdf
+https://archive.org/download/genealogyofmoral00niet/genealogyofmoral00niet.pdf
+https://plato.stanford.edu/entries/nietzsche/
+https://iep.utm.edu/nietzsch/
+https://www.earlymoderntexts.com/assets/pdfs/james.pdf
+https://archive.org/download/in.ernet.dli.2015.206383/2015.206383.Pragmatism.pdf
+https://plato.stanford.edu/entries/james/

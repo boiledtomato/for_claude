@@ -431,6 +431,8 @@ for pasting into NotebookLM's "ウェブサイト" dialog by hand, and needs no 
 
 **A free NotebookLM account allows 50 sources per notebook**, so all 127 in one notebook
 requires Pro. Split with `--eras <id…>` plus a distinct `--notebook-title` otherwise.
+`data/notebooklm_urls/` holds the four-notebook split used for the free tier (40 / 33 /
+20 / 34 sources); regenerate it with `--write-url-list --eras … --out …`.
 
 ## Development Workflows
 

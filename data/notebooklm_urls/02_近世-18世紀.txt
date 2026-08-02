@@ -1,0 +1,41 @@
+# NotebookLM 手動投入用のURL一覧
+# NotebookLM →「ソースを追加」→「ウェブサイト」に、# 以外の行をまとめて貼り付ける
+# 生成: 2026-08-02 / 33 件
+
+
+# ── 04_16-17世紀 ──
+https://www.earlymoderntexts.com/assets/pdfs/montaigne1580book1.pdf
+https://www.earlymoderntexts.com/assets/pdfs/montaigne1580book2.pdf
+https://www.earlymoderntexts.com/assets/pdfs/montaigne1588book3.pdf
+https://plato.stanford.edu/entries/montaigne/
+https://www.earlymoderntexts.com/assets/pdfs/machiavelli1532.pdf
+https://plato.stanford.edu/entries/machiavelli/
+https://www.earlymoderntexts.com/assets/pdfs/descartes1641.pdf
+https://www.earlymoderntexts.com/assets/pdfs/descartes1637.pdf
+https://www.earlymoderntexts.com/assets/pdfs/descartes1649.pdf
+https://plato.stanford.edu/entries/descartes/
+https://www.earlymoderntexts.com/assets/pdfs/pascal1660.pdf
+https://plato.stanford.edu/entries/pascal/
+https://www.earlymoderntexts.com/assets/pdfs/spinoza1665.pdf
+https://www.earlymoderntexts.com/assets/pdfs/spinoza1665part3.pdf
+https://www.earlymoderntexts.com/assets/pdfs/spinoza1665part4.pdf
+https://plato.stanford.edu/entries/spinoza/
+https://www.earlymoderntexts.com/assets/pdfs/hobbes1651part1.pdf
+https://www.earlymoderntexts.com/assets/pdfs/hobbes1651part2.pdf
+https://plato.stanford.edu/entries/hobbes/
+https://www.earlymoderntexts.com/assets/pdfs/locke1690book2.pdf
+https://www.earlymoderntexts.com/assets/pdfs/locke1689a.pdf
+https://plato.stanford.edu/entries/locke/
+
+# ── 05_18世紀 ──
+https://www.earlymoderntexts.com/assets/pdfs/hume1748.pdf
+https://www.earlymoderntexts.com/assets/pdfs/hume1739book2.pdf
+https://plato.stanford.edu/entries/hume/
+https://www.earlymoderntexts.com/assets/pdfs/rousseau1762.pdf
+https://www.earlymoderntexts.com/assets/pdfs/rousseau1762book1.pdf
+https://plato.stanford.edu/entries/rousseau/
+https://www.earlymoderntexts.com/assets/pdfs/smith1759.pdf
+https://plato.stanford.edu/entries/smith-moral-political/
+https://www.earlymoderntexts.com/assets/pdfs/kant1785.pdf
+https://www.earlymoderntexts.com/assets/pdfs/kant1795.pdf
+https://plato.stanford.edu/entries/kant/

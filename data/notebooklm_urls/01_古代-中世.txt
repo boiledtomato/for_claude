@@ -1,0 +1,50 @@
+# NotebookLM 手動投入用のURL一覧
+# NotebookLM →「ソースを追加」→「ウェブサイト」に、# 以外の行をまとめて貼り付ける
+# 生成: 2026-08-02 / 40 件
+
+
+# ── 01_紀元前 ──
+https://archive.org/download/bub_gb_oJ49Fe-drvcC/bub_gb_oJ49Fe-drvcC.pdf
+https://plato.stanford.edu/entries/confucius/
+https://iep.utm.edu/confucius/
+https://archive.org/download/laotzestaotehkin00laoz/laotzestaotehkin00laoz.pdf
+https://plato.stanford.edu/entries/laozi/
+https://iep.utm.edu/laozi/
+https://archive.org/download/musingsachinese00gilegoog/musingsachinese00gilegoog.pdf
+https://plato.stanford.edu/entries/zhuangzi/
+https://archive.org/download/in.ernet.dli.2015.310501/2015.310501.The-Dhammapada.pdf
+https://archive.org/download/wg910/WG910-1881%20-The%20Sacred%20Books%20of%20East%20-%20Vol%2010%20of%2050-Buddhism-Dhammapada%20And%20Sutta%20Nipata.pdf
+https://plato.stanford.edu/entries/buddha/
+https://archive.org/download/dialoguesofplato01plat_0/dialoguesofplato01plat_0.pdf
+https://plato.stanford.edu/entries/socrates/
+https://iep.utm.edu/socrates/
+https://archive.org/download/dialoguesofpla04plat/dialoguesofpla04plat.pdf
+https://plato.stanford.edu/entries/plato/
+https://archive.org/download/cu31924028995914/cu31924028995914.pdf
+https://plato.stanford.edu/entries/aristotle/
+https://iep.utm.edu/aristotle-ethics/
+https://archive.org/download/epicurussmorals00epic/epicurussmorals00epic.pdf
+https://plato.stanford.edu/entries/epicurus/
+https://iep.utm.edu/epicur/
+
+# ── 02_1-5世紀_古代ローマ ──
+https://archive.org/download/cu31924026554281/cu31924026554281.pdf
+https://archive.org/download/dialogues02seneuoft/dialogues02seneuoft.pdf
+https://plato.stanford.edu/entries/seneca/
+https://archive.org/download/selectionsfromdi00epicuoft/selectionsfromdi00epicuoft.pdf
+https://plato.stanford.edu/entries/epictetus/
+https://iep.utm.edu/stoicism/
+https://archive.org/download/meditationsofemp00marcuoft/meditationsofemp00marcuoft.pdf
+https://archive.org/download/thoughtsofempero00marcuoft/thoughtsofempero00marcuoft.pdf
+https://plato.stanford.edu/entries/marcus-aurelius/
+https://archive.org/download/TheConfessionsOfStAugustine/TheConfessionsOfStAugustine.pdf
+https://plato.stanford.edu/entries/augustine/
+https://iep.utm.edu/augustine/
+
+# ── 03_6-15世紀_中世 ──
+https://archive.org/download/b24862617/b24862617.pdf
+https://plato.stanford.edu/entries/boethius/
+https://iep.utm.edu/boethius/
+https://archive.org/download/in.ernet.dli.2015.52352/2015.52352.Summa-Theologica-Of-St-Thomas-Aquinas.pdf
+https://plato.stanford.edu/entries/aquinas/
+https://iep.utm.edu/aquinas/

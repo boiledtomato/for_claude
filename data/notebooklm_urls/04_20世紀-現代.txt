@@ -1,0 +1,42 @@
+# NotebookLM 手動投入用のURL一覧
+# NotebookLM →「ソースを追加」→「ウェブサイト」に、# 以外の行をまとめて貼り付ける
+# 生成: 2026-08-02 / 34 件
+
+
+# ── 07_20世紀 ──
+https://archive.org/download/problemsofphilo00russuoft/problemsofphilo00russuoft.pdf
+https://plato.stanford.edu/entries/russell/
+https://people.umass.edu/klement/tlp/tlp.pdf
+https://archive.org/download/in.ernet.dli.2015.218466/2015.218466.Tractatus-Logico.pdf
+https://plato.stanford.edu/entries/wittgenstein/
+https://plato.stanford.edu/entries/heidegger/
+https://iep.utm.edu/heidegge/
+https://plato.stanford.edu/entries/sartre/
+https://iep.utm.edu/sartre-ex/
+https://plato.stanford.edu/entries/camus/
+https://iep.utm.edu/camus/
+https://plato.stanford.edu/entries/beauvoir/
+https://iep.utm.edu/beauvoir/
+https://plato.stanford.edu/entries/arendt/
+https://iep.utm.edu/arendt/
+https://www.hannaharendt.net/index.php/han
+https://www.viktorfrankl.org/
+https://pmc.ncbi.nlm.nih.gov/articles/PMC6587911/
+https://www.aozora.gr.jp/cards/000182/card946.html
+https://www.aozora.gr.jp/cards/000182/card3506.html
+https://www.aozora.gr.jp/index_pages/person182.html
+https://plato.stanford.edu/entries/nishida-kitaro/
+https://www.aozora.gr.jp/cards/000218/card46845.html
+https://www.aozora.gr.jp/index_pages/person218.html
+https://web.mit.edu/allanmc/www/foucault1.pdf
+https://plato.stanford.edu/entries/foucault/
+https://iep.utm.edu/foucault/
+https://plato.stanford.edu/entries/rawls/
+https://iep.utm.edu/rawls/
+
+# ── 08_20世紀後半-現代 ──
+https://hceconomics.uchicago.edu/sites/default/files/pdf/events/Nussbaum_2003_capabilities_fundamental.pdf
+https://chicagounbound.uchicago.edu/cgi/viewcontent.cgi?article=1056&context=public_law_and_legal_theory
+https://terpconnect.umd.edu/~dcrocker/Courses/Docs/Singer-Famine%20Affluence%20Morality.pdf
+https://www.utilitarianism.net/pdf/Peter_Singer_Utilitarianism_net.pdf
+https://en.wikipedia.org/wiki/Byung-Chul_Han

@@ -65,8 +65,12 @@ def collect_urls(data: dict[str, Any], eras: set[str] | None) -> list[dict[str, 
     return out
 
 
-def write_url_list(entries: list[dict[str, str]]) -> None:
+def write_url_list(entries: list[dict[str, str]], out: Path | None = None) -> None:
     """NotebookLM の「ウェブサイト」ソース追加欄にまとめて貼れる形式で書き出す。"""
+    if out is None:
+        path = URL_LIST_FILE
+    else:
+        path = out if out.is_absolute() else ROOT / out
     lines = [
         "# NotebookLM 手動投入用のURL一覧",
         "# NotebookLM →「ソースを追加」→「ウェブサイト」に、# 以外の行をまとめて貼り付ける",
@@ -79,8 +83,9 @@ def write_url_list(entries: list[dict[str, str]]) -> None:
             current_era = e["era"]
             lines.append(f"\n# ── {current_era} ──")
         lines.append(e["url"])
-    URL_LIST_FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"{len(entries)} 件のURLを {URL_LIST_FILE.relative_to(ROOT)} に書き出しました")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"{len(entries)} 件のURLを {path.relative_to(ROOT)} に書き出しました")
 
 
 def load_state(path: Path) -> dict[str, Any]:
@@ -230,11 +235,15 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--write-url-list", action="store_true",
                     help="手動貼り付け用のURL一覧を書き出して終了する")
+    ap.add_argument("--out", help="--write-url-list の出力先（省略時は data/philosopher_urls.txt）")
     args = ap.parse_args()
 
     if args.write_url_list:
         data = load_data()
-        write_url_list(collect_urls(data, set(args.eras) if args.eras else None))
+        write_url_list(
+            collect_urls(data, set(args.eras) if args.eras else None),
+            Path(args.out) if args.out else None,
+        )
         return 0
 
     return asyncio.run(sync(args))
