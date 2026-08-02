@@ -430,9 +430,30 @@ workflow can be re-run safely. `--write-url-list` regenerates `data/philosopher_
 for pasting into NotebookLM's "ウェブサイト" dialog by hand, and needs no auth.
 
 **A free NotebookLM account allows 50 sources per notebook**, so all 127 in one notebook
-requires Pro. Split with `--eras <id…>` plus a distinct `--notebook-title` otherwise.
-`data/notebooklm_urls/` holds the four-notebook split used for the free tier (40 / 33 /
-20 / 34 sources); regenerate it with `--write-url-list --eras … --out …`.
+requires Pro. `FREE_TIER_GROUPS` in the script defines the four-notebook split actually in
+use (40 / 33 / 20 / 34 sources) and `--all-groups` fills all four in one run — that is what
+the workflow does. `data/notebooklm_urls/` holds the same split as paste-ready text files;
+regenerate with `--write-url-list --eras … --out …`.
+
+**The workflow also has a `push` trigger** on `.github/philosopher-notebooklm.trigger`,
+because `workflow_dispatch` only starts workflows that exist on the default branch. Until
+this lands on `main`, touching that trigger file and pushing is how the sync is started;
+the `paths` filter keeps ordinary commits from firing it. On a `push` run `inputs` is
+empty, so the job defaults `MODE` to `apply`.
+
+### Weekly maintenance routine
+
+A Claude routine (`trig_01PPEH278hhe3tsW18XM4vwZ`, Mondays 02:00 UTC = 11:00 JST, one hour
+after `community-weekly.yml`) re-checks all 127 links, replaces dead ones, regenerates the
+Markdown, pushes, and touches the NotebookLM trigger when links changed.
+
+Two limits it works around, both worth knowing before extending it:
+
+- The routine's sessions carry **no MCP connectors**, so they can do git over Bash but
+  cannot reach Google Drive. Drive work is reported back rather than performed.
+- The Drive connector exposes no update or delete call, only `create_file`. New
+  philosophers can be added as new Docs; **an existing Doc whose content changed cannot be
+  rewritten**, so the routine lists what went stale instead of creating duplicates.
 
 ## Development Workflows
 
