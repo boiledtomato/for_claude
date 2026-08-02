@@ -36,6 +36,19 @@ URL_LIST_FILE = ROOT / "data" / "philosopher_urls.txt"
 DEFAULT_TITLE = "哲学者リソース"
 ADD_DELAY = 1.0  # 連続投入で弾かれないための間隔（秒）
 
+# 無料アカウントの上限（1ノートブック50ソース）に収まる4分割。
+# --all-groups で全グループを順に処理する。件数は 40 / 33 / 20 / 34。
+FREE_TIER_GROUPS: list[tuple[str, list[str]]] = [
+    ("哲学者リソース_01_古代-中世",
+     ["01_紀元前", "02_1-5世紀_古代ローマ", "03_6-15世紀_中世"]),
+    ("哲学者リソース_02_近世-18世紀",
+     ["04_16-17世紀", "05_18世紀"]),
+    ("哲学者リソース_03_19世紀",
+     ["06_19世紀"]),
+    ("哲学者リソース_04_20世紀-現代",
+     ["07_20世紀", "08_20世紀後半-現代"]),
+]
+
 
 def load_data() -> dict[str, Any]:
     return json.loads(DATA_FILE.read_text(encoding="utf-8"))
@@ -141,14 +154,72 @@ async def resolve_notebook(client, title: str, state: dict, dry_run: bool):
     return nb
 
 
+async def sync_notebook(client, title, entries, state, dry_run) -> tuple[int, int, list[str]]:
+    """1つのノートブックにURLを追加する。戻り値は (追加, スキップ, 失敗)。"""
+    print(f"\n=== {title} — 対象 {len(entries)} 件 ===")
+    nb_state = state.setdefault(title, {})
+
+    nb = await resolve_notebook(client, title, nb_state, dry_run)
+    if nb is None:
+        for e in entries:
+            print(f"  [ADD] {e['philosopher']} / {e['title']}")
+        return len(entries), 0, []
+
+    remote = await client.sources.list(nb.id)
+    existing_urls = {getattr(s, "url", None) for s in remote}
+    print(f"[sources] 既存ソース: {len(remote)} 件")
+
+    added = skipped = 0
+    failures: list[str] = []
+    recorded: dict[str, Any] = nb_state.get("sources") or {}
+
+    for e in entries:
+        if e["url"] in existing_urls:
+            skipped += 1
+            continue
+        if dry_run:
+            print(f"  [ADD] {e['philosopher']} / {e['title']}")
+            added += 1
+            continue
+        try:
+            src = await client.sources.add_url(nb.id, e["url"], wait=False)
+            recorded[e["url"]] = {
+                "source_id": getattr(src, "id", None),
+                "title": e["title"],
+                "philosopher": e["philosopher"],
+                "era": e["era"],
+            }
+            added += 1
+            print(f"  [ADD] {e['philosopher']} / {e['title']}")
+        except Exception as exc:  # 1件の失敗で全体を止めない
+            failures.append(f"{title}: {e['url']} — {exc}")
+            print(f"  [SKIP] {e['url']}\n         {exc}")
+        await asyncio.sleep(ADD_DELAY)
+
+    if not dry_run:
+        nb_state["notebook"] = {"id": nb.id, "title": nb.title}
+        nb_state["sources"] = recorded
+        nb_state["synced_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    print(f"--- {title}: 追加 {added} / 既存スキップ {skipped} / 失敗 {len(failures)}")
+    return added, skipped, failures
+
+
 async def sync(args) -> int:
     from notebooklm import NotebookLMClient
 
     data = load_data()
-    entries = collect_urls(data, set(args.eras) if args.eras else None)
-    if args.limit:
-        entries = entries[: args.limit]
-    print(f"投入対象: {len(entries)} 件のURL")
+
+    if args.all_groups:
+        targets = [(t, collect_urls(data, set(eras))) for t, eras in FREE_TIER_GROUPS]
+    else:
+        entries = collect_urls(data, set(args.eras) if args.eras else None)
+        if args.limit:
+            entries = entries[: args.limit]
+        targets = [(args.notebook_title, entries)]
+
+    total = sum(len(e) for _, e in targets)
+    print(f"投入対象: {len(targets)} ノートブック / 合計 {total} 件のURL")
 
     state_file = Path(args.state_file)
     state = load_state(state_file)
@@ -167,57 +238,25 @@ async def sync(args) -> int:
         except Exception as exc:
             print(f"[account] 上限情報は取得できませんでした: {exc}")
 
-        if limit_hint and len(entries) > limit_hint:
-            print(
-                f"[WARN] ソース数 {len(entries)} がノートブックの上限 {limit_hint} を超えています。"
-                f"--eras で時代ごとに分けるか、Pro へのアップグレードが必要です。"
-            )
-
-        nb = await resolve_notebook(client, args.notebook_title, state, args.dry_run)
-        if nb is None:
-            for e in entries:
-                print(f"  [ADD] {e['philosopher']} / {e['title']}\n        {e['url']}")
-            print(f"\n(dry-run) 追加 {len(entries)} 件")
-            return 0
-
-        remote = await client.sources.list(nb.id)
-        existing_urls = {getattr(s, "url", None) for s in remote}
-        print(f"[sources] 既存ソース: {len(remote)} 件")
+        for title, entries in targets:
+            if limit_hint and len(entries) > limit_hint:
+                print(
+                    f"[WARN] {title}: ソース数 {len(entries)} が上限 {limit_hint} を"
+                    f"超えています。分割の見直しが必要です。"
+                )
 
         added = skipped = 0
         failures: list[str] = []
-        recorded: dict[str, Any] = state.get("sources") or {}
-
-        for e in entries:
-            if e["url"] in existing_urls:
-                skipped += 1
-                continue
-            if args.dry_run:
-                print(f"  [ADD] {e['philosopher']} / {e['title']}")
-                added += 1
-                continue
-            try:
-                src = await client.sources.add_url(nb.id, e["url"], wait=False)
-                recorded[e["url"]] = {
-                    "source_id": getattr(src, "id", None),
-                    "title": e["title"],
-                    "philosopher": e["philosopher"],
-                    "era": e["era"],
-                }
-                added += 1
-                print(f"  [ADD] {e['philosopher']} / {e['title']}")
-            except Exception as exc:  # 1件の失敗で全体を止めない
-                failures.append(f"{e['url']} — {exc}")
-                print(f"  [SKIP] {e['url']}\n         {exc}")
-            await asyncio.sleep(ADD_DELAY)
+        for title, entries in targets:
+            a, s, f = await sync_notebook(client, title, entries, state, args.dry_run)
+            added += a
+            skipped += s
+            failures += f
 
         if not args.dry_run:
-            state["notebook"] = {"id": nb.id, "title": nb.title}
-            state["sources"] = recorded
-            state["synced_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
             save_state(state_file, state)
 
-        print(f"\n追加 {added} / 既存でスキップ {skipped} / 失敗 {len(failures)}")
+        print(f"\n合計: 追加 {added} / 既存でスキップ {skipped} / 失敗 {len(failures)}")
         if failures:
             print("失敗した URL:")
             for f in failures:
@@ -231,6 +270,8 @@ def main() -> int:
         "PHILOSOPHER_NOTEBOOK_TITLE", DEFAULT_TITLE))
     ap.add_argument("--state-file", default=str(STATE_FILE))
     ap.add_argument("--eras", nargs="*", help="対象の時代フォルダID（例: 01_紀元前）")
+    ap.add_argument("--all-groups", action="store_true",
+                    help="FREE_TIER_GROUPS の4ノートブックへまとめて投入する")
     ap.add_argument("--limit", type=int, help="先頭N件だけ投入（動作確認用）")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--write-url-list", action="store_true",

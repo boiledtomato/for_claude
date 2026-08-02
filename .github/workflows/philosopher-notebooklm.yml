@@ -1,26 +1,27 @@
 name: Philosopher NotebookLM Sync
 
-# 哲学者リソース集の全URLを NotebookLM のノートブックにソースとして登録する。
-# 手動実行のみ。ソースの追加は冪等（既にあるURLはスキップ）なので、
-# 何度流しても重複しない。
+# 哲学者リソース集の全URLを NotebookLM にウェブソースとして登録する。
+# 無料アカウントの上限（1ノートブック50ソース）に合わせ、既定では
+# FREE_TIER_GROUPS の4ノートブックへ分けて投入する。
+# 追加は冪等（既にあるURLはスキップ）なので何度流しても重複しない。
+#
+# workflow_dispatch はデフォルトブランチにあるファイルしか起動できないため、
+# このワークフローが main にマージされるまでは trigger ファイルへの push で走らせる。
 
 on:
   workflow_dispatch:
     inputs:
-      notebook_title:
-        description: "ノートブックのタイトル"
-        required: false
-        default: "哲学者リソース"
-      eras:
-        description: "対象の時代フォルダID（空白区切り。空なら全時代）"
-        required: false
-        default: ""
       mode:
         description: "dry-run なら追加せず一覧だけ表示"
         required: false
         type: choice
         options: [apply, dry-run]
         default: dry-run
+  push:
+    branches:
+      - claude/philosopher-resources-collection-xcob5o
+    paths:
+      - .github/philosopher-notebooklm.trigger
 
 permissions:
   contents: write
@@ -28,9 +29,11 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     env:
       NOTEBOOKLM_STORAGE_STATE_JSON: ${{ secrets.NOTEBOOKLM_STORAGE_STATE_JSON }}
+      # push で起動したときは inputs が空になるので apply を既定にする
+      MODE: ${{ inputs.mode || 'apply' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -47,19 +50,18 @@ jobs:
           pip install notebooklm-py
           printf '%s' "$NOTEBOOKLM_STORAGE_STATE_JSON" > "$RUNNER_TEMP/storage_state.json"
           export NOTEBOOKLM_STORAGE_STATE="$RUNNER_TEMP/storage_state.json"
-          ARGS="--notebook-title '${{ inputs.notebook_title }}'"
-          if [ -n "${{ inputs.eras }}" ]; then ARGS="$ARGS --eras ${{ inputs.eras }}"; fi
-          if [ "${{ inputs.mode }}" = "dry-run" ]; then ARGS="$ARGS --dry-run"; fi
-          eval python scripts/sync_philosopher_notebooklm.py $ARGS | tee sync.log
+          ARGS="--all-groups"
+          if [ "$MODE" = "dry-run" ]; then ARGS="$ARGS --dry-run"; fi
+          python scripts/sync_philosopher_notebooklm.py $ARGS 2>&1 | tee sync.log
           {
-            echo "## NotebookLM 同期結果"
+            echo "## NotebookLM 同期結果 (mode=$MODE)"
             echo '```'
-            tail -30 sync.log
+            grep -E '^(===|---|合計|\[account\]|\[notebook\]|\[WARN\]|失敗|  - )' sync.log | head -60
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit sync state
-        if: ${{ always() && env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && inputs.mode == 'apply' }}
+        if: ${{ always() && env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && env.MODE == 'apply' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -80,6 +82,6 @@ jobs:
             echo "\`NOTEBOOKLM_STORAGE_STATE_JSON\` secret が未設定です。"
             echo "設定手順は \`docs/notebooklm-setup.md\` を参照してください。"
             echo ""
-            echo "手動で入れる場合は \`data/philosopher_urls.txt\` の URL 行を"
-            echo "NotebookLM の「ソースを追加 → ウェブサイト」にまとめて貼り付けてください。"
+            echo "手動で入れる場合は \`data/notebooklm_urls/*.txt\` の URL 行を"
+            echo "NotebookLM の「ソースを追加 → ウェブサイト」に貼り付けてください。"
           } >> "$GITHUB_STEP_SUMMARY"
