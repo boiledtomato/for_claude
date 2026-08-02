@@ -1,0 +1,849 @@
+{
+  "title": "Podcast用 哲学者リソース集",
+  "description": "「悩み」に向き合うポッドキャストの下調べ用。哲学者1名につき1ファイル、時代ごとのフォルダに配置する。リンクは原則として一次資料のPDF（パブリックドメイン or 権利者公開）を優先し、入手できない場合は学術的な解説（SEP/IEP等）で補う。",
+  "eras": [
+    {
+      "id": "01_紀元前",
+      "label": "紀元前（古代ギリシア・古代中国・古代インド）",
+      "philosophers": [
+        {
+          "name_ja": "孔子",
+          "name_en": "Confucius",
+          "life": "紀元前551頃 – 紀元前479頃",
+          "region": "中国（魯）",
+          "keywords": ["仁", "礼", "君子", "学び"],
+          "themes": [
+            "人間関係の距離感・立場と役割に悩むとき",
+            "「立派な人間とは何か」を日々の振る舞いに落とすとき",
+            "学び続けることの意味"
+          ],
+          "links": [
+            {"title": "The Chinese Classics Vol.1（論語・大学・中庸、James Legge英訳・漢文対訳、1861）", "url": "https://archive.org/download/bub_gb_oJ49Fe-drvcC/bub_gb_oJ49Fe-drvcC.pdf", "kind": "一次資料", "format": "PDF", "lang": "英/漢", "note": "約34MB。論語全文の対訳と注釈"},
+            {"title": "Stanford Encyclopedia of Philosophy: Confucius", "url": "https://plato.stanford.edu/entries/confucius/", "kind": "解説", "format": "HTML", "lang": "英", "note": "学術標準の概説"},
+            {"title": "Internet Encyclopedia of Philosophy: Confucius", "url": "https://iep.utm.edu/confucius/", "kind": "解説", "format": "HTML", "lang": "英", "note": "SEPより平易"}
+          ]
+        },
+        {
+          "name_ja": "老子",
+          "name_en": "Laozi",
+          "life": "紀元前6世紀頃（実在・成立年代には諸説）",
+          "region": "中国",
+          "keywords": ["道", "無為自然", "柔弱", "足るを知る"],
+          "themes": [
+            "頑張っても報われない／力みすぎている感覚",
+            "競争から降りる、という選択肢",
+            "「何もしない」ことの積極的な意味"
+          ],
+          "links": [
+            {"title": "Lao-tze's Tao-teh-king（道徳経、Paul Carus 漢英対訳、1898）", "url": "https://archive.org/download/laotzestaotehkin00laoz/laotzestaotehkin00laoz.pdf", "kind": "一次資料", "format": "PDF", "lang": "英/漢", "note": "逐語訳付き。約13MB"},
+            {"title": "Stanford Encyclopedia of Philosophy: Laozi", "url": "https://plato.stanford.edu/entries/laozi/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Laozi", "url": "https://iep.utm.edu/laozi/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "荘子",
+          "name_en": "Zhuangzi",
+          "life": "紀元前369頃 – 紀元前286頃",
+          "region": "中国（宋）",
+          "keywords": ["万物斉同", "胡蝶の夢", "無用の用", "遊"],
+          "themes": [
+            "自分の価値観が絶対ではないと気づきたいとき",
+            "役に立たないことへの引け目",
+            "生き死にへの不安"
+          ],
+          "links": [
+            {"title": "Musings of a Chinese Mystic（荘子選訳、Herbert Giles訳、1906）", "url": "https://archive.org/download/musingsachinese00gilegoog/musingsachinese00gilegoog.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "1.3MBと軽量。抜粋集なので通読しやすい"},
+            {"title": "Stanford Encyclopedia of Philosophy: Zhuangzi", "url": "https://plato.stanford.edu/entries/zhuangzi/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ブッダ（ゴータマ・シッダールタ）",
+          "name_en": "The Buddha (Siddhattha Gotama)",
+          "life": "紀元前5世紀頃",
+          "region": "インド",
+          "keywords": ["四諦", "八正道", "無常", "執着"],
+          "themes": [
+            "苦しみの原因を自分の外ではなく反応の側に見る",
+            "手放せない執着との付き合い方",
+            "変わってしまうことへの怖さ"
+          ],
+          "links": [
+            {"title": "The Dhammapada（ダンマパダ／法句経、英訳、1914）", "url": "https://archive.org/download/in.ernet.dli.2015.310501/2015.310501.The-Dhammapada.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "1.2MB。短い詩句の集まりで引用しやすい"},
+            {"title": "Sacred Books of the East Vol.10（Dhammapada & Sutta Nipata、Max Müller訳、1881）", "url": "https://archive.org/download/wg910/WG910-1881%20-The%20Sacred%20Books%20of%20East%20-%20Vol%2010%20of%2050-Buddhism-Dhammapada%20And%20Sutta%20Nipata.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "学術的定番の古典訳"},
+            {"title": "Stanford Encyclopedia of Philosophy: The Buddha", "url": "https://plato.stanford.edu/entries/buddha/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ソクラテス",
+          "name_en": "Socrates",
+          "life": "紀元前470頃 – 紀元前399",
+          "region": "ギリシア（アテナイ）",
+          "keywords": ["無知の知", "問答法", "善く生きる", "魂の配慮"],
+          "themes": [
+            "わかったつもりを崩す：悩みの前提を疑う",
+            "他人の評価と自分の納得のどちらを取るか",
+            "「ただ生きるのではなく、善く生きる」"
+          ],
+          "links": [
+            {"title": "The Dialogues of Plato Vol.1（Jowett訳。ソクラテスの弁明・クリトン・パイドン等を収録、1892）", "url": "https://archive.org/download/dialoguesofplato01plat_0/dialoguesofplato01plat_0.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "約47MBと大きい。ソクラテス像の基本資料"},
+            {"title": "Stanford Encyclopedia of Philosophy: Socrates", "url": "https://plato.stanford.edu/entries/socrates/", "kind": "解説", "format": "HTML", "lang": "英", "note": "史実のソクラテスと描かれたソクラテスの区別も解説"},
+            {"title": "Internet Encyclopedia of Philosophy: Socrates", "url": "https://iep.utm.edu/socrates/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "プラトン",
+          "name_en": "Plato",
+          "life": "紀元前427頃 – 紀元前347頃",
+          "region": "ギリシア（アテナイ）",
+          "keywords": ["イデア", "洞窟の比喩", "魂の三分説", "エロース"],
+          "themes": [
+            "見えているものが全てではない、という視点の切り替え",
+            "欲望・意志・理性のバランスが崩れるとき",
+            "理想と現実のギャップ"
+          ],
+          "links": [
+            {"title": "The Dialogues of Plato Vol.1（Jowett訳、1892）", "url": "https://archive.org/download/dialoguesofplato01plat_0/dialoguesofplato01plat_0.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "初期対話篇中心"},
+            {"title": "The Dialogues of Plato Vol.4（Jowett訳、1914）", "url": "https://archive.org/download/dialoguesofpla04plat/dialoguesofpla04plat.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "『国家』を含む巻"},
+            {"title": "Stanford Encyclopedia of Philosophy: Plato", "url": "https://plato.stanford.edu/entries/plato/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "アリストテレス",
+          "name_en": "Aristotle",
+          "life": "紀元前384 – 紀元前322",
+          "region": "ギリシア（スタゲイラ／アテナイ）",
+          "keywords": ["エウダイモニア", "中庸", "徳（アレテー）", "習慣", "友愛（フィリア）"],
+          "themes": [
+            "幸福を感情ではなく「活動」として捉え直す",
+            "性格は習慣でつくられる＝変えられる",
+            "友人関係の種類（利益・快楽・善）と長続きの条件"
+          ],
+          "links": [
+            {"title": "The Nicomachean Ethics of Aristotle（ニコマコス倫理学、R. Williams訳、1847）", "url": "https://archive.org/download/cu31924028995914/cu31924028995914.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "約9MB。中庸・友愛論はポッドキャスト向き"},
+            {"title": "Stanford Encyclopedia of Philosophy: Aristotle", "url": "https://plato.stanford.edu/entries/aristotle/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Aristotle's Ethics", "url": "https://iep.utm.edu/aristotle-ethics/", "kind": "解説", "format": "HTML", "lang": "英", "note": "倫理学に絞った解説"}
+          ]
+        },
+        {
+          "name_ja": "エピクロス",
+          "name_en": "Epicurus",
+          "life": "紀元前341 – 紀元前270",
+          "region": "ギリシア（サモス／アテナイ）",
+          "keywords": ["アタラクシア", "快楽", "友情", "死は我々に関係ない"],
+          "themes": [
+            "欲望を「必要／不必要」に仕分ける",
+            "死や将来への漠然とした不安",
+            "小さな共同体（友人）で足りるという発想"
+          ],
+          "links": [
+            {"title": "Epicurus's Morals（主要書簡・主要教説の英訳、Charleton訳の復刻、1926）", "url": "https://archive.org/download/epicurussmorals00epic/epicurussmorals00epic.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "現存する数少ない一次テキスト"},
+            {"title": "Stanford Encyclopedia of Philosophy: Epicurus", "url": "https://plato.stanford.edu/entries/epicurus/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Epicurus", "url": "https://iep.utm.edu/epicur/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02_1-5世紀_古代ローマ",
+      "label": "1〜5世紀（ローマ帝政期・ストア派・教父）",
+      "philosophers": [
+        {
+          "name_ja": "セネカ",
+          "name_en": "Lucius Annaeus Seneca",
+          "life": "紀元前1頃 – 65",
+          "region": "ローマ（コルドバ出身）",
+          "keywords": ["時間", "怒り", "心の平静", "運命"],
+          "themes": [
+            "「忙しさ」で人生が削られている感覚（人生の短さについて）",
+            "怒りとの付き合い方",
+            "予期しておくことで衝撃を和らげる（予備的な想定）"
+          ],
+          "links": [
+            {"title": "Minor Dialogues, together with the Dialogue on Clemency（『人生の短さについて』『怒りについて』『心の平静について』収録、Aubrey Stewart訳、1889）", "url": "https://archive.org/download/cu31924026554281/cu31924026554281.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "ポッドキャストで最も使いやすい巻"},
+            {"title": "Seneca, Dialogues Vol.2（Loeb系の古い英訳、1922）", "url": "https://archive.org/download/dialogues02seneuoft/dialogues02seneuoft.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "対訳的に読みたい場合"},
+            {"title": "Stanford Encyclopedia of Philosophy: Seneca", "url": "https://plato.stanford.edu/entries/seneca/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "エピクテトス",
+          "name_en": "Epictetus",
+          "life": "50頃 – 135頃",
+          "region": "ローマ（フリュギア出身の元奴隷）",
+          "keywords": ["権内／権外", "表象の使い方", "自由"],
+          "themes": [
+            "コントロールできること／できないことの切り分け（悩み相談の基本形）",
+            "他人の言動に振り回される",
+            "起きた出来事そのものではなく、解釈が苦しみを生む"
+          ],
+          "links": [
+            {"title": "Selections from the Discourses of Epictetus, with the Encheiridion（語録・提要、Carter訳系）", "url": "https://archive.org/download/selectionsfromdi00epicuoft/selectionsfromdi00epicuoft.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "『提要（エンケイリディオン）』は短く引用しやすい"},
+            {"title": "Stanford Encyclopedia of Philosophy: Epictetus", "url": "https://plato.stanford.edu/entries/epictetus/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Stoicism", "url": "https://iep.utm.edu/stoicism/", "kind": "解説", "format": "HTML", "lang": "英", "note": "ストア派全体の見取り図"}
+          ]
+        },
+        {
+          "name_ja": "マルクス・アウレリウス",
+          "name_en": "Marcus Aurelius",
+          "life": "121 – 180",
+          "region": "ローマ（皇帝）",
+          "keywords": ["自省録", "今この瞬間", "義務", "無常"],
+          "themes": [
+            "責任が重すぎるとき、立場に押し潰されそうなとき",
+            "他人の悪意にどう反応するか",
+            "毎日書き留めることのセルフケア的効果"
+          ],
+          "links": [
+            {"title": "The Meditations of the Emperor Marcus Aurelius Antoninus（自省録、George Long訳、1890）", "url": "https://archive.org/download/meditationsofemp00marcuoft/meditationsofemp00marcuoft.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "最も流通している古典訳"},
+            {"title": "The Thoughts of the Emperor Marcus Aurelius Antoninus（Long訳・別版、1889）", "url": "https://archive.org/download/thoughtsofempero00marcuoft/thoughtsofempero00marcuoft.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "軽量版（約10MB）"},
+            {"title": "Stanford Encyclopedia of Philosophy: Marcus Aurelius", "url": "https://plato.stanford.edu/entries/marcus-aurelius/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "アウグスティヌス",
+          "name_en": "Augustine of Hippo",
+          "life": "354 – 430",
+          "region": "北アフリカ（ヒッポ）",
+          "keywords": ["告白", "時間論", "意志の弱さ", "回心"],
+          "themes": [
+            "やめたいのにやめられない（意志の分裂）",
+            "過去の自分をどう引き受けるか",
+            "時間が過ぎる速さへの戸惑い"
+          ],
+          "links": [
+            {"title": "The Confessions of St Augustine（告白、英訳、1907）", "url": "https://archive.org/download/TheConfessionsOfStAugustine/TheConfessionsOfStAugustine.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "約39MB。第8巻（回心）と第11巻（時間論）が要所"},
+            {"title": "Stanford Encyclopedia of Philosophy: Saint Augustine", "url": "https://plato.stanford.edu/entries/augustine/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Augustine", "url": "https://iep.utm.edu/augustine/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03_6-15世紀_中世",
+      "label": "6〜15世紀（中世）",
+      "philosophers": [
+        {
+          "name_ja": "ボエティウス",
+          "name_en": "Boethius",
+          "life": "480頃 – 524頃",
+          "region": "ローマ（東ゴート王国）",
+          "keywords": ["運命の女神", "偽りの幸福", "哲学の慰め"],
+          "themes": [
+            "理不尽に全てを失ったとき（本人は投獄・死刑を待つ身で執筆）",
+            "運（財産・地位・評判）に依存した幸福のもろさ",
+            "不運の中で自分に残るものは何か"
+          ],
+          "links": [
+            {"title": "The Consolation of Philosophy of Boethius（哲学の慰め、H.R. James訳、1897）", "url": "https://archive.org/download/b24862617/b24862617.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "悩み相談との相性が非常に良い一冊"},
+            {"title": "Stanford Encyclopedia of Philosophy: Boethius", "url": "https://plato.stanford.edu/entries/boethius/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Boethius", "url": "https://iep.utm.edu/boethius/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "トマス・アクィナス",
+          "name_en": "Thomas Aquinas",
+          "life": "1225頃 – 1274",
+          "region": "イタリア／パリ",
+          "keywords": ["自然法", "徳", "習慣", "理性と信仰"],
+          "themes": [
+            "「良いこと」を理屈と実践の両輪で考える",
+            "感情（情念）を悪者にしない整理の仕方",
+            "迷ったときの判断の枠組み（賢慮）"
+          ],
+          "links": [
+            {"title": "Summa Theologica of St Thomas Aquinas（神学大全 英訳、1914）", "url": "https://archive.org/download/in.ernet.dli.2015.52352/2015.52352.Summa-Theologica-Of-St-Thomas-Aquinas.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "大部。情念論・徳論の該当箇所だけ拾うのが現実的"},
+            {"title": "Stanford Encyclopedia of Philosophy: Saint Thomas Aquinas", "url": "https://plato.stanford.edu/entries/aquinas/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Thomas Aquinas", "url": "https://iep.utm.edu/aquinas/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04_16-17世紀",
+      "label": "16〜17世紀（ルネサンス・近世）",
+      "philosophers": [
+        {
+          "name_ja": "ミシェル・ド・モンテーニュ",
+          "name_en": "Michel de Montaigne",
+          "life": "1533 – 1592",
+          "region": "フランス",
+          "keywords": ["エセー", "私は何を知るか", "判断保留", "自己観察"],
+          "themes": [
+            "結論を出さずに悩みを抱えたままにする技術",
+            "自分の弱さ・矛盾を書いて眺める",
+            "他人と自分を比べる癖"
+          ],
+          "links": [
+            {"title": "Essays Book 1（エセー第1巻、Jonathan Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/montaigne1580book1.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "Early Modern Texts（読みやすい現代英語への書き換え、無料公開）"},
+            {"title": "Essays Book 2", "url": "https://www.earlymoderntexts.com/assets/pdfs/montaigne1580book2.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Essays Book 3", "url": "https://www.earlymoderntexts.com/assets/pdfs/montaigne1588book3.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "「経験について」を含む巻"},
+            {"title": "Stanford Encyclopedia of Philosophy: Michel de Montaigne", "url": "https://plato.stanford.edu/entries/montaigne/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ニッコロ・マキャヴェッリ",
+          "name_en": "Niccolò Machiavelli",
+          "life": "1469 – 1527",
+          "region": "フィレンツェ",
+          "keywords": ["君主論", "ヴィルトゥ", "フォルトゥーナ", "現実主義"],
+          "themes": [
+            "理想論では回らない現場の判断",
+            "運と実力の配分をどう見るか",
+            "「良い人でいること」と結果責任の衝突"
+          ],
+          "links": [
+            {"title": "The Prince（君主論、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/machiavelli1532.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Stanford Encyclopedia of Philosophy: Niccolò Machiavelli", "url": "https://plato.stanford.edu/entries/machiavelli/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ルネ・デカルト",
+          "name_en": "René Descartes",
+          "life": "1596 – 1650",
+          "region": "フランス／オランダ",
+          "keywords": ["方法的懐疑", "われ思う", "情念論", "暫定的道徳"],
+          "themes": [
+            "何を信じていいか分からないとき、まず疑い切る",
+            "感情（情念）を仕組みとして理解する（『情念論』）",
+            "答えが出るまでの間の暫定ルールを決める"
+          ],
+          "links": [
+            {"title": "Meditations on First Philosophy（省察、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/descartes1641.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Discourse on the Method（方法序説）", "url": "https://www.earlymoderntexts.com/assets/pdfs/descartes1637.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "「暫定的道徳」の箇所は生活の指針として使える"},
+            {"title": "The Passions of the Soul（情念論、1649）", "url": "https://www.earlymoderntexts.com/assets/pdfs/descartes1649.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "感情の分類と制御。悩み相談との相性が良い"},
+            {"title": "Stanford Encyclopedia of Philosophy: René Descartes", "url": "https://plato.stanford.edu/entries/descartes/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ブレーズ・パスカル",
+          "name_en": "Blaise Pascal",
+          "life": "1623 – 1662",
+          "region": "フランス",
+          "keywords": ["パンセ", "気晴らし（ディヴェルティスマン）", "考える葦", "賭け"],
+          "themes": [
+            "退屈から逃げるために予定を埋めてしまう心理",
+            "自分の小ささと、それでも考えられるということ",
+            "決めきれない問題への賭けとしての決断"
+          ],
+          "links": [
+            {"title": "Pensées（パンセ、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/pascal1660.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "断章形式なので番組で1つずつ拾いやすい"},
+            {"title": "Stanford Encyclopedia of Philosophy: Blaise Pascal", "url": "https://plato.stanford.edu/entries/pascal/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "バールーフ・デ・スピノザ",
+          "name_en": "Baruch Spinoza",
+          "life": "1632 – 1677",
+          "region": "オランダ",
+          "keywords": ["エチカ", "感情の幾何学", "コナトゥス", "必然性の認識"],
+          "themes": [
+            "感情を否定せず、原因を理解することで受け身から抜ける",
+            "「自由意志」への過剰な期待を下ろす",
+            "嫉妬・憎しみ・後悔の扱い方（第3〜4部）"
+          ],
+          "links": [
+            {"title": "Ethics（エチカ 全体、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/spinoza1665.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Ethics Part 3（感情の起源と本性について）", "url": "https://www.earlymoderntexts.com/assets/pdfs/spinoza1665part3.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "感情論だけ読みたいとき"},
+            {"title": "Ethics Part 4（人間の隷属、あるいは感情の力について）", "url": "https://www.earlymoderntexts.com/assets/pdfs/spinoza1665part4.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Stanford Encyclopedia of Philosophy: Baruch Spinoza", "url": "https://plato.stanford.edu/entries/spinoza/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "トマス・ホッブズ",
+          "name_en": "Thomas Hobbes",
+          "life": "1588 – 1679",
+          "region": "イングランド",
+          "keywords": ["リヴァイアサン", "自然状態", "万人の万人に対する闘争", "社会契約"],
+          "themes": [
+            "safety と自由のトレードオフ",
+            "ルールがない場所で人はどう振る舞うか",
+            "恐怖が意思決定に与える影響"
+          ],
+          "links": [
+            {"title": "Leviathan Part 1（リヴァイアサン第1部「人間について」、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/hobbes1651part1.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "人間の情念・言語論を含む"},
+            {"title": "Leviathan Part 2（コモンウェルスについて）", "url": "https://www.earlymoderntexts.com/assets/pdfs/hobbes1651part2.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Stanford Encyclopedia of Philosophy: Thomas Hobbes", "url": "https://plato.stanford.edu/entries/hobbes/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ジョン・ロック",
+          "name_en": "John Locke",
+          "life": "1632 – 1704",
+          "region": "イングランド",
+          "keywords": ["経験論", "タブラ・ラサ", "寛容", "人格の同一性"],
+          "themes": [
+            "考え方は経験でつくられる＝環境を変える意味",
+            "意見が違う相手とどう共存するか（寛容論）",
+            "「昨日の自分と今日の自分は同じ人か」という同一性の問題"
+          ],
+          "links": [
+            {"title": "An Essay concerning Human Understanding Book 2（人間知性論 第2巻、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/locke1690book2.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "人格の同一性を論じた章を含む"},
+            {"title": "A Letter concerning Toleration（寛容についての手紙）", "url": "https://www.earlymoderntexts.com/assets/pdfs/locke1689a.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Stanford Encyclopedia of Philosophy: John Locke", "url": "https://plato.stanford.edu/entries/locke/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05_18世紀",
+      "label": "18世紀（啓蒙時代）",
+      "philosophers": [
+        {
+          "name_ja": "デイヴィッド・ヒューム",
+          "name_en": "David Hume",
+          "life": "1711 – 1776",
+          "region": "スコットランド",
+          "keywords": ["因果の習慣", "理性は情念の奴隷", "共感", "懐疑"],
+          "themes": [
+            "「理性で決めている」と思い込んでいる判断の実態",
+            "思い込み（因果の錯覚）に気づく",
+            "感情を出発点に置く倫理"
+          ],
+          "links": [
+            {"title": "An Enquiry concerning Human Understanding（人間知性研究、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/hume1748.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "A Treatise of Human Nature Book 2（情念について）", "url": "https://www.earlymoderntexts.com/assets/pdfs/hume1739book2.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "「理性は情念の奴隷」の出典"},
+            {"title": "Stanford Encyclopedia of Philosophy: David Hume", "url": "https://plato.stanford.edu/entries/hume/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ジャン=ジャック・ルソー",
+          "name_en": "Jean-Jacques Rousseau",
+          "life": "1712 – 1778",
+          "region": "ジュネーヴ／フランス",
+          "keywords": ["自然状態", "自己愛と利己愛", "一般意志", "教育"],
+          "themes": [
+            "他人の目を基準に生きてしまう（自尊心＝amour-propre）",
+            "社会が人を不幸にする側面",
+            "子ども・部下・自分をどう育てるか"
+          ],
+          "links": [
+            {"title": "Emile, or On Education（エミール、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/rousseau1762.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "全4巻分冊版もあり"},
+            {"title": "Emile Book 1", "url": "https://www.earlymoderntexts.com/assets/pdfs/rousseau1762book1.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Stanford Encyclopedia of Philosophy: Jean Jacques Rousseau", "url": "https://plato.stanford.edu/entries/rousseau/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "アダム・スミス",
+          "name_en": "Adam Smith",
+          "life": "1723 – 1790",
+          "region": "スコットランド",
+          "keywords": ["道徳感情論", "公平な観察者", "共感", "見えざる手"],
+          "themes": [
+            "自分の行動を第三者の目で点検する（公平な観察者）",
+            "承認欲求と、そこから生じる見栄",
+            "利己と共感の両立"
+          ],
+          "links": [
+            {"title": "The Theory of Moral Sentiments（道徳感情論、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/smith1759.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "『国富論』より悩み向き"},
+            {"title": "Stanford Encyclopedia of Philosophy: Adam Smith's Moral and Political Philosophy", "url": "https://plato.stanford.edu/entries/smith-moral-political/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "イマヌエル・カント",
+          "name_en": "Immanuel Kant",
+          "life": "1724 – 1804",
+          "region": "プロイセン（ケーニヒスベルク）",
+          "keywords": ["定言命法", "人格を目的として扱う", "自律", "義務"],
+          "themes": [
+            "「その判断、全員がやっても成り立つ？」という検算",
+            "人を手段としてだけ扱っていないか（職場・家族）",
+            "自分で決めるということ（自律）の重み"
+          ],
+          "links": [
+            {"title": "Groundwork for the Metaphysics of Morals（道徳形而上学の基礎づけ、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/kant1785.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "定言命法の出典。約60ページで読み切れる"},
+            {"title": "Toward Perpetual Peace（永遠平和のために）", "url": "https://www.earlymoderntexts.com/assets/pdfs/kant1795.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Stanford Encyclopedia of Philosophy: Immanuel Kant", "url": "https://plato.stanford.edu/entries/kant/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06_19世紀",
+      "label": "19世紀（ドイツ観念論・実存の芽・功利主義）",
+      "philosophers": [
+        {
+          "name_ja": "G.W.F. ヘーゲル",
+          "name_en": "Georg Wilhelm Friedrich Hegel",
+          "life": "1770 – 1831",
+          "region": "ドイツ",
+          "keywords": ["弁証法", "承認をめぐる闘争", "主人と奴隷", "精神"],
+          "themes": [
+            "対立を消すのではなく、次の段階へ進める考え方",
+            "承認されたいという欲望の構造",
+            "他者がいないと自分が確立しないということ"
+          ],
+          "links": [
+            {"title": "The Phenomenology of Mind（精神現象学、J.B. Baillie訳、1910）", "url": "https://archive.org/download/cu31924091023832/cu31924091023832.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "「主人と奴隷の弁証法」は番組向きの題材"},
+            {"title": "Stanford Encyclopedia of Philosophy: Georg Wilhelm Friedrich Hegel", "url": "https://plato.stanford.edu/entries/hegel/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "アルトゥル・ショーペンハウアー",
+          "name_en": "Arthur Schopenhauer",
+          "life": "1788 – 1860",
+          "region": "ドイツ",
+          "keywords": ["意志と表象", "苦痛と退屈の振り子", "共苦", "諦念"],
+          "themes": [
+            "満たされても次の欲望が来る＝満足しない構造",
+            "退屈と焦りの往復",
+            "苦しみを前提にしたうえでの生き方"
+          ],
+          "links": [
+            {"title": "The World as Will and Representation（意志と表象としての世界、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/schopenhauer1818.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "The World as Will and Representation Book 4（生への意志の肯定と否定）", "url": "https://www.earlymoderntexts.com/assets/pdfs/schopenhauer1818bookiv.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "人生論として最も使いやすい巻"},
+            {"title": "Stanford Encyclopedia of Philosophy: Arthur Schopenhauer", "url": "https://plato.stanford.edu/entries/schopenhauer/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "セーレン・キルケゴール",
+          "name_en": "Søren Kierkegaard",
+          "life": "1813 – 1855",
+          "region": "デンマーク",
+          "keywords": ["実存", "不安", "絶望", "単独者", "あれか、これか"],
+          "themes": [
+            "選べないことの不安（可能性のめまい）",
+            "自分であることをやめてしまう＝絶望の形",
+            "他人と同じであることへの安心と、その代償"
+          ],
+          "links": [
+            {"title": "Selections from the Writings of Kierkegaard（主要著作抜粋、L.M. Hollander訳、1923）", "url": "https://archive.org/download/selectionsfromwr00kieruoft/selectionsfromwr00kieruoft.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "『あれか、これか』『死に至る病』等の抜粋。パブリックドメインで読める数少ない版"},
+            {"title": "Stanford Encyclopedia of Philosophy: Søren Kierkegaard", "url": "https://plato.stanford.edu/entries/kierkegaard/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ジョン・スチュアート・ミル",
+          "name_en": "John Stuart Mill",
+          "life": "1806 – 1873",
+          "region": "イングランド",
+          "keywords": ["功利主義", "危害原理", "個性", "質的快楽"],
+          "themes": [
+            "他人にどこまで口を出していいか（危害原理）",
+            "「みんなのため」と個人の自由の線引き",
+            "満足した豚より不満足なソクラテス＝快楽の質"
+          ],
+          "links": [
+            {"title": "On Liberty（自由論、Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/mill1859.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Utilitarianism（功利主義）", "url": "https://www.earlymoderntexts.com/assets/pdfs/mill1863.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Autobiography 冒頭（1873）", "url": "https://www.earlymoderntexts.com/assets/pdfs/mill1873a.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "20歳での精神的危機の記述は悩み回で使える"},
+            {"title": "Stanford Encyclopedia of Philosophy: John Stuart Mill", "url": "https://plato.stanford.edu/entries/mill/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "カール・マルクス",
+          "name_en": "Karl Marx",
+          "life": "1818 – 1883",
+          "region": "ドイツ／イギリス",
+          "keywords": ["疎外", "労働", "階級", "物象化"],
+          "themes": [
+            "働くことが自分から切り離される感覚（労働疎外）",
+            "個人の悩みを社会構造の側から見る",
+            "「やりがい」と搾取の境目"
+          ],
+          "links": [
+            {"title": "The Communist Manifesto（共産党宣言、1910 Kerr版 英訳）", "url": "https://archive.org/download/the-communist-manifesto_202507/The%20Communist%20Manifesto.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Stanford Encyclopedia of Philosophy: Karl Marx", "url": "https://plato.stanford.edu/entries/marx/", "kind": "解説", "format": "HTML", "lang": "英", "note": "疎外論の整理あり"}
+          ]
+        },
+        {
+          "name_ja": "フリードリヒ・ニーチェ",
+          "name_en": "Friedrich Nietzsche",
+          "life": "1844 – 1900",
+          "region": "ドイツ",
+          "keywords": ["ルサンチマン", "力への意志", "永劫回帰", "運命愛"],
+          "themes": [
+            "妬み・恨みが価値観を歪める仕組み（ルサンチマン）",
+            "「もう一度同じ人生を繰り返せるか」という問い",
+            "価値の基準を自分で立て直す"
+          ],
+          "links": [
+            {"title": "Thus Spoke Zarathustra（ツァラトゥストラはこう言った、英訳、1917）", "url": "https://archive.org/download/thusspokezarathu00nietuoft/thusspokezarathu00nietuoft.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "The Genealogy of Morals（道徳の系譜、英訳、1918）", "url": "https://archive.org/download/genealogyofmoral00niet/genealogyofmoral00niet.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "ルサンチマン論の出典"},
+            {"title": "Stanford Encyclopedia of Philosophy: Friedrich Nietzsche", "url": "https://plato.stanford.edu/entries/nietzsche/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Friedrich Nietzsche", "url": "https://iep.utm.edu/nietzsch/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ウィリアム・ジェームズ",
+          "name_en": "William James",
+          "life": "1842 – 1910",
+          "region": "アメリカ",
+          "keywords": ["プラグマティズム", "信じる意志", "習慣", "意識の流れ"],
+          "themes": [
+            "証拠が出そろわない場面での決断",
+            "「役に立つかどうか」で考えを検証する",
+            "習慣を味方につける"
+          ],
+          "links": [
+            {"title": "The Will to Believe（信じる意志、1894。Bennett現代英語版）", "url": "https://www.earlymoderntexts.com/assets/pdfs/james.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "短く、番組1回分の題材に良い"},
+            {"title": "Pragmatism（プラグマティズム、英語原著、1916年版）", "url": "https://archive.org/download/in.ernet.dli.2015.206383/2015.206383.Pragmatism.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Stanford Encyclopedia of Philosophy: William James", "url": "https://plato.stanford.edu/entries/james/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "07_20世紀",
+      "label": "20世紀（実存主義・現象学・分析哲学・日本の哲学）",
+      "philosophers": [
+        {
+          "name_ja": "バートランド・ラッセル",
+          "name_en": "Bertrand Russell",
+          "life": "1872 – 1970",
+          "region": "イギリス",
+          "keywords": ["幸福論", "関心の広さ", "分析哲学", "懐疑"],
+          "themes": [
+            "自分のことばかり考えてしまう状態からの脱出",
+            "不幸の原因を分解して見る",
+            "「確からしさ」の程度で判断する態度"
+          ],
+          "links": [
+            {"title": "The Problems of Philosophy（哲学入門、1912）", "url": "https://archive.org/download/problemsofphilo00russuoft/problemsofphilo00russuoft.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "パブリックドメイン。『幸福論』(1930)は著作権保護期間中のため書籍で参照"},
+            {"title": "Stanford Encyclopedia of Philosophy: Bertrand Russell", "url": "https://plato.stanford.edu/entries/russell/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "ルートヴィヒ・ウィトゲンシュタイン",
+          "name_en": "Ludwig Wittgenstein",
+          "life": "1889 – 1951",
+          "region": "オーストリア／イギリス",
+          "keywords": ["語りえぬもの", "言語ゲーム", "family resemblance", "治療としての哲学"],
+          "themes": [
+            "悩みが「言葉の使い方の混乱」から生まれている場合",
+            "言葉にできない領域をどう扱うか",
+            "定義を求めすぎないこと"
+          ],
+          "links": [
+            {"title": "Tractatus Logico-Philosophicus（論理哲学論考、Ogden訳・Kevin Klementによる組版版）", "url": "https://people.umass.edu/klement/tlp/tlp.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "マサチューセッツ大の研究者が公開。読みやすい組版"},
+            {"title": "Tractatus Logico-Philosophicus（1933年版スキャン）", "url": "https://archive.org/download/in.ernet.dli.2015.218466/2015.218466.Tractatus-Logico.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": ""},
+            {"title": "Stanford Encyclopedia of Philosophy: Ludwig Wittgenstein", "url": "https://plato.stanford.edu/entries/wittgenstein/", "kind": "解説", "format": "HTML", "lang": "英", "note": "『哲学探究』は著作権保護期間中"}
+          ]
+        },
+        {
+          "name_ja": "マルティン・ハイデガー",
+          "name_en": "Martin Heidegger",
+          "life": "1889 – 1976",
+          "region": "ドイツ",
+          "keywords": ["現存在", "world-hood", "頽落", "死への先駆", "本来性"],
+          "themes": [
+            "「世間（ひと・das Man）」に流されている感覚",
+            "死を意識することで優先順位が変わる",
+            "気分（不安・退屈）が世界の見え方を決める"
+          ],
+          "links": [
+            {"title": "Stanford Encyclopedia of Philosophy: Martin Heidegger", "url": "https://plato.stanford.edu/entries/heidegger/", "kind": "解説", "format": "HTML", "lang": "英", "note": "『存在と時間』の構成に沿った解説"},
+            {"title": "Internet Encyclopedia of Philosophy: Martin Heidegger", "url": "https://iep.utm.edu/heidegge/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ],
+          "copyright_note": "主要著作はすべて著作権保護期間中。無料の全文PDFは出回っているものも含め正規版ではないため、番組で参照する場合は邦訳書（『存在と時間』ちくま学芸文庫ほか）を購入して引用するのが安全です。"
+        },
+        {
+          "name_ja": "ジャン=ポール・サルトル",
+          "name_en": "Jean-Paul Sartre",
+          "life": "1905 – 1980",
+          "region": "フランス",
+          "keywords": ["実存は本質に先立つ", "自由の刑", "アンガジュマン", "自己欺瞞"],
+          "themes": [
+            "「自分はこういう人間だから」という言い訳（自己欺瞞）",
+            "選ばないことも選択であるという重さ",
+            "他人のまなざしが自分を固定する"
+          ],
+          "links": [
+            {"title": "Stanford Encyclopedia of Philosophy: Jean-Paul Sartre", "url": "https://plato.stanford.edu/entries/sartre/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Sartre's Existentialism", "url": "https://iep.utm.edu/sartre-ex/", "kind": "解説", "format": "HTML", "lang": "英", "note": "『実存主義とは何か』の内容を要約"}
+          ],
+          "copyright_note": "著作権保護期間中。『実存主義とは何か』（人文書院）などの邦訳書を参照。"
+        },
+        {
+          "name_ja": "アルベール・カミュ",
+          "name_en": "Albert Camus",
+          "life": "1913 – 1960",
+          "region": "フランス（アルジェリア生まれ）",
+          "keywords": ["不条理", "シーシュポス", "反抗", "自殺という問い"],
+          "themes": [
+            "意味が見つからないまま続く毎日",
+            "それでも続けることの意味（反抗としての生）",
+            "希望を捨てたうえでの前向きさ"
+          ],
+          "links": [
+            {"title": "Stanford Encyclopedia of Philosophy: Albert Camus", "url": "https://plato.stanford.edu/entries/camus/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Albert Camus", "url": "https://iep.utm.edu/camus/", "kind": "解説", "format": "HTML", "lang": "英", "note": "『シーシュポスの神話』の論旨を丁寧に解説"}
+          ],
+          "copyright_note": "著作権保護期間中。『シーシュポスの神話』（新潮文庫）等の邦訳書を参照。"
+        },
+        {
+          "name_ja": "シモーヌ・ド・ボーヴォワール",
+          "name_en": "Simone de Beauvoir",
+          "life": "1908 – 1986",
+          "region": "フランス",
+          "keywords": ["第二の性", "他者", "曖昧さの倫理", "状況"],
+          "themes": [
+            "「女らしさ／らしさ」が後から作られること",
+            "役割を引き受けさせられている感覚",
+            "老いと向き合う（『老い』）"
+          ],
+          "links": [
+            {"title": "Stanford Encyclopedia of Philosophy: Simone de Beauvoir", "url": "https://plato.stanford.edu/entries/beauvoir/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Simone de Beauvoir", "url": "https://iep.utm.edu/beauvoir/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ],
+          "copyright_note": "著作権保護期間中。邦訳書（『第二の性』新潮文庫ほか）を参照。"
+        },
+        {
+          "name_ja": "ハンナ・アーレント",
+          "name_en": "Hannah Arendt",
+          "life": "1906 – 1975",
+          "region": "ドイツ／アメリカ",
+          "keywords": ["活動（アクション）", "複数性", "悪の凡庸さ", "労働・仕事・活動"],
+          "themes": [
+            "考えないまま流されることの怖さ（悪の凡庸さ）",
+            "労働・仕事・活動の区別で自分の毎日を分解する",
+            "人と一緒にいることでしか成立しない領域"
+          ],
+          "links": [
+            {"title": "Stanford Encyclopedia of Philosophy: Hannah Arendt", "url": "https://plato.stanford.edu/entries/arendt/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Hannah Arendt", "url": "https://iep.utm.edu/arendt/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "HannahArendt.net（アーレント研究のオープンアクセス学術誌）", "url": "https://www.hannaharendt.net/index.php/han", "kind": "参考", "format": "HTML", "lang": "英/独", "note": "査読論文をPDFで無料公開"}
+          ],
+          "copyright_note": "主要著作は著作権保護期間中。邦訳書（『人間の条件』ちくま学芸文庫ほか）を参照。"
+        },
+        {
+          "name_ja": "ヴィクトール・E・フランクル",
+          "name_en": "Viktor E. Frankl",
+          "life": "1905 – 1997",
+          "region": "オーストリア",
+          "keywords": ["ロゴセラピー", "意味への意志", "態度価値", "実存的空虚"],
+          "themes": [
+            "状況は変えられないが、態度は選べる",
+            "「何のために」が見つからない空虚感",
+            "燃え尽き（バーンアウト）と意味の関係"
+          ],
+          "links": [
+            {"title": "Viktor Frankl Institut Vienna（公式アーカイブ／伝記・文献リスト）", "url": "https://www.viktorfrankl.org/", "kind": "参考", "format": "HTML", "lang": "英/独", "note": "本人の年譜・著作一覧・研究資料"},
+            {"title": "Burnout Syndrome and Logotherapy（査読付きオープンアクセス論文、PMC）", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6587911/", "kind": "解説", "format": "HTML/PDF", "lang": "英", "note": "ロゴセラピーを燃え尽き症候群の説明・予防に使う枠組み。無料で全文PDF可"}
+          ],
+          "copyright_note": "『夜と霧』等は著作権保護期間中。ネット上の全文PDFは非正規版が多いため、邦訳書（みすず書房）を参照するのが安全です。"
+        },
+        {
+          "name_ja": "西田幾多郎",
+          "name_en": "Nishida Kitarō",
+          "life": "1870 – 1945",
+          "region": "日本（京都学派）",
+          "keywords": ["純粋経験", "絶対矛盾的自己同一", "場所", "主客未分"],
+          "themes": [
+            "考える前の「そのまま」の経験に立ち返る",
+            "自分と世界を分けて考えることの限界",
+            "身近な死や喪失（「我が子の死」）"
+          ],
+          "links": [
+            {"title": "善の研究（青空文庫・全文無料、日本語）", "url": "https://www.aozora.gr.jp/cards/000182/card946.html", "kind": "一次資料", "format": "HTML/テキスト", "lang": "日", "note": "日本語で読める一次資料。番組で引用しやすい"},
+            {"title": "我が子の死（青空文庫）", "url": "https://www.aozora.gr.jp/cards/000182/card3506.html", "kind": "一次資料", "format": "HTML/テキスト", "lang": "日", "note": "短文。喪失をテーマにした回に"},
+            {"title": "作家別作品リスト：西田幾多郎（青空文庫）", "url": "https://www.aozora.gr.jp/index_pages/person182.html", "kind": "参考", "format": "HTML", "lang": "日", "note": "他の随筆もすべて無料"},
+            {"title": "Stanford Encyclopedia of Philosophy: Nishida Kitarō", "url": "https://plato.stanford.edu/entries/nishida-kitaro/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ]
+        },
+        {
+          "name_ja": "三木清",
+          "name_en": "Miki Kiyoshi",
+          "life": "1897 – 1945",
+          "region": "日本",
+          "keywords": ["人生論ノート", "孤独", "嫉妬", "幸福", "習慣"],
+          "themes": [
+            "嫉妬・虚栄・怒りなど日常の感情を短い章で扱える",
+            "孤独は山になく街にある",
+            "幸福を語ることが少なくなった時代への批評"
+          ],
+          "links": [
+            {"title": "人生論ノート（青空文庫・全文無料、日本語）", "url": "https://www.aozora.gr.jp/cards/000218/card46845.html", "kind": "一次資料", "format": "HTML/テキスト", "lang": "日", "note": "「死について」「幸福について」「嫉妬について」等。悩み回に直結する構成"},
+            {"title": "作家別作品リスト：三木清（青空文庫）", "url": "https://www.aozora.gr.jp/index_pages/person218.html", "kind": "参考", "format": "HTML", "lang": "日", "note": "『哲学入門』『語られざる哲学』等も無料"}
+          ]
+        },
+        {
+          "name_ja": "ミシェル・フーコー",
+          "name_en": "Michel Foucault",
+          "life": "1926 – 1984",
+          "region": "フランス",
+          "keywords": ["権力", "規律", "パノプティコン", "自己への配慮"],
+          "themes": [
+            "誰にも命令されていないのに自分を監視してしまう",
+            "「普通」「正常」が作られる過程",
+            "自分を作り直す実践（自己への配慮）"
+          ],
+          "links": [
+            {"title": "Of Other Spaces: Utopias and Heterotopias（ヘテロトピア論、英訳PDF・MIT公開）", "url": "https://web.mit.edu/allanmc/www/foucault1.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "短い講演録。無料で読める数少ないフーコーのテキスト"},
+            {"title": "Stanford Encyclopedia of Philosophy: Michel Foucault", "url": "https://plato.stanford.edu/entries/foucault/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: Michel Foucault", "url": "https://iep.utm.edu/foucault/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""}
+          ],
+          "copyright_note": "『監獄の誕生』等の主要著作は著作権保護期間中。"
+        },
+        {
+          "name_ja": "ジョン・ロールズ",
+          "name_en": "John Rawls",
+          "life": "1921 – 2002",
+          "region": "アメリカ",
+          "keywords": ["正義の二原理", "無知のヴェール", "原初状態", "格差原理"],
+          "themes": [
+            "自分の立場を知らずにルールを決めるとどうなるか",
+            "「努力の結果」と「運の結果」の切り分け",
+            "公平さをめぐる感情的な対立の整理"
+          ],
+          "links": [
+            {"title": "Stanford Encyclopedia of Philosophy: John Rawls", "url": "https://plato.stanford.edu/entries/rawls/", "kind": "解説", "format": "HTML", "lang": "英", "note": ""},
+            {"title": "Internet Encyclopedia of Philosophy: John Rawls", "url": "https://iep.utm.edu/rawls/", "kind": "解説", "format": "HTML", "lang": "英", "note": "無知のヴェールの説明が平易"}
+          ],
+          "copyright_note": "『正義論』は著作権保護期間中。邦訳書（紀伊國屋書店）を参照。"
+        }
+      ]
+    },
+    {
+      "id": "08_20世紀後半-現代",
+      "label": "20世紀後半〜現代（存命・現役の哲学者）",
+      "philosophers": [
+        {
+          "name_ja": "マーサ・ヌスバウム",
+          "name_en": "Martha C. Nussbaum",
+          "life": "1947 –",
+          "region": "アメリカ",
+          "keywords": ["ケイパビリティ・アプローチ", "感情の知性", "傷つきやすさ", "文学と倫理"],
+          "themes": [
+            "「何ができる状態にあるか」で豊かさを測る",
+            "感情を思考の一部として扱う",
+            "傷つきやすさを排除しない生き方"
+          ],
+          "links": [
+            {"title": "Capabilities as Fundamental Entitlements: Sen and Social Justice（本人論文PDF、シカゴ大公開）", "url": "https://hceconomics.uchicago.edu/sites/default/files/pdf/events/Nussbaum_2003_capabilities_fundamental.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "ケイパビリティ論の要点がこれ1本で掴める"},
+            {"title": "Children's Rights and a Capabilities Approach（Chicago Unbound オープンアクセス）", "url": "https://chicagounbound.uchicago.edu/cgi/viewcontent.cgi?article=1056&context=public_law_and_legal_theory", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "共著（Rosalind Dixon と）"}
+          ]
+        },
+        {
+          "name_ja": "ピーター・シンガー",
+          "name_en": "Peter Singer",
+          "life": "1946 –",
+          "region": "オーストラリア／アメリカ",
+          "keywords": ["功利主義", "効果的利他主義", "動物の解放", "distance と義務"],
+          "themes": [
+            "自分の余裕と、遠くの他人への責任",
+            "「助けなければいけない」はどこまでか",
+            "直感と論理がぶつかるときの扱い"
+          ],
+          "links": [
+            {"title": "Famine, Affluence, and Morality（1972年の代表論文PDF）", "url": "https://terpconnect.umd.edu/~dcrocker/Courses/Docs/Singer-Famine%20Affluence%20Morality.pdf", "kind": "一次資料", "format": "PDF", "lang": "英", "note": "メリーランド大の授業資料として公開。10ページ程度"},
+            {"title": "Peter Singer（Utilitarianism.net の解説PDF、CCライセンス）", "url": "https://www.utilitarianism.net/pdf/Peter_Singer_Utilitarianism_net.pdf", "kind": "解説", "format": "PDF", "lang": "英", "note": "経歴と主張の要約"}
+          ]
+        },
+        {
+          "name_ja": "ハン・ビョンチョル（韓炳哲）",
+          "name_en": "Byung-Chul Han",
+          "life": "1959 –",
+          "region": "韓国／ドイツ",
+          "keywords": ["疲労社会", "成果主義", "自己搾取", "透明性社会"],
+          "themes": [
+            "誰にも強制されていないのに休めない（自己搾取）",
+            "「できる」が前提の社会と燃え尽き",
+            "常時つながっていることの疲れ"
+          ],
+          "links": [
+            {"title": "Byung-Chul Han（英語版Wikipedia：著作一覧と各書の要旨）", "url": "https://en.wikipedia.org/wiki/Byung-Chul_Han", "kind": "参考", "format": "HTML", "lang": "英", "note": "本人・専門家の文章ではないため出発点として。書誌の確認用"}
+          ],
+          "copyright_note": "現役の著述家で、全著作が著作権保護期間中。無料PDFはすべて非正規版のため、邦訳書（『疲労社会』花伝社ほか）を購入して参照してください。番組で扱う価値は高いテーマなので、引用は書籍から行うのが安全です。"
+        }
+      ]
+    }
+  ]
+}

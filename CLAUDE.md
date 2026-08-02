@@ -374,6 +374,42 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 - Syncs with `--docs-dir community_docs --state-file
   data/community_notebooklm_sync_state.json --notebook-title Zscaler_community`
 
+### `scripts/build_philosopher_docs.py`
+
+Unrelated to the Zscaler pipelines — this builds a **podcast research set**: one Markdown
+file per philosopher, grouped into per-era folders, each listing verified links to that
+philosopher's primary texts (PDF preferred) and to scholarly commentary.
+
+| | |
+|---|---|
+| Source of truth | `data/philosophers.json` (roster, era, keywords, links) |
+| Output | `philosopher_docs/<era>/<名前>.md` + `philosopher_docs/README.md` index |
+| Link status | `data/philosopher_links_status.json` (written by `--check --write-status`) |
+| Delivery | The same folder/file tree is mirrored into Google Drive (one Doc per philosopher) |
+
+The Markdown is generated, never hand-edited — edit the JSON and re-run. Era folders are
+ordered by prefix (`01_紀元前` … `08_20世紀後半-現代`) so Drive sorts them chronologically.
+
+**Link selection rules** (they are the point of the whole thing):
+
+- Primary texts come from sources that are legitimately free: Early Modern Texts
+  (Jonathan Bennett's modern-English versions), pre-1929 Internet Archive scans,
+  青空文庫 for Japanese authors, and author/publisher-hosted PDFs.
+- For 20th-century figures still in copyright, **do not link the full-text PDFs that
+  circulate on file-sharing sites**. Link SEP/IEP/open-access articles instead and record
+  a `copyright_note` telling the user to buy the translation.
+- Every URL is verified to return 200 before it goes in. `--check` re-verifies the whole
+  set; a `202` is treated as OK because Cloudflare-fronted hosts (e.g. Chicago Unbound)
+  answer non-browser clients that way while serving the file fine.
+
+```bash
+python scripts/build_philosopher_docs.py                    # regenerate Markdown
+python scripts/build_philosopher_docs.py --check --write-status   # verify all links
+```
+
+`philosopher_docs` is excluded from the GitHub Pages tar in `daily-update.yml` — it is
+unrelated to the Zscaler dashboard.
+
 ## Development Workflows
 
 ### Running the fetch script locally

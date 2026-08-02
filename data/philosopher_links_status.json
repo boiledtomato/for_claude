@@ -1,0 +1,1159 @@
+{
+  "checked_at": "2026-08-02T00:26:54Z",
+  "total": 128,
+  "broken": 1,
+  "links": [
+    {
+      "era": "01_紀元前",
+      "philosopher": "孔子",
+      "title": "The Chinese Classics Vol.1（論語・大学・中庸、James Legge英訳・漢文対訳、1861）",
+      "url": "https://archive.org/download/bub_gb_oJ49Fe-drvcC/bub_gb_oJ49Fe-drvcC.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "孔子",
+      "title": "Stanford Encyclopedia of Philosophy: Confucius",
+      "url": "https://plato.stanford.edu/entries/confucius/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "孔子",
+      "title": "Internet Encyclopedia of Philosophy: Confucius",
+      "url": "https://iep.utm.edu/confucius/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "老子",
+      "title": "Lao-tze's Tao-teh-king（道徳経、Paul Carus 漢英対訳、1898）",
+      "url": "https://archive.org/download/laotzestaotehkin00laoz/laotzestaotehkin00laoz.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "老子",
+      "title": "Stanford Encyclopedia of Philosophy: Laozi",
+      "url": "https://plato.stanford.edu/entries/laozi/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "老子",
+      "title": "Internet Encyclopedia of Philosophy: Laozi",
+      "url": "https://iep.utm.edu/laozi/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "荘子",
+      "title": "Musings of a Chinese Mystic（荘子選訳、Herbert Giles訳、1906）",
+      "url": "https://archive.org/download/musingsachinese00gilegoog/musingsachinese00gilegoog.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "荘子",
+      "title": "Stanford Encyclopedia of Philosophy: Zhuangzi",
+      "url": "https://plato.stanford.edu/entries/zhuangzi/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "ブッダ（ゴータマ・シッダールタ）",
+      "title": "The Dhammapada（ダンマパダ／法句経、英訳、1914）",
+      "url": "https://archive.org/download/in.ernet.dli.2015.310501/2015.310501.The-Dhammapada.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "ブッダ（ゴータマ・シッダールタ）",
+      "title": "Sacred Books of the East Vol.10（Dhammapada & Sutta Nipata、Max Müller訳、1881）",
+      "url": "https://archive.org/download/wg910/WG910-1881%20-The%20Sacred%20Books%20of%20East%20-%20Vol%2010%20of%2050-Buddhism-Dhammapada%20And%20Sutta%20Nipata.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "ブッダ（ゴータマ・シッダールタ）",
+      "title": "Stanford Encyclopedia of Philosophy: The Buddha",
+      "url": "https://plato.stanford.edu/entries/buddha/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "ソクラテス",
+      "title": "The Dialogues of Plato Vol.1（Jowett訳。ソクラテスの弁明・クリトン・パイドン等を収録、1892）",
+      "url": "https://archive.org/download/dialoguesofplato01plat_0/dialoguesofplato01plat_0.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "ソクラテス",
+      "title": "Stanford Encyclopedia of Philosophy: Socrates",
+      "url": "https://plato.stanford.edu/entries/socrates/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "ソクラテス",
+      "title": "Internet Encyclopedia of Philosophy: Socrates",
+      "url": "https://iep.utm.edu/socrates/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "プラトン",
+      "title": "The Dialogues of Plato Vol.1（Jowett訳、1892）",
+      "url": "https://archive.org/download/dialoguesofplato01plat_0/dialoguesofplato01plat_0.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "プラトン",
+      "title": "The Dialogues of Plato Vol.4（Jowett訳、1914）",
+      "url": "https://archive.org/download/dialoguesofpla04plat/dialoguesofpla04plat.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "プラトン",
+      "title": "Stanford Encyclopedia of Philosophy: Plato",
+      "url": "https://plato.stanford.edu/entries/plato/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "アリストテレス",
+      "title": "The Nicomachean Ethics of Aristotle（ニコマコス倫理学、R. Williams訳、1847）",
+      "url": "https://archive.org/download/cu31924028995914/cu31924028995914.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "アリストテレス",
+      "title": "Stanford Encyclopedia of Philosophy: Aristotle",
+      "url": "https://plato.stanford.edu/entries/aristotle/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "アリストテレス",
+      "title": "Internet Encyclopedia of Philosophy: Aristotle's Ethics",
+      "url": "https://iep.utm.edu/aristotle-ethics/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "エピクロス",
+      "title": "Epicurus's Morals（主要書簡・主要教説の英訳、Charleton訳の復刻、1926）",
+      "url": "https://archive.org/download/epicurussmorals00epic/epicurussmorals00epic.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "エピクロス",
+      "title": "Stanford Encyclopedia of Philosophy: Epicurus",
+      "url": "https://plato.stanford.edu/entries/epicurus/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "01_紀元前",
+      "philosopher": "エピクロス",
+      "title": "Internet Encyclopedia of Philosophy: Epicurus",
+      "url": "https://iep.utm.edu/epicur/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "セネカ",
+      "title": "Minor Dialogues, together with the Dialogue on Clemency（『人生の短さについて』『怒りについて』『心の平静について』収録、Aubrey Stewart訳、1889）",
+      "url": "https://archive.org/download/cu31924026554281/cu31924026554281.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "セネカ",
+      "title": "Seneca, Dialogues Vol.2（Loeb系の古い英訳、1922）",
+      "url": "https://archive.org/download/dialogues02seneuoft/dialogues02seneuoft.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "セネカ",
+      "title": "Stanford Encyclopedia of Philosophy: Seneca",
+      "url": "https://plato.stanford.edu/entries/seneca/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "エピクテトス",
+      "title": "Selections from the Discourses of Epictetus, with the Encheiridion（語録・提要、Carter訳系）",
+      "url": "https://archive.org/download/selectionsfromdi00epicuoft/selectionsfromdi00epicuoft.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "エピクテトス",
+      "title": "Stanford Encyclopedia of Philosophy: Epictetus",
+      "url": "https://plato.stanford.edu/entries/epictetus/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "エピクテトス",
+      "title": "Internet Encyclopedia of Philosophy: Stoicism",
+      "url": "https://iep.utm.edu/stoicism/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "マルクス・アウレリウス",
+      "title": "The Meditations of the Emperor Marcus Aurelius Antoninus（自省録、George Long訳、1890）",
+      "url": "https://archive.org/download/meditationsofemp00marcuoft/meditationsofemp00marcuoft.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "マルクス・アウレリウス",
+      "title": "The Thoughts of the Emperor Marcus Aurelius Antoninus（Long訳・別版、1889）",
+      "url": "https://archive.org/download/thoughtsofempero00marcuoft/thoughtsofempero00marcuoft.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "マルクス・アウレリウス",
+      "title": "Stanford Encyclopedia of Philosophy: Marcus Aurelius",
+      "url": "https://plato.stanford.edu/entries/marcus-aurelius/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "アウグスティヌス",
+      "title": "The Confessions of St Augustine（告白、英訳、1907）",
+      "url": "https://archive.org/download/TheConfessionsOfStAugustine/TheConfessionsOfStAugustine.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "アウグスティヌス",
+      "title": "Stanford Encyclopedia of Philosophy: Saint Augustine",
+      "url": "https://plato.stanford.edu/entries/augustine/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "02_1-5世紀_古代ローマ",
+      "philosopher": "アウグスティヌス",
+      "title": "Internet Encyclopedia of Philosophy: Augustine",
+      "url": "https://iep.utm.edu/augustine/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "03_6-15世紀_中世",
+      "philosopher": "ボエティウス",
+      "title": "The Consolation of Philosophy of Boethius（哲学の慰め、H.R. James訳、1897）",
+      "url": "https://archive.org/download/b24862617/b24862617.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "03_6-15世紀_中世",
+      "philosopher": "ボエティウス",
+      "title": "Stanford Encyclopedia of Philosophy: Boethius",
+      "url": "https://plato.stanford.edu/entries/boethius/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "03_6-15世紀_中世",
+      "philosopher": "ボエティウス",
+      "title": "Internet Encyclopedia of Philosophy: Boethius",
+      "url": "https://iep.utm.edu/boethius/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "03_6-15世紀_中世",
+      "philosopher": "トマス・アクィナス",
+      "title": "Summa Theologica of St Thomas Aquinas（神学大全 英訳、1914）",
+      "url": "https://archive.org/download/in.ernet.dli.2015.52352/2015.52352.Summa-Theologica-Of-St-Thomas-Aquinas.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "03_6-15世紀_中世",
+      "philosopher": "トマス・アクィナス",
+      "title": "Stanford Encyclopedia of Philosophy: Saint Thomas Aquinas",
+      "url": "https://plato.stanford.edu/entries/aquinas/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "03_6-15世紀_中世",
+      "philosopher": "トマス・アクィナス",
+      "title": "Internet Encyclopedia of Philosophy: Thomas Aquinas",
+      "url": "https://iep.utm.edu/aquinas/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ミシェル・ド・モンテーニュ",
+      "title": "Essays Book 1（エセー第1巻、Jonathan Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/montaigne1580book1.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ミシェル・ド・モンテーニュ",
+      "title": "Essays Book 2",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/montaigne1580book2.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ミシェル・ド・モンテーニュ",
+      "title": "Essays Book 3",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/montaigne1588book3.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ミシェル・ド・モンテーニュ",
+      "title": "Stanford Encyclopedia of Philosophy: Michel de Montaigne",
+      "url": "https://plato.stanford.edu/entries/montaigne/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ニッコロ・マキャヴェッリ",
+      "title": "The Prince（君主論、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/machiavelli1532.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ニッコロ・マキャヴェッリ",
+      "title": "Stanford Encyclopedia of Philosophy: Niccolò Machiavelli",
+      "url": "https://plato.stanford.edu/entries/machiavelli/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ルネ・デカルト",
+      "title": "Meditations on First Philosophy（省察、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/descartes1641.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ルネ・デカルト",
+      "title": "Discourse on the Method（方法序説）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/descartes1637.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ルネ・デカルト",
+      "title": "The Passions of the Soul（情念論、1649）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/descartes1649.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ルネ・デカルト",
+      "title": "Stanford Encyclopedia of Philosophy: René Descartes",
+      "url": "https://plato.stanford.edu/entries/descartes/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ブレーズ・パスカル",
+      "title": "Pensées（パンセ、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/pascal1660.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ブレーズ・パスカル",
+      "title": "Stanford Encyclopedia of Philosophy: Blaise Pascal",
+      "url": "https://plato.stanford.edu/entries/pascal/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "バールーフ・デ・スピノザ",
+      "title": "Ethics（エチカ 全体、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/spinoza1665.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "バールーフ・デ・スピノザ",
+      "title": "Ethics Part 3（感情の起源と本性について）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/spinoza1665part3.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "バールーフ・デ・スピノザ",
+      "title": "Ethics Part 4（人間の隷属、あるいは感情の力について）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/spinoza1665part4.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "バールーフ・デ・スピノザ",
+      "title": "Stanford Encyclopedia of Philosophy: Baruch Spinoza",
+      "url": "https://plato.stanford.edu/entries/spinoza/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "トマス・ホッブズ",
+      "title": "Leviathan Part 1（リヴァイアサン第1部「人間について」、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/hobbes1651part1.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "トマス・ホッブズ",
+      "title": "Leviathan Part 2（コモンウェルスについて）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/hobbes1651part2.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "トマス・ホッブズ",
+      "title": "Stanford Encyclopedia of Philosophy: Thomas Hobbes",
+      "url": "https://plato.stanford.edu/entries/hobbes/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ジョン・ロック",
+      "title": "An Essay concerning Human Understanding Book 2（人間知性論 第2巻、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/locke1690book2.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ジョン・ロック",
+      "title": "A Letter concerning Toleration（寛容についての手紙）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/locke1689a.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "04_16-17世紀",
+      "philosopher": "ジョン・ロック",
+      "title": "Stanford Encyclopedia of Philosophy: John Locke",
+      "url": "https://plato.stanford.edu/entries/locke/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "デイヴィッド・ヒューム",
+      "title": "An Enquiry concerning Human Understanding（人間知性研究、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/hume1748.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "デイヴィッド・ヒューム",
+      "title": "A Treatise of Human Nature Book 2（情念について）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/hume1739book2.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "デイヴィッド・ヒューム",
+      "title": "Stanford Encyclopedia of Philosophy: David Hume",
+      "url": "https://plato.stanford.edu/entries/hume/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "ジャン=ジャック・ルソー",
+      "title": "Emile, or On Education（エミール、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/rousseau1762.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "ジャン=ジャック・ルソー",
+      "title": "Emile Book 1",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/rousseau1762book1.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "ジャン=ジャック・ルソー",
+      "title": "Stanford Encyclopedia of Philosophy: Jean Jacques Rousseau",
+      "url": "https://plato.stanford.edu/entries/rousseau/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "アダム・スミス",
+      "title": "The Theory of Moral Sentiments（道徳感情論、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/smith1759.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "アダム・スミス",
+      "title": "Stanford Encyclopedia of Philosophy: Adam Smith's Moral and Political Philosophy",
+      "url": "https://plato.stanford.edu/entries/smith-moral-political/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "イマヌエル・カント",
+      "title": "Groundwork for the Metaphysics of Morals（道徳形而上学の基礎づけ、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/kant1785.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "イマヌエル・カント",
+      "title": "Toward Perpetual Peace（永遠平和のために）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/kant1795.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "05_18世紀",
+      "philosopher": "イマヌエル・カント",
+      "title": "Stanford Encyclopedia of Philosophy: Immanuel Kant",
+      "url": "https://plato.stanford.edu/entries/kant/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "G.W.F. ヘーゲル",
+      "title": "The Phenomenology of Mind（精神現象学、J.B. Baillie訳、1910）",
+      "url": "https://archive.org/download/cu31924091023832/cu31924091023832.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "G.W.F. ヘーゲル",
+      "title": "Stanford Encyclopedia of Philosophy: Georg Wilhelm Friedrich Hegel",
+      "url": "https://plato.stanford.edu/entries/hegel/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "アルトゥル・ショーペンハウアー",
+      "title": "The World as Will and Representation（意志と表象としての世界、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/schopenhauer1818.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "アルトゥル・ショーペンハウアー",
+      "title": "The World as Will and Representation Book 4（生への意志の肯定と否定）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/schopenhauer1818bookiv.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "アルトゥル・ショーペンハウアー",
+      "title": "Stanford Encyclopedia of Philosophy: Arthur Schopenhauer",
+      "url": "https://plato.stanford.edu/entries/schopenhauer/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "セーレン・キルケゴール",
+      "title": "Selections from the Writings of Kierkegaard（主要著作抜粋、L.M. Hollander訳、1923）",
+      "url": "https://archive.org/download/selectionsfromwr00kieruoft/selectionsfromwr00kieruoft.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "セーレン・キルケゴール",
+      "title": "Stanford Encyclopedia of Philosophy: Søren Kierkegaard",
+      "url": "https://plato.stanford.edu/entries/kierkegaard/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "ジョン・スチュアート・ミル",
+      "title": "On Liberty（自由論、Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/mill1859.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "ジョン・スチュアート・ミル",
+      "title": "Utilitarianism（功利主義）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/mill1863.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "ジョン・スチュアート・ミル",
+      "title": "Autobiography 冒頭（1873）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/mill1873a.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "ジョン・スチュアート・ミル",
+      "title": "Stanford Encyclopedia of Philosophy: John Stuart Mill",
+      "url": "https://plato.stanford.edu/entries/mill/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "カール・マルクス",
+      "title": "The Communist Manifesto（共産党宣言、1910 Kerr版 英訳）",
+      "url": "https://archive.org/download/the-communist-manifesto_202507/The%20Communist%20Manifesto.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "カール・マルクス",
+      "title": "Stanford Encyclopedia of Philosophy: Karl Marx",
+      "url": "https://plato.stanford.edu/entries/marx/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "フリードリヒ・ニーチェ",
+      "title": "Thus Spoke Zarathustra（ツァラトゥストラはこう言った、英訳、1917）",
+      "url": "https://archive.org/download/thusspokezarathu00nietuoft/thusspokezarathu00nietuoft.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "フリードリヒ・ニーチェ",
+      "title": "The Genealogy of Morals（道徳の系譜、英訳、1918）",
+      "url": "https://archive.org/download/genealogyofmoral00niet/genealogyofmoral00niet.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "フリードリヒ・ニーチェ",
+      "title": "Stanford Encyclopedia of Philosophy: Friedrich Nietzsche",
+      "url": "https://plato.stanford.edu/entries/nietzsche/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "フリードリヒ・ニーチェ",
+      "title": "Internet Encyclopedia of Philosophy: Friedrich Nietzsche",
+      "url": "https://iep.utm.edu/nietzsch/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "ウィリアム・ジェームズ",
+      "title": "The Will to Believe（信じる意志、1894。Bennett現代英語版）",
+      "url": "https://www.earlymoderntexts.com/assets/pdfs/james.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "ウィリアム・ジェームズ",
+      "title": "Pragmatism（プラグマティズム、英語原著、1916年版）",
+      "url": "https://archive.org/download/in.ernet.dli.2015.206383/2015.206383.Pragmatism.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "06_19世紀",
+      "philosopher": "ウィリアム・ジェームズ",
+      "title": "Stanford Encyclopedia of Philosophy: William James",
+      "url": "https://plato.stanford.edu/entries/james/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "バートランド・ラッセル",
+      "title": "The Problems of Philosophy（哲学入門、1912）",
+      "url": "https://archive.org/download/problemsofphilo00russuoft/problemsofphilo00russuoft.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "バートランド・ラッセル",
+      "title": "Stanford Encyclopedia of Philosophy: Bertrand Russell",
+      "url": "https://plato.stanford.edu/entries/russell/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ルートヴィヒ・ウィトゲンシュタイン",
+      "title": "Tractatus Logico-Philosophicus（論理哲学論考、Ogden訳・Kevin Klementによる組版版）",
+      "url": "https://people.umass.edu/klement/tlp/tlp.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ルートヴィヒ・ウィトゲンシュタイン",
+      "title": "Tractatus Logico-Philosophicus（1933年版スキャン）",
+      "url": "https://archive.org/download/in.ernet.dli.2015.218466/2015.218466.Tractatus-Logico.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ルートヴィヒ・ウィトゲンシュタイン",
+      "title": "Stanford Encyclopedia of Philosophy: Ludwig Wittgenstein",
+      "url": "https://plato.stanford.edu/entries/wittgenstein/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "マルティン・ハイデガー",
+      "title": "Stanford Encyclopedia of Philosophy: Martin Heidegger",
+      "url": "https://plato.stanford.edu/entries/heidegger/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "マルティン・ハイデガー",
+      "title": "Internet Encyclopedia of Philosophy: Martin Heidegger",
+      "url": "https://iep.utm.edu/heidegge/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ジャン=ポール・サルトル",
+      "title": "Stanford Encyclopedia of Philosophy: Jean-Paul Sartre",
+      "url": "https://plato.stanford.edu/entries/sartre/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ジャン=ポール・サルトル",
+      "title": "Internet Encyclopedia of Philosophy: Sartre's Existentialism",
+      "url": "https://iep.utm.edu/sartre-ex/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "アルベール・カミュ",
+      "title": "Stanford Encyclopedia of Philosophy: Albert Camus",
+      "url": "https://plato.stanford.edu/entries/camus/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "アルベール・カミュ",
+      "title": "Internet Encyclopedia of Philosophy: Albert Camus",
+      "url": "https://iep.utm.edu/camus/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "シモーヌ・ド・ボーヴォワール",
+      "title": "Stanford Encyclopedia of Philosophy: Simone de Beauvoir",
+      "url": "https://plato.stanford.edu/entries/beauvoir/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "シモーヌ・ド・ボーヴォワール",
+      "title": "Internet Encyclopedia of Philosophy: Simone de Beauvoir",
+      "url": "https://iep.utm.edu/beauvoir/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ハンナ・アーレント",
+      "title": "Stanford Encyclopedia of Philosophy: Hannah Arendt",
+      "url": "https://plato.stanford.edu/entries/arendt/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ハンナ・アーレント",
+      "title": "Internet Encyclopedia of Philosophy: Hannah Arendt",
+      "url": "https://iep.utm.edu/arendt/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ハンナ・アーレント",
+      "title": "HannahArendt.net（アーレント研究のオープンアクセス学術誌）",
+      "url": "https://www.hannaharendt.net/index.php/han",
+      "status": 200,
+      "info": "text/html; charset=utf-8",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ヴィクトール・E・フランクル",
+      "title": "Viktor Frankl Institut Vienna（公式アーカイブ／伝記・文献リスト）",
+      "url": "https://www.viktorfrankl.org/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ヴィクトール・E・フランクル",
+      "title": "Burnout Syndrome and Logotherapy（査読付きオープンアクセス論文、PMC）",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6587911/",
+      "status": 200,
+      "info": "text/html; charset=utf-8",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "西田幾多郎",
+      "title": "善の研究（青空文庫・全文無料、日本語）",
+      "url": "https://www.aozora.gr.jp/cards/000182/card946.html",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "西田幾多郎",
+      "title": "我が子の死（青空文庫）",
+      "url": "https://www.aozora.gr.jp/cards/000182/card3506.html",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "西田幾多郎",
+      "title": "作家別作品リスト：西田幾多郎（青空文庫）",
+      "url": "https://www.aozora.gr.jp/index_pages/person182.html",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "西田幾多郎",
+      "title": "Stanford Encyclopedia of Philosophy: Nishida Kitarō",
+      "url": "https://plato.stanford.edu/entries/nishida-kitaro/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "三木清",
+      "title": "人生論ノート（青空文庫・全文無料、日本語）",
+      "url": "https://www.aozora.gr.jp/cards/000218/card46845.html",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "三木清",
+      "title": "作家別作品リスト：三木清（青空文庫）",
+      "url": "https://www.aozora.gr.jp/index_pages/person218.html",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ミシェル・フーコー",
+      "title": "Of Other Spaces: Utopias and Heterotopias（ヘテロトピア論、英訳PDF・MIT公開）",
+      "url": "https://web.mit.edu/allanmc/www/foucault1.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ミシェル・フーコー",
+      "title": "Stanford Encyclopedia of Philosophy: Michel Foucault",
+      "url": "https://plato.stanford.edu/entries/foucault/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ミシェル・フーコー",
+      "title": "Internet Encyclopedia of Philosophy: Michel Foucault",
+      "url": "https://iep.utm.edu/foucault/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ジョン・ロールズ",
+      "title": "Stanford Encyclopedia of Philosophy: John Rawls",
+      "url": "https://plato.stanford.edu/entries/rawls/",
+      "status": 200,
+      "info": "text/html",
+      "ok": true
+    },
+    {
+      "era": "07_20世紀",
+      "philosopher": "ジョン・ロールズ",
+      "title": "Internet Encyclopedia of Philosophy: John Rawls",
+      "url": "https://iep.utm.edu/rawls/",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    },
+    {
+      "era": "08_20世紀後半-現代",
+      "philosopher": "マーサ・ヌスバウム",
+      "title": "Capabilities as Fundamental Entitlements: Sen and Social Justice（本人論文PDF、シカゴ大公開）",
+      "url": "https://hceconomics.uchicago.edu/sites/default/files/pdf/events/Nussbaum_2003_capabilities_fundamental.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "08_20世紀後半-現代",
+      "philosopher": "マーサ・ヌスバウム",
+      "title": "Children's Rights and a Capabilities Approach（Chicago Unbound オープンアクセス）",
+      "url": "https://chicagounbound.uchicago.edu/cgi/viewcontent.cgi?article=1056&context=public_law_and_legal_theory",
+      "status": 202,
+      "info": "text/html; charset=UTF-8",
+      "ok": false
+    },
+    {
+      "era": "08_20世紀後半-現代",
+      "philosopher": "ピーター・シンガー",
+      "title": "Famine, Affluence, and Morality（1972年の代表論文PDF）",
+      "url": "https://terpconnect.umd.edu/~dcrocker/Courses/Docs/Singer-Famine%20Affluence%20Morality.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "08_20世紀後半-現代",
+      "philosopher": "ピーター・シンガー",
+      "title": "Peter Singer（Utilitarianism.net の解説PDF、CCライセンス）",
+      "url": "https://www.utilitarianism.net/pdf/Peter_Singer_Utilitarianism_net.pdf",
+      "status": 200,
+      "info": "application/pdf",
+      "ok": true
+    },
+    {
+      "era": "08_20世紀後半-現代",
+      "philosopher": "ハン・ビョンチョル（韓炳哲）",
+      "title": "Byung-Chul Han（英語版Wikipedia：著作一覧と各書の要旨）",
+      "url": "https://en.wikipedia.org/wiki/Byung-Chul_Han",
+      "status": 200,
+      "info": "text/html; charset=UTF-8",
+      "ok": true
+    }
+  ]
+}
