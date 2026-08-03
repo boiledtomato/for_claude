@@ -1,12 +1,7 @@
 {
- "checked_at": "2026-07-30T13:44:16Z",
- "total": 280,
+ "checked_at": "2026-08-03T02:47:09Z",
+ "total": 251,
  "articles": [
-  {
-   "title": "Configuring Google Cloud Storage Outegration",
-   "url": "/aem/configuring-google-cloud-storage-outegration",
-   "product": "Asset Exposure Management"
-  },
   {
    "title": "About Account Onboarding",
    "url": "/ai-asset-mgmt/about-account-onboarding",
@@ -158,6 +153,16 @@
    "product": "Legacy Zscaler APIs"
   },
   {
+   "title": "Branch Connectors",
+   "url": "/legacy-apis/branch-connectors",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Browser Profiles",
+   "url": "/legacy-apis/browser-profiles",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
    "title": "Cloud Nanolog Streaming Service (NSS)",
    "url": "/legacy-apis/cloud-nanolog-streaming-service-nss",
    "product": "Legacy Zscaler APIs"
@@ -170,6 +175,11 @@
   {
    "title": "Endpoint Data Loss Prevention (DLP) Policy",
    "url": "/legacy-apis/endpoint-data-loss-prevention-dlp-policy",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Extranet",
+   "url": "/legacy-apis/extranet",
    "product": "Legacy Zscaler APIs"
   },
   {
@@ -213,11 +223,6 @@
    "product": "Legacy Zscaler APIs"
   },
   {
-   "title": "SMPC Instance",
-   "url": "/legacy-apis/smpc-instance",
-   "product": "Legacy Zscaler APIs"
-  },
-  {
    "title": "Understanding Authentication Service APIs",
    "url": "/legacy-apis/understanding-authentication-service-apis",
    "product": "Legacy Zscaler APIs"
@@ -238,6 +243,11 @@
    "product": "Legacy Zscaler APIs"
   },
   {
+   "title": "Workload Tags",
+   "url": "/legacy-apis/workload-tags",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
    "title": "Adding Email Notification Templates",
    "url": "/legacy-workflow-automation/adding-email-notification-templates",
    "product": "Legacy UI: Workflow Automation"
@@ -250,11 +260,6 @@
   {
    "title": "Adding Slack Notification Templates",
    "url": "/legacy-workflow-automation/adding-slack-notification-templates",
-   "product": "Legacy UI: Workflow Automation"
-  },
-  {
-   "title": "Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver",
-   "url": "/legacy-workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver",
    "product": "Legacy UI: Workflow Automation"
   },
   {
@@ -336,11 +341,6 @@
    "title": "Zscaler Client Connector Processes to Allowlist",
    "url": "/legacy-zscaler-client-connector/zscaler-client-connector-processes-allowlist",
    "product": "Legacy UI: Zscaler Client Connector"
-  },
-  {
-   "title": "End-of-Support for the Client Certificate Posture Type for All Android Devices",
-   "url": "/product-usage-terms/end-support-client-certificate-posture-type-all-android-devices",
-   "product": "Product Usage Terms & Policies"
   },
   {
    "title": "SSL Inspection Policy [DOC-61890]",
@@ -538,6 +538,11 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Tracking Data Source Runs",
+   "url": "/unified/tracking-data-source-runs",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Understanding the ThreatLabz Source",
    "url": "/unified/understanding-threatlabz-source",
    "product": "Getting Started with Zscaler"
@@ -553,88 +558,8 @@
    "product": "Getting Started with Zscaler"
   },
   {
-   "title": "Configuring the Axonius Connector",
-   "url": "/uvm/configuring-axonius-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Black Duck SCA Connector",
-   "url": "/uvm/configuring-black-duck-sca-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Code42 Connector",
-   "url": "/uvm/configuring-code42-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Digital Shadows Connector",
-   "url": "/uvm/configuring-digital-shadows-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Flexera Assets Connector",
-   "url": "/uvm/configuring-flexera-assets-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Freshservice Connector",
-   "url": "/uvm/configuring-freshservice-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
    "title": "Configuring the GitHub Repositories Connector",
    "url": "/uvm/configuring-github-repositories-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring Google Cloud Storage Outegration",
-   "url": "/uvm/configuring-google-cloud-storage-outegration",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Google Sheets Connector",
-   "url": "/uvm/configuring-google-sheets-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Halo Assets Connector",
-   "url": "/uvm/configuring-halo-assets-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Invicti Connector",
-   "url": "/uvm/configuring-invicti-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the JFrog XRay Connector",
-   "url": "/uvm/configuring-jfrog-xray-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Lacework Connector",
-   "url": "/uvm/configuring-lacework-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Legit Security Connector",
-   "url": "/uvm/configuring-legit-security-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the NetBox Connector",
-   "url": "/uvm/configuring-netbox-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Tenable Nessus Connector",
-   "url": "/uvm/configuring-tenable-nessus-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Scheduling Reports to Export",
-   "url": "/uvm/scheduling-reports-export",
    "product": "Unified Vulnerability Management (UVM)"
   },
   {
@@ -660,11 +585,6 @@
   {
    "title": "Managing Incident Group Mappings",
    "url": "/workflow-automation/managing-incident-group-mappings",
-   "product": "Workflow Automation"
-  },
-  {
-   "title": "Understanding Duplicate Incidents in Workflow Automation",
-   "url": "/workflow-automation/understanding-duplicate-incidents-workflow-automation",
    "product": "Workflow Automation"
   },
   {
@@ -695,11 +615,6 @@
   {
    "title": "Managing Sites",
    "url": "/zero-trust-branch/managing-sites",
-   "product": "Zero Trust Branch"
-  },
-  {
-   "title": "Resolving Zero Trust Branch Configuration and Activation Issues",
-   "url": "/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues",
    "product": "Zero Trust Branch"
   },
   {
@@ -735,16 +650,6 @@
   {
    "title": "About the Index Tool",
    "url": "/zia/about-index-tool",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "About NSS Collector Servers",
-   "url": "/zia/about-nss-collector-servers",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "About NSS Servers",
-   "url": "/zia/about-nss-servers",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -868,16 +773,6 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Adding NSS Collector Servers",
-   "url": "/zia/adding-nss-collector-servers",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding NSS Servers",
-   "url": "/zia/adding-nss-servers",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Adding TCP NSS Feeds for DNS Logs",
    "url": "/zia/adding-tcp-nss-feeds-dns-logs",
    "product": "Internet & SaaS (ZIA)"
@@ -915,11 +810,6 @@
   {
    "title": "Configuring Advanced Settings",
    "url": "/zia/configuring-advanced-settings",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Configuring Application Service Groups",
-   "url": "/zia/configuring-application-service-groups",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -1000,41 +890,6 @@
   {
    "title": "Migrating Applications from Customer-Managed to Zscaler-Managed Dedicated IPs",
    "url": "/zia/migrating-applications-customer-managed-zscaler-managed-dedicated-ip",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Collector Deployment Guide for VMware vSphere",
-   "url": "/zia/nss-collector-deployment-guide-vmware-vsphere",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Amazon Web Services",
-   "url": "/zia/nss-deployment-guide-amazon-web-services",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Google Cloud Platform",
-   "url": "/zia/nss-deployment-guide-google-cloud-platform",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Hyper-V",
-   "url": "/zia/nss-deployment-guide-hyper-v",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Microsoft Azure",
-   "url": "/zia/nss-deployment-guide-microsoft-azure",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Nutanix",
-   "url": "/zia/nss-deployment-guide-nutanix",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for VMware vSphere",
-   "url": "/zia/nss-deployment-guide-vmware-vsphere",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -1203,11 +1058,6 @@
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "Configuring Microsegmentation Policies",
-   "url": "/zpa/configuring-microsegmentation-policies",
-   "product": "Private Access (ZPA)"
-  },
-  {
    "title": "Configuring Notifications",
    "url": "/zpa/configuring-notifications",
    "product": "Private Access (ZPA)"
@@ -1318,6 +1168,11 @@
    "product": "Private Access (ZPA)"
   },
   {
+   "title": "Using Application Scaling",
+   "url": "/zpa/using-application-scaling",
+   "product": "Private Access (ZPA)"
+  },
+  {
    "title": "Viewing the Applications Dashboard",
    "url": "/zpa/viewing-applications-dashboard",
    "product": "Private Access (ZPA)"
@@ -1338,11 +1193,6 @@
    "product": "Zscaler Cellular"
   },
   {
-   "title": "Adding Process-Based Applications to Bypass Traffic",
-   "url": "/zscaler-client-connector/adding-process-based-applications-bypass-traffic",
-   "product": "Client Connector"
-  },
-  {
    "title": "Deploying Zscaler Client Connector with Jamf Pro for macOS",
    "url": "/zscaler-client-connector/deploying-zscaler-client-connector-jamf-pro-macos",
    "product": "Client Connector"
@@ -1350,11 +1200,6 @@
   {
    "title": "Deploying Zscaler Client Connector with Microsoft Intune for macOS",
    "url": "/zscaler-client-connector/deploying-zscaler-client-connector-microsoft-intune-macos",
-   "product": "Client Connector"
-  },
-  {
-   "title": "Deploying Zscaler Client Connector with Workspace ONE UEM for macOS",
-   "url": "/zscaler-client-connector/deploying-zscaler-client-connector-workspace-one-uem-macos",
    "product": "Client Connector"
   },
   {
@@ -1388,6 +1233,11 @@
    "product": "Zscaler Technology Partners"
   },
   {
+   "title": "Zscaler and Reach Security Deployment Guide",
+   "url": "/zscaler-technology-partners/zscaler-and-reach-security-deployment-guide",
+   "product": "Zscaler Technology Partners"
+  },
+  {
    "title": "Zscaler and SD-WAN Technology Partner Deployment Guides",
    "url": "/zscaler-technology-partners/zscaler-and-sd-wan-technology-partner-deployment-guides",
    "product": "Zscaler Technology Partners"
@@ -1401,6 +1251,11 @@
    "title": "Zscaler and Tines Deployment Guide",
    "url": "/zscaler-technology-partners/zscaler-and-tines-deployment-guide",
    "product": "Zscaler Technology Partners"
+  },
+  {
+   "title": "Understanding ZSDK Error Codes",
+   "url": "/zsdk/understanding-zsdk-error-codes",
+   "product": "Zscaler SDK for Mobile Apps"
   }
  ]
 }

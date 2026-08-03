@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 60
 
 ---
@@ -3282,13 +3282,13 @@ See image
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-escalation-notification","lastmod":"2026-07-10T10:42Z","nid":"1433821"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-escalation-notification","lastmod":"2026-07-31T07:06Z","nid":"1433821"} -->
 ## Responding to an Escalation Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-escalation-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an Escalation Notification
-- Last modified: 2026-07-10T10:42Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: Information on how to review and respond to an escalation notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4032,13 +4032,13 @@ To configure custom email domains, see [Managing Custom Email Domains](https://h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/understanding-duplicate-incidents-workflow-automation","lastmod":"2026-06-30T21:06Z","nid":"1486281"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/understanding-duplicate-incidents-workflow-automation","lastmod":"2026-07-31T07:06Z","nid":"1486281"} -->
 ## Understanding Duplicate Incidents in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/understanding-duplicate-incidents-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Understanding Duplicate Incidents in Workflow Automation
-- Last modified: 2026-06-30T21:06Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: Information on duplicate incidents in Workflow Automation.
 
 Duplicate incidents can occur in Workflow Automation when a user violates the same Data Loss Prevention (DLP) rule multiple times during a two-hour time frame. Duplicate incidents are only applicable to Inline source DLP type incidents. Workflow Automation does not track duplicate incidents for SaaS Security, Email, or Endpoint source DLP type incidents.
@@ -7671,13 +7671,13 @@ Alternatively, Zscaler encourages you to enable the policy for Unauthenticated T
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-deployments-operations/zia-ssl-inspection-leading-practices-guide","lastmod":"2026-06-12T17:32Z","nid":"1456351"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-deployments-operations/zia-ssl-inspection-leading-practices-guide","lastmod":"2026-07-31T07:06Z","nid":"1456351"} -->
 ## Internet & SaaS TLS and SSL Inspection Leading Practices Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/zia-ssl-inspection-leading-practices-guide
 - Product: Zscaler Deployments & Operations
 - Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > Internet & SaaS TLS and SSL Inspection Leading Practices Guide
-- Last modified: 2026-06-12T17:32Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: The Internet & SaaS SSL Inspection Leading Practices Guide provides a set of best practices for configuring and deploying Internet & SaaS Secure Sockets Layer (SSL) and Transport Layer Security (TSL) inspection in an organization's environment.
 
 The Internet & SaaS SSL and TLS Inspection Leading Practices Guide provides a set of best practices for configuring and deploying Internet & SaaS Secure Sockets Layer (SSL), and its successor Transport Layer Security (TLS) inspection in an organization's network environment.

@@ -1,8 +1,64 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
-Articles in this file: 229
+Generated: 2026-08-03 02:47 UTC
+Articles in this file: 230
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-ai-security","lastmod":"2026-06-29T21:06Z","nid":"1540847"} -->
+## Understanding AI Security
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-ai-security
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Getting Started > Understanding AI Security
+- Last modified: 2026-06-29T21:06Z
+- Summary: Information about AI Security and its key benefits.
+
+Organizations are increasingly adopting generative AI (Gen AI) workloads in the public cloud to build enterprise-grade AI services that deliver faster, higher quality customer experiences and improve return on investment (ROI). These private Gen AI applications are not only built with managed AI platforms, such as AWS Bedrock and Azure Foundry, but also by deploying unknown and potentially risky AI models sourced from open-source AI repositories, like Hugging Face and Ollama.
+
+To get the most out of these AI agents and tools, organizations need to share their data to make the responses customized to their scenarios. This can be done by tuning the AI model with organization-specific data, or by sharing the data as retrieval augmented generation (RAG). While sharing specific data with the AI models, it is possible that additional sensitive data might be shared either by mistake or by a malicious actor trying to poison the data. Misconfigurations of the AI service can also lead to unwanted data leaks through bad guardrails, agent exposure, usage of vulnerable AI packages, and more. All of these could result in significant data breaches leading to compliance violations under various legal and regulatory frameworks such as GDPR, HIPAA, etc.
+
+Zscaler's AI Security is a comprehensive strategy for securing AI systems by monitoring models, data, and infrastructure to identify and mitigate risks. The AI Security solution leverages the strengths of AI to sift through high volumes of enterprise data used for AI model training or model response with retrieval-augmented generation (RAG) and detect anomalies and potential risks such as sensitive data exposure, vulnerabilities, unauthorized access, and other security incidents. AI Security then correlates signals across data classification and discovery, data access paths, and potential exposure of sensitive data to AI, identifying potential vulnerabilities and misconfigurations to quickly detect hidden AI risks. AI Security enables organizations to innovate safely with Gen AI, by preventing costly data breaches, legal penalties, and reputational damage stemming from unsecured AI data usage, while simultaneously improving control and visibility over their AI ecosystem.
+
+## Key Features
+
+Organizations face significant challenges in balancing productivity and ensuring data security with AI adoption and controlling what AI can see and do with enterprise data. AI Security provides the following key features:
+
+- **Public AI visibility and inventory**:
+  - AI application discovery and inventory, e.g., Gen AI and Desktop AI.
+  - Usage analytics includes overall traffic volume, user counts, top-used apps, and department-wise usage.
+  - Category-based views to understand usage by AI app type (e.g., GenAI, Desktop AI, Embedded AI).
+  - MCP traffic visibility to help monitor AI-related traffic patterns.
+- **AI infrastructure discovery**:
+  - Asset discovery and inventory of key AI infrastructure components, including, models, MCP servers, agents, and AI apps.
+  - High-level metrics and distributions such as, risk-level distribution, type-based distribution (e.g., model types), environment and cloud distribution.
+  - Interactive drill-down from dashboard widgets into detailed inventory lists for each asset type.
+- AI Resources visibility (workloads, identities, datastores, guardrails, libraries):
+  - Provides an inventory-style view of supporting resources connected to your AI environment, including:
+    - Workloads: Compute and services that host or run AI-related components.
+    - Datastores: Storage locations used by AI workloads and pipelines.
+    - Identities: Users and service identities that access AI assets and resources.
+    - Guardrails: Controls and configurations that help enforce safe and compliant AI usage.
+    - AI software libraries: Libraries detected in the environment (appear as data becomes available).
+- **Unified dashboard and drill-down navigation**:
+  - Consolidates high-level metrics into widgets and charts.
+  - Lets you click through from summary metrics to detailed inventory pages for faster triage.
+- **AI Red Teaming visibility:**
+  - Dedicated red teaming dashboard tab to surface red teaming metrics and outcomes.
+  - Supports tracking posture over time by reviewing red teaming results and trends.
+
+## Key Benefits
+
+AI Security provides the following benefits to help alleviate the challenges:
+
+- Unified visibility across AI usage and infrastructure: See both AI apps in use and the underlying AI assets (models, MCP servers, agents) in one place.
+- Faster triage and investigation: Click from dashboards to inventories to pinpoint the affected app, asset, or resource quickly.
+- Better risk prioritization: Risk distributions across assets and resources help focus on what matters most.
+- Stronger governance and control: Identity and guardrail visibility supports access reviews and policy alignment.
+- Improved operational readiness: Software library and resource inventories help identify dependencies and reduce blind spots.
+- Continuous posture validation: Red teaming insights help validate defenses and measure improvements over time.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -88,13 +144,13 @@ The supported orchestrator instance types and configurations are as follows:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-scanner-instances","lastmod":"2026-07-22T04:45Z","nid":"1539732"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-scanner-instances","lastmod":"2026-07-31T08:08Z","nid":"1539732"} -->
 ## Understanding Scanner Instances
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/understanding-scanner-instances
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Understanding Scanner Instances
-- Last modified: 2026-07-22T04:45Z
+- Last modified: 2026-07-31T08:08Z
 - Summary: Information about the AI Security scanner instance that is used to scan data and display the scan results in the AI Security Admin Portal.
 
 AI Security creates transitory scanner instances in the respective regions to perform data scanning on different data stores such as storage, compute, and databases. The orchestrator instance creates the scanner instances with a unique identity. Zscaler's applications are installed in these scanner instances to perform data scanning. For each data store, AI Security creates up to a maximum of 10 scanner instances each with a configuration of 16 vCPU and 32 GiB memory, depending upon the number of data stores that must be scanned.
@@ -125,18 +181,29 @@ The scanner instances for the following cloud types:
 | S3 | Incremental | t3.xlarge | 4 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
 | EC2 | Full | c6in.4xlarge | 16 core vCPUs and 32 GiB Memory | Root Disk: 20 GB GP3 |
 | RDS | Full | c5a.4xlarge db.r6g.large | 16 core vCPUs and 32 GiB Memory | Root Disk: 20 GB GP4 |
+| RDS | Sampling | t3.medium db.r6g.large | 2 core vCPUs and 4 GiB Memory 2 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+| DynamoDB | Full | t3.xlarge | 4 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+| DynamoDB | Sampling | t3.xlarge | 4 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
 
 | Data Store Type | Scan Type | Instance Type | Instance Configuration | Disk Configuration |
 | --- | --- | --- | --- | --- |
 | Blob Container | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
 | Blob Container | Incremental | Standard_D4s_v3 | 4 core vCPUs and 16 GiB Memory | 30 GB GP5 |
 | Virtual Machine | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| File Share | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| File Share | Incremental | Standard_D4s_v3 | 4 core vCPUs and 16 GiB Memory | 30 GB Premium SSD LRS |
 | SQL Server PostgreSQL-Flexible Server | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| SQL Server PostgreSQL-Flexible Server | Sampling | Standard_B2ls_v2 | 2 core vCPUs and 4 GiB Memory | 30 GB Premium SSD LRS |
+| Azure Cosmos DB for NoSQL | Sampling | Standard_B2ls_v2 | 2 core vCPUs and 4 GiB Memory | 30 GB Premium SSD LRS |
 
 | Data Store Type | Scan Type | Instance Type | Instance Configuration | Disk Configuration |
 | --- | --- | --- | --- | --- |
 | Cloud Storage Bucket | Full | e2-standard-16 | 16 core vCPUs and 64 GiB Memory | 20 GB Standard persistent disk |
 | Cloud Storage Bucket | Incremental | e2-standard-8 | 4 core vCPUs and 16 GiB Memory | 20 GB GP6 |
+| Cloud Platform Compute | Full | e2-standard-16 | 16 core vCPUs and 32 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Platform Cloud SQL | Full | e2-standard-16 | 16 core vCPUs and 32 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Platform Cloud SQL | Sampling | e2-standard-2 | 2 core vCPUs and 4 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Platform BigQuery | Sampling | e2-standard-2 | 2 core vCPUs and 4 GiB Memory | 20 GB Standard persistent disk |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9337,13 +9404,13 @@ You can assume the roles in each account within the organization from your code.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-axonius-connector","lastmod":"2026-06-02T00:51Z","nid":"1528216"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-axonius-connector","lastmod":"2026-07-31T07:06Z","nid":"1528216"} -->
 ## Configuring the Axonius Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-axonius-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Axonius Connector
-- Last modified: 2026-06-02T00:51Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Axonius connector, including setting up authentication and data retrieval filters and specifications.
 
 Axonius is a cybersecurity and asset management platform that provides organizations with complete visibility and control over their IT assets, including devices, users, cloud services, and SaaS applications.
@@ -10135,13 +10202,13 @@ This field is available in the Bitsight Observations stream.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-black-duck-sca-connector","lastmod":"2026-06-02T01:03Z","nid":"1528221"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-black-duck-sca-connector","lastmod":"2026-07-31T07:06Z","nid":"1528221"} -->
 ## Configuring the Black Duck SCA Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-black-duck-sca-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Black Duck SCA Connector
-- Last modified: 2026-06-02T01:03Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Black Duck SCA connector, including setting up authentication and data retrieval filters and specifications.
 
 Black Duck helps security and development teams identify and mitigate open source-related risks across application portfolios.
@@ -10376,13 +10443,13 @@ From the drop-down menu, select the region of your Claroty xDome instance. This 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-code42-connector","lastmod":"2026-06-02T02:13Z","nid":"1527681"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-code42-connector","lastmod":"2026-07-31T07:06Z","nid":"1527681"} -->
 ## Configuring the Code42 Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-code42-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Code42 Connector
-- Last modified: 2026-06-02T02:13Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Code42 connector, including setting up authentication and data retrieval filters and specifications.
 
 Code42 is a cloud-native data security platform that provides real-time visibility, detection, and response capabilities to help organizations protect sensitive data from insider threats and data leaks.
@@ -10710,13 +10777,13 @@ This checkbox is available in the CrowdStrike Identity Protection Security Asses
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-custom-dashboards","lastmod":"2026-03-31T07:06Z","nid":"1527896"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-custom-dashboards","lastmod":"2026-07-30T02:07Z","nid":"1527896"} -->
 ## Configuring Custom Dashboards
 
 - Source: https://help.zscaler.com/uvm/configuring-custom-dashboards
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Analytics > Dashboards > Configuring Custom Dashboards
-- Last modified: 2026-03-31T07:06Z
+- Last modified: 2026-07-30T02:07Z
 - Summary: How to configure custom dashboards, including adding and configuring widgets in the dashboard.
 
 Custom dashboards allow you to organize and display relevant data in a way that is meaningful to your organization. While the platform comes equipped with built-in dashboards that provide powerful and ready-to-use insights, custom dashboards give you the flexibility to tailor your view, selecting specific measurements and dimensions that matter most to you. This article provides step-by-step instructions on how to create and configure custom dashboards. For details on how to manage existing dashboards, see [Managing Custom Dashboards](https://help.zscaler.com/uvm/managing-custom-dashbords).
@@ -10739,9 +10806,10 @@ To create a custom dashboard:
     1. **Public**: Select this option to grant edit access to all users in the account.
     2. **Selected Users:** Select users from the list to set them as editors of the dashboard. Users designated as editors override the **Viewers** setting.
   5. **Pin to Apps**: (Optional) Select the application to which you want to pin the dashboard. This allows you to easily find the dashboard under **My Dashboards** on the app.
+  6. **Tags**: Enter the tag name or select from the existing tags. You can add one or more tags to a dashboard to categorize them.
 4. Click **Create**. The **Create New Widget** page appears, and you can start adding widgets to visualize your data.
 
-[Image: All Dashboards page]
+[Image: All Dashboards page in Security Operations platform]
 
 [Image: Create New Dashboard window]
 
@@ -11126,13 +11194,13 @@ This filter is available in the Datto Devices stream.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-digital-shadows-connector","lastmod":"2026-06-02T03:36Z","nid":"1528181"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-digital-shadows-connector","lastmod":"2026-07-31T07:06Z","nid":"1528181"} -->
 ## Configuring the Digital Shadows Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-digital-shadows-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Digital Shadows Connector
-- Last modified: 2026-06-02T03:36Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Digital Shadows connector, including setting up authentication and data retrieval filters and specifications.
 
 Digital Shadows SearchLight is a digital risk protection platform that monitors criminal forums, chat platforms, and code-sharing sites across the open, deep, and dark web. It aims to secure an organization's business and reputation by identifying and mitigating threats related to cybersecurity, data exposure, and brand risks.
@@ -11696,13 +11764,13 @@ To share metadata with Zscaler:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-flexera-assets-connector","lastmod":"2026-06-02T03:39Z","nid":"1528196"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-flexera-assets-connector","lastmod":"2026-07-31T07:06Z","nid":"1528196"} -->
 ## Configuring the Flexera Assets Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-flexera-assets-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Flexera Assets Connector
-- Last modified: 2026-06-02T03:39Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Flexera Assets connector, including setting up authentication and data retrieval filters and specifications.
 
 Flexera allows enterprises to gain visibility and control of IT assets, which reduces ongoing software costs and maintains continuous license compliance.
@@ -11776,13 +11844,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-freshservice-connector","lastmod":"2026-06-02T03:43Z","nid":"1528286"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-freshservice-connector","lastmod":"2026-07-31T07:06Z","nid":"1528286"} -->
 ## Configuring the Freshservice Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-freshservice-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Freshservice Connector
-- Last modified: 2026-06-02T03:43Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Freshservice connector, including setting up authentication and data retrieval filters and specifications.
 
 Freshservice is a cloud-based IT service management (ITSM) and enterprise service management (ESM) solution designed to help organizations modernize their IT operations and employee service delivery.
@@ -12633,13 +12701,13 @@ Leave this field empty, as the GCP connector does not require an admin email to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-google-cloud-storage-outegration","lastmod":"2026-06-09T22:21Z","nid":"1541146"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-google-cloud-storage-outegration","lastmod":"2026-07-31T07:06Z","nid":"1541146"} -->
 ## Configuring Google Cloud Storage Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-google-cloud-storage-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring Google Cloud Storage Outegration
-- Last modified: 2026-06-09T22:21Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure Google Cloud Storage outegration in the Zscaler SecOps platform.
 
 The Google Cloud Platform (GCP) Storage outegration is used as a report delivery method to dispatch files from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Google Cloud Storage bucket.
@@ -12702,13 +12770,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-google-sheets-connector","lastmod":"2026-06-02T03:57Z","nid":"1527656"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-google-sheets-connector","lastmod":"2026-07-31T07:06Z","nid":"1527656"} -->
 ## Configuring the Google Sheets Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-google-sheets-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Google Sheets Connector
-- Last modified: 2026-06-02T03:57Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Google Sheets connector, including setting up authentication and data retrieval filters and specifications.
 
 The Google Sheets connector allows you to upload files from your Google Sheets to the Zscaler Security Operations (SecOps) platform.
@@ -12910,13 +12978,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-halo-assets-connector","lastmod":"2026-06-02T04:06Z","nid":"1528031"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-halo-assets-connector","lastmod":"2026-07-31T07:06Z","nid":"1528031"} -->
 ## Configuring the Halo Assets Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-halo-assets-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Halo Assets Connector
-- Last modified: 2026-06-02T04:06Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Halo Assets connector, including setting up authentication and data retrieval filters and specifications.
 
 HaloITSM helps organizations track and manage IT assets throughout their lifecycle, integrating with other IT service management processes.
@@ -13170,13 +13238,13 @@ Select which penetration test types the connector retrieves data from. By defaul
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-invicti-connector","lastmod":"2026-06-02T04:27Z","nid":"1528291"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-invicti-connector","lastmod":"2026-07-31T07:06Z","nid":"1528291"} -->
 ## Configuring the Invicti Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-invicti-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Invicti Connector
-- Last modified: 2026-06-02T04:27Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Invicti connector, including setting up authentication and data retrieval filters and specifications.
 
 Invicti is a Dynamic Application Security Testing (DAST) tool for DevOps and DevSecOps teams to secure the applications that run their organizations.
@@ -13309,13 +13377,13 @@ This checkbox is available in the Findings stream.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-jfrog-xray-connector","lastmod":"2026-06-02T06:34Z","nid":"1528401"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-jfrog-xray-connector","lastmod":"2026-07-31T07:06Z","nid":"1528401"} -->
 ## Configuring the JFrog XRay Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-jfrog-xray-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the JFrog XRay Connector
-- Last modified: 2026-06-02T06:34Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the JFrog XRay connector, including setting up authentication and data retrieval filters and specifications.
 
 JFrog Xray is a universal software composition analysis (SCA) solution that integrates with JFrog Artifactory and identifies vulnerabilities on open source and license compliance violations.
@@ -13754,13 +13822,13 @@ After your webhook is set up, configured triggers for field updates in your Jira
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-lacework-connector","lastmod":"2026-06-02T06:38Z","nid":"1528256"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-lacework-connector","lastmod":"2026-07-31T07:06Z","nid":"1528256"} -->
 ## Configuring the Lacework Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-lacework-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Lacework Connector
-- Last modified: 2026-06-02T06:38Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Lacework connector, including setting up authentication and data retrieval filters and specifications.
 
 Lacework is a cloud security tool that detects threats, vulnerabilities, misconfigurations, and unusual activity in your cloud environments. Lacework learns how your environment is supposed to run and tells you when it deviates.
@@ -13850,13 +13918,13 @@ In the Number of days to fetch field, enter the number of days of data you want 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-legit-security-connector","lastmod":"2026-06-02T06:59Z","nid":"1528361"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-legit-security-connector","lastmod":"2026-07-31T07:06Z","nid":"1528361"} -->
 ## Configuring the Legit Security Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-legit-security-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Legit Security Connector
-- Last modified: 2026-06-02T06:59Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Legit connector, including setting up authentication and data retrieval filters and specifications.
 
 Legit Security protects your software supply chain and oversees application security from code to cloud. It enables secure software releases through automatic detection and resolution of security concerns.
@@ -14533,13 +14601,13 @@ To grant admin consent, refer to the [Microsoft documentation](https://learn.mic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-netbox-connector","lastmod":"2026-06-02T06:46Z","nid":"1528006"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-netbox-connector","lastmod":"2026-07-31T07:06Z","nid":"1528006"} -->
 ## Configuring the NetBox Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-netbox-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the NetBox Connector
-- Last modified: 2026-06-02T06:46Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the NetBox connector, including setting up authentication and data retrieval filters and specifications.
 
 NetBox is an infrastructure resource modeling (IRM) platform that supports network automation and management, including IP address management (IPAM), device inventory, and virtual machine and cluster management.
@@ -17519,13 +17587,13 @@ In the field, optionally enter the sensor names. A sensor is a script that runs 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-tenable-nessus-connector","lastmod":"2026-06-04T07:51Z","nid":"1528381"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-tenable-nessus-connector","lastmod":"2026-07-31T07:06Z","nid":"1528381"} -->
 ## Configuring the Tenable Nessus Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-tenable-nessus-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Tenable Nessus Connector
-- Last modified: 2026-06-04T07:51Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure the Tenable Nessus connector, including setting up authentication and data retrieval filters and specifications.
 
 Tenable Nessus scans for security vulnerabilities in devices, applications, operating systems, cloud services, and other network resources.

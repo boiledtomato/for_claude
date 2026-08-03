@@ -1,61 +1,8 @@
 # Zscaler Help — ZPA — Private Access (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 207
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-agents","lastmod":"2025-08-22T12:27Z","nid":"1531952"} -->
-## Configuring Agents
-
-- Source: https://help.zscaler.com/zpa/configuring-agents
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > Configuring Agents
-- Last modified: 2025-08-22T12:27Z
-- Summary: How to configure agents for Microsegmentation in the ZPA Admin Portal.
-
-Agents in Microsegmentation are installed on users' server workloads to collect endpoint data. You can install agents using most configuration management tools that accommodate Windows .msi files or Linux .rpm files. After configuring agents, you can configure [agent groups](https://help.zscaler.com/zpa/configuring-agent-groups) and [agent provisioning keys](https://help.zscaler.com/zpa/about-agent-provisioning-keys-page).
-
-To configure an agent:
-
-1. Go to **Microsegmentation** > **Agent Management**.
-2. Click the**Agents** tab.
-3. Click **Add Agent**. The **Add Agent** window appears. See image.
-4. In the **Add Agent** window:
-  1. **Agent Group**: Select an agent group from the drop-down menu. If there are no agent groups available, select **Create New Agent Group** and follow the onscreen instructions. You must place agents in groups based on the upgrade plan and location. For the upgrade plan, agents in the same agent group inherit the same upgrade plan including version profile, upgrade schedule, upgrade order (serial or parallel), and upgrade failure behavior (halt or skip). For agents deployed in on-premises data center environments, you must enable Advanced Settings and provide the admin-supplied region, VPCs, and Subnet IDs. These attributes are inherited by all agents in the group. To learn more, see [Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups).
-  2. Click **Next**. See image.
-  3. **Provisioning Key**: Select an agent provisioning key from the drop-down menu. If there are no agent provisioning keys available, select **Create New Provisioning Key** and follow the onscreen instructions. To learn more, see [About Agent Provisioning Keys](https://help.zscaler.com/zpa/about-agent-provisioning-keys-page)*.*
-  4. Click **Next**. See image.
-  5. **Review**: Review the entered information to ensure it is correct:
-    1. **Agent Group**:
-      - **Name**
-      - **Status**(this is enabled by default)
-      - **Description**
-      - **Auto Update**(this is disabled by default)
-    2. **Provisioning Key**:
-      - **Name**
-      - **Maximum Reuse**
-  6. Click **Next**. See image.
-  7. **Review Documentation**: Review the entered information and the agent provisioning key file.
-    1. Select the operating system for the agent (**Linux** or **Windows**).
-    2. Download the installation binary to your server workload.
-    3. Copy the provisioning key provided into a file called provision_key in the same directory as the installation script.
-    4. Run the downloaded binary on your server workload. See image.
-  8. Click **Done**.
-
-After your new agent first deploys onto a workload and is registered with the agent provisioning key, it appears in the list of Agents.
-
-[Image: A view of the agents page and all its actions.]
-
-[Image: A view of the Agent Group section when configuring a new agent.]
-
-[Image: A view of the Provisioning Key section when configuring a new agent.]
-
-[Image: A view of the Review section when configuring a new agent.]
-
-[Image: A view of the Review Documentation section when configuring a new agent.]
-<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -919,13 +866,13 @@ Your new AppZone appears in the list of AppZones.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-authentication-settings","lastmod":"2026-06-11T08:28Z","nid":"1484026"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-authentication-settings","lastmod":"2026-07-31T07:06Z","nid":"1484026"} -->
 ## Configuring Authentication Settings
 
 - Source: https://help.zscaler.com/zpa/configuring-authentication-settings
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Authentication > Settings > Configuring Authentication Settings
-- Last modified: 2026-06-11T08:28Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure authentication settings, such as remote assistance, admin login single sign-on (SSO) enforcement, etc. within the Zscaler Admin Console.
 
 To configure authentication settings for Private Access ZPA:
@@ -2924,14 +2871,14 @@ An IPv6 endpoint through Zscaler Client Connector to access an IPv4 application 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-isolation-policies","lastmod":"2026-07-14T11:14Z","nid":"1484886"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-isolation-policies","lastmod":"2026-07-31T14:36Z","nid":"1484886"} -->
 ## Configuring Isolation Policies
 
 - Source: https://help.zscaler.com/zpa/configuring-isolation-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Isolation Policy > Configuring Isolation Policies
-- Last modified: 2026-07-14T11:14Z
-- Summary: How to configure an isolation policy rule within the Zscaler Admin Console.
+- Last modified: 2026-07-31T14:36Z
+- Summary: How to configure an isolation policy rule for Zero Trust Browser within Zscaler Private Access.
 
 Isolation policy rules allow you to implement controls based on [isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access). For a complete list of ranges and limitations for isolation policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
@@ -2943,11 +2890,12 @@ To configure an access policy rule:
 The **Add Isolation Policy** window appears.
 
 1. In the **Add Isolation Policy** window:
-  - **Name**: Enter an isolation policy name. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
-  - **Description**: (Optional) Enter a description.
   - For **Action**:
     - **Rule Action**: Select **Allow Isolation** or **Bypass Isolation**.
     - **Isolation Profile**: Select an isolation profile for the rule to use for allowing isolation. This field is required for creating an isolation policy that has the **Rule Action** set to **Allow Isolation**.
+  - For **Details**:
+    - **Name**: Enter an isolation policy name. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
+    - **Description**: (Optional) Enter a description.
 
 - For **Criteria**, click **Add Criteria** to add any of the available criteria types. The drop-down menu only displays criteria that are not already in use by the rule.
 
@@ -3300,13 +3248,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-microsegmentation-policies","lastmod":"2026-06-12T12:09Z","nid":"1531966"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-microsegmentation-policies","lastmod":"2026-07-31T07:06Z","nid":"1531966"} -->
 ## Configuring Microsegmentation Policies
 
 - Source: https://help.zscaler.com/zpa/configuring-microsegmentation-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Policy > Configuring Microsegmentation Policies
-- Last modified: 2026-06-12T12:09Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure Microsegmentation policies.
 
 Admins can create Layer 3 and Layer 4 Microsegmentation enforcement policies to protect east-west traffic in both cloud and data center environments. Policies are applied between resource groups or between a resource group and any other [resource](https://help.zscaler.com/zpa/about-resources). Policies are evaluated from highest priority (lowest integer) to lowest priority (highest integer). No two policies can have the same priority.
@@ -4623,16 +4571,16 @@ Choose a specific SCIM group from the drop-down menu to apply the rule action to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-resource-groups","lastmod":"2026-07-08T12:50Z","nid":"1531946"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-resource-groups","lastmod":"2026-07-31T09:55Z","nid":"1531946"} -->
 ## Configuring Resource Groups
 
 - Source: https://help.zscaler.com/zpa/configuring-resource-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Configuring Resource Groups
-- Last modified: 2026-07-08T12:50Z
-- Summary: How to configure resource groups for Microsegmentation in the ZPA Admin Portal.
+- Last modified: 2026-07-31T09:55Z
+- Summary: How to configure resource groups for Microsegmentation in the Zscaler Admin Console.
 
-Resource Groups are collections of resources. Policies are applied to traffic between two Resource Groups, or a Resource Group and the special object, ANY. To learn more, see [About Resource Groups](https://help.zscaler.com/zpa/about-resource-groups) and [About Microsegmentation Policies](https://help.zscaler.com/zpa/about-microsegmentation-policies).
+Resource groups are collections of resources. Policies are applied to traffic between two resource groups, or a resource group and the special object, ANY. To learn more, see [About Resource Groups](https://help.zscaler.com/zpa/about-resource-groups) and [About Microsegmentation Policies](https://help.zscaler.com/zpa/about-microsegmentation-policies).
 
 ## Prerequisites
 
@@ -4642,27 +4590,29 @@ Enable policy enforcement for your organization. To learn more, see [Enabling Mi
 
 To configure a resource group:
 
-1. Go to **Microsegmentation** > **Resource Management**.
-2. Click the **Resource Groups**tab.
-3. Click **Add Resource Group**. The **Add Resource Group**window appears. See image.
-4. In the **Add Resource Group**window:
+1. Go to **Policies**>**Access Control**>**Segmentation**>**Resource Groups**.
+2. Click **Add Resource Group**. See image. The **Add Resource Group**window appears.
+3. In the **Add Resource Group**window:
   1. In the **General Information** section:
     1. **Name**: Enter a name for the new resource group.
-    2. **Description**: (Optional) Enter a description.
-    3. Click **Next**. See image.
+    2. **Description**: (Optional) Enter a description. See image.
+    3. Click **Next**.
   2. In the **Criteria** section:
-    1. **Resource Group Type**: Select one of the following options:
+    1. Select one of the following options:
       - **Managed**: The resources have agents and are actively protected.
       - **Unmanaged**: The resources are not actively protected by agents. Unmanaged resource groups are defined as Classless Inter-Domain Routing (CIDR) blocks or IP ranges.
     2. **Static Membership**: Select any or all resources.
-    3. **Dynamic Membership**: Select one of the following options: The Static Membership and Dynamic Membership options are only for Managed resource groups.
-      - **Cloud**: Allows the users to select different clouds.
-      - **Environment**: Allows users to define criteria for **AMI ID**, **Account/Subscription ID**, **Cloud Provider**, **Cloud Region**, **VPC/VNET ID**, **Subnet ID**, **Security Group ID**, Classless Inter-Domain Routing**(CIDR)**, and **IP Address Ranges**.
-      - **Host**: Allows users to define criteria for **Host Name**, **Platform**, **Platform Distro**, **Platform Version**, and **CPU Architecture**.
-      - **ML**: Allows users to select machine learning (ML) recommended tags. To learn more, see [About ML Tag Recommendations Page](https://help.zscaler.com/zpa/about-ml-tag-recommendations-page).
-      - **ZMS**: Allows the users to select different agent groups. See image.
+    3. **Dynamic Membership**: Click **+ Add/Edit Criteria**. See image. The **Dynamic Membership Criteria** drawer appears.
+    4. In the **Dynamic Membership Criteria** drawer:
+      1. Select one of the following tag scopes: See image.
+        - **Host**: Allows users to define criteria for **Host Name**, **Platform**, **Platform Distro**, **Platform Version**, and **CPU Architecture**.
+        - **Environment**: Allows users to define criteria for **AMI ID**, **Account/Subscription ID**, **Cloud Provider**, **Cloud Region**, **VPC/VNET ID**, **Subnet ID**, **Security Group ID**, Classless Inter-Domain Routing**(CIDR)**, and **IP Range**.
+        - **ZMS**: Allows the users to select different Zscaler Microsegmentation (ZMS) agent groups.
+        - **Cloud**: Allows the users to select different clouds.
+        - **ML**: Allows users to select machine learning (ML) recommended tags. To learn more, see [About ML Tag Recommendations Page](https://help.zscaler.com/zpa/about-ml-tag-recommendations-page).
+      2. Click **Done**. The Static Membership and Dynamic Membership options are only for Managed resource groups.
   3. In the **Review** section, review your configurations. Click the **Edit** icon to edit any of the fields. See image.
-5. Click **Save**.
+  4. Click **Save**.
 
 Your new resource group appears in the list.
 
@@ -4672,18 +4622,20 @@ Your new resource group appears in the list.
 
 [Image: The Criteria section of the Add Resource Group window.]
 
+[Image: Tag scopes in Dynamic Membership Criteria]
+
 [Image: The Review section of the window.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-resource-tags","lastmod":"2026-07-17T11:52Z","nid":"1538475"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-resource-tags","lastmod":"2026-07-31T09:57Z","nid":"1538475"} -->
 ## Configuring Resource Tags
 
 - Source: https://help.zscaler.com/zpa/configuring-resource-tags
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Configuring Resource Tags
-- Last modified: 2026-07-17T11:52Z
+- Last modified: 2026-07-31T09:57Z
 - Summary: How to configure tags for resources in Microsegmentation in the Zscaler Admin Console.
 
 Tags are resource components used when configuring criteria for [resource groups](https://help.zscaler.com/zpa/configuring-resource-groups). You can create and delete tags individually. To learn more, see [About Resource Groups](https://help.zscaler.com/zpa/about-resource-groups) and [About Resources](https://help.zscaler.com/zpa/about-resources).
@@ -6131,13 +6083,13 @@ Choose a specific SCIM group name from the drop-down menu to apply the rule acti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-07-29T07:06Z","nid":"1485211"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-08-02T07:06Z","nid":"1485211"} -->
 ## Configuring WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/configuring-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Configuring WebSocket Controls
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: How to add and configure a new set of WebSocket custom controls for AppProtection profiles within the Zscaler Admin Console.
 
 Within the Zscaler Admin Console, you can add WebSocket Controls to use as part of your [AppProtection profiles](https://help.zscaler.com/zpa/about-inspection-profiles). To learn more, see [About WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls).
@@ -9829,13 +9781,13 @@ The page reloads and your namespace is removed from the list.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-resource-groups","lastmod":"2026-07-17T11:55Z","nid":"1531948"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-resource-groups","lastmod":"2026-07-31T09:56Z","nid":"1531948"} -->
 ## Deleting Resource Groups
 
 - Source: https://help.zscaler.com/zpa/deleting-resource-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Deleting Resource Groups
-- Last modified: 2026-07-17T11:55Z
+- Last modified: 2026-07-31T09:56Z
 - Summary: How to delete resource groups for Microsegmentation.
 
 You can [configure](https://help.zscaler.com/zpa/configuring-resource-groups), [edit](https://help.zscaler.com/zpa/editing-resource-groups), and delete resource groups at any time to provide flexibility in managing traffic that can change over time. To learn more, see [About Resource Groups](https://help.zscaler.com/zpa/about-resource-groups).
@@ -9843,23 +9795,25 @@ You can [configure](https://help.zscaler.com/zpa/configuring-resource-groups), [
 To delete a resource group:
 
 1. Go to **Policies**>**Access Control**>**Segmentation**>**Resource Groups**.
-2. Click the **Delete** icon next to the resource group you want to delete. The **Delete Resource Group** window appears.
+2. Click the **Delete** icon next to the resource group you want to delete. See image. The **Delete Resource Group** window appears.
 3. In the **Delete Resource Group** window:
   1. Enter `CONFIRM`. See image.
   2. Click **Delete**.
+
+[Image: The Delete icon for the resource group]
 
 [Image: A view of the Delete Resource Group confirmation window.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-resource-tags","lastmod":"2026-07-17T11:51Z","nid":"1538476"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-resource-tags","lastmod":"2026-07-31T09:57Z","nid":"1538476"} -->
 ## Deleting Resource Tags
 
 - Source: https://help.zscaler.com/zpa/deleting-resource-tags
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Deleting Resource Tags
-- Last modified: 2026-07-17T11:51Z
+- Last modified: 2026-07-31T09:57Z
 - Summary: How to delete resource tags in Microsegmentation.
 
 [Resource tags](https://help.zscaler.com/zpa/configuring-resource-tags) are used to define criteria when creating a resource group. You can manually delete individual tags from the list at any time.
@@ -9884,13 +9838,13 @@ The page refreshes and removes the deleted tag from the list.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-tags","lastmod":"2026-07-16T12:59Z","nid":"1538748"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-tags","lastmod":"2026-07-30T21:06Z","nid":"1538748"} -->
 ## Deleting Tags
 
 - Source: https://help.zscaler.com/zpa/deleting-tags
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Tag Management > Deleting Tags
-- Last modified: 2026-07-16T12:59Z
+- Last modified: 2026-07-30T21:06Z
 - Summary: How to delete tags for Microsegmentation.
 
 Microsegmentation allows admins to [configure](https://help.zscaler.com/zpa/configuring-tags), [edit](https://help.zscaler.com/zpa/editing-tags), and delete tags at any time, as long as they are custom-type tags. Tags within cloud and machine learning (ML) namespaces cannot be deleted.
@@ -11078,27 +11032,26 @@ To edit an IP range:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-isolation-policies","lastmod":"2026-05-06T21:06Z","nid":"1484876"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-isolation-policies","lastmod":"2026-07-31T14:18Z","nid":"1484876"} -->
 ## Editing Isolation Policies
 
 - Source: https://help.zscaler.com/zpa/editing-isolation-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Isolation Policy > Editing Isolation Policies
-- Last modified: 2026-05-06T21:06Z
-- Summary: How to edit an existing isolation policy rule within the Zscaler Private Access (ZPA) Admin Portal.
+- Last modified: 2026-07-31T14:18Z
+- Summary: How to edit an existing isolation policy rule for Zero Trust Browser within Zscaler Private Access.
 
 To edit an isolation policy rule:
 
-1. Go to **Policy** > **Isolation Policy**.
+1. Go to **Policy**>**Access Control**>**Clientless**>**Isolation Policy**.
 2. Locate the isolation policy rule you want to modify and click the **Edit icon**.
 
 If you only want to change an isolation policy rule's place in the **Rule Order**, you can manually enter in a new value on the [Isolation Policy page](https://help.zscaler.com/zpa/about-isolation-policy).
 
 1. In the **Edit Isolation Policy**window, modify fields as necessary. For more information about each field, see [Configuring Isolation Policies](https://help.zscaler.com/zpa/configuring-isolation-policies).
+2. Click **Save**. See image.
 
 [Image: Edit Isolation Policy window in the ZPA Admin Portal]
-
-1. Click **Save**.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11593,13 +11546,13 @@ To edit a redirection policy rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-resource-groups","lastmod":"2026-07-28T21:06Z","nid":"1531947"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-resource-groups","lastmod":"2026-07-31T09:56Z","nid":"1531947"} -->
 ## Editing Resource Groups
 
 - Source: https://help.zscaler.com/zpa/editing-resource-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Editing Resource Groups
-- Last modified: 2026-07-28T21:06Z
+- Last modified: 2026-07-31T09:56Z
 - Summary: How to edit resource groups for Microsegmentation in the Zscaler Admin Console.
 
 You can [configure](https://help.zscaler.com/zpa/configuring-resource-groups), edit, and [delete](https://help.zscaler.com/zpa/deleting-resource-groups) resource groups at any time to provide flexibility in managing security posture.
@@ -11607,9 +11560,11 @@ You can [configure](https://help.zscaler.com/zpa/configuring-resource-groups), e
 To edit a resource group:
 
 1. Go to **Policies**>**Access Control**>**Segmentation**>**Resource Groups**.
-2. Click the **Edit** icon next to the resource group you want to edit. The **Edit Resource Group**window appears.
+2. Click the **Edit** icon next to the resource group you want to edit. See image. The **Edit Resource Group**window appears.
 3. In the **Edit Resource Group**window, edit the options as necessary. To learn more, see [Configuring Resource Groups](https://help.zscaler.com/zpa/configuring-resource-groups). See image.
 4. Click **Save**.
+
+[Image: The edit icon next to the resource group]
 
 [Image: Edit Resource Group]
 <!-- /ZS-ARTICLE -->
@@ -12001,13 +11956,13 @@ To replace an expired certificate, you must upload a new one. To learn more, see
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-07-29T07:06Z","nid":"1485206"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-08-02T07:06Z","nid":"1485206"} -->
 ## Editing WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/editing-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Editing WebSocket Controls
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: How to edit a WebSocket custom control within the Zscaler Admin Console.
 
 All [WebSocket custom controls](https://help.zscaler.com/zpa/about-websocket-controls) are editable, even ones currently in use by an [AppProtection profile](https://help.zscaler.com/zpa/about-inspection-profiles).
@@ -12464,20 +12419,20 @@ To learn more about using SAML attributes for defining policies, see [About Poli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/installing-upgrading-agent-manager","lastmod":"2026-07-28T13:44Z","nid":"1531951"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/installing-upgrading-agent-manager","lastmod":"2026-07-30T07:41Z","nid":"1531951"} -->
 ## Installing & Upgrading the Agent Manager
 
 - Source: https://help.zscaler.com/zpa/installing-upgrading-agent-manager
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > Installing & Upgrading the Agent Manager
-- Last modified: 2026-07-28T13:44Z
+- Last modified: 2026-07-30T07:41Z
 - Summary: Instructions on how to install the Zscaler Microsegmentation agent manager.
 
 The agent manager installs the Zscaler Microsegmentation agent service onto your device. It performs initial installation of the agent, monitors the agent service, and restarts the agent when it crashes.
 
 ## Prerequisites
 
-Before you install the agent manager, create a [signing certificate](https://help.zscaler.com/zpa/creating-certificate-signing-requests-enrollment-ca-certificates) to be used for Microsegmentation agents. To learn more, contact your Micosegmentation admin.
+Before you install the agent manager, create a [signing certificate](https://help.zscaler.com/zpa/creating-certificate-signing-requests-enrollment-ca-certificates) to be used for Microsegmentation agents. To learn more, contact your Microsegmentation admin.
 
 ## Installing the Agent Manager
 
@@ -12494,12 +12449,10 @@ To configure automatic upgrades to the agent:
 
 1. Edit an existing agent group. To learn more, see [Editing Agent Groups](https://help.zscaler.com/zpa/editing-agent-groups).
 2. In the selected agent group, expand the **Version Profile & Configurations** menu.
-3. Expand the **Version Profile & Configurations** menu.
-4. Enable **Auto Update**.
-5. For **Version Profile**, select **Latest**.
-6. Complete the remaining steps for [editing the agent group](https://help.zscaler.com/zpa/editing-agent-groups).
-7. Click **Save.**
-8. The agent manager connects to the agent service, then downloads and installs the latest agent version to your device.
+3. Enable **Auto Update**.
+4. For **Version Profile**, select **Latest**.
+5. Complete the remaining steps for [editing the agent group](https://help.zscaler.com/zpa/editing-agent-groups).
+6. Click **Save.** The agent manager connects to the agent service, then downloads and installs the latest agent version to your device.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16764,4 +16717,40 @@ $ sudo systemctl restart zpa-service-edge
 ```
 
 The Private Service Edge attempts to create a TLS session through the proxy specified previously.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-06-25T13:58Z","nid":"1528948"} -->
+## Prerequisites for Browser Access Applications Managed by Zscaler
+
+- Source: https://help.zscaler.com/zpa/prerequisites-browser-access-applications-managed-zscaler
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Browser Access > Prerequisites for Browser Access Applications Managed by Zscaler
+- Last modified: 2026-06-25T13:58Z
+- Summary: Prerequisites for Browser Access-enabled web applications that have Zscaler-managed certificates.
+
+This article provides the requirements to use a [Browser Access application](https://help.zscaler.com/zpa/configuring-defined-application-segments#BAsteps) with a Zscaler-managed certificate. If you are defining a Browser Access application with custom certificates and configuring an FQDN, see [Defining a Browser Access Application with Different External vs. Internal Domains](https://help.zscaler.com/zpa/defining-browser-access-application-different-external-vs-internal-domains).
+
+## Prerequisites
+
+When using a Zscaler-managed certificate, the following prerequisites apply:
+
+- Your internal fully qualified domain name (FQDN) for the application must be properly named (e.g., `internalweb.example1.com`), and your App Connectors must resolve to that hostname via your internal DNS. The domain must be owned by the tenant.
+- Internal web servers must serve pages with objects linked as relative URLs (e.g., `HREF=”/filename.ext”`). Absolute URLs are not supported (e.g., `HREF=”http://foo.example2.com/file.ext”` or `HREF=”http://172.16.1.1/file.ext”`).
+- Internal web servers must be a single tenant with a single hostname only.
+- Wildcard cookies are not supported.
+- Wildcard Browser Access applications aren't supported (e.g., `*.example1.com`).
+- Applications with IP addresses aren't supported.
+- Domains that aren't registered by your account aren't supported (e.g., `testing.com`).
+- Internal applications sending CORS requests to other internal applications managed by Browser Access aren't supported (e.g., `internalweb.example1.com` CORS request to the Browser Access application `images.example1.com`). Browser Access applications must be modified to add absolute external URLs.
+- If an application uses the HTTP header `Content-Security-Policy`, then the application has to accept an external FQDN in the host/origin header.
+
+## Private Access (ZPA) Access for Managed Applications
+
+Zscaler modifies HTTP headers for Browser Access applications in the following ways:
+
+- **Host header:** Modified with port configured `<host>:<port>`.
+- **Set-Cookie header:** The domain attribute is removed to only allow strict cookies.
+- **Origin header**: Modified to add `<scheme>://<host>:<port>`.
 <!-- /ZS-ARTICLE -->

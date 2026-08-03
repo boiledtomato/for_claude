@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 113
 
 ---
@@ -3129,13 +3129,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-07-29T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-08-02T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
@@ -4175,13 +4175,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-07-29T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-08-02T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under SaaS Security API DLP and Malware policies into categories based on the sensitivity of the email data.
@@ -6056,13 +6056,13 @@ The **Add IdP** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-index-tool-configuration","lastmod":"2026-07-17T11:23Z","nid":"1400661"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-index-tool-configuration","lastmod":"2026-07-31T10:46Z","nid":"1400661"} -->
 ## Adding an Index Tool Configuration
 
 - Source: https://help.zscaler.com/zia/adding-index-tool-configuration
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Adding an Index Tool Configuration
-- Last modified: 2026-07-17T11:23Z
+- Last modified: 2026-07-31T10:46Z
 - Summary: How to add an Index Tool Configuration, which is used to configure the Zscaler Index Tool.
 
 To add an [Index Tool](https://help.zscaler.com/zia/about-index-tool) configuration:
@@ -6076,7 +6076,7 @@ The **Add Index Tool Configuration** window appears.
   - **VM Name**: Enter a unique name for the virtual machine (VM).
   - **Status**: Make sure that the VM is **Enabled**.
   - **Enable Single Sign-On**: Select **Enabled**if you are configuring single sign-on (SSO) for the Index Tool. To learn more, see [Configuring Single Sign-On for the Index Tool](https://help.zscaler.com/zia/configuring-single-sign-index-tool).
-2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). After you save, you can download the SSL certificate and configuration file from the [Index Tool page](https://help.zscaler.com/zia/about-index-tool). You can also download the SSL certificate from the [Edit Index Tool Configuration window](https://help.zscaler.com/zia/modifying-index-tool-configuration).
+2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). After you save, you can download the SSL certificate for the configuration from the [Index Tool page](https://help.zscaler.com/zia/about-index-tool) or from the [Edit Index Tool Configuration window](https://help.zscaler.com/zia/modifying-index-tool-configuration).
 
 [Image: Adding an Index Tool configuration]
 <!-- /ZS-ARTICLE -->
@@ -6690,22 +6690,22 @@ To show all notes again, click the **Show Notes**icon.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-nss-collector-servers","lastmod":"2026-07-16T18:28Z","nid":"1463361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-nss-collector-servers","lastmod":"2026-07-31T11:23Z","nid":"1463361"} -->
 ## Adding NSS Collector Servers
 
 - Source: https://help.zscaler.com/zia/adding-nss-collector-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding NSS Collector Servers
-- Last modified: 2026-07-16T18:28Z
+- Last modified: 2026-07-31T11:23Z
 - Summary: Information on how to configure an NSS Collector server in the Zscaler Admin Console.
 
-The NSS Collector functionality and the data collected using this functionality are exclusive to Saas Security Report. To enable this feature for your organization, contact Zscaler Support.
+The NSS Collector functionality and the data collected using this functionality are exclusive to the [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report). To enable this feature for your organization, contact Zscaler Support.
 
 You can configure the [NSS Collector server](https://help.zscaler.com/zia/about-nss-collector-servers) in the Zscaler Admin Console to obtain the packaged software (VM image) that must be installed in your organization’s network perimeter. To learn more about NSS Collectors and their use in third-party log integration with Zscaler, see [Understanding Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service).
 
 To add an NSS Collector server:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming** > **Nanolog Streaming Service**.
+1. Go to **Logs** > **Log Streaming** > **Internet Log Streaming**- **Nanolog Streaming Service**.
 2. From the **NSS Collector Servers** tab, click **Add NSS Collector Server**.
 3. In the **Add NSS Collector Server** window:
 
@@ -6733,79 +6733,54 @@ You can also download the SSL certificate directly from the NSS Collector Server
 
 See image.
 
-Additionally, when the NSS Collector server is added to the Zscaler Admin Console, Zscaler generates a configuration file required for NSS Collector deployment. The configuration file contains information for generating a new client certificate, which is required for deploying new NSS Collector instances.
-
-To download the configuration file:
-
-1. Click the **New Client Certificate** icon in the row of your newly added NSS Collector server. See image. The **New Client Certificate** window appears.
-2. In the **New Client Certificate** window, click **Download Config**. See image.
-3. Click **Close**.
-
-As part of the NSS Collector deployment procedure, you return to the **New Client Certificate** window to upload a provisioning blob. To learn more, see [NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere).
-
 An organization can have up to 4 NSS Collector servers.
 
-[Image: A screenshot of the Add NSS Collector Server window]
+[Image: NSS Collector Server window]
 
-[Image: A screenshot of the Edit NSS Collector Server window]
+[Image: Edit NSS Collector Server window]
 
-[Image: A screenshot of the SSL certificate download option for NSS Collector server]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
+[Image: SSL certificate download option for NSS Collector server]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-nss-servers","lastmod":"2026-07-16T13:58Z","nid":"1400036"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-nss-servers","lastmod":"2026-07-31T11:21Z","nid":"1400036"} -->
 ## Adding NSS Servers
 
 - Source: https://help.zscaler.com/zia/adding-nss-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding NSS Servers
-- Last modified: 2026-07-16T13:58Z
+- Last modified: 2026-07-31T11:21Z
 - Summary: How to add an NSS server in the Zscaler Admin Console.
 
-Before reading this article, see the [Nanolog Streaming Service (NSS) deployment guide](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
+Before reading this article, see the Nanolog Streaming Service (NSS) deployment guide for your platform:
 
-An NSS server is the representation of the NSS virtual machine (VM) in the Zscaler Admin Console.
+- [NSS Deployment Guide for Amazon Web Services](https://help.zscaler.com/zia/nss-deployment-guide-aws)
+- [NSS Deployment Guide for Google Cloud Platform](https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform)
+- [NSS Deployment Guide for Hyper-V](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v)
+- [NSS Deployment Guide for Microsoft Azure](https://help.zscaler.com/zia/nss-deployment-guide-azure)
+- [NSS Deployment Guide for Nutanix](https://help.zscaler.com/zia/nss-deployment-guide-nutanix)
+- [NSS Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-deployment-guide-vsphere)
 
 To add an NSS server:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. On the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
+1. Go to **Logs** > **Log Streaming** > **Internet Log Streaming**- **Nanolog Streaming Service**.
+2. From the **NSS Servers**tab, click **Add NSS Server**.
 3. In the **Add NSS Server**window: See image.
   - **Name**: Enter a name for the NSS server.
   - **Type**: The **NSS for Web**type is selected by default. To configure NSS for firewall logs, select **NSS for Firewall**. If you have Zscaler Cloud & Branch Connector, the **NSS for Firewall** (NSS type) is displayed as **NSS for Firewall, Cloud & Branch Connector**.
   - **Status**: Enable or disable the status of the NSS server.
-  - **State**: The health of the NSS server. This field cannot be configured.
+  - **State**: The health of the NSS server. This field is not able to be configured.
 4. Click **Save**. The NSS server is added to the Zscaler Admin Console.
-
-When the NSS server is added to the Zscaler Admin Console, Zscaler issues an SSL certificate to the server.
 
 To download the SSL certificate:
 
 1. Click the **Edit** icon corresponding to the NSS server.
 2. In the **Edit NSS Server** window, under the **SSL Certificate** field, you can either download the SSL certificate or generate a new certificate for that NSS server. You can upload this SSL certificate to the desired platform. See image.
 
-Additionally, when the NSS server is added to the Zscaler Admin Console, Zscaler generates a configuration file required for NSS deployment. The configuration file contains information for generating a new client certificate, which is required for deploying new NSS virtual instances.
+[Image: NSS Server window]
 
-To download the configuration file:
-
-1. Click the **New Client Certificate** icon in the row of your newly added NSS server. See image. The **New Client Certificate** window appears.
-2. In the **New Client Certificate** window, click **Download Config**. See image.
-3. Click **Close**.
-
-As part of the NSS deployment procedure, you return to the **New Client Certificate** window to upload a provisioning blob. To learn more, see the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides).
-
-[Image: Screenshot of the Edit NSS Server window displaying the SSL Certificate field]
-
-[Image: Screenshot of Add NSS Server window in the ZIA Admin Portal]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
+[Image: Edit NSS Server window displaying the SSL Certificate field]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7319,13 +7294,13 @@ The **Add Rule Label** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-07-08T12:15Z","nid":"1399881"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-07-29T21:58Z","nid":"1399881"} -->
 ## Adding Rules to the Bandwidth Control Policy
 
 - Source: https://help.zscaler.com/zia/adding-rules-bandwidth-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Adding Rules to the Bandwidth Control Policy
-- Last modified: 2026-07-08T12:15Z
+- Last modified: 2026-07-29T21:58Z
 - Summary: Information on how to add rules to the Bandwidth Control policy in the Zscaler Admin Console.
 
 [Watch a video about Bandwidth Control](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
@@ -7353,7 +7328,7 @@ To add rules to the Bandwidth Control policy:
   - **Locations:** Select**Any** to apply this rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can search for a location or click the **Add** icon to add a new location. You must enable Bandwidth Control for these locations and specify the download and upload bandwidth limits for each location. Contact Zscaler Support to increase the limit of **Locations**.
   - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
   - **Time:**Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/about-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add** icon to add a new time interval.
-  - **Protocols**: If you have the Firewall subscription, select the protocols to which the rule applies:
+  - **Protocols**: If you have the Firewall subscription, select the protocols to which the rule applies: Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
     - **DNS over HTTPS**: Bandwidth from DNS over HTTPS websites.
     - **FTP over HTTP**: Bandwidth from FTP over HTTP websites.
     - **HTTP**: Bandwidth from HTTP websites.
@@ -7446,13 +7421,13 @@ For information on the order in which the service enforces all policies, includi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-07-20T06:16Z","nid":"1401256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-07-30T12:12Z","nid":"1401256"} -->
 ## Adding SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/adding-saas-application-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
-- Last modified: 2026-07-20T06:16Z
+- Last modified: 2026-07-30T12:12Z
 - Summary: How to add a SaaS application tenant for Data at Rest Scanning.
 
 [Watch a video about SaaS Application Tenants](https://fast.wistia.net/embed/iframe/net3zjd13m) (shows legacy UI).
@@ -8890,12 +8865,11 @@ To configure Salesforce:
 
 To view the activity report logs for Salesforce, ensure that you have access to the Event Monitoring add-on on your Enterprise or Unlimited Salesforce license.
 
-- a. Install the zscalerPackage
-- b. Create a user with system administrator profile and Salesforce license.
-- c. Create a Permission Set
-- d. Assign the Permission Set
-- e. Configure the Salesforce CRM Content Settings
-- f. Configure the Zscaler SaaS Connector Application
+- a. Install the zscalerPackage.
+- b. Create a user with Minimum Access- API only Integrations profile and Salesforce Integration license.
+- c. Create a permission set.
+- d. Assign the permission set.
+- e. Configure the Zscaler SaaS Connector Application.
 
 To learn more about the steps in Salesforce, refer to the [Salesforce documentation](https://help.salesforce.com/).
 
@@ -8940,13 +8914,16 @@ You are redirected to the **Installed Packages** page.
 
 [Image: Screenshot highlightingthe Done button on the Install ZscalerPackage page.]
 
-If the integration user already has a System Administrator Profile, copy and save the username and skip to Step C.
-
 1. In the left-side navigation, go to **Users**. See image.
-2. Select **New User** and enter the required general information. For **User License** select **Salesforce**, for **Profile** select **System Administrator**, and click the checkbox for **Salesforce CRM Content User**. See image.
+2. Select **New User** and enter the required general information. For **User License** select **Salesforce Integration**, for **Profile** select **Minimum Access- API only Integrations**, and uncheck the following checkboxes: See image.
+  - Salesforce CRM Content User
+  - Receive Salesforce CRM Content Email Alerts
+  - Receive Salesforce CRM Content Alerts as Daily Digest
+  - Quick Access Menu
+  - Load Lightning Pages While Scrolling
 3. Click the checkbox for **Generate new password and notify user immediately**. See image.
 4. Click the **Save** button.
-5. You will receive a verification email from Salesforce at the address you entered in Step 2. Follow the instructions in the email and set a new password for the user.
+5. You receive a verification email from Salesforce at the address you entered while creating the new user. Follow the instructions in the email and set a new password for the user. Since this is an integration user, you are not able to log in with this user account.
 
 [Image: Select Users from the left-side navigation]
 
@@ -8971,7 +8948,7 @@ The **Permission Set Create** window appears.
 1. In the **Permission Set Create** window:
   - **Label**: Enter a label for the permission set. In this example, it's Zscaler SaaS Connector User.
   - **API Name**: This field populates based on the label you entered.
-  - **License**: Choose **Salesforce**.
+  - **License**: Choose **Salesforce API Integration**.
 
 See image.
 
@@ -8984,26 +8961,69 @@ See image.
 
 See image.
 
-1. In the **Content** section, select the following permissions:
-  - **Manage record types and layouts for Files**
-  - **Manage Salesforce CRM Content**
-  - **Query All Files**
-
-See image.
-
-1. Click **Save** and then **Save** again to confirm.
+1. In the **Content** section, select the following permissions: Ensure all checkboxes are unchecked before selecting the following permissions. When selected, a few more related permissions are checked automatically, so do not uncheck them.
+  - For SaaS Security Scan: See image.
+    - Manage record types and layouts for Files
+    - Manage Salesforce CRM Content
+    - Query All Files
+    - View All Forecasts
+  - For SSPM Scan: See image.
+    - Query All Files
+    - View All Forecasts
+2. Click **Save** and then **Save** again to confirm.
+3. In the **System**section, click **System Permissions**. See image.
+4. In the **System**and **Users**section, select the following permissions:
+  - For SaaS Security Scan: See image.
+    - Access Libraries
+    - Manage Chatter Messages and Direct Messages
+    - View All Data
+    - View Dashboards in Public Folders
+    - View Event Log Files
+    - View Login Forensic Events
+    - View Real-Time Event Monitoring Data
+    - View Reports in Public Folder
+    - View Roles and Roles Hierarchy
+    - View Setup and Configuration
+    - View All Users
+  - For SaaS Security Remediation:
+    - Modify All Data
+  - For SSPM Scan: See image.
+    - Customize Application
+    - Merge Certificates
+    - Manage Custom Permissions
+    - Manage Certificates
+    - Modify Metadata Through Metadata API Functions
+    - View All Data
+    - View Data in Public Folders
+    - View Event Log Files
+    - View Health Check
+    - View Login Forensics Events
+    - View Real-Time Event Monitoring
+    - View Reports in Public Folder
+    - View Roles and Roles Hierarchy
+    - View Setup and Configuration
+    - Manage Sharing
+5. Click **Save**and then **Save**again to confirm.
 
 [Image: Screenshot highlighting the Permission Sets menu.]
 
 [Image: Screenshot highlighting the New button on the Permission Sets page.]
 
-[Image: Screenshot of the configured Permission Set Create window.]
+[Image: Creating permissions sets]
 
 [Image: Screenshot highlighting the App Permissions option in the Apps section.]
 
 [Image: Screenshot highlighting the Edit button for App Permissions.]
 
-[Image: Screenshot of the selected permissions in the Content section.]
+[Image: Permissions required for SaaS Security Scans]
+
+[Image: The System Permissions option]
+
+[Image: Permissions required for SSPM Scans]
+
+[Image: System and User permissions required for SaaS Security scans]
+
+[Image: System and User permissions required for SSPM scans]
 
 You must assign the permission set you created to your Salesforce user account.
 
@@ -9017,17 +9037,13 @@ See image.
 
 See image.
 
-1. In the **User Details** section, select **Salesforce CRM Content User**.
-
-See image.
-
 1. In the **Permission Set Assignments**section, click **Edit Assignments**.
 
 See image.
 
 The **Permission Sets** window appears.
 
-1. In the **Permission Sets** window, under **Available Permission Sets**, select the permission set you configured in Step b, and click **Add**. In this example, it's Zscaler SaaS Connector User.
+1. In the **Permission Sets** window, under **Available Permission Sets**, select the permission set you configured in the previous step, and click **Add**. In this example, it's Zscaler SaaS Connector User.
 
 See image.
 
@@ -9042,25 +9058,6 @@ See image.
 [Image: Screenshot highlighting the Edit Assignments button in the Permission Set Assignments section.]
 
 [Image: Screenshot of the Zscaler SaaS Connector User permission set added in the Enabled Permission Sets section.]
-
-To configure the Salesforce CRM Content settings:
-
-1. In the left-side navigation, go to **Feature Settings** > **Salesforce Files** > **Salesforce CRM Content**.
-
-See image.
-
-1. Select the following Salesforce CRM Content settings:
-  - **Enable Salesforce CRM Content**
-  - **Autoassign feature licenses to existing and new users**
-  - **Files user interface allows sharing files with libraries**
-
-See image.
-
-1. Click **Save**.
-
-[Image: The Salesforce CRM Content menu.]
-
-[Image: The configured settings on the Salesforce CRM Content page]
 
 To configure the Zscaler SaaS Connector application:
 
@@ -9096,23 +9093,9 @@ See image.
 
 The **Application Profile Assignment** window appears.
 
-1. In the **Application Profile Assignment** window, select **System Administrator**.
-
-See image.
-
-1. Click **Save**.
-2. In the **Permission Sets**section, click **Manage Permission Sets**.
-
-See image.
-
-The **Application Permission Set Assignment** window appears.
-
-1. In the **Application Permission Set Assignment** window, select the permission set you configured in Step b. In this example, it's Zscaler SaaS Connector User.
-
-See image.
-
-1. Click **Save**.
-2. In the Zscaler Admin Console, under **Enter the Salesforce Admin Username**, enter your admin username used to log in to the Salesforce portal.
+1. In the **Application Profile Assignment** window, select **Minimum Access- API only Integrations**. See image.
+2. Click **Save**.
+3. In the Zscaler Admin Console, under **Enter the Salesforce Admin Username**, enter your admin username used to log in to the Salesforce portal.
 
 See image.
 
@@ -9128,11 +9111,7 @@ See image.
 
 [Image: Screenshot highlighting the Manage Profiles button in the Profiles section.]
 
-[Image: Screenshot highlighting the System Administrator profile in the Application Profile Assignment window.]
-
-[Image: Screenshot highlighting the Manage Permission Sets button in the Permission Sets section.]
-
-[Image: Screenshot of the Zscaler SaaS Connector User permission set in the Application Permission Set Assignment window.]
+[Image: Application Profile Assignment window]
 
 [Image: Enter the Salesforce Admin Username]
 

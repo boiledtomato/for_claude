@@ -1,44 +1,8 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 126
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-06-25T13:58Z","nid":"1528948"} -->
-## Prerequisites for Browser Access Applications Managed by Zscaler
-
-- Source: https://help.zscaler.com/zpa/prerequisites-browser-access-applications-managed-zscaler
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Browser Access > Prerequisites for Browser Access Applications Managed by Zscaler
-- Last modified: 2026-06-25T13:58Z
-- Summary: Prerequisites for Browser Access-enabled web applications that have Zscaler-managed certificates.
-
-This article provides the requirements to use a [Browser Access application](https://help.zscaler.com/zpa/configuring-defined-application-segments#BAsteps) with a Zscaler-managed certificate. If you are defining a Browser Access application with custom certificates and configuring an FQDN, see [Defining a Browser Access Application with Different External vs. Internal Domains](https://help.zscaler.com/zpa/defining-browser-access-application-different-external-vs-internal-domains).
-
-## Prerequisites
-
-When using a Zscaler-managed certificate, the following prerequisites apply:
-
-- Your internal fully qualified domain name (FQDN) for the application must be properly named (e.g., `internalweb.example1.com`), and your App Connectors must resolve to that hostname via your internal DNS. The domain must be owned by the tenant.
-- Internal web servers must serve pages with objects linked as relative URLs (e.g., `HREF=”/filename.ext”`). Absolute URLs are not supported (e.g., `HREF=”http://foo.example2.com/file.ext”` or `HREF=”http://172.16.1.1/file.ext”`).
-- Internal web servers must be a single tenant with a single hostname only.
-- Wildcard cookies are not supported.
-- Wildcard Browser Access applications aren't supported (e.g., `*.example1.com`).
-- Applications with IP addresses aren't supported.
-- Domains that aren't registered by your account aren't supported (e.g., `testing.com`).
-- Internal applications sending CORS requests to other internal applications managed by Browser Access aren't supported (e.g., `internalweb.example1.com` CORS request to the Browser Access application `images.example1.com`). Browser Access applications must be modified to add absolute external URLs.
-- If an application uses the HTTP header `Content-Security-Policy`, then the application has to accept an external FQDN in the host/origin header.
-
-## Private Access (ZPA) Access for Managed Applications
-
-Zscaler modifies HTTP headers for Browser Access applications in the following ways:
-
-- **Host header:** Modified with port configured `<host>:<port>`.
-- **Set-Cookie header:** The domain attribute is removed to only allow strict cookies.
-- **Origin header**: Modified to add `<scheme>://<host>:<port>`.
-<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -6015,13 +5979,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-07-28T09:35Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-07-31T06:32Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-28T09:35Z
+- Last modified: 2026-07-31T06:32Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -13898,13 +13862,13 @@ The **Upload Server Certificate** drawer appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/using-app-segment-multimatch","lastmod":"2026-07-14T00:52Z","nid":"1485951"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/using-app-segment-multimatch","lastmod":"2026-07-30T07:22Z","nid":"1485951"} -->
 ## Using Application Segment Multimatch
 
 - Source: https://help.zscaler.com/zpa/using-app-segment-multimatch
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Segment Multimatch
-- Last modified: 2026-07-14T00:52Z
+- Last modified: 2026-07-30T07:22Z
 - Summary: Information about using Application Segment Multimatch in Private Access.
 
 Multimatch allows an application request to match multiple application segments. When a user tries to access a private application without Multimatch, a request is mapped to an application segment. After the application is mapped to an application segment, the [policy](https://help.zscaler.com/zpa/about-access-policy) search is performed, and the request is either allowed or blocked based on the policy configuration.
@@ -13923,7 +13887,7 @@ To use application segment Multimatch, ensure the following:
     - 4.7.0.88 or later
     - 4.6.0.282 or later
   - macOS versions: 4.5.2.98 or later
-  - iOS version 4.4.1 or later To use the Private Access Multimatch feature for iOS applications, you must enable the **Use Tunnel SDK Version 4.3 or above** setting in the Zscaler Admin Console. See image.
+  - iOS version 4.4.1 or later To use the Private Access Multimatch feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) in the Zscaler Admin Console. See image.
   - Android version: 3.10 or later
   - Linux version: 4.2 or later
 
@@ -14143,6 +14107,44 @@ Traffic that is dropped at the client level means that traffic matches the IP ad
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zpa/using-application-scaling","lastmod":"2026-07-31T12:55Z","nid":"1542240"} -->
+## Using Application Scaling
+
+- Source: https://help.zscaler.com/zpa/using-application-scaling
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Scaling
+- Last modified: 2026-07-31T12:55Z
+- Summary: Information on using application scaling for application segments for Private Access (ZPA).
+
+Application Scaling enables organizations with large private application environments to scale beyond the standard [application limits](https://help.zscaler.com/unified/ranges-limitations#application-management). With Application Scaling enabled, tenants can scale to approximately 100,000 applications. It optimizes how application definitions are delivered and evaluated between Private Access (ZPA) and Zscaler Client Connector, reducing the amount of application data delivered to endpoints.
+
+Instead of distributing the complete application inventory to every endpoint, Private Access delivers aggregated domain information, reducing the client-side configuration footprint and improving scalability.
+
+If you are using [Source IP Anchoring](https://help.zscaler.com/zpa/configuring-source-ip-anchoring-direct) or [Zero Trust Branch](https://help.zscaler.com/zero-trust-branch/what-zero-trust-branch), continue to use the standard Private Access [application access](https://help.zscaler.com/zpa/understanding-application-access) as it is designed for those deployment scenarios.
+
+## Prerequisites
+
+To use Application Scaling, ensure the following prerequisites are met:
+
+- App Connectors or Private Service Edges for Private Access are upgraded to version 24.298.1 or later. To learn more, see [About App Connector](https://help.zscaler.com/zpa/about-connectors) and [About Private Service Edges](https://help.zscaler.com/zpa/about-private-service-edges).
+- Zscaler Client Connector is upgraded to the following versions per OS:
+  - Windows versions:
+    - 4.7.0.88 or later
+    - 4.6.0.282 or later
+  - macOS versions: 4.5.2.98 or later
+  - iOS version 4.4.1 or later To use the App Scaling feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#iOS-advanced) in the Zscaler Admin Console. See image.
+  - Android version: 3.10 or later
+  - Linux version: 4.2 or later
+
+## Enabling App Scaling
+
+Application Scaling is enabled at the tenant level. Contact Zscaler Support to request access.
+
+[Image: Traffic Steering Advanced settings in the Zscaler Client Connector iOS App Profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zpa/using-application-segment-import","lastmod":"2026-05-13T14:32Z","nid":"1540203"} -->
 ## Using Application Segment Import
 
@@ -14188,13 +14190,13 @@ After you import the data for the application segments, you can merge the applic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/using-pattern-matching-application-segments","lastmod":"2026-07-16T12:10Z","nid":"1485996"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/using-pattern-matching-application-segments","lastmod":"2026-07-30T07:22Z","nid":"1485996"} -->
 ## Using Pattern Matching for Application Segments
 
 - Source: https://help.zscaler.com/zpa/using-pattern-matching-application-segments
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Pattern Matching for Application Segments
-- Last modified: 2026-07-16T12:10Z
+- Last modified: 2026-07-30T07:22Z
 - Summary: Information on using pattern matching for application segments for Private Access (ZPA).
 
 Private Access (ZPA) supports patterns within FQDN-based application segments. Configuring applications with pattern definition helps to build optimal configurations. It also future proofs the configuration in the case where new servers are brought online and match the existing patterns for applications. This means no configuration changes are required in the application segment definition. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
@@ -14210,7 +14212,7 @@ To configure pattern matching for application segments, ensure the following pre
     - 4.7.0.88 or later
     - 4.6.0.282 or later
   - macOS version: 4.5.2.98 or later
-  - iOS version: 4.4.1 or later To use the Private Access pattern matching feature for iOS applications, you must enable the **Use Tunnel SDK Version 4.3 or above** setting in the Zscaler Admin Console. See image.
+  - iOS version: 4.4.1 or later To use the Private Access pattern matching feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) in the Zscaler Admin Console. See image.
   - Android version: 3.10 or later
   - Linux version: 4.2 or later
 

@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 100
 
 ---
@@ -37,13 +37,13 @@ To add a Virtual Service Edge cluster:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-instances-internet-saas","lastmod":"2026-07-29T13:57Z","nid":"1398916"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-instances-internet-saas","lastmod":"2026-07-31T10:33Z","nid":"1398916"} -->
 ## Adding Virtual Service Edge Instances for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Adding Virtual Service Edge Instances for Internet & SaaS
-- Last modified: 2026-07-29T13:57Z
+- Last modified: 2026-07-31T10:33Z
 - Summary: How to add a Virtual Service Edge instance for Internet & SaaS (ZIA) in the Zscaler Admin Console.
 
 Adding a Virtual Service Edge instance for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters. To learn more, see [Configuring Virtual Service Edge Clusters](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters).
@@ -52,12 +52,8 @@ To add a Virtual Service Edge instance:
 
 1. Go to **Infrastructure**> **Internet & SaaS** > **Traffic Forwarding** > **Virtual Service Edges**.
 2. Click **Add Virtual Service Edge**. The **Add Virtual Service Edge** window appears.
-3. In the **Add Virtual Service Edge** window: See image.
+3. In the **Add Virtual Service Edge** window:
   - **Name**: Enter a name for the Virtual Service Edge.
-  - **Virtual Service Edge Type**: Select a Virtual Service Edge type, based on the amount of traffic that it will process. If you have Zscaler Firewall and are sending all your internet traffic (both port 80/443 and non-port 80/443 traffic) to Virtual Service Edges, consider the total traffic volume when determining the Virtual Service Edge type for your organization:
-    - Small: The instance can process up to 30 Mbps of full duplex throughput.
-    - Medium: The instance can process up to 100 Mbps of full duplex throughput.
-    - Large: The instance can process up to 600 Mbps of full duplex throughput.
   - **Status**: Choose to enable or disable the Virtual Service Edge. The default status is **Enabled**.
   - **Deployment Status**: Choose either **In Production** or **Trial**. The default deployment status is **In Production**. **In Production** represents Virtual Service Edge instances deployed for production purposes, and **Trial** represents Virtual Service Edge instances deployed for internal uses or testing purposes. The trial Virtual Service Edge instances are upgraded first during a maintenance window, followed by production Virtual Service Edge instances. This setting does not affect the behavior, functionality, or performance of the Virtual Service Edge instance, and it helps Zscaler prioritize production Virtual Service Edge instances over trial if an issue or a bug affects Virtual Service Edge instances.
   - **Your Used Virtual Service Edges**: You can see the total number of Virtual Service Edges, as well as the available number of subscriptions. You can't modify this field.
@@ -66,7 +62,7 @@ To add a Virtual Service Edge instance:
   - **Default Gateway**: Enter the IP address of the default gateway to the internet.
   - **Load Balancer IP Address**: Appears only when **Cluster** is selected as the deployment mode. Enter the IP address of the load balancer.
   - **Deployment Mode**: Select either **Cluster**or **Standalone**if you have the VMware ESXi platform. Otherwise, select only **Standalone**. If clustering fault tolerance is required, ensure to have an external load balancer for **Standalone** deployment.
-  - **IPSec Local Termination**: Enable this option to terminate IPSec traffic from the client at the Virtual Service Edge node. By default, this option is disabled. If you select the deployment mode as **Cluster**, this option becomes read-only and displays the actual status of IPSec Local Termination of the Virtual Service Edge in the cluster. If you want to change the IPSec Local Termination status of the Virtual Service Edge in a cluster, you can do it from the **Infrastructure**>**Internet & SaaS**> **Traffic Forwarding** > **Virtual Service Edges** > **Virtual Service Edge** **Clusters** page. To learn more, see [Adding Virtual Service Edge Clusters](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters).
+  - **IPSec Local Termination**: Enable this option to terminate IPSec traffic from the client at the Virtual Service Edge node. By default, this option is disabled. If you select the deployment mode as **Cluster**, this option becomes read-only and displays the actual status of IPSec Local Termination of the Virtual Service Edge in the cluster. If you want to change the IPSec Local Termination status of the Virtual Service Edge in a cluster, you can do it from the **Infrastructure**>**Internet & SaaS**> **Traffic Forwarding** > **Virtual Service Edges** > **Virtual Service Edge** **Clusters** page. To learn more, see [Adding Virtual Service Edge Clusters](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters). See image.
   - **Zscaler Initiated On-Demand Support Tunnel**: Enable this option to allow Zscaler to establish a support tunnel whenever required. This option is disabled by default. If this option is enabled, you cannot establish a support tunnel from the Zscaler Admin Console. Also, the **Establish Support Tunnel** option is greyed out.
   - **Establish Support Tunnel**: Enable this option to allow the service to establish a support tunnel for Zscaler Support to access the Virtual Service Edge. This option is disabled by default. This option is available only when the **Zscaler Initiated On-Demand Support Tunnel** is disabled.
   - **Virtual Service Edge ID**: You can see the Virtual Service Edge ID used by Zscaler to identify and access the Virtual Service Edge using the established support tunnel. See image.
@@ -1609,13 +1605,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-07-29T07:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-08-02T07:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -4748,13 +4744,13 @@ Replace option `restart` with `stop` and `start` as required.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-policy-settings","lastmod":"2026-06-25T08:36Z","nid":"1399326"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-policy-settings","lastmod":"2026-07-29T23:52Z","nid":"1399326"} -->
 ## Configuring Advanced Policy Settings
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-policy-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Configuring Advanced Policy Settings
-- Last modified: 2026-06-25T08:36Z
+- Last modified: 2026-07-29T23:52Z
 - Summary: How to configure the advanced policy settings for Internet & SaaS (ZIA).
 
 [Watch a video about Configuring Advanced Policy Settings](https://fast.wistia.net/embed/iframe/i9mt7tmn0q) (shows legacy UI).
@@ -4896,6 +4892,8 @@ The prompts for these applications are logged on the [Web Insights Logs](https:/
 The Zscaler service stores prompts up to a maximum of 2 KB in size for these applications. Prompts for the Microsoft Copilot application are stored only if the user is not authenticated to it.
 
 To apply DLP WebSocket policies and capture prompts for Microsoft Copilot, Zscaler recommends users to:
+
+Zscaler inspects bidirectional WebSocket traffic carrying supported content across applications. Contact Zscaler Support to enable this feature.
 
 1. Create a custom URL category for substrate.office.com and copilot.microsoft.com for SSL/TLS Inspection. To learn more, see [Configuring Custom URL Categories](https://help.zscaler.com/zia/configuring-custom-url-categories).
 2. Create a new SSL/TLS Inspection policy for the custom category above the OneClick SSL/TLS Inspection policy. To learn more, see [Configuring SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).
@@ -5452,13 +5450,13 @@ To edit the list of user exceptions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-application-service-groups","lastmod":"2026-06-26T02:44Z","nid":"1531909"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-application-service-groups","lastmod":"2026-07-31T07:06Z","nid":"1531909"} -->
 ## Configuring Application Service Groups
 
 - Source: https://help.zscaler.com/zia/configuring-application-service-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring Application Service Groups
-- Last modified: 2026-06-26T02:44Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: Information on how to group together application services in the Zscaler Admin Console.
 
 To group together application services that you want to control in a Firewall policy rule, [create custom application service groups](https://help.zscaler.com/zia/about-application-service-groups).
@@ -9166,13 +9164,13 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-07-29T07:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-08-02T07:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
 [Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection.](https://fast.wistia.net/embed/iframe/za6nr8ax7t)
@@ -9292,15 +9290,12 @@ Contact Zscaler Support to customize the user risk score range of these levels f
 - **Locations**: Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add** icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
 - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
 - **Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add** icon to add a new time interval.
-- **Protocols**: Select the protocols to which the rule applies.
+- **Protocols**: Select the protocols to which the rule applies. Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
   - **HTTP**: Data transactions and file uploads from HTTP websites.
   - **HTTPS**: Data transactions and file uploads from HTTP websites encrypted by SSL/TLS.
   - **Native FTP**: Data transactions and file uploads from native FTP servers.
   - **WebSocket**: Data transactions from WebSocket websites.
   - **WebSocket SSL/TLS**: Data transactions from WebSocket websites encrypted by SSL/TLS.
-
-The WebSocket protocol is supported only for the Microsoft Copilot application.
-
 - **Workload Groups**: Select up to 8 workload groups for which you want to apply the rule. You can also search for a workload group. Selecting **None** ignores workload groups when the policy is evaluated. To learn more, see [About Workload Groups](https://help.zscaler.com/zia/about-workload-groups).
 - **Inspect Downloads**: Enable this option to allow DLP inspection for content downloaded from specific cloud apps. If this option is enabled, you must also choose **Any** for **URL Categories** and at least one cloud app for **Cloud Application**. If disabled, the DLP rule only applies to content being sent to cloud apps. The Inspect Downloads feature does not apply to Exact Data Match (EDM) or Indexed Data Matching (IDM) engines.
 
@@ -9357,13 +9352,13 @@ To learn how to use external DLP engines to detect data and also forward informa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-07-29T07:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-08-02T07:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
@@ -9901,13 +9896,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-07-29T07:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-08-02T07:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -9996,15 +9991,12 @@ Contact Zscaler Support to customize the user risk score range of these levels f
 - **Locations**: Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
 - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
 - **Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/about-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-- **Protocols**: Select the protocols to which the rule applies.
+- **Protocols**: Select the protocols to which the rule applies. Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
   - **HTTP**: Data transactions and file uploads from HTTP websites.
   - **HTTPS**: Data transactions and file uploads from HTTP websites encrypted by SSL/TLS.
   - **Native FTP**: Data transactions and file uploads from native FTP servers.
   - **WebSocket**: Data transactions from WebSocket websites.
   - **WebSocket SSL/TLS**: Data transactions from WebSocket websites encrypted by SSL/TLS.
-
-The WebSocket protocol is supported only for the Microsoft Copilot application.
-
 - **Workload Groups**: Select up to 8 workload groups for which you want to apply the rule. You can also search for a workload group. Selecting **None** ignores workload groups when the policy is evaluated. To learn more, see [About Workload Groups](https://help.zscaler.com/zia/about-workload-groups).
 
 1. (Optional) Configure the **DLP Incident Receiver**settings:

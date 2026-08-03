@@ -1,7 +1,7 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-29 22:09 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 52
 
 ---
@@ -1299,16 +1299,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/step-step-configuration-guide-zero-trust-browser","lastmod":"2026-05-31T07:06Z","nid":"1529970"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/step-step-configuration-guide-zero-trust-browser","lastmod":"2026-07-31T07:00Z","nid":"1529970"} -->
 ## Step-by-Step Configuration Guide for Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/step-step-configuration-guide-zero-trust-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Step-by-Step Configuration Guide for Zero Trust Browser
-- Last modified: 2026-05-31T07:06Z
+- Last modified: 2026-07-31T07:00Z
 - Summary: Information on the configuration tasks an organization must complete to begin using Zscaler Zero Trust Browser (formerly Zscaler Isolation).
 
-This guide takes you step by step through the configuration tasks you must complete to use Zero Trust Browser (formerly Zscaler Isolation) for your organization. The steps reflect the process for configuring Zero Trust Browser for either Internet & SaaS (ZIA) or Private Access (ZPA). To learn more, see [Understanding the ZIA Cloud Architecture](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) and [What Is Zscaler Private Access?](https://help.zscaler.com/zpa/what-zscaler-private-access)
+This guide takes you step by step through the configuration tasks you must complete to use Zero Trust Browser (formerly Zscaler Isolation) for your organization. The steps reflect the process for configuring Zero Trust Browser for either Internet & SaaS (ZIA) or Private Access (ZPA). To learn more, see [Understanding the Zscaler Cloud Architecturre for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) and [What Is Zscaler Private Access?](https://help.zscaler.com/zpa/what-zscaler-private-access)
 
 Before you use Zero Trust Browser, Zscaler recommends reading the following articles:
 
@@ -1949,13 +1949,13 @@ To use Sandbox with Zero Trust Browser:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-07-02T12:18Z","nid":"1447296"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-07-31T06:59Z","nid":"1447296"} -->
 ## What Is Zero Trust Browser?
 
 - Source: https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > What Is Zero Trust Browser?
-- Last modified: 2026-07-02T12:18Z
+- Last modified: 2026-07-31T06:59Z
 - Summary: Information about Zscaler Zero Trust Browser (formerly Zscaler Isolation), including traffic flow, architecture, as well as integrations with Internet & SaaS and Private Access.
 
 Zero Trust Browser (formerly Zscaler Isolation) provides an organization the capability to isolate users from potentially harmful content on the internet. This is done by loading the accessed web page on a remote browser in any one of the many Zscaler data centers across the globe, and streaming the rendered content as a stream of pixels to the user's native browser.

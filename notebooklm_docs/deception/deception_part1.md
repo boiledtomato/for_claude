@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 297
 
 ---
@@ -11042,13 +11042,13 @@ After the Decoy Connector management network is configured, you must [add the De
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-07-29T00:10Z","nid":"1539274"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-07-29T19:57Z","nid":"1539274"} -->
 ## Deploying Endpoint Deception with Zscaler Client Connector for Windows
 
 - Source: https://help.zscaler.com/deception/deploying-endpoint-deception-zscaler-client-connector-windows
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Deploying Endpoint Deception with Zscaler Client Connector for Windows
-- Last modified: 2026-07-29T00:10Z
+- Last modified: 2026-07-29T19:57Z
 - Summary: How to deploy endpoint deception with Zscaler Client Connector for Windows.
 
 If your organization is provisioned for Internet & SaaS (ZIA), you can deploy endpoint deception capabilities on Microsoft Windows machines using Zscaler Client Connector.

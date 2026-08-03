@@ -1,7 +1,7 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 257
 
 ---
@@ -1666,13 +1666,13 @@ You can assign a single or multiple roles to users. When a user is assigned mult
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/assigning-cxo-insight-user-role","lastmod":"2026-07-16T08:17Z","nid":"1509541"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/assigning-cxo-insight-user-role","lastmod":"2026-07-30T21:06Z","nid":"1509541"} -->
 ## Assigning CXO Insight User Role
 
 - Source: https://help.zscaler.com/authentication-service/assigning-cxo-insight-user-role
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Admins and Roles > Assigning CXO Insight User Role
-- Last modified: 2026-07-16T08:17Z
+- Last modified: 2026-07-30T21:06Z
 - Summary: How to assign the CXO Insight User role to executive users in Internet & SaaS.
 
 The CXO Insight User role enables executive users to access the [Executive Insights mobile application](https://help.zscaler.com/zia/accessing-and-using-executive-insights-app). The executive users are also assigned to a specific Zscaler service in Authentication Service, which allows them to access the Zscaler service (i.e., Internet & SaaS (ZIA)) in the mobile app.
@@ -1942,13 +1942,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-auth0-external-idp","lastmod":"2026-07-16T07:36Z","nid":"1499341"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-auth0-external-idp","lastmod":"2026-07-30T21:06Z","nid":"1499341"} -->
 ## Configuring Auth0 as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-auth0-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Auth0 as an External IdP
-- Last modified: 2026-07-16T07:36Z
+- Last modified: 2026-07-30T21:06Z
 - Summary: This guide provides information on how to configure Auth0 as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure Auth0 as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -7692,13 +7692,13 @@ To view the API resources:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/viewing-entitlements-assigned-users","lastmod":"2026-07-16T08:29Z","nid":"1499266"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/viewing-entitlements-assigned-users","lastmod":"2026-07-30T21:06Z","nid":"1499266"} -->
 ## Viewing Entitlements Assigned to Users
 
 - Source: https://help.zscaler.com/authentication-service/viewing-entitlements-assigned-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Viewing Entitlements Assigned to Users
-- Last modified: 2026-07-16T08:29Z
+- Last modified: 2026-07-30T21:06Z
 - Summary: Information on how to view administrative and service entitlements and authenticators that are assigned to users in Authentication Service.
 
 Each Authentication Service user can be assigned to different [service entitlements](https://help.zscaler.com/zidentity/about-service-entitlements) and [administrative entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) depending on the role. You can also view the multi-factor authenticators that are configured for the user. You need to first add users, assign them to the subscribed Zscaler services, and then access the [Users page](https://help.zscaler.com/zidentity/about-users) to view the entitlements.
@@ -12558,13 +12558,13 @@ The usage of ZIA is expected to be in accordance with the [Acceptable Use Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-logs","lastmod":"2026-07-27T14:38Z","nid":"1391021"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-logs","lastmod":"2026-07-30T10:38Z","nid":"1391021"} -->
 ## ZIA Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zia-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZIA Logs
-- Last modified: 2026-07-27T14:38Z
+- Last modified: 2026-07-30T10:38Z
 - Summary: Information about Zscaler Internet Access (ZIA) logs.
 
 In order to provide the Zscaler Internet Access (ZIA) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
@@ -12575,7 +12575,7 @@ In order to provide the Zscaler Internet Access (ZIA) service, Zscaler has the r
 
 ###### Feature-specific Information
 
-- **Data Loss Prevention (DLP):** The Data Loss Prevention (DLP) service (for any channel such as Inline, Endpoint, Email, API CASB, or Private Applications), logs also capture metadata for certain end user activities, such as copying to removable storage, copying to network shares, printing, sharing a file, and uploading a document. For the Email DLP service, logs include the email's sender, recipient, and subject.
+- **Data Loss Prevention (DLP):** The Data Loss Prevention (DLP) service (for any channel such as Inline, Endpoint, Email, API CASB, or Private Applications), logs also capture metadata for certain end user activities, such as copying to removable storage, copying to network shares, printing, sharing a file, and uploading a document. For the Email DLP service, logs include the email's sender, recipients, and subject.
 - **Nanolog Streaming Service (NSS):** Nanolog Streaming Service (NSS) allows you to stream the logs in real-time within your premises. Using NSS, these logs can also be sent to multiple systems, allowing the retention of the logs for any period.
 - **Gen AI Security:** Gen AI Security logs will also include classifications of end user prompts to generative AI applications. By default, end user prompts to supported generative AI applications are not captured in logs. They are captured in the logs only if your administrator enables this feature via the toggle in the Admin Portal.
 - **IoT Advanced Security:** For the IoT Advanced Security service, unauthenticated, non-user-identifying web logs that are associated with the customer at the org level will be retained by Zscaler for a rolling period of three months during the term of subscription. When the subscription term ends or expires, these logs are deleted by Zscaler after the three month retention cycle. For the IoT Advanced Security service, the logs will be stored in the United States.
@@ -12739,42 +12739,6 @@ During the deployment process, you can choose to have the logs stored in either 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-3rd-party-app-governance-licensing-and-fair-use","lastmod":"2025-06-09T13:57Z","nid":"1451836"} -->
-## Zscaler 3rd-Party App Governance Licensing and Fair Use
-
-- Source: https://help.zscaler.com/logs-fair-use/zscaler-3rd-party-app-governance-licensing-and-fair-use
-- Product: Logs & Fair Use
-- Path: Logs & Fair Use > Licensing & Fair Use > Zscaler 3rd-Party App Governance Licensing and Fair Use
-- Last modified: 2025-06-09T13:57Z
-- Summary: Information about Zscaler 3rd-Party App Governance licensing and fair use.
-
-Zscaler 3rd-Party App Governance (formerly AppTotal) is a Software as a Service (SaaS) product that is licensed according to the number of seats purchased for the subscription term in an order. A *seat* is a subscription to the 3rd-Party App Governance SaaS for an individual authorized user. The number of seats required is determined by counting the total number of unique users accessing and/or using the SaaS over the previous rolling 90-day period.
-
-Ensure that you order the correct number of seats. If you require additional seats, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of seats to ensure license compliance.
-
-## Fair Use Policy
-
-The usage of 3rd-Party App Governance is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/legal/acceptable-use-policy). The Fair Use Policy for 3rd-Party App Governance is the average data transfer per subscribed seat should be less than two times the cloud-wide average (currently 6 GB per seat per month). Usage exceeding the Fair Use Policy requires a subscription for additional entitlements. Contact Zscaler Sales or your Channel Partner to discuss available options.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-3rd-party-app-governance-logs","lastmod":"2025-02-10T19:00Z","nid":"1451831"} -->
-## Zscaler 3rd-Party App Governance Logs
-
-- Source: https://help.zscaler.com/logs-fair-use/zscaler-3rd-party-app-governance-logs
-- Product: Logs & Fair Use
-- Path: Logs & Fair Use > Logs & Data > Zscaler 3rd-Party App Governance Logs
-- Last modified: 2025-02-10T19:00Z
-- Summary: Information about Zscaler 3rd-Party App Governance logs.
-
-By accessing the 3rd-Party App Governance (formerly AppTotal) service, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs.
-
-Logs capture user and application activity metadata for your SaaS applications and for third party SaaS application integrations. Logs are retained by Zscaler for a rolling period of six months during the term of subscription. When the subscription term ends or expires, the logs are deleted by Zscaler after the six month retention cycle. Logs are stored in the United States.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-adaptive-access-engine-logs","lastmod":"2025-09-03T14:02Z","nid":"1524456"} -->
 ## Zscaler Adaptive Access Engine Logs
 
@@ -12841,55 +12805,55 @@ In order to provide the Zscaler Agentic SecOps service, Zscaler has the right to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-ai-asset-management-ai-infrastructure-licensing-and-fair-use","lastmod":"2026-06-04T13:02Z","nid":"1540835"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-ai-asset-management-ai-infrastructure-licensing-and-fair-use","lastmod":"2026-07-30T13:05Z","nid":"1540835"} -->
 ## Zscaler AI Asset Management for AI Infrastructure Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-ai-asset-management-ai-infrastructure-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > Zscaler AI Asset Management for AI Infrastructure Licensing and Fair Use
-- Last modified: 2026-06-04T13:02Z
+- Last modified: 2026-07-30T13:05Z
 - Summary: Information about Zscaler AI Asset Management for AI Infrastructure Licensing and Fair Use.
 
 Zscaler AI Asset Management for AI Infrastructure is a Software as a Service (SaaS) product that is licensed according to the number of AI assets purchased for the subscription term in an order. An *AI asset* is a subscription license for the AI Asset Management for AI Infrastructure service for an individual authorized custom AI application, AI model, Model Context Protocol (MCP) endpoint, or AI agent that you use in your public cloud environments (e.g. AWS Bedrock) or SaaS AI builder platform (e.g. Microsoft Copilot Studio).
 
-The number of AI assets required is the total number of unique individual custom AI applications, AI models, Model Context Protocol (MCP) endpoints, AI agents, and any additional supported service that is configured as a scanned service by you during the subscription period. You should deploy AI Asset Management for AI Infrastructure for the number of AI assets ordered using selective account onboarding.
+The number of AI assets required is the total number of unique individual custom AI applications, AI models, MCP endpoints, AI agents, and any additional supported service that is configured as a scanned service by you during the subscription period. You should deploy AI Asset Management for AI Infrastructure for the number of AI assets ordered using selective account onboarding.
 
 Ensure that you order the correct number of AI assets. If additional AI assets are needed during a subscription term, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of data stores that the service monitors to ensure license compliance.
 
 ## Fair Use Policy
 
-The usage of AI Asset Management for AI Infrastructure is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/product-usage-terms/acceptable-use-policy). The Fair Use Policy for AI Asset Management for AI Infrastructure is the average volume of scanned data per data store/platform is expected to be less than two times the cloud-wide average (currently 1TB per data store/platform per month). This means that the volume of some data stores/platforms can exceed 1TB, provided that the average volume across all data stores/platforms remains below 1TB. The amount of data scanned is based on your scan settings. The volume of scanned data in excess of this Fair Use Policy requires a subscription for additional volume. Contact Zscaler Sales or your Channel Partner to discuss available options.
+The usage of AI Asset Management for AI Infrastructure is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/product-usage-terms/acceptable-use-policy). The Fair Use Policy for AI Asset Management for AI Infrastructure is the average volume of scanned data per data store/platform is expected to be less than two times the cloud-wide average. Currently, 1TB per data store/platform per month. This means that the volume of some data stores/platforms can exceed 1TB, provided that the average volume across all data stores/platforms remains below 1TB. The amount of data scanned is based on your scan settings. The volume of scanned data in excess of this Fair Use Policy requires a subscription for additional volume. Contact Zscaler Sales or your Channel Partner to discuss available options.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-ai-asset-management-ai-infrastructure-logs","lastmod":"2026-07-27T09:52Z","nid":"1540771"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-ai-asset-management-ai-infrastructure-logs","lastmod":"2026-07-30T13:06Z","nid":"1540771"} -->
 ## Zscaler AI Asset Management for AI Infrastructure Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-ai-asset-management-ai-infrastructure-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler AI Asset Management for AI Infrastructure Logs
-- Last modified: 2026-07-27T09:52Z
+- Last modified: 2026-07-30T13:06Z
 - Summary: Information about Zscaler AI Asset Management for AI Infrastructure Logs.
 
 In order to provide the Zscaler AI Asset Management for AI Infrastructure service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
 
 - **Definition:** For AI Asset Management for AI Infrastructure service, *logs* are defined as cloud configuration data, Cloud Service Provider (CSP) activity audit logs, and cloud user directory information. In addition, subject to your configuration and enablement, the following logs are also processed:
-  - Static metadata of data residing in cloud data stores such as databases, storage services and data volumes (disks).
-  - CSP-hosted virtual machine's operating system drive is scanned for installed packages and vulnerabilities (CVEs).
+  - Static metadata of data residing in cloud data stores such as databases, storage services and data volumes (i.e., disks).
+  - CSP-hosted virtual machine's operating system drive is scanned for installed packages and vulnerabilities (i.e., CVEs).
 - **Retention:** All logs that describe active cloud resources or issues are retained by Zscaler for the duration of the subscription. Once the resources are no longer present in the CSP, AI Asset Management for AI Infrastructure retains the logs for a rolling period of 180 days during your subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles or earlier upon request.
 - **Storage Location:** Logs are stored in the United States.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-ai-asset-management-platform-licensing-and-fair-use","lastmod":"2026-05-22T16:36Z","nid":"1540768"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-ai-asset-management-platform-licensing-and-fair-use","lastmod":"2026-07-30T13:07Z","nid":"1540768"} -->
 ## Zscaler AI Asset Management Platform Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-ai-asset-management-platform-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > Zscaler AI Asset Management Platform Licensing and Fair Use
-- Last modified: 2026-05-22T16:36Z
+- Last modified: 2026-07-30T13:07Z
 - Summary: Information about Zscaler AI Asset Management Platform Licensing and Fair Use.
 
 Zscaler AI Asset Management Platform is a Software as a Service (SaaS) product that is licensed according to a number of seats purchased for the subscription term in an order. A *seat* is a subscription license for the AI Asset Management Platform service for an individual authorized user whose traffic is monitored for AI application usage. Licensing applies to visibility for:
@@ -12907,7 +12871,7 @@ Ensure that you order the correct number of seats. If additional seats are neede
 The usage of AI Asset Management Platform is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/product-usage-terms/acceptable-use-policy). AI Asset Management Platform is intended for normal enterprise user traffic associated with AI application usage.
 
 - Usage must be consistent with the number of purchased seats.
-- Traffic must represent your end-user activity to Generative AI, Embedded AI, and Endpoint AI apps.
+- Traffic must represent your end-user activity to generative AI (Gen AI), Embedded AI, and Endpoint AI apps.
 - The service must not be used for automated, synthetic, or non-user-generated traffic at scale.
 - You must not use the provisioned ZIA tenant for capabilities outside AI Asset Management.
 - Zscaler may review usage to ensure alignment with the purchased subscription and intended product scope.
@@ -13300,16 +13264,16 @@ During the deployment process, you can choose to have your logs stored in the Un
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-experience-center-logs","lastmod":"2026-07-28T12:58Z","nid":"1541815"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-experience-center-logs","lastmod":"2026-07-30T13:11Z","nid":"1541815"} -->
 ## Zscaler Experience Center Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-experience-center-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler Experience Center Logs
-- Last modified: 2026-07-28T12:58Z
+- Last modified: 2026-07-30T13:11Z
 - Summary: Information about Zscaler Experience Center Logs.
 
-By accessing the Zscaler Experience Center, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs. For Experience Center, *logs* are defined as follows:
+By accessing Zscaler Experience Center, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs. For Experience Center, *logs* are defined as follows:
 
 - **Definition:** Records of administrative access and usage within Experience Center.
 - **Retention:** Zscaler retains Logs information for a rolling period of 14 days. When the term ends or expires, the logs are deleted by Zscaler according to the applicable retention period.
@@ -13436,6 +13400,44 @@ The usage of Risk360 is expected to be in accordance with the [Acceptable Use Po
 In order to provide the Risk360 service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article. For Risk360,*logs* are defined as duplicates of the configuration and transaction logs of other Zscaler SaaS products, such as Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA). Zscaler retains the logs on a rolling period up to a year during your subscription term, depending on your subscription. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
 
 Logs are stored in either the United States or the European Union.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-saas-security-posture-management-sspm-licensing-and-fair-use","lastmod":"2026-07-30T11:49Z","nid":"1541621"} -->
+## Zscaler SaaS Security Posture Management (SSPM) Licensing and Fair Use
+
+- Source: https://help.zscaler.com/logs-fair-use/zscaler-saas-security-posture-management-sspm-licensing-and-fair-use
+- Product: Logs & Fair Use
+- Path: Logs & Fair Use > Licensing & Fair Use > Zscaler SaaS Security Posture Management (SSPM) Licensing and Fair Use
+- Last modified: 2026-07-30T11:49Z
+- Summary: Information about Zscaler SaaS Security Posture Management (SSPM) Licensing and Fair Use.
+
+Zscaler SaaS Security Posture Management (SSPM) is a Software as a Service (SaaS) product that is licensed according to the number of seats purchased for the subscription term in an order. A *seat* is a subscription to the SSPM SaaS for an individual authorized user. The number of seats required is determined by counting the total number of unique users accessing and/or using the SaaS over the previous rolling 90-day period.
+
+Ensure that you order the correct number of seats. If you require additional seats, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of seats to ensure license compliance.
+
+## Fair Use Policy
+
+The usage of SSPM is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/product-usage-terms/acceptable-use-policy). The Fair Use Policy for SSPM is that the average data transfer per subscribed seat should be less than two times the cloud-wide average (currently 8 GB per seat per month). Usage exceeding the Fair Use Policy requires a subscription for additional entitlements. Contact Zscaler Sales or your Channel Partner to discuss available options.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-saas-security-posture-management-sspm-logs","lastmod":"2026-07-30T11:02Z","nid":"1541620"} -->
+## Zscaler SaaS Security Posture Management (SSPM) Logs
+
+- Source: https://help.zscaler.com/logs-fair-use/zscaler-saas-security-posture-management-sspm-logs
+- Product: Logs & Fair Use
+- Path: Logs & Fair Use > Logs & Data > Zscaler SaaS Security Posture Management (SSPM) Logs
+- Last modified: 2026-07-30T11:02Z
+- Summary: Information about Zscaler SaaS Security Posture Management (SSPM) Logs.
+
+In order to provide the Zscaler SaaS Security Posture Management (SSPM) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
+
+- **Definition:** For SSPM, *logs* are defined as user and application activity metadata for your SaaS applications and for third-party SaaS application integrations.
+- **Retention:** Zscaler retains the logs for a rolling period of six months during the term of subscription. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
+- **Storage:** Logs are stored in the United States.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15602,14 +15604,14 @@ If you need to edit the logo later, you can go to **Administration** > **Account
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/aging-assets","lastmod":"2026-07-29T13:24Z","nid":"1541770"} -->
+<!-- ZS-ARTICLE {"url":"/unified/aging-assets","lastmod":"2026-07-30T09:52Z","nid":"1541770"} -->
 ## Aging Assets
 
 - Source: https://help.zscaler.com/unified/aging-assets
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Retention Management > Aging Assets
-- Last modified: 2026-07-29T13:24Z
-- Summary: How to configure asset aging rules, using either aging by time or aging by value.
+- Last modified: 2026-07-30T09:52Z
+- Summary: How to configure asset aging rules by time or by value.
 
 Asset aging in the Security Operations Platform (SecOps Platform) enables organizations to automatically transition outdated or irrelevant assets to an inactive state. This enhances asset inventory accuracy and significantly reduces noise for security teams, ultimately improving operational efficiency and risk prioritization. You can also age associated entities (e.g., an asset's findings) when the linked asset becomes inactive to ensure data consistency and minimize manual cleanup.
 
@@ -15783,13 +15785,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-07-29T11:45Z","nid":"1541729"} -->
+<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-07-30T09:49Z","nid":"1541729"} -->
 ## Attribute Reconciliation Default Functions
 
 - Source: https://help.zscaler.com/unified/attribute-reconciliation-default-functions
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Attribute Reconciliation Default Functions
-- Last modified: 2026-07-29T11:45Z
+- Last modified: 2026-07-30T09:49Z
 - Summary: Information about the attribute reconciliation default functions for reconciling conflicting values during data unification.
 
 Attribute reconciliation is the process of resolving conflicts that arise when merging duplicate entities during entity unification. This process ensures that the most accurate and up-to-date data is retained across your system, eliminating inconsistencies and inaccuracies. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification) and [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification).
@@ -15930,13 +15932,13 @@ When you are done setting up blocked countries, you can [add your company logo t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-company-profile","lastmod":"2026-05-19T15:01Z","nid":"1488221"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-company-profile","lastmod":"2026-07-31T08:00Z","nid":"1488221"} -->
 ## Configuring the Company Profile
 
 - Source: https://help.zscaler.com/unified/configuring-company-profile
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Account Management > Configuring the Company Profile
-- Last modified: 2026-05-19T15:01Z
+- Last modified: 2026-07-31T08:00Z
 - Summary: How to configure the Company Profile page for your organization.
 
 The Internet & SaaS service automatically creates a profile for your organization. On the Company Profile page (Administration > Account Management > Organization), you can:
@@ -15946,7 +15948,7 @@ The Internet & SaaS service automatically creates a profile for your organizatio
   - The service displays the organization **Name** and **Domains** that you provided. Your organization name appears in the login form that the service displays:
     - When users authenticate to the Zscaler service.
     - In the user notifications, when policy violations occur.
-2. Enter the **Address** of your organization and **Primary Time Zone.**The time zones listed are those within the geographic location of your primary address. The primary time zone is used when your organization synchronizes user, group and department information from a directory server.
+2. Enter the **Address** of your organization and **Primary Time Zone.**The time zones listed are those within the geographic location of your primary address. The primary time zone is used when your organization synchronizes user, group, and department information from a directory server.
 3. Upload a logo. The service supports JPG, GIF, and PNG image files of 10 KB size or smaller.
   - Your company logo appears in the login form that the service displays:
     - When users authenticate to the Zscaler service.
@@ -15960,13 +15962,13 @@ The Internet & SaaS service automatically creates a profile for your organizatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-07-29T12:56Z","nid":"1541704"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-07-30T11:20Z","nid":"1541704"} -->
 ## Configuring Entity Unification
 
 - Source: https://help.zscaler.com/unified/configuring-entity-unification
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Entity Unification
-- Last modified: 2026-07-29T12:56Z
+- Last modified: 2026-07-30T11:20Z
 - Summary: How to configure entity unification rules to merge duplicate records.
 
 Ingesting data from multiple sources often leads to duplicate records that represent the same real-world entity. As part of the broader data unification process, entity unification focuses on data normalization by identifying and merging these duplicates to establish a single, trusted source of truth. You can create entity unification rules that specify how records are recognized as duplicates and the conditions under which they are merged. This step is especially critical for asset deduplication, and it serves as a foundation for consistent and reliable data across systems. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
@@ -15984,22 +15986,22 @@ To create a unification rule set:
 
 1. In the SecOps Platform Admin Portal, go to **Configure**> **Data Unification**> **Entities**. See image.
 2. Locate the entity you want to create the unification rule set for, and click **Merge**. See image. The **Merge**page appears.
-3. On the Merge page, click **New Rule**. The **Add Merge Rule** drawer opens. A rule set containing at least one conditional merging rule must also include a fallback rule, which provides a default merging method for records that don't match any conditions.
+3. On the **Merge** page, click **New Rule**. The **Add Merge Rule** drawer opens.
 4. In the **Add Merge Rule** drawer:
-  1. **Name**: Enter a name for the rule.
-  2. **If**: Define the rule condition that determines which records the rule should apply to. See image.
+  - **Name**: Enter a name for the rule.
+  - **If**: Define the rule condition that determines which records the rule should apply to. See image.
     1. Select a field from the drop-down menu on which the condition should be based. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. For example, when creating rules for the **Asset** entity, available fields include **Asset** fields (e.g., **Asset Name**, **Asset ID**), and fields with a relation to the **Asset** entity (e.g., **Application ID**, **Application Name**).
     2. Select an operator from the drop-down menu. The available operators vary depending on the field type, indicated to the left of the field name.
     3. Enter the value to which the rule should apply (e.g., `Windows`).
     4. (Optional) Use **AND**/**OR** logic to define compound rules:
-      1. **AND** merges entities only if they meet all conditions in the rule.
-      2. **OR** merges entities if they meet any of the conditions in the rule.
-  3. **Then**: Select at least one field according to which entities that meet your conditions should be merged. All entities with the same value are merged into a single entity. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. When merging entities based on multiple fields, the fields are evaluated using a logical **AND**relationship. This means that entities are merged only if the values in each of the specified fields match (e.g., the values in the **Asset ID** field must match, and the values in the **Asset Type** field must match for the record to merge). See image.
-  4. (Recommended) Select the **Exclude Nulls from Merge** checkbox to avoid merging entities with null values in the defined fields.
-  5. Click **Save** to save the rule. Repeat the process to add as many rules as necessary for the entity.
-5. Save the rule set to complete the process in one of the following ways:
-  1. Click **Save** to save the rule set. Rules will apply the next time data is ingested into your account.
-  2. From the **Save** drop-down menu, click **Save & Run** to save the rule set and immediately apply the rules to the data in your account. A rule set that includes at least one conditional merging rule must also include a fallback rule, otherwise the rule set cannot be saved. The fallback rule specifies a single field to use for merging entities without applying any conditions. It ensures a default merging method is always in place, preventing data loss or conflicts. See image.
+      - **AND** merges entities only if they meet all conditions in the rule.
+      - **OR** merges entities if they meet any of the conditions in the rule.
+  - **Then**: Select at least one field according to which entities that meet your conditions should be merged. All entities with the same value are merged into a single entity. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. When merging entities based on multiple fields, the fields are evaluated using a logical **AND**relationship. This means that entities are merged only if the values in each of the specified fields match (e.g., the values in the **Asset ID** field must match, and the values in the **Asset Type** field must match for the record to merge). See image.
+  - (Recommended) Select the **Exclude Nulls from Merge** checkbox to avoid merging entities with null values in the defined fields.
+  - Click **Save** to save the rule. Repeat the process to add as many rules as necessary for the entity.
+5. Save the rule set to complete the process in one of the following ways: See image. A rule set that includes at least one conditional merging rule must also include a fallback rule, otherwise the rule set cannot be saved. The fallback rule specifies a single field to use for merging entities without applying any conditions. It ensures a default merging method is always in place, preventing data loss or conflicts.
+  - Click **Save** to save the rule set. Rules will apply the next time data is ingested into your account.
+  - From the **Save** drop-down menu, click **Save & Run** to save the rule set and immediately apply the rules to the data in your account.
 
 Your saved rule sets appear on the Data Unification - Entities page, where you can view, edit, and manage them as needed. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification).
 
@@ -16024,13 +16026,13 @@ The rules' order of appearance doesn't affect the order of their application. Ea
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-field-unification","lastmod":"2026-07-29T13:22Z","nid":"1541716"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-field-unification","lastmod":"2026-07-30T12:18Z","nid":"1541716"} -->
 ## Configuring Field Unification
 
 - Source: https://help.zscaler.com/unified/configuring-field-unification
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Field Unification
-- Last modified: 2026-07-29T13:22Z
+- Last modified: 2026-07-30T12:18Z
 - Summary: How to configure field unification rules to resolve attribute conflicts and support data cleansing and enrichment.
 
 Ingesting data from various sources often requires merging duplicate records for the same entity into a single unified record. Following deduplication through [entity unification](https://help.zscaler.com/unified/configuring-entity-unification), the next step is reconciling attribute conflicts and subsequently cleansing and enriching the data. The platform's unification capabilities transform your data into a single, trusted source of truth.
@@ -16058,10 +16060,10 @@ To create a unification rule set:
 1. In the SecOps Platform Admin Portal, go to **Configure** > **Data Unification** > **Fields**. See image. [Image: How to access the Fields page]
 2. Click **New Rule Set**.
 3. Select the field for which you want to create a new rule set. See image. [Image: Fields listed when creating a new rule set]
-4. Select a **Rule Set Type**:
-  - **Conditions (Default)**: This rule set type is the default, and it's available for fields of all entity types. Using conditions, you can define how to transform and enrich field values.
-  - **Priority By Source**: This rule set type is designed to allow attribute reconciliation to be prioritized by source in place of the default logic. Using this type, you can specify the order of source precedence, so that field values from higher priority sources take precedence over those from lower priority sources. For example, you can prioritize your Configuration Management Database (CMDB) as the highest priority source to populate the Asset Owner ID field. This rule set type is not available for Ticket fields. See image. [Image: Rule Set Type section highlighted]
-5. Click **New Rule**. The **Create Unification Rule** or the **Priority by Source Rule**drawer opens.
+4. Select a **Rule Set Type**: See image. [Image: Rule Set Type section highlighted]
+  - **Conditions**: This rule set type is the default, and it's available for fields of all entity types. Using conditions, you can define how to transform and enrich field values.
+  - **Priority By Source**: This rule set type is designed to allow attribute reconciliation to be prioritized by source in place of the default logic. Using this type, you can specify the order of source precedence, so that field values from higher priority sources take precedence over those from lower priority sources. For example, you can prioritize your Configuration Management Database (CMDB) as the highest priority source to populate the Asset Owner ID field. This rule set type is not available for Ticket fields.
+5. Click **New Rule**. The **Create Unification Rule** or the **Priority By Source Rule**drawer opens.
 6. Create a rule in one of the following ways:
   - In the **Create Unification Rule**drawer: The configured value populates the field when the rule's conditions are met.
     1. **Name**: Enter a name for the rule.
@@ -16078,12 +16080,12 @@ To create a unification rule set:
       - Smart Text
       - Expression
       - Empty
-  - In the **Priority By Source Rule** drawer:
-    1. Click **Select Source**.
-    2. Select the source you want the rule to evaluate for the field value. For example, you might select CrowdStrike as the first source to look at for an Alert Title value since you trust its value to be closest aligned to your Security Operations Center (SOC) policies.
-    3. From the source field drop-down, select the field to retrieve the value from. See image. [Image: Field drop-down menu highlighted]
-    4. Click **Add Source** to add another source and repeat the steps as necessary. If the previous source does not provide a value for the selected field, the rule proceeds to evaluate the next source in the priority order.
-    5. Click **Set result using expression**to transform the returned value. For example, if a source returns an abbreviated value such as "Sev 1", you can use an expression to normalize it to "Severity 1" for consistent display. Priority by Source rules are evaluated in the order defined and returns the first non-null value.
+  - In the **Priority By Source Rule** drawer: Priority by Source rules are evaluated in the order defined and returns the first non-null value.
+    1. Click the **Select Source**drop-down menu.
+    2. Select the source you want the rule to evaluate for the field value. For example, you might select CrowdStrike Alerts as the first source to look at for an Alert Title value if its value would be closest aligned to your policies.
+    3. From the source field drop-down menu, select the field to retrieve the value from. See image. [Image: Field drop-down menu highlighted]
+    4. (Optional) Click **Add Source** to add another source and repeat the steps as necessary. If the previous source does not provide a value for the selected field, the rule proceeds to evaluate the next source in the priority order.
+    5. Enable **Set result using expression**to transform the returned value. For example, if a source returns an abbreviated value such as `Sev 1`, you can use an expression to standardize it to `Severity 1` for consistency.
 7. Click **Add** to add the rule to the rule set. See image. [Image: Add button]
 8. Click **Expand to load preview** to test the rule. A preview of the top 50 entities appears. See image. [Image: Load preview]
 9. Use the filters and field selection to refine the previewed data and ensure the rule functions correctly. See image. [Image: Preview for top 50 entries]

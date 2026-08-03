@@ -1,7 +1,7 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 160
 
 ---
@@ -1145,13 +1145,13 @@ On the Network Services page (Policies > Access Control > Firewall > Network Ser
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-feeds","lastmod":"2026-07-29T07:32Z","nid":"1420626"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-feeds","lastmod":"2026-07-29T21:09Z","nid":"1420626"} -->
 ## About NSS Feeds
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-nss-feeds
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > About NSS Feeds
-- Last modified: 2026-07-29T07:32Z
+- Last modified: 2026-07-29T21:09Z
 - Summary: Information on NSS feeds and the NSS feeds page on the Zscaler Admin Console.
 
 A Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. Both Cloud Connector and Branch Connector can generate Session, DNS, Event, and Metrics logs.
@@ -1183,16 +1183,16 @@ To learn more about adding NSS servers per platform, see the [NSS Deployment Gui
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-servers","lastmod":"2026-07-29T07:31Z","nid":"1420736"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-servers","lastmod":"2026-07-30T16:49Z","nid":"1420736"} -->
 ## About NSS Servers
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-nss-servers
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > About NSS Servers
-- Last modified: 2026-07-29T07:31Z
+- Last modified: 2026-07-30T16:49Z
 - Summary: Information on the NSS servers page in the Zscaler Admin Console.
 
-The Nanolog Streaming Service (NSS) uses a virtual machine (VM) to stream traffic logs in realtime from the Zscaler Nanolog to your security information and event management (SIEM) system, enabling real-time alerting, correlation with the logs of your other devices, and long-term local log archival. An NSS server is the representation of the NSS VM in the Zscaler Admin Console.
+The Nanolog Streaming Service (NSS) uses a virtual machine (VM) to stream traffic logs in real time from the Zscaler Nanolog to your security information and event management (SIEM) system, enabling real-time alerting, correlation with the logs of your other devices, and long-term local log archival. An NSS server is the representation of the NSS VM in the Zscaler Admin Console.
 
 NSS servers provide the following benefits and enable you to:
 
@@ -2378,13 +2378,13 @@ To add a GCP account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds","lastmod":"2026-07-29T07:33Z","nid":"1420631"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds","lastmod":"2026-07-29T21:14Z","nid":"1420631"} -->
 ## Adding NSS Feeds
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds
-- Last modified: 2026-07-29T07:33Z
+- Last modified: 2026-07-29T21:14Z
 - Summary: How to add NSS feeds for Session, DNS, Event, and Metrics logs in the Zscaler Admin Console.
 
 A Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. You can filter the data, so you send only the data you need to the SIEM. You can add one or more fields for the logs and one field for alerts. You can add up to 16 NSS feeds for each NSS. [Session logs](https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-session-logs) are limited to 8 feeds per NSS to ensure optimal performance. Each feed can have a different list of fields, a different format, and different filters. To learn more about how to configure each feed, see the following articles:
@@ -2563,16 +2563,16 @@ To configure a feed for Metrics logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-session-logs","lastmod":"2026-07-29T07:33Z","nid":"1420721"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-session-logs","lastmod":"2026-07-31T18:15Z","nid":"1420721"} -->
 ## Adding NSS Feeds for Session Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-session-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for Session Logs
-- Last modified: 2026-07-29T07:33Z
+- Last modified: 2026-07-31T18:15Z
 - Summary: Information on how to add NSS feeds for Session logs in the Zscaler Admin Console.
 
-You can configure up to 8 Nanolog Streaming Service (NSS) feeds to specify the data from the Session logs that the NSS sends to the SIEM system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
+You can configure up to 8 Nanolog Streaming Service (NSS) feeds to specify the data from the Session logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
 
 To configure a feed for Session logs:
 
@@ -2625,13 +2625,13 @@ You can enter multiple entries. Press **Enter** after each entry, then click **A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-servers","lastmod":"2026-07-29T07:31Z","nid":"1420616"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-servers","lastmod":"2026-07-29T21:01Z","nid":"1420616"} -->
 ## Adding NSS Servers
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-servers
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > Adding NSS Servers
-- Last modified: 2026-07-29T07:31Z
+- Last modified: 2026-07-29T21:01Z
 - Summary: How to add an NSS server on the NSS page from the Zscaler Admin Console.
 
 Before you set up a Nanolog Streaming Service (NSS) server on the Zscaler Admin Console, you must enter information about your traffic and users so the Zscaler service can compute the appropriate resources for your NSS. The NSS buffers the logs for at least one hour. If a security information and event management (SIEM) system goes offline for maintenance or if the connection between the NSS and the SIEM is disrupted, the NSS buffers the logs and sends them after the connection is re-established. The amount of memory required to buffer the logs is incorporated into the VM spec computation. The buffer size increases proportionally to the amount of RAM allocated to the NSS.
@@ -7323,13 +7323,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-nss-virtual-appliances","lastmod":"2026-07-29T07:32Z","nid":"1420621"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-nss-virtual-appliances","lastmod":"2026-07-29T21:05Z","nid":"1420621"} -->
 ## Deploying NSS Virtual Appliances
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-nss-virtual-appliances
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Deployment Guides > Deploying NSS Virtual Appliances
-- Last modified: 2026-07-29T07:32Z
+- Last modified: 2026-07-29T21:05Z
 - Summary: How to deploy NSS Virtual Appliances on the NSS page from the Zscaler Admin Console.
 
 To deploy your NSS virtual appliance, the Zscaler service needs to compute the appropriate resources for your NSS. To learn more, see the deployment guide linked below for your platform:
@@ -7400,13 +7400,13 @@ passwd zsroot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-07-28T07:33Z","nid":"1420746"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-07-31T09:49Z","nid":"1420746"} -->
 ## Deploying Zscaler Cloud Connector with Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Deploying Zscaler Cloud Connector with Amazon Web Services
-- Last modified: 2026-07-28T07:33Z
+- Last modified: 2026-07-31T09:49Z
 - Summary: Information on deploying Zscaler Cloud Connector with Amazon Web Services.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as an Amazon Machine Image (AMI) on Amazon Web Services (AWS), and post-deployment configurations.
@@ -7795,7 +7795,7 @@ You can manage the Cloud Connector from the Zscaler Admin Console. A deployed Cl
 
 See image.
 
-[Image: The geo view provides the geographical location of the deployed  Cloud Connector.]
+[Image: The geo view provides the geographical location of the deployed Cloud Connector.]
 
 After verifying deployment, you can configure the following policies:
 
@@ -8106,13 +8106,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-07-28T09:39Z","nid":"1420751"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-07-31T09:51Z","nid":"1420751"} -->
 ## Deploying Zscaler Cloud Connector with Microsoft Azure
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for Azure > Deploying Zscaler Cloud Connector with Microsoft Azure
-- Last modified: 2026-07-28T09:39Z
+- Last modified: 2026-07-31T09:51Z
 - Summary: How to deploy Zscaler Cloud Connector on Microsoft Azure, including prerequisites and post-deployment verification checks.
 
 When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, do not run both Virtual Machine Scale Sets (VMSS) and non-VMSS deployments within the same virtual network (VNet).
@@ -13355,13 +13355,13 @@ Resource NSS feeds consist of metrics at the resource level. For example, a reso
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-session-logs","lastmod":"2026-07-29T14:42Z","nid":"1420836"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-session-logs","lastmod":"2026-07-30T14:11Z","nid":"1420836"} -->
 ## NSS Feed Output Format: Session Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/nss-feed-output-format-session-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Session Logs
-- Last modified: 2026-07-29T14:42Z
+- Last modified: 2026-07-30T14:11Z
 - Summary: Information about the Session fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
 
 The Session Nanolog Streaming Service (NSS) feed specifies the data from the Session logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -13435,8 +13435,8 @@ The following tables display information about the Session fields and possible v
 
 | Field | Description | Example |
 | --- | --- | --- |
-| %ld{clt_tx_bytes} | Number of bytes sent from the server to the client | 10000 |
-| %ld{clt_rx_bytes} | Number of bytes sent from the client to the server | 10000 |
+| %ld{clt_tx_bytes} | Number of bytes sent from the server to the client | 10,000 |
+| %ld{clt_rx_bytes} | Number of bytes sent from the client to the server | 10,000 |
 | %s{nw_service} | The network service that was used | HTTP |
 | %s{traffic_type} | Traffic type | INTERNAL |
 | %s{clt_nw_protocol} | Client network protocol | TCP |
@@ -13841,13 +13841,13 @@ You can select the following Session Insights Logs filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/siem-integration-nss","lastmod":"2026-07-29T07:31Z","nid":"1455426"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/siem-integration-nss","lastmod":"2026-07-29T21:04Z","nid":"1455426"} -->
 ## SIEM Integration for NSS
 
 - Source: https://help.zscaler.com/cloud-branch-connector/siem-integration-nss
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > SIEM Integration for NSS
-- Last modified: 2026-07-29T07:31Z
+- Last modified: 2026-07-29T21:04Z
 - Summary: Understanding SIEM Integration for NSS.
 
 Cloud NSS allows you to instantly stream logs from the Zscaler Admin Console directly into a compatible cloud-based security information and event management (SIEM) system. If you subscribe to Cloud NSS, you can enable direct cloud-to-cloud log streaming.

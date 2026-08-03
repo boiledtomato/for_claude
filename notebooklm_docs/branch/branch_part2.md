@@ -1,7 +1,7 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 105
 
 ---
@@ -4691,13 +4691,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-07-28T09:20Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-07-31T09:09Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-28T09:20Z
+- Last modified: 2026-07-31T09:09Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -4705,13 +4705,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues","lastmod":"2026-05-31T20:37Z","nid":"1540224"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues","lastmod":"2026-07-31T07:06Z","nid":"1540224"} -->
 ## Resolving Zero Trust Branch Configuration and Activation Issues
 
 - Source: https://help.zscaler.com/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Troubleshooting > Resolving Zero Trust Branch Configuration and Activation Issues
-- Last modified: 2026-05-31T20:37Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to resolve issues related to the Zero Trust Branch appliance.
 
 This article includes steps to resolve some of the following issues that you might encounter while configuring and activating Zero Trust Branch appliances:
@@ -4931,13 +4931,13 @@ Press [Enter] to continue
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/step-step-configuration-guide-zero-trust-branch","lastmod":"2026-06-03T16:06Z","nid":"1532103"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/step-step-configuration-guide-zero-trust-branch","lastmod":"2026-07-31T15:48Z","nid":"1532103"} -->
 ## Step-by-Step Configuration Guide for Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/step-step-configuration-guide-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Step-by-Step Configuration Guide for Zero Trust Branch
-- Last modified: 2026-06-03T16:06Z
+- Last modified: 2026-07-31T15:48Z
 - Summary: Step-by-Step Configuration Guide for Zero Trust Branch
 
 This guide takes you through the configuration steps you need to complete before using Zscaler Zero Trust Branch for your organization.
@@ -5786,13 +5786,13 @@ The list of IP addresses associated with the routing policy displays.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-zero-trust-branch-access-roles","lastmod":"2026-07-21T14:52Z","nid":"1532522"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-zero-trust-branch-access-roles","lastmod":"2026-07-31T15:46Z","nid":"1532522"} -->
 ## Understanding Zero Trust Branch Access Roles
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-zero-trust-branch-access-roles
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Configuration > Understanding Zero Trust Branch Access Roles
-- Last modified: 2026-07-21T14:52Z
+- Last modified: 2026-07-31T15:46Z
 - Summary: Information about access roles in the Zero Trust Branch.
 
 Zero Trust Branch uses role-based access control (RBAC) to determine the granted permissions that enable admins and users to perform their job functions. By separating duties across clearly defined roles, RBAC minimizes the risk of misconfigurations, unauthorized access, and insider threats while maintaining operational efficiency and compliance.

@@ -1,8 +1,8 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
-Articles in this file: 174
+Generated: 2026-08-03 02:47 UTC
+Articles in this file: 175
 
 ---
 
@@ -3160,16 +3160,16 @@ On the IP Bindings page (Infrastructure > Private Access > Client Connector Poli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-isolation-policy","lastmod":"2026-05-06T21:06Z","nid":"1484881"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-isolation-policy","lastmod":"2026-07-31T14:00Z","nid":"1484881"} -->
 ## About Isolation Policy
 
 - Source: https://help.zscaler.com/zpa/about-isolation-policy
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Isolation Policy > About Isolation Policy
-- Last modified: 2026-05-06T21:06Z
-- Summary: Information about isolation policy rules and the Isolation Policy page within Zscaler Private Access (ZPA).
+- Last modified: 2026-07-31T14:00Z
+- Summary: Information about isolation policy rules and the Isolation Policy page for Zero Trust Browser within Zscaler Private Access (ZPA).
 
-Using the Isolation policy, you can create rules that define when application requests are redirected to [Isolation](https://help.zscaler.com/isolation/what-is-isolation). This requires having Isolation enabled for your organization and creating [an Isolation profile](https://help.zscaler.com/isolation/creating-isolation-profiles-zpa) prior to setting up the Isolation policy rule.
+Using the isolation policy for [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) within Zscaler Private Access (ZPA), you can create rules that define when application requests are redirected to isolation. This requires having isolation enabled for your organization and creating [an isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) prior to setting up the isolation policy rule.
 
 Isolation policy rules allow you to:
 
@@ -3177,44 +3177,34 @@ Isolation policy rules allow you to:
 - Reduce the surface area of attacks by providing true application-level Zero Trust access to critical applications (e.g., hiding all application-level transactions between the browser and the related applications).
 - Enforce data exfiltration controls by ensuring users are unable to copy, paste, upload, or download files between their computers and the applications they are accessing.
 
-When the user is authenticated, the session timeout value is the minimum timeout across all configured [timeout policies](https://help.zscaler.com/zpa/about-timeout-policy). After the timeout happens, the user needs to reauthenticate with ZPA to access applications via Isolation.
+When the user is authenticated, the session timeout value is the minimum timeout across all configured [timeout policies](https://help.zscaler.com/zpa/about-timeout-policy). After the timeout happens, the user needs to reauthenticate with ZPA to access applications via isolation.
 
-Along with [defining an Isolation policy](https://help.zscaler.com/zpa/configuring-isolation-policies), you also need to [define an access policy](https://help.zscaler.com/zpa/configuring-access-policies) for the application to be accessible from within the browser Isolation environment. Application requests not directed to Isolation are reviewed based on [access policies](https://help.zscaler.com/zpa/about-access-policy).
+Along with [defining an isolation policy](https://help.zscaler.com/zpa/configuring-isolation-policies), you also need to [define an access policy](https://help.zscaler.com/zpa/configuring-access-policies) for the application to be accessible from within the browser isolation environment. Application requests not directed to isolation are reviewed based on [access policies](https://help.zscaler.com/zpa/about-access-policy).
 
-If ZPA is undergoing a maintenance period, Isolation might not be available.
+If ZPA is undergoing a maintenance period, isolation might not be available.
 
 Isolation policy rules are comprised of two main building blocks:
 
-- Criteria: These are the conditions of a policy rule. A user's application request must match all of the conditions within a policy rule.
+- Criteria: These are the conditions of a policy rule. A user's application request must match all the conditions within a policy rule.
 - Boolean Operators: These are the operands used between criteria. Isolation policy rules use AND and OR operators only.
 
 ## About the Isolation Policy Page
 
-On the Isolation Policy page (Policy > Isolation Policy), you can do the following:
+On the Isolation Policy page (Policy > Access Control > Clientless > Isolation Policy), you can do the following:
 
-1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/zpa/using-tables).
-2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to display the filters.
-3. Refresh the Isolation Policy page to reflect the most current information.
-4. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/zpa/using-tables).
-5. [Add a new Isolation policy rule.](https://help.zscaler.com/zpa/configuring-isolation-policies)
-6. Review the default rule. This rule cannot be edited. See image.
-7. Expand all of the displayed rows in the table to see more information about each policy rule.
-8. View a list of all configured Isolation policy rules. For each rule, you can see:
+1. Review the default rule. This rule cannot be edited. See image.
+2. [Add a new isolation policy rule.](https://help.zscaler.com/zpa/configuring-isolation-policies)
+3. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/zpa/using-tables).
+4. [Modify the columns displayed in the table.](https://help.zscaler.com/zpa/using-tables)
+5. View a list of all configured isolation policy rules. For each rule, you can see:
   - **Rule Order**: The [policy evaluation order](https://help.zscaler.com/zpa/about-access-and-application-group-policies#PolicyEvalOrder) number for the rule. ZPA applies policy rules based on the order they are listed here. Change the rule order by clicking on the number and manually entering in a new value.
   - **Name**: The name of the rule. The description is also displayed here, if available.
-  - **Rule Action**: Indicates if the rule is to allow or bypass Isolation. When the row is expanded, it provides a visual representation of the criteria (e.g., [SAML attributes](https://help.zscaler.com/zpa/about-saml-attributes), application segments, posture profiles, etc.) and Boolean logic used within the rule.
-9. Copy an existing Isolation policy rule's criteria, and use it to create a new rule.
-10. [Edit an existing Isolation policy rule.](https://help.zscaler.com/zpa/editing-isolation-policies)
-11. Delete an Isolation policy rule.
-12. [Modify the columns displayed in the table.](https://help.zscaler.com/zpa/using-tables)
-13. Display more rows or a different page of the table.
-14. Depending on your ZPA Admin Portal subscriptions, you will see the following ZPA policy options:
-  - [Access Policy](https://help.zscaler.com/zpa/about-access-policy)
-  - [Timeout Policy](https://help.zscaler.com/zpa/about-timeout-policy)
-  - [Client Forwarding Policy](https://help.zscaler.com/zpa/about-client-forwarding-policy)
-  - [Privileged Policy](https://help.zscaler.com/zpa/about-privileged-policy)
-  - [Security Policy](https://help.zscaler.com/zpa/about-appprotection-policy)
-  - [Redirection Policy](https://help.zscaler.com/zpa/about-redirection-policy)
+  - **Rule Action**: Indicates if the rule is to allow or bypass isolation. When the row is expanded, it provides a visual representation of the criteria (e.g., [SAML attributes](https://help.zscaler.com/zpa/about-saml-attributes), application segments, posture profiles, etc.) and Boolean logic used within the rule.
+6. Edit the rule order.
+7. Copy an existing isolation policy rule's criteria, and use it to create a new rule.
+8. [Edit an existing isolation policy rule.](https://help.zscaler.com/zpa/editing-isolation-policies)
+9. Delete an isolation policy rule.
+10. Display more rows or a different page of the table.
 
 [Image: Viewing and managing isolation policies within the ZPA Admin Portal]
 
@@ -3223,16 +3213,16 @@ On the Isolation Policy page (Policy > Isolation Policy), you can do the followi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-kubernetes-clusters-microsegmentation","lastmod":"2026-07-10T06:59Z","nid":"1538445"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-kubernetes-clusters-microsegmentation","lastmod":"2026-07-31T09:59Z","nid":"1538445"} -->
 ## About Kubernetes Clusters for Microsegmentation
 
 - Source: https://help.zscaler.com/zpa/about-kubernetes-clusters-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > About Kubernetes Clusters for Microsegmentation
-- Last modified: 2026-07-10T06:59Z
-- Summary: An article explaining how to access and understand Kubernetes Clusters for Microsegmentation.
+- Last modified: 2026-07-31T09:59Z
+- Summary: How to access and understand Kubernetes Clusters for Microsegmentation.
 
-Kubernetes Clusters can be used as an alternative option to virtual machines when configuring agent groups for Microsegmentation. It supports Google Kubernetes Engine (GKE), Azure Kubernetes Solution (AKS), and Amazon Elastic Kubernetes Service (Amazon EKS). To learn more, see [About Agent Groups](https://help.zscaler.com/zpa/about-agent-groups) and [Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups).
+You can use Kubernetes Clusters as an alternative option to virtual machines when configuring agent groups for Microsegmentation. It supports Google Kubernetes Engine (GKE), Azure Kubernetes Solution (AKS), and Amazon Elastic Kubernetes Service (Amazon EKS). To learn more, see [About Agent Groups](https://help.zscaler.com/zpa/about-agent-groups) and [Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups).
 
 The Clusters Resources page provides the following benefits and enables you to:
 
@@ -3242,27 +3232,26 @@ The Clusters Resources page provides the following benefits and enables you to:
 
 ## About the Cluster Resources Page
 
-On the Cluster Resources page (Microsegmentation > Analytics > Cluster Resources), you can do the following:
+On the Cluster Resources page (Policies > Access Control > Segmentation > Cluster Resources), you can do the following:
 
 1. Refresh the Cluster Resources page to reflect the most current information.
-2. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/zpa/using-tables#filterData).
-3. Hide the filters on the page by clicking **Hide Filters.** Click **Show Filters** to display the filters.
-4. Filter the information by **Name**, **AppZone**, **Status**, and **Resource ID**. After configuring your preferred filters, click the button to apply the filters (e.g., Apply 1 filter, Apply 2 filters) and view the results. By default, no filters are applied.
+2. Show or hide available columns.
+3. Show or hide available filters.
+4. Filter the information by **Name**, **AppZone**, **Status**, and **Resource ID**. After configuring your preferred filters, click the button to apply the filters (e.g., Apply 1 filter, Apply 2 filters) and view the results. By default, no filters are applied. See image.
 5. View a list of all Kubernetes Clusters that are configured for your organization. For each resource group, you can see:
   - **Name**: The name of the cluster resource.
   - **AppZone**: The name of the AppZone it is attached to.
-  - **Type**: The type of cluster resource it is (Workload or Service).
+  - **Type**: The type of cluster resource it is (Workload, Node, or Service).
   - **Cloud**: The name of the cloud the cluster resource is on.
   - **Status**: The status of the cluster resource (Active or Inactive).
-6. Click an individual resource group to view its complete information. See image.
-7. [Modify the columns displayed in the table.](https://help.zscaler.com/zpa/using-tables)
-8. Go to the [Resources](https://help.zscaler.com/zpa/about-resources) page to view resource information.
-9. Go to the [Resource Groups](https://help.zscaler.com/zpa/about-resource-groups) page to view resource group information.
-10. Go to the [AppZones](https://help.zscaler.com/zpa/about-appzone-page) page to view AppZone information.
+6. Click an individual cluster resource to view its complete information. See image.
+7. Display more rows or a different page of the table.
 
-[Image: A view of the Cluster Resources page and it's filters: Name, Type, Platform, AppZone, Agent ID, Cloud, and Resource ID.]
+[Image: A view of the Cluster Resources page and its filters]
 
-[Image: The information details for an individual resource.]
+[Image: Button to apply configured filters]
+
+[Image: The information details for an individual cluster resource]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5253,14 +5242,14 @@ By default, the UI only displays the first 100 rules. Alternatively, you can scr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-resource-groups","lastmod":"2026-07-10T07:11Z","nid":"1531945"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-resource-groups","lastmod":"2026-07-31T09:52Z","nid":"1531945"} -->
 ## About Resource Groups
 
 - Source: https://help.zscaler.com/zpa/about-resource-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > About Resource Groups
-- Last modified: 2026-07-10T07:11Z
-- Summary: Information about the Resource Groups page for Microsegmentation in the ZPA Admin Portal.
+- Last modified: 2026-07-31T09:52Z
+- Summary: Information about the Resource Groups page for Microsegmentation in the Zscaler Admin Console.
 
 Resource groups are the key factor in [configuring Microsegmentation policies](https://help.zscaler.com/zpa/configuring-microsegmentation-policies). Admins can create resource groups based on a [combination of the resources](https://help.zscaler.com/zpa/about-resources) added to them and a mix of dynamic criteria, including hosts, environments, and cloud tag data. To learn more, see [About Resources](https://help.zscaler.com/zpa/about-resources).
 
@@ -5273,31 +5262,28 @@ The Resource Groups page provides the following benefits and enables you to:
 
 ## About the User-Defined Resource Groups Page
 
-On the User-Defined Resource Groups page (Microsegmentation > Analytics > Resource Groups > User-Defined), you can do the following:
+On the User-Defined Resource Groups page (Policies > Access Control > Segmentation > Resource Groups), you can do the following:
 
-1. Refresh the Resource Groups page to reflect the most current information.
-2. Display user-defined resource groups.
-3. Display machine learning (ML) recommended resource groups. To learn more, see [About ML Recommendations for Resource Groups](https://help.zscaler.com/zpa/about-ml-recommendations-resource-groups).
-4. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/zpa/using-tables#filterData).
-5. Hide the filters on the page by clicking **Hide Filters.** Click **Show Filters** to display the filters.
-6. Filter the information by **Name**, **Resource ID**, **Resource Name**, and **Resource Group ID**. After configuring your preferred filters, click the button to apply the filters (e.g., Apply 1 filter, Apply 2 filters) and view the results. By default, no filters are applied.
-7. [Add a new resource group](https://help.zscaler.com/zpa/configuring-resource-groups).
-8. View a list of all resource groups that are configured for your organization. For each resource group, you can see:
+1. Display user-defined resource groups or machine learning (ML) recommended resource groups. To learn more, see [About ML Recommendations for Resource Groups](https://help.zscaler.com/zpa/about-ml-recommendations-resource-groups).
+2. Refresh the Resource Groups page to reflect the most current information.
+3. [Add a new resource group](https://help.zscaler.com/zpa/configuring-resource-groups).
+4. Show or hide available columns.
+5. Show or hide available filters.
+6. Filter the information by **Name**, **Resource ID**, **Resource Name**, and **Resource Group ID**. After configuring your preferred filters, click the button to apply the filters (e.g., Apply 1 filter, Apply 2 filters) and view the results. By default, no filters are applied. See image.
+7. View a list of all resource groups that are configured for your organization. For each resource group, you can see:
   - **Name**: The name of the resource group.
   - **Resource Type**: The type of resource group (**Managed** or **Unmanaged**).
-  - **Member Count**: How many resources are in the resource group.
-9. Click an individual resource group to view its complete information. See image.
-10. [Edit a resource group.](https://help.zscaler.com/zpa/editing-resource-groups)
-11. [Delete a resource group.](https://help.zscaler.com/zpa/deleting-resource-groups)
-12. [Modify the columns displayed in the table.](https://help.zscaler.com/zpa/using-tables)
-13. Display more rows or a different page of the table.
-14. Open the [Zscaler Help Browser](https://help.zscaler.com/zpa/using-zscaler-help-browser) and view Help Portal articles without leaving the ZPA Admin Portal.
-15. Go to the [Resources](https://help.zscaler.com/zpa/about-resources) page to view resource information.
-16. Go to the [AppZones](https://help.zscaler.com/zpa/about-appzone-page) page to view AppZone information.
+  - **Member Count**: The number of resources in the resource group.
+8. Click an individual resource group to view its complete information. See image.
+9. [Edit a resource group.](https://help.zscaler.com/zpa/editing-resource-groups)
+10. [Delete a resource group.](https://help.zscaler.com/zpa/deleting-resource-groups)
+11. Display more rows or a different page of the table.
 
-[Image: A view of the Resources page and it's filters: Name, Type, Platform, AppZone, Agent ID, Cloud, and Resource ID.]
+[Image: A view of the Resources page and its filters]
 
-[Image: The information details for an individual resource.]
+[Image: Button to apply configured filters]
+
+[Image: The information details for an individual resource group]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13459,13 +13445,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-openshift","lastmod":"2026-06-13T07:06Z","nid":"1485886"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-openshift","lastmod":"2026-07-31T07:06Z","nid":"1485886"} -->
 ## App Connector Deployment Guide for OpenShift
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for OpenShift
-- Last modified: 2026-06-13T07:06Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to deploy an App Connector on OpenShift, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on OpenShift, and post-deployment verification checks. For general information regarding App Connector deployment for Private Access, see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -15836,4 +15822,57 @@ Your new agent group appears in the list of Agent Groups.
 [Image: A view of the Review Documentation fields on Linux.]
 
 [Image: Review the Windows instructions.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-agents","lastmod":"2025-08-22T12:27Z","nid":"1531952"} -->
+## Configuring Agents
+
+- Source: https://help.zscaler.com/zpa/configuring-agents
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > Configuring Agents
+- Last modified: 2025-08-22T12:27Z
+- Summary: How to configure agents for Microsegmentation in the ZPA Admin Portal.
+
+Agents in Microsegmentation are installed on users' server workloads to collect endpoint data. You can install agents using most configuration management tools that accommodate Windows .msi files or Linux .rpm files. After configuring agents, you can configure [agent groups](https://help.zscaler.com/zpa/configuring-agent-groups) and [agent provisioning keys](https://help.zscaler.com/zpa/about-agent-provisioning-keys-page).
+
+To configure an agent:
+
+1. Go to **Microsegmentation** > **Agent Management**.
+2. Click the**Agents** tab.
+3. Click **Add Agent**. The **Add Agent** window appears. See image.
+4. In the **Add Agent** window:
+  1. **Agent Group**: Select an agent group from the drop-down menu. If there are no agent groups available, select **Create New Agent Group** and follow the onscreen instructions. You must place agents in groups based on the upgrade plan and location. For the upgrade plan, agents in the same agent group inherit the same upgrade plan including version profile, upgrade schedule, upgrade order (serial or parallel), and upgrade failure behavior (halt or skip). For agents deployed in on-premises data center environments, you must enable Advanced Settings and provide the admin-supplied region, VPCs, and Subnet IDs. These attributes are inherited by all agents in the group. To learn more, see [Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups).
+  2. Click **Next**. See image.
+  3. **Provisioning Key**: Select an agent provisioning key from the drop-down menu. If there are no agent provisioning keys available, select **Create New Provisioning Key** and follow the onscreen instructions. To learn more, see [About Agent Provisioning Keys](https://help.zscaler.com/zpa/about-agent-provisioning-keys-page)*.*
+  4. Click **Next**. See image.
+  5. **Review**: Review the entered information to ensure it is correct:
+    1. **Agent Group**:
+      - **Name**
+      - **Status**(this is enabled by default)
+      - **Description**
+      - **Auto Update**(this is disabled by default)
+    2. **Provisioning Key**:
+      - **Name**
+      - **Maximum Reuse**
+  6. Click **Next**. See image.
+  7. **Review Documentation**: Review the entered information and the agent provisioning key file.
+    1. Select the operating system for the agent (**Linux** or **Windows**).
+    2. Download the installation binary to your server workload.
+    3. Copy the provisioning key provided into a file called provision_key in the same directory as the installation script.
+    4. Run the downloaded binary on your server workload. See image.
+  8. Click **Done**.
+
+After your new agent first deploys onto a workload and is registered with the agent provisioning key, it appears in the list of Agents.
+
+[Image: A view of the agents page and all its actions.]
+
+[Image: A view of the Agent Group section when configuring a new agent.]
+
+[Image: A view of the Provisioning Key section when configuring a new agent.]
+
+[Image: A view of the Review section when configuring a new agent.]
+
+[Image: A view of the Review Documentation section when configuring a new agent.]
 <!-- /ZS-ARTICLE -->

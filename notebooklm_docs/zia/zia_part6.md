@@ -1,18 +1,18 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 124
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-hyper-v","lastmod":"2026-07-16T17:36Z","nid":"1532796"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-hyper-v","lastmod":"2026-07-31T11:28Z","nid":"1532796"} -->
 ## NSS Deployment Guide for Hyper-V
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-hyper-v
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Hyper-V
-- Last modified: 2026-07-16T17:36Z
+- Last modified: 2026-07-31T11:28Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Hyper-V.
 
 Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via Microsoft Hyper-V. This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
@@ -30,7 +30,7 @@ Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscr
 
 To deploy NSS:
 
-- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate and Configuration File
+- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate
 - Step 2: In the Zscaler Admin Console, Add a TCP NSS Feed
 - (Optional) Step 3: In the Zscaler Admin Console, Add an HTTP NSS Feed
 - Step 4: In the Zscaler Admin Console, Compute the Recommended VM Instance Specifications
@@ -86,9 +86,6 @@ The firewall requirements are as follows:
   - **Status**: The NSS is **Enabled** by default.
 4. Click **Save**. The NSS server is added to the Zscaler Admin Console.
 5. Click **Download** in the **SSL Certificate** column of the newly added NSS server, and then save the SSL certificate for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-configure-start-nss). See image.
-6. Click the **New Client Certificate** icon in the row of your newly added NSS server. See image. The **New** **Client Certificate** window appears.
-7. In the **New Client Certificate** window, click **Download Config** and save the configuration file for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-configure-start-nss). The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. See image.
-8. Click **Close**.
 
 A TCP Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. You can filter the data so that you send only the data you need to the SIEM, and you can add up to 16 TCP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per NSS server to ensure optimal performance.) Each feed can have different filters and fields, and a different output format (e.g., CSV). To learn more about how to configure each feed, see:
 
@@ -199,7 +196,7 @@ Before you configure and start the NSS on the Hyper-V VM, ensure that you have [
 
 Complete the following steps to configure NSS on the VM instance:
 
-- a. Configure the NSS and install the SSL certificate and configuration file.
+- a. Configure the NSS and install the SSL certificate.
 - b. Verify the NSS configuration.
 - c. (Optional) Remove the SSL certificate.
 
@@ -218,22 +215,11 @@ Complete the following steps to configure NSS on the VM instance:
   4. Default gateway for the management IP address
   5. Management interface IP with CIDR netmask
 5. Copy the [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-add-nss-server-download-ssl-certificate) SSL certificate to the VM instance.
-6. Run the following command to install the SSL certificate: sudo nss install-cert <SSL Certificate>Replace the parameter in red with the SSL certificate file name (e.g., `NssCertificate.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NssCertificate.zip`). The NSS uses the SSL certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active VM at a time. Having multiple VMs that use only one certificate causes cloud connection flapping, which disrupts log streaming.
+6. Run the following command to install the SSL certificate: nss install-cert <SSL Certificate>Replace the parameter in red with the SSL certificate file name (e.g., `NssCertificate.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NssCertificate.zip`). The NSS uses the SSL certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active VM at a time. Having multiple VMs that use only one certificate causes cloud connection flapping, which disrupts log streaming.
 7. Check the configuration by running the following command: sudo nss dump-config
-8. Copy the [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-add-nss-server-download-ssl-certificate) configuration file to the VM instance.
-9. Run the following command to install the configuration file: sudo nss install-config <Configuration File>Replace the parameter in red with the configuration file name (e.g., `NSSConfig_<NSS Server>.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NSSConfig_<NSS Server>.zip`).
-10. Get the provisioning blob and upload it to the Zscaler Admin Console:
-  1. Run the following command to get the provisioning blob: sudo nss show-prov-blobThe provisioning blob string displays in the output. See image.
-  2. Copy the provisioning blob string for uploading to the Zscaler Admin Console in the following step.
-  3. Upload the provisioning blob:
-    1. In the Zscaler Admin Console, go to your newly deployed NSS server and click the **New Client Certificate** icon to open the **New Client Certificate** window. See image.
-    2. In the **New Client Certificate**window, select **Enter Blob Data** and paste the provisioning blob string.
-    3. Click **Upload**. See image.
-    4. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-11. Run the following command to get the new client certificate: sudo nss get-new-clientcert
-12. Before starting the NSS, run the following command to download and install the NSS binaries: sudo nss update-nowAfter the first NSS software deployment, the software is automatically updated with new versions.
-13. Run the following command to reboot the NSS: sudo reboot
-14. Run the following command to start the NSS: sudo nss startThe NSS starts within a few minutes.
+8. Before starting the NSS, run the following command to download and install the NSS binaries: sudo nss update-nowAfter the first NSS software deployment, the software is automatically updated with new versions.
+9. Run the following command to reboot the NSS: sudo reboot
+10. Run the following command to start the NSS: sudo nss startThe NSS starts within a few minutes.
 
 To verify the NSS configuration, run the following command:
 
@@ -685,21 +671,11 @@ In the event of a connection loss between the NSS server and the cloud [Nanolog]
 
 [Image: Option to download the SSL Certificate for the NSS Server]
 
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
-
 [Image: The recommended specs for the Hyper-V VM and Hypervisor for the NSS Virtual Appliance Deployment]
 
 [Image: Selecting the NSS type and platform for the Virtual Appliance Deployment for Web logs]
 
 [Image: Selecting the NSS type and platform for the Virtual Appliance Deployment for Firewall logs]
-
-[Image: Example output of the show-prov-blob command]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
 
 [Image: The New > Virtual Machine option in the Hyper-V server]
 
@@ -722,13 +698,13 @@ In the event of a connection loss between the NSS server and the cloud [Nanolog]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-microsoft-azure","lastmod":"2026-07-16T17:39Z","nid":"1401336"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-microsoft-azure","lastmod":"2026-07-31T11:30Z","nid":"1401336"} -->
 ## NSS Deployment Guide for Microsoft Azure
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-microsoft-azure
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Microsoft Azure
-- Last modified: 2026-07-16T17:39Z
+- Last modified: 2026-07-31T11:30Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Microsoft Azure.
 
 Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via Microsoft Azure. This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
@@ -747,7 +723,7 @@ Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscr
 
 To deploy NSS:
 
-- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate and Configuration File
+- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate
 - Step 2: Use Azure Storage Explorer or PowerShell to Copy the OS Disk VHD File to Your Azure Storage Account
 - Step 3: In the Azure Portal, Create a Managed Disk and the VM Instance
 - Step 4: Configure and Verify the NSS on the VM Instance
@@ -795,17 +771,10 @@ The firewall requirements are as follows:
   - **Status**: The NSS is **Enabled** by default.
 4. Click **Save**. The NSS server is added to the Zscaler Admin Console.
 5. Click **Download** in the **SSL Certificate** column of your newly added NSS server and save the certificate for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-microsoft-azure#step-configure-start-nss). See image.
-6. Click the **New Client Certificate** icon in the row of your newly added NSS server. See image. The **New** **Client Certificate** window appears.
-7. In the **New Client Certificate** window, click **Download Config** and save the configuration file for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-microsoft-azure#step-configure-start-nss). The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. See image.
-8. Click **Close**.
 
 [Image: The Add NSS Server window in the Zscaler Admin Console]
 
 [Image: The NSS Servers tab in the Zscaler Admin Console. The Download button under the SSL Certificate column is highlighted.]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
 
 Select the appropriate URLs for your region to ensure the fastest copy time.
 
@@ -955,21 +924,17 @@ Zscaler recommends changing the default password.
 
 To configure the NSS virtual appliance on the VM:
 
-- a. Copy the SSL certificate and configuration file.
+- a. Copy the SSL certificate.
 - b. Remote log in to the VM instance.
 - c. Install the SSL certificate.
-- d. Install the configuration file.
-- e. Configure the NSS network settings.
-- f. Get the provisioning blob and upload it to the Zscaler Admin Console.
-- g. Get the new client certificate.
-- h Download the NSS binaries.
-- i. Start the NSS.
-- j. Verify the configuration.
-- k. (Optional) Remove the SSL certificate.
+- d. Configure the NSS network settings.
+- e. Download the NSS binaries.
+- f. Start the NSS.
+- g. Verify the configuration.
+- h. (Optional) Remove the SSL certificate.
 
 1. Using FTP, SCP, or SFTP, copy the SSL certificate file that you [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-microsoft-azure#step-add-nss-server-download-ssl-certificate) from the Zscaler Admin Console to the VM.
-2. Copy the configuration file that you [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-microsoft-azure#step-add-nss-server-download-ssl-certificate) to the VM.
-3. Find the public hostname or IP address of your instance in the VM.
+2. Find the public hostname or IP address of your instance in the VM.
 
 1. Use an SSH command such as follows to get shell access to the VM: `ssh zsroot@Public-Host-Name`
 2. Use the following username/password: `zsroot`/`zsroot`.
@@ -979,15 +944,6 @@ NSS uses an SSL certificate to authenticate itself to the Zscaler service. Make 
 1. Copy the `NssCertificate.zip` file to the `/home/zsroot` root directory.
 2. Run the following command: `sudo nss install-cert NssCertificate.zip`
 3. Check the configuration by running the following command: `sudo nss dump-config`
-
-Run the following command to install the configuration file that you [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-microsoft-azure#step-add-nss-server-download-ssl-certificate) from the Zscaler Admin Console:
-
-```
-sudo nss install-config
-<Configuration File>
-```
-
-Replace the parameter in red with your configuration file name (e.g., `NSSConfig_<NSS Server Name>.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NSSConfig_<NSS Server Name>.zip`).
 
 1. Enter the command `netstat -rn` and note down the default gateway IP address. The following image is an example: See image.
   | Destination | Gateway |
@@ -1012,26 +968,6 @@ The first network interface (management network) is configured by default when y
 [Image: sudo nss configure command output example]
 
 [Image: Nanolog Streaming Service (NSS) network settings configuration]
-
-1. Run the following command to get the provisioning blob: sudo nss show-prov-blobThe provisioning blob string displays in the output. See image.
-2. Copy the provisioning blob string for uploading to the Zscaler Admin Console in the following step.
-3. Upload the provisioning blob:
-  1. In the Zscaler Admin Console, go to your newly deployed NSS server and click the **New Client Certificate** icon to open the **New Client Certificate** window. See image.
-  2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-  3. Click **Upload**. See image.
-  4. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Example output of show-prov-blob command]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate in the Zscaler Admin Console]
-
-Run the following command to get the new client certificate:
-
-```
-sudo nss get-new-clientcert
-```
 
 Before starting the NSS, run the following commandto download and install the NSS binaries:
 
@@ -1538,13 +1474,13 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-nutanix","lastmod":"2026-07-16T17:46Z","nid":"1530967"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-nutanix","lastmod":"2026-07-31T11:31Z","nid":"1530967"} -->
 ## NSS Deployment Guide for Nutanix
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-nutanix
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Nutanix
-- Last modified: 2026-07-16T17:46Z
+- Last modified: 2026-07-31T11:31Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Nutanix.
 
 Zscaler’s [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) supports the configuration and deployment of an NSS virtual machine (VM) on Nutanix.
@@ -1565,7 +1501,7 @@ Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscr
 
 To deploy NSS:
 
-- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate and Configuration File
+- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate
 - Step 2: In the Zscaler Admin Console, Add a TCP NSS Feed
 - (Optional) Step 3: In the Zscaler Admin Console, Add an HTTP NSS Feed
 - Step 4. In the Zscaler Admin Console, Compute the Recommended VM Instance Specifications
@@ -1615,9 +1551,6 @@ The firewall requirements are as follows:
   - **Status**: The NSS server is **Enabled** by default.
 4. Click **Save**. The NSS server is added to the Zscaler Admin Console.
 5. Click **Download** in the **SSL Certificate** column of the newly added NSS server, and then save the SSL certificate for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-nutanix#configure-start-nss). See image.
-6. Click the **New Client Certificate** icon in the row of your newly added NSS server. See image. The **New** **Client Certificate** window appears.
-7. In the **New Client Certificate** window, click **Download Config** and save the configuration file for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-nutanix#configure-start-nss). The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. See image.
-8. Click **Close**.
 
 A TCP Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. You can filter the data so that you send only the data you need to the SIEM, and you can add up to 16 TCP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per NSS server to ensure optimal performance.) Each feed can have different filters and fields, and a different output format (e.g., CSV). To learn more about how to configure each feed, see:
 
@@ -1671,7 +1604,7 @@ To compute the appropriate resources for your NSS:
 
 1. Go to **Logs**>**Log Streaming**> **Internet Log Streaming**-**Nanolog Streaming Service**.
 2. Click **Deploy NSS Virtual Appliance**. The **NSS Virtual Appliance Deployment** window appears.
-3. In the **NSS Virtual Appliance Deployment**window, choose either of the following NSS types: If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
+3. In the **NSS Virtual Appliance Deployment**window, choose either of the following NSS types: If you have a subscription to Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
   - NSS for Web
   - NSS for Firewall
 4. For your platform, select **Nutanix**.
@@ -1726,7 +1659,7 @@ The recommended internet bandwidth is the peak bandwidth required to download th
 
 To configure and start the NSS on the VM instance:
 
-- a. Configure the NSS on the VM instance and install the SSL certificate and configuration file.
+- a. Configure the NSS on the VM instance and install the SSL certificate.
 - b. Verify the NSS configuration.
 - c. (Optional) Remove the SSL certificate.
 
@@ -1738,21 +1671,10 @@ To configure and start the NSS on the VM instance:
   2. Internal service IP address associated with the service interface
   3. Default gateway for the internal service IP address
 5. Copy the [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-nutanix#step-add-nss-server-ssl-certificate) SSL certificate to the VM instance.
-6. Run the following command to install the SSL certificate: sudo nss install-cert <SSL Certificate>Replace the parameter in red with the SSL certificate file name (e.g., `NssCertificate.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NssCertificate.zip`). The NSS uses the SSL certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active VM at a time. Having multiple VMs that use only one certificate causes cloud connection flapping, which disrupts log streaming.
-7. Copy the [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-nutanix#step-add-nss-server-ssl-certificate) configuration file to the VM instance.
-8. Run the following command to install the configuration file: sudo nss install-config <Configuration File>Replace the parameter in red with the configuration file name (e.g., `NSSConfig_<NSS Server>.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NSSConfig_<NSS Server>.zip`).
-9. Get the provisioning blob and upload it to the Zscaler Admin Console:
-  1. Run the following command to get the provisioning blob: sudo nss show-prov-blobThe provisioning blob string displays in the output. See image.
-  2. Copy the provisioning blob string for uploading to the Zscaler Admin Console in the following step.
-  3. Upload the provisioning blob:
-    1. In the Zscaler Admin Console, go to your newly deployed NSS server and click the **New Client Certificate** icon to open the **New Client Certificate** window. See image.
-    2. In the **New Client Certificate**window, select **Enter Blob Data** and paste the provisioning blob string.
-    3. Click **Upload**. See image.
-    4. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-10. Run the following command to get the new client certificate: sudo nss get-new-clientcert
-11. Before starting the NSS, run the following command to download and install the NSS binaries: sudo nss update-nowAfter the first NSS software deployment, the software is automatically updated with new versions.
-12. Run the following command to reboot the NSS: sudo reboot
-13. Run the following command to start the NSS: sudo nss startThe NSS starts within a few minutes.
+6. Run the following command to install the SSL certificate: nss install-cert <SSL Certificate>Replace the parameter in red with the SSL certificate file name (e.g., `NssCertificate.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NssCertificate.zip`). The NSS uses the SSL certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active VM at a time. Having multiple VMs that use only one certificate causes cloud connection flapping, which disrupts log streaming.
+7. Before starting the NSS, run the following command to download and install the NSS binaries: sudo nss update-nowAfter the first NSS software deployment, the software is automatically updated with new versions.
+8. Run the following command to reboot the NSS: sudo reboot
+9. Run the following command to start the NSS: sudo nss startThe NSS starts within a few minutes.
 
 To verify the NSS configuration, run the following command:
 
@@ -2210,21 +2132,11 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 
 [Image: Download SSL certificate from NSS server]
 
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
-
 [Image: Recommended VM and hypervisor specs for Nutanix]
 
 [Image: NSS for Web for Nutanix]
 
 [Image: NSS for Firewall for Nutanix]
-
-[Image: Example output of show-prov-blob command]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
 
 [Image: Nutanix Gear icon]
 
@@ -2257,13 +2169,13 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-vmware-vsphere","lastmod":"2026-07-16T17:54Z","nid":"1401441"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-vmware-vsphere","lastmod":"2026-07-31T11:32Z","nid":"1401441"} -->
 ## NSS Deployment Guide for VMware vSphere
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for VMware vSphere
-- Last modified: 2026-07-16T17:54Z
+- Last modified: 2026-07-31T11:32Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via VMware vSphere.
 
 Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via VMware vSphere. This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
@@ -2281,7 +2193,7 @@ Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscr
 
 To deploy NSS:
 
-- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate and Configuration File
+- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate
 - Step 2: In the Zscaler Admin Console, Compute the Recommended VM Instance Specifications
 - Step 3: Using the ESX/ESXi Server, Configure and Verify the NSS on the VM Instance
 - Step 4: In the Zscaler Admin Console, Add a TCP NSS Feed
@@ -2336,17 +2248,10 @@ The firewall requirements are as follows:
   - **Status**: The NSS is **Enabled** by default.
 4. Click **Save**. The NSS server is added to the Zscaler Admin Console.
 5. Click **Download** in the **SSL Certificate** column of your newly added NSS server and save the certificate for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere#step-configure-start-nss-vm-instance). See image.
-6. Click the **New Client Certificate** icon in the row of your newly added NSS server. See image. The **New** **Client Certificate** window appears.
-7. In the **New Client Certificate** window, click **Download Config** and save the configuration file for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere#step-configure-start-nss-vm-instance). The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. See image.
-8. Click **Close**.
 
 [Image: Add NSS Server]
 
 [Image: NSS SSL Certificate Download]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
 
 You must enter information about your traffic and users so that the Zscaler service can compute the appropriate resources for your NSS.
 
@@ -2389,16 +2294,13 @@ The recommended internet bandwidth is the peak bandwidth required to download th
 
 [Image: NSS for Firewall for VMware]
 
-Before you configure and start the NSS on the vSphere Client, ensure that you have downloaded the [NSS OVA file](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere#step-compute-recommended-vm-instance-specs), [SSL certificate](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere#step-add-nss-server-download-ssl-certificate), and [configuration file](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere#step-add-nss-server-download-ssl-certificate) from the Zscaler Admin Console:
+Before you configure and start the NSS on the vSphere Client, ensure that you have downloaded the [NSS OVA file](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere#step-compute-recommended-vm-instance-specs) and [SSL certificate](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere#step-add-nss-server-download-ssl-certificate) from the Zscaler Admin Console:
 
 To configure the NSS virtual appliance on the VM, log in to the vSphere Client and:
 
 - a. Import the NSS OVA file.
 - b. Configure the network.
 - c. Install the SSL certificate.
-- d. Install the configuration file.
-- e. Get the provisioning blob and upload it to the Zscaler Admin Console.
-- f. Get the new client certificate.
 - g. Download the NSS binaries.
 - h. Start the NSS.
 - i. Verify the configuration.
@@ -2472,29 +2374,6 @@ sudo nss install-cert
 
 ```
 sudo nss dump-config
-```
-
-1. Copy the configuration file that you previously downloaded from the Zscaler Admin Console to the VM.
-2. Run the following command to install the configuration file: sudo nss install-config <Configuration File>Replace the parameter in red with your configuration file name (e.g., `NSSConfig_<NSS Server Name>.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NSSConfig_<NSS Server Name>.zip`).
-
-1. Run the following command to get the provisioning blob: sudo nss show-prov-blobThe provisioning blob string displays in the output. See image.
-2. Copy the provisioning blob string for uploading to the Zscaler Admin Console in the following step.
-3. Upload the provisioning blob:
-  1. In the Zscaler Admin Console, go to your newly deployed NSS server and click the **New Client Certificate** icon to open the **New Client Certificate** window. See image.
-  2. In the **New Client Certificate** window, select **Enter Blob Data**and paste the provisioning blob string.
-  3. Click **Upload**. See image.
-  4. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Example output of show-prov-blob command]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
-
-Run the following command to get the new client certificate:
-
-```
-sudo nss get-new-clientcert
 ```
 
 Before starting the NSS:
@@ -7350,13 +7229,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-07-28T09:30Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-07-31T12:29Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-28T09:30Z
+- Last modified: 2026-07-31T12:29Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -14935,13 +14814,13 @@ When a non-provisioned file owner within your organization is later provisioned 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-basic-authentication","lastmod":"2026-06-11T12:34Z","nid":"1498526"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-basic-authentication","lastmod":"2026-07-30T09:42Z","nid":"1498526"} -->
 ## Understanding Basic Authentication
 
 - Source: https://help.zscaler.com/zia/understanding-basic-authentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Basic Authentication > Understanding Basic Authentication
-- Last modified: 2026-06-11T12:34Z
+- Last modified: 2026-07-30T09:42Z
 - Summary: Information on using Basic authentication for Internet & SaaS, and how it works with user enrollment and traffic authentication.
 
 Zscaler supports Basic authentication, a simple authentication scheme built into the HTML protocol. Basic authentication prompts users for a username and password, which are sent as a Base64 encoded string in the HTTP request header.
@@ -14952,7 +14831,7 @@ Basic authentication is not enabled by default. To access this feature, submit a
 
 The following diagram provides an overview of the Basic authentication flow with Zscaler:
 
-[Image: Basic Authentication Flow]
+[Image: Basic Authentication traffic flow]
 
 1. The client sends a request along with the authentication credentials of its corresponding user enrolled with Zscaler.
 2. A Public Service Edge for Internet & SaaS (ZIA) calculates the HA1 value for the given credentials and authenticates the user upon successful validation.

@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-29 22:09 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 130
 
 ---
@@ -49,13 +49,13 @@ On the Admin Groups page (Administrator > Administrator Management > Administrat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-administrators","lastmod":"2026-04-20T14:32Z","nid":"1374826"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-administrators","lastmod":"2026-07-31T15:56Z","nid":"1374826"} -->
 ## About Administrators
 
 - Source: https://help.zscaler.com/zdx/about-administrators
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > About Administrators
-- Last modified: 2026-04-20T14:32Z
+- Last modified: 2026-07-31T15:56Z
 - Summary: Provide overview information for the Administrators page for ZDX admins.
 
 [Watch a video about Administrators in ZDX](https://fast.wistia.net/embed/iframe/eidy76se80) (shows legacy UI).
@@ -68,7 +68,7 @@ Administration provides the following benefits and enables you to:
 - Configure administration responsibilities between different administrators for the entire organization, location, or department (specified by scope).
 - Configure administration roles relevant to productivity and compliance (specified by role).
 
-On the Administrators page, the admins are listed as read-only if you are subscribed to Authentication Service. You can configure ZDX admins in the Zscaler Admin Console. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/zidentity/what-zidentity) and [About Administrative Entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements).
+On the Administrators page, the admins are listed as read-only if you are subscribed to Authentication Service You can configure ZDX admins in the Zscaler Admin Console. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service) and [About Administrative Entitlements](https://help.zscaler.com/authentication-service/about-administrative-entitlements).
 
 ## About the Administrators Page
 
@@ -2201,26 +2201,26 @@ Click **Next**.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/administrator-management-settings","lastmod":"2025-07-22T15:58Z","nid":"1456556"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/administrator-management-settings","lastmod":"2026-07-31T15:37Z","nid":"1456556"} -->
 ## Administrator Management Settings
 
 - Source: https://help.zscaler.com/zdx/administrator-management-settings
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Administrator Management Settings
-- Last modified: 2025-07-22T15:58Z
+- Last modified: 2026-07-31T15:37Z
 - Summary: Information on password management for administrators in ZDX.
 
 On the Administrator Management page (Administration > Administrator Management > Administrator Management), you can configure restricted access for admins, password expiration, and SAML authentication for admins.
 
-The Administrator Management page shows a link to the Authentication Service Admin Portal if you are subscribed to Authentication Service. You can manage your admins from the [Authentication Service Admin Portal](https://help.zscaler.com/zidentity/accessing-and-navigating-zidentity-admin-portal). To learn more, see [What is Authentication Service?](https://help.zscaler.com/zidentity/what-zidentity).
+The Administrator Management page shows a link to the Authentication Service if you are subscribed to Authentication Service. You can manage your admins from the Authentication Service Admin Portal. To learn more, see [What is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
 
 ## Password Management
 
-If you're using the Zscaler-hosted [admin](https://help.zscaler.com/zdx/about-administrators) database to authenticate admins, you can enable password expiration for all admins logging in to the Zscaler Internet Access (ZIA) and Zscaler Digital Experience (ZDX) Admin Portal. To learn more, see [Configuring Password Expiration](https://help.zscaler.com/zdx/configuring-password-expiration).
+If you're using the Zscaler-hosted [admin](https://help.zscaler.com/zdx/about-administrators) database to authenticate admins, you can enable password expiration for all admins logging in to the Internet & SaaS and ZDX. To learn more, see [Configuring Password Expiration](https://help.zscaler.com/zdx/configuring-password-expiration).
 
 ## SAML Authentication for Administrators
 
-Admins can be authenticated via SAML using an external admin database rather than the admin database in the ZDX Admin Portal. The Zscaler service supports identity provider (IdP)-initiated SAML to authenticate admins. You can integrate admin authentication with your existing two-factor authentication solution. The Zscaler service supports SAML 2.0 and later. To learn more, see [Configuring SAML for Admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins).
+Admins can be authenticated via SAML using an external admin database rather than the admin database in ZDX. The Zscaler service supports identity provider (IdP)-initiated SAML to authenticate admins. You can integrate admin authentication with your existing two-factor authentication solution. The Zscaler service supports SAML 2.0 and later. To learn more, see [Configuring SAML for Admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins).
 
 The Zscaler service doesn't enforce password expiration for external admin databases using SAML.
 
@@ -7972,13 +7972,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-07-28T10:00Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-07-30T17:43Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-28T10:00Z
+- Last modified: 2026-07-30T17:43Z
 - Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).

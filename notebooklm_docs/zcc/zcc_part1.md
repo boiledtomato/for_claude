@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 203
 
 ---
@@ -723,13 +723,13 @@ The configuration for this scenario is the same as [Scenario 3](https://help.zsc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-api-key-management","lastmod":"2026-06-15T11:37Z","nid":"1395516"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-api-key-management","lastmod":"2026-07-31T15:41Z","nid":"1395516"} -->
 ## About API Key Management
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-api-key-management
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > API Key Management > About API Key Management
-- Last modified: 2026-06-15T11:37Z
+- Last modified: 2026-07-31T15:41Z
 - Summary: Information on Zscaler Client Connector API keys and the Public API page within the Zscaler Admin Console.
 
 [Watch a video about API Key Management.](https://fast.wistia.net/embed/iframe/ohezo0fe9l)
@@ -1949,13 +1949,13 @@ If you do not see the Zscaler Service Entitlement page in the menu, your organiz
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-api-key","lastmod":"2026-06-15T19:37Z","nid":"1395521"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-api-key","lastmod":"2026-07-31T15:37Z","nid":"1395521"} -->
 ## Adding an API Key
 
 - Source: https://help.zscaler.com/zscaler-client-connector/adding-api-key
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > API Key Management > Adding an API Key
-- Last modified: 2026-06-15T19:37Z
+- Last modified: 2026-07-31T15:37Z
 - Summary: How to add an API key within the Zscaler Admin Console.
 
 [Watch a video about API Key Management, including adding a new API key.](https://fast.wistia.net/embed/iframe/ohezo0fe9l)
@@ -2240,13 +2240,13 @@ After you have added the partner tenant, the partner tenant remains on this wind
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-process-based-applications-bypass-traffic","lastmod":"2026-06-10T21:06Z","nid":"1458811"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-process-based-applications-bypass-traffic","lastmod":"2026-07-31T07:06Z","nid":"1458811"} -->
 ## Adding Process-Based Applications to Bypass Traffic
 
 - Source: https://help.zscaler.com/zscaler-client-connector/adding-process-based-applications-bypass-traffic
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Profile Management > Adding Process-Based Applications to Bypass Traffic
-- Last modified: 2026-06-10T21:06Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: Configuring Application Bypass Based on Application Identity
 
 [Watch a video about Application Bypass](https://fast.wistia.net/embed/iframe/vslmsh229d) (shows legacy UI).
@@ -4241,13 +4241,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-07-28T11:43Z","nid":"1535130"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-07-31T08:11Z","nid":"1535130"} -->
 ## Client Connector App Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Release Notes (per OS) > Client Connector App Release Summary (2026)
-- Last modified: 2026-07-28T11:43Z
+- Last modified: 2026-07-31T08:11Z
 - Summary: Zscaler Client Connector app release summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector app. To successfully update to the latest version of Zscaler Client Connector, see [Best Practices for Updating Latest Versions of Zscaler Client Connector Application](https://help.zscaler.com/zscaler-client-connector/best-practices-updating-latest-version-zscaler-client-connector-application).
@@ -6062,13 +6062,13 @@ To configure the machine tunnel for all devices:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles","lastmod":"2026-07-15T11:42Z","nid":"1285411"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles","lastmod":"2026-07-31T15:36Z","nid":"1285411"} -->
 ## Configuring Zscaler Client Connector App Profiles
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Profile Management > Configuring Zscaler Client Connector App Profiles
-- Last modified: 2026-07-15T11:42Z
+- Last modified: 2026-07-31T15:36Z
 - Summary: How to add and configure a new Zscaler Client Connector app profile rule for each platform, Windows, macOS, Linux, iOS, and Android.
 
 You can add a Zscaler Client Connector [profile](https://help.zscaler.com/zscaler-client-connector/about-zscaler-app-profiles) policy rule for each of the following device platforms:
@@ -11472,13 +11472,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/deploying-zscaler-client-connector-workspace-one-uem-macos","lastmod":"2026-07-20T12:48Z","nid":"1541097"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/deploying-zscaler-client-connector-workspace-one-uem-macos","lastmod":"2026-07-31T07:06Z","nid":"1541097"} -->
 ## Deploying Zscaler Client Connector with Workspace ONE UEM for macOS
 
 - Source: https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-workspace-one-uem-macos
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Deploying Zscaler Client Connector with Workspace ONE UEM > Deploying Zscaler Client Connector with Workspace ONE UEM for macOS
-- Last modified: 2026-07-20T12:48Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to deploy the macOS version of Zscaler Client Connector with Workspace ONE UEM.
 
 This guide is for admins only. If you are an end user, contact your organization’s administrator for deployment-related details.
@@ -14696,13 +14696,13 @@ To learn more, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/supported-parameters-zscaler-client-connector-macos","lastmod":"2026-06-24T21:06Z","nid":"1532589"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/supported-parameters-zscaler-client-connector-macos","lastmod":"2026-07-30T13:56Z","nid":"1532589"} -->
 ## Supported Parameters for Zscaler Client Connector for macOS
 
 - Source: https://help.zscaler.com/zscaler-client-connector/supported-parameters-zscaler-client-connector-macos
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Zscaler Configuration Parameters for Deployment Guides > Supported Parameters for Zscaler Client Connector for macOS
-- Last modified: 2026-06-24T21:06Z
+- Last modified: 2026-07-30T13:56Z
 - Summary: Configurable Zscaler parameters list for Mobile Device Management (MDM) systems when deploying Zscaler Client Connector for macOS.
 
 This table lists the available parameters for devices running Zscaler Client Connector for macOS. You can preconfigure these parameters when deploying Zscaler Client Connector using a pkg installation process with property list (PLIST) configuration settings deployed from a mobile device management (MDM) solution.

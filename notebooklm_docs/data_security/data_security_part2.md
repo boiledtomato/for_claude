@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 10
 
 ---

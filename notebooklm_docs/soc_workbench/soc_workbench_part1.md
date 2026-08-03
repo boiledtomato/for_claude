@@ -1,7 +1,7 @@
 # Zscaler Help — SOC Workbench (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 86
 
 ---

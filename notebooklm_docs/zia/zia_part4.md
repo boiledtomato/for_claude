@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
-Articles in this file: 119
+Generated: 2026-08-03 02:47 UTC
+Articles in this file: 121
 
 ---
 
@@ -851,13 +851,13 @@ It is also recommended that you create a minimal set of root CA certificates for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-07-29T14:24Z","nid":"1443226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-08-02T07:06Z","nid":"1443226"} -->
 ## Configuring the Index Tool with Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-amazon-web-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Amazon Web Services
-- Last modified: 2026-07-29T14:24Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 Before you can create index templates for DLP dictionaries (i.e.,[Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Amazon Web Services (AWS), Azure, or VMware.
@@ -958,33 +958,21 @@ Make note of the AMI ID and name that was shared with your account. You need thi
     4. Re-enter the new root password. See image.
 7. Return to the Zscaler Admin Console, and go to **Policies**> **Data Protection**> **Common Resources**> **Index Tool**.
 8. Locate the [Index Tool Configuration](https://help.zscaler.com/zia/about-index-tool) you added previously, and under the **SSL Certificate** column, click **Download**. See image.
-9. Click the **New Client Certificate**icon in the row of the Index Tool. See image. The **New Client Certificate**window appears.
-10. Click **Download Config**to download the Index tool configuration file. The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. See image.
-11. Copy the configuration file to the VM.
-12. Run the following command to install the configuration file: `sudo zadp install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `zadp install-config /tmp/ZADPConfig-<Index Tool name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `zadp install-config /tmp/ZADPConfig-<Index Tool name>.zip`).
-13. Run the following command to get the provisioning blob: `sudo zadp show-prov-blob`The provisioning blob string displays in the output.
-14. Copy the provisioning blob string from the preceding step for uploading to the Zscaler Admin Console in the following step.
-15. Upload the provisioning blob: See image.
-  1. In the Zscaler Admin Console, go to the Index Tool instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-  2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-  3. Click **Upload**.
-16. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-17. Copy the SSL client certificate ZIP file to the VM and install it:
+9. Copy the SSL client certificate ZIP file to the VM and install it:
   1. In this example, `scp` is used to copy the file: `scp `<SSL_certificate_zip_filename> zsroot@<vm_ip>:~/``For example: `scp EdmClientCertificate.zip zsroot@10.66.108.100:~/`
   2. Enter the following command to install the SSL certificate: `sudo zadp configure <SSL_certificate_zip_filename>`For example: `sudo zadp configure EdmClientCertificate.zip`
   3. Enter the domain name that is used for the Index Tool's FQDN. For example, if the Index Tool is reachable from `indextool.mycompany.com`, then the domain name entered here is `mycompany.com.`The self-signed certificate would be generated for `*.mycompany.com.` See image.
   4. Enter a passphrase, then re-enter the passphrase to confirm it. See image.
   5. You are prompted to enter the full path name to the text file where the passphrase is stored. You can also press `Enter` twice to accept the default location and file, `/home/zsroot/zscaler_zadp_webui_certificate_pass.txt`. See image. If the service was configured properly, it performs the following actions:
-    - Checks if the network is configured correctly.
-    - Installs the SSL client certificate you specified.
-    - Downloads the new client certificate.
+    - Checks if the network is configured correctly
+    - Installs the SSL client certificate you specified
     - Generates a self-signed SSL server certificate. If you need to install a custom server certificate, see the next step.
-    - Downloads the latest install package.
-18. (Optional) If you need to install a self-signed or custom SSL server certificate:
+    - Downloads the latest install package
+10. (Optional) If you need to install a self-signed or custom SSL server certificate:
   1. Enter the following command to install the server certificate: `sudo zadp install-server-cert`
   2. Enter the full path to the PEM-formatted certificate file.
   3. Enter the following command to restart the Index Tool service: `sudo zadp restart`
-19. Go to https://<IP Address of the Index Tool VM> to access the Index Tool. After the Index Tool service has started, you can log in with your Zscaler Admin Console login credentials and create Index Templates to use when creating DLP dictionaries. To learn more, see [Creating an Exact Data Match Template](https://help.zscaler.com/zia/creating-exact-data-match-template) and [Creating an Indexed Document Match Template](https://help.zscaler.com/zia/creating-indexed-document-match-template).
+11. Go to https://<IP Address of the Index Tool VM> to access the Index Tool. After the Index Tool service has started, you can log in with your Zscaler Admin Console login credentials and create Index Templates to use when creating DLP dictionaries. To learn more, see [Creating an Exact Data Match Template](https://help.zscaler.com/zia/creating-exact-data-match-template) and [Creating an Indexed Document Match Template](https://help.zscaler.com/zia/creating-indexed-document-match-template).
 
 If you successfully configured the Index Tool, the service automatically downloads the latest install package before it starts. To manually update the service:
 
@@ -1119,15 +1107,13 @@ sudo zadp support-access-status
 
 [Image: Viewing Instance details on the Instance Summary Page in AWS]
 
+[Image: Viewing the Instance Screenshot for an instance in AWS]
+
+[Image: Logging in to the AWS VM Instance]
+
 [Image: Changing the VM Instance Password]
 
 [Image: The Download link for the Index Tool SSL Certificate in the ZIA Admin Portal]
-
-[Image: New Client Certificate icon]
-
-[Image: Download Config option in the New Client Certificate window]
-
-[Image: Entering and uploading blob data]
 
 [Image: Entering the FQDN]
 
@@ -1138,13 +1124,13 @@ sudo zadp support-access-status
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-07-29T14:27Z","nid":"1467486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-08-02T07:06Z","nid":"1467486"} -->
 ## Configuring the Index Tool with Azure
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-azure-vms
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Azure
-- Last modified: 2026-07-29T14:27Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool VM in Azure. The Index Tool is used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 To create index templates for DLP dictionaries (i.e., [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Azure, Amazon Web Services (AWS), or VMware.
@@ -1248,7 +1234,7 @@ All resources that you create for the Index Tool must use the region you select 
 
 [Image: Azure storage account deployment complete page]
 
-To deploy the Index Tool on Azure, you need two separate VHD files: one for the OS, and one for data. Additionally, there are two different options available for each VHD file to support 600 GB and 1,100 GB disk sizes on the Azure VM.
+To deploy the Index Tool on Azure, you'll need two separate VHD files: one for the OS, and one for data. Additionally, there are two different options available for each VHD file, to support 600 GB and 1,100 GB disk sizes on the Azure VM.
 
 To use Azure Storage Explorer to copy the Index Tool VHD files to your Azure storage account:
 
@@ -1376,18 +1362,7 @@ After the password is changed, you need to log in to `zsroot` again using the ne
 
 1. Go back to the Zscaler Admin Console, and go to **Policies**> **Data Protection**> **Common Resources**> **Data Classification**> **Index Tool**.
 2. Locate the [Index Tool Configuration](https://help.zscaler.com/zia/about-index-tool) you added previously, and under the **SSL Certificate** column click **Download**. See image.
-3. Click the **New Client Certificate**icon in the row of the Index Tool. See image. The **New Client Certificate**window appears.
-4. Click **Download Config**to download the Index tool configuration file. The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. See image.
-5. Copy the configuration file to the VM.
-6. Run the following command to install the configuration file: `sudo zadp install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `zadp install-config /tmp/ZADPConfig-<Index Tool name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `zadp install-config /tmp/ZADPConfig-<Index Tool name>.zip`).
-7. Run the following command to get the provisioning blob: `sudo zadp show-prov-blob`The provisioning blob string displays in the output.
-8. Copy the provisioning blob string from the preceding step for uploading to the Zscaler Admin Console in the following step.
-9. Upload the provisioning blob:
-  1. In the Zscaler Admin Console, go to the Index Tool instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-  2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-  3. Click **Upload**. See image.
-10. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-11. Copy the SSL client certificate ZIP file to the VM and install it:
+3. Copy the SSL client certificate ZIP file to the VM and install it:
   1. In this example, `scp` is used to copy the file:
 
 ```
@@ -1421,7 +1396,6 @@ After the service is configured properly, the service performs the following act
 
 - Checks if the network is configured correctly.
 - Installs the SSL client certificate you specified.
-- Downloads the new client certificate.
 - Generates a self-signed SSL server certificate. If you need to install a custom server certificate, see the next step.
 - Downloads the latest install package.
 - Starts the service.
@@ -1447,12 +1421,6 @@ Go to https://<IP Address of the Index Tool VM> to access the Index Tool. After 
 [Image: Entering the new root password for the Zscaler Index Tool VM]
 
 [Image: The Download link for the Index Tool SSL Certificate in the ZIA Admin Portal]
-
-[Image: New Client Certificate icon]
-
-[Image: Download Config option in the New Client Certificate window]
-
-[Image: Entering and uploading blob data]
 
 [Image: Enter the FQDN]
 
@@ -1562,13 +1530,13 @@ sudo zadp support-access-status
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-07-29T14:29Z","nid":"1400651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-08-02T07:06Z","nid":"1400651"} -->
 ## Configuring the Index Tool with VMWare
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-vmware
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with VMWare
-- Last modified: 2026-07-29T14:29Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 New or clean deployment of Index Tool requires VM image running on Zscaler OS version 24.
@@ -1654,29 +1622,17 @@ See image.
 
 1. Go back to the Zscaler Admin Console, and go to **Policies**> **Data Protection**> **Common Resources**> **Index Tool**.
 2. Locate the [Index Tool Configuration](https://help.zscaler.com/zia/about-index-tool) you added previously, and under the **SSL Certificate** column, click **Download**. See image.
-3. Click the **New Client Certificate**icon in the row of the Index Tool. See image. The **New Client Certificate**window appears.
-4. In the **New Client Certificate** window, click **Download Config**to download the Index tool configuration file. The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. See image.
-5. Copy the configuration file to the VM.
-6. Run the following command to install the configuration file: `sudo zadp install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `zadp install-config /tmp/ZADPConfig-<Index Tool name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `zadp install-config /tmp/ZADPConfig-<Index Tool name>.zip`).
-7. Run the following command to get the provisioning blob: `sudo zadp show-prov-blob`The provisioning blob string displays in the output.
-8. Copy the provisioning blob string from the preceding step for uploading to the Zscaler Admin Console in the following step.
-9. Upload the provisioning blob:
-  1. In the Zscaler Admin Console, go to the Index Tool instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-  2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-  3. Click **Upload**. See image.
-10. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-11. Copy over the SSL client certificate ZIP file to the VM and install it:
+3. Copy over the SSL client certificate ZIP file to the VM and install it:
   1. In this example, we're using `scp` to copy over the file: `scp <SSL_certificate_zip_filename> zsroot@<vm_ip>:~/`For example: `scp EdmClientCertificate.zip zsroo@10.66.108.100:~/`
   2. Enter the following command to install the SSL certificate: `sudo zadp configure <SSL_certificate_zip_filename>`For example: `sudo zadp configure EdmClientCertificate.zip`
   3. Enter the domain name that is used for the Index Tool's FQDN. For example, if the Index Tool is reachable from `indextool.mycompany.com`, then the domain name entered here would be `mycompany.com`. The self-signed certificate would be generated for `*.mycompany.com`. See image.
   4. Enter a passphrase, then re-enter the passphrase to confirm it. See image.
   5. You are prompted to enter the full path name to the text file where the passphrase is stored. You can also press `Enter` twice to accept the default location and file, `/home/zsroot/zscaler_zadp_webui_certificate_pass.txt`. See image. If the service was configured properly, the service performs the following actions:
-    - Checks if the network is configured correctly.
-    - Installs the SSL client certificate you specified.
-    - Downloads the new client certificate.
-    - Generates a self-signed SSL server certificate. If you need to install a custom server certificate, see the next step.
-    - Downloads the latest install package.
-12. (Optional) If you need to install a self-signed or custom SSL server certificate:
+    1. Checks if the network is configured correctly.
+    2. Installs the SSL client certificate you specified.
+    3. Generates a self-signed SSL server certificate. If you need to install a custom server certificate, see the next step.
+    4. Downloads the latest install package.
+4. (Optional) If you need to install a self-signed or custom SSL server certificate:
   1. Enter the following command to install the server certificate: `sudo zadp install-server-cert`
   2. Enter the full path to the PEM formatted certificate file.
   3. Enter the following command to restart the Index Tool service: `sudo zadp restart`
@@ -1775,13 +1731,7 @@ sudo zadp support-access-status
 
 [Image: VM restarts the network and checks the connection]
 
-[Image: The Download link for the Index Tool SSL Certificate in the ZIA Admin Portal]
-
-[Image: New Client Certificate icon]
-
-[Image: Download Config option in the New Client Certificate window]
-
-[Image: Entering and uploading blob data]
+[Image: The Download link for the Index Tool SSL Certificate]
 
 [Image: Enter the FQDN]
 
@@ -2091,13 +2041,13 @@ You can go to Logs > Insights > Internet & SaaS - Tunnel Insights to see data as
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-ipv6-settings","lastmod":"2026-07-07T23:04Z","nid":"1409596"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-ipv6-settings","lastmod":"2026-07-31T12:53Z","nid":"1409596"} -->
 ## Configuring IPv6 Settings
 
 - Source: https://help.zscaler.com/zia/configuring-ipv6-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPv6 > Configuring IPv6 Settings
-- Last modified: 2026-07-07T23:04Z
+- Last modified: 2026-07-31T12:53Z
 - Summary: Configuring IPv6 settings to support security policies for IPv6 traffic
 
 To have IPv6 support provisioned for your organization, contact Zscaler Support. When IPv6 support is provisioned, IPv6-related configurations are made available for Internet & SaaS (ZIA) and Zscaler Client Connector in the Zscaler Admin Console.
@@ -2230,12 +2180,12 @@ Configure the following settings for Zscaler Client Connector in theZscaler Admi
 
 These configurations are applicable to Z-Tunnel 2.0 unless otherwise specified.
 
-- In the Zscaler Client Connector [forwarding profiles](https://help.zscaler.com/zscaler-client-connector/about-forwarding-profiles):
+- In the Zscaler Client Connector [forwarding profiles](https://help.zscaler.com/zscaler-client-connector/about-forwarding-profiles): To learn more, see [Configuring Forwarding Profiles for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector).
   - (Mandatory) Disable the **Drop IPv6 in Dual Stack Network** and **Drop IPv6 in IPv6 Only Network**option to prevent Zscaler Client Connector from intercepting and dropping IPv6 packets coming from a dual stack network and from an IPv6-only network, respectively. This configuration is applicable to both Z-Tunnel 2.0 and Z-Tunnel 1.0.
-  - (Recommended) Enable the **Drop IPv6 Include Traffic When not supported** option to drop IPv6 traffic that matches the destination inclusion if IPv6 is not provisioned for the company or the Service Edge. This configuration is applicable only to Z-Tunnel 2.0. To learn more, see [Configuring Forwarding Profiles for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector).
+  - (Recommended) Enable the **Drop IPv6 Include Traffic When not supported** option to drop IPv6 traffic that matches the destination inclusion if IPv6 is not provisioned for the company or the Service Edge. This configuration is applicable only to Z-Tunnel 2.0.
 - In the Zscaler Client Connector [app profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles): To learn more, see [Configuring Zscaler Client Connector Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector).
   - (Mandatory) Configure **IPv6 Inclusion** and **IPv6 Exclusion** to send a specific subnet of traffic to Service Edge through Z-Tunnel 2.0. IPv6 routes are not added by default to the inclusion settings, so you need to explicitly add all inclusions, including [2000::/3] that sends traffic from all publicly routable IPv6 addresses.
-  - (Recommended) As a best practice, Zscaler recommends sending all your DNS traffic through the Zscaler service. To do this, enter `*` in the **Domain Inclusion** field.
+  - (Recommended) As a best practice, Zscaler recommends sending all your DNS traffic through the Zscaler service. To do this, enter an asterisk (*) in the **Domain Inclusion** field. When entering `*` for the DNS **Domain Inclusion** field, ensure that the **Enforce Firewall Control** field is enabled for your [locations](https://help.zscaler.com/zia/configuring-locations) in the Zscaler Admin Console. Otherwise, the DNS resolution fails.
   - (Optional) Set the **Parallel IPv4 and IPv6 DNS requests** option to **None** to prevent Zscaler Client Connector from modifying the existing system settings for parallel IPv4 and IPv6 DNS requests.
 
 Configure the `${Gateway_Host}` variable, which is a Zscaler-specific variable, in the PAC file. To learn more, see [Writing a PAC File](https://help.zscaler.com/zia/writing-pac-file#gateway-host-variable).
@@ -2489,13 +2439,13 @@ To edit or delete a manual location group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-07-29T07:06Z","nid":"1492736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-08-02T07:06Z","nid":"1492736"} -->
 ## Configuring Microsoft Exchange for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Configuring Microsoft Exchange for Zscaler Outbound Email DLP
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: Information on how to configure Microsoft Excchange for Zscaler Outbound Email Data Loss Prevention (DLP).
 
 Zscaler Outbound Email Data Loss Prevention (DLP) allows you to establish a connection between your Exchange server and Zscaler's cutting-edge Data Loss Prevention (DLP) tools to prevent the exfiltration of sensitive data in outbound emails sent to external domains. To do so, you must configure connectors to allow bidirectional communication between your Exchange server and the Zscaler smart host, and you must configure mail flow rules (also known as transport rules) to determine how mail flows from your Exchange server to the Zscaler service, and vice versa.
@@ -5828,13 +5778,13 @@ To configure the Traffic Capture settings:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-url-filtering-policy","lastmod":"2026-06-29T07:21Z","nid":"1399426"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-url-filtering-policy","lastmod":"2026-07-29T21:50Z","nid":"1399426"} -->
 ## Configuring the URL Filtering Policy
 
 - Source: https://help.zscaler.com/zia/configuring-url-filtering-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Configuring the URL Filtering Policy
-- Last modified: 2026-06-29T07:21Z
+- Last modified: 2026-07-29T21:50Z
 - Summary: How to create and configure the URL Filtering policy in the Zscaler Admin Console. With URL Filtering policies, you can limit your exposure to liability by managing access to web content based on a site's categorization.
 
 [Watch a video about URL Filtering Policy, including how to configure policy rules](https://fast.wistia.net/embed/iframe/jqu9x18c3e) (shows legacy UI).
@@ -5903,7 +5853,7 @@ To add a URL Filtering rule:
     - **PATCH**: Requests the specified resource to apply partial modifications to it.
     - **OTHER**: All other request methods.
   - **Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add** icon to add a new time interval.
-  - **Protocols**: Select the protocols to which the rule applies. Selecting no value ignores this criterion in the policy evaluation.
+  - **Protocols**: Select the protocols to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
     - **DNS Over HTTPS**: URLs that use DNS Over HTTPS.
     - **FTP over HTTP**: URLs that use FTP over HTTP.
     - **HTTP**: URLs that use HTTP.
@@ -6038,13 +5988,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-07-29T12:28Z","nid":"1398861"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-07-31T09:56Z","nid":"1398861"} -->
 ## Configuring Virtual Service Edge Clusters for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Configuring Virtual Service Edge Clusters for Internet & SaaS
-- Last modified: 2026-07-29T12:28Z
+- Last modified: 2026-07-31T09:56Z
 - Summary: Information on how to configure Virtual Service Edge clusters for Internet & SaaS (ZIA) so that your organization can forward internet traffic to them.
 
 You can deploy Virtual Service Edges for Internet & SaaS (ZIA) in a cluster or in standalone mode. Zscaler recommends deploying Virtual Service Edges in clusters to achieve redundancy and update software seamlessly during scheduled update cycles. To learn more about deploying Virtual Service Edges in standalone mode, see [Adding Virtual Service Edge Instances](https://help.zscaler.com/zia/adding-virtual-service-edge-instances).
@@ -6057,7 +6007,7 @@ Ensure that you meet all the following requirements:
 
 - A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances to provide n+1 redundancy for production. It can contain a maximum of 16 Virtual Service Edge instances. You need a subscription license count for each Virtual Service Edge in a cluster. Additionally, ensure that all Virtual Service Edges in a cluster have the Large subscription type.
 - Virtual Service Edges require only outbound connections to the Zscaler cloud. Configure your firewall to allow the necessary outbound connections. To view the firewall requirements, go to config.zscaler.com/<Zscaler Cloud Name>/fcr. You can find the name of your cloud in the [Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings) menu. For example, if your organization's Zscaler cloud name is zscalertwo.net. In this case, you should go to config.zscaler.com/zscalertwo.net/fcr. To learn more about Zscaler cloud names, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
-- Verify that your licensing is appropriate to your needs. Go to **Administration** > **Account Management** > **Subscriptions**, and look for the Virtual Service Edges, noting the server count.
+- Verify that your licensing is appropriate to your needs. Go to Administration > Account Management > Subscriptions, and look for the Virtual Service Edges, noting the server count.
 - To improve the connections per second for SSL-inspected traffic, Virtual Service Edges support a Cavium NITROX SSL card. A single card cannot be shared across multiple Virtual Service Edges in a single VMware host, meaning that one card is required for each large Virtual Service Edge in a cluster. To learn more about the Cavium NITROX card model, see [About Virtual Service Edges](https://help.zscaler.com/zia/about-virtual-service-edges#specifications-sizing).
 - Virtual Machine specs for a Virtual Service Edge cluster:
   - **Hypervisor**: VMware ESX/ESXi v5.0 and later.
@@ -6074,19 +6024,19 @@ Ensure that you meet all the following requirements:
 
 ## Configuring a Virtual Service Edge Cluster
 
-If you are configuring a Virtual Service Edge cluster, you must create at least two Virtual Service Edge instances and download their respective SSL certificates and configuration files. Each Virtual Service Edge VM requires a unique SSL certificate and configuration file which can be downloaded from the Zscaler Admin Console.
+If you are configuring a Virtual Service Edge cluster, you must create at least two Virtual Service Edge instances and download their respective SSL certificates. Each Virtual Service Edge VM requires a unique SSL certificate which can be downloaded from the Zscaler Admin Console.
 
 To configure a Virtual Service Edge cluster:
 
-- [1. Add the Virtual Service Edge instances.](https://help.zscaler.com/zia/adding-virtual-service-edge-instances)
-- [2. Download the Virtual Service Edge certificates and configuration files.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates)
-- [3. Download the Virtual Service Edge VMs.](https://help.zscaler.com/zia/downloading-virtual-service-edge-vm)
-- [4. Add the Virtual Service Edge cluster.](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters)
-- 5. Bind the Virtual Service Edge cluster to a location.
-- 6. Create a Firewall Filtering rule to bypass Virtual Service Edge IP addresses.
-- 7. Configure the Virtual Service Edge VM.
-- 8. (Optional) Schedule Virtual Service Edge cluster updates.
-- 9. (Optional) Enable Virtual Service Edge communication with the Zscaler cloud on Port 443.
+- [1. Add the Virtual Service Edge Instances](https://help.zscaler.com/zia/adding-virtual-service-edge-instances)
+- [2. Download the Virtual Service Edge Certificates](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates)
+- [3. Download the Virtual Service Edge VMs](https://help.zscaler.com/zia/downloading-virtual-service-edge-vm)
+- [4. Add the Virtual Service Edge Cluster](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters)
+- 5. Bind the Virtual Service Edge Cluster to a Location
+- 6. Create a Firewall Filtering Rule to Bypass Virtual Service Edge IP Addresses
+- 7. Configure the Virtual Service Edge VM
+- 8. (Optional) Schedule Virtual Service Edge Cluster Updates
+- 9. (Optional) Enable Virtual Service Edge Communication with Zscaler cloud on Port 443
 
 ## Testing the Configuration
 
@@ -6143,8 +6093,8 @@ To configure the Virtual Service Edge on the ESX/ESXi server,
 5. Ensure that you enable **Promiscuous Mode**, **Forged Transmits**, and **Mac Address Changes** on the port group of the Virtual Service Edge.
 6. Select the Virtual Service Edge VM and click either the **Power On** button or **Power On the virtual machine**.
 7. On the **Console** tab, log in to the FreeBSD command prompt with the following credentials: After you log in with the default credentials, you are prompted to change the default password.
-  - Username: `zsroot`
-  - Password: `zsroot`
+  - Username: zsroot
+  - Password: zsroot
 8. Change the default password: See image. Direct root login is not permitted. Administrators must use the sudo utility to run a command with higher privileges.
   1. **New Password**: Enter a new password that meets your organization's password standards.
   2. **Retype New Password**: Re-enter the new password.
@@ -6155,21 +6105,13 @@ To configure the Virtual Service Edge on the ESX/ESXi server,
   - Management interface IP with CIDR netmask. You use the management IP address (e.g., 10.84.0.110/24) for SSH or FTP.
   - Default gateway IP address (e.g., 10.84.0.200).
   - Hostname of the Virtual Service Edge
-12. Install the SSL certificates and configuration files of the Virtual Service Edge instances in the cluster. These are the certificates and files that you [downloaded from the Zscaler Admin Console](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates). A Virtual Service Edge uses the certificate and configuration file to authenticate itself to the Zscaler service and generate a new client certificate, which is required for deploying new virtual instances. When you configure a Virtual Service Edge cluster, ensure that you upload the correct certificate and configuration file for each Virtual Service Edge instance. To install the certificate and configuration file:
-  1. Go to the SSL certificate and configuration file that you downloaded from the Zscaler Admin Console and use SCP, FTP, or SFTP to upload it to the management IP address of the Virtual Service Edge.
-  2. Go to the console or use SSH to connect to the management IP address of the Virtual Service Edge instance.
-  3. Run the following command to install the SSL certificate: sudo vzen install-cert <cert-bundle.zip>Replace the parameter in red with your certificate file name (e.g., `VZenCertificate-<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-cert /tmp/VZenCertificate-<Virtual Service Edge Name>.zip`).
-  4. Run the following command to install the configuration file: `sudo vzen install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `VZENConfig_<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-config /tmp/VZENConfig-<Virtual Service Edge Name>.zip`).
-13. Get the provisioning blob and upload it to the Zscaler Admin Console:
-  1. Run the following command to get the provisioning blob: `sudo vzen show-prov-blob`The provisioning blob string displays in the output.
-  2. Copy the provisioning blob string for uploading to the Zscaler Admin Console in the following step.
-  3. Upload the provisioning blob:
-    1. In the Zscaler Admin Console, go to the Virtual Service Edge instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-    2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-    3. Click **Upload**. See image.
-  4. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-14. Run the following command to get the new client certificate: `sudo vzen get-new-clientcert`
-15. If you installed the Cavium NITROX card in your server, do the following:
+12. Install the SSL certificates of the Virtual Service Edge instances in the cluster. These are the certificates that you downloaded from the Zscaler Admin Console. A Virtual Service Edge uses this certificate to authenticate itself to the Zscaler service. When you configure a Virtual Service Edge cluster, ensure that you upload the correct certificate for each Virtual Service Edge instance.
+  1. Navigate to the SSL certificate that you saved.
+  2. Use SCP or SFTP to upload it to the management IP address of the Virtual Service Edge.
+  3. On the vSphere client, click the **Console**tab, and log in with the following credentials: Username: zsroot Password: zsroot
+  4. Go to the **Console**tab or use SSH to connect to the management IP address.
+  5. Run the following command: sudo vzen install-cert <cert-bundle.zip>Ensure to specify the absolute path to the SSL certificates (e.g., `sudo vzen install-cert /tmp/cert-bundle.zip`).
+13. If you installed the Cavium NITROX card in your server, do the following:
   1. On the vSphere client, click the **Configuration**tab.
   2. Click **Edit...** In the **Mark devices for passthrough** window, select the Cavium NITROX card. See image.
   3. Select the Virtual Service Edge to which the Cavium NITROX card needs to be added. Ensure that the Virtual Service Edge is powered off. Then, click **Edit virtual machine settings**. In the **Virtual Machine Properties** window, click **Add...** See image.
@@ -6178,7 +6120,7 @@ To configure the Virtual Service Edge on the ESX/ESXi server,
   6. Click **Finish** to add the Cavium NITROX card. See image.
   7. Click **OK** to finish the setup. See image.
   8. Run the following command to configure the card: sudo vzen install-nitrox
-16. (Optional) if you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only.
+14. (Optional) if you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only.
   1. Run the following command: sudo vzen snmp-admin-configure
   2. Enter a user name for the SNMPv3 management system that sends queries to the Virtual Service Edge. The Virtual Service Edge accepts queries from this user name only.
   3. Enter a password that the Virtual Service Edge uses to authenticate the SNMP management system.
@@ -6191,7 +6133,7 @@ To configure the Virtual Service Edge on the ESX/ESXi server,
   10. Enter a password that the Virtual Service Edge uses to authenticate the SNMP management system.
   11. Specify which authentication protocol the Virtual Service Edge can use to authenticate the SNMP user. Enter either MD5 or SHA1.
   12. Specify the encryption method the Virtual Service Edge can use to authenticate the SNMP user. Enter either DES or AES.
-17. Download the Virtual Service Edge build and start the Virtual Service Edge.
+15. Download the Virtual Service Edge build and start the Virtual Service Edge.
   1. On the vSphere client, click the **Console**tab or use SSH to connect to the management IP address.
   2. Run the following command to download the Virtual Service Edge build: sudo vzen download-buildThe initial build is around 1 GB, so it may take a while depending on your internet connection. The downloaded build is automatically installed. The Virtual Service Edge automatically starts after the installation is complete.
 
@@ -6275,19 +6217,17 @@ To verify the connections:
 [Image: Serial Console window]
 
 [Image: Serial Console window]
-
-[Image: Entering and uploading blob data]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-amazon-web-services","lastmod":"2026-07-20T14:12Z","nid":"1402336"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-amazon-web-services","lastmod":"2026-07-31T10:22Z","nid":"1402336"} -->
 ## Configuring Virtual Service Edge for Internet & SaaS: Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-amazon-web-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Configuring Virtual Service Edge for Internet & SaaS: Amazon Web Services
-- Last modified: 2026-07-20T14:12Z
+- Last modified: 2026-07-31T10:22Z
 - Summary: Information on how to configure Virtual Service Edge for Internet & SaaS (ZIA) Amazon Web Services.
 
 Zscaler supports standalone Virtual Service Edge for Internet & SaaS (ZIA) for production deployments on Amazon Web Services (AWS). An organization can deploy the Virtual Service Edge instance on an EC2 Instance, on AWS.
@@ -6296,7 +6236,7 @@ Before you begin deployment, subscribe to the Virtual Service Edge AMI from the 
 
 - 1. Ensure you meet all the requirements.
 - [2. Add a Virtual Service Edge instance.](https://help.zscaler.com/zia/adding-virtual-service-edge-instances)
-- [3. Download Virtual Service Edge certificates and configuration files.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates)
+- [3. Download Virtual Service Edge certificates.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates)
 - 4. Create the VM instance and validate the configuration.
 - 5. Configure and start a Virtual Service Edge on the VM instance.
 
@@ -6529,21 +6469,12 @@ To configure the Virtual Service Edge on the VM:
   3. Run the following command: `sudo vzen configure-network`Specify the following details: The Virtual Service Edge management IP, gateway IP for management, and resolvers are obtained from DHCP. This command does not allow you to modify the management IP and gateway IP.
     - Address of the DNS server that is used for name resolution of Zscaler cloud domains and also for domain names in the proxy traffic. For example: 10.84.0.100.
     - Hostname of the Virtual Service Edge.
-2. Install the SSL certificate and configuration file for the Virtual Service Edge instance. These are the certificate and file that you [downloaded from the Zscaler Admin Console](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates). A Virtual Service Edge uses the certificate and configuration file to authenticate itself to the Zscaler service and generate a new client certificate, which is required for deploying new virtual instances. To install the certificate and configuration file:
-  1. Go to the SSL certificate and configuration file that you downloaded from the Zscaler Admin Console and use SCP, FTP, or SFTP to upload it to the management IP address of the Virtual Service Edge.
-  2. Go to the console or use SSH to connect to the management IP address of the Virtual Service Edge instance.
-  3. Run the following command to install the SSL certificate: sudo vzen install-cert <cert-bundle.zip>Replace the parameter in red with your certificate file name (e.g., `VZenCertificate-<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-cert /tmp/VZenCertificate-<Virtual Service Edge Name>.zip`).
-  4. Run the following command to install the configuration file: `sudo vzen install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `VZENConfig_<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-config /tmp/VZENConfig-<Virtual Service Edge Name>.zip`).
-3. Get the provisioning blob and upload it to the Zscaler Admin Console:
-  1. Run the following command to get the provisioning blob: `sudo vzen show-prov-blob`The provisioning blob string displays in the output.
-  2. Copy the provisioning blob string in the preceding step for uploading to the Zscaler Admin Console in the following step.
-  3. Upload the provisioning blob:
-    1. In the Zscaler Admin Console, go to the Virtual Service Edge instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-    2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-    3. Click **Upload**. See image.
-  4. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-4. Run the following command to get the new client certificate: `sudo vzen get-new-clientcert`
-5. (Optional) If you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only. Run the following command: `sudo vzen snmp-admin-configure`Specify the following information: Specify the following information:
+2. Install the SSL certificate of the Virtual Service Edge instance. This is the certificate that you downloaded from the Zscaler Admin Console. A Virtual Service Edge uses this certificate to authenticate itself to the Zscaler service. When you configure a Virtual Service Edge, ensure that you upload the correct certificate for the Virtual Service Edge instance. To install the SSL certificate of the Virtual Service Edge instance:
+  1. Go to the SSL certificate that you saved.
+  2. Use SCP or SFTP to upload it to the management IP address of the Virtual Service Edge.
+  3. On the SSH terminal, log in with the following credentials: Username: zsroot Password: zsroot
+  4. Run the following command: `sudo vzen install-cert <cert-bundle.zip>`Ensure to specify the absolute path to the SSL certificates (e.g., `sudo vzen install-cert /tmp/cert-bundle.zip`).
+3. (Optional) If you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only. Run the following command: `sudo vzen snmp-admin-configure`Specify the following information: Specify the following information:
   1. The username for the SNMPv3 management system that sends queries to the Virtual Service Edge. The Virtual Service Edge accepts queries only from this username.
   2. The password that the Virtual Service Edge uses to authenticate the SNMP management system.
   3. An authentication protocol that the Virtual Service Edge uses to authenticate the SNMP user. Enter either MD5 or SHA1.
@@ -6554,15 +6485,13 @@ To configure the Virtual Service Edge on the VM:
   3. The password that the Virtual Service Edge uses to authenticate the SNMP management system.
   4. An authentication protocol that the Virtual Service Edge uses to authenticate the SNMP user. Enter either MD5 or SHA1.
   5. An encryption method that the Virtual Service Edge uses to authenticate the SNMP user. Enter either DES or AES.
-6. Download the Virtual Service Edge build and start the Virtual Service Edge.
+4. Download the Virtual Service Edge build and start the Virtual Service Edge.
   1. Use SSH to connect to the management IP address.
   2. Run the following command to download the Virtual Service Edge build: `sudo vzen download-build`The initial build is around 1 GB, so it might take a while depending on your internet connection. The downloaded build is automatically installed. The Virtual Service Edge automatically starts after the installation is complete.
-7. Verify the configuration.
-8. Use SSH to connect to the management IP address.
+5. Verify the configuration.
+6. Use SSH to connect to the management IP address.
   1. Run the following command: `sudo vzen status`The output should display that the Virtual Service Edge service is running. See image.
   2. Run the following command: `sudo vzen troubleshoot connection | grep 9422`The output should display an established connection.
-
-[Image: Entering and uploading blob data]
 
 [Image: View of the SSH port showing that the Virtual Service Edge service and load balancer are running]
 
@@ -6575,22 +6504,22 @@ To configure the Virtual Service Edge on the VM:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-amazon-web-services-gwlb","lastmod":"2026-07-20T13:42Z","nid":"1467091"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-amazon-web-services-gwlb","lastmod":"2026-07-31T11:33Z","nid":"1467091"} -->
 ## Configuring Virtual Service Edge for Internet & SaaS: Amazon Web Services with GWLB
 
 - Source: https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-amazon-web-services-gwlb
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Configuring Virtual Service Edge for Internet & SaaS: Amazon Web Services with GWLB
-- Last modified: 2026-07-20T13:42Z
+- Last modified: 2026-07-31T11:33Z
 - Summary: Information on how to configure Virtual Service Edge for Internet & SaaS: Amazon Web Services with GWLB.
 
 Zscaler supports standalone Virtual Service Edge for Internet & SaaS (ZIA) for production deployments on Amazon Web Services (AWS) with Gateway Load Balancer (GWLB). An organization can deploy the Virtual Service Edge instance on an EC2 Instance, on AWS with GWLB.
 
-Before you begin deployment, contact Zscaler Support to request a share of the Virtual Service Edge AMI. Provide your AWS account ID and the AWS region in which you want the AMI, except for China, as the Virtual Service Edge AMI is unavailable in this region (alternatively, you can consider [China Premium Internet Access](https://help.zscaler.com/zia/china-premium-internet-access) for the China region). After deployment, the Virtual Service Edge virtual machine (VM) receives automatic software updates from the Zscaler cloud.
+Before you begin deployment, contact Zscaler Support to request a share of the Virtual Service Edge AMI. Provide your AWS account ID and AWS region in which you want the AMI, except for China, as the Virtual Service Edge AMI is unavailable in this region (alternatively, you can consider [China Premium Internet Access](https://help.zscaler.com/zia/china-premium-internet-access) for the China region). After deployment, the Virtual Service Edge virtual machine (VM) receives automatic software updates from the Zscaler cloud.
 
 - 1. Ensure that you meet all the requirements.
 - [2. Add a Virtual Service Edge instance.](https://help.zscaler.com/zia/adding-virtual-service-edge-instances)
-- [3. Download Virtual Service Edge certificates and configuration files.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates)
+- [3. Download Virtual Service Edge certificates.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates)
 - 4. Create the VM instance and validate the configuration.
 - 5. Configure and start Virtual Service Edge on the VM instance.
 - 6. Add the service port to both the Virtual Service Edges on the Zscaler Admin Console.
@@ -6858,29 +6787,21 @@ The following Virtual Service Edge configuration steps are run through an SSH te
 
 To configure the Virtual Service Edge on the VM:
 
-1. Configure the network:
+1. Configure the network.
   1. Select the Virtual Service Edge VM and click either **Power On** or **Power On the virtual machine**.
-  2. On the SSH terminal, enter the following credentials in the FreeBSD command prompt to log in: Username: `zsroot` Password: `zsroot` The following guidelines apply:
+  2. On the SSH terminal, enter the following credentials in the FreeBSD command prompt to log in: Username: zsroot Password: zsroot The following guidelines apply:
     - Zscaler strongly recommends that you change this default password. Run the following command: `passwd`
     - Direct root login is not permitted. Administrators must use the sudo utility to run a command with higher privileges.
   3. Run the following command: `sudo vzen configure-network`Specify the following details: The Virtual Service Edge management IP, gateway IP for management, and resolvers are obtained from DHCP. This command does not allow you to modify the management IP and gateway IP.
     - Address of the DNS server that is used for name resolution of Zscaler cloud domains and also for domain names in the proxy traffic. For example: 10.84.0.100.
     - Hostname of the Virtual Service Edge.
-2. Install the SSL certificate and configuration file for the Virtual Service Edge instance. These are the certificate and file that you [downloaded from the Zscaler Admin Console](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates). A Virtual Service Edge uses the certificate and configuration file to authenticate itself to the Zscaler service and generate a new client certificate, which is required for deploying new virtual instances. To install the certificate and configuration file:
-  1. Go to the SSL certificate and configuration file that you downloaded from the Zscaler Admin Console and use SCP, FTP, or SFTP to upload it to the management IP address of the Virtual Service Edge.
-  2. Go to the console or use SSH to connect to the management IP address of the Virtual Service Edge instance.
-  3. Run the following command to install the SSL certificate: sudo vzen install-cert <cert-bundle.zip>Replace the parameter in red with your certificate file name (e.g., `VZenCertificate-<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-cert /tmp/VZenCertificate-<Virtual Service Edge Name>.zip`).
-  4. Run the following command to install the configuration file: `sudo vzen install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `VZENConfig_<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-config /tmp/VZENConfig-<Virtual Service Edge Name>.zip`).
-3. Get the provisioning blob and upload it to the Zscaler Admin Console:
-  1. Run the following command to get the provisioning blob: `sudo vzen show-prov-blob`The provisioning blob string displays in the output.
-  2. Copy the provisioning blob string from the preceding step for uploading to the Zscaler Admin Console in the following step.
-  3. Upload the provisioning blob:
-    1. In the Zscaler Admin Console, go to the Virtual Service Edge instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-    2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-    3. Click **Upload**. See image.
-  4. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-4. Run the following command to get the new client certificate: `sudo vzen get-new-clientcert`
-5. (Optional) If you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only. Run the following command: `sudo vzen snmp-admin-configure`Specify the following information: Specify the following information:
+2. Install the SSL certificate of the Virtual Service Edge instance. This is the certificate that you downloaded from the Zscaler Admin Console. A Virtual Service Edge uses this certificate to authenticate itself to the Zscaler service. When you configure a Virtual Service Edge, ensure that you upload the correct certificate for the Virtual Service Edge instance. To install the SSL certificate of the Virtual Service Edge instance:
+  1. Go to the SSL certificate that you saved.
+  2. Use SCP or SFTP to upload it to the management IP address of the Virtual Service Edge.
+  3. On the SSH terminal, log in with the following credentials: Username: zsroot Password: zsroot
+  4. Use SSH to connect to the management IP address.
+  5. Run the following command: `sudo vzen install-cert <cert-bundle.zip>`Ensure that you specify the absolute path to the SSL certificates (e.g., `sudo vzen install-cert /tmp/cert-bundle.zip`).
+3. (Optional) If you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only. Run the following command: `sudo vzen snmp-admin-configure`Specify the following information: Specify the following information:
   1. The username for the SNMPv3 management system that sends queries to the Virtual Service Edge. The Virtual Service Edge accepts queries only from this username.
   2. The password that the Virtual Service Edge uses to authenticate the SNMP management system.
   3. An authentication protocol that the Virtual Service Edge uses to authenticate the SNMP user. Enter either MD5 or SHA1.
@@ -6891,15 +6812,13 @@ To configure the Virtual Service Edge on the VM:
   3. The password that the Virtual Service Edge uses to authenticate the SNMP management system.
   4. An authentication protocol that the Virtual Service Edge uses to authenticate the SNMP user. Enter either MD5 or SHA1.
   5. An encryption method that the Virtual Service Edge uses to authenticate the SNMP user. Enter either DES or AES.
-6. Download the Virtual Service Edge build and start the Virtual Service Edge.
+4. Download the Virtual Service Edge build and start the Virtual Service Edge.
   1. Use SSH to connect to the management IP address.
   2. Run the following command to download the Virtual Service Edge build: `sudo vzen download-build`The initial build is around 1 GB, so it may take a while depending on your internet connection. The downloaded build is automatically installed. The Virtual Service Edge automatically starts after the installation is complete.
-7. Verify the configuration.
-8. Use SSH to connect to the management IP address.
+5. Verify the configuration.
+6. Use SSH to connect to the management IP address.
   1. Run the following command: `sudo vzen status`The output should display that the Virtual Service Edge service is running. See image.
   2. Run the following command: `sudo vzen troubleshoot connection | grep 9422`The output should display an established connection.
-
-[Image: Entering and uploading blob data]
 
 [Image: SSH port showing that the Virtual Service Edge service and load balancer are running]
 
@@ -7018,21 +6937,21 @@ To add a service port to both the Virtual Service Edges:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-google-cloud-platform","lastmod":"2026-07-20T14:34Z","nid":"1415181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-google-cloud-platform","lastmod":"2026-07-31T11:38Z","nid":"1415181"} -->
 ## Configuring Virtual Service Edge for Internet & SaaS: Google Cloud Platform
 
 - Source: https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-google-cloud-platform
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Configuring Virtual Service Edge for Internet & SaaS: Google Cloud Platform
-- Last modified: 2026-07-20T14:34Z
+- Last modified: 2026-07-31T11:38Z
 - Summary: Information on how to configure Virtual Service Edge for Internet & SaaS (ZIA): Google Cloud Platform.
 
-Zscaler supports standalone Virtual Service Edge for Internet & SaaS (ZIA) for production deployments on the Google Cloud Platform (GCP).
+Zscaler supports stand-alone Virtual Service Edge for Internet & SaaS (ZIA) for production deployments on the Google Cloud Platform (GCP).
 
 - 1. Ensure you meet all the requirements.
 - 2. Deploy the image on GCP.
 - [3. Add the Virtual Service Edge instance.](https://help.zscaler.com/zia/adding-virtual-service-edge-instances)
-- [4. Download the Virtual Service Edge certificate and configuration file.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates) The SSL certificate and configuration file are unique to the Virtual Service Edge. Make sure to download the correct SSL certificate and configuration file from the Zscaler Admin Console for the Virtual Service Edge.
+- [4. Download a Virtual Service Edge certificate.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates) The SSL certificate is unique to a Virtual Service Edge. Make sure to download the respective SSL certificate from the Zscaler Admin Console for the Virtual Service Edge.
 - 5. Configure the Virtual Service Edge virtual machine (VM).
 - 6. (Optional) Deploy GCP Internal Load Balancer (ILB).
 
@@ -7144,29 +7063,20 @@ To configure the Virtual Service Edge on the GCP console:
   1. **New Password**: Enter a new password that meets your organization's password standards.
   2. **Retype New Password**: Re-enter the new password.
 6. (Optional) If you want Zscaler to enforce password complexity for the password you set, run the following command: `vzen enforce-password-complexity`The current password expires after running this command. See image. A valid password contains a mix of upper- and lowercase letters, numbers, and other characters. You can use a 24-character password with characters from at least three of these categories, or a 16-character password containing characters from all the categories. Characters that form a common pattern are discarded by the check. If you use a passphrase, use at least 4 words to form a phrase that is 32 to 40 characters long and contains enough different characters.
-7. Install the SSL certificate and configuration file for the Virtual Service Edge instance. These are the certificate and file that you [downloaded from the Zscaler Admin Console](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates). A Virtual Service Edge uses the certificate and configuration file to authenticate itself to the Zscaler service and generate a new client certificate, which is required for deploying new virtual instances. To install the certificate and configuration file:
-  1. Go to the SSL certificate and configuration file that you downloaded from the Zscaler Admin Console and use SCP, FTP, or SFTP to upload it to the management IP address of the Virtual Service Edge.
-  2. Go to the console or use SSH to connect to the management IP address of the Virtual Service Edge instance.
-  3. Run the following command to install the SSL certificate: sudo vzen install-cert <cert-bundle.zip>Replace the parameter in red with your certificate file name (e.g., `VZenCertificate-<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-cert /tmp/VZenCertificate-<Virtual Service Edge Name>.zip`).
-  4. Run the following command to install the configuration file: `sudo vzen install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `VZENConfig_<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-config /tmp/VZENConfig-<Virtual Service Edge Name>.zip`).
-8. Get the provisioning blob and upload it to the Zscaler Admin Console:
-  1. Run the following command to get the provisioning blob: `sudo vzen show-prov-blob`The provisioning blob string displays in the output.
-  2. Copy the provisioning blob string from the preceding step for uploading to the Zscaler Admin Console in the following step.
-  3. Upload the provisioning blob:
-    1. In the Zscaler Admin Console, go to the Virtual Service Edge instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-    2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-    3. Click **Upload**. See image.
-  4. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-9. Run the following command to get the new client certificate: `sudo vzen get-new-clientcert`
-10. Download the Virtual Service Edge build and start the Virtual Service Edge.
+7. Install the SSL certificate of the Virtual Service Edge instance. This is the certificate you downloaded from the Zscaler Admin Console. A Virtual Service Edge uses this certificate to authenticate itself to the Zscaler service. To install the SSL certificate of the Virtual Service Edge instance:
+  1. Navigate to the SSL certificate that you saved.
+  2. Use SCP or SFTP to upload it to the management IP address of the Virtual Service Edge.
+  3. Go to the **Connect to Serial Console** or use SSH to connect to the management IP address.
+  4. Run the following command: sudo vzen install-cert <cert-bundle.zip>Be sure to specify the absolute path to the SSL certificates (e.g., `sudo vzen install-cert /tmp/cert-bundle.zip`).
+8. Download the Virtual Service Edge build and start the Virtual Service Edge.
   1. On the GCP console, click the **Connect to Serial Console** or use SSH to connect to the management IP address.
   2. Run the following command to download the Virtual Service Edge build: sudo vzen download-buildThe initial build is around 1 GB, so it may take a while depending on your internet connection. The downloaded build is automatically installed. The Virtual Service Edge automatically starts after the installation is complete.
-11. After the build is deployed, run the following command to check the service status of the Virtual Service Edge: `sudo vzen status`Ensure both the SME and smcdsc are running.
-12. Run the following commands to check the connectivity with the Zscaler production nodes:
+9. After the build is deployed, run the following command to check the service status of the Virtual Service Edge: `sudo vzen status`Ensure both the SME and smcdsc are running.
+10. Run the following commands to check the connectivity with the Zscaler production nodes:
   - sudo ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys show=authSample output of this command. Ensure that the authentication state is **SMAUTHENG_READY_STATE**.
   - `sockstat | grep -i smcdsc`Ensure that there are two connections over 9442.
   - `sudo vzen troubleshoot connection`Sample output of this command. Ensure that **cloud-config** and **log-stream** sessions are present.
-13. (Optional) if you want to use an SNMP management system to monitor the Virtual Service Edge, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only.
+11. (Optional) if you want to use an SNMP management system to monitor the Virtual Service Edge, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only.
   1. Run the following command: `sudo vzen snmp-admin-configure`
   2. Enter a username for the SNMPv3 management system that sends queries to the Virtual Service Edge. The Virtual Service Edge accepts queries from this username only.
   3. Enter a password that the Virtual Service Edge uses to authenticate the SNMP management system.
@@ -7181,8 +7091,6 @@ To configure the Virtual Service Edge on the GCP console:
   12. Specify the encryption method the Virtual Service Edge can use to authenticate the SNMP user. Enter either DES or AES.
 
 <ol start="10" style="list-style-type:lower-alpha"> <li> (Optional) Configure custom NTP servers. <ol start="1" style="list-style-type: lower-roman;"> <li> On the GCP console, click the <strong>Connect to Serial Console</strong> or use SSH to connect to the management IP address. </li> <li> Run the following command: </li> </ol> </li> </ol> <pre class="rteindent2"> vzen enable-ntpd</pre> <p class="rteindent2"> This command prompts you to enter the custom NTP servers. After adding the NTP servers, you are prompted to start NTPD immediately. </p> <p class="rteindent2"> <a class="image-icon" href="#enable-ntpd">Sample output of this command.</a> </p> <p class="note rteindent2"> You can remove the configured NTP servers using the <code>vzen disable-ntpd </code> command. </p>
-
-[Image: Entering and uploading blob data]
 
 [Image: Sample Output of Virtual Service Edge Connectivity to CA]
 
@@ -7216,27 +7124,27 @@ To deploy GCP ILB:
 
 [Image: Sample Output of GCP ILB Configuration Using CLI]
 
-<ol start="10" style="list-style-type:lower-alpha"> <li> If you installed the Cavium NITROX card in your server, do the following: <span style="color:#f1c40f;">&lt;This step may be removed based on QA's feedback.&gt;</span> <ol start="1" style="list-style-type:lower-roman"> <li> On the vSphere client, click the <strong>Configuration </strong>tab. </li> <li> Click <strong>Edit...</strong><br /> In the <strong>Mark devices for passthrough</strong> window, select the Cavium NITROX card.<br /> <a class="image-icon" href="#Image3">See image.</a> </li> <li> Select Virtual Service Edge. Ensure that the Virtual Service Edge is powered off. Then click <strong>Edit</strong><strong> virtual machine settings</strong>. In the <strong>Virtual Machine Properties</strong> window, click <strong>Add...</strong><br /> <a class="image-icon" href="#Image4">See image.</a> </li> <li> Select <strong>PCI Device</strong>, then click <strong>Next</strong>.<br /> <a class="image-icon" href="#Image5">See image.</a> </li> <li> Select the Cavium NITROX card from the drop-down menu, then click <strong>Next</strong>.<br /> <a class="image-icon" href="#Image6">See image.</a> </li> <li> Click <strong>Finish</strong> to add the Cavium NITROX card.<br /> <a class="image-icon" href="#Image7">See image.</a> </li> <li> Click <strong>OK</strong> to finish the setup.<br /> <a class="image-icon" href="#Image8">See image.</a> </li> <li> Run the following command to configure the card: </li> </ol> </li> </ol>
+<div class="subc"> <p> <a id="enable-ntpd" name="enable-ntpd" target="_blank"></a><img alt="Screenshot of the Sample Output of VZEN Enable NTPD" data-entity-type="image" data-entity-uuid="0" src="/downloads/zia/documentation-knowledgebase/traffic-forwarding/zscaler-enforcement-nodes/virtual-service-edge/configuring-virtual-service-edge-google-cloud-platform/GCP-Sample-Output-VZEN-Enable-NTPD.png" title="Sample Output of VZEN Enable NTPD Command" /> </p> </div>
 
 <div class="subc"> <p> <a id="Image3" name="Image3"><img alt="Screenshot of Mark devices for passthrough window on vSphere highlighting Cavium NITROX card" data-entity-type="image" data-entity-uuid="0" src="/downloads/zia/documentation-knowledgebase/forwarding-your-traffic/zscaler-enforcement-nodes-zens/virtual-zens/how-do-i-configure-vzen-clusters/vsphere_cavium_nitrox_screenshot.png" title="vSphere Cavium NITROX Screenshot" /></a> </p> </div> <div class="subc"> <p> <a id="Image4" name="Image4"><img alt="Screenshot of vZEN Virtual Machine Properties window highlighting Add button " data-entity-type="image" data-entity-uuid="0" src="/downloads/zia/documentation-knowledgebase/forwarding-your-traffic/zscaler-enforcement-nodes-zens/virtual-zens/how-do-i-configure-vzen-clusters/vzen_vm_properties_window.png" title="VZEN VM Properties Window" /></a> </p> </div> <div class="subc"> <p> <a id="Image5" name="Image5"><img alt="Screenshot of Add Hardware window highlighting PCI Device option" data-entity-type="image" data-entity-uuid="0" src="/downloads/zia/documentation-knowledgebase/forwarding-your-traffic/zscaler-enforcement-nodes-zens/virtual-zens/how-do-i-configure-vzen-clusters/pci_device_vsphere_screenshot.png" title="PCI Device vSphere Screenshot" /></a> </p> </div> <div class="subc"> <p> <a id="Image6" name="Image6"><img alt="Screenshot of Add Hardware window highlighting Cavium NITROX card connection option from drop-down menu" data-entity-type="image" data-entity-uuid="0" src="/downloads/zia/documentation-knowledgebase/forwarding-your-traffic/zscaler-enforcement-nodes-zens/virtual-zens/how-do-i-configure-vzen-clusters/cavium_nitrox_connection_option_screenshot.png" title="Cavium NITROX Connection Option Screenshot" /></a> </p> </div> <div class="subc"> <p> <a id="Image7" name="Image7"><img alt="Screenshot of Add Hardware window showing finalized Hardware type and PCI/PCIe Device" data-entity-type="image" data-entity-uuid="0" src="/downloads/zia/documentation-knowledgebase/forwarding-your-traffic/zscaler-enforcement-nodes-zens/virtual-zens/how-do-i-configure-vzen-clusters/cavium_nitrox_hardware_screenshot.png" title="Cavium NITROX Hardware Screenshot" /></a> </p> </div> <div class="subc"> <p> <a id="Image8" name="Image8"><img alt="Screenshot of Virtual Machines Property window highlighting the new added hardware" data-entity-type="image" data-entity-uuid="0" src="/downloads/zia/documentation-knowledgebase/forwarding-your-traffic/zscaler-enforcement-nodes-zens/virtual-zens/how-do-i-configure-vzen-clusters/vm_properties_cavium_screenshot.png" title="VM Properties Cavium Screenshot" /></a> </p> </div>
 
-<div class="subc"> <p> <a id="enable-ntpd" name="enable-ntpd" target="_blank"></a><img alt="Screenshot of the Sample Output of VZEN Enable NTPD" data-entity-type="image" data-entity-uuid="0" src="/downloads/zia/documentation-knowledgebase/traffic-forwarding/zscaler-enforcement-nodes/virtual-service-edge/configuring-virtual-service-edge-google-cloud-platform/GCP-Sample-Output-VZEN-Enable-NTPD.png" title="Sample Output of VZEN Enable NTPD Command" /> </p> </div>
+<ol start="10" style="list-style-type:lower-alpha"> <li> If you installed the Cavium NITROX card in your server, do the following: <span style="color:#f1c40f;">&lt;This step may be removed based on QA's feedback.&gt;</span> <ol start="1" style="list-style-type:lower-roman"> <li> On the vSphere client, click the <strong>Configuration </strong>tab. </li> <li> Click <strong>Edit...</strong><br /> In the <strong>Mark devices for passthrough</strong> window, select the Cavium NITROX card.<br /> <a class="image-icon" href="#Image3">See image.</a> </li> <li> Select Virtual Service Edge. Ensure that the Virtual Service Edge is powered off. Then click <strong>Edit</strong><strong> virtual machine settings</strong>. In the <strong>Virtual Machine Properties</strong> window, click <strong>Add...</strong><br /> <a class="image-icon" href="#Image4">See image.</a> </li> <li> Select <strong>PCI Device</strong>, then click <strong>Next</strong>.<br /> <a class="image-icon" href="#Image5">See image.</a> </li> <li> Select the Cavium NITROX card from the drop-down menu, then click <strong>Next</strong>.<br /> <a class="image-icon" href="#Image6">See image.</a> </li> <li> Click <strong>Finish</strong> to add the Cavium NITROX card.<br /> <a class="image-icon" href="#Image7">See image.</a> </li> <li> Click <strong>OK</strong> to finish the setup.<br /> <a class="image-icon" href="#Image8">See image.</a> </li> <li> Run the following command to configure the card: </li> </ol> </li> </ol>
 
 [Image: Serial Console window]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-microsoft-azure","lastmod":"2026-07-29T13:29Z","nid":"1401636"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-microsoft-azure","lastmod":"2026-07-31T10:19Z","nid":"1401636"} -->
 ## Configuring Virtual Service Edge for Internet & SaaS: Microsoft Azure
 
 - Source: https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-microsoft-azure
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Configuring Virtual Service Edge for Internet & SaaS: Microsoft Azure
-- Last modified: 2026-07-29T13:29Z
+- Last modified: 2026-07-31T10:19Z
 - Summary: Information on how to configure Virtual Service Edge for Internet & SaaS (ZIA): Microsoft Azure.
 
-Zscaler supports Virtual Service Edge for Internet & SaaS (ZIA) for production deployments on Microsoft Azure.
+Zscaler supports standalone Virtual Service Edge for Internet & SaaS (ZIA) for production deployments on Microsoft Azure.
 
 ## Configuring a Standalone Virtual Service Edge
 
@@ -7244,7 +7152,7 @@ To configure a standalone Virtual Service Edge:
 
 - 1. Ensure that you meet all the requirements.
 - 2. Add the Virtual Service Edge instance.
-- [3. Download Virtual Service Edge certificates and configuration files.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates)
+- 3. Download the Virtual Service Edge certificates.
 - 4. Create the virtual machine (VM) instance and validate the configuration.
 - 5. Create a Firewall Filtering rule to bypass Azure LB IP addresses.
 - 6. Configure and start Virtual Service Edge on the VM instance.
@@ -7419,9 +7327,18 @@ Azure reserves five IP addresses within each subnet. These are x.x.x.0-x.x.x.3 a
 - x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space.
 - x.x.x.255: Network broadcast address.
 
+To download a Virtual Service Edge certificate:
+
+1. Go to **Infrastructure**> **Internet & SaaS** > **Traffic Forwarding** > **Virtual Service Edges**.
+2. In the**SSL Certificate** column, click **Download** for the [Virtual Service Edge that you added](https://help.zscaler.com/zia/adding-virtual-service-edge-instances) previously, and then save the certificate. See image.
+
+If you're downloading multiple certificates, you might want to change the certificate name so that you can differentiate between them. For example, if the Virtual Service Edge instances in a cluster are called VSE1 and VSE2, you can rename the certificate's ZIP files to VSE1.zip and VSE2.zip.
+
 [Image: Add Virtual Service Edge for Internet & SaaS window with IPSec Local Termination]
 
 [Image: Add Virtual Service Edge for Internet & SaaS window with Support Information]
+
+[Image: SSL Certificate column and download link on the Virtual Service Edge page]
 
 Create a VM instance using one of the following methods:
 
@@ -7580,21 +7497,13 @@ To configure the Virtual Service Edge on the VM:
   3. Run the `sudo vzen configure-network` command, and then enter the following details: The Virtual Service Edge management IP, gateway IP for management, and resolvers are obtained from DHCP. This command does not allow you to modify the management IP and gateway IP.
     - Address of the DNS server (e.g., 10.84.0.100) used for name resolution of Zscaler cloud domains and also for domain names in the proxy traffic.
     - Hostname of the Virtual Service Edge.
-2. Install the SSL certificate and configuration file for the Virtual Service Edge instance. These are the certificate and file that you [downloaded from the Zscaler Admin Console](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates). A Virtual Service Edge uses the certificate and configuration file to authenticate itself to the Zscaler service and generate a new client certificate, which is required for deploying new virtual instances. To install the certificate and configuration file:
-  1. Go to the SSL certificate and configuration file that you downloaded from the Zscaler Admin Console and use SCP, FTP, or SFTP to upload it to the management IP address of the Virtual Service Edge.
-  2. Go to the console or use SSH to connect to the management IP address of the Virtual Service Edge instance.
-  3. Run the following command to install the SSL certificate: sudo vzen install-cert <cert-bundle.zip>Replace the parameter in red with your certificate file name (e.g., `VZenCertificate-<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-cert /tmp/VZenCertificate-<Virtual Service Edge Name>.zip`).
-  4. Run the following command to install the configuration file: `sudo vzen install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `VZENConfig_<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-config /tmp/VZENConfig-<Virtual Service Edge Name>.zip`).
-3. Get the provisioning blob and upload it to the Zscaler Admin Console:
-  1. Run the following command to get the provisioning blob: `sudo vzen show-prov-blob`The provisioning blob string displays in the output.
-  2. Copy the provisioning blob string for uploading to the Zscaler Admin Console in the following step.
-  3. Upload the provisioning blob:
-    1. In the Zscaler Admin Console, go to the Virtual Service Edge instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-    2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-    3. Click **Upload**. See image.
-  4. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-4. Run the following command to get the new client certificate: `sudo vzen get-new-clientcert`
-5. (Optional) if you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only.
+2. Install the SSL certificate of the Virtual Service Edge instance. This is the certificate that you downloaded from the Zscaler Admin Console. A Virtual Service Edge uses this certificate to authenticate itself to the Zscaler service. When you configure a Virtual Service Edge, ensure that you upload the correct certificate for the Virtual Service Edge instance. To install the SSL certificate of the Virtual Service Edge instance:
+  1. Navigate to the SSL certificate that you saved.
+  2. Use SCP or SFTP to upload it to the management IP address of the Virtual Service Edge.
+  3. In the Azure Web Console, log in with the following credentials: Username: zsroot Password: zsroot
+  4. Go to the Azure Web Console or use SSH to connect to the management IP address.
+  5. Run the command, sudo vzen install-cert <cert-bundle.zip>. Ensure to specify the absolute path to the SSL certificates (e.g., `sudo vzen install-cert /tmp/cert-bundle.zip`).
+3. (Optional) if you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only.
   1. Run the command, sudo vzen snmp-admin-configure.
     1. Enter a user name for the SNMPv3 management system that sends queries to the Virtual Service Edge. The Virtual Service Edge accepts queries only from this user name.
     2. Enter the password that the Virtual Service Edge uses to authenticate the SNMP management system.
@@ -7607,15 +7516,13 @@ To configure the Virtual Service Edge on the VM:
     4. Enter the password that the Virtual Service Edge uses to authenticate the SNMP management system.
     5. Specify the authentication protocol that the Virtual Service Edge can use to authenticate the SNMP user. Enter either MD5 or SHA1.
     6. Specify the encryption method that the Virtual Service Edge can use to authenticate the SNMP user. Enter either DES or AES.
-6. Download the Virtual Service Edge build and start the Virtual Service Edge.
+4. Download the Virtual Service Edge build and start the Virtual Service Edge.
   1. Go to the Azure Web Console or use SSH to connect to the management IP address.
   2. Run the following command to download the Virtual Service Edge build: sudo vzen download-build. The initial build is around 1 GB, so it may take a while depending on your Internet connection. The downloaded build is automatically installed. The Virtual Service Edge automatically starts after the installation is complete.
-7. Verify the configuration.
-8. Go to the Azure Web Console or use SSH to connect to the management IP address.
+5. Verify the configuration.
+6. Go to the Azure Web Console or use SSH to connect to the management IP address.
   1. Run the sudo vzen status command. The output should display that the Virtual Service Edge service and load balancer are running. See image.
   2. Run the sudo vzen troubleshoot connection | grep 9422 command. The output should display an established connection.
-
-[Image: Entering and uploading blob data]
 
 [Image: SSH port showing that the Virtual Service Edge  service and load balancer are running]
 
@@ -7697,16 +7604,16 @@ To create availability sets in your Azure account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-microsoft-hyper-v","lastmod":"2026-07-29T13:33Z","nid":"1403321"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-microsoft-hyper-v","lastmod":"2026-07-31T11:28Z","nid":"1403321"} -->
 ## Configuring Virtual Service Edge for Internet & SaaS: Microsoft Hyper-V
 
 - Source: https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-microsoft-hyper-v
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Configuring Virtual Service Edge for Internet & SaaS: Microsoft Hyper-V
-- Last modified: 2026-07-29T13:33Z
+- Last modified: 2026-07-31T11:28Z
 - Summary: Information on how to configure Virtual Service Edge for Internet & SaaS (ZIA): Microsoft Hyper-V
 
-Zscaler supports Virtual Service Edge for Internet & SaaS (ZIA) for production deployments on Microsoft Hyper-V.
+Zscaler supports standalone Virtual Service Edge for Internet & SaaS (ZIA) for production deployments on Microsoft Hyper-V.
 
 ## Requirements
 
@@ -7727,17 +7634,17 @@ Ensure that you meet all the following requirements:
 
 ## Configuring a Virtual Service Edge Cluster
 
-If you are configuring a Virtual Service Edge cluster, you must create at least two Virtual Service Edge instances and download their respective SSL certificates. Each Virtual Service Edge VM requires a unique SSL certificate and configuration file, which can be downloaded from the Zscaler Admin Console.
+If you are configuring a Virtual Service Edge cluster, you must create at least two Virtual Service Edge instances and download their respective SSL certificates. Each Virtual Service Edge VM requires a unique SSL certificate, which can be downloaded from the Zscaler Admin Console.
 
 To configure a Virtual Service Edge cluster:
 
-- [1. Add the Virtual Service Edge instances.](https://help.zscaler.com/zia/adding-virtual-service-edge-instances)
-- 2. Download the Hyper-V VM file.
-- [3. Download the Virtual Service Edge certificates and configuration files.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates)
-- [4. Add the Virtual Service Edge cluster.](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters)
-- 5. Bind the Virtual Service Edge cluster to a location.
-- 6. Create a Firewall Filtering rule to bypass Virtual Service Edge IP addresses.
-- 7. Configure the Virtual Service Edge VM.
+- [1. Add the Virtual Service Edge Instances](https://help.zscaler.com/zia/adding-virtual-service-edge-instances)
+- 2. Download the Hyper-V VM File
+- [3. Download the Virtual Service Edge Certificates](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates)
+- [4. Add the Virtual Service Edge Cluster](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters)
+- 5. Bind the Virtual Service Edge Cluster to a Location
+- 6. Create a Firewall Filtering Rule to Bypass Virtual Service Edge IP Addresses
+- 7. Configure the Virtual Service Edge VM
 
 ## Testing the Configuration
 
@@ -7820,8 +7727,8 @@ To configure the Virtual Service Edge on the Hyper-V manager:
 12. Click **OK**.
 13. Select the Virtual Service Edge VM and click either the **Power On** button or **Power On the virtual machine**.
 14. On the **Console** tab, log in to the FreeBSD command prompt with the following credentials: After you log in with the default credentials, you are prompted to change the default password.
-  - Username: `zsroot`
-  - Password: `zsroot`
+  - Username: zsroot
+  - Password: zsroot
 15. Change the default password: See image. Direct root login is not permitted. Administrators must use the sudo utility to run a command with higher privileges.
   1. **New Password**: Enter a new password that meets your organization's password standards.
   2. **Retype New Password**: Re-enter the new password.
@@ -7832,21 +7739,13 @@ To configure the Virtual Service Edge on the Hyper-V manager:
   - Management interface IP with CIDR netmask. You use the management IP address for SSH or FTP (e.g., 10.84.0.110/24).
   - Default gateway IP address (e.g., 10.84.0.200).
   - Hostname of the Virtual Service Edge
-19. Install the SSL certificates and configuration files of the Virtual Service Edge instances in the cluster. These are the certificates and files that you [downloaded from the Zscaler Admin Console](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates). A Virtual Service Edge uses the certificate and configuration file to authenticate itself to the Zscaler service and generate a new client certificate, which is required for deploying new virtual instances. When you configure a Virtual Service Edge cluster, ensure that you upload the correct certificate and configuration file for each Virtual Service Edge instance. To install the certificate and configuration file:
-  1. Go to the SSL certificate and configuration file that you downloaded from the Zscaler Admin Console and use SCP, FTP, or SFTP to upload it to the management IP address of the Virtual Service Edge.
-  2. Go to the console or use SSH to connect to the management IP address of the Virtual Service Edge instance.
-  3. Run the following command to install the SSL certificate: sudo vzen install-cert <cert-bundle.zip>Replace the parameter in red with your certificate file name (e.g., `VZenCertificate-<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-cert /tmp/VZenCertificate-<Virtual Service Edge Name>.zip`).
-  4. Run the following command to install the configuration file: `sudo vzen install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `VZENConfig_<Virtual Service Edge Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `sudo vzen install-config /tmp/VZENConfig-<Virtual Service Edge Name>.zip`).
-20. Get the provisioning blob and upload it to the Zscaler Admin Console:
-  1. Run the following command to get the provisioning blob: `sudo vzen show-prov-blob`The provisioning blob string displays in the output.
-  2. Copy the provisioning blob string from the preceding step for uploading to the Zscaler Admin Console in the following step.
-  3. Upload the provisioning blob:
-    1. In the Zscaler Admin Console, go to the Virtual Service Edge instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-    2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-    3. Click **Upload**. See image.
-  4. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-21. Run the following command to get the new client certificate: `sudo vzen get-new-clientcert`
-22. (Optional) if you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only.
+19. Install the SSL certificates of the Virtual Service Edge instances in the cluster. These are the certificates that you downloaded from the Zscaler Admin Console. A Virtual Service Edge uses this certificate to authenticate itself to the Zscaler service. When you configure a Virtual Service Edge cluster, ensure that you upload the correct certificate for each Virtual Service Edge instance.
+  1. Navigate to the SSL certificate that you saved.
+  2. Use SCP or SFTP to upload it to the management IP address of the Virtual Service Edge.
+  3. On the Hyper-V client, click the **Console**tab, and log in with the following credentials: Username: zsroot Password: zsroot
+  4. Go to the **Console**tab or use SSH to connect to the management IP address.
+  5. Run the following command: `sudo vzen install-cert <cert-bundle.zip>`Ensure to specify the absolute path to the SSL certificates (e.g., `sudo vzen install-cert /tmp/cert-bundle.zip`).
+20. (Optional) if you want to use an SNMP management system to monitor the Virtual Service Edge cluster, [enable SNMP for Virtual Service Edge](https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters#snmp-vse) and configure SNMP parameters. Virtual Service Edges support SNMPv3 only.
   1. Run the following command: `sudo vzen snmp-admin-configure`
   2. Enter a username for the SNMPv3 management system that sends queries to the Virtual Service Edge. The Virtual Service Edge accepts queries from this username only.
   3. Enter a password that the Virtual Service Edge uses to authenticate the SNMP management system.
@@ -7862,8 +7761,6 @@ To configure the Virtual Service Edge on the Hyper-V manager:
   13. Download the Virtual Service Edge build and start the Virtual Service Edge:
     1. On the Hyper-V client, click the **Console**tab or use SSH to connect to the management IP address.
     2. Run the following command to download the Virtual Service Edge build: `sudo vzen download-build`The initial build is around 1 GB, so depending on your internet connection, it may take a while. The system automatically installs the downloaded build. After the installation is complete, the Virtual Service Edge starts automatically.
-
-[Image: Entering and uploading blob data]
 
 [Image: SSH port showing that the Virtual Service Edge service and load balancer are running]
 
@@ -8813,13 +8710,13 @@ To set up SSO with ShareFile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-07-17T11:34Z","nid":"1401726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-07-31T10:26Z","nid":"1401726"} -->
 ## Configuring the Zscaler Incident Receiver for On-Premises VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for On-Premises VMs
-- Last modified: 2026-07-17T11:34Z
+- Last modified: 2026-07-31T10:26Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) for on-premises VMs.
 
 New or clean deployment of a Zscaler Incident Receiver requires a virtual machine (VM) image running on Zscaler OS version 24.
@@ -8865,10 +8762,8 @@ You can use the following commands to configure, update, and troubleshoot your V
 | `sudo zirsvr collect-diagnostics` | Creates a file with diagnostic information to send to Zscaler Support for troubleshooting purposes. |
 | `sudo zirsvr configure-syslog-server` | Configures external syslog server forwarding on the Zscaler Incident Receiver to forward file SFTP events and to log any critical changes to the configuration files monitored by the Incident Receiver. The external syslog server forwarding happens over UDP port 514, which cannot be modified. |
 | `sudo zirsvr create-server-cert-csr` | Creates a new server certificate to be downloaded to the Incident Receiver. |
-| `sudo zadp install-config` | Installs config file. |
 | `sudo zirsvr install-server-cert` | Installs server certificates. |
 | `sudo zirsvr update-sshkey` | Creates a new SSH key and updates Zscaler Incident Receiver to use the new SSH key as authentication. |
-| `sudo zadp show-prov-blob` | Retrieves provisioning blob. |
 
 To deploy the Zscaler Incident Receiver, make sure the following prerequisites are met:
 
@@ -8920,17 +8815,7 @@ See image.
 
 See image.
 
-1. Click the **New Client Certificate**icon in the row of the Incident Receiver. The **New Client Certificate**window appears.
-2. In the **New Client Certificate** window, click **Download Config**to download the Incident Receiver configuration file. The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances.
-3. Copy the configuration file to the VM.
-4. Run the following command to install the configuration file: `sudo zadp install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `zadp install-config /tmp/ZADPConfig-<Incident Receiver name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `zadp install-config /tmp/ZADPConfig-<Incident Receiver>.zip`).
-5. Run the following command to get the provisioning blob: `sudo zadp show-prov-blob`The provisioning blob string displays in the output.
-6. Copy the provisioning blob string and upload it to the Zscaler Admin Console:
-  1. Go to the Incident Receiver instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-  2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-  3. Click **Upload**.
-7. Click **Close**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-8. Copy over the certificate ZIP file to the VM and install it:
+1. Copy over the certificate ZIP file to the VM and install it:
   1. In this example, we’re using `scp` to copy over the file:
 
 ```
@@ -9172,13 +9057,13 @@ If your organization requires you to update your SSH key, upgrade to the ED25519
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-azure-vms","lastmod":"2026-07-17T11:41Z","nid":"1455536"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-azure-vms","lastmod":"2026-07-31T10:27Z","nid":"1455536"} -->
 ## Configuring the Zscaler Incident Receiver for Azure VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-azure-vms
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for Azure VMs
-- Last modified: 2026-07-17T11:41Z
+- Last modified: 2026-07-31T10:27Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) on Azure VMs.
 
 Before you can use a [Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver), you must configure the virtual machine (VM) image for the Incident Receiver on an Azure VM, an Amazon Web Services (AWS) EC2 instance, or an on-premises VM. To learn more, see [Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-for-ec2) and [Configuring the Zscaler Incident Receiver for On-Premises VMs](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver).
@@ -9513,22 +9398,25 @@ See image.
 
 See image.
 
-1. Click the **New Client Certificate**icon in the row of the Incident Receiver. The **New Client Certificate**window appears.
-2. In the **New Client Certificate** window, click **Download Config**to download the Incident Receiver configuration file. The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances.
-3. Copy the configuration file to the VM.
-4. Run the following command to install the configuration file: `sudo zadp install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `zadp install-config /tmp/ZADPConfig-<Incident Receiver name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `zadp install-config /tmp/ZADPConfig-<Incident Receiver>.zip`).
-5. Run the following command to get the provisioning blob: `sudo zadp show-prov-blob`The provisioning blob string displays in the output.
-6. Copy the provisioning blob string and upload it to the Zscaler Admin Console:
-  1. Go to the Incident Receiver instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-  2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-  3. Click **Upload**.
-7. Click **Close**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-8. Copy the certificate ZIP file to the VM and install it:
-  1. The following example uses `scp` to copy the file: `scp <certificate_zip_filename> zsroot@<ip>:/home/zsroot`
+1. Copy the certificate ZIP file to the VM and install it:
+  1. The following example uses `scp`to copy the file:
+
+```
+scp
+<certificate_zip_filename>
+zsroot@
+<ip>
+:/home/zsroot
+```
 
 For example: `scp IncidentReceiverCertificate.zip zsroot@10.66.108.100:/home/zsroot`
 
-1. Enter the following command to install the SSL certificate: `sudo zirsvr configure ~/<certificate_zip_filename>`
+1. Enter the following command to install the SSL certificate:
+
+```
+sudo zirsvr configure ~/
+<certificate_zip_filename>
+```
 
 For example: `sudo zirsvr configure ~/IncidentReceiverCertifcate.zip`
 
@@ -10514,13 +10402,13 @@ When you copy a report, it’s added to the **Custom Reports** tab. You can do t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-07-29T07:06Z","nid":"1400656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-08-02T07:06Z","nid":"1400656"} -->
 ## Creating an Exact Data Match Template
 
 - Source: https://help.zscaler.com/zia/creating-exact-data-match-template
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > Creating an Exact Data Match Template
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: How to create, modify, or delete an Exact Data Match index template using the Zscaler Index Tool for Data Loss Prevention (DLP).
 
 [Watch a video on Exact Data Match](https://fast.wistia.net/embed/iframe/5jnzyl383a) (shows legacy UI).
@@ -12458,13 +12346,13 @@ In general, client certificate authentication is part of the mutual TLS authenti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/deploying-zscaler-authentication-bridge","lastmod":"2026-07-29T16:35Z","nid":"1399636"} -->
+<!-- ZS-ARTICLE {"url":"/zia/deploying-zscaler-authentication-bridge","lastmod":"2026-07-31T10:40Z","nid":"1399636"} -->
 ## Deploying a Zscaler Authentication Bridge
 
 - Source: https://help.zscaler.com/zia/deploying-zscaler-authentication-bridge
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Deploying a Zscaler Authentication Bridge
-- Last modified: 2026-07-29T16:35Z
+- Last modified: 2026-07-31T10:40Z
 - Summary: How to deploy a Zscaler Authentication Bridge (ZAB).
 
 The Zscaler Authentication Bridge (ZAB) is a virtual machine (VM) that you can use to [provision and authenticate users](https://help.zscaler.com/zia/about-provisioning-authenticating-users). To learn more, see [About the Zscaler Authentication Bridge](https://help.zscaler.com/zia/about-zscaler-authentication-bridge).
@@ -12507,15 +12395,14 @@ To deploy a ZAB:
 - 1. Verify the ZAB subscription.
 - [2. Add the ZAB using the Zscaler Admin Console.](https://help.zscaler.com/zia/adding-zscaler-authentication-bridge)
 - [3. Download the ZAB virtual machine (VM).](https://help.zscaler.com/zia/downloading-zscaler-authentication-bridge-vm)
-- 4. Download the ZAB SSL certificate and configuration file.
+- 4. Download the ZAB SSL certificate.
 - 5. Configure the ZAB network settings.
-- 6. Install the ZAB client SSL certificate and configuration file.
-- 7. Copy provisioning blob data and upload it to the Zscaler Admin Console.
-- 8. Install the server SSL certificate.
-- 9. Install and start the ZAB software.
-- 10. (Optional) Configure nested groups on the ZAB.
-- 11. Configure the user synchronization settings.
-- 12. (Optional) Configure the local NTP server to synchronize time with the ZAB.
+- 6. Install the ZAB client SSL certificate.
+- 7. Install the server SSL certificate.
+- 8. Install and start the ZAB software.
+- 9. (Optional) Configure nested groups on the ZAB.
+- 10. Configure the user synchronization settings.
+- 11. (Optional) Configure the local NTP server to synchronize time with the ZAB.
 
 ## Troubleshooting
 
@@ -12553,24 +12440,19 @@ zab support-access-start
 
 To verify your organization's ZAB subscription:
 
-1. Go to **Administration**>**Account Management**> **Company Profile**- **Subscriptions**.
+1. Go to **Administration**>**Account Management**> **Subscriptions**.
 2. Verify that your organization is subscribed to **Zscaler Auth Bridge**. See image.
 
 [Image: Screenshot of the ZAB subscription on the Subscriptions page]
 
-The ZAB uses an SSL certificate and configuration file to authenticate itself to the Zscaler service.
+The ZAB uses an SSL certificate to authenticate itself to the Zscaler service.
 
-To download the ZAB SSL certificate and configuration file:
+To download the ZAB SSL certificate:
 
-1. Go to **Administration** >**Identity**>**Internet & SaaS**> **Internet Authentication Settings**.
-2. Click the **Authentication Bridges**tab.
-3. In the **SSL Certificate** column of the ZAB, click **Download**. See image.
-4. Click the **New Client Certificate**icon ([Image: New Client Certificate icon]) in the row of the ZAB. The **New Client Certificate**window appears.
-5. In the New Client Certificate window, click **Download Config**to download the ZAB configuration file. See image.
+1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Authentication Bridges**.
+2. In the **SSL Certificate** column of the ZAB, click **Download**. See image.
 
 [Image: Screenshot of the Download button for the authentication bridge]
-
-[Image: Download Config option in the New Client Certificate window]
 
 To configure the network settings of the ZAB:
 
@@ -12623,29 +12505,30 @@ See image.
 
 [Image: Screenshot of the zab dump-config command in the ZAB VM console]
 
-Install the ZAB SSL certificate and configuration file that you downloaded from the Zscaler Admin Console in the step [Download the ZAB SSL certificate and configuration file](https://help.zscaler.com/zia/how-do-i-deploy-zscaler-authentication-bridge#downloadzabssl). The ZAB uses the certificate and configuration file to authenticate itself to the Zscaler service and generate a new client certificate, which is required for deploying new virtual instances. Ensure that you upload the correct certificate and configuration file for the ZAB instance.
+Install the ZAB SSL certificate you downloaded from the Zscaler Admin Console in [4. Download the ZAB SSL Certificate](https://help.zscaler.com/zia/how-do-i-deploy-zscaler-authentication-bridge#downloadzabssl). The certificate authenticates the ZAB to the Zscaler service.
 
-To install the ZAB SSL certificate and configuration file:
+To install the ZAB SSL certificate:
 
-1. Go to the SSL certificate and configuration file that you downloaded from the Zscaler Admin Console and upload them to the ZAB VM. Zscaler recommends that you use SCP or SFTP instead of FTP.
-2. On the ZAB, run the following command to install the SSL certificate: zab install-client-cert <cert-bundle.zip>Replace the parameter in red with your certificate file name (e.g., `ZABCertificate-<ZAB Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `zab install-client-cert /tmp/ZABCertificate-<ZAB Name>.zip`).
-3. Run the following command to install the configuration file: `zab install-config <config-bundle.zip>`Replace the parameter in red with your configuration file name (e.g., `zab install-config /tmp/ZABConfig-<ZAB Name>.zip`) if you are in the path of the file. If not, use the absolute file path (e.g., `zab install-config /tmp/ZABConfig-<ZAB Name>.zip`).
-4. Run the following command to verify that the ZAB is associated with the Zscaler cloud and your organization: `zab dump-config`See image.
+1. Copy the client certificate securely to the ZAB VM. Zscaler recommends that you use SCP or SFTP instead of FTP.
+2. On the ZAB, enter the following command to install the ZAB:
+
+```
+zab install-client-cert ZabCert.zip
+```
+
+See image.
+
+1. Enter the following command to verify that the ZAB is associated with the Zscaler cloud and your organization:
+
+```
+zab dump-config
+```
+
+See image.
+
+[Image: Screenshot of the zab install-client-cert ZabCert.zip command in the ZAB VM console]
 
 [Image: Screenshot of the zab dump-config command in the ZAB VM console]
-
-Get the provisioning blob and upload it to the Zscaler Admin Console:
-
-1. Run the following command to get the provisioning blob: `zab show-prov-blob`The provisioning blob string displays in the output.
-2. Copy the provisioning blob string from the preceding step for uploading to the Zscaler Admin Console in the following step.
-3. Upload the provisioning blob:
-  1. In the Zscaler Admin Console, go to the ZAB instance and click the **New Client Certificate** icon to open the **New Client Certificate** window.
-  2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-  3. Click **Upload**. See image.
-4. Click **Close**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-zia-admin-portal).
-5. Run the following command to get the new client certificate: `zab get-new-clientcert`
-
-[Image: Entering and uploading blob data]
 
 In order for the ZAB to authenticate a user against the AD, it needs to present the user with an authentication form, where the user enters their credentials to be validated against the AD. To be able to serve the form over a webpage, the ZAB has an HTTPS server component running on it.
 
@@ -14016,4 +13899,233 @@ To learn more, see [Configuring the DNS Control Policy](https://help.zscaler.com
 [Image: Customizing DNS web EUN to include organization's name, logo, and custom message]
 
 [Image: Enabling Zscaler Client Connector EUN in DNS rule]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/dns-insights-logs-columns","lastmod":"2026-06-04T18:41Z","nid":"1400996"} -->
+## DNS Insights Logs: Columns
+
+- Source: https://help.zscaler.com/zia/dns-insights-logs-columns
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Columns
+- Last modified: 2026-06-04T18:41Z
+- Summary: Information on the different columns in the DNS Insights Logs page in the Zscaler Admin Console.
+
+You can customize your DNS logs by using column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+
+Following are the DNS Insight Log columns you can select to view:
+
+- **Capture**: The name of the packet capture (PCAP) file that captured the transaction. You can download the file by clicking the **Download**icon next to the file name.
+- **Client IP**:The IP address from which the transaction originated. This is the IP address of the client device. You can sort this column.
+- **DNS Error Code**:The error code returned in the DNS response. All error codes derive from the standard set by the [Internet Engineering Task Force Organization](https://tools.ietf.org/html/rfc2929#section-2.3). An error code is populated in this field in the following scenarios: Possible DNS Error Codes Displayed in the DNS Response
+  - When the traffic matches with a DNS Control rule configured with the Block with Response Code action, the corresponding response code is populated in this field.
+  - When using [DNS Gateways](https://help.zscaler.com/zia/about-dns-gateways) to forward DNS queries (inbound over UDP/TCP/DoH) to an external DNS service over DoH, the Zscaler service may receive an HTTP response without a DNS response due to an error. In that case, the service tries to translate the HTTP status code into an equivalent DNS response and logs it using the DNS Error Code field.
+- **DNS Gateway Flags**: The DNS request status at the DNS Gateway level.
+- **DNS Request Type**: The DNS request type. DNS policy control and action enforcement are supported for all available DNS request types, but DNS logs might not display the specific request type values for all DNS request types, as indicated in the following section. See the mapping between DNS request types displayed in policy rules vs. DNS logs.
+- **DNS Response Type**: The DNS response type.
+- **Department**: The department of the user. You can sort and search through this column.
+- **Device Hostname**: The hostname information from support devices.
+- **Device Model**: The model of the device.
+- **Device Name**: The name of the device.
+- **Device OS Type**: The OS type of the device.
+- **Device OS Version**: The OS version the device uses.
+- **Device Owner**: The owner of the device.
+- **ECS Object Name**: The unique name assigned to and identifying the ECS object.
+- **ECS Prefix**: The ECS prefix used for the Client Subnet option in the DNS query.
+- **ECS Prefix Length**: The length of the client’s IP address specified for the Client Subnet option in the DNS query.
+- **Extranet Resource**: The extranet resource name.
+- **HTTP Status Code**: The status code returned by the DNS Over HTTPS (DoH) server, and is applicable only when the protocol used between the Internet & SaaS ZIA service and the DNS server is DoH.
+- **Request Categories**: The request category corresponding to the requested domain. If this is blank, then the domain is not categorized.
+- **Response Categories**: The response category corresponding to the response for the requested domain. If this is blank, then the resolved IP or the canonical name (CNAME) is not categorized.
+- **Event Time**: The date and time of the transaction. You can sort this column.
+- **Location**: The name of the location from which the DNS request was initiated. You can sort and search through this column.
+- **Logged Time**: The date and time the transaction was logged.
+- **Protocol Type**: UDP, TCP, or DNS over HTTP.
+- **Response Rule Name**: Name of the rule that was applied to the DNS response.
+- **Request Action**: The action taken on the DNS request. For block rules configured with either Block or Block with Response Code action, this field populates a "Block" value.
+- **Response Action**: The action taken on the DNS response. For block rules configured with either Block or Block with Response Code action, this field populates a "Block" value.
+- **Request Duration**: The request duration in milliseconds.
+- **Request Rule Name**: Name of the rule that was applied to the DNS request.
+- **Requested Domain**: The domain for which DNS resolution was requested. You can sort and search through this column.
+- **Resolved IP or Name**: The resolved IP or CNAME in the response. Whether this is an IP or Name is determined by the DNS response type field. You can sort this column.
+- **Resolver Gateway**: The name of the DNS resolver (primary or secondary, within the configured DNS Gateway of the triggered rule) that was successfully used to resolve the DNS request or displays the error resolution, if any. One of the following flags appears:
+  - Primary Server Attempted
+  - Secondary Server Attempted
+  - Query Forwarded to Destination
+  - Error Response Returned to Client
+  - Query Dropped
+- **Rule Name**: The rule that was triggered by the DNS request, response, or both. You can sort this column. This column is only displayed in the logs if the traffic is blocked. By default, this column is not displayed for allowed traffic.
+  - The following are the reasons why the Zscaler Bypass Traffic rule populates in the logs:
+    - When the domain name in the DNS request query matches a Zscaler cloud domain.
+    - When the DNS request query matches an Microsoft 365 endpoint listed in the [Office 365 One Click predefined firewall filtering rules](https://help.zscaler.com/zia/about-predefined-firewall-filtering-rules#office-one-click), if enabled.
+    - When the DNS response does not contain a resolved IP or CNAME.
+    - When the DNS response is not completely analyzed because of its resource record type. DNS Control performs detailed analysis of responses for A, AAAA, CNAME, and PTR record types.
+- **Server IP**: The actual DNS server IP address that resolves the DNS request. The user-targeted DNS server and the actual DNS server can vary depending on the NAT rule configuration for DNS traffic. To learn more, see [About DNS Control](https://help.zscaler.com/zia/about-dns-control). You can sort this column.
+- **Server Port**: The server port.
+- **Server Protocol**: The protocol used to communicate with the DNS server.
+- **Time**: The timestamp of the DNS request.
+- **User**: The user name. If this is blank, then location-based authentication is set. You can sort and search through this column.
+
+| Sl. No. | DNR Error Code | Description |
+| --- | --- | --- |
+| 1 | UNSUPPORTED | The DNS parser cannot decode, but there is no error in the DNS header. |
+| 2 | BYPASS | DNS transaction bypassed due to cloud domain/bypass list. |
+| 3 | INT_ERROR | DNS parser failed to parse supported types. |
+| 4 | SRV_TIMEOUT | DNS transaction timed out as server didn't respond. |
+| 5 | EMPTY_RESP | DNS response has no error, but the answer section is empty. |
+| 6 | REQ_BLOCKED | DNS request blocked by firewall, hence no DNS response. |
+| 7 | ADMIN_DROP | DNS transaction prematurely terminated due to the session being forced-dropped via CLI command. |
+| 8 | WCDN_TIMEOUT | DNS transaction timed out while waiting for Zscaler Message Transport System (MTS) to sync a wildcard domain resolution. |
+| 9 | IPS_BLOCK | DNS transaction blocked by IPS signature match. |
+| 10 | FQDN_RESOLV_FAIL | DNS Gateway server value for FQDN could not be resolved. |
+
+| DNS Rule: DNS Request Type | Description | DNS Logging: DNS Request Type |
+| --- | --- | --- |
+| A | IPv4 address record | A host address |
+| A6 | IPv6 address record | DNS type not mapped by ZS firewall |
+| AAAA | IPv6 address record | IP6 address |
+| AFSDB | Andrew File System Database record | For AFS Data Base location |
+| APL | Address Prefix List | DNS type not mapped by ZS firewall |
+| ATMA | Asynchronous Transfer Mode Address | DNS type not mapped by ZS firewall |
+| CDNSKEY | Child DNSKEY | DNS type not mapped by ZS firewall |
+| CDS | Child DS | DNS type not mapped by ZS firewall |
+| CERT | Certificate record | DNS type not mapped by ZS firewall |
+| CNAME | Canonical name record | The canonical name for an alias |
+| CSYNC | Child-to-Parent Synchronization | DNS type not mapped by ZS firewall |
+| DHCID | Dynamic Host Configuration Protocol Identifier | DNS type not mapped by ZS firewall |
+| DNAME | Non-terminal DNS name redirection | DNS type not mapped by ZS firewall |
+| DNSKEY | DNS Key record | DNS public key |
+| DS | Delegation Signer | Delegation Signer |
+| EID | DNS Endpoint Identifier resource records | DNS type not mapped by ZS firewall |
+| GPOS | Geographical Position record | DNS type not mapped by ZS firewall |
+| HINFO | Host Information record | Host Information |
+| HIP | Host Identity Protocol | Host Identity Protocol |
+| HTTPS | Service binding for HTTPS including Encrypted Client Hello (ECH) You need to block the HTTPS DNS resource record type to stop ECH and prevent unmanaged encrypted traffic flows happening through the secure web gateway. | SVCB-compatible type for use with HTTP |
+| IPSECKEY | IPSec Key | DNS type not mapped by ZS firewall |
+| ISDN | Integrated Services Digital Network address record | For ISDN address |
+| KEY | Key record | DNS type not mapped by ZS firewall |
+| KX | Key Exchanger record | DNS type not mapped by ZS firewall |
+| LOC | Location record | Location information |
+| MB | Mailbox record | A mailbox domain name |
+| MD | Mail Destination record | DNS type not mapped by ZS firewall |
+| MF | Mail Forwarding record | DNS type not mapped by ZS firewall |
+| MG | Mail Group Member record | A mail group member |
+| MINFO | Mailbox or mail list record | Mailbox or mail list information |
+| MR | Renamed mailbox record | A mail rename domain name |
+| MX | Mail Exchange record | Mail exchange |
+| NAPTR | Naming Authority Pointer | Naming Authority Pointer |
+| NIMLOC | Nimrod Locator resource records | DNS type not mapped by ZS firewall |
+| NINFO | DNS zone status | DNS type not mapped by ZS firewall |
+| NS | Name Server record | An authoritative name server |
+| NSAP | NSAP address record | DNS type not mapped by ZS firewall |
+| NSAP_PTR | A pointer to an NSAP address record | DNS type not mapped by ZS firewall |
+| NSEC | Next Secure record | DNS security extensions |
+| NSEC3 | Next Secure record version 3 | DNS type not mapped by ZS firewall |
+| NSEC3PARAM | NSEC3 parameters | DNS type not mapped by ZS firewall |
+| NULL | A null resource record | DNS type not mapped by ZS firewall |
+| NXT | The next existing server in the zone | DNS type not mapped by ZS firewall |
+| OPENPGPKEY | OpenPGP public key record | DNS type not mapped by ZS firewall |
+| OPT | An optional code | DNS type not mapped by ZS firewall |
+| PTR | Pointer record | A domain name pointer |
+| PX | X.400 mail mapping information | DNS type not mapped by ZS firewall |
+| RKEY | Record for storing keys which encrypt NAPTR records | DNS type not mapped by ZS firewall |
+| RP | Responsible Person | For Responsible Person |
+| RRSIG | Resource Record Signature used in Domain Name System Security Extensions (DNSSEC) | DNS type not mapped by ZS firewall |
+| RT | Route Through record | For Route Through |
+| SIG | Signature | DNS type not mapped by ZS firewall |
+| SINK | Record for the storage of miscellaneous structured information | DNS type not mapped by ZS firewall |
+| SOA | Start of an authority record zone | Marks the start of a zone of authority |
+| SRV | Service locator | Server selection |
+| SSHFP | SSH Public Key Fingerprint | DNS type not mapped by ZS firewall |
+| SVCB | General-purpose service binding | DNS type not mapped by ZS firewall |
+| TALINK | Trust Anchor LINK | DNS type not mapped by ZS firewall |
+| Text File | Text record | Text strings |
+| TLSA | TLSA certificate association | DNS type not mapped by ZS firewall |
+| WKS | A well-known service description | A well-known service description |
+| X25 | X.25 PSDN address | DNS type not mapped by ZS firewall |
+| ZONEMD | Message Digest Over Zone Data | DNS type not mapped by ZS firewall |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/dns-insights-logs-filters","lastmod":"2026-07-28T04:17Z","nid":"1400991"} -->
+## DNS Insights Logs: Filters
+
+- Source: https://help.zscaler.com/zia/dns-insights-logs-filters
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Filters
+- Last modified: 2026-07-28T04:17Z
+- Summary: Information on the different filters in the DNS Insights Logs page in the Zscaler Admin Console.
+
+Filters define the DNS traffic information that you view in your DNS Insight Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+
+Certain filters, like**Users**, **Departments**, **Locations**, and others, support the selection of multiple values. For these, you can select up to 200 values in a single filter. You can also choose to include or exclude the selected values. Also, certain filters support additional operators (i.e., Does Not Contain, Does Not Start With, Does Not End With, Is Null, Is Not Null) for filters that perform string match, like **Threat Category** and others.
+
+There are certain filter combinations that appear together in Insights Logs when applied, but won't appear together in Insights. For example, the **Department** and **Location** filters appear together in Insights Logs when applied, but won't appear together in Insights.
+
+Following are the DNS log filters you can select:
+
+- **Action**: Use this filter to limit the data to a specific action taken by your DNS Control policy.
+- **Capture**: Use this filter to limit the data to view transactions that were captured into a PCAP file.
+- **Client IP**: Use this filter to limit the data about traffic associated with a specific client IP address. Choose **Match**and enter an IP address, a range of IP addresses, or an IP address and netmask, as shown in the examples below the text box.
+- **ECS Object Name**: Use this filter to limit the data to traffic associated with an ECS object.
+- **ECS Prefix**: Use this filter to limit the data to traffic associated with the ECS prefix.ECS Prefix Length: Use this filter to limit the data to traffic associated with the
+- **ECS prefix length**. Enter the prefix length in the **Min**and **Max**fields to view the logs within that range.
+- **Data Center**: Use this filter to limit the data to traffic associated with a specific data center.
+- **Department**: Use this filter to limit the data to the traffic of a specific department. It lists 200 results at a time. Select **Hide Deleted**if you want to remove deleted departments from the list. Click **Select All** to select all the configured departments. Use the Search function to find a specific department. You can choose to include or exclude certain departments.
+- **Device Hostname**: The hostname information from support devices. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
+- **Device Model**: Use this filter to view transactions associated with a specific device model. Enter all or part of the device model in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Device Name**: Use this filter to view transactions associated with a specific device name. Enter all or part of the device name in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
+- **Device OS Type**: Use this filter to view transactions associated with a specific device OS type. Enter all or part of the device OS type in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Device OS Version**: Use this filter to view transactions associated with a specific device OS version. Enter all or part of the device OS version in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Device Owner**: Use this filter to view transactions associated with a specific device owner. Enter all or part of the device owner in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
+- **DNS Gateway Flags**: Use this filter to limit the data for DNS transactions that used a DNS Gateway. The following flags appear under this filter:
+  - Primary Server Attempted
+  - Secondary Server Attempted
+  - Query Forwarded to Destination
+  - Error Response Returned to Client
+  - Query Dropped
+- **DNS Request Type**: Use this filter to limit the data to the traffic associated with a specific type of DNS Request. Choose the request type from the list.
+- **DNS Response**: Use this filter to limit the data to the traffic associated with a specific DNS response. The following sub-filters appear:
+  - Resolved Name
+  - Resolved IPv4 Address
+  - Resolved IPv6 Address
+  - DNS Error Code
+
+The following Zscaler internal error codes might appear in the DNS Error Code column:
+
+- Empty_Resp
+- Bypass
+- Int_Error
+- Srv_TimeOut
+
+These codes are not listed under the DNS Error Code filter. Zscaler uses these error codes for diagnostic purposes. If you need further assistance, contact Zscaler Support.
+
+- **DNS Tunnel & Network App Categories**: Use this filter to limit the data to traffic that comes from a specific tunneling or network application category. Use the search function to find a specific category.
+- **DNS Tunnels & Network Apps**: Use this filter to view information about the type of tunnels and network applications used. Use the search function to find a specific application.
+- **Enrolled Device appversion**: Use this filter to view transactions associated with a specific enrolled device app version. Enter all or part of the enrolled device app version in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Extranet Resource**: Use this filter to view transactions associated with an extranet resource. You can also choose to include or exclude the selected values. The default option for this filter is **Any**.
+- **HTTP Status Code**: Use this filter to limit the data to traffic associated with a HTTP status code.
+- **Request Categories**: Use this filter to limit the data to the traffic associated with the request category of the requested domain.
+- **Response Categories**: Use this filter to limit the data to the traffic associated with the response category of the response IP or the canonical name (CNAME).
+- **Location**: Use this filter to limit the data to a location's traffic. Choose a location from the list of Internet gateway locations specified in the Locations page. The list includes Road Warrior, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. Select **Hide Deleted**if you want to remove deleted locations from the list. Click **Select All** to select all the configured locations. Use the Search function to find a specific location. You can choose to include or exclude certain locations.
+- **Location Group**: Use this filter to limit the data to a location group’s traffic. Choose a location group from the list. Use the Search function to find a specific location group.
+- **Location Type**: Use this filter to view transactions associated with a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
+  - Corporate User Traffic Group
+  - Guest Wifi Group
+  - IoT Traffic Group
+  - Server Traffic Group
+  - Unassigned Locations
+  - Workload Traffic Group
+- **Protocol Type**: Use this filter to limit data to TCP, UDP, or DNS over HTTP traffic.
+- **Request Duration**: Use this filter to limit the data to the traffic associated with the specified request duration.
+- **Requested Domain**: Use this filter to limit the data to the traffic associated with the domain for which DNS resolution was requested. Enter all or part of the domain in the text field and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Resolver Gateway**: Use this filter to limit the data to traffic associated with a resolver gateway.
+- **Rule Name**: Use this filter to limit the data to specific rules in the firewall policy. Choose the rules from the list.
+- **Server IP**: Use this filter to limit the data to traffic associated with a specific server IP address. Choose **Match**and enter an IP address, a range of IP addresses, or an IP address and netmask, as shown in the examples below the text box.
+- **Server Port**: Use this filter to limit the data to traffic associated with a specific server port.
+- **Server Protocol**: Use this filter to limit the data to traffic associated with a server protocol.
+- **Show Delayed Logs**: Use this filter to limit the data to traffic based on delayed logs.
+- **User**: Use this filter to limit the data to the traffic of specific users. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search for specific users. Choose the usernames from the list. You can choose to include or exclude certain users.
 <!-- /ZS-ARTICLE -->

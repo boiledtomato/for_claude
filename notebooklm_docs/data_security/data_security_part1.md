@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 186
 
 ---
@@ -8350,20 +8350,20 @@ The Has Data predicate can be used to check if the resource contains sensitive d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/customizing-page-settings","lastmod":"2026-07-29T03:18Z","nid":"1542085"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/customizing-page-settings","lastmod":"2026-07-30T21:42Z","nid":"1542085"} -->
 ## Customizing Page Settings
 
 - Source: https://help.zscaler.com/dspm/customizing-page-settings
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > Customizing Page Settings
-- Last modified: 2026-07-29T03:18Z
+- Last modified: 2026-07-30T21:42Z
 - Summary: How to customize the page views in DSPM.
 
 You can customize page settings on the Resource Inventory, Data Inventory, Data Duplications, and Alerts pages to focus on the specific information you want to see. You can apply filters, show or hide the required columns and save this page setting for future use. This allows you to return to the same customized page view without having to reapply the settings each time you visit the page.
 
 You can save multiple page views with unique names. You can also update an existing view and save it as a new page view. The customized page views are applicable for each individual user and other users cannot see them. The default page view cannot be changed or deleted.
 
-## Save a Page Setting
+## Saving a Page Setting
 
 To customize and save a page setting:
 
@@ -8374,7 +8374,7 @@ To customize and save a page setting:
 5. To save this page setting as the default view every time you visit the page, select the **Set as Default View** checkbox. See image.
 6. Click **Save**.
 
-## Delete a Page Setting
+## Deleting a Page Setting
 
 To delete the saved page setting:
 

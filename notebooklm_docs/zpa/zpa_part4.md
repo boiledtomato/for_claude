@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 25
 
 ---
@@ -237,13 +237,13 @@ For each widget, you can search by entering part or all of a Private Cloud Contr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-private-service-edges-dashboard","lastmod":"2026-06-29T10:09Z","nid":"1485151"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-private-service-edges-dashboard","lastmod":"2026-07-30T14:22Z","nid":"1485151"} -->
 ## Viewing the Private Service Edges Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-private-service-edges-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Private Service Edge Monitoring > Viewing the Private Service Edges Dashboard
-- Last modified: 2026-06-29T10:09Z
+- Last modified: 2026-07-30T14:22Z
 - Summary: Information on the Private Service Edges dashboard and widgets accessible within the Zscaler Admin Console.
 
 The Private Service Edges dashboard provides information about the Private Service Edges for Private Access for your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Private Service Edges.
@@ -399,8 +399,8 @@ The information available about the Private Service Edge is:
 - **Active Connections to App Connectors**: The number of active connections the Private Service Edge had to App Connectors for the point in time listed.
 - **Active Connections to Public Service Edges**: The active connection the Private Service Edge had to Public Service Edges for Private Access for the point in time listed.
 - **Available Disk Space**: The number of available disk space for the Private Service Edge at the point in time listed.
-- **Bytes Received from the App Connector**: The number of received bytes from App Connectors to the Private Service Edge in the selected time range.
-- **Bytes Transmitted to the App Connector**: The number of transmitted bytes to App Connectors from the Public Service Edges in the selected time range.
+- **Total Bytes Received**: The number of received bytes from App Connectors to the Private Service Edge in the selected time range.
+- **Total Bytes Transferred**: The number of transfered bytes to App Connectors from the Public Service Edges in the selected time range.
 - **Configured Application Count**: The number of applications configured for access via the Private Service Edge at different points during the selected time range.
 - **CPU Utilization**: The highest CPU used by the Public Service Edge for the time range selected.
 - **Disconnected Connections to App Connectors**: The number of disconnected connections to App Connectors in the selected time range for a Private Service Edge.

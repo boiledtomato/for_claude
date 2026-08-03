@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 182
 
 ---
@@ -1808,13 +1808,13 @@ After your webhook is set up, configured triggers for field updates in your Fres
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/configuring-google-cloud-storage-outegration","lastmod":"2026-06-09T22:24Z","nid":"1541147"} -->
+<!-- ZS-ARTICLE {"url":"/aem/configuring-google-cloud-storage-outegration","lastmod":"2026-07-31T07:06Z","nid":"1541147"} -->
 ## Configuring Google Cloud Storage Outegration
 
 - Source: https://help.zscaler.com/aem/configuring-google-cloud-storage-outegration
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring Google Cloud Storage Outegration
-- Last modified: 2026-06-09T22:24Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to configure Google Cloud Storage outegration in the Zscaler SecOps platform.
 
 The Google Cloud Platform (GCP) Storage outegration is used as a report delivery method to dispatch files from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Google Cloud Storage bucket.
@@ -8242,6 +8242,51 @@ Use this tab to view a list of issues that were discovered. For each issue, you 
 - **Cloud Account**: The unique identifier of the cloud account in which the model is located.
 - **Created On**: The date and time the issue was created.
 - **Last Updated**: The date and time the issue was last updated.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-ai-resources-identities","lastmod":"2026-07-30T03:50Z","nid":"1540215"} -->
+## About AI Resources - Identities
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/about-ai-resources-identities
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Asset Discovery > AI Resources > About AI Resources - Identities
+- Last modified: 2026-07-30T03:50Z
+- Summary: Information about the Identities in the AI Resources page in the AI Security Admin Portal, which lists all identities within the cloud environment, along with details about the type and number of data stores that a user has access to.
+
+An identity represents a user, device, application, or service that can access data stores containing sensitive data in the cloud environment. While securing sensitive data, it is crucial to control and manage the permissions assigned to identities, as excessive permissions and insecure configurations could lead to security breaches. AI Security detects identities in all the onboarded cloud accounts (AWS, Azure, and GCP), including managed and unmanaged databases, and Snowflake.
+
+The AI Assets - Identities Page provides the following benefits and enables you to:
+
+- View the identities that can access resources containing sensitive data within your cloud environment.
+- View the data stores accessed by an identity.
+- View the type of sensitive data accessed by each identity.
+- View the security posture of the identity.
+
+## About the AI Resources - Identities Page
+
+On the AI Resources Identities page (AI Infrastructure > AI Resources > Identities), you can do the following:
+
+1. Filter by **Business Units**.
+2. View the following widgets for a quick, at-a-glance summary of your identities:
+  - **Identities by Type**: Distribution of identity types that access AI resources, eg., AWS IAM User, AWS IAM Role, AWS IAM Policy, GCP Service Account, Azure, etc.
+  - **Identities by Status**: Distribution of the software libraries by their governance status, e.g., **Sanctioned**(reviewed and approved), **Unsanctioned**(reviewed and not approved), or **Pending**(awaiting review).
+  - **Identities by Risk Posture**: Distribution of identities by security posture risk category, e.g., privileged access, Inactive Certificate, MFA disabled, or Dual Authentication Disabled.
+3. Search for specific data in the searchable columns.
+4. Apply [filters](https://help.zscaler.com/ai-asset-mgmt/using-filters) to view specific data.
+5. View the list of identities. For each identity, you can see:
+  - **Name**: The name of the entity. Click the entity name to view additional details.
+  - **Environment**: The cloud service provider in which the identity is present.
+  - **Access Type**: The permission level granted to the entity for the selected resource, e.g., **Read**, **Edit**, or **Full Access**.
+  - **Source**: Resource type.
+  - **Status**: Governance status of the identity.
+  - **Risk Posture**: The security posture assigned to the identity (Dormant Identity, MFA Disabled, etc.). Hover over the label to see the description of each posture.
+  - **Last Discovered**: Timestamp when the asset was last updated.
+
+- **General Information:** Information such as type, Source, Account ID, Account Name, Asset Risk, etc. Click **More Details** to view a graphical summary.
+- **Lifecycle:** Timeline of key milestones from discovery to deployment, monitoring, and updates.
+- **Graph View:** The graphs consist of interactive nodes that provide contextual information, e.g., cloud account name, region, type, account ID, account name, file path, risk score, about the primary AI identity and the associated secondary resources. The graphs also include attack paths that show how the resource is compromised either through public exposure, malware, by an IAM entity (user, service, role) with access privileges, vulnerabilities, etc. This information helps you analyze the issues in detail and remediate them immediately. Click the nodes to view additional details of each entity.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15337,13 +15382,13 @@ To create the AWSCloudFormationStackSetExecutionRole role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-gcp-organization","lastmod":"2026-07-22T05:09Z","nid":"1539955"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-gcp-organization","lastmod":"2026-07-30T09:34Z","nid":"1539955"} -->
 ## Onboarding a GCP Organization
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-gcp-organization
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Onboarding a GCP Organization
-- Last modified: 2026-07-22T05:09Z
+- Last modified: 2026-07-30T09:34Z
 - Summary: Information about how to onboard a GCP organization in the Zscaler Admin Console.
 
 You can onboard a Google Cloud Platform (GCP) account and its associated projects to AI Security. AI Security monitors and scans the Cloud Storage buckets in the onboarded projects to identify sensitive data, misconfigurations, vulnerabilities, and more.
@@ -15358,7 +15403,7 @@ Before onboarding the GCP organization, ensure you have completed the following:
   - gcloud CLI to connect to the Google Cloud project and deploy the template using gcloud CLI. To learn more, refer to the [Google Cloud documentation](https://cloud.google.com/sdk/docs/install).
   - Terraform CLI v1.7.5 or later to run the Terraform on a Windows system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/developer/terraform/quickstart-configure).
 - Enable debug logging (optional but recommended for troubleshooting). Click to view the instructions.
-- Create a Custom Role in Google admin console. Click to view the instructions.
+- Create a custom role in the Google Admin console to assign permissions to user, group, and domain resources. This is an optional step. If skipped, AI Security cannot gain read-only access to this resource data. Click to view the instructions.
 - Override the service account key creation policy. Click to view the instructions.
 - Identify a GCP project that has the required roles and which is linked to a billing account to deploy the orchestrator template.
 - Enable the required GCP APIs in the selected GCP project. Click to view the list of required APIs.
@@ -15466,7 +15511,7 @@ Download and deploy the tree discovery template on the project to create a role 
 - a. Download and modify the tree discovery template.
 - b. Deploy the tree discovery template.
 - c. Initialize the tree discovery template.
-- d. Add a service account.
+- d. (Optional) Add a service account.
 - e. Validate the deployment in AI Security.
 
 1. In the Zscaler Admin Console, under the **Connect to the Organization** section, click **Tree Discovery** to download the template as a ZIP file and extract it to a folder on your system.
@@ -16923,60 +16968,4 @@ Vulnerability scanning is supported for file types and file extensions in the fo
 | Node.js | package-lock.json, yarn.lock |
 | PHP | composer.lock |
 | Rust | Cargo.lock |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-ai-security","lastmod":"2026-06-29T21:06Z","nid":"1540847"} -->
-## Understanding AI Security
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-ai-security
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Getting Started > Understanding AI Security
-- Last modified: 2026-06-29T21:06Z
-- Summary: Information about AI Security and its key benefits.
-
-Organizations are increasingly adopting generative AI (Gen AI) workloads in the public cloud to build enterprise-grade AI services that deliver faster, higher quality customer experiences and improve return on investment (ROI). These private Gen AI applications are not only built with managed AI platforms, such as AWS Bedrock and Azure Foundry, but also by deploying unknown and potentially risky AI models sourced from open-source AI repositories, like Hugging Face and Ollama.
-
-To get the most out of these AI agents and tools, organizations need to share their data to make the responses customized to their scenarios. This can be done by tuning the AI model with organization-specific data, or by sharing the data as retrieval augmented generation (RAG). While sharing specific data with the AI models, it is possible that additional sensitive data might be shared either by mistake or by a malicious actor trying to poison the data. Misconfigurations of the AI service can also lead to unwanted data leaks through bad guardrails, agent exposure, usage of vulnerable AI packages, and more. All of these could result in significant data breaches leading to compliance violations under various legal and regulatory frameworks such as GDPR, HIPAA, etc.
-
-Zscaler's AI Security is a comprehensive strategy for securing AI systems by monitoring models, data, and infrastructure to identify and mitigate risks. The AI Security solution leverages the strengths of AI to sift through high volumes of enterprise data used for AI model training or model response with retrieval-augmented generation (RAG) and detect anomalies and potential risks such as sensitive data exposure, vulnerabilities, unauthorized access, and other security incidents. AI Security then correlates signals across data classification and discovery, data access paths, and potential exposure of sensitive data to AI, identifying potential vulnerabilities and misconfigurations to quickly detect hidden AI risks. AI Security enables organizations to innovate safely with Gen AI, by preventing costly data breaches, legal penalties, and reputational damage stemming from unsecured AI data usage, while simultaneously improving control and visibility over their AI ecosystem.
-
-## Key Features
-
-Organizations face significant challenges in balancing productivity and ensuring data security with AI adoption and controlling what AI can see and do with enterprise data. AI Security provides the following key features:
-
-- **Public AI visibility and inventory**:
-  - AI application discovery and inventory, e.g., Gen AI and Desktop AI.
-  - Usage analytics includes overall traffic volume, user counts, top-used apps, and department-wise usage.
-  - Category-based views to understand usage by AI app type (e.g., GenAI, Desktop AI, Embedded AI).
-  - MCP traffic visibility to help monitor AI-related traffic patterns.
-- **AI infrastructure discovery**:
-  - Asset discovery and inventory of key AI infrastructure components, including, models, MCP servers, agents, and AI apps.
-  - High-level metrics and distributions such as, risk-level distribution, type-based distribution (e.g., model types), environment and cloud distribution.
-  - Interactive drill-down from dashboard widgets into detailed inventory lists for each asset type.
-- AI Resources visibility (workloads, identities, datastores, guardrails, libraries):
-  - Provides an inventory-style view of supporting resources connected to your AI environment, including:
-    - Workloads: Compute and services that host or run AI-related components.
-    - Datastores: Storage locations used by AI workloads and pipelines.
-    - Identities: Users and service identities that access AI assets and resources.
-    - Guardrails: Controls and configurations that help enforce safe and compliant AI usage.
-    - AI software libraries: Libraries detected in the environment (appear as data becomes available).
-- **Unified dashboard and drill-down navigation**:
-  - Consolidates high-level metrics into widgets and charts.
-  - Lets you click through from summary metrics to detailed inventory pages for faster triage.
-- **AI Red Teaming visibility:**
-  - Dedicated red teaming dashboard tab to surface red teaming metrics and outcomes.
-  - Supports tracking posture over time by reviewing red teaming results and trends.
-
-## Key Benefits
-
-AI Security provides the following benefits to help alleviate the challenges:
-
-- Unified visibility across AI usage and infrastructure: See both AI apps in use and the underlying AI assets (models, MCP servers, agents) in one place.
-- Faster triage and investigation: Click from dashboards to inventories to pinpoint the affected app, asset, or resource quickly.
-- Better risk prioritization: Risk distributions across assets and resources help focus on what matters most.
-- Stronger governance and control: Identity and guardrail visibility supports access reviews and policy alignment.
-- Improved operational readiness: Software library and resource inventories help identify dependencies and reduce blind spots.
-- Continuous posture validation: Red teaming insights help validate defenses and measure improvements over time.
 <!-- /ZS-ARTICLE -->

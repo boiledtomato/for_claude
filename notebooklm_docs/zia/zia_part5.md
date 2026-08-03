@@ -1,237 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
-Articles in this file: 136
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/dns-insights-logs-columns","lastmod":"2026-06-04T18:41Z","nid":"1400996"} -->
-## DNS Insights Logs: Columns
-
-- Source: https://help.zscaler.com/zia/dns-insights-logs-columns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Columns
-- Last modified: 2026-06-04T18:41Z
-- Summary: Information on the different columns in the DNS Insights Logs page in the Zscaler Admin Console.
-
-You can customize your DNS logs by using column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
-
-Following are the DNS Insight Log columns you can select to view:
-
-- **Capture**: The name of the packet capture (PCAP) file that captured the transaction. You can download the file by clicking the **Download**icon next to the file name.
-- **Client IP**:The IP address from which the transaction originated. This is the IP address of the client device. You can sort this column.
-- **DNS Error Code**:The error code returned in the DNS response. All error codes derive from the standard set by the [Internet Engineering Task Force Organization](https://tools.ietf.org/html/rfc2929#section-2.3). An error code is populated in this field in the following scenarios: Possible DNS Error Codes Displayed in the DNS Response
-  - When the traffic matches with a DNS Control rule configured with the Block with Response Code action, the corresponding response code is populated in this field.
-  - When using [DNS Gateways](https://help.zscaler.com/zia/about-dns-gateways) to forward DNS queries (inbound over UDP/TCP/DoH) to an external DNS service over DoH, the Zscaler service may receive an HTTP response without a DNS response due to an error. In that case, the service tries to translate the HTTP status code into an equivalent DNS response and logs it using the DNS Error Code field.
-- **DNS Gateway Flags**: The DNS request status at the DNS Gateway level.
-- **DNS Request Type**: The DNS request type. DNS policy control and action enforcement are supported for all available DNS request types, but DNS logs might not display the specific request type values for all DNS request types, as indicated in the following section. See the mapping between DNS request types displayed in policy rules vs. DNS logs.
-- **DNS Response Type**: The DNS response type.
-- **Department**: The department of the user. You can sort and search through this column.
-- **Device Hostname**: The hostname information from support devices.
-- **Device Model**: The model of the device.
-- **Device Name**: The name of the device.
-- **Device OS Type**: The OS type of the device.
-- **Device OS Version**: The OS version the device uses.
-- **Device Owner**: The owner of the device.
-- **ECS Object Name**: The unique name assigned to and identifying the ECS object.
-- **ECS Prefix**: The ECS prefix used for the Client Subnet option in the DNS query.
-- **ECS Prefix Length**: The length of the client’s IP address specified for the Client Subnet option in the DNS query.
-- **Extranet Resource**: The extranet resource name.
-- **HTTP Status Code**: The status code returned by the DNS Over HTTPS (DoH) server, and is applicable only when the protocol used between the Internet & SaaS ZIA service and the DNS server is DoH.
-- **Request Categories**: The request category corresponding to the requested domain. If this is blank, then the domain is not categorized.
-- **Response Categories**: The response category corresponding to the response for the requested domain. If this is blank, then the resolved IP or the canonical name (CNAME) is not categorized.
-- **Event Time**: The date and time of the transaction. You can sort this column.
-- **Location**: The name of the location from which the DNS request was initiated. You can sort and search through this column.
-- **Logged Time**: The date and time the transaction was logged.
-- **Protocol Type**: UDP, TCP, or DNS over HTTP.
-- **Response Rule Name**: Name of the rule that was applied to the DNS response.
-- **Request Action**: The action taken on the DNS request. For block rules configured with either Block or Block with Response Code action, this field populates a "Block" value.
-- **Response Action**: The action taken on the DNS response. For block rules configured with either Block or Block with Response Code action, this field populates a "Block" value.
-- **Request Duration**: The request duration in milliseconds.
-- **Request Rule Name**: Name of the rule that was applied to the DNS request.
-- **Requested Domain**: The domain for which DNS resolution was requested. You can sort and search through this column.
-- **Resolved IP or Name**: The resolved IP or CNAME in the response. Whether this is an IP or Name is determined by the DNS response type field. You can sort this column.
-- **Resolver Gateway**: The name of the DNS resolver (primary or secondary, within the configured DNS Gateway of the triggered rule) that was successfully used to resolve the DNS request or displays the error resolution, if any. One of the following flags appears:
-  - Primary Server Attempted
-  - Secondary Server Attempted
-  - Query Forwarded to Destination
-  - Error Response Returned to Client
-  - Query Dropped
-- **Rule Name**: The rule that was triggered by the DNS request, response, or both. You can sort this column. This column is only displayed in the logs if the traffic is blocked. By default, this column is not displayed for allowed traffic.
-  - The following are the reasons why the Zscaler Bypass Traffic rule populates in the logs:
-    - When the domain name in the DNS request query matches a Zscaler cloud domain.
-    - When the DNS request query matches an Microsoft 365 endpoint listed in the [Office 365 One Click predefined firewall filtering rules](https://help.zscaler.com/zia/about-predefined-firewall-filtering-rules#office-one-click), if enabled.
-    - When the DNS response does not contain a resolved IP or CNAME.
-    - When the DNS response is not completely analyzed because of its resource record type. DNS Control performs detailed analysis of responses for A, AAAA, CNAME, and PTR record types.
-- **Server IP**: The actual DNS server IP address that resolves the DNS request. The user-targeted DNS server and the actual DNS server can vary depending on the NAT rule configuration for DNS traffic. To learn more, see [About DNS Control](https://help.zscaler.com/zia/about-dns-control). You can sort this column.
-- **Server Port**: The server port.
-- **Server Protocol**: The protocol used to communicate with the DNS server.
-- **Time**: The timestamp of the DNS request.
-- **User**: The user name. If this is blank, then location-based authentication is set. You can sort and search through this column.
-
-| Sl. No. | DNR Error Code | Description |
-| --- | --- | --- |
-| 1 | UNSUPPORTED | The DNS parser cannot decode, but there is no error in the DNS header. |
-| 2 | BYPASS | DNS transaction bypassed due to cloud domain/bypass list. |
-| 3 | INT_ERROR | DNS parser failed to parse supported types. |
-| 4 | SRV_TIMEOUT | DNS transaction timed out as server didn't respond. |
-| 5 | EMPTY_RESP | DNS response has no error, but the answer section is empty. |
-| 6 | REQ_BLOCKED | DNS request blocked by firewall, hence no DNS response. |
-| 7 | ADMIN_DROP | DNS transaction prematurely terminated due to the session being forced-dropped via CLI command. |
-| 8 | WCDN_TIMEOUT | DNS transaction timed out while waiting for Zscaler Message Transport System (MTS) to sync a wildcard domain resolution. |
-| 9 | IPS_BLOCK | DNS transaction blocked by IPS signature match. |
-| 10 | FQDN_RESOLV_FAIL | DNS Gateway server value for FQDN could not be resolved. |
-
-| DNS Rule: DNS Request Type | Description | DNS Logging: DNS Request Type |
-| --- | --- | --- |
-| A | IPv4 address record | A host address |
-| A6 | IPv6 address record | DNS type not mapped by ZS firewall |
-| AAAA | IPv6 address record | IP6 address |
-| AFSDB | Andrew File System Database record | For AFS Data Base location |
-| APL | Address Prefix List | DNS type not mapped by ZS firewall |
-| ATMA | Asynchronous Transfer Mode Address | DNS type not mapped by ZS firewall |
-| CDNSKEY | Child DNSKEY | DNS type not mapped by ZS firewall |
-| CDS | Child DS | DNS type not mapped by ZS firewall |
-| CERT | Certificate record | DNS type not mapped by ZS firewall |
-| CNAME | Canonical name record | The canonical name for an alias |
-| CSYNC | Child-to-Parent Synchronization | DNS type not mapped by ZS firewall |
-| DHCID | Dynamic Host Configuration Protocol Identifier | DNS type not mapped by ZS firewall |
-| DNAME | Non-terminal DNS name redirection | DNS type not mapped by ZS firewall |
-| DNSKEY | DNS Key record | DNS public key |
-| DS | Delegation Signer | Delegation Signer |
-| EID | DNS Endpoint Identifier resource records | DNS type not mapped by ZS firewall |
-| GPOS | Geographical Position record | DNS type not mapped by ZS firewall |
-| HINFO | Host Information record | Host Information |
-| HIP | Host Identity Protocol | Host Identity Protocol |
-| HTTPS | Service binding for HTTPS including Encrypted Client Hello (ECH) You need to block the HTTPS DNS resource record type to stop ECH and prevent unmanaged encrypted traffic flows happening through the secure web gateway. | SVCB-compatible type for use with HTTP |
-| IPSECKEY | IPSec Key | DNS type not mapped by ZS firewall |
-| ISDN | Integrated Services Digital Network address record | For ISDN address |
-| KEY | Key record | DNS type not mapped by ZS firewall |
-| KX | Key Exchanger record | DNS type not mapped by ZS firewall |
-| LOC | Location record | Location information |
-| MB | Mailbox record | A mailbox domain name |
-| MD | Mail Destination record | DNS type not mapped by ZS firewall |
-| MF | Mail Forwarding record | DNS type not mapped by ZS firewall |
-| MG | Mail Group Member record | A mail group member |
-| MINFO | Mailbox or mail list record | Mailbox or mail list information |
-| MR | Renamed mailbox record | A mail rename domain name |
-| MX | Mail Exchange record | Mail exchange |
-| NAPTR | Naming Authority Pointer | Naming Authority Pointer |
-| NIMLOC | Nimrod Locator resource records | DNS type not mapped by ZS firewall |
-| NINFO | DNS zone status | DNS type not mapped by ZS firewall |
-| NS | Name Server record | An authoritative name server |
-| NSAP | NSAP address record | DNS type not mapped by ZS firewall |
-| NSAP_PTR | A pointer to an NSAP address record | DNS type not mapped by ZS firewall |
-| NSEC | Next Secure record | DNS security extensions |
-| NSEC3 | Next Secure record version 3 | DNS type not mapped by ZS firewall |
-| NSEC3PARAM | NSEC3 parameters | DNS type not mapped by ZS firewall |
-| NULL | A null resource record | DNS type not mapped by ZS firewall |
-| NXT | The next existing server in the zone | DNS type not mapped by ZS firewall |
-| OPENPGPKEY | OpenPGP public key record | DNS type not mapped by ZS firewall |
-| OPT | An optional code | DNS type not mapped by ZS firewall |
-| PTR | Pointer record | A domain name pointer |
-| PX | X.400 mail mapping information | DNS type not mapped by ZS firewall |
-| RKEY | Record for storing keys which encrypt NAPTR records | DNS type not mapped by ZS firewall |
-| RP | Responsible Person | For Responsible Person |
-| RRSIG | Resource Record Signature used in Domain Name System Security Extensions (DNSSEC) | DNS type not mapped by ZS firewall |
-| RT | Route Through record | For Route Through |
-| SIG | Signature | DNS type not mapped by ZS firewall |
-| SINK | Record for the storage of miscellaneous structured information | DNS type not mapped by ZS firewall |
-| SOA | Start of an authority record zone | Marks the start of a zone of authority |
-| SRV | Service locator | Server selection |
-| SSHFP | SSH Public Key Fingerprint | DNS type not mapped by ZS firewall |
-| SVCB | General-purpose service binding | DNS type not mapped by ZS firewall |
-| TALINK | Trust Anchor LINK | DNS type not mapped by ZS firewall |
-| Text File | Text record | Text strings |
-| TLSA | TLSA certificate association | DNS type not mapped by ZS firewall |
-| WKS | A well-known service description | A well-known service description |
-| X25 | X.25 PSDN address | DNS type not mapped by ZS firewall |
-| ZONEMD | Message Digest Over Zone Data | DNS type not mapped by ZS firewall |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/dns-insights-logs-filters","lastmod":"2026-07-28T04:17Z","nid":"1400991"} -->
-## DNS Insights Logs: Filters
-
-- Source: https://help.zscaler.com/zia/dns-insights-logs-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Filters
-- Last modified: 2026-07-28T04:17Z
-- Summary: Information on the different filters in the DNS Insights Logs page in the Zscaler Admin Console.
-
-Filters define the DNS traffic information that you view in your DNS Insight Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
-
-Certain filters, like**Users**, **Departments**, **Locations**, and others, support the selection of multiple values. For these, you can select up to 200 values in a single filter. You can also choose to include or exclude the selected values. Also, certain filters support additional operators (i.e., Does Not Contain, Does Not Start With, Does Not End With, Is Null, Is Not Null) for filters that perform string match, like **Threat Category** and others.
-
-There are certain filter combinations that appear together in Insights Logs when applied, but won't appear together in Insights. For example, the **Department** and **Location** filters appear together in Insights Logs when applied, but won't appear together in Insights.
-
-Following are the DNS log filters you can select:
-
-- **Action**: Use this filter to limit the data to a specific action taken by your DNS Control policy.
-- **Capture**: Use this filter to limit the data to view transactions that were captured into a PCAP file.
-- **Client IP**: Use this filter to limit the data about traffic associated with a specific client IP address. Choose **Match**and enter an IP address, a range of IP addresses, or an IP address and netmask, as shown in the examples below the text box.
-- **ECS Object Name**: Use this filter to limit the data to traffic associated with an ECS object.
-- **ECS Prefix**: Use this filter to limit the data to traffic associated with the ECS prefix.ECS Prefix Length: Use this filter to limit the data to traffic associated with the
-- **ECS prefix length**. Enter the prefix length in the **Min**and **Max**fields to view the logs within that range.
-- **Data Center**: Use this filter to limit the data to traffic associated with a specific data center.
-- **Department**: Use this filter to limit the data to the traffic of a specific department. It lists 200 results at a time. Select **Hide Deleted**if you want to remove deleted departments from the list. Click **Select All** to select all the configured departments. Use the Search function to find a specific department. You can choose to include or exclude certain departments.
-- **Device Hostname**: The hostname information from support devices. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
-- **Device Model**: Use this filter to view transactions associated with a specific device model. Enter all or part of the device model in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
-- **Device Name**: Use this filter to view transactions associated with a specific device name. Enter all or part of the device name in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
-- **Device OS Type**: Use this filter to view transactions associated with a specific device OS type. Enter all or part of the device OS type in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
-- **Device OS Version**: Use this filter to view transactions associated with a specific device OS version. Enter all or part of the device OS version in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
-- **Device Owner**: Use this filter to view transactions associated with a specific device owner. Enter all or part of the device owner in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
-- **DNS Gateway Flags**: Use this filter to limit the data for DNS transactions that used a DNS Gateway. The following flags appear under this filter:
-  - Primary Server Attempted
-  - Secondary Server Attempted
-  - Query Forwarded to Destination
-  - Error Response Returned to Client
-  - Query Dropped
-- **DNS Request Type**: Use this filter to limit the data to the traffic associated with a specific type of DNS Request. Choose the request type from the list.
-- **DNS Response**: Use this filter to limit the data to the traffic associated with a specific DNS response. The following sub-filters appear:
-  - Resolved Name
-  - Resolved IPv4 Address
-  - Resolved IPv6 Address
-  - DNS Error Code
-
-The following Zscaler internal error codes might appear in the DNS Error Code column:
-
-- Empty_Resp
-- Bypass
-- Int_Error
-- Srv_TimeOut
-
-These codes are not listed under the DNS Error Code filter. Zscaler uses these error codes for diagnostic purposes. If you need further assistance, contact Zscaler Support.
-
-- **DNS Tunnel & Network App Categories**: Use this filter to limit the data to traffic that comes from a specific tunneling or network application category. Use the search function to find a specific category.
-- **DNS Tunnels & Network Apps**: Use this filter to view information about the type of tunnels and network applications used. Use the search function to find a specific application.
-- **Enrolled Device appversion**: Use this filter to view transactions associated with a specific enrolled device app version. Enter all or part of the enrolled device app version in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
-- **Extranet Resource**: Use this filter to view transactions associated with an extranet resource. You can also choose to include or exclude the selected values. The default option for this filter is **Any**.
-- **HTTP Status Code**: Use this filter to limit the data to traffic associated with a HTTP status code.
-- **Request Categories**: Use this filter to limit the data to the traffic associated with the request category of the requested domain.
-- **Response Categories**: Use this filter to limit the data to the traffic associated with the response category of the response IP or the canonical name (CNAME).
-- **Location**: Use this filter to limit the data to a location's traffic. Choose a location from the list of Internet gateway locations specified in the Locations page. The list includes Road Warrior, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. Select **Hide Deleted**if you want to remove deleted locations from the list. Click **Select All** to select all the configured locations. Use the Search function to find a specific location. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to a location group’s traffic. Choose a location group from the list. Use the Search function to find a specific location group.
-- **Location Type**: Use this filter to view transactions associated with a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol Type**: Use this filter to limit data to TCP, UDP, or DNS over HTTP traffic.
-- **Request Duration**: Use this filter to limit the data to the traffic associated with the specified request duration.
-- **Requested Domain**: Use this filter to limit the data to the traffic associated with the domain for which DNS resolution was requested. Enter all or part of the domain in the text field and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
-- **Resolver Gateway**: Use this filter to limit the data to traffic associated with a resolver gateway.
-- **Rule Name**: Use this filter to limit the data to specific rules in the firewall policy. Choose the rules from the list.
-- **Server IP**: Use this filter to limit the data to traffic associated with a specific server IP address. Choose **Match**and enter an IP address, a range of IP addresses, or an IP address and netmask, as shown in the examples below the text box.
-- **Server Port**: Use this filter to limit the data to traffic associated with a specific server port.
-- **Server Protocol**: Use this filter to limit the data to traffic associated with a server protocol.
-- **Show Delayed Logs**: Use this filter to limit the data to traffic based on delayed logs.
-- **User**: Use this filter to limit the data to the traffic of specific users. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search for specific users. Choose the usernames from the list. You can choose to include or exclude certain users.
-<!-- /ZS-ARTICLE -->
+Generated: 2026-08-03 02:47 UTC
+Articles in this file: 134
 
 ---
 
@@ -372,35 +143,27 @@ The CSV file you download here cannot be used to [import location and sublocatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas","lastmod":"2026-07-29T13:50Z","nid":"1398926"} -->
-## Downloading Virtual Service Edge Certificates and Configuration Files for Internet & SaaS
+<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas","lastmod":"2026-07-31T10:30Z","nid":"1398926"} -->
+## Downloading Virtual Service Edge Certificates for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates and Configuration Files for Internet & SaaS
-- Last modified: 2026-07-29T13:50Z
-- Summary: Information on how to download Virtual Service Edge certificates and configuration files for Internet & SaaS (ZIA), which are used to validate Virtual Service Edge instances within the Zscaler cloud.
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates for Internet & SaaS
+- Last modified: 2026-07-31T10:30Z
+- Summary: Information on how to download Virtual Service Edge certificates for Internet & SaaS (ZIA), which are used to validate Virtual Service Edge instances within the Zscaler cloud.
 
-Downloading the Virtual Service Edge SSL certificate and configuration file is one of the tasks you must complete when deploying Virtual Service Edges or Virtual Service Edge clusters for production. To learn more, see [Configuring Virtual Service Edge Clusters](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters) or any available Virtual Service Edge configuration guide.
+Downloading a Virtual Service Edge certificate for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters for production. To learn more, see [Configuring Virtual Service Edge Clusters for Internet & SaaS](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters-internet-saas).
 
-The Virtual Service Edge certificate is used to authenticate each Virtual Service Edge instance to the Zscaler cloud. The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. You must download the certificate and configuration file for each Virtual Service Edge instance that you added. For example, if your cluster has two Virtual Service Edges, you'll need to download two certificates and configuration files. You upload each certificate and configuration file to the appropriate VM client.
+The Virtual Service Edge certificate is used to authenticate each Virtual Service Edge instance to the Zscaler cloud. You must download the certificate for each Virtual Service Edge instance that you added. For example, if your cluster has two Virtual Service Edges, you'll need to download two certificates. You will upload each certificate to the appropriate vSphere client. To learn more, see [Adding Virtual Service Edge Instances for Internet & SaaS](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas).
 
-To download a Virtual Service Edge SSL certificate:
+To download a Virtual Service Edge certificate:
 
-1. Go to **Infrastructure**>**Internet & SaaS** > **Traffic Forwarding** > **Virtual Service Edges**.
-2. In the**SSL Certificate** column, click **Download** for the [Virtual Service Edge that you added](https://help.zscaler.com/zia/adding-virtual-service-edge-instances) previously, and then save the certificate. See image.
+1. Go to **Infrastructure**> **Internet & SaaS** > **Traffic Forwarding** >**Virtual Service Edges**.
+2. In the**SSL Certificate** column, click **Download** for the [Virtual Service Edge](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas) that you added previously, and then save the certificate. See image.
 
-To download a Virtual Service Edge configuration file:
+If you're downloading multiple certificates, you might want to change the certificate name so that you can differentiate between them. For example, if the Virtual Service Edge instances in a cluster are called VSE1 and VSE2, you can rename the certificate's ZIP files to VSE1.zip and VSE2.zip.
 
-1. Go to **Infrastructure**>**Internet & SaaS** > **Traffic Forwarding** > **Virtual Service Edges**.
-2. Click the **New Client Certificate**icon ([Image: New Client Certificate icon])for the [Virtual Service Edge that you added](https://help.zscaler.com/zia/adding-virtual-service-edge-instances) previously. The **New Client Certificate**window appears.
-3. In the **New Client Certificate**window, click **Download Config** and save the configuration file. See image.
-
-If you're downloading multiple certificates and configuration files, you might want to change the file names so that you can differentiate between them. For example, if the Virtual Service Edge instances in a cluster are called VSE1 and VSE2, you can rename the certificate and configuration ZIP files with `VSE1` and `VSE2` in their names to differentiate them.
-
-[Image: Download Config option in the New Client Certificate window]
-
-[Image: Download SSL certificate]
+[Image: SSL Certificate column and download link on the Virtual Service Edges page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12675,13 +12438,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-cloud-service-api-key","lastmod":"2026-06-02T05:45Z","nid":"1400506"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-cloud-service-api-key","lastmod":"2026-07-31T07:06Z","nid":"1400506"} -->
 ## Managing Cloud Service API Key
 
 - Source: https://help.zscaler.com/zia/managing-cloud-service-api-key
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > Managing Cloud Service API Key
-- Last modified: 2026-06-02T05:45Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to replace, edit, regenerate, and delete your organization's cloud service API key and Sandbox Submission API token within the Zscaler Admin Console.
 
 After your API subscription is enabled, your organization's cloud service API key is initially provisioned by Zscaler, enabled, and displayed within the Cloud Service API Key page along with the base URL. An organization can only have one API key for the cloud service API. To learn more, see [Getting Started](https://help.zscaler.com/zia/api-getting-started).
@@ -14429,13 +14192,13 @@ Displays mobile traffic data organized by user. The trend chart does not support
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/mobile-insights-logs-columns","lastmod":"2026-04-27T00:12Z","nid":"1401071"} -->
+<!-- ZS-ARTICLE {"url":"/zia/mobile-insights-logs-columns","lastmod":"2026-07-29T22:40Z","nid":"1401071"} -->
 ## Mobile Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/mobile-insights-logs-columns
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Mobile Insights Logs: Columns
-- Last modified: 2026-04-27T00:12Z
+- Last modified: 2026-07-29T22:40Z
 - Summary: Information on the different columns in the Mobile Insights Logs page in the Zscaler Admin Console
 
 You can customize your web logs by using column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -14494,7 +14257,7 @@ You can select the following mobile field columns:
   - **System & Development App Control**: This refers to the [System & Development rule](https://help.zscaler.com/zia/how-do-i-add-system-development-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
   - **URL Filtering**: This refers to the [URL filtering policy](https://help.zscaler.com/zia/about-url-filtering).
   - **Webmail App Control**: This refers to the [Webmail rule](https://help.zscaler.com/zia/how-do-i-add-webmail-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The following information is shown:
+- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The following information is shown: Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
   - **FTP**: Transactions from native FTP servers.
   - **FTP over HTTP**: Transactions from FTP over HTTP websites.
   - **HTTPS**: HTTPS transactions that have been inspected.
@@ -14541,13 +14304,13 @@ You can select the following mobile field columns:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/mobile-insights-logs-filters","lastmod":"2026-04-27T02:31Z","nid":"1401076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/mobile-insights-logs-filters","lastmod":"2026-07-30T00:46Z","nid":"1401076"} -->
 ## Mobile Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/mobile-insights-logs-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Mobile Insights Logs: Filters
-- Last modified: 2026-04-27T02:31Z
+- Last modified: 2026-07-30T00:46Z
 - Summary: Information on the different filters in the Mobile Insights Logs page in the Zscaler Admin Console.
 
 Filters define the traffic information that you view in your Mobile Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -15008,6 +14771,8 @@ Improve the visibility of protocols that traverse within Zscaler’s cloud. The 
 - **Tunnel SSL/TLS**: Undecodable protocol within an SSL/TLS connection.
 - **WebSocket**: Transactions from WebSocket websites.
 - **WebSocket SSL/TLS**: Transactions from WebSocket websites encrypted by SSL/TLS.
+
+Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
 
 Use this filter to view transactions based on the number of bytes a destination web server returned for an HTTP request. The default option for this filter is **All Sizes**. You can search for specific sizes. The following sizes appear under this filter:
 
@@ -15887,16 +15652,16 @@ Only the default messages are translated to all the languages that the Zscaler C
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-collector-deployment-guide-vmware-vsphere","lastmod":"2026-07-16T18:50Z","nid":"1463366"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-collector-deployment-guide-vmware-vsphere","lastmod":"2026-07-31T11:33Z","nid":"1463366"} -->
 ## NSS Collector Deployment Guide for VMware vSphere
 
 - Source: https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Collector Deployment Guide for VMware vSphere
-- Last modified: 2026-07-16T18:50Z
+- Last modified: 2026-07-31T11:33Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) Collector via the VMware vSphere platform to collect logs from your third-party security devices and stream them to the Zscaler cloud.
 
-The NSS Collector functionality and the data collected using this functionality are exclusive to [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report). To enable this feature for your organization, contact Zscaler Support.
+The NSS Collector functionality and the data collected using this functionality are exclusive to [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report). To enable this feature for your organization, contact Zscaler Support.
 
 This guide describes the tasks required to deploy [Nanolog Streaming Service (NSS) Collector](https://help.zscaler.com/zia/about-nss-collector-servers) to collect logs in real time from third-party security devices inside your network perimeter and stream them to the Zscaler cloud. Each step in the guide links you to the appropriate article for that configuration task on vSphere.
 
@@ -15914,7 +15679,7 @@ Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscr
 
 To deploy NSS Collector:
 
-- Step 1: In the Zscaler Admin Console, Add an NSS Collector Server and Download the SSL Certificate and Configuration File
+- Step 1: In the Zscaler Admin Console, Add an NSS Collector Server and Download the SSL Certificate
 - Step 2: Use the ESX/ESXi Server to Configure and Start the NSS Collector on the VM Instance
 - Step 3: Configure Third-Party syslog Feed for NSS Collector
 
@@ -15979,15 +15744,7 @@ You can also download the SSL certificate directly from the **NSS Collector Serv
 
 See image.
 
-Additionally, after adding an NSS Collector server, you must download a configuration file required for later [configuring the NSS Collector on the VM instance](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere#step-deploy-start-nss-collector). The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances.
-
-To download the configuration file:
-
-1. Click the **New Client Certificate** icon. See image. The **New Client Certificate** window appears.
-2. In the **New Client Certificate** window, click **Download Config**. See image.
-3. Click **Close**.
-
-Before you configure and start the NSS Collector on the vSphere client, ensure that you have downloaded the NSS Collector OVA file, SSL certificate, and configuration file from the Zscaler Admin Console.
+Before you configure and start the NSS Collector on the vSphere client, ensure that you have downloaded the NSS Collector OVA file and SSL certificate from the Zscaler Admin Console.
 
 To configure the NSS Collector virtual appliance on the VM, log in to the vSphere client and perform the following actions:
 
@@ -15995,11 +15752,8 @@ To configure the NSS Collector virtual appliance on the VM, log in to the vSpher
 - b. Configure the network.
 - c. Configure the NSS Collector.
 - d. Install the SSL certificate.
-- e. Install the configuration file.
-- f. Get the provisioning blob and upload it to the Zscaler Admin Console.
-- g. Get the new client certificate.
-- h. Download the NSS Collector binaries.
-- i. Start the NSS Collector.
+- e. Download the NSS Collector binaries.
+- f. Start the NSS Collector.
 
 Go to **File** > **Deploy OVF Template** and use the Deploy OVF Template wizard to deploy the NSS Collector VM.
 
@@ -16063,23 +15817,6 @@ Specify the path to the uploaded certificate bundle.
 
 ```
 sudo nss dump-config
-```
-
-1. Copy the configuration file that you previously downloaded from the Zscaler Admin Console to the VM.
-2. Run the following command to install the configuration file: sudo nss install-config <Configuration File>Replace the parameter in red with your configuration file name (e.g., `NSSConfig_<NSS Server Name>.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NSSConfig_<NSS Server Name>.zip`).
-
-1. Run the following command to get the provisioning blob: sudo nss show-prov-blobThe provisioning blob string displays in the output. See image.
-2. Copy the provisioning blob string for uploading to the Zscaler Admin Console in the following step.
-3. Upload the provisioning blob:
-  1. In the Zscaler Admin Console, go to your newly deployed NSS server and click the **New Client Certificate** icon to open the **New Client Certificate** window. See image.
-  2. In the **New Client Certificate** window, select **Enter Blob Data**and paste the provisioning blob string.
-  3. Click **Upload**. See image.
-  4. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-Run the following command to get the new client certificate:
-
-```
-sudo nss get-new-clientcert
 ```
 
 Before starting the NSS Collector:
@@ -16162,7 +15899,7 @@ The configuration steps cover the minimum information required in each step and 
     - From the **Log Forwarding** drop-down menu, select the log forwarding profile configured in the previous step.
 5. Click **OK** to save the security policy.
 
-The traffic log data forwarded by Palo Alto Networks firewall is processed by Zscaler and made available for analysis in the [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) in the Zscaler Admin Console. The SaaS Security Report provides analytics for the entire organization, as well as on a per user basis. To facilitate report generation on a per user basis, the identity of users must be verified by Palo Alto Networks firewall and logs must be recorded for the user-based traffic. To do this, you need to add the Internet & SaaS (ZIA) users to the Palo Alto Networks firewall and configure an authentication mechanism for the users. When the NSS Collector server receives the log data, it matches the user information with the Internet & SaaS users and then forwards the logs pertaining to Internet & SaaS users to Zscaler for processing.
+The traffic log data forwarded by Palo Alto Networks firewall is processed by Zscaler and made available for analysis in the [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report) in the Zscaler Admin Console. The SaaS Security Report provides analytics for the entire organization, as well as on a per user basis. To facilitate report generation on a per user basis, the identity of users must be verified by Palo Alto Networks firewall and logs must be recorded for the user-based traffic. To do this, you need to add the Internet & SaaS (ZIA) users to the Palo Alto Networks firewall and configure an authentication mechanism for the users. When the NSS Collector server receives the log data, it matches the user information with the Internet & SaaS users and then forwards the logs pertaining to Internet & SaaS users to Zscaler for processing.
 
 The following sections provide step-by-step instructions for this configuration:
 
@@ -16215,17 +15952,7 @@ This configuration uses a captive portal as the authentication mechanism. Howeve
 
 [Image: vSphere NSS Configure Command Prompt]
 
-[Image: A screenshot of the  SSL certificate download option for NSS Collector server]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
-
-[Image: Example output of show-prov-blob command]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
+[Image: The SSL certificate download option for NSS Collector server]
 
 [Image: Palo Alto Networks Firewall Syslog Server Profile Configuration]
 
@@ -16258,13 +15985,13 @@ This configuration uses a captive portal as the authentication mechanism. Howeve
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-amazon-web-services","lastmod":"2026-07-20T11:53Z","nid":"1401561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-amazon-web-services","lastmod":"2026-07-31T11:25Z","nid":"1401561"} -->
 ## NSS Deployment Guide for Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Amazon Web Services
-- Last modified: 2026-07-20T11:53Z
+- Last modified: 2026-07-31T11:25Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Amazon Web Services (AWS).
 
 Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via Amazon Web Services (AWS). This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
@@ -16285,7 +16012,7 @@ Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscr
 
 To deploy NSS:
 
-- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate and Configuration File
+- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate
 - Step 2: In the Zscaler Admin Console, Compute the Recommended VM Instance Specifications
 - Step 3: In the AWS Management Console, Provision and Configure an EC2 Instance
 - Step 4: Configure and Verify the NSS on the VM Instance
@@ -16341,17 +16068,10 @@ The firewall requirements are as follows:
   - **Status**: The NSS is **Enabled** by default.
 4. Click **Save**.
 5. Click **Download** in the **SSL Certificate** column of your newly added NSS server and save the certificate for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-configure-start-nss). See image.
-6. Click the **New Client Certificate** icon in the row of your newly added NSS server. See image. The **New** **Client Certificate** window appears.
-7. In the **New Client Certificate** window, click **Download Config** and save the configuration file for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-configure-start-nss). The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. See image.
-8. Click **Close**.
 
 [Image: Screenshot of the Add NSS Server window in the Zscaler Admin Console]
 
 [Image: Screenshot of the NSS Servers tab in the Zscaler Admin Console. The Download button under the SSL Certificate column is highlighted.]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
 
 You must enter information about your traffic and users so that the Zscaler service can compute the appropriate resources for your NSS.
 
@@ -16532,32 +16252,34 @@ Before you start:
 
 To configure the NSS virtual appliance on the VM:
 
-- a. Copy the SSL certificate and configuration file.
+- a. Copy the SSL certificate.
 - b. Remote log in to the VM instance.
 - c. Install the SSL certificate.
-- d. Install the configuration file.
-- e. Configure the NSS network settings.
-- f. Get the provisioning blob and upload it to the Zscaler Admin Console.
-- g. Get the new client certificate.
-- h. Download the NSS binaries.
-- i. Start the NSS.
-- j. Verify the configuration.
-- k. (Optional) Remove the SSL certificate.
+- d. Configure the NSS network settings.
+- e. Download the NSS binaries.
+- f. Start the NSS.
+- g. Verify the configuration.
+- h. (Optional) Remove the SSL certificate.
 
 1. Using FTP, SCP, or SFTP, copy the SSL certificate file that you [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-add-nss-server-download-ssl-certificate) from the Zscaler Admin Console to the VM.
-2. Copy the configuration file that you [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-add-nss-server-download-ssl-certificate) to the VM.
-3. Find the public hostname or IP address of your instance in the VM.
+2. Find the public hostname or IP address of your instance in the VM.
 
 Use the following SSH command with your previously downloaded PEM file and public IP address of your instance to get shell access to the VM.
 
 ```
-ssh -i <key-pair-name>.pem zsroot@<instance-public-IP-address>
+ssh -i
+<key-pair-name>
+.pem zsroot@
+<instance-public-IP-address>
 ```
 
 The following is an example:
 
 ```
-ssh -i nss-zscaler.pem zsroot@44.239.205.223
+ssh -i
+nss-zscaler
+.pem zsroot@
+44.239.205.223
 ```
 
 NSS uses an SSL certificate to authenticate itself to the Zscaler service. Make sure that the SSL certificate is installed on only one active NSS VM at a time. Having multiple NSS VMs that use only one certificate causes cloud connection flapping, which disrupts the streaming of logs to the NSS.
@@ -16574,14 +16296,6 @@ sudo nss install-cert NssCertificate.zip
 ```
 sudo nss dump-config
 ```
-
-Run the following command to install the configuration file that you [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-add-nss-server-download-ssl-certificate) from the Zscaler Admin Console:
-
-```
-sudo nss install-config <Configuration File>
-```
-
-Replace the parameter in red with your configuration file name (e.g., `NSSConfig_<NSS Server Name>.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NSSConfig_<NSS Server Name>.zip`).
 
 1. Enter the command `netstat -rn` and note the default gateway IP address. For example:
   | Destination | Gateway |
@@ -16606,26 +16320,6 @@ The first network interface (i.e., management - eth0) is configured by default w
 [Image: The subnet ID link for the service interface in AWS]
 
 [Image: The subnet mask of the service interface in AWS]
-
-1. Run the following command to get the provisioning blob: sudo nss show-prov-blobThe provisioning blob string displays in the output. See image.
-2. Copy the provisioning blob string for uploading to the Zscaler Admin Console in the following step.
-3. Upload the provisioning blob:
-  1. In the Zscaler Admin Console, go to your newly deployed NSS server and click the **New Client Certificate** icon to open the **New Client Certificate** window. See image.
-  2. In the **New Client Certificate** window, select **Enter Blob Data** and paste the provisioning blob string.
-  3. Click **Upload**. See image.
-  4. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Example output of the show-prov-blob command]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate in the Zscaler Admin Console]
-
-Run the following command to get the new client certificate:
-
-```
-sudo nss get-new-clientcert
-```
 
 Before starting the NSS, run the following commandto download and install the NSS binaries:
 
@@ -17124,13 +16818,13 @@ In the event of a connection loss between the NSS server and the cloud [Nanolog]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-google-cloud-platform","lastmod":"2026-07-16T17:30Z","nid":"1503901"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-google-cloud-platform","lastmod":"2026-07-31T11:26Z","nid":"1503901"} -->
 ## NSS Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Google Cloud Platform
-- Last modified: 2026-07-16T17:30Z
+- Last modified: 2026-07-31T11:26Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Google Cloud Platform.
 
 Zscaler’s [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) supports the configuration and deployment of an NSS virtual machine (VM) on Google Cloud Platform (GCP).
@@ -17155,8 +16849,8 @@ Additionally, ensure you have a [subscription](https://help.zscaler.com/unified/
 
 To deploy NSS:
 
-- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate and Configuration File
-- Step 2: In the Zscaler Admin Console, Add an TCP NSS Feed
+- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate
+- Step 2: In the Zscaler Admin Console, Add a TCP NSS Feed
 - (Optional) Step 3: In the Zscaler Admin Console, Add an HTTP NSS Feed
 - Step 4. In the Google Cloud Console, Transfer the VMDK File into the Bucket
 - Step 5: In the Google Cloud Console, Create an NSS Image from the VMDK File
@@ -17212,9 +16906,6 @@ The firewall requirements are as follows:
   - **Status**: The NSS server is **Enabled** by default.
 4. Click **Save**. The NSS server is added to the Zscaler Admin Console.
 5. Click **Download** in the **SSL Certificate** column of the newly added NSS server, and then save the SSL certificate for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform#configure-start-nss). See image.
-6. Click the **New Client Certificate** icon in the row of your newly added NSS server. See image. The **New** **Client Certificate** window appears.
-7. In the **New Client Certificate** window, click **Download Config** and save the configuration file for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform#configure-start-nss). The configuration file contains information for generating a new client certificate, which is required for deploying new virtual instances. See image.
-8. Click **Close**.
 
 A TCP Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. You can filter the data so that you send only the data you need to the SIEM, and you can add up to 16 TCP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per NSS server to ensure optimal performance.) Each feed can have different filters and fields, and a different output format (e.g., CSV). To learn more about how to configure each feed, see:
 
@@ -17341,7 +17032,7 @@ To create a VM instance with the NSS image:
 
 Complete the following steps to configure the NSS on the VM instance:
 
-- a. Configure the NSS and install the SSL certificate and configuration file.
+- a. Configure the NSS and install the SSL certificate.
 - b. Verify the NSS configuration.
 - c. (Optional) Remove the SSL certificate.
 
@@ -17353,20 +17044,9 @@ Complete the following steps to configure the NSS on the VM instance:
   2. Internal service IP address associated with the service interface
   3. Default gateway for the internal service IP address
 5. Copy the [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform#add-nss-server-ssl-certificate) SSL certificate to the VM instance.
-6. Run the following command to install the SSL certificate: sudo nss install-cert <SSL Certificate>Replace the parameter in red with the SSL certificate file name (e.g., `NssCertificate.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NssCertificate.zip`). The NSS uses the SSL certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active VM at a time. Having multiple VMs that use only one certificate causes cloud connection flapping, which disrupts log streaming.
-7. Copy the [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform#add-nss-server-ssl-certificate) configuration file to the VM instance.
-8. Run the following command to install the configuration file: sudo nss install-config <Configuration File>Replace the parameter in red with the configuration file name (e.g., `NSSConfig_<NSS Server>.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NSSConfig_<NSS Server>.zip`).
-9. Get the provisioning blob and upload it to the Zscaler Admin Console:
-  1. Run the following command to get the provisioning blob: sudo nss show-prov-blobThe provisioning blob string displays in the output. See image.
-  2. Copy the provisioning blob string for uploading to the Zscaler Admin Console in the following step.
-  3. Upload the provisioning blob:
-    1. In the Zscaler Admin Console, go to your newly deployed NSS server and click the **New Client Certificate** icon to open the **New Client Certificate** window. See image.
-    2. In the **New Client Certificate**window, select **Enter Blob Data** and paste the provisioning blob string.
-    3. Click **Upload**. See image.
-    4. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-10. Run the following command to get the new client certificate: sudo nss get-new-clientcert
-11. Before starting the NSS, run the following command to download and install the NSS binaries: sudo nss update-nowAfter the first NSS software deployment, the software is automatically updated with new versions.
-12. Run the following command to start the NSS: sudo nss startThe NSS starts within a few minutes.
+6. Run the following command to install the SSL certificate: nss install-cert <SSL Certificate>Replace the parameter in red with the SSL certificate file name (e.g., `NssCertificate.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NssCertificate.zip`). The NSS uses the SSL certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active VM at a time. Having multiple VMs that use only one certificate causes cloud connection flapping, which disrupts log streaming.
+7. Before starting the NSS, run the following command to download and install the NSS binaries: sudo nss update-nowAfter the first NSS software deployment, the software is automatically updated with new versions.
+8. Run the following command to start the NSS: sudo nss startThe NSS starts within a few minutes.
 
 To verify the NSS configuration, run the following command:
 
@@ -17880,16 +17560,6 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 [Image: Add NSS server]
 
 [Image: Download SSL certificate from NSS server]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
-
-[Image: Example output of the show-prov-blob command]
-
-[Image: The New Client Certificate window in the Zscaler Admin Console]
-
-[Image: The New Client Certificate icon in the Zscaler Admin Console]
 
 [Image: Verified NSS connections to the Zscaler Central Authority (CA) and SIEM]
 <!-- /ZS-ARTICLE -->

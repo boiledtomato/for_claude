@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 179
 
 ---
@@ -2020,13 +2020,13 @@ On the Authentication Profiles page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-07-29T07:06Z","nid":"1398956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-08-02T07:06Z","nid":"1398956"} -->
 ## About Backup and Restore
 
 - Source: https://help.zscaler.com/zia/about-backup-and-restore
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > About Backup and Restore
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: Information about backing up and restoring policies, and configuration settings, within the Zscaler service.
 
 [Watch a video on backups and restore points](https://fast.wistia.net/embed/iframe/vohznch7uo) (shows legacy UI)
@@ -2875,13 +2875,13 @@ A Cloud NSS feed behaves differently according to HTTP/S response status codes f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-service-api-key","lastmod":"2026-06-02T05:43Z","nid":"1400501"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-service-api-key","lastmod":"2026-07-31T07:06Z","nid":"1400501"} -->
 ## About Cloud Service API Key
 
 - Source: https://help.zscaler.com/zia/about-cloud-service-api-key
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > About Cloud Service API Key
-- Last modified: 2026-06-02T05:43Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: Information on cloud service API key (and Sandbox Submission API token) management within the Zscaler Admin Console.
 
 You can authenticate with the cloud service API using a combination of API key (an alphanumeric key of 12 characters in length) and Internet & SaaS admin credentials (i.e., username and password).
@@ -5730,13 +5730,13 @@ On the EDNS Client Subnet Prefix Objects page (Policies > Access Control > Firew
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-07-29T07:06Z","nid":"1444161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-08-02T07:06Z","nid":"1444161"} -->
 ## About Email Labels
 
 - Source: https://help.zscaler.com/zia/about-email-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: Information on how to create email labels for Gmail and Microsoft Exchange clients.
 
 Email labels provide the option of adding response actions to Gmail and Microsoft Exchange clients based on the email content. Applying email labels creates categories in the users' email accounts automatically. These labels serve as indications to the users about the type of email content and the level of sensitivity.
@@ -7065,13 +7065,13 @@ On the Identity Proxy Settings page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-07-29T07:06Z","nid":"1400641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-08-02T07:06Z","nid":"1400641"} -->
 ## About the Index Tool
 
 - Source: https://help.zscaler.com/zia/about-index-tool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: Information on Index Tool Configurations and the Index Tool virtual machine (VM), which are used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 The Index Tool allows you to configure index templates that can be applied when creating custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
@@ -7101,7 +7101,7 @@ On the Index Tool page (Policies > Data Protection > Common Resources > Data Cla
   - **SSL Certificate**: Displays a link that allows you to download the SSL client certificate that the VM uses.
 5. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
 6. Download the SSL certificate for the Index tool instance.
-7. Download the configuration file, upload the provisioning blob, and view and manage the new client certificate required for Index Tool deployment. To learn more, see [Configuring the Index Tool with Amazon Web Services](https://help.zscaler.com/zia/configuring-index-tool-amazon-web-services#step-3-configure-index-tool-vm).
+7. Open the New Client Certificate window. You can upload provisioning blob data.
 8. [Edit or delete an Index Tool configuration.](https://help.zscaler.com/zia/modifying-index-tool-configuration)
 
 [Image: Viewing and managing Zscaler Index Tool configurations]
@@ -8733,24 +8733,24 @@ On the Network Services page (Policies > Access Control > Firewall > Network Ser
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-nss-collector-servers","lastmod":"2026-07-16T18:22Z","nid":"1463371"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-nss-collector-servers","lastmod":"2026-07-31T11:22Z","nid":"1463371"} -->
 ## About NSS Collector Servers
 
 - Source: https://help.zscaler.com/zia/about-nss-collector-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > About NSS Collector Servers
-- Last modified: 2026-07-16T18:22Z
+- Last modified: 2026-07-31T11:22Z
 - Summary: Information on NSS Collectors that are used to collect logs from third-party security devices in your organization's network perimeter and stream them to the Zscaler cloud in near real time.
 
-The NSS Collector functionality and the data collected using this functionality are exclusive to SaaS Security Report. To enable this feature for your organization, contact Zscaler Support.
+The NSS Collector functionality and the data collected using this functionality are exclusive to the [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report). To enable this feature for your organization, contact Zscaler Support.
 
-Zscaler supports real-time ingestion of traffic logs from third-party firewall and web proxy services. The log data from third-party security solutions is integrated with Zscaler's unified console to provide advanced reporting and analytics of the cloud applications used by the organization through a comprehensive [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) in the Zscaler Admin Console. To do this, Zscaler requires you to deploy an NSS Collector, typically within your organization’s network perimeter, to collect logs from third-party feeds, process the log data, and push the logs securely to the Zscaler cloud. To learn more, see [Understanding Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service).
+Zscaler supports real-time ingestion of traffic logs from third-party firewall and web proxy services. The log data from third-party security solutions is integrated with Zscaler's unified console to provide advanced reporting and analytics of the cloud applications used by the organization through a comprehensive the [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) in the Zscaler Admin Console. To do this, Zscaler requires you to deploy an NSS Collector, typically within your organization’s network perimeter, to collect logs from third-party feeds, process the log data, and push the logs securely to the Zscaler cloud. To learn more, see [Understanding Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service).
 
 The NSS Collector server provides the following benefits and enables you to:
 
 - Collect traffic logs from third-party firewalls and web proxy services used by your organization in real time.
 - Process the log data collected from third-party security solutions to resolve user information via the identity provider (IdP) integration with Zscaler, resolve URL information for cloud application discovery and analysis in Zscaler, serialize the log feed to a format supported by Zscaler, etc.
-- Securely transmit the logs to the Zscaler cloud to allow for cloud application discovery and analysis within the Zscaler’s unified console.
+- Securely transmit the logs to the Zscaler cloud to allow for cloud application discovery and analysis within the Zscaler Admin Console.
 
 You can configure the NSS Collector server in the Zscaler Admin Console to obtain the packaged software (VM image) for installation. The NSS Collector can be deployed on VMware. To learn more about the deployment procedure, see [NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere).
 
@@ -8761,17 +8761,18 @@ Zscaler supports log ingestion from Palo Alto Networks, Blue Coat, and Fortinet.
 On the NSS Collector Servers page (Logs > Log Streaming > Internet Log Streaming - Nanolog Streaming Service), you can do the following:
 
 1. [Add an NSS Collector server.](https://help.zscaler.com/zia/adding-nss-collector-servers)
-2. Search for an NSS Collector server.
-3. View the list of all configured NSS Collector servers. By default, the table displays the following information:
-  - **Server Name**: The name of the NSS Collector server.
-  - **Vendor**: The third-party vendor of the firewall or web proxy services used by your organization.
-  - **Status**: The server status that indicates whether it is enabled or disabled.
-  - **SSL Certificate**: The option to download the SSL certificate for the server.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-5. Download the SSL certificate for an NSS Collector server.
-6. Download the configuration file, upload the provisioning blob, and view and manage the new client certificate required for NSS Collector deployment. To learn more, see [NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere).
-7. [Edit an NSS Collector server.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
-8. Go to the [NSS Servers](https://help.zscaler.com/zia/about-nss-servers), [NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds), or [Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds) tabs.
+2. View the list of all configured NSS Collector servers. By default, the table displays the following information:
+
+- **Server Name**: The name of the NSS Collector server.
+- **Vendor**: The third-party vendor of the firewall or web proxy services used by your organization.
+- **Status**: The server status that indicates whether it is enabled or disabled.
+- **SSL Certificate**: The option to download the SSL certificate for the server.
+
+1. Download the SSL certificate for an NSS Collector server.
+2. [Edit an NSS Collector server.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. Search for an NSS Collector server.
+5. Go to the [NSS Servers](https://help.zscaler.com/zia/about-nss-servers), [NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds), or [Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds) tabs.
 
 [Image: A screenshot of the NSS Collector Servers page]
 <!-- /ZS-ARTICLE -->
@@ -8821,13 +8822,13 @@ On the NSS Feeds page (Logs > Log Streaming > Internet Log Streaming - Nanolog S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-nss-servers","lastmod":"2026-07-16T13:54Z","nid":"1402076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-nss-servers","lastmod":"2026-07-31T11:20Z","nid":"1402076"} -->
 ## About NSS Servers
 
 - Source: https://help.zscaler.com/zia/about-nss-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > About NSS Servers
-- Last modified: 2026-07-16T13:54Z
+- Last modified: 2026-07-31T11:20Z
 - Summary: Information on the NSS Servers page in the Zscaler Admin Console.
 
 An NSS server is the representation of the NSS virtual machine (VM) in the Zscaler Admin Console. After you create a server, Zscaler issues a client certificate and private key that you can install on the NSS VM so that it can authenticate to the Zscaler service.
@@ -8835,14 +8836,14 @@ An NSS server is the representation of the NSS virtual machine (VM) in the Zscal
 NSS servers provide the following benefits and enable you to:
 
 - Stream traffic logs from the Zscaler [Nanolog](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) to your security information and event management (SIEM) system, allowing for real-time alerting, correlation with the logs of your other devices, and long-term local log archival.
-- Assign as many as 16 unique NSS feeds per NSS server for broad and in-depth logging. ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per server to ensure optimal performance.)
+- Assign as many as 16 unique NSS feeds per NSS server for broad and in-depth logging. ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per server to ensure optimal performance.)
 
 ## About the NSS Servers Page
 
 On the NSS Servers page (Logs > Log Streaming > Internet Log Streaming - Nanolog Streaming Service), you can do the following:
 
 1. [Add an NSS server](https://help.zscaler.com/zia/adding-nss-servers).
-2. Deploy an NSS virtual appliance. To learn more, see the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides).
+2. Deploy an NSS virtual appliance. To learn more about adding an NSS server and deploying an NSS virtual appliance, see the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides).
 3. [Download MIB files](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs).
 4. Search for an NSS server.
 5. View a list of all configured NSS servers. For each server, you can see:
@@ -8852,12 +8853,12 @@ On the NSS Servers page (Logs > Log Streaming > Internet Log Streaming - Nanolog
   - **State**: The health state of the server.
   - **SSL Certificate**: The option to download the SSL certificate.
 6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-7. Download the SSL certificate required for NSS virtual appliance deployment. To learn more, see the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides).
-8. Download the configuration file, upload the provisioning blob, and view and manage the new client certificate required for NSS virtual appliance deployment. To learn more, see the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides).
-9. [Edit an NSS server](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
-10. Go to the [NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds), [Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds), and [NSS Collector Servers](https://help.zscaler.com/zia/about-nss-collector-servers) tabs.
+7. [Edit an NSS server](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+8. [Add an NSS feed](https://help.zscaler.com/zia/about-nss-feeds).
+9. [Add a Cloud NSS feed.](https://help.zscaler.com/zia/about-cloud-nss-feeds)
+10. [Add an NSS Collector server](https://help.zscaler.com/zia/adding-nss-collector-servers).
 
-****[Image: Screenshot of the NSS Servers page in the ZIA Admin Portal]****
+****[Image: NSS Servers page]****
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14414,13 +14415,13 @@ On the Virtual Service Edge Clusters page (Infrastructure > Internet & SaaS > Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edges-internet-saas","lastmod":"2026-07-29T13:27Z","nid":"1401226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edges-internet-saas","lastmod":"2026-07-31T09:55Z","nid":"1401226"} -->
 ## About Virtual Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/about-virtual-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > About Virtual Service Edges for Internet & SaaS
-- Last modified: 2026-07-29T13:27Z
+- Last modified: 2026-07-31T09:55Z
 - Summary: Information about Virtual Service Edge for Internet & SaaS (ZIA), which uses virtual machines (VMs) to function as a Public Service Edge for Internet & SaaS in the Zscaler cloud.
 
 [Watch a video about Virtual Service Edges for Internet & SaaS (ZIA)](https://fast.wistia.net/embed/iframe/xa3h5zhhg8) (shows legacy UI).
@@ -14499,7 +14500,7 @@ Authentication attempts as well as an audit log of the commands run on the appli
 
 On the Virtual Service Edges page (Infrastructure > Internet & SaaS > Traffic Forwarding > Virtual Service Edges), you can do the following:
 
-1. [Add a Virtual Service Edge instance.](https://help.zscaler.com/zia/adding-virtual-service-edge-instances)
+1. [Add a Virtual Service Edge instance](https://help.zscaler.com/zia/adding-virtual-service-edge-instances).
 2. Download a VM image:
   - [Download a Virtual Service Edge VM.](https://help.zscaler.com/zia/downloading-virtual-service-edge-vm)
   - [Download the SNMP MIB files.](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs)
@@ -14518,7 +14519,7 @@ On the Virtual Service Edges page (Infrastructure > Internet & SaaS > Traffic Fo
   - **IPSec Local Termination**: The status of IPSec local termination for the Virtual Service Edge.
 5. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
 6. [Download the Virtual Service Edge SSL certificate.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-internet-saas)
-7. Download the configuration file, upload the provisioning blob, and view and manage the new client certificate required for Virtual Service Edge deployment. To learn more, see [Downloading Virtual Service Edge Certificates for Internet & SaaS](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-internet-saas).
+7. Open the New Client Certificate window. You can upload provisioning blob data.
 8. [Edit or view a Virtual Service Edge configuration.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
 9. [View the Virtual Service Edge Clusters page.](https://help.zscaler.com/zia/about-virtual-service-edge-clusters-internet-saas)
 
@@ -14690,13 +14691,13 @@ On the Workload Groups (Policies > Common Configuration > Resources > Workload G
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-authentication-bridge","lastmod":"2026-07-17T10:59Z","nid":"1399631"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-authentication-bridge","lastmod":"2026-07-31T10:35Z","nid":"1399631"} -->
 ## About the Zscaler Authentication Bridge
 
 - Source: https://help.zscaler.com/zia/about-zscaler-authentication-bridge
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > About the Zscaler Authentication Bridge
-- Last modified: 2026-07-17T10:59Z
+- Last modified: 2026-07-31T10:35Z
 - Summary: Information on the Zscaler Authentication Bridge, a virtual appliance that you can use to provision and authenticate users.
 
 The Zscaler Authentication Bridge (ZAB) is a virtual appliance that you can use to [provision as well as authenticate users](https://help.zscaler.com/zia/provisioning-and-authenticating-users). You can use the ZAB to automatically import user information from an Active Directory (AD) or a Lightweight Directory Access Protocol (LDAP) server to the Zscaler database, without requiring inbound connections to your directory server. The ZAB can be used solely as a provisioning tool in conjunction with another authentication mechanism, such as [SAML](https://help.zscaler.com/zia/configuring-saml) or [Kerberos](https://help.zscaler.com/zia/about-kerberos-authentication). Alternatively, it can be used for authentication using [LDAP](https://help.zscaler.com/zia/understanding-ldap-user-synchronization) with SSL client certificates.
@@ -14759,12 +14760,10 @@ On the Authentication Bridges page (Administration > Identity > Internet & SaaS 
   - **Name**: The name of the ZAB.
   - **Status**: The status of the ZAB (**Enabled** or **Disabled**).
   - **SSL Certificate**: Download option to download the ZAB's SSL certificate.
-5. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-6. Download the SSL certificate for the ZAB. The ZAB uses this certificate to authenticate itself to the Zscaler service.
-7. Download the configuration file, upload the provisioning blob, and view and manage the new client certificate required for ZAB deployment. To learn more, see [Deploying a Zscaler Authentication Bridge](https://help.zscaler.com/zia/deploying-zscaler-authentication-bridge#clientcert).
+5. Download the SSL certificate for the ZAB. The ZAB uses this certificate to authenticate itself to the Zscaler service.
+6. Download the configuration file, upload the provisioning blob, and view and manage the new client certificate required for ZAB deployment. To learn more, see [Deploying a Zscaler Authentication Bridge](https://help.zscaler.com/zia/deploying-zscaler-authentication-bridge#clientcert).
+7. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
 8. [Edit the configured ZAB.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
-9. [Go to the Authentication Default Settings page.](https://help.zscaler.com/zia/about-authentication-default-settings)
-10. [Go to the Identity Providers page.](https://help.zscaler.com/zia/about-identity-providers)
 
 [Image: Zscaler Authentication Bridge Page]
 <!-- /ZS-ARTICLE -->

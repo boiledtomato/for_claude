@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 67
 
 ---
@@ -1664,13 +1664,13 @@ To delete multiple users:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/creating-reports","lastmod":"2026-01-18T00:44Z","nid":"1527941"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/creating-reports","lastmod":"2026-07-30T02:23Z","nid":"1527941"} -->
 ## Creating Reports
 
 - Source: https://help.zscaler.com/uvm/creating-reports
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Analytics > Reports > Creating Reports
-- Last modified: 2026-01-18T00:44Z
+- Last modified: 2026-07-30T02:23Z
 - Summary: How to create and configure reports by adding measurements and dimensions and applying filters.
 
 Reports provide a structured way to analyze and present data in the SecOps platform. You can create reports focused on key entities, such as tickets, assets, and findings, customizing them with relevant measurements and dimensions to highlight specific trends or areas of concern. Reports can be processed manually or scheduled for automatic delivery, helping you track progress, support audits, and keep stakeholders informed.
@@ -1689,7 +1689,8 @@ To create a report:
     1. **Public**: Select this option to grant edit access to all users in the account.
     2. **Selected Users:** Select users from the list to set them as editors of the report. Users designated as editors override the **Viewers** setting.
   4. **Pin to Apps**: (Optional) Select the application to which you want to pin the report. This allows you to easily find the report under **My Reports** on the app.
-  5. Close the window.
+  5. **Tags**: Enter the tag name or select from the existing tags. You can add one or more tags to a dashboard to categorize them.
+  6. Close the window.
 5. Select the data type for your report.
   1. On the top of the page, set the date filter to either **Current** or **History**. See image.
   2. For historicalreports, click the date filter to specify the desired date range. You can select a preconfigured range, create a custom range, or set a dynamic range. To learn more about historical data and dynamic range filters, see [Using Filters](https://help.zscaler.com/uvm/filtering-operational-views). See image.
@@ -1711,7 +1712,7 @@ You can take the following actions with reports:
 - [Schedule reports](https://help.zscaler.com/uvm/scheduling-reports-export) for automated delivery.
 - [Trigger report exports](https://help.zscaler.com/uvm/triggering-report-export-through-api) programmatically through an API.
 
-[Image: explore > reports]
+[Image: Reports page displaying all configured reports]
 
 [Image: date filter current > history toggle]
 
@@ -3098,13 +3099,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/scheduling-reports-export","lastmod":"2026-06-09T22:44Z","nid":"1529237"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/scheduling-reports-export","lastmod":"2026-07-31T07:06Z","nid":"1529237"} -->
 ## Scheduling Reports to Export
 
 - Source: https://help.zscaler.com/uvm/scheduling-reports-export
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Analytics > Reports > Scheduling Reports to Export
-- Last modified: 2026-06-09T22:44Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: How to schedule reports to be delivered automatically to your email or AWS S3 bucket.
 
 After [creating a report](https://help.zscaler.com/uvm/creating-reports), you can schedule the report to be automatically delivered to a specified email address, Google Cloud Storage, or S3 bucket at regular intervals. This helps automate reporting workflows and ensures timely data delivery without manual effort. You can configure the report format, delivery frequency, recipients, and other delivery details as necessary. For details on additional methods for exporting reports, see [Manually Exporting Reports](https://help.zscaler.com/uvm/manually-exporting-reports) and [Triggering Report Export through an API](https://help.zscaler.com/uvm/triggering-report-export-through-api).

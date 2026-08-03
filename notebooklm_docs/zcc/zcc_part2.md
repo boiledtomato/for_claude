@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 52
 
 ---
@@ -735,13 +735,13 @@ To enable WebView2 authentication in the Zscaler Admin Console:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-admin-console-identity-provider","lastmod":"2026-05-05T12:43Z","nid":"1285431"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-admin-console-identity-provider","lastmod":"2026-07-31T15:29Z","nid":"1285431"} -->
 ## Using the Zscaler Admin Console as an Identity Provider
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-admin-console-identity-provider
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Using the Zscaler Admin Console as an Identity Provider
-- Last modified: 2026-05-05T12:43Z
+- Last modified: 2026-07-31T15:29Z
 - Summary: How to configure the Zscaler Admin Console to function as an identity provider for the Zscaler service.
 
 If you are a Authentication Service user, see [Using Authentication Service](https://help.zscaler.com/zidentity/using-zslogin-identity-provider)[with Zscaler Client Connector Device Tokens](https://help.zscaler.com/zidentity/using-zidentity-with-zscaler-client-connector-device-tokens).
@@ -1098,13 +1098,13 @@ To enable the Zscaler Notification Framework on macOS devices:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/verifying-access-applications","lastmod":"2026-06-02T15:57Z","nid":"1514426"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/verifying-access-applications","lastmod":"2026-07-31T15:38Z","nid":"1514426"} -->
 ## Verifying Access to Applications
 
 - Source: https://help.zscaler.com/zscaler-client-connector/verifying-access-applications
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide > Verifying Access to Applications
-- Last modified: 2026-06-02T15:57Z
+- Last modified: 2026-07-31T15:38Z
 - Summary: How to verify access with additional authentication
 
 Your organization can require additional levels of authentication to access specific applications (e.g., your default access requires only a username and password, but an application with sensitive financial information requires multi-factor authentication). If you try to access an application that requires additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access.
@@ -2467,13 +2467,13 @@ If the you installed Charles Proxy on a user's device before installing Zscaler 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-app-registry-keys","lastmod":"2026-07-29T16:49Z","nid":"1358826"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-app-registry-keys","lastmod":"2026-07-29T17:15Z","nid":"1358826"} -->
 ## Zscaler Client Connector: Windows Registry Keys
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-app-registry-keys
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Troubleshooting > Zscaler Client Connector: Windows Registry Keys
-- Last modified: 2026-07-29T16:49Z
+- Last modified: 2026-07-29T17:15Z
 - Summary: Information on Zscaler Client Connector registry keys with a list of all possible values and their explanation.
 
 This article defines the values for the `ZNW_State`, `ZPA_State`, `ZWS_State`, and `ZPA_AuthState` registry keys. You can navigate to Zscaler Client Connector registry keys by using the following path: `HKEY_CURRENT_USER\Software\Zscaler\App`.
@@ -2960,13 +2960,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-07-29T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-08-02T07:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-08-02T07:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.

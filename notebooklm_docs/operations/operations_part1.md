@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
+Generated: 2026-08-03 02:47 UTC
 Articles in this file: 92
 
 ---
@@ -410,13 +410,13 @@ Announcement date: August 9, 2023
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-client-certificate-posture-type-all-android-devices","lastmod":"2026-06-11T14:12Z","nid":"1541189"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-client-certificate-posture-type-all-android-devices","lastmod":"2026-07-31T07:06Z","nid":"1541189"} -->
 ## End-of-Support for the Client Certificate Posture Type for All Android Devices
 
 - Source: https://help.zscaler.com/product-usage-terms/end-support-client-certificate-posture-type-all-android-devices
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > EOS & EOL Announcements > End-of-Support for the Client Certificate Posture Type for All Android Devices
-- Last modified: 2026-06-11T14:12Z
+- Last modified: 2026-07-31T07:06Z
 - Summary: End-of-Support announcement for the Client Certificate posture type for all Android devices.
 
 Beginning with Zscaler Client Connector version 5.0 for Android, Zscaler is ending support for the Client Certificate posture type on all Android devices.
@@ -6692,13 +6692,13 @@ To learn more, see [Monitoring App Connector Performance](https://help.zscaler.c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-log-streaming-service-lss-support-troubleshooting-runbook","lastmod":"2026-07-22T15:47Z","nid":"1534147"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-log-streaming-service-lss-support-troubleshooting-runbook","lastmod":"2026-07-31T13:36Z","nid":"1534147"} -->
 ## Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-log-streaming-service-lss-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook
-- Last modified: 2026-07-22T15:47Z
+- Last modified: 2026-07-31T13:36Z
 - Summary: The Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook outlines troubleshooting steps for LSS performance issues.
 
 The Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook provides troubleshooting steps for improving LSS performance. It provides systematic troubleshooting steps to identify, validate, and resolve common Private Access LSS issues. Customers can reference the relevant section based on their specific problem to streamline resolution efforts.

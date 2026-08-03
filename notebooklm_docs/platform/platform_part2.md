@@ -1,8 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
-Articles in this file: 95
+Generated: 2026-08-03 02:47 UTC
+Articles in this file: 96
 
 ---
 
@@ -232,13 +232,13 @@ To create a custom dashboard:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-data-sources","lastmod":"2026-07-29T03:40Z","nid":"1541932"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-data-sources","lastmod":"2026-08-02T00:03Z","nid":"1541932"} -->
 ## Creating Data Sources
 
 - Source: https://help.zscaler.com/unified/creating-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Creating Data Sources
-- Last modified: 2026-07-29T03:40Z
+- Last modified: 2026-08-02T00:03Z
 - Summary: How to create a new data source in the Security Operations Platform, including source details, retrieval settings, scheduling, remediation detection settings, and suppression rules.
 
 The Security Operations Platform (SecOps Platform) collects and correlates security data and business context from a wide range of external tools, such as vulnerability scanners, asset inventories, and cloud providers. To begin ingesting this data into your environment, you must first connect the relevant sources to your account. Establishing these connections ensures that the SecOps Platform can continuously retrieve and normalize data for analysis, prioritization, and workflows.
@@ -313,22 +313,22 @@ Zscaler recommends configuring suppression rules only after ingesting data from 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-outegrations","lastmod":"2026-07-29T03:54Z","nid":"1541968"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-outegrations","lastmod":"2026-08-02T00:11Z","nid":"1541968"} -->
 ## Creating Outegrations
 
 - Source: https://help.zscaler.com/unified/creating-outegrations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Creating Outegrations
-- Last modified: 2026-07-29T03:54Z
+- Last modified: 2026-08-02T00:11Z
 - Summary: How to create a new outegration in the Security Operations Platform.
 
-The Security Operations Platform (SecOps Platform) allows you to create outbound integrations (i.e., outegrations) that connect the SecOps Platform to external systems such as work management tools (e.g., [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration), [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration)), storage destinations, alert systems (e.g., Slack, email), automation tools, scanners (e.g., [Tenable](https://help.zscaler.com/uvm/configuring-tenable-outegration)), and other supported third-party services, and, where supported, synchronize updates between the systems. For information on managing existing outegrations, see [Managing Outegrations](https://help.zscaler.com/unified/managing-outegrations).
+The Security Operations Platform (SecOps Platform) allows you to create outbound integrations (i.e., outegrations) that connect the SecOps Platform to external systems such as work management tools (e.g., [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration), [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration)), storage destinations, alert systems (e.g., Slack, email), automation tools, scanners (e.g., [Tenable](https://help.zscaler.com/uvm/configuring-tenable-outegration)), and other supported third-party services. Where supported, the SecOps Platform can synchronize updates between the systems. For information on managing existing outegrations, see [Managing Outegrations](https://help.zscaler.com/unified/managing-outegrations).
 
-To learn more about deployment prerequisites, setup considerations, and planning guidance, see [About Deploying Outegration Configurations](https://help.zscaler.com/unified/about-deploying-outegration-configurations). To identify the available outegrations, see [Security Operations Platform Configurations by Outegration](https://help.zscaler.com/unified/security-operations-platform-configurations-outegration).
+To learn more about deployment prerequisites, setup considerations, and planning guidance, see [Deploying Outegration Configurations](https://help.zscaler.com/unified/deploying-outegration-configurations). To identify the available outegrations, see [Security Operations Platform Configurations by Outegration](https://help.zscaler.com/unified/security-operations-platform-configurations-outegration).
 
 To create an outegration:
 
-1. Go to **Configure** > **Outegrations**. A list of all existing outegrations appears.
+1. In the SecOps Platform Admin Portal, go to **Configure** > **Outegrations**. A list of all existing outegrations appears.
 2. Click**Create**.
 3. Select an outegration from the available tiles. You can also search for an outegration in the search field. The outegration setup wizard appears.
 4. In the outegration setup wizard, configure the setup in the following steps:
@@ -337,7 +337,7 @@ To create an outegration:
   3. **Mapping**: Configure the outegration mapping to define how data is exchanged and synchronized between the two systems.
 5. Click **Finish** to save the outegration.
 
-The new outegration appears on the Outegrations page and becomes available in the relevant SecOps Platform workflows. If the outegration supports bidirectional synchronization, you might also need to configure the associated webhook by using the applicable vendor-specific guide.
+The new outegration appears on the Outegrations page and becomes available in the relevant SecOps Platform workflows. If the outegration supports bidirectional synchronization, you might also need to configure the associated webhook by using the applicable [vendor-specific guide](https://help.zscaler.com/unified/security-operations-platform-configurations-outegration).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -427,13 +427,13 @@ To view and change your account settings:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-data-source-configurations","lastmod":"2026-07-29T03:29Z","nid":"1541606"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-data-source-configurations","lastmod":"2026-08-02T00:25Z","nid":"1541606"} -->
 ## Deploying Data Source Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-data-source-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Deploying Data Source Configurations
-- Last modified: 2026-07-29T03:29Z
+- Last modified: 2026-08-02T00:25Z
 - Summary: Information about deploying data source configuration in the Security Operations Platform.
 
 The Security Operations Platform (SecOps Platform) collects and correlates security data and business context from a wide array of external tools, including vulnerability scanners, asset inventories, and cloud platforms. Connecting these external sources to your account establishes a continuous Extract, Transform, and Load (ETL) pipeline, ensuring raw telemetry is normalized and made available across your licensed SecOps Platform applications.
@@ -449,7 +449,7 @@ The specific data sources you need depend on the external tools you work with an
 
 To learn more about the available data sources, see [Security Operations Platform Configurations by Data Source.](https://help.zscaler.com/unified/security-operations-platform-configurations-data-source)
 
-## Pre-Deployment Prerequisites
+## Prerequisites
 
 Before configuring a data source in the SecOps Platform, verify the following prerequisites:
 
@@ -475,20 +475,20 @@ After a data source is successfully deployed, you should monitor source activity
 
 You can monitor source activity by reviewing source run history, validating completed runs, and investigating failed or canceled runs. Run details can help identify issues such as invalid credentials, missing permissions, or other configuration problems. To learn more, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
 
-To reduce the need for manual monitoring, you can enable email notifications for failures related to source runs and ETL processing. To learn more, see [Managing AI Capabilities in the Security Operations Platform](https://help.zscaler.com/uvm/managing-ai-capabilities-secops-platform).
+To reduce the need for manual monitoring, you can enable email notifications for failures related to source runs and ETL processing. To learn more, see [Enabling Email Notifications for Errors](https://help.zscaler.com/uvm/enabling-email-notifications-failures).
 
-If a source behaves unexpectedly, you can also review audit logs to track changes to data source instances, mappings, and scheduling settings. Audit logs are useful for troubleshooting and confirming when configuration changes were introduced. To learn more, see [Viewing Audit Logs](https://help.zscaler.com/unified/viewing-audit-logs).
+If a source behaves unexpectedly, you can also review audit logs to track changes to data source instances, mappings, and scheduling settings. Audit logs are useful for troubleshooting and confirming when configuration changes were introduced. To learn more, see [Viewing Audit Logs](https://help.zscaler.com/uvm/viewing-audit-logs).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-07-29T03:29Z","nid":"1541895"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-08-02T00:23Z","nid":"1541895"} -->
 ## Deploying Outegration Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-outegration-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Deploying Outegration Configurations
-- Last modified: 2026-07-29T03:29Z
+- Last modified: 2026-08-02T00:23Z
 - Summary: Information about deploying outegration configuration in the Security Operations Platform.
 
 The Security Operations Platform (SecOps Platform) enables you to send security findings, alerts, remediation tasks, and operational context to a wide array of external tools, including ticketing systems, work management platforms, cloud storage services, streaming platforms, and other third-party systems. Connecting these external destinations to your account establishes outbound workflows that move SecOps Platform data and actions into the systems where security, IT, and engineering teams already work.
@@ -516,7 +516,7 @@ Before configuring an outegration in the SecOps Platform, verify the following p
 Deploying an outegration as a fully operational configuration involves a defined sequence of setup and validation steps. Zscaler recommends following this standard deployment flow:
 
 1. Collect required parameters from the vendor: Before configuring the outegration in the SecOps Platform, log in to your third-party vendor's portal. Configure the necessary permissions, allowlist IP addresses if required, generate the authentication credentials, and identify the destination settings the outegration uses. Depending on the vendor, this might include projects, queues, buckets, topics, callback URLs, or other target objects. To learn more, see [Outegration Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides).
-2. Configure the authentication: In the SecOps Platform, create the authentication required for the outegration or select an existing one. This establishes the secure connection between the platform and the third-party system. To learn more, see [Configuring Authentication for Data Sources and Outegrations](https://help.zscaler.com/uvm/configuring-authentications).
+2. Configure the authentication: In the SecOps Platform, create the authentication required for the outegration or select an existing one. This establishes the secure connection between the platform and the third-party system. To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications).
 3. Create and configure the outegration: Create the outegration in the SecOps Platform, select the appropriate authentication, define the destination settings, configure any visibility or behavior options, and map SecOps Platform fields to the destination system's schema. Depending on the outegration, this configuration can also define how records are dispatched and how synchronized updates are handled. To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations) and the applicable guide in [Outegration Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides). If needed, you can deactivate an outegration to temporarily stop outbound activity or synchronization without removing its configuration. This is useful during maintenance windows, troubleshooting, or external system changes.
 4. Test and validate the outegration: Test the configuration to verify that records, actions, or updates are sent successfully to the third-party system and that the configured mappings behave as expected.
 5. (Optional) Configure the webhook: If the outegration supports bidirectional synchronization, configure the webhook required to receive updates from the third-party system. This enables the SecOps Platform to process external changes, such as status updates or other synchronized events.
@@ -529,9 +529,9 @@ After an outegration is successfully deployed, you should monitor outegration ac
 
 You can monitor outegration activity by reviewing activity logs and investigating failed or incomplete operations. Activity log details can help identify issues such as invalid credentials, missing permissions, or field mapping problems. If the external system's schema changes, you can also update the outegration configuration and mappings as needed. To learn more, see [Managing Outegrations](https://help.zscaler.com/unified/managing-outegrations).
 
-To reduce the need for manual monitoring, you can enable email notifications for outegration failures. To learn more, see [Managing AI Capabilities in the Security Operations Platform](https://help.zscaler.com/uvm/managing-ai-capabilities-secops-platform).
+To reduce the need for manual monitoring, you can enable email notifications for outegration failures. To learn more, see [Enabling Email Notifications for Errors](https://help.zscaler.com/uvm/enabling-email-notifications-failures).
 
-If an outegration behaves unexpectedly, you can also review audit logs to track changes to outegration configurations, mappings, and related settings. Audit logs are useful for troubleshooting and confirming when configuration changes were introduced. To learn more, see [Viewing Audit Logs](https://help.zscaler.com/unified/viewing-audit-logs).
+If an outegration behaves unexpectedly, you can also review audit logs to track changes to outegration configurations, mappings, and related settings. Audit logs are useful for troubleshooting and confirming when configuration changes were introduced. To learn more, see [Viewing Audit Logs](https://help.zscaler.com/uvm/viewing-audit-logs).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1310,13 +1310,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-data-sources","lastmod":"2026-07-29T03:41Z","nid":"1541933"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-data-sources","lastmod":"2026-08-02T00:08Z","nid":"1541933"} -->
 ## Managing Data Sources
 
 - Source: https://help.zscaler.com/unified/managing-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Managing Data Sources
-- Last modified: 2026-07-29T03:41Z
+- Last modified: 2026-08-02T00:08Z
 - Summary: How to manage existing data sources, including configuring auto-scheduling, editing, deleting, deactivating, mapping, processing, rerunning the last execution, viewing source runs, and checking audit logs.
 
 After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Security Operations Platform (SecOps Platform), you can manage it within a comprehensive list of all your data sources. This page provides access to the administrative actions used to maintain existing source configurations after deployment. For an overview of the deployment process, see [Deploying Data Source Configurations](https://help.zscaler.com/unified/deploying-data-source-configurations). For information about available source types, see [Security Operations Platform Configurations by Data Source](https://help.zscaler.com/unified/security-operations-platform-configurations-data-source).
@@ -1339,7 +1339,7 @@ Auto-scheduling is enabled by default. You can adjust the schedule to better ali
 
 To configure auto-scheduling:
 
-1. Go to **Configure** > **Sources**.
+1. In the SecOps Platform Admin Portal, go to **Configure** > **Sources**.
 2. Click the **More Actions** icon ([Image: more actions icon in the sources page]). The **Auto Scheduling Settings** window appears.
 3. Set the UTC hour at which all sources should run.
 4. Click **Save**.
@@ -1451,13 +1451,13 @@ To view the source's audit logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-entity-unification","lastmod":"2026-07-29T12:57Z","nid":"1541921"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-entity-unification","lastmod":"2026-07-30T11:14Z","nid":"1541921"} -->
 ## Managing Entity Unification
 
 - Source: https://help.zscaler.com/unified/managing-entity-unification
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Managing Entity Unification
-- Last modified: 2026-07-29T12:57Z
+- Last modified: 2026-07-30T11:14Z
 - Summary: How to manage existing entity unification rules, including duplicating, editing, and deleting rules.
 
 After [creating entity unification rules](https://help.zscaler.com/unified/configuring-entity-unification), you can manage the rules in the rule sets to refine how records are merged.
@@ -1479,9 +1479,9 @@ By default, newly configured unification rules apply to your data on the followi
 To manually process unification rules:
 
 1. In the SecOps Platform Admin Portal, go to **Configure**> **Data Unification**> **Entities**.
-2. Choose one of the following options:
+2. Choose one of the following options: See image. [Image: Process entities in page]
   - **Process All**: Click to process all entities.
-  - **Process**: Click to process specific entities. See image. [Image: Process rules for entities]
+  - **Process**: Click to process specific entities.
 
 Manually processing an entity without processing its related entities can cause data misalignment issues until the next full data run.
 
@@ -1490,8 +1490,11 @@ Duplicating a rule is useful when you need to create multiple rules with similar
 To duplicate a rule:
 
 1. Go to **Configure**> **Data Unification**> **Entities**.
-2. Click the rule set that you want to modify.
-3. Hover over the rule you want to duplicate, and click the **Duplicate** icon. See image. A copy of the rule is created with the same name as the original.
+2. Click the rule set that you want to modify. See image.
+3. Hover over the rule you want to duplicate, and click the **Duplicate** icon. See image.
+4. A copy of the rule is created with the same name as the original.
+
+[Image: Ruleset selected]
 
 [Image: Duplicate a rule in an entity rule set]
 
@@ -1500,7 +1503,7 @@ To update an existing rule's merge logic, you can edit the rule directly rather 
 To edit a rule:
 
 1. Go to **Configure**> **Data Unification**> **Entities**.
-2. Select the rule set that you want to modify. See image. [Image: Ruleset selected]
+2. Click the rule set that you want to modify. See image. [Image: Ruleset selected]
 3. Hover over the rule you want to edit, and click the**Edit** icon. See image. The **Edit** **Merge Rule**drawer opens.
 4. Make the necessary changes.
 5. Click **Save** to save the rule.
@@ -1528,14 +1531,14 @@ To delete a rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-field-unification","lastmod":"2026-07-29T12:56Z","nid":"1541727"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-field-unification","lastmod":"2026-07-30T11:26Z","nid":"1541727"} -->
 ## Managing Field Unification
 
 - Source: https://help.zscaler.com/unified/managing-field-unification
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Managing Field Unification
-- Last modified: 2026-07-29T12:56Z
-- Summary: How to manage existing field unification rulesets and rules, and the role permissions required for access to field unification.
+- Last modified: 2026-07-30T11:26Z
+- Summary: How to manage existing field unification rulesets and rules.
 
 After [configuring field unification](https://help.zscaler.com/unified/configuring-field-unification), you can manage unification rule sets and the rules they contain.
 
@@ -1570,10 +1573,10 @@ To copy and paste a rule set:
 
 1. Go to **Configure**> **Data Unification**> **Fields**.
 2. Hover over the rule set you want to copy, and click the**Edit** icon.
-3. Click the **Column Menu** and select **Copy All Rules**.
+3. Click the **Column Menu** icon, and select **Copy All Rules**.
 4. Click **Cancel** to return to the **Data Unification - Fields**page.
 5. Locate and click the rule set that you want to paste the copied rules to.
-6. In the rule set, click **Paste Rules**. See image. [Image: Copy and paste rules between different rulesets]
+6. In the rule set, click the **Column Menu**icon, and select **Paste Rules**. See image. [Image: Copy and paste rules between different rulesets]
 7. Save the rule set to complete the process in one of the following ways:
   - Click **Save**to save the rule set and apply changes on the next data run.
   - From the **Save** drop-down menu, click **Save & Run**to save the rule set and apply the changes immediately.
@@ -1583,7 +1586,7 @@ You can edit an existing rule set to modify the rules it contains.
 To edit a rule set:
 
 1. Go to **Configure**> **Data Unification**> **Fields**.
-2. Hover over the rule set you want to edit, and click the**Edit** icon. The**Rule Set page** appears. If prompted, click **Unlink & Override**.
+2. Hover over the rule set you want to edit, and click the**Edit** icon. The**Rule Set**page appears. If prompted, click **Unlink & Override**.
 3. Make the necessary changes.
 4. Save the rule set to complete the process in one of the following ways:
   - Click **Save**to save the rule set and apply changes on the next data run.
@@ -1599,8 +1602,6 @@ To delete a rule set:
 
 ## Managing Field Unification Rules
 
-You can clone, edit, or delete a rule in field unification rule sets.
-
 When managing field unification rules, you can perform the following actions:
 
 - Clone a Rule
@@ -1613,7 +1614,7 @@ To clone a rule:
 
 1. Go to **Configure**> **Data Unification**> **Fields**.
 2. Click the rule set that you want to clone rules from.
-3. Hover over the rule in the rule set that you want to clone, and click the **Clone**icon. See image. [Image: Duplicate a rule] A copy of the rule is created.
+3. Hover over the rule in the rule set that you want to clone, and click the **Clone**icon. See image. [Image: Duplicate a rule] A copy of the rule is created with the same name as the original and `[clone]` appended to the end.
 
 If you need to modify an existing rule, you can edit it to make the necessary adjustments. To update an existing rule's logic, you can edit the rule directly rather than deleting and recreating it.
 
@@ -1629,12 +1630,12 @@ To edit a rule:
 
 You can delete a rule if it's no longer applicable due to changes in how data is sourced or structured.
 
-Deleting a rule doesn’t trigger a warning message and deletes the rule immediately.
+Deleting a rule doesn't trigger a warning message and deletes the rule immediately.
 
 To delete a rule:
 
 1. Go to **Configure**> **Data Unification**> **Fields**.
-2. Select the rule set that you want to modify.
+2. Click the rule set that you want to modify.
 3. Hover over the rule you want to delete, and click the**Delete** icon. See image. [Image: Delete a rule]
 4. Save the rule set to complete the process in one of the following ways:
   - Click **Save**to save the rule set and apply changes on the next data run.
@@ -1670,13 +1671,13 @@ The [Financial Risk](https://help.zscaler.com/unified/viewing-financial-risk) mo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-outegrations","lastmod":"2026-07-29T03:53Z","nid":"1541969"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-outegrations","lastmod":"2026-08-02T00:12Z","nid":"1541969"} -->
 ## Managing Outegrations
 
 - Source: https://help.zscaler.com/unified/managing-outegrations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Managing Outegrations
-- Last modified: 2026-07-29T03:53Z
+- Last modified: 2026-08-02T00:12Z
 - Summary: How to manage configured outegrations, including editing the outegration mapping and settings, deleting, cloning, and deactivating outegrations, and viewing the outegration activity log.
 
 After [creating an outegration](https://help.zscaler.com/unified/creating-outegrations) in the Security Operations Platform (SecOps Platform), you can manage and monitor it from the Outegrations page. This page provides a centralized view of all configured outegrations in your account.
@@ -1724,11 +1725,10 @@ You can delete an outegration that is no longer in use (e.g., if your organizati
 To delete an outegration:
 
 1. Go to **Configure** > **Sources**.
-2. Choose one of the following methods:
+2. Choose one of the following methods: The **Confirm Deletion** window appears.
   - Hover over the outegration, and click the **Delete** icon.
   - Select one or more outegrations from the list, and click **Delete** on the toolbar.
-3. Hover over the outegration you want to delete, and click the **Delete** icon. The **Confirm Deletion** window appears.
-4. Click **Delete**.
+3. Click **Delete**.
 
 You can clone an existing outegration to create a new one with similar configuration. This is useful when setting up multiple outegrations of the same type that share similar settings (e.g., creating separate Jira Issue Type outegrations for Bug, Feature, and Task).
 
@@ -1929,16 +1929,16 @@ If you have any questions about the End User Statement, send an email to exportc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-07-29T03:44Z","nid":"1541959"} -->
+<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-08-02T00:31Z","nid":"1541959"} -->
 ## Mapping Data Sources
 
 - Source: https://help.zscaler.com/unified/mapping-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Mapping Data Sources
-- Last modified: 2026-07-29T03:44Z
+- Last modified: 2026-08-02T00:31Z
 - Summary: How to map a data source's third-party vendor fields to the Security Operations Platform.
 
-After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Security Operations Platform (SecOps Platform), and ingesting data at least once, you must map the ingested fields to the SecOps Platform data model fields. Mapping is configured per source. After all sources are configured and mapped, the platform can deduplicate and merge records across multiple sources through [data unification](https://help.zscaler.com/unified/what-data-unification), to be used and consumed by the different [SecOps Platform applications](https://help.zscaler.com/unified/what-zscaler-security-operations) (e.g., UVM, AEM).
+After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Security Operations Platform (SecOps Platform), and ingesting data at least once, you must map the ingested fields to the SecOps Platform data model fields. Mapping is configured per source. After all sources are configured and mapped, the platform can deduplicate and merge records across multiple sources through [data unification](https://help.zscaler.com/unified/what-data-unification), to be used and consumed by the different [SecOps Platform applications](https://help.zscaler.com/uvm/what-zscaler-security-operations) (e.g., UVM, AEM).
 
 If you are mapping a data source for the first time, Zscaler recommends consulting with your Zscaler Account team.
 
@@ -1949,7 +1949,7 @@ Before you map a data source, ensure that you have:
 - Set up the data source and run it at least once so there is ingested source data available to explore, preview, and map. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources) and [Managing Data Sources](https://help.zscaler.com/unified/managing-data-sources#processing).
 - Check that the run was completed successfully in source runs. To learn more, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
 
-For access to data source mapping, your assigned role must include the Read and Edit permissions under the Platform - Data Source Mapping resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
+For access to data source mapping, your assigned role must include the Read and Edit permissions under the Platform - Data Source Mapping resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/uvm/managing-user-roles).
 See image.
 
 ## Mapping a Data Source
@@ -3715,13 +3715,13 @@ The search provides auto-complete suggestions as you type, and keeps a history o
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/security-operations-platform-configurations-data-source","lastmod":"2026-07-29T03:29Z","nid":"1541925"} -->
+<!-- ZS-ARTICLE {"url":"/unified/security-operations-platform-configurations-data-source","lastmod":"2026-08-02T00:19Z","nid":"1541925"} -->
 ## Security Operations Platform Configurations by Data Source
 
 - Source: https://help.zscaler.com/unified/security-operations-platform-configurations-data-source
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Security Operations Platform Configurations by Data Source
-- Last modified: 2026-07-29T03:29Z
+- Last modified: 2026-08-02T00:19Z
 - Summary: The current Security Operations Platform data sources by vendor.
 
 The Security Operations Platform (SecOps Platform) supports a wide range of third-party data sources that ingest security, asset, identity, cloud, and operational data into the platform. Use this article to identify the available data sources, the streams each one supports, and the types of data each stream retrieves. For deployment prerequisites and setup steps, see [Deploying Data Source Configurations](https://help.zscaler.com/unified/deploying-data-source-configurations). To configure a specific source, see [Source Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/sources/source-configuration-guides).
@@ -3768,7 +3768,7 @@ The following table lists the supported SecOps Platform data sources by vendor, 
 | Lacework | [Lacework](https://help.zscaler.com/uvm/configuring-lacework-connector) | **Lacework:** Retrieves vulnerability findings, including CVE details, affected assets, risk scores, and fix information. |
 | Legit Security | [Legit Security](https://help.zscaler.com/uvm/configuring-legit-security-connector) | **Legit:** Retrieves all issue types except incidents, including issue source, integration, metadata, issue type, and full payload details.; **Legit Incidents:** Retrieves security incidents, including source, integration, metadata, and full payload details. |
 | Mandiant ASM | [Mandiant ASM](https://help.zscaler.com/uvm/configuring-mandiant-asm-connector) | **Mandiant ASM Entities:** Retrieves exposed assets within the external attack surface, including domains, subdomains, IP addresses, hostnames, URLs, and SSL/TLS certificates.; **Mandiant ASM Issues:** Retrieves detailed issues such as misconfigurations, open ports, vulnerabilities, SSL/TLS weaknesses, statuses, and remediation recommendations. |
-| Microsoft Defender for Endpoint | [Microsoft Defender for Endpoint](https://help.zscaler.com/uvm/configuring-microsoft-defender-for-endpoint-connector) | **Microsoft Defender for Endpoint Assets:** Retrieves device information, including ID, owner, operating system, and network information.; **Microsoft Defender for Endpoint Vulnerabilities:** Retrieves vulnerabilities affecting the organization by machine and software.; **Microsoft Defender for Endpoint Software Vulnerabilities by Machine:** Retrieves detailed software vulnerabilities for individual machines.; **Microsoft Defender for Endpoint Alerts:** Retrieves security alerts, including impacted resources, severity, detection source, recommendations, and timestamps.; **Microsoft Defender for Endpoint Incidents:** Retrieves incidents, including affected resources, severity, status, related alerts, and timelines. |
+| Microsoft Defender for Endpoint | [Microsoft Defender for Endpoint](https://help.zscaler.com/uvm/configuring-microsoft-defender-endpoint-connector) | **Microsoft Defender for Endpoint Assets:** Retrieves device information, including ID, owner, operating system, and network information.; **Microsoft Defender for Endpoint Vulnerabilities:** Retrieves vulnerabilities affecting the organization by machine and software.; **Microsoft Defender for Endpoint Software Vulnerabilities by Machine:** Retrieves detailed software vulnerabilities for individual machines.; **Microsoft Defender for Endpoint Alerts:** Retrieves security alerts, including impacted resources, severity, detection source, recommendations, and timestamps.; **Microsoft Defender for Endpoint Incidents:** Retrieves incidents, including affected resources, severity, status, related alerts, and timelines. |
 | Microsoft Entra | [Entra ID](https://help.zscaler.com/uvm/configuring-microsoft-entra-id-connector) | **Entra ID - Administrative Units:** Retrieves administrative units and the members assigned to each unit.; **Entra ID - Applications:** Retrieves applications registered in the tenant and the owners for each application.; **Entra ID - Devices:** Retrieves registered devices and the owners for each device.; **Entra ID - Users & Groups:** Retrieves users and the groups each user belongs to. |
 | Microsoft Intune | [Microsoft Intune Assets](https://help.zscaler.com/uvm/configuring-microsoft-intune-assets-connector) | **Microsoft Intune Assets:** Retrieves Microsoft Intune devices that are mapped to assets in the system. |
 | Microsoft Intune | [Microsoft Intune Audit Events](https://help.zscaler.com/uvm/configuring-microsoft-intune-audit-events-connector) | **Microsoft Intune Audit Events:** Retrieves Microsoft Intune audit events and logs using the Microsoft Graph API. |
@@ -3780,7 +3780,7 @@ The following table lists the supported SecOps Platform data sources by vendor, 
 | Quokka | [Quokka](https://help.zscaler.com/uvm/configuring-quokka-connector) | **Quokka:** Retrieves findings data. |
 | Rapid7 InsightVM | [Rapid7 InsightVM](https://help.zscaler.com/uvm/configuring-rapid7-insightvm-connector) | **Rapid7 InsightVM Vulnerabilities:** Retrieves all vulnerabilities found on the assets to which you have access.; **Rapid7 InsightVM Assets:** Retrieves all assets to which you have access.; **Rapid7 InsightVM Policy Compliance:** Retrieves policy compliance data. |
 | runZero | [runZero Assets](https://help.zscaler.com/uvm/configuring-runzero-assets-connector) | **runZero Assets:** Retrieves asset and network device inventory data discovered by runZero. |
-| runZero | [runZero Vulnerabilities](https://help.zscaler.com/uvm/configuring-runzero-vulnerabilities-connector) | **runZero Vulnerabilities:** Retrieves per-asset vulnerability findings and related metadata id |
+| runZero | [runZero Vulnerabilities](https://help.zscaler.com/uvm/configuring-runzero-vulnerabilities-connector) | **runZero Vulnerabilities:** Retrieves per-asset vulnerability findings and related metadata ID. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4593,6 +4593,112 @@ Other browsers should be compatible, but are not actively tested.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/tracking-data-source-runs","lastmod":"2026-08-02T01:56Z","nid":"1541966"} -->
+## Tracking Data Source Runs
+
+- Source: https://help.zscaler.com/unified/tracking-data-source-runs
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Tracking Data Source Runs
+- Last modified: 2026-08-02T01:56Z
+- Summary: How to track data source runs and view run details to assist in troubleshooting errors.
+
+When connecting a data source to ingest data into the Security Operations Platform (SecOps Platform), you can schedule automatic full runs and incremental runs, as well as process data manually. To monitor the source's run status, track execution, and troubleshoot errors, you can view the data source run history on the [See Runs page](https://help.zscaler.com/unified/managing-data-sources#runs).
+
+## Viewing Source Runs
+
+To view a data source's runs:
+
+1. In the SecOps Platform Admin Portal, go to **Configure** > **Sources**.
+2. Choose one of the following methods:
+  - Hover over the source, and click the **See Runs**icon.
+  - From the list of sources, select the data source and click **Runs**on the top toolbar.
+
+The **Runs**page appears.
+
+## Viewing Run Details
+
+Each entry in the source's run history corresponds to a single run and includes its details.
+
+[Image: CrowdStrike Assets Runs]
+
+The **Runs**page includes the following information:
+
+- **Status**: The status column displays the outcome of each run:
+  - **Completed**: The run successfully completed without authentication or data ingestion issues.
+  - **Canceled**: The run was intentionally stopped by the user.
+  - **Failed**: The run encountered an error or issue that prevented it from completing successfully.
+- **ID**: A unique identifier for the run that can be used for reference when troubleshooting run failures.
+- **Category**: The run's category displays the processing type, indicating the level of processing applied to the ingested data:
+  - **Map and Aggregate**: The data has undergone unification processes, resulting in a standardized and aggregated format.
+  - **Map**: The data has not been unified and is presented in its original, raw format.
+  - **N/A**: This value is displayed for cancelled or failed runs, where no processing has occurred.
+- **Data Retrieval Type**: The method used to retrieve data:
+  - **Full**: The entire dataset is retrieved from the source.
+  - **Incremental**: Only new or updated data is retrieved from the source.
+- **Triggered By**: Displays who initiated the run, either the system through the configured schedule or a user through a manual action such as Process Now or Rerun Last Execution.
+- **Run Type**: Indicates how the run was performed. For example, Source Processed identifies a manually processed run, Scheduled identifies a run initiated by the configured schedule, and Batched identifies a run initiated as part of a platform-managed batch process.
+- **File Format**: The ingested file format
+- **Duration**: The total amount of time the run took from start to finish.
+- **Start Time**and **End Time**: The timestamps when the run started and ended. This information can reveal potential issues with data ingestion and assist during troubleshooting.
+
+## Validating Completed Runs
+
+When a run is successful, the Status column displays Completed. To further validate the run, expand the row to view the run's activity details.
+
+See image.
+
+The expanded run includes an Activities section that shows the processing stages completed during the run, such as Data Retrieval, Mapping, and Entities. Depending on the source and processing type, additional nested activities can appear under Entities, such as Assets, Findings, Tickets, Merge, and Data Manipulation.
+
+For each activity, the following information is displayed:
+
+- **Name**: The name of the processing stage.
+- **Status**: The result of the activity (e.g., Completed, Failed, or Partially Completed).
+- **Duration**: The amount of time the activity took to complete.
+- **Start Time**and End Time: The timestamp when the activity started and ended.
+
+Use these details to confirm that all expected stages have completed successfully and to identify where processing might have slowed or stopped.
+
+Additional details that can indicate the health of the run include the following:
+
+- **File Size**: The size of the ingested file in megabytes.
+- **Number of Files**: The number of files ingested in the run.
+- **Total Number of Rows**: The total number of rows ingested.
+
+[Image: CrowdStrike Assets Completed Run]
+
+## Troubleshooting Failed Runs
+
+When a run fails, the Status column displays Failed. To investigate the issue, expand the row to view the error details and activity history for the run. From the error details section, you can click the Copy icon to copy the error information for troubleshooting or to share with Zscaler Support.
+
+See image.
+
+The expanded run can include the following troubleshooting information:
+
+- **Error type**: A categorized description of the failure (e.g., Vendor Credentials Issue / Authentication Failure).
+- **Error description**: A summary of why the run failed.
+- **Actionable Resolution Steps**: Recommended steps you can take to resolve the issue.
+- **Original Error Message**: The source error returned by the external system or service.
+
+The expanded run also includes an Activities section that shows which processing stage failed, along with its status, duration, start time, and end time. Use this information to determine whether the failure occurred during data retrieval or a later processing stage.
+
+### Common Errors
+
+Common errors you might encounter when troubleshooting failed runs include:
+
+- Authentication errors: The run failed because the configured authentication credentials are invalid, missing, or expired.
+- Permission errors: The run failed because the authenticated account or user does not have the required access to retrieve or process the data.
+- Configuration errors: The run failed because of an invalid source, mapping, or processing configuration.
+- Connectivity errors: The run failed because the platform could not connect to the external source or service.
+- Vendor service errors: The run failed because the external source or service was unavailable, rate-limited, or returned an unexpected response.
+- Processing errors: The run failed during a later stage, such as mapping, merge, or data manipulation.
+
+Review the error details and resolution steps shown for the failed run to identify the cause and the recommended next steps. If the error persists, [contact Zscaler Support](https://help.zscaler.com/uvm/accessing-and-navigating-security-operations-secops-platform) for assistance.
+
+[Image: CrowdStrike Assets failed run]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/understanding-adaptive-access-engine","lastmod":"2026-06-24T21:06Z","nid":"1508246"} -->
 ## Understanding Adaptive Access Engine
 
@@ -4925,34 +5031,34 @@ The following diagram demonstrates how raw data from multiple sources (original 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-threatlabz-source","lastmod":"2026-07-29T03:55Z","nid":"1541967"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-threatlabz-source","lastmod":"2026-08-02T04:13Z","nid":"1541967"} -->
 ## Understanding the ThreatLabz Source
 
 - Source: https://help.zscaler.com/unified/understanding-threatlabz-source
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Understanding the ThreatLabz Source
-- Last modified: 2026-07-29T03:55Z
+- Last modified: 2026-08-02T04:13Z
 - Summary: Information on the ThreatLabz source in the Security Operations Platform.
 
 ThreatLabz is a research organization within Zscaler that focuses on identifying and analyzing emerging threats, vulnerabilities, and attack techniques. As part of their effort, the ThreatLabz team maintains a database of CVEs with information onhow they're mitigated by different Zscaler services. The ThreatLabz source retrieves this data, which is then correlated with your deduplicated asset records and Zscaler service coverage. This information is used to calculate contextualized risk scores based on the level of protection provided by your Zscaler services.
 
-The ThreatLabz source is provisioned in every new account created within the Security Operations Platform (SecOps Platform). To access the ThreatLabz source, go to Configure > Sources. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
+The ThreatLabz source is provisioned in every new account created within the Security Operations Platform (SecOps Platform). To access the ThreatLabz source in the SecOps Platform Admin Portal, go to Configure > Sources. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 See image.
 
 ## ThreatLabz and the Zscaler Client Connector Source
 
-The ThreatLabz source retrieves data on which CVEs are mitigated by which Zscaler services, including Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA). The Zscaler Client Connector Devices source retrieves data on assets in your organization, including which Zscaler services are installed on which assets. By cross-referencing ThreatLabz data with Zscaler Client Connector data, you can determine which of your Zscaler tools are protecting against specific CVEs in your security environment. This insight can be used as a mitigating risk factor to inform finding scoring. To learn more, see [Configuring the Zscaler Client Connector Devices Connector](https://help.zscaler.com/uvm/configuring-zscaler-client-connector-devices-connector) and [Configuring the ZIA Devices and Users Connector](https://help.zscaler.com/uvm/configuring-zia-devices-and-users-connector).
+The ThreatLabz source retrieves data on which CVEs are mitigated by which Zscaler services, including Internet & SaaS (ZIA) and Private Access (ZPA). The Zscaler Client Connector Devices source retrieves data on assets in your organization, including which Zscaler services are installed on which assets. By cross-referencing ThreatLabz data with Zscaler Client Connector data, you can determine which of your Zscaler services are protecting against specific CVEs in your security environment. This insight can be used as a mitigating risk factor to inform finding scoring. To learn more, see [Configuring the Zscaler Client Connector Devices Connector](https://help.zscaler.com/uvm/configuring-zscaler-client-connector-devices-connector) and [Configuring the ZIA Devices and Users Connector](https://help.zscaler.com/uvm/configuring-zia-devices-and-users-connector).
 
 ### Finding Is Mitigated Field
 
-The Finding Is Mitigated field is populated based on the overlap between data from the two sources, returning TRUE when a match is found (i.e., when a CVE found on your asset is mitigated by a Zscaler tool installed on it) or FALSE otherwise. The [unification](https://help.zscaler.com/uvm/what-data-unification) rule checks if any of the services that can mitigate the vulnerability (as reported by the ThreatLabz source) are actually installed on the asset where the vulnerability was detected (as reported by the Zscaler Client Connector Devices source). If the service is installed on the asset, it sets the Finding Is Mitigated field to TRUE. Otherwise, it sets the value to FALSE. To learn more, see [Configuring Field Unification](https://help.zscaler.com/uvm/configuring-field-unification).
+The Finding Is Mitigated field is populated based on the overlap between data from the two sources, returning TRUE when a match is found (i.e., when a CVE found on your asset is mitigated by a Zscaler service installed on it) or FALSE otherwise. The [unification](https://help.zscaler.com/uvm/what-data-unification) rule checks if any of the services that can mitigate the vulnerability (as reported by the ThreatLabz source) are actually installed on the asset where the vulnerability was detected (as reported by the Zscaler Client Connector Devices source). If the service is installed on the asset, it sets the Finding Is Mitigated field to TRUE. Otherwise, it sets the value to FALSE. To learn more, see [Configuring Field Unification](https://help.zscaler.com/uvm/configuring-field-unification).
 
 See image.
 
 ### Score Settings
 
-The Finding Is Mitigated field is used score settings for Unified Vulnerability Management (UVM) (UVM) findings to create the CVE Mitigated By factor, which refines your risk assessment and scoring practices. You can adjust this setting to align with your organization's specific requirements. To learn more, see [Configuring Severity Score Formulas](https://help.zscaler.com/uvm/configuring-severity-score-formulas).
+The Finding Is Mitigated field is used in the score settings for Unified Vulnerability Management (UVM) findings to create the CVE Mitigated By factor, which refines your risk assessment and scoring practices. You can adjust this setting to align with your organization's specific requirements. To learn more, see [Configuring Severity Score Formulas](https://help.zscaler.com/uvm/configuring-severity-score-formulas).
 
 See image.
 
@@ -4960,11 +5066,19 @@ See image.
 
 Consider the following example of a CVE finding:
 
-- The ThreatLabz source reports that CVE-2017-3044 is mitigated by ZIA (i.e., the value of the Vulnerability Mitigation Products field is ZIA).
-- The Zscaler Client Connector Devices source reports that Asset A has ZIA installed and contains the CVE-2017-3044 finding (i.e., the Asset Mitigation Products field value is ZIA).
-- CVE-2017-3044 is mitigated by the ZIA tool and Asset A has ZIA installed on it.
+- The ThreatLabz source reports that CVE-2017-3044 is mitigated by Internet & SaaS (i.e., the value of the Vulnerability Mitigation Products field is ZIA).
+- The Zscaler Client Connector Devices source reports that Asset A has Internet & SaaS installed and contains the CVE-2017-3044 finding (i.e., the Asset Mitigation Products field value is ZIA).
+- CVE-2017-3044 is mitigated by Internet & SaaS, and Asset A has Internet & SaaS installed on it.
 
-These points indicate an overlap between the vulnerability mitigation services (i.e., ZIA) and the asset mitigation services (i.e., ZIA). This sets the Finding Is Mitigated field on Asset A for CVE-2017-3044 to TRUE, indicating that the vulnerability is no longer a significant threat to the asset. This information is then used to reduce the severity score of the finding.
+These points indicate an overlap between the vulnerability mitigation services (i.e., Internet & SaaS) and the asset mitigation services (i.e., Internet & SaaS). This sets the Finding Is Mitigated field on Asset A for CVE-2017-3044 to TRUE, indicating that the vulnerability is no longer a significant threat to the asset. This information is then used to reduce the severity score of the finding.
+
+The Internet & SaaS service is displayed as ZIA in the SecOps Platform.
+
+[Image: The ThreatLabz source on the Sources page]
+
+[Image: Finding Is Mitigated Unification Rule]
+
+[Image: Finding Is Mitigated mitigating factor]
 <!-- /ZS-ARTICLE -->
 
 ---
