@@ -1,5 +1,18 @@
 {
-  "last_updated": "2026-08-04T01:54:39Z",
-  "total": 0,
-  "articles": []
+  "last_updated": "2026-08-05T01:54:33Z",
+  "total": 1,
+  "articles": [
+    {
+      "id": "33443c9f75d8a3d7",
+      "title": "Rethinking AI Security: Why CASB and DLP Need an Interaction-Aware Layer",
+      "url": "https://www.securityweek.com/rethinking-ai-security-why-casb-and-dlp-need-an-interaction-aware-layer/",
+      "summary": "Build your strategy around answering these questions to ensure employees use AI productively while keeping sensitive data, IP, and agent behavior within the boundaries set for safe AI use. The post Rethinking AI Security: Why CASB and DLP Need an Interaction-Aware Layer appeared first on SecurityWeek.",
+      "date": "2026-08-04T16:15:00Z",
+      "source": "SecurityWeek",
+      "category": "industry_news",
+      "tags": [
+        "ZIA"
+      ]
+    }
+  ]
 }
