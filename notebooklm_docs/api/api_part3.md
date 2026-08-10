@@ -1,8 +1,2438 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
-Articles in this file: 138
+Generated: 2026-08-10 01:47 UTC
+Articles in this file: 148
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/outbound-email-dlp-policy","lastmod":"2026-07-07T00:15Z","nid":"1541555"} -->
+## Outbound Email DLP Policy
+
+- Source: https://help.zscaler.com/legacy-apis/outbound-email-dlp-policy
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Outbound Email DLP Policy
+- Last modified: 2026-07-07T00:15Z
+
+API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
+
+### `GET /emailDlpRules`
+
+Retrieves the list of all Outbound Email DLP rules. You can filter the results based on rule attributes.
+
+- Operation ID: `EmailDlpRuleResource_getRules`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `orgId` | query | no | object | The unique identifier for the organization. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `POST /emailDlpRules`
+
+Creates a new Outbound Email DLP rule. To learn more, see
+
+[Configuring Outbound Email DLP Policy Rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules)
+
+.
+
+- Operation ID: `EmailDlpRuleResource_addRule`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `body` | body | yes | EmailDlpRule | Rule configuration details |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `GET /emailDlpRules/lite`
+
+Gets the list of all Outbound Email DLP rules with limited information about each rule. To get complete rule details, use the
+
+`GET /emailDlpRules`
+
+request.
+
+- Operation ID: `EmailDlpRuleResource_getSummary`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `GET /emailDlpRules/actions`
+
+Retrieves a mapping of supported Outbound Email DLP rule actions for the specified email tenant applications in a CSV file
+
+- Operation ID: `EmailDlpRuleResource_getEmailDlpPolicyActions`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `tenantIds` | query | yes | object | A set of unique identifiers for the email tenant applications |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `GET /emailDlpRules/{ruleId}`
+
+Retrieves information about an Outbound Email DLP rule based on the specified rule ID
+
+- Operation ID: `EmailDlpRuleResource_getRuleById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `ruleId` | path | yes | object | The unique identifier for the rule |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `PUT /emailDlpRules/{ruleId}`
+
+Updates information for an existing Outbound Email DLP rule. To learn more, see
+
+[Configuring Outbound Email DLP Policy Rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules)
+
+- Operation ID: `EmailDlpRuleResource_updateRule`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `ruleId` | path | yes | object | The unique identifier for the rule |
+| `body` | body | yes | EmailDlpRule | Updated rule configuration details |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `DELETE /emailDlpRules/{ruleId}`
+
+Deletes an Outbound Email DLP rule based on the specified rule ID
+
+- Operation ID: `EmailDlpRuleResource_deleteRule`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `ruleId` | path | yes | object | The unique identifier for the rule |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | Successful Operation |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/pac-files","lastmod":"2026-01-06T23:49Z","nid":"1508406"} -->
+## PAC Files
+
+- Source: https://help.zscaler.com/legacy-apis/pac-files
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > PAC Files
+- Last modified: 2026-01-06T23:49Z
+
+API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
+
+### `GET /pacFiles`
+
+Retrieves the list of all PAC files which are in deployed state. This list includes default and [custom PAC files](https://help.zscaler.com/zia/using-custom-pac-file-forward-traffic-zia). To learn more, see [About Hosted PAC Files](https://help.zscaler.com/zia/about-hosted-pac-files).
+
+- Operation ID: `PacResource_getPacs`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `search` | query | no | object | Returns PAC files with the names that match the search criteria |
+| `filter` | query | no | object | Retrieves the list of PAC files without the PAC file content in the response |
+| `page` | query | no | object | Specifies the page offset |
+| `pageSize` | query | no | object | Specifies the page size. The default size is 100. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `POST /pacFiles`
+
+Adds a new custom PAC file. To learn more about PAC file configuration, see [Using Custom PAC Files to Forward Traffic to ZIA](https://help.zscaler.com/zia/using-custom-pac-file-forward-traffic-zia) and [Writing a PAC File](https://help.zscaler.com/zia/writing-pac-file).
+
+**Note**: Before adding a new PAC file, you can validate the content of the PAC file by sending a POST request to `/pacFiles/validate`. This request only adds a PAC file. The PAC file needs to be transitioned to the **Deploy** state in order for the file to be deployed.
+
+- Operation ID: `PacResource_addPac`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `body` | body | yes | Pac | PAC object that defines PAC file to be created |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `POST /pacFiles/validate`
+
+Sends the PAC file content for validation and returns the validation result. To learn more, see
+
+[Using Custom PAC Files to Forward Traffic to ZIA](https://help.zscaler.com/zia/using-custom-pac-file-forward-traffic-zia)
+
+.
+
+- Operation ID: `PacResource_validatePac`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `body` | body | yes | string | PAC file content |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `DELETE /pacFiles/{pacId}`
+
+Deletes an existing PAC file including all of its versions based on the specified ID
+
+- Operation ID: `PacResource_deletePac`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `pacId` | path | yes | object | Specifies the ID of the PAC file |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Successful Operation |
+
+### `GET /pacFiles/{pacId}/version`
+
+Retrieves all versions of a PAC file based on the specified ID
+
+- Operation ID: `PacResource_getPacById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `pacId` | path | yes | object | Specifies the ID of the PAC file |
+| `filter` | query | no | object | Excludes specific information about the PAC file from the response such as the PAC file content |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `POST /pacFiles/{pacId}/version/{clonedPacVersion}`
+
+Adds a new PAC file version by branching an existing version based on the specified ID. To learn more, see
+
+[Using Custom PAC Files to Forward Traffic to ZIA](https://help.zscaler.com/zia/using-custom-pac-file-forward-traffic-zia)
+
+.
+
+- Operation ID: `PacResource_addPacVersion`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `pacId` | path | yes | object | Specifies the ID of the PAC file for which a new version needs to be created |
+| `clonedPacVersion` | path | yes | object | Specifies the PAC file version that needs to be branched |
+| `deleteVersion` | query | no | object | Currently, only 10 versions of a PAC file are supported. If this limit is reached and if you are adding a new version using the `POST /pacFiles/{pacId}/version/{clonedPacVersion}` endpoint, the **deleteVersion** parameter can be used to specify the PAC file version that must be replaced with the new version created using this request. However, if the limit is reached and if a version is not specified using this parameter, the version with the least number is automatically replaced. If the limit is not reached, this parameter is ignored. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `GET /pacFiles/{pacId}/version/{pacVersion}`
+
+Retrieves a specific version of a PAC file based on the specified ID
+
+- Operation ID: `PacResource_getPacVersion`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `pacId` | path | yes | object | Specifies the ID of the PAC file |
+| `pacVersion` | path | yes | object | Specifies the version of the PAC file |
+| `filter` | query | no | object | Excludes specific information about the PAC file from the response such as the PAC file content |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `PUT /pacFiles/{pacId}/version/{pacVersion}/action/{pacVersionAction}`
+
+Performs the specified action on the PAC file version and updates the file status. Supported actions include deploying, staging, unstaging, and marking or unmarking the file as last known good version can be performed on PAC file versions.
+
+- Operation ID: `PacResource_updatePacVersionFlag`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `pacId` | path | yes | object | Specifies the ID of the PAC file |
+| `pacVersion` | path | yes | object | Specifies the version of the PAC file |
+| `pacVersionAction` | path | yes | object | Specifies the action that must be performed on the PAC file version |
+| `newLKGVer` | query | no | object | If you are removing a PAC file version as the last known good version using this request, you need to specify a different version that can be marked as the last known good version. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/partner-federation-provisioning","lastmod":"2026-07-20T10:48Z","nid":"1541905"} -->
+## Partner Federation Provisioning
+
+- Source: https://help.zscaler.com/legacy-apis/partner-federation-provisioning
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Partner Federation Provisioning
+- Last modified: 2026-07-20T10:48Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/customers/{customerId}/tenant-federation/partners`
+
+Gets the active federation partners for the specified customer using search, sorting, and pagination.
+
+- Operation ID: `getActiveFederationPartners`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `sortBy` | query | no | string | Indicates the parameter to sort by. |
+| `sortDir` | query | no | string | Specifies the sort direction (i.e., ascending or descending order). |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/customers/{customerId}/tenant-federation/approval`
+
+Approves a partner federation for the specified ID using a token.
+
+- Operation ID: `requestApproval`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → TenantFederationApprovalRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/customers/{customerId}/tenant-federation/token`
+
+Creates a federation token for the specified customer.
+
+- Operation ID: `createFederationToken`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → TenantFederationTokenRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/customers/{customerId}/tenant-federation/token/verify`
+
+Verifies the federation token for the specified ID.
+
+- Operation ID: `verifyToken`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → TenantFederationTokenVerifyRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/customers/{customerId}/tenant-federation`
+
+Gets the provisioning requests for the specified customer using search, sorting, and pagination.
+
+- Operation ID: `getProvisionings`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `sortBy` | query | no | string | Indicates the parameter to sort by. |
+| `sortDir` | query | no | string | Specifies the sort direction (i.e., ascending or descending order). |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `DELETE /mgmtconfig/v1/customers/{customerId}/tenant-federation/{federation_id}`
+
+Deletes the partner federation for the specified ID.
+
+- Operation ID: `deleteProvisioning`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `federation_id` | path | yes | integer(int64) | The unique identifier of the federation. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/customers/{customerId}/tenant-federation/{federation_id}/provisioning-state/{status}`
+
+Updates the provisioning status (APPROVED, DENIED, TERMINATED) of the partner federation request.
+
+- Operation ID: `updateProvisioningState`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `federation_id` | path | yes | integer(int64) | The unique identifier of the federation. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `status` | path | yes | string (enum: APPROVED, DENIED, TERMINATED) | The provisioning status of the federation. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/customers/{customerId}/tenant-federation/{federation_id}/notes`
+
+Updates the notes for partner federation provisioning. The initiator updates
+
+`initiatorNotes`
+
+, and the partner updates
+
+`partnerNotes`
+
+.
+
+- Operation ID: `updateNotes`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `federation_id` | path | yes | integer(int64) | The unique identifier of the federation you want to update the notes for. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → TenantFederationNotesUpdate
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/customers/{customerId}/tenant-federation/{federation_id}/federation-state/{status}`
+
+Updates the status (ACTIVE or INACTIVE) of an existing federation for the specified ID.
+
+- Operation ID: `updateFederationState`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `federation_id` | path | yes | integer(int64) | The provisioning status of the federation. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `status` | path | yes | string (enum: INACTIVE, ACTIVE) | The federation status is ACTIVE (i.e., Active) or INACTIVE (i.e., Pause). |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`PageListPartnerInfoDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<PartnerInfo> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`TenantFederationApprovalRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `partnerNotes` | string | no |
+| `token` | string | yes |
+
+**`TenantFederationTokenRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `expiryTimeInSeconds` | integer(int64) | yes |
+| `notes` | string | no |
+
+**`TenantFederationTokenResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `token` | string | no |
+| `tokenExpirationEpochSeconds` | integer(int64) | no |
+
+**`TenantFederationTokenVerifyRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `token` | string | yes |
+
+**`TenantFederationProvisioning`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `partnerInfo` | PartnerInfo | no |
+| `partnerNotes` | string | no |
+| `success` | boolean | no |
+| `tokenExpirationEpochSeconds` | integer(int64) | no |
+
+**`PageListTenantFederationListDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<TenantFederationList> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`TenantFederationNotesUpdate`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `notes` | string | no |
+
+**`PartnerInfo`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `approvalStatus` | string (enum: NOT_APPROVED, APPROVED) | no |
+| `federationStatus` | string (enum: INACTIVE, ACTIVE) | no |
+| `partnerGid` | integer(int64) | no |
+| `partnerName` | string | no |
+| `partnerScopeName` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/partner-integrations","lastmod":"2026-04-07T07:06Z","nid":"1532710"} -->
+## Partner Integrations
+
+- Source: https://help.zscaler.com/legacy-apis/partner-integrations
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Cloud & Branch Connector API > API Developer & Reference Guide > Reference Guide > Partner Integrations
+- Last modified: 2026-04-07T07:06Z
+
+**Servers:** `https://{host}:{port}/wapi/v1`, `https://{host}:{port}/api/v1`
+
+### `GET /publicCloudInfo`
+
+Retrieves the list of AWS accounts with metadata. To learn more, see
+
+[About Amazon Web Services Accounts](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts)
+
+.
+
+- Operation ID: `AwsAccountZResource_getAwsAccount`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Specifies the page offset. |
+| `pageSize` | query | no | integer(int32) | Specifies the page size. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `POST /publicCloudInfo`
+
+Creates a new AWS account with the provided account and region details. You can create a maximum of 512 accounts in each organization. To learn more, see
+
+[Adding an Amazon Web Services Account](https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account)
+
+.
+
+- Operation ID: `AwsAccountZResource_createAwsAccount`
+
+**Request body:** `application/json` → AwsAccount
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /publicCloudInfo/cloudFormationTemplate`
+
+Retrieves the CloudFormation template URL. To learn more, see
+
+[Adding an Amazon Web Services Account](https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account)
+
+.
+
+- Operation ID: `AwsAccountZResource_getCloudFormationTemplateUrl`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `awsAccountId` | query | no | string | (Optional) The AWS account ID to customize the CloudFormation template URL. If an `awsAccountId` is provided, the URL is customized with account-specific values, or a generic template URL is returned. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /publicCloudInfo/count`
+
+Retrieves the total number of AWS accounts.
+
+- Operation ID: `AwsAccountZResource_getAwsAccountCount`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `POST /publicCloudInfo/generateExternalId`
+
+Creates an external ID for an AWS account.
+
+- Operation ID: `AwsAccountZResource_generateExternalId`
+
+**Request body:** `application/json` → GenerateExternalIdRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /publicCloudInfo/lite`
+
+Retrieves basic information about the AWS cloud accounts. For additional details, use the
+
+`GET /publicCloudInfo`
+
+method.
+
+- Operation ID: `AwsAccountZResource_getAwsAccountSummary`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `cloudType` | query | no | string (enum: AWS, AZURE, GCP) | The cloud type. The default and mandatory value is AWS. |
+| `search` | query | no | string | The search string. |
+| `page` | query | no | integer(int32) | Specifies the page offset. |
+| `pageSize` | query | no | integer(int32) | Specifies the page size. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Defaultresponse. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /publicCloudInfo/supportedRegions`
+
+Retrieves a list of AWS regions supported for  workload discovery settings (WDS).
+
+- Operation ID: `AwsAccountZResource_getAwsSupportedRegions`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Specifies the page offset. |
+| `pageSize` | query | no | integer(int32) | Specifies the page size. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /publicCloudInfo/{id}`
+
+Retrieves the existing AWS account details based on the provided ID.
+
+- Operation ID: `AwsAccountZResource_getAwsAccountById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique ID of the AWS account. |
+| `page` | query | no | integer(int32) | Specifies the page offset. |
+| `pageSize` | query | no | integer(int32) | Specifies the page size. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `PUT /publicCloudInfo/{id}`
+
+Updates the existing AWS account details based on the provided ID.
+
+- Operation ID: `AwsAccountZResource_updateAwsAccount`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique ID of the AWS account. |
+
+**Request body:** `application/json` → AwsAccount
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `DELETE /publicCloudInfo/{id}`
+
+Removes a specific AWS account based on the provided ID.
+
+- Operation ID: `AwsAccountZResource_deleteAwsAccount`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique ID of the AWS account. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `PUT /publicCloudInfo/{id}/changeState`
+
+Enables or disables a specific AWS account in all regions based on the provided ID.
+
+- Operation ID: `AwsAccountZResource_disableAwsAccount`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique ID of the AWS account. |
+| `enable` | query | no | boolean | Set `true` to enable the AWS account, and `false` to disable it. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /publicCloudTenant`
+
+Retrieves a paginated list of all Microsoft Azure accounts. To learn more, see
+
+[About Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts)
+
+.
+
+- Operation ID: `PublicCloudTenantZResource_getPublicCloudTenants`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Specifies the starting point of the current page in pagination, determining which set of records is displayed. |
+| `pageSize` | query | no | integer(int32) | Specifies the number of records included in a single response page. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `POST /publicCloudTenant`
+
+Creates a new Azure account. To learn more, see
+
+[Configuring the Workload Discovery Service for Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts)
+
+.
+
+- Operation ID: `PublicCloudTenantZResource_createPublicCloudTenant`
+
+**Request body:** `application/json` → PublicCloudTenant
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /publicCloudTenant/ccGroups`
+
+Retrieves the list of available Cloud Connector groups for the specified region and the associated Azure account ID.
+
+- Operation ID: `PublicCloudTenantZResource_getCCGroupsAvailable`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `region` | query | no | array<integer(int32)> | The Azure account region. |
+| `tenantId` | query | no | integer(int32) | The unique ID of the Azure account. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /publicCloudTenant/count`
+
+Retrieves the total number of Azure accounts.
+
+- Operation ID: `PublicCloudTenantZResource_getPublicCloudTenantCount`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /publicCloudTenant/supportedRegions`
+
+Retrieves supported Azure regions.
+
+- Operation ID: `PublicCloudTenantZResource_getAzureSupportedRegions`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Specifies the page offset. |
+| `pageSize` | query | no | integer(int32) | Specifies the page size. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Retreives the list of supported regions for the cloud type. |
+
+### `GET /publicCloudTenant/{id}`
+
+Retrieves the details of an Azure account based on the specified unique account ID.
+
+- Operation ID: `PublicCloudTenantZResource_getPublicCloudTenantById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique ID of the Azure account. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `PUT /publicCloudTenant/{id}`
+
+Updates the details of an Azure account based on the specified unique account ID.
+
+- Operation ID: `PublicCloudTenantZResource_updatePublicCloudTenant`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique ID of the Azure account. |
+
+**Request body:** `application/json` → PublicCloudTenant
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `DELETE /publicCloudTenant/{id}`
+
+Deletes an Azure account based on the specified unique account ID.
+
+- Operation ID: `PublicCloudTenantZResource_deletePublicCloudTenant`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique ID of the Azure account. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `PUT /discoveryService/azure/subscriptionSync`
+
+Updates Azure subscription permission status.
+
+- Operation ID: `DiscoveryServZResource_updateAzureSubscriptionStatus`
+
+**Request body:** `application/json` → AzurePermissionReq
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `POST /discoveryService/azure/tenantPermission`
+
+Verifies whether the provided Azure credentials are valid and can scan tags for Azure subscriptions.
+
+- Operation ID: `DiscoveryServZResource_getAzureTenantPermission`
+
+**Request body:** `application/json` → AzurePermissionReq
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `POST /discoveryService/azure/{region}/resourceGroups`
+
+Retrieves the list of resource groups based on the specified Azure region name, subscription, and credentials.
+
+- Operation ID: `DiscoveryServZResource_getAzureResourceGroups`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `region` | path | yes | string | The Azure region name. |
+
+**Request body:** `application/json` → AzurePermissionReq
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `POST /discoveryService/azure/{region}/storageAccounts`
+
+Retrieves the list of storage accounts based on the specified Azure region, subscription, and credentials.
+
+- Operation ID: `DiscoveryServZResource_getAzureStorageAccounts`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `region` | path | yes | string | Azure region name. |
+
+**Request body:** `application/json` → AzurePermissionReq
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `PUT /discoveryService/azure/{region}/topicSync`
+
+Retrieves event grid details for the specified Azure account ID and region.
+
+- Operation ID: `DiscoveryServZResource_updateAzureTopicStatus`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `tenantId` | query | no | integer(int32) | The unique ID of the Azure account. |
+| `region` | path | yes | string | The Azure region. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /discoveryService/workloadDiscoverySettings`
+
+Retrieves the workload discovery service settings.
+
+- Operation ID: `DiscoveryServZResource_getWorkloadDiscoverySettings`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `PUT /discoveryService/{id}/permissions`
+
+Verifies the specified AWS account permissions using the discovery role and external ID.
+
+- Operation ID: `DiscoveryServZResource_getPermissions`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique identifier for the AWS account. |
+
+**Request body:** `application/json` → PermissionReq
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /accountGroups`
+
+Retrieves the details of AWS account groups with metadata. To learn more, see
+
+[About Amazon Web Services Account Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups)
+
+.
+
+- Operation ID: `AwsAccountGroupZResource_getAccountGroups`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Specifies the page offset. |
+| `pageSize` | query | no | integer(int32) | Specifies the page size. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `POST /accountGroups`
+
+Creates an AWS account group. You can create a maximum of 128 groups in each organization. To learn more, see
+
+[Adding an Amazon Web Services Account Group](https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account-group)
+
+.
+
+- Operation ID: `AwsAccountGroupZResource_createAccountGroup`
+
+**Request body:** `application/json` → AwsAccountGroup
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /accountGroups/count`
+
+Retrieves the total number of AWS account groups.
+
+- Operation ID: `AwsAccountGroupZResource_getAccountGroupsCount`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /accountGroups/lite`
+
+Retrieves the ID and name of all the AWS account groups. For additional details, use the
+
+`GET /accountGroups`
+
+method.
+
+- Operation ID: `AwsAccountGroupZResource_getAccountGroupsLite`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `GET /accountGroups/{id}`
+
+Retrieves the specific AWS account group details based on the provided group ID.
+
+- Operation ID: `AwsAccountGroupZResource_getAccountGroupById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The ID of the AWS account group. |
+| `page` | query | no | integer(int32) | Specifies the page offset. |
+| `pageSize` | query | no | integer(int32) | Specifies the page size. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `PUT /accountGroups/{id}`
+
+Updates the existing AWS account group details based on the provided ID.
+
+- Operation ID: `AwsAccountGroupZResource_updateAccountGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique ID of the AWS account group. |
+
+**Request body:** `application/json` → AwsAccountGroup
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### `DELETE /accountGroups/{id}`
+
+Removes a specific AWS account group based on the provided ID.
+
+- Operation ID: `AwsAccountGroupZResource_deleteAccountGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The unique ID of the AWS account group. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Default response. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/cloud-branch-connector/api-response-codes-and-error-messages). |
+
+### Schemas
+
+**`AwsAccount`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `accountDetails` | AwsAccountDetails | no |
+| `accountGroups` | array<EntityReference> | no |
+| `cloudType` | string (enum: AWS, AZURE, GCP) | no |
+| `externalId` | string | no |
+| `lastModTime` | integer(int32) | no |
+| `lastModUser` | EntityReference | no |
+| `lastSyncTime` | integer(int32) | no |
+| `permissionStatus` | object | no |
+| `regionStatus` | array<RegionStatus> | no |
+| `supportedRegions` | array<SupportedRegion> | no |
+
+**`GenerateExternalIdRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `awsAccountId` | string | no |
+| `awsRoleName` | string | no |
+
+**`PublicCloudInfoSummary`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `accountId` | string | no |
+| `cloudType` | string (enum: AWS, AZURE, GCP) | no |
+
+**`SupportedRegion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `cloudType` | string (enum: AWS, AZURE, GCP) | no |
+
+**`PublicCloudTenant`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `cloudType` | string (enum: AWS, AZURE, GCP) | no |
+| `id` | integer(int32) | no |
+| `infoMsg` | string | no |
+| `lastModTime` | integer(int32) | no |
+| `lastModUser` | EntityReference | no |
+| `name` | string | no |
+| `publicCloudStorageAccounts` | array<PublicCloudStorageAccount> | no |
+| `publicCloudTopics` | array<PublicCloudTopic> | no |
+| `subscriptionGroups` | array<SubscriptionGroup> | no |
+| `tenantDetails` | AzureTenantDetails | no |
+
+**`EcGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `autoScale` | boolean | no |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `desc` | string | no |
+| `deployType` | string (enum: ONPREM, CLOUD, DISABLED, MON_DELETED, DELETING, DELETING_LAST, DELETED) | no |
+| `status` | array<string (enum: ONPREM, CLOUD, DISABLED, MON_DELETED, DELETING, DELETING_LAST, DELETED)> | no |
+| `platform` | string (enum: AWS, AZURE, CENTOS, REDHAT_LINUX, VMWARE_ESXI) | no |
+| `awsAvailabilityZone` | string (enum: AF_SOUTH_1A, AF_SOUTH_1B, AF_SOUTH_1C, AP_EAST_1A, AP_EAST_1B, AP_EAST_1C, AP_NORTHEAST_1A, AP_NORTHEAST_1C) | no |
+| `azureAvailabilityZone` | string (enum: ASIA_0, ASIA_1, ASIA_2, ASIA_3, ASIAPACIFIC_0, ASIAPACIFIC_1, ASIAPACIFIC_2, ASIAPACIFIC_3) | no |
+| `azureRegion` | string (enum: AUSTRALIACENTRAL, AUSTRALIACENTRAL2, AUSTRALIAEAST, AUSTRALIASOUTHEAST, BRAZILSOUTH, BRAZILSOUTHEAST, CANADACENTRAL, CANADAEAST) | no |
+| `namespace` | string | no |
+| `location` | object | no |
+| `maxEcCount` | integer(int32) | no |
+| `provTemplate` | object | no |
+| `tunnelMode` | string (enum: UNENCRYPTED, DTLS) | no |
+| `ecVMs` | array<EcVM> | no |
+
+**`AzurePermissionReq`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `appRegistration` | AzureAppRegistration | no |
+| `subscriptionId` | string | no |
+
+**`AzurePermissionResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `applicationRegistrationPermission` | AzureAppRegistration | no |
+| `subscription` | string | no |
+
+**`AzureStorageAccountDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | string | no |
+| `resourceGroup` | string | no |
+
+**`AzureTopicDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `partnerDestinationActivated` | boolean | no |
+| `partnerDestinationCreated` | boolean | no |
+| `partnerDestinationMessageCount` | string | no |
+| `partnerTopicActivated` | boolean | no |
+| `partnerTopicCreated` | boolean | no |
+| `partnerTopicMessageCount` | string | no |
+
+**`WorkloadDiscoverySetting`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `trustedAccountId` | string | no |
+| `trustedRoleName` | string | no |
+
+**`PermissionReq`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `discoveryRole` | string | no |
+| `externalId` | string | no |
+
+**`AwsAccountGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `description` | string | no |
+| `cloudConnectorGroups` | array<EntityReference> | no |
+| `cloudType` | string (enum: AWS, AZURE, GCP) | no |
+| `publicCloudAccounts` | array<EntityReference> | no |
+
+**`EntityResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+
+**`AwsAccountDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `awsAccountId` | string | no |
+| `awsRoleName` | string | no |
+| `cloudWatchGroupArn` | string | no |
+| `eventBusName` | string | no |
+| `externalId` | string | no |
+| `logInfoType` | string (enum: INFO, ERROR) | no |
+| `troubleShootingLogging` | boolean | no |
+| `trustedAccountId` | string | no |
+| `trustedRole` | string | no |
+
+**`EntityReference`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+| `isNameL10nTag` | boolean | no |
+| `extensions` | object | no |
+| `deleted` | boolean | no |
+| `externalId` | string | no |
+| `associationTime` | integer(int32) | no |
+
+**`RegionStatus`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `cloudType` | string (enum: AWS, AZURE, GCP) | no |
+| `status` | boolean | no |
+
+**`PublicCloudStorageAccount`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `prefix` | string | no |
+| `region` | SupportedRegion | no |
+| `resourceGroup` | string | no |
+| `subscription` | string | no |
+
+**`PublicCloudTopic`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `lastSyncTime` | integer(int32) | no |
+| `region` | SupportedRegion | no |
+| `resourceGroup` | string | no |
+| `status` | object | no |
+| `subscription` | string | no |
+
+**`SubscriptionGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `cloudConnectorGroupList` | array<EcGroup> | no |
+| `cloudType` | string (enum: AWS, AZURE, GCP) | no |
+| `id` | integer(int32) | no |
+| `lastModTime` | integer(int32) | no |
+| `lastModUser` | EntityReference | no |
+| `name` | string | no |
+| `subscriptionList` | array<PublicCloudSubscription> | no |
+| `supportedRegions` | array<SupportedRegion> | no |
+
+**`EcVM`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `status` | array<string (enum: DISABLED, REGISTERED, RESERVED1, PKG_REPO_REGISTERED, ENABLING, DISABLING, DELETING, DELETING_LAST)> | no |
+| `autoScale` | boolean | no |
+| `buildVersion` | string | no |
+| `ccRoleName` | string | no |
+| `failOpen` | boolean | no |
+| `formFactor` | string (enum: SMALL, MEDIUM, LARGE) | no |
+| `managementNw` | EcNetwork | no |
+| `ecInstances` | array<EcInstance> | no |
+| `cityGeoId` | integer(int32) | no |
+| `deployAsGateway` | boolean | no |
+| `dnsCache` | boolean | no |
+| `haStatus` | string (enum: INIT, ACTIVE, STANDBY, DISABLED) | no |
+| `hardwareInfo` | HardwareInfo | no |
+| `lanDns` | EcDns | no |
+| `lastTemplateConfigPushFailed` | boolean | no |
+| `lastUpgradeTime` | integer(int32) | no |
+| `metaConfig` | EcVmMetaConfig | no |
+| `natIp` | string | no |
+| `operationalStatus` | string | no |
+| `pkgRepoSerialNumber` | integer(int32) | no |
+| `provTemplate` | EntityReference | no |
+| `provTemplateStatus` | string (enum: STAGED, NOT_DEPLOYED, DEPLOYED, EDITABLE) | no |
+| `trafficDistribution` | string (enum: BALANCED, BEST_LINK) | no |
+| `upgradeStatus` | integer(int32) | no |
+| `upgradeStartTime` | integer(int32) | no |
+| `upgradeEndTime` | integer(int32) | no |
+| `upgradeDayOfWeek` | integer(int32) | no |
+| `useWanDns` | boolean | no |
+| `usedForZtp` | boolean | no |
+| `zeroTrustVm` | boolean | no |
+| `ziaGateway` | string | no |
+| `ziaGateways` | array<string> | no |
+| `zpaBroker` | string | no |
+| `zpaBrokers` | array<string> | no |
+
+**`EcNetwork`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `ipStart` | string | no |
+| `ipEnd` | string | no |
+| `admin` | string (enum: NOSHUTDOWN, SHUTDOWN) | no |
+| `natIp` | string | no |
+| `netmask` | string | no |
+| `defaultGateway` | string | no |
+| `nwType` | string (enum: AUTOMATIC, MANUAL, DELETING, SHUTDOWN_ON, PORT_STATUS_UP, DELETED) | no |
+| `portStatusUp` | boolean | no |
+| `shutdownOn` | boolean | no |
+| `dns` | EcDns | no |
+
+**`EcDns`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `ips` | array<string> | no |
+| `dnsType` | string (enum: AUTOMATIC, MANUAL, DELETING, DELETED) | no |
+
+**`EcInstance`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `ecInstanceType` | string (enum: ANY, NONE, ALERTEVAL, ALERTNOTIF, SMBA, SMBAG, SMBAC, SMESXI) | no |
+| `flags` | string (enum: DISABLED, MON_DELETED, REGISTERED, ACTIVE, DELETING, DELETED) | no |
+| `serviceNw` | EcNetwork | no |
+| `virtualNw` | EcNetwork | no |
+| `natIp` | string | no |
+| `registerTime` | integer(int32) | no |
+| `dnsIp` | array<string> | no |
+| `zpaId` | integer(int64) | no |
+
+**`HardwareInfo`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `deviceName` | string | no |
+| `modelType` | string (enum: ZT600, ZT800, ZT400) | no |
+| `serialNum` | string | no |
+
+**`EcVmMetaConfig`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `hostName` | string | no |
+| `nativeId` | string | no |
+| `repoTag` | string | no |
+| `uuid` | string | no |
+
+**`PublicCloudSubscription`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `cloudType` | string (enum: AWS, AZURE, GCP) | no |
+| `externalId` | string | no |
+| `id` | integer(int32) | no |
+| `lastSyncTime` | integer(int32) | no |
+| `name` | string | no |
+| `permissionStatus` | object | no |
+
+**`AzureTenantDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `applicationId` | string | no |
+| `applicationSecret` | string | no |
+| `azureDirectoryId` | string | no |
+
+**`AzureAppRegistration`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `applicationId` | string | no |
+| `applicationSecret` | string | no |
+| `azureDirectoryId` | string | no |
+| `canListSubscriptions` | boolean | no |
+| `credentialsMismatched` | boolean | no |
+| `subscriptions` | array<AzureSubscriptionDetails> | no |
+| `tenantEntryId` | string | no |
+
+**`AzureSubscriptionDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `canDescribeNic` | boolean | no |
+| `canDescribeVm` | boolean | no |
+| `canDescribeVnet` | boolean | no |
+| `errorDescription` | string | no |
+| `resourceGroups` | array<string> | no |
+| `status` | string (enum: PENDING, ALLOWED, DENIED) | no |
+| `storageAccounts` | array<AzureStorageAccountDetails> | no |
+| `subscription` | string | no |
+| `subscriptionName` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/partner-integrations-0","lastmod":"2026-07-20T07:06Z","nid":"1541304"} -->
+## Partner Integrations
+
+- Source: https://help.zscaler.com/legacy-apis/partner-integrations-0
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Partner Integrations
+- Last modified: 2026-07-20T07:06Z
+
+API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
+
+### `GET /integrationPartners`
+
+Retrieves a list of partners and services integrated with the Zscaler service. To learn more, see
+
+[About Partner Integrations](https://help.zscaler.com/zia/about-partner-integrations)
+
+.
+
+- Operation ID: `IntegrationPartnerResource_getPartners`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `apiKeyProvisioned` | query | no | object | Filters the partners list based on the provisioned API key |
+| `partnerType` | query | no | object | Filters the partners list based on the partner type |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `GET /integrationPartners/crowdStrike/endpoints`
+
+Retrieves the list of CrowdStrike endpoints based on the indicator of compromise (IOC) query, with pagination support. To learn more, see
+
+[Viewing the CrowdStrike Endpoint Hits Report](https://help.zscaler.com/zia/viewing-crowdstrike-endpoint-hits-report)
+
+.
+
+- Operation ID: `IntegrationPartnerResource_getIocObservedDevices`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `type` | query | no | object | Filters based on the IOC type |
+| `value` | query | no | object | Filters based on the IOC value |
+| `limit` | query | no | object | Specifies the page size |
+| `offset` | query | no | object | Specifies the page offset |
+| `partnerJsonType` | query | no | object | Filters based on the partner JSON type |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `POST /integrationPartners/crowdStrike/endpoints`
+
+Accepts a list of CrowdStrike endpoint or device IDs in the request body and fetches detailed endpoint or device data for those IDs. To learn more, see
+
+[Integrating with CrowdStrike](https://help.zscaler.com/zia/integrating-crowdstrike)
+
+.
+
+- Operation ID: `IntegrationPartnerResource_crowdStrikeEndPoints`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `body` | body | yes | array<string> | Information about Crowdstrike endpoint or device IDs |
+| `partnerJsonType` | query | no | object | Filters based on the partner JSON type |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `GET /integrationPartners/crowdStrike/whitelistedBaseUrls`
+
+Retrieves a list of CrowdStrike configured whitelisted base URLs (allowist URLs).
+
+- Operation ID: `IntegrationPartnerResource_getCrowdStrikeWhietlistedDomains`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `partnerJsonType` | query | no | object | Filters based on the partner JSON type |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `POST /integrationPartners/microsoftDefender/endpoints`
+
+Configures the integration of Microsoft Defender for Endpoint APIs with Zscaler. To learn more, see
+
+[Integrating with Microsoft Defender for Endpoint](https://help.zscaler.com/zia/integrating-microsoft-defender-endpoint)
+
+.
+
+- Operation ID: `IntegrationPartnerResource_getMicrosoftDefenderTransactions`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `body` | body | no | MicrosoftDefenderTransactionRequest | Microsoft Defender transaction request details |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `GET /integrationPartners/sandbox/report/{md5}`
+
+Retrieves the MD5 hash of the file required to view the Sandbox Detail Report. To learn more, see
+
+[Viewing Sandbox Reports and Data](https://help.zscaler.com/zia/viewing-sandbox-reports-data)
+
+.
+
+- Operation ID: `IntegrationPartnerResource_getMd5Detail`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `md5` | path | yes | object | Filters the Sandbox report based on the MD5 hash of the file |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/policies-b2b-federation","lastmod":"2026-07-20T10:49Z","nid":"1541906"} -->
+## Policies for B2B Federation
+
+- Source: https://help.zscaler.com/legacy-apis/policies-b2b-federation
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Policies for B2B Federation
+- Last modified: 2026-07-20T10:49Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/customers/{customerId}/policySet/rules/policyType/GLOBAL_POLICY/guest/{guest_id}`
+
+Retrieves a paginated list of policy rules created by the partner for applications that have been federated to them. The response is sanitized to hide sensitive information.
+
+- Operation ID: `getPartnerPolicyRulesOnFederatedApps`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `guest_id` | path | yes | integer(int64) | The partner or guest tenant ID for the policy rules you want to view. This is the `partnerGid` value when sending a GET request to get all active federation partners. |
+| `search` | query | no | string | The search string to filter policy rules by name. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`PageListPolicyRule`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `totalPages` | integer(int32) | no |
+| `currentCount` | integer(int64) | no |
+| `totalCount` | integer(int64) | no |
+| `list` | array<PolicyRule> | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`PolicyRule`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `ruleOrder` | integer(int32) | no |
+| `priority` | integer(int32) | no |
+| `policyType` | integer(int32) | yes |
+| `operator` | string (enum: AND, OR) | yes |
+| `actionId` | integer(int64) | no |
+| `action` | string (enum: ALLOW, DENY, LOG, RE_AUTH, NEVER, BYPASS, INTERCEPT, NO_DOWNLOAD) | yes |
+| `reauthTimeout` | integer(int32) | no |
+| `reauthIdleTimeout` | integer(int32) | no |
+| `customMsg` | string | no |
+| `disabled` | integer(int32) | no |
+| `serviceEdgeGroups` | array<ServiceEdgeGroup> | no |
+| `appConnectorGroups` | array<AppConnectorGroup> | no |
+| `credential` | NameIdDto | no |
+| `credentialPool` | NameIdDto | no |
+| `zpnIsolationProfileId` | integer(int64) | no |
+| `zpnInspectionProfileId` | integer(int64) | no |
+| `postActionTypes` | array<string> | no |
+| `postActions` | object | no |
+| `zpnInspectionProfileName` | string | no |
+| `extranetDTO` | ExtranetDTO | no |
+| `extranetEnabled` | boolean | no |
+| `inconsistentConfigDetails` | InconsistentConfigDetails | no |
+| `policySetId` | integer(int64) | no |
+| `privilegedCapabilities` | PrivilegedCapabilities | no |
+| `privilegedPortalCapabilities` | PrivilegedPortalCapabilities | no |
+| `conditions` | array<ConditionSet> | no |
+| `appServerGroups` | array<AppServerGroup> | no |
+| `defaultRule` | boolean | no |
+| `defaultRuleName` | string | no |
+
+**`ServiceEdgeGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | no |
+| `description` | string | no |
+| `geoLocationId` | integer(int64) | no |
+| `versionProfileId` | integer(int64) | no |
+| `overrideVersionProfile` | boolean | no |
+| `siteId` | string | no |
+| `versionProfileName` | string | no |
+| `upgradePriority` | string (enum: WEEK, DAY, FORCE_NOW, NOW) | no |
+| `versionProfileVisibilityScope` | string (enum: ALL, NONE, CUSTOM) | no |
+| `upgradeTimeInSecs` | string | no |
+| `upgradeDay` | string | no |
+| `siteName` | string | no |
+| `isPublic` | string | no |
+| `location` | string | no |
+| `serviceEdges` | array<ServiceEdge> | no |
+| `latitude` | string | no |
+| `city` | string | no |
+| `longitude` | string | no |
+| `cityCountry` | string | no |
+| `countryCode` | string | no |
+| `useInDrMode` | boolean | no |
+| `graceDistanceEnabled` | boolean | no |
+| `graceDistanceValue` | number(double) | no |
+| `graceDistanceValueUnit` | string (enum: MILES, KMS) | no |
+| `trustedNetworks` | array<TrustedNetwork> | no |
+| `altCloud` | string | no |
+
+**`ServiceEdge`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `fingerprint` | string | no |
+| `issuedCertId` | integer(int64) | no |
+| `enabled` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `listenIps` | array<string> | no |
+| `publishIps` | array<string> | no |
+| `publishIpv6` | boolean | no |
+| `privateBrokerVersion` | PrivateBrokerVersion | no |
+| `provisioningKeyId` | integer(int64) | no |
+| `provisioningKeyName` | string | no |
+| `serviceEdgeGroupId` | string | no |
+| `serviceEdgeGroupName` | string | no |
+| `enrollmentCert` | object | no |
+| `latitude` | string | no |
+| `longitude` | string | no |
+| `location` | string | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradeTime` | integer(int64) | no |
+| `expectedUpgradeTime` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `controlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `ctrlBrokerName` | string | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerConnectTimeDuration` | string | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTimeDuration` | string | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `applicationStartTime` | integer(int64) | no |
+| `sargeVersion` | string | no |
+| `platformDetail` | string | no |
+| `zpnSubModuleUpgradeList` | array<ZpnSubModuleUpgrade> | no |
+
+**`PrivateBrokerVersion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `systemStartTime` | integer(int64) | no |
+| `applicationStartTime` | integer(int64) | no |
+| `lastConnectTime` | integer(int64) | no |
+| `lastDisconnectTime` | integer(int64) | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `brokerId` | integer(int64) | no |
+| `serviceEdgeGroupId` | integer(int64) | no |
+| `restartTimeInSec` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `ctrlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `loneWarrior` | boolean | no |
+| `tunnelId` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradedTime` | integer(int64) | no |
+| `restartInstructions` | string (enum: DELETE, FLUSHDB) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `disableAutoUpdate` | boolean | no |
+| `sargeVersion` | string | no |
+| `zpnSubModuleUpgrade` | array<ZpnSubModuleUpgrade> | no |
+| `platformDetail` | string | no |
+| `upgradeNowOnce` | boolean | no |
+
+**`ZpnSubModuleUpgrade`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `entityGid` | integer(int64) | yes |
+| `entityType` | string (enum: ASSISTANT, PRIVATE_BROKER, MMDB_GEOIP, MMDB_ISP, GUACD, SITE_CONTROLLER) | no |
+| `role` | string (enum: ASSISTANT, PRIVATE_BROKER, MMDB_GEOIP, MMDB_ISP, GUACD, SITE_CONTROLLER) | yes |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `upgradeTime` | integer(int64) | no |
+
+**`TrustedNetwork`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `networkId` | string | no |
+| `zscalerCloud` | string | no |
+| `domain` | string | no |
+| `masterCustomerId` | string | no |
+
+**`AppConnectorGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | no |
+| `description` | string | no |
+| `geoLocationId` | integer(int64) | no |
+| `versionProfileId` | integer(int64) | no |
+| `overrideVersionProfile` | boolean | no |
+| `siteId` | string | no |
+| `versionProfileName` | string | no |
+| `upgradePriority` | string (enum: WEEK, DAY, FORCE_NOW, NOW) | no |
+| `versionProfileVisibilityScope` | string (enum: ALL, NONE, CUSTOM) | no |
+| `upgradeTimeInSecs` | string | no |
+| `upgradeDay` | string | no |
+| `siteName` | string | no |
+| `connectors` | array<Connector> | no |
+| `location` | string | no |
+| `latitude` | string | no |
+| `city` | string | no |
+| `longitude` | string | no |
+| `serverGroups` | array<AppServerGroup> | no |
+| `dnsQueryType` | string (enum: IPV4_IPV6, IPV4, IPV6) | no |
+| `cityCountry` | string | no |
+| `countryCode` | string | no |
+| `tcpQuickAckApp` | boolean | no |
+| `tcpQuickAckAssistant` | boolean | no |
+| `tcpQuickAckReadAssistant` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `praEnabled` | boolean | no |
+| `useInDrMode` | boolean | no |
+| `connectorGroupType` | string (enum: APP, NP) | no |
+| `dcHostingInfo` | string | no |
+| `wafDisabled` | boolean | no |
+| `npAssistantGroup` | NPAssistantGroup | no |
+| `lssAppConnectorGroup` | boolean | no |
+
+**`Connector`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `fingerprint` | string | no |
+| `issuedCertId` | integer(int64) | no |
+| `enabled` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `provisioningKeyId` | integer(int64) | no |
+| `connectorType` | string (enum: APP, NP) | no |
+| `provisioningKeyName` | string | no |
+| `enrollmentCert` | object | no |
+| `appConnectorGroupId` | string | no |
+| `appConnectorGroupName` | string | no |
+| `assistantVersion` | AssistantVersion | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradeTime` | integer(int64) | no |
+| `expectedUpgradeTime` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `controlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `ctrlBrokerName` | string | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerConnectTimeDuration` | string | no |
+| `sargeVersion` | string | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTimeDuration` | string | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `applicationStartTime` | integer(int64) | no |
+| `latitude` | number(double) | no |
+| `longitude` | number(double) | no |
+| `location` | string | no |
+| `platformDetail` | string | no |
+| `zpnSubModuleUpgradeList` | array<ZpnSubModuleUpgrade> | no |
+| `npAssistant` | NPAssistant | no |
+
+**`AssistantVersion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `systemStartTime` | integer(int64) | no |
+| `applicationStartTime` | integer(int64) | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `brokerId` | integer(int64) | no |
+| `restartTimeInSec` | integer(int64) | no |
+| `disableAutoUpdate` | boolean | no |
+| `appConnectorGroupId` | integer(int64) | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `ctrlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `latitude` | number(double) | no |
+| `longitude` | number(double) | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `loneWarrior` | boolean | no |
+| `mtunnelId` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradedTime` | integer(int64) | no |
+| `upgradeNowOnce` | boolean | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `sargeVersion` | string | no |
+| `platformDetail` | string | no |
+
+**`NPAssistant`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `publicKey` | string | no |
+| `publicKeyExpiry` | integer(int64) | no |
+| `connectorState` | integer(int32) | no |
+| `connectorId` | integer(int64) | yes |
+
+**`AppServerGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | yes |
+| `dynamicDiscovery` | boolean | no |
+| `description` | string | no |
+| `configSpace` | string (enum: DEFAULT, SIEM) | yes |
+| `weight` | integer(int32) | no |
+| `passive` | boolean | no |
+| `extranetEnabled` | boolean | no |
+| `zpnErId` | ZpnExtranetResource | no |
+
+**`ZpnExtranetResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `ziaErId` | integer(int64) | yes |
+| `ziaErName` | string | yes |
+| `ziaCloud` | string | yes |
+| `ziaOrgId` | integer(int64) | yes |
+| `ziaModifiedTime` | integer(int64) | no |
+
+**`NPAssistantGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `appConnectorGroupId` | integer(int64) | yes |
+| `lanSubnets` | array<NpLanSubnet> | no |
+
+**`NpLanSubnet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `description` | string | no |
+| `subnet` | string | yes |
+| `appConnectorGroupId` | integer(int64) | yes |
+| `npDnsNsRecord` | NpDnsNsRecord | no |
+| `fqdns` | array<string> | no |
+| `npserverips` | array<string> | no |
+| `oldAuditString` | string | no |
+
+**`NpDnsNsRecord`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `nameserverIps` | array<string> | yes |
+| `fqdn` | array<string> | yes |
+
+**`NameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ExtranetDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `ziaErName` | string | no |
+| `zpnErId` | integer(int64) | yes |
+| `locationGroupDTO` | array<LocationGroupDTO> | yes |
+| `locationDTO` | array<NameIdDto> | yes |
+
+**`LocationGroupDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | string | no |
+| `id` | integer(int64) | yes |
+| `ziaLocations` | array<NameIdDto> | no |
+
+**`InconsistentConfigDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `application` | array<InconsistentConfigNameReasonDto> | no |
+| `sraApplication` | array<InconsistentConfigNameReasonDto> | no |
+| `segmentGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `serverGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `appConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `baCertificate` | array<InconsistentConfigNameReasonDto> | no |
+| `postureProfile` | array<InconsistentConfigNameReasonDto> | no |
+| `trustedNetwork` | array<InconsistentConfigNameReasonDto> | no |
+| `branchConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `cloudConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `samlAttributes` | array<InconsistentConfigNameReasonDto> | no |
+| `scimAttributes` | array<InconsistentConfigNameReasonDto> | no |
+| `machineGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `idp` | array<InconsistentConfigNameReasonDto> | no |
+| `location` | array<InconsistentConfigNameReasonDto> | no |
+| `workloadTagGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `userPortal` | array<InconsistentConfigNameReasonDto> | no |
+
+**`InconsistentConfigNameReasonDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | string | no |
+| `reason` | string | no |
+
+**`PrivilegedCapabilities`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `microtenantId` | integer(int64) | no |
+| `capabilities` | array<string> | no |
+
+**`PrivilegedPortalCapabilities`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `microtenantId` | integer(int64) | no |
+| `capabilities` | array<string> | no |
+
+**`ConditionSet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `operator` | string (enum: AND, OR) | no |
+| `negated` | boolean | yes |
+| `operands` | array<Operand> | no |
+
+**`Operand`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `objectType` | The criteria of the policy. (enum: USER, USER_GROUP, APP, APP_GROUP, LOCATION, WORKLOAD_TAG_GROUP, SAML, POSTURE) | no |
+| `lhs` | string | yes |
+| `rhs` | string | yes |
+| `name` | string | no |
+| `idpId` | integer(int64) | no |
+| `idpName` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/policy-export","lastmod":"2026-01-06T23:49Z","nid":"1518351"} -->
+## Policy Export
+
+- Source: https://help.zscaler.com/legacy-apis/policy-export
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Policy Export
+- Last modified: 2026-01-06T23:49Z
+
+API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
+
+### `POST /exportPolicies`
+
+Exports the specified policies to a ZIP file. This API request supports exporting a wide range of policy types, and you can view the list of supported policy types in the Enum list included in the request's body parameter.
+
+The API response is one ZIP file containing JSON representation of the exported policies. One JSON file is created for each policy type specified in the request input. For example, if the request body specifies three policy types, such as FIREWALL, BA, and URL_FILTERING, the API response is exported as one ZIP file containing three JSON files, one for each policy type, named firewall.json, ba.json, and url_filtering.json.
+
+- Operation ID: `ExportPolicyResource_getPolicies`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `body` | body | yes | array<string (enum: BA, FILETYPE_CONTROL, BANDWIDTH_CONTROL, MOBILE_APP_RULE, URL_FILTERING, CUSTOM_CAPP, FIREWALL, DNAT)> | Specifies the list of policy types for which the rules must be exported |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | Successful Operation |
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -12300,6 +14730,957 @@ Retrieves the PAC file audit report.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/tag-group-management","lastmod":"2026-08-04T14:12Z","nid":"1542627"} -->
+## Tag Group Management
+
+- Source: https://help.zscaler.com/legacy-apis/tag-group-management
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Tag Group Management
+- Last modified: 2026-08-04T14:12Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/tagGroup/search`
+
+Gets all configured tag groups for the specified customer.
+
+- Operation ID: `getAlltagGroupDto`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → AdvancedFilterAndSortDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/tagGroup`
+
+Adds a new tag group for the specified customer.
+
+- Operation ID: `addTagGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → tagGroupDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | Created |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/tagGroup/{tagGroupId}`
+
+Gets the tag group details for the specified ID.
+
+- Operation ID: `getTagGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `tagGroupId` | path | yes | integer(int64) | The unique identifier of the tag group. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/tagGroup/{tagGroupId}`
+
+Updates the tag group for the specified ID.
+
+- Operation ID: `updatetaggroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `tagGroupId` | path | yes | integer(int64) | The unique identifier of the tag group. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → tagGroupDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/tagGroup/{tagGroupId}`
+
+Deletes the tag group for the specified ID.
+
+- Operation ID: `deletetaggroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `tagGroupId` | path | yes | integer(int64) | The unique identifier of the tag group. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`AdvancedFilterAndSortDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filterBy` | FilterGroupDto | no |
+| `pageBy` | PaginationDto | no |
+| `sortBy` | SortDto | no |
+
+**`PageListTagGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<tagGroupDto> | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`tagGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `createdByUsername` | string | no |
+| `creationTime` | integer(int32) | no |
+| `description` | string | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedByUsername` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `tags` | array<TagValueSummary> | no |
+
+**`FilterGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filterGroups` | array<NestedFilterGroupDto> | no |
+| `operator` | string (enum: AND, OR) | no |
+
+**`NestedFilterGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filters` | array<FilterDto> | no |
+| `operator` | string (enum: AND, OR) | no |
+
+**`FilterDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `commaSepValues` | string | no |
+| `filterName` | string | no |
+| `operator` | string | no |
+| `value` | string | no |
+| `values` | array<string> | no |
+
+**`PaginationDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `page` | string | no |
+| `pageSize` | string | no |
+| `validPageSize` | integer(int32) | no |
+| `validPage` | integer(int32) | no |
+
+**`SortDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `sortName` | string | no |
+| `sortOrder` | string | no |
+
+**`TagValueSummary`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `namespace` | TagNamespaceKeyInfo | no |
+| `origin` | string (enum: CUSTOM, PREDEFINED, SEGMENTATION) | no |
+| `tagKey` | TagNamespaceKeyInfo | no |
+| `tagValue` | TagNameIdDto | no |
+
+**`TagNamespaceKeyInfo`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enabled` | boolean | no |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`TagNameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/tag-key-management","lastmod":"2026-08-04T14:06Z","nid":"1542626"} -->
+## Tag Key Management
+
+- Source: https://help.zscaler.com/legacy-apis/tag-key-management
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Tag Key Management
+- Last modified: 2026-08-04T14:06Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey/bulkUpdateStatus`
+
+Enables or disables the tag keys for the specified customer and namespace IDs.
+
+- Operation ID: `bulkUpdateStatus`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+
+**Request body:** `application/json` → TagKeyBulkUpdateResource
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey/search`
+
+Gets all configured tag keys for the specified ID.
+
+- Operation ID: `getAllTagKeyDTOs`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → AdvancedFilterAndSortDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey`
+
+Adds a new tag key for a given namespace.
+
+- Operation ID: `addTagKey`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → TagKeyDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | Created |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey/{tagKeyId}`
+
+Gets the tag key details for the specified ID.
+
+- Operation ID: `getTagKey`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+| `tagKeyId` | path | yes | integer(int64) | The unique identifier of the tag key. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey/{tagKeyId}`
+
+Updates the tag key for the specified ID.
+
+- Operation ID: `updateTagKey`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+| `tagKeyId` | path | yes | integer(int64) | The unique identifier of the tag key. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → TagKeyUpdateDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey/{tagKeyId}`
+
+Deletes the tag key for the specified ID.
+
+- Operation ID: `deleteTagKey`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+| `tagKeyId` | path | yes | integer(int64) | The unique identifier of the tag key. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`TagKeyBulkUpdateResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enabled` | boolean | no |
+| `tagKeyIds` | array<integer(int64)> | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`AdvancedFilterAndSortDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filterBy` | FilterGroupDto | no |
+| `pageBy` | PaginationDto | no |
+| `sortBy` | SortDto | no |
+
+**`PageListTagKeyDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<TagKeyDto> | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`TagKeyDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `createdByUsername` | string | no |
+| `creationTime` | integer(int32) | no |
+| `customerId` | integer(int64) | no |
+| `description` | string | no |
+| `enabled` | boolean | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedByUsername` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `namespaceId` | integer(int64) | no |
+| `origin` | string (enum: CUSTOM, PREDEFINED, SEGMENTATION) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `skipAudit` | boolean | no |
+| `tagValues` | array<TagNameIdDto> | no |
+| `type` | string (enum: STATIC) | no |
+
+**`TagKeyUpdateDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `creationTime` | integer(int32) | no |
+| `customerId` | integer(int64) | no |
+| `description` | string | no |
+| `enabled` | boolean | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `namespaceId` | integer(int64) | no |
+| `origin` | string (enum: CUSTOM, PREDEFINED, SEGMENTATION) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `tagValuesCreated` | array<TagNameIdDto> | no |
+| `tagValuesDeleted` | array<TagNameIdDto> | no |
+| `tagValuesUpdated` | array<TagNameIdDto> | no |
+| `type` | string (enum: STATIC) | no |
+
+**`FilterGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filterGroups` | array<NestedFilterGroupDto> | no |
+| `operator` | string (enum: AND, OR) | no |
+
+**`NestedFilterGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filters` | array<FilterDto> | no |
+| `operator` | string (enum: AND, OR) | no |
+
+**`FilterDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `commaSepValues` | string | no |
+| `filterName` | string | no |
+| `operator` | string | no |
+| `value` | string | no |
+| `values` | array<string> | no |
+
+**`PaginationDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `page` | string | no |
+| `pageSize` | string | no |
+| `validPageSize` | integer(int32) | no |
+| `validPage` | integer(int32) | no |
+
+**`SortDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `sortName` | string | no |
+| `sortOrder` | string | no |
+
+**`TagNameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/tag-namespace-management","lastmod":"2026-08-04T14:03Z","nid":"1542625"} -->
+## Tag Namespace Management
+
+- Source: https://help.zscaler.com/legacy-apis/tag-namespace-management
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Tag Namespace Management
+- Last modified: 2026-08-04T14:03Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/tags/import`
+
+Bulk imports the tag namespace, keys, and values for the specified customer.
+
+- Operation ID: `bulkImportTags`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → BulkImportTagDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}`
+
+Gets the namespace details for the specified ID.
+
+- Operation ID: `getNamespace`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}`
+
+Updates the namespace for the specified ID.
+
+- Operation ID: `updateNamespace`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → TagNamespaceDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}`
+
+Deletes the namespace for the specified ID.
+
+- Operation ID: `deleteNamespace`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/tags/import/validate`
+
+Validates the bulk import of tags (including namespace, keys, and values) for the specified customer.
+
+- Operation ID: `validateBulkImportTags`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → BulkImportTagDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/namespace/search`
+
+Gets all namespaces for the specified customer based on the given filters.
+
+- Operation ID: `getAllNamespaceDtoByPage`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → AdvancedFilterAndSortDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/namespace`
+
+Adds a new namespace for the specified customer.
+
+- Operation ID: `addNamespace`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → TagNamespaceDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | Created |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/status`
+
+Enables or disables a predefined namespace.
+
+- Operation ID: `updatePredefinedNamespaceStatus`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `namespaceId` | path | yes | integer(int64) | The unique identifier of the namespace. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → TagNamespacePredefinedOverrideDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`BulkImportTagDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `data` | object | no |
+| `duplicateResolutionStrategy` | string (enum: MERGE, REPLACE_EXISTING) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`TagNamespaceDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `creationTime` | integer(int32) | no |
+| `description` | string | no |
+| `enabled` | boolean | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `origin` | string (enum: CUSTOM, PREDEFINED, SEGMENTATION) | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `type` | string (enum: STATIC) | no |
+
+**`AdvancedFilterAndSortDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filterBy` | FilterGroupDto | no |
+| `pageBy` | PaginationDto | no |
+| `sortBy` | SortDto | no |
+
+**`PageListTagNamespaceView`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<TagNamespaceView> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`TagNamespacePredefinedOverrideDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `creationTime` | integer(int32) | no |
+| `enabled` | boolean | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `namespaceId` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+
+**`FilterGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filterGroups` | array<NestedFilterGroupDto> | no |
+| `operator` | string (enum: AND, OR) | no |
+
+**`NestedFilterGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filters` | array<FilterDto> | no |
+| `operator` | string (enum: AND, OR) | no |
+
+**`FilterDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `commaSepValues` | string | no |
+| `filterName` | string | no |
+| `operator` | string | no |
+| `value` | string | no |
+| `values` | array<string> | no |
+
+**`PaginationDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `page` | string | no |
+| `pageSize` | string | no |
+| `validPageSize` | integer(int32) | no |
+| `validPage` | integer(int32) | no |
+
+**`SortDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `sortName` | string | no |
+| `sortOrder` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/time-intervals","lastmod":"2026-01-06T23:49Z","nid":"1528938"} -->
 ## Time Intervals
 
@@ -14971,13 +18352,13 @@ To learn more, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zpa-api","lastmod":"2026-07-20T10:53Z","nid":"1484766"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zpa-api","lastmod":"2026-08-04T14:25Z","nid":"1484766"} -->
 ## Understanding the ZPA API
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-zpa-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > Understanding the ZPA API
-- Last modified: 2026-07-20T10:53Z
+- Last modified: 2026-08-04T14:25Z
 - Summary: Introductory information about the Zscaler Private Access (ZPA) API, which gives programmatic access to various ZPA features.
 
 The Zscaler Private Access (ZPA) API gives you programmatic access to manage the following ZPA features:
@@ -15026,6 +18407,7 @@ The Zscaler Private Access (ZPA) API gives you programmatic access to manage the
 - SCIM Groups
 - Servers
 - Server Groups
+- Tag Management
 - Trusted Networks
 - User Portals
 - User Portal Links
@@ -15308,6 +18690,20 @@ Private Cloud Controller group API resources allow you to create, read, update, 
 - [Reference Guide > Private Cloud Controller Group Management](https://help.zscaler.com/zpa/private-cloud-controller-group-management)
 - [Managing Private Cloud Controller Groups Using API](https://help.zscaler.com/zpa/managing-private-cloud-controller-groups-using-api)
 - [About Private Cloud Controller Groups](https://help.zscaler.com/zpa/about-private-cloud-controller-groups)
+
+Tag management API resources allow you to create, read, update, and delete tags and tag groups. To learn more, see:
+
+- [Reference Guide > Tag Namespace Management](https://help.zscaler.com/legacy-apis/tag-namespace-management)
+- [Reference Guide > Tag Key Management](https://help.zscaler.com/legacy-apis/tag-key-management)
+- [Reference Guide > Tag Group Management](https://help.zscaler.com/legacy-apis/tag-group-management)
+- [Reference Guide > Application Segment Management](https://help.zscaler.com/legacy-apis/application-segment-management)
+- [Reference Guide > Policy Management](https://help.zscaler.com/legacy-apis/policy-management)
+- [Configuring Tag Namespaces Using API](https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api)
+- [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
+- [Configuring Tag Groups Using API](https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api)
+- [Configuring Tags for Application Segments Using API](https://help.zscaler.com/legacy-apis/configuring-tags-application-segments-using-api)
+- [Configuring Tags and Tag Groups with Policy Rules Using API](https://help.zscaler.com/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api)
+- [About Tag Management for Application Segments](https://help.zscaler.com/zpa/about-tag-management-application-segments)
 
 Trusted network API resources allow you to read trusted networks. To learn more, see:
 
@@ -16736,13 +20132,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/user-portal-management","lastmod":"2026-07-31T16:33Z","nid":"1532093"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/user-portal-management","lastmod":"2026-08-03T10:08Z","nid":"1532093"} -->
 ## User Portal Management
 
 - Source: https://help.zscaler.com/legacy-apis/user-portal-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > User Portal Management
-- Last modified: 2026-07-31T16:33Z
+- Last modified: 2026-08-03T10:08Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
@@ -21959,13 +25355,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zsdk/release-upgrade-summary-2026","lastmod":"2026-03-27T07:06Z","nid":"1534295"} -->
+<!-- ZS-ARTICLE {"url":"/zsdk/release-upgrade-summary-2026","lastmod":"2026-08-05T05:29Z","nid":"1534295"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zsdk/release-upgrade-summary-2026
 - Product: Zscaler SDK for Mobile Apps
 - Path: Zscaler SDK for Mobile Apps Help > Release Notes > ZSDK Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-03-27T07:06Z
+- Last modified: 2026-08-05T05:29Z
 - Summary: Zscaler SDK for Mobile Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler SDK for Mobile Apps.
@@ -22183,13 +25579,13 @@ The Mobile Client SDK creates a unique device fingerprint and application signat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zsdk/understanding-zsdk-error-codes","lastmod":"2026-07-30T16:34Z","nid":"1533769"} -->
+<!-- ZS-ARTICLE {"url":"/zsdk/understanding-zsdk-error-codes","lastmod":"2026-08-06T10:32Z","nid":"1533769"} -->
 ## Understanding ZSDK Error Codes
 
 - Source: https://help.zscaler.com/zsdk/understanding-zsdk-error-codes
 - Product: Zscaler SDK for Mobile Apps
 - Path: Zscaler SDK for Mobile Apps Help > Zscaler SDK Developer Guide > Understanding ZSDK Error Codes
-- Last modified: 2026-07-30T16:34Z
+- Last modified: 2026-08-06T10:32Z
 - Summary: Information on error codes that can appear while you are configuring for ZSDK.
 
 The following tables are lists of error codes you can encounter for ZSDK.
@@ -22236,7 +25632,7 @@ If you are using APIs, you can see the following API errors:
 | 2001 | failedToAddCustomExtensions | The signed certificate's custom extensions were not added. | No action required. |
 | 2001 | zsdkFailedCryptoServiceRequest | ZSDK's upstream failed. | Try again. If the problem persists, contact Zscaler Support. |
 | 2001 | invalidResourceArgument | An invalid request was sent. | No action required. |
-| 2003 | noZpaService | There is no registered Private Access service. | Register for Private Access service. |
+| 2003 | noZpaService | There is no registered Private Access (ZPA) service. | Register for Private Access service. |
 | 2004 | multipleZpaService | There are multiple, registered Private Access services. | No action required. |
 | 2005 | revokeCertFailed | There was a failure to revoke certification. | No action required. |
 | 2006 | tokenConfigNotFound | Unable to find token configuration for the tenant. | No action required. |
@@ -22247,7 +25643,7 @@ If you are using APIs, you can see the following API errors:
 | 2011 | failedSignatureValidation | Signature validation failed. | Check the signature for validation errors. |
 | 2012 | tokenExpired | The access token expired. | Refresh the access token's expiration. |
 | 2013 | tokenValidationFailed | The access token validation failed. | Try again. If the problem persists, check the access token's fields. |
-| 2015 | missingCertificateIdOauth2Client | The `certificate_id` is missing from the OAuth2 client. | No action required. |
+| 2015 | missingCertificateIdOAuth2Client | The `certificate_id` is missing from the OAuth2 client. | No action required. |
 | 2016 | missingPrivateKeyOAuth2Client | The private key is missing from the OAuth2 client. | No action required. |
 | 2022 | unsupportedCustomerTokenType | The JSON Web Token is unsupported. | Ensure the JSON Web Token is supported. |
 | 2023 | hmacSecretFailed | There was a failure to fetch the Hash-based Message Authentication Code (HMAC) secret from Private Access. | Check the HMAC secret from Private Access. |
@@ -22258,10 +25654,10 @@ If you are using APIs, you can see the following API errors:
 | 2027 | zsdkIdentifierIsAlreadyRevoked | The app is revoked. | No action required. |
 | 2027 | zsdkIdentifierDoesNotHaveHMACSecret | The app failed to fetch the HMAC secret from Private Access. | Check the HMAC secret from Private Access. |
 | 2028 | publicKeyTooShort | The public key is too short. | No action required. |
-| 2028 | invalidClientCSR | The certificate signing request is invalid. | No action required. |
+| 2028 | invalidClientCSR | The CSR is invalid. | No action required. |
 | 2999 | unexpectedError | There is an unexpected error. | Try again. If the problem persists, contact Zscaler Support. |
 | 2999 | zsdkIdentifierFailedToRetrieveConfigs | ZSDK failed to retrieve the configuration. | Try again. If the problem persists, contact Zscaler Support. |
-| 2999 | csrfViolation | The Cross-Site Request Forgery (CSRF) is in violation with security policies. | No action required. |
+| 2999 | csrfViolation | The Cross-Site Request Forgery (CSRF) violates security policies. | No action required. |
 <!-- /ZS-ARTICLE -->
 
 ---

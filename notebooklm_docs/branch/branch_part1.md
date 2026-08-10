@@ -1,18 +1,18 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 160
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-account-groups","lastmod":"2026-04-20T21:06Z","nid":"1479491"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-account-groups","lastmod":"2026-08-04T11:17Z","nid":"1479491"} -->
 ## About Amazon Web Services Account Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > About Amazon Web Services Account Groups
-- Last modified: 2026-04-20T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > About Amazon Web Services Account Groups
+- Last modified: 2026-08-04T11:17Z
 - Summary: Information about Amazon Web Services account groups and their functionality.
 
 Amazon Web Services (AWS) account groups enable Zscaler Cloud Connector to be aware of other accounts it can get the workload tags from. Therefore, the Cloud Connector is not tied to the account where it is deployed.
@@ -50,13 +50,13 @@ On the Groups page (Infrastructure > Connectors > Cloud > Management > Partner I
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-accounts","lastmod":"2026-04-20T21:06Z","nid":"1463456"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-accounts","lastmod":"2026-08-04T11:15Z","nid":"1463456"} -->
 ## About Amazon Web Services Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > About Amazon Web Services Accounts
-- Last modified: 2026-04-20T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > About Amazon Web Services Accounts
+- Last modified: 2026-08-04T11:15Z
 - Summary: Information about the AWS Partner Integrations page in the Zscaler Admin Console.
 
 Amazon Web Services (AWS) partner integrations enable you to add AWS accounts by allowing the Zscaler service to fetch metadata from those accounts. An AWS account has credentials that provide access to a single AWS account. Adding an AWS account allows you to use user-defined tags in Zscaler security policies.
@@ -96,6 +96,55 @@ On the Accounts page (Infrastructure > Connectors > Cloud > Management > Partner
 11. Go to the [AWS Account Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups) page.
 
 [Image: The AWS Accounts Partner Integrations page in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways","lastmod":"2026-08-03T13:54Z","nid":"1516706"} -->
+## About Amazon Web Services Zero Trust Gateways
+
+- Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > About Amazon Web Services Zero Trust Gateways
+- Last modified: 2026-08-03T13:54Z
+- Summary: Information about the Amazon Web Services (AWS) Zero Trust Gateway page in the Zscaler Admin Console.
+
+Amazon Web Services (AWS) Zero Trust Gateways are a Zscaler cloud native service offering in public clouds.
+
+AWS gateways are in Limited Availability (LA). To enable this feature, contact Zscaler Support.
+
+AWS gateways provide the following benefits and enable you to:
+
+- Secure workloads communicating with the internet and private destinations using the Zscaler Zero Trust Cloud as a SaaS offering, without needing to manage any security infrastructure.
+- Maintain consistent security policies in your multicloud environment.
+- Simplify operations by removing the need to deploy NAT gateways, security infrastructure, load balancers, and virtual machines (VMs).
+- Apply security features such as advanced firewall protection, Secure Sockets Layer (SSL) inspection, data loss prevention (DLP), and intrusion prevention system (IPS) as a cloud-native service.
+
+## About the AWS Gateway Page
+
+On the AWS Gateway page (Infrastructure > Connectors > Cloud > Zero Trust Gateway -- AWS), you can do the following:
+
+1. Search for an AWS gateway.
+2. Refresh the list of AWS gateways.
+3. [Add an AWS gateway](https://help.zscaler.com/cloud-branch-connector/configuring-zero-trust-gateway).
+4. Modify the table and its columns.
+5. Show or hide the **Service Status**, **Availability Zone**, **ID**, and **Endpoint Service Name** filters from view.
+6. Filter the list of AWS gateways by their **Service Status**, **Availability Zone**, **ID**, and **Endpoint Service Name**.
+7. View a list of all AWS gateways. For each AWS gateway, you can view:
+  - **Name**: The name of the AWS gateway
+  - **ID**: The ID of the AWS gateway
+  - **Region**: The region associated with the AWS gateway
+  - **Availability Zone ID**: The ID of the AWS availability zone associated with the AWS gateway
+  - **Endpoint Service Name**: The name of the endpoint service associated with the AWS gateway
+  - **Location**: The location associated with the AWS gateway
+  - **Endpoints**: The number of endpoints associated with the AWS gateway
+  - **Operational Status**: The operational status of the AWS gateway (i.e., **Enabled** or **Disabled**) You cannot disable AWS gateways
+  - **Service Status**: The service status of the AWS gateway (i.e., **Healthy**, **Unhealthy**, or **Not Available**)
+8. Edit an AWS gateway.
+9. Delete an AWS gateway.
+10. [Analyze a specific AWS gateway and its details](https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateway-details).
+
+[Image: The AWS Gateway page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -293,13 +342,13 @@ On the Branch Configuration Templates page (Infrastructure > Connectors > Edge >
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-connector-groups","lastmod":"2026-05-13T12:47Z","nid":"1420476"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-connector-groups","lastmod":"2026-08-03T09:35Z","nid":"1420476"} -->
 ## About Cloud Connector Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-cloud-connector-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Group Management > About Cloud Connector Groups
-- Last modified: 2026-05-13T12:47Z
+- Last modified: 2026-08-03T09:35Z
 - Summary: Information on Cloud Connector Groups in the Zscaler Admin Console.
 
 Cloud Connector groups are automatically created when you deploy a Zscaler Cloud Connector in Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
@@ -393,13 +442,13 @@ A Cloud NSS feed behaves differently according to HTTP/S response status codes f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-provisioning-templates","lastmod":"2026-04-23T21:06Z","nid":"1420426"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-provisioning-templates","lastmod":"2026-08-03T08:50Z","nid":"1420426"} -->
 ## About Cloud Provisioning Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-cloud-provisioning-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > About Cloud Provisioning Templates
-- Last modified: 2026-04-23T21:06Z
+- Last modified: 2026-08-03T08:50Z
 - Summary: Information on the Cloud Provisioning Template page in the Zscaler Admin Console.
 
 [Watch a video about Cloud Provisioning Templates (shows legacy UI).](https://fast.wistia.net/embed/iframe/577qniv2zj)
@@ -427,7 +476,7 @@ On the Cloud Provisioning Templates page (Infrastructure > Connectors > Cloud > 
   - **Cloud Provider Type**: The Cloud Provider (AWS, Azure, or GCP).
   - **Status**: The status of the template deployment.
   - **VM Size**: The size of the virtual machine.
-  - **Auto Scaling**: The status of autoscaling (i.e., **True** or **False**). Zscaler supports autoscaling in AWS, Azure, and GCP. In the AWS Marketplace, autoscaling is referred to as Auto Scaling. In the Azure Marketplace, autoscaling is referred to as Virtual Machine Scale Sets (VMSS). In the Google Cloud Marketplace, autoscaling is referred to as a Managed Instance Group (MIG) with autoscaling. In the Zscaler Cloud & Branch Connector Admin Portal, references to autoscaling also refer to VMSS and a MIG with autoscaling. To enable Auto Scaling, VMSS, or a MIG with autoscaling, contact Zscaler Support.
+  - **Auto Scaling**: The status of autoscaling (i.e., **True** or **False**). Zscaler supports autoscaling in AWS, Azure, and GCP. In the AWS Marketplace, autoscaling is referred to as Auto Scaling. In the Azure Marketplace, autoscaling is referred to as Virtual Machine Scale Sets (VMSS). In the Google Cloud Marketplace, autoscaling is referred to as a Managed Instance Group (MIG) with autoscaling. In the Zscaler Admin Console, references to autoscaling also refer to VMSS and a MIG with autoscaling. To enable Auto Scaling, VMSS, or a MIG with autoscaling, contact Zscaler Support.
   - **Last Modified By**: The last admin to modify the template.
   - **Last Modified On**: The date and time the template was last modified.
 5. Modify the table and its columns.
@@ -567,13 +616,13 @@ On the DNS Policies page (Infrastructure > Connectors > Cloud > DNS for VM), you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-google-cloud-platform-accounts","lastmod":"2026-04-28T21:06Z","nid":"1528867"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-google-cloud-platform-accounts","lastmod":"2026-08-04T11:23Z","nid":"1528867"} -->
 ## About Google Cloud Platform Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-accounts
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > About Google Cloud Platform Accounts
-- Last modified: 2026-04-28T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > GCP Partner Integrations > About Google Cloud Platform Accounts
+- Last modified: 2026-08-04T11:23Z
 - Summary: Information on the Google Cloud Platform accounts page in the Zscaler Admin Console.
 
 Google Cloud Platform (GCP) partner integrations enable you to use user-defined tags and resource attributes in Zscaler security policies. To fetch this information from the GCP tenant and projects, you must provide a service principal. Zscaler configuration requires a service account called a GCP account, which maps to service principal credentials that have access to a set of subscriptions in the same tenant.
@@ -604,6 +653,64 @@ On the GCP page (Infrastructure > Connectors > Cloud > Management > Partner Inte
 8. Go to the [Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts) page.
 
 [Image: The Google Cloud Platform Partner Integrations page accessed from Infrastructure in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways","lastmod":"2026-08-03T13:49Z","nid":"1540272"} -->
+## About Google Cloud Platform Zero Trust Gateways
+
+- Source: https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > GCP Zero Trust Gateway Management > About Google Cloud Platform Zero Trust Gateways
+- Last modified: 2026-08-03T13:49Z
+- Summary: Information about the Google Cloud Platform (GCP) Zero Trust Gateway page in the Zscaler Admin Console.
+
+Google Cloud Platform (GCP) Zero Trust Gateways are a Zscaler cloud native service offering in public clouds that is supported in GCP.
+
+GCP gateways are in Limited Availability (LA). To enable this feature, contact Zscaler Support. Additionally, note the following:
+
+- DNS interception is not supported.
+- Packet interception for Network Security Integration (NSI) cancels the high-bandwidth networking benefits of third generation or higher machine series. If a virtual machine (VM) requires more than 7 Gbps of throughput, do not configure NSI for the VM.
+- Regional network firewall policies are not supported for packet intercept.
+- In-band integration is not supported in Google Cloud VMware Engine, Google Distributed Cloud-Hosted (GDC-H), Google Distributed Cloud-Edge (GDC-E), Google Private Cloud, Google Cloud Run, and GKE Enterprise.
+- To override classic firewall evaluation at the virtual private cloud (VPC) level so that the network firewall policy is evaluated before VPC firewall rules, run the `gcloud compute networks update vpc-name--network-firewall-policy-enforcement-order=BEFORE_CLASSIC_FIREWALL` command.
+
+GCP gateways provide the following benefits and enable you to:
+
+- Secure workloads communicating with the internet and private destinations using the Zscaler Zero Trust Cloud as a SaaS offering, without needing to manage any security infrastructure.
+- Maintain consistent security policies in your multicloud environment.
+- Simplify operations by removing the need to deploy NAT gateways, security infrastructure, load balancers, and VMs.
+- Apply security features such as advanced firewall protection, Secure Sockets Layer (SSL) inspection, data loss prevention (DLP), and intrusion prevention system (IPS) as a cloud-native service.
+- Support Private Access (ZPA) for web traffic only.
+- Use Internet & SaaS (ZIA) functionalities.
+
+## About the GCP Gateway Page
+
+On the GCP Gateway page (Infrastructure > Connectors > Cloud > Zero Trust Gateway -- GCP), you can do the following:
+
+1. Search for a GCP gateway.
+2. Refresh the list of GCP gateways.
+3. [Add a GCP gateway](https://help.zscaler.com/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway).
+4. Modify the table and its columns.
+5. Show or hide the **Service Status**, **Availability Zone**, and **ID** filters from view.
+6. Filter the list of GCP gateways by their **Service Status**, **Availability Zone**, and **ID**.
+7. View a list of all GCP gateways. For each GCP gateway, you can view:
+  - **Name**: The name of the GCP gateway.
+  - **ID**: The ID of the GCP gateway.
+  - **Region**: The region associated with the GCP gateway.
+  - **Availability Zone ID**: The ID of the GCP availability zone associated with the GCP gateway.
+  - **Intercept Deployment Group**: A GCP-provided resource that allows the Zscaler service to intercept and inspect workload traffic from your VPCs. To learn more, refer to the [GCP documentation](https://docs.cloud.google.com/network-security-integration/docs/in-band/intercept-deployment-groups-overview).
+  - **Intercept Endpoint Groups Count**: The number of a project-wide resource that allows you to access a Zscaler-managed security service in GCP. To learn more, refer to the [GCP documentation](https://docs.cloud.google.com/network-security-integration/docs/in-band/intercept-endpoint-groups-overview).
+  - **Location**: The location associated with the GCP gateway.
+  - **Created Date**: The date and time when the GCP gateway was created.
+  - **Last Modified On**: The date and time when the GCP gateway was last modified.
+  - **Service Status**: The service status of the GCP gateway (i.e., **Healthy**, **Unhealthy**, or **Not Available**).
+8. [Edit](https://help.zscaler.com/cloud-branch-connector/editing-zero-trust-gateways) a GCP gateway.
+9. Delete a GCP gateway.
+10. [Analyze a specific GCP gateway and its details.](https://help.zscaler.com/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details)
+
+[Image: The GCP Gateway page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -663,13 +770,13 @@ As you work with your data, the history bar records the workflow. Each time you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-insights-logs","lastmod":"2026-07-21T08:30Z","nid":"1420541"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-insights-logs","lastmod":"2026-08-04T21:06Z","nid":"1420541"} -->
 ## About Insights Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-insights-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > About Insights Logs
-- Last modified: 2026-07-21T08:30Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on Cloud & Branch Connector's Insights Logs pages, the different types of logs you can view, and the different sections on the pages.
 
 The Zscaler service provides real-time log consolidation across the globe, so you can view every transaction performed by your users regardless of where they are in the world.
@@ -949,13 +1056,13 @@ On the Log and Control Gateway page (Infrastructure > Common Resources > Gateway
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-microsoft-azure-accounts","lastmod":"2026-04-24T21:06Z","nid":"1507556"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-microsoft-azure-accounts","lastmod":"2026-08-04T11:18Z","nid":"1507556"} -->
 ## About Microsoft Azure Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > About Microsoft Azure Accounts
-- Last modified: 2026-04-24T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > About Microsoft Azure Accounts
+- Last modified: 2026-08-04T11:18Z
 - Summary: Information on the Microsoft Azure accounts page in the Zscaler Admin Console.
 
 Microsoft Azure partner integrations enable you to use user-defined tags and resource attributes in Zscaler security policies. To fetch this information from the Azure tenant and subscriptions, you must provide a service principal. Zscaler configuration requires a service account called an Azure account, which maps to service principal credentials that have access to a set of subscriptions in the same tenant.
@@ -1445,13 +1552,13 @@ On the Upgrade Manager page (Infrastructure > Connectors > Cloud > Management > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-devices","lastmod":"2026-07-21T08:54Z","nid":"1471691"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-devices","lastmod":"2026-08-04T21:06Z","nid":"1471691"} -->
 ## About VDI Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Devices
-- Last modified: 2026-07-21T08:54Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on the VDI Devices page in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Devices page displays all the devices in your organization that have Zscaler Client Connector for VDI deployed.
@@ -1479,13 +1586,13 @@ On the VDI Devices page (Infrastructure > Connectors > Client > VDI Device Manag
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-forwarding-profiles","lastmod":"2026-07-21T12:49Z","nid":"1471721"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-forwarding-profiles","lastmod":"2026-08-04T21:06Z","nid":"1471721"} -->
 ## About VDI Forwarding Profiles
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-forwarding-profiles
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Forwarding Profiles
-- Last modified: 2026-07-21T12:49Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on the VDI Forwarding Profiles page in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Forwarding Profile page displays the current forwarding profiles and allows you to create new forwarding profiles. Additionally, Zscaler Client Connector for VDI automatically fetches VDI forwarding profile policies every 60 minutes.
@@ -1519,13 +1626,13 @@ On the VDI Forwarding Profile page (Infrastructure > Connectors > Client > VDI P
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-groups","lastmod":"2026-07-21T11:53Z","nid":"1471696"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-groups","lastmod":"2026-08-04T21:06Z","nid":"1471696"} -->
 ## About VDI Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Groups
-- Last modified: 2026-07-21T11:53Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on the VDI groups page of the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Groups page displays a list of Virtual Desktop Infrastructure (VDI) device groups that are defined based on criteria entered by an admin. The VDI devices that have Zscaler Client Connector for VDI deployed are categorized under groups based on the match criteria.
@@ -1565,13 +1672,13 @@ On the VDI Groups page (Infrastructure > Connectors > Client > VDI Device Manage
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-templates","lastmod":"2026-07-21T12:21Z","nid":"1471706"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-templates","lastmod":"2026-08-04T21:06Z","nid":"1471706"} -->
 ## About VDI Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Templates
-- Last modified: 2026-07-21T12:21Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on the VDI Templates page in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Template page displays the current templates and allows you to create new templates. Virtual Desktop Infrastructure (VDI) templates provide the VDI provisioning URL and the VDI access token, which are required for installing Zscaler Client Connector for VDI. To learn more, see [Step-by-Step Configuration Guide for Zscaler Client Connector for VDI](https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi).
@@ -1686,54 +1793,6 @@ On the ZT Devices page (Infrastructure > Connectors > Edge > Management > ZT Dev
 4. [Edit](https://help.zscaler.com/cloud-branch-connector/editing-zero-trust-branch-devices) a Zero Trust Branch Device.
 
 [Image: The About ZT Devices page in the Zscaler Admin Console]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-zero-trust-gateways","lastmod":"2026-07-24T21:06Z","nid":"1516706"} -->
-## About Zero Trust Gateways
-
-- Source: https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > About Zero Trust Gateways
-- Last modified: 2026-07-24T21:06Z
-- Summary: Information about the Zero Trust Gateway page in the Zscaler Admin Console.
-
-Zero Trust Gateways are a Zscaler cloud native service offering in public clouds that is supported in Amazon Web Services (AWS).
-
-Zero Trust Gateways are in Limited Availability. To enable this feature, contact Zscaler Support.
-
-Zero Trust Gateways provide the following benefits and enable you to:
-
-- Secure workloads communicating with the internet and private destinations using the Zscaler Zero Trust Cloud as a SaaS offering, without needing to manage any security infrastructure.
-- Maintain consistent security policies in your multicloud environment.
-- Simplify operations by removing the need to deploy NAT gateways, security infrastructure, load balancers, and virtual machines (VMs).
-- Apply security features such as advanced firewall protection, Secure Sockets Layer (SSL) inspection, data loss prevention (DLP), and intrusion prevention system (IPS) as a cloud-native service.
-
-## About the Zero Trust Gateway Page
-
-On the Zero Trust Gateway page (Infrastructure > Connectors > Cloud > AWS), you can do the following:
-
-1. [Add a gateway](https://help.zscaler.com/cloud-branch-connector/configuring-zero-trust-gateway).
-2. Filter the list of gateways by their Service Status, Availability Zone, ID, and Endpoint Service Name.
-3. Refresh the list of gateways.
-4. Search for a gateway.
-5. View a list of all gateways. For each gateway, you can view:
-  - **Name**: The name of the gateway
-  - **ID**: The ID of the gateway
-  - **Region**: The region associated with the gateway
-  - **Availability Zone ID**: The ID of the AWS availability zone associated with the gateway
-  - **Endpoint Service Name**: The name of the endpoint service associated with the gateway
-  - **Location**: The location associated with the gateway
-  - **Endpoints**: The number of endpoints associated with the gateway
-  - **Operational Status**: The operational status of the gateway (i.e., **Enabled** or **Disabled**)
-  - **Service Status**: The service status of the gateway (i.e., **Healthy**, **Unhealthy**, or **Not Available**)
-6. Modify the table and its columns.
-7. [Analyze a specific gateway and its details](https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateway-details).
-8. Edit a gateway.
-9. Delete a gateway.
-
-[Image: The Zero Trust Gateway page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1975,13 +2034,13 @@ To enable this feature, contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account","lastmod":"2026-04-20T21:06Z","nid":"1464091"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account","lastmod":"2026-08-04T11:15Z","nid":"1464091"} -->
 ## Adding an Amazon Web Services Account
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Adding an Amazon Web Services Account
-- Last modified: 2026-04-20T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Adding an Amazon Web Services Account
+- Last modified: 2026-08-04T11:15Z
 - Summary: How to add an Amazon Web Services account on the Partner Integrations page of the Zscaler Admin Console.
 
 This article provides information on how to onboard an Amazon Web Services (AWS) account to enable tag discovery services within the Zscaler Admin Console. To learn more, see [About Amazon Web Services Accounts](https://help.zscaler.com/cloud-branch-connector/about-partner-integrations).
@@ -2025,13 +2084,13 @@ After the CloudFormation template is executed, your account is onboarded into th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-04-21T21:06Z","nid":"1479496"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-08-04T11:16Z","nid":"1479496"} -->
 ## Adding an Amazon Web Services Account Group
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account-group
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Adding an Amazon Web Services Account Group
-- Last modified: 2026-04-21T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Adding an Amazon Web Services Account Group
+- Last modified: 2026-08-04T11:16Z
 - Summary: How to add an Amazon Web Services account group on the Partner Integrations Groups page of the Zscaler Admin Console.
 
 This article provides information on how to add an Amazon Web Services (AWS) account group in the Zscaler Admin Console. To learn more, see [About Amazon Web Services Account Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups).
@@ -2058,6 +2117,51 @@ To add an AWS account group:
 [Image: The Add AWS Group window accessed from the Partner Integrations Groups page.]
 
 [Image: The Add Group button on the Partner Integrations Groups page.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway","lastmod":"2026-08-03T14:02Z","nid":"1516711"} -->
+## Adding an Amazon Web Services Zero Trust Gateway
+
+- Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Adding an Amazon Web Services Zero Trust Gateway
+- Last modified: 2026-08-03T14:02Z
+- Summary: Information on how to add an Amazon Web Services (AWS) Zero Trust Gateway on the AWS page of the Zscaler Admin Console.
+
+This article provides information on adding an Amazon Web Services (AWS) Zero Trust Gateway in the Zscaler Admin Console. To learn more, see [About Amazon Web Services Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways).
+
+AWS gateways are in Limited Availability. To enable this feature, contact Zscaler Support.
+
+## Adding an AWS Gateway
+
+To add an AWS gateway:
+
+1. Go to **Infrastructure** > **Connectors > Cloud** > **Zero Trust Gateway** -- **AWS**.
+2. Click **Add New Gateway**. See image. The **Add AWS Gateway** window appears.
+3. In the **Add AWS Gateway** window:
+  1. On the **Configuration** tab: See image.
+    - **Name**: Enter a name for the AWS gateway.
+    - **Region**: Select the AWS region where you want to create the AWS gateway. You can only deploy in one region, and you cannot modify it after the AWS gateway is created. To learn more about supported regions, see [Analyzing Zero Trust Gateway Details](https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateway-details#gateway).
+    - **Availability Zone ID**: Select the availability zones where you want to create the AWS gateway components. You must select a minimum of two availability zones.
+    - **Location**: Enter the name of the location to be associated with the AWS gateway. This name is visible in all the policies where the location object is available. This location object is created and synced between Cloud Connector policy pages and Internet & SaaS policy pages. To learn more, see [About Locations](https://help.zscaler.com/cloud-branch-connector/about-locations).
+    - **Location Template**: Select the location template that is used for creating the location associated with the AWS gateway.
+  2. On the **Accounts** tab, you must provide a list of AWS accounts that are allowed to connect to the AWS gateway being created. The Zscaler service denies endpoint connection requests from AWS accounts not present in this list. If you do not configure an AWS account while adding an AWS gateway, you must edit the AWS gateway later before connecting endpoints: See image.
+    - **Allowed Accounts**: Select the AWS accounts that are permitted to connect to the AWS gateway. The AWS gateway accepts the requests originated by endpoints from the same region as the AWS gateway. The AWS accounts in this drop-down menu were previously added by onboarding them on the Partner Integrations page in the Zscaler Admin Console. To learn more about adding an AWS account, see [About Amazon Web Services Accounts](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts).
+    - **Allowed Accounts Groups**: Select the AWS account groups that are permitted to connect to the AWS gateway. The AWS gateway accepts the requests originated by endpoints from the same region as the AWS gateway. The AWS account groups in this drop-down menu were previously created on the Partner Integrations page in the Zscaler Admin Console. To learn more about adding an AWS account group, see [About Amazon Web Services Account Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups).
+    - **Additional AWS Accounts**: If your AWS account has not been onboarded on the Partner Integrations page, enter your 12-digit AWS account ID. The AWS gateway accepts the requests originated by endpoints from the same region as the AWS gateway. You can add up to 128 AWS accounts.
+  3. On the **Review** tab, confirm that the information is correct and click **Create**. See image.
+
+The AWS gateway is created. You can use the service address to register the endpoint. To learn more, see [Registering an Endpoint in Amazon Web Services](https://help.zscaler.com/cloud-branch-connector/registering-endpoint-amazon-web-services).
+
+[Image: Clicking the Add New Gateway button on the Zero Trust Gateway page of the Zscaler Admin Console]
+
+[Image: The Configuration tab on the Add Zero Trust Gateway page in the Zscaler Admin Console]
+
+[Image: The Accounts tab when adding a Zero Trust Gateway in the Zscaler Admin Console. It contains the description: "The gateway accepts incoming endpoint requests from the list of accounts entered. AWS accounts and account groups onboarded on the Partner Integrations page can be selected. For accounts not onboarded using the Partner Integrations page, enter the 12 digit AWS account ID manually. To learn more about Partner Integrations, refer to the Cloud Connector Partner Integrations documentation.]
+
+[Image: The Review tab of the Add Zero Trust Gateway page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2337,13 +2441,13 @@ You can enter multiple entries. Press `Enter` after each entry, then click **Add
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-google-cloud-platform-account","lastmod":"2026-04-28T21:06Z","nid":"1528924"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-google-cloud-platform-account","lastmod":"2026-08-04T11:23Z","nid":"1528924"} -->
 ## Adding a Google Cloud Platform Account
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-google-cloud-platform-account
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Adding a Google Cloud Platform Account
-- Last modified: 2026-04-28T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > GCP Partner Integrations > Adding a Google Cloud Platform Account
+- Last modified: 2026-08-04T11:23Z
 - Summary: How to configure a Google Cloud Platform account using the Workload Discovery Service on the GCP tab of the Partner Integrations page of the Zscaler Admin Console.
 
 This article provides information on how to onboard a Google Cloud Platform (GCP) account to enable tag discovery services within the Zscaler Admin Console. To learn more, see [About Google Cloud Platform Accounts](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-accounts).
@@ -2374,6 +2478,51 @@ To add a GCP account:
 [Image: The Projects and Regions tab of the Manage Google Cloud Account - Logistic Partner window on the Partner Integrations page of the Zscaler Admin Console]
 
 [Image: The Cloud Connector Group tab of the Manage Google Cloud Account - Logistic Partner window on the Partner Integrations page of the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway","lastmod":"2026-08-03T13:49Z","nid":"1540310"} -->
+## Adding a Google Cloud Platform Zero Trust Gateway
+
+- Source: https://help.zscaler.com/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > GCP Zero Trust Gateway Management > Adding a Google Cloud Platform Zero Trust Gateway
+- Last modified: 2026-08-03T13:49Z
+- Summary: Information on how to add a Google Cloud Platform (GCP) Zero Trust Gateway on the GCP Gateway page of the Zscaler Admin Console.
+
+This article provides information on adding a Google Cloud Platform (GCP) Zero Trust Gateway in the Zscaler Admin Console. To learn more, see [About Google Cloud Platform Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways).
+
+GCP gateways are in Limited Availability (LA). To enable this feature, contact Zscaler Support.
+
+## Adding a GCP Gateway
+
+To add a GCP gateway:
+
+1. Go to **Infrastructure** > **Connectors > Cloud** > **Zero Trust Gateway** -- **GCP**.
+2. Click **Add Zero Trust Gateway**. See image. The **Add GCP Gateway** window appears.
+3. In the **Add GCP Gateway** window:
+  1. On the **Configuration** tab: See image.
+    - **Gateway Name**: Enter a name for the GCP gateway.
+    - **Region**: Select the GCP region where you want to create the GCP gateway. You can only deploy in one region, and you cannot modify it after the GCP gateway is created.
+    - **Availability Zone**: Select the availability zones where you want to create the GCP gateway components. You must select a minimum of two availability zones.
+    - **Location Name (Optional)**: Enter the name of the location to be associated with the GCP gateway. This name is visible in all the policies where the location object is available. This location object is created and synced between Cloud Connector policy pages and Internet & SaaS policy pages. To learn more, see [About Locations](https://help.zscaler.com/cloud-branch-connector/about-locations).
+    - **Location Template**: Select the location template that is used for creating the location associated with the GCP gateway.
+  2. On the **IAM Principals** tab, enter a **Principal Value** and select **Principal Type** (i.e., **User**, **Group**, or **Service Account**). When a user enters a connection request, the Zscaler service checks the incoming connection and allows the incoming connection from an intercept endpoint group that is associated with the IAM principal you added. The IAM principal is associated with your virtual private cloud (VPC). Click **Add Principal** to add the IAM principal to the table where you can view the following details:
+    - **IAM Principal**: The IAM principal credentials with access to the gateway in GCP.
+    - **Principal Type**: The type of principal (i.e., **User**, **Group**, or **Service Account**).
+    - **Added on**: The date and time when the IAM principal was added. See image.
+4. On the **Review** tab, confirm that the information is correct and click **Create**. See image.
+
+The GCP gateway is created.
+
+[Image: Clicking the Add New Gateway button on the GCP Gateway page in the Zscaler Admin Console]
+
+[Image: The Configuration tab showing the Gateway Details when configuring a GCP gateway in the Zscaler Admin Console]
+
+[Image: The IAM Principals tab when adding a GCP gateway in the Zscaler Admin Console]
+
+[Image: Review tab when adding a GCP gateway in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2655,58 +2804,13 @@ To download the SSL certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-zero-trust-gateway","lastmod":"2026-07-24T21:06Z","nid":"1516711"} -->
-## Adding a Zero Trust Gateway
-
-- Source: https://help.zscaler.com/cloud-branch-connector/adding-zero-trust-gateway
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Adding a Zero Trust Gateway
-- Last modified: 2026-07-24T21:06Z
-- Summary: Information on how to add a Zero Trust Gateway on the Zero Trust Gateway page of the Zscaler Admin Console.
-
-This article provides information on adding a Zero Trust Gateway in the Zscaler Admin Console. To learn more, see [About Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways).
-
-Zero Trust Gateways are in Limited Availability. To enable this feature, contact Zscaler Support.
-
-## Adding a Zero Trust Gateway
-
-To add a gateway:
-
-1. Go to **Infrastructure** > **Connectors > Cloud > AWS**.
-2. Click **Add New Gateway**. See image. The **Add AWS Gateway** window appears.
-3. In the **Add AWS Gateway** window:
-  1. On the **Configuration** tab: See image.
-    - **Name**: Enter a name for the gateway.
-    - **Region**: Select the Amazon Web Services (AWS) region where you want to create the gateway. You can only deploy in one region, and you cannot modify it after the gateway is created. To learn more about supported regions, see [Analyzing Zero Trust Gateway Details](https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateway-details#gateway).
-    - **Availability Zone ID**: Select the availability zones where you want to create the gateway components. You must select a minimum of two availability zones.
-    - **Location**: Enter the name of the location to be associated with the gateway. This name is visible in all the policies where the location object is available. This location object is created and synced between Cloud Connector policy pages and Internet & SaaS policy pages. To learn more, see [About Locations](https://help.zscaler.com/cloud-branch-connector/about-locations).
-    - **Location Template**: Select the location template that is used for creating the location associated with the gateway.
-  2. On the **Accounts** tab, you must provide a list of AWS accounts that are allowed to connect to the gateway being created. The Zscaler service denies endpoint connection requests from AWS accounts not present in this list. If you do not configure an AWS account while adding a Zero Trust Gateway, you must edit the gateway later before connecting endpoints: See image.
-    - **Allowed Accounts**: Select the AWS accounts that are permitted to connect to the gateway. The gateway accepts the requests originated by endpoints from the same region as the gateway. The AWS accounts in this drop-down menu were previously added by onboarding them on the Partner Integrations page in the Zscaler Admin Console. To learn more about adding an AWS account, see [About Amazon Web Services Accounts](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts).
-    - **Allowed Accounts Groups**: Select the AWS account groups that are permitted to connect to the gateway. The gateway accepts the requests originated by endpoints from the same region as the gateway. The AWS account groups in this drop-down menu were previously created on the Partner Integrations page in the Zscaler Admin Console. To learn more about adding an AWS account group, see [About Amazon Web Services Account Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups).
-    - **Additional AWS Accounts**: If your AWS account has not been onboarded on the Partner Integrations page, enter your 12-digit AWS account ID. The gateway accepts the requests originated by endpoints from the same region as the gateway. You can add up to 128 accounts.
-  3. On the **Review** tab, confirm that the information is correct and click **Create**. See image.
-
-The Zero Trust Gateway is created. You can use the service address to register the endpoint. To learn more, see [Registering an Endpoint in Amazon Web Services](https://help.zscaler.com/cloud-branch-connector/registering-endpoint-amazon-web-services).
-
-[Image: Clicking the Add New Gateway button on the Zero Trust Gateway page of the Zscaler Admin Console]
-
-[Image: The Configuration tab on the Add Zero Trust Gateway page in the Zscaler Admin Console]
-
-[Image: The Accounts tab when adding a Zero Trust Gateway in the Zscaler Admin Console. It contains the description: "The gateway accepts incoming endpoint requests from the list of accounts entered. AWS accounts and account groups onboarded on the Partner Integrations page can be selected. For accounts not onboarded using the Partner Integrations page, enter the 12 digit AWS account ID manually. To learn more about Partner Integrations, refer to the Cloud Connector Partner Integrations documentation.]
-
-[Image: The Review tab of the Add Zero Trust Gateway page in the Zscaler Admin Console]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-ad-fs-3.0","lastmod":"2024-11-14T14:16Z","nid":"1420896"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-ad-fs-3.0","lastmod":"2026-08-04T10:57Z","nid":"1420896"} -->
 ## Admin SAML Configuration Guide for AD FS 3.0
 
 - Source: https://help.zscaler.com/cloud-branch-connector/admin-saml-configuration-guide-ad-fs-3.0
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Admin SAML Configuration Guide for AD FS 3.0
-- Last modified: 2024-11-14T14:16Z
+- Last modified: 2026-08-04T10:57Z
 - Summary: How to configure AD FS 3.0 as the identity provider for Zscaler Cloud & Branch Connector and use SAML single sign-on for administrators.
 
 This guide demonstrates how to configure a Windows Server 2012 R2 running Active Directory Federation Services (AD FS) 3.0 as the identity provider (IdP) for the Zscaler service and use [SAML single sign-on (SSO) for your organization's admins](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management). To learn more about the steps in the Windows Server 2012 R2, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/windows-server/identity/active-directory-federation-services).
@@ -2717,9 +2821,9 @@ Ensure that you have the following before configuring AD FS:
 
 - AD FS account with admin privileges
 - [Zscaler Admin XML Metadata](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins)
-- [Admin accounts created for your organization's admins](https://help.zscaler.com/cloud-branch-connector/adding-admins)
+- Admin accounts created for your organization's admins
 
-If you are subscribed to Authentication Service, some of the following options are only configurable within the Authentication Service Admin Portal. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/zidentity/what-zidentity)
+If you are subscribed to Authentication Service, some of the following options are only configurable within the Authentication Service Admin Portal. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
 
 ## Configuring Admin SAML SSO in AD FS
 
@@ -2727,7 +2831,7 @@ To configure AD FS as the IdP for Zscaler Cloud & Branch Connector and use SAML 
 
 - Step 1: Add a Relying Party Trust and Claim Rule
 - Step 2: Export the IdP SAML SSL Certificate
-- [Step 3: Configure SAML Admin SSO in the Cloud & Branch Connector Admin Portal](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins)
+- [Step 3: Configure SAML Admin SSO in the Zscaler Admin Console](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins)
 
 In AD FS, a relying party is a Federation Service or application that requests and processes claims from a provider in a particular transaction. To add Cloud & Branch Connector as a relying party trust and to add a claim rule:
 
@@ -2762,9 +2866,9 @@ To export the AD FS token-signing certificate that uploads to Cloud & Branch Con
 7. In **Completing the Certificate Export Wizard**, click **Finish**. See image.
 8. In the **Certificate Export Wizard** window, click **OK**.
 
-## Verifying Cloud & Branch Connector Admin Portal Access via SSO
+## Verifying Zscaler Admin Console Access via SSO
 
-To verify the Cloud & Branch Connector Admin Portal access via SSO:
+To verify the Zscaler Admin Console access via SSO:
 
 1. Browse to the following URL:
 
@@ -2826,13 +2930,13 @@ where `<AD FS Server>` is the exact AD FS server name. For example, if your serv
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-azure-active-directory","lastmod":"2024-11-14T14:16Z","nid":"1420901"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-azure-active-directory","lastmod":"2026-08-04T11:01Z","nid":"1420901"} -->
 ## Admin SAML Configuration Guide for Azure Active Directory
 
 - Source: https://help.zscaler.com/cloud-branch-connector/admin-saml-configuration-guide-azure-active-directory
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Admin SAML Configuration Guide for Azure Active Directory
-- Last modified: 2024-11-14T14:16Z
+- Last modified: 2026-08-04T11:01Z
 - Summary: Step-by-step configuration guide for Azure Active Directory SAML 2.0 with Zscaler Cloud & Branch Connector.
 
 This guide demonstrates how to configure Microsoft Azure Active Directory (Azure AD) as the identity provider (IdP) for Zscaler Cloud & Branch Connector and use [SAML single-sign-on (SSO) for your organization's admins](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management). To learn more about how to configure SAML within the Azure portal, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal).
@@ -2842,10 +2946,10 @@ This guide demonstrates how to configure Microsoft Azure Active Directory (Azure
 Ensure that you have the following before you start configuring Azure AD as the IdP:
 
 - Existing Azure AD account
-- [Zscaler cloud name](https://help.zscaler.com/cloud-branch-connector/what-my-cloud-name-zscaler-cloud-branch-connector)
-- [Admin accounts created for your organization's admins](https://help.zscaler.com/cloud-branch-connector/adding-admins)
+- [Zscaler cloud name](https://help.zscaler.com/unified/understanding-zscaler-cloud-names)
+- Admin accounts created for your organization's admins
 
-If you are subscribed to Authentication Service, some of the following options are only configurable within the Authentication Service Admin Portal. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/zidentity/what-zidentity)
+If you are subscribed to Authentication Service, some of the following options are only configurable within the Authentication Service Admin Portal. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
 
 ## Configuring SAML Admin SSO with Azure AD
 
@@ -2855,7 +2959,7 @@ To configure Azure AD as the IdP for Cloud & Branch Connector and use SAML SSO f
 - Step 2: Configure the SAML Admin SSO in Azure
 - Step 3: Assign Admins to Zscaler Cloud and Branch Connector Administrator Application
 - Step 4: (Optional) Enable IdP-Initiated SSO
-- [Step 5: Configure SAML Admin SSO in the Cloud & Branch Connector Admin Portal](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins)
+- [Step 5: Configure SAML Admin SSO in the Zscaler Admin Console](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins)
 
 1. Sign in to the [Azure portal](http://portal.azure.com/).
 2. Go to **Azure Active Directory**. See image.
@@ -2879,8 +2983,8 @@ To configure SAML admin SSO in Azure:
 5. Click **Save** and exit the window.
 6. When prompted to **Test single sign-on with Zscaler Cloud and Branch Connector Administrator Application**, click **No, I'll test later**. See image.
 7. (Optional) In **Attributes & Claims**, edit the **Unique User Identifier** if required by your organization. See image.
-8. In **SAML Certificates**, download the **Certificate (Base64)**. You need this certificate in order to [configure SAML admin SSO in the Cloud & Branch Connector Admin Portal](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins). See image.
-9. In **Set up Zscaler Cloud and Branch Connector Administrator Application**, copy the **Azure AD Identifier**. You need this certificate in order to [configure SAML admin SSO in the Cloud & Branch Connector Admin Portal](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins). See image.
+8. In **SAML Certificates**, download the **Certificate (Base64)**. You need this certificate in order to [configure SAML admin SSO in the Zscaler Admin Console](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins). See image.
+9. In **Set up Zscaler Cloud and Branch Connector Administrator Application**, copy the **Azure AD Identifier**. You need this certificate in order to [configure SAML admin SSO in the Zscaler Admin Console](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins). See image.
 
 For Azure AD admins to authenticate through the Zscaler service, you must assign Azure AD admins to the Zscaler Cloud and Branch Connector Administrator Application. To assign admins to the Zscaler Cloud and Branch Connector Administrator Application in Azure:
 
@@ -2913,7 +3017,7 @@ If you have disabled application visibility, demonstrated in Enable IdP-Initiate
 
 1. On the left-side navigation for the Zscaler Cloud and Branch Connector Administrator Application, click **Properties**. See image.
 2. Copy the **User access URL**. See image.
-3. Browse to the User Access URL. You are signed in to the Zscaler Cloud & Branch Connector Admin Portal.
+3. Browse to the User Access URL. You are signed in to the Zscaler Admin Console.
 
 [Image: Azure Active Directory]
 
@@ -2964,13 +3068,13 @@ If you have disabled application visibility, demonstrated in Enable IdP-Initiate
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-okta","lastmod":"2024-11-14T14:16Z","nid":"1420891"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-okta","lastmod":"2026-08-04T10:56Z","nid":"1420891"} -->
 ## Admin SAML Configuration Guide for Okta
 
 - Source: https://help.zscaler.com/cloud-branch-connector/admin-saml-configuration-guide-okta
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Admin SAML Configuration Guide for Okta
-- Last modified: 2024-11-14T14:16Z
+- Last modified: 2026-08-04T10:56Z
 - Summary: How to configure Okta as the identity provider for Zscaler Cloud & Branch Connector and use SAML single sign-on for administrators.
 
 This guide demonstrates how to configure Okta as the identity provider for Zscaler Cloud & Branch Connector and use [SAML single sign-on (SSO) for admins](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management). To learn more about the steps in the Okta portal, refer to the [Okta documentation](https://help.okta.com/).
@@ -2980,10 +3084,10 @@ This guide demonstrates how to configure Okta as the identity provider for Zscal
 Ensure that you have the following before configuring Okta:
 
 - Okta account with admin privileges.
-- [Zscaler cloud name](https://help.zscaler.com/cloud-branch-connector/what-my-cloud-name-zscaler-cloud-branch-connector).
-- [Admin accounts created for your organization's admins](https://help.zscaler.com/cloud-branch-connector/adding-admins).
+- [Zscaler cloud name](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+- Admin accounts created for your organization's admins.
 
-If you are subscribed to Authentication Service, some of the following options are only configurable within the Authentication Service Admin Portal. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/zidentity/what-zidentity)
+If you are subscribed to Authentication Service, some of the following options are only configurable within the Authentication Service Admin Portal. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
 
 ## Configuring Admin SAML SSO with Okta
 
@@ -2991,16 +3095,17 @@ To configure Okta as the IdP for Cloud & Branch Connector and use SAML SSO for a
 
 - Step 1: Add the Zscaler Cloud and Branch Connector Administrator Application
 - Step 2: Configure the SAML Admin SSO in Okta
-- Step 3: Configure SAML Admin SSO in the Cloud & Branch Connector Admin Portal
+- Step 3: Configure SAML Admin SSO in the Zscaler Admin Console
 
 1. Log in to [Okta](https://www.okta.com/login/).
 2. On the left-side navigation, select **Applications**, then click **Applications**. See image
 3. Click **Create App Integration**. See image.
 4. Select **SAML 2.0**, then click **Next**. See image.
 5. On the **Create SAML Integration** page, under **General settings**, enter `Zscaler Cloud and Branch Connector Administrator Application` as the **App name**, then click **Next**. See image.
-6. In SAML Settings, enter the following for **Single sign on URL** and **Audience URI (SP Entity ID)**, respectively: `https://connector.<Zscaler Cloud>.net/bac-adminsso.do``admin.<Zscaler Cloud>.net`To learn more, see [What Is My Cloud Name for Zscaler Cloud & Branch Connector?](https://help.zscaler.com/cloud-branch-connector/what-my-cloud-name-zscaler-cloud-branch-connector) See image. Click **Next**.
-7. In **Help Okta Support understand how you configured this application**, select **I'm an Okta customer adding an internal app**. See image.
-8. Click **Finish**. Okta redirects you to the **Zscaler Cloud and Branch Connector Administrator Application** page.
+6. In SAML Settings, enter the following for **Single sign on URL** and **Audience URI (SP Entity ID)**, respectively: `https://connector.<Zscaler Cloud>.net/bac-adminsso.do``admin.<Zscaler Cloud>.net`To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+7. See image. Click **Next**.
+8. In **Help Okta Support understand how you configured this application**, select **I'm an Okta customer adding an internal app**. See image.
+9. Click **Finish**. Okta redirects you to the **Zscaler Cloud and Branch Connector Administrator Application** page.
 
 1. On the **Zscaler Cloud and Branch Connector Administrator Application** page, click **Assignments**. See image.
 2. Click **Assign**, then select **Assign to people**. See image.
@@ -3009,14 +3114,14 @@ To configure Okta as the IdP for Cloud & Branch Connector and use SAML SSO for a
   2. Click **Done**.
 4. On the **Zscaler Cloud and Branch Connector Administrator Application** page, click **Sign On**. See image.
 5. Under **SAML Setup**, click **View SAML setup instructions**. See image.
-6. On the **How to Configure SAML 2.0 for Zscaler Cloud and Branch Connector Administrator Application** page, copy the **Identity Provider Issuer**. See image. Under **X.509 Certificate**, click **Download certificate**. See image. Okta downloads the certificate as a `.cert`, but the Zscaler Cloud & Branch Connector Admin Portal supports only `.cer` or `.pem` files. Ensure that the file is converted before uploading it to the portal.
+6. On the **How to Configure SAML 2.0 for Zscaler Cloud and Branch Connector Administrator Application** page, copy the **Identity Provider Issuer**. See image. Under **X.509 Certificate**, click **Download certificate**. See image. Okta downloads the certificate as a `.cert`, but the Zscaler Admin Console supports only `.cer` or `.pem` files. Ensure that the file is converted before uploading it to the portal.
 
 1. In the portal, go to **Administration** > **Administrator Management** > **Administrators Management**.
 2. In the **SAML Authentication for Administrators** section, under **IdP SAML Certificate**, click **Upload**. See image.
 3. In the **IdP SAML Certificate** window, click **Choose File** and upload the certificate, then click **Upload** when complete. See image.
 4. Under **Issuer**, paste the **Identity Provider Identifier** you copied from Okta, then click **Add Items**. See image.
 5. Enable SAML Authentication. See image.
-6. Click **Save**and [activate the changes](https://help.zscaler.com/cloud-branch-connector/saving-and-activating-changes).
+6. Click **Save**and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 ## Testing the Admin SAML SSO
 
@@ -3024,7 +3129,7 @@ To test the SAML admin SSO, you can initiate the SAML connection from the Zscale
 
 1. On your Okta Dashboard, click the Four Square icon in the top right corner. See image.
 2. In **Okta Apps**, click **My end user dashboard**. See image. Okta redirects you to **My Apps**.
-3. In the **Work** section, click **Zscaler Cloud and Branch Connector Administrator Application**. You are automatically signed in to the Zscaler Cloud & Branch Connector Admin Portal. See image.
+3. In the **Work** section, click **Zscaler Cloud and Branch Connector Administrator Application**. You are automatically signed in to the Zscaler Admin Console. See image.
 
 [Image: Applications in Okta]
 
@@ -3071,13 +3176,13 @@ To test the SAML admin SSO, you can initiate the SAML connection from the Zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-details","lastmod":"2026-04-20T21:06Z","nid":"1529425"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-details","lastmod":"2026-08-04T11:17Z","nid":"1529425"} -->
 ## Analyzing Amazon Web Services Account Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-account-details
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Analyzing Amazon Web Services Account Details
-- Last modified: 2026-04-20T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Analyzing Amazon Web Services Account Details
+- Last modified: 2026-08-04T11:17Z
 - Summary: Information on the Amazon Web Services (AWS) account details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) account details page provides general and management information for a selected AWS account. You can access the AWS account details page by going to the Partner Integrations page and clicking the name of an account on the [AWS Accounts](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts) page.
@@ -3153,13 +3258,13 @@ Supported regions for AWS include:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-group-details","lastmod":"2026-04-23T21:06Z","nid":"1529426"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-group-details","lastmod":"2026-08-04T11:16Z","nid":"1529426"} -->
 ## Analyzing Amazon Web Services Account Group Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-account-group-details
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Analyzing Amazon Web Services Account Group Details
-- Last modified: 2026-04-23T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Analyzing Amazon Web Services Account Group Details
+- Last modified: 2026-08-04T11:16Z
 - Summary: Information on the Amazon Web Services (AWS) account group details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) account group details page provides general and management information for a selected AWS account group. You can access the AWS account group details page by clicking the name of an account group on the [AWS Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups) page.
@@ -3190,6 +3295,153 @@ On the AWS account group details page, you can do the following:
 10. Select an account ID to access the [AWS account details](https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-account-details) page.
 
 [Image: The AWS account group details page accessed from the Partner Integrations page of the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-zero-trust-gateway-details","lastmod":"2026-08-03T14:01Z","nid":"1516716"} -->
+## Analyzing Amazon Web Services Zero Trust Gateway Details
+
+- Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-zero-trust-gateway-details
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Analyzing Amazon Web Services Zero Trust Gateway Details
+- Last modified: 2026-08-03T14:01Z
+- Summary: Information on the Amazon Web Services (AWS) Zero Trust Gateway details in the Zscaler Admin Console.
+
+The Amazon Web Services (AWS) gateway details page provides management and operational information about the selected zero trust gateway. You can access the AWS gateway details page by selecting a gateway on the [AWS Gateway](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways) page.
+
+AWS gateways are in Limited Availability (LA). To enable this feature, contact Zscaler Support.
+
+## Analyzing the AWS Gateway Details Page
+
+On the AWS gateway details page, you can view the following:
+
+- Dashboard
+- Status
+- Endpoints
+- Config
+- Analytics
+- Events
+- Traffic Simulation
+
+On the **Dashboard** tab, you can view the following AWS gateway details:
+
+- **Gateway Info**
+  - **Name**: The name of your AWS gateway. This is the equivalent of a tag identifying the name of a resource.
+  - **Status**: The service status of the AWS gateway (i.e., **Healthy**, **Unhealthy**, or **Not Available**).
+  - **Zero Trust Gateway ID**: The Zscaler internal ID that identifies the resource.
+  - **Cloud Provider**: The cloud provider type (i.e., **Amazon Web Services** or **Google Cloud Platform**).
+  - **Created Date**: The date and time when the AWS gateway was created.
+  - **Last Modified On**: The date and time when the AWS gateway was last modified.
+  - **Endpoint Service Name**: The name of the AWS endpoint service hosted by the Zscaler service. You need this service address to create an endpoint in your AWS account. This is the service name based in your AWS console.
+- **Regions And Location**
+  - **Region**: The name of the AWS region where the AWS gateway is deployed. To learn more about supported regions, see [Supported Regions for Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/supported-regions-zero-trust-gateways).
+  - **Location Template**: The location template name of the AWS gateway.
+  - **Availability Zones**: The IDs of availability zones where the AWS gateway is deployed.
+  - **Location**: The location name of the AWS gateway.
+- **Accounts**
+  - **Account Groups**: The AWS account groups in partner integrations that are permitted to connect to the AWS gateway.
+  - **Accounts**: The AWS accounts in partner integrations that are permitted to connect to the AWS gateway.
+  - **Manually Added Accounts**: The AWS accounts manually added in partner integrations that are permitted to connect to the AWS gateway.
+
+See image.
+
+The **Status** tab displays the status of the AWS gateway. The Zscaler service refreshes the status when you refresh the page. The tab displays the following information about AWS availability zones:
+
+- **Internet**: The ability of the AWS gateway to reach Internet & SaaS
+- **Local Egress**: The ability of the AWS gateway to forward direct traffic
+- **Private Applications**: The ability of the AWS gateway to reach Private Access
+
+The corresponding status can be one of the following:
+
+- **Healthy**: The backend traffic in the availability zone is functioning as expected
+- **Unhealthy**: The traffic is being dropped because there is no healthy backend processing
+- **Degraded**: The traffic might have lost redundancy, but it is still being forwarded
+
+See image.
+
+On the **Endpoints** tab, you can view a list of endpoints and their details:
+
+- **Endpoint ID**: The ID of the endpoint connected to the AWS gateway. This endpoint is allowed to send traffic to the AWS gateway.
+- **Account ID**: The ID of the AWS account associated with the endpoint.
+- **Accepted On**: The date and time when the AWS gateway accepted the endpoint.
+- **Namespace**: The namespace associated with the endpoint. The workload discovery service configured in partner integrations discovers the namespace. The account ID of the virtual private cloud (VPC) endpoint must be onboarded to the partner integration. The namespace is based on the VPC tag with the key (`zs:namespace`). This field is only available if the workload discovery service and partner integrations are enabled. To learn more about namespaces, see [Understanding Namespaces for Amazon Web Services and Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/understanding-namespaces-amazon-web-services-and-microsoft-azure-accounts).
+- **VPC**: The VPC connected to the AWS gateway where the endpoint is deployed or configured. This field is only available if the workload discovery service and partner integrations are enabled. See image.
+
+The **Config** tab displays a table with the following details about Internet & SaaS configuration versions that have been activated:
+
+- **Version**: The version of the Zscaler configuration that was activated
+- **Submitted On**: The date and time the configuration was activated
+- **Status**: The status of the version (i.e., **Active** or **Inactive**)
+
+The AWS gateway can reject a configuration that you activate if it makes the AWS gateway unable to function properly. The most recent configuration versions are typically active. If the latest configuration version is not active, the AWS gateway might have rejected the configuration. You can compare two configuration versions by selecting the checkboxes and clicking **Compare Versions**.
+
+See image.
+
+On the **Analytics** tab, you can select **Timeframe**, **Stat**, and **Type** to display values from CloudWatch related to the gateway load balancer (GWLB) of your AWS gateway.
+
+You can configure settings for the graph to display the following:
+
+- **Timeframe**: Select a time frame to view data within that range. The graph automatically selects the number of data points based on the time frame you select.
+- **Stat**: Select **Average**, **Max**, or **Sum** to view the average, maximum, or total amount of data. Statistics match the statistics in AWS CloudWatch. If the stat for that type is not calculated, the graph returns no value.
+- **Type**: Select a type to modify what data the graph displays: See image.
+  - **Processed Bytes**: The total number of bytes that the GWLB processed. This includes traffic sent to and from the destination, but not traffic from health checks.
+  - **Active Connection**: The total number of concurrent connections from client to destination.
+  - **Reset Count**: The total number of TCP counts that the GWLB sends when there is no backend processing available.
+
+On the **Events** tab, you can select a **Timeframe** to view events that occurred within the range:
+
+- **Event**: The event that occurred (e.g., **Accepted connection for VPC Endpoint** or **Removed connector for VPC Endpoint**).
+- **Category**: The category of the event (e.g., **VpcEndpoint**).
+- **Type**: The type of event that occurred.
+- **Start Time**: The date and time when the event started.
+- **Status**: The status of the event. See image.
+
+On the **Traffic Simulation** tab, you can check whether the endpoint can send the traffic through the Zero Trust Exchange (ZTE). You can also send egressing traffic out through the Zscaler service in Internet & SaaS. You can test your forwarding and Internet & SaaS policies by creating a traffic test. The Zscaler service sets up a virtual environment in the Zscaler AWS account and sends traffic through the endpoint to execute the test. The result of the test appears as the output of the AWS curl command. A test created in one AWS gateway is available in all the AWS gateways created in that Cloud Connector account in all regions.
+
+If you navigate to the AWS gateways page or the endpoints page while the test environment is active, a connected VPC endpoint that is the Zscaler account is shown.
+
+Click **Create Test Environment** to create a test environment. After approximately 5 minutes, the test environment is created. The test environment lasts for one hour. During that time, an endpoint appears on your AWS gateway with the Zscaler account as its associated account. If you need more time, click **Renew** and the test environment lasts for one more hour. When the test environment is in the `CREATE_COMPLETE` state, you can run the test.
+
+Click **New Test** to save configuration parameters, which allows you to define AWS curl parameters. In the **Create a New Test** window:
+
+- **Name**: Enter a name for the test.
+- **Description (Optional)**: Enter a description for the test.
+- **Protocol**: Enter `HTTP` or `HTTPS` as the protocol for the test.
+- **URL**: Enter the URL of the website you are testing.
+- **Commands (Optional)**: Enter the AWS curl command parameters to test and fetch information about a website.
+- **Verbose (-v)**: Select the checkbox to enable verbose, which instructs the curl command to provide information on the website being tested.
+- **Insecure (-k)**: Select the checkbox to enable insecure, which instructs the curl command to not verify the certificate.
+
+See image.
+
+In the table, you can view the following for each test:
+
+- **ID**: The ID of the traffic test
+- **Name**: The name of the traffic test
+- **URL**: The URL associated with the traffic test
+- **Type**: The type of traffic test performed
+- **Description**: The description of the traffic test
+
+You can also edit, delete, or run a test after a test environment has been created. If a test environment has not been created, run is not an option and the icon does not appear.
+
+See image.
+
+[Image: The Dashboard sections containing the Gateway Info, Regions and Location, and Accounts information in the Zscaler Admin Console]
+
+[Image: The Status tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A row of information for a gateway named usw1-az1 shows Internet: Healthy, Local Egres: Healthy, Private Applications: Healthy.]
+
+[Image: The Endpoints tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console]
+
+[Image: The Config tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A table with columns for Version, Submitted On, Active, and Inactive.]
+
+[Image: The Analytics tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A line graph. The y-axis shows values from 1500000 to 26184117. The x-axis shows times from 15:00 to 00:00 at intervals of one hour. Timeframe is set to Current Day, Stat is set ot Sum, and Type is set to Processed Bytes.]
+
+[Image: The Events tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. The Timeframe drop-down menu shows Current Week: 01/19/2025-01/24/2025. Below the menu, a table with columns for Event, Category, Type, Start Time, and Status. Two example events appear in the table.]
+
+[Image: The Traffic Simulation tab details viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console]
+
+[Image: The Create a New Test window that appears after selecting Create Test in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3560,13 +3812,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-google-cloud-platform-account-details","lastmod":"2026-05-14T21:06Z","nid":"1528942"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-google-cloud-platform-account-details","lastmod":"2026-08-04T11:23Z","nid":"1528942"} -->
 ## Analyzing Google Cloud Platform Account Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-google-cloud-platform-account-details
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Analyzing Google Cloud Platform Account Details
-- Last modified: 2026-05-14T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > GCP Partner Integrations > Analyzing Google Cloud Platform Account Details
+- Last modified: 2026-08-04T11:23Z
 - Summary: Information on the Google Cloud Platform account details in the Zscaler Admin Console.
 
 The Google Cloud Platform (GCP) account details page provides general and management information for a selected GCP account. You can access the GCP account details page by clicking the name of an account on the [GCP accounts](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-accounts) page.
@@ -3657,13 +3909,126 @@ On the **Pub/Sub** tab, you can view the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-microsoft-azure-account-details","lastmod":"2026-05-14T21:06Z","nid":"1507806"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details","lastmod":"2026-08-03T13:49Z","nid":"1540927"} -->
+## Analyzing Google Cloud Platform Zero Trust Gateway Details
+
+- Source: https://help.zscaler.com/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > GCP Zero Trust Gateway Management > Analyzing Google Cloud Platform Zero Trust Gateway Details
+- Last modified: 2026-08-03T13:49Z
+- Summary: Information on the Google Cloud Platform (GCP) Zero Trust Gateway details in the Zscaler Admin Console.
+
+The Google Cloud Platform (GCP) Gateway page provides management and operational information about the selected gateway. You can access the GCP Gateway page by selecting a GCP gateway on the [GCP Gateway](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways) page.
+
+GCP gateways are in Limited Availability. To enable this feature, contact Zscaler Support.
+
+## Analyzing the GCP Gateway Page
+
+On the GCP Gateway page, you can view the following:
+
+- Dashboard
+- Status
+- Intercept Information
+- Config
+- Analytics
+- Events
+- Traffic Simulation
+
+On the **Dashboard** tab, you can view the following gateway details:
+
+- In the **Gateway Info** section:
+  - **Name**: The name of your GCP gateway.
+  - **Status**: The service status of the GCP gateway (i.e., **Healthy**, **Unhealthy**, or **Not Available**).
+  - **Zero Trust Gateway ID**: The Zscaler internal ID that identifies the resource.
+  - **Cloud Provider**: The cloud provider type (i.e., **Amazon Web Services** or **Google Cloud Platform**).
+  - **Created Date**: The date and time when the GCP gateway was created.
+  - **Last Modified On**: The date and time when the GCP gateway was last modified.
+  - **Intercept Deployment Group**: A GCP-provided resource that allows the Zscaler service to intercept and inspect workload traffic from your VPCs. To learn more, see [About Google Cloud Platform Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways).
+- In the **Regions And Location** section:
+  - **Region**: The name of the GCP region where the GCP gateway is deployed. To learn more about supported regions, see [Supported Regions for Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/supported-regions-zero-trust-gateways).
+  - **Location Template**: The location template name of the GCP gateway.
+  - **Availability Zones**: The IDs of availability zones where the GCP gateway is deployed.
+  - **Location**: The location name of the GCP gateway.
+- In the **IAM Principals** section:
+  - **Users**: The users entered as principal types when adding an IAM principal.
+  - **Groups**: The groups entered as principal types when adding an IAM principal.
+  - **Service Accounts**: The service accounts entered as principal types when adding an IAM principal. To learn more, see [Adding a Google Cloud Platform Zero Trust Gateway](https://help.zscaler.com/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway).
+
+The Status tab displays the status of the GCP gateway. The Zscaler service refreshes the status when you refresh the page. The tab displays the following information about GCP availability zones:
+
+- **Internet**: The ability of the GCP gateway to reach Internet & SaaS.
+- **Local Egress**: The ability of the GCP gateway to forward direct traffic.
+- **Private Applications**: The ability of the GCP gateway to reach Private Access.
+
+The corresponding status can be one of the following:
+
+- **Healthy**: The backend traffic in the availability zone is functioning as expected.
+- **Unhealthy**: The traffic is being dropped because there is no healthy backend processing.
+- **Degraded**: The traffic might have lost redundancy, but it is still being forwarded.
+
+- **Intercept Endpoint Group**: The name of your project-wide resource that allows you to access a Zscaler-managed security service in GCP. To learn more, see [About Google Cloud Platform Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways).
+- **Project**: The GCP project where you created the intercept endpoint group. To learn more, refer to the [GCP documentation](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects).
+
+The **Config** tab displays a table with the following details about Internet & SaaS configuration versions that have been activated:
+
+- **Version**: The version of the Zscaler configuration that was activated.
+- **Submitted On**: The date and time the configuration was activated.
+- **Status**: The status of the version (i.e., **Active** or **Inactive**).
+
+The GCP gateway can reject a configuration that you activate if it makes the GCP gateway unable to function properly. The most recent configuration versions are typically active. If the latest configuration version is not active, the GCP gateway might have rejected the configuration. You can compare two configuration versions by selecting the checkboxes and clicking **Compare Versions**.
+
+On the **Analytics** tab, you can select **Timeframe**, **Statistics**, and **Type** to display values from CloudWatch.
+
+You can configure settings for the graph to display the following:
+
+- **Timeframe**: Select a time frame to view data within that range. The graph automatically selects the number of data points based on the time frame you select.
+- **Stat**: Select **Average**, **Max**, or **Sum** to view the average, maximum, or total amount of data. If the stat for that type is not calculated, the graph returns no value.
+- **Type**: Select a type to modify what data the graph displays:
+  - **Total Bytes Processed**: The total number of bytes processed by the internal load balancer during the selected time frame. This includes traffic sent to and from the destination, but not traffic from health checks.
+  - **Total Packets Processed**: The total number of packets processed by the internal load balancer during the selected time frame.
+
+On the **Events** tab, you can select a **Timeframe** to view events that occurred within the range:
+
+- **Event**: The event that occurred
+- **Category**: The category of the event
+- **Type**: The type of event that occurred
+- **Start Time**: The date and time when the event started
+- **Status**: The status of the event
+
+On the **Traffic Simulation** tab, you can check whether the endpoint can send the traffic through the Zero Trust Exchange (ZTE). You can also send egressing traffic out through the Zscaler service in Internet & SaaS. You can test your forwarding and Internet & SaaS policies by creating a traffic test. The Zscaler service sets up a virtual environment in the Zscaler GCP account and sends traffic through the endpoint to execute the test. The result of the test appears as the output of the GCP curl command. A test created in one GCP gateway is available in all the GCP gateways created in that Cloud Connector account in all regions.
+
+If you navigate to the GCP Gateways page or the Endpoints page while the test environment is active, a connected VPC endpoint that is the Zscaler account is shown.
+
+Click **Create Test Environment** to create a test environment. After approximately 5 minutes, the test environment is created. The test environment lasts for one hour. During that time, an endpoint appears on your GCP gateway with the Zscaler account as its associated account. If you need more time, click **Renew** and the test environment lasts for one more hour. When the test environment is in the `CREATE_COMPLETE` state, you can run the test.
+
+Click **New Test** to save configuration parameters, which allows you to define GCP curl parameters. In the **Create a New Test** window:
+
+- **Name**: Enter a name for the test.
+- **Description (Optional)**: Enter a description for the test.
+- **Protocol**: Enter HTTP or HTTPS as the protocol for the test.
+- **URL**: Enter the URL of the website you are testing.
+- **Commands (Optional)**: Enter the GCP curl command parameters to test and fetch information about a website.
+- **Verbose (-v)**: Select the checkbox to enable verbose, which instructs the curl command to provide information on the website being tested.
+- **Insecure (-k)**: Select the checkbox to enable insecure, which instructs the curl command to not verify the certificate.
+
+In the table, you can view the following for each test:
+
+- **ID**: The ID of the traffic test.
+- **Name**: The name of the traffic test.
+- **URL**: The URL associated with the traffic test.
+- **Type**: The type of traffic test performed.
+- **Description**: The description of the traffic test. You can also edit, delete, or run a test after a test environment has been created. If a test environment has not been created, run is not an option and the icon does not appear.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-microsoft-azure-account-details","lastmod":"2026-08-04T11:19Z","nid":"1507806"} -->
 ## Analyzing Microsoft Azure Account Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-microsoft-azure-account-details
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Analyzing Microsoft Azure Account Details
-- Last modified: 2026-05-14T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > Analyzing Microsoft Azure Account Details
+- Last modified: 2026-08-04T11:19Z
 - Summary: Information on the Microsoft Azure account details in the Zscaler Admin Console.
 
 The Microsoft Azure Account Details page provides general and management information for a selected Azure account. You can access the Azure Account Details page by clicking the **Regions**, **Subscriptions**, **Cloud Connectors**, or **Event Grid** number on the [Azure accounts](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts) page for a selected Azure account.
@@ -3978,155 +4343,13 @@ You can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateway-details","lastmod":"2026-07-24T21:06Z","nid":"1516716"} -->
-## Analyzing Zero Trust Gateway Details
-
-- Source: https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateway-details
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Analyzing Zero Trust Gateway Details
-- Last modified: 2026-07-24T21:06Z
-- Summary: Information on the Zero Trust Gateway details in the Zscaler Admin Console.
-
-The Zero Trust Gateway details page provides management and operational information about the selected gateway. You can access the Zero Trust Gateway details page by selecting a gateway on the [Zero Trust Gateway](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways) page.
-
-Zero Trust Gateways are in Limited Availability. To enable this feature, contact Zscaler Support.
-
-## Analyzing the Zero Trust Gateway Details Page
-
-On the Zero Trust Gateway details page, you can view the following:
-
-- Dashboard
-- Status
-- Endpoints
-- Config
-- Analytics
-- Events
-- Traffic Simulation
-
-On the **Dashboard** tab, you can view the following gateway details:
-
-- **Gateway Info**
-  - **Name**: The name of your Zero Trust Gateway. This is the equivalent of a tag identifying the name of a resource.
-  - **Zero Trust Gateway ID**: The Zscaler internal ID that identifies the resource.
-  - **Endpoint Service Name**: The name of the Amazon Web Services (AWS) endpoint service hosted by Zscaler. You need this service address to create an endpoint in your AWS account. This is the service name based in your AWS console.
-- **Regions and Location**
-  - **Region**: The name of the AWS region where the gateway is deployed. To learn more about supported regions, see [Supported Regions for Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/supported-regions-zero-trust-gateways).
-  - **Availability Zones**: The IDs of availability zones where the gateway is deployed.
-  - **Location**: The location name of the gateway.
-- **Accounts**
-  - **Account Groups**: The AWS account groups in partner integrations that are permitted to connect to the gateway.
-  - **Accounts**: The AWS accounts in partner integrations that are permitted to connect to the gateway.
-  - **Manually Added Accounts**: The AWS accounts manually added in partner integrations that are permitted to connect to the gateway.
-
-See image.
-
-The **Status** tab displays the status of the Zero Trust Gateway. The Zscaler service refreshes the status when you refresh the page. The tab displays the following information about AWS availability zones:
-
-- **Internet**: The ability of the gateway to reach Internet & SaaS
-- **Local Egress**: The ability of the gateway to forward direct traffic
-- **Private Applications**: The ability of the gateway to reach Private Access
-
-The corresponding status can be one of the following:
-
-- **Healthy**: The backend traffic in the availability zone is functioning as expected
-- **Unhealthy**: The traffic is being dropped because there is no healthy backend processing
-- **Degraded**: The traffic might have lost redundancy, but it is still being forwarded
-
-See image.
-
-On the **Endpoints** tab, you can view a list of endpoints and their details:
-
-- **Endpoint ID**: The ID of the endpoint connected to the gateway. This endpoint is allowed to send traffic to the gateway.
-- **Account ID**: The ID of the AWS account associated with the endpoint.
-- **Accepted On**: The date and time when the gateway accepted the endpoint.
-- **Namespace**: The namespace associated with the endpoint. The workload discovery service configured in partner integrations discovers the namespace. The account ID of the virtual private cloud (VPC) endpoint must be onboarded to the partner integration. The namespace is based on the VPC tag with the key (`zs:namespace`). This field is only available if the workload discovery service and partner integrations are enabled. To learn more about namespaces, see [Understanding Namespaces for Amazon Web Services and Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/understanding-namespaces-amazon-web-services-and-microsoft-azure-accounts).
-- **VPC**: The VPC connected to the gateway where the endpoint is deployed or configured. This field is only available if the workload discovery service and partner integrations are enabled. See image.
-
-The **Config** tab displays a table with the following details about Internet & SaaS configuration versions that have been activated:
-
-- **Version**: The version of the Zscaler configuration that was activated
-- **Submitted On**: The date and time the configuration was activated
-- **Status**: The status of the version (i.e., **Active** or **Inactive**)
-
-The gateway can reject a configuration that you activate if it makes the gateway unable to function properly. The most recent configuration versions are typically active. If the latest configuration version is not active, the gateway might have rejected the configuration. You can compare two configuration versions by selecting the checkboxes and clicking **Compare Versions**.
-
-See image.
-
-On the **Analytics** tab, you can select **Timeframe**, **Stat**, and **Type** to display values from CloudWatch related to the gateway load balancer (GWLB) of your gateway.
-
-You can configure settings for the graph to display the following:
-
-- **Timeframe**: Select a time frame to view data within that range. The graph automatically selects the number of data points based on the time frame you select.
-- **Stat**: Select **Average**, **Max**, or **Sum** to view the average, maximum, or total amount of data. Statistics match the statistics in AWS CloudWatch. If the stat for that type is not calculated, the graph returns no value.
-- **Type**: Select a type to modify what data the graph displays: See image.
-  - **Processed Bytes**: The total number of bytes that the GWLB processed. This includes traffic sent to and from the destination, but not traffic from health checks.
-  - **Active Connection**: The total number of concurrent connections from client to destination.
-  - **Reset Count**: The total number of TCP counts that the GWLB sends when there is no backend processing available.
-
-On the **Events** tab, you can select a **Timeframe** to view events that occurred within the range:
-
-- **Event**: The event that occurred (e.g., **Accepted connection for VPC Endpoint** or **Removed connector for VPC Endpoint**).
-- **Category**: The category of the event (e.g., **VpcEndpoint**).
-- **Type**: The type of event that occurred.
-- **Start Time**: The date and time when the event started.
-- **Status**: The status of the event. See image.
-
-On the **Traffic Simulation** tab, you can check whether the endpoint can send the traffic through the Zero Trust Exchange (ZTE). You can also send egressing traffic out through the Zscaler service in Internet & SaaS. You can test your forwarding and Internet & SaaS policies by creating a traffic test. The Zscaler service sets up a virtual environment in the Zscaler AWS account and sends traffic through the endpoint to execute the test. The result of the test appears as the output of the AWS curl command. A test created in one gateway is available in all the gateways created in that Cloud Connector account in all regions.
-
-If you navigate to the Zero Trust Gateways page or the Endpoints page while the test environment is active, a connected VPC endpoint that is the Zscaler account is shown.
-
-Click **Create Test Environment** to create a test environment. After approximately 5 minutes, the test environment is created. The test environment lasts for one hour. During that time, an endpoint appears on your gateway with the Zscaler account as its associated account. If you need more time, click **Renew** and the test environment lasts for one more hour. When the test environment is in the `CREATE_COMPLETE` state, you can run the test.
-
-Click **New Test** to save configuration parameters, which allows you to define AWS curl parameters. In the **Create a New Test** window:
-
-- **Name**: Enter a name for the test.
-- **Description (Optional)**: Enter a description for the test.
-- **Protocol**: Enter `HTTP` or `HTTPS` as the protocol for the test.
-- **URL**: Enter the URL of the website you are testing.
-- **Commands (Optional)**: Enter the AWS curl command parameters to test and fetch information about a website.
-- **Verbose (-v)**: Select the checkbox to enable verbose, which instructs the curl command to provide information on the website being tested.
-- **Insecure (-k)**: Select the checkbox to enable insecure, which instructs the curl command to not verify the certificate.
-
-See image.
-
-In the table, you can view the following for each test:
-
-- **ID**: The ID of the traffic test.
-- **Name**: The name of the traffic test.
-- **URL**: The URL associated with the traffic test.
-- **Type**: The type of traffic test performed.
-- **Description**: The description of the traffic test.
-
-You can also edit, delete, or run a test after a test environment has been created. If a test environment has not been created, run is not an option and the icon does not appear.
-
-See image.
-
-[Image: The Dashboard sections containing the Gateway Info, Regions and Location, and Accounts information in the Zscaler Admin Console]
-
-[Image: The Status tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A row of information for a gateway named usw1-az1 shows Internet: Healthy, Local Egres: Healthy, Private Applications: Healthy.]
-
-[Image: The Endpoints tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console]
-
-[Image: The Config tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A table with columns for Version, Submitted On, Active, and Inactive.]
-
-[Image: The Analytics tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A line graph. The y-axis shows values from 1500000 to 26184117. The x-axis shows times from 15:00 to 00:00 at intervals of one hour. Timeframe is set to Current Day, Stat is set ot Sum, and Type is set to Processed Bytes.]
-
-[Image: The Events tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. The Timeframe drop-down menu shows Current Week: 01/19/2025-01/24/2025. Below the menu, a table with columns for Event, Category, Type, Start Time, and Status. Two example events appear in the table.]
-
-[Image: The Traffic Simulation tab details viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console]
-
-[Image: The Create a New Test window that appears after selecting Create Test in the Zscaler Admin Console]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-07-24T21:06Z","nid":"1516906"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-08-03T14:07Z","nid":"1516906"} -->
 ## Analyzing Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Analyzing Zero Trust Gateways
-- Last modified: 2026-07-24T21:06Z
+- Last modified: 2026-08-03T14:07Z
 - Summary: Information on the Zero Trust Gateway page in the Zscaler Admin Console.
 
 The Zero Trust Gateway page provides information on the name, location, entitlement status, and health status of your Zero Trust Gateway. You can use the **Refresh**icon ([Image: Refresh Icon on the Traffic Monitoring Page in the Zscaler Cloud & Branch Connector Admin Portal]) to refresh the dashboard to view the most recent information.
@@ -4135,7 +4358,7 @@ The Zero Trust Gateway page provides information on the name, location, entitlem
 
 ### Location Filtering
 
-You can filter gateways using the drop-down menu in the **AWS Regions** section.
+You can filter gateways using the drop-down menu for **AWS Regions** and **GCP**.
 
 By default, the filter is set to **Any**, which indicates that no filter is applied.
 
@@ -4162,7 +4385,7 @@ The Zero Trust Gateway page provides the following widgets:
 After the **Geo View** section, the monitoring table displays the following information about your gateways:
 
 - **Name**: The name of the gateway
-- **Type**: The cloud provider type. Only AWS is supported
+- **Type**: The cloud provider type. AWS and GCP are supported.
 - **ID**: The ID of the gateway
 - **Region**: The region associated with the gateway
 - **Location**: The location associated with the gateway
@@ -4183,7 +4406,7 @@ The **Health Status** chart displays the health status of deployed gateways. You
 
 See image.
 
-The **Geo View** displays the geographic locations of all Zero Trust Gateways deployed. You can use location filtering to show only particular gateways based on your requirements. The map displays the number of gateways deployed in different regions. You can click the cluster to view all the gateways in a particular region along with their cloud provider type. Only Amazon Web Services (AWS) is supported. You can also click any gateway to view more information (i.e., **Deployment Type**, **Name**, **Region**, **Location**, **Endpoints**, and **Service Status**). If a gateway is inactive, the reason is displayed.
+The **Geo View** displays the geographic locations of all Zero Trust Gateways deployed. You can use location filtering to show only particular gateways based on your requirements. The map displays the number of gateways deployed in different regions. You can click the cluster to view all the gateways in a particular region along with their cloud provider type. Amazon Web Services (AWS) and Google Cloud Platform (GCP) are supported. You can also click any gateway to view more information (i.e., **Deployment Type**, **Name**, **Region**, **Location**, **Endpoints**, and **Service Status**). If a gateway is inactive, the reason is displayed.
 
 You can click and drag the map to view different regions. You can also zoom in and out of the map to better view regions of interest.
 
@@ -4200,13 +4423,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-advanced-settings-cloud-connector","lastmod":"2026-07-24T14:04Z","nid":"1420861"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-advanced-settings-cloud-connector","lastmod":"2026-08-07T21:06Z","nid":"1420861"} -->
 ## Configuring Advanced Settings for Cloud Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-advanced-settings-cloud-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Configuring Advanced Settings for Cloud Connector
-- Last modified: 2026-07-24T14:04Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information on how to configure advanced settings in the Zscaler Admin Console.
 
 On the Advanced Settings page, your imported ID is added to your [session logs](https://help.zscaler.com/cloud-branch-connector/session-insights-logs-columns)to correlate your workloads with your Amazon Web Services (AWS) account, Microsoft Azure subscription, and/or Google Cloud Platform (GCP) subscription.
@@ -4724,13 +4947,13 @@ To learn more about DHCP options, refer to the [IANA documentation](https://www.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-cloud-provisioning-template","lastmod":"2026-05-13T12:38Z","nid":"1420466"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-cloud-provisioning-template","lastmod":"2026-08-03T09:33Z","nid":"1420466"} -->
 ## Configuring a Cloud Provisioning Template
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-cloud-provisioning-template
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > Configuring a Cloud Provisioning Template
-- Last modified: 2026-05-13T12:38Z
+- Last modified: 2026-08-03T09:33Z
 - Summary: How to configure a cloud provisioning template in the Zscaler Admin Console.
 
 [Watch a video about Cloud Provisioning Templates (shows legacy UI).](https://fast.wistia.net/embed/iframe/577qniv2zj)
@@ -4757,7 +4980,7 @@ To add a Cloud Connector Provisioning Template:
       - **Amazon Web Services**: Select from **Small**, **Medium**, or **Large**. **Small** is set by default when auto scaling is enabled.
       - **Azure**: **Small** is set by default.
       - **GCP**: **Small** is set by default.
-    - **Auto Scaling**: Enable or disable autoscaling for AWS, Azure, or GCP. In the AWS Marketplace, autoscaling is referred to as Auto Scaling. In the Azure Marketplace, autoscaling is referred to as Virtual Machine Scale Sets (VMSS). In the Google Cloud Marketplace, autoscaling is referred to as a Managed Instance Group (MIG) with autoscaling. In the Zscaler Cloud & Branch Connector Admin Portal, references to autoscaling also refer to Auto Scaling, VMSS, and a MIG with autoscaling. To enable Auto Scaling, VMSS, or a MIG with autoscaling, contact Zscaler Support.
+    - **Auto Scaling**: Enable or disable autoscaling for AWS, Azure, or GCP. In the AWS Marketplace, autoscaling is referred to as Auto Scaling. In the Azure Marketplace, autoscaling is referred to as Virtual Machine Scale Sets (VMSS). In the Google Cloud Marketplace, autoscaling is referred to as a Managed Instance Group (MIG) with autoscaling. In the Zscaler Admin Console, references to autoscaling also refer to Auto Scaling, VMSS, and a MIG with autoscaling. To enable Auto Scaling, VMSS, or a MIG with autoscaling, contact Zscaler Support.
     - **Choose release channel**: From the drop-down menu, select **Stable**, **Latest**, or **Beta**: See image.
       - **Stable**: Select **Stable** to deploy your Cloud Connector on the channel that has been widely adopted and tested in real environments.
       - **Latest**: Select **Latest** to deploy your Cloud Connector on the channel that has the most recent production release.
@@ -4891,13 +5114,13 @@ To add a DNS gateway:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-iam-roles-and-permissions-microsoft-azure","lastmod":"2026-04-27T21:06Z","nid":"1507516"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-iam-roles-and-permissions-microsoft-azure","lastmod":"2026-08-04T11:19Z","nid":"1507516"} -->
 ## Configuring IAM Roles and Permissions for Microsoft Azure
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-iam-roles-and-permissions-microsoft-azure
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Configuring IAM Roles and Permissions for Microsoft Azure
-- Last modified: 2026-04-27T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > Configuring IAM Roles and Permissions for Microsoft Azure
+- Last modified: 2026-08-04T11:19Z
 - Summary: Configuring IAM roles and permissions in the Microsoft Azure Portal allows you to add an Azure account in the Zscaler Admin Console.
 
 Configuring IAM roles and permissions for Microsoft Azure allows you to add Azure accounts in the Zscaler Admin Console. When configuring IAM roles and permissions, you can use Terraform or Azure. When adding permissions in Azure, you can use the built-in role of Reader or create a custom role. To learn more, see [Configuring the Workload Discovery Service for Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts).
@@ -5682,13 +5905,13 @@ The local forwarding method facilitates subnet-to-subnet or virtual private clou
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-forwarding-profiles","lastmod":"2026-07-21T12:52Z","nid":"1471726"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-forwarding-profiles","lastmod":"2026-08-04T21:06Z","nid":"1471726"} -->
 ## Configuring VDI Forwarding Profiles
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-vdi-forwarding-profiles
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Configuring VDI Forwarding Profiles
-- Last modified: 2026-07-21T12:52Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on how to configure a VDI Forwarding Profile in the Zscaler Admin Console.
 
 This article provides information on how to configure a Virtual Desktop Infrastructure (VDI) forwarding profile and bypass information. To learn more about VDI forwarding profiles, see [About VDI Forwarding Profiles](https://help.zscaler.com/cloud-branch-connector/about-vdi-agent-forwarding-profiles).
@@ -5731,13 +5954,13 @@ If your Citrix environment uses any of the Rendezvous protocols, then it might n
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-groups","lastmod":"2026-07-21T11:55Z","nid":"1471701"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-groups","lastmod":"2026-08-04T21:06Z","nid":"1471701"} -->
 ## Configuring VDI Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-vdi-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Configuring VDI Groups
-- Last modified: 2026-07-21T11:55Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: How to configure a VDI group in the Zscaler Admin Console.
 
 This article provides information on how to configure a dynamic Virtual Desktop Infrastructure (VDI) group. To learn more, see [About VDI Groups](https://help.zscaler.com/cloud-branch-connector/about-vdi-groups).
@@ -5769,13 +5992,13 @@ To add a VDI group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-templates","lastmod":"2026-07-21T12:23Z","nid":"1471711"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-templates","lastmod":"2026-08-04T21:06Z","nid":"1471711"} -->
 ## Configuring VDI Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-vdi-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Configuring VDI Templates
-- Last modified: 2026-07-21T12:23Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on how to configure a VDI template in the Zscaler Admin Console.
 
 This article provides information on how to configure a Virtual Desktop Infrastructure (VDI) template. To learn more, see [About VDI Templates.](https://help.zscaler.com/cloud-branch-connector/about-vdi-agent-templates)
@@ -5801,13 +6024,13 @@ To add a VDI template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts","lastmod":"2026-04-13T14:02Z","nid":"1507561"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts","lastmod":"2026-08-04T11:19Z","nid":"1507561"} -->
 ## Configuring the Workload Discovery Service for Microsoft Azure Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Configuring the Workload Discovery Service for Microsoft Azure Accounts
-- Last modified: 2026-04-13T14:02Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > Configuring the Workload Discovery Service for Microsoft Azure Accounts
+- Last modified: 2026-08-04T11:19Z
 - Summary: How to configure a Microsoft Azure account using the Workload Discovery Service on the Azure tab of the Partner Integrations page of the Zscaler Admin Console.
 
 This article provides information on how to onboard a Microsoft Azure account to enable workload discovery services within the Zscaler Admin Console. To learn more, see [About Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts).
@@ -6007,13 +6230,13 @@ The partner configuration authorization is created.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services","lastmod":"2026-04-24T21:06Z","nid":"1470596"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services","lastmod":"2026-08-04T11:16Z","nid":"1470596"} -->
 ## Configuring Workload Discovery for Workloads in Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Configuring Workload Discovery for Workloads in Amazon Web Services
-- Last modified: 2026-04-24T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Configuring Workload Discovery for Workloads in Amazon Web Services
+- Last modified: 2026-08-04T11:16Z
 - Summary: Information on how to configure workload discovery for workloads in Amazon Web Services (AWS).
 
 The workload discovery service is a Zscaler-managed service that discovers workloads in your Amazon Web Services (AWS) account. The service also fetches associated metadata such as user-defined tags and cloud service provider-generated attributes. These user-defined tags and cloud service provider-generated attributes are used in security policies.
@@ -6114,13 +6337,13 @@ The workload discovery service communicates through API calls and a publish-subs
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-google-cloud-platform","lastmod":"2026-04-28T21:06Z","nid":"1531144"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-google-cloud-platform","lastmod":"2026-08-04T11:23Z","nid":"1531144"} -->
 ## Configuring Workload Discovery for Workloads in Google Cloud Platform
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-workloads-google-cloud-platform
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Configuring Workload Discovery for Workloads in Google Cloud Platform
-- Last modified: 2026-04-28T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > GCP Partner Integrations > Configuring Workload Discovery for Workloads in Google Cloud Platform
+- Last modified: 2026-08-04T11:23Z
 - Summary: Information on how to configure workload discovery for workloads in Google Cloud Platform (GCP).
 
 The workload discovery service is a Zscaler-managed service that discovers workloads in your Google Cloud Platform (GCP) account. The service also fetches associated metadata such as user-defined tags and attributes generated by cloud service providers. These tags and attributes are used in security policies.
@@ -6235,13 +6458,13 @@ The Terraform deployment package:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/customizing-zscaler-client-connector-vdi-install-options-msi","lastmod":"2026-07-21T08:53Z","nid":"1472251"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/customizing-zscaler-client-connector-vdi-install-options-msi","lastmod":"2026-08-04T21:06Z","nid":"1472251"} -->
 ## Customizing Zscaler Client Connector for VDI with Install Options for MSI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/customizing-zscaler-client-connector-vdi-install-options-msi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Customizing Zscaler Client Connector for VDI with Install Options for MSI
-- Last modified: 2026-07-21T08:53Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: How to customize the Zscaler Client Connector for VDI MSI file with install options by creating and deploying a golden image, or running the MSI with command-line options.
 
 If you are deploying Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) to your users using Microsoft Azure, Amazon Web Services (AWS), Citrix XenCenter, or other device management methods that support Microsoft Software Installer (MSI) files, you can download and use the MSI file. After downloading and configuring Zscaler Client Connector for VDI, you can deploy the file as is using your device management method. Alternatively, you can use the MSI file to manually install Zscaler Client Connector for VDI on a device. To learn more about the required configuration tasks, see [Step-by-Step Configuration Guide for Zscaler Client Connector for VDI](https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi).
@@ -6367,13 +6590,13 @@ The following table describes how registry parameter values override installatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-app-connector-hyper-v","lastmod":"2026-07-21T14:51Z","nid":"1478961"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-app-connector-hyper-v","lastmod":"2026-08-04T21:06Z","nid":"1478961"} -->
 ## Deploying Branch Connector & App Connector with Hyper-V
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-branch-connector-app-connector-hyper-v
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Deploying Branch Connector & App Connector with Hyper-V
-- Last modified: 2026-07-21T14:51Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Deploying Branch Connector & App Connector on Hyper-V
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Branch Connector & App Connector as a virtual machine (VM) on Hyper-V platforms, and post-deployment configurations.
@@ -6483,13 +6706,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-app-connector-linux-kvm","lastmod":"2026-07-24T13:54Z","nid":"1447021"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-app-connector-linux-kvm","lastmod":"2026-08-07T21:06Z","nid":"1447021"} -->
 ## Deploying Branch Connector & App Connector with Linux KVM
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-branch-connector-app-connector-linux-kvm
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Deploying Branch Connector & App Connector with Linux KVM
-- Last modified: 2026-07-24T13:54Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information on deploying Branch Connector & App Connector with Linux KVM.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Branch Connector & App Connector as a virtual machine (VM) on Linux KVM, and post-deployment configurations.
@@ -6619,13 +6842,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-app-connector-vmware-platforms","lastmod":"2026-07-24T13:51Z","nid":"1447016"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-app-connector-vmware-platforms","lastmod":"2026-08-07T21:06Z","nid":"1447016"} -->
 ## Deploying Branch Connector & App Connector on VMware Platforms
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-branch-connector-app-connector-vmware-platforms
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Deploying Branch Connector & App Connector on VMware Platforms
-- Last modified: 2026-07-24T13:51Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information on deploying Branch Connector & App Connector on VMware platforms.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Branch Connector & App Connector as a virtual machine (VM) on VMware platforms, and post-deployment configurations.
@@ -6849,13 +7072,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-hyper-v","lastmod":"2026-07-24T13:49Z","nid":"1478956"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-hyper-v","lastmod":"2026-08-07T21:06Z","nid":"1478956"} -->
 ## Deploying Branch Connector with Hyper-V
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-branch-connector-hyper-v
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Deploying Branch Connector with Hyper-V
-- Last modified: 2026-07-24T13:49Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information about deploying Branch Connector with Hyper-V.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Branch Connector as a virtual machine (VM) on Hyper-V platforms, and post-deployment configurations.
@@ -6965,13 +7188,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-linux-kvm","lastmod":"2026-07-24T13:52Z","nid":"1420926"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-linux-kvm","lastmod":"2026-08-07T21:06Z","nid":"1420926"} -->
 ## Deploying Branch Connector with Linux KVM
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-branch-connector-linux-kvm
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Deploying Branch Connector with Linux KVM
-- Last modified: 2026-07-24T13:52Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information on deploying Branch Connector with Linux KVM.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Branch Connector as a virtual machine (VM) on Linux KVM, and post-deployment configurations.
@@ -7101,13 +7324,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-vmware-platforms","lastmod":"2026-07-24T13:50Z","nid":"1420821"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-branch-connector-vmware-platforms","lastmod":"2026-08-07T21:06Z","nid":"1420821"} -->
 ## Deploying Branch Connector on VMware Platforms
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-branch-connector-vmware-platforms
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Deploying Branch Connector on VMware Platforms
-- Last modified: 2026-07-24T13:50Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information on deploying Branch Connector with VMware ESXi.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Branch Connector as a virtual machine (VM) on VMware platforms, and post-deployment configurations.
@@ -7400,13 +7623,13 @@ passwd zsroot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-07-31T09:49Z","nid":"1420746"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-08-05T15:00Z","nid":"1420746"} -->
 ## Deploying Zscaler Cloud Connector with Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Deploying Zscaler Cloud Connector with Amazon Web Services
-- Last modified: 2026-07-31T09:49Z
+- Last modified: 2026-08-05T15:00Z
 - Summary: Information on deploying Zscaler Cloud Connector with Amazon Web Services.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as an Amazon Machine Image (AMI) on Amazon Web Services (AWS), and post-deployment configurations.
@@ -7450,7 +7673,7 @@ See image.
 
 After configuring the admin role, create a new role-based administrator dedicated to Cloud Connector deployment.
 
-For a Cloud Connector tenant linked to a Authentication Service service, after configuring the admin role in the Zscaler Admin Console, create administrators from the Zscaler Admin Console.
+For a Cloud Connector tenant linked to Authentication Service, after configuring the admin role in the Zscaler Admin Console, create administrators from the Zscaler Admin Console.
 
 To retrieve the API key:
 
@@ -8106,13 +8329,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-07-31T09:51Z","nid":"1420751"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-08-05T15:00Z","nid":"1420751"} -->
 ## Deploying Zscaler Cloud Connector with Microsoft Azure
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for Azure > Deploying Zscaler Cloud Connector with Microsoft Azure
-- Last modified: 2026-07-31T09:51Z
+- Last modified: 2026-08-05T15:00Z
 - Summary: How to deploy Zscaler Cloud Connector on Microsoft Azure, including prerequisites and post-deployment verification checks.
 
 When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, do not run both Virtual Machine Scale Sets (VMSS) and non-VMSS deployments within the same virtual network (VNet).
@@ -8161,7 +8384,7 @@ Ensure that you have the **User Access Administrator**, **Contributor**, and **K
 
 After configuring the admin role, create a new role-based administrator dedicated to Cloud Connector deployment.
 
-For a Cloud Connector tenant linked to a Authentication Service service, after configuring the admin role in the Zscaler Admin Console, create administrators. You must create and manage the Cloud Connector admin account within the Zscaler Admin Console for these tenants.
+For a Cloud Connector tenant linked to Authentication Service, after configuring the admin role in the Zscaler Admin Console, create administrators. You must create and manage the Cloud Connector admin account within the Zscaler Admin Console for these tenants.
 
 To retrieve the API key:
 
@@ -8498,13 +8721,13 @@ If you are deploying Cloud Connector in China, Zscaler recommends creating a cus
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deployment-templates-branch-connector-app-connector","lastmod":"2026-07-24T13:32Z","nid":"1444481"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deployment-templates-branch-connector-app-connector","lastmod":"2026-08-07T21:06Z","nid":"1444481"} -->
 ## Deployment Templates for Branch Connector & App Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deployment-templates-branch-connector-app-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Deployment Templates for Branch Connector & App Connector
-- Last modified: 2026-07-24T13:32Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information about the Zscaler Branch Connector Deployment templates on GitHub.
 
 Infrastructure as Code (IaC) deployment templates are available in [GitHub](https://github.com/zscaler) to assist in the deployment of Zscaler Branch Connector or Branch Connector & App Connector in VMware ESXi or Linux KVM. IaC deployment templates are not available for Branch Connector deployment on Hyper-V platforms.
@@ -8606,13 +8829,13 @@ Use the Starter Deployment Template with App Connector and High-Availability (bc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deployment-templates-zscaler-cloud-connector","lastmod":"2026-07-24T14:02Z","nid":"1443361"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deployment-templates-zscaler-cloud-connector","lastmod":"2026-08-07T21:06Z","nid":"1443361"} -->
 ## Deployment Templates for Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Deployment Templates for Zscaler Cloud Connector
-- Last modified: 2026-07-24T14:02Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information about the Zscaler Cloud Connector deployment templates on GitHub.
 
 Infrastructure as Code (IaC) deployment templates are available in [GitHub](https://github.com/zscaler) to assist in the deployment of Zscaler Cloud Connector in Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). AWS deployment templates are available in CloudFormation and Terraform repositories. Azure and GCP deployment templates are available in Terraform repositories. Links to the repositories are included in this article and in the Zscaler Admin Console (**Infrastructure** > **Common Resources** > **Deployment** > **Deployment Templates**).
@@ -11657,13 +11880,13 @@ module.network.google_compute_subnetwork.service_subnet[0]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/dns-insights-logs-columns","lastmod":"2026-07-21T08:32Z","nid":"1420671"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/dns-insights-logs-columns","lastmod":"2026-08-04T21:06Z","nid":"1420671"} -->
 ## DNS Insights Logs: Columns
 
 - Source: https://help.zscaler.com/cloud-branch-connector/dns-insights-logs-columns
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > DNS Insights Logs: Columns
-- Last modified: 2026-07-21T08:32Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on the different columns in the DNS Insights Logs page in the Zscaler Zscaler Admin Console.
 
 You can customize your DNS logs by using column fields. To learn more about logs, see [About Insights Logs.](https://help.zscaler.com/cloud-branch-connector/about-insights-logs)
@@ -11702,13 +11925,13 @@ You can select the following DNS Insights (Logs > Insights > Branch & Cloud Conn
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/dns-insights-logs-filters","lastmod":"2026-07-21T08:32Z","nid":"1420676"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/dns-insights-logs-filters","lastmod":"2026-08-04T21:06Z","nid":"1420676"} -->
 ## DNS Insights Logs: Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/dns-insights-logs-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > DNS Insights Logs: Filters
-- Last modified: 2026-07-21T08:32Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on the different filters in the DNS Insights Logs page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 Filters define the DNS traffic information that you view in your DNS Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -11741,13 +11964,13 @@ You can select the following filters for your DNS Insights Logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-branch-connector-images","lastmod":"2026-07-24T13:30Z","nid":"1420741"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-branch-connector-images","lastmod":"2026-08-07T21:06Z","nid":"1420741"} -->
 ## Downloading Branch Connector Images
 
 - Source: https://help.zscaler.com/cloud-branch-connector/downloading-branch-connector-images
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Downloading Branch Connector Images
-- Last modified: 2026-07-24T13:30Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information on downloading your Branch Connector Virtual Machine (VM) images.
 
 The Branch Connector Images page in the Zscaler Admin Console provides the ability to download your Branch Connector or Branch Connector & App Connector virtual machine (VM) images. Branch Connector images include App Connectors that have not yet been provisioned. To deploy Branch Connector & App Connector, you must select the combined instance and configure the deployment properties accordingly.
@@ -11762,13 +11985,13 @@ To download the VM image:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-zscaler-client-connector-vdi","lastmod":"2026-07-21T08:51Z","nid":"1475381"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-zscaler-client-connector-vdi","lastmod":"2026-08-04T21:06Z","nid":"1475381"} -->
 ## Downloading Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/downloading-zscaler-client-connector-vdi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Downloading Zscaler Client Connector for VDI
-- Last modified: 2026-07-21T08:51Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: How to download Zscaler Client Connector for VDI from the Zscaler Admin Console.
 
 In the Zscaler Admin Console, on the VDI App Store page, you can download Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) for Windows. You can download the latest version or one of the older versions still available for download. To learn more about Zscaler Client Connector for VDI, see [What Is Zscaler Client Connector for VDI?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-vdi-agent)
@@ -12044,13 +12267,13 @@ To edit a Zero Trust Branch Device:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-gateways","lastmod":"2026-07-23T09:10Z","nid":"1529794"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-gateways","lastmod":"2026-08-06T21:06Z","nid":"1529794"} -->
 ## Editing Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/editing-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Editing Zero Trust Gateways
-- Last modified: 2026-07-23T09:10Z
+- Last modified: 2026-08-06T21:06Z
 - Summary: How to modify the Zero Trust Gateway details from the Cloud Connector Groups page in the Zscaler Admin Console.
 
 Modifying Zscaler Zero Trust Gateway groups or viewing individual Zero Trust Gateways are some of the tasks you can complete after deployment.
@@ -12178,13 +12401,13 @@ For example, the SIEM went offline at 6:29:00 PM, the NSS detected the lost conn
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/handling-dns-resolutions-zscaler-branch-connector","lastmod":"2026-07-24T13:55Z","nid":"1446986"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/handling-dns-resolutions-zscaler-branch-connector","lastmod":"2026-08-07T21:06Z","nid":"1446986"} -->
 ## Handling DNS Resolutions for Zscaler Branch Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/handling-dns-resolutions-zscaler-branch-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Handling DNS Resolutions for Zscaler Branch Connector
-- Last modified: 2026-07-24T13:55Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information on how Zscaler Branch Connector handles DNS resolution for various traffic forwarding methods.
 
 The following table provides information on how Zscaler Branch Connector handles DNS resolutions for various traffic forwarding methods:
@@ -12199,13 +12422,13 @@ The following table provides information on how Zscaler Branch Connector handles
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/handling-dns-resolutions-zscaler-cloud-connector","lastmod":"2026-07-21T14:55Z","nid":"1443521"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/handling-dns-resolutions-zscaler-cloud-connector","lastmod":"2026-08-04T21:06Z","nid":"1443521"} -->
 ## Handling DNS Resolutions for Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/handling-dns-resolutions-zscaler-cloud-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Handling DNS Resolutions for Zscaler Cloud Connector
-- Last modified: 2026-07-21T14:55Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on how Zscaler Cloud Connector handles DNS resolution for various traffic forwarding methods.
 
 The following table provides information on how Zscaler Cloud Connector handles DNS resolutions for various traffic forwarding methods:
@@ -12220,13 +12443,13 @@ The following table provides information on how Zscaler Cloud Connector handles 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/identifying-zscaler-cloud-connector-version","lastmod":"2026-07-24T14:23Z","nid":"1446981"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/identifying-zscaler-cloud-connector-version","lastmod":"2026-08-07T21:06Z","nid":"1446981"} -->
 ## Identifying the Zscaler Cloud Connector Version
 
 - Source: https://help.zscaler.com/cloud-branch-connector/identifying-zscaler-cloud-connector-version
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Identifying the Zscaler Cloud Connector Version
-- Last modified: 2026-07-24T14:23Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: How to find your Zscaler Cloud Connector version in Amazon Web Services, Microsoft Azure, and Google Cloud Platform.
 
 Zscaler provides automation templates for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). When you deploy Zscaler Cloud Connector, these templates always detect the latest virtual machine (VM) version. Therefore, as long as the latest automation templates are deployed, there is no action required when deploying new VMs. You can locate your current Cloud Connector VM version via AWS, Azure, and GCP.
@@ -12530,13 +12753,13 @@ To install the Zero Trust SD-WAN Device 800:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/managing-cloud-branch-connector-upgrades","lastmod":"2026-07-24T13:27Z","nid":"1446991"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/managing-cloud-branch-connector-upgrades","lastmod":"2026-08-07T21:06Z","nid":"1446991"} -->
 ## Managing Cloud & Branch Connector Upgrades
 
 - Source: https://help.zscaler.com/cloud-branch-connector/managing-cloud-branch-connector-upgrades
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Managing Cloud & Branch Connector Upgrades
-- Last modified: 2026-07-24T13:27Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information on Zscaler Cloud & Branch Connector periodic software upgrades.
 
 [Watch a video about Cloud & Branch Connector Upgrades (shows legacy UI).](https://fast.wistia.net/embed/iframe/i91vzo6kqu)
@@ -12656,13 +12879,13 @@ To modify the default DNS Control rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/networking-flows-cloud-connector","lastmod":"2026-07-24T14:29Z","nid":"1452806"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/networking-flows-cloud-connector","lastmod":"2026-08-07T21:06Z","nid":"1452806"} -->
 ## Networking Flows for Cloud Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/networking-flows-cloud-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Networking Flows for Cloud Connector
-- Last modified: 2026-07-24T14:29Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information on Zscaler Cloud Connector networking flows via traffic forwarding and DNS forwarding.
 
 Every Zscaler Cloud Connector has a minimum of two network interfaces that communicate with the Zscaler cloud for different purposes.
@@ -13482,18 +13705,18 @@ When the Zscaler service sends logs to the NSS, it hex encodes all nonprintable 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/registering-endpoint-amazon-web-services","lastmod":"2026-07-24T21:06Z","nid":"1519146"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/registering-endpoint-amazon-web-services","lastmod":"2026-08-03T14:22Z","nid":"1519146"} -->
 ## Registering an Endpoint in Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/registering-endpoint-amazon-web-services
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Registering an Endpoint in Amazon Web Services
-- Last modified: 2026-07-24T21:06Z
+- Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Registering an Endpoint in Amazon Web Services
+- Last modified: 2026-08-03T14:22Z
 - Summary: Information on how to register an endpoint in Amazon Web Services (AWS).
 
 Zero Trust Gateways allow you to register an endpoint in Amazon Web Services (AWS). Registering your endpoint with the Zscaler service allows you to route and secure your traffic to the Zero Trust Exchange (ZTE).
 
-After you [add a Zero Trust Gateway](https://help.zscaler.com/cloud-branch-connector/adding-zero-trust-gateway), you can use the service address to register the endpoint.
+After you [add an AWS Zero Trust Gateway](https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway), you can use the service address to register the endpoint.
 
 - 1. Copy and save the endpoint service name.
 - 2. Register an endpoint.
@@ -13501,7 +13724,7 @@ After you [add a Zero Trust Gateway](https://help.zscaler.com/cloud-branch-conne
 
 To copy the endpoint service name:
 
-1. In the Zscaler Admin Console, on the **AWS Gateway** page, select your gateway by clicking its name. See image.
+1. In the Zscaler Admin Console, on the AWS **Zero Trust Gateway** page, select your gateway by clicking its name. See image.
 2. On the **Dashboard** tab, copy and save the **Endpoint Service Name**. You use it when creating an endpoint in AWS. See image.
 
 To register an endpoint:
@@ -13596,13 +13819,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2024","lastmod":"2026-07-28T21:06Z","nid":"1473301"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2024","lastmod":"2026-08-03T10:00Z","nid":"1473301"} -->
 ## Release Upgrade Summary (2024)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/release-upgrade-summary-2024
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector Service Release Notes > Release Upgrade Summary (2024)
-- Last modified: 2026-07-28T21:06Z
+- Last modified: 2026-08-03T10:00Z
 - Summary: Zscaler Cloud & Branch Connector Release Upgrade Summary for service updates deployed in 2024.
 
 This article provides a summary of all new features and enhancements for Zscaler Cloud & Branch Connector. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -13624,13 +13847,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-07-22T13:55Z","nid":"1534301"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-08-03T14:25Z","nid":"1534301"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/release-upgrade-summary-2026
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-22T13:55Z
+- Last modified: 2026-08-03T14:25Z
 - Summary: Zscaler Cloud & Branch Connector Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Cloud & Branch Connector. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -13638,13 +13861,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/rotating-zscaler-service-account-passwords","lastmod":"2026-07-24T13:28Z","nid":"1532225"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/rotating-zscaler-service-account-passwords","lastmod":"2026-08-07T21:06Z","nid":"1532225"} -->
 ## Rotating Zscaler Service Account Passwords
 
 - Source: https://help.zscaler.com/cloud-branch-connector/rotating-zscaler-service-account-passwords
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Rotating Zscaler Service Account Passwords
-- Last modified: 2026-07-24T13:28Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: Information about rotating passwords on Cloud & Branch Connector.
 
 Zscaler Cloud & Branch Connector virtual devices contain a Zscaler Service Account called `zsroot`. This account is a privileged user that enables secure administrative access and management of the virtual device. In order to safeguard your organization, Zscaler strongly recommends implementing routine password rotation as a best practice.
@@ -13734,13 +13957,13 @@ Using the following filters, you can further drill down into the Session Insight
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-insights-logs-columns","lastmod":"2026-07-21T08:31Z","nid":"1420691"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-insights-logs-columns","lastmod":"2026-08-04T21:06Z","nid":"1420691"} -->
 ## Session Insights Logs: Columns
 
 - Source: https://help.zscaler.com/cloud-branch-connector/session-insights-logs-columns
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > Session Insights Logs: Columns
-- Last modified: 2026-07-21T08:31Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on the different columns in the Session Insights Logs page in the Zscaler Admin Console.
 
 You can customize your Session logs by using column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -13946,13 +14169,13 @@ The Zscaler service provides real-time log consolidation across the globe, so yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi","lastmod":"2026-07-20T10:30Z","nid":"1472246"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi","lastmod":"2026-08-03T21:06Z","nid":"1472246"} -->
 ## Step-by-Step Configuration Guide for Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Step-by-Step Configuration Guide for Zscaler Client Connector for VDI
-- Last modified: 2026-07-20T10:30Z
+- Last modified: 2026-08-03T21:06Z
 - Summary: Information on the configuration tasks an organization must complete to begin using Zscaler Client Connector for VDI.
 
 This guide takes you step-by-step through the configuration tasks you must complete to begin using Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) for your organization.
@@ -14185,13 +14408,13 @@ The Zscaler service provides real-time log consolidation across the globe, so yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/storing-your-secret-credentials-hashicorp-vault","lastmod":"2026-07-21T15:02Z","nid":"1519691"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/storing-your-secret-credentials-hashicorp-vault","lastmod":"2026-08-04T21:06Z","nid":"1519691"} -->
 ## Storing Your Secret Credentials in HashiCorp Vault for Google Cloud Platform-Based Cloud Connectors
 
 - Source: https://help.zscaler.com/cloud-branch-connector/storing-your-secret-credentials-hashicorp-vault
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Storing Your Secret Credentials in HashiCorp Vault for Google Cloud Platform-Based Cloud Connectors
-- Last modified: 2026-07-21T15:02Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information about setting up HashiCorp Vault and Google Cloud to store your secret credentials.
 
 HashiCorp Vault is a cloud-agnostic method for storing and maintaining secret credentials. This article describes how to use HashiCorp IAM authentication to integrate a HashiCorp Vault with a new Cloud Connector based on the Google Cloud Platform (GCP).
@@ -14327,16 +14550,18 @@ Gather the following information to respond to Terraform deployment wizard promp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-07-14T21:06Z","nid":"1538721"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-08-03T14:09Z","nid":"1538721"} -->
 ## Supported Regions for Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/supported-regions-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Supported Regions for Zero Trust Gateways
-- Last modified: 2026-07-14T21:06Z
+- Last modified: 2026-08-03T14:09Z
 - Summary: Information about the supported regions for Zscaler Zero Trust Gateways in the Zscaler Admin Console.
 
-Zscaler Zero Trust Gateways are supported for Amazon Web Services (AWS) in the following regions:
+Zscaler Zero Trust Gateways are supported in the following regions:
+
+## Amazon Web Services
 
 | **Region Code** | **Display Name** | **Location** |
 | --- | --- | --- |
@@ -14359,18 +14584,39 @@ Zscaler Zero Trust Gateways are supported for Amazon Web Services (AWS) in the f
 | sa-east-1 | South America (São Paulo) | São Paulo, Brazil |
 | me-south-1 | Middle East (Bahrain) | Bahrain |
 
+## Google Cloud Platform
+
+| **Region Code** | **Location** |
+| --- | --- |
+| us-west1 | Oregon, USA |
+| us-west2 | Los Angeles, California, USA |
+| us-west3 | Salt Lake City, Utah, USA |
+| us-west4 | Las Vegas, Nevada, USA |
+| us-east1 | South Carolina, USA |
+| us-east4 | N. Virginia, USA |
+| us-east5 | Columbus, Ohio, USA |
+| us-central1 | Iowa, USA |
+| us-south1 | Dallas, Texas, USA |
+| europe-west1 | Belgium |
+| europe-west3 | Frankfurt, Germany |
+| europe-west4 | Netherlands |
+| australia-southeast1 | Sydney, Australia |
+| asia-south1 | Mumbai, India |
+| asia-south2 | Delhi, India |
+| asia-southeast1 | Singapore |
+
 If you are interested in support for a region that is currently unavailable, contact Zscaler Support.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/troubleshooting-cloud-connector-amazon-web-services","lastmod":"2026-07-09T21:06Z","nid":"1420646"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/troubleshooting-cloud-connector-amazon-web-services","lastmod":"2026-08-06T11:09Z","nid":"1420646"} -->
 ## Troubleshooting Cloud Connector with Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/troubleshooting-cloud-connector-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Troubleshooting > Troubleshooting Cloud Connector with Amazon Web Services
-- Last modified: 2026-07-09T21:06Z
+- Last modified: 2026-08-06T11:09Z
 - Summary: Information on various issue that may occur in the Zscaler Cloud Connector and their solutions.
 
 This article provides troubleshooting information and guidelines for [Cloud Connector deployment in Amazon Web Services (AWS)](https://help.zscaler.com/cloud-branch-connector/deploying-cloud-connector-amazon-web-services). You can review issues and corresponding solutions for Zscaler Cloud Connector.
@@ -15105,13 +15351,13 @@ To access the CLI via the Bastion subnet:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/troubleshooting-zscaler-client-connector-vdi","lastmod":"2026-07-21T12:47Z","nid":"1494866"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/troubleshooting-zscaler-client-connector-vdi","lastmod":"2026-08-04T21:06Z","nid":"1494866"} -->
 ## Troubleshooting Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/troubleshooting-zscaler-client-connector-vdi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Troubleshooting Zscaler Client Connector for VDI
-- Last modified: 2026-07-21T12:47Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on various issue that may occur in Zscaler Client Connector for VDI and their solutions.
 
 This article provides troubleshooting information and guidelines for Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) deployment. You can review issues and corresponding solutions for Zscaler Client Connector for VDI. If you cannot reach a solution, contact Zscaler Support. Additionally, ensure that you bypass services you want to keep local to Microsoft Azure or Citrix. To learn more about bypasses, see [Configuring VDI Forwarding Profiles](https://help.zscaler.com/cloud-branch-connector/configuring-vdi-forwarding-profiles).
@@ -15217,13 +15463,13 @@ The following are the tunnel data types and their filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-insights-logs-columns","lastmod":"2026-07-21T08:24Z","nid":"1420681"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-insights-logs-columns","lastmod":"2026-08-04T21:06Z","nid":"1420681"} -->
 ## Tunnel Insights Logs: Columns
 
 - Source: https://help.zscaler.com/cloud-branch-connector/tunnel-insights-logs-columns
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > Tunnel Insights Logs: Columns
-- Last modified: 2026-07-21T08:24Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on the different columns in the Tunnel Insights Logs page in the Zscaler Zscaler Admin Console.
 
 You can customize your tunnel logs using the columns. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -15592,13 +15838,13 @@ To view the status:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets","lastmod":"2026-07-21T15:02Z","nid":"1528441"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets","lastmod":"2026-08-03T09:52Z","nid":"1528441"} -->
 ## Understanding Cloud Connector Deployments with Azure Virtual Machine Scale Sets
 
 - Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for Azure > Understanding Cloud Connector Deployments with Azure Virtual Machine Scale Sets
-- Last modified: 2026-07-21T15:02Z
+- Last modified: 2026-08-03T09:52Z
 - Summary: Information about Azure Virtual Machine Scale Sets (VMSS) deployment with Zscaler Cloud Connector
 
 An Azure Virtual Machine Scale Sets (VMSS) deployment dynamically adds Cloud Connector virtual machines (VMs) to a scale set to meet the current load when it increases, and it removes Cloud Connector VMs from the scale set when the load decreases. For example, consider an Azure Virtual Desktop deployment, where users log in to their own virtual workstations at the beginning of the work day and log out at the end of the day. This causes fluctuations in the number of users and the amount of traffic flow during these periods.
@@ -15802,13 +16048,13 @@ For information about creating managed identities and assigning roles, see [Depl
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling","lastmod":"2026-07-21T15:02Z","nid":"1535452"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling","lastmod":"2026-08-04T21:06Z","nid":"1535452"} -->
 ## Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
 
 - Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
-- Last modified: 2026-07-21T15:02Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information about Google Cloud Platform autoscaling managed instance group (MIG) deployment with Zscaler Cloud Connector
 
 A Google Cloud Platform (GCP) Managed Instance Group (MIG) with autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs) to an instance group to meet the current load when it increases, and it removes Cloud Connector VMs from the instance group when the load decreases. For example, consider a virtual Windows workstation deployment where users log in to their own virtual workstations at the beginning of the work day and log out at the end of the day. This causes fluctuations in the number of users and the amount of traffic flow during these periods.
@@ -15997,185 +16243,4 @@ For information about creating service accounts and assigning roles, see [Deploy
 [Image: Cloud Connector instance group Monitoring tab, where you can view the group size and CPU utilization over a period of time]
 
 [Image: Cloud Connector instance Observability tab, where you can view the CPU utilization, memory utilization, network traffic, disk space utilization, new connections, and disk throughputDetails tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-high-availability-and-failover","lastmod":"2026-07-24T14:35Z","nid":"1455436"} -->
-## Understanding High Availability and Failover
-
-- Source: https://help.zscaler.com/cloud-branch-connector/understanding-high-availability-and-failover
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Understanding High Availability and Failover
-- Last modified: 2026-07-24T14:35Z
-- Summary: Information on High Availability and Failover for Zscaler Cloud Connector.
-
-High Availability (HA) is critical to ensure continued secure access to applications for workloads routing through Zscaler Cloud Connector. The various areas to consider when deploying are, but not limited to:
-
-- Using Cloud Connectors to the Zero Trust Exchange (ZTE) HA and failover
-- Using cloud native load balancers to support horizontal scaling and failover of Cloud Connectors
-- Using cloud provider best practices to ensure HA across availability zones within regions
-
-See image.
-
-[Image: High availability and failover flows for Cloud Connector.]
-
-Blue arrows indicate primary, or active, Internet & SaaS tunnels. Green lines indicate secondary Internet & SaaS tunnels.
-
-## Load Balancing
-
-The Zscaler service integrates with the native load-balancing services offered by respective cloud providers. The load balancers conduct HTTP health probes on a defined port selected during deployment to determine the health of each Cloud Connector. Cloud Connector listens to the configured port for HTTP health probes on the `?cchealth` path from the load balancers. A healthy Cloud Connector has a 200 HTTP response code, and an unhealthy Cloud Connector has a 503 HTTP response code or no response. Health probes ensure that the Cloud Connector VM is functional and can successfully forward workload traffic to Internet & SaaS (ZIA) Public Service Edges or Private Service Edges and Private Access (ZPA) Public Service Edges or Private Service Edges.
-
-Cloud Connectors scale horizontally and are all active, enabling organizations to add more Cloud Connectors into a group to support higher throughput per egress location. New sessions should be sent to healthy Cloud Connectors. In some cases, such as existing connections flowing through a Cloud Connector that becomes unhealthy, the sessions might temporarily fail until the flow ages or times out and the load balancer begins to send the session through a healthy Cloud Connector.
-
-- Health Probe Intervals
-
-Zscaler deployment templates use a recommended default configuration for health check intervals. The Microsoft Azure Load Balancer defaults to 15 seconds, and Amazon Web Services (AWS) Gateway Load Balancer defaults to 30 seconds.
-
-The default settings are optimized to take unhealthy Cloud Connectors out of the rotation efficiently, avoiding network "bumps."
-
-While the default deployment templates are configurable, contact Zscaler Support before changing any settings to ensure an optimal configuration is made.
-
-## Data Plane
-
-The data plane is used to process and forward workload traffic to Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges. The data plane is composed of outbound connections from the service interface of each Cloud Connector.
-
-- Internet Egress (Internet & SaaS)
-- Private Apps (Private Access)
-
-By default, each Cloud Connector tenant comes with a default rule to forward internet-bound traffic to Internet & SaaS using automatically selected gateways. Similar to the control plane, the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges are selected using geolocation. It is possible to configure traffic forwarding rules to utilize specific Public Service Edges, Virtual Service Edges, or sub-clouds for various Cloud Connector groups and locations.
-
-Workload traffic that is processed by traffic forwarding rules configured with the Internet & SaaS forwarding method uses the primary gateway as the active tunnel to the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges. The default gateway configuration will fail-close, meaning that internet-bound traffic from workloads is dropped if none of the Cloud Connectors in the same group are able to establish connectivity to any of the Internet & SaaS Service Edges. Customers can change this configuration to fail-open, allowing workloads that are accessing the internet to continue doing so. The fail-open option means the egressing traffic is flowing through Zscaler for inspection and policy control.
-
-In the event of a failed connection, Cloud Connector marks the secondary gateway as the active tunnel and forwards workload traffic via the secondary gateway to the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges. When the primary gateway is healthy again, it is marked as active and Cloud Connector forwards new sessions to the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges via the primary gateway tunnel.
-
-Cloud Connector monitors the gateway connections to ensure the data path exists so that traffic can be inspected at the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges. If the active tunnel forwarding workload traffic to the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges fails, the Cloud Connector will fail over to the secondary tunnel in approximately 30 seconds.
-
-By default, Cloud Connector automatically tries to connect to a tertiary Internet & SaaS Public Service Edge or Private Service Edge and Private Access Public Service Edge or Private Service Edge if the primary and secondary have failed. This is important to note because Cloud Connector is not limited to just the two Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges that are selected for tunneling.
-
-To learn more about the Internet & SaaS Gateways, see [About Zscaler Internet Access Gateways](https://help.zscaler.com/cloud-branch-connector/about-zia-gateways).
-
-Cloud Connectors that are enrolled with Private Access automatically establish a secure connection to an optimal Private Access Public Service Edge or Private Service Edge in the ZTE. This secure connection allows for the workloads accessing private applications to be securely tunneled to the Private Access Public Service Edge or Private Service Edge and allows the data path to be connected through App Connectors configured for the accessed application.
-
-Cloud Connector, similar to Zscaler Client Connector, attempts to resolve the most optimal or nearest Private Access Public Service Edge or Private Service Edge for private application access.
-
-## Zero Trust Exchange (ZTE)
-
-Cloud Connector is a Zscaler purpose-built Zero Trust gateway to forward traffic to the ZTE. With over 150 global data centers, the Internet & SaaS and Private Access Public Service Edges enable deployments in almost any region with optimal connectivity.
-
-Organizations can forward users, workload, and Internet of Things (IoT) devices to the ZTE using:
-
-- Zscaler Client Connector
-- Cloud Connector
-- Branch Connector
-- PAC Files (Internet & SaaS only)
-- GRE Tunnels (Internet & SaaS only)
-- IPSec Tunnels (Internet & SaaS only)
-
-The ZTE HA is identical to the aforementioned forwarding methods.
-
-## Cloud Providers
-
-Zscaler uses the best practices for HA with cloud providers such as AWS and Azure. Regions and availability zones are HA aspects to take into consideration when deploying Cloud Connector.
-
-- Regions
-- Availability Zones
-
-In most cases, Cloud Connector is deployed into groups or locations that serve the same internet egress. Whether centralized, using AWS Transit Gateway or Azure Virtual WAN Hub, or decentralized, where each Virtual Private Cloud (VPC) or Azure Virtual Network (VNet) has direct internet access, each region serves a number of different egress points for Cloud Connector and does not affect other regions even if there is a cloud provider outage.
-
-Zscaler recommends deploying at least two Cloud Connectors per availability zone and across at least two availability zones. This takes into account HA without service interruption intra or inter availability zone per egress location.
-
-Zscaler also recommends enabling AWS Gateway Load Balancer (GWLB) cross-zone load balancing for all production deployments. This setting ensures that GWLB VPC endpoints deployed across multiple availability zones can use Cloud Connector in all availability zones instead of only its own.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-namespaces-amazon-web-services-and-microsoft-azure-accounts","lastmod":"2026-04-27T21:06Z","nid":"1508906"} -->
-## Understanding Namespaces for Amazon Web Services and Microsoft Azure Accounts
-
-- Source: https://help.zscaler.com/cloud-branch-connector/understanding-namespaces-amazon-web-services-and-microsoft-azure-accounts
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Understanding Namespaces for Amazon Web Services and Microsoft Azure Accounts
-- Last modified: 2026-04-27T21:06Z
-- Summary: Understanding Namespaces for Amazon Web Services and Microsoft Azure Accounts
-
-User-defined tags and cloud-provider-defined attributes in security policies enable you to apply policies based on workload identities in a dynamic and granular fashion. The Zscaler service creates a mapping between the user-defined tags or cloud-provider-generated attributes and the workload IP address. This mapping is decentralized at the Zscaler Cloud Connector level. With no overlapping Classless Inter-Domain Routing (CIDR) blocks, Cloud Connector maps the IP address to a set of tags. When there are overlapping CIDR blocks, divide the set of maps into a subset. In a subset, every CIDR block is unique to the namespace. Mapping is simple in a deployment that has no overlapping IP addresses and with all of the virtual private clouds (VPCs) in the same account. It is challenging when VPCs are spread across multiple accounts and have overlapping IP addresses.
-
-A namespace is a set of VPC endpoints in Amazon Web Services (AWS) or a set of virtual networks (VNets) in Microsoft Azure. The VPCs or VNets in a namespace should not have overlapping IP addresses. A namespace is used as an additional data point to differentiate between identical source IP addresses when the egress traffic reaches Cloud Connector.
-
-## Namespaces in AWS Accounts
-
-Namespaces allow you to:
-
-- Provide deterministic mapping between tags and source IP addresses when there are overlapping IP addresses.
-- Enable the decentralized deployment and inspection in overlapping IP address environments.
-- Help apply policies based on user-defined tags in an environment with overlapping IP addresses.
-
-In decentralized deployments, you can have overlapping CIDR blocks that all route to the same Cloud Connector where you assign the IP addresses to the Cloud Connector. Namespaces provide a way to associate the tag with the IP address using a VPC endpoint.
-
-By default, if the user-defined namespace is not detected, all workloads are part of the default namespace. If you want to group VPCs and/or accounts in a namespace, you must assign the same namespace VPC tag for each VPC. The namespace tag key is named `zs:namespace` and has a value of `<namespace_value>`, where `<namespace_value>` is a string you choose.
-
-Namespaces influence AWS accounts by:
-
-- Grouping accounts and/or VPCs that do not have overlapping IP addresses and can communicate to the same set of Cloud Connectors.
-- Creating mapping between workload tags and IP addresses even when duplicate IP addresses are detected between accounts and/or VPCs.
-- Applying security policies based on tags even when the tags are associated with overlapping IP addresses.
-
-See image.
-
-In the diagram, there are three AWS accounts (Acct_1, Acct_2, and Acct_3). The VPC in Acct_1 has an overlapping IP address range with the VPC in Acct_2. The VPC in Acct_3 is the security VPC that has the Cloud Connectors deployed. You want to use the user-defined tags on workloads in Acct_1 and Acct_2 in Zscaler policies. They tag the Acct_1 VPC with `zs:namespace=project-green`. The AWS admin tags the Acct_2 VPC with `zs:namespace=project-blue`. The Zscaler discovery service reads the accounts and VPC tags to create the following mapping:
-
-| **Endpoint ID** | **Namespace** |
-| --- | --- |
-| vpce-111 | project-blue |
-| vpce-222 | project-blue |
-| vpce-333 | project-green |
-| vpce-444 | project-green |
-
-The Zscaler discovery service also fetches the IP addresses and the associated tags to create the following mapping for the same IP address present in both VPCs:
-
-| **IP Address** | **VPC Endpoint** | **Tag Index** | **Tag List** |
-| --- | --- | --- | --- |
-| 172.31.0.1 | vpce-111 | 172.31.0.1+project-green | Tag-A, Tag-B |
-| 172.31.0.1 | vpce-444 | 172.31.0.1+project-blue | Tag-C, Tag-D |
-
-## Namespaces in Azure Accounts
-
-In Azure, the discovery service does not know which VNet peers to which Cloud Connector. For example, you have an IP address that sends a list of tags to Cloud Connector. If the discovery service discovers overlapping CIDR blocks within the IP addresses, a namespace must be created. The Cloud Connector requests that specific namespace to receive tags. The Zscaler service needs to maintain separate namespaces for the same subscription, so Cloud Connectors in the same subscription have different namespaces.
-
-Although the location of the Cloud Connector is not an issue for the policy and logs, it is a problem for assigning tags. You can use the namespace assigned to each VNet to route the message from the publish-subscribe mechanism to the correct Cloud Connector. In the diagram below, you can assign `zs:namespace` to Yellow, which applies to the three VNets on the left, and assign `zs:namespace` to Green, which applies to the three VNets on the right. If the VNets are overlapping in different subscriptions, you can create a subscription group. Each subscription group must have a different credential (app registration).
-
-See image.
-
-When deploying applications in Azure, you can reuse the same CIDR block in a deployment. When using VPC peering, you cannot use endpoints to separate traffic. You must duplicate the Cloud Connector group stack.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-zero-trust-sd-wan-devices","lastmod":"2026-06-23T07:15Z","nid":"1468276"} -->
-## Understanding Zero Trust SD-WAN Devices
-
-- Source: https://help.zscaler.com/cloud-branch-connector/understanding-zero-trust-sd-wan-devices
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Physical Devices > Understanding Zero Trust SD-WAN Devices
-- Last modified: 2026-06-23T07:15Z
-- Summary: Information on Zero Trust SD-WAN Devices for Zscaler Branch Connector.
-
-Enabled by the Zscaler Zero Trust Exchange (ZTE), Zero Trust Software-Defined Wide Area Network (SD-WAN) Devices are hardware devices that use Zero Trust Branch Connectivity to simplify traffic forwarding to Zscaler services. The Zero Trust SD-WAN Device is deployed as a [Zscaler Branch Connector](https://help.zscaler.com/cloud-branch-connector/what-zscaler-branch-connector) virtual machine (VM). It supplies branches and data centers with fast and reliable access to the internet and private applications with a direct-to-cloud architecture.
-
-Branch Connector eliminates the network attack surface by establishing direct branch-to-internet and branch-to-private-app connections using a full proxy architecture. It also simplifies branch communications by eliminating complex routing, virtual private networks (VPNs), and firewalls while allowing for flexible forwarding and simple policy management by using the proven Internet & SaaS (ZIA) and Private Access (ZPA) policy framework.
-
-The Branch Connector forwards all branch communications directly to the ZTE, where you can apply [Internet & SaaS](https://help.zscaler.com/zia/policies) or [Private Access](https://help.zscaler.com/zpa/policies) policies for full security inspection and you can access identity-based control of branch and data center communications. The communications are then forwarded from the ZTE to any destination (the internet, private applications in a public cloud, on-premises data center, etc.).
-
-You can deploy Zero Trust SD-WAN Devices in one of two modes: gateway or non-gateway (one-arm).
-
-In gateway mode, the Zero Trust SD-WAN Device enables direct, secure access from your private network to other geographically distributed parts of your private network, cloud applications, and the internet over one or more internet service provider (ISP) connections. It can also dynamically determine the best quality link, forward specific traffic toward that link, and function as a local router. Local devices can communicate without an external router. You can also deploy the hardware device in gateway mode inside your local area network (LAN) while an existing device connects you to the internet through the wide area network (WAN).
-
-In non-gateway (one-arm) mode, the Zero Trust SD-WAN Device does not connect directly to the internet service provider (ISP). Instead, the Zero Trust SD-WAN Device deploys in the internal network of the organization and provides access from your private network to other geographically distributed parts of your private network, cloud applications, and the internet. Non-gateway (one-arm) mode requires an external router.
-
-## Zero Touch Provisioning
-
-Zero Trust SD-WAN Devices are installed in your organization's on-premises locations and are loaded with the required deployment configurations using [Branch Configuration Templates](https://help.zscaler.com/cloud-branch-connector/about-branch-provisioning-template). You can stage the device configuration in the Zscaler Admin Console before a device is powered on and connected to the on-premises location. When your organization is ready for the ZTE to adopt the device, you’ll change the template status from Staged to Ready to Deploy. After an on-site technician powers up the device and provides it with network connectivity, the device software connects to the Zscaler cloud and authenticates itself. After the authentication is successful, the device is provided with its deployment configuration. This simplified method for loading the deployment configuration on on-premises devices is referred to as Zero Touch Provisioning.
-
-To learn more, see[Deploying Zero Trust SD-WAN Devices](https://help.zscaler.com/cloud-branch-connector/deploying-zero-trust-sd-wan-devices)and [Installing Zero Trust SD-WAN Devices](https://help.zscaler.com/cloud-branch-connector/installing-zero-trust-sd-wan-devices).
 <!-- /ZS-ARTICLE -->

@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 179
 
 ---
@@ -235,13 +235,13 @@ The **Users** widget displays a list of users. Use the drop-down menu to display
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-activities-report","lastmod":"2026-05-11T21:06Z","nid":"1402126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-activities-report","lastmod":"2026-08-05T02:32Z","nid":"1402126"} -->
 ## About the Activities Report
 
 - Source: https://help.zscaler.com/zia/about-activities-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > SaaS Security > About the Activities Report
-- Last modified: 2026-05-11T21:06Z
+- Last modified: 2026-08-05T02:32Z
 - Summary: Information about the SaaS Security Activities Report, which shows the audit trail of all SaaS application activities.
 
 The SaaS Activities page within the SaaS Security Report page shows the data for all the activities performed in various SaaS applications. This data helps in tracking specific activities and view the users who performed the activities for further analysis and action.
@@ -258,7 +258,7 @@ On the Activities page (click **Analytics**, enable the toggle **Switch to Exist
 1. Download a CSV file of the report.
 2. Filter SaaS Activities using the following filters and click **Apply** to update the page with your selections. You can click **Reset** at any time:
   - **Tenant**: Filter by the name of the SaaS application tenant.
-  - **Activity**: Filter by the type of activities the end users perform:
+  - **Activity**: Filter by the type of activities the end users perform: The Activity filter is currently not supported for the Smartsheet application.
     - Activities
   - **Time Frame**: Filter activities by the last 24 hours, the last 7 days, the last 30 days, the last 90 days, or choose a custom time frame.
   - **Object 1 Type** and **Object 2 Type**: Filter activities by the type of object. If applicable, the activity can have a second object listed. The following object types are available:
@@ -2020,13 +2020,13 @@ On the Authentication Profiles page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-08-02T07:06Z","nid":"1398956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-08-09T07:06Z","nid":"1398956"} -->
 ## About Backup and Restore
 
 - Source: https://help.zscaler.com/zia/about-backup-and-restore
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > About Backup and Restore
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: Information about backing up and restoring policies, and configuration settings, within the Zscaler service.
 
 [Watch a video on backups and restore points](https://fast.wistia.net/embed/iframe/vohznch7uo) (shows legacy UI)
@@ -4796,13 +4796,13 @@ On the DLP Dictionaries page (Policies > Data Protection > Common Resources > Di
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-endpoint-resources","lastmod":"2026-07-22T10:43Z","nid":"1541422"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-endpoint-resources","lastmod":"2026-08-05T21:06Z","nid":"1541422"} -->
 ## About DLP & Endpoint Resources
 
 - Source: https://help.zscaler.com/zia/about-dlp-endpoint-resources
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > About DLP & Endpoint Resources
-- Last modified: 2026-07-22T10:43Z
+- Last modified: 2026-08-05T21:06Z
 - Summary: Information on how Zscaler Endpoint & DLP resources help your organization monitor different channels to prevent data loss on endpoints.
 
 The page for Data Loss Prevention (DLP) and Endpoint resources (Policies > Data Protection > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
@@ -5730,13 +5730,13 @@ On the EDNS Client Subnet Prefix Objects page (Policies > Access Control > Firew
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-08-02T07:06Z","nid":"1444161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-08-09T07:06Z","nid":"1444161"} -->
 ## About Email Labels
 
 - Source: https://help.zscaler.com/zia/about-email-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: Information on how to create email labels for Gmail and Microsoft Exchange clients.
 
 Email labels provide the option of adding response actions to Gmail and Microsoft Exchange clients based on the email content. Applying email labels creates categories in the users' email accounts automatically. These labels serve as indications to the users about the type of email content and the level of sensitivity.
@@ -7065,13 +7065,13 @@ On the Identity Proxy Settings page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-08-02T07:06Z","nid":"1400641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-08-09T07:06Z","nid":"1400641"} -->
 ## About the Index Tool
 
 - Source: https://help.zscaler.com/zia/about-index-tool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: Information on Index Tool Configurations and the Index Tool virtual machine (VM), which are used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 The Index Tool allows you to configure index templates that can be applied when creating custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
@@ -7892,14 +7892,16 @@ On the IP Pool page (Policies > Access Control > Firewall > IP & FQDN Groups > I
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-ips-control","lastmod":"2026-06-02T03:06Z","nid":"1400966"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-ips-control","lastmod":"2026-08-07T08:05Z","nid":"1400966"} -->
 ## About IPS Control
 
 - Source: https://help.zscaler.com/zia/about-ips-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > About IPS Control
-- Last modified: 2026-06-02T03:06Z
+- Last modified: 2026-08-07T08:05Z
 - Summary: Information on Zscaler's Intrusion Prevention System (IPS) that uses signature-based detection to monitor and protect your network traffic against malicious activities through IPS Control.
+
+[Watch a video about IPS Control policy rules as well as how to configure them.](https://fast.wistia.net/embed/iframe/tnxy9sv0ks)
 
 Zscaler's Intrusion Prevention System (IPS) uses signature-based detection to monitor and protect your network traffic from intrusion over all ports and protocols. Zscaler's IPS Control uses IPS signature rules built and updated by Zscaler's security research team, as well as signatures from industry-leading vendors. In addition to the signatures used by Zscaler, you can create and deploy custom IPS signatures that are specific to your organization's requirements without requiring any additional infrastructure, and inspect your traffic using these signatures. These signatures should be part of the IPS Control policy using threat categories to be enforced on traffic. To learn more, see [About Custom IPS Signature Rules](https://help.zscaler.com/zia/about-custom-ips-signature-rules). The Zscaler service monitors your traffic in real time using these signatures. As soon as the IPS has examined the contents of your traffic and found a pattern match, it can enforce your security policies inline.
 
@@ -14415,13 +14417,13 @@ On the Virtual Service Edge Clusters page (Infrastructure > Internet & SaaS > Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edges-internet-saas","lastmod":"2026-07-31T09:55Z","nid":"1401226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edges-internet-saas","lastmod":"2026-08-03T00:03Z","nid":"1401226"} -->
 ## About Virtual Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/about-virtual-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > About Virtual Service Edges for Internet & SaaS
-- Last modified: 2026-07-31T09:55Z
+- Last modified: 2026-08-03T00:03Z
 - Summary: Information about Virtual Service Edge for Internet & SaaS (ZIA), which uses virtual machines (VMs) to function as a Public Service Edge for Internet & SaaS in the Zscaler cloud.
 
 [Watch a video about Virtual Service Edges for Internet & SaaS (ZIA)](https://fast.wistia.net/embed/iframe/xa3h5zhhg8) (shows legacy UI).

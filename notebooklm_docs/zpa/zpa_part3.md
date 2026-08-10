@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 126
 
 ---
@@ -71,13 +71,13 @@ If you require further assistance after deployment, contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-access-vm-password-requirements-stig-compliance","lastmod":"2026-06-04T12:56Z","nid":"1539857"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-access-vm-password-requirements-stig-compliance","lastmod":"2026-08-06T10:05Z","nid":"1539857"} -->
 ## Private Access VM Password Requirements for STIG Compliance
 
 - Source: https://help.zscaler.com/zpa/private-access-vm-password-requirements-stig-compliance
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Private Access VM Password Requirements for STIG Compliance
-- Last modified: 2026-06-04T12:56Z
+- Last modified: 2026-08-06T10:05Z
 - Summary: Information about password compliance for Private Access (ZPA) virtual machines.
 
 For STIG compliance, your OS must enforce the following password rules for Private Access (ZPA) virtual machines (VMs):
@@ -117,13 +117,13 @@ These requirements are relevant for VM platforms (such as VMWare and Nutanix AHV
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-07-27T15:50Z","nid":"1507451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-08-06T07:44Z","nid":"1507451"} -->
 ## Private Cloud Controller Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Guide for Linux
-- Last modified: 2026-07-27T15:50Z
+- Last modified: 2026-08-06T07:44Z
 - Summary: How to deploy a Private Cloud Controller on Red Hat, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Cloud Controller on Red Hat Enterprise Linux 9.x, and post-deployment verification checks.
@@ -1605,13 +1605,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-07-22T09:45Z","nid":"1534308"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-08-06T08:30Z","nid":"1534308"} -->
 ## Private Cloud Controller Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Cloud Controller Release Notes > Private Cloud Controller Release Summary (2026)
-- Last modified: 2026-07-22T09:45Z
+- Last modified: 2026-08-06T08:30Z
 - Summary: Zscaler Private Access (ZPA) Private Cloud Controller release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Cloud Controller version.
@@ -1619,13 +1619,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-07-27T15:31Z","nid":"1519431"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-08-06T07:39Z","nid":"1519431"} -->
 ## Private Cloud Controller Software by Platform
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-software-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Software by Platform
-- Last modified: 2026-07-27T15:31Z
+- Last modified: 2026-08-06T07:39Z
 - Summary: The current Private Cloud Controller software downloads by platform.
 
 Private Cloud Controllers are supported on Linux operating systems. To learn more, see [Private Cloud Controller Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/business-continuity-management/private-cloud-controller-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -2426,13 +2426,13 @@ The following table provides a list of Linux capabilities that the container use
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-google-cloud-platform","lastmod":"2026-06-03T07:25Z","nid":"1507506"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-google-cloud-platform","lastmod":"2026-08-07T15:50Z","nid":"1507506"} -->
 ## Private Service Edge Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-google-cloud-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Google Cloud Platform
-- Last modified: 2026-06-03T07:25Z
+- Last modified: 2026-08-07T15:50Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Google Cloud Platform (GCP), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an Private Service Edge for Private Access (ZPA) on Google Cloud Platform (GCP), and post-deployment verification checks. For general information regarding Private Service Edge deployment for Private Access, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges).
@@ -2440,7 +2440,7 @@ This deployment guide provides information on prerequisites, how to deploy an Pr
 - Step 1: Make Sure You Have Met All Private Service Edge Deployment Prerequisites
 - Step 2: Deploy the Private Service Edge on GCP
 - Step 3: Configure the Networking for the Deployed Private Service Edge
-- Step 4: Verify that the deployed Private Service Edge is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components). Also, check that it [meets your sizing requirements](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing).
+- Step 4: Verify the status of the deployed Private Service Edge.
 
 After you have verified your deployment, you can perform additional tasks to maintain the system (i.e., changing your Private Service Edge console admin credentials or performing system software updates). To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components).
 
@@ -3132,17 +3132,19 @@ $ sudo systemctl restart zpa-service-edge
 ```
 
 The Private Service Edge attempts to create a TLS session through the proxy specified previously.
+
+Verify that the deployed Private Cloud Controller is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status). Also, check that it meets your [sizing](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing) requirements.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-07-09T10:28Z","nid":"1484566"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-08-06T07:35Z","nid":"1484566"} -->
 ## Private Service Edge Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Linux
-- Last modified: 2026-07-09T10:28Z
+- Last modified: 2026-08-06T07:35Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux 9.x (and 8.x), and post-deployment verification checks.
@@ -5823,13 +5825,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-software-by-platform","lastmod":"2026-07-23T10:01Z","nid":"1485961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-software-by-platform","lastmod":"2026-08-06T07:25Z","nid":"1485961"} -->
 ## Private Service Edge Software by Platform
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Software by Platform
-- Last modified: 2026-07-23T10:01Z
+- Last modified: 2026-08-06T07:25Z
 - Summary: The current Private Service Edge for Private Access (ZPA) platform downloads links.
 
 Private Service Edges for Private Access (ZPA) are supported on [many different platforms](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms). Each supported platform has a Private Service Edge image you can use to deploy Private Service Edges on that platform. To learn more, see [Private Service Edge Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -5979,13 +5981,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-07-31T06:32Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-08-07T07:10Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-31T06:32Z
+- Last modified: 2026-08-07T07:10Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -6216,13 +6218,13 @@ Before you begin any procedures, make sure that you have met the following prere
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/requesting-approvals-pra-portal","lastmod":"2026-07-01T13:38Z","nid":"1520621"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/requesting-approvals-pra-portal","lastmod":"2026-08-04T08:23Z","nid":"1520621"} -->
 ## Requesting Approvals in the PRA Portal
 
 - Source: https://help.zscaler.com/zpa/requesting-approvals-pra-portal
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > Requesting Approvals in the PRA Portal
-- Last modified: 2026-07-01T13:38Z
+- Last modified: 2026-08-04T08:23Z
 - Summary: How to create approvals in a Privileged Remote Access (PRA) Portal.
 
 After the admin has enabled privileged requests in a portals policy, you can access the[My Requests page](https://help.zscaler.com/zpa/about-my-approvals) in the PRA Portal.
@@ -6243,13 +6245,13 @@ The **Create Approvals** page appears.
 See image.
 
 1. Select a start date in the calendar.
-2. Select the duration that you want this privileged approval to last.
-3. (Optional) Enter a reason for access.
 
 See image.
 
-1. Click **Next**.
-2. Review the privileged approval request.
+1. Select the duration that you want this privileged approval to last.
+2. (Optional) Enter a reason for access.
+3. Click **Next**.
+4. Review the privileged approval request.
 
 See image.
 
@@ -8370,13 +8372,13 @@ If you use Okta as an IdP, then you have the option to dynamically create end us
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/step-step-configuration-guide-vpn-legacy-apps","lastmod":"2026-07-21T08:48Z","nid":"1529062"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/step-step-configuration-guide-vpn-legacy-apps","lastmod":"2026-08-06T14:32Z","nid":"1529062"} -->
 ## Step-by-Step Configuration Guide for VPN (for Legacy Apps)
 
 - Source: https://help.zscaler.com/zpa/step-step-configuration-guide-vpn-legacy-apps
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Step-by-Step Configuration Guide for VPN (for Legacy Apps)
-- Last modified: 2026-07-21T08:48Z
+- Last modified: 2026-08-06T14:32Z
 - Summary: A high-level overview of how to configure tasks for VPN (for Legacy Apps) in the Zscaler Admin Console.
 
 With VPN (for Legacy Apps), Private Access (ZPA) can natively support a secondary Layer 3 network-based VPN tunnel for applications and services (e.g., VoIP or server-to-client) that require Layer 3 IP-based connectivity consistent with its Zero Trust security architecture and inside-out connection. From a single client for users and a single console for IT administrators, you can migrate to Zero Trust Network Access (ZTNA) with Private Access and completely eliminate legacy VPNs. You can accelerate application modernization while retaining access for users during the transition.
@@ -8438,19 +8440,20 @@ To create VPN Service Edges and review recommendations, see the following articl
 
 Network Connectors build a secure VPN tunnel that connects applications to VPN Service Edges. You can configure a single Network Connector per Network Connector group.
 
-When creating the provisioning key, use an intuitive name such as the group name.
+To enroll a Network Connector, the recommended method is to use an OAuth 2.0 enrollment token retrieved from the Network Connector's console. To learn more, see the [deployment guides for supported platforms](https://help.zscaler.com/zpa/vpn-legacy-apps/network-connector-deployment-guides-supported-platforms).
 
-To create Network Connectors and review recommendations, see the following articles:
+To create Network Connectors using an OAuth enrollment, see the following articles:
 
 - [About Network Connectors](https://help.zscaler.com/zpa/about-network-connectors)
 - [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors)
+
+To create Network Connectors using a provisioning key, see [About Network Connector Provisioning Keys](https://help.zscaler.com/zpa/about-network-connector-provisioning-keys).
 
 To deploy Network Connectors, see the following articles:
 
 - [Network Connector Software by Platform](https://help.zscaler.com/zpa/network-connector-software-platform)
 - [Network Connector Deployment Prerequisites](https://help.zscaler.com/zpa/network-connector-deployment-prerequisites)
 - [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux)
-- [Network Connector Deployment Guide for VMware Platforms](https://help.zscaler.com/zpa/network-connector-deployment-guide-vmware-platforms)
 
 After deploying the Network Connector and restarting the service, go to the Network Connectors page to verify that the Network Connector appears in the table. To learn more, see [About Network Connectors](https://help.zscaler.com/zpa/about-network-connectors).
 
@@ -8482,18 +8485,18 @@ Verify that users can successfully connect to the VPN Service Edge. To learn mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-07-27T11:37Z","nid":"1531938"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-08-05T13:35Z","nid":"1531938"} -->
 ## Supported Versions & OS Compatibility for Microsegmentation
 
 - Source: https://help.zscaler.com/zpa/supported-versions-os-compatibility-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Supported Versions & OS Compatibility for Microsegmentation
-- Last modified: 2026-07-27T11:37Z
+- Last modified: 2026-08-05T13:35Z
 - Summary: Information on version compatibility and operating systems that a user needs to deploy to use agents for Microsegmentation.
 
 To begin configuring [Microsegmentation policies](https://help.zscaler.com/zpa/about-microsegmentation-policies), you must first configure and deploy agents to your machine based on your OS.
 
-To configure agents for your organization, see [About Agents](https://help.zscaler.com/zpa/about-agents),[Configuring Agents](https://help.zscaler.com/zpa/configuring-agents), and [Installing & Upgrading the Agent Manager](https://help.zscaler.com/zpa/installing-upgrading-agent-manager).
+To configure agents for your organization, see [About Agents](https://help.zscaler.com/zpa/about-agents),[Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups), and [Installing & Upgrading the Agent Manager](https://help.zscaler.com/zpa/installing-upgrading-agent-manager).
 
 ## Minimum OS Version Compatibility
 
@@ -9402,16 +9405,21 @@ To troubleshoot Manager software and OS update failures:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-oauth-enrollment-private-access-images","lastmod":"2026-07-02T07:06Z","nid":"1538701"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-oauth-enrollment-private-access-images","lastmod":"2026-08-06T10:09Z","nid":"1538701"} -->
 ## Troubleshooting OAuth Enrollment on Private Access Images
 
 - Source: https://help.zscaler.com/zpa/troubleshooting-oauth-enrollment-private-access-images
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Troubleshooting Private Access Software Components > Troubleshooting OAuth Enrollment on Private Access Images
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-08-06T10:09Z
 - Summary: Information on how to troubleshoot issues with enrolling Private Access (ZPA) virtual machines using OAuth.
 
-This article provides troubleshooting information and guidelines when enrolling Private Access (ZPA) virtual machines (VMs) using OAuth. To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors) or [About Private Service Edges](https://help.zscaler.com/zpa/about-zpa-private-service-edge-groups).
+This article provides troubleshooting information and guidelines when enrolling Private Access (ZPA) virtual machines (VMs) using OAuth. To learn more, see:
+
+- [About App Connectors](https://help.zscaler.com/zpa/about-connectors)
+- [About Private Service Edges](https://help.zscaler.com/zpa/about-zpa-private-service-edge-groups)
+- [About Private Cloud Controllers](https://help.zscaler.com/zpa/about-private-cloud-controllers)
+- [About Network Connectors](https://help.zscaler.com/zpa/about-network-connectors)
 
 Review the following recommendations to help troubleshoot OAuth enrollment:
 
@@ -12088,18 +12096,18 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-oauth-enrollment","lastmod":"2026-07-09T09:12Z","nid":"1541612"} -->
-## Understanding Oauth Enrollment
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-oauth-enrollment","lastmod":"2026-08-04T15:44Z","nid":"1541612"} -->
+## Understanding OAuth Enrollment
 
 - Source: https://help.zscaler.com/zpa/understanding-oauth-enrollment
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Understanding Oauth Enrollment
-- Last modified: 2026-07-09T09:12Z
+- Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Understanding OAuth Enrollment
+- Last modified: 2026-08-04T15:44Z
 - Summary: Information about enrolling App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors using OAuth 2.0.
 
-You can enroll software components using either OAuth 2.0 tokens or provisioning keys on Private Access (ZPA) virtual machine (VM) images. Software components refer to App Connectors, Private Service Edges for Private Access, Private Cloud Controllers, and Network Connectors. Zscaler recommends using OAuth to enroll software components because it provides better security with enrollment tokens that expire after 2 hours and can't be reused, and ease of deployment.
+You can enroll software components using either OAuth 2.0 tokens or provisioning keys on Private Access (ZPA) virtual machine (VM) images. Software components refer to App Connectors, Private Service Edges for Private Access, Private Cloud Controllers, and Network Connectors. Zscaler recommends using OAuth to enroll software components because it provides better security with enrollment tokens that expire after two hours and can't be reused, and ease of deployment.
 
-Private Access VM images automatically have Oauth 2.0 enabled, with the exception of Kubernetes, OpenShift, and Docker on supported software component platforms. When started, the VM image attempts to use OAuth enrollment tokens by default, but applies a provisioning key first if one is available. When a software component is updated, it uses a provisioning key if one exists. If you have existing software components that use provisioning keys and want to use Oauth tokens for enrollment, you should deploy new Private Access VM images.
+Private Access VM images automatically have OAuth 2.0 enabled, with the exception of Kubernetes, OpenShift, and Docker on supported software component platforms. When started, the VM image attempts to use OAuth enrollment tokens by default, but applies a provisioning key first if one is available. When a software component is updated, it uses a provisioning key if one exists. If you have existing software components that use provisioning keys and want to use OAuth tokens for enrollment, you should deploy new Private Access VM images.
 
 The OAuth server only supports IPv4-based communication. If a software component only has an IPv6 address, it cannot access the OAuth server.
 

@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 92
 
 ---
@@ -2138,13 +2138,13 @@ Alternatively, if remote assistance cannot be enabled, download the Web Insights
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-dlp-policies-support-troubleshooting-runbook","lastmod":"2026-07-24T14:57Z","nid":"1532308"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-dlp-policies-support-troubleshooting-runbook","lastmod":"2026-08-07T21:06Z","nid":"1532308"} -->
 ## Internet & SaaS DLP Policies Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-dlp-policies-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS DLP Policies Support Troubleshooting Runbook
-- Last modified: 2026-07-24T14:57Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for Internet & SaaS Data Loss Prevention (DLP) policies.
 
 The Data Loss Prevention (DLP) Policies Support Troubleshooting Runbook serves as a comprehensive guide for configuring, fine-tuning, and troubleshooting Zscaler's DLP solutions across various scopes. It provides step-by-step methodologies to address common challenges encountered during DLP deployment and operation. The troubleshooting framework outlined in the runbook emphasizes a systematic approach by leveraging internal tools such as Web Insights logs and detailed configuration checks. By adhering to these systematic troubleshooting steps, the DLP Policy Runbook enables organizations to enhance the accuracy, effectiveness, and resilience of their data protection strategies.
@@ -3633,13 +3633,13 @@ Avoid fetching bulk logs and leverage SIEM (NSS) tools for bulk logs. The time t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-performance-support-troubleshooting-runbook","lastmod":"2026-07-24T15:06Z","nid":"1532325"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-performance-support-troubleshooting-runbook","lastmod":"2026-08-07T21:06Z","nid":"1532325"} -->
 ## Internet & SaaS Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-performance-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Performance Support Troubleshooting Runbook
-- Last modified: 2026-07-24T15:06Z
+- Last modified: 2026-08-07T21:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for general Internet & SaaS performance issues, categorized into three scopes: the type of traffic impacted, whether Z-Tunnel is affected, and if the Public Service Edge is affected.
 
 The Internet & SaaS Performance Support Troubleshooting Runbook outlines a systematic approach to troubleshooting performance slowness experienced by users. It emphasizes understanding the scope of issues, including differentiating between affected traffic types and assessing user connections to the nearest Zscaler data centers. The troubleshooting steps involve validating traffic forwarding methods, configurations, collecting and analyzing data through performance tests and network diagnostic tools. By following this methodology, you can effectively identify the root causes of performance issues and implement corrective actions to optimize user experience.
@@ -6869,13 +6869,13 @@ The following section describes resolutions.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-07-22T15:44Z","nid":"1533933"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-08-05T21:06Z","nid":"1533933"} -->
 ## Private Access Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Private Access Performance Support Troubleshooting Runbook
-- Last modified: 2026-07-22T15:44Z
+- Last modified: 2026-08-05T21:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for general Private Access performance issues, categorized into four scopes: issues accessing a applications, issues with all applications from a specific App Connector, issues that affect a specific location or locations, or an issue with a single broker or the whole data center.
 
 The Private Access Performance Support Troubleshooting Runbook outlines a systematic approach to troubleshooting performance slowness experienced by users. It emphasizes understanding the scope of issues, including isolating between affected applications types. The troubleshooting steps involve validating Private Access slowness check points, configurations, collecting and analyzing data through network diagnostic tools and Zscaler Digital Experience (ZDX) (if available). By following this methodology, engineers can effectively identify the root causes of performance issues and implement corrective actions to optimize the user experience.
@@ -8052,13 +8052,13 @@ Compile all the relevant collected data and open a support case with [Zscaler Su
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/zscaler-client-connector-traffic-forwarding-support-troubleshooting-runbook","lastmod":"2026-07-22T15:41Z","nid":"1532445"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/zscaler-client-connector-traffic-forwarding-support-troubleshooting-runbook","lastmod":"2026-08-05T21:06Z","nid":"1532445"} -->
 ## Zscaler Client Connector Traffic Forwarding Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/zscaler-client-connector-traffic-forwarding-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Zscaler Client Connector Traffic Forwarding Support Troubleshooting Runbook
-- Last modified: 2026-07-22T15:41Z
+- Last modified: 2026-08-05T21:06Z
 - Summary: The Zscaler Client Connector Traffic Forwarding Support Troubleshooting Runbook assists customers in identifying and resolving common Zscaler Client Connector issues and errors. It serves as a guide to troubleshoot problems, minimize downtime, and restore connectivity independently.
 
 The Zscaler Client Connector Traffic Forwarding Support Troubleshooting Runbook is designed to assist customers in identifying and resolving common Zscaler Client Connector issues and errors. It serves as a guide to troubleshoot problems, minimize downtime, and restore connectivity independently. It outlines:
@@ -8597,13 +8597,13 @@ There are three types of actions you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-email-notification-templates","lastmod":"2026-06-26T06:56Z","nid":"1495191"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-email-notification-templates","lastmod":"2026-08-06T09:50Z","nid":"1495191"} -->
 ## Adding Email Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-email-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Email Notification Templates
-- Last modified: 2026-06-26T06:56Z
+- Last modified: 2026-08-06T09:50Z
 - Summary: Information on how to configure various email notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various email notification templates using the email template builder to send notifications to the DLP admins, managers, approvers, and end users. The email template builder ensures that the email notification template displays properly to all email clients.
@@ -9429,10 +9429,11 @@ To duplicate column content:
 - **Document Name**
 - **Document Type**
 - **Domains**
+- **Email Quarantine Status**
 - **Email Subject**
 - **Expected Action**
-- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **File Link Expiry**
 - **File MD5**
 - **File Modified By**
@@ -9443,16 +9444,17 @@ To duplicate column content:
 - **File Type**
 - **Hostname or Application**
 - **Incident ID**
-- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Is Copilot Accessible**
 - **Manager Email**
 - **Manager Name**
+- **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Note to the User**
 - **Other Recipients**
 - **Priority**
 - **Protocol**
-- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
 - **Sender Email**
 - **Severity**
@@ -9511,10 +9513,11 @@ To duplicate column content:
 - **Document Name**
 - **Document Type**
 - **Domains**
+- **Email Quarantine Status**
 - **Email Subject**
 - **Expected Action**
-- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **File Link Expiry**
 - **File MD5**
 - **File Modified By**
@@ -9525,16 +9528,17 @@ To duplicate column content:
 - **File Type**
 - **Hostname or Application**
 - **Incident ID**
-- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Is Copilot Accessible**
 - **Manager Email**
 - **Manager Name**
+- **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Note to the User**
 - **Other Recipients**
 - **Priority**
 - **Protocol**
-- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
 - **Sender Email**
 - **Severity**
@@ -9593,10 +9597,11 @@ To duplicate column content:
 - **Document Name**
 - **Document Type**
 - **Domains**
+- **Email Quarantine Status**
 - **Email Subject**
 - **Expected Action**
-- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **File Link Expiry**
 - **File MD5**
 - **File Modified By**
@@ -9607,16 +9612,17 @@ To duplicate column content:
 - **File Type**
 - **Hostname or Application**
 - **Incident ID**
-- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Is Copilot Accessible**
 - **Manager Email**
 - **Manager Name**
+- **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Note to the User**
 - **Other Recipients**
 - **Priority**
 - **Protocol**
-- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
 - **Sender Email**
 - **Severity**
@@ -9675,10 +9681,11 @@ To duplicate column content:
 - **Document Name**
 - **Document Type**
 - **Domains**
+- **Email Quarantine Status**
 - **Email Subject**
 - **Expected Action**
-- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **File Link Expiry**
 - **File MD5**
 - **File Modified By**
@@ -9689,16 +9696,17 @@ To duplicate column content:
 - **File Type**
 - **Hostname or Application**
 - **Incident ID**
-- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Is Copilot Accessible**
 - **Manager Email**
 - **Manager Name**
+- **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Note to the User**
 - **Other Recipients**
 - **Priority**
 - **Protocol**
-- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
 - **Sender Email**
 - **Severity**
@@ -9761,13 +9769,13 @@ You can also integrate Workflow Automation with SaaS applications sanctioned for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-microsoft-teams-notification-templates","lastmod":"2026-06-26T06:51Z","nid":"1495211"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-microsoft-teams-notification-templates","lastmod":"2026-08-06T09:20Z","nid":"1495211"} -->
 ## Adding Microsoft Teams Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-microsoft-teams-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Microsoft Teams Notification Templates
-- Last modified: 2026-06-26T06:51Z
+- Last modified: 2026-08-06T09:20Z
 - Summary: Information on how to configure various Microsoft Teams notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various Microsoft Teams notification templates using the notification template builder to send notifications to the Data Loss Prevention (DLP) admins, managers, approvers, and end users. The notification template builder ensures that the notification template displays properly to all Microsoft Teams clients.
@@ -9830,10 +9838,11 @@ To add a Microsoft Teams notification template:
 - **Document Name**
 - **Document Type**
 - **Domains**
+- **Email Quarantine Status**
 - **Email Subject**
 - **Expected Action**
-- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **File Link Expiry**
 - **File MD5**
 - **File Modified By**
@@ -9844,16 +9853,17 @@ To add a Microsoft Teams notification template:
 - **File Type**
 - **Hostname or Application**
 - **Incident ID**
-- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Is Copilot Accessible**
 - **Manager Email**
 - **Manager Name**
+- **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Note to the User**
 - **Other Recipients**
 - **Priority**
 - **Protocol**
-- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
 - **Sender Email**
 - **Severity**
@@ -9893,13 +9903,13 @@ To add a Microsoft Teams notification template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-slack-notification-templates","lastmod":"2026-06-26T06:47Z","nid":"1495206"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-slack-notification-templates","lastmod":"2026-08-06T09:31Z","nid":"1495206"} -->
 ## Adding Slack Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-slack-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Slack Notification Templates
-- Last modified: 2026-06-26T06:47Z
+- Last modified: 2026-08-06T09:31Z
 - Summary: Information on how to configure various Slack notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various Slack notification templates using the notification template builder to send notifications to the Data Loss Prevention (DLP) admins, managers, approvers, and end users. The notification template builder ensures that the notification template displays properly to all Slack clients.
@@ -9962,10 +9972,11 @@ To add a Slack notification template:
 - **Document Name**
 - **Document Type**
 - **Domains**
+- **Email Quarantine Status**
 - **Email Subject**
 - **Expected Action**
-- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **File Link Expiry**
 - **File MD5**
 - **File Modified By**
@@ -9976,16 +9987,17 @@ To add a Slack notification template:
 - **File Type**
 - **Hostname or Application**
 - **Incident ID**
-- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
-- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Is Copilot Accessible**
 - **Manager Email**
 - **Manager Name**
+- **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Note to the User**
 - **Other Recipients**
 - **Priority**
 - **Protocol**
-- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
 - **Sender Email**
 - **Severity**

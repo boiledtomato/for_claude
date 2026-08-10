@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
-Articles in this file: 121
+Generated: 2026-08-10 01:47 UTC
+Articles in this file: 123
 
 ---
 
@@ -851,13 +851,13 @@ It is also recommended that you create a minimal set of root CA certificates for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-08-02T07:06Z","nid":"1443226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-08-09T07:06Z","nid":"1443226"} -->
 ## Configuring the Index Tool with Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-amazon-web-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Amazon Web Services
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 Before you can create index templates for DLP dictionaries (i.e.,[Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Amazon Web Services (AWS), Azure, or VMware.
@@ -881,7 +881,6 @@ With your Index Tool VM running, you can update and customize the VM based on yo
 - Update the Index tool VM
 - Run the Index Tool VM in Explicit Proxy Mode
 - Configure the Index Tool Service to Run without Elevated Privileges
-- Enable Remote Access for Zscaler Support
 
 ## Index Tool VM Commands
 
@@ -1051,30 +1050,6 @@ sudo zadp stop
 sudo zadp start
 ```
 
-An admin can request remote assistance and allow Zscaler Support to log in to an Index Tool without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-- To enable Zscaler Support to access your Index Tool:
-
-```
-sudo zadp support-access-start
-```
-
-This creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your Index Tool.
-
-- To disable Zscaler Support access to your Index Tool:
-
-```
-sudo zadp support-access-stop
-```
-
-This brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-
-- To check the status of the Zscaler Support access to your Index Tool:
-
-```
-sudo zadp support-access-status
-```
-
 [Image: Viewing the Services navigation menu in AWS]
 
 [Image: Navigating to the EC2 Management Console in AWS][Image: Viewing the EC2 Dashboard Page in the EC2 Management Console in AWS]
@@ -1107,10 +1082,6 @@ sudo zadp support-access-status
 
 [Image: Viewing Instance details on the Instance Summary Page in AWS]
 
-[Image: Viewing the Instance Screenshot for an instance in AWS]
-
-[Image: Logging in to the AWS VM Instance]
-
 [Image: Changing the VM Instance Password]
 
 [Image: The Download link for the Index Tool SSL Certificate in the ZIA Admin Portal]
@@ -1124,13 +1095,13 @@ sudo zadp support-access-status
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-08-02T07:06Z","nid":"1467486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-08-09T07:06Z","nid":"1467486"} -->
 ## Configuring the Index Tool with Azure
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-azure-vms
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Azure
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool VM in Azure. The Index Tool is used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 To create index templates for DLP dictionaries (i.e., [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Azure, Amazon Web Services (AWS), or VMware.
@@ -1157,7 +1128,6 @@ With your Index Tool VM running, you can update and customize the VM based on yo
 - Update the Index Tool VM
 - Run the Index Tool VM in explicit proxy mode
 - Configuring the Index Tool Service to run without elevated privileges
-- Enabling Remote Access for Zscaler Support
 
 ## Index Tool VM Commands
 
@@ -1502,41 +1472,17 @@ sudo zadp stop
 ```
 sudo zadp start
 ```
-
-An admin can request remote assistance and allow Zscaler Support to log in to an Index Tool without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-- To enable Zscaler Support to access your Index Tool:
-
-```
-sudo zadp support-access-start
-```
-
-This creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your Index Tool.
-
-- To disable Zscaler Support access to your Index Tool:
-
-```
-sudo zadp support-access-stop
-```
-
-This brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-
-- To check the status of the Zscaler Support access to your Index Tool:
-
-```
-sudo zadp support-access-status
-```
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-08-02T07:06Z","nid":"1400651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-08-09T07:06Z","nid":"1400651"} -->
 ## Configuring the Index Tool with VMWare
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-vmware
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with VMWare
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 New or clean deployment of Index Tool requires VM image running on Zscaler OS version 24.
@@ -1562,7 +1508,6 @@ With your Index Tool VM running, you can update and customize the VM based on yo
 - Update the Index Tool VM
 - Run the Index Tool VM in Explicit Proxy Mode
 - Configure the Index Tool Service to Run without Elevated Privileges
-- Enable Remote Access for Zscaler Support
 
 ## Index Tool VM Commands
 
@@ -1697,30 +1642,6 @@ sudo zadp stop
 sudo zadp start
 ```
 
-An admin can request remote assistance and allow Zscaler Support to log in to an Index Tool without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-- To enable Zscaler Support to access your Index Tool:
-
-```
-sudo zadp support-access-start
-```
-
-This creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your Index Tool.
-
-- To disable Zscaler Support access to your Index Tool:
-
-```
-sudo zadp support-access-stop
-```
-
-This brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-
-- To check the status of the Zscaler Support access to your Index Tool:
-
-```
-sudo zadp support-access-status
-```
-
 [Image: Download Index Tool]
 
 [Image: Randomly generated root password]
@@ -1792,16 +1713,16 @@ For more information about getting started on the Zscaler service, see [Getting 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-ips-control-policy","lastmod":"2026-07-10T05:01Z","nid":"1400971"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-ips-control-policy","lastmod":"2026-08-07T07:53Z","nid":"1400971"} -->
 ## Configuring the IPS Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-ips-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > Configuring the IPS Control Policy
-- Last modified: 2026-07-10T05:01Z
+- Last modified: 2026-08-07T07:53Z
 - Summary: Information on how to configure the IPS Control policy in the Zscaler Admin Console to leverage Zscaler's Intrustion Prevention System (IPS).
 
-[Watch a video about how to configure an IPS Control policy rule](https://fast.wistia.net/embed/iframe/l6lbmdybx5) (shows legacy UI).
+[Watch a video about how to configure an IPS Control policy rule.](https://fast.wistia.net/embed/iframe/tnxy9sv0ks)
 
 Zscaler's Intrusion Prevention System (IPS) uses signature-based detection to monitor and protect your network traffic from malicious activities. With IPS Control, you can configure rules that are matched against your traffic to enforce condition-based actions to allow or block the traffic in real time. You can capture and store traffic allowed or blocked by this policy as PCAP files. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
 
@@ -1927,7 +1848,7 @@ By default, **Source IPv4 Groups** and **Source IPv6 Groups** are set to **None*
 
 In the **Actions** section, select the action to apply and configure the logging mode:
 
-The **Capture** action requires [Traffic Capture to be enabled](https://help.zscaler.com/zia/configuring-traffic-capture) in Advanced Settings. It appears only when you select **Block** actions for **Network Traffic**.
+The **Capture** action requires [Traffic Capture to be enabled](https://help.zscaler.com/zia/configuring-traffic-capture) in Advanced Settings. It appears only when you select **Allow** or **Block** actions for **Network Traffic**.
 
 - **Network Traffic**: Choose the action that the Zscaler service takes when packets match the rule.
   - **Allow**: Allow the packets to pass through the IPS.
@@ -2439,13 +2360,13 @@ To edit or delete a manual location group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-08-02T07:06Z","nid":"1492736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-08-09T07:06Z","nid":"1492736"} -->
 ## Configuring Microsoft Exchange for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Configuring Microsoft Exchange for Zscaler Outbound Email DLP
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: Information on how to configure Microsoft Excchange for Zscaler Outbound Email Data Loss Prevention (DLP).
 
 Zscaler Outbound Email Data Loss Prevention (DLP) allows you to establish a connection between your Exchange server and Zscaler's cutting-edge Data Loss Prevention (DLP) tools to prevent the exfiltration of sensitive data in outbound emails sent to external domains. To do so, you must configure connectors to allow bidirectional communication between your Exchange server and the Zscaler smart host, and you must configure mail flow rules (also known as transport rules) to determine how mail flows from your Exchange server to the Zscaler service, and vice versa.
@@ -8710,13 +8631,13 @@ To set up SSO with ShareFile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-07-31T10:26Z","nid":"1401726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-08-06T14:48Z","nid":"1401726"} -->
 ## Configuring the Zscaler Incident Receiver for On-Premises VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for On-Premises VMs
-- Last modified: 2026-07-31T10:26Z
+- Last modified: 2026-08-06T14:48Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) for on-premises VMs.
 
 New or clean deployment of a Zscaler Incident Receiver requires a virtual machine (VM) image running on Zscaler OS version 24.
@@ -8741,7 +8662,6 @@ With your Incident Receiver VM running, you can update and customize the VM base
 - Run the Incident Receiver VM in Explicit Proxy Mode
 - Run the Incident Receiver VM With Mutual Transport Security Enabled
 - Configuring the Zscaler Incident Receiver VM to Allow Multiple SFTP Connections
-- Enabling Remote Access for Zscaler Support
 - Upgrade SSH Key to ED25519
 - Install a New Server Certificate
 
@@ -9022,30 +8942,6 @@ scp sudo zirsvr restart
 - If changing this setting does not solve the problem of the Zscaler Incident Receiver internal queue filling up, you may also need to increase the specifications on your SFTP server to ensure faster throughput, or you may need to configure multiple incident receivers with load balancing.
 - If you need assistance enabling this setting in your environment, contact Zscaler Support.
 
-An admin can request remote assistance and allow Zscaler Support to log in to an Incident Receiver without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-- To enable Zscaler Support to access your Incident Receiver:
-
-```
-sudo zirsvr support-access-start
-```
-
-This command creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your Incident Receiver.
-
-- To disable Zscaler Support access to your Incident Receiver:
-
-```
-sudo zirsvr support-access-stop
-```
-
-This command brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-
-- To check the status of the Zscaler Support access to your Incident Receiver:
-
-```
-sudo zirsvr support-access-status
-```
-
 If your organization requires you to update your SSH key, upgrade to the ED25519 key. To upgrade:
 
 1. Run the following command: `sudo zirsvr troubleshoot`If you see the following warning, you must update your SSH key: `Checking SFTP server connection External SFTP server is configured as ... SFTP server is setup correctly, connection, read, and write are all successful. However, disk quota is not checked. Warning: SFTP is configured with older key type "rsa", consider upgrading it to newer keytype "ed25519" using command "sudo zirsvr update-sshkey". If your SFTP server is a Windows based server, please read SFTP server's Admin Guide.`You can do a snapshot of your VM before executing the following command.
@@ -9057,13 +8953,13 @@ If your organization requires you to update your SSH key, upgrade to the ED25519
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-azure-vms","lastmod":"2026-07-31T10:27Z","nid":"1455536"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-azure-vms","lastmod":"2026-08-06T14:52Z","nid":"1455536"} -->
 ## Configuring the Zscaler Incident Receiver for Azure VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-azure-vms
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for Azure VMs
-- Last modified: 2026-07-31T10:27Z
+- Last modified: 2026-08-06T14:52Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) on Azure VMs.
 
 Before you can use a [Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver), you must configure the virtual machine (VM) image for the Incident Receiver on an Azure VM, an Amazon Web Services (AWS) EC2 instance, or an on-premises VM. To learn more, see [Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-for-ec2) and [Configuring the Zscaler Incident Receiver for On-Premises VMs](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver).
@@ -9089,7 +8985,6 @@ With your Incident Receiver VM running, you can update and customize the VM base
 - Run the Incident Receiver VM in Explicit Proxy Mode
 - Run the Incident Receiver VM with Mutual Transport Security Enabled
 - Configure the Zscaler Incident Receiver VM to Allow Multiple SFTP Connections
-- Enable Remote Access for Zscaler Support
 - Upgrade SSH Key to ED25519
 - Install a New Server Certificate
 
@@ -9593,30 +9488,6 @@ scp sudo zirsvr restart
 - If changing this setting does not solve the problem of the Zscaler Incident Receiver internal queue filling up, you might also need to change the specifications on your SFTP server to ensure faster throughput, or you might need to configure multiple incident receivers with load balancing.
 - If you need assistance enabling this setting in your environment, contact Zscaler Support.
 
-An admin can request remote assistance and allow Zscaler Support to log in to an Incident Receiver without having to open a firewall connection for inbound traffic. This feature is disabled by default. You must explicitly enable it for the duration that you require remote support assistance.
-
-- To enable Zscaler Support to access your Incident Receiver, enter the following command:
-
-```
-sudo zirsvr support-access-start
-```
-
-This command creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your Incident Receiver.
-
-- To disable Zscaler Support access to your Incident Receiver, enter the following command:
-
-```
-sudo zirsvr support-access-stop
-```
-
-This command brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-
-- To check the status of the Zscaler Support access to your Incident Receiver, enter the following command:
-
-```
-sudo zirsvr support-access-status
-```
-
 If your organization requires you to update your SSH key, upgrade to the ED25519 key. To upgrade:
 
 1. Run the following command: `sudo zirsvr troubleshoot`If you see the following warning, you must update your SSH key: `Checking SFTP server connection External SFTP server is configured as ... SFTP server is setup correctly, connection, read, and write are all successful. However, disk quota is not checked. Warning: SFTP is configured with older key type "rsa", consider upgrading it to newer keytype "ed25519" using command "sudo zirsvr update-sshkey". If your SFTP server is a Windows based server, please read SFTP server's Admin Guide.`You can do a snapshot of your VM before executing the following command.
@@ -9628,13 +9499,13 @@ If your organization requires you to update your SSH key, upgrade to the ED25519
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-for-ec2","lastmod":"2026-07-17T11:36Z","nid":"1449896"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-for-ec2","lastmod":"2026-08-06T14:49Z","nid":"1449896"} -->
 ## Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-for-ec2
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs
-- Last modified: 2026-07-17T11:36Z
+- Last modified: 2026-08-06T14:49Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) on Amazon Web Services (AWS) EC2 VMs.
 
 Before you can use a [Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver), you must configure the VM image for the Incident Receiver on an Amazon Web Services (AWS) EC2 instance, an Azure VM, or an on-premises VM.
@@ -9661,7 +9532,6 @@ With your Incident Receiver VM running, you can update and customize the VM base
 - Run the Incident Receiver VM in Explicit Proxy Mode
 - Run the Incident Receiver VM with Mutual Transport Security Enabled
 - Configuring the Zscaler Incident Receiver VM to Allow Multiple SFTP Connections
-- Enabling Remote Access for Zscaler Support
 - Upgrade SSH Key to ED25519
 - Install a New Server Certificate
 
@@ -10134,30 +10004,6 @@ scp sudo zirsvr restart
 - If changing this setting does not solve the problem of the Zscaler Incident Receiver internal queue filling up, you may also need to increase the specifications on your SFTP server to ensure faster throughput, or you may need to configure multiple incident receivers with load balancing.
 - If you need assistance enabling this setting in your environment, contact Zscaler Support.
 
-An admin can request remote assistance and allow Zscaler Support to log in to an Incident Receiver without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-- To enable Zscaler Support to access your Incident Receiver:
-
-```
-sudo zirsvr support-access-start
-```
-
-This command creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your Incident Receiver.
-
-- To disable Zscaler Support access to your Incident Receiver:
-
-```
-sudo zirsvr support-access-stop
-```
-
-This command brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-
-- To check the status of the Zscaler Support access to your Incident Receiver:
-
-```
-sudo zirsvr support-access-status
-```
-
 If your organization requires you to update your SSH key, upgrade to the ED25519 key. To upgrade:
 
 1. Run the following command: `sudo zirsvr troubleshoot`If you see the following warning, you must update your SSH key: `Checking SFTP server connection External SFTP server is configured as ... SFTP server is setup correctly, connection, read, and write are all successful. However, disk quota is not checked. Warning: SFTP is configured with older key type "rsa", consider upgrading it to newer keytype "ed25519" using command "sudo zirsvr update-sshkey". If your SFTP server is a Windows based server, please read SFTP server's Admin Guide.`You can do a snapshot of your VM before executing the following command.
@@ -10402,13 +10248,13 @@ When you copy a report, it’s added to the **Custom Reports** tab. You can do t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-08-02T07:06Z","nid":"1400656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-08-09T07:06Z","nid":"1400656"} -->
 ## Creating an Exact Data Match Template
 
 - Source: https://help.zscaler.com/zia/creating-exact-data-match-template
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > Creating an Exact Data Match Template
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: How to create, modify, or delete an Exact Data Match index template using the Zscaler Index Tool for Data Loss Prevention (DLP).
 
 [Watch a video on Exact Data Match](https://fast.wistia.net/embed/iframe/5jnzyl383a) (shows legacy UI).
@@ -14128,4 +13974,121 @@ These codes are not listed under the DNS Error Code filter. Zscaler uses these e
 - **Server Protocol**: Use this filter to limit the data to traffic associated with a server protocol.
 - **Show Delayed Logs**: Use this filter to limit the data to traffic based on delayed logs.
 - **User**: Use this filter to limit the data to the traffic of specific users. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search for specific users. Choose the usernames from the list. You can choose to include or exclude certain users.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/dns-static-web-end-user-notification","lastmod":"2026-06-02T03:03Z","nid":"1529181"} -->
+## DNS Static Web End User Notification
+
+- Source: https://help.zscaler.com/zia/dns-static-web-end-user-notification
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS Static Web End User Notification
+- Last modified: 2026-06-02T03:03Z
+- Summary: Information about Zscaler-hosted end user notification web page for blocked domains.
+
+Zscaler's [DNS Control policy](https://help.zscaler.com/zia/configuring-dns-control-policy) includes a Redirect Response action that replaces the IP address of the resolved hostname in the DNS response with a preferred IP address before sending the response to the client. Organizations can use this Redirect Response action to direct users to an end user notification (EUN) page when access to a domain is blocked. This page can either be a custom EUN web page hosted at a dedicated IP address managed by the organization, or a Zscaler-hosted static EUN web page hosted at `34.215.46.88`. To use the Zscaler-hosted EUN web page, you must manually configure this IP address in the Redirect Response action. This EUN page notifies users that access to the requested domain has been blocked based on your organization's policy.
+
+See image.
+
+The Zscaler-hosted EUN web page provides the following benefits:
+
+- The Zscaler-hosted EUN web page eliminates the need for organizations to host and manage their own notification page.
+- This static DNS EUN web page is supported for web traffic (primarily HTTP) irrespective of whether it is sent via tunnels. In addition to being available for tunneled traffic (via GRE, IPSec tunnel, or Z-Tunnel 2.0), this DNS EUN web page is accessible to users whose web traffic is not sent through forwarding tunnels and unauthenticated users, making it well-suited for guest Wi-Fi environments and similar scenarios.
+
+This static EUN web page is supported only with DNS Control policy using the Redirect Response action. This EUN web page is not customizable.
+
+## EUN Workflow and Requirements
+
+The following illustration demonstrates packet flow in the guest Wi-Fi scenario in which DNS requests are sent to Zscaler DNS Control, while web traffic is sent directly to the internet without going through Internet & SaaS (ZIA).
+
+[Image: Zscaler-hosted DNS Web EUN Packet Flow]
+
+The packet flow would be similar when web traffic is also sent via Internet & SaaS, except that Internet & SaaS would additionally perform SSL/TLS Inspection if enabled.
+
+The following are key points about the DNS EUN working mechanism, requirements, and any limitations:
+
+- The DNS EUN web server (`34.215.46.88`/`blockpage.zscaler.com`) only responds to web requests and drops all other traffic (e.g., ping traffic).
+- The display of the DNS EUN web page is predicated upon the browser falling back to using HTTP on receiving the "HTTP 400 Bad Request" response from the EUN web server, and subsequently making an HTTP GET request using HTTP. If the browser does not make this HTTP GET request using HTTP, the EUN page is not displayed.
+- The DNS EUN web page might not be displayed for blocked domains that use HTTP Strict Transport Security (HSTS).
+- If the web request to this DNS EUN web server is sent via Internet & SaaS, the browser would need to trust the Zscaler Certificate Authority (CA) certificate. Alternatively, you can configure an SSL/TLS Inspection bypass policy as outlined in the Recommended Policy Settings section.
+- If the web request to this DNS EUN web server is sent via Internet & SaaS, ensure that security policies configured in Internet & SaaS allow such traffic.
+- For the DNS Control policy to be applied to DoH (DNS over HTTPS) traffic, DoH traffic must be sent using a tunnel (GRE, IPSec, or Z-Tunnel 2.0) and SSL/TLS Inspection must be enabled for that traffic. See the Recommended Policy Settings section for information on additional configurations required to ensure DoH traffic gets inspected.
+- In the case of a guest Wi-Fi deployment, typically, only regular DNS traffic (DNS over UDP/TCP) is sent from a known location to a GRE VIP address configured as a DNS server address, with the rest of the traffic going out directly to the internet instead of going via Internet & SaaS. In such a scenario, DoH traffic is not sent to Internet & SaaS and so the DNS Control policy is not applied to DoH traffic.
+
+### EUN Web Server Certificate
+
+The following points highlight key information about the SSL certificate used by the EUN web server:
+
+- If the web request to the DNS EUN web server is sent directly to the internet instead of going via Internet & SaaS, the certificate displayed on the client browser for the web page, `blockpage.zscaler.com`, would be the one issued by a well-known CA. The following image shows an example certificate issued by DigiCert Global. See image.
+- If the web request to the DNS EUN web server is sent via Internet & SaaS and SSL/TLS Inspection is enabled for that web traffic, then the client browser displays a certificate for `blockpage.zscaler.com` that is issued by the Zscaler Intermediate Root CA (as shown in the following image). In this case, the client browser must trust the Zscaler CA certificate for the EUN page to load without certificate warnings. See image.
+
+### Recommended Policy Settings
+
+Zscaler recommends the following policy settings to ensure that the DNS EUN works effectively:
+
+- Zscaler Client Connector App Profile
+- SSL/TLS Inspection Policy
+- Firewall Filtering Policy
+
+It is preferable to bypass web traffic that is destined for the DNS EUN web server to directly reach the internet, instead of sending it via Internet & SaaS. For example, if you are using Zscaler Client Connector with Z-Tunnel 2.0, add the following entries in the [Zscaler Client Connector App Profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles):
+
+- `34.215.46.88` to the **IPv4 Exclusion** list under **App and IP Bypass** > **IP Bypasses**.
+- `blockpage.zscaler.com` to the **VPN Gateway Bypass** list under **App and IP Bypass** > **Global Bypasses**.
+
+See image.
+
+Similarly, if you are using a PAC file, add these entries to the PAC file to send the corresponding traffic directly to the internet.
+
+If the web request to the DNS EUN web server is sent via Internet & SaaS, add an [SSL/TLS Inspection](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy) bypass policy for this web traffic. For this, create a custom URL category containing the entries:
+
+- `34.215.46.88`
+- `blockpage.zscaler.com`
+
+See image.
+
+Then, create an SSL/TLS Inspection bypass policy for this custom URL category with rule actions set to **Do Not Inspect** and **Bypass Other Policies**.
+
+See image.
+
+If the client browser is using secure DNS or DoH, add a firewall filtering rule to block QUIC as a network service, or ensure that the Default Firewall Filtering Rule is blocking QUIC. Alternatively, you can block QUIC in the browser itself. This is because some secure DNS or DoH providers might use QUIC as the underlying transport protocol. However, Zscaler's best practice is to block QUIC. When it's blocked, QUIC has a failsafe to fall back to TCP. This enables SSL/TLS Inspection without negatively impacting user experience. To learn more, see [Managing the QUIC Protocol](https://help.zscaler.com/zia/managing-quic-protocol).
+
+[Image: Zscaler-hosted DNS EUN web page for blocked domains]
+
+[Image: DigiCert Global Certificate for DNS EUN web page displayed when traffic is not sent via Internet & SaaS]
+
+[Image: Zscaler Intermediate Root CA Certificate for DNS EUN web page displayed when traffic is sent via Internet & SaaS]
+
+[Image: SSL/TLS Inspection bypass policy for traffic to Zscaler-EUN web page]
+
+[Image: Custom URL category for Zscaler EUN web page IP address and domain name]
+
+[Image: Zscaler Client Connector App Profile configuration to bypass traffic destined for EUN web server]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/downloading-and-printing-policies","lastmod":"2026-06-30T21:06Z","nid":"1398761"} -->
+## Downloading and Printing Policies
+
+- Source: https://help.zscaler.com/zia/downloading-and-printing-policies
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Downloading and Printing Policies
+- Last modified: 2026-06-30T21:06Z
+- Summary: Information on how to download policies in PDF or JSON format or print policies and save them to a PDF file.
+
+You can download all of your organization's configured policies into a PDF or ZIP file. When you download policies in the ZIP format, a single ZIP file containing JSON representation of the policies is generated. One JSON file is created for each policy type within the ZIP file. In addition to downloading policies, you can print your policies.
+
+Policies that support the **View by** option can be printed either in **Rule Order** or **Rule Label** view.
+
+To download or print all policies, go to **Policies > Common Configuration > Advanced > View All Policies**.
+
+- To download policies, click the **Download** drop-down menu and select PDF or ZIP per your requirements. Selecting ZIP automatically downloads the policy contents into a ZIP file. If you select the PDF option, a window appears where you can change your preferred settings and then click **Save**.
+- To print policies, click **Print**. In the window that appears, you can change your preferred settings and then proceed to print the policies. See image.
+
+See sample files.
+
+[Image: Print All Policies Options]
+
+[Image: Downloaded policy files in ZIP and PDF formats]
 <!-- /ZS-ARTICLE -->

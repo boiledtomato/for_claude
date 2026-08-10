@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-08-03T02:47:09Z",
- "total": 251,
+ "checked_at": "2026-08-10T01:47:41Z",
+ "total": 269,
  "articles": [
   {
    "title": "About Account Onboarding",
@@ -53,9 +53,19 @@
    "product": "AI Asset Management"
   },
   {
-   "title": "Migrating End Users to Authentication Service",
-   "url": "/authentication-service/migrating-end-users-authentication-service",
-   "product": "Authentication Service"
+   "title": "About Google Cloud Platform Zero Trust Gateways",
+   "url": "/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways",
+   "product": "Cloud & Branch Connector"
+  },
+  {
+   "title": "Adding a Google Cloud Platform Zero Trust Gateway",
+   "url": "/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway",
+   "product": "Cloud & Branch Connector"
+  },
+  {
+   "title": "Analyzing Google Cloud Platform Zero Trust Gateway Details",
+   "url": "/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details",
+   "product": "Cloud & Branch Connector"
   },
   {
    "title": "Supported Regions for Zero Trust Gateways",
@@ -63,8 +73,8 @@
    "product": "Cloud & Branch Connector"
   },
   {
-   "title": "Configuring a Safe Process",
-   "url": "/deception/configuring-safe-process",
+   "title": "Configuring Browser Lures",
+   "url": "/deception/configuring-browser-lures",
    "product": "Deception"
   },
   {
@@ -118,16 +128,6 @@
    "product": "Data Security Posture Management (DSPM)"
   },
   {
-   "title": "Predefined DSPM Roles and Permissions",
-   "url": "/dspm/predefined-roles-and-permissions",
-   "product": "Data Security Posture Management (DSPM)"
-  },
-  {
-   "title": "Supported Data Stores, File Types, and Regions",
-   "url": "/dspm/supported-data-stores-file-types-and-regions",
-   "product": "Data Security Posture Management (DSPM)"
-  },
-  {
    "title": "Understanding DLP Engines and Dictionaries",
    "url": "/dspm/understanding-dlp-engines-and-dictionaries",
    "product": "Data Security Posture Management (DSPM)"
@@ -148,11 +148,6 @@
    "product": "Legacy Zscaler APIs"
   },
   {
-   "title": "Azure Integration",
-   "url": "/legacy-apis/azure-integration",
-   "product": "Legacy Zscaler APIs"
-  },
-  {
    "title": "Branch Connectors",
    "url": "/legacy-apis/branch-connectors",
    "product": "Legacy Zscaler APIs"
@@ -165,6 +160,36 @@
   {
    "title": "Cloud Nanolog Streaming Service (NSS)",
    "url": "/legacy-apis/cloud-nanolog-streaming-service-nss",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Certificates Using API",
+   "url": "/legacy-apis/configuring-certificates-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tag Groups Using API",
+   "url": "/legacy-apis/configuring-tag-groups-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tag Key-Value Pairs Using API",
+   "url": "/legacy-apis/configuring-tag-key-value-pairs-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tag Namespaces Using API",
+   "url": "/legacy-apis/configuring-tag-namespaces-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tags and Tag Groups with Policy Rules Using API",
+   "url": "/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tags for Application Segments Using API",
+   "url": "/legacy-apis/configuring-tags-application-segments-using-api",
    "product": "Legacy Zscaler APIs"
   },
   {
@@ -223,6 +248,21 @@
    "product": "Legacy Zscaler APIs"
   },
   {
+   "title": "Tag Group Management",
+   "url": "/legacy-apis/tag-group-management",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Tag Key Management",
+   "url": "/legacy-apis/tag-key-management",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Tag Namespace Management",
+   "url": "/legacy-apis/tag-namespace-management",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
    "title": "Understanding Authentication Service APIs",
    "url": "/legacy-apis/understanding-authentication-service-apis",
    "product": "Legacy Zscaler APIs"
@@ -248,6 +288,11 @@
    "product": "Legacy Zscaler APIs"
   },
   {
+   "title": "Accessing and Navigating the Workflow Automation Admin Portal",
+   "url": "/legacy-workflow-automation/accessing-and-navigating-workflow-automation-admin-portal",
+   "product": "Legacy UI: Workflow Automation"
+  },
+  {
    "title": "Adding Email Notification Templates",
    "url": "/legacy-workflow-automation/adding-email-notification-templates",
    "product": "Legacy UI: Workflow Automation"
@@ -265,6 +310,11 @@
   {
    "title": "Managing Admin Assignments",
    "url": "/legacy-workflow-automation/managing-admin-assignments",
+   "product": "Legacy UI: Workflow Automation"
+  },
+  {
+   "title": "Managing Incidents",
+   "url": "/legacy-workflow-automation/managing-incidents",
    "product": "Legacy UI: Workflow Automation"
   },
   {
@@ -468,8 +518,28 @@
    "product": "Zscaler Support Troubleshooting Runbooks"
   },
   {
+   "title": "About Dashboards",
+   "url": "/unified/about-dashboards",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Assigning Content Permissions",
+   "url": "/unified/assigning-content-permissions",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Configuring Custom Dashboards",
+   "url": "/unified/configuring-custom-dashboards",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Configuring Suppression Rules",
    "url": "/unified/configuring-suppression-rules",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Creating Custom Roles",
+   "url": "/unified/creating-custom-roles",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -478,8 +548,23 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Creating & Managing Content Permissions",
+   "url": "/unified/creating-managing-content-permissions",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Creating & Managing Users",
+   "url": "/unified/creating-managing-users",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Creating Outegrations",
    "url": "/unified/creating-outegrations",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Creating Reports",
+   "url": "/unified/creating-reports",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -498,6 +583,11 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Managing Custom Dashboards",
+   "url": "/unified/managing-custom-dashboards",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Managing Data Sources",
    "url": "/unified/managing-data-sources",
    "product": "Getting Started with Zscaler"
@@ -508,8 +598,28 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Managing Reports",
+   "url": "/unified/managing-reports",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Managing Source Mapping",
    "url": "/unified/managing-source-mapping",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Managing System and Custom Roles",
+   "url": "/unified/managing-system-and-custom-roles",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Managing User Roles",
+   "url": "/unified/managing-user-roles",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Managing Widgets",
+   "url": "/unified/managing-widgets",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -543,8 +653,33 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Understanding Dashboard Widget Types",
+   "url": "/unified/understanding-dashboard-widget-types",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Understanding Historical Data",
+   "url": "/unified/understanding-historical-data",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Understanding Measurements and Dimensions",
+   "url": "/unified/understanding-measurements-and-dimensions",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Understanding System Roles",
+   "url": "/unified/understanding-system-roles",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Understanding the ThreatLabz Source",
    "url": "/unified/understanding-threatlabz-source",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Using Dashboard Templates",
+   "url": "/unified/using-dashboard-templates",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -558,8 +693,18 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Viewing Items in a Widget Segment",
+   "url": "/unified/viewing-items-widget-segment",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Configuring the GitHub Repositories Connector",
    "url": "/uvm/configuring-github-repositories-connector",
+   "product": "Unified Vulnerability Management (UVM)"
+  },
+  {
+   "title": "Configuring the Jira Issues Connector",
+   "url": "/uvm/configuring-jira-issues-connector",
    "product": "Unified Vulnerability Management (UVM)"
   },
   {
@@ -588,6 +733,11 @@
    "product": "Workflow Automation"
   },
   {
+   "title": "Managing Incidents",
+   "url": "/workflow-automation/managing-incidents",
+   "product": "Workflow Automation"
+  },
+  {
    "title": "Viewing & Managing Incident Details",
    "url": "/workflow-automation/viewing-managing-incident-details",
    "product": "Workflow Automation"
@@ -600,6 +750,11 @@
   {
    "title": "Managing Collections",
    "url": "/zdx/managing-collections",
+   "product": "Digital Experience Monitoring (ZDX)"
+  },
+  {
+   "title": "Understanding Managed Monitoring",
+   "url": "/zdx/understanding-managed-monitoring",
    "product": "Digital Experience Monitoring (ZDX)"
   },
   {
@@ -653,11 +808,6 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Adding Cloud NSS Feeds for 3rd-Party App Governance Logs",
-   "url": "/zia/adding-cloud-nss-feeds-3rd-party-app-governance-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Adding Cloud NSS Feeds for DNS Logs",
    "url": "/zia/adding-cloud-nss-feeds-dns-logs",
    "product": "Internet & SaaS (ZIA)"
@@ -675,11 +825,6 @@
   {
    "title": "Adding Cloud NSS Feeds for Firewall Logs",
    "url": "/zia/adding-cloud-nss-feeds-for-firewall-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding Cloud NSS Feeds for Posture Management Logs",
-   "url": "/zia/adding-cloud-nss-feeds-posture-management-logs",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -708,21 +853,6 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Adding HTTP NSS Feeds",
-   "url": "/zia/adding-http-nss-feeds",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding HTTP NSS Feeds for Admin Audit Logs",
-   "url": "/zia/adding-http-nss-feeds-admin-audit-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding HTTP NSS Feeds for Alerts",
-   "url": "/zia/adding-http-nss-feeds-alerts",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Adding HTTP NSS Feeds for DNS Logs",
    "url": "/zia/adding-http-nss-feeds-dns-logs",
    "product": "Internet & SaaS (ZIA)"
@@ -743,28 +873,13 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Adding HTTP NSS Feeds for SaaS Security Activity Logs",
-   "url": "/zia/adding-http-nss-feeds-saas-security-activity-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Adding HTTP NSS Feeds for SaaS Security Logs",
    "url": "/zia/adding-http-nss-feeds-saas-security-logs",
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Adding HTTP NSS Feeds for Sandbox Verdict Logs",
-   "url": "/zia/adding-http-nss-feeds-sandbox-verdict-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Adding HTTP NSS Feeds for Tunnel Logs",
    "url": "/zia/adding-http-nss-feeds-tunnel-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding HTTP NSS Feeds for Web Logs",
-   "url": "/zia/adding-http-nss-feeds-web-logs",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -878,28 +993,8 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Integrating with Microsoft Cloud App Security",
-   "url": "/zia/integrating-microsoft-cloud-app-security",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Integrating with Microsoft Defender for Endpoint",
    "url": "/zia/integrating-microsoft-defender-endpoint",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Migrating Applications from Customer-Managed to Zscaler-Managed Dedicated IPs",
-   "url": "/zia/migrating-applications-customer-managed-zscaler-managed-dedicated-ip",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Feed Output Format: 3rd-Party App Governance Logs",
-   "url": "/zia/nss-feed-output-format-3rd-party-app-governance-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Feed Output Format: Posture Management Logs",
-   "url": "/zia/nss-feed-output-format-posture-management-logs",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -953,11 +1048,6 @@
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "About App Connectors",
-   "url": "/zpa/about-connectors",
-   "product": "Private Access (ZPA)"
-  },
-  {
    "title": "About Federated Partners",
    "url": "/zpa/about-federated-partners",
    "product": "Private Access (ZPA)"
@@ -985,16 +1075,6 @@
   {
    "title": "About Privileged Remote Access Applications",
    "url": "/zpa/about-privileged-remote-access-applications",
-   "product": "Private Access (ZPA)"
-  },
-  {
-   "title": "About VPN Access Policy Data Diagnostics",
-   "url": "/zpa/about-vpn-access-policy-data-diagnostics",
-   "product": "Private Access (ZPA)"
-  },
-  {
-   "title": "About VPN Traffic Flow Logs Diagnostics",
-   "url": "/zpa/about-vpn-traffic-flow-logs-diagnostics",
    "product": "Private Access (ZPA)"
   },
   {
@@ -1078,6 +1158,16 @@
    "product": "Private Access (ZPA)"
   },
   {
+   "title": "Creating Certificate Signing Requests for Enrollment (CA) Certificates",
+   "url": "/zpa/creating-certificate-signing-requests-enrollment-ca-certificates",
+   "product": "Private Access (ZPA)"
+  },
+  {
+   "title": "Exporting Diagnostics Logs",
+   "url": "/zpa/exporting-diagnostics-logs",
+   "product": "Private Access (ZPA)"
+  },
+  {
    "title": "Federating Defined Application Segments",
    "url": "/zpa/federating-defined-application-segments",
    "product": "Private Access (ZPA)"
@@ -1153,7 +1243,7 @@
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "Understanding Oauth Enrollment",
+   "title": "Understanding OAuth Enrollment",
    "url": "/zpa/understanding-oauth-enrollment",
    "product": "Private Access (ZPA)"
   },

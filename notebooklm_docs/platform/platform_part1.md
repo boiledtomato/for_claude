@@ -1,8 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
-Articles in this file: 257
+Generated: 2026-08-10 01:47 UTC
+Articles in this file: 259
 
 ---
 
@@ -6223,13 +6223,13 @@ To assign users or user groups to a Zscaler service:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-end-users-authentication-service","lastmod":"2026-06-18T02:51Z","nid":"1528880"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-end-users-authentication-service","lastmod":"2026-08-09T07:06Z","nid":"1528880"} -->
 ## Migrating End Users to Authentication Service
 
 - Source: https://help.zscaler.com/authentication-service/migrating-end-users-authentication-service
 - Product: Authentication Service
 - Path: Authentication Service Help > Migrating End Users to Authentication Service
-- Last modified: 2026-06-18T02:51Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: How to migrate end users to Authentication Service.
 
 Authentication Service (formerly ZIdentity) is the common identity and authentication service that provides a centralized and unified platform for all Zscaler services. End user migration is the process of migrating existing end user authentication workflows and service entitlements from various Zscaler services to Authentication Service to streamline identity management and improve administrative efficiency, strengthen access control and security. You no longer need to configure the external identity provider (IdP) for each Zscaler service separately.
@@ -12558,13 +12558,13 @@ The usage of ZIA is expected to be in accordance with the [Acceptable Use Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-logs","lastmod":"2026-07-30T10:38Z","nid":"1391021"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-logs","lastmod":"2026-08-05T11:50Z","nid":"1391021"} -->
 ## ZIA Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zia-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZIA Logs
-- Last modified: 2026-07-30T10:38Z
+- Last modified: 2026-08-05T11:50Z
 - Summary: Information about Zscaler Internet Access (ZIA) logs.
 
 In order to provide the Zscaler Internet Access (ZIA) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
@@ -12575,7 +12575,7 @@ In order to provide the Zscaler Internet Access (ZIA) service, Zscaler has the r
 
 ###### Feature-specific Information
 
-- **Data Loss Prevention (DLP):** The Data Loss Prevention (DLP) service (for any channel such as Inline, Endpoint, Email, API CASB, or Private Applications), logs also capture metadata for certain end user activities, such as copying to removable storage, copying to network shares, printing, sharing a file, and uploading a document. For the Email DLP service, logs include the email's sender, recipients, and subject.
+- **Data Loss Prevention (DLP):** The Data Loss Prevention (DLP) service (for any channel such as Inline, Endpoint, Email, API CASB, or Private Applications), logs also capture metadata for certain end user activities, such as copying to removable storage, copying to network shares, printing, sharing a file, and uploading a document. For the Email DLP service, logs include the senders, recipients, and subjects of emails.
 - **Nanolog Streaming Service (NSS):** Nanolog Streaming Service (NSS) allows you to stream the logs in real-time within your premises. Using NSS, these logs can also be sent to multiple systems, allowing the retention of the logs for any period.
 - **Gen AI Security:** Gen AI Security logs will also include classifications of end user prompts to generative AI applications. By default, end user prompts to supported generative AI applications are not captured in logs. They are captured in the logs only if your administrator enables this feature via the toggle in the Admin Portal.
 - **IoT Advanced Security:** For the IoT Advanced Security service, unauthenticated, non-user-identifying web logs that are associated with the customer at the org level will be retained by Zscaler for a rolling period of three months during the term of subscription. When the subscription term ends or expires, these logs are deleted by Zscaler after the three month retention cycle. For the IoT Advanced Security service, the logs will be stored in the United States.
@@ -15164,6 +15164,62 @@ On the Custom Dashboards page (Analytics> Custom Dashboards), you can do the fol
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-08-07T02:10Z","nid":"1541896"} -->
+## About Dashboards
+
+- Source: https://help.zscaler.com/unified/about-dashboards
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > About Dashboards
+- Last modified: 2026-08-07T02:10Z
+- Summary: Information about the My Dashboards page in the Security Operations Platform.
+
+You can create, manage, and monitor custom dashboards in the Security Operations Platform. These dashboards provide visibility into identity findings, risks, and MITRE ATT&CK techniques across tenants.
+
+Dashboards provide the following benefits and enable you to:
+
+- Obtain visibility into misconfigurations and vulnerabilities in identities.
+- View identity findings from various sources.
+- Create custom dashboards as necessary.
+
+## About the My Dashboards Page
+
+On My Dashboards page (Explore > Dashboards), you can do the following:
+
+1. [Activate scheduled exports](https://help.zscaler.com/unified/exporting-reports) for a dashboard.
+2. Deactivate scheduled exports for a dashboard.
+3. Send a dashboard export email to the configured recipients.
+4. [Edit the configuration of an existing dashboard](https://help.zscaler.com/unified/managing-custom-dashboards).
+5. Edit tags for one or more dashboards. See image.
+  - **Add to existing tags**: Add new tags to the dashboard along with the existing tags.
+  - **Replace existing tags**: Replace the existing tags with new tags.
+6. Clone a dashboard.
+7. Delete a dashboard.
+8. [Add a new dashboard](https://help.zscaler.com/unified/configuring-custom-dashboards).
+9. View dashboard details. For each dashboard, you can view:
+  - **Name**: The name of the dashboard.
+  - **Description**: Additional details of the dashboard.
+  - **Created By**: The name of the user who created the dashboard.
+  - **Sharing Settings**: The names of the users who can edit or view the dashboard (e.g., **Public**or specific users).
+  - **Apps**: The applications to which the dashboard is shared.
+  - **Tags**: The tags assigned to the dashboard.
+  - **Last Updated**: The date and time when the dashboard was last updated.
+  - **Scheduled Export**: The status of the dashboard export schedule (**Active**or **Inactive**).
+  - **Schedule Export Details**: The date and time of the dashboard export schedule. If you have edit access, you can hover over the dashboard to perform the following actions:
+    - Edit the dashboard widget.
+    - Delete the dashboard.
+    - Edit the dashboard name or access details.
+    - Send the dashboard export.
+    - View the previous dashboard exports and their statuses.
+    - Clone the existing dashboard.
+10. Go to the [Template Gallery](https://help.zscaler.com/unified/using-dashboard-templates) page to view preconfigured templates.
+
+[Image: The My Dashboards page]
+
+[Image: Editing tags or the selected dashboards]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/about-experience-center-audit-logs","lastmod":"2026-03-26T11:44Z","nid":"1500641"} -->
 ## About Experience Center Audit Logs
 
@@ -15785,6 +15841,80 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/assigning-content-permissions","lastmod":"2026-08-06T23:54Z","nid":"1541833"} -->
+## Assigning Content Permissions
+
+- Source: https://help.zscaler.com/unified/assigning-content-permissions
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > User Management > Assigning Content Permissions
+- Last modified: 2026-08-06T23:54Z
+- Summary: How to assign content permissions to users in the Security Operations Platform.
+
+Content permissions control access to data within the Security Operations Platform (SecOps Platform). To create content permission sets, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). After [creating users](https://help.zscaler.com/unified/creating-managing-users) in your account, you can assign content permissions to define the data they can access.
+
+Content permissions can only be assigned after a user is created and saved.
+
+## Assigning Content Permissions to Users
+
+To assign content permission sets to a single user:
+
+1. In the SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
+2. Click**Account Settings.** See image.
+3. In the left-side navigation, go to **User Management**. See image.
+4. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click **Edit**at the top of the page. See image.
+5. In the **Content Permissions** section, select the role permission sets you want to assign from the drop-down menu. To learn more, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). See image.
+6. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
+
+To assign content permissions to multiple users:
+
+1. Select the checkboxes next to the users you want to assign content permission to.
+2. Click the **Edit Permission Sets** drop-down menu, and select **Add Permission Set/s**. See image.
+3. In the **Add Permission Set/s**window, select the permission sets you want to assign to the selected users. See image.
+4. Click **Apply**. Assigned permission sets are applied on the user's next browser refresh.
+
+## Removing Content Permission Sets
+
+Removing content permission sets from users removes their access limit from the defined data. This means they'll no longer be limited to viewing only the data configured in the permission set.
+
+To remove a single user's content permissions:
+
+1. In the SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
+2. Click**Account Settings.** See image.
+3. In the left-side navigation, go to **User Management**. See image.
+4. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click**Edit**at the top of the page. The **Edit User** page appears.
+5. In the **Content Permissions** section, from the **Applied Permission Sets** drop-down menu, select the permission sets you want to remove.
+6. Click **Save**. Selected permission sets are removed on the user's next browser refresh.
+
+To remove multiple users' content permissions:
+
+1. Select the checkboxes next to the users you want to remove content permission from.
+2. Click the **Edit Permission Sets** drop-down menu, and select **Remove Permission Set/s**. See image.
+3. In the **Remove Permission Set/s**window, select the permission sets you want to remove from the selected users. See image.
+4. Click**Apply**. Assigned permission sets are applied on the user's next browser refresh.
+
+[Image: The Profile menu in the SecOps Platform Admin Portal]
+
+[Image: The Profile menu in the SecOps Platform Admin Portal]
+
+[Image: The User Management page]
+
+[Image: The User Management page]
+
+[Image: Editing a user from the User Management page]
+
+[Image: Adding permission sets to multiple users from the User Management page]
+
+[Image: The Add Permission Set/s window]
+
+[Image: The Remove Permission Set/s window]
+
+[Image: Select Permission Set/s to Remove]
+
+[Image: Select the role permission sets]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-07-30T09:49Z","nid":"1541729"} -->
 ## Attribute Reconciliation Default Functions
 
@@ -15822,6 +15952,107 @@ The following table shows the default functions for commonly used fields:
 | --- | --- | --- | --- | --- |
 | [Image: Date icon] | First Seen (for all entity types) | MIN | The earliest date value | Finding First Seen |
 | [Image: Date icon] | Last Seen (for all entity types) | MAX | Themost recent date value | Asset Last Seen |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/building-queries-and-searching-logs","lastmod":"2026-08-04T13:13Z","nid":"1541845"} -->
+## Building Queries and Searching Logs
+
+- Source: https://help.zscaler.com/unified/building-queries-and-searching-logs
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Data Exploration > Building Queries and Searching Logs
+- Last modified: 2026-08-04T13:13Z
+- Summary: How to build queries and search for logs in the Security Operations Platform.
+
+You can search logs to view data collected by the Security Operations Platform (SecOps Platform) before it's processed and analyzed. This helps you to understand the raw data that's pulled from connected sources and subsequently pushed into the data model. You can search logs by building and using queries.
+
+## Building a Query
+
+To create a query using the basic query builder:
+
+1. In the SecOps Platform Admin Portal, go to **Explore**>**Logs**. [Image: Build a basic query to search the logs] If you have not previously created a query, you can select from a list of prebuilt queries to get started. You can also select a saved query from the Queries Library. See image.
+2. Click the **+** icon to add a new query. A new query tab appears.
+3. Click the **Search Logs** box to open the query builder. [Image: Build a query]
+4. Select a field or enter a field name manually.
+5. Select an operator (e.g., **Equals**, **Contains**, **Starts With**, etc.).
+6. Enter or select the value you want to filter by.
+7. (Optional) Use **AND** or **OR** operators to add conditions to the query.
+8. (Optional) Click **Save**to save your query.
+9. Click **Search**. Log data appears.
+10. Use the time filter to filter results to a specific time frame. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). The selected time frame is not saved as part of the query, and must be configured for every result.
+
+Click **Export as CSV** at the top right of the logs table to export the data as a CSV file.
+See image.
+
+[Image: Select a prebuilt query to search for the logs]
+
+[Image: Export logs as CSV]
+
+To create an advanced query, you can use QL syntax in the advanced query editor. Click **Advanced**and enter values as necessary.
+
+[Image: Build an advanced query]
+
+The basic query builder and the advanced query editor are completely independent, even when they are within the same query. If you make changes to one, the other remains unchanged.
+
+### Adding a Query to the Queries Library
+
+You can save queries and add them to the Queries Library for quick access.
+
+To add a query to the Queries Library:
+
+1. Click **Save**at the top right of the page. [Image: Save the created query] The **Edit Detail** page appears.
+2. Enter a name for the query.
+3. Click **Save**. The query is saved to the library. [Image: View all the saved queries]
+
+Use the **Save As New** option to save a modified version of the current query to your library.
+[Image: Save a modified version of the query to the library]
+
+Click **Library** to access your saved queries.
+[Image: Click Library to access saved queries]
+
+## Searching Logs
+
+After you configure and run your query, a Logs table appears. Click a log in the table to open its drawer. You can search within the log using the search field, and copy the log using the Copy icon in the top-right corner of the drawer.
+[Image: Search for the logs]
+
+Hover over a field in the drawer to display the following icons:
+
+- **Breakdown By Field**: Use the selected field as the breakdown by field in the pie chart pane.
+- **Exclude**: Add a Not Equal filter to the query builder to return all logs for which the field's value is different from the value of the current log.
+- **Add to Search**: Add a filter to the basic query builder to return all logs for which the field's value is equal to the value in the current log.
+- **Add/Remove Column**: Add or remove a column in the log table.
+- **Copy Value**: Copy the value of the field.
+
+## Analyzing the Data
+
+You can filter and analyze the retrieved log data using the Time Series chart or a pie chart.
+
+### Time Series Chart
+
+The Time Series chart shows the number of logs (on the y-axis) that match the query conditions, retrieved from your sources within the time frame selected in the time filter.
+
+[Image: Number of logs that match the query conditions on the Time Series chart]
+
+You can click and drag the time filter to select a portion of the chart to define your desired time frame. This updates the table view as shown in the following image.
+
+[Image: Click and drag the time filter to view an updated view based on the desired time frame]
+
+The selected time filter is not saved as part of the query, and must be configured each time.
+
+### Pie Chart
+
+The pie chart displays all logs filtered by your query. Use the**Breakdown by** drop-down menu to select the field you want the logs to be grouped in, and the number of top values you want to be presented in the legend.
+
+[Image: Logs filtered by the query displayed on the Pie Chart]
+
+Select any number of slices to filter by their value. This also adds your selection as a filter in the table of logs.
+
+[Image: Filter the pie chart by the selected value]
+
+To remove a value from the filter created by the pie chart, deselect the slice on the chart itself or click the remove slicericon under the chart.
+
+[Image: Deselect a slice using the Remove Slicer icon in the Pie Chart]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15909,6 +16140,52 @@ Enter the bearer token. A bearer token is a unique alphanumeric string used for 
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/configuring-authentication-data-sources-and-outegrations","lastmod":"2026-08-05T11:11Z","nid":"1542183"} -->
+## Configuring Authentication for Data Sources and Outegrations
+
+- Source: https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source & Outegration Authentication > Configuring Authentication for Data Sources and Outegrations
+- Last modified: 2026-08-05T11:11Z
+- Summary: How to configure API authentications for connecting data sources and outegrations in the Security Operations Platform.
+
+The Security Operations Platform (SecOps Platform) supports integration with a wide variety of third-party tools and services, and enables secure data exchange such as retrieving findings from external scanners or sending tickets to work management systems. To connect these tools, you must first configure API authentications. Authentication ensures the SecOps Platform can access external resources using valid credentials with the necessary permissions, supporting uninterrupted automation and continuous data flow.
+
+You can create a new authentication during the setup of a [data source](https://help.zscaler.com/unified/creating-data-sources) or [outegration](https://help.zscaler.com/unified/creating-outegrations), or directly from the Authentications page.
+
+- When setting up a source, the Authentication drop-down menu appears in the Retrieval section. See image.
+- When configuring an outegration, the Authentication drop-down menu appears in the Details section of the Connect step. See image.
+
+[Image: Authentication drop-down menu in source setup page with CrowdStrike options]
+
+[Image: The Authentication drop-down menu in the Details section]
+
+## Creating Authentications
+
+Before creating a new authentication, check whether a valid authentication method already exists for the third-party data source or outegration you plan to integrate.
+
+For access to authentications, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Authentications resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Creating & Managing Users](https://help.zscaler.com/unified/creating-managing-users). 
+See image.
+
+[Image: Select permissions for access to authentications]
+
+To create an authentication:
+
+1. In the SecOps Platform Admin Portal, go to **Configure**>**Authentications**. A list of all existing authentications appears.
+2. Click **Create**to add a new authentication.
+3. Select the vendor for which you want to configure authentication. You can also search for a vendor in the search field. The <Vendor Name> **Authentication** window appears.
+4. In the <Vendor Name> **Authentication** window:
+  1. **Name**: Enter an informativename for your authentication. This is the name displayed on the integration setup page, so it should clearly identify the specific authentication instance for the selected vendor. For example, enter `CrowdStrike Vulnerabilities` when creating an authentication for CrowdStrike to be used in the Vulnerabilities stream.
+  2. **Credentials**: Enter the required credentialsfor the API authentication. Each source or outegration has its own unique set of required parameters that must carry the appropriate scopes and permissions to ensure successful integration. Each vendor requires specific parameters with appropriate scopes and permissions. Refer to the vendor's [Sources Configuration Guide](https://help.zscaler.com/uvm/data-sources-outegration-configuration-guides/source-configuration-guides) or [Outegration Configuration Guide](https://help.zscaler.com/uvm/data-sources-outegration-configuration-guides/outegration-configuration-guides) for the exact requirements. If you plan to use the same authentication for multiple integrations (e.g., both Assets and Vulnerabilities streams for CrowdStrike), ensure that the provided credentials have all necessary permissions. Missing or insufficient scopes can result in failed authentication or incomplete data ingestion.
+5. Click **Create** to save the authentication.
+
+The newly created authentication appears in the Authentication drop-down menu on the corresponding vendor's data source or outegration setup page. You can reuse an authentication across multiple integrations, as long as it has the required access permissions.
+
+After authentications are created, ongoing management of them are done through the Authentications page. To learn more, see [Managing Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/managing-authentication-data-sources-and-outegrations).
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/configuring-blocked-countries","lastmod":"2024-08-20T16:17Z","nid":"1488041"} -->
 ## Configuring Blocked Countries
 
@@ -15962,251 +16239,145 @@ The Internet & SaaS service automatically creates a profile for your organizatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-07-30T11:20Z","nid":"1541704"} -->
-## Configuring Entity Unification
+<!-- ZS-ARTICLE {"url":"/unified/configuring-custom-dashboards","lastmod":"2026-08-07T02:10Z","nid":"1541899"} -->
+## Configuring Custom Dashboards
 
-- Source: https://help.zscaler.com/unified/configuring-entity-unification
+- Source: https://help.zscaler.com/unified/configuring-custom-dashboards
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Entity Unification
-- Last modified: 2026-07-30T11:20Z
-- Summary: How to configure entity unification rules to merge duplicate records.
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Configuring Custom Dashboards
+- Last modified: 2026-08-07T02:10Z
+- Summary: How to configure custom dashboards and add widgets to the dashboard.
 
-Ingesting data from multiple sources often leads to duplicate records that represent the same real-world entity. As part of the broader data unification process, entity unification focuses on data normalization by identifying and merging these duplicates to establish a single, trusted source of truth. You can create entity unification rules that specify how records are recognized as duplicates and the conditions under which they are merged. This step is especially critical for asset deduplication, and it serves as a foundation for consistent and reliable data across systems. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
+You can create a custom dashboard according to your organization's requirements in the Security Operations Platform (SecOps Platform). These dashboards provide the flexibility to add and customize various widgets as required. You must add at least one widget to configure a new custom dashboard. You can also use predefined dashboard templates to create a custom dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).
 
-## Configuring Entity Unification Rule Sets
+## Creating a Custom Dashboard
 
-An entity's unification rule set is a collection of individual rules designed to cluster duplicate entity records into a single merged entity based on specific conditions according to your organization's business logic. Within an entity unification rule set, you create the individual rules ("if-then" logic statements) that define how the source data should be clustered into a single entity. For example, you can create a rule to merge all Windows assets that share the same asset hostname into a single asset.
+To create a custom dashboard:
 
-For access to entity unification, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-managing-role-permissions) and [Assigning Roles to Users](https://help.zscaler.com/unified/assigning-roles-users).
-See image.
+1. In the SecOps Platform Admin Portal, go to **Explore**> **Dashboards**. See image.
+2. Click **New**. The **Create New Dashboard** window appears.
+3. In the **Create New Dashboard** window: See image. You can also click **Import Template**to upload a dashboard template.
+  1. **Name**: Enter a name for the dashboard.
+  2. **Description**: (Optional) Enter a description for the dashboard.
+  3. **Viewers**: Select the users who can view the dashboard. To keep the dashboard private, leave the **Viewers**drop-down menu blank.
+    - **Public**: Select to grant view access to all users in the account.
+    - **Specific Users**: Select specific users that can view the dashboard.
+  4. **Editors**: Select the users who can edit the dashboard. To keep the dashboard private, leave the **Editors**drop-down menu blank.
+    - **Public**: Select to grant edit access to all users in the account.
+    - **Specific Users:** Select specific users that can edit the dashboard. The edit access overrides the view access.
+  5. **Pin to Apps**: (Optional) Select the application that you want to pin to the dashboard.
+  6. **Tags**: Enter a tag name, or select from existing tags. You can add one or more tags to a dashboard to categorize it.
+4. Click **Create**. The **Create New Widget** page appears.
 
-[Image: The Model Management resource with all permissions enabled]
+[Image: Create New Dashboard window]
 
-To create a unification rule set:
+### Adding Widgets to Dashboards
 
-1. In the SecOps Platform Admin Portal, go to **Configure**> **Data Unification**> **Entities**. See image.
-2. Locate the entity you want to create the unification rule set for, and click **Merge**. See image. The **Merge**page appears.
-3. On the **Merge** page, click **New Rule**. The **Add Merge Rule** drawer opens.
-4. In the **Add Merge Rule** drawer:
-  - **Name**: Enter a name for the rule.
-  - **If**: Define the rule condition that determines which records the rule should apply to. See image.
-    1. Select a field from the drop-down menu on which the condition should be based. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. For example, when creating rules for the **Asset** entity, available fields include **Asset** fields (e.g., **Asset Name**, **Asset ID**), and fields with a relation to the **Asset** entity (e.g., **Application ID**, **Application Name**).
-    2. Select an operator from the drop-down menu. The available operators vary depending on the field type, indicated to the left of the field name.
-    3. Enter the value to which the rule should apply (e.g., `Windows`).
-    4. (Optional) Use **AND**/**OR** logic to define compound rules:
-      - **AND** merges entities only if they meet all conditions in the rule.
-      - **OR** merges entities if they meet any of the conditions in the rule.
-  - **Then**: Select at least one field according to which entities that meet your conditions should be merged. All entities with the same value are merged into a single entity. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. When merging entities based on multiple fields, the fields are evaluated using a logical **AND**relationship. This means that entities are merged only if the values in each of the specified fields match (e.g., the values in the **Asset ID** field must match, and the values in the **Asset Type** field must match for the record to merge). See image.
-  - (Recommended) Select the **Exclude Nulls from Merge** checkbox to avoid merging entities with null values in the defined fields.
-  - Click **Save** to save the rule. Repeat the process to add as many rules as necessary for the entity.
-5. Save the rule set to complete the process in one of the following ways: See image. A rule set that includes at least one conditional merging rule must also include a fallback rule, otherwise the rule set cannot be saved. The fallback rule specifies a single field to use for merging entities without applying any conditions. It ensures a default merging method is always in place, preventing data loss or conflicts.
-  - Click **Save** to save the rule set. Rules will apply the next time data is ingested into your account.
-  - From the **Save** drop-down menu, click **Save & Run** to save the rule set and immediately apply the rules to the data in your account.
+After creating the dashboard, you can add widgets to it by selecting the required [dimensions and measurements](https://help.zscaler.com/unified/understanding-measurements-and-dimensions). The dimension defines how data is grouped in a widget (e.g., by user, tenant, or severity, etc.) and the measurement defines the value to be calculated and displayed in the widget (e.g., count of alerts, number of users, or risk score, etc.).
 
-Your saved rule sets appear on the Data Unification - Entities page, where you can view, edit, and manage them as needed. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification).
+To add widgets to the dashboard:
 
-[Image: How to access the entities page]
+1. In the **Create New Widget**window:
+  1. Select a widget type in the left-side pane (e.g., **Bar**, **Line**, **Pie**). The widget type affects the number of measurements and dimensions you can add to the widget. To learn more, see [Understanding Dashboard Widget Types](https://help.zscaler.com/unified/understanding-dashboard-widget-types).
+  2. In the right pane, replace **Widget Title (Optional)**with a custom title. See image.
+  3. Customize the widget's displayed data, filters, style, and interactions:
+    - Configure the data displayed in the widget.
+    - (Optional) Apply filters to the widget.
+    - (Optional) Set the widget style.
+    - (Optional) Configure the widget drill-down hierarchy.
+  4. (Optional) Enable **Table View**to display the data in a table format.
+  5. Click **Save**to save the widget to the dashboard. To add more widgets, click **Widget**and repeat the process.
+2. Click **Save** in the top right of the page to add the widget to the dashboard.
 
-[Image: Merge button highlighted on entities page]
+[Image: Updating widget title in the dashboard.]
 
-## When Unification Rules Run
+1. On the **Data** tab, select the **Main Entity** type from the drop-down menu.
+2. Add measurements and dimensions to the widget. See image. For example, to create a table widget to monitor the critical identity findings and impacted users across various tenants, you would perform the following steps: Select **Table**as widget type.; On the **Data** tab, select **Tenant**as the**Main Entity** type.; In the **Dimensions**section, select**Tenant ID** and **Tenant Name** to group the data for each tenant.; In the **Measurements**section, select **Critical Active Identity Findings** and **Total Users** to display their total count.; Click **Save**.See image.
+  - Click the **Measurements**icon to view the list of available measurements.
+  - Click the **Dimensions**icon to view the list of available dimensions.
 
-Unification rules run when data related to the entity is ingested, directly processed, or indirectly impacted by a different processed entity. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
-
-## Rule Order in Entity Unification Rule Set
-
-The rules' order of appearance doesn't affect the order of their application. Each data point is evaluated against all rules, even if one rule has already been satisfied.
-
-[Image: Example if conditions in merge rule]
-
-[Image: Example then statements in merge rule]
-
-[Image: Click Save or Save and Run for your ruleset]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-field-unification","lastmod":"2026-07-30T12:18Z","nid":"1541716"} -->
-## Configuring Field Unification
-
-- Source: https://help.zscaler.com/unified/configuring-field-unification
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Field Unification
-- Last modified: 2026-07-30T12:18Z
-- Summary: How to configure field unification rules to resolve attribute conflicts and support data cleansing and enrichment.
-
-Ingesting data from various sources often requires merging duplicate records for the same entity into a single unified record. Following deduplication through [entity unification](https://help.zscaler.com/unified/configuring-entity-unification), the next step is reconciling attribute conflicts and subsequently cleansing and enriching the data. The platform's unification capabilities transform your data into a single, trusted source of truth.
-
-On initial account setup, all deduplicated fields in your account are populated with [default values](https://help.zscaler.com/unified/attribute-reconciliation-default-functions), implementing unification best practices. These default values can then be customized to increase workflow efficiency and reduce time to remediate, allowing your team to quickly and effectively resolve issues.
-
-The following are two common use cases for configuring field unification:
-
-- Classifying assignment and ownership fields: Define asset ownership and ticket assignment rules that reflect your organization's business logic. Relevant fields to configure include Asset Owner ID and Ticket Assignee.
-- Enriching field attributes (using tags): Automate the extraction of relevant attributes from tags, which are often manually entered, lack standardization, and are not easily accessible from all sources. Relevant fields to configure include Asset Is Crown Jewel and Asset Business Criticality.
-
-## Configuring Field Unification Rule Sets
-
-A field's unification rule set is a collection of individual rules designed to populate the field with customized values based on specific conditions according to your organization's business logic. Within a field unification rule set, you create individual rules that define how the source values should be reconciled into a single value under different conditions. For example, you can create a rule to populate the Ticket Assignee field based on the Asset Type value of the assets in the ticket.
-
-Every rule set includes a rule that specifies a default fallback value with no conditional logic. This ensures that there is always a default method for populating the field, preventing potential data conflicts or loss. The fallback rule can be edited, but can't be removed or deleted.
-
-For access to field unification, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-managing-role-permissions) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles). 
-See image.
-
-[Image: The Model Management resource with all permissions enabled]
-
-To create a unification rule set:
-
-1. In the SecOps Platform Admin Portal, go to **Configure** > **Data Unification** > **Fields**. See image. [Image: How to access the Fields page]
-2. Click **New Rule Set**.
-3. Select the field for which you want to create a new rule set. See image. [Image: Fields listed when creating a new rule set]
-4. Select a **Rule Set Type**: See image. [Image: Rule Set Type section highlighted]
-  - **Conditions**: This rule set type is the default, and it's available for fields of all entity types. Using conditions, you can define how to transform and enrich field values.
-  - **Priority By Source**: This rule set type is designed to allow attribute reconciliation to be prioritized by source in place of the default logic. Using this type, you can specify the order of source precedence, so that field values from higher priority sources take precedence over those from lower priority sources. For example, you can prioritize your Configuration Management Database (CMDB) as the highest priority source to populate the Asset Owner ID field. This rule set type is not available for Ticket fields.
-5. Click **New Rule**. The **Create Unification Rule** or the **Priority By Source Rule**drawer opens.
-6. Create a rule in one of the following ways:
-  - In the **Create Unification Rule**drawer: The configured value populates the field when the rule's conditions are met.
-    1. **Name**: Enter a name for the rule.
-    2. **IF**: Define the rule condition that determines which records the rule should apply to. For advanced filtering, click the **Expressions**tab and enter a value**.** See image. [Image: Choose whether the IF statement uses conditions or expressions.]
-      1. Select a field that the condition should be based on. Available fields include entity fields and all fields with a relation to the entity.
-      2. Select an operator (e.g., **Equals**, **Contains**). Available operators vary depending on the field type, indicated to the left of the field name.
-      3. Enter the value that the rule should apply to. Field unification conditions are not case sensitive.
-      4. (Optional) Use **AND**/**OR** logic to define compound rules.
-        1. **AND** populates the field only if the field meets all conditions in the rule.
-        2. **OR** populates the field if the field meets any of the conditions in the rule.
-    3. **Set <field> as**: Select one of the following methods to set the field's value. Available options vary depending on the field type. Set the field value to one of the options in the drop-down menu (i.e., **True**, **False**, or **Not defined**). For example, when configuring field unification for the Asset Is Crown Jewel field, in the **Set Asset Is Crown Jewel as**section, you can set the value to **True**if the Asset Owner ID includes Management or if its Tags include Crown Jewel, or you can set it to **False**if it doesn't. See image. The **Value**option is available for Boolean fields only. Select a field from the drop-down menu to populate the value of the current field when the rule conditions are met. For example, you can populate the Ticket Assignee field with the value of Asset Owner ID if Application Name contains Adobe. See image. Use a combination of free text and field names as tokens to set the field's value. For example, when populating the Ticket Assignee field, you can dynamically enter the name of the team based on the business application associated with the ticket. To add fields as tokens, enter the field name within double curly brackets. The field's display name automatically translates to the field'ssystem name (e.g., Application Name appears as `application.name`). See image. The **Smart Text**option is available for Text fields only. Set a field's value using an expression to apply custom value transformations and standardize formats. For example, extract asset tags to populate Asset Business Criticality and Asset Is Crown Jewel fields. Supported functions, operators, and references, along with examples, are displayed when you click the Expression text box. See image. Select this option to leave a field blank when the rule conditions are met. The **Empty**option is commonly used for the Ticket Assignee field to ensure that the field remains unpopulated if no rule conditions are satisfied. Empty Ticket Assignee values are automatically populated with the No Assignee value, which helps identify the need for manual assignment. See image.
-      - Value
-      - Field
-      - Smart Text
-      - Expression
-      - Empty
-  - In the **Priority By Source Rule** drawer: Priority by Source rules are evaluated in the order defined and returns the first non-null value.
-    1. Click the **Select Source**drop-down menu.
-    2. Select the source you want the rule to evaluate for the field value. For example, you might select CrowdStrike Alerts as the first source to look at for an Alert Title value if its value would be closest aligned to your policies.
-    3. From the source field drop-down menu, select the field to retrieve the value from. See image. [Image: Field drop-down menu highlighted]
-    4. (Optional) Click **Add Source** to add another source and repeat the steps as necessary. If the previous source does not provide a value for the selected field, the rule proceeds to evaluate the next source in the priority order.
-    5. Enable **Set result using expression**to transform the returned value. For example, if a source returns an abbreviated value such as `Sev 1`, you can use an expression to standardize it to `Severity 1` for consistency.
-7. Click **Add** to add the rule to the rule set. See image. [Image: Add button]
-8. Click **Expand to load preview** to test the rule. A preview of the top 50 entities appears. See image. [Image: Load preview]
-9. Use the filters and field selection to refine the previewed data and ensure the rule functions correctly. See image. [Image: Preview for top 50 entries]
-10. Save the rule set to complete the process in one of the following ways: Your saved rule sets appear on the Data Unification - Fields page, where you can view, edit, and manage them as needed. To learn more, see [Managing Field Unification](https://help.zscaler.com/unified/managing-field-unification).
-  - Click **Save** to save the rule set. Rules will apply the next time data is ingested into your account.
-  - From the **Save** drop-down menu, click **Save & Run** to save the rule set and immediately rerun the rules for the current entity and all entities with a relation to the current entity. A full rerun of all entities occurs on the next data run. See image. [Image: Click Save or Save and Run for your ruleset]
-
-[Image: Example ticket with no assignee]
-
-[Image: Set value as boolean value]
-
-[Image: Set value as a dynamic field value]
-
-[Image: Set value with smart text]
-
-[Image: Create expressions using the available operations and fields]
-
-## When Unification Rules Run
-
-Unification rules run when data related to the entity is ingested, directly processed, or indirectly impacted by processed entities. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
-
-## Rule Order in Field Unification Rule Set
-
-The rules within a field unification rule set are run sequentially by their order of appearance. A field is unified according to the first rule that applies to it. If no rule applies to the field, it's unified by the default fallback rule. You can adjust the rule order by dragging them to your desired location. After rearranging the rule order, click **Save**to apply your changes.
+The selected measurements and dimensions appear in the left-side pane, you can drag and rearrange them to the desired position.
 
 See image.
 
-[Image: Drag and drop rules to change their order in the ruleset]
+[Image: Measurements icon and Dimensions icon]
 
-## Field Unification Examples
+[Image: Rearrange measurements and dimensions]
 
-The following examples illustrate different types of field unification rules you can create to resolve attribute conflicts and support data cleansing and enrichment. Each example highlights a specific use case and demonstrates rule configurations to address it.
+[Image: Example of creating a new widget for tenant.]
 
-- Asset Owner ID
-- Ticket Assignee
-- Asset Business Criticality
+On the **Filters** tab, select filters to display specific data in the widgets:
 
-Associate assets with their owners by configuring asset ownership rules. You can configure a rule set for the Asset Owner ID field and use Priority By Source to set the order of source precedence for your asset sources, so the most trusted sources take priority.
+- Date
+- Sort & Top
+- Conditions Filters
 
-See image.
+To set the date, select either of the following options for **Timeframe**:
 
-[Image: Select and order which sources to prioritize in the rule set]
-
-For example, if your CMDB (e.g., ServiceNow) is the most reliable source for application owner information, you can prioritize its data over other sources, ensuring that the owner values it reports are used.
-
-Automate ticket assignment by routing tickets to the correct owner or team based on the assets they contain. You can create rules for the Ticket Assignee field that define your organization's assignment logic.
-
-The following rules show examples for the Ticket Assignee field.
-
-### Rule 1: Network Assets
-
-Create a rule to automatically assign tickets requiring expertise in Firewalls and Load Balancers to the Networking Team.
+- **Current**: Select to generate a widget based on current data.
+- **Historical**: Select to generate a widget based on historical data in the selected date range.
+  - In the **Date range** drop-down menu, select the range of the data that the widget should display. You can choose either a fixed range (e.g., **Last 30 Days**) or a dynamic range that updates based on the current date.
+  - (Optional) In the **Break down by**drop-down menu, select a time interval to set a time-based granularity (e.g., **Day**, **Week**, or **Month**). This selection adds a time dimension to the widget, which counts toward the total number of dimensions. If you do not select anything in the **Break down by**drop-down menu, the widget does not include a time dimension.
 
 See image.
 
-[Image: Tickets that have certain asset types are assigned to the networking team.]
+[Image: Configure the time range of a dimension]
 
-Rule Configuration: If the Assets in the ticket include Firewalls or Load Balancers (conditions), then assign the ticket to the Networking Team (action).
+To sort and reorder the data:
 
-This translates to the rule logic:
+- **Sort by**: Select the measurement or dimension to sort the data.
+- **Order**: Set the display order of data to either descending or ascending.
+- **Show Top**: Select the maximum number of values that the widget should display (e.g., if you enter 100, the widget displays a maximum of 100 values). Select the **Group Others** checkbox to group the remaining results into one group called **Other**.
+- **Exclude zero values**: Enable to exclude the zero values to be displayed in the widget.
 
-- IF Asset Type = `Firewall` OR Asset Type = `Load Balancer`
-- THEN Set Ticket Assignee as `Networking Team`
+To apply condition filters:
 
-### Rule 2: Cloud Owners
+1. **Filter Evaluation Time**: If you selected **Historical**for the **Timeframe**setting, this drop-down menu appears. Select **Current State** to filter data by its current state, or select **Historical State** to filter data by the time of its query.
+2. **Select Field**: Select the field you want to filter from the drop-down menu.
+3. **Select Operator**: Select an operator. The available operators vary depending on the selected field type.
+4. **Type Value**: Enter the field value against which the filter is evaluated.
 
-Create a rule to automatically assign tickets related to AWS Cloud assets to their respective individual service owners.
-
-See image.
-
-[Image: Cloud asset owners are assigned to cloud tickets]
-
-Rule Configuration: If the Asset Domain contains AWS (condition), then assign the ticket to the asset owner using the value in the Asset Owner ID field (action).
-
-This translates to the rule logic:
-
-- IF Asset Domain contains `AWS`
-- THEN Set Ticket Assignee as `Asset Owner ID` (dynamically retrieved from the Asset Owner ID field)
-
-Isolate and extract the criticality level of your assets from asset tags to inform the risk level of each asset in your organization. You can create rules for the Asset Business Criticality field using an Expression to extract criticality information from Asset Tags.
+Use the operators (**AND**, **OR**) and repeat this process to add multiple conditions filters to the widget. To remove a filter condition, click the **Delete** icon located to the right of the condition. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
 
 See image.
 
-[Image: Assets are assigned a certain criticality from their tags]
+[Image: Filters conditions]
 
-Rule Configuration: If the Asset Tags contain the criticality tag (condition), then extract the criticality tag value to populate the Asset Business Criticality field (action).
+On the **Style** tab, you can determine how the data is displayed in the widget.
 
-This translates to the rule logic:
+For example, you can configure the legend display for pie charts. The available options include:
 
-- IF Asset Tags Contains (Any) criticality
-- THEN Set Asset Business Criticality as Expression: `extract(extract(textJoin("@",{{asset.tags}}),"CRITICALITY: ", 1),"@",0`
+- **Table**: Displays the legend in a tabular format. See image.
+- **Aside**: Displays the legend in lines extending from each chart segment. See image.
+- **Basic**: Displays dimension values above the chart and measurement values when hovering over a segment. See image.
+- **Off**: Hides the legend.
 
-So if the Asset Tags field is populated by:
+For the **Table** and **Aside** options, you can enable or disable **Show Values** and **Show Percentage** to control the display of corresponding measurements.
 
-`[" CRITICALITY: CRITICAL","CROWN JEWEL: Yes"]`
+See image.
 
-The expression works by:
+Apply formatting rules to set color-coded thresholds for measurements and dimensions, providing clear visual indicators in widgets.
 
-- `textJoin`: Joining all asset tags into a single string separated by the `@` delimiter.
-- Inner `extract`: Finding the first occurrence of the criticality tag within that string.
-- Outer `extract`: Extracting the value associated with the criticality tag, stopping at the first `@` delimiter (`0`).
-<!-- /ZS-ARTICLE -->
+[Image: Table style for a chart legend]
 
----
+[Image: Aside legend for table data]
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-private-access-tenant","lastmod":"2026-02-11T06:40Z","nid":"1490856"} -->
-## Configuring the Private Access Tenant
+[Image: Basic legend and hover data for a chart]
 
-- Source: https://help.zscaler.com/unified/configuring-private-access-tenant
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Account Management > Configuring the Private Access Tenant
-- Last modified: 2026-02-11T06:40Z
-- Summary: How to configure your organization's Private Access Tenant within the Admin Portal.
+[Image: Style tab Legend options]
 
-To configure your Private Access Tenant:
+On the **Interactions** tab, you can add additional settings that allow you to click elements in the widget to view data at a more granular level.
 
-1. Go to **Administration**> **Private Access Tenant**.
-2. On the **Company**page:
-  - **Logo**: Click **Select Image** to upload your organization's logo. You can upload any valid image file type that is 300x150 pixels or smaller. Your organization's logo is shown on the user portal and Privileged Remote Access (PRA) Portal. To learn more, see [About User Portals](https://help.zscaler.com/zpa/about-user-portals) and [Accessing a Privileged Remote Access Portal](https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal).
-  - **Name**: Enter the name of your organization. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
-  - **Tenant ID**: The ID of your organization’s Private Applications (ZPA) tenant. This field cannot be edited.
-  - **Favicon**: Click Select Image to upload your organization's favicon. You can upload an image with a valid image file type that is 32x32 pixels or smaller. After the favicon is successfully uploaded, it appears on the page. The favicon appears as the icon on a user portal browser tab, the PRA Portal browser tab, and privileged console browser tabs.
-3. Click **Save**.
+A drill-down hierarchy is available for **Bar**, **Pie**, and **Table** widgets that are configured with exactly one dimension.
+
+To set up a drill-down hierarchy:
+
+1. Click the **Interactions** tab. See image.
+2. Click **Add Level** to add the next dimension in the drill-down hierarchy. You can add up to three drill-down levels.
+
+After the drill-down hierarchy is configured, you can click the widget to drill down into the next level.
+
+[Image: Interactions tab]
+
+[Image: All Dashboards page in Security Operations platform]
 <!-- /ZS-ARTICLE -->

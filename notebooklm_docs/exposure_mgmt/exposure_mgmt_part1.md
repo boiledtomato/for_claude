@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
-Articles in this file: 182
+Generated: 2026-08-10 01:47 UTC
+Articles in this file: 193
 
 ---
 
@@ -282,165 +282,6 @@ To learn more about each component, see the following:
 Click the **App Menu**icon to access SecOps applications included in your license, such as Unified Vulnerability Management (UVM) and Asset Exposure Management (AEM).
 
 To pin an app to the top navigation bar, click the **App Menu** icon, then click the **Add to Favorite** icon ([Image: app menu add to favorite star icon]) next to the app.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/assigning-content-permissions","lastmod":"2025-11-04T11:13Z","nid":"1532930"} -->
-## Assigning Content Permissions
-
-- Source: https://help.zscaler.com/aem/assigning-content-permissions
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Assigning Content Permissions
-- Last modified: 2025-11-04T11:13Z
-- Summary: How to assign content permissions to users.
-
-Content permissions control access to data within the platform. To create content permission sets, see [Creating & Managing Content Permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions). After [creating users](https://help.zscaler.com/uvm/creating-managing-users) in your account, you can assign content permissions to define the data they can access.
-
-Content permissions can only be assigned after a user is created and saved.
-
-## Assigning Content Permissions to Users
-
-To assign content permission sets to a single user:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Hover over the user, and click the **Edit** icon. The **Edit User** page appears.
-4. In the **Content Permissions** section, select the role permission sets you want to assign from the drop-down menu. To learn more, see [Creating & Managing Content Permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions).
-5. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
-
-To assign content permissions to multiple users:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Select users from the list.
-4. Click **Edit Permission Sets** at the top of the page. See image.
-5. Click **Add Permission Set/s**.
-6. Select the permission sets you want to assign to the selected users.
-7. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
-
-## Removing Content Permission Sets
-
-Removing content permission sets from users removes their access limit from the defined data. That means they'll no longer be limited to viewing only the data configured in the permission set.
-
-To remove a single user's content permissions:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Hover over the user and click the **Edit** icon. The **Edit User** page appears.
-4. In the **Content Permissions** section, select the role permission sets you want to remove from the drop-down menu.
-5. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
-
-To remove multiple users' content permissions:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Select the users from the list.
-4. Click **Edit Permission Sets** at the top of the page. See image.
-5. Click **Remove Permission Set/s**.
-6. Select the permission sets you want to remove from the selected users.
-7. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/building-queries-and-searching-logs","lastmod":"2025-11-11T14:26Z","nid":"1533683"} -->
-## Building Queries and Searching Logs
-
-- Source: https://help.zscaler.com/aem/building-queries-and-searching-logs
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Data Exploration > Building Queries and Searching Logs
-- Last modified: 2025-11-11T14:26Z
-- Summary: How to build queries and search for logs in the SecOps platform.
-
-You can search logs to view data collected by the Zscaler Security Operations (SecOps) platform before it's processed and analyzed. This helps you to understand the raw data that's pulled from connected sources and subsequently pushed into the data model. You can search logs by building and using queries.
-
-## Building a Query
-
-To create a query using the basic query builder:
-
-1. In the SecOps platform, go to **Explore > Logs**. [Image: Build a basic query to search the logs] If you have not previously created a query, you can select from a list of prebuilt queries to get started. You can also select a saved query from the Queries Library. See image.
-2. Click the **+** icon to add a new query. A new query tab appears.
-3. Click the **Search Logs** box to open the query builder. [Image: Build a query]
-4. Select a field or enter a field name manually.
-5. Select an operator (e.g., **Equals**, **Contains**, **Starts With**, etc.).
-6. Enter or select the value you want to filter by.
-7. (Optional) Use **AND** or **OR** operators to add conditions to the query.
-8. (Optional) Click **Save**to save your query.
-9. Click **Search**. Log data appears.
-10. Use the time filter to filter results to a specific time frame. To learn more, see [Using Filters](https://help.zscaler.com/uvm/using-filters). The selected time frame is not saved as part of the query, and must be configured for every result.
-
-Click **Export as CSV** at the top right of the logs table to export the data as a CSV file.
-See image.
-
-[Image: Select a prebuilt query to search for the logs]
-
-[Image: Export logs as CSV]
-
-To create an advanced query, you can use QL syntax in the advanced query editor. Click **Advanced**and enter values as necessary.
-
-[Image: Build an advanced query]
-
-The basic query builder and the advanced query editor are completely independent, even when they are within the same query. If you make changes to one, the other remains unchanged.
-
-### Adding a Query to the Queries Library
-
-You can save queries and add them to the Queries Library for quick access.
-
-To add a query to the Queries Library:
-
-1. Click **Save**at the top right of the page. [Image: Save the created query] The **Edit Detail** page appears.
-2. Enter a name for the query.
-3. Click **Save**. The query is saved to the library. [Image: View all the saved queries]
-
-Use the **Save As New** option to save a modified version of the current query to your library.
-[Image: Save a modified version of the query to the library]
-
-Click **Library** to access your saved queries.
-[Image: Click Library to access saved queries]
-
-## Searching Logs
-
-After you configure and run your query, a Logs table appears. Click a log in the table to open its drawer. You can search within the log using the search field, and copy the log using the Copy icon in the top-right corner of the drawer.
-[Image: Search for the logs]
-
-Hover over a field in the drawer to display the following icons:
-
-- **Breakdown By Field**: Use the selected field as the breakdown by field in the pie chart pane.
-- **Exclude**: Add a Not Equal filter to the query builder to return all logs for which the field's value is different from the value of the current log.
-- **Add to Search**: Add a filter to the basic query builder to return all logs for which the field's value is equal to the value in the current log.
-- **Add/Remove Column**: Add or remove a column in the log table.
-- **Copy Value**: Copy the value of the field.
-
-## Analyzing the Data
-
-You can filter and analyze the retrieved log data using the Time Series chart or a pie chart.
-
-### Time Series Chart
-
-The Time Series chart shows the number of logs (on the y-axis) that match the query conditions, retrieved from your sources within the time frame selected in the time filter.
-
-[Image: Number of logs that match the query conditions on the Time Series chart]
-
-You can click and drag the time filter to select a portion of the chart to define your desired time frame. This updates the table view as shown in the following image.
-
-[Image: Click and drag the time filter to view an updated view based on the desired time frame]
-
-The selected time filter is not saved as part of the query, and must be configured each time.
-
-### Pie Chart
-
-The pie chart displays all logs filtered by your query. Use the**Breakdown by** drop-down menu to select the field you want the logs to be grouped in, and the number of top values you want to be presented in the legend.
-
-[Image: Logs filtered by the query displayed on the Pie Chart]
-
-Select any number of slices to filter by their value. This also adds your selection as a filter in the table of logs.
-
-[Image: Filter the pie chart by the selected value]
-
-To remove a value from the filter created by the pie chart, deselect the slice on the chart itself or click the remove slicericon under the chart.
-
-[Image: Deselect a slice using the Remove Slicer icon in the Pie Chart]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -728,48 +569,6 @@ In the **Policy Violation Findings**section, set the title and description of th
 3. Repeat this procedure for the **Description** box.
 
 [Image: policy title description text editor]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-authentications","lastmod":"2025-11-10T12:57Z","nid":"1533646"} -->
-## Configuring Authentications
-
-- Source: https://help.zscaler.com/aem/configuring-authentications
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Authentications > Configuring Authentications
-- Last modified: 2025-11-10T12:57Z
-- Summary: How to configure API authentications for connecting data sources and outegrations.
-
-The Zscaler Security Operations (SecOps) platform supports integration with a wide variety of third-party tools and services, and enables secure data exchange such as retrieving findings from external scanners or sending tickets to work management systems. To connect these tools, you must first configure API authentications. Authentication ensures the SecOps platform can access external resources using valid credentials with the necessary permissions, supporting uninterrupted automation and continuous data flow.
-
-You can create a new authentication during the setup of a [data source](https://help.zscaler.com/uvm/creating-data-sources) or [outegration](https://help.zscaler.com/uvm/creating-outegrations), or directly from the Authentications page.
-
-- When setting up a source, the Authentication drop-down menu appears in the Retrieval section. See image.
-- When configuring an outegration, the Authentication drop-down menu appears in the Details section of the Connect step. See image.
-
-[Image: Authentication dropdown in source setup page with CrowdStrike options]
-
-## Creating Authentications
-
-Before creating a new authentication, check whether a valid authentication method already exists for the third-party data source or outegration you plan to integrate.
-
-For access to Authentications, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Authentications resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users). 
-See image.
-
-To create an authentication:
-
-1. Go to **Configure**>**Authentications**. A list of all existing authentications appears.
-2. Click **Create**to add a new authentication.
-3. Select the vendor for which you want to configure authentication. You can also search for a vendor in the search field. The <Vendor Name> **Authentication** window appears.
-4. In the <Vendor Name> **Authentication** window:
-  1. **Name**: Enter an informativename for your authentication. This is the name displayed on the integration setup page, so it should clearly identify the specific authentication instance for the selected vendor. For example, enter `CrowdStrike Vulnerabilities` when creating an authentication for CrowdStrike to be used in the Vulnerabilities stream.
-  2. **Credentials**: Enter the required credentialsfor the API authentication. Each source or outegration has its own unique set of required parameters that must carry the appropriate scopes and permissions to ensure successful integration. Each vendor requires specific parameters with appropriate scopes and permissions. Refer to the vendor's [Sources Configuration Guide](https://help.zscaler.com/uvm/administration/connectors/sources/source-configuration-guides) or [Outegration Configuration Guide](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides) for the exact requirements. If you plan to use the same authentication for multiple integrations (e.g., both Assets and Vulnerabilities streams for CrowdStrike), ensure that the provided credentials have all necessary permissions. Missing or insufficient scopes can result in failed authentication or incomplete data ingestion.
-5. Click **Create** to save the authentication.
-
-The newly created authentication appears in the Authentication drop-down menu on the corresponding vendor's data source or outegration setup page. You can reuse an authentication across multiple integrations, as long as it has the required access permissions.
-
-After authentications are created, ongoing management of them are done through the Authentications page. To learn more, see [Managing Authentications](https://help.zscaler.com/uvm/managing-authentications).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1163,173 +962,6 @@ After your webhook is set up, configured triggers for field updates in your Azur
 [Image: Select and configure the action to perform on the Action page]
 
 [Image: Shows the project settings page in the Azure DevOps portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-custom-dashboards","lastmod":"2026-03-16T07:06Z","nid":"1533676"} -->
-## Configuring Custom Dashboards
-
-- Source: https://help.zscaler.com/aem/configuring-custom-dashboards
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Configuring Custom Dashboards
-- Last modified: 2026-03-16T07:06Z
-- Summary: How to configure custom dashboards, including adding and configuring widgets in the dashboard.
-
-Custom dashboards allow you to organize and display relevant data in a way that is meaningful to your organization. While the platform comes equipped with built-in dashboards that provide powerful and ready-to-use insights, custom dashboards give you the flexibility to tailor your view, selecting specific measurements and dimensions that matter most to you. This article provides step-by-step instructions on how to create and configure custom dashboards. For details on how to manage existing dashboards, see [Managing Custom Dashboards](https://help.zscaler.com/uvm/managing-custom-dashbords).
-
-## Creating a Custom Dashboard
-
-You can create a custom dashboard from scratch or start with a preconfigured template. In the Zscaler Security Operations (SecOps) platform, go to Explore > Dashboards > Template Gallery to browse and select from a variety of dashboard templates.
-
-To create a custom dashboard:
-
-1. Go to **Explore** > **Dashboards**. A list of the private and public dashboards that you have access to appears. See image.
-2. Click **New**. The **Create New Dashboard** window appears.
-3. In the **Create New Dashboard** window: See image.
-  1. **Name**: Enter a unique name for the dashboard.
-  2. **Description**: (Optional) Enter a short description of the dashboard’s purpose.
-  3. **Viewers**: Set the dashboard's viewer access. To set the dashboard as private and only visible to you, leave the **Viewers** drop-down menu blank.
-    1. **Public**: Select this option to grant view access to all users in the account.
-    2. **Selected Users**: Select users from the list to set them as viewers of the dashboard.
-  4. **Editors**: Set the dashboard's editor access. To set the dashboard as private and editable only by you, leave the **Editors** drop-down menu blank.
-    1. **Public**: Select this option to grant edit access to all users in the account.
-    2. **Selected Users:** Select users from the list to set them as editors of the dashboard. Users designated as editors override the **Viewers** setting.
-  5. **Pin to Apps**: (Optional) Select the application to which you want to pin the dashboard. This allows you to easily find the dashboard under **My Dashboards** on the app.
-4. Click **Create**. The **Create New Widget** page appears, and you can start adding widgets to visualize your data.
-
-[Image: All Dashboards page]
-
-[Image: Create New Dashboard window]
-
-## Adding Widgets to Dashboards
-
-Each custom dashboard is made up of dynamic widgets that you can drag and drop into a layout that fits your needs. Widgets can be configured to display the measurements and dimensions most relevant to you. As you configure a widget, a live preview appears to the right of the settings panel, allowing you to track and review changes in real time.
-
-To configure widgets in a dashboard:
-
-1. Click the **Edit**icon for an existing dashboard.
-2. Click the **Edit Dashboard**icon at the top of the page, and then click **Widget**. See image. The **Create New Widget**window appears.
-3. In the **Create New Widget**window:
-  1. Select a widget type in the left pane (e.g., **Bar**, **Line**, **Pie**). The widget type affects the number of measurements and dimensions you can add to the widget.
-  2. In the right pane, replace **Widget Title (Optional)**with a custom title.
-  3. On the **Filters** tab, select a **Timeframe** option: See image.
-    - **Current**: Shows the current data. This is the default setting.
-    - **Historical**: Select to track over-time behavior in your organization. Specify the desired date range.
-  4. Customize the widget's displayed data, filters, style, and interactivity.
-    - Configure the data displayed in the widget.
-    - (Optional) Apply filters to the widget.
-    - (Optional) Set the widget style.
-    - (Optional) Configure the widget drilldown.
-  5. (Optional) Enable **Table View**to display the data in a table format.
-  6. Click **Save** on the bottom right of the widget to save your widget.
-4. Click **Save** on the top right of the dashboard to add the widget to the dashboard.
-
-You can repeat this process to add as many widgets as needed.
-
-[Image: Edit a dashboard widget]
-
-[Image: Timeframe filter options]
-
-On the **Data** tab:
-
-1. Select the **Main Entity** type. Measurements and dimensions are dynamically displayed based on the selected entity type.
-2. Add measurements and dimensions to the widget. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions). See image.
-  - Click the **Measurements**icon to view the list of available measurements.
-  - Click the **Dimensions**icon to view the list of available dimensions.
-
-The selected measurements and dimensions appear in the left pane, where you can rearrange them by dragging them to the desired position.
-
-See image.
-
-[Image: Measurements icon and Dimensions icon]
-
-[Image: Rearrange measurements and dimensions]
-
-On the **Filters** tab, customize and refine the data displayed and the way in which it's displayed, including date filtering, sorting and ordering, limiting the display to top results, and applying specific filter conditions.
-
-- Date
-- Sort & Top
-- Conditions Filters
-
-When creating historical widgets, you can set date filters for the timeframe and granularity that your widget should display.
-
-1. On the **Filters**tab, select **Historical** for the **Timeframe** setting. Switching to the historical data type might remove some of the selected measurements or dimensions that are not supported in historical mode.
-2. In the **Date Range** drop-down menu, select the range of the data that the widget should display. You can choose either a fixed range (e.g., **Last 30 Days**) or a dynamic range that updates based on the current date. To learn more, see [Using Filters](https://help.zscaler.com/uvm/operational-views-filters).
-3. (Optional) In the **Break down by**drop-down menu, select a time interval to set a time-based granularity (e.g., **Day**, **Week**, or **Month**). This selection adds a time dimension to your widget, which counts toward the total number of dimensions. If you do not make a selection for **Break down by**, the widget will not include a time dimension. See image.
-
-[Image: Configure the time range of a dimension]
-
-To configure the sorting and ordering of the data included in the widget, do the following:
-
-- **Sort By**: Select the measurement or dimension for sorting the data in the widget. If the widget includes a measurement, the measurement is used as the default for sorting.
-- **Order**: Set the data's display order to either descending (down arrow) or ascending (up arrow).
-- **Show Top**: Select the maximum number of values that the widget should display. Select the **Group Others** checkbox to group the remaining results into one segment titled **Other**.
-- **Exclude Zero Values**: Set whether empty values should be displayed or excluded from the widget display.
-
-To apply condition filters:
-
-1. **Select Field**: Select the field you want to filter by from the drop-down menu.
-2. **Select Operator**: Select an operator that defines the relationship between the field and its value. The available operators vary depending on the selected field type. Repeated field filters include **All** and **Any** operators that you can use to evaluate multiple values within a single field. To learn more, see [Using Filters](https://help.zscaler.com/uvm/filtering-operational-views).
-3. **Type Value**: Enter the field value against which the filter is evaluated.
-
-Use the **AND**/**OR** operators and repeat this process to add multiple condition filters to your widget. For example, you can add a condition to your widget, filtering to include only active tickets assigned to teams with either R&D or DEV in their name.
-
-See image.
-
-To remove a filter condition, click the **Delete** icon located to the right of the condition.
-
-[Image: Filters conditions]
-
-On the **Style** tab, you can determine how the data is displayed within the widget.
-
-For example, you can configure the legend display for pie charts. The available options include:
-
-- **Table**: Displays the legend in a tabular format adjacent to the chart. See image.
-- **Aside**: Displays the legend in lines extending from each chart segment. See image.
-- **Basic**: Displays dimension values above the chart and measurement values when hovering over a segment. See image.
-- **Off**: Hides the legend entirely.
-
-For the **Table** and **Aside** options, you can enable or disable **Show Values** and **Show Percentage** to control the display of corresponding measurements.
-
-See image.
-
-Enable **Show Totals** to display aggregated totals, where applicable.
-
-Apply formatting rules to set color-coded thresholds for measurements and dimensions, providing clear visual indicators in widgets. To learn more, see [Creating Formatting Rules](https://help.zscaler.com/uvm/creating-formatting-rules).
-
-[Image: Table style for a chart legend]
-
-[Image: Aside legend for table data]
-
-[Image: Basic legend and hover data for a chart]
-
-[Image: Style tab Legend options]
-
-On the **Interactions** tab, you can configure drill down interactivity, which allows you to explore data at a more granular level by clicking elements in a widget to reveal additional dimensions.
-
-Drilldown is available for **Bar**, **Pie**, and **Table** widgets that are configured with exactly one dimension.
-
-To set up a drilldown hierarchy in your widget:
-
-1. Click the **Interactions** tab. See image.
-2. Click **Add Level** to add the next dimension in the drill down hierarchy. You can add up to three drill down levels.
-
-After the drill down hierarchy is configured, clicking a segment within the widget reveals the interactions menu, where you can either view items or drill down into the next level. To learn more, see [Viewing Items in a Widget Segment](https://help.zscaler.com/uvm/viewing-items-widget-segment).
-
-When drilling down, the widget updates to display the data broken down by the next defined dimension. You can navigate back up the hierarchy using the breadcrumbs bar at the top of the widget.
-
-[Image: Interactions tab]
-
-After adding widgets, you can apply dashboard-wide filters using the filter bar in the top-left corner of the dashboard view.
-
-Saved dashboards appear on the Dashboards page, where they can be accessed in View Dashboard mode with all applied configurations.
-
-See image.
-
-To view existing filters for a widget, hover over the Filter icon. When editing a dashboard, you can click the Filter icon to open the widget configuration page, where you can edit the applied filters.
-
-[Image: View Dashboard icon and Filter icon]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3778,266 +3410,6 @@ To configure automated rules for creating third-party work management items and 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/configuring-zscaler-secops-platform-gateway","lastmod":"2025-10-31T13:46Z","nid":"1532877"} -->
-## Configuring the Zscaler SecOps Platform Gateway
-
-- Source: https://help.zscaler.com/aem/configuring-zscaler-secops-platform-gateway
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring the Zscaler SecOps Platform Gateway
-- Last modified: 2025-10-31T13:46Z
-- Summary: How to configure the Zscaler SecOps platform gateway to connect on-prem sources and outegrations.
-
-The Zscaler Security Operations (SecOps) platform supports connecting on-premises outegrations and data sources through the Zscaler gateway at the account level, allowing for seamless onboarding of customers with on-premises installations for their vendors. In this guide, the resource you intend to connect is referred to as the on-premises service. The objective is to make the on-premises service accessible through the SecOps platform. This article outlines a recommended setup using a virtual machine (VM).
-
-The SecOps gateway setup process begins with creating a VM and generating a public SSH key. You then share the public key along with the VM's public IP address and gateway IP addresses with Zscaler. Using this information, Zscaler creates a representative VM instance and notifies you when the setup is complete. You then establish a reverse SSH tunnel and inform Zscaler. Upon confirmation, Zscaler completes the gateway configuration and notifies you. At this point, the Zscaler gateway is fully operational and ready for use.
-
-[Image: Architecture of the Zscaler gateway configuration]
-
-You should receive this guide and the zscaler-gateway.sh script file after communication with Zscaler Support. If you have not received the script, contact Zscaler Support or your Zscaler Account team for assistance with setting up a gateway for your account.
-
-## Using the Zscaler Gateway
-
-The Zscaler gateway is used in one of the following configuration processes:
-
-- When [creating a data source](https://help.zscaler.com/uvm/creating-data-sources), select the relevant gateway in the Retrieval section of the source setup page.
-- When [configuring the Jira Data Center outegration](https://help.zscaler.com/uvm/configuring-jira-outegration), select the relevant gateway in the Details section.
-
-## Prerequisites
-
-For this setup, you must create or use a VM dedicated to running a reverse SSH tunnel. Do not use your local computer.
-
-Ensure that you have the following requirements for the VM:
-
-- Connectivity:Deploy the instance in a private subnet with a dedicated virtual network interface (vNIC) for secure communication within the private network. Ensure that the on-premises service is accessible from the VM you intend to use. It is crucial to test this connectivity before proceeding.
-- Operating System:Your VM should be set up with one of the supported Linuxdistributions:
-  - Ubuntu
-  - Red Hat Enterprise Linux (RHEL)
-  - Centos
-  - Amazon-Linux
-- Instance Specification:
-  - Use small instance types with at least 2 vCPUs and 4 GB of RAM.
-  - The instance size should be flexible and might vary based on traffic patterns. Ensure the chosen instance type supports scalability (both vertical and horizontal scaling) to handle workload fluctuations.
-  - Select instance resources based on expected traffic volume, with the ability to adjust instance sizing dynamically depending on actual usage.
-- Network Configuration: The VM must be configured to listen on port 22 for incoming SSH connections.
-
-## Configuring the Zscaler Gateway
-
-This guide accompanies the zscaler-gateway.sh script. The script first checks for an existing SSH key pair. If none are found, it creates one and displays the public key for you to send to Zscaler. Next, it verifies whether autossh is installed and attempts to install it if necessary. Finally, the script configures a service to establish the reverse SSH tunnel.
-
-- Step 1: Generate the SSH Key Pair
-- Step 2: Request the VM Instance Creation
-- Step 3: Zscaler Creates a Representative Instance for the Gateway
-- Step 4: Rerun the Script to Establish the Reverse SSH Tunnel
-- Step 5: Zscaler Sets Up the Gateway in the Platform
-
-The first step in configuring the gateway involves running the script, which installs autossh and generates the public key to send to Zscaler.
-
-### Prerequisite
-
-Before running the script, make sure your user account has root privileges, but is not logged in as the root user. You can verify this by running the `sudo -v` command. If you encounter an error such as `Sorry, user <username> may not run sudo on <hostname>`, switch to a different user with root access.
-
-### Copying the Script
-
-To copy the script to your server, you can either use the Secure Copy Protocol (`scp`) command or copy the script manually.
-
-- Copy the Script Using the scp Command (Recommended)
-- Copy the Script Manually
-
-### Running the Script
-
-After transferring the script content either via `scp` or manual copy, run the script using the following command, as a user with root privileges (but not as the root user):
-
-```
-bash zscaler-gateway.sh
-```
-
-After running the script:
-
-1. Select **No** if prompted to create an SSH tunnel to the Zscaler gateway; the tunnel is established later.
-2. Copy and save the newly generated public key displayed in yellow between the `Start copy` and `End copy` prompts to send to Zscaler in the next step.
-3. Ensure that the autossh package was installed, as this is essential for establishing the tunnel. If the installation fails, manually install autossh using the link provided in the script output, and then rerun the script.
-
-The tunnel is not active at this stage.
-
-Copy the script to the server on which you want to configure the tunnel, using the `scp` command:
-
-```
-scp /
-<Path>
-/zscaler-gateway.sh
-<User>
-@
-<Server IP>
-:/
-<Destination Path>
-/
-```
-
-Replace the following variables:
-
-- Replace `<Path>` with the local path to the script.
-- Replace `<User>` with your username.
-- Replace `<Server IP>` with your server IP address.
-- Replace `<Destination Path>` with the destination directory on the server.
-
-If `scp` is unavailable, you can manually create a new file on the server and paste the script contents. Manual copying can be prone to errors, so use this method with caution and only when necessary.
-
-To copy the script manually:
-
-1. Connect to the server where you want to configure the tunnel.
-2. Create a new file using the following command: `touch zscaler-gateway.sh`
-3. Open the file in your text editor. The following instructions are for Vim:
-  1. Run the following command: vim zscaler-gateway.sh
-  2. Press `i` to enter edit mode.
-  3. Copy and paste the content of the downloaded script into the new file.
-  4. Verify that the file starts with `#!/bin/bash` and ends with `# End of file`.
-4. To save and exit edit mode, press `Esc`, then enter `:wq` and press `Enter`.
-
-After you create the SSH key pair, [submit a support ticket](https://help.zscaler.com/uvm/accessing-and-navigating-security-operations-secops-platform#support-portal) to Zscaler Support to provision a VM with the following details:
-
-- The Public SSH key that was previously generated.
-- Gateway IP address(es):The public IP address that the VM will use to access the external network.
-  - If your VM is configured with a public IP address, include that IP address.
-  - If your VM only has a private IP address, provide the full list of possible gateway IP addresses.
-
-This information is essential for allowlisting access to the Zscaler instance, ensuring that only your VM can connect.
-
-In this step, your Zscaler Account team team provisions the representative instance based on the information you provided in Step 2. When the setup is complete, Zscaler Support contacts you to confirm that the tunnel is ready to be established.
-
-If the your Zscaler Account team team encounters issues in this step, you might be asked to provide logs from your server to assist with troubleshooting. You can do this by running the following command:
-
-```
-journalctl -u avalor-tunnel | tail -n
-30
-```
-
-The number `30` indicates the number of lines to return. You can increase or decrease this number to adjust the number of log lines returned.
-
-Rerun the script from Step 1 (provided again here). Select **Yes**when prompted to create the tunnel (you can skip displaying the existing key).
-
-```
-bash zscaler-gateway.sh
-```
-
-When complete, notify Zscaler Support by [submitting a support ticket](https://help.zscaler.com/uvm/accessing-and-navigating-security-operations-secops-platform#support-portal).
-
-After you inform Zscaler Support that the tunnel was successfully established, your Zscaler Account team proceeds with configuring the gateway on the platform. You receive confirmation from Zscaler Support when the setup is complete.
-
-## Troubleshooting
-
-During the Zscaler gateway setup process, you might encounter an error message such as `May 06 08:53:28 xxxxxxxx autossh[392026]: Host key verification failed`. This typically means that the remote server (Zscaler gateway) has not yet been authorized for its initial SSH connection.
-
-To resolve the authorization issue:
-
-1. Determine which user created the service under `/etc/systemd/system/`. In the example below, the user is `root`. `ls -la /etc/systemd/system/zscaler-gateway -rw-r--r-- 1 root root 0 May 7 14:41 zscaler-gateway`
-2. Authorize the server from the appropriate user (e.g., `root`) by running the following command. The variables needed for this command are defined in the script provided by Zscaler Support. `ssh -i $<Key Path> -o StrictHostKeyChecking=no $<Gateway User>@$<Gateway Public DNS Name> "exit"`
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-custom-roles","lastmod":"2026-05-22T07:06Z","nid":"1532924"} -->
-## Creating Custom Roles
-
-- Source: https://help.zscaler.com/aem/creating-custom-roles
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Creating Custom Roles
-- Last modified: 2026-05-22T07:06Z
-- Summary: How to create custom role permissions in the Zscaler SecOps platform.
-
-User roles control access to features and actions within the platform. After [creating users](https://help.zscaler.com/uvm/creating-managing-users) in your account, you can [assign roles](https://help.zscaler.com/uvm/assigning-roles-users) to define their access and permissions. You can choose from [predefined system roles](https://help.zscaler.com/uvm/understanding-system-roles), or the account admin can create and assign custom roles. Custom roles are configured to reflect your internal policies or workflows.
-
-When new platform features are released, related permissions must be manually added to your custom roles.
-
-To create a custom role:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **Permissions**> **Roles**.
-3. On the **Roles**page, you can create a custom role in the following ways:
-  - Click **Create**.
-  - Duplicate an existing role by hovering over the role in the list and clicking the **Duplicate** icon (), or selecting the role and clicking **Duplicate**. The duplicated role is added to the list of roles. You can't duplicate the system Admin role.
-4. On the **New Role** page:
-  1. **Role Name**: Enter a unique name for the role.
-  2. **Resource**: Select the relevant permissions (e.g., **Read**, **Create**, **Edit**, **Delete**, **Audit**) for each resource. To apply the same permission to all items in a category, select the checkbox at the top of the category. Selecting a higher-level permission (e.g., **Edit**) automatically enables required lower-level permissions (e.g., **Read**). See image.
-5. Click **Next**. The **Add Users** window appears.
-6. Select the users you want to assign to the role.
-7. Click **Add**.
-8. You can continue to manage users after clicking **Add**:
-  - To add more users, click **Add Users**.
-  - To remove users, select them and click **Remove From Role**.
-9. Click **Finish**.
-
-After changes are saved, the selected users' roles are updated immediately.
-
-## Resources
-
-Role permissions are organized into distinct categories, each representing a group of related system resources. Within each category, you can select permissions (i.e., Read, Create, Edit, Delete, and Audit) for custom roles to control access and operations on those resources. These assignments form a permissions matrix for the custom roles that are subsequently assigned to users.
-
-### Platform
-
-The following table outlines key platform resources and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Model Management | Manage data model entities and their fields |
-| Data Source Mapping | View and manage data source mapping |
-| Data Source | View, create, and manage data sources |
-| User Saved Views | View, create, and manage user-saved views across the platform |
-| Outegrations | View and manage outegrations |
-| Authentications | View and manage authentications |
-
-### Explore
-
-The following table outlines key analytics resources and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Search | View and search logs |
-| Reports & Dashboards | View and manage custom dashboards and reports |
-
-### Vulnerabilities App (UVM)
-
-The following table outlines key resources of the UVM application and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Dashboards & Analytics | Built-in vulnerability dashboard and analytics |
-| Tickets Page | View and manage tickets |
-| Tickets Settings | Ticket scoring, grouping rules, and life-cycle customization |
-| Findings Page | View and manage findings |
-| Assets Page | View and manage assets |
-| Exceptions Page | View and manage exceptions |
-| Exceptions Settings | Exceptions form, assignment rules, and notification customization |
-
-### Assets App (AEM)
-
-The following table outlines key resources of the AEM application and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Violations Tickets | View and manage policy violations |
-| Policy Violations | Violation ticket grouping rules and life-cycle customization |
-| Policy Violations Outegrations | Trigger third-party outegrations from policy violations |
-| Policy Rule | View and manage policy rules |
-| Analytics & Insights | Built-in vulnerability dashboard and analytics |
-| Assets Page | View and manage assets |
-| Asset Outegrations | Trigger third-party outegrations from assets |
-
-### SOC Workbench
-
-The following table outlines key resources of the SOC Workbench application and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Dashboards & Analytics | View and manage built-in SOC Workbench dashboards and analytics |
-| Incidents Page | View and manage incidents |
-| Incident Settings | Incident scoring, grouping rules, and life-cycle customization |
-| Alerts Page | View and manage alerts |
-
-[Image: new role page]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/creating-formatting-rules","lastmod":"2026-03-16T07:06Z","nid":"1532875"} -->
 ## Creating Formatting Rules
 
@@ -4143,100 +3515,6 @@ To apply a formatting rule (numeric rule) to an Asset Exposure Management (AEM) 
 [Image: Style Tab]
 
 [Image: Select a formatting rule from the Formatting Rules drop-down menu]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-managing-content-permissions","lastmod":"2025-11-04T11:08Z","nid":"1532929"} -->
-## Creating & Managing Content Permissions
-
-- Source: https://help.zscaler.com/aem/creating-managing-content-permissions
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Creating & Managing Content Permissions
-- Last modified: 2025-11-04T11:08Z
-- Summary: How to create and manage content permission sets.
-
-Admins can configure content permission sets using specific data attributes that can be assigned to users to specify the data they can access. While role permissions dictate the actions the user can perform (e.g., create a dashboard, merge tickets), content permissions limit the scope of data the user can view and is authorized to perform those actions on. For example, a user might be assigned a role allowing them to create reports, but limited by content permissions, they’ll only see data relating to their team (e.g., the team responsible for all Linux assets). To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles).
-
-After content permissions are created, you can assign permission sets to users. When assigned, access changes take effect on the user's next browser refresh. To learn more, see [Assigning Content Permissions](https://help.zscaler.com/uvm/assigning-content-permissions).
-
-## Creating Content Permission Sets
-
-To create a content permission set:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **Permissions**> **Content**.
-3. Click **Create**. The **Create new permission set** drawer appears.
-4. In the **Create new permission set** drawer:
-  1. **Name**: Enter a unique name for the permission set.
-  2. **Rule**: Define filter conditions for the permission set. Conditions define the data included in the permission set (i.e., what data should be included in the user's access).
-    1. Select a field that the condition should be based on.
-    2. Select an operator (e.g., **Equals**, **Contains**). Available operators vary depending on the selected field type, indicated to the left of the field name.
-    3. Enter the value that the rule should apply to. See image. To apply content permissions to users, without having to manually enter unique identifiers, you can add a user's email as a dynamic value.
-    4. (Optional) Use **AND**/**OR** logic to define compound rules.
-      - **AND** applies the content permissions to users only if all conditions in the rule are met.
-      - **OR** applies the content permissions to users if any of the conditions in the rule are met.
-5. Click **Save** to create the permission set.
-
-After saving the permission set, you can assign it to users on the User Management page. The newly assigned permission set is applied on the user's next browser refresh. To learn more, see [Assigning Content Permissions](https://help.zscaler.com/uvm/assigning-content-permissions).
-
-### Scope of Content Permissions
-
-Content permissions only apply to an account's mapped data, so they won't restrict access to unmapped data across the platform. For example, if a user's role grants them access to Logs or Data Mapping, their content permissions won't apply to those resources.
-
-Additionally, content restrictions for scheduled reports and custom dashboard exports conform to the permission set of the user that created the report or the dashboard. The permission set of the receiver is not taken into account, so the delivered report can include data that the receiver can't access by their own permissions if they are also a user in the system.
-
-### Setting a Dynamic Value
-
-You can grant dynamic access based on the email address of the current user to avoid the need to create a separate condition for each individual user email address. For example, to grant access to all Linux Team users to the tickets assigned to each individual team member, you can add a condition to the Linux Team permission set, selecting the Assignee Email field and entering the dynamic `{user_email}` value.
-
-To create dynamic rule conditions:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **Permissions**> **Content**.
-3. Click **Create**. The **Create new permission set** drawer appears.
-4. In the **Create new permission set** drawer:
-  1. **Name**: Enter a unique name for the permission set.
-  2. **Rule**: Define filter conditions for the permission set. Conditions define the data included in the permission set (i.e., what data should be included in the user's access).
-    1. Select the relevant field from the list that contains your users' email address information (e.g., **Assignee Email**).
-    2. Select the **Equals**operator. Only the Equals operator is supported, as the field's value should be a unique identifier.
-    3. Enter the `{user_email}` value. See image.
-    4. (Optional) Use **AND**/**OR** logic to define compound rules.
-      - **AND** applies the content permissions to users only if all conditions in the rule are met.
-      - **OR** applies the content permissions to users if any of the conditions in the rule are met.
-5. Click **Save** to create the permission set.
-
-After saving the permission set, you can assign it to users on the User Management page. The newly assigned permission set is applied on the user's next browser refresh. To learn more, see [Assigning Content Permissions](https://help.zscaler.com/uvm/assigning-content-permissions).
-
-## Managing Content Permission Sets
-
-After creating content permission sets, you can can manage and monitor them from the Content page. This page provides a centralized view of all configured content permission sets in your account.
-
-Go to **Account Settings** > **Permissions**> **Content**to perform the following actions:
-
-- Edit a Permission Set
-- Delete a Permission Set
-
-You can edit any of your existing permission sets on the Content Permissions page.
-
-To edit a permission set:
-
-1. Hover over the permission set you want to edit and click the **Edit**icon, or select the permission set and click **Edit**at the top of the page.
-2. Adjust the permission set as needed.
-3. Click **Save** to apply the changes to the set.
-
-Adjustments to permission sets apply on the user's next login or on browser refresh.
-
-You can delete a permission set that is no longer necessary in your account. This removes the data access restrictions from users that were assigned the deleted set.
-
-This action is irreversible and will delete the permission set immediately.
-
-To delete a permission set:
-
-1. Select the permission sets you want to delete.
-2. Click **Delete**. See image.
-
-Adjustments to permission sets apply on the user's next login or on browser refresh.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4401,198 +3679,6 @@ After the tickets are unlinked, updates between the third-party ticket and the S
 [Image: create outegration dropdown menu open]
 
 [Image: unlink outegration dropdown menu open]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-managing-users","lastmod":"2025-11-04T11:03Z","nid":"1532926"} -->
-## Creating & Managing Users
-
-- Source: https://help.zscaler.com/aem/creating-managing-users
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Creating & Managing Users
-- Last modified: 2025-11-04T11:03Z
-- Summary: How to create and manage users in the account.
-
-Admins can create and manage all users in your organization's Zscaler Security Operations (SecOps) account. Managing users includes defining their access and permissions by assigning role permissions (RBAC - Role-Based Access Control), optionally assigning content permissions (ABAC - Attribute-Based Access Control), and deactivating or deleting users.
-
-Only users with admin privileges can create and manage users.
-
-## Creating Users
-
-Admins can create new users by filling out basic information and assigning a user role.
-
-To create a user:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings** > **User Management**.
-3. Click **Create**. The **Create User** page appears.
-4. On the **Create User** page:
-  1. **Email**: Enter the user's organization email.
-  2. **First Name**: Enter the user's first name.
-  3. **Last Name**: Enter the user's last name.
-  4. **Main Account**: (Optional) If you have more than one account, set the user's default account.
-  5. **Role**: Select a role for the user. If you don’t, the user is assigned the default **No Access** role. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users). See image.
-5. Click **Save**. The new user appears in the User Management list.
-
-## Managing Users
-
-As an admin, you can manage your account's users (e.g., adding and deleting users, assigning user roles, and applying content permissions).
-
-To manage users, go to **Account Settings** > **User Management** to access the list of existing users. On the User Management page, you can use the column sort and filters to navigate the users list.
-
-- To sort the users list in ascending or descending order by a specific column,hover over the header of the column you want to sort by and click the arrow icon.
-- To filter the users list, hover over theheader of the column you want to filter by and click the Filter icon. You can select the users you want to filter by, or create a Condition filter. See image.
-
-When managing users, you can perform the following actions:
-
-- Assign User Roles and Content Permissions
-- Deactivate Users
-- Delete Users
-
-You can assign users roles and content permission sets to control user access to features and data.
-
-Every new user is assigned a system role or a custom role when created, and you can change this role at any time. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles), [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles), and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users).
-
-In addition to roles, you can assign content permission sets to control the data users can access. For example, you might want a Vulnerabilities Admin to see only the data related to their team, rather than all data in the account. To learn more, see [Creating & Managing Content Permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions).
-
-Content permissions can only be assigned after a user is created and saved, not during the user creation process. To learn more, see [Assigning Content Permissions](https://help.zscaler.com/uvm/assigning-content-permissions).
-
-You can deactivate users in your organization's account to revoke their access to the system, without removing their user information. You can only deactivate one user at a time.
-
-Deactivating users doesn't remove data associated with the user's account (e.g., reports or dashboards they created).
-
-To deactivate a user:
-
-1. Click the **Profile**menu on the top right of the page.
-2. Go to **Account Setting** > **User Management**.
-3. Hover over the user you want to deactivate, and click the **Edit** icon. The **Edit User** page appears.
-4. In the **Personal Info** section, disable**Active** to the right of the user’s email.
-5. Click **Save**.
-
-You can delete users from your organization's account to fully remove their information from the system and revoke their access to the system.
-
-Deleting users doesn't remove data associated with the user's account (e.g., reports or dashboards they created).
-
-To delete a single user:
-
-1. Click the **Profile**menu on the top right of the page.
-2. Go to **Account Setting** > **User Management**.
-3. Hover over the user you want to delete, and click the **Delete**icon. The **Confirm Deletion** window appears.
-4. Click **Delete**.
-
-To delete multiple users:
-
-1. Click the **Profile**menu on the top right of the page.
-2. Go to **Account Setting** > **User Management**.
-3. From the users list, select the users that you want to delete.
-4. Click **Delete** at the top of the page. The **Confirm Deletion** window appears.
-5. Click **Delete**.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-reports","lastmod":"2025-11-11T12:02Z","nid":"1533679"} -->
-## Creating Reports
-
-- Source: https://help.zscaler.com/aem/creating-reports
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Reports > Creating Reports
-- Last modified: 2025-11-11T12:02Z
-- Summary: How to create and configure reports by adding measurements and dimensions and applying filters.
-
-Reports provide a structured way to analyze and present data in the SecOps platform. You can create reports focused on key entities, such as tickets, assets, and findings, customizing them with relevant measurements and dimensions to highlight specific trends or areas of concern. Reports can be processed manually or scheduled for automatic delivery, helping you track progress, support audits, and keep stakeholders informed.
-
-To create a report:
-
-1. Go to **Explore** > **Reports**. A list of your private reports and public reports you have access to appears. See image.
-2. Click **New**. A new report page appears.
-3. In the top-left corner of the report, click the **Edit** icon. The **Edit Report Details** window appears.
-4. In the **Edit Report Details** window:
-  1. **Name**: Enter a unique name for the report.
-  2. **Viewers**: Set the report's viewer access. To set the report as private and only visible to you, leave the **Viewers** drop-down menu blank.
-    1. **Public**: Select this option to grant view access to all users in the account.
-    2. **Selected Users**: Select users from the list to set them as viewers of the report.
-  3. **Editors**: Set the report's editor access. To set the report as private and editable only by you, leave the **Editors** drop-down menu blank.
-    1. **Public**: Select this option to grant edit access to all users in the account.
-    2. **Selected Users:** Select users from the list to set them as editors of the report. Users designated as editors override the **Viewers** setting.
-  4. **Pin to Apps**: (Optional) Select the application to which you want to pin the report. This allows you to easily find the report under **My Reports** on the app.
-  5. Close the window.
-5. Select the data type for your report.
-  1. On the top of the page, set the date filter to either **Current** or **History**. See image.
-  2. For historicalreports, click the date filter to specify the desired date range. You can select a preconfigured range, create a custom range, or set a dynamic range. To learn more about historical data and dynamic range filters, see [Using Filters](https://help.zscaler.com/uvm/filtering-operational-views). See image.
-6. Customize the report's displayed data and filters.
-  - Configure the data displayed in the report.
-  - (Optional) Apply filters to the report.
-7. Save the report in one of the following ways:
-  - Click **Done**to save and close the report, redirecting you to the **Reports**page.
-  - Click **Save**to save the report. If scheduled, the report exports at the set time.
-  - From the **Save**drop-down menu, click **Save & Run**to save the report and immediately apply export settings, if configured.
-  - From the **Save**drop-down menu, click **Save As New**to save your changes as a new report.
-
-Your saved report is accessible on the Explore > Reports page, where it can be accessed, viewed, and exported with all applied configurations.
-
-You can take the following actions with reports:
-
-- View reports directly in the SecOps platform.
-- [Manually download reports](https://help.zscaler.com/uvm/manually-exporting-reports) as a file.
-- [Schedule reports](https://help.zscaler.com/uvm/scheduling-reports-export) for automated delivery.
-- [Trigger report exports](https://help.zscaler.com/uvm/triggering-report-export-through-api) programmatically through an API.
-
-[Image: explore > reports]
-
-[Image: date filter current > history toggle]
-
-1. Select the **Main Entity** type.
-2. From the list on the left, select the dimensions and measurements to include in the report. To remove fields, either deselect them from the list or click the **Remove** icon next to the field name in the report. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions). After adding measurements and dimensions to the report, changing the main entity type or the data type (i.e., from **Current** to **History**) resets and discards your selections.
-3. (Optional) Adjust the table columns and sorting. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
-
-[Image: date filter for historical data]
-
-You can add filters to your report to customize it to your needs. The available filters vary depending on the report's **Main Entity**.
-
-1. Click **Add Filters**(if no filters are active) or **More**(if filters are already applied) at the top of the report and select the filter fields. You can use the search bar to refine the list.
-2. Filter options change according to the filter type (e.g., string, number, or date). To learn more, see [Using Filters](https://help.zscaler.com/uvm/filtering-operational-views).
-3. To remove a specific filter's values, click the filter field and click **Clear Selection**. See image.
-4. To remove all filters, click **Clear Filters**. See image.
-
-[Image: clear selection for a specific filter field]
-
-**[Image: clear all filters]**
-
-## Reporting Examples
-
-The following examples illustrate different types of reports you can create to support operational visibility, risk management, and data validation. Each report highlights a specific use case and suggests relevant fields to include.
-
-- Tickets Approaching SLA
-- Ticket Remediation Rate by Application
-- Asset Information and Tag Validation
-
-To monitor tickets nearing their service level agreement (SLA) deadlines, create a report with the following fields:
-
-- **Dimensions**: Ticket ID, Ticket Title, Ticket Severity
-- **Measurements**: Ticket Severity Score, Ticket Status
-
-Apply a filter on the **Ticket SLA** field and select the **Next 7 Days** option to focus on tickets at risk of breaching their SLA within the upcoming week.
-
-See image.
-
-[Image: next seven days dynamic filter for tickets approaching SLA example report]
-
-To track the remediation rate across business applications, set up a report with the following fields:
-
-- **Dimension**: Asset Business Application
-- **Measurements**: New Tickets Last 7 Days, Undetected Tickets Last 7 Days, Closed Tickets Last 7 Days
-
-This configuration provides insight into ticket volume and remediation activity for each application over the past week.
-
-To validate asset data and ensure critical asset tags are accurate, set the **Main Entity** to **Asset** and include the following dimensions:
-
-- Asset Is Crown Jewel
-- Asset Is Publicly Accessible
-- Asset Owner ID
-
-This report helps confirm whether asset tagging is complete and aligned with your organization's classification and ownership requirements.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4792,123 +3878,6 @@ To manually process a policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/managing-authentications","lastmod":"2025-11-10T13:01Z","nid":"1533647"} -->
-## Managing Authentications
-
-- Source: https://help.zscaler.com/aem/managing-authentications
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Authentications > Managing Authentications
-- Last modified: 2025-11-10T13:01Z
-- Summary: How to manage configured authentications, including editing and deleting authentications.
-
-After [creating an authentication](https://help.zscaler.com/uvm/configuring-authentications), you can manage and monitor it from the Authentications page. This page provides a centralized view of all configured authentications and their usage across data sources and outegrations. To learn more, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources) and [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-
-Authentication is critical to maintaining stable data connections and access control. Manage authentications cautiously to avoid service disruptions, failed data ingestion, or unintended access issues.
-
-[Image: The authentications page displaying the table of authentications with their details.]
-
-For each authentication, you can see:
-
-- **Authentication Name**: The name of the authentication.
-- **Vendor**: The name of the third-party vendor for which the authentication was created.
-- **In Use**: The number of data Sources or Outegrations using the authentication. Hovering over the value displays additional details on the specific sources and outegrations that are using the authentication.
-- **Created By**: The user who created the authentication.
-- **Last Update**: The time and date when the authentication was last updated.
-- **Updated By**: The user who last updated the authentication.
-
-You can modify or remove authentications as needed directly from the Authentications page (Configure > Authentications).
-
-For access to Authentications, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Authentications resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users). 
-See image.
-
-- Edit Authentications
-- Delete Authentications
-
-You can edit an authentication to update expired credentials, adjust access permissions for new integrations, or rename it for easier identification.
-
-To edit an authentication:
-
-1. Hover over the authentication you want to modify, and click the **Edit**icon.
-2. Update the necessary details.
-3. Click **Save**to apply changes to the authentication.
-
-If the authentication is currently in use by sources or outegrations, a confirmation message appears to ensure you're aware of the impact your changes might have.
-
-- Click **Continue** to apply the changes to the existing authentication.
-- Click **Save as New**to create a new authentication instance while preserving the original.
-
-See image.
-
-You can delete an authentication that is no longer in use. This might be the case if the source or outegration it was created for now uses a different authentication, or if your organization no longer works with the associated vendor.
-
-Authentications currently in use by data sources or outegrations cannot be deleted. If your goal is to stop data ingestion from a third-party vendor, consider deactivating the relevant data source instead. To learn more, see [Managing Data Sources](https://help.zscaler.com/uvm/managing-data-sources).
-
-To delete a specific authentication:
-
-1. Hover over the authentication you want to delete, and click the **Delete**icon. A warning message appears. See image.
-2. Click **Delete**.
-
-To delete multiple authentications:
-
-1. Select the checkboxes for the authentications that you want to delete.
-2. Click the **Delete** button at the top of the page. A warning message appears.
-3. Click **Delete**.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/managing-custom-dashboards","lastmod":"2025-11-11T11:56Z","nid":"1533677"} -->
-## Managing Custom Dashboards
-
-- Source: https://help.zscaler.com/aem/managing-custom-dashboards
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Managing Custom Dashboards
-- Last modified: 2025-11-11T11:56Z
-- Summary: How to manage existing dashboards, including editing the dashboard, pinning it to an app, and accessing pinned dashboards.
-
-You can view and manage the dashboards that you have access to. To view dashboards, go to Explore > Dashboards.
-
-When managing dashboards, you can perform the following actions:
-
-- Edit a Dashboard
-- Edit a Dashboard's Details
-- Pin a Dashboard to an App
-- Access Pinned Dashboards
-
-To edit a dashboard:
-
-1. Go to **Explore** > **Dashboards**.
-2. Hover over the dashboard and click the **Edit** icon.
-3. Make your changes to the dashboard widgets, and click **Save**.
-
-You can edit the dashboard's details, including the dashboard name, access permissions, and the apps to which it's pinned.
-
-There are two ways to access the dashboard details window:
-
-- On the **Dashboards** page, hover over the dashboard and click the **Edit Details** icon.
-- At the top of the dashboard, click the **Edit Dashboard**icon, then click the **Edit Dashboard Details**icon next to the dashboard's name.
-
-After updating the dashboard's details, click **Save**to apply the changes.
-
-For quick and easy access to your dashboards, you can pin them to an app. Pinned dashboards are listed on the app's My Dashboards page.
-
-To pin a dashboard to an app:
-
-1. Go to the dashboard details window using one of the following options: The dashboard details window appears.
-  - On the **Dashboards** page, hover over the dashboard you want to pin and click the **Edit Details** icon.
-  - At the top of the dashboard, click the **Edit Dashboard**icon, then click the **Edit Dashboard Details** icon next to the dashboard's name.
-2. In the **Pin to Apps**drop-down menu, select the apps that you want to pin to the dashboard. See image.
-
-To access a pinned dashboard in the app:
-
-1. Go to the app where the dashboard is pinned (e.g., **Vulnerabilities**).
-2. In the left-side navigation, click **My Dashboards**. You can view the full list of the dashboards pinned to this app. See image.
-
-[Image: My Dashboards page in Vulnerabilities]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/managing-discovery-profiles","lastmod":"2026-05-17T07:06Z","nid":"1538689"} -->
 ## Managing Discovery Profiles
 
@@ -5086,62 +4055,6 @@ To delete a rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/managing-system-and-custom-roles","lastmod":"2025-11-04T11:02Z","nid":"1532925"} -->
-## Managing System and Custom Roles
-
-- Source: https://help.zscaler.com/aem/managing-system-and-custom-roles
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Managing System and Custom Roles
-- Last modified: 2025-11-04T11:02Z
-- Summary: How to manage role permissions, including system roles and custom roles.
-
-You can manage and monitor roles from the Roles page, where you'll find a centralized view of all configured system roles and custom roles in your account. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles). To assign roles to users, see [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users).
-
-To manage roles, go to **Account Settings** > **Permissions** > **Roles** to access the list of existing roles.
-
-When managing roles, you can perform the following actions:
-
-- Edit Users in the Role
-- Duplicate a Role
-- Edit a Custom Role
-- Delete a Role
-
-You can edit users assigned a role to add or remove access permissions defined by the role. To learn more, see [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users).
-
-You can duplicate an existing role, including system roles or custom roles, to create a custom role with similar configuration.
-
-The system Admin role can't be duplicated.
-
-To duplicate a role:
-
-1. Hover over the role you want to duplicate, and click the **Duplicate**icon. The role is duplicated and appears in the list of roles. It has the same name as the original role from which it was duplicated, followed by (copy).
-2. Edit the duplicated role as needed, including updating the role's name.
-3. Click **Save**.
-
-You can edit a custom role to update its name or the resources it grants access to.
-
-System roles can't be edited.
-
-To edit a role:
-
-1. Hover over the role you want to edit, and click the **Edit** icon. The **Edit Role** page appears.
-2. On the **Edit Role** page, make the necessary changes to the role.
-3. Click **Save**.
-
-You can delete a custom role that is no longer needed.
-
-System roles can't be deleted.
-
-To delete a specific role, hover over the role you want to delete and click the **Delete** icon.
-
-To delete multiple roles:
-
-1. From the roles list, select the roles that you want to delete.
-2. Click the **Delete** button at the top of the page. The role is deleted immediately.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/managing-table-columns","lastmod":"2025-10-31T12:54Z","nid":"1532871"} -->
 ## Managing Table Columns
 
@@ -5204,72 +4117,6 @@ To undo the changes and revert to the default display, click **Reset to Default*
 See image.
 
 [Image: Reset columns to their default order]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/managing-user-roles","lastmod":"2026-02-08T04:19Z","nid":"1532928"} -->
-## Managing User Roles
-
-- Source: https://help.zscaler.com/aem/managing-user-roles
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Managing User Roles
-- Last modified: 2026-02-08T04:19Z
-- Summary: How to assign and manage user roles.
-
-User roles control access to features and actions within the platform. After [creating users](https://help.zscaler.com/uvm/creating-managing-users) in your account, you can assign roles to define their access and permissions within the system.
-
-You can assign either system roles or custom roles:
-
-- System roles are predefined by the platform and cannot be modified. These roles are maintained by the system and are updated automatically when new features are introduced. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles).
-- Custom roles are created and managed by the account admin. These are roles configured specifically in your account to meet organizational requirements. When new system features are introduced, related permissions must be added to custom roles manually. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-managing-custom-roles).
-
-When managing roles, you can perform the following actions:
-
-- Assign Roles to Users
-- Edit Roles
-- Remove Roles
-
-You can assign a role to users to grant them specific permissions and access within the system.
-
-To assign a role to users:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Select **Account Settings**.
-3. On the left-hand navigation, go to **Permissions**> **Roles**.
-4. Hover over the role and click the **Edit Users** icon (). The **Edit Role** page appears with a list of all users that are assigned the role.
-5. On the **Edit Role** page, click **Add** **Users**. The **Add Users** window appears.
-6. In the **Add Users** window, select the users you want to assign the role to, then click **Add**.
-7. Click **Save**. Assigned roles are applied on the user's next browser refresh.
-
-You can edit a user's role to update their permissions and access, either individually or for multiple users at once.
-
-To edit a single user's role:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Click the user whose role you want to update.
-4. In the **Roles** section, select the role you want to assign from the drop-down menu.
-5. Click **Save**.
-
-To edit multiple users' roles:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Select the users from the list.
-4. Click **Edit Role** at the top of the page.
-5. Select the role you want to assign to the selected users. Assigned roles are applied on the user's next browser refresh.
-
-You can remove a user from a role to revoke their associated permissions while maintaining their access to the system.
-
-To remove a user from the role:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Select the user and then click **Remove** **From** **Role**.
-4. Click **Save**.
-
-When removing a user's role without assigning them a new role, the user is automatically assigned the default role. While the default role grants no permissions within the account, it preserves the user's access to the system, enabling the option to assign a new role in the future.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5378,126 +4225,6 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/managing-widgets","lastmod":"2026-01-17T06:06Z","nid":"1534134"} -->
-## Managing Widgets
-
-- Source: https://help.zscaler.com/aem/managing-widgets
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Managing Widgets
-- Last modified: 2026-01-17T06:06Z
-- Summary: How to manage existing widgets, including editing, duplicating, and deleting widgets.
-
-Each custom dashboard in the Zscaler Security Operations (SecOps) platform includes dynamic widgets that can be configured to display relevant measurements and dimensions. You can drag and drop the widgets into a layout that fits your needs. To learn more, see [Configuring Custom Dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), [Managing Custom Dashboards](https://help.zscaler.com/uvm/managing-custom-dashboards), and [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions).
-
-After saving a widget, you can edit, duplicate, delete, and rearrange widgets in a dashboard. To view or manage widgets, go to Explore > Dashboards.
-
-When managing widgets, you can perform the following actions:
-
-- Edit a Widget
-- Duplicate a Widget
-- Delete a Widget
-- Adjust Widget Size and Position
-
-Edit widgets to adjust the displayed data, or update their configurations to better fit the purpose of your dashboard.
-
-To edit a widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Hover over the widget you want to edit, and click the **Edit Widget**icon. See image. The widget configuration page appears.
-4. Make the necessary adjustments to the appearance, filters, measurements, or dimensions.
-5. Click **Save** to apply the changes to the widget. Saving the widget redirects you to the dashboard.
-6. Click **Save**to apply the changes to the dashboard.
-
-[Image: Editing a widget]
-
-Duplicate widgets to reuse configurations when you need similar data visualizations on the same dashboard.
-
-To duplicate a widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Hover over the widget you want to edit, and click the **More Options**icon.
-4. Click **Duplicate**. The duplicated widget appears on the dashboard.
-5. (Optional) Edit the widget as needed and save the changes.
-6. Click **Save**to apply the changes to the dashboard.
-
-Delete widgets that are no longer relevant to keep your dashboard up to date.
-
-To delete a widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Hover over the widget you want to edit, and click the **More Options**icon. See image.
-4. Click **Delete**. The widget is removed from the dashboard.
-5. Click **Save**to apply the changes to the dashboard.
-
-[Image: Deleting a widget]
-
-Resize or move widgets on the dashboard to improve layout usability or emphasize specific data visualizations.
-
-To adjust the size of a widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Use the widget borders to resize it. See image.
-4. Click **Save**to apply the changes to the dashboard.
-
-To reposition the widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Click and drag the widget to the desired location.
-4. Click **Save**to apply the changes to the dashboard.
-
-[Image: Adjusting widget size and position]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/manually-exporting-reports","lastmod":"2025-11-11T12:04Z","nid":"1533680"} -->
-## Manually Exporting Reports
-
-- Source: https://help.zscaler.com/aem/manually-exporting-reports
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Reports > Manually Exporting Reports
-- Last modified: 2025-11-11T12:04Z
-- Summary: How to manually download reports and export them from the Reports page.
-
-After [creating a report](https://help.zscaler.com/uvm/creating-reports), you can access the saved report on the Explore > Reports page. From there, you can manually export the report by downloading it directly from the Reports page. Manually downloading reports can be useful for quick reviews, one-time analyses, or sharing data without setting up automation. For details on automated exporting methods, see [Scheduling Reports to Export](https://help.zscaler.com/uvm/scheduling-reports-export) and [Triggering Report Export Through an API](https://help.zscaler.com/uvm/triggering-report-export-through-api).
-
-There are two methods for manually downloading the report:
-
-- Exporting as CSV
-- Downloading the Report
-
-You can export reports directly within the report page by clicking the **Export as CSV** icon, located at the top right of the report.
-
-See image.
-
-This method is ideal for smaller datasets. There is a limit of 100K rows; reports with more than 100K rows export only the first 100K. For larger datasets, consider the Download Report File option.
-
-[Image: Export as CSV icon located at the top right of the report]
-
-To export reports with over 100K rows of data, or to export reports in one of the three available formats (CSV, JSONL, EXCEL):
-
-1. Schedule the report, or locate an existing scheduled report.
-2. On the **Reports** page, hover over the report and click the **See Runs** icon. See image.
-3. Click the latest run.
-4. Click **Download Report File**.This downloads the report in the format configured in the scheduled report. See image.
-
-You must run the report at least once before the download option is available. To run the report, hover over the report and click the **Rerun** icon. 
-See image.
-
-[Image: See Runs icon when hovering on a report]
-
-**[Image: Download Report File button in the report's expanded run]**
-
-[Image: Rerun icon when hovering on a report]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2025","lastmod":"2026-07-22T10:45Z","nid":"1532347"} -->
 ## Release Upgrade Summary (2025)
 
@@ -5526,51 +4253,6 @@ This article provides a summary of all new features and enhancements for Asset E
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/scheduling-reports-export","lastmod":"2026-07-10T07:06Z","nid":"1533681"} -->
-## Scheduling Reports to Export
-
-- Source: https://help.zscaler.com/aem/scheduling-reports-export
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Reports > Scheduling Reports to Export
-- Last modified: 2026-07-10T07:06Z
-- Summary: How to schedule reports to be delivered automatically to your email or AWS S3 bucket.
-
-After [creating a report](https://help.zscaler.com/uvm/creating-reports), you can schedule the report to be automatically delivered to a specified email address, Google Cloud Storage, or S3 bucket at regular intervals. This helps automate reporting workflows and ensures timely data delivery without manual effort. You can configure the report format, delivery frequency, recipients, and other delivery details as necessary. For details on additional methods for exporting reports, see [Manually Exporting Reports](https://help.zscaler.com/uvm/manually-exporting-reports) and [Triggering Report Export through an API](https://help.zscaler.com/uvm/triggering-report-export-through-api).
-
-Newly created reports must be saved before they can be scheduled. To create a new report, see [Creating Reports](https://help.zscaler.com/uvm/creating-reports).
-
-To schedule automatic report delivery:
-
-1. Open the desired report and click the **Schedule Export** icon ([Image: Scheduling Reports Icon]) in the top-right corner of the page. The **Schedule Export Details** window appears.
-2. In the **Schedule Export Details** window: See image.
-  1. **Export Format**: Select the export format (**CSV**, **JSONL**, or **Excel**).
-  2. **Active**: Enable to activate the scheduled export.
-  3. **Compression**: From the drop-down menu, select a compression option (**None**, **ZIP File**, **ZST File**).
-  4. **Delivery Method**: Select the delivery method for the report.
-    - **Email**: Enter one or more recipient email addresses (press `Enter` after each entry). Customize the email **Title** and **Message**content.
-    - **S3 - AWS S3**: Enter your connection credentials and destination path.
-    - **Slack**: Configure delivery settings (i.e., **Title**, **Channel Type**, **Channel**, and **Message**content).
-    - **GCP Storage - GCP Storage**: Enter the Google Cloud Storage's bucket name and project ID.
-  5. **Frequency and Time**: Set how often and when the report should run (**Daily**, **Weekly**, **Monthly**, or **Custom**).
-  6. Click **Save**.
-
-After saving the export settings, save the report to complete the process in one of the following ways:
-
-- Click **Save**to save the report. The report will be exported on schedule.
-- From the **Save**drop-down menu, click **Save & Run**to save the report and immediately export it.
-- From the **Save**drop-down menu, click **Save As New**to save your changes as a new report.
-
-## Troubleshooting Scheduled Reports
-
-To monitor the progress and status of scheduled reports, on the Reports screen, hover over the relevant report and click the See Runs icon ([Image: See Runs Icon]). The report's Runs page appears, where each row represents an individual report run.
-
-You can customize the displayed columns to add relevant details for troubleshooting. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
-
-From the Runs page, you can also hover over a run to [download the generated report file](https://help.zscaler.com/uvm/manually-exporting-reports), if available. Reviewing this file can help you verify the exported data and troubleshoot issues related to report output or configuration.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/supported-browsers-zscaler-secops","lastmod":"2025-10-30T13:22Z","nid":"1532846"} -->
 ## Supported Browsers for Zscaler SecOps
 
@@ -5592,189 +4274,6 @@ The Zscaler SecOps platform supports the following browsers:
 Older versions of these browsers should be compatible, but are no longer actively tested.
 
 Other browsers should be compatible, but are not actively tested.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/triggering-report-export-through-api","lastmod":"2025-11-11T12:09Z","nid":"1533682"} -->
-## Triggering Report Export Through an API
-
-- Source: https://help.zscaler.com/aem/triggering-report-export-through-api
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Reports > Triggering Report Export Through an API
-- Last modified: 2025-11-11T12:09Z
-- Summary: How to trigger a report to export through the Reporting API.
-
-After [creating a report](https://help.zscaler.com/uvm/creating-reports), you can trigger it to be exported programmatically using the Reporting API. For details on additional methods for exporting reports, see [Manually Exporting Reports](https://help.zscaler.com/uvm/manually-exporting-reports) and [Scheduling Reports to Export](https://help.zscaler.com/uvm/scheduling-reports-export).
-
-The Reporting API is a GraphQL-based interface that enables you to export data from the platform to an AWS S3 bucket, or to retrieve a downloadable link to the report data. This article provides a step-by-step guide to using the Reporting API, including example requests for each endpoint.
-
-## Prerequisites
-
-To get started with the Reporting API, you first need to define the data you want to export by creating a new report or using an existing report. In addition to defining the data for export, you need to contact your platform representative or support team to obtain API credentials (i.e., a client ID and client secret).
-
-- Creating a Report
-- Obtaining Client Credentials
-
-There are two methods available for retrieving the exported data:
-
-- Exporting the data to your S3 bucket using the [AWS S3 retrieval method](https://help.zscaler.com/uvm/anysource-aws-s3-method).
-- Getting a downloadable link to report data.
-
-The steps for using the Reporting API vary slightly depending on the method you choose.
-
-To create a report:
-
-1. Go to **Explore** > **Reports**.
-2. Click **New**to create a new report, or hover over an existing report and click the **Edit** icon.
-3. Set the report’s **Viewers** access and **Editors** access to **Public**. Only public reports can be accessed through the Reporting API.
-4. Configure the report to include the data you want to export.
-5. Click **Save** to apply your changes.
-
-### Configuring AWS S3 Export Settings
-
-If you're exporting the report to an S3 bucket, you need to configure the destination settings of the exported report.
-
-To configure the report's destination settings:
-
-1. Click the **Schedule Export** icon located at the top right of the report. See image.
-2. In the **Schedule Export Details** window:
-  1. **Export Format**: Select the format for the exported report. If you request the report using the pre-signed URL, the scheduling configuration is ignored, and the report is generated in the default CSV format.
-  2. **Delivery Method**: Select **S3 - AWS S3**.
-  3. **AWS S3 Details**: Enter your connection credentials and destination path. The integration uses role-based authentication. To learn more, see [Connecting AnySource Using AWS S3](https://help.zscaler.com/uvm/connecting-anysource-using-aws-s3#create-a-role-for-the-platform).
-  4. **Frequency and Time**: Set how oftenandwhen the report should run.
-  5. **Active**: Enable if you want the export to run on a schedule. If you prefer to run the export manually, you can skip the scheduling settings and leave the **Active** toggle disabled.
-3. Click **Save** to apply the schedule settings.
-
-[Image: Report's Schedule Export icon on the top right]
-
-The Reporting API uses token-based authentication with client credentials. To authenticate API requests, you must first obtain client credentials (client ID and client secret) from your platform representative or support team.
-
-## Using the API
-
-After completing the prerequisites, you can begin using the Reporting API. Start by authenticating your application—use the client ID and client secret you obtained earlier to request an access token. When authenticated, you can submit API requests to initiate a report and poll for its status.
-
-- Generating a Token
-- Making the API Request
-
-Using your client ID and client secret, access the `oauth2/token` endpoint to generate a token. The token is valid for one hour only.
-
-Insert the following details in the script below:
-
-- `URL`
-  - For US: `https://auth.us01.app.avalor.io/oauth2/token`
-  - For EU: `https://auth.eu.app.avalor.io/oauth2/token`
-- `client ID`
-- `client secret`
-
-To generate a token, run the following command:
-
-```
-curl --location '
-<URL>
-' \
---header 'accept: application/json' \
---header 'content-type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=
-client_credentials
-' \
---data-urlencode 'client_id=
-<client ID>
-' \
---data-urlencode 'client_secret=
-<client secret>
-'
-```
-
-This API uses GraphQL as its query language to execute requests and retrieve data.
-
-To use the API, review and prepare the following details:
-
-- **Required Headers**: Each request must include the following headers:
-  - **Authorization**: The access token obtained in the Generating a Token step.
-  - **accountId**: Your account ID found in the URL of your platform instance (i.e., `https://app.io/``<Account ID>``/platform`).
-- **Report ID**: The report ID from the report editing page URL (i.e., `.../explore/reports/edit/``<Report ID>`).
-- **GraphQL API Endpoint**:
-  - For US: `https://api.us01.app.avalor.io/api/graphql`
-  - For EU: `https://api.eu.app.avalor.io/api/graphql`
-
-### API Endpoints
-
-The following API endpoints allow you to interact with the report processing system. Use these endpoints to initiate report processing, check the status of a report, and optionally retrieve a downloadable link to the report.
-
-- processReport
-- getReportRunStatus
-
-Run a report by providing a report ID.
-
-Insert the following details in the script below:
-
-- `URL`
-  - For US: `https://api.us01.app.avalor.io/api/graphql`
-  - For EU: `https://api.eu.app.avalor.io/api/graphql`
-- `account ID`
-- `bearer token`
-- `report ID`
-
-```
-curl --location '
-<URL>
-' \\
---header 'Content-Type: application/json' \\
---header 'accountId:
-<Account ID>
-' \\
---header 'graphqlname: processReport' \\
---header 'Authorization: Bearer
-<Bearer Token>
-' \\
---data '{"query":"mutation ($id: String!) {processReport(id:$id,
-isPresignedUrl: true
-)}","variables":{"id":"
-<Report ID>
-"}}'
-```
-
-The `isPresignedUrl` parameter is only required if you want to generate a downloadable link for the report. If you configured the report to export to an S3 bucket, you can omit this parameter. The report that is generated with this method is exported in the format configured in the report scheduling settings.
-
-Response fields include the `runId` of the execution to be used in the `getReportRunStatus` endpoint.
-
-Retrieve the status of the specific report run. If you include the `isPresignedUrl` parameter, this endpoint also returns the downloadable link for the report data.
-
-Insert the following details in the script below:
-
-- `URL`
-  - For US: `https://api.us01.app.avalor.io/api/graphql`
-  - For EU: `https://api.eu.app.avalor.io/api/graphql`
-- `account ID`
-- `bearer token`
-- `report ID`
-- `run ID`: Found in the response to the `processReport` request.
-
-```
-curl --location '
-<URL>
-' \
---header 'Content-Type: application/json' \
---header 'accountId:
-<Account ID>
-' \
---header 'graphqlname: getReportRunStatus' \
---header 'Authorization: Bearer
-<Bearer Token>
-' \
---data '{"query":"query ($reportId: String, $runId: String) { getReportRunStatus(reportId: $reportId, runId: $runId) }","variables":{"reportId":"
-<report ID>
-", "runId":"
-<Run ID>
-"}}'
-```
-
-Response fields include:
-
-- The current `status` of the report run (e.g., **Running,** **Completed**, **Failed**).
-- If the report was exported to an S3 bucket, the `resultFilePath` field is returned with the S3 path where the file was saved, including the file name.
-- If the `isPresignedUrl` was included in the `processReport` request, the `presignedUrl` field returns the downloadable link of the report.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5823,454 +4322,6 @@ To learn how to set up asset discovery for EASM, see [Configuring Discovery Sett
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/understanding-dashboard-widget-types","lastmod":"2026-02-17T06:06Z","nid":"1534135"} -->
-## Understanding Dashboard Widget Types
-
-- Source: https://help.zscaler.com/aem/understanding-dashboard-widget-types
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Understanding Dashboard Widget Types
-- Last modified: 2026-02-17T06:06Z
-- Summary: Information about widget types for presenting data in custom dashboards.
-
-When adding widgets to your [custom dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), you can choose a widget type that is appropriate for presenting the measurements and dimensions of the data you want to view. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions).
-
-See image.
-
-The following widget types are available for creating custom dashboards:
-
-- Bar
-- Line
-- Pie
-- Table
-- Tile
-
-Bar widgets are effective for visualizing data and comparing measurement values across different dimensions.
-
-Bar widgets include the following variations:
-
-- Vertical and horizontal bars
-- Vertical and horizontal stacked bars
-- Vertical and horizontal 100% stacked bars
-
-In a standard bar chart, the height (for vertical bars) or length (for horizontal bars) represents the quantity of the measurement. For stacked or 100% stacked bar charts, the height of each segment within the bar represents the quantity of a subcategory, allowing you to analyze how subcategories contribute to the overall total. This makes stacked charts useful for showing detailed breakdowns within categories.
-
-The choice between horizontal and vertical orientation, as well as the use of stacking, depends on the type of data and the questions being addressed.
-
-## Configuration Requirements
-
-When building bar widgets, you must include:
-
-- Dimensions: 1 to 2
-- Measurements: 1 to 5
-
-## Example Bar Widget
-
-The following image shows the number of Total Tickets by Ticket Severity, where each bar represents a severity (Critical, High, Medium). Using stacked bars, you can display the total tickets assigned to each team, with the segments within each bar representing ticket severities. The x-axis represents the teams assigned to resolve the tickets, and the height of each bar indicates the total number of tickets for that team.
-
-See image.
-
-**[Image: Total Tickets by Ticket Severity Bar Widget]**
-
-Line widgets are effective for visualizing data trends and progression over time. They enable you to display changes in a continuous data set for tracking historical patterns, correlations, or behaviors.
-
-Line widgets include the following variations:
-
-- Line charts (straight segments)
-- Spline charts (smooth continuous curves)
-
-In a line chart, the x-axis typically represents the dimension of time, and the y-axis represents the measurement. Each line connects a set of data points, highlighting trends or patterns. While classic line charts are best for discrete data with distinct changes between points, spline charts are ideal for continuous data, emphasizing smooth trends and gradual progression. Multiple lines can be displayed on the same chart to allow for comparisons across multiple dimensions.
-
-Line widgets are especially effective for displaying historical data. They also allow the use of the Breakdown By feature (e.g., Day, Week, Month) for further granularity, which can be set during configuration. To learn more, see [Understanding Historical Data](https://help.zscaler.com/uvm/understanding-historical-data) and [Using Filters](https://help.zscaler.com/uvm/using-filters).
-
-## Configuration Requirements
-
-When building line widgets, you must include:
-
-- Dimensions: 1 The Date Breakdown setting in historical data (i.e., Day, Week, Month) is not mandatory, but counts as a dimension.
-- Measurements: 1 to 5
-
-## Example Line Widget
-
-The following image shows the trend of Open Tickets by Severity over 3 months. The x-axis shows time broken down by month, with each line representing a severity level (Critical, High, Medium), and the y-axis shows the number of Open Tickets for each severity level within the selected time frame.
-
-See image.
-
-[Image: Open Tickets by Severity Over Time Spline Widget]
-
-Pie widgets are designed to visualize proportions of a measurement within a dimension, showing how individual components contribute to the total. They represent data in a circular format, where the chart is split into slices, with each slice representing a category's proportion of a whole.
-
-Pie widgets include the following variations:
-
-- Pie chart (standard)
-- Donut chart
-
-Pie charts are most effective with a small number of categories per dimension. If the data includes too many categories or similar values, the visualization can become cluttered or difficult to interpret. For datasets with larger or more complex categories, consider alternative chart types (e.g., bar or stacked bar charts).
-
-## Configuration Requirements
-
-When building pie widgets, you must include:
-
-- Dimensions: 0 to 1
-- Measurements: 1
-
-## Example Pie Widget
-
-The following image shows the proportion of Total Open Tickets by Asset Type, where each slice represents an Asset Type. The size of the slice corresponds to the number of open tickets for that asset type. This highlights which asset types require the most attention and helps prioritize security efforts accordingly.
-
-See image.
-
-[Image: Total Open Tickets by Asset Type Pie Widget]
-
-Table widgets display data in a structured grid format using rows and columns. They are effective for showcasing detailed datasets, representing non-numerical data, combining multiple dimensions and measurements, and presenting precise numerical values.
-
-Table widgets include the following variations:
-
-- Table (standard)
-- Pivot table
-
-While the standard table displays data in a simple grid, where every row represents a unique combination of measurements and dimensions, a pivot table allows you to arrange data by assigning one dimension to rows and another to columns, and filling the intersections with the measurement values.
-
-In addition to functioning as standalone visualizations, all other widget types can be previewed as a table by enabling Table View on the top right of the widget in configuration mode, or by clicking the Table View icon on a saved widget.
-
-## Configuration Requirements
-
-Standard table widgets can include any number of measurements and dimensions.
-
-When building pivot table widgets, you must include:
-
-- Row Dimensions: 1
-- Column Dimensions: 1
-- Measurements: 0 to 5
-
-## Example Table Widget
-
-Examples of table widgets include:
-
-- Displaying active CVEs in a standard table, with columns such as CVE Name, Impact Severity, Description, Affected Asset, and Resolution Status. See image.
-- Displaying tickets by severity and status, where the row dimension is set to Ticket Severity (i.e., Critical, High, Medium, Low), the column dimension is set to Ticket Status (e.g., Opened, Remediated, Closed), and the measurements display Total Active Findings (i.e., the total number of active findings in the ticket) and Active Findings (i.e., the percentage of active findings as a proportion of the total findings). See image.
-
-[Image: CVE Description Table Widget]
-
-[Image: Widgets Pivot Table Example]
-
-Tile widgets display a single data point or measurement. They are designed to act as key performance indicator (KPI) highlights, providing teams with quick, high-level visibility into critical metrics.
-
-## Tile
-
-The standard tile widget displays a single measurement of interest (i.e., a single data point), such as counts, percentages, or totals.
-
-For example, you can create a tile widget to display measurements such as Total Critical Tickets or Tickets Over SLA. These measurements calculate the total number of tickets that meet their respective conditions (e.g., tickets marked as critical or tickets exceeding SLA thresholds), and the resulting count is displayed in the tile widget.
-
-See image.
-
-## Trend
-
-The trend widget is used to display a measurement with its directional trend over time, showing how the value has changed or progressed. The widget includes both the data point and a trend indicator (e.g., arrows or percentage change).
-
-Trend widgets are only available when displaying historical data.
-
-For example, you can use a trend widget to track the percentage change in Total Active Findings over the last week, displaying the current count alongside the percentage increase, such as 120 Active Findings (+15%). Similarly, a trend widget can be used to show the reduction in open tickets over the past month, with the count and percentage decrease displayed, such as 70 Open Tickets (↓-10%). This format provides not only the key measurement but also context on how it has changed over time.
-
-## Text
-
-Text widgets can add context or annotations to complement visualizations. They are useful for adding descriptions or instructions for the data displayed on the dashboard, or for embedding small snippets of code or images for additional clarity.
-
-## Configuration Requirements
-
-When building tile and trend widgets, you must include:
-
-- Dimensions: None (tile widgets cannot include dimensions)
-- Measurements: Exactly 1
-
-Text widgets are manually configured using free text input (e.g., context descriptions, goals), links, code, or images.
-
-[Image: Tile Widgets for Tickets]
-
-The following table summarizes dimension and measurement specifications per widget type:
-
-| Widget Type | Allowed Dimensions | Allowed Measurements | Common Use |
-| --- | --- | --- | --- |
-| Bar | 1 to 2 | 1 to 5 | Comparative analysis across dimensions |
-| Line | 1 | 1 to 5 | Time-based trends and progression |
-| Pie | 0 to 1 | 1 | Proportional distribution of data |
-| Table | No limit | No limit | Detailed tabular data |
-| Pivot Table | 1 row dimension 1 column dimension | 0 to 5 | Detailed tabular data |
-| Tile and Trend | 0 | 1 | Highlighting single metrics or KPIs |
-
-[Image: Creating Custom Dashboard Widgets Types]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/understanding-historical-data","lastmod":"2026-02-17T06:06Z","nid":"1534131"} -->
-## Understanding Historical Data
-
-- Source: https://help.zscaler.com/aem/understanding-historical-data
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Understanding Historical Data
-- Last modified: 2026-02-17T06:06Z
-- Summary: Information about historical data in the Zscaler SecOps platform and how it's calculated.
-
-The Zscaler Security Operations (SecOps) platform captures the historical state of each entity at every point in time, allowing flexible reporting of over-time behavior based on change logs saved in the platform. You can filter this historical data to detail your performance in different time frames. This enables you to monitor trends, verify the impact of configuration changes, and track progress on security and operational initiatives over time.
-
-Historical data is available in dashboards and reports across the platform. Charts and reports that display historical data are marked with the Historical Data icon ([Image: Historical data icon]). The historical view has two controls: time granularity and a time filter.
-
-Time granularity sets the level at which data is broken down in a chart or report (month, week, or day). For example, when granularity is set to Week, measurements are grouped by the selected dimensions and by week (e.g., Assignee and Week).
-
-See image.
-
-The time filter in the date selector sets the date range for the displayed data. While time granularity controls how the data is bucketed, the time filter controls the scope of the data included. For example, if the time filter is set to Last 3 Months, data outside that range is not displayed. With time granularity, the data within that 3-month period is broken down by day, week, or month.
-
-See image.
-
-The time filter always takes precedence over granularity. For example, if the date range selected is Last 3 Days and the granularity is Month, the Month bucket includes only those 3 days that fall within the selected range, and not the entire month. The same applies to any partial period: when the selected range covers only part of a week or month, the corresponding week or month bucket includes only the days within the selected range.
-
-This article explains different capabilities and nuances of historical analytics across different pages on the platform.
-
-[Image: Table displaying historical data of ticket SLA by week and assignee]
-
-[Image: The date selector set to display historical data of the last three months by week]
-
-## Historical Data in System Dashboards
-
-System dashboards displaying historical data have a date selector at the top right of the page (e.g., the Remediation History dashboard in UVM and the Policy Compliance dashboard in AEM). The date selector allows users to:
-
-- Adjust the date range to filter the scope of displayed data.
-- Specify the data granularity—day, week, or month—to adjust how the historical data is broken down within the selected date range.
-
-See image.
-
-Historical system dashboards can include widgets displaying current data. To distinguish between these widgets, those representing historical data are marked with the Historical Data icon.
-
-Other system dashboards do not have a date selector to filter historical data, but they can still include specific widgets to display this data. These widgets explicitly state the set historical filter applied and are similarly marked with the Historical Data icon.
-
-See image.
-
-[Image: The Policy Compliance page displaying compliance percentages over time and date selector to filter historical data]
-
-[Image: Historical data widgets on the Risk page in the Vulnerabilities app]
-
-## Historical Data in Custom Dashboards
-
-By default, widgets in custom dashboards display current data. When creating custom dashboards, you can also create historical widgets to visualize over-time trends and performance. To learn more, see [Configuring Custom Dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards).
-
-When configuring historical widgets, in addition to selecting the measurements and dimensions that determine the type of data and how it is grouped or categorized, you need to set a time filter to define the date range of the displayed data (e.g., Last 30 Days, Last 6 Months).
-
-You can also set the time granularity (i.e., the date breakdown) as a dimension. This allows you to break the historical data into day, week, or month intervals for more granular insights.
-
-Historical widgets in custom dashboards are also marked with the Historical Data icon to help distinguish them from widgets displaying current data. When a widget is configured for historical data, certain measurements and dimensions that are not supported in historical views might not be available.
-
-## Historical Data in Reports
-
-By default, reports display current data. You can configure reports that display historical data by enabling History mode in the date selector.
-
-When configuring historical reports, in addition to selecting the measurements and dimensions that determine the type of data and how it is grouped or categorized, you need to set a time filter to define the date range of the displayed data (e.g., Last 30 Days, Last 6 Months).
-
-You can also set the time granularity (i.e., the date breakdown) as a dimension. This allows you to break the historical data into day, week, or month intervals for more granular insights.
-
-When configuring historical reports, certain measurements and dimensions that are not supported in historical views might not be available.
-
-## Understanding Measurements in Historical Data
-
-To maximize the value of historical data, it is essential to understand the different types of measurements available and how they behave. Each measurement type is calculated differently and, as a result, reflects different information about the entity. Additionally, not all measurements are supported in the historical data view.
-
-This section explains the 4 key types of measurements and uses an example of Ticket ID 123 to demonstrate how each type behaves over time.
-
-Ticket ID 123 progresses through various statuses across three months:
-
-- January: Ticket 123 is opened, remediated, and subsequently reopened by the end of the month.
-- February: The ticket turns from open to remediated, and it is closed before the end of the month.
-- March: The ticket is closed.
-
-Based on the progression of Ticket ID 123, different measurement types capture its historical data accordingly.
-
-[Image: Historical Data Example]
-
-### Types of Measurement in Historical Data
-
-Different measurements behave in distinct ways when applied to historical data. These behaviors depend on how the data is calculated and what aspects of the entities or conditions the measurement is focusing on.
-
-There are 4 key types of measurements:
-
-#### Was at Measurements
-
-Was at measurements count entities when they meet a condition at any point during the selected time range, regardless of whether they later changed. For example, the Total Open Tickets measurement counts all tickets that were open at any point during the time range set in the historical date selector, including those subsequently closed. Similarly, Total Closed Tickets counts all tickets marked as closed at any time during the period.
-
-The following table shows the output of Ticket ID 123:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| **Total Open Tickets** | 1 | 1 | 0 |
-| **Total Closed Tickets** | 0 | 1 | 1 |
-
-#### Last at Measurements
-
-Last at measurements reflect whether the entity met the measurement's condition on the last day of the specified time range. These measurements provide a snapshot view of conditions as they were at the end of the period.
-
-For example, the Active Findings measurement counts the number of findings still active on the final day of the time range. Similarly, the Max Finding Severity Score measurement captures the highest severity score observed on the last day of the period.
-
-The following table shows the output data if Ticket ID 123 started off with 300 active findings, but by the end of January only had 25 active findings, and the highest severity score of the findings is 8.8:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| **Active Findings** | 25 | 0 | 0 |
-| **Max Finding Severity Score** | 8.8 | - | - |
-
-#### Turn to Measurements
-
-Turn to measurements count entities that transitioned to a specific condition during a given time period. These metrics highlight the transition or the change that occurred during the period. For example, the Opened Tickets measurement counts tickets first opened during the time range, the Remediated Tickets measurement counts tickets that were remediated (moved to the Remediated status) during the period, and the Closed Tickets measurement counts tickets that were closed during the period.
-
-The following table shows the measurement output of Ticket ID 123:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| **Opened Tickets** | 1 | 0 | 0 |
-| **Remediated Tickets** | 1 | 1 | 0 |
-| **Closed Tickets** | 0 | 1 | 0 |
-
-#### Mean time to (MTTX) Measurements
-
-Mean time to (MTTX) measurements calculate the average number of days it takes for an entity to transition from one condition to another. For example, Ticket Mean Time to Remediate measures the average duration (in days) it takes for a ticket to transition from the Active to the Inactive state. The key difference between current and historical data for MTTX measurements is that in current data, only the most recent remediation period (the time from when the ticket is open to when it's remediated) is considered, while in historical data, every remediation period within the time range is captured, displaying separate values for each.
-
-The following table shows the output data if the first remediation period for Ticket ID 123 lasted 20 days in January, and the second remediation period lasted 15 days in February:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| **Ticket Mean Time to Remediate** | 10 | 15 | - |
-
-## Understanding Dimensions in Historical Data
-
-Dimensions in historical data allow you to categorize and group measurements based on specific attributes, such as assignee, team, or status, helping you track shifts and transitions over time.
-
-To illustrate how dimensions behave and interact with measurements in historical data, consider again the following example of Ticket ID 123:
-
-[Image: Historical data example with assignee]
-
-Ticket ID 123 progresses through various statuses across three months:
-
-- January: Ticket 123 is opened, remediated, and subsequently reopened by the end of the month.
-- February: The ticket turns from open to remediated, and it is closed before the end of the month.
-- March: The ticket is closed.
-
-Additionally in February, Ticket ID 123 changed assignee from Team 1 to Team 5.
-
-When viewing the historical data for this ticket and adding the Assignee dimension to the table, the data is broken down by both assignees—Team 1 and Team 5—and the respective measurements are displayed for each, as shown in the following table:
-
-|  | January | February | March |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- |
-| Assignee | Total Open Tickets | Closed Tickets | Total Open Tickets | Closed Tickets | Total Open Tickets | Closed Tickets |
-| **Team 1** | 1 | 0 | 1 | 0 | 0 | 0 |
-| **Team 5** | 0 | 0 | 1 | 1 | 0 | 0 |
-
-Adding the Assignee dimension creates another level of granularity in addition to the time granularity, so the selected measurements are further broken down by the selected dimension:
-
-- Total Open Tickets (Was at): As a Was at measurement, the Total Open Tickets measurement represents all tickets that were open at any point during the time period, regardless of their status at the end of that period. For Team 1, the ticket is counted during its assignment to them in January and February. For Team 5, it is counted during its reassignment in February.
-- Closed Tickets (Turn to): As a Turn to measurement, Closed Tickets represent tickets that transitioned into the Closed status during the time period. For Team 1, no tickets were closed while assigned to them. In contrast, after being reassigned to Team 5 in February, the ticket transitioned to Closed and is therefore counted once in January. Although it was still Closed in March, it did not turn to Closed in March, and is thus not counted for Team 5 in that month.
-
-Let's assume Ticket ID 123 started with 300 active findings at the beginning of January. In that month, Team 1 remediated all but 25 findings. In February, Team 1 remediated an additional 12 findings before the ticket was reassigned to Team 5, at which point the remaining findings were remediated, and the ticket was closed. The output of the data is as follows:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| Assignee | Active Findings | Active Findings | Active Findings |
-| **Team 1** | 25 | 13 | 0 |
-| **Team 5** | 0 | 0 | 0 |
-
-Since Active Findings is a Last at measurement, it reflects the last recorded state of findings for each dimension and time interval:
-
-- Team 1: In January, the ticket ended the month with 25 active findings still assigned to Team 1. In February, this number was reduced to 13 active findings on the last day the ticket was assigned to them. By March, Team 1 no longer had data for this ticket, as it had been reassigned.
-- Team 5: After the ticket was reassigned in February, no findings remained active by the time Team 5 assumed responsibility for the ticket. Therefore, Active Findings = 0 for Team 5 in both February and March.
-
-In other words, for January, the Active Findings measurement displays the findings still active on the final day of the month under Team 1. For February, Active Findings displays the remaining findings on the last day that the ticket was assigned to Team 1. For Team 5, the findings had already been resolved by the end of February, resulting in 0 Active Findings at the team's final state in February.
-
-## Applying Filters to Historical Data
-
-When applying filters to historical data, the platform evaluates entities based on their current state to determine if they meet the filter criteria, and only entities that match the filter condition in their current state have their historical data displayed. This means that even if an entity matched the filter at some point in the past, it is not included in the results unless it still matches the filter criteria today.
-
-[Image: Historical data example with assignee]
-
-Using the Ticket ID 123 example that progresses through various statuses across three months:
-
-- January: Ticket 123 is opened, remediated, and subsequently reopened by the end of the month. The ticket is assigned to Team 1.
-- February: The ticket turns from open to remediated, and it is closed before the end of the month. The ticket is reassigned to Team 5.
-- March: The ticket is closed. The ticket remains assigned to Team 5.
-
-We want to view all tickets in the month of January only, so we apply the filter Assignee = Team 1 to view tickets assigned to Team 1.
-
-Here's how the filter behaves:
-
-- Ticket ID 123: Was assigned to Team 1 in January, but is now assigned to Team 5.
-- Ticket ID 456: Is currently assigned to Team 1 and has been throughout the selected time range.
-
-With the filter Assignee = Team 1:
-
-- Ticket ID 123 will not appear in the results, even though it was assigned to Team 1 in January, because it is no longer assigned to Team 1 today.
-- Ticket ID 456 will appear, and all of its historical January data will be displayed because it is currently assigned to Team 1.
-
-## Technical Considerations
-
-The platform stores historical data in a separate dataset designed to capture all changes made to entities over time. This dataset is distinct from the one used for current data, which only retains the most recent version of the data. While the historical dataset enables detailed insights and flexible over-time analysis, it comes with the following considerations:
-
-- Retrieving historical data can result in slower performance compared to current data. This is because the platform processes and queries large volumes of data to ensure all the relevant changes, transitions, and activity are included. Performance slowdowns are most noticeable when analyzing extended time ranges or applying detailed filters and dimensions.
-- Historical data is updated in periodic processing intervals, typically every 4 hours. As a result, new changes might not appear in the historical view until the next processing cycle. This can lead to temporary discrepancies between historical data and current data, which is updated in real time.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/understanding-measurements-dimensions","lastmod":"2025-11-11T11:47Z","nid":"1533675"} -->
-## Understanding Measurements & Dimensions
-
-- Source: https://help.zscaler.com/aem/understanding-measurements-dimensions
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Understanding Measurements & Dimensions
-- Last modified: 2025-11-11T11:47Z
-- Summary: Information on measurements and dimensions and examples of each used in the SecOps platform and its apps (e.g., UVM, AEM).
-
-The Zscaler SecOps platform's analytic capabilities enable you to view and [filter](https://help.zscaler.com/uvm/using-filters) data by measurements and dimensions.
-
-- Measurements
-- Dimensions
-
-A measurement is a quantitative field that represents a calculated value. Common calculation types include sums, averages, and maximums. Measurements are typically used to track or assess numerical aspects of the data. Measurements are calculated for the dataset currently in view and are updated dynamically based on the dimensions and filters applied.
-
-Examples of measurements include:
-
-- Total Undetected Findings: The number of findings in a ticket that have not been detected, and are thus considered remediated.
-- Ticket Mean Time to Remediate: The average time it takes to remediate tickets.
-
-A dimension is a categorical field used to group and segment data. When a dimension is added, the measurements are organized according to the unique values of that dimension. Examples of dimensions include Asset Type, Source, and Severity Level.
-
-Using dimensions, you can explore how a measurement varies across its different categories. For example, viewing the Total Tickets measurement by Severity Level can help you understand how ticket volume is distributed across severity categories.
-
-Adding multiple dimensions increases the granularity of the analysis. For example, adding Ticket Assignee as a dimension along with the % Active Findings measurement shows the percentage of active findings per assignee. Adding Ticket Severity as an additional dimension recalculates the same measurement for each unique combination of Ticket Assignee and Ticket Severity.
-
-See image.
-
-Measurements and dimensions are entity specific and dynamically displayed based on the selected Main Entity type, which also determines which records are included in the results. For example, when Ticket is the main entity, only assets linked to tickets are displayed. In contrast, selecting Asset as the main entity shows all assets, including those without any associated tickets or findings (such as assets imported from a CMDB).
-
-Additionally, when searching for measurements, the timeframe of the element you're configuring (i.e., current versus historical) can affect the available measurements. For example, the % Vulnerable Assets measurement is only available when viewing historical data.
-
-## Navigating Measurements and Dimensions
-
-Measurements and dimensions are used across the SecOps platform to configure and adjust the displayed data (e.g., when applying [filters](https://help.zscaler.com/uvm/using-filters) in [reports](https://help.zscaler.com/uvm/creating-reports) and [custom dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), or when [creating saved views](https://help.zscaler.com/uvm/creating-managing-saved-views)).
-
-Dimensions are grouped by entity type (e.g., Ticket, Asset), and measurements appear at the bottom of the dimensions list.
-
-In measurement and dimension lists, you can adjust the displayed fields:
-
-- Click the **Measurements**icon to view the list of available measurements.
-- Click the **Dimensions**icon to view the list of available dimensions.
-- Click **In Use**to display the fields currently in use.
-- Use the search bar to locate specific fields.
-
-See image.
-
-[Image: an example of adding a dimension]
-
-[Image: measurements and dimensions filters]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/understanding-source-configuration-guides","lastmod":"2025-12-04T11:07Z","nid":"1533767"} -->
 ## Understanding Source Configuration Guides
 
@@ -6283,62 +4334,6 @@ See image.
 The Zscaler Security Operations (SecOps) platform collects and correlates security findings and business context from a wide range of external tools, such as vulnerability scanners, asset inventories, and cloud providers. To begin ingesting this data into your environment, you must first connect the relevant [sources](https://help.zscaler.com/aem/creating-data-sources) to your account. Every source has particular requirements that you must configure before you can begin ingesting data.
 
 The source configuration guides provide the requirements for each source. Establishing these connections ensures that the platform can continuously retrieve and normalize data for analysis, prioritization, and remediation workflows. To learn more, see the [Source Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/sources/source-configuration-guides).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/understanding-system-roles","lastmod":"2026-05-01T07:06Z","nid":"1532923"} -->
-## Understanding System Roles
-
-- Source: https://help.zscaler.com/aem/understanding-system-roles
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Understanding System Roles
-- Last modified: 2026-05-01T07:06Z
-- Summary: Information about the different system roles in the Zscaler SecOps platform.
-
-System roles are predefined, built-in roles that grant users specific permissions through established access levels. These roles simplify user management by providing a consistent way to assign the necessary privileges for users to perform their tasks while maintaining the platform's security and operational integrity.
-
-The set of available system roles depends on the applications installed within the platform (e.g., UVM, AEM, SOC Workbench), with each application offering roles specific to its features and workflows. To assign and manage roles, see [Managing User Roles](https://help.zscaler.com/uvm/managing-user-roles) and [Managing System and Custom Roles](https://help.zscaler.com/uvm/managing-system-and-custom-roles).
-
-System roles are ideal for standard use cases where common permission sets suffice. When your access requirements extend beyond the system roles, you can create custom roles and configure the access granted to users assigned to those roles. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles).
-
-The following system roles apply per application:
-
-- Unified Vulnerability Management (UVM)
-- Asset Exposure Management (AEM)
-- SOC Workbench
-
-To view the specific permissions assigned to a role, click the role name on the Roles page. This opens the role's matrix, where you can view the detailed actions the role can perform. To learn more, see [Managing System and Custom Roles](https://help.zscaler.com/uvm/managing-system-and-custom-roles).
-
-The following table details the different system roles for the UVM app and the actions each role allows users to perform:
-
-| **Role** | **Permissions** |
-| --- | --- |
-| Admin | Manage data model entities and their fields; View and manage data source mapping; View, create, and manage data sources; View, create, and manage user-saved views across the platform; View and manage outegrations; View and search logs; View and manage custom dashboards and reports; View and manage built-in vulnerability dashboard and analytics; View and manage tickets; View and manage ticket scoring, grouping rules, and life-cycle customization; View and manage findings; View and manage assets; Trigger third-party outegration from tickets |
-| Vulnerabilities Admin | View all built-in dashboards; Manage and view custom dashboards and reports; Create and configure integrations; Run search queries; View, create, and edit tickets (split and merge); Edit and view ticket settings; View assets and findings |
-| Vulnerabilities Editor | View all built-in dashboards; Manage and view custom dashboards and reports; Run search queries; View, create, and edit tickets (split and merge); View ticket settings; View assets and findings |
-| Vulnerabilities Reader | View all built-in dashboards; View custom reports and dashboards; View tickets and ticket settings; View findings; View tickets |
-
-The following table details the different system roles for the AEM app and the actions each role allows users to perform:
-
-| **Role** | **Permissions** |
-| --- | --- |
-| Admin | Manage data model entities and their fields; View and manage data source mapping; View, create, and manage data sources; View, create, and manage user-saved views across the platform; View and manage outegrations; View and search logs; View and manage custom dashboards and reports; View and manage built-in dashboards and analytics; View and manage violation tickets; View and manage violation ticket scoring, grouping rules, and life-cycle customization; View and manage policy violations; View and manage assets; Trigger third-party outegration from violation tickets |
-| Assets Admin | View all built-in dashboards; Manage and view custom dashboards and reports; Create and configure outegrations; Run search queries; View, create, and edit violation tickets (split and merge); Edit and view violation ticket settings; View assets and policy violations |
-| Assets Editor | View all built-in dashboards; Manage and view custom dashboards and reports; Run search queries; View, create, and edit violation tickets (split and merge); View violation ticket settings; View assets and policy violations |
-| Assets Reader | View all built-in dashboards; View custom reports and dashboards; View violation tickets and violation ticket settings; View policy violations; View violation tickets |
-
-The following table details the different system roles for the SOC Workbench app and the actions each role allows users to perform:
-
-| **Role** | **Permissions** |
-| --- | --- |
-| Admin | Manage data model entities and their fields; Trigger third-party outegration from incidents; View and manage assets; View and manage custom dashboards and reports; View and manage data source mapping; View and manage alerts; View and manage incidents; View and manage outegrations; View and manage incident scoring, grouping rules, and life-cycle customization; View and search logs; View built-in threats dashboard and analytics; View, create, and manage data sources; View, create, and manage user-saved views across the platform; View and manage users |
-| SOC Workbench Admin | View and manage alerts; View and manage assets; View and manage custom dashboards and reports; View and manage data source mapping; View and manage incident settings; View and manage incidents; View and manage outegrations; View and search logs; View built-in threats dashboard and analytics; View, create, and manage data sources; View and manage users |
-| SOC Workbench Analyst | View and manage alerts; View assets; View and manage incident settings; View and manage incidents; View and search logs; View built-in threats dashboard and analytics; View custom dashboards and reports; View data sources and data source mapping; View outegrations; View users |
-| SOC Workbench Compliance | View alerts; View assets; View and manage custom dashboards and reports; View and search logs; View built-in threats dashboard and analytics; View data sources and data source mapping; View incident settings; View incidents; View outegrations; View users |
-| SOC Workbench Manager | View and manage alerts; View assets; View and manage incident settings; View and manage incidents; View and search logs; View built-in threats dashboard and analytics; View custom dashboards and reports; View data sources and data source mapping; View outegrations; View users |
-| SOC Workbench Security Engineer | View and manage alerts; View assets; View and manage data source mapping; View and manage incident settings; View and manage incidents; View and manage outegrations; View and search logs; View built-in threats dashboard and analytics; View custom dashboards and reports; View, create, and manage data sources; View users |
-| SOC Workbench Viewer | View alerts; View assets; View and search logs; View built-in threats dashboard and analytics; View custom dashboards and reports; View data sources and data source mapping; View incident settings; View incidents; View outegrations; View users |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6470,99 +4465,6 @@ See image.
 [Image: aem policies cmdb hygiene policy scenario missing]
 
 [Image: aem policies cmdb hygiene policy scenario conflicting]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/using-dashboard-templates","lastmod":"2026-02-17T06:06Z","nid":"1534133"} -->
-## Using Dashboard Templates
-
-- Source: https://help.zscaler.com/aem/using-dashboard-templates
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Using Dashboard Templates
-- Last modified: 2026-02-17T06:06Z
-- Summary: How to use dashboard templates to create a custom dashboard.
-
-When [configuring custom dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), you can save time and effort by starting with preconfigured system dashboards from the template gallery. These templates include preconfigured widgets designed to address common use cases, which you can customize to meet your specific requirements.
-
-To access the dashboard template gallery:
-
-1. In the SecOps Platform Admin Portal, go to **Explore**> **Dashboards**. See image.
-2. Click the **Template Gallery** tab. A list of all available templates appears. You can view the template name, description, and associated app (e.g., **Vulnerabilities**, **Assets**).
-3. Click a template to open it and view its components.
-
-To create a custom version of a template:
-
-1. In the SecOps Platform Admin Portal, go to **Explore**> **Dashboards**.
-2. Click the **Template Gallery** tab.
-3. In the **Template Gallery**, locate the template you want to copy, and choose one of the following options:
-  - Edit an existing template.
-  - Duplicate an existing template.
-
-To learn more, see [Configuring Custom Dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), [Managing Custom Dashboards](https://help.zscaler.com/uvm/managing-custom-dashboards), and [Managing Widgets](https://help.zscaler.com/uvm/managing-widgets).
-
-[Image: All Dashboards page displaying list of all dashboards created across apps]
-
-1. Click the template you want to edit.
-2. Click the **Edit Dashboard**icon. See image.
-3. Make changes to the dashboard widgets as necessary.
-4. Click **Save As**. The **Save as a New Dashboard**window appears.
-5. In the **Save as a New Dashboard** window:
-  1. **Name**: Edit the dashboard's name.
-  2. **Description**: (Optional) Edit the existing description, or enter a new description.
-  3. **Viewers**: Set the dashboard's viewer access. To set the dashboard as private and only visible to you, leave the **Viewers**drop-down menu blank.
-    - Select **Public**to grant view access to all users in the account.
-    - Select specific users from the list to set them as viewers of the dashboard.
-  4. **Editors**: Set the dashboard's editor access. To set the dashboard as private and editable only by you, leave the **Editors**drop-down menu blank.
-    - Select **Public**to grant edit access to all users in the account.
-    - Select specific users from the list to set them as editors of the dashboard. Users designated as editors override the **Viewers**setting.
-  5. **Pin to Apps**: (Optional) Select the application that you want to pin the dashboard to. This allows you to easily find the dashboard under **My Dashboards**in the app.
-6. Click **Save**. The modified dashboard appears on the **My Dashboards**tab.
-
-Use one of the following methods to duplicate a template:
-
-- Select the checkbox next to the template, then click **Duplicate**above the table.
-- Hover over the template, and click the **Duplicate Dashboard**icon.
-
-Duplicating a template creates a new dashboard entry on the **My Dashboards**tab. You can customize the duplicated dashboard as necessary.
-
-[Image: Edit Dashboard Icon]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/using-entity-explorer","lastmod":"2026-01-12T06:06Z","nid":"1534074"} -->
-## Using the Entity Explorer
-
-- Source: https://help.zscaler.com/aem/using-entity-explorer
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Data Exploration > Using the Entity Explorer
-- Last modified: 2026-01-12T06:06Z
-- Summary: How to use Entity Explorer to view and investigate data in the SecOps platform.
-
-Entity Explorer in the Zscaler Security Operations (SecOps) platform allows you to display all relevant data by entity, where you can explore and inspect it. Unlike an entity-specific view (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets), [Findings](https://help.zscaler.com/uvm/about-findings-operational-view-uvm), [Assets](https://help.zscaler.com/uvm/about-assets-operational-view-uvm)) which displays active components, Entity Explorer displays all relevant information, both active and inactive.
-
-## Viewing Entity Data
-
-To view entity data:
-
-1. In the SecOps platform, go to **Explore** > **Entities**.
-2. Select the entity type for which you want to view data. See image. You can change the fields displayed in the table, apply filters, and create custom views according to your needs, similar to the other entity views.
-3. To export the data as a CSV file, click the **Export As CSV** icon. See image.
-
-[Image: Select an entity type]
-
-[Image: Export entity data as a CSV]
-
-## Investigating the Data
-
-Entity Explorer allows you to investigate the relationships between your source data and the uploaded data enriched by the SecOps platform.
-
-To enable Investigate mode, click **Investigate**in the top-right corner of the page. The table displays source fields next to the platform fields.
-
-See image.
-
-[Image: Investigate mode on the Entity Explorer page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6772,128 +4674,6 @@ Each option targets a specific stage of the OS lifecycle, requiring a separate p
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/using-queries-library","lastmod":"2026-02-17T06:06Z","nid":"1534132"} -->
-## Using the Queries Library
-
-- Source: https://help.zscaler.com/aem/using-queries-library
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Data Exploration > Using the Queries Library
-- Last modified: 2026-02-17T06:06Z
-- Summary: How to use and manage queries in the Queries Library.
-
-The Queries Library allows you to save and later access multiple queries when viewing and analyzing your [logs](https://help.zscaler.com/uvm/building-queries-searching-logs).
-
-To access the Queries Library:
-
-1. In the Zscaler Security Operations (SecOps) platform, go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library** appears. See image.
-3. You can view the following information for each query:
-  - **Name**: The name of the query.
-  - **Query Type**: Whether the query was built using the basic or advanced query builder.
-  - **Category**: The category of the query, if assigned.
-  - **Description**: The description of the query.
-  - **Updated At**: The latest date that the query was saved.
-  - **Updated By**: The last person to update the query.
-
-[Image: Queries Library Button]
-
-## Managing Saved Queries
-
-After [saving a query](https://help.zscaler.com/uvm/building-queries-searching-logs), you can manage it from the Queries Library. Click a query in the list to expand and view its contents.
-
-See image.
-
-When managing saved queries, you can perform the following actions:
-
-- Categorize Saved Queries
-- Edit Saved Queries
-- Delete Saved Queries
-
-[Image: Expanded Query in Query Library]
-
-You can organize saved queries by assigning them categories.
-
-To categorize saved queries:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. Select the queries you want to categorize from the list.
-4. Click **Category**.
-5. Select a category from the menu to assign it to the selected queries. The category is assigned immediately.
-
-You can edit queries to update their settings or adjust their configurations.
-
-To edit a saved query:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. Choose one of the following methods:
-  - Hover over the query, and click the **Edit**icon.
-  - Select the query from the list, and click **Edit**on the toolbar.
-4. Make the necessary changes to the query.
-5. Save the query in one of the following ways:
-  - Click **Save**to override the saved query configuration with the edited version.
-  - From the **Save**drop-down menu, click **Save As New**to save your changes as a new query.
-
-You can delete saved queries that you no longer use.
-
-Deleting a query doesn't trigger a warning message and deletes the query immediately.
-
-To delete saved queries:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. Choose one of the following methods: The query is deleted and removed from the library.
-  - To delete a single query, hover over the query, and click the **Delete**icon.
-  - To delete multiple queries, select the checkboxes of the queries you want to delete, and click **Delete**on the toolbar.
-
-## Managing Query Categories
-
-You can categorize queries saved in the Queries Library to maintain an organized and easily accessible list.
-
-When managing query categories, you can perform the following actions:
-
-- Add a Category
-- Edit a Category
-- Delete a Category
-
-You can create categories to organize your saved queries for easier management.
-
-To create a new category for saved queries:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. Click **New Category**. An untitled category is added to the left-side navigation. See image.
-4. Enter a name for the category and click outside the input field. The category can now be assigned to queries.
-
-[Image: New Category button in the Queries Library]
-
-You can edit query category names to keep them relevant and descriptive.
-
-To edit a category name:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. In the left-side navigation, hover over the query category that you want to edit, and click the **Edit**icon.
-4. Edit the query name and click outside the input field.
-
-You can delete categories to remove unused or redundant query categories.
-
-To delete a category:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. In the left-side navigation, hover over the query category that you want to delete, and click the **Delete**icon. The **Delete**window appears.
-4. Select a deletion option: See image.
-  - **Delete only the folder**: Delete the category, but not the queries saved to it.
-  - **Delete all**: Delete the selected category and all queries saved to it.
-5. Click **Delete**.
-
-[Image: Delete Queries window]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/using-tool-coverage-policy","lastmod":"2025-11-11T14:13Z","nid":"1533691"} -->
 ## Using the Tool Coverage Policy
 
@@ -7001,50 +4781,6 @@ To configure automated audit log export for a user:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-items-widget-segment","lastmod":"2025-11-11T11:57Z","nid":"1533678"} -->
-## Viewing Items in a Widget Segment
-
-- Source: https://help.zscaler.com/aem/viewing-items-widget-segment
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Viewing Items in a Widget Segment
-- Last modified: 2025-11-11T11:57Z
-- Summary: How to view and configure the display for specific items in dashboard widgets.
-
-You can view detailed data associated with a specific segment in a widget (e.g., a slice of a pie chart, or a bar in a bar chart) by clicking the segment. Viewing a segment's items opens a table view that displays the data for the selected segment.
-
-Viewing items is distinct from widget drilldown, which enables users to explore additional dimensions set in the widget configuration. Viewing items displays the underlying data for a specific segment of a widget, while drilling down displays additional dimensions that are configured in the drilldown hierarchy. For example, a drilldown on open tickets can further break down the data by severity or ticket status.
-
-Clicking a segment of a widget displays the items that make up that segment. For example, in a pie chart showing open tickets by asset type, clicking the Linux segment opens a table listing all tickets assigned to Linux.
-
-See image.
-
-If you configure drilldown in the widget when [adding widgets to the dashboard](https://help.zscaler.com/uvm/configuring-custom-dashboards#adding-widgets-to-dashboards), an Interactions menu appears, allowing you to either click through to a table detailing the individual items that make up the measurement's value or to drill down into additional dimensions.
-
-## Customizing and Saving the View Items Table
-
-When you click a segment to view its items, the initial columns displayed in the table that appears are those defined in the entity's default saved view in the relevant app (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets) in UVM, [Violation Tickets](https://help.zscaler.com/uvm/about-violation-tickets) in AEM). The default view is indicated by the Set as Account Default View icon in the saved view's drop-down menu on the entity's page.
-
-See image.
-
-You can customize the displayed columns and save the view, making it accessible in the saved views drop-down menu across all widgets and dashboards referencing the same entity. For example, the Total Assets and the Vulnerable Assets measurements share the same list of saved views. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/uvm/creating-managing-saved-views#create-new-view).
-
-[Image: Widget View Items in a Widget Linux Example]
-
-[Image: Default Entity View]
-
-## Exporting the Table
-
-To export the data shown in the table as a CSV file, click the Export as CSV icon located in the top-right corner of the table.
-
-See image.
-
-The data is exported based on the currently displayed columns.
-
-[Image: Export as CSV Icon]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/viewing-managing-assets-aem","lastmod":"2026-04-12T07:06Z","nid":"1538663"} -->
 ## Viewing & Managing Assets in AEM
 
@@ -7127,13 +4863,13 @@ Clicking a ticket opens its drawer. To return to the asset drawer, click the ass
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-os-end-life-dashboard","lastmod":"2026-03-19T07:06Z","nid":"1535440"} -->
+<!-- ZS-ARTICLE {"url":"/aem/viewing-os-end-life-dashboard","lastmod":"2026-08-07T05:17Z","nid":"1535440"} -->
 ## Viewing the OS End of Life Dashboard
 
 - Source: https://help.zscaler.com/aem/viewing-os-end-life-dashboard
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > Analyze for AEM > Viewing the OS End of Life Dashboard
-- Last modified: 2026-03-19T07:06Z
+- Last modified: 2026-08-07T05:17Z
 - Summary: How to view the OS End of Life dashboard in the Zscaler Security Operations (SecOps) platform.
 
 The OS End of Life dashboard provides visibility into assets running operating systems that have reached or are approaching End-of-Life (EOL) or End-of-Support (EOS) status. The dashboard includes summary tiles, charts, and tables that provides details of the EOL and EOS status of OS assets.
@@ -7144,7 +4880,7 @@ Identifying high-risk assets helps organizations:
 - Strengthen regulatory and internal compliance posture.
 - Minimize operational disruptions due to outdated OS versions.
 
-To create an OS EOL dashboard from a preconfigured template, go to Explore > Dashboards > Template Gallery > OS End of Life. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/aem/using-dashboard-templates).
+To create an OS EOL dashboard from a preconfigured template, go to Explore > Dashboards > Template Gallery > OS End of Life. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).
 
 ## Top Assets
 
@@ -7424,18 +5160,18 @@ On the **Assets**tab, you can view the list of assets affected by the policy vio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-violation-tickets-dashboard","lastmod":"2026-06-29T07:06Z","nid":"1540176"} -->
+<!-- ZS-ARTICLE {"url":"/aem/viewing-violation-tickets-dashboard","lastmod":"2026-08-07T05:17Z","nid":"1540176"} -->
 ## Viewing the Violation Tickets Dashboard
 
 - Source: https://help.zscaler.com/aem/viewing-violation-tickets-dashboard
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > Analyze for AEM > Viewing the Violation Tickets Dashboard
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-08-07T05:17Z
 - Summary: How to view the Violation Tickets Dashboard in the Zscaler Security Operations (SecOps) platform.
 
 The Violation Tickets Dashboard in the Zscaler Security Operations (SecOps) platform offers visibility into your team's progress in identifying, managing, and resolving violation tickets. This dashboard enables you to view open violation tickets by severity, monitor ticket trends over time, track remediation efforts by the team, and ensure compliance goals are met.
 
-To create this dashboard from a template, go to Explore > Dashboards > Template Gallery > Violation Tickets Dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/aem/using-dashboard-templates).
+To create this dashboard from a template, go to Explore > Dashboards > Template Gallery > Violation Tickets Dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).
 
 ## Widgets
 
@@ -9687,13 +7423,13 @@ Update the following downloaded files:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/changing-gcp-orchestrator-account","lastmod":"2026-07-22T06:38Z","nid":"1541388"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/changing-gcp-orchestrator-account","lastmod":"2026-08-05T21:06Z","nid":"1541388"} -->
 ## Changing a GCP Orchestrator Account
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/changing-gcp-orchestrator-account
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Changing a GCP Orchestrator Account
-- Last modified: 2026-07-22T06:38Z
+- Last modified: 2026-08-05T21:06Z
 - Summary: Information on how to change an orchestrator account to a different one for GCP in the AI Security Admin Portal.
 
 AI Security regularly scans the data stores of the target projects by leveraging the [orchestrator template](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator) deployed in the GCP orchestrator project while onboarding.
@@ -10623,13 +8359,13 @@ Add the following inbound and outbound security rules for the worker plane netwo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-gcp-network","lastmod":"2026-07-22T23:28Z","nid":"1541997"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-gcp-network","lastmod":"2026-08-06T21:06Z","nid":"1541997"} -->
 ## Configuring the GCP Network
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/configuring-gcp-network
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Custom Network Configuration > Configuring the GCP Network
-- Last modified: 2026-07-22T23:28Z
+- Last modified: 2026-08-06T21:06Z
 - Summary: How to configure the GCP network and allow DSPM to scan data in the GCP resources.
 
 AI Security requires a specific network configuration to be able to access the GCP services, scan the resources, compute, and report the findings. You must configure a custom network in your organization by creating the following virtual private cloud (VPC) in the [orchestrator project](https://help.zscaler.com/dspm/onboarding-gcp-organization):
@@ -14000,13 +11736,13 @@ The Get Evidence role is required for AI Security to retrieve evidence data snip
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-gcp","lastmod":"2026-07-22T23:10Z","nid":"1541473"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-gcp","lastmod":"2026-08-06T21:06Z","nid":"1541473"} -->
 ## IAM Roles and Permissions for GCP
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/iam-roles-and-permissions-gcp
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > IAM Roles and Permissions for GCP
-- Last modified: 2026-07-22T23:10Z
+- Last modified: 2026-08-06T21:06Z
 - Summary: Information about the roles created and permissions assigned while onboarding GCP organizations.
 
 As part of the onboarding process, you need to deploy AI Security templates in the Google Cloud Platform (GCP) project. These templates create service accounts and access management (IAM) roles that AI Security requires to connect to the GCP project, discover the resources, and scan data. Each role has permissions for various services and actions, such as resource discovery, data scanning, etc.
@@ -14892,13 +12628,13 @@ Review the list of OUs that you selected for autodetection.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/managing-monitoring-scope-gcp","lastmod":"2026-07-22T23:42Z","nid":"1539958"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/managing-monitoring-scope-gcp","lastmod":"2026-08-06T21:06Z","nid":"1539958"} -->
 ## Managing Monitoring Scope for GCP
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/managing-monitoring-scope-gcp
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Managing Monitoring Scope for GCP
-- Last modified: 2026-07-22T23:42Z
+- Last modified: 2026-08-06T21:06Z
 - Summary: Information on how to manage the monitoring scope for GCP in the AI Security Admin Portal.
 
 The monitoring scope refers to the GCP projects that are [onboarded](https://help.zscaler.com/ai-asset-mgmt/onboarding-gcp-organization). When new projects are created in your GCP organization, you can onboard and add new projects to the monitoring scope.
@@ -16342,13 +14078,13 @@ To reset the configured subscriptions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/resolving-configuration-issues-gcp","lastmod":"2026-07-22T05:56Z","nid":"1539957"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/resolving-configuration-issues-gcp","lastmod":"2026-08-03T03:19Z","nid":"1539957"} -->
 ## Resolving Configuration Issues for GCP
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/resolving-configuration-issues-gcp
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Resolving Configuration Issues for GCP
-- Last modified: 2026-07-22T05:56Z
+- Last modified: 2026-08-03T03:19Z
 - Summary: Information on the issues encountered while onboarding and troubleshooting for GCP.
 
 The following error messages are displayed in the CLI app if there are issues while onboarding accounts: AI Security Admin Portal
@@ -16360,7 +14096,7 @@ The following error messages are displayed in the CLI app if there are issues wh
 | `Error: Failed to query available provider packages Could not retrieve the list of available versions for provider hashicorp/google: locked provider registry.terraform.io/hashicorp/google 5.40.0 does not match configured version constraint 6.0.0; must use terraform init -upgrade to allow selection of new versions To see which modules are currently depending on hashicorp/google and what versions are specified, run the following command: terraform providers` | Run the `terraform init -upgrade` command to allow the selection of new versions. This command updates the locked provider version to match the configured version. |
 | `Error waiting for updating managed group instances: Networks specified in new and old network interfaces must be the same.` `Error waiting for Updating managed group instances: Networks specified in new and old network interfaces must be the same. Expected: projects/devrnd1/global/networks/dev-byon-controlplane-vpc Actual: projects/devrnd1/global/networks/dev-byon-workerplane-vpc with module.control-plane.module.instance_group_manager.google_compute_instance_group_manager.instance_group_manager, on modules/sub-modules/instance-group-manager/instance_group.tf line 3, in resource "google_compute_instance_group_manager" "instance_group_manager": 3: resource "google_compute_instance_group_manager" "instance_group_manager" {`Cause: The issue is due to a mismatch between the network interfaces specified in the old and new configurations for the managed instance group. | In the Google Cloud console, go to the [VM instances](https://console.cloud.google.com/compute/instances) page.; Identify and open the impacted VM instance.; Identify and open the orchestrator instance group to which the VM is integrated.; Stop the VM instance and delete the associated template.; Delete the instance group.; [Download and redeploy the template.](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates) |
 | Attempt to delete a Logging Bucket Config that is not in the ACTIVE state. `│ Error deleting Logging Bucket Config "projects/cwpalpha-f1-proj-1/locations/us-west4/buckets/zscaler-intrelonedotnine-rsninemar11": googleapi: Error 400: Only buckets in state ACTIVE can be deleted` | [Change the orchestrator](https://help.zscaler.com/dspm/configuring-gcp-orchestrator-account) in the AI Security Admin Portal.; [Download and deploy the new GCP template](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates). |
-| Creating a duplicate KeyRing resource with the specified name results in a conflict. `│ Error creating KeyRing: googleapi: Error 409: KeyRing projects/cwpalpha-f1-proj-1/locations/us-central1/keyRings/z-dspm-worker-e2dde520-705463f8-worker-crypto-key-ring already exists. │ │ with module.worker-plane.module.crypto_key["us-central1"].google_kms_key_ring.keyring, │ on modules/sub-modules/crypto-key/crypto_key.tf line 3, in resource "google_kms_key_ring" "keyring": │ 3: resource "google_kms_key_ring" "keyring" {` | [Change the orchestrator](https://help.zscaler.com/ai-asset-mgmt/changing-gcp-orchestrator-account) in the AI Security Admin Portal.; [Download and deploy the new GCP template](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates). |
+| Creating a duplicate KeyRing resource with the specified name results in a conflict. `│ Error creating KeyRing: googleapi: Error 409: KeyRing projects/cwpalpha-f1-proj-1/locations/us-central1/keyRings/z-ai-sec-worker-e2dde520-705463f8-worker-crypto-key-ring already exists. │ │ with module.worker-plane.module.crypto_key["us-central1"].google_kms_key_ring.keyring, │ on modules/sub-modules/crypto-key/crypto_key.tf line 3, in resource "google_kms_key_ring" "keyring": │ 3: resource "google_kms_key_ring" "keyring" {` | [Change the orchestrator](https://help.zscaler.com/ai-asset-mgmt/changing-gcp-orchestrator-account) in the AI Security Admin Portal.; [Download and deploy the new GCP template](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates). |
 | Error while creating the instance template: `│ Error creating instance template: googleapi: Error 404: The resource <resource_path> was not found, notFound │ │ with module.control-plane.module.instance_template.google_compute_instance_template.instance_template, │ on modules/sub-modules/instance-template/template.tf line 16, in resource "google_compute_instance_template" "instance_template": │ 16: resource "google_compute_instance_template" "instance_template" {`Cause: Specified network resource does not exist. | Verify the existence of the specified network resource.; Update the network resource reference in the instance template configuration.; [Download and deploy the new GCP template](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates). |
 | Unable to Remove Service Networking Connection `Error: Unable to remove Service Networking Connection, err: Error waiting for Delete Service Networking Connection: Error code 3, message: There is a peering operation in progress on the local or peer network. Try again later. │ Help Token: <token-id>`Cause: Unable to remove the Service Networking Connection because of an ongoing operation. | Rerun the template. |
 | Error while executing the local-exec provisioner in a Terraform module. `Error: local-exec provisioner error with module.test-connectivity.terraform_data.check_connectivity, on modules/sub-modules/test-connectivity/test-connectivity.tf line 120, in resource "terraform_data" "check_connectivity": 120: provisioner "local-exec" { Error running command ' TEST_NAME=<test-name> PROJECT="<project-name>" connection_status=$(gcloud network-management connectivity-tests describe "$TEST_NAME" --project="$PROJECT" --format="get(reachabilityDetails.result)") if [[ "$connection_status" == "REACHABLE" ]]; then echo "Connectivity test succeeded" else echo "Connectivity test failed" exit 1 fi echo "{\"status\": \"$connection_status\",\"testName\": \"$TEST_NAME\"}" > ./output.json ': exit status 1. Output: Connectivity test failed` | Rerun the template. |
@@ -16968,4 +14704,2033 @@ Vulnerability scanning is supported for file types and file extensions in the fo
 | Node.js | package-lock.json, yarn.lock |
 | PHP | composer.lock |
 | Rust | Cargo.lock |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-ai-security","lastmod":"2026-06-29T21:06Z","nid":"1540847"} -->
+## Understanding AI Security
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-ai-security
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Getting Started > Understanding AI Security
+- Last modified: 2026-06-29T21:06Z
+- Summary: Information about AI Security and its key benefits.
+
+Organizations are increasingly adopting generative AI (Gen AI) workloads in the public cloud to build enterprise-grade AI services that deliver faster, higher quality customer experiences and improve return on investment (ROI). These private Gen AI applications are not only built with managed AI platforms, such as AWS Bedrock and Azure Foundry, but also by deploying unknown and potentially risky AI models sourced from open-source AI repositories, like Hugging Face and Ollama.
+
+To get the most out of these AI agents and tools, organizations need to share their data to make the responses customized to their scenarios. This can be done by tuning the AI model with organization-specific data, or by sharing the data as retrieval augmented generation (RAG). While sharing specific data with the AI models, it is possible that additional sensitive data might be shared either by mistake or by a malicious actor trying to poison the data. Misconfigurations of the AI service can also lead to unwanted data leaks through bad guardrails, agent exposure, usage of vulnerable AI packages, and more. All of these could result in significant data breaches leading to compliance violations under various legal and regulatory frameworks such as GDPR, HIPAA, etc.
+
+Zscaler's AI Security is a comprehensive strategy for securing AI systems by monitoring models, data, and infrastructure to identify and mitigate risks. The AI Security solution leverages the strengths of AI to sift through high volumes of enterprise data used for AI model training or model response with retrieval-augmented generation (RAG) and detect anomalies and potential risks such as sensitive data exposure, vulnerabilities, unauthorized access, and other security incidents. AI Security then correlates signals across data classification and discovery, data access paths, and potential exposure of sensitive data to AI, identifying potential vulnerabilities and misconfigurations to quickly detect hidden AI risks. AI Security enables organizations to innovate safely with Gen AI, by preventing costly data breaches, legal penalties, and reputational damage stemming from unsecured AI data usage, while simultaneously improving control and visibility over their AI ecosystem.
+
+## Key Features
+
+Organizations face significant challenges in balancing productivity and ensuring data security with AI adoption and controlling what AI can see and do with enterprise data. AI Security provides the following key features:
+
+- **Public AI visibility and inventory**:
+  - AI application discovery and inventory, e.g., Gen AI and Desktop AI.
+  - Usage analytics includes overall traffic volume, user counts, top-used apps, and department-wise usage.
+  - Category-based views to understand usage by AI app type (e.g., GenAI, Desktop AI, Embedded AI).
+  - MCP traffic visibility to help monitor AI-related traffic patterns.
+- **AI infrastructure discovery**:
+  - Asset discovery and inventory of key AI infrastructure components, including, models, MCP servers, agents, and AI apps.
+  - High-level metrics and distributions such as, risk-level distribution, type-based distribution (e.g., model types), environment and cloud distribution.
+  - Interactive drill-down from dashboard widgets into detailed inventory lists for each asset type.
+- AI Resources visibility (workloads, identities, datastores, guardrails, libraries):
+  - Provides an inventory-style view of supporting resources connected to your AI environment, including:
+    - Workloads: Compute and services that host or run AI-related components.
+    - Datastores: Storage locations used by AI workloads and pipelines.
+    - Identities: Users and service identities that access AI assets and resources.
+    - Guardrails: Controls and configurations that help enforce safe and compliant AI usage.
+    - AI software libraries: Libraries detected in the environment (appear as data becomes available).
+- **Unified dashboard and drill-down navigation**:
+  - Consolidates high-level metrics into widgets and charts.
+  - Lets you click through from summary metrics to detailed inventory pages for faster triage.
+- **AI Red Teaming visibility:**
+  - Dedicated red teaming dashboard tab to surface red teaming metrics and outcomes.
+  - Supports tracking posture over time by reviewing red teaming results and trends.
+
+## Key Benefits
+
+AI Security provides the following benefits to help alleviate the challenges:
+
+- Unified visibility across AI usage and infrastructure: See both AI apps in use and the underlying AI assets (models, MCP servers, agents) in one place.
+- Faster triage and investigation: Click from dashboards to inventories to pinpoint the affected app, asset, or resource quickly.
+- Better risk prioritization: Risk distributions across assets and resources help focus on what matters most.
+- Stronger governance and control: Identity and guardrail visibility supports access reviews and policy alignment.
+- Improved operational readiness: Software library and resource inventories help identify dependencies and reduce blind spots.
+- Continuous posture validation: Red teaming insights help validate defenses and measure improvements over time.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-aws-cloudtrail","lastmod":"2026-05-12T23:08Z","nid":"1539952"} -->
+## Understanding AWS CloudTrail
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-aws-cloudtrail
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > Cloud Trail > Understanding AWS CloudTrail
+- Last modified: 2026-05-12T23:08Z
+- Summary: Information about what is AWS CloudTrail.
+
+AWS CloudTrail is a service that records activities as events. Any activity in your AWS account performed by a user, role, or an AWS service is recorded as a CloudTrail event. These CloudTrail events provide visibility into the AWS account (e.g., who took the action, when the event occurred, which resources were impacted). This helps in analyzing, troubleshooting, and maintaining the security posture of the AWS account.
+
+There are three ways to record CloudTrail events:
+
+1. **Event History**: Records all activities within a single AWS account for the last 90 days.
+2. **CloudTrail Lake**: Records user and API activities within an AWS account or AWS organization.
+3. **Trails**: Records specific AWS activities that you want to monitor within an AWS account or organization and sends these logs to the Amazon S3 bucket.
+
+AI Security uses trails to analyze the logs and perform incremental scans on the S3 buckets.
+
+You can create trails for a single AWS account or multiple AWS accounts using organizations. When you create a trail using organization, a trail is created in each member account of the organization. The events are logged in each trail of the member account and are delivered to the S3 bucket. This enables centralized logging and monitoring of API activities across all accounts within an AWS organization. It allows you to aggregate CloudTrail logs from multiple accounts and regions into a single S3 bucket, making it easier to manage and analyze the logs for compliance, security, and operational purposes. This centralized logging capability provides better visibility and control over your cloud resources.
+
+To learn more, refer to the [AWS CloudTrail documentation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-dlp-engines-and-dictionaries","lastmod":"2026-06-10T21:06Z","nid":"1540850"} -->
+## Understanding DLP Engines and Dictionaries
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-dlp-engines-and-dictionaries
+- Product: AI Asset Management
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Sensitivity Settings > Understanding DLP Engines and Dictionaries
+- Last modified: 2026-06-10T21:06Z
+- Summary: Information about the DLP engines and dictionaries that are used in AI Security to scan and detect sensitive data.
+
+A DLP engine is a security solution that comprises a collection of one or more DLP dictionaries. A DLP dictionary contains a set of patented algorithms that are designed to detect specific types of information in your cloud resources, users' traffic, and activities. DLP engines are used to identify sensitive data and prevent data breaches. By using a DLP engine, you can create policy rules to detect content that encompasses more than one dictionary. For example, if your organization wants to protect personally identifiable information (PII) and credit card numbers, you can create a rule using a DLP engine that contains the PII and Credit Cards dictionaries. The Zscaler service provides predefined DLP engines and supports custom DLP engines.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-orchestrator","lastmod":"2026-08-04T21:41Z","nid":"1539731"} -->
+## Understanding Orchestrator
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Understanding Orchestrator
+- Last modified: 2026-08-04T21:41Z
+- Summary: Information about an orchestrator in the AI Security Admin Portal.
+
+As organizations transition to the public cloud to maintain their cloud infrastructure, ensuring data security becomes a critical concern due to several factors like shared infrastructure, risk of data breaches, compliance requirements such as GDPR and HIPAA, potential data loss, etc. It is essential for organizations to prioritize robust security measures, including encryption, regular audits, and data loss prevention scans to protect against unauthorized access and safeguard sensitive information.
+
+To achieve maximum protection for sensitive data in the public cloud, it is essential to perform posture assessments and data scans regularly. Traditionally, these scans were performed on the data after moving them out of the organization's cloud environment. This approach leads to multiple challenges such as data privacy concerns, cost associated with data transfer, preferences to keep the data within the organization, etc.
+
+To overcome these challenges, Zscaler provides a local scanner platform called orchestrator, a cloud security solution deployed in your organization that performs data scanning within the organization's public cloud environment. The local scanner platform architecture consists of an orchestrator instance and scanner instances. An orchestrator instance is an EC2 instance, virtual machine, or a cloud storage that organizes the data scanning across the selected regions of AWS, Azure, and GCP. The [scanner instances](https://help.zscaler.com/ai-asset-mgmt/understanding-scanner-instances) are created by the orchestrator instance and are launched in the respective regions where AI Security performs data scanning of the resources.
+
+The orchestrator instance includes tags that should not be deleted or tampered with. The image required to set up the orchestrator instance is a property of Zscaler and is shared with the customer's orchestrator account.
+
+You need to choose an account in your environment and the primary region in which Zscaler's AI Security orchestrator template is deployed. This account is referred to as the orchestrator account. AI Security leverages the template deployed in the orchestrator account to scan the data stores (S3 bucket, EC2 workloads, etc.) of the target accounts. The orchestrator instance is moved to the selected primary region where it organizes the data scan. The orchestrator instance is backed by an autoscaler that ensures at least one orchestrator is running. The target account might have data stores across multiple regions. The scanner instances are launched with a unique identity in the corresponding regions of the orchestrator account where the target data stores are available. The data from the target account's data stores is moved to the scanner instances in the corresponding regions of the orchestrator account. After the scan is complete, the scanner instances are terminated. For example, if the target account has data stores in 5 regions, then scanner instances are launched in those same 5 regions of the orchestrator account. The data is then moved to these 5 scanner instances to be scanned for sensitive data. This ensures data scanning within your public cloud environment and avoids interregional data transfer costs.
+
+- The orchestrator instance requires only outbound internet access to communicate with AI Security. Outbound connections from the orchestrator instance to download scanner images and upload results and logs to AI Security cloud are limited to the following specific service IPs for US Cluster and FQDNs.
+- AI Security supports scanning of data stores present in all global regions of AWS, Azure, and GCP.
+
+The supported orchestrator instance types and configurations are as follows:
+
+| Cloud Service Provider | Instance Type | Instance Configuration | Disk Configuration |
+| --- | --- | --- | --- |
+| AWS | t3.large | 2 core vCPUs and 8 GiB Memory | Root Disk: 20 GB GP3; Data Disk: 16 GB GP3 |
+| Azure | Standard_D2s_V3 | 2 core vCPUs and 8 GiB Memory | Root Disk: 30 GB Standard HDD LRS; Data Disk: 10 GB Standard HDD LRS |
+| GCP | e2-standard-2 | 2 core vCPUs and 8 GiB Memory | Root Disk: 20 GB Standard persistent disk; Data Disk: 10 GB Standard persistent disk |
+
+- 35.164.218.12
+- 34.208.206.171
+- 52.42.215.70
+- 35.84.226.159
+- 52.40.209.233
+- 54.191.175.18
+
+- `api.aisecurity.zscaler.com`
+- `gateway-us.ops.aisecurity.zscaler.com`
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-scanner-instances","lastmod":"2026-07-31T08:08Z","nid":"1539732"} -->
+## Understanding Scanner Instances
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-scanner-instances
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Understanding Scanner Instances
+- Last modified: 2026-07-31T08:08Z
+- Summary: Information about the AI Security scanner instance that is used to scan data and display the scan results in the AI Security Admin Portal.
+
+AI Security creates transitory scanner instances in the respective regions to perform data scanning on different data stores such as storage, compute, and databases. The orchestrator instance creates the scanner instances with a unique identity. Zscaler's applications are installed in these scanner instances to perform data scanning. For each data store, AI Security creates up to a maximum of 10 scanner instances each with a configuration of 16 vCPU and 32 GiB memory, depending upon the number of data stores that must be scanned.
+
+You need to ensure that sufficient vCPU quotas are enabled in the [orchestrator](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator) account. Such high configurations are required as AI Security scans huge amounts of data, and a high configuration of scanner instances ensures data scans are completed faster than the lower configuration instances that take a longer duration to perform a data scan. The scanner instance automatically pushes the data scan results to AI Security.
+
+All scanner instances are created with tags and the tags must not be deleted or tampered with. The image required to launch the scanner instance is property of Zscaler and it is shared with the customer’s orchestrator account for data scanning purposes. Inbound access to scanner instances is restricted only from the orchestrator instance.
+
+The following tags are added to the scanner instances. You can enable these tags in AWS to track the cost allocation for AI Security. To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html).
+
+- z-ais-resource = true
+- z-ais-scanner-resource= true
+- z-ais-tenant-id = <tenant_id>
+- z-ais-tenant-name = <tenant_name>
+- z-ais-scan-id = <scan_id>
+
+## Default Scanner Instances
+
+The scanner instances for the following cloud types:
+
+- AWS
+- Azure
+- GCP
+
+| Data Store Type | Scan Type | Instance Type | Instance Configuration | Disk Configuration |
+| --- | --- | --- | --- | --- |
+| S3 | Full | c5a.4xlarge | 16 core vCPUs and 32 GiB Memory | Root Disk: 20 GB GP3 |
+| S3 | Incremental | t3.xlarge | 4 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+| EC2 | Full | c6in.4xlarge | 16 core vCPUs and 32 GiB Memory | Root Disk: 20 GB GP3 |
+| RDS | Full | c5a.4xlarge db.r6g.large | 16 core vCPUs and 32 GiB Memory | Root Disk: 20 GB GP4 |
+| RDS | Sampling | t3.medium db.r6g.large | 2 core vCPUs and 4 GiB Memory 2 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+| DynamoDB | Full | t3.xlarge | 4 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+| DynamoDB | Sampling | t3.xlarge | 4 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+
+| Data Store Type | Scan Type | Instance Type | Instance Configuration | Disk Configuration |
+| --- | --- | --- | --- | --- |
+| Blob Container | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| Blob Container | Incremental | Standard_D4s_v3 | 4 core vCPUs and 16 GiB Memory | 30 GB GP5 |
+| Virtual Machine | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| File Share | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| File Share | Incremental | Standard_D4s_v3 | 4 core vCPUs and 16 GiB Memory | 30 GB Premium SSD LRS |
+| SQL Server PostgreSQL-Flexible Server | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| SQL Server PostgreSQL-Flexible Server | Sampling | Standard_B2ls_v2 | 2 core vCPUs and 4 GiB Memory | 30 GB Premium SSD LRS |
+| Azure Cosmos DB for NoSQL | Sampling | Standard_B2ls_v2 | 2 core vCPUs and 4 GiB Memory | 30 GB Premium SSD LRS |
+
+| Data Store Type | Scan Type | Instance Type | Instance Configuration | Disk Configuration |
+| --- | --- | --- | --- | --- |
+| Cloud Storage Bucket | Full | e2-standard-16 | 16 core vCPUs and 64 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Storage Bucket | Incremental | e2-standard-8 | 4 core vCPUs and 16 GiB Memory | 20 GB GP6 |
+| Cloud Platform Compute | Full | e2-standard-16 | 16 core vCPUs and 32 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Platform Cloud SQL | Full | e2-standard-16 | 16 core vCPUs and 32 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Platform Cloud SQL | Sampling | e2-standard-2 | 2 core vCPUs and 4 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Platform BigQuery | Sampling | e2-standard-2 | 2 core vCPUs and 4 GiB Memory | 20 GB Standard persistent disk |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-threat-categories","lastmod":"2026-06-10T21:06Z","nid":"1540842"} -->
+## Understanding Threat Categories
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-threat-categories
+- Product: AI Asset Management
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > AI Posture Policies > Understanding Threat Categories
+- Last modified: 2026-06-10T21:06Z
+- Summary: Information about the various threat categories defined in AI Security.
+
+AI Security groups common threats into different categories. The [policy violations](https://help.zscaler.com/ai-asset-mgmt/about-ai-posture-policies) are associated with a specific threat category and a severity level, allowing you to analyze the issue and take the necessary action.
+
+AI Security defines the following threat categories:
+
+| **Threat Category** | **Description** |
+| --- | --- |
+| AI Data Exposure | Exposes AI data resources. |
+| AI Governance | AI breach due to misconfigurations or vulnerabilities (e.g., encryption or logging is disabled on the resource, backup feature disabled). |
+| AI Safety | Exposure of unsafe responses to users (e.g., instructions about self harm). |
+| Model Lifecycle Risk | Improperly configured or risky model issues that can lead to vulnerabilities. |
+| Risky Access | User credentials are not secure (e.g., users without MFA). |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-zscaler-ai-security-api","lastmod":"2026-07-28T00:34Z","nid":"1542069"} -->
+## Understanding Zscaler AI Security API
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-zscaler-ai-security-api
+- Product: AI Asset Management
+- Path: AI Asset Management Help > API > Understanding Zscaler AI Security API
+- Last modified: 2026-07-28T00:34Z
+- Summary: This article provides information about how to use the Zscaler AI Security APIs.
+
+The Zscaler AI Security API provides programmatic access to the AI asset inventory, resource metadata, and governance data collected by the Zscaler AI Security. Using these RESTful APIs, you can integrate Zscaler's AI discovery and classification data directly into your existing security and governance workflows without relying solely on the AI Security Admin Portal.
+
+AI Security continuously discovers, classifies, and monitors AI assets including models, agents, pipelines, datasets, and compute resources across AWS, Azure, and GCP environments. The API surfaces this data to external consumers such as SIEMs, SOARs, ITSM platforms, and custom dashboards, enabling security and compliance teams to build automated, machine-readable workflows around their AI asset inventory.
+
+## Key AI Security API Capabilities
+
+The following are the key capabilities of AI Security APIs:
+
+- Retrieve detailed information about models, agents, pipelines, datasets, registries, and identities across your cloud environments.
+- Scope API access to a specific subset of data using Business Unit (BU)-based filtering.
+- Integrate AI asset and risk data with SIEM, CMDB, and other governance or reporting platforms.
+
+## Authentication
+
+All API access is authenticated via API keys issued and managed through the Authentication Service (ZID) platform. API keys are scoped to roles and Business Units to enforce least-privilege access across your organization. To learn more, see [AI Security API](https://automate.zscaler.com/docs/docs/api-reference-and-guides/api-reference/ai-security).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/updating-gcp-service-account","lastmod":"2026-08-06T21:06Z","nid":"1541386"} -->
+## Updating the GCP Service Account
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/updating-gcp-service-account
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Updating the GCP Service Account
+- Last modified: 2026-08-06T21:06Z
+- Summary: Information on updating the GCP project service accounts in the AI Security Admin Portal.
+
+While onboarding a GCP organization, a service account is created within the GCP organization. The service account defines the policies and permissions required for AI Security to access specific resources within the onboarded GCP organization.
+
+If the service account is accidentally deleted, AI Security's access to the onboarded organization is impacted, and all the onboarded projects within the organization move to the [Needs Attention](https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-status) state. To restore access, you must update the service account details.
+
+## Prerequisites
+
+You must be assigned either an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions) or any role with permission to add accounts in the Zscaler Admin Console.
+
+## Updating Service Account
+
+To update the service account:
+
+1. Go to **Administration > Account Onboarding**.
+2. Select the GCP cloud account for which you want to update the service account.
+3. Click **Manage**, and then select **Update Service Account** from the drop-down menu.
+4. Download and run the **Tree Discovery** template:
+  - a. In the AI Security Admin Portal
+  - b. On the Local System
+  - c. In the AI Security Admin Portal
+5. On the **Roles and Templates** tab, download and run the **GCP Onboarding** template:
+  - a. In the AI Security Admin Portal
+  - b. On the Local System
+
+After the template is successfully deployed, AI Security's access to the GCP organization is restored, and the onboarded projects move to the Successfully Configured state.
+
+In the **Roles and Templates** tab, click **GCP Onboarding** to download the template as a ZIP file.
+
+Update and run the template in the gcloud using the CLI app:
+
+1. Extract the downloaded ZIP file to a local directory on your system.
+2. Locate the `backend.tf` file within the extracted folder and open it in a text editor.
+3. Update the file by adding the name of the storage bucket and a preferred prefix where you would like to store the Terraform state files, and then, save and close the `backend.tf` file.
+4. Open the Command Prompt or any other CLI app on your local system.
+5. Switch to the directory containing the downloaded Terraform file.
+6. Run the following commands:
+  1. To initialize the working directory and apply the Terraform configuration: `terraform init`
+  2. To verify the changes in the Terraform configuration: `terraform plan`For **Enter a value**, enter the regions where you want AI Security to monitor and scan data in the following format: `["region name1", "region name2", "region name3", and so on.]`AI Security creates resources required for data scanning only in these specified regions.
+  3. To run the Terraform script: `terraform apply`For **Enter a value**, enter the regions where you want to deploy the template in the following format: `["region name1", "region name2", "region name3", and so on.]`For **Do you want to perform these actions?**, enter `yes` and then press `Enter`.
+
+In the **Update Service Account** section, click **Tree Discovery** to download the template as a ZIP file.
+
+Enter the JSON output generated while running the Terraform apply command, and validate the template deployment.
+
+1. In the **Update Service Account**window, paste the JSON output into the **Generated JSON** text field.
+2. Click **Validate**. AI Security verifies the JSON input and validates the template deployment. If the validation is successful, a message appears indicating that the service account was updated.
+3. Click **Done**.
+
+Update and run the template in the gcloud using the CLI app:
+
+1. Extract the downloaded ZIP file to a local directory on your system.
+2. Locate the `backend.tf` file within the extracted folder and open it in a text editor. Update the file by adding the name of the storage bucket and a preferred prefix where you would like to store the Terraform state files, then save and close the `backend.tf` file.
+3. Launch the installed Google Cloud SDK on your local system.
+4. Run the following command to connect to the GCP console: `gcloud auth application-default login`You are redirected to a browser to authorize access to the Google Auth Library. Log in to your GCP account to confirm authorization and close it after you have authorized access. After successful authentication, the Google Cloud SDK displays a confirmation message, indicating that your credentials have been saved to a file. These credentials are used by any library that requests Application Default Credentials (ADC).
+5. Open the Command Prompt or any other CLI app in your local system.
+6. Switch to the directory containing the downloaded Terraform file.
+7. Run the following commands:
+  1. To initialize the working directory and apply Terraform configuration: `terraform init`
+  2. To verify the changes in the Terraform configuration: `terraform plan`
+  3. To run the Terraform script: `terraform apply`The command returns a JSON output that includes the project ID, private key ID, private key, client email address, and other credentials to connect the AI Security with the GCP organization.
+  4. To access the JSON data later, copy it to a text file and note the `client email` which is part of the JSON output.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/updating-private-key-gcp","lastmod":"2026-08-06T21:06Z","nid":"1541472"} -->
+## Updating the Private Key for GCP
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/updating-private-key-gcp
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Updating the Private Key for GCP
+- Last modified: 2026-08-06T21:06Z
+- Summary: Information on how to update the private key for GCP in the AI Security Admin Portal.
+
+The private key is a confidential string associated with a GCP service account, which is necessary to access the service account from outside the Google Cloud environment, such as on other platforms or on-premises infrastructure. During the GCP account onboarding process, a private key is generated in JSON format when you apply the tree discovery template, which is then provided to AI Security as part of the account onboarding process.
+
+If your service account keys need to be updated or have expired, you can update your service account key at any time.
+
+## Prerequisite
+
+You must be assigned either an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions) or any role with permission to add accounts in the AI Security Admin Portal.
+
+Download a private key for your service account in JSON format from the Google Cloud Console. To learn more on downloading a private key for a service account, refer to the [Google Cloud documentation](https://cloud.google.com/iam/docs/keys-create-delete#creating).
+
+## Updating the Private Key
+
+To update the private key, on the AI Security Admin Portal:
+
+1. Go to **Administration >** **Account Onboarding**.
+2. Select the GCP cloud account for which you want to update the service account.
+3. Click **Manage**, and then select **Update Private Key** from the drop-down menu. See image.
+4. In the **Update Private Key** window, upload the downloaded JSON file to the AI Security Admin Portal by either dragging and dropping the file, or clicking **or click to browse** to select the file from your computer. See image.
+5. Click **Apply**. See image. AI Security validates the updated private key by verifying it against the service account. If the validation is successful, a message appears indicating that the connection is established. If the private key is invalid, or it does not match the service account, an error is displayed.
+6. Click **Done**.
+
+The private key is updated for the selected service account.
+
+[Image: Upload JSON Private Key]
+
+[Image: Browse JSON Private Key]
+
+[Image: Update Private Key Drop-down]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/validating-cloud-accounts","lastmod":"2026-06-29T21:06Z","nid":"1540297"} -->
+## Validating Cloud Accounts
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/validating-cloud-accounts
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Validating Cloud Accounts
+- Last modified: 2026-06-29T21:06Z
+- Summary: Information on how to validate target accounts in the AI Security.
+
+AI Security validates the cloud accounts every hour to check if the onboarding templates are deployed successfully and roles and permissions are configured for each account. You can also run an on-demand validation without waiting for AI Security's hourly validations.
+
+## Validating a Single Account
+
+To validate a single account:
+
+1. Go to **Administration** > **Cloud Accounts**.
+2. Select the cloud account.
+3. Select the **Accounts**tab for AWS, **Subscriptions**tab for Azure, or **Projects**tab for GCP. The tab name varies depending on the selected cloud account.
+4. Click the **Actions**icon for the account you want to validate, and click **On Demand Validation**.
+5. In the **On Demand Validation** window, click **Confirm**.
+
+## Validating all Accounts in the Organization
+
+To validate all accounts in the organization:
+
+1. Go to **Administration** > **Cloud Accounts**.
+2. Select the cloud account.
+3. Click **Manage**, and then select **On Demand Validation** from the drop-down menu.
+4. In the **On Demand Validation** window, click **Confirm**.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-investigation-results","lastmod":"2026-06-05T21:06Z","nid":"1540833"} -->
+## Viewing the Investigation Results
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-investigation-results
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > Viewing the Investigation Results
+- Last modified: 2026-06-05T21:06Z
+- Summary: Information about the investigation queries created in the AI Security Admin Portal.
+
+The investigation queries you create are displayed on the [Investigation page](https://help.zscaler.com/ai-asset-mgmt/about-investigation). You can run the investigation query and view the investigation results.
+
+To view the investigation results:
+
+1. Go to **AI Infrastructure**>**Investigation**.
+2. On the **Investigation** page, you can do the following: The investigation results are displayed. See image. Resources with the highest level of severity are displayed in hierarchical order. When you sort the data in the **Risk** or **Resource Name** column, resources with the highest risk are displayed first, followed by the ones with lower risk. Click the **Resource Name** to view the resource details.
+  - By default, the **History** tab displays all the queries that you've created. Click the **Actions** icon () for any query, then select **Run Query**. See image.
+  - Select the **Saved** tab to view the saved queries. Click the **Actions** icon () for any query, then select **Run Query**. See image.
+  - On the **Saved** tab, click the**Investigation Name** or **Query** to view the drawer. Click the **Run Query** icon at the top right corner. See image.
+
+[Image: Run a saved query]
+
+[Image: Click the Run Query icon]
+
+[Image: Run the query]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-issue-details","lastmod":"2026-06-05T21:06Z","nid":"1540789"} -->
+## Viewing Issue Details
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-issue-details
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Monitoring & Investigation > Issues > Viewing Issue Details
+- Last modified: 2026-06-05T21:06Z
+- Summary: Information about viewing AI Security alert details.
+
+You can view additional details of issues such as issue summaries, descriptions, why issues are in a specific status, etc. This information allows you to investigate the issues in detail and learn how to remediate the issue.
+
+To view the issue details:
+
+1. Go to **AI Infrastructure**> **Issues**> **Issues View**.
+2. Select the **All Issues** tab.
+3. Click the **Issue ID**. The individual issue's page appears with the following tabs:
+  - Issue Details
+  - Remediation
+
+On the **Issue Details** tab, you can view:
+
+- **Summary**: The [policy](https://help.zscaler.com/ai-asset-mgmt/about-ai-posture-policies) for which the issue was generated.
+- **Description**: A brief explanation of what the policy detects.
+- **Created Date**: The date and time the issue was created.
+- **Last Updated**: The date and time the issue was last updated.
+- **Issue Age**: The number of days the issue was in an open state. When an issue is generated or reset, its age is calculated from zero. For example, if an issue is generated on November 1st, the issue age is 0. On November 5th, the issue age becomes 4.
+- **MITRE ATT&CK**: The MITRE ATT&CK technique and ID (e.g., **Vulnerability Scanning (T1595)**, **Data Destruction (T1485)**). Click the number to view all the associated MITRE techniques. See image.
+- **Policy ID**: The unique identifier of the policy. Click to view the [policy details](https://help.zscaler.com/ai-asset-mgmt/viewing-policy-details).
+- **Policy Severity**: The severity (**Critical**, **High**, **Medium**, or **Low**) of the policy.
+- **Resource Name**: The name of the resource. Click to view additional details of the resource in the resource drawer. By default, you are directed to the Risk Explorer tab to view the Resource Inventory graph.
+- **Policy Category**: The threat category (e.g., **Data Loss**, **Public Exposure**) to which the policy belongs.
+- **Compliance Benchmark**: The compliance benchmark (e.g., **GDPR**, **HIPAA**) associated with the policy. Click the number to view all the associated compliance benchmarks.
+- **Compliance Category**: The compliance categories (e.g., **Data Protection (3)**, **Data Recovery (11)**) associated with the policy. Click the number to view all the associated compliance categories.
+- The graphical representation of the issue.
+
+On the **Remediation** tab, you can view the remediation steps to resolve the issue in the cloud service provider (CSP).
+
+[Image: List of MITRE techniques with technique ID displayed after clicking on the numbers.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-onboarded-account-details","lastmod":"2026-06-04T21:06Z","nid":"1540294"} -->
+## Viewing the Onboarded Account Details
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-onboarded-account-details
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Onboarded Account Details
+- Last modified: 2026-06-04T21:06Z
+- Summary: Information about the Cloud Accounts page and the actions available in the AI Security Admin Portal.
+
+After onboarding the accounts successfully, you can view the details of all the onboarded accounts on the Cloud Accounts page.
+
+To view the onboarded account details:
+
+1. Go to **Administration** > **Account Onboarding**.
+2. Click the required cloud account (AWS, Azure, or GCP).
+3. Select the **Accounts** tab for AWS, **Subscriptions** tab for Azure, and **Projects** tab for GCP. The tab name varies depending on the selected cloud account.
+
+In this article, the **Subscriptions** tab is shown as an example. On the **Subscriptions** tab, you can do the following:
+
+1. Select different actions from the **Manage** drop-down menu. To learn more, see [About Cloud Accounts](https://help.zscaler.com/ai-asset-mgmt/about-cloud-accounts).
+2. Add filters to view specific accounts.
+3. Search for a specific account in the searchable columns.
+4. For each subscription, you can see:
+  - **Subscription Name:** The name of the subscription. Click the name to view additional details:
+    - Details
+    - Issues
+  - **Subscription ID:**The unique identifier of the subscription.
+  - **Business Unit:** The business unit assigned to the account.
+  - **Status:** The status of the scan configuration (Successfully Configured, Pending Configuration, Needs Attention).
+  - **Last Validated**: The date and time when the account is validated to check all configurations.
+5. Select multiple accounts and perform the same action on all of them at the same time, like changing the business unit or deleting the onboarded accounts.
+6. Modify the table and its columns.
+7. Click the **Action** icon to change the business unit or delete a subscription.
+
+- **Status:** The [status of the scan configuration](https://help.zscaler.com/ai-asset-mgmt/viewing-orchestrator-status) (Successfully Configured, Pending Configuration, Needs Attention) for the account.
+- **Business Unit:** The business unit assigned with the account.
+- **Onboarding Date:** The date and time the account was onboarded
+- **CloudTrail**: Cloud Trail details are displayed only for AWS accounts.
+  - **Bucket Name**: The name of the S3 bucket associated with CloudTrail.
+  - **Prefix**: The prefix specified in the CloudTrail bucket path.
+  - **Bucket Account ID**: The AWS account ID where the CloudTrail S3 bucket is present.
+
+- View the configuration issues that occurred while onboarding the account along with the resolution steps. To learn more, see [Viewing Onboarding Issues](https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-issues).
+- From the **Actions** drop-down menu, you can change the business unit or delete an onboarded account.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-onboarding-issues","lastmod":"2026-07-23T00:45Z","nid":"1540295"} -->
+## Viewing Onboarding Issues
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-issues
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing Onboarding Issues
+- Last modified: 2026-07-23T00:45Z
+- Summary: Information about how to resolve issues in the cloud account.
+
+AI Security detects issues in the [onboarded AWS organization](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization), GCP organization, or [Azure tenant](https://help.zscaler.com/ai-asset-mgmt/onboarding-microsoft-entra-tenant) and lists them on the Issues tab. You can also view the resolution steps to resolve the issue.
+
+If the issues are not addressed, they might impact the [scanning of the data stores](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings).
+
+The following issues might occur while onboarding accounts:
+
+| AWS | Microsoft Azure | GCP |
+| --- | --- | --- |
+| Role not found in the orchestrator or target accounts | Role not present or misconfigured in the Microsoft Entra tenant | Missing permissions in the target project |
+| Missing permissions in the orchestrator or target accounts | Admin consent not granted | Missing permissions in the Orchestrator project |
+| Configuration issues in the orchestrator account | Client Secret is invalid | Missing permissions in the service account |
+| Configuration issues in the CloudTrail or incorrect CloudTrail configuration | Application object unavailable | Missing resources in the Orchestrator project |
+| Orchestrator validation is pending | Role not found or misconfigured in the orchestrator subscription. | Orchestrator validation is pending |
+| Orchestrator unable to communicate with AI Security | Onboarded account is currently suspended. | Orchestrator is unable to communicate with the AI Security |
+| Resources missing in the orchestrator account | Onboarded account is deleted | Onboarded account is deleted |
+| Onboarded account is currently suspended | Onboarded account is currently suspended | Onboarded account is currently suspended |
+
+If an issue is detected in the target accounts, or projects, the status of the target accounts or projects moves to the **Needs Attention** state until the issue is resolved.
+
+To view the onboarding issues:
+
+1. Go to **Administration** > **Account Onboarding**.
+2. Select the organization, project, or tenant from the list.
+3. Select the **Issues** tab to view the list of issues along with the resolution steps.
+4. Click **See Accounts** to view the list of affected accounts, projects, or subscriptions.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-onboarding-status","lastmod":"2026-06-04T21:06Z","nid":"1540292"} -->
+## Viewing the Onboarding Status
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-status
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Onboarding Status
+- Last modified: 2026-06-04T21:06Z
+- Summary: How to view the onboarding status for a cloud account in the AI Security Admin Portal.
+
+AI Security runs a health validation service to check if the onboarding templates are deployed successfully and roles and permissions are configured for each account. After the validation is completed, the onboarding status of the target accounts and [orchestrator accounts](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator) are displayed on the Overview tab.
+
+In this article, an AWS account's status is shown as an example.
+
+The field names vary depending on the cloud account: **Account**for AWS, **Subscription**for Azure, and **Project**for GCP.
+
+On the **Overview**tab, you can view the following details:
+
+1. **New template available for deployment** (Optional): A notification banner is displayed if a new template (e.g., Tree Discovery, Onboarding) is available for deployment. AI Security releases new templates that include additional functionalities for scanning and collecting metadata. Click **See Details** to view the available templates on the Roles and Templates tab. If you close the notification banner, it is removed only for the current session. The message is displayed when you log in again.
+2. **Account Status**: The number of accounts configured for [data scan](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings) versus the total number of accounts in the organization displayed in the donut chart. You can see the following statuses:
+  - **Successfully Configured**: The number of accounts that are configured and validated successfully.
+  - **Needs Attention**: The number of accounts that have [misconfigurations or permission issues](https://help.zscaler.com/ai-asset-mgmt/resolving-onboarding-issues).
+  - **Pending Configuration**: The number of accounts for which the roles and permissions are yet to be configured and validated.
+  - **Monitored Regions**: The list of regions where the target accounts are located.
+  - The list of services selected for monitoring and scanning.
+3. **Orchestrator Details**: The details about the [orchestrator account](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator) in which the AI Security's orchestrator template is deployed. You can see:
+  - **Account Name**: The account name.
+  - **Account ID**: The account ID.
+  - **Custom Tags**: The number of custom tags added.
+  - **Region**: The primary region selected while onboarding.
+  - **Network Type**: The network configuration used for onboarding the account or organization.
+  - **AI Security Connection Status**: The connection status (**Successful** or **Failed**) of the orchestrator instance with AI Security.
+  - **Configuration Status**: The configuration status (**Successful**, **Warning**, **Failed**, or **Pending Validation**) indicating whether all accounts are available and permissions are configured correctly in the orchestrator subscription.
+  - **Last Connected**: The last time the orchestrator instance was successfully connected with AI Security.
+4. **CloudTrail**: The details of the [organization CloudTrail](https://help.zscaler.com/ai-asset-mgmt/understanding-aws-cloudtrail) provided while [onboarding](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization). You can see: This field is available only for AWS organizations.
+  - **CloudTrail Bucket Name**: The name of the S3 bucket where the CloudTrail events are logged.
+  - **Prefix**: The prefix specified in the CloudTrail bucket path.
+  - **Bucket Account ID**: The AWS account ID where the CloudTrail S3 bucket is present.
+  - **Status**: The status (**Enabled** or **Failed**) of the CloudTrail configuration.
+5. **Evidence**: The details of the S3 bucket where the evidence data is stored.
+  - **S3 Bucket Name**: The S3 bucket name.
+  - **Storage Type**: The storage type (**Zscaler** or **Custom**).
+  - **S3 Bucket Account ID**: The S3 bucket account ID.
+6. **Data Events**: The details of the CloudTrail where the data events are stored. You can see: This field is available only for AWS organizations.
+  - **CloudTrail Bucket Name**: The name of the S3 bucket where the data events are stored.
+  - **Prefix**: The prefix specified in the CloudTrail bucket path.
+  - **Bucket Account ID**: The AWS account ID where the S3 bucket is present.
+  - **Status**: The status (**Enabled** or **Failed**) of the CloudTrail configuration.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-orchestrator-status","lastmod":"2026-06-04T21:06Z","nid":"1540293"} -->
+## Viewing Orchestrator Status
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-orchestrator-status
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing Orchestrator Status
+- Last modified: 2026-06-04T21:06Z
+- Summary: Information about the orchestrator status in the AI Security Admin Portal.
+
+AI Security regularly scans the data stores (databases, virtual machines, etc.) within your target accounts by leveraging the [orchestrator](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator)that is deployed in your account during the onboarding process. The orchestrator instance launches [scanner instances](https://help.zscaler.com/ai-asset-mgmt/understanding-scanner-instances) in the regions where the target account data stores exist and scans the data.
+
+On the **Overview** tab, you can view the following status types for the orchestrator connection and configuration:
+
+- **AI Security Connection Status**: The connection status between the orchestrator and AI Security.
+  - **Successful**: The orchestrator instance is connected to AI Security successfully.
+  - **Failed**: The orchestrator instance is unable to establish a connection with AI Security.
+  - **Waiting for connection**: The orchestrator template is not yet deployed in the cloud service provider (CSP).
+- **Configuration Status**:Indicates whether all resources are available and permissions are configured in the orchestrator account. The configuration status can be one of the following:
+  - **Successful**: All resources are successfully deployed and permissions are configured in the orchestrator account.
+  - **Warning**: Some resources or permissions are unavailable, tampered with, or not visible.
+  - **Failed**: The orchestrator instance cannot launch scanner instances, or some roles and permissions are missing in the orchestrator account.
+  - **Pending**: The orchestrator account has changed or the template is yet to be deployed in the CSP.
+- **Last Connected**: The last time the orchestrator instance was successfully connected with AI Security.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-policy-details","lastmod":"2026-06-18T03:28Z","nid":"1540862"} -->
+## Viewing Policy Details
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-policy-details
+- Product: AI Asset Management
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > AI Posture Policies > Viewing Policy Details
+- Last modified: 2026-06-18T03:28Z
+- Summary: Information about the data posture policy details in the AI Security Admin Portal.
+
+AI posture policies are queries that looks for vulnerabilities or misconfigurations in the data stores and detect any potential possibilities of a data breach. You can view the details of policies that are used to query data stores in AWS, Azure, and GCP cloud resources. You can see the policy description, the query used to define the policy, remediation steps, and options to disable or clone the policy. To learn more, see [About AI Posture Policies](https://help.zscaler.com/ai-asset-mgmt/about-ai-posture-policies).
+
+To view the policy details:
+
+1. Go to **Policies & Control**> **AI Posture Policies**.
+2. Under the **Policy Name** column, click any policy. See image. The Policy page appears with the following tabs:
+  - Policy Overview
+  - Remediation
+3. Click the **Actions** menu and choose to disable or clone a policy. See image.
+
+On the **Policy Overview** tab, you can view:
+
+- **Policy Details**:
+  - **Policy Rationale**: A brief explanation about what the policy detects.
+  - **MITRE**: The MITRE techniques that are related to the detected issue. Click the number to view all the associated MITRE techniques. See image.
+  - **Policy ID**: The unique identifier for the policy.
+  - **Policy Category**: The threat category to which the policy belongs.
+  - **Resource Type**: The type of data store (EC2, Storage Account, RDS Instance, etc.)
+  - **Compliance Framework**: The list of compliance frameworks that are applicable for this policy.
+- **Policy Query**: The details of the query used to create this policy. You cannot view policies that are temporarily hidden. See image.
+
+See image.
+
+On the **Remediation** tab, you can see the remediation steps to resolve the issue detected in the resource.
+
+See image.
+
+[Image: The policy rationale for an Azure virtual machine]
+
+[Image: Remediation steps to resolve the misconfiguration in the Azure virtual machine]
+
+[Image: Select to disable or clone the policy]
+
+[Image: Click any policy name to view the policy details]
+
+[Image: List of MITRE techniques that are applicable for the policy]
+
+[Image: The Policy Overview tab with information at the end about why a query for the policy is temporarily hidden.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-roles-and-templates","lastmod":"2026-08-05T21:06Z","nid":"1541961"} -->
+## Viewing the Roles and Templates
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Roles and Templates
+- Last modified: 2026-08-05T21:06Z
+- Summary: Information on how to view roles and download onboarding templates in the Zscaler Admin Console.
+
+AI Security creates IAM or custom roles in the cloud accounts, and these roles are assigned with various permissions that allow AI Security to connect to the cloud account and discover resources for data scanning. You can view these roles on the Roles and Templates tab, copy them and verify if they are the same in the respective cloud account, in case of any [issues](https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-issues).
+
+To view the roles or download the templates:
+
+1. Go to **Administration > Account Onboarding**.
+2. Select the cloud account from the list.
+3. Select the **Roles and Templates** tab. You can view the templates and the corresponding roles created for the organization. The file name of the downloaded template includes the template version number.
+  - AWS
+  - Microsoft Azure
+  - GCP
+
+## Availability of New Templates
+
+AI Security releases new templates that include additional functionalities for scanning and collecting metadata. A notification banner is displayed on the **Roles and Templates** tab whenever a new template is available.
+
+You can download the template to review the changes. If you click **Acknowledge**, the new template overrides the existing template, and AI Security validations and health checks are then performed on the new template upon deployment. If not acknowledged, AI Security validations and health checks continue on the existing template.
+
+- You can acknowledge the template only if you are assigned an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions). If you have a role with the View Cloud Accounts permission, you can only view or download the templates, but you cannot acknowledge them.
+- If you acknowledge the new template for one organization or tenant, it is updated for all the onboarded organizations or tenants.
+
+## Redeploying Templates
+
+You can redeploy the AI Security templates in the following scenarios:
+
+- Upgrade to a new template
+- Experience issues with custom roles that are created during onboarding
+- Modify or delete a role
+
+Download either the CloudFormation or Terraform template to your local system, extract the ZIP file, and run it on the AWS organization.
+
+- Tree Discovery
+- Orchestrator
+- Monitoring Scope
+- Evidence
+
+You can view and copy the external ID, an optional identifier that is attached to the role. AWS recognizes this external ID and allows AI Security to access the AWS resources. To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html).
+
+Download the following templates to your local system, extract the ZIP file, and run it on the Azure tenant.
+
+- Tree Discovery
+- Azure Onboarding
+- Evidence
+
+Download the following templates to your local system, extract the ZIP file, and run it on the GCP organization.
+
+- Tree Discovery
+- GCP Onboarding
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-scan-results-ai-models","lastmod":"2026-06-01T21:06Z","nid":"1540791"} -->
+## Viewing Scan Results for AI Models
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-scan-results-ai-models
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Monitoring & Investigation > Model Scan Findings > Viewing Scan Results for AI Models
+- Last modified: 2026-06-01T21:06Z
+- Summary: How to view security scan findings for AI Models in the AI Security Admin Portal.
+
+AI Security scans AI models to identify security risks and vulnerabilities. To view the scan details, go to **AI Infrastructure** > **Issues** > **Model Scan Findings**.
+
+On the Model Scan Findings page, you can:
+
+1. Filter your view to see findings grouped by model or to see all findings:
+  - Group by Model ID
+  - All Findings
+2. Apply filters to view specific data.
+
+- **Model ID**: The unique identifier of the AI model.
+- **Findings**: The number of security risks detected. Click the number to view additional details on the **All Findings** tab, pre-filtered for the specific model ID. See image.
+- **Severity**: The severity level (Critical, High, Medium, or Low) of the risk.
+- **Risk Score**: The overall risk score assigned to the AI model.
+- **Scan Date**: The date and time the AI model was last scanned.
+
+See image.
+
+- **Scan ID**: The unique identifier for the scan. Click the scan ID to view additional details.
+- **Integration Name**: The name of the integration.
+- **Model ID**: The unique identifier of the AI model.
+- **Host**: The host name or IP address where the AI model is located.
+- **Severity**: The severity level (Critical, High, Medium, or Low) of the risk.
+- **Scan Date**: The date and time the AI model was last scanned.
+- **Scan Summary**: A brief description of the scan result.
+
+See image.
+
+Click the **Action**icon to archive a specific scan instance from the all findings list.
+
+See image.
+
+- General Information
+- Vulnerabilities
+
+- **Risk Score**: The chart visually represents the overall risk score assigned for the AI model. The following are the risk score ranges:
+  - **Low**: 0–25
+  - **Medium**: 26–50
+  - **High**: 51–75
+  - **Critical**: 76–100
+- Scan information such as scan ID, integration name, model ID, host, scan date, scan duration, files scanned, frameworks detected, and vulnerabilities.
+
+See image.
+
+- **Vulnerability**: The name of the vulnerability (e.g., GCP Service Account Private Key).
+- **ID**: The unique identifier for the detection logic used to identify the vulnerability (e.g., Z-AISPM-SEC-014).
+- **Severity**: The severity level (Critical, High, Medium, or Low) assigned to the vulnerability.
+- **Category**: The classification of the vulnerability (e.g., code_execution)
+- **File**: The file path where the vulnerability is detected.
+- **Artifact Type**: The format of the file where the vulnerability is detected (e.g., raw_text).
+- **Remediation**: The recommended steps to remediate the detected vulnerability.
+
+See image.
+
+[Image: General details of the findings related to AI model]
+
+[Image: View vulnerability details related to the AI model]
+
+[Image: View Group By Model ID tab]
+
+[Image: View All Findings tab]
+
+[Image: Click the Archive icon to hide the scan instance]
+
+[Image: View the list of all the findings]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-dashboard","lastmod":"2026-04-18T04:43Z","nid":"1518451"} -->
+## About the Dashboard
+
+- Source: https://help.zscaler.com/breach-predictor/about-dashboard
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About the Dashboard
+- Last modified: 2026-04-18T04:43Z
+- Summary: Information about the Zscaler Breach Predictor Dashboard.
+
+The Zscaler Breach Predictor MITRE ATT&CK Overview Dashboard is designed as a starting point in the Breach Predictor Portal, providing high-level information about your organization's current risk of a data breach. The Dashboard is divided into two main areas: the Overall Breach Probability score, and the MITRE ATT&CK Overview charts and graphs. Within the Dashboard, you can use various charts and graphs to better understand your Overall Breach Probability score and to assess your organization’s placement within the MITRE ATT&CK framework during a specified period.
+
+Breach Predictor’s preemptive vision of security starts with the main Dashboard page, which contains the Overall Breach Probability score, prioritized policy recommendations to triage the biggest threats to your organization, and high-level charts and graphs to give you an instant read on the likelihood of a breach that can exfiltrate your organization's data. The score factors in your organization's placement in the MITRE ATT&CK matrix, as well as the number of affected users. A higher Overall Breach Probability score indicates a higher risk of a data breach. The Sankey chart gives you quick visibility across users, stages, categories, and threat families.
+
+See image.
+
+If your organization is secured and no users are at risk during the specified time period, Breach Predictor shows a link to the Threat Landscape page so that you can see cutting-edge threat information curated by Zscaler ThreatLabz. The Threat Landscape page provides an overview of the top threats affecting organizations across the globe. To learn more, see [Analyzing Findings](https://help.zscaler.com/breach-predictor/analyzing-findings).
+
+See image.
+
+The Breach Predictor Dashboard provides the following benefits and enables you to:
+
+- See a high-level overview of your organization's current risk of a data breach.
+- View your organization's Overall Breach Probability score and a prioritized list of policy recommendations to remediate threats to your organization.
+- Use various charts and graphs to understand how various malware threats are affecting your organization.
+
+To learn more, see [Analyzing the Dashboard](https://help.zscaler.com/breach-predictor/analyzing-dashboard).
+
+## About the MITRE ATT&CK Overview Dashboard Page
+
+Use the charts and graphs in the Observed Users views on the Dashboard page (Breach Predictor Portal > Dashboard) to see patterns for groups of at-risk users, organized by MITRE ATT&CK stage, malware category, and malware family. You can click the left and right arrows to toggle between Observed Users views to see the different charts and graphs that are available. Additionally, you can click Explore to open the Findings page to better understand which malware families are impacting your environment. To learn more, see [About the Threat Landscape](https://help.zscaler.com/breach-predictor/about-threat-landscape).
+
+- Observed Users View 1
+- Observed Users View 2
+- Threat Overview
+
+[Image: The Main Dashboard Page in Zscaler Breach Predictor src=]
+
+[Image: Breach Probability Score with No Threats Identified in Zscaler Breach Predictor]
+
+The Sankey chart in the first Observed Users view uses a horizontal layout to present threat activity across users, stages, categories, and malware families.
+
+In the Sankey chart within the Observed Users view 1, you can do the following:
+
+1. In the **Users** column, see an overview for the total users in your organization, as well as the number of users at risk of a data breach.
+2. In the **Stages** column, see the attack stage locations of the malware families affecting your users.
+3. In the **Category** column, see the classification groups for the malware families affecting your users.
+4. In the **Malware Family** column, see the names of the malware families affecting your users, as well as the severity score for each family.
+
+[Image: Observed Users View 1 in Zscaler Breach Predictor]
+
+The Sankey chart in the second Observed Users view uses a vertical layout to present threat activity across users, stages, categories, and malware families.
+
+In the Sankey chart within the Observed Users view 2, you can do the following:
+
+1. In the **Total Users** column, see an overview for the total users in your organization, as well as the percentage change in users at risk of a data breach.
+2. In the **Events allowed** row, see the attack stage locations of the malware families affecting your users. Attack stages that have not been reached are not interactive.
+3. In the **Threat Category** row, see the classification groups for the malware families affecting your users.
+4. In the bottom row, see the names of the malware families affecting your users, as well as the number of users affected by each family.
+
+[Image: Observed Users View 2 in Zscaler Breach Predictor]
+
+The charts and graphs in the Threat Overview view present even more granular data about the threat families affecting your organization.
+
+In the Sankey chart within the Threat Overview, you can do the following:
+
+1. In the **Top Users Impacted By Threats** Sankey chart, see the top users affected by the top malware threat. You can click user names or threat family names to see more detailed information.
+2. In the **Top Threats Across Attack Stages** radial chart, see the main attack stages for the threats affecting your users. You can click chart data to see more detailed information.
+3. In the **Allowed Policies over time** bar chart, see main policies that allowed the malware threats affecting your users. You can hover over chart data to see more detailed information.
+4. In the **Threats over time** bar chart, see the threat families that have affected your users during the selected period. You can hover over chart data to see more detailed information.
+
+[Image: Threat Overview in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-events","lastmod":"2025-06-06T07:06Z","nid":"1518461"} -->
+## About Events
+
+- Source: https://help.zscaler.com/breach-predictor/about-events
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Events
+- Last modified: 2025-06-06T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Events page.
+
+Breach Predictor Events help to keep you from getting lost in granular data so that you can maintain a clear view of the bigger security picture. You can use the Events page to filter and analyze all the allowed events that have affected your organization during a particular time period. Much like the [Findings page for a threat family](https://help.zscaler.com/breach-predictor/about-findings), the Events page gives you a high-level overview for all threats, and it allows you to drill down to see individual threats, individual users, and granular detail about each threat event. You can also adjust the time frame to gain more insight into how various threat families have affected your organization over time.
+
+Events provide the following benefits and enable you to:
+
+- Monitor the allowed events that have affected your organization over time.
+- Use multiple filters to get a more granular view of threats affecting your organization.
+
+## About the Events Page
+
+On the Events page (Breach Predictor Portal > Events), you can do the following:
+
+1. Filter results by threat family.
+2. Filter results by users in your organization.
+3. Change the time frame for the results shown on the page.
+4. Filter the results by MITRE ATT&CK tactic.
+5. See a visual representation via bar chart of the events for the chosen time frame.
+6. Search for events in the list.
+7. Download a CSV file that contains information about each threat event.
+8. View details of the filtered events that have affected your organization. You can sort each column. For each event, you can see:
+  - **Date/Time**: The date and time (GMT) of the threat activity.
+  - **Policy Status**: Whether the event was allowed or blocked by policy.
+  - **User Name**: The name of the user in your organization affected by the threat event.
+  - **Threat Name**: The name of the threat family associated with each event.
+  - **Threat Type**: The type of threat associated with each event.
+  - **Tactic**: The MITRE ATT&CK tactic associated with each event.
+  - **URL**: The URL associated with each event.
+  - **Client Ip**: The IP address for the client that experienced the threat event.
+9. Modify the columns available in the table.
+10. Specify the number of items to show per page.
+11. Go through the pages in the list of threat events.
+
+[Image: The Events Page in Zscaler Breach Predictor]
+
+As you go through the list of threat events, you can select an item in the list to see specific details about the event:
+
+[Image: The Event Detail Panel in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-findings","lastmod":"2025-08-09T07:06Z","nid":"1518456"} -->
+## About Findings
+
+- Source: https://help.zscaler.com/breach-predictor/about-findings
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Findings
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Findings page, which provides specific information about all malware families affecting your organization.
+
+Breach Predictor Findings provide a high-level overview of all threat families affecting your organization, while also allowing you to drill down to get specific information about each threat family. The basic idea with Breach Predictor Findings is to quickly determine where each threat family sits on the MITRE ATT&CK matrix, and then to use attack-path data to help you interpret what your threat placement means. As a result, you can determine whether a threat has already achieved a particular technique, or whether Breach Predictor is predicting its advancement. Some events are identified as "possible," meaning that they might have happened but were not captured as part of Breach Predictor's threat detection. Focusing on the attack path also lets you see how a particular threat is affecting groups of users at each stage of the MITRE ATT&CK matrix (i.e., that groups of users have been exposed at a particular URL).
+
+Breach Predictor uses its Findings to make specific policy update recommendations. In the Threat section, you can create Jira tickets so that Zscaler Support can make policy updates to remediate the threats affecting your organization.
+
+To learn more, see [Analyzing Findings](https://help.zscaler.com/breach-predictor/analyzing-findings) and [Requesting Updates in Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor).
+
+Findings provide the following benefits and enable you to:
+
+- See a high-level overview of all malware threat families affecting your organization.
+- See specific information about each threat family, including attack path, affected users, and associated events.
+- Create Jira tickets to make policy updates based on Breach Predictor recommendations.
+
+## About the Findings Page
+
+The Findings page (Breach Predictor Portal > Findings) contains the following sub-pages:
+
+- MITRE ATT&CK Mapping Page
+- Threat Page
+
+On the MITRE ATT&CK Mapping page, you can do the following:
+
+1. Filter by attack stage (e.g., **Discover Attack**, **Compromise**, **Lateral Movement**, and **Data Loss**).
+2. Specify the time frame for the data on the page.
+3. Search for malware families or users in your organization to filter the results in the table.
+4. View a list of all malware families affecting your organization and quickly determine where each threat sits on the MITRE ATT&CK matrix. For malware families, you can see:
+  - **Threat**: The name of the malware family. You can sort this column.
+  - **Severity Score**: The threat score (0 to 10) assigned to each malware family by Zscaler ThreatLabz. The higher the score, the more damage a malware family can cause to your organization. You can sort this column.
+  - **Stage and technique**: The matrix is organized by threat stage (e.g., **Discover Attack**, **Compromise**, etc.) and by MITRE ATT&CK technique (e.g., **Reconnaissance**, **Resource Development**, etc.). The threat for a data breach increases as a malware family moves further to the right on the matrix. To learn more, see [What Is Zscaler Breach Predictor?](https://help.zscaler.com/breach-predictor/what-zscaler-breach-predictor)
+
+[Image: The MITRE ATT&CK  Matrix in Zscaler Breach Predictor]
+
+When you click the name of a malware family on the MITRE ATT&CK Mapping page, the Threat page for the malware family opens. The Threat page contains the following tabs:
+
+- Attack path
+- Users
+- Events
+
+On the Attack path tab, you can do the following:
+
+1. Select a different threat family from the drop-down menu.
+2. Specify the time frame for the data on the page.
+3. See high-level information about the selected threat family.
+4. See high-level information about the policy recommendation for the threat.
+5. Click **Update Policy** to see specific Breach Predictor recommendations for policy updates, and [create a Jira ticket](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor) to update the policy.
+6. Go to the **Users** tab to see data about users affected by the threat.
+7. Go to the **Events** tab to see all events related to the threat.
+8. See a generative AI summary of the malware family, including information about its lateral movement in your organization, recommendations for remediation, and information about any related threats.
+9. View the attack path data for the malware family. For the attack path, you can see:
+  - How the malware family has moved or is expected to move through your organization. The chart is organized by threat stage (e.g., **Discover Attack**, **Compromise**, etc.) and by MITRE ATT&CK technique (e.g., **Reconnaissance**, **Resource Development**, etc.). The threat for a data breach increases as a malware family moves further to the right on the matrix. Use the **Event key** to determine the status of the threat's advancement to a particular technique (e.g., **Observed**, **Possible**, or **Predicted**).
+  - You can click **Observed** events to see specific information (e.g., which URLs exposed users to the threat).
+
+[Image: The Attack Path Tab in Zscaler Breach Predictor]
+
+On the Users tab, you can do the following:
+
+1. Go to the **Attack path** tab to see where the threat has moved and is expected to move.
+2. Go to the **Events** tab to see all events related to the threat.
+3. Search for users in your organization to filter the list of users.
+4. View the MITRE ATT&CK data for the users affected by the malware family. For users, you can see:
+  - **User Impacted**: The list of users affected by the selected malware family, including the total number of users affected. Select a user from the list to view all events for the malware family associated with that user. You can sort this column.
+  - **Stage and technique**: The matrix is organized by threat stage (e.g., **Discover Attack**, **Compromise**, etc.) and by MITRE ATT&CK technique (e.g., **Reconnaissance**, **Resource Development**, etc.). The threat for a data breach increases as a malware family moves further to the right on the matrix. To learn more, see [What Is Zscaler Breach Predictor?](https://help.zscaler.com/breach-predictor/what-zscaler-breach-predictor)
+
+[Image: The Users Tab in Zscaler Breach Predictor]
+
+The data presented on the Events tab is nearly identical to the data presented on the Events page. The primary difference between the two is that the Events tab focuses on a single threat, whereas the Events page lets you look at data across multiple threats. The Events tab also provides more information about why Breach Predictor is recommending particular policy updates.
+
+To learn more, see [About Events](https://help.zscaler.com/breach-predictor/about-events).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-profiles","lastmod":"2025-08-02T07:06Z","nid":"1518471"} -->
+## About Profiles
+
+- Source: https://help.zscaler.com/breach-predictor/about-profiles
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Profiles
+- Last modified: 2025-08-02T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor My Profile page.
+
+You can use your profile in the Breach Predictor Portal to see basic information about your username, subscription, organization ID, and the Zscaler Internet Access (ZIA) instance that Breach Predictor is connected to. Additionally, you can integrate Breach Predictor with other applications to expand the functionality available to your organization.
+
+Your profile provides the following benefits and enables you to:
+
+- View basic user and organizational profile information.
+- Integrate Breach Predictor with other applications.
+
+## About the My Profile Page
+
+On the My Profile page (Breach Predictor Portal > My Profile), you can do the following:
+
+- View Basic User and Organizational Information
+- View and Create Integrations with Various Applications
+
+On the **User Detail** tab, you can do the following:
+
+1. Switch to the **Integration** tab.
+2. Log out of the Breach Predictor Portal.
+3. See basic user and organizational information.
+
+[Image: The User Detail Tab in Zscaler Breach Predictor]
+
+On the **Integration** tab, you can do the following:
+
+1. Switch to the **User Detail** tab.
+2. Log out of the Breach Predictor Portal.
+3. See which applications are available for integration with Breach Predictor and configure them.
+
+[Image: The Integration Tab in Zscaler Breach Predictor]
+
+To learn more, see [Integrating Applications with Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-threat-landscape","lastmod":"2025-08-09T07:06Z","nid":"1518466"} -->
+## About the Threat Landscape
+
+- Source: https://help.zscaler.com/breach-predictor/about-threat-landscape
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About the Threat Landscape
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Threat Landscape report.
+
+The Zscaler Breach Predictor Threat Landscape is designed to provide comprehensive information about the wider threat landscape affecting organizations across the globe. The information provided on the Threat Landscape page comes from cutting-edge [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) data and includes millions of results that are maintained in the [Zscaler Threat Library](https://threatlibrary.zscaler.com/).
+
+The Threat Landscape provides the following benefits and enables you to:
+
+- See comprehensive information about the wider threat landscape affecting organizations across the globe.
+- Access the Zscaler Threat Library, which contains millions of results from cutting-edge research by Zscaler ThreatLabz.
+
+## About the Threat Landscape Page
+
+On the Threat Landscape page (Breach Predictor Portal > Threat Landscape), you can do the following:
+
+1. Specify the time frame for the threat data on the page.
+2. Open the **AI Assist** dashboard.
+3. View information about the overall breach probability for your organization.
+4. View a prioritized list of policy recommendations.
+5. View basic information about the threats that [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) has identified as the biggest threats across the globe. Click the name of the threat on any of the tiles to see more detailed information from the [Zscaler Threat Library](https://threatlibrary.zscaler.com/).
+6. Filter the results on the page by the severity of the threat, the policy engine related to the threat, and the product whose logs identified the threat.
+7. Search to filter by threat name or by the signature ID.
+
+[Image: The Threat Landscape View in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-tickets","lastmod":"2025-08-09T07:06Z","nid":"1518476"} -->
+## About Tickets
+
+- Source: https://help.zscaler.com/breach-predictor/about-tickets
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Tickets
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to find tickets and get more information on the Breach Predictor Tickets page.
+
+Tickets let you track requests (known as Request tickets) filed by your organization to make policy updates based on recommendations from Breach Predictor. Additionally, you can use Support tickets to suggest improvements or log software bugs. To see the tickets filed by your organization, you must integrate Breach Predictor with Jira or ServiceNow. To learn more, see [Integrating Applications with Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor).
+
+Tickets provide the following benefits and enable you to:
+
+- Track Request tickets filed with Zscaler Support for policy updates based on Breach Predictor findings and recommendations.
+- Track and log Support tickets filed with Zscaler Support for general improvements and software bugs.
+
+## About the Tickets Page
+
+On the Tickets page (Breach Predictor Portal > Tickets), you can do the following:
+
+- View Request Tickets Logged to Make Policy Updates
+- View and Log Support Tickets Filed by Your Organization
+
+To learn more, see [Requesting Updates in Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor).
+
+On the **Request** tab, you can do the following:
+
+1. Switch to the **Support** tab.
+2. Search for Request tickets in the list.
+3. View details of the Request tickets filed by your organization. For each ticket, you can see:
+  - **Ticket ID**: The Jira number of the Request ticket. You can sort this column.
+  - **Priority**: The ticket priority assigned by Zscaler Support.
+  - **Assignee**: The person to whom the ticket is currently assigned.
+  - **Created Date**: The date the ticket was created.
+  - **Ticket Name**: The unique name of the ticket.
+  - **Status**: The current workflow status of the ticket.
+
+[Image: The Request Tab in Zscaler Breach Predictor]
+
+On the **Support** tab, you can do the following:
+
+1. Switch to the **Request** tab.
+2. Search for Support tickets in the list.
+3. Create a request for a new Support ticket.
+4. View details of the Support tickets filed by your organization. For each ticket, you can see:
+  - **Ticket ID**: The Jira number of the Support ticket.
+  - **Requested**: The date the ticket was requested.
+  - **Description**: The description of the Support ticket.
+  - **Created Date**: The date the Support ticket was created by Zscaler Support.
+  - **Status**: The current workflow status of the ticket.
+
+[Image: The Support Tab in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-users","lastmod":"2025-08-09T07:06Z","nid":"1529936"} -->
+## About Users
+
+- Source: https://help.zscaler.com/breach-predictor/about-users
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Users
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Users page, which provides specific information about all users affected by malware in your organization.
+
+The Breach Predictor User Threat Profilepage provides a threat profile for the users in your organization. At a high level, the Breach Predictor User Threat Profilepage is designed to give you an overview of how threats are affecting users across your organization, broken down by MITRE ATT&CK stage, department, threat type, and geography. As with other areas in the Breach Predictor Portal, you can easily move from a broad view of groups of users to a more narrow view of individual users.
+
+On the User Threat Profilepage, the Overviewtab lets you quickly see how threats are affecting users at a macro level. You can then use the Users List tab to examine how the threats are affecting individual users. On each tab, you can filter by users and threats.
+
+To learn more, see [Using Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/using-zscaler-breach-predictor).
+
+The User Threat Profile page provides the following benefits and enables you to:
+
+- See a high-level overview of how threats affect the users across your organization.
+- Drill down to see how individual users are affected by each threat.
+
+## About the User Threat Profile Page
+
+The User Threat Profile page (Breach Predictor Portal > Users) contains the following tabs:
+
+- Overview Tab
+- Users List Tab
+
+On the Overview tab, you can do the following:
+
+1. Filter results by **User**and **Threat**.
+2. Specify the time frame for the data on the page.
+3. Open the **AI Assist** dashboard.
+4. Open the **Users List** tab.
+5. View the number of users affected at each stage of the MITRE ATT&CK matrix.
+6. View the number of users at risk in each department.
+7. View the number of users affected by each threat type.
+8. View the number of users at risk by region.
+
+[Image: The Overview Tab on the User Threat Profile Page in Zscaler Breach Predictor]
+
+On the Users List tab, you can do the following:
+
+1. Filter results by **User**and **Threat**.
+2. Specify the time frame for the data on the page.
+3. Open the **AI Assist** dashboard.
+4. Open the **Overview**tab.
+5. Filter the results by country, threat, threat type, and tactic.
+6. Search for users in your organization to filter the results in the table.
+7. View a list of all affected users in your organization and quickly determine high-level details about each threat. You can sort each column in the table, and you can specify the number of results displayed on each page. For users, you can see:
+  - **User**: The name and email address for each affected user.
+  - **Department**: The department to which each affected user belongs.
+  - **Location**: The geographic location of each affected user.
+  - **Device/IP Address**: The device and IP address where each threat was identified.
+  - **Threat**: The name of the threat family affecting each user.
+  - **Threat Type**: The type of threat affecting each user.
+  - **Tactic**: The MITRE ATT&CK tactic achieved or predicted for each affected user.
+
+[Image: The Users List Tab on the User Threat Profile Page in Zscaler Breach Predictor]
+
+You can click the name of any user on the table to open the **User Detail** panel, which contains detailed information about how and when the threat affected each user.
+
+See image.
+
+[Image: The User Detail Panel on the User Threat Profile Page in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/accessing-and-navigating-zscaler-breach-predictor","lastmod":"2025-08-09T07:06Z","nid":"1500441"} -->
+## Accessing and Navigating Zscaler Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > Accessing and Navigating Zscaler Breach Predictor
+- Last modified: 2025-08-09T07:06Z
+- Summary: Information on Zscaler Breach Predictor and how admins can sign in to and navigate the portal.
+
+This article covers the following topics:
+
+- Completing Prerequisite Tasks
+- Accessing the Zscaler Breach Predictor Portal
+- Navigating the Breach Predictor UI
+- Understanding Maintenance and Upgrades
+
+To learn more about how to use Breach Predictor, see [Using Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/using-zscaler-breach-predictor).
+
+1. License Breach Predictor: Zscaler Breach Predictor is a standalone product that is licensed separately from other parts of the Zscaler ecosystem. To learn more about getting Breach Predictor for your organization, contact your Zscaler Account team.
+2. [Configure Zscaler Internet Access (ZIA)](https://help.zscaler.com/zia/step-step-configuration-guide-zia): To ensure that Zscaler Internet Access (ZIA) logs are available for Breach Predictor, ZIA must be fully configured for your organization. If your organization already uses ZIA, no extra configuration is required for Breach Predictor to access ZIA logs.
+3. [Integrate with third-party applications](https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor): Breach Predictor lets you expand functionality by integrating with multiple third-party applications. For example, you can integrate with Zscaler Sandbox for log data, with Splunk and CrowdStrike Next-Gen SIEM to send event data to your SIEM, or with Jira and ServiceNow to log tickets for policy changes.
+
+1. Sign in to the Authentication Service Landing Page.
+2. Click the **Breach Predictor** tile to access the Breach Predictor Portal. See image.
+
+You are redirected to the Breach Predictor Portal.
+
+Based on your organization's [authentication preference](https://help.zscaler.com/authentication-service/configuring-multi-factor-authentication), sign in to Authentication Service using one of the following methods:
+
+- Password
+- Email One-Time Password (OTP)
+- Security Key or Biometric
+
+1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**. See image.
+2. Click**Next**.
+3. Enter your **Password**and click **Sign In**. See image.
+4. Based on your organization's multi-factor authentication policy, two-factor authentication (2FA) is required. Complete your 2FA to access the Authentication Service landing page. If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+
+If your account is configured with MFA, you can sign in using an email OTP:
+
+1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
+2. Click**Next** and then click **Other Sign-in Options**. See image. The **Sign-in Options** window appears.
+3. In the **Sign-in Options** window, click **Email OTP**. See image.
+4. Enter the OTP sent to your email address and click **Sign In**. The OTP expires after 15 minutes. If the OTP expires or you don't receive an OTP, click **Resend**to receive another OTP after 60 seconds. See image.
+
+1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
+2. Select **Sign-in using Security Key or Biometric**. See image.
+3. Click**Next**.
+4. Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page. If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+
+[Image: Authentication Service login page with blurred Login ID and Remember Me option selected.]
+
+[Image: A screenshot with blurred login ID and displaying password field.]
+
+[Image: A screenshot with blurred login ID, displaying password field and highlighted Other Sign-in Options.]
+
+[Image: Sign-in options window with blurred login ID and highlighted Email OTP option.]
+
+[Image: Login using Email Code window with blurred login ID and displaying placeholder to enter OTP.]
+
+[Image: Authentication Service login page with blurred login ID and Remember Me and Sign-in using Security Key or Biometric options selected.]
+
+[Image: The Authentication Service Landing Page with the Breach Predictor Tile]
+
+From the left-side navigation, you can access the following areas of Breach Predictor:
+
+- Dashboard
+- Findings
+- Users
+- Events
+- Threat Landscape
+- Profile
+- Tickets
+- Theme
+
+From the **Dashboard**, you can use various charts and tables to better understand your Overall Breach Probability score and to assess your organization’s placement within the MITRE ATT&CK framework during a specified period.
+
+To learn more, see [About the Dashboard](https://help.zscaler.com/breach-predictor/about-dashboard).
+
+The **Findings** page provides an overview of the threats that are affecting your organization as a whole. You can see user data by threat stage, department, threat type, and region. You can also drill down to see information about activity by individual users.
+
+To learn more, see [About Users](https://help.zscaler.com/breach-predictor/about-users).
+
+On the **User Threat Profile** page, you can view prioritized data across the MITRE ATT&CK matrix presented in the different tables. As you work with Findings data, you should always work from right to left in the MITRE ATT&CK matrix; as a threat moves further to the right in the matrix, your organization is at a higher risk of a data breach.
+
+To learn more, see [About Findings](https://help.zscaler.com/breach-predictor/about-findings).
+
+The **Events** page provides a view across time of all tracked events in your organization. On the **Events** page, you can use a number of filters (e.g., time frame, threat family, and user) to get a more granular view of the events affecting your organization.
+
+To learn more, see [About Events](https://help.zscaler.com/breach-predictor/about-events).
+
+The **Threat Landscape** page provides an overview of the biggest current security threats according to Zscaler ThreatLabz, the security research arm of Zscaler.
+
+To learn more, see [About the Threat Landscape](https://help.zscaler.com/breach-predictor/about-threat-landscape).
+
+Click **Profile** to see basic information about your username, your license, the Zscaler cloud to which Breach Predictor is connected, and the organization ID for your organization's instance of Zscaler Internet Access (ZIA). Additionally, you can see the various integrations available in your organization (e.g., Jira, CrowdStrike Next-Gen SIEM, and Splunk). You can also log out of Breach Predictor.
+
+To learn more, see [About Profiles](https://help.zscaler.com/breach-predictor/about-profiles).
+
+To specify the UI theme (i.e., dark mode or light mode), click the
+
+**Theme**
+
+toggle.
+
+Because Breach Predictor doesn’t require configuration for new data visibility (e.g., new logs, data sources, etc.), your organization automatically benefits from added functionality. You can stay up to date with Breach Predictor enhancements by tracking [release notes updates](https://help.zscaler.com/breach-predictor/release-notes).
+
+The **Tickets** page lets you view the Jira and ServiceNow tickets that have been created for your organization. The tickets you create are grouped into two categories: Request tickets and Support tickets. Request tickets are created based on the policy recommendations that Breach Predictor provides. Support tickets are created for other improvements that do not involve policy updates.
+
+To learn more, see [About Tickets](https://help.zscaler.com/breach-predictor/about-tickets).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/analyzing-dashboard","lastmod":"2025-08-09T07:06Z","nid":"1518481"} -->
+## Analyzing the Dashboard
+
+- Source: https://help.zscaler.com/breach-predictor/analyzing-dashboard
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Analyzing the Dashboard
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Dashboard.
+
+The Breach Predictor Dashboard is designed to present the vast amounts of data that Breach Predictor analyzes in an easy-to-understand format so that you have visibility into patterns for the threat activity in your organization. As a result, you're better able to spot trends that are affecting groups of users, instead of focusing on individual user logs. The Dashboard page is meant to be a jumping-off point in the Breach Predictor Portal, providing you a high-level understanding of your organization's overall chances of a security breach.
+
+When you first log in to the Breach Predictor Portal, the Dashboard page is the first thing you see. It consists of the Overall Breach Probability score, prioritized policy recommendations, as well as Observed Users views and a Threat Overview, designed to provide you with an interactive overview of the threats affecting the users in your organization.
+
+To learn more, see [About the Dashboard](https://help.zscaler.com/breach-predictor/about-dashboard).
+
+Data about the malware families affecting your organization is divided into two main sub-pages on the Findings page, designed to provide a progressively greater level of detail:
+
+- Analyzing the Overall Breach Probability Score
+- Analyzing Data in the Observed Users Views
+
+The Overall Breach Probability score is designed to give you an instant read on the likelihood of a breach that can exfiltrate your organization's data. The score factors in your organization's placement in the MITRE ATT&CK matrix, as well as the number of affected users. A higher Overall Breach Probability score indicates a higher risk of a data breach.
+
+As soon as you've determined your Overall Breach Probability score, you can use the charts on the Dashboard page to examine which malware families are affecting the users in your organization.
+
+See image.
+
+[Image: Overall Breach Probability Score in Zscaler Breach Predictor]
+
+The Dashboard consists of two Observed Users views and a Threat Overview view, which provide various charts and graphs of the malware threats affecting your organization. You can specify the time frame for the data you see in the Sankey charts and graphs in each of the available views. As a general rule, you should use the following basic order of operations to examine the chart data. As you gather general information, keep in mind that Breach Predictor provides multiple options to [drill down for more information](https://help.zscaler.com/breach-predictor/analyzing-mitre-attckr-mapping-report).
+
+- Analyzing Data in Observed Users View 1
+- Analyzing Data in Observed Users View 2
+- Analyzing Data in the Threat Overview View
+
+1. In the first **Observed Users** Sankey chart, observe how many users are at risk vs. the total number of users in your organization.
+
+See image.
+
+1. From there, you can click each indicated stage to see how each malware family and malware category maps to each stage. Additionally, the listing for each malware family indicates the number of users affected by that family.
+
+See image.
+
+1. Click the arrow next to the **Observed Users** label to open the second **Observed Users** view.
+
+[Image: Observed Users View 1 in Zscaler Breach Predictor]
+
+[Image: Observed Users View 1 Animated GIF in Zscaler Breach Predictor]
+
+1. In the second **Observed Users** Sankey chart, observe how many users are at risk in your organization, as well as any trends in the number of affected users.
+
+See image.
+
+1. From there, you can click the various data points in the chart to how the stages map to categories, and how categories map to threat families. You can also click the name of a threat family to see the attack path for that family.
+
+See image.
+
+1. Click the arrow next to the **Observed Users** label to open the third **Observed Users** view.
+
+[Image: Observed Users View 2 in Zscaler Breach Predictor]
+
+[Image: Observed Users View 2 Animated GIF in Zscaler Breach Predictor]
+
+1. In the **Threat Overview** view, you see charts and graphs that show more granular detail for the threats affecting your organization.
+
+See image.
+
+1. In each of the charts and graphs, you can click or hover your cursor to see details about each data point. You can click the data in the Sankey and radial charts to open more detailed information in other areas of the Breach Predictor Portal.
+
+See image.
+
+[Image: Observed Users View 3 in Zscaler Breach Predictor]
+
+[Image: Threat Overview View Animated GIF in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/analyzing-events","lastmod":"2025-07-01T14:30Z","nid":"1518491"} -->
+## Analyzing Events
+
+- Source: https://help.zscaler.com/breach-predictor/analyzing-events
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Analyzing Events
+- Last modified: 2025-07-01T14:30Z
+- Summary: How to analyze data and get more information on the Breach Predictor Events page.
+
+Breach Predictor provides multiple options for viewing and analyzing data around the threat events affecting your organization. For policy update recommendations, Breach Predictor shows you the events associated with individual threat families so that you have complete visibility across the MITRE ATT&CK matrix and can anticipate next moves. For that granular view, use the [Findings page](https://help.zscaler.com/breach-predictor/about-findings) to drill down and focus on the events around a particular threat family, and to see the policy updates that Breach Predictor recommends for mitigating each threat.
+
+For a more macro view of threat events, you can use the [Events page](https://help.zscaler.com/breach-predictor/about-events) so that you have visibility across time for multiple threat families simultaneously. By default, Breach Predictor shows events for all threat families and all users. At the top right of the page, you can use the drop-down menu to filter by time period.
+
+See image.
+
+At the top left of the page, you can use the Threat drop-down menu to filter by one or more threat families, and you can use the Users drop-down menu to filter by one or more users in your organization.
+
+See image.
+
+As you select multiple threat families or users, you can hover over each drop-down menu to see the list of options in your filter.
+
+See image.
+
+As you filter by threat family and user, the By Tactics options update to indicate the MITRE ATT&CK tactics associated with the selected threat families. Select a tactic to update the results on the page.
+
+See image.
+
+The Events allowed over time bar chart shows you a high-level view of the threat events that Zscaler identified for each day during the selected time period. To see the total number of events on a particular day, hover over the bar for the day. You can also use the handle on either end of the chart to adjust the events shown on the page.
+
+See image.
+
+In the Events table, you can see basic information for the filtered events during the selected time period. You can also click the column headers to sort the results.
+
+See image.
+
+To see more detailed information about a particular event, click an event in the table to open the Event Detail panel.
+
+See image.
+
+[Image: The Time Frame Drop-Down Menu in Zscaler Breach Predictor]
+
+[Image: The Threat and Users Drop-Down Menus in Zscaler Breach Predictor]
+
+[Image: Selections in the Threat Drop-Down Menu in Zscaler Breach Predictor]
+
+[Image: Filtering Events by Tactic in Zscaler Breach Predictor]
+
+[Image: The Events Allowed Over Time Chart in Zscaler Breach Predictor]
+
+[Image: The Events Table in Zscaler Breach Predictor]
+
+[Image: The Event Detail Panel in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/analyzing-findings","lastmod":"2025-08-09T07:06Z","nid":"1518486"} -->
+## Analyzing Findings
+
+- Source: https://help.zscaler.com/breach-predictor/analyzing-findings
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Analyzing Findings
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor MITRE ATT&CK  Mapping Findings.
+
+After you've examined your organization's threat information on the [Dashboard](https://help.zscaler.com/breach-predictor/analyzing-dashboard), you can use the MITRE ATT&CK Mapping Findings page to take a deeper look into specific information about the malware families affecting your users. On the Findings page, you can see detailed information about each malware family affecting your organization, including location on the MITRE ATT&CK matrix, specific users affected by each malware family, and, most importantly, the achieved and expected attack for each malware family.
+
+To open the **Findings** page, click **Findings**in the left-side navigation, or click the **Explore**button on the **Dashboard**page.
+
+To learn more, see [About Findings](https://help.zscaler.com/breach-predictor/about-findings) and [Evaluating a Security Issue with Breach Predictor](https://help.zscaler.com/breach-predictor/evaluating-security-issue-breach-predictor).
+
+Data about the malware families affecting your organization is divided into two main sub-pages on the Findings page, designed to provide a progressively greater level of detail:
+
+- Analyzing Data on the MITRE ATT&CK Mapping Page
+- Analyzing Data on the Threat Page
+
+The MITRE ATT&CK Mapping matrix is the first thing you’ll see on the Findings page. It’s designed to give you insight into all the malware families affecting your organization, and to specifically let you know which families pose the biggest threat. You can use the various toggles and filters to limit the information you see in the MITRE ATT&CK Mapping view. As a general rule, you should use the following basic order of operations to triage the malware family threats in your organization. As you triage threats, Breach Predictor provides multiple options to drill down for more information:
+
+1. Look at results across time: Use the drop-down menu in the upper right of the **Findings**page to specify a time period for the data you see. Start small to check more immediate threats and then expand the search.
+2. Pay close attention to placement on the MITRE ATT&CK matrix: Scroll through the list of malware families and look for indicators that one has moved to the far-right side of the matrix, focusing especially on the techniques in the Lateral Movement and Data Loss stages. If you see an indicator of lateral movement, you can drill down for more information.
+3. Focus on the severity score for each malware family: The score ranges from 1 to 10 and is assigned by [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) to indicate how much harm a malware family can do to your organization. Start with the malware families that have higher severity scores.
+4. Monitor the total number of malware families: After you have triaged the most urgent malware families, work to reduce the total number of malware families affecting your organization.
+
+When you click the name of a threat family in the list on the MITRE ATT&CK Mapping page, the Threat page opens to provide granular detail on the selected threat. The Threat page contains the Attack path, Users, and Events tabs. Perhaps most importantly, the Threat page is where Breach Predictor provides policy update recommendations to preemptively eliminate attack paths in your organization.
+
+- Analyzing Data on the Attack Path Tab
+- Analyzing Data on the Users Tab
+- Analyzing Data on the Events Tab
+
+The Attack path tab is at the heart of Breach Predictor’s advanced visibility and predictive modeling. In this view, you can quickly see the actual lateral movement that a malware family has achieved, as well as where the threat is expected to move next. For stages that a threat family has achieved, you can see at a glance the source of the threat data (e.g., threats identified from CrowdStrike logs are identified by the CrowdStrike logo, threats identified from Zscaler logs are identified by the Zscaler logo, etc.).
+
+See image.
+
+You can use the various toggles and filters to limit the information you see on the page. As a general rule, you should use the following basic order when addressing attack-path data for a malware family:
+
+1. Focus on advanced stages: Determine whether a technique has actually been reached, or whether Breach Predictor is predicting its advancement. Some events are identified as "possible," meaning that they might have happened but were not captured as part of Breach Predictor's threat detection. For threats that have achieved an advanced stage, you must act with urgency to bring the appropriate teams across your organization together to address the issues.
+2. Use the threat source information that Breach Predictor provides to determine which policy updates are necessary: For each attack stage, Breach Predictor provides information about where users encountered the threat. Click **Update Policy** to open the **Recommendation** panel and [create a Jira ticket for policy updates](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor).
+
+See image.
+
+1. Click **AI Assist** to see generative AI information about the threat: The threat summary includes general information from Zscaler ThreatLabz, as well as specific information from Breach Predictor's analysis of the threats posed at each attack stage, including the log source for the threat data.
+
+See image.
+
+[Image: Attack Path Information in Zscaler Breach Predictor]
+
+[Image: Policy Recommendations in Zscaler Breach Predictor]
+
+[Image: AI Assist Option in Zscaler Breach Predictor]
+
+The Users tab is designed to give you a quick overview of all users affected by the selected threat in your organization. Specifically, the Users tab lets you see where the threat is moving or has moved for each affected user:
+
+1. Pay close attention to placement on the MITRE ATT&CK matrix: The **Users**view shows the most advanced MITRE ATT&CK technique either predicted or achieved by the malware family for each affected user. To determine actual MITRE ATT&CK data, look at the attack path. The idea is to focus on the MITRE ATT&CK placement for each user so that you can anticipate and prevent lateral movement to the next technique.
+2. Look at individual data as needed: Click the name of a user in the list to open the **Events** tab to see all events related to the selected threat for the user.
+
+You can use various toggles and filters to limit the information you see on the tab. In this view, you see the events for a particular time frame for a single threat as it relates to a single user. For a broader view of threat activity in your organization, you can open the [Events page](https://help.zscaler.com/breach-predictor/about-events). Breach Predictor provides an easy way to view individual logs, but you should focus on the attack-path data so that you can anticipate and prevent lateral movement to the next MITRE ATT&CK technique. As a general rule, you should use the following basic order of operations to examine user data for a particular malware family:
+
+1. Pay close attention to trends for the user: The **Events**table provides high-level data about each threat event for the selected user. In the table, you can see important information, such as which MITRE ATT&CK technique was achieved, and which URL exposed the user to the threat.
+2. Look at granular data as needed: By clicking an event in the table, you can open the **Event Detail** panel to see specific information about the threat. You can also download the data for the event.
+
+See image.
+
+[Image: An Individual User Log in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/evaluating-security-issue-breach-predictor","lastmod":"2025-06-29T07:06Z","nid":"1500466"} -->
+## Evaluating a Security Issue with Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/evaluating-security-issue-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Evaluating a Security Issue with Breach Predictor
+- Last modified: 2025-06-29T07:06Z
+- Summary: An overview of actions to take when Breach Predictor identifies a threat in your organization.
+
+By analyzing huge amounts of data, Zscaler Breach Predictor can eliminate blind spots and give you a clear picture of the threat landscape across your organization. More importantly, it’s designed to proactively anticipate potential threats, helping to eliminate the noise associated with reactive tools. With Breach Predictor’s early warnings, you can anticipate lateral threat movement before it happens. So it’s important to pay close attention to your organization’s placement on the [MITRE ATT&CK matrix](https://help.zscaler.com/breach-predictor/what-zscaler-breach-predictor#enhanced-attack-visibility).
+
+As you explore Breach Predictor findings, keep in mind that the idea is always the same: work from right to left on the MITRE ATT&CK matrix. As a threat moves further to the right in the matrix, your organization is at a higher risk of a data breach. More specifically, as threats move to the Lateral Movement and Data Loss stages, quick action becomes more essential. You can easily determine whether a technique has actually been reached, or whether Breach Predictor is predicting its advancement. Some events are identified as "possible," meaning that they might have happened but were not captured as part of Breach Predictor's threat detection.
+
+To better understand your company’s placement on the MITRE ATT&CK matrix, see [Analyzing the MITRE ATT&CK Mapping Findings](https://help.zscaler.com/breach-predictor/analyzing-mapping-findings).
+
+The following sections provide general guidance on what to do when Breach Predictor identifies threats in your organization, as well as an overview for each of the major stages of the MITRE ATT&CK framework:
+
+- Basic Steps When a Threat Is Identified at Any Stage
+- Overview: Discover Attack
+- Overview: Compromise
+- Overview: Lateral Movement
+- Overview: Data Loss
+
+1. Look at the Overall Breach Probability score. A higher Overall Breach Probability score indicates movement into critical stages by threat actors, as well as a high number of users who are affected.
+2. Focus attention on the data on the **Attack path** tab on the **Findings** page. Instead of focusing on granular data from individual user logs, maintain a clear view of the bigger security picture by tracking the attack path of each malware family. Use the [Events page](https://help.zscaler.com/breach-predictor/about-events) to gain insight into how multiple threat families are affecting your organization. See image. See image.
+  1. On the **MITRE ATT&CK Mapping** page, look at where the malware family sits on the matrix. In the following example, the smashbrowser malware family shows activity at the **Initial Access** technique in the **Discover Attack** stage.
+  1. Click the **Attack path** tab to determine whether the technique has been observed, or whether it's possible or predicted. In this example, Breach Predictor shows that the smashbrowser malware family has achieved the **Resource Development** and **Initial Access** techniques; however, Breach Predictor predicts the path the smashbrowser malware family is likely to take into other MITRE ATT&CK techniques.
+  1. In this scenario, click the name of the malware family, then click the **Users** tab to open a page that shows specific information about the users affected by the malware family.
+
+See image.
+
+1. Click **Update Policy** to update your policies. With the recommendations that Breach Predictor provides, you can file [Jira Request tickets](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor) for policy updates.
+
+See image.
+
+[Image: Attack Path Data in Zscaler Breach Predictor]
+
+[Image: Malware Family Affected Users in Zscaler Breach Predictor]
+
+[Image: Malware Family Example in Zscaler Breach Predictor]
+
+[Image: The Update Policy Option in Zscaler Breach Predictor]
+
+Placement in the Discover Attack stage indicates that threat actors are surveilling your system by gathering information, scanning systems, and developing resources to infiltrate your network.
+
+The Discover Attack stage includes these MITRE ATT&CK techniques:
+
+- [Reconnaissance](https://attack.mitre.org/tactics/TA0043/)
+- [Resource Development](https://attack.mitre.org/tactics/TA0042/)
+
+Placement in the Compromise stage indicates that threat actors have gained an initial foothold within your network. From there, they can execute code, persist through attempted interruptions, gain root access, and use multiple methods to evade detection.
+
+The Compromise stage includes these MITRE ATT&CK techniques:
+
+- [Initial Access](https://attack.mitre.org/tactics/TA0001/)
+- [Execution](https://attack.mitre.org/tactics/TA0002/)
+- [Persistence](https://attack.mitre.org/tactics/TA0003/)
+- [Privilege Escalation](https://attack.mitre.org/tactics/TA0004/)
+- [Defense Evasion](https://attack.mitre.org/tactics/TA0005/)
+
+Placement in the Lateral Movement stage indicates that a threat actor is actively attempting to gain access to account names and passwords, is performing different types of discovery on your network, might start moving more rapidly laterally to later techniques, and has begun to collect data from your network and resources. When threat actors have achieved this stage, your organization is dangerously close to a full data breach.
+
+The Lateral Movement stage includes these MITRE ATT&CK techniques:
+
+- [Credential Access](https://attack.mitre.org/tactics/TA0006/)
+- [Discovery](https://attack.mitre.org/tactics/TA0007/)
+- [Lateral Movement](https://attack.mitre.org/tactics/TA0008/)
+- [Collection](https://attack.mitre.org/tactics/TA0009/)
+
+When your organization is identified as being in the Data Loss stage, you are in danger of a data breach and must take action immediately. At this stage, threat actors are trying to communicate with compromised systems, steal data, and control or destroy your systems and data.
+
+The Data Loss stage includes these MITRE ATT&CK techniques:
+
+- [Command and Control](https://attack.mitre.org/tactics/TA0011/)
+- [Exfiltration](https://attack.mitre.org/tactics/TA0010/)
+- [Impact](https://attack.mitre.org/tactics/TA0040/)
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/integrating-applications-zscaler-breach-predictor","lastmod":"2025-08-09T07:06Z","nid":"1518496"} -->
+## Integrating Applications with Zscaler Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Administration > Integrating Applications with Zscaler Breach Predictor
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to integrate applications to gain more functionality in Zscaler Breach Predictor.
+
+Breach Predictor uses integrations with various applications to provide added functionality and visibility. To integrate an application with Breach Predictor:
+
+1. [Access the Breach Predictor Portal](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor#signing-in-breach-predictor).
+2. Go to **Profile** > **Integration**.
+3. Select an integration type:
+  - SIEM Integrations
+  - Ticketing Integrations
+  - Zscaler Integrations
+4. Click **Connect**.
+
+You can send event data from Breach Predictor to security information and event management (SIEM) applications (e.g., CrowdStrike Next-Gen SIEM and Splunk) to remediate threats. Because Breach Predictor ingests and analyzes vast amounts of Zscaler and third-party data, sending event data from Breach Predictor to your SIEM application lets you take direct action on threats with a holistic view of your organization's threat landscape.
+
+You can share Breach Predictor data with the following SIEM applications:
+
+- CrowdStrike Next-Gen SIEM
+- Splunk
+
+With the integration configured, every new event that occurs on the tenant is sent automatically to your SIEM application.
+
+- Jira
+- ServiceNow
+
+- Sandbox
+
+Upon successful integration, Breach Predictor sends all available event data to your SIEM provider. Because the default data-retention period for CrowdStrike Next-Gen SIEM ranges from 7 to 14 days, any event data sent from Breach Predictor that is outside of the retention period will not be available in CrowdStrike Next-Gen SIEM. To increase the data-retention period, you must contact your CrowdStrike account team.
+
+To integrate Breach Predictor with CrowdStrike Next-Gen SIEM, you need to create a connector with a JSON parser that allows Breach Predictor to share event data:
+
+1. Log in to CrowdStrike Falcon using your admin credentials.
+2. In the left-side navigation, go to **Next-Gen SIEM** > **Data onboarding**.
+
+See image.
+
+The **Connections** page opens.
+
+1. On the **Connections** page, click **Add connection**.
+
+See image.
+
+The **Data connectors** window opens.
+
+1. In the **Data connectors** window, click **Configure**.
+
+See image.
+
+1. Configure the connection settings as needed, ensuring that you select **json (Generic Source)** as the **Parser** type, then click **Create connection**.
+
+The **Connections** page opens and the new connection appears in the list.
+
+1. Locate the new connection in the list and open the **Actions** menu in the **Actions** column.
+2. Select **Generate API key** from the list.
+
+See image.
+
+The **Connection setup** window opens.
+
+1. In the **Connection setup** window, copy the **API key** and **API URL** values separately and save them for later use.
+
+See image.
+
+1. In the Breach Predictor Portal, click **Profile** > **Integration**.
+
+The **Integration** page opens.
+
+1. On the tile for CrowdStrike Next-Gen, click **Connect**.
+
+The **Integrate CrowdStrike Next-Gen** window opens.
+
+1. In the **Integrate CrowdStrike Next-Gen** window:
+  - **URL**: Enter the **API URL** value you copied earlier.
+  - **Token**: Enter the **API key** value you copied earlier.
+
+[Image: Selecting the Data Onboarding Option in CrowdStrike Falcon]
+
+[Image: Selecting the Add Connection Option in CrowdStrike Falcon]
+
+[Image: Selecting the Configure Option for a New Connector in CrowdStrike Falcon]
+
+[Image: Selecting the Generate API Key Option in CrowdStrike Falcon]
+
+[Image: Copying the API Key and API URL on the Connection Setup in CrowdStrike Falcon]
+
+To integrate Breach Predictor with Splunk, you need to create a custom index and an HTTP Event Collector (HEC) token to allow Breach Predictor to share event data. Creating a custom index to hold Breach Predictor data is a best practice that allows for better search results and more efficient data retrieval. If you don't create and specify an index, Splunk will use a pre-existing index to hold Breach Predictor data.
+
+To integrate Breach Predictor with Splunk:
+
+1. Log in to your Splunk Enterprise tenant as an administrator.
+2. Click **Settings** > **Indexes**.
+
+See image.
+
+The **Indexes** page opens.
+
+1. On the **Indexes** page, click **New Index**.
+
+The **New Index** window opens.
+
+1. In the **New Index** window:
+  - **Index Name**: Specify a unique name for the index (i.e., `breachpredictorevents`).
+  - **Index Data Type**: Select **Events**.
+  - Configure other settings as needed. To learn more, refer to the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/9.4.2/Indexer/Setupmultipleindexes#Create_events_indexes_2).
+2. Click **Save**.
+
+See image.
+
+1. Click **Settings** > **Data Inputs** > **HTTP Event Collector**.
+
+The **HTTP Event Collector** page opens.
+
+1. On the **HTTP Event Collector** page, click **New Token**.
+
+The **Add Data** page opens.
+
+1. On the **Add Data** > **Select Source** page, specify a unique name for the token, as well as other settings as needed, then click **Next**.
+2. On the **Add Data** > **Input Settings** page, select the index you created earlier, then click **Review**.
+3. On the **Add Data** > **Review** page, review the settings for the token and then click **Submit**.
+
+The **New Search** page opens with the information for the token.
+
+1. Click **Settings** > **Data Inputs** > **HTTP Event Collector**.
+
+The **HTTP Event Collector** page opens.
+
+1. In the **Token Value** column, click **Copy** for the HEC you created. Save this value for later use in the Breach Predictor Portal.
+2. In the Breach Predictor Portal, click **Profile** > **Integration**.
+
+The **Integration** page opens.
+
+1. On the tile for Splunk, click **Connect**.
+
+See image.
+
+The **Integrate Splunk** window opens.
+
+1. In the **Integrate Splunk** window:
+  - **URL**: Enter the URL for your Splunk tenant. Because Breach Predictor shares event data in JSON format, you must append an endpoint parameter to the URL so that Splunk can properly receive JSON-formatted events (e.g., `/services/collector/event`). To learn more, refer to the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/9.4.2/Data/UsetheHTTPEventCollector#Send_data_to_HTTP_Event_Collector_on_Splunk_Cloud_Platform).
+  - **Token**: Enter the token value for the HEC that you copied earlier.
+  - **Index**: Enter the unique name of the index you created earlier.
+
+[Image: Selecting the Indexes Option in Splunk Web]
+
+[Image: Selecting the Connect Option on the Splunk Integration Tile in Breach Predictor]
+
+[Image: Configuring a New Index in Splunk Web]
+
+1. On the **Jira** tile, click **Connect**.
+
+The **Integrate Jira** window appears.
+
+1. In the **Integrate Jira** window: See image.
+  - **Domain Key**: Enter the Jira domain assigned to your organization.
+  - **Token Key**: Enter the Jira token that allows Breach Predictor to access the Jira domain assigned to your organization.
+
+To receive the **Domain Key** and **Token Key** for your organization, contact your Zscaler Account team.
+
+[Image: The Integrate Jira Window in Zscaler Breach Predictor]
+
+1. On the **Sandbox** tile, click **Connect**.
+
+The **Integrate Sandbox** window appears.
+
+1. In the **Integrate Sandbox** window, enter the **Secret Key**. This token allows Breach Predictor to access the Zscaler Sandbox tenant assigned to your organization.
+
+See image.
+
+To receive the **Secret Key** for your organization, contact your Zscaler Account team.
+
+[Image: The Integrate Sandbox Window in Zscaler Breach Predictor]
+
+1. On the **ServiceNow** tile, click **Connect**.
+
+The **Integrate ServiceNow** window appears.
+
+1. In the **Integrate ServiceNow** window: See image.
+  - **Domain Key**: Enter the ServiceNow domain assigned to your organization.
+  - **Token Key**: Enter the ServiceNow token that allows Breach Predictor to access the ServiceNow domain assigned to your organization.
+
+To receive the **Domain Key** and **Token Key** for your organization, contact your Zscaler Account team.
+
+[Image: The Integrate ServiceNow Window in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/release-upgrade-summary-2025","lastmod":"2025-02-03T12:20Z","nid":"1516011"} -->
+## Release Upgrade Summary (2025)
+
+- Source: https://help.zscaler.com/breach-predictor/release-upgrade-summary-2025
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Release Notes > Release Upgrade Summary (2025)
+- Last modified: 2025-02-03T12:20Z
+- Summary: Breach Predictor Release Upgrade Summary for service updates deployed in 2025.
+
+This article provides a summary of all new features and enhancements for Breach Predictor.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/requesting-updates-zscaler-breach-predictor","lastmod":"2025-08-02T07:06Z","nid":"1518501"} -->
+## Requesting Updates in Zscaler Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Administration > Requesting Updates in Zscaler Breach Predictor
+- Last modified: 2025-08-02T07:06Z
+- Summary: How to create Jira and ServiceNow tickets for updates to Zscaler Breach Predictor.
+
+You can create two types of tickets in Breach Predictor: Request tickets and Support tickets. Request tickets are based on Breach Predictor policy update recommendations and are created from the [Findings page](https://help.zscaler.com/breach-predictor/about-findings). Breach Predictor uses its extensive threat information to analyze your existing policies (i.e., File Type Control, SSL Inspection, URL Filtering, etc.) and suggests policy updates based on that analysis. Breach Predictor automatically populates the ticket request with specific information about the threat family involved, its placement on the MITRE ATT&CK matrix, and the policies that require updates.
+
+Support tickets cover updates that don't involve policy changes (i.e., suggestions or problems with the software). You can create a request for a Support ticket directly from the Support tab on the Tickets page, and Zscaler Support uses the information you provide to create a ServiceNow ticket as needed.
+
+Ticket creation in Breach Predictor requires that you [integrate Breach Predictor with Jira and ServiceNow](https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor). After integration, you can access instances of Jira and ServiceNow where you can see more specific details about each ticket. The Breach Predictor Tickets page provides high-level details about each ticket, with a link that opens your instance of Jira or ServiceNow in a separate browser tab.
+
+- Creating a Request Ticket for a Policy Update
+- Submitting Information for a Support Ticket
+
+You can view any Request or Support tickets that have been opened for your organization on the [Tickets page](https://help.zscaler.com/breach-predictor/about-tickets).
+
+1. Go to **Breach Predictor Portal** > **Findings**.
+2. On the **Findings** page, on the **MITRE ATT&CK Mapping** page, click the name of a threat family.
+
+See image.
+
+The **Threat** page opens.
+
+1. On the **Threat** page, click **Update Policy**.
+
+See image.
+
+The **Recommendation** panel opens.
+
+1. In the **Recommendation** panel, review the policy recommendations, then click **Create Ticket**.
+
+See image.
+
+The **Create New Ticket from policy recommendation** panel opens.
+
+1. In the **Create New Ticket from policy recommendation** panel, review the policy recommendations, select the policies to update, provide a name and details for the ticket, then click **Create**.
+
+See image.
+
+1. In the **Confirm Update** window, click **Confirm**.
+
+See image.
+
+The ticket is created and you can track its progress on the **Request** tab on the **Tickets** page.
+
+[Image: A Threat Name in Zscaler Breach Predictor]
+
+[Image: The Update Policy Option in Zscaler Breach Predictor]
+
+[Image: Creating a Jira Ticket in Zscaler Breach Predictor]
+
+[Image: Policy Recommendation Details in Zscaler Breach Predictor]
+
+[Image: The Confirm Option for a Support Ticket in Zscaler Breach Predictor]
+
+1. Go to **Breach Predictor Portal** > **Tickets**.
+2. On the **Tickets** page, on the **Support** tab, click **Create**.
+
+See image.
+
+The **Create New Ticket** panel opens.
+
+1. In the **Create New Ticket** panel, in the **Describe your issue** field, enter information about the update you're requesting.
+
+See image.
+
+1. Click **Submit**.
+
+The ticket information appears in the table. A Zscaler Support team member will follow up with more information and a ticket number if a ticket is created.
+
+[Image: Creating a Support Ticket in Zscaler Breach Predictor]
+
+[Image: The Describe Your Issue Field for a Support Ticket in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/understanding-breach-predictor","lastmod":"2025-08-09T07:06Z","nid":"1500436"} -->
+## Understanding Zscaler Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/understanding-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Understanding Zscaler Breach Predictor
+- Last modified: 2025-08-09T07:06Z
+- Summary: A high-level explanation of how Zscaler Breach Predictor works.
+
+Zscaler Breach Predictor represents a fundamental shift in approach, from a security posture focused on alerts and reactivity to one focused on proactively addressing threats based on predictability of attacks. Breach Predictor is designed to supplement, rather than replace, reactive security tools.
+
+Reactive tools provide necessary urgency for imminent threats. But one of the main problems with a reactive approach is that you’re typically responding to multiple alerts from multiple products, all based on an event that’s already happened. By that point, the threat has already moved ahead to other stages. With Breach Predictor’s predictive intelligence, you can shore up your problem policies now so that threats don't move to the next stage.
+
+Fundamentally, Breach Predictor is designed to give your organization more time to make informed decisions, instead of being pressured to act quickly based on an accumulation of alerts. Breach Predictor provides threat context and information about the specific policies that enabled the activity to occur, enabling Security Operations Center (SOC) teams to make changes based on policy visibility and recommendations.
+
+Breach Predictor works by consuming and analyzing vast amounts of data from multiple sources and then using that analysis to provide visibility, recommendations, and reduced remediation time to improve your overall security posture. The following illustration provides a high-level overview of how Breach Predictor works:
+
+See image.
+
+At a high level, Breach Predictor uses the following basic workflow to identify and map threats:
+
+- 1. Track substantial amounts of data from multiple sources.
+- 2. Use generative AI to analyze data.
+- 3. Draw conclusions to provide visibility and guidance.
+
+Breach Predictor’s intuitive UI presents a large amount of data in an easy-to-understand format, from the Overall Breach Probability score to provide an immediate assessment of your organization’s threat landscape, to Sankey charts and MITRE ATT&CK findings tables to provide specific information about user vulnerability and the malware families present in your organization.
+
+To learn more about how to navigate the different areas of Breach Predictor, see [Accessing and Navigating Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor).
+
+To achieve its predictive intelligence, Breach Predictor examines a large amount of data from an array of sources:
+
+- Logs from Zscaler Internet Access (ZIA), Zscaler Sandbox, and CrowdStrike
+- Threat intelligence from [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) that is focused on building attack indicators
+- Existing policy recommendations based on peers and best practices
+
+[Image: Illustration of How Zscaler Breach Predictor Works]
+
+Breach Predictor uses generative AI to analyze vast amounts of data to determine patterns and behaviors, recognizing new threats and Indicators of Compromise (IoCs) emerging in your environment. It also provides probability for where threats will move so that you can take meaningful action to stop threats and prevent future attacks.
+
+Breach Predictor is designed to provide easy-to-understand visibility and guidance based on its analysis of disparate data sources, providing clarity at a level that might otherwise be missed.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/using-ai-assist-dashboard","lastmod":"2025-08-09T07:06Z","nid":"1529941"} -->
+## Using the AI Assist Dashboard
+
+- Source: https://help.zscaler.com/breach-predictor/using-ai-assist-dashboard
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Using the AI Assist Dashboard
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to analyze data and get more information on the Breach Predictor AI Assist Dashboard.
+
+To learn more about getting access to this feature, contact your Zscaler Account team.
+
+The Breach Predictor AI Assist dashboard provides a flexible and intuitive way to gain insight into your organization's threat landscape. Powered by multiple Breach Predictor AI agents, the AI Assist dashboard draws on AI and machine learning analysis of vast amounts of data from multiple log sources, peer best practices, current policy settings, third-party integrations, and cutting-edge threat data from [Zscaler ThreatLabz](https://threatlabz.zscaler.com/), the security research arm of Zscaler.
+
+The AI Assistdashboard is a dynamic piece of the Breach Predictor Portal, and the information available to you is customized specifically for your organization. This article walks you through a basic use case for analyzing information provided on the dashboard.
+
+On any screen in the Breach Predictor Portal, you can click AI Assist to open the dashboard:
+
+See image.
+
+At the top of the AI Assist dashboard, you see the status of the Breach AI Agents that are actively monitoring and analyzing threats across your organization:
+
+See image.
+
+The agents monitor specific areas across your organization:
+
+- **Detection**: This agent detects threats across your organization.
+- **Context**: This agent provides additional details about specific threats (e.g., affected users, assets, etc.).
+- **Triage**: This agent triages the threats in your organization to provide an initial verdict and confidence level for each threat.
+- **Response**: This agent responds to each threat, and provides next steps to address threats.
+- **Third-Party Integrations**: This agent monitors the third-party applications you've integrated with Breach Predictor and helps you perform tasks based on those integrations (e.g., log a policy update ticket in Jira, etc.).
+
+The AI Assist dashboard greets you with customized recommendations to address the most urgent security threats facing your organization.
+
+See image.
+
+On each recommendation, you can drill down to see more information. For example, you can click the Top Response Actions tile to see a prioritized list of recommended policy updates from the Response Agent.
+
+See image.
+
+To return to the AI Assist splash page, click the + icon in the left-side navigation:
+
+See image.
+
+On each of the pages in the AI Assist dashboard, you can click one of the suggested prompts to get more information, or you can enter your own question in the text box. The prompts change dynamically based on the current screen you're viewing and the primary AI agent being engaged. You can also provide feedback (i.e., thumbs up and thumbs down) to help Breach Predictor's AI agents learn more and refine their responses.
+
+See image.
+
+Additionally, many pages in the AI Assist dashboard contain links to other areas of the Breach Predictor Portal that let you drill down to find details about a user, activity, or threat. In the following example, a request for AI triage information about the CobaltStrike threat family provides extensive evidence and justification about Breach Predictor's findings for the threat, as well as a link to the Findings page in the Breach Predictor Portal to find even more information about CobaltStrike.
+
+See image.
+
+To learn more about how Breach Predictor identifies threats, see [Understanding Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/understanding-breach-predictor). To learn more about how to navigate the Breach Predictor Portal, see [Accessing and Navigating Zscaler Breach Predictor.](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor)
+
+[Image: The AI Assist Button in Zscaler Breach Predictor]
+
+[Image: The Breach AI Agents Bar in Zscaler Breach Predictor]
+
+[Image: The Splash Page of the AI Assist Dashboard in Zscaler Breach Predictor]
+
+[Image: Top Response Actions in the Zscaler Breach Predictor AI Assist Dashboard]
+
+[Image: The Return button on the Zscaler Breach Predictor AI Assist Dashboard]
+
+[Image: The prompts available on the Zscaler Breach Predictor AI Assist Dashboard]
+
+[Image: Triage information in the Zscaler Breach Predictor AI Assist Dashboard with a link to the Findings page]
 <!-- /ZS-ARTICLE -->

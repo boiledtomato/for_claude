@@ -1,8 +1,189 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
-Articles in this file: 105
+Generated: 2026-08-10 01:47 UTC
+Articles in this file: 108
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-high-availability-and-failover","lastmod":"2026-08-07T21:06Z","nid":"1455436"} -->
+## Understanding High Availability and Failover
+
+- Source: https://help.zscaler.com/cloud-branch-connector/understanding-high-availability-and-failover
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Understanding High Availability and Failover
+- Last modified: 2026-08-07T21:06Z
+- Summary: Information on High Availability and Failover for Zscaler Cloud Connector.
+
+High Availability (HA) is critical to ensure continued secure access to applications for workloads routing through Zscaler Cloud Connector. The various areas to consider when deploying are, but not limited to:
+
+- Using Cloud Connectors to the Zero Trust Exchange (ZTE) HA and failover
+- Using cloud native load balancers to support horizontal scaling and failover of Cloud Connectors
+- Using cloud provider best practices to ensure HA across availability zones within regions
+
+See image.
+
+[Image: High availability and failover flows for Cloud Connector.]
+
+Blue arrows indicate primary, or active, Internet & SaaS tunnels. Green lines indicate secondary Internet & SaaS tunnels.
+
+## Load Balancing
+
+The Zscaler service integrates with the native load-balancing services offered by respective cloud providers. The load balancers conduct HTTP health probes on a defined port selected during deployment to determine the health of each Cloud Connector. Cloud Connector listens to the configured port for HTTP health probes on the `?cchealth` path from the load balancers. A healthy Cloud Connector has a 200 HTTP response code, and an unhealthy Cloud Connector has a 503 HTTP response code or no response. Health probes ensure that the Cloud Connector VM is functional and can successfully forward workload traffic to Internet & SaaS (ZIA) Public Service Edges or Private Service Edges and Private Access (ZPA) Public Service Edges or Private Service Edges.
+
+Cloud Connectors scale horizontally and are all active, enabling organizations to add more Cloud Connectors into a group to support higher throughput per egress location. New sessions should be sent to healthy Cloud Connectors. In some cases, such as existing connections flowing through a Cloud Connector that becomes unhealthy, the sessions might temporarily fail until the flow ages or times out and the load balancer begins to send the session through a healthy Cloud Connector.
+
+- Health Probe Intervals
+
+Zscaler deployment templates use a recommended default configuration for health check intervals. The Microsoft Azure Load Balancer defaults to 15 seconds, and Amazon Web Services (AWS) Gateway Load Balancer defaults to 30 seconds.
+
+The default settings are optimized to take unhealthy Cloud Connectors out of the rotation efficiently, avoiding network "bumps."
+
+While the default deployment templates are configurable, contact Zscaler Support before changing any settings to ensure an optimal configuration is made.
+
+## Data Plane
+
+The data plane is used to process and forward workload traffic to Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges. The data plane is composed of outbound connections from the service interface of each Cloud Connector.
+
+- Internet Egress (Internet & SaaS)
+- Private Apps (Private Access)
+
+By default, each Cloud Connector tenant comes with a default rule to forward internet-bound traffic to Internet & SaaS using automatically selected gateways. Similar to the control plane, the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges are selected using geolocation. It is possible to configure traffic forwarding rules to utilize specific Public Service Edges, Virtual Service Edges, or sub-clouds for various Cloud Connector groups and locations.
+
+Workload traffic that is processed by traffic forwarding rules configured with the Internet & SaaS forwarding method uses the primary gateway as the active tunnel to the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges. The default gateway configuration will fail-close, meaning that internet-bound traffic from workloads is dropped if none of the Cloud Connectors in the same group are able to establish connectivity to any of the Internet & SaaS Service Edges. Customers can change this configuration to fail-open, allowing workloads that are accessing the internet to continue doing so. The fail-open option means the egressing traffic is flowing through Zscaler for inspection and policy control.
+
+In the event of a failed connection, Cloud Connector marks the secondary gateway as the active tunnel and forwards workload traffic via the secondary gateway to the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges. When the primary gateway is healthy again, it is marked as active and Cloud Connector forwards new sessions to the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges via the primary gateway tunnel.
+
+Cloud Connector monitors the gateway connections to ensure the data path exists so that traffic can be inspected at the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges. If the active tunnel forwarding workload traffic to the Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges fails, the Cloud Connector will fail over to the secondary tunnel in approximately 30 seconds.
+
+By default, Cloud Connector automatically tries to connect to a tertiary Internet & SaaS Public Service Edge or Private Service Edge and Private Access Public Service Edge or Private Service Edge if the primary and secondary have failed. This is important to note because Cloud Connector is not limited to just the two Internet & SaaS Public Service Edges or Private Service Edges and Private Access Public Service Edges or Private Service Edges that are selected for tunneling.
+
+To learn more about the Internet & SaaS Gateways, see [About Zscaler Internet Access Gateways](https://help.zscaler.com/cloud-branch-connector/about-zia-gateways).
+
+Cloud Connectors that are enrolled with Private Access automatically establish a secure connection to an optimal Private Access Public Service Edge or Private Service Edge in the ZTE. This secure connection allows for the workloads accessing private applications to be securely tunneled to the Private Access Public Service Edge or Private Service Edge and allows the data path to be connected through App Connectors configured for the accessed application.
+
+Cloud Connector, similar to Zscaler Client Connector, attempts to resolve the most optimal or nearest Private Access Public Service Edge or Private Service Edge for private application access.
+
+## Zero Trust Exchange (ZTE)
+
+Cloud Connector is a Zscaler purpose-built Zero Trust gateway to forward traffic to the ZTE. With over 150 global data centers, the Internet & SaaS and Private Access Public Service Edges enable deployments in almost any region with optimal connectivity.
+
+Organizations can forward users, workload, and Internet of Things (IoT) devices to the ZTE using:
+
+- Zscaler Client Connector
+- Cloud Connector
+- Branch Connector
+- PAC Files (Internet & SaaS only)
+- GRE Tunnels (Internet & SaaS only)
+- IPSec Tunnels (Internet & SaaS only)
+
+The ZTE HA is identical to the aforementioned forwarding methods.
+
+## Cloud Providers
+
+Zscaler uses the best practices for HA with cloud providers such as AWS and Azure. Regions and availability zones are HA aspects to take into consideration when deploying Cloud Connector.
+
+- Regions
+- Availability Zones
+
+In most cases, Cloud Connector is deployed into groups or locations that serve the same internet egress. Whether centralized, using AWS Transit Gateway or Azure Virtual WAN Hub, or decentralized, where each Virtual Private Cloud (VPC) or Azure Virtual Network (VNet) has direct internet access, each region serves a number of different egress points for Cloud Connector and does not affect other regions even if there is a cloud provider outage.
+
+Zscaler recommends deploying at least two Cloud Connectors per availability zone and across at least two availability zones. This takes into account HA without service interruption intra or inter availability zone per egress location.
+
+Zscaler also recommends enabling AWS Gateway Load Balancer (GWLB) cross-zone load balancing for all production deployments. This setting ensures that GWLB VPC endpoints deployed across multiple availability zones can use Cloud Connector in all availability zones instead of only its own.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-namespaces-amazon-web-services-and-microsoft-azure-accounts","lastmod":"2026-04-27T21:06Z","nid":"1508906"} -->
+## Understanding Namespaces for Amazon Web Services and Microsoft Azure Accounts
+
+- Source: https://help.zscaler.com/cloud-branch-connector/understanding-namespaces-amazon-web-services-and-microsoft-azure-accounts
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Understanding Namespaces for Amazon Web Services and Microsoft Azure Accounts
+- Last modified: 2026-04-27T21:06Z
+- Summary: Understanding Namespaces for Amazon Web Services and Microsoft Azure Accounts
+
+User-defined tags and cloud-provider-defined attributes in security policies enable you to apply policies based on workload identities in a dynamic and granular fashion. The Zscaler service creates a mapping between the user-defined tags or cloud-provider-generated attributes and the workload IP address. This mapping is decentralized at the Zscaler Cloud Connector level. With no overlapping Classless Inter-Domain Routing (CIDR) blocks, Cloud Connector maps the IP address to a set of tags. When there are overlapping CIDR blocks, divide the set of maps into a subset. In a subset, every CIDR block is unique to the namespace. Mapping is simple in a deployment that has no overlapping IP addresses and with all of the virtual private clouds (VPCs) in the same account. It is challenging when VPCs are spread across multiple accounts and have overlapping IP addresses.
+
+A namespace is a set of VPC endpoints in Amazon Web Services (AWS) or a set of virtual networks (VNets) in Microsoft Azure. The VPCs or VNets in a namespace should not have overlapping IP addresses. A namespace is used as an additional data point to differentiate between identical source IP addresses when the egress traffic reaches Cloud Connector.
+
+## Namespaces in AWS Accounts
+
+Namespaces allow you to:
+
+- Provide deterministic mapping between tags and source IP addresses when there are overlapping IP addresses.
+- Enable the decentralized deployment and inspection in overlapping IP address environments.
+- Help apply policies based on user-defined tags in an environment with overlapping IP addresses.
+
+In decentralized deployments, you can have overlapping CIDR blocks that all route to the same Cloud Connector where you assign the IP addresses to the Cloud Connector. Namespaces provide a way to associate the tag with the IP address using a VPC endpoint.
+
+By default, if the user-defined namespace is not detected, all workloads are part of the default namespace. If you want to group VPCs and/or accounts in a namespace, you must assign the same namespace VPC tag for each VPC. The namespace tag key is named `zs:namespace` and has a value of `<namespace_value>`, where `<namespace_value>` is a string you choose.
+
+Namespaces influence AWS accounts by:
+
+- Grouping accounts and/or VPCs that do not have overlapping IP addresses and can communicate to the same set of Cloud Connectors.
+- Creating mapping between workload tags and IP addresses even when duplicate IP addresses are detected between accounts and/or VPCs.
+- Applying security policies based on tags even when the tags are associated with overlapping IP addresses.
+
+See image.
+
+In the diagram, there are three AWS accounts (Acct_1, Acct_2, and Acct_3). The VPC in Acct_1 has an overlapping IP address range with the VPC in Acct_2. The VPC in Acct_3 is the security VPC that has the Cloud Connectors deployed. You want to use the user-defined tags on workloads in Acct_1 and Acct_2 in Zscaler policies. They tag the Acct_1 VPC with `zs:namespace=project-green`. The AWS admin tags the Acct_2 VPC with `zs:namespace=project-blue`. The Zscaler discovery service reads the accounts and VPC tags to create the following mapping:
+
+| **Endpoint ID** | **Namespace** |
+| --- | --- |
+| vpce-111 | project-blue |
+| vpce-222 | project-blue |
+| vpce-333 | project-green |
+| vpce-444 | project-green |
+
+The Zscaler discovery service also fetches the IP addresses and the associated tags to create the following mapping for the same IP address present in both VPCs:
+
+| **IP Address** | **VPC Endpoint** | **Tag Index** | **Tag List** |
+| --- | --- | --- | --- |
+| 172.31.0.1 | vpce-111 | 172.31.0.1+project-green | Tag-A, Tag-B |
+| 172.31.0.1 | vpce-444 | 172.31.0.1+project-blue | Tag-C, Tag-D |
+
+## Namespaces in Azure Accounts
+
+In Azure, the discovery service does not know which VNet peers to which Cloud Connector. For example, you have an IP address that sends a list of tags to Cloud Connector. If the discovery service discovers overlapping CIDR blocks within the IP addresses, a namespace must be created. The Cloud Connector requests that specific namespace to receive tags. The Zscaler service needs to maintain separate namespaces for the same subscription, so Cloud Connectors in the same subscription have different namespaces.
+
+Although the location of the Cloud Connector is not an issue for the policy and logs, it is a problem for assigning tags. You can use the namespace assigned to each VNet to route the message from the publish-subscribe mechanism to the correct Cloud Connector. In the diagram below, you can assign `zs:namespace` to Yellow, which applies to the three VNets on the left, and assign `zs:namespace` to Green, which applies to the three VNets on the right. If the VNets are overlapping in different subscriptions, you can create a subscription group. Each subscription group must have a different credential (app registration).
+
+See image.
+
+When deploying applications in Azure, you can reuse the same CIDR block in a deployment. When using VPC peering, you cannot use endpoints to separate traffic. You must duplicate the Cloud Connector group stack.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-zero-trust-sd-wan-devices","lastmod":"2026-06-23T07:15Z","nid":"1468276"} -->
+## Understanding Zero Trust SD-WAN Devices
+
+- Source: https://help.zscaler.com/cloud-branch-connector/understanding-zero-trust-sd-wan-devices
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Physical Devices > Understanding Zero Trust SD-WAN Devices
+- Last modified: 2026-06-23T07:15Z
+- Summary: Information on Zero Trust SD-WAN Devices for Zscaler Branch Connector.
+
+Enabled by the Zscaler Zero Trust Exchange (ZTE), Zero Trust Software-Defined Wide Area Network (SD-WAN) Devices are hardware devices that use Zero Trust Branch Connectivity to simplify traffic forwarding to Zscaler services. The Zero Trust SD-WAN Device is deployed as a [Zscaler Branch Connector](https://help.zscaler.com/cloud-branch-connector/what-zscaler-branch-connector) virtual machine (VM). It supplies branches and data centers with fast and reliable access to the internet and private applications with a direct-to-cloud architecture.
+
+Branch Connector eliminates the network attack surface by establishing direct branch-to-internet and branch-to-private-app connections using a full proxy architecture. It also simplifies branch communications by eliminating complex routing, virtual private networks (VPNs), and firewalls while allowing for flexible forwarding and simple policy management by using the proven Internet & SaaS (ZIA) and Private Access (ZPA) policy framework.
+
+The Branch Connector forwards all branch communications directly to the ZTE, where you can apply [Internet & SaaS](https://help.zscaler.com/zia/policies) or [Private Access](https://help.zscaler.com/zpa/policies) policies for full security inspection and you can access identity-based control of branch and data center communications. The communications are then forwarded from the ZTE to any destination (the internet, private applications in a public cloud, on-premises data center, etc.).
+
+You can deploy Zero Trust SD-WAN Devices in one of two modes: gateway or non-gateway (one-arm).
+
+In gateway mode, the Zero Trust SD-WAN Device enables direct, secure access from your private network to other geographically distributed parts of your private network, cloud applications, and the internet over one or more internet service provider (ISP) connections. It can also dynamically determine the best quality link, forward specific traffic toward that link, and function as a local router. Local devices can communicate without an external router. You can also deploy the hardware device in gateway mode inside your local area network (LAN) while an existing device connects you to the internet through the wide area network (WAN).
+
+In non-gateway (one-arm) mode, the Zero Trust SD-WAN Device does not connect directly to the internet service provider (ISP). Instead, the Zero Trust SD-WAN Device deploys in the internal network of the organization and provides access from your private network to other geographically distributed parts of your private network, cloud applications, and the internet. Non-gateway (one-arm) mode requires an external router.
+
+## Zero Touch Provisioning
+
+Zero Trust SD-WAN Devices are installed in your organization's on-premises locations and are loaded with the required deployment configurations using [Branch Configuration Templates](https://help.zscaler.com/cloud-branch-connector/about-branch-provisioning-template). You can stage the device configuration in the Zscaler Admin Console before a device is powered on and connected to the on-premises location. When your organization is ready for the ZTE to adopt the device, you’ll change the template status from Staged to Ready to Deploy. After an on-site technician powers up the device and provides it with network connectivity, the device software connects to the Zscaler cloud and authenticates itself. After the authentication is successful, the device is provided with its deployment configuration. This simplified method for loading the deployment configuration on on-premises devices is referred to as Zero Touch Provisioning.
+
+To learn more, see[Deploying Zero Trust SD-WAN Devices](https://help.zscaler.com/cloud-branch-connector/deploying-zero-trust-sd-wan-devices)and [Installing Zero Trust SD-WAN Devices](https://help.zscaler.com/cloud-branch-connector/installing-zero-trust-sd-wan-devices).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -134,13 +315,13 @@ In the [Amazon VPC console](https://console.aws.amazon.com/vpc/), you must assig
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-07-23T09:10Z","nid":"1517756"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-08-03T13:51Z","nid":"1517756"} -->
 ## What Are Zero Trust Gateways?
 
 - Source: https://help.zscaler.com/cloud-branch-connector/what-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > What Are Zero Trust Gateways?
-- Last modified: 2026-07-23T09:10Z
+- Last modified: 2026-08-03T13:51Z
 - Summary: Introductory information, key features, and benefits of Zero Trust Gateways accessible in the Zscaler Admin Console.
 
 The Zscaler Zero Trust Gateway service transforms how you can secure your workloads and workload traffic deployed in public clouds. Built on the Zscaler Zero Trust Exchange (ZTE), the Zero Trust Gateway service simplifies cloud workload security for enterprises.
@@ -149,16 +330,14 @@ The Zscaler Zero Trust Gateway service transforms how you can secure your worklo
 
 The Zero Trust Gateway service shares [Zscaler Cloud Connector features and benefits](https://help.zscaler.com/cloud-branch-connector/what-zscaler-cloud-connector). Additionally, the following are key Zero Trust Gateway features and benefits:
 
-- Simplifies operations to install, configure, and manage workload security as a SaaS service in Amazon Web Services (AWS).
+- Simplifies operations to install, configure, and manage workload security as a SaaS service in Amazon Web Services (AWS) and Google Cloud Platform (GCP).
 - Offers consistent and comprehensive threat and data protection with common security policies and cloud-scale TLS inspection.
 - Reduces the attack surface by connecting applications instead of networks and applying least-privilege access.
 - Supports cloud-to-cloud, cloud-to-data-center, and region-to-region implementations, which reduces operational costs and complexity.
 - Secures workload connections to the internet or to other workloads.
-- Reduces cost by allowing traffic forwarded to the Zero Trust Gateway to egress to the internet and/or Zscaler cloud from the Zscaler AWS account.
+- Reduces cost by allowing traffic forwarded to the Zero Trust Gateway to egress to the internet and/or Zscaler cloud from the Zscaler AWS or GCP account.
 - Eliminates lateral threat movement.
 - Provides Layer 4 security controls for east-west traffic, including subnet-to-subnet and virtual private cloud (VPC)-to-VPC communication in the AWS cloud. Layer 4 controls are also used to secure ingress traffic for public applications hosted in AWS, offering a unified view for flow-level visibility and control and the added flexibility of leveraging tag-based policies for Layer 4 controls.
-
-[Image: A diagram displaying the workflow of Zero Trust Gateways from the customer AWS account to the Zscaler Zero Trust Exchange]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -211,13 +390,13 @@ The Zero Trust SD-WAN and Branch Connector capabilities are as follows:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zscaler-client-connector-vdi","lastmod":"2026-07-21T08:36Z","nid":"1472116"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zscaler-client-connector-vdi","lastmod":"2026-08-04T21:06Z","nid":"1472116"} -->
 ## What Is Zscaler Client Connector for VDI?
 
 - Source: https://help.zscaler.com/cloud-branch-connector/what-zscaler-client-connector-vdi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > What Is Zscaler Client Connector for VDI?
-- Last modified: 2026-07-21T08:36Z
+- Last modified: 2026-08-04T21:06Z
 - Summary: Information on Zscaler Client Connector for VDI, its key features, and how it works.
 
 Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) is a lightweight Windows application that runs in the user space of the VDI session host to authenticate multiple concurrent users, forward traffic to Zscaler Cloud Connector or Zscaler Branch Connector, and exchange user context within the Cloud Connector or Branch Connector. Using Zscaler Client Connector for VDI, users can get all the benefits of the Zscaler service through granular, policy-based access to internet resources from a single point.
@@ -578,13 +757,13 @@ Zscaler Cloud Connector ensures that cloud workloads adhere to organizational se
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-processes-allowlist","lastmod":"2026-07-20T10:31Z","nid":"1516321"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-processes-allowlist","lastmod":"2026-08-03T21:06Z","nid":"1516321"} -->
 ## Zscaler Client Connector for VDI Processes to Allowlist
 
 - Source: https://help.zscaler.com/cloud-branch-connector/zscaler-client-connector-vdi-processes-allowlist
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Zscaler Client Connector for VDI Processes to Allowlist
-- Last modified: 2026-07-20T10:31Z
+- Last modified: 2026-08-03T21:06Z
 - Summary: Information on Zscaler Client Connector for VDI binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that you allowlist Zscaler Client Connector for VDI processes that permit Virtual Desktop Infrastructure (VDI) binaries and processes. You can only allowlist in Windows. To learn more about Zscaler Client Connector for VDI, see [What Is Zscaler Client Connector for VDI?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-client-connector-vdi)
@@ -1066,6 +1245,81 @@ You can reference SaaS Apps objects as destination criteria when creating [firew
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-airgap-lite-mode-assets","lastmod":"2026-08-06T20:11Z","nid":"1532714"} -->
+## Configuring Airgap-Lite Mode for Assets
+
+- Source: https://help.zscaler.com/zero-trust-branch/configuring-airgap-lite-mode-assets
+- Product: Zero Trust Branch
+- Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Configuring Airgap-Lite Mode for Assets
+- Last modified: 2026-08-06T20:11Z
+- Summary: How to configure Airgap-Lite mode for assets in the Zscaler Admin Console.
+
+Zero Trust Branch offers three protection solutions for your assets that are designed to meet different requirements for varying environments. These solutions, Airgap, Airgap-Lite, and Airgap+, address varying levels of network isolation and functionality needs. Airgap-Lite mode allows devices to use the same subnet mask provided by the DHCP server.
+
+You can configure Airgap-Lite mode for assets in the following cases:
+
+- Full isolation is not a strict requirement.
+- If the /32 subnet mask is not supported, you choose one of the following modes based on isolation requirements: To learn more, [Understanding Protection Solutions](https://help.zscaler.com/zero-trust-branch/understanding-protection-solutions).
+  - Airgap-Lite mode (if full isolation is not a requirement)
+  - Airgap Plus mode
+
+## Configuring Airgap-Lite Mode for Assets
+
+You can configure Airgap-Lite mode using one of the following methods:
+
+- Device Level
+- VLAN Level
+
+The device level configuration allows you to enable Airgap-Lite mode for each device independently. Use this method when you need to configure Airgap-Lite mode for specific devices that do not require full isolation.
+
+To configure Airgap-Lite mode:
+
+1. Go to **Infrastructure**> **Connectors > Edge > Assets**.
+2. Locate and select the device for which you want to configure **Airgap-Lite** mode, and click **Edit**. See image.
+3. In the asset details drawer, go to the **Security**section on the **Properties**tab.
+4. Locate the **Protection**field and select **Airgap-Lite**from the drop-down menu. See image.
+5. Click **Apply**.
+6. Confirm that the **Airgapped**column for the device does not show a check mark. The absence of a check mark indicates that the device is running in **Airgap-Lite** mode. See image.
+7. In the device terminal, run the following command for the DHCP lease release:
+  - For Windows: `ipconfig /release`
+  - For Linux: `dhclient -r`
+8. In the device terminal, run the following command to request a new IP address from the DHCP server: **Airgap-Lite**mode is applied at the device level.
+  - For Windows: `ipconfig /renew`
+  - For Linux: `dhclient`
+9. Repeat these steps for each device that you want to be part of the subnet.
+
+The VLAN level configuration allows you to enable Airgap-Lite mode for multiple devices simultaneously. Use this method when you need to configure Airgap-Lite mode for all devices within a VLAN.
+
+To configure Airgap-Lite mode:
+
+1. Go to **Infrastructure**> **Sites > Connectors > Edge > Sites**.
+2. Select the name of the site whose VLAN must be configured. See image.
+3. Click **VLANs**.
+4. On the **VLANs**tab, locate the VLAN whose devices must be configured with **Airgap-Lite** mode, click the **Gear**icon, and select **Edit**. See image.
+5. In the **Edit Airgap VLAN**drawer, go to the **Network**section, and select **ON (Airgap-Lite)**from the **DHCP Service**drop-down menu. See image.
+6. Click **Save**.
+7. For each device in the VLAN, go to the device terminal and run the following command for the DHCP lease release:
+  - For Windows: `ipconfig /release`
+  - For Linux: `dhclient -r`
+8. For each device in the VLAN, go to the device terminal and run the following command to request a new IP address from the DHCP server: **Airgap-Lite** mode is applied to the devices in the VLAN.
+  - For Windows: `ipconfig /renew`
+  - For Linux: `dhclient`
+
+[Image: Assets page showing an asset selection with the option to edit the asset]
+
+[Image: Asset details drawer showing the Protection field]
+
+[Image: Assets page showing Airgapped column]
+
+[Image: Sites page showing a site]
+
+[Image: Site details page showing option to edit a VLAN]
+
+[Image: Edit Airgap VLAN drawer showing the DHCP Service field]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-dhcp-options-site","lastmod":"2026-07-20T15:06Z","nid":"1538823"} -->
 ## Configuring DHCP Options for a Site
 
@@ -1270,81 +1524,6 @@ To reserve an IP address allocated to an already discovered asset:
 [Image: Assets page showing an option to edit a selected asset]
 
 [Image: Selecting assignment type for IP address of an asset]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-protection-mode-assets","lastmod":"2026-07-14T11:10Z","nid":"1532714"} -->
-## Configuring Airgap-Lite Mode for Assets
-
-- Source: https://help.zscaler.com/zero-trust-branch/configuring-protection-mode-assets
-- Product: Zero Trust Branch
-- Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Configuring Airgap-Lite Mode for Assets
-- Last modified: 2026-07-14T11:10Z
-- Summary: How to configure Airgap-Lite mode for assets in the Zscaler Admin Console.
-
-Zero Trust Branch offers three protection solutions for your assets that are designed to meet different requirements for varying environments. These solutions, Airgap, Airgap-Lite, and Airgap+, address varying levels of network isolation and functionality needs. Airgap-Lite mode allows devices to use the same subnet mask provided by the DHCP server.
-
-You can configure Airgap-Lite mode for assets in the following cases:
-
-- Full isolation is not a strict requirement.
-- If the /32 subnet mask is not supported, you choose one of the following modes based on isolation requirements: To learn more, [Understanding Protection Solutions](https://help.zscaler.com/zero-trust-branch/understanding-protection-solutions).
-  - Airgap-Lite mode (if full isolation is not a requirement)
-  - Airgap Plus mode
-
-## Configuring Airgap-Lite Mode for Assets
-
-You can configure Airgap-Lite mode using one of the following methods:
-
-- Device Level
-- VLAN Level
-
-The device level configuration allows you to enable Airgap-Lite mode for each device independently. Use this method when you need to configure Airgap-Lite mode for specific devices that do not require full isolation.
-
-To configure Airgap-Lite mode:
-
-1. Go to **Infrastructure**> **Connectors > Edge > Assets**.
-2. Locate and select the device for which you want to configure **Airgap-Lite** mode, and click **Edit**. See image.
-3. In the asset details drawer, go to the **Security**section on the **Properties**tab.
-4. Locate the **Protection**field and select **Airgap-Lite**from the drop-down menu. See image.
-5. Click **Apply**.
-6. Confirm that the **Airgapped**column for the device does not show a check mark. The absence of a check mark indicates that the device is running in **Airgap-Lite** mode. See image.
-7. In the device terminal, run the following command for the DHCP lease release:
-  - For Windows: `ipconfig /release`
-  - For Linux: `dhclient -r`
-8. In the device terminal, run the following command to request a new IP address from the DHCP server: **Airgap-Lite**mode is applied at the device level.
-  - For Windows: `ipconfig /renew`
-  - For Linux: `dhclient`
-9. Repeat these steps for each device that you want to be part of the subnet.
-
-The VLAN level configuration allows you to enable Airgap-Lite mode for multiple devices simultaneously. Use this method when you need to configure Airgap-Lite mode for all devices within a VLAN.
-
-To configure Airgap-Lite mode:
-
-1. Go to **Infrastructure**> **Sites > Connectors > Edge > Sites**.
-2. Select the name of the site whose VLAN must be configured. See image.
-3. Click **VLANs**.
-4. On the **VLANs**tab, locate the VLAN whose devices must be configured with **Airgap-Lite** mode, click the **Gear**icon, and select **Edit**. See image.
-5. In the **Edit Airgap VLAN**drawer, go to the **Network**section, and select **ON (Airgap-Lite)**from the **DHCP Service**drop-down menu. See image.
-6. Click **Save**.
-7. For each device in the VLAN, go to the device terminal and run the following command for the DHCP lease release:
-  - For Windows: `ipconfig /release`
-  - For Linux: `dhclient -r`
-8. For each device in the VLAN, go to the device terminal and run the following command to request a new IP address from the DHCP server: **Airgap-Lite** mode is applied to the devices in the VLAN.
-  - For Windows: `ipconfig /renew`
-  - For Linux: `dhclient`
-
-[Image: Assets page showing an asset selection with the option to edit the asset]
-
-[Image: Asset details drawer showing the Protection field]
-
-[Image: Assets page showing Airgapped column]
-
-[Image: Sites page showing a site]
-
-[Image: Site details page showing option to edit a VLAN]
-
-[Image: Edit Airgap VLAN drawer showing the DHCP Service field]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3025,19 +3204,19 @@ You can quickly deploy an appliance to Zero Trust Branch by adding a site with Z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-appliance","lastmod":"2026-07-22T16:04Z","nid":"1532526"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-appliance","lastmod":"2026-08-05T15:58Z","nid":"1532526"} -->
 ## Deploying a Zero Trust Branch Appliance
 
 - Source: https://help.zscaler.com/zero-trust-branch/deploying-zero-trust-branch-appliance
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deploying Zero Trust Branch > Deploying a Zero Trust Branch Appliance
-- Last modified: 2026-07-22T16:04Z
+- Last modified: 2026-08-05T15:58Z
 - Summary: Information about deploying a Zero Trust Branch appliance and passing traffic through it
 
 You can deploy Zero Trust Branch and pass traffic through it with minimal configuration because:
 
-- The Zero Trust Branch appliance automatically establishes an IPSec tunnel to Internet & SaaS via the GE3 WAN port.
-- The default Zscaler routing policy allows traffic to be sent to Internet & SaaS (ZIA).
+- The Zero Trust Branch appliance automatically establishes an IPSec tunnel to Internet & SaaS (ZIA) via the GE3 WAN port.
+- The default Zscaler routing policy allows traffic to be sent to Internet & SaaS.
 - The default (system) firewall policy allows traffic over LANs and WANs.
 
 ## Prerequisites
@@ -4691,13 +4870,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-07-31T09:09Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-08-07T15:27Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-31T09:09Z
+- Last modified: 2026-08-07T15:27Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -4931,13 +5110,13 @@ Press [Enter] to continue
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/step-step-configuration-guide-zero-trust-branch","lastmod":"2026-07-31T15:48Z","nid":"1532103"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/step-step-configuration-guide-zero-trust-branch","lastmod":"2026-08-03T14:36Z","nid":"1532103"} -->
 ## Step-by-Step Configuration Guide for Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/step-step-configuration-guide-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Step-by-Step Configuration Guide for Zero Trust Branch
-- Last modified: 2026-07-31T15:48Z
+- Last modified: 2026-08-03T14:36Z
 - Summary: Step-by-Step Configuration Guide for Zero Trust Branch
 
 This guide takes you through the configuration steps you need to complete before using Zscaler Zero Trust Branch for your organization.
@@ -5786,13 +5965,13 @@ The list of IP addresses associated with the routing policy displays.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-zero-trust-branch-access-roles","lastmod":"2026-07-31T15:46Z","nid":"1532522"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-zero-trust-branch-access-roles","lastmod":"2026-08-03T14:35Z","nid":"1532522"} -->
 ## Understanding Zero Trust Branch Access Roles
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-zero-trust-branch-access-roles
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Configuration > Understanding Zero Trust Branch Access Roles
-- Last modified: 2026-07-31T15:46Z
+- Last modified: 2026-08-03T14:35Z
 - Summary: Information about access roles in the Zero Trust Branch.
 
 Zero Trust Branch uses role-based access control (RBAC) to determine the granted permissions that enable admins and users to perform their job functions. By separating duties across clearly defined roles, RBAC minimizes the risk of misconfigurations, unauthorized access, and insider threats while maintaining operational efficiency and compliance.
@@ -6912,13 +7091,13 @@ On the SIMs page (Infrastructure > Connectors > Cellular > SIMs), you can do the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-zscaler-cellular-audit-logs","lastmod":"2026-07-20T19:55Z","nid":"1539636"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-zscaler-cellular-audit-logs","lastmod":"2026-08-03T21:06Z","nid":"1539636"} -->
 ## About Zscaler Cellular Audit Logs
 
 - Source: https://help.zscaler.com/zscaler-cellular/about-zscaler-cellular-audit-logs
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Audit Logs > About Zscaler Cellular Audit Logs
-- Last modified: 2026-07-20T19:55Z
+- Last modified: 2026-08-03T21:06Z
 - Summary: Information regarding Audit Logs for Zscaler Cellular.
 
 Zscaler Cellular audit logs allow you to view a record of all administrative actions performed in the Zscaler Cellular configurations. It helps track configuration changes, identify who performed an action, and understand when the action occurred.

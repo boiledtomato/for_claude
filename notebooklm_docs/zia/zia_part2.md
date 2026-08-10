@@ -1,18 +1,18 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 113
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-admin-roles","lastmod":"2026-06-15T11:23Z","nid":"1399711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-admin-roles","lastmod":"2026-08-05T12:44Z","nid":"1399711"} -->
 ## Adding Admin Roles
 
 - Source: https://help.zscaler.com/zia/adding-admin-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding Admin Roles
-- Last modified: 2026-06-15T11:23Z
+- Last modified: 2026-08-05T12:44Z
 - Summary: How to add administrator roles in the Zscaler Admin Console.
 
 [Watch a video about Configuring Admin Roles.](https://fast.wistia.net/embed/iframe/8byizrie9e) (shows legacy UI)
@@ -198,6 +198,7 @@ You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the 
 - IPS Control
 - Mobile Malware Protection
 - Secure Browsing
+- Endpoint Context
 
 See image.
 
@@ -965,13 +966,13 @@ To learn more about how to configure each feed, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-3rd-party-app-governance-logs","lastmod":"2026-06-18T10:59Z","nid":"1538593"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-3rd-party-app-governance-logs","lastmod":"2026-08-07T07:06Z","nid":"1538593"} -->
 ## Adding Cloud NSS Feeds for 3rd-Party App Governance Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-3rd-party-app-governance-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for 3rd-Party App Governance Logs
-- Last modified: 2026-06-18T10:59Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: How to add Cloud NSS feeds for 3rd-Party App Governance logs in the Zscaler Admin Console.
 
 Access to Zscaler [3rd-Party App Governance](https://help.zscaler.com/zia/what-3rd-party-app-governance) logs requires [Advanced SaaS Security Posture Management (SSPM)](https://help.zscaler.com/zia/what-advanced-posture-management). To get Advanced SSPM, contact your Zscaler Account team.
@@ -1481,13 +1482,13 @@ To configure a Cloud NSS feed for Firewall logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-posture-management-logs","lastmod":"2026-06-18T11:02Z","nid":"1538596"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-posture-management-logs","lastmod":"2026-08-07T07:06Z","nid":"1538596"} -->
 ## Adding Cloud NSS Feeds for Posture Management Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-posture-management-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Posture Management Logs
-- Last modified: 2026-06-18T11:02Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: How to add Cloud NSS feeds for Posture Management logs in the Zscaler Admin Console.
 
 Access to Posture Management logs requires [Advanced SaaS Security Posture Management (SSPM)](https://help.zscaler.com/zia/what-advanced-posture-management). To get Advanced SSPM, contact your Zscaler Account team.
@@ -3129,13 +3130,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-08-02T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-08-09T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
@@ -3293,13 +3294,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-dlp-and-endpoint-resources","lastmod":"2026-07-22T10:43Z","nid":"1541427"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-dlp-and-endpoint-resources","lastmod":"2026-08-05T21:06Z","nid":"1541427"} -->
 ## Adding DLP and Endpoint Resources
 
 - Source: https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Adding DLP and Endpoint Resources
-- Last modified: 2026-07-22T10:43Z
+- Last modified: 2026-08-05T21:06Z
 - Summary: Information on how to add DLP and endpoint resources to prevent data loss on endpoints.
 
 The page for Data Loss Prevention (DLP) and Endpoint resources (Policies > Data Protection > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
@@ -4175,13 +4176,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-08-02T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-08-09T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under SaaS Security API DLP and Malware policies into categories based on the sensitivity of the email data.
@@ -4964,13 +4965,13 @@ Select this header to control access to user agents. The following fields appear
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds","lastmod":"2026-06-17T11:23Z","nid":"1538499"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds","lastmod":"2026-08-07T07:06Z","nid":"1538499"} -->
 ## Adding HTTP NSS Feeds
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds
-- Last modified: 2026-06-17T11:23Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: How to add HTTP NSS feeds in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -4994,13 +4995,13 @@ To learn more about how to configure each feed, see the following links:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-admin-audit-logs","lastmod":"2026-06-17T11:19Z","nid":"1538560"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-admin-audit-logs","lastmod":"2026-08-07T07:06Z","nid":"1538560"} -->
 ## Adding HTTP NSS Feeds for Admin Audit Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-admin-audit-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Admin Audit Logs
-- Last modified: 2026-06-17T11:19Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: How to add HTTP NSS feeds for Admin Audit logs in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5043,13 +5044,13 @@ It can take up to two hours for the audit logs to start streaming to HTTP NSS an
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-alerts","lastmod":"2026-06-17T11:19Z","nid":"1538558"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-alerts","lastmod":"2026-08-07T07:06Z","nid":"1538558"} -->
 ## Adding HTTP NSS Feeds for Alerts
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Alerts
-- Last modified: 2026-06-17T11:19Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: How to add HTTP NSS feeds for Alerts in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5394,13 +5395,13 @@ To configure an HTTP NSS feed for Firewall logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-saas-security-activity-logs","lastmod":"2026-06-17T11:22Z","nid":"1538557"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-saas-security-activity-logs","lastmod":"2026-08-07T07:06Z","nid":"1538557"} -->
 ## Adding HTTP NSS Feeds for SaaS Security Activity Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-saas-security-activity-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for SaaS Security Activity Logs
-- Last modified: 2026-06-17T11:22Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: How to add HTTP NSS feeds for SaaS Security Activity logs in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5596,13 +5597,13 @@ To configure an HTTP NSS feed for SaaS Security logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-sandbox-verdict-logs","lastmod":"2026-06-17T11:22Z","nid":"1538563"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-sandbox-verdict-logs","lastmod":"2026-08-07T07:06Z","nid":"1538563"} -->
 ## Adding HTTP NSS Feeds for Sandbox Verdict Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-sandbox-verdict-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Sandbox Verdict Logs
-- Last modified: 2026-06-17T11:22Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: How to add HTTP NSS feeds for Sandbox Verdict logs in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5707,13 +5708,13 @@ To configure an HTTP NSS feed for tunnel logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-web-logs","lastmod":"2026-07-21T15:51Z","nid":"1538552"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-web-logs","lastmod":"2026-08-07T07:06Z","nid":"1538552"} -->
 ## Adding HTTP NSS Feeds for Web Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-web-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Web Logs
-- Last modified: 2026-07-21T15:51Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: How to add HTTP NSS feeds for web logs in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -7007,13 +7008,13 @@ Choose to isolate all the traffic that matches the cloud app control rule throug
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-resource-tags","lastmod":"2026-07-22T10:41Z","nid":"1541431"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-resource-tags","lastmod":"2026-08-05T21:06Z","nid":"1541431"} -->
 ## Adding Resource Tags
 
 - Source: https://help.zscaler.com/zia/adding-resource-tags
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Context > Adding Resource Tags
-- Last modified: 2026-07-22T10:41Z
+- Last modified: 2026-08-05T21:06Z
 - Summary: Information on how to add DLP and endpoint resource tags to use in Endpoint Data Loss Prevention (DLP) policy rules and for Endpoint Context.
 
 Grouping [DLP & Endpoint resources](https://help.zscaler.com/zia/about-endpoint-dlp-resources) allows you to apply Endpoint Data Loss Prevention (DLP) policy rules to multiple resources at the same time. Additionally, you can use tags to build custom application lists for [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). After you create a resource tag group, you add that group to the [Endpoint DLP policy rules that you configure](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules). For example, suppose that you work at a company with corporate headquarters in the United States, but you want to apply a country-specific set of endpoint policy rules to the network printers in your Canadian branch office. In that case, you can create a DLP resource group that includes all network printers in the branch office, and then you apply the policy rules to the resource group you created.
@@ -7421,13 +7422,13 @@ For information on the order in which the service enforces all policies, includi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-07-30T12:12Z","nid":"1401256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-08-05T23:53Z","nid":"1401256"} -->
 ## Adding SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/adding-saas-application-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
-- Last modified: 2026-07-30T12:12Z
+- Last modified: 2026-08-05T23:53Z
 - Summary: How to add a SaaS application tenant for Data at Rest Scanning.
 
 [Watch a video about SaaS Application Tenants](https://fast.wistia.net/embed/iframe/net3zjd13m) (shows legacy UI).
@@ -7762,7 +7763,7 @@ See image.
 | Administrative Actions > Manage Enterprise Properties | Scanning |
 | Administrative Actions > Make API calls using the as-user heading | Scanning, Policy Action |
 
-1. Under **Authorize the SaaS Application**, copy the **Zscaler SaaS Connector**. You need it for Step g when adding a custom application for Box.
+1. Under **Authorize the SaaS Application**, copy the **Zscaler SaaS Connector**. You need it for [when adding a custom application for Box](https://help.zscaler.com/zia/adding-saas-application-tenants).
 
 See image.
 
@@ -7774,24 +7775,24 @@ The Box portal appears.
 
 1. Log in to Box.
 
-You are redirected to the Box Admin console.
+You are redirected to the Box Admin Console.
 
-1. Go to **Apps**.
-
-See image.
-
-1. Click the **Custom Apps Manager** tab.
+1. In the Box Admin Console, go to **Platform**.
 
 See image.
 
-1. Click **Add App**.
+1. Click the **Platform Apps**tab.
 
 See image.
 
-The **App Authorization** window appears.
+1. Click **Add**.
 
-1. In the **App Authorization** window:
-  1. **Client ID**: Enter Zscaler SaaS Connector value you copied in Step a.
+The **Add Platform App**window appears.
+
+See image.
+
+1. In the **Add Platform App** window:
+  1. **Client ID**: Enter Zscaler SaaS Connector value you copied in [the first step](https://help.zscaler.com/zia/adding-saas-application-tenants).
 
 See image.
 
@@ -7818,15 +7819,15 @@ To learn more about the steps in Box, refer to the [Box documentation](https://c
 
 [Image: Screenshot highlighting the Go to Box Settings button under the Authorize the SaaS Application.]
 
-[Image: Screenshot of the Apps menu in the Box Admin Console.]
+[Image: The Platform option in the Box Admin Console menu]
 
-[Image: Screenshot of the Custom Apps tab in the Apps menu.]
+[Image: The Platform Apps tab on the Platform page]
 
-[Image: Screenshot of the Add App button under Custom Apps.]
+[Image: The Add Platform App window in Box]
 
 [Image: Screenshot of the Client ID field in the App Authorization window.]
 
-[Image: Screenshot of the Account & Billing menu in the Box Admin Console.]
+[Image: The Accounts and Billing option in the Box Admin Console menu]
 
 [Image: Screenshot of the Enterprise ID in the Account Information section.]
 
@@ -7868,7 +7869,7 @@ To configure Confluence:
 
 See image.
 
-1. Enter your **Confluence Organization API Key**. For help finding your API Key, follow the instructions on [Atlassian Support](https://support.atlassian.com/organization-administration/docs/manage-an-organization-with-the-admin-apis/).
+1. Enter your **Confluence Organization API Key**. Zscaler only supports API keys without scopes. To learn how to create API keys without scopes in Atlassian, refer to the [Atlassian documentation](https://support.atlassian.com/organization-administration/docs/manage-an-organization-with-the-admin-apis/).
 
 See image.
 
@@ -8415,7 +8416,7 @@ To configure Jira Software:
 
 See image.
 
-1. Enter your **Jira Organization API Key**. For help finding your API Key, follow the instructions on [Atlassian Support](https://support.atlassian.com/organization-administration/docs/manage-an-organization-with-the-admin-apis/).
+1. Enter your **Jira Organization API Key**. Zscaler only supports API keys without scopes. To learn how to create API keys without scopes in Atlassian, refer to the [Atlassian documentation](https://support.atlassian.com/organization-administration/docs/manage-an-organization-with-the-admin-apis/).
 
 See image.
 

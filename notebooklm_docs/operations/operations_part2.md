@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-07-17T07:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-08-06T08:16Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-07-17T07:06Z
+- Last modified: 2026-08-06T08:16Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -116,7 +116,7 @@ On the Incidents page (Administration > Workflow Automation > Data Protection > 
   - **Domains**: The domains associated with the transaction context. This field appears only for incidents of Source DLP type SaaS Security.
   - **Attachments:** The names of the files that were sent to the recipients of the email incident. This field appears only for incidents of Source DLP type Email.
 12. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-13. [View detailed information about each incident on the Incident Details page.](https://help.zscaler.com/workflow-automation/managing-incidents#viewing-incident-details)
+13. [View detailed information about each incident in the Incident Details drawer.](https://help.zscaler.com/workflow-automation/managing-incidents#viewing-incident-details)
 14. [View the number of rows of incidents displayed on the page](https://help.zscaler.com/workflow-automation/managing-incidents#rows-per-page). You can modify the number of rows using the **Rows per page** drop-down menu.
 
 See image.
@@ -162,7 +162,7 @@ You can export all incidents, or you can use the filter criteria or sort the inc
 
 Exporting numerous incidents takes time to download. Only a maximum of three bulk activities (download incidents and bulk actions) can be in progress concurrently.
 
-To manage incidents, you can perform various actions against them. You can also perform these same actions against a single incident on the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+To manage incidents, you can perform various actions against them. You can also perform these same actions against a single incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 
 To perform actions:
 
@@ -183,7 +183,7 @@ See image.
 To assign a DLP admin for incidents:
 
 1. Select **Assign DLP Admin**. The **Assign DLP Admin** window appears.
-2. In the **Assign DLP Admin** window, you can:
+2. In the **Assign DLP Admin** window:
   - **DLP Admin**: Select a DLP admin to assign to the incident. The drop-down menu displays only the DLP admins who have edit access to the incident groups. If you have selected two or more incidents, the menu displays only DLP admins who have edit access to at least one incident group of the selected incidents. An empty menu indicates that no DLP admin has edit access to the incident groups. Only DLP admins with full access to Workflow Automation can assign incidents to DLP admins with restricted access.
   - **Notes**: (Optional) Enter additional notes for the action.
 3. Click **Assign**.
@@ -195,7 +195,7 @@ To assign incidents to yourself, select **Assign to Me**. The selected incidents
 To close incidents:
 
 1. Select **Close Incident**. The **Close Incident** window appears.
-2. In the **Close Incident**window, you can:
+2. In the **Close Incident**window:
   - **Notes**: (Optional) Enter additional notes for the action.
   - **Resolution Label**: Select a resolution label and values associated with the label.
   - **False Positive**: If the incident is a false positive, select the **False Positive** checkbox.
@@ -216,7 +216,7 @@ See image.
 To assign or modify priority for incidents:
 
 1. Select **Assign Priority**. The **Assign Priority** window appears.
-2. In the **Assign Priority** window, you can:
+2. In the **Assign Priority** window:
   - **Priority**: From the drop-down menu, select the priority for the incidents.
   - **Notes**: (Optional) Enter additional notes for the action.
 3. Click **Assign**.
@@ -226,8 +226,9 @@ See image.
 To notify the current user about the incident:
 
 1. Select **Notify User**. The **Notify User** window appears.
-2. In the **Notify User** window, you can:
-  - **Channel Type**: Select the channel type through which you want to send the incident notification to the end user. The current user for the incident is displayed in the **Current State Details** section of the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page.
+2. In the **Notify User** window:
+  - **Channel Type**: Select the channel type through which you want to send the incident notification to the end user. The current user for the incident is displayed in the **Current State Details** section on the **Overview** tab of the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
+  - **Time Zone**: (Optional) If the notification template you are using for user notifications is configured with one or more time-related merge tags, you can select the time zone in which those merge tags are represented in the user notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone in which those merge tags are represented in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when you manually create a user or escalation notification is based on the following priority. If you select the time zone when you manually create a user notification or escalation notification for one or more incidents on the Incidents page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign a time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
   - **Note to user**: (Optional) Enter additional notes for the action.
 3. Click **Submit**.
 
@@ -236,9 +237,10 @@ See image.
 To notify the user's manager or another approver about the incident:
 
 1. Select **Escalate**. The **Escalate** window appears.
-2. In the **Escalate** window, you can:
+2. In the **Escalate** window:
   - **User Type**: Select the type of user (**Manager** or **Approver)** to whom you want to escalate the incident. If you select the **Approver** user type, the **Approver** field appears, where you can select the approver of your choice for the incident.
   - **Channel Type**: Select the channel type through which you want to send the escalations to the user's manager or approver for further review.
+  - **Time Zone**: (Optional) If the notification template you are using for user notifications is configured with one or more time-related merge tags, you can select the time zone in which those merge tags are represented in the user notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone in which those merge tags are represented in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when you manually create a user or escalation notification is based on the following priority. If you select the time zone when you manually create a user notification or escalation notification for one or more incidents on the Incidents page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign a time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
   - **Note to user**: (Optional) Enter additional notes for the action.
 3. Click **Submit**.
 
@@ -311,7 +313,7 @@ Only a maximum of three bulk activities (download incidents and bulk actions) ca
 To assign a DLP admin for incidents:
 
 1. Select **Assign DLP Admin**. The **Assign DLP Admin** window appears.
-2. In the **Assign DLP Admin** window, you can:
+2. In the **Assign DLP Admin** window:
   - **DLP Admin**: Select a DLP admin to assign to the incidents. The drop-down menu displays only the DLP admins who have edit access to the incident groups. An empty menu indicates that no DLP admin has edit access to the incident groups. Only DLP admins with full access to Workflow Automation can assign incidents to DLP admins with restricted access.
   - **Notes**: (Optional) Enter additional notes for the action.
 3. Click **Assign**.
@@ -321,7 +323,7 @@ See image.
 To close incidents:
 
 1. Select **Close Incident**. The **Confirm Bulk Action**window appears.
-2. In the **Confirm Bulk Action**window, you can:
+2. In the **Confirm Bulk Action**window:
   - **Notes**: (Optional) Enter additional notes for the action.
   - **Resolution Label**: Select a resolution label and values associated with the label.
   - **False Positive**: If the incident is a false positive, select the **False Positive** checkbox.
@@ -386,11 +388,11 @@ To update incident groups assigned to multiple incidents:
   - If you assigned a default incident group to support unassigned incidents, the **DLP Admin** field for those incidents displays the name of the admin derived from the default incident group.
   - The **Last Change** field for each incident displays the latest state change that occurred for the incident group updates.
 
-To go to the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) page, click the **Transaction ID** of an incident on the **Incidents** page. You can view detailed information about each incident, such as incident ID, violation details, state changes, priority, and severity, and manage the incident.
+To go to the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer, click any field in the row for an incident on the **Incidents** page. You can view detailed information about each incident, such as incident ID, priority, severity, violation details, violation content, and state changes, and manage the incident.
 
 See image.
 
-To view the **Incident Details** page for an incident in a new tab of the same browser window, right-click the **Transaction ID** of an incident on the **Incidents** page, and select **Open in New Tab**. In the new tab, the **Incident Details** page appears, displaying the detailed information for the incident. You can perform actions on the incident on this page, and you can click the **Refresh** button at the top of the page to display the latest information for the incident. To learn more about the actions, see [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
+To view the **Incident Details** drawer for an incident in a new tab of the same browser window, right-click the **Transaction ID** of an incident on the **Incidents** page, and select **Open in New Tab**. In the new tab, the **Incident Details** drawer appears, displaying the detailed information for the incident. You can perform actions on the incident in this drawer, and you can click the **Refresh** button at the top of the drawer to display the latest information for the incident. To learn more about the actions, see [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
 
 See image.
 
@@ -416,9 +418,9 @@ See image.
 
 [Image: Assigning Resolution Label and notes for resolving the incidents in the Close Incident window]
 
-[Image: Selecting the User Type and Channel Type for escalating the incident to the manager or approver]
+[Image: Viewing the Escalate window for an approver. Approver is selected for the User Type field, Email is selected for the Channel Type field, an email address is selected in the Approver field, and a time zone is selected in the Time Zone field.]
 
-[Image: Selecting the Channel Type to send notifications about the incident to the end user]
+[Image: Viewing the Notify User window. Email is selected for the Channel Type field and a time zone is selected in the Time Zone field.]
 
 [Image: Adding optional notes or information to start investigating the incident in the Investigating window]
 
@@ -2902,13 +2904,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-07-27T10:50Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-08-07T07:51Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-27T10:50Z
+- Last modified: 2026-08-07T07:51Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -4134,13 +4136,13 @@ After you configure a predefined or custom workflow, you must specify the incide
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/using-incident-filters-workflow-automation","lastmod":"2026-07-16T06:13Z","nid":"1468511"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/using-incident-filters-workflow-automation","lastmod":"2026-08-05T06:41Z","nid":"1468511"} -->
 ## Using Incident Filters in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/using-incident-filters-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Using Incident Filters in Workflow Automation
-- Last modified: 2026-07-16T06:13Z
+- Last modified: 2026-08-05T06:41Z
 - Summary: How to use and manage incident filters in Workflow Automation.
 
 In the Zscaler Admin Console, the incidents that occur in your organization are displayed on the Incidents page. You can use filters to modify the incidents that are displayed on the page. Some of the filters have predefined values that you select, and some of the filters require you to enter a text string value. The following filters have predefined values:
@@ -4161,7 +4163,7 @@ In the Zscaler Admin Console, the incidents that occur in your organization are 
 - **Home Location**
 - **Incident Group**
 - **Integration**
-- **Label**
+- **Labels**
 - **Other Rule**
 - **Priority**
 - **Rule**
@@ -4298,47 +4300,48 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-07-10T12:32Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-08-06T08:45Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-07-10T12:32Z
+- Last modified: 2026-08-06T08:45Z
 - Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
 
-Workflow Automation provides access to the Incident Details page, which displays detailed information about an incident, such as an overview of the incident, violation details, and the current status of the incident. This page also allows you to manage and take action on an incident.
+Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
 
-You can access theIncident Details page from the [Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) page by clicking the **Transaction ID** of an incident. On the Incident Details page, you can use the **Next Incident** and **Previous Incident**icons at the top of the page to navigate through the list of incidents, and you can click the **Refresh** button at the top of the page to display the latest information for the incident.
+You can access theIncident Details drawer from the [Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) page by clicking any field in the row for an incident. In the Incident Details drawer, you can click **Refresh**at the top of the drawer to display the latest information for the incident.
 
 ## Viewing Incident Details
 
-You can view the following details about the incident:
+You can view details about the incident in the following tabs:
 
-- Duplicate Incidents
 - Overview
 - Violation Details
-- Current State Details
-- Ticket
-- Notes
 - Violation Content
-- Files
-- Recipients
-- Collaborators
-- Attachments
-- User Notifications
 - State Changes
-
-Sometimes a rule can retrigger duplicate incidents for a user. In this case, the first incident appears on the Incidents page, and you can view all the duplicate messages on that incident's detail page.
-
-If duplicate incidents exist for an incident, at the top of its detail page, a message appears stating that fact and providing a link to view the duplicate incidents. If there are no duplicate incidents, this message does not appear on the page.
 
 See image.
 
-To view the duplicate incidents, click the link at the top of the page. The **Duplicate Incidents** dialog window appears, displaying all the duplicate incidents for the incident. In the **Duplicate Incidents** dialog window, you can see:
+In the Overview tab, you can see:
 
-- **Transaction ID**: The transaction ID of the duplicate incident.
-- **Transaction Time**: The date and time of the transaction. The date and time display in the local time zone of the user.
+- Duplicate Incidents
+- Overview
+- Current State Details
+- Notes
+- Ticket Details
+
+Sometimes a rule can retrigger duplicate incidents for a user. In this case, the first incident appears on the Incidents page, and you can view all the duplicate incidents in that incident's detail drawer.
+
+If duplicate incidents exist for an incident, a message appears at the top of the Overview tab stating that fact and providing a link to view the duplicate incidents. If there are no duplicate incidents, this message does not appear on the tab.
+
+See image.
+
+To view the duplicate incidents, click the link in the message at the top of the Overview tab. The **Duplicate Incidents** dialog window appears, displaying all the duplicate incidents for the incident. In the **Duplicate Incidents** dialog window, you can see:
+
+- **Transaction ID**: The transaction IDs of the duplicate incidents.
+- **Transaction Time**: The dates and times of the transactions. The dates and times display in the local time zone of the user.
 
 See image.
 
@@ -4355,7 +4358,7 @@ In the Overview section, you can see:
 - **DLP Admin**: The Data Loss Prevention (DLP) admin who is responsible for validating the incident.
 - **Source DLP Type**: The source DLP type of the incident. Source DLP types are **Inline**, **Email**,**SaaS Security**, and **Endpoint**.
 - **Incident Groups**: The incident groups mapped to the incident.
-- **Labels**: The labels assigned to the incident.
+- **Labels**: The labels assigned to the incident. This field only appears for incidents that have been assigned labels.
 - **Action Recipient Count**: The actions taken against the recipients of the incident. The number of times the action was taken against the recipients displays next to the action (e.g., Block: 3, Allow: 1, and Quarantine: 2). This field is only available for incidents with a Source DLP type of **Email**.
 - **Resolution Date**: The date and time when the incident was resolved (i.e., closed). This field only appears for resolved incidents.
 - **Integration**: The name of the DLP application integration in Workflow Automation where the incident occurred. To learn more, see [Configuring the DLP Application Integration Using Amazon Web Services](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services), [Configuring the DLP Application Integration Using Azure](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-azure), and [Configuring the DLP Application Integration Using Google Cloud Platform](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
@@ -4390,91 +4393,6 @@ The following table lists the error messages that can display, the reason why th
 | Something went wrong | Error while processing the action (i.e., generic error) | Try again |
 | Exchange Online connection failure | Authentication or connectivity problems with Microsoft 365 services | Verify that the certificate file exists and the password is correct; Check that AppId and TenantId are valid; Ensure that the app has the required permissions (Exchange.ManageAsApp, Directory.Read.All); Confirm network connectivity to Microsoft 365 |
 
-The attributes that appear under the Originating User subsection can vary, depending on how and what information was imported to Workflow Automation through the primary user data source of System for Cross-domain Identity Management (SCIM) or a CSV file. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings), [Managing User Attributes](https://help.zscaler.com/workflow-automation/managing-user-attributes), and [SAML & SCIM Configuration Guide for Microsoft Entra ID](https://help.zscaler.com/zia/saml-scim-configuration-guide-microsoft-entra-id).
-
-In the Violation Details section, you can see:
-
-- Originating User:
-  - **Name**: The name of the end user responsible for the incident. When you click the name link, you are redirected to the Incidents page, which displays only the incidents created by the same end user. The user filter is automatically applied in the Filters section. If you applied other filters before clicking the name link, those filters remain applied, as well. If you choose the User Name attribute for obfuscation, multiple asterisks appear for this field, and the name link is not available. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments). See image.
-  - **Email**: The email address of the end user responsible for the incident. If you choose the User Email attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments). You can override the email address that appears for the end user with the email address for that user from your primary user data source—i.e., SCIM or CSV attributes. To override the email address, on the **Account Settings** page, in the **Incident** **Management** section, enable the **Retrieve User Email from Primary Data Source** option. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings).
-  - **Client IP**: The client IP address of the end user. This field is only available for incidents with a Source DLP type of **Inline**. If you choose the Client IP attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Device Name**: The name of the user's device. This field is only available for incidents with a Source DLP type of **Endpoint**. If you choose the Device Name attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Device OS**: The operating system of the user's device. This field is only available for incidents with a Source DLP type of **Endpoint**.
-  - **Device Trust Level**: The trust level of the user's device. This field is only available for incidents with a Source DLP type of **Endpoint**.
-  - **Manager Name**: The name of the user's manager. If you choose the Manager Name attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Manager Email**: The email address of the user's manager. If you choose the Manager Email attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Employee Number**: The employee number of the end user.
-  - **Job Title**: The job title of the end user.
-  - **Department**: The department of the end user.
-  - **Home Location**: The home location of the end user.
-  - **Work Location**: The work location of the end user.
-  - **Additional Information**: Displays the user attributes associated with the end user responsible for the incident. To view the additional user attributes:
-    1. Click the link provided in this field. The **Additional Information** window appears.
-    2. In the **Additional Information** window, you can view data associated with the incident such as end user attributes, manager attributes, and addresses. If you choose user attributes for obfuscation, these obfuscated attributes appear with multiple asterisks in this window. To learn more about obfuscation settings, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments). The additional information is fetched from the primary user data source (i.e, CSV or SCIM) you selected during the incident generation. For example, if you select CSV as the primary user data source during the incident generation, the **Additional Information** window displays the user attributes fetched from the imported CSV file. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The additional information displayed for an incident does not change if you alter the primary user data source. The change of the primary user data source settings impacts only new incidents. See image.
-- Policy:
-  - **Rules**: The DLP rules that the end user violated (e.g., Block-HIPAA). This field is not available for incidents with a Source DLP type of **Email**.
-  - **Triggered Engines and Dictionaries**. Expand this heading to view the following fields:
-    - **Engines**: The DLP engines that are assigned to the DLP rules that caused the incident.
-    - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that caused the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
-  - **Non-Triggered Engines and Dictionaries**: Expand this heading to view the following fields:
-    - **Engines**: The DLP engines that are not assigned to the DLP rules that caused the incident.
-    - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that caused the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
-  - **Other Matched Rules**: Click this field to display the rules that the incident violated, in addition to the primary DLP rules that caused the incident. This field is only available for incidents of Source DLP type **Inline** and **Endpoint**.
-- Content: If an evidence file for a DLP incident exceeds 100 MB in size, the Zscaler service replaces the original file with a placeholder evidence file. The placeholder file retains the original name with ".txt" appended (e.g., attachment.pdf.txt and samplefile.xlsx.txt). When the placeholder is open or downloaded, the placeholder provides a message indicating that the file is too large to send.
-  - For incidents of Source DLP type **Inline**and **Endpoint**:
-    - **File Name**: The name of the file.
-    - **File Type**: The type or extension of the file.
-    - **File MD5**: The 32-character MD5 hash of the file.
-    - **File Size**: The size of the file in bytes.
-  - For incidents of Source DLP type **SaaS Security**:
-    - **File Name**: The name of the file.
-    - **File Type**: The type or extension of the file.
-    - **File MD5**: The 32-character MD5 hash of the file.
-    - **File Source Location**: The source location of the file.
-    - **File Size**: The size of the file in bytes.
-    - **Document Type**: The type of document.
-    - **File Shared By**: The email address of the user who shared the file.
-    - **File Shared At**: The date and time the file was shared.
-    - **File Modified By**: The email address of the user who modified the file.
-    - **File Link Expiry**: The date and time the file link expires.
-  - For incidents of Source DLP type **Email**:
-    - **File Name**:The name of the file.
-    - **Message ID**: The message ID of the incident.
-    - **Email Subject**: The subject of the email.
-- Application: This section is only available for incidents of Source DLP type **Inline**, **SaaS Security**, and **Email**.
-  - For incidents of Source DLP type **Inline**:
-    - **URL**: The URL of the application.
-    - **Referrer URL**: The referrer URL of the application.
-    - **Name**: The name of the application.
-    - **Category**: The category of the application.
-  - For incidents of Source DLP type **SaaS Security**:
-    - **Name**: The name of the application.
-    - **Category**: The category of the application. Categories are **File** and **Email**.
-    - **Current Tag Name**: The name of the tag currently assigned to the application.
-    - **Is Copilot Accessible**: Indicates whether Copilot can access the application. Values are **yes** or **no**.
-  - For incidents of Source DLP type **Email**:
-    - **Name**: The name of the application used to create the email.
-    - **Tenant**: The tenant ID of the end user.
-- User Activity: This section is only available for incidents of Source DLP type **Endpoint**.
-  - **Activity Type**: The type of activity that the user performed that caused the incident.
-  - **Channel**: The type of channel (e.g., Network Drive Transfer or Remote Drive Transfer) that the user used to cause the incident.
-  - **Source**: The source of the incident.
-  - **Destination**: The destination of the incident.
-  - **Source Type**: The source type of the incident.
-  - **Destination Type**: The destination type (e.g., Removable Storage Device) for the incident.
-  - **Source Location**:The source location of the incident.
-  - **Destination Location**: The destination location of the incident.
-  - **ZDP Mode**: The Zscaler Data Protection (ZDP) mode for the incident. ZDP modes can be **Block** or **Exemption**.
-  - **Expected Action**: The expected action by the ZDP mode for the incident.
-  - **Confirm Action**: The action that the user took when prompted with a confirmation dialog box for the incident creation.
-  - **Confirm Justification**: The justification that the user provided during incident creation.
-  - **Justification Text**: The optional text that the user provided for the incident. This field is only available if the user adds a justification text.
-  - **Additional Information**: Additional information or notes about the incident.
-
-The following images are examples of the Violation Details section for a SaaS Security incident, an Inline incident, an Endpoint incident, and an Email incident. The information that displays in the Violation Details section depends on the type of incident.
-
-See image.
-
 In the Current State Details section, you can see:
 
 - **Status**: The current status of the incident.
@@ -4482,89 +4400,175 @@ In the Current State Details section, you can see:
 
 See image.
 
-The Ticket section appears on the page only after you have integrated Workflow Automation with a ticketing integration application (e.g., ServiceNow or Jira Software) and you have executed the Ticket action for the data protection incident on the Incident Details page.
+The Ticket section appears in the drawer only after you have integrated Workflow Automation with a ticketing integration application (e.g., ServiceNow or Jira Software) and you have executed the Ticket action for the data protection incident in the Incident Details drawer.
 
 In the Ticket section, you can see:
 
 - **Ticketing Integration**: The tenant ID associated with the ticketing integration application (e.g., ServiceNow or Jira Software).
 - **Ticket ID**: The ticket ID associated with the incident in the ticketing integration application. Click the ticket ID link to go to the ticketing integration application (e.g., ServiceNow or Jira Software). After you log in to the ticketing integration application, this particular ticket displays in the application. You can manage the ticket using the ticketing integration application.
 - **Project**: The project associated with the ticket in Jira Software. This field only displays for tickets created by the Jira Software application.
-- **Ticket Status**: The status of **Closed** displays in this field. This field does not appear on this page until after the ticket is closed in the ticketing integration application (e.g., ServiceNow or Jira Software) and synced with Workflow Automation. Only the **Closed** status displays for these types of tickets. None of the other ticketing integration application statuses are displayed.
-
-The following images are examples of the Ticket section after a ticket is created in ServiceNow and after a ticket is created in Jira Software.
-
-See image.
+- **Ticket Status**: The status of **Closed** displays in this field. This field does not appear in this drawer until after the ticket is closed in the ticketing integration application (e.g., ServiceNow or Jira Software) and synced with Workflow Automation. Only the **Closed** status displays for these types of tickets. None of the other ticketing integration application statuses are displayed.
 
 In the Notessection, you can enter additional notes or information about the progress of the incident, which is logged in the State Changes table.
 
 See image.
 
-The Generate Presigned Link field is not available for incidents of Source DLP type **Email**.
+In the Violation Details tab, you can see:
 
-In the Violation Content section, you can see:
+- Originating User
+- Policy
+- Content
+- Application
+- User Activity
+- Collaborators
+- Recipients (Source DLP type SaaS Security)
+- Other Recipients (Source DLP type Email)
 
-- Generate Presigned Link
-- View Trigger Data
+The attributes that appear under the Originating User subsection can vary, depending on how and what information was imported to Workflow Automation through the primary user data source of System for Cross-domain Identity Management (SCIM) or a CSV file. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings), [Managing User Attributes](https://help.zscaler.com/workflow-automation/managing-user-attributes), and [SAML & SCIM Configuration Guide for Microsoft Entra ID](https://help.zscaler.com/zia/saml-scim-configuration-guide-microsoft-entra-id).
 
-This field displays the presigned link of the incident and also the link's expiration date and time. It allows you to:
+In the Originating User section, you can see:
 
-- Before the expiration time, click the presigned link to download the actual data that triggered the incident.
-- Click the **Copy** icon to copy the link for reference. See image.
-
-This field enables admins to automatically download the actual data that triggered an incident only if the **Hide Evidence Data - Admin** field is not selected for the DLP integration, and the **Evidence Data Privacy** field is not enabled for the admin on the **Admin Assignment** page in the Zscaler Admin Console. Otherwise, to view the actual data, the admin can copy the evidence link and then access and log in to either Amazon Web Services (AWS) or Azure and paste the link.
-
-This field is available only if the **Hide Trigger Data - Admin** field is not selected for the DLP integration, and the **Trigger Data Privacy** field is not enabled on the Admin Assignmentpage for the admin in the Zscaler Admin Console.
-
-This field displays the data that triggered the incident. The prefix and suffix for the trigger data are displayed along with the trigger data itself. The actual trigger data portion is highlighted. You can view the DLP dictionaries, DLP rules, and DLP engines associated with the incident and the exact data that violated the DLP policies.
-
-See image.
-
-This section is only available for incidents of Source DLP type **Email**.
-
-The Files section displays the files sent to the recipients of the incident and the policies violated by those files. At the top of the section, the total number of files sent appears in parentheses.
-
-In the Files section, you can see:
-
-- **File Name**: The name of the file. If an evidence file for a DLP incident exceeds 100 MB in size, the Zscaler service replaces the original file with a placeholder evidence file. The placeholder file retains the original name with ".txt" appended (e.g., attachment.pdf.txt and samplefile.xlsx.txt). When the placeholder is open or downloaded, the placeholder provides a message indicating that the file is too large to send.
-- **File Type**: The type of file (e.g., PDF, XLSX, TXT, or DOCX).
-- **File Size**: The size of the file.
-- **Document Type**: The type of document (e.g., Invoice).
-- **MD5**: The 32-character MD5 hash of the file.
-- **Policy**: Displays the DLP policies that the file violated. To view the policies: See image.
-  1. Click the **View** icon in this field. The **Policy** window appears, displaying a **Triggered Engines and Dictionaries** heading and a **Non-Triggered Engines and Dictionaries** heading.
-  2. In the **Policy** window, expand the **Triggered Engines and Dictionaries** heading to view the following fields:
-    - **Engines**: The DLP engines that are assigned to the files that caused the incident.
-    - **Dictionaries with Match Count**: The DLP dictionaries assigned to the files that caused the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
-  3. Expand the **Non-Triggered Engines and Dictionaries** heading to view the following fields:
-    - **Engines**: The DLP engines that are not assigned to the files that caused the incident.
-    - **Dictionaries with Match Count**: The DLP dictionaries that are not assigned to the files that caused the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+- **Name**: The name of the end user responsible for the incident. When you click the name link, you are redirected to the Incidents page, which displays only the incidents created by the same end user. The user filter is automatically applied in the Filters section. If you applied other filters before clicking the name link, those filters remain applied, as well. If you choose the User Name attribute for obfuscation, multiple asterisks appear for this field, and the name link is not available. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments). See image.
+- **Email**: The email address of the end user responsible for the incident. If you choose the User Email attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments). You can override the email address that appears for the end user with the email address for that user from your primary user data source—i.e., SCIM or CSV attributes. To override the email address, on the **Account Settings** page, in the **Incident** **Management** section, enable the **Retrieve User Email from Primary Data Source** option. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings).
+- **Client IP**: The client IP address of the end user. This field is only available for incidents with a Source DLP type of **Inline**. If you choose the Client IP attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+- **Device Name**: The name of the user's device. This field is only available for incidents with a Source DLP type of **Endpoint**. If you choose the Device Name attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+- **Device OS**: The operating system of the user's device. This field is only available for incidents with a Source DLP type of **Endpoint**.
+- **Device Trust Level**: The trust level of the user's device. This field is only available for incidents with a Source DLP type of **Endpoint**.
+- **Manager Name**: The name of the user's manager. If you choose the Manager Name attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+- **Manager Email**: The email address of the user's manager. If you choose the Manager Email attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+- **Employee Number**: The employee number of the end user.
+- **Job Title**: The job title of the end user.
+- **Department**: The department of the end user.
+- **Home Location**: The home location of the end user.
+- **Work Location**: The work location of the end user.
+- **Additional Information**: Displays the user attributes associated with the end user responsible for the incident. To view the additional user attributes:
+  1. Click the link provided in this field. The **Additional Information** window appears.
+  2. In the **Additional Information** window, you can view data associated with the incident such as end user attributes, manager attributes, and addresses. If you choose user attributes for obfuscation, these obfuscated attributes appear with multiple asterisks in this window. To learn more about obfuscation settings, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments). The additional information is fetched from the primary user data source (i.e, CSV or SCIM) you selected during the incident generation. For example, if you select CSV as the primary user data source during the incident generation, the **Additional Information** window displays the user attributes fetched from the imported CSV file. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The additional information displayed for an incident does not change if you alter the primary user data source. The change of the primary user data source settings impacts only new incidents. See image.
 
 See image.
 
-This section is only available for incidents of Source DLP type **Email**and **SaaS Security**.
+In the Policy section, you can see:
 
+- Inline Source DLP Type
 - Email Source DLP Type
+- Endpoint Source DLP Type
 - SaaS Security Source DLP Type
 
-The Recipientssection displays the recipients of the incident and the action taken against each recipient. At the top of the section, the total number of recipients appears in parentheses.
+- **Rules**: The DLP rules that the end user violated (e.g., Block-HIPAA).
+- **Triggered Engines and Dictionaries**. Expand this heading to view the following policy fields: The following images are examples of the File Content tab, the File Metadata tab, and the Filename tab. See image.
+  - **File Content** tab:
+    - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident because of the file content of the incident.
+    - **Dictionaries with Match Count**:The DLP dictionaries that are assigned to the DLP rules that triggered the incident because of the file content of the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **File Metadata** tab:
+    - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident because of the file metadata (i.e., properties and attributes) of the incident.
+    - **Dictionaries with Match Count**:The DLP dictionaries that are assigned to the DLP rules that triggered the incident because of the file metadata (i.e., properties and attributes) of the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Filename** tab, **Dictionaries with Match Count**:The DLP dictionaries that are assigned to the DLP rules that triggered the incident because of the file name of the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+- **Non-Triggered Engines and Dictionaries**. Expand this heading to view the following policy fields: The following images are examples of the File Content tab, the File Metadata tab, and the Filename tab. See image.
+  - **File Content** tab:
+    - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident because of the file content of the incident.
+    - **Dictionaries with Match Count**:The DLP dictionaries that are not assigned to the DLP rules that triggered the incident because of the file content of the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **File Metadata** tab:
+    - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident because of the file metadata (i.e., properties and attributes) of the incident.
+    - **Dictionaries with Match Count**:The DLP dictionaries that are not assigned to the DLP rules that triggered the incident because of the file metadata (i.e., properties and attributes) of the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Filename** tab, **Dictionaries with Match Count**:The DLP dictionaries that are assigned to the DLP rules that triggered the incident because of the file name of the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+- **Other Matched Rules**: Expand this field to display the rules that the incident violated, in addition to the primary DLP rules that triggered the incident. See image.
 
-In the Recipients section, you can see:
-
-- **Recipients Email**: The email address of the recipient. If you choose the Recipient Email attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-- **Rule**: The DLP rule that was violated for each recipient (e.g., Block-HIPAA).
-- **Severity**: The severity by recipient and rule that was violated. Severity can be **Critical**, **High**, **Low**, **Medium**, or **Info**.
-- **Content Location**: The location of the content on the email. Content locations are **Email Attachments** and **Email Body**.
-- **Other Matched Rules**: Any other rules that the incident violated in addition to the primary email DLP rule that caused the incident.
-- **Action Taken**: The action taken against each recipient. Actions are **Allow, Block**, **Quarantine**,or**Custom Header Insertion**.
+- **Triggered Engines and Dictionaries**. Expand this heading to view the following fields:
+  - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident.
+  - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+- **Non-Triggered Engines and Dictionaries**: Expand this heading to view the following fields:
+  - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident.
+  - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
 
 See image.
 
-The Recipients section displays the internal and external recipients for the incident. This section only appears when the application category for the incident is **Email**.
+- **Rules**: The DLP rules that the end user violated (e.g., Block-HIPAA).
+- **Triggered Engines and Dictionaries**. Expand this heading to view the following fields:
+  - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident.
+  - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+- **Non-Triggered Engines and Dictionaries**: Expand this heading to view the following fields:
+  - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident.
+  - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+- **Other Matched Rules**: Click this field to display the rules that the incident violated, in addition to the primary DLP rules that triggered the incident.
 
-In the Recipients section, you can see:
+See image.
 
-- **Internal Recipients**: The recipients within your organization that received the incident. At the top of the section, the total number of recipients appears in parentheses.
-- **External Recipients**: The recipients outside your organization that received the incident. At the top of the section, the total number of recipients appears in parentheses.
+- **Rules**: The DLP rules that the end user violated (e.g., Block-HIPAA).
+- **Triggered Engines and Dictionaries**. Expand this heading to view the following fields:
+  - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident.
+  - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+- **Non-Triggered Engines and Dictionaries**: Expand this heading to view the following fields:
+  - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident.
+  - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+
+See image.
+
+In the Content section, you can see:
+
+- For incidents of Source DLP type **Inline**and **Endpoint**: See image.
+  - **File Name**: The name of the file.
+  - **File Type**: The type or extension of the file.
+  - **File MD5**: The 32-character MD5 hash of the file.
+  - **File Size**: The size of the file in bytes.
+- For incidents of Source DLP type **SaaS Security**: See image.
+  - **File Name**: The name of the file.
+  - **File Type**: The type or extension of the file.
+  - **File MD5**: The 32-character MD5 hash of the file.
+  - **File Source Location**: The source location of the file.
+  - **File Size**: The size of the file in bytes.
+  - **Document Type**: The type of document.
+  - **File Shared By**: The email address of the user who shared the file.
+  - **File Shared At**: The date and time the file was shared.
+  - **File Modified By**: The email address of the user who modified the file.
+  - **File Link Expiry**: The date and time the file link expires.
+- For incidents of Source DLP type **Email**: See image.
+  - **File Name**:The name of the file.
+  - **Message ID**: The message ID of the incident.
+  - **Email Subject**: The subject of the email.
+
+If an evidence file for a DLP incident exceeds 100 MB in size, the Zscaler service replaces the original file with a placeholder evidence file. The placeholder file retains the original name with ".txt" appended (e.g., attachment.pdf.txt and samplefile.xlsx.txt). When the placeholder is open or downloaded, the placeholder provides a message indicating that the file is too large to send.
+
+This section is only available for incidents of Source DLP type **Inline**, **SaaS Security**, and **Email**.
+
+In the Application section, you can see:
+
+- For incidents of Source DLP type **Inline**: See image.
+  - **URL**: The URL of the application.
+  - **Referrer URL**: The referrer URL of the application.
+  - **Name**: The name of the application.
+  - **Category**: The category of the application.
+  - **Protocol:** The protocol for the application.
+- For incidents of Source DLP type **SaaS Security**: See image.
+  - **Name**: The name of the application.
+  - **Category**: The category of the application. Categories are **File** and **Email**.
+  - **Current Tag Name**: The name of the tag currently assigned to the application.
+  - **Is Copilot Accessible**: Indicates whether Copilot can access the application. Values are **yes** or **no**.
+  - **Component**: The component of the application.
+  - **Content Location**: The content location of the application.
+  - **Workspace**: The workspace of the application.
+  - **Domains**: The domains of the application.
+- For incidents of Source DLP type **Email**: See image.
+  - **Name**: The name of the application used to create the email.
+  - **Tenant**: The tenant ID of the end user.
+
+This section is only available for incidents of Source DLP type **Endpoint**.
+
+In the User Activity section, you can see:
+
+- **Activity Type**: The type of activity that the user performed that triggered the incident.
+- **Channel**: The type of channel (e.g., Network Drive Transfer or Remote Drive Transfer) that the user used to cause the incident.
+- **Source**: The source of the incident.
+- **Destination**: The destination of the incident.
+- **Source Type**: The source type of the incident.
+- **Destination Type**: The destination type (e.g., Removable Storage Device) for the incident.
+- **Source Location**:The source location of the incident.
+- **Destination Location**: The destination location of the incident.
+- **ZDP Mode**: The Zscaler Data Protection (ZDP) mode for the incident. ZDP modes can be **Block** or **Exemption**.
+- **Expected Action**: The expected action by the ZDP mode for the incident.
+- **Confirm Action**: The action that the user took when prompted with a confirmation dialog box for the incident creation.
+- **Confirm Justification**: The justification that the user provided during incident creation.
+- **Justification Text**: The optional text that the user provided for the incident. This field is only available if the user adds a justification text.
+- **Additional Information**: Additional information or notes about the incident.
 
 See image.
 
@@ -4582,18 +4586,109 @@ In the Collaborators section, you can see:
 
 See image.
 
+This section is only available for incidents of Source DLP type **SaaS Security**.
+
+The Recipients section displays the internal and external recipients for the incident. This section only appears when the application category for the incident is **Email**.
+
+In the Recipients section, you can see:
+
+- **Internal Recipients**: The recipients within your organization that received the incident. At the top of the section, the total number of recipients appears in parentheses.
+- **External Recipients**: The recipients outside your organization that received the incident. At the top of the section, the total number of recipients appears in parentheses.
+
+See image.
+
+This section is only available for incidents of Source DLP Type **Email**.
+
+The Other Recipients section displays the recipients associated with the incident who are not covered under the rule mapping configurations.
+
+See image.
+
+In the Violation Content tab, you can see:
+
+- Generate Presigned Link
+- View Trigger Data
+- Files
+- Attachments
+- Recipients (Source DLP type Email)
+- User Notifications
+
+The Generate Presigned Link section is not available for incidents of Source DLP type **Email**.
+
+Expand the heading to display the presigned link for the incident and also the link's expiration date and time. It allows you to:
+
+- Before the expiration time, click the presigned link to download the actual data that triggered the incident.
+- Click the **Copy** icon to copy the link for reference. See image.
+
+This field enables admins to automatically download the actual data that triggered an incident only if the **Hide Evidence Data - Admin** field is not selected for the DLP integration, and the **Evidence Data Privacy** field is not enabled for the admin on the **Admin Assignment** page in the Zscaler Admin Console. Otherwise, to view the actual data, the admin can copy the evidence link and then access and log in to either Amazon Web Services (AWS) or Azure and paste the link.
+
+This field is available only if the **Hide Trigger Data - Admin** field is not selected for the DLP integration, and the **Trigger Data Privacy** field is not enabled on the Admin Assignmentpage for the admin in the Zscaler Admin Console.
+
+In the View Trigger Data section, you can see:
+
+- Inline Source DLP Type
+- Email, Endpoint, and SaaS Security Source DLP Types
+
+Expand the heading to display the data that triggered the incident. A File Content tab, a File Metadata tab, and a Filename tab appear. Click the different tabs to see the trigger data for those different types of violations triggered by the DLP dictionaries. The prefix and suffix for the trigger data are displayed along with the trigger data itself. The actual trigger data portion is highlighted. You can view the DLP dictionaries associated with the incident and the exact data that violated the DLP policies.
+
+The following images are examples of the File Content tab, the File Metadata tab, and the Filename tab.
+
+See image.
+
+Expand the heading to display the data that triggered the incident. The prefix and suffix for the trigger data are displayed along with the trigger data itself. The actual trigger data portion is highlighted. You can view the DLP dictionaries associated with the incident and the exact data that violated the DLP policies.
+
+The following image is an example of the trigger data that appears for an incident of Source DLP type Email.
+
+See image.
+
+This section is only available for incidents of Source DLP type **Email**.
+
+The Files section displays the files sent to the recipients of the incident and the policies violated by those files. At the top of the section, the total number of files sent appears in parentheses.
+
+In the Files section, you can see:
+
+- **File Name**: The name of the file. If an evidence file for a DLP incident exceeds 100 MB in size, the Zscaler service replaces the original file with a placeholder evidence file. The placeholder file retains the original name with ".txt" appended (e.g., attachment.pdf.txt and samplefile.xlsx.txt). When the placeholder is open or downloaded, the placeholder provides a message indicating that the file is too large to send.
+- **File Type**: The type of file (e.g., PDF, XLSX, TXT, or DOCX).
+- **File Size**: The size of the file.
+- **Document Type**: The type of document (e.g., Invoice).
+- **MD5**: The 32-character MD5 hash of the file.
+- **Policy**: Displays the DLP policies that the file violated. To view the policies: See image.
+  1. Click the **View** icon in this field. The **Policy** window appears, displaying a **Triggered Engines and Dictionaries** heading and a **Non-Triggered Engines and Dictionaries** heading.
+  2. In the **Policy** window, expand the **Triggered Engines and Dictionaries** heading to view the following fields:
+    - **Engines**: The DLP engines that are assigned to the files that triggered the incident.
+    - **Dictionaries with Match Count**: The DLP dictionaries assigned to the files that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  3. Expand the **Non-Triggered Engines and Dictionaries** heading to view the following fields:
+    - **Engines**: The DLP engines that are not assigned to the files that triggered the incident.
+    - **Dictionaries with Match Count**: The DLP dictionaries that are not assigned to the files that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+
+See image.
+
 This section is only available for incidents of Source DLP type **SaaS Security**with an application category of **Email**.
 
 The Attachments section displays the files sent to the recipients of the incident. At the top of the section, the total number of attachments sent appears in parentheses.
 
 In the Attachments section, you can see:
 
-- **File Name**: The name of the file.
-- **File Type**: The type of file (e.g., PDF, XLSX, TXT, or DOCX).
-- **File Size**: The size of the file.
-- **Document Type**: The type of document (e.g., Invoice).
-- **MD5**: The 32-character MD5 hash of the file.
-- **Document Sub Type**: The document subtype for the file.
+- **File Name**: The name of the file
+- **File Type**: The type of file (e.g., PDF, XLSX, TXT, or DOCX)
+- **File Size**: The size of the file
+- **Document Type**: The type of document (e.g., Invoice)
+- **MD5**: The 32-character MD5 hash of the file
+- **Document Sub Type**: The document subtype for the file
+
+See image.
+
+This section is only available for incidents of Source DLP type **Email**.
+
+The Recipientssection displays the recipients of the incident and the action taken against each recipient. At the top of the section, the total number of recipients appears in parentheses.
+
+In the Recipients section, you can see:
+
+- **Recipients Email**: The email address of the recipient. If you choose the Recipient Email attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+- **Rule**: The DLP rule that was violated for each recipient (e.g., Block-HIPAA).
+- **Severity**: The severity by recipient and rule that was violated. Severity can be **Critical**, **High**, **Low**, **Medium**, or **Info**.
+- **Content Location**: The location of the content on the email. Content locations are **Email Attachments** and **Email Body**.
+- **Other Matched Rules**: Any other rules that the incident violated in addition to the primary email DLP rule that triggered the incident.
+- **Action Taken**: The action taken against each recipient. Actions are **Allow, Block**, **Quarantine**,or**Custom Header Insertion**.
 
 See image.
 
@@ -4612,10 +4707,11 @@ The table provides the following information:
 
 See image.
 
-The State Changes section acts as an audit log for the incident. The State Changes table records and displays all the changes to the incident.
+The State Changes tab acts as an audit log for the incident. The State Changes tab displays all the changes to the incident.
 
-The table displays the following information:
+The tab displays the following information:
 
+- **Time Lapse**: The amount of time from when the audit entry occurred to when you are viewing the audit entry on the tab.
 - **State**: The state of the incident. The latest state is displayed at the top.
 - **Date**: The date and time when the incident's state changed. The date and time display in the local time zone of the user who caused the incident.
 - **Changed By**: The name of the user or service that updated the incident.
@@ -4625,13 +4721,13 @@ See image.
 
 ## Managing the Incident
 
-The Incident Details page allows you to perform certain actions to manage the incidents assigned to you. All the actions you perform, except for the Delete action, are logged in the State Changes table. On the Incident Details page, you can click the **Refresh** button at the top of the page to display the latest information for the incident.
+The Incident Details drawer allows you to perform certain actions to manage the incidents assigned to you. All the actions you perform, except for the Delete action, are logged on the State Changes tab. In the Incident Details drawer, you can click **Refresh**at the top of the drawer to display the latest information for the incident.
 
 See image.
 
 When managing an incident, you are not required to follow the order of the actions as they appear in the **Actions** drop-down menu. You can perform actions based on the requirements of the incident. For example, you can directly escalate the incident to an approver without notifying the user, depending upon the severity of that incident.
 
-At the top-right of the page, the **Actions** drop-down menu contains the following actions:
+At the top right of the drawer, the **Actions** drop-down menu contains the following actions:
 
 - Assign DLP Admin
 - Assign Priority
@@ -4708,7 +4804,7 @@ To create a policy exception for an incident:
 2. In the **Create Policy Exception** window: See image.
   - **Policy Exception duration:**Enter the number of days, hours, and minutes for the duration of the policy exception.
   - **Notify User**: Select this checkbox if you want to notify the user who triggered the incident when the policy exception is created.
-3. Click **Create**. The system creates a policy exception. Workflow Automation creates a subrule for the rule associated with the incident in the Zscaler Admin Console. The subrule applies only to the user associated with the incident. You can view this subrule on the **Data Loss Prevention** page in the Zscaler Admin Console. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention). If you chose to notify the user, an email notification is sent to the user informing them that the policy exception has been approved. This notification contains the following information: The following image is an example of a policy exception notification email. See image.
+3. Click **Create**. The system creates a policy exception. Workflow Automation creates a subrule for the rule associated with the incident in the Zscaler Admin Console. The subrule applies only to the user associated with the incident. You can view this subrule on the **Data Loss Prevention** page in the Zscaler Admin Console. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention). If you choose to notify the user, an email notification is sent to the user informing them that the policy exception has been approved. This notification contains the following information: The following image is an example of a policy exception notification email. See image.
   - The Incident ID
   - The active period for the policy exception
   - The date the policy exception was created (i.e., approved)
@@ -4724,7 +4820,7 @@ To notify the user:
   - **Channel Type**:Select the type of channel to use for the user notification. Channel types are **Email**, **Slack**, and**Teams**. This field is only available in the window if you have integrated Workflow Automation with Slack or Microsoft Teams. If the **Channel Type** field is not available in the window, the user notification is by email.
   - **Language**: From the drop-down menu, select the language for the notification message that the user receives.
   - **User**: Enter the email address of the user. By default, this field displays the user who is associated with the incident, but you can enter a different user. If you have integrated Workflow Automation with Slack and you select the **Slack** channel type, the email address that you enter must be associated with a user for your organization in Slack. If you have integrated Workflow Automation with Microsoft Teams and you select the **Teams** channel type, the email address that you enter must be associated with a user for your organization in Microsoft Teams. In addition, if you choose the User Email attribute for obfuscation, multiple asterisks appear for this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Time Zone**: (Optional) If the notification template you are using for user notifications is configured with one or more time-related merge tags, you can select the time zone that appears for those merge tags in the user notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone that appears for those merge tags in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when you manually create a user or escalation notification is based on the following priority. If you select the time zone when you manually create a user notification or escalation notification on the Incident Details page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign the time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+  - **Time Zone**: (Optional) If the notification template you are using for user notifications is configured with one or more time-related merge tags, you can select the time zone in which those merge tags are represented in the user notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone in which those merge tags are represented in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when you manually create a user or escalation notification is based on the following priority. If you select the time zone when you manually create a user notification or escalation notification in the Incident Details drawer, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign a time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
   - **Note to user**: Enter additional notes or information about the incident.
 3. Click **Submit**. A user notification (i.e., email, Slack message, or Microsoft Teams message) is sent to the user requesting justification for the incident.
 
@@ -4742,7 +4838,7 @@ To escalate the incident:
   - **Channel Type**: Select the type of channel to use for the escalation notification. Channel types are **Email**, **Slack**, and**Teams**. This field is only available in the window if you have integrated Workflow Automation with Slack or Microsoft Teams. If the **Channel Type** field is not available in the window, the escalation notification is by email.
   - **Approver**: Select or manually enter an approver to whom you want to escalate the issue. The approver must exist on the [Approvers](https://help.zscaler.com/workflow-automation/managing-approvers) page. This field is not available if you select **Manager** as the user type. If you have integrated Workflow Automation with Slack and you select the **Slack** channel type, the email address that you enter for the approver must be associated with a user for your organization in Slack. If you have integrated Workflow Automation with Microsoft Teams and you select the **Teams** channel type, the email address that you enter must be associated with a user for your organization in Microsoft Teams.
   - **Language**: From the drop-down menu, select the language for the escalation message to the manager or approver.
-  - **Time Zone**: (Optional) If the notification template you are using for escalations is configured with one or more time-related merge tags, you can select the time zone that appears for those merge tags in the escalation notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone that appears for those merge tags in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when you manually create a user or escalation notification is based on the following priority. If you select the time zone when you manually create a user notification or escalation notification on the Incident Details page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign the time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+  - **Time Zone**: (Optional) If the notification template you are using for user notifications is configured with one or more time-related merge tags, you can select the time zone in which those merge tags are represented in the user notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone in which those merge tags are represented in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when you manually create a user or escalation notification is based on the following priority. If you select the time zone when you manually create a user notification or escalation notification in the Incident Details drawer, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign a time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
   - **Note to user**: Enter additional notes or information about the incident.
 3. Click **Submit**. An escalation notification (i.e., email, Slack message, or Microsoft Teams message) is sent to the approver or manager requesting the next steps.
 
@@ -4775,22 +4871,22 @@ To create and associate a ticket with the incident:
   - **Project**: (Jira tickets only) Select the project in the ticketing integration application where you want the ticket to be created. This field is only available after you select a Jira Software tenant ID in the **Ticketing Integration** field.
   - **User**: From the drop-down menu, select the user to assign to the ticket. Only users who appear on the **Integration Users** page for that ticketing integration application are available for selection. To learn more, see [Managing Integration Users](https://help.zscaler.com/workflow-automation/managing-integration-users).
   - **Notes**: Enter additional information about the incident. These notes appear as a comment in the ticket in the ticketing integration application.
-3. Click **Submit**. A ticket is created in the ticketing integration application (e.g., ServiceNow or Jira Software), and that ticket information appears in the Ticket section of the **Incident Details** page. Adding a ticket to the incident does not change the status of the incident.
+3. Click **Submit**. A ticket is created in the ticketing integration application (e.g., ServiceNow or Jira Software), and that ticket information appears in the Ticket section of the **Incident Details** drawer. Adding a ticket to the incident does not change the status of the incident.
 
-After an incident is closed (Status is Resolved), the **Reopen**action appears in the **Actions** drop-down menu on the page for that incident. You can reopen an incident only from the Incident Details page.
+After an incident is closed (Status is Resolved), the **Reopen**action appears in the **Actions** drop-down menu in the drawer for that incident. You can reopen an incident only from the Incident Details drawer.
 
 See image.
 
 To reopen an incident, from the **Actions** drop-down menu, select **Reopen**. The incident is reopened, and the status of the incident changes from Resolved to Investigating.
 
-You can delete an incident only from the Incident Details page, and you can delete an incident in any status. The delete action is only available for admins who are assigned to a role that has delete access permission for the Incidents category. To learn more, see [Managing Roles and Permissions.](https://help.zscaler.com/workflow-automation/managing-roles-and-permissions)
+You can delete an incident only from the Incident Details drawer, and you can delete an incident in any status. The delete action is only available for admins who are assigned to a role that has delete access permission for the Incidents category. To learn more, see [Managing Roles and Permissions.](https://help.zscaler.com/workflow-automation/managing-roles-and-permissions)
 
 To delete an incident:
 
 1. From the **Actions** drop-down menu, select **Delete**. The **Delete Incidents**dialog window appears, displaying a message asking whether you are sure that you want to delete the incident. See image.
 2. Click **Yes**. The incident is deleted. This action permanently deletes the incident, and you can't recover a deleted incident later.
 
-On the Incident Details page, you can use the Update Incident Group action to:
+In the Incident Details drawer, you can use the Update Incident Group action to:
 
 - Add additional incident groups to the incident.
 - Delete one or more of the incident groups that are currently assigned to the incident.
@@ -4811,133 +4907,170 @@ To update incident groups:
   1. Select the**Update Admin Assignment** checkbox. The **Incident Group** field appears.
   2. From the **Incident Group** drop-down menu, select the incident group to be used for assigning the admin to the incident. This menu lists all the incident groups that are displayed in the **Assigned** and **Newly added** sections of the window. See image.
 5. (Optional) In the **Notes** field, enter additional notes for updating the incident groups.
-6. Click **Update**. The **Incident Details** page appears. To see the updates, refresh the page. After refreshing the page, you can see the following updates: See image.
-  - The **Incident Groups**field displays the updated incident groups.
-  - The **Priority** field might change based on the final list of incident groups that you assigned to the incident. The priority of an incident is derived from the incident groups assigned to the incident. If the incident groups have different priorities, the highest priority is used.
-  - If you updated the admin assignment to use a different incident group, the **DLP Admin** field displays the name of the admin derived from that incident group.
-  - The **State Changes** section displays all the state changes that were made to the incident when you updated the incident groups for the incident.
+6. Click **Update**. The **Incident Details** drawer appears. To see the updates, refresh the drawer. After refreshing the drawer, you can see the following updates: See image.
+  - **Overview** tab:
+    - The **Incident Groups**field displays the updated incident groups.
+    - The **Priority** field might change based on the final list of incident groups that you assigned to the incident. The priority of an incident is derived from the incident groups assigned to the incident. If the incident groups have different priorities, the highest priority is used.
+    - If you updated the admin assignment to use a different incident group, the **DLP Admin** field displays the name of the admin derived from that incident group.
+  - The **State Changes** tab displays all the state changes that were made to the incident when you updated the incident groups for the incident.
 
-On the Incident Details page, for an incident with a Source DLP type of Email in which the email is quarantined, you can use the Release Email Quarantine action to release the email to one or more of its recipients. The Release Email Quarantine action is only available for incidents with a Source DLP type of Email with a quarantine action.
+In the Incident Details drawer, for an incident with a Source DLP type of Email in which the email is quarantined, you can use the Release Email Quarantine action to release the email to one or more of its recipients. The Release Email Quarantine action is only available for incidents with a Source DLP type of Email with a quarantine action.
 
 You also have the option to allow the end user or approver/manager of a quarantined email incident to release the email to one or more of its recipients from an end user notification or an escalation notification. To enable this feature for an end user notification, select **Enable Email Quarantine Release for End Users** in the **Incident Management** section on the **Account Settings** page. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings#incident-management-quarantine-settings), [Responding to an End User Notification](https://help.zscaler.com/workflow-automation/responding-end-user-notification), and [Responding to an Escalation Notification](https://help.zscaler.com/workflow-automation/responding-escalation-notification).
 
 To release the email to its recipients:
 
-1. From the **Actions** drop-down menu, select **Release Email Quarantine**. The **Release Email** window appears, displaying the following information at the top of the window: See image.
+1. From the **Actions** drop-down menu, select **Release Email Quarantine**. The **Release Email** **Quarantine** window appears, displaying the following information at the top of the window: See image.
   - **Sender**: The email address of the user who sent the email that was quarantined.
   - **Recipients**: The number of recipients that are quarantined for the email. Initially, this field lists all the recipients that are quarantined for the email. But as you release the email to its recipients, this field adjusts to reflect the number of recipients that are still quarantined for the email.
   - **Quarantine Reason**: The reason why the email was quarantined.
-2. Release the quarantine for the recipients using one of the following methods:
-  - Release the Quarantine for All Recipients
-  - Release the Quarantine for One or More Recipients
+2. Release the quarantined email to the recipients using one of the following methods:
+  - Release the Quarantined Email to All Recipients
+  - Release the Quarantine Email to One or More Recipients
 
 1. In the **Release email to recipients inboxes** section, select **Release to all recipients**.
 2. (Optional) If the quarantined email incident is a false positive, select the **False Positive** checkbox. On the **Account Settings** page, in the **Incident Management**section, you can specify the default setting for this **False Positive** checkbox in this window. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings#incident-management-quarantine-settings).
 3. (Optional) In the **Justification** field, enter a reason in detail for the release of the quarantine from the recipients. The reason can contain a maximum of 250 characters. See image.
 4. Click **Release.** The quarantine is released for the recipients and the email is sent to all the email recipients. If you selected the **False Positive** checkbox, a **False Positive** label is added to the incident.
 
-1. In the **Release email to recipients inboxes** section, select **Release to one or more recipients**. On the **Account Settings** page, if you have chosen to obfuscate the **Recipient Email** attribute in the **Privacy and Security** section, this option is not available. An **Email** table appears, listing the email addresses of the recipients sent the quarantined email. See image.
+1. In the **Release email to recipients inboxes** section, select **Release to one or more recipients**. On the **Account Settings** page, if you have chosen to obfuscate the **Recipient Email** attribute in the **Privacy and Security** section, this option is not available. An **Email** table appears, listing the email addresses of the recipients who were originally sent the quarantined email. See image.
 2. (Optional) Use the **Search** field to search for the email address of a specific recipient you want to release from quarantine. You can search for an email address by entering the full email address or a portion of it.
 3. In the **Email** table, select the checkbox next to one or more of the recipient email addresses you want to release the email to. To select all the recipient email addresses, select the checkbox in the header of the table.
 4. (Optional) If the quarantined email incident is a false positive, select the **False Positive** checkbox. On the **Account Settings** page, you can specify the default setting for this **False Positive** checkbox on this window. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings#incident-management-quarantine-settings).
 5. (Optional) In the **Justification** field, enter a reason in detail for the release of the quarantine for the recipients. The reason can contain a maximum of 250 characters. See image.
 6. Click **Release.** The quarantine is released for the selected recipients and the email is sent to them. If you selected the **False Positive** checkbox, a **False Positive** label is added to the incident.
 
-[Image: Viewing the duplicate incident message on the Incident Details page]
+[Image: Viewing the Incident Details drawer when you initially access the drawer]
+
+[Image: Viewing the duplicate incident message on the Overview tab]
 
 [Image: Viewing the duplicate incidents for an incident in the Duplicate Incidents dialog window]
 
-[Image: Viewing the Overview section on the Incident Details page]
+[Image: Viewing the Overview section on the Overview tab]
 
-[Image: Viewing the Quarantined Email Status page where the release process failed for a couple of the recipients.]
+[Image: Viewing the Quarantined Email Status page where the release process failed for a couple of the recipients]
 
-[Image: Viewing the originating user prefiltered name link on the Incident Details page]
+[Image: Viewing the originating user prefiltered name link in the Originating User section on the Violation Details tab]
 
-[Image: Viewing the Violation Details section for a SaaS Security incident on the Incident Details page]
+[Image: Viewing the Originating User section on the violation Details tab]
 
-[Image: Viewing the Violation Details section for an Inline incident on the Incident Details page]
+[Image: Viewing the File Content tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
 
-[Image: Viewing the Violation Details section for an Endpoint incident on the Incident Details page]
+[Image: Viewing the File Metadata tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
 
-[Image: Viewing the Violation Details section for an Email incident on the Incident Details page]
+[Image: Viewing the Filename tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays the Dictionaries with Match Count field.]
 
-[Image: Viewing the Generate Presigned Link section for an incident on the Incident Details page]
+[Image: Viewing the File Content tab in the Policy section for the non-triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
 
-[Image: Viewing the Trigger Data section for an incident on the Incident Details page]
+[Image: Viewing the File Metadata tab in the Policy section for the non-triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
 
-[Image: Viewing the Current State Details section on the Incident Details page]
+[Image: Viewing the Filename tab in the Policy section for the non-triggered engines and dictionaries associated to the incident. This tab displays the Dictionaries with Match Count field.]
 
-[Image: Viewing the Ticket section on the Incident Details page after the ServiceNow ticket is created]
+[Image: Viewing the other rules that matched the Inline incident in the Other Matched Rules field in the Policy section]
 
-[Image: Viewing the Ticket section on the Incident Details page after a Jira Software ticket is created]
+[Image: Viewing the Policy section for an incident with a source DLP type of Email]
 
-[Image: Viewing the Notes section on the Incident Details page]
+[Image: Viewing the Policy section for an incident with a source DLP type of Endpoint]
 
-[Image: Viewing the policies for a file in the Policy window]
+[Image: Viewing the Policy section for an incident with a source DLP type of SaaS Security]
 
-[Image: Viewing the Files section for an Email incident]
+[Image: Viewing the Content section for an incident with a source DLP type of Inline]
 
-[Image: Viewing the Recipients section for an Email incident on the Incident Details page]
+[Image: Viewing the Content section for an incident with a source DLP type of Email]
 
-[Image: Viewing the Recipients section for a SaaS Security incident on the Incident Details page]
+[Image: Viewing the Content section for an incident with a source DLP type of SaaS Security]
 
-[Image: Viewing the Collaborators section for a SaaS Security incident on the Incident Details page]
+[Image: Viewing the Application section for an incident with a source DLP type of Inline]
 
-[Image: Viewing the Attachments section on the Incident Details page]
+[Image: Viewing the Application section for an incident with a source DLP type of SaaS Security]
 
-[Image: Viewing the User Notifications section on the Incident Details page]
+[Image: Viewing the Application section for an incident with a source DLP type of Email]
 
-[Image: Viewing the State Changes section on the Incident Details page]
+[Image: Viewing the User Activity section for an incident with a source DLP type of Endpoint]
 
-[Image: Viewing the Incident Details page showing the Actions menu. The menu shows the following options: Assign DLP Admin, Assign Priority, Assign to Me, Close Incident, Create Policy Exception, Delete, Escalate, Investigating, Label, Notify User, Release Email Quarantine, Ticket, and Update Incident Group.]
+[Image: Viewing the Other Recipients section for an incident with a source DLP type of Email]
 
-[Image: Viewing the Investigating window on the Incident Details page]
+[Image: Viewing the Generate Presigned Link section for an incident on the Violation Content tab]
 
-[Image: Viewing the Assign Priority window on the Incident Details page]
+[Image: Viewing the trigger data for an incident of Source DLP type Inline in the File Content tab of the View Trigger Data field]
 
-[Image: Viewing the Assign DLP Admin window on the Incident Details page]
+[Image: Viewing the trigger data for an incident of Source DLP type Inline in the File Metadata tab of the View Trigger Data field]
 
-[Image: Viewing the Label window on the Incident Details page]
+[Image: Viewing the trigger data for an incident of Source DLP type Inline in the Filename tab of the View Trigger Data field]
 
-[Image: Viewing the Notify User window on the Incident Details page]
+[Image: Viewing the trigger data in the View Trigger Data field on the Violation Content tab for an incident of Source DLP type Email]
 
-[Image: Viewing the Escalate window on the Incident Details page when escalating an incident to a manager]
+[Image: Viewing the Current State Details section on the Overview tab]
 
-[Image: Viewing the Escalate window on the Incident Details page when escalating an incident to an approver]
+[Image: Viewing the Notes section on the Overview tab]
 
-[Image: Viewing the Close Incident window on the Incident Details page]
+[Image: Viewing the Files section on the Violation Content tab for an incident with a source DLP type of Email]
 
-[Image: Viewing the Ticket window on the Incident Details page]
+[Image: Viewing the Policy window accessed from the Files section]
 
-[Image: Viewing the Reopen action on the Incident Details page]
+[Image: Viewing the Recipients section on the Violation Content tab for an incident with a source DLP type of Email]
 
-[Image: Viewing the Delete Incidents dialog window on the Incident Details page]
+[Image: Viewing the Recipients section on the Violation Content tab for an incident with a source DLP type of SaaS Security]
+
+[Image: Viewing the Collaborators section on the Violation Details tab for an incident with a source DLP type of SaaS Security]
+
+[Image: Viewing the Attachments section on the Violation Content tab for an incident with a source DLP type of SaaS Security]
+
+[Image: Viewing the User Notifications section on the Violation Content tab of the Incident Details drawer]
+
+[Image: Viewing the State Changes tab in the Incident Details drawer]
+
+[Image: Viewing the Incident Details drawer showing the Actions menu. The menu shows the following options: Assign DLP Admin, Assign Priority, Assign to Me, Close Incident, Create Policy Exception, Delete, Escalate, Investigating, Label, Notify User, Release Email Quarantine, Ticket, and Update Incident Group.]
+
+[Image: Viewing the Investigating window]
+
+[Image: Viewing the Assign Priority window]
+
+[Image: Viewing the Assign DLP Admin window in the Incident Details drawer]
+
+[Image: Viewing the Label window]
+
+[Image: Viewing the Notify User window]
+
+[Image: Viewing the Escalate window when escalating an incident to a manager]
+
+[Image: Viewing the Escalate window when escalating an incident to an approver]
+
+[Image: Viewing the Close Incident window]
+
+[Image: Viewing the Ticket window]
+
+[Image: Viewing the Reopen action in the Incident Details drawer]
+
+[Image: Viewing the Delete Incidents dialog window]
 
 [Image: Escalate window when no user attributes are mapped in SCIM]
 
-[Image: Viewing the Additional Information window on the Incident Details page]
+[Image: Viewing the Additional Information window]
 
 [Image: Viewing the Update Incident Group window before incident groups are updated. The window contains an Available incident group section, an Assigned incident group section, an update admin assignment section, and a Notes field.]
 
-[Image: Video showing how to add and delete new incident groups on the Update Incident Group window]
+[Image: Video showing how to add and delete new incident groups in the Update Incident Group window]
 
-[Image: Video showing how to delete assigned incident groups on the Update Incident Group window]
+[Image: Video showing how to delete assigned incident groups in the Update Incident Group window]
 
-[Image: Video showing how to update the incident group for admin assignment on the Update Incident Group window]
+[Image: Video showing how to update the incident group for admin assignment in the Update Incident Group window]
 
-[Image: Viewing the Incident Details page after doing incident group updates. The fields that are affected by an incident group update are highlighted in the window. Those fields are Incident Groups, DLP Admin, and Priority. In addition, the State Changes section is highlighted, showing the entries for the incident group updates.]
+[Image: Viewing the Overview tab of Incident Details drawer after doing incident group updates. The fields that are affected by an incident group update are highlighted in the window. Those fields are Priority, DLP Admin, and Incident Groups.]
 
-[Image: Viewing the Release Email window on the Incident Details page with no fields selected or entered]
+[Image: Viewing the State Changes tab of Incident Details drawer after doing incident group updates. Audit entries are added when you update incident groups.]
 
-[Image: Viewing the Release Email window on the Incident Details page. The Release to all recipients option is selected, the False Positive checkbox is selected, and a justification reason is entered.]
+[Image: Viewing the Release Email Quarantine window with no fields selected or entered]
 
-[Image: Viewing the Release Email window on the Incident Details page. The Release to one or more recipients option is the only field selected.]
+[Image: Viewing the Release Email Quarantine window. The Release to all recipients option is selected, the False Positive checkbox is selected, and a justification reason is entered.]
 
-[Image: Viewing the Release Email window on the Incident Details page. The Release one or more recipients option is selected, two email addresses are selected, the False Positive checkbox is selected, and a justification reason is entered.]
+[Image: Viewing the Release Email Quarantine window. The Release to one or more recipients option is the only field selected.]
 
-[Image: Viewing the Create Policy Exception window on the Incident Details page.]
+[Image: Viewing the Release Email Quarantine window. The Release one or more recipients option is selected, two email addresses are selected, the False Positive checkbox is selected, and a justification reason is entered.]
 
-[Image: Viewing a user email notification for a policy exception.]
+[Image: Viewing the Create Policy Exception window]
+
+[Image: Viewing a user email notification for a policy exception]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8612,13 +8745,13 @@ To learn more, see [About the Log Streaming Service](https://help.zscaler.com/zp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-deployments-operations/zscaler-client-connector-deployment-and-operations-guide","lastmod":"2026-07-23T16:03Z","nid":"1420036"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-deployments-operations/zscaler-client-connector-deployment-and-operations-guide","lastmod":"2026-08-06T21:06Z","nid":"1420036"} -->
 ## Zscaler Client Connector Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/zscaler-client-connector-deployment-and-operations-guide
 - Product: Zscaler Deployments & Operations
 - Path: Zscaler Deployments & Operations > Zscaler Client Connector Deployments & Operations > Zscaler Client Connector Deployment and Operations Guide
-- Last modified: 2026-07-23T16:03Z
+- Last modified: 2026-08-06T21:06Z
 - Summary: Describes the benefits of and the steps necessary to enable and configure the Zscaler Client Connector.
 
 This guide describes how to use Zscaler Client Connector and the steps necessary for configuring Zscaler Client Connector. Zscaler Client Connector is a lightweight application that runs on a user’s endpoint device. Zscaler Client Connector automatically forwards all user traffic to the closest Zscaler Public Service Edge and enforces security and access policies across all devices, locations, and applications.

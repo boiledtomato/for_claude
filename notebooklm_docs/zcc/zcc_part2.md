@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 52
 
 ---
@@ -735,16 +735,16 @@ To enable WebView2 authentication in the Zscaler Admin Console:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-admin-console-identity-provider","lastmod":"2026-07-31T15:29Z","nid":"1285431"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-admin-console-identity-provider","lastmod":"2026-08-05T08:51Z","nid":"1285431"} -->
 ## Using the Zscaler Admin Console as an Identity Provider
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-admin-console-identity-provider
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Using the Zscaler Admin Console as an Identity Provider
-- Last modified: 2026-07-31T15:29Z
+- Last modified: 2026-08-05T08:51Z
 - Summary: How to configure the Zscaler Admin Console to function as an identity provider for the Zscaler service.
 
-If you are a Authentication Service user, see [Using Authentication Service](https://help.zscaler.com/zidentity/using-zslogin-identity-provider)[with Zscaler Client Connector Device Tokens](https://help.zscaler.com/zidentity/using-zidentity-with-zscaler-client-connector-device-tokens).
+If you are a Authentication Service user, see [Using Authentication Service](https://help.zscaler.com/authentication-service/using-authentication-service-with-zscaler-client-connector-device-tokens)[with Zscaler Client Connector Device Tokens](https://help.zscaler.com/zidentity/using-zidentity-with-zscaler-client-connector-device-tokens).
 
 This information applies to Internet & SaaS only. The Zscaler Admin Console can function as an identity provider (IdP) for the Zscaler service. With this feature, users do not need to be tied to your organization’s standard IdP in order to authenticate to the Zscaler service. Instead, if your organization uses SAML-based single sign-on (SSO), Zscaler Client Connector can use a device token to auto-provision and silently authenticate users and devices for the Zscaler service.
 
@@ -1098,13 +1098,13 @@ To enable the Zscaler Notification Framework on macOS devices:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/verifying-access-applications","lastmod":"2026-07-31T15:38Z","nid":"1514426"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/verifying-access-applications","lastmod":"2026-08-05T17:12Z","nid":"1514426"} -->
 ## Verifying Access to Applications
 
 - Source: https://help.zscaler.com/zscaler-client-connector/verifying-access-applications
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide > Verifying Access to Applications
-- Last modified: 2026-07-31T15:38Z
+- Last modified: 2026-08-05T17:12Z
 - Summary: How to verify access with additional authentication
 
 Your organization can require additional levels of authentication to access specific applications (e.g., your default access requires only a username and password, but an application with sensitive financial information requires multi-factor authentication). If you try to access an application that requires additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access.
@@ -2960,13 +2960,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-08-02T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-08-09T07:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-08-02T07:06Z
+- Last modified: 2026-08-09T07:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.

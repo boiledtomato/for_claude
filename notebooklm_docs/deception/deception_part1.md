@@ -1,18 +1,18 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 297
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-account-settings","lastmod":"2026-05-13T01:18Z","nid":"1539131"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-account-settings","lastmod":"2026-08-03T00:19Z","nid":"1540338"} -->
 ## About Account Settings
 
 - Source: https://help.zscaler.com/deception/about-account-settings
 - Product: Deception
 - Path: Deception Help > Getting Started > Admin Portal > Account Settings > About Account Settings
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the Account Settings page, including how to reset two-factor authentication, edit user profile, change password, and configure email notification preferences in the Zscaler Deception Admin Portal.
 
 The **Account Settings** icon ([Image: Icon for Account Settings]) in the left-side navigation enables you to manage your user profile and notification preferences.
@@ -35,13 +35,13 @@ On the Account Settings page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-active-directory-decoy-personalities","lastmod":"2026-05-13T01:18Z","nid":"1539390"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-active-directory-decoy-personalities","lastmod":"2026-08-03T00:19Z","nid":"1540597"} -->
 ## About Active Directory Decoy Personalities
 
 - Source: https://help.zscaler.com/deception/about-active-directory-decoy-personalities
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Active Directory Decoy Personalities > About Active Directory Decoy Personalities
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about active directory decoy personalities which are used to create active directory decoys via deception strategies.
 
 Active Directory (AD) decoy personalities are templates that can be used to create [AD decoys](https://help.zscaler.com/deception/about-active-directory-decoys) via [deception strategies](https://help.zscaler.com/deception/about-deception-strategy). Zscaler Deception provides a list of preconfigured AD decoy personalities for various business use cases. You can also create custom personalities based on your business requirements.
@@ -68,13 +68,13 @@ On the Active Directory Decoy Personalities page (Miragemaker > Strategy Builder
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-active-directory-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539201"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-active-directory-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540408"} -->
 ## About Active Directory Decoys
 
 - Source: https://help.zscaler.com/deception/about-active-directory-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > About Active Directory Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the Active Directory (AD) decoys in the Zscaler Deception Admin Portal.
 
 An Active Directory (AD) is a critical resource for managing the IT infrastructure in an organization. Adversaries use AD as a target to perform reconnaissance and identify critical resources, retrieve information, and perform lateral movement within the network.
@@ -120,13 +120,13 @@ On the Active Directory Decoys page (Deceive > Active Directory Decoys), you can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-agent-update-groups","lastmod":"2026-05-13T01:18Z","nid":"1539186"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-agent-update-groups","lastmod":"2026-08-03T00:19Z","nid":"1540393"} -->
 ## About Agent Update Groups
 
 - Source: https://help.zscaler.com/deception/about-agent-update-groups
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agent Update Groups > About Agent Update Groups
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the Update Phase Groups page in the Zscaler Deception Admin Portal.
 
 After a landmine agent update is released, all agents are updated as soon as they connect with the Zscaler Deception Admin Portal. However, you can also perform phased updates by creating agent update groups with criteria to selectively roll out the updates.
@@ -152,13 +152,13 @@ On the Agent Update Groups page (Settings > Endpont Settings > Agent Update Grou
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-audit-error-debug-logs","lastmod":"2026-05-13T01:18Z","nid":"1539238"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-audit-error-debug-logs","lastmod":"2026-08-03T00:19Z","nid":"1540445"} -->
 ## About Audit, Error, and Debug Logs
 
 - Source: https://help.zscaler.com/deception/about-audit-error-debug-logs
 - Product: Deception
 - Path: Deception Help > Settings > About Audit, Error, and Debug Logs
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about audit logs, error, and debug logs.
 
 You can view and manage audit, error, and debug logs.
@@ -201,7 +201,7 @@ Error logs include error messages for failed events such as invalid user credent
 
 - **Timestamp**: The time when the error occurred.
 - **Category**: The component (Containment, Enrichment, etc.) which caused the error.
-- **Module**: The Deception entity (ZPA, Email, etc.) on which the error occurred.
+- **Module**: The Deception entity (Private Access (ZPA), Email, etc.) on which the error occurred.
 - **Message**: A brief explanation of the error.
 - **Metadata**: The metadata that provides context about the error.
 - **Error**: Hover over the information icon to view the error message.
@@ -240,13 +240,13 @@ Debug logs provide information on the errors that occurred in the Deception Admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-cloud-deception-gcp","lastmod":"2026-06-14T07:06Z","nid":"1539462"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-cloud-deception-gcp","lastmod":"2026-08-03T00:19Z","nid":"1540669"} -->
 ## About Cloud Deception with GCP
 
 - Source: https://help.zscaler.com/deception/about-cloud-deception-gcp
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > GCP > About Cloud Deception with GCP
-- Last modified: 2026-06-14T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Cloud Deception using Google Cloud Platform (GCP).
 
 You can integrate Google Cloud Platform (GCP) with Zscaler Deception to set up various GCP-specific decoy resources in your environment to lure adversaries. Depending on the type of decoy and its configuration, an adversary can access, interact, or perform malicious operations with the cloud decoys in different ways. Such activities are logged as attacks. You can view and analyze the attack details from the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
@@ -294,13 +294,13 @@ On the Cloud Deception - GCP page (Deceive > Cloud Deception > GCP), you can do 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-cloud-deception-with-aws","lastmod":"2026-05-13T01:18Z","nid":"1539359"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-cloud-deception-with-aws","lastmod":"2026-08-03T00:19Z","nid":"1540566"} -->
 ## About Cloud Deception with AWS
 
 - Source: https://help.zscaler.com/deception/about-cloud-deception-with-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > About Cloud Deception with AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Cloud Deception using AWS.
 
 You can integrate Amazon Web Services (AWS) with Zscaler Deception to set up various AWS-specific decoy resources in your environment to lure adversaries. Depending on the type of decoy and its configuration, an adversary can access, interact, or perform malicious operations with the cloud decoys in different ways. Such activities are logged as attacks. You can view and analyze the attack details from the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
@@ -347,13 +347,13 @@ On the Cloud Deception - AWS page (Deceive > Cloud Deception > AWS), you can do 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-cloud-deception-with-azure","lastmod":"2026-05-13T01:18Z","nid":"1539358"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-cloud-deception-with-azure","lastmod":"2026-08-03T00:19Z","nid":"1540565"} -->
 ## About Cloud Deception with Azure
 
 - Source: https://help.zscaler.com/deception/about-cloud-deception-with-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > About Cloud Deception with Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Cloud Deception using Microsoft Azure.
 
 You can integrate Microsoft Azure with Zscaler Deception to set up various Azure-specific decoy resources in your environment to lure adversaries. Depending on the type of decoy and its configuration, an adversary can access, interact, or perform malicious operations with the cloud decoys in different ways. Such activities are logged as attacks. You can view and analyze the attack details from the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
@@ -409,13 +409,13 @@ On the Cloud Deception - Azure page (Deceive > Cloud Deception > Azure), you can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-containment-integration","lastmod":"2026-05-13T01:18Z","nid":"1539264"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-containment-integration","lastmod":"2026-08-03T00:19Z","nid":"1540471"} -->
 ## About Containment Integration
 
 - Source: https://help.zscaler.com/deception/about-containment-integration
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > About Containment Integration
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the Containment page in the Zscaler Deception Admin Portal.
 
 Zscaler Deception integrates seamlessly with third-party security solutions to isolate active attackers with automated containment.
@@ -451,13 +451,13 @@ On the Containment page (Orchestrate > Containment), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-custom-service-datasets","lastmod":"2026-05-13T01:18Z","nid":"1539398"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-custom-service-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540605"} -->
 ## About Custom Service Datasets
 
 - Source: https://help.zscaler.com/deception/about-custom-service-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > Custom Service Datasets > About Custom Service Datasets
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about custom service datasets
 
 A custom service dataset is a mechanism that creates custom network services with customized requests and responses. The custom services can be created over any binary or text-based protocols in the application layer and can then be deployed using [network decoys](https://help.zscaler.com/deception/about-network-decoys). When deploying using network decoys, you can configure specific ports and network layer protocols (TCP or UDP). The adversaries can interact with the custom service via the port and protocol configured for [custom services in the network decoys](https://help.zscaler.com/deception/configuring-services-network-decoy#configuring-scada-iot-service). Typically, you can use custom service datasets to set up network deception for services that are available by default with network decoys.
@@ -481,13 +481,13 @@ On the Custom Service Datasets Page (Miragemaker > Custom Service Dataset), you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-deceive","lastmod":"2026-05-13T01:18Z","nid":"1539211"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-deceive","lastmod":"2026-08-03T00:19Z","nid":"1540418"} -->
 ## About Deceive
 
 - Source: https://help.zscaler.com/deception/about-deceive
 - Product: Deception
 - Path: Deception Help > Deceive  > About Deceive
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Deceive key features and the Summary page.
 
 Deceive allows you to configure and deploy decoys to disrupt active attacks, create fake attack paths, and gain high-fidelity threat intelligence. You can deploy decoys across public-facing endpoints, network, cloud, and Active Directory (AD) to detect threats. For a complete list of ranges and limits per Deceive feature, see [Ranges & Limitations](https://help.zscaler.com/deception/ranges-and-limitations).
@@ -523,13 +523,13 @@ On the Summary page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-deceive-settings","lastmod":"2026-05-13T01:18Z","nid":"1539210"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-deceive-settings","lastmod":"2026-08-03T00:19Z","nid":"1540417"} -->
 ## About Deceive Settings
 
 - Source: https://help.zscaler.com/deception/about-deceive-settings
 - Product: Deception
 - Path: Deception Help > Deceive  > Deceive Settings > About Deceive Settings
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Deceive Settings page.
 
 The Deceive Settings page allows you to create a firewall rule to blocklist IP addresses from accessing decoys, store credentials submitted by adversaries as SHA256 hashes, resolve hostnames and NetBIOS names of the adversaries, and create decoy groups to logically organize network and threat intelligence decoys.
@@ -555,13 +555,13 @@ On the Deceive Settings page (Deceive > Deceive Settings), you can do the follow
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-deception-api-token-management","lastmod":"2026-05-13T01:18Z","nid":"1539281"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-deception-api-token-management","lastmod":"2026-08-03T00:19Z","nid":"1540488"} -->
 ## About Deception API Token Management
 
 - Source: https://help.zscaler.com/deception/about-deception-api-token-management
 - Product: Deception
 - Path: Deception Help > Orchestrate  > API Token Management > About Deception API Token Management
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Zscaler Deception API Token management.
 
 Zscaler Deception supports the OpenAPI specification for Orchestrate, Miragemaker, Deceive, Landmine, Investigate, and Settings features.
@@ -592,13 +592,13 @@ On the API Tokens page (Orchestrate > API Tokens), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-deception-strategy","lastmod":"2026-05-13T01:18Z","nid":"1539314"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-deception-strategy","lastmod":"2026-08-03T00:19Z","nid":"1540521"} -->
 ## About Deception Strategy
 
 - Source: https://help.zscaler.com/deception/about-deception-strategy
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Deception Strategy > About Deception Strategy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the Deception Strategy page.
 
 Adversaries penetrate the perimeter and access valuable resources in your network. A complete defense strategy can help you to detect threats. The Deception Strategy feature allows you to quickly configure Network decoys, Threat Intelligence (TI) decoys, Active Directory (AD) decoys, and Landmine policies on a single page. A strategy consists of predefined personalities that are built based on different types of servers, applications, IT infrastructure, users, etc. When you select a personality, the Network, TI, and AD decoy configurations such as hostname, FQDN, etc. are automatically configured along with the default services that are configured for the personality.
@@ -636,13 +636,13 @@ On the Deception Strategy page (Miragemaker > Strategy Builder > Deception Strat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-decoy-connectors","lastmod":"2026-05-13T01:18Z","nid":"1539139"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-decoy-connectors","lastmod":"2026-08-03T00:19Z","nid":"1540346"} -->
 ## About Decoy Connectors 
 
 - Source: https://help.zscaler.com/deception/about-decoy-connectors
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > About Decoy Connectors 
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on Decoy Connectors and the Decoy Connectors page within the Zscaler Deception Admin Portal.
 
 [Watch a video on Adding and Connecting Decoy Connectors.](https://fast.wistia.net/embed/iframe/u6tiabaqnr)
@@ -688,13 +688,13 @@ On the Decoy Connectors page (Settings > Topology > Decoy Connectors), you can d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-deploy-strategy","lastmod":"2026-05-13T01:18Z","nid":"1539322"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-deploy-strategy","lastmod":"2026-08-03T00:19Z","nid":"1540529"} -->
 ## About Deploy Strategy
 
 - Source: https://help.zscaler.com/deception/about-deploy-strategy
 - Product: Deception
 - Path: Deception Help > Deceive  > Deploy Strategy > About Deploy Strategy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the Deploy Strategy page.
 
 You can leverage single or combined Deception strategies to build and deploy environments with a single click. You can choose to deploy these strategies using [Internal](https://help.zscaler.com/deception/creating-internal-network-decoy) or [Zero Trust Network (ZTN)](https://help.zscaler.com/deception/creating-zero-trust-network-decoy) decoys.
@@ -726,13 +726,13 @@ On the Deploy Strategy page (Deceive > Deploy Strategy), you can do the followin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-dynamic-application-datasets","lastmod":"2026-05-13T01:18Z","nid":"1539334"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-dynamic-application-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540541"} -->
 ## About Dynamic Application Datasets
 
 - Source: https://help.zscaler.com/deception/about-dynamic-application-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > Dynamic Application Datasets > About Dynamic Application Datasets
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about dynamic application datasets that can be used to configure threat intelligence and network decoys to mimic some behaviors of legitimate applications.
 
 Dynamic Application Datasets allow you to configure threat intelligence decoys and network decoys with dynamic web applications that mimic some of the behaviors of legitimate applications. While the dynamic interactions are configured using [Vulnerable Application Datasets](https://help.zscaler.com/deception/about-vulnerable-application-datasets-cve-datasets), the front-end UI of the application is configured by associating appropriate Static Application Datasets.
@@ -758,13 +758,13 @@ On the Dynamic Application Datasets page (Miragemaker > Dynamic Application Data
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-enrichment-integration","lastmod":"2026-05-13T01:18Z","nid":"1539297"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-enrichment-integration","lastmod":"2026-08-03T00:19Z","nid":"1540504"} -->
 ## About Enrichment Integration
 
 - Source: https://help.zscaler.com/deception/about-enrichment-integration
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Enrichment Integrations > About Enrichment Integration
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about enrichment integration in the Zscaler Deception Admin Portal.
 
 You can integrate Zscaler Deception with various third-party data enrichment solutions to add relevant contextual information to the security events that are generated in the Zscaler Deception Admin Portal.
@@ -797,13 +797,13 @@ On the Enrich page (Orchestrate > Enrich):
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-file-datasets","lastmod":"2026-05-13T01:18Z","nid":"1539299"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-file-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540506"} -->
 ## About File Datasets
 
 - Source: https://help.zscaler.com/deception/about-file-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > File Datasets & Templates > File Datasets > About File Datasets
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Miragemaker file datasets.
 
 File datasets are realistic-looking decoy files and folders that you can use to configure network and landmine decoys.
@@ -834,13 +834,13 @@ On the File Datasets page (Miragemaker > Files > File Datasets), you can do the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-file-templates","lastmod":"2026-05-13T01:18Z","nid":"1539302"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-file-templates","lastmod":"2026-08-03T00:19Z","nid":"1540509"} -->
 ## About File Templates
 
 - Source: https://help.zscaler.com/deception/about-file-templates
 - Product: Deception
 - Path: Deception Help > Miragemaker > File Datasets & Templates > File Templates > About File Templates
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the Miragemaker File Templates.
 
 Miragemaker file templates are a set of files that you can use as a baseline when creating file datasets.
@@ -862,13 +862,13 @@ On the File Templates page (Miragemaker > Files > File Templates), you can do th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-high-interaction-containers","lastmod":"2026-05-13T01:18Z","nid":"1539307"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-high-interaction-containers","lastmod":"2026-08-03T00:19Z","nid":"1540514"} -->
 ## About High-Interaction Containers
 
 - Source: https://help.zscaler.com/deception/about-high-interaction-containers
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > High-Interaction Containers > About High-Interaction Containers
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the High-Interaction Containers page in the Zscaler Deception Admin Portal.
 
 High-interaction containers are self-contained docker container datasets that are fully interactive application decoys.
@@ -897,13 +897,13 @@ Each container runs a customized application, the format of the data sent in eac
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-identity-providers","lastmod":"2026-06-19T02:23Z","nid":"1539225"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-identity-providers","lastmod":"2026-08-03T00:19Z","nid":"1540432"} -->
 ## About Identity Providers
 
 - Source: https://help.zscaler.com/deception/about-identity-providers
 - Product: Deception
 - Path: Deception Help > Authentication > About Identity Providers
-- Last modified: 2026-06-19T02:23Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about identity providers (IdPs).
 
 Zscaler recommends using [Authentication Service](https://help.zscaler.com/authentication-service/what-authentication-service) to configure primary and secondary [external identity providers (IdPs)](https://help.zscaler.com/authentication-service/about-external-identity-providers). Authentication Service supports both SAML and OpenID configurations. Contact Zscaler Support to subscribe to Authentication Service.
@@ -941,22 +941,22 @@ If Authentication Service is enabled in Deception, you can't configure SSO using
 
 The existing SSO third-party IdPs are disabled.
 
-To configure IdPs, click the Authentication Servicelink. You are redirected to the Zscaler Admin Console. To learn more, see [About External Identity Providers](https://help.zscaler.com/authentication-service/about-external-identity-providers).
+To configure IdPs, click the Authentication Servicelink. You are redirected to the Zscaler Admin Console. To learn more, see [About External Identity Providers](https://help.zscaler.com/zidentity/about-external-identity-providers).
 
 See image.
 
-[Image: Configure IdP if Authentication Service is enabled]
+[Image: Configure IdP if ZIdentity is enabled]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-investigate","lastmod":"2026-05-13T01:18Z","nid":"1539432"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-investigate","lastmod":"2026-08-03T00:19Z","nid":"1540639"} -->
 ## About Investigate
 
 - Source: https://help.zscaler.com/deception/about-investigate
 - Product: Deception
 - Path: Deception Help > Investigate  > About Investigate
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the features and functionalities in the Investigate module.
 
 The Investigate module allows you to track, analyze, and manage all events generated by decoys. A visual graph depicts all events, decoys, Decoy Connectors, and App Connectors, and how these entities are connected to each other and to the Zscaler Deception Admin Portal.
@@ -1012,13 +1012,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-landmine-agent-agentless","lastmod":"2026-05-13T01:18Z","nid":"1539190"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-landmine-agent-agentless","lastmod":"2026-08-03T00:19Z","nid":"1540397"} -->
 ## About Landmine Agent and Agentless
 
 - Source: https://help.zscaler.com/deception/about-landmine-agent-agentless
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > About Landmine Agent and Agentless
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about landmine agent and agentless installers and the Landmine Agents page.
 
 A landmine is an endpoint component that deploys decoy credentials, files, browser cookies, processes, etc. on real endpoints in your network. You can download a landmine either as an agent installer or agentless installer from the Zscaler Deception Admin Portal.
@@ -1095,13 +1095,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-landmine-decoy-personalities","lastmod":"2026-05-13T01:18Z","nid":"1539385"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-landmine-decoy-personalities","lastmod":"2026-08-03T00:19Z","nid":"1540592"} -->
 ## About Landmine Decoy Personalities
 
 - Source: https://help.zscaler.com/deception/about-landmine-decoy-personalities
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Landmine Decoy Personalities > About Landmine Decoy Personalities
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about landmine decoy personalities which are used to create landmine decoys or via deception strategies.
 
 Landmine decoy personalities are templates that can be used to create [landmine decoys](https://help.zscaler.com/deception/about-landmine-decoys) via [deception strategies](https://help.zscaler.com/deception/about-deploy-strategy). Zscaler Deception provides a list of preconfigured landmine decoy personalities for various business use cases. You can also create custom personalities based on your business requirements.
@@ -1132,13 +1132,13 @@ On the Landmine Decoy Personalities page (Miragemaker > Strategy Builder > Landm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-landmine-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539194"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-landmine-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540401"} -->
 ## About Landmine Decoys
 
 - Source: https://help.zscaler.com/deception/about-landmine-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > About Landmine Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the Landmine Decoys page in the Zscaler Deception Admin Portal.
 
 [Watch a video on Creating Landmine Decoys and Policies](https://fast.wistia.net/embed/iframe/c3w5mose6l).
@@ -1178,13 +1178,203 @@ On the Landmine page (Deceive > Landmine), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-landmine-policies","lastmod":"2026-07-29T05:28Z","nid":"1539164"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-landmine-settings","lastmod":"2026-08-03T00:19Z","nid":"1540389"} -->
+## About Agent Configuration
+
+- Source: https://help.zscaler.com/deception/about-landmine-settings
+- Product: Deception
+- Path: Deception Help > Settings > Endpoint Settings > Agent Configuration > About Agent Configuration
+- Last modified: 2026-08-03T00:19Z
+- Summary: Information about the Agent Configuration page in the Zscaler Deception Admin Portal.
+
+You can customize the landmine installer, modify the lure refresh interval, and enable auto clean-up of duplicate agents from the Agent Configuration page.
+
+Agent Configuration provides the following benefits and enables you to:
+
+- Customize landmine agent properties such as name, display name, and description to prevent the agents from being fingerprinted.
+- Modify the refresh interval to automatically update lure information.
+- Clean up duplicate agents automatically.
+
+## About Agent Configuration Page
+
+On the Agent Configuration page (Settings > Endpoint Settings > Agent Configuration), you can do the following:
+
+1. [Customize the landmine agent installer properties](https://help.zscaler.com/deception/customizing-landmine-installer).
+2. [Modify the lure refresh interval](https://help.zscaler.com/deception/configuring-lure-refresh-interval).
+3. [Enable auto clean-up of duplicate agents](https://help.zscaler.com/deception/enabling-auto-clean-duplicate-landmine-agents).
+
+[Image: About the Landmine Settings page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/about-network-decoy-personalities","lastmod":"2026-08-03T00:19Z","nid":"1540582"} -->
+## About Network Decoy Personalities
+
+- Source: https://help.zscaler.com/deception/about-network-decoy-personalities
+- Product: Deception
+- Path: Deception Help > Miragemaker > Strategy Builder > Network Decoy Personalities > About Network Decoy Personalities
+- Last modified: 2026-08-03T00:19Z
+- Summary: Information about network decoy personalities which are used to create network decoys manually or via deception strategies.
+
+Network decoy personalities are templates that can be used to create [interactive generative AI decoys](https://help.zscaler.com/deception/deploying-interactive-generative-ai-decoys) and [network decoys](https://help.zscaler.com/deception/about-network-decoys). You can use these personalities when configuring a [deception strategy](https://help.zscaler.com/deception/about-deploy-strategy) to create decoys with a single click. Zscaler Deception provides a list of preconfigured generative AI and network decoy personalities for various business use cases. You can also create custom personalities based on your business requirements.
+
+Network decoy personalities provide the following benefits and enable you to:
+
+- Use templates to deploy network decoys manually or via a deception strategy.
+- Leverage preconfigured templates or create new templates to define network decoys for various business use cases.
+
+## About the Network Decoy Personalities Page
+
+On the Network Decoy Personalities page (Miragemaker > Strategy Builder > Network Decoy), you can do the following:
+
+1. View the list of preconfigured and custom network decoy personalities, and search for a specific entry by name. For each network decoy personality, you can see:
+  - **Name**: The name of the network decoy personality.
+  - **Description**: The description of the network decoy personality.
+  - **Services**: The list of services configured on the network decoy personality.
+2. [Configure a network decoy personality](https://help.zscaler.com/deception/configuring-network-decoy-personality).
+3. [Download a network decoy personality](https://help.zscaler.com/deception/downloading-network-decoy-personality).
+4. [Edit or delete a network decoy personality](https://help.zscaler.com/deception/editing-or-deleting-network-decoy-personality).
+5. [Export all network decoy personalities](https://help.zscaler.com/deception/exporting-network-decoy-personalities).
+
+[Image: The Network Decoy Personalities page shows a list of preconfigured and custom network decoy personalities and action icons]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/about-network-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540354"} -->
+## About Network Decoys
+
+- Source: https://help.zscaler.com/deception/about-network-decoys
+- Product: Deception
+- Path: Deception Help > Deceive  > Network Decoys > About Network Decoys
+- Last modified: 2026-08-03T00:19Z
+- Summary: Information about Zscaler Deception network decoys.
+
+Network decoys detect scanning and lateral movement activities in your network environment. They mimic real assets on your network. You can deploy network decoys in business-critical network segments that host production servers, demilitarized zones (DMZ), key applications, databases, and cloud environments. Zscaler recommends that you deploy at least two network decoys in each business-critical network segment.
+
+Network Decoys provide the following benefits and enable you to:
+
+- Create and deploy legitimate-looking decoys in your organization's network that mimic real assets in your business-critical network segments to lure attackers into interacting with realistic targets and gain insights into the attacker's tactics, techniques, and procedures (TTPs).
+- Enhance your organization's threat detection and incident response systems using the data collected from the attacker's interactions with the network decoy.
+
+You can create Internal and Zero Trust Network decoys:
+
+- An Internal decoy allows you to create decoy applications within your organization's network. You can configure an Internal decoy with a hostname or FQDN that resembles systems on your network and a MAC address that matches a manufacturer or a vendor.
+- A Zero Trust Network decoy uses Private Access (ZPA) to create decoy applications that appear to exist within your organization's network. You can configure Zero Trust Network decoys with an FQDN to make them look like a part of your network.
+
+You can also [configure services](https://help.zscaler.com/deception/configuring-services-network-decoy) such as Web, SSH, FTP, File Shares, etc. on these decoys to create realistic targets for attackers. This helps in influencing an attacker's behavior by luring them to one of the decoys and gaining a better understanding of their tactics, techniques, and procedures (TTPs).
+
+You can [add Internal decoys to an active directory (AD)](https://help.zscaler.com/deception/adding-network-decoy-active-directory) as computer objects to make them look like legitimate domain-joined systems. This allows the detection of AD enumeration activity and improves the ability to detect AD-related exploits.
+
+After a network decoy is deployed, it is displayed on the Network Decoys page.
+
+## About the Network Decoys Page
+
+On the Network Decoys page (Deceive > Network Decoys), you can do the following:
+
+1. View a list of all deployed network decoys. For each deployed decoy, you can see:
+
+- **FQDN and IP**:The FQDN and the IP address assigned to the decoy, along with an icon that indicates the network decoy's deployment status:
+  - [Image: Red decoy deployment status icon] – Decoy is not deployed.
+  - [Image: Green decoy deployment status icon] – Decoy is successfully deployed.
+  - [Image: Yellow decoy deployment status icon] – Decoy is partially deployed.
+  - [Image: Orange decoy deployment status icon] – Decoy is not connected to an aggregator.
+  - [Image: Gray decoy deployment status icon]– Decoy is disabled.
+- **Personality**: The[predefined decoy template](https://help.zscaler.com/deception/using-network-decoy-personalities-and-services) used to create a decoy, along with the services that the decoy is configured to run.
+- **Network Decoy Groups**:The network group in which the decoy is deployed. Network decoy groups allow logical organization of network decoys, such as geographic location or system type.
+- **Network Name**:The name of the network in which the decoy is deployed.
+
+1. Create an [Internal](https://help.zscaler.com/deception/creating-internal-network-decoy) or a [Zero Trust Network](https://help.zscaler.com/deception/creating-zero-trust-networks-decoy) decoy.
+2. [Export network decoy configurations](https://help.zscaler.com/deception/exporting-network-decoys-configuration).
+3. [Edit or delete deployed network decoys](https://help.zscaler.com/deception/editing-and-deleting-network-decoy).
+
+[Image: About the Network Decoys page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/about-orchestrate","lastmod":"2026-08-03T00:19Z","nid":"1540505"} -->
+## About Orchestrate
+
+- Source: https://help.zscaler.com/deception/about-orchestrate
+- Product: Deception
+- Path: Deception Help > Orchestrate  > About Orchestrate
+- Last modified: 2026-08-03T00:19Z
+- Summary: Information about the Orchestrate feature and in the Zscaler Deception Admin Portal.
+
+The Orchestrate feature enables integration with leading security solutions to forward events, contain threats, and enrich security events.
+
+The Orchestrate feature provides the following benefits and enables you:
+
+- Configure condition-based rules to automate workflows, notifications, and response actions using containment integration tools.
+- Integrate third-party tools and solutions for event data enrichment, containment of attackers, and analysis of data using Security Information and Event Management (SIEM) solutions.
+- Configure API tokens for programmatic access, event templates, and service connectors to forward data to SIEM solutions.
+
+## About the Orchestrate Menu
+
+On the Orchestrate menu, you can do the following:
+
+1. Go to the [Rules](https://help.zscaler.com/deception/about-orchestration-rules) page to create and manage rules that automate workflows, notifications, and containment in response to threat detection.
+2. Go to the [Enrich](https://help.zscaler.com/deception/about-enrichment-integration) page to integrate with various third-party data enrichment solutions to add relevant contextual information to security events and manage security threats efficiently.
+3. Go to the [Containment](https://help.zscaler.com/deception/about-containment-integration) page to integrate seamlessly with third-party security solutions to isolate active attackers with automated or manual containment.
+4. Go to the [API Tokens](https://help.zscaler.com/deception/about-deception-api-token-management) page to create and manage API tokens for setting up programmatic access to deploy decoys, manage event logs and evidence, etc.
+5. Go to the [Event Templates](https://help.zscaler.com/deception/customizing-event-notification-templates) page to create and manage event notification templates.
+6. Go to the [Service Connectors](https://help.zscaler.com/deception/about-service-connectors) page to create and manage service connectors that forward events and audit logs from the Zscaler Deception Admin Portal and to the SIEM solution.
+7. Go to the [SIEM Integrations](https://help.zscaler.com/deception/about-siem-integrations) page to integrate third-party SIEM solutions to transmit logs in real time.
+
+[Image: About the Orchestrate menu]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/about-orchestration-rules","lastmod":"2026-08-03T00:19Z","nid":"1540491"} -->
+## About Orchestration Rules
+
+- Source: https://help.zscaler.com/deception/about-orchestration-rules
+- Product: Deception
+- Path: Deception Help > Orchestrate  > Orchestration Rules > About Orchestration Rules
+- Last modified: 2026-08-03T00:19Z
+- Summary: Information about the orchestration rules in the Zscaler Deception Admin Portal.
+
+Zscaler Deception allows you to create orchestration rules using queries and conditions to take immediate actions when events with threats are detected.
+
+Orchestration rules provide the following benefits and enable you to:
+
+- Automate tagging, deleting, or marking events as safe.
+- Configure alert notifications about attackers to specific users via emails, phone calls with voice messages, and text messages.
+- Automate containment of attacks in response to detections using integration with other third-party solutions.
+
+Each event that is generated in the Zscaler Deception Admin Portal runs through the orchestration rule pipeline. When an event matches the conditions of the rule, the corresponding actions are taken.
+
+Deception provides a few predefined or internal rules to detect attacks. By default, these rules are disabled. You can enable and configure actions based on your requirements. You cannot change the rule conditions or delete the internal rules.
+
+## About the Rules Page
+
+On the Rules page (Orchestrate > Rules), you can do the following:
+
+1. View a list of rules. For each rule, you can view:
+  - **Priority**: The rule priority that determines the order in which the rules are run. Priority 1 has the highest priority and runs first. You can drag and drop the rules to change the order.
+  - **Name**: The name of the rule.
+  - **Condition**: The conditions configured to trigger an action. The conditions are created using the custom query language. To learn more about the custom query language, see [Understanding and Building Queries](https://help.zscaler.com/deception/understanding-and-building-queries).
+  - **Tasks**: The actions taken when the rule is triggered.
+  - **Type**: Indicates if the rule is internal or not.
+2. Pause or resume orchestration rules. **Pause orchestration**indicates that the orchestration pipeline is running. **Resume orchestration** indicates that the orchestration pipeline is stopped.
+3. Create an [orchestration rule](https://help.zscaler.com/deception/creating-orchestration-rule).
+4. [Edit or delete a rule](https://help.zscaler.com/deception/editing-or-deleting-rule).
+
+[Image: Rules page with annotation]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/about-policies","lastmod":"2026-08-03T00:19Z","nid":"1540371"} -->
 ## About Landmine Policies
 
-- Source: https://help.zscaler.com/deception/about-landmine-policies
+- Source: https://help.zscaler.com/deception/about-policies
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > About Landmine Policies
-- Last modified: 2026-07-29T05:28Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about landmine policies and the Policies page in the Zscaler Deception Admin Portal.
 
 Landmine decoys are configured based on policies. You can add a policy and specify a selection criterion. The policy is applied only if the criterion matches the endpoint. After the selection criterion is specified, you can configure deception modules for the policy (e.g., file decoys, processes, lures, etc.).
@@ -1223,11 +1413,11 @@ On the Policies page (Deceive > Landmine > Policies), you can do the following:
 2. [Evaluate policies](https://help.zscaler.com/deception/evaluating-landmine-policies).
 3. [Create landmine policies](https://help.zscaler.com/deception/creating-landmine-policy).
 4. View a list of landmine policies. For each policy, you can view:
-  - **OS:**The graphical indication representing the operating system (Windows, macOS, Linux) for which the policy was created.
-  - **Name**: The name of the landmine policy.
-  - **Agentless**: A filter to view agentless policies. The options are **All**(default),**True**, and **False**. The **X** icon indicates that the policy applies to a full agent variant of the landmine, and the check mark icon ([Image: Check mark icon on the Policies page]) indicates that the policy applies to the agentless variant of the landmine.
-  - **Selection Criteria**: The [selection criterion](https://help.zscaler.com/deception/creating-landmine-policy) specified for the policy.
-  - **Policies**: The various deception modules configured for the policy.
+  1. **OS:**The graphical indication representing the operating system (Windows, macOS, Linux) for which the policy was created.
+  2. **Name**: The name of the landmine policy.
+  3. **Agentless**: A filter to view agentless policies. The options are **All**(default),**True**, and **False**. The **X** icon indicates that the policy applies to a full agent variant of the landmine, and the check mark icon ([Image: Check mark icon on the Policies page]) indicates that the policy applies to the agentless variant of the landmine.
+  4. **Selection Criteria**: The [selection criterion](https://help.zscaler.com/deception/creating-landmine-policy) specified for the policy.
+  5. **Policies**: The various deception modules configured for the policy.
 5. [Manage policies](https://help.zscaler.com/deception/managing-landmine-policies).
 
 [Image: About the Landmine Policies Page]
@@ -1235,203 +1425,50 @@ On the Policies page (Deceive > Landmine > Policies), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-landmine-settings","lastmod":"2026-05-13T01:18Z","nid":"1539182"} -->
-## About Agent Configuration
+<!-- ZS-ARTICLE {"url":"/deception/about-private-access-app-connectors-deception","lastmod":"2026-08-03T00:19Z","nid":"1540629"} -->
+## About Private Access App Connectors in Deception
 
-- Source: https://help.zscaler.com/deception/about-landmine-settings
+- Source: https://help.zscaler.com/deception/about-private-access-app-connectors-deception
 - Product: Deception
-- Path: Deception Help > Settings > Endpoint Settings > Agent Configuration > About Agent Configuration
-- Last modified: 2026-05-13T01:18Z
-- Summary: Information about the Agent Configuration page in the Zscaler Deception Admin Portal.
+- Path: Deception Help > Settings > Topology > ZPA App Connectors > About Private Access App Connectors in Deception
+- Last modified: 2026-08-03T00:19Z
+- Summary: Information about the Private Access App Connectors dashboard in the Zscaler Deception Admin Portal.
 
-You can customize the landmine installer, modify the lure refresh interval, and enable auto clean-up of duplicate agents from the Agent Configuration page.
+Private Access (ZPA) App Connectors are hosted by Zscaler and are used to connect to your Zero Trust Exchange (ZTE) environment. In the Zscaler Deception Admin Portal, App Connectors are configured when creating [Zero Trust Network decoys](https://help.zscaler.com/deception/creating-zero-trust-network-decoy). To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors).
 
-Agent Configuration provides the following benefits and enables you to:
+App Connectors provide the following benefits and enable you to:
 
-- Customize landmine agent properties such as name, display name, and description to prevent the agents from being fingerprinted.
-- Modify the refresh interval to automatically update lure information.
-- Clean up duplicate agents automatically.
+- Create a secure interface between the Decoy Connector and the Zero Trust Exchange (ZTE) via Private Access.
+- Deploy Zero Trust Network decoys in the Zero Trust Exchange (ZTE) environment.
 
-## About Agent Configuration Page
+You can view the details of the App Connector on the ZPA App Connectors page (Settings > Topology > ZPA App Connectors). On this page, you can do the following:
 
-On the Agent Configuration page (Settings > Endpoint Settings > Agent Configuration), you can do the following:
+1. View a list of all deployed App Connectors. For each deployed App Connector, you can see:
+  - **Name**: The name of the App Connector. The following icons indicate the connection status of the App Connector with the Deception Admin Portal:
+    - : Active or connected to the Deception Admin Portal.
+    - : Inactive or not connected to the Deception Admin Portal.
+    - : Not connected to an aggregator.
+    - : Update in progress or update failed.
+  - **Version**: The version of the Decoy Connector.
+  - **ZPA Version**: The version of the App Connector software.
+  - **ZPA Manager Version**: The version of the current App Connector Manager software. To learn more, see [Understanding the Manager Software](https://help.zscaler.com/zpa/about-manager-software).
+  - **Last Connected Time**: The time when the Decoy Connector was last connected to the Deception Admin Portal.
+  - **ZPA App Connector Last Connected Time**: The time when the App Connector was last connected to the Private Access cloud.
+2. [Reboot](https://help.zscaler.com/deception/rebooting-zpa-app-connector) an App Connector.
+3. [View update logs](https://help.zscaler.com/deception/viewing-zpa-app-connector-update-logs) and [download the debug logs](https://help.zscaler.com/deception/downloading-zpa-app-connector-debug-logs) for an App Connector.
 
-1. [Customize the landmine agent installer properties](https://help.zscaler.com/deception/customizing-landmine-installer).
-2. [Modify the lure refresh interval](https://help.zscaler.com/deception/configuring-lure-refresh-interval).
-3. [Enable auto clean-up of duplicate agents](https://help.zscaler.com/deception/enabling-auto-clean-duplicate-landmine-agents).
-
-[Image: About the Landmine Settings page]
+[Image: About ZPA App Connector in Deception]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-network-decoy-personalities","lastmod":"2026-05-13T01:18Z","nid":"1539375"} -->
-## About Network Decoy Personalities
-
-- Source: https://help.zscaler.com/deception/about-network-decoy-personalities
-- Product: Deception
-- Path: Deception Help > Miragemaker > Strategy Builder > Network Decoy Personalities > About Network Decoy Personalities
-- Last modified: 2026-05-13T01:18Z
-- Summary: Information about network decoy personalities which are used to create network decoys manually or via deception strategies.
-
-Network decoy personalities are templates that can be used to create [interactive generative AI decoys](https://help.zscaler.com/deception/deploying-interactive-generative-ai-decoys) and [network decoys](https://help.zscaler.com/deception/about-network-decoys). You can use these personalities when configuring a [deception strategy](https://help.zscaler.com/deception/about-deploy-strategy) to create decoys with a single click. Zscaler Deception provides a list of preconfigured generative AI and network decoy personalities for various business use cases. You can also create custom personalities based on your business requirements.
-
-Network decoy personalities provide the following benefits and enable you to:
-
-- Use templates to deploy network decoys manually or via a deception strategy.
-- Leverage preconfigured templates or create new templates to define network decoys for various business use cases.
-
-## About the Network Decoy Personalities Page
-
-On the Network Decoy Personalities page (Miragemaker > Strategy Builder > Network Decoy), you can do the following:
-
-1. View the list of preconfigured and custom network decoy personalities, and search for a specific entry by name. For each network decoy personality, you can see:
-  - **Name**: The name of the network decoy personality.
-  - **Description**: The description of the network decoy personality.
-  - **Services**: The list of services configured on the network decoy personality.
-2. [Configure a network decoy personality](https://help.zscaler.com/deception/configuring-network-decoy-personality).
-3. [Download a network decoy personality](https://help.zscaler.com/deception/downloading-network-decoy-personality).
-4. [Edit or delete a network decoy personality](https://help.zscaler.com/deception/editing-or-deleting-network-decoy-personality).
-5. [Export all network decoy personalities](https://help.zscaler.com/deception/exporting-network-decoy-personalities).
-
-[Image: The Network Decoy Personalities page shows a list of preconfigured and custom network decoy personalities and action icons]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/about-network-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539147"} -->
-## About Network Decoys
-
-- Source: https://help.zscaler.com/deception/about-network-decoys
-- Product: Deception
-- Path: Deception Help > Deceive  > Network Decoys > About Network Decoys
-- Last modified: 2026-05-13T01:18Z
-- Summary: Information about Zscaler Deception network decoys.
-
-Network decoys detect scanning and lateral movement activities in your network environment. They mimic real assets on your network. You can deploy network decoys in business-critical network segments that host production servers, demilitarized zones (DMZ), key applications, databases, and cloud environments. Zscaler recommends that you deploy at least two network decoys in each business-critical network segment.
-
-Network Decoys provide the following benefits and enable you to:
-
-- Create and deploy legitimate-looking decoys in your organization's network that mimic real assets in your business-critical network segments to lure attackers into interacting with realistic targets and gain insights into the attacker's tactics, techniques, and procedures (TTPs).
-- Enhance your organization's threat detection and incident response systems using the data collected from the attacker's interactions with the network decoy.
-
-You can create Internal and Zero Trust Network decoys:
-
-- An Internal decoy allows you to create decoy applications within your organization's network. You can configure an Internal decoy with a hostname or FQDN that resembles systems on your network and a MAC address that matches a manufacturer or a vendor.
-- A Zero Trust Network decoy uses Zscaler Private Access (ZPA) to create decoy applications that appear to exist within your organization's network. You can configure Zero Trust Network decoys with an FQDN to make them look like a part of your network.
-
-You can also [configure services](https://help.zscaler.com/deception/configuring-services-network-decoy) such as Web, SSH, FTP, File Shares, etc. on these decoys to create realistic targets for attackers. This helps in influencing an attacker's behavior by luring them to one of the decoys and gaining a better understanding of their tactics, techniques, and procedures (TTPs).
-
-You can [add Internal decoys to an active directory (AD)](https://help.zscaler.com/deception/adding-network-decoy-active-directory) as computer objects to make them look like legitimate domain-joined systems. This allows the detection of AD enumeration activity and improves the ability to detect AD-related exploits.
-
-After a network decoy is deployed, it is displayed on the Network Decoys page.
-
-## About the Network Decoys Page
-
-On the Network Decoys page (Deceive > Network Decoys), you can do the following:
-
-1. View a list of all deployed network decoys. For each deployed decoy, you can see:
-
-- **FQDN and IP**:The FQDN and the IP address assigned to the decoy, along with an icon that indicates the network decoy's deployment status:
-  - [Image: Red decoy deployment status icon] – Decoy is not deployed.
-  - [Image: Green decoy deployment status icon] – Decoy is successfully deployed.
-  - [Image: Yellow decoy deployment status icon] – Decoy is partially deployed.
-  - [Image: Orange decoy deployment status icon] – Decoy is not connected to an aggregator.
-  - [Image: Gray decoy deployment status icon]– Decoy is disabled.
-- **Personality**: The[predefined decoy template](https://help.zscaler.com/deception/using-network-decoy-personalities-and-services) used to create a decoy, along with the services that the decoy is configured to run.
-- **Network Decoy Groups**:The network group in which the decoy is deployed. Network decoy groups allow logical organization of network decoys, such as geographic location or system type.
-- **Network Name**:The name of the network in which the decoy is deployed.
-
-1. Create an [Internal](https://help.zscaler.com/deception/creating-internal-network-decoy) or a [Zero Trust Network](https://help.zscaler.com/deception/creating-zero-trust-networks-decoy) decoy.
-2. [Export network decoy configurations](https://help.zscaler.com/deception/exporting-network-decoys-configuration).
-3. [Edit or delete deployed network decoys](https://help.zscaler.com/deception/editing-and-deleting-network-decoy).
-
-[Image: About the Network Decoys page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/about-orchestrate","lastmod":"2026-05-13T01:18Z","nid":"1539298"} -->
-## About Orchestrate
-
-- Source: https://help.zscaler.com/deception/about-orchestrate
-- Product: Deception
-- Path: Deception Help > Orchestrate  > About Orchestrate
-- Last modified: 2026-05-13T01:18Z
-- Summary: Information about the Orchestrate feature and in the Zscaler Deception Admin Portal.
-
-The Orchestrate feature enables integration with leading security solutions to forward events, contain threats, and enrich security events.
-
-The Orchestrate feature provides the following benefits and enables you:
-
-- Configure condition-based rules to automate workflows, notifications, and response actions using containment integration tools.
-- Integrate third-party tools and solutions for event data enrichment, containment of attackers, and analysis of data using Security Information and Event Management (SIEM) solutions.
-- Configure API tokens for programmatic access, event templates, and service connectors to forward data to SIEM solutions.
-
-## About the Orchestrate Menu
-
-On the Orchestrate menu, you can do the following:
-
-1. Go to the [Rules](https://help.zscaler.com/deception/about-orchestration-rules) page to create and manage rules that automate workflows, notifications, and containment in response to threat detection.
-2. Go to the [Enrich](https://help.zscaler.com/deception/about-enrichment-integration) page to integrate with various third-party data enrichment solutions to add relevant contextual information to security events and manage security threats efficiently.
-3. Go to the [Containment](https://help.zscaler.com/deception/about-containment-integration) page to integrate seamlessly with third-party security solutions to isolate active attackers with automated or manual containment.
-4. Go to the [API Tokens](https://help.zscaler.com/deception/about-deception-api-token-management) page to create and manage API tokens for setting up programmatic access to deploy decoys, manage event logs and evidence, etc.
-5. Go to the [Event Templates](https://help.zscaler.com/deception/customizing-event-notification-templates) page to create and manage event notification templates.
-6. Go to the [Service Connectors](https://help.zscaler.com/deception/about-service-connectors) page to create and manage service connectors that forward events and audit logs from the Zscaler Deception Admin Portal and to the SIEM solution.
-7. Go to the [SIEM Integrations](https://help.zscaler.com/deception/about-siem-integrations) page to integrate third-party SIEM solutions to transmit logs in real time.
-
-[Image: About the Orchestrate menu]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/about-orchestration-rules","lastmod":"2026-05-13T01:18Z","nid":"1539284"} -->
-## About Orchestration Rules
-
-- Source: https://help.zscaler.com/deception/about-orchestration-rules
-- Product: Deception
-- Path: Deception Help > Orchestrate  > Orchestration Rules > About Orchestration Rules
-- Last modified: 2026-05-13T01:18Z
-- Summary: Information about the orchestration rules in the Zscaler Deception Admin Portal.
-
-Zscaler Deception allows you to create orchestration rules using queries and conditions to take immediate actions when events with threats are detected.
-
-Orchestration rules provide the following benefits and enable you to:
-
-- Automate tagging, deleting, or marking events as safe.
-- Configure alert notifications about attackers to specific users via emails, phone calls with voice messages, and text messages.
-- Automate containment of attacks in response to detections using integration with other third-party solutions.
-
-Each event that is generated in the Zscaler Deception Admin Portal runs through the orchestration rule pipeline. When an event matches the conditions of the rule, the corresponding actions are taken.
-
-Deception provides a few predefined or internal rules to detect attacks. By default, these rules are disabled. You can enable and configure actions based on your requirements. You cannot change the rule conditions or delete the internal rules.
-
-## About the Rules Page
-
-On the Rules page (Orchestrate > Rules), you can do the following:
-
-1. View a list of rules. For each rule, you can view:
-  - **Priority**: The rule priority that determines the order in which the rules are run. Priority 1 has the highest priority and runs first. You can drag and drop the rules to change the order.
-  - **Name**: The name of the rule.
-  - **Condition**: The conditions configured to trigger an action. The conditions are created using the custom query language. To learn more about the custom query language, see [Understanding and Building Queries](https://help.zscaler.com/deception/understanding-and-building-queries).
-  - **Tasks**: The actions taken when the rule is triggered.
-  - **Type**: Indicates if the rule is internal or not.
-2. Pause or resume orchestration rules. **Pause orchestration**indicates that the orchestration pipeline is running. **Resume orchestration** indicates that the orchestration pipeline is stopped.
-3. Create an [orchestration rule](https://help.zscaler.com/deception/creating-orchestration-rule).
-4. [Edit or delete a rule](https://help.zscaler.com/deception/editing-or-deleting-rule).
-
-[Image: Rules page with annotation]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/about-safe-processes","lastmod":"2026-07-12T07:06Z","nid":"1539308"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-safe-processes","lastmod":"2026-08-03T00:19Z","nid":"1540515"} -->
 ## About Safe Processes
 
 - Source: https://help.zscaler.com/deception/about-safe-processes
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Safe Processes > About Safe Processes
-- Last modified: 2026-07-12T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the Safe Process page in the Zscaler Deception Admin Portal.
 
 Landmine processes that detect defense evasion sometimes generate false positives when tripped by security processes, such as antivirus or Endpoint Detection and Response (EDR) scans. To prevent generating false positives, you can designate known and trusted processes in your environment as safe processes. In addition, Zscaler Deception provides a set of predesignated safe processes called internal processes that can be enabled or disabled based on your requirements.
@@ -1465,13 +1502,13 @@ On the Safe Processes page (Settings > Endpoint Settings > Safe Processes), you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-scada-iot-datasets","lastmod":"2026-06-14T07:06Z","nid":"1539371"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-scada-iot-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540578"} -->
 ## About SCADA/IoT Datasets
 
 - Source: https://help.zscaler.com/deception/about-scada-iot-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > SCADA/IoT Datasets > About SCADA/IoT Datasets
-- Last modified: 2026-06-14T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about SCADA/IoT datasets that are used to configure SCADA or IoT decoys using network decoys.
 
 Zscaler Deception allows you to configure network decoys to mimic various Supervisory Control and Data Acquisition (SCADA) and Internet of Things (IoT) devices used in industrial processes, such as sensors, actuators, and other logical controllers. By default, Zscaler Deception provides a list of datasets that includes device-based datasets to mimic specific SCADA/IoT devices and protocol-based datasets to mimic generic SCADA/IoT devices. You can also create and upload custom SCADA/IoT datasets.
@@ -1550,13 +1587,13 @@ On the SCADA/IoT Datasets page (Miragemaker > SCADA/IoT Datasets), you can do th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-service-connectors","lastmod":"2026-05-13T01:18Z","nid":"1539252"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-service-connectors","lastmod":"2026-08-03T00:19Z","nid":"1540459"} -->
 ## About Service Connectors
 
 - Source: https://help.zscaler.com/deception/about-service-connectors
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > About Service Connectors
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Service Connectors on the Zscaler Deception Admin Portal.
 
 Before integrating Zscaler Deception with a Security Information and Event Management (SIEM) solution, a Service Connector must be configured. A Service Connector is an application that communicates with the Zscaler Deception Admin Portal and sends events and audit logs to the SIEM solution. You can integrate a Service Connector with one or multiple SIEM solutions.
@@ -1589,13 +1626,13 @@ On the Service Connectors page (Orchestrate > Service Connectors), you can do th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-siem-integrations","lastmod":"2026-05-13T01:18Z","nid":"1539260"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-siem-integrations","lastmod":"2026-08-03T00:19Z","nid":"1540467"} -->
 ## About SIEM Integrations
 
 - Source: https://help.zscaler.com/deception/about-siem-integrations
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > About SIEM Integrations
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: About SIEM integration in the Zscaler Deception Admin Portal.
 
 Zscaler Deception seamlessly integrates with leading security information and event management (SIEM) solutions to enhance your security operations workflows. You can integrate Zscaler Deception with supported SIEM solutions to transmit logs in real time. SIEM integration provides visibility in a centralized console and allows your teams to leverage the solution’s existing security investigation workflows.
@@ -1632,13 +1669,13 @@ On the SIEM Integrations page (Orchestrate > SIEM Integrations), you can do the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-static-application-datasets","lastmod":"2026-05-13T01:18Z","nid":"1539404"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-static-application-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540611"} -->
 ## About Static Application Datasets
 
 - Source: https://help.zscaler.com/deception/about-static-application-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > Static Application Datasets > About Static Application Datasets
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about static application datasets.
 
 Static application datasets allow you to configure the front ends of web applications that are deployed using [Threat Intelligence (TI) decoys](https://help.zscaler.com/deception/about-threat-intelligence-decoys) and [network decoys via web services](https://help.zscaler.com/deception/configuring-services-network-decoy#configuring-web-service). These datasets consist of static HTML files, CSS files, JavaScript files, etc. that can be used as an interface to engage adversaries submitting credentials or performing text-based web application attacks.
@@ -1663,13 +1700,13 @@ On the Static Application Datasets page (Miragemaker > Static Application Datase
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-threat-intelligence-decoy-personalities","lastmod":"2026-05-13T01:18Z","nid":"1539380"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-threat-intelligence-decoy-personalities","lastmod":"2026-08-03T00:19Z","nid":"1540587"} -->
 ## About Threat Intelligence Decoy Personalities
 
 - Source: https://help.zscaler.com/deception/about-threat-intelligence-decoy-personalities
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Threat Intelligence Decoy Personalities > About Threat Intelligence Decoy Personalities
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Threat Intelligence (TI) decoy personalities which are used to create Threat Intelligence decoys via deception strategies.
 
 Threat Intelligence (TI) decoy personalities are templates that can be used to create [TI decoys](https://help.zscaler.com/deception/about-threat-intelligence-decoys) via [deception strategies](https://help.zscaler.com/deception/about-deception-strategy). Zscaler Deception provides a list of preconfigured TI decoy personalities for various business use cases. You can also create custom personalities based on your business requirements.
@@ -1696,13 +1733,13 @@ On the Threat Intelligence Decoy Personalities page (Miragemaker > Strategy Buil
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-threat-intelligence-decoys","lastmod":"2026-06-19T21:06Z","nid":"1539157"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-threat-intelligence-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540364"} -->
 ## About Threat Intelligence Decoys
 
 - Source: https://help.zscaler.com/deception/about-threat-intelligence-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Threat Intelligence Decoys > About Threat Intelligence Decoys
-- Last modified: 2026-06-19T21:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about Threat Intelligence (TI) decoys and key use cases.
 
 Threat Intelligence (TI) decoys provide analytics of an attacker's activity early in the reconnaissance phase of the kill chain. These decoys are unlisted and require reconnaissance to discover (e.g., DNS bruteforcing, enumeration of certificate transparency logs, etc.).
@@ -1757,13 +1794,13 @@ On the Threat Intelligence Decoys page (Deceive > Threat Intelligence Decoys), y
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-threatparse-rules","lastmod":"2026-05-13T01:18Z","nid":"1539401"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-threatparse-rules","lastmod":"2026-08-03T00:19Z","nid":"1540608"} -->
 ## About ThreatParse Rules
 
 - Source: https://help.zscaler.com/deception/about-threatparse-rules
 - Product: Deception
 - Path: Deception Help > Miragemaker > ThreatParse Rules > About ThreatParse Rules
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about ThreatParse Rules.
 
 ThreatParse is a technology used by Zscaler Deception to parse details of an attack event and translate them into plain English using natural language reconstruction. To translate those details, the ThreatParse engine uses rules that use multiple parameters such as risk score, conditions, MITRE ID, MITRE tactic, etc. By default, Zscaler Deception provides various ThreatParse rules for common attack events. You can also create custom rules suitable for your business needs.
@@ -1791,13 +1828,13 @@ On the ThreatParse Rules Page (Miragemaker > ThreatParse Rules), you can do the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-users-roles","lastmod":"2026-06-19T02:16Z","nid":"1539448"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-users-roles","lastmod":"2026-08-03T00:19Z","nid":"1540655"} -->
 ## About Users & Roles
 
 - Source: https://help.zscaler.com/deception/about-users-roles
 - Product: Deception
 - Path: Deception Help > Administration > About Users & Roles
-- Last modified: 2026-06-19T02:16Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about users and roles in the Zscaler Deception Admin Portal.
 
 You can provision users and assign predefined roles to them. Each predefined role has specific permissions that allow users to access and manage various modules in the Zscaler Deception Admin Portal.
@@ -1874,7 +1911,7 @@ To add a new user:
 
 ### For Authentication Service-Enabled Customers
 
-If Authentication Service is enabled, you can't add users to the Deception Admin Portal. You have to create users in Authentication Service.
+If Authentication Service is enabled, you can't add users to the Deception Admin Portal. You have to create users in the Authentication Service.
 
 To configure users:
 
@@ -2047,13 +2084,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-vulnerable-application-datasets-cve-datasets","lastmod":"2026-05-13T01:18Z","nid":"1539331"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-vulnerable-application-datasets-cve-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540538"} -->
 ## About Vulnerable Application Datasets (CVE Datasets)
 
 - Source: https://help.zscaler.com/deception/about-vulnerable-application-datasets-cve-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > Vulnerable Application Datasets > About Vulnerable Application Datasets (CVE Datasets)
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about vulnerable application datasets (CVE datasets) that are used to mimic some behaviors of legitimate dynamic web applications.
 
 Vulnerable Application Datasets (CVE Datasets) allow you to configure requests and responses to mimic dynamic web applications that are deployed using threat intelligence decoys and network decoys. Typically, the requests and responses are created based on CVE disclosures for the specific application to lure an attacker into believing that they are interacting with a vulnerable application. However, you can also create custom requests and responses for dynamic web applications that mimic any vulnerability, even if there is no CVE disclosure for the vulnerability.
@@ -2082,49 +2119,13 @@ On the Vulnerable Application Datasets (CVE Datasets) page (Miragemaker > Vulner
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-zpa-app-connector-deception","lastmod":"2026-05-13T01:18Z","nid":"1539422"} -->
-## About ZPA App Connectors in Deception
-
-- Source: https://help.zscaler.com/deception/about-zpa-app-connector-deception
-- Product: Deception
-- Path: Deception Help > Settings > Topology > ZPA App Connectors > About ZPA App Connectors in Deception
-- Last modified: 2026-05-13T01:18Z
-- Summary: Information about the ZPA App Connectors dashboard in the Zscaler Deception Admin Portal.
-
-ZPA App Connectors are hosted by Zscaler and are used to connect to your Zero Trust Exchange (ZTE) environment. In the Zscaler Deception Admin Portal, App Connectors are configured when creating [Zero Trust Network decoys](https://help.zscaler.com/deception/creating-zero-trust-network-decoy). To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors).
-
-App Connectors provide the following benefits and enable you to:
-
-- Create a secure interface between the Decoy Connector and the Zero Trust Exchange (ZTE) via Zscaler Private Access (ZPA).
-- Deploy Zero Trust Network decoys in the Zero Trust Exchange (ZTE) environment.
-
-You can view the details of the App Connector on the ZPA App Connectors page (Settings > Topology > ZPA App Connectors). On this page, you can do the following:
-
-1. View a list of all deployed App Connectors. For each deployed App Connector, you can see:
-  - **Name**: The name of the App Connector. The following icons indicate the connection status of the App Connector with the Deception Admin Portal:
-    - : Active or connected to the Deception Admin Portal.
-    - : Inactive or not connected to the Deception Admin Portal.
-    - : Not connected to an aggregator.
-    - : Update in progress or update failed.
-  - **Version**: The version of the Decoy Connector.
-  - **ZPA Manager Version**: The version of the current App Connector Manager software. To learn more, see [Understanding the Manager Software](https://help.zscaler.com/zpa/about-manager-software).
-  - **Last Connected Time**: The time when the Decoy Connector was last connected to the Deception Admin Portal.
-  - **ZPA App Connector Last Connected Time**: The time when the App Connector was last connected to the ZPA cloud.
-2. [Reboot](https://help.zscaler.com/deception/rebooting-zpa-app-connector) an App Connector.
-3. [View update logs](https://help.zscaler.com/deception/viewing-zpa-app-connector-update-logs) and [download the debug logs](https://help.zscaler.com/deception/downloading-zpa-app-connector-debug-logs) for an App Connector.
-
-[Image: About ZPA App Connector in Deception]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/accessing-and-navigating-zscaler-deception-admin-portal","lastmod":"2026-06-19T02:13Z","nid":"1539130"} -->
+<!-- ZS-ARTICLE {"url":"/deception/accessing-and-navigating-zscaler-deception-admin-portal","lastmod":"2026-08-03T00:19Z","nid":"1540337"} -->
 ## Accessing and Navigating the Zscaler Deception Admin Portal
 
 - Source: https://help.zscaler.com/deception/accessing-and-navigating-zscaler-deception-admin-portal
 - Product: Deception
 - Path: Deception Help > Getting Started > Admin Portal > Accessing and Navigating the Zscaler Deception Admin Portal
-- Last modified: 2026-06-19T02:13Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on the Zscaler Deception Admin Portal including how you can sign in to and navigate the portal.
 
 This article covers the following topics:
@@ -2271,13 +2272,13 @@ If Authentication Service is enabled, you are logged out of the Deception Admin 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-active-directory-domain","lastmod":"2026-05-13T01:18Z","nid":"1539197"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-active-directory-domain","lastmod":"2026-08-03T00:19Z","nid":"1540404"} -->
 ## Adding an Active Directory Domain
 
 - Source: https://help.zscaler.com/deception/adding-active-directory-domain
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Adding an Active Directory Domain
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to add and configure an AD domain in the Zscaler Deception Admin Portal.
 
 To integrate decoy users and computers with Active Directory (AD), you must first add and configure an AD domain in the Zscaler Deception Admin Portal. You can add and configure an AD domain with or without credentials. Zscaler recommends configuring an AD domain with credentials, as this is a prerequisite for a few features.
@@ -2360,20 +2361,20 @@ To add an agent update group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-connecting-decoy-connector-admin-portal","lastmod":"2026-05-13T01:18Z","nid":"1539136"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-connecting-decoy-connector-admin-portal","lastmod":"2026-08-03T00:19Z","nid":"1540343"} -->
 ## Adding and Connecting a Decoy Connector to the Zscaler Deception Admin Portal
 
 - Source: https://help.zscaler.com/deception/adding-connecting-decoy-connector-admin-portal
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Decoy Connector Deployment Guides for Supported Platforms > Adding and Connecting a Decoy Connector to the Zscaler Deception Admin Portal
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to add and connect a Decoy Connector to the Zscaler Deception Admin Portal.
 
 [Watch a video on Adding and Connecting Decoy Connectors to the Zscaler Deception Admin Portal.](https://fast.wistia.net/embed/iframe/u6tiabaqnr)
 
 You can configure and add a Decoy Connector for Network Decoys and connect it to the Zscaler Deception Admin Portal.
 
-Zscaler Deception uses Zscaler Private Access (ZPA) App Connectors and Threat Intelligence (TI) Decoy Connectors to deploy Zero Trust Network Decoys and TI Decoys respectively in a dedicated Deception cloud. You cannot add or connect the App Connectors or TI Decoy Connectors to the Deception Admin Portal yourself. Contact Zscaler Support to manage them.
+Zscaler Deception uses Private Access (ZPA) App Connectors and Threat Intelligence (TI) Decoy Connectors to deploy Zero Trust Network Decoys and TI Decoys respectively in a dedicated Deception cloud. You cannot add or connect the App Connectors or TI Decoy Connectors to the Deception Admin Portal yourself. Contact Zscaler Support to manage them.
 
 To add and connect a Decoy Connector to the Deception Admin Portal:
 
@@ -2418,13 +2419,13 @@ To add and connect a Decoy Connector to the Deception Admin Portal:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-custom-file-template","lastmod":"2026-05-13T01:18Z","nid":"1539303"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-custom-file-template","lastmod":"2026-08-03T00:19Z","nid":"1540510"} -->
 ## Adding a Custom File Template
 
 - Source: https://help.zscaler.com/deception/adding-custom-file-template
 - Product: Deception
 - Path: Deception Help > Miragemaker > File Datasets & Templates > File Templates > Adding a Custom File Template
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to add a miragemaker custom file template.
 
 You can add a custom file template and use it as a baseline when [adding dynamic file datasets](https://help.zscaler.com/deception/adding-dynamic-file-dataset). Before you can add a template, you must create a compressed (.zip) file that includes the template's files.
@@ -2447,13 +2448,13 @@ To add a custom file template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-dynamic-application-dataset","lastmod":"2026-05-13T01:18Z","nid":"1539335"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-dynamic-application-dataset","lastmod":"2026-08-03T00:19Z","nid":"1540542"} -->
 ## Adding a Dynamic Application Dataset
 
 - Source: https://help.zscaler.com/deception/adding-dynamic-application-dataset
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > Dynamic Application Datasets > Adding a Dynamic Application Dataset
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to add dynamic application datasets that can be used to mimic some behaviors of legitimate applications.
 
 You can configure dynamic application datasets that can be used in threat intelligence decoys and network decoys to create dynamic web applications that mimic select behaviors and the front-end UI of legitimate applications.
@@ -2515,13 +2516,13 @@ To add a dynamic file dataset:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-ip-addresses-allowlist","lastmod":"2025-06-11T07:06Z","nid":"1539248"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-ip-addresses-allowlist","lastmod":"2026-06-24T21:06Z","nid":"1540455"} -->
 ## Adding IP Addresses to the Allowlist
 
 - Source: https://help.zscaler.com/deception/adding-ip-addresses-allowlist
 - Product: Deception
 - Path: Deception Help > Settings > Network Settings > Adding IP Addresses to the Allowlist
-- Last modified: 2025-06-11T07:06Z
+- Last modified: 2026-06-24T21:06Z
 - Summary: How to add IP addresses to the Zscaler Deception Admin Portal allowlist.
 
 You can enhance security for the Zscaler Deception Admin Portal by configuring an allowlist, specifying IP addresses that are allowed to access it. This extra layer of control minimizes unauthorized access and reduces threats.
@@ -2533,7 +2534,7 @@ To configure the IP address allowlist:
 3. Click **Add**. See image.
 4. Enter the following details:
   - **Name**: Enter a name for the allowlist.
-  - **IP/CIDR**: Enter the IP or CIDR address. You can enter `all` to allow all IP addresses. Certain IP addresses for aggregators, Threat Intelligence (TI) management, Decoy Connectors, and Zscaler Private Access (ZPA) App Connectors are added to the allowlist by default. If you try to add these IP addresses again, an overlapping IP/CIDR found error message is displayed.
+  - **IP/CIDR**: Enter the IP or CIDR address. You can enter `all` to allow all IP addresses. Certain IP addresses for aggregators, Threat Intelligence (TI) management, Decoy Connectors, and Private Access (ZPA) App Connectors are added to the allowlist by default. If you try to add these IP addresses again, an overlapping IP/CIDR found error message is displayed.
   - Enable the following modules to access the Deception Admin Portal: See image.
     - **UI/APIV2**: Allow access via user interface (UI) or V2 API endpoints.
     - **Decoy Connector**: Allow Decoy Connectors and aggregators to connect.
@@ -2551,13 +2552,13 @@ You can lock out users and components such as Decoy Connectors, aggregators, and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-network-decoy-active-directory","lastmod":"2026-05-13T01:18Z","nid":"1539149"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-network-decoy-active-directory","lastmod":"2026-08-03T00:19Z","nid":"1540356"} -->
 ## Adding an Internal Network Decoy to an Active Directory Domain
 
 - Source: https://help.zscaler.com/deception/adding-network-decoy-active-directory
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Adding an Internal Network Decoy to an Active Directory Domain
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to add an Internal network decoy to an Active Directory (AD) as an AD computer object.
 
 You can add an Internal network decoy to an Active Directory (AD) domain and AD DNS as an AD decoy computer object to make it look like a legitimate domain-joined system. AD decoy computers detect AD enumeration activities and AD-related exploits.
@@ -2594,13 +2595,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-static-application-dataset","lastmod":"2026-05-13T01:18Z","nid":"1539312"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-static-application-dataset","lastmod":"2026-08-03T00:19Z","nid":"1540519"} -->
 ## Adding a Static Application Dataset
 
 - Source: https://help.zscaler.com/deception/adding-static-application-dataset
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > Static Application Datasets > Adding a Static Application Dataset
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to add a static application dataset in the Zscaler Deception Admin Portal.
 
 Static application datasets are web application front ends. These datasets consist of static HTML files, CSS files, JavaScript files, etc. that can be used as an interface to engage adversaries submitting credentials or performing text-based web application attacks.
@@ -2662,13 +2663,13 @@ To add a static file dataset:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-vulnerable-application-dataset","lastmod":"2026-05-13T01:18Z","nid":"1539332"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-vulnerable-application-dataset","lastmod":"2026-08-03T00:19Z","nid":"1540539"} -->
 ## Adding a Vulnerable Application Dataset
 
 - Source: https://help.zscaler.com/deception/adding-vulnerable-application-dataset
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > Vulnerable Application Datasets > Adding a Vulnerable Application Dataset
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a vulnerable application dataset that can be used to mimic some behaviors of legitimate dynamic web applications.
 
 You can configure vulnerable application datasets to emulate the requests and responses in dynamic web applications that are deployed using threat intelligence decoys and network decoys.
@@ -2695,13 +2696,13 @@ After you create the vulnerable application dataset, you can use it to configure
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-active-directory-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539431"} -->
+<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-active-directory-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540638"} -->
 ## Best Practice Guide for Active Directory Decoys
 
 - Source: https://help.zscaler.com/deception/best-practice-guide-active-directory-decoys
 - Product: Deception
 - Path: Deception Help > Getting Started > Best Practices > Best Practice Guide for Active Directory Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about best practices, use cases, and deployment recommendations for Active Directory (AD) decoys.
 
 This best practice guide provides use cases and deployment recommendations for Active Directory (AD) decoys.
@@ -2840,13 +2841,13 @@ You can create decoy AD user accounts that mimic sensitive business-critical acc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-landmine-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539436"} -->
+<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-landmine-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540643"} -->
 ## Best Practice Guide for Landmine Decoys
 
 - Source: https://help.zscaler.com/deception/best-practice-guide-landmine-decoys
 - Product: Deception
 - Path: Deception Help > Getting Started > Best Practices > Best Practice Guide for Landmine Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Best practice guidelines for deploying landmine decoys.
 
 This guide provides use cases and deployment recommendations for landmine decoys.
@@ -2913,13 +2914,13 @@ The following table provides information on the recommended configurations of a 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-network-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539438"} -->
+<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-network-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540645"} -->
 ## Best Practice Guide for Network Decoys
 
 - Source: https://help.zscaler.com/deception/best-practice-guide-network-decoys
 - Product: Deception
 - Path: Deception Help > Getting Started > Best Practices > Best Practice Guide for Network Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Best practice guidelines for deploying network decoys.
 
 This guide provides use cases and deployment recommendations for network decoys.
@@ -3056,13 +3057,13 @@ Creating decoys of different types of well-known services and protocols can give
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-threat-intelligence-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539433"} -->
+<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-threat-intelligence-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540640"} -->
 ## Best Practice Guide for Threat Intelligence Decoys
 
 - Source: https://help.zscaler.com/deception/best-practice-guide-threat-intelligence-decoys
 - Product: Deception
 - Path: Deception Help > Getting Started > Best Practices > Best Practice Guide for Threat Intelligence Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about best practices, use cases, and deployment recommendations for Threat Intelligence (TI) decoys.
 
 This best practice guide provides use cases and deployment recommendations for Threat Intelligence (TI) decoys.
@@ -3166,13 +3167,13 @@ Before creating the decoy, clone the business-critical web application’s login
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-using-containment-integrations","lastmod":"2025-05-12T01:59Z","nid":"1539437"} -->
+<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-using-containment-integrations","lastmod":"2026-07-09T21:06Z","nid":"1540644"} -->
 ## Best Practice Guide for Using Containment Integrations
 
 - Source: https://help.zscaler.com/deception/best-practice-guide-using-containment-integrations
 - Product: Deception
 - Path: Deception Help > Getting Started > Best Practices > Best Practice Guide for Using Containment Integrations
-- Last modified: 2025-05-12T01:59Z
+- Last modified: 2026-07-09T21:06Z
 - Summary: Best practice guide for using various containment integrations.
 
 This guide provides detailed deployment recommendations for integrating various decoys with third-party security solutions, along with suggested containment scenarios.
@@ -3213,7 +3214,7 @@ The following are some of the containment scenarios along with recommended secur
 
 | Containment Scenario | Recommended Integrations | Recommended Orchestration Rule |
 | --- | --- | --- |
-| Running commands on a MySQL database | You can use any of the following integrations: CrowdStrike (based on IP address); Zscaler Private Access (ZPA); Microsoft Defender; VMware Carbon Black | `sub_type is "mysql"` |
+| Running commands on a MySQL database | You can use any of the following integrations: CrowdStrike (based on IP address); Private Access (ZPA); Microsoft Defender; VMware Carbon Black | `sub_type is "mysql"` |
 | Running commands on a PostgreSQL database | `type is "postgresql" and sub_type is "connect"` |  |
 | Running commands on a MongoDB database | `type is "mongodb"` |  |
 | Running command in SSH Shell | `linux.command_line like /.*(vi\|vim\|nano\|ed).*\.(profile\|bashrc\|bash\_profile).*/` |  |
@@ -3236,7 +3237,7 @@ The following are some of the containment scenarios along with recommended secur
 
 | Containment Scenario | Recommended Integrations | Recommended Orchestration Rule |
 | --- | --- | --- |
-| When someone successfully harvests a credential from Local Security Authority Subsystem Service (LSASS), and uses decoy breadcrumbs to authenticate further | You can use any of the following integrations: CrowdStrike; Zscaler Private Access (ZPA); Zscaler Internet Access (ZIA) | `type is "endpoint" and sub_type is "imc"` |
+| When someone successfully harvests a credential from Local Security Authority Subsystem Service (LSASS), and uses decoy breadcrumbs to authenticate further | You can use any of the following integrations: CrowdStrike; Private Access; Internet & SaaS (ZIA) | `type is "endpoint" and sub_type is "imc"` |
 | When someone tries to capture New Technology LAN Manager (NTLM) hashes using Link-Local Multicast Name Resolution (LLMNR) poisoning on a subnet | `type is "endpoint" and sub_type is "mitm"` |  |
 | When someone tries connecting to an endpoint remotely via PSexec | `sub_type is "psexec"` |  |
 
@@ -3276,13 +3277,13 @@ To change the password:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-active-directory-decoy-personality","lastmod":"2026-05-13T01:18Z","nid":"1539391"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-active-directory-decoy-personality","lastmod":"2026-08-03T00:19Z","nid":"1540598"} -->
 ## Configuring an Active Directory Decoy Personality
 
 - Source: https://help.zscaler.com/deception/configuring-active-directory-decoy-personality
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Active Directory Decoy Personalities > Configuring an Active Directory Decoy Personality
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to create an Active Directory (AD) decoy personality
 
 Active Directory (AD) decoy personalities are templates that allow you to use [deception strategies](https://help.zscaler.com/deception/about-deception-strategy) to create and deploy [AD decoys](https://help.zscaler.com/deception/about-active-directory-decoys).
@@ -3353,13 +3354,13 @@ To enable advanced deception features via a landmine policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-and-downloading-trigger-script","lastmod":"2026-05-13T01:18Z","nid":"1539199"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-and-downloading-trigger-script","lastmod":"2026-08-03T00:19Z","nid":"1540406"} -->
 ## Configuring and Downloading a Trigger Script
 
 - Source: https://help.zscaler.com/deception/configuring-and-downloading-trigger-script
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Configuring and Downloading a Trigger Script
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure and download trigger scripts from the Zscaler Deception Admin Portal.
 
 A trigger script runs on either an Active Directory (AD) domain controller or security information and event management (SIEM) system when it detects any interaction with an AD decoy. A trigger script sends logs from either a domain controller or a supported SIEM tool to the Zscaler Deception Admin Portal. You can configure a trigger script to customize how to forward AD event logs to the portal and download the script based on your requirements.
@@ -3395,13 +3396,13 @@ You can configure:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-datalists","lastmod":"2026-05-13T01:18Z","nid":"1539446"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-datalists","lastmod":"2026-08-03T00:19Z","nid":"1540653"} -->
 ## Configuring and Managing Datalists
 
 - Source: https://help.zscaler.com/deception/configuring-and-managing-datalists
 - Product: Deception
 - Path: Deception Help > Miragemaker > Miscellaneous > Configuring and Managing Datalists
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure and manage datalists.
 
 Datalists are ready-to-use parameters containing key-value pairs that can be used in various decoy personalities and generative AI decoys. Each datalist can have multiple key-value pairs and each key can have multiple values mapped to it. By default, Zscaler Deception provides a list of preconfigured datalists that can be used in [Network Decoy personalities](https://help.zscaler.com/deception/configuring-network-decoy-personality) (as Active Directory OUs), [Active Directory Decoy personalities](https://help.zscaler.com/deception/configuring-active-directory-decoy-personality) (as Group Memberships), [Landmine personalities](https://help.zscaler.com/deception/configuring-landmine-decoy-personality) (as Fakes in Defense Evasion), and interactive [generative AI decoys](https://help.zscaler.com/deception/configuring-services-network-decoy#deception-config-service-gen-ai-hi-interaction-app-section) (as Model Names). In addition, you can create custom datalists based on your requirements.
@@ -3474,13 +3475,13 @@ The default datalists cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-ftp-banners","lastmod":"2026-05-13T01:18Z","nid":"1539395"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-ftp-banners","lastmod":"2026-08-03T00:19Z","nid":"1540602"} -->
 ## Configuring and Managing FTP Banners
 
 - Source: https://help.zscaler.com/deception/configuring-and-managing-ftp-banners
 - Product: Deception
 - Path: Deception Help > Miragemaker > Miscellaneous > Configuring and Managing FTP Banners
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure and manage FTP banners
 
 FTP banners are metadata about the service running on an FTP server. Typically, the FTP banner is used as a welcome string that is shown to clients connecting to FTP servers. You can associate the FTP banners with network decoys that have FTP service enabled. Zscaler Deception provides a list of reconfigured FTP banners that can lure attackers when used with network decoys. You can also create custom FTP banners that can lure attackers based on your business requirements. To learn how to use FTP banners in network decoys, see [Configuring Services on a Network Decoy](https://help.zscaler.com/deception/configuring-services-network-decoy#configuring-ftp-service).
@@ -3526,13 +3527,13 @@ Default FTP banners cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-tags","lastmod":"2026-05-13T01:18Z","nid":"1539397"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-tags","lastmod":"2026-08-03T00:19Z","nid":"1540604"} -->
 ## Configuring and Managing Tags
 
 - Source: https://help.zscaler.com/deception/configuring-and-managing-tags
 - Product: Deception
 - Path: Deception Help > Miragemaker > Miscellaneous > Configuring and Managing Tags
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure and manage tags.
 
 Tags are used to group various resources across Zscaler Deception. You can associate tags with personalities and reference them using their tags in deception strategies. When a tag is used in a [deception strategy](https://help.zscaler.com/deception/about-deception-strategy), any personality that is associated with the tag is chosen at random during the deployment of decoys. Deception provides a preconfigured list of default tags. You can also create custom tags based on your business requirements.
@@ -3587,13 +3588,13 @@ To export all tags as a JSON file:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-web-server-banners","lastmod":"2026-05-13T01:18Z","nid":"1539396"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-web-server-banners","lastmod":"2026-08-03T00:19Z","nid":"1540603"} -->
 ## Configuring and Managing Web Server Banners
 
 - Source: https://help.zscaler.com/deception/configuring-and-managing-web-server-banners
 - Product: Deception
 - Path: Deception Help > Miragemaker > Miscellaneous > Configuring and Managing Web Server Banners
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure and manage web server banners
 
 Web server banners are metadata about the service running on a web server. Typically, the web server banner is used in the server response header when an attacker connects to the web server. You can associate the web server banners with network decoys that have web service enabled. Zscaler Deception provides a list of reconfigured web server banners that can lure attackers when used with network decoys. You can also create custom web server banners that can lure attackers based on your business requirements. To learn how to use web server banners in network decoys, see [Configuring Services on a Network Decoy](https://help.zscaler.com/deception/configuring-services-network-decoy#configuring-web-service).
@@ -3639,20 +3640,20 @@ Default web server banners cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-browser-lures","lastmod":"2026-05-13T01:18Z","nid":"1539171"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-browser-lures","lastmod":"2026-08-03T00:19Z","nid":"1540378"} -->
 ## Configuring Browser Lures
 
 - Source: https://help.zscaler.com/deception/configuring-browser-lures
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Configuring Browser Lures
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure landmine policies to deploy various browser lures on endpoints.
 
-The Browser Lures module enables you to add decoy credentials, cookies, and bookmarks to browsers such as Google Chrome, Mozilla Firefox, Microsoft Edge, and Internet Explorer on endpoints.
+The Browser Lures module enables you to add decoy credentials, cookies, and bookmarks to browsers such as Google Chrome, Mozilla Firefox, and Microsoft Edge on endpoints.
 
-- Windows endpoints support lures for Chrome, Firefox, Edge, and Internet Explorer.
+- Windows endpoints support lures for Chrome, Firefox, and Edge.
 - macOS endpoints support lures for Chrome only.
-- Linux endpoints support lures for Chrome and Firefox
+- Linux endpoints support lures for Chrome and Firefox.
 
 To configure browser lures via a landmine policy:
 
@@ -3660,15 +3661,13 @@ To configure browser lures via a landmine policy:
 2. Locate the policy, and click the **Edit** icon. See image.
 3. In the policy configuration window, click**Browser Lure**s and configure the options:
   1. **Favorites Folder**: Enter a folder name to use while creating favorites for all supported browsers.
-  2. Select the type of lures you want to deploy for the browser of your choice. The available lures are **Cookies**,**Favorites**, and**Credentials**. For Edge browser lures, if your environment includes endpoints running landmine agent or agentless up to version 4.23, you can select the **Force Apply** option to disable the **Startup boost**option in the browser settings. When the **Startup boost**option is enabled in the browser settings, the browser runs in the background with minimal processes to improve performance. However, this can prevent landmine policies from being applied to the browser. By default, the **Force Apply** option is disabled. For newer versions (later than 4.23) of landmine agent and agentless, the polices are applied even if the **Startup boost**option is enabled in Edge browsers without using the **Force Apply** option. See image. Cookie lures are not supported in Internet Explorer.; For Chrome browsers, a new profile with a random name is created to store lures. This is maintained as a hidden profile and exists alongside the default user profile. The lures are deployed in the newly created profile.
+  2. Enable the type of lures you want to deploy (e.g., **Cookies**,**Favorites**, and**Credentials**). For Edge browser lures, if your environment includes endpoints running landmine agent or agentless up to version 4.23, you can select the **Force Apply** option to disable the **Startup boost**option in the browser settings. When the **Startup boost**option is enabled in the browser settings, the browser runs in the background with minimal processes to improve performance. However, this can prevent landmine policies from being applied to the browser. By default, the **Force Apply** option is disabled. For newer versions (later than 4.23) of landmine agent and agentless, the polices are applied even if the **Startup boost**option is enabled in Edge browsers without using the **Force Apply** option. See image. For Chrome browsers, a new profile with a random name is created to store lures. This is maintained as a hidden profile and exists alongside the default user profile. The lures are deployed in the newly created profile.
   3. **Target decoys**: Select one or more decoys from the drop-down menu to use as a target for the lures. If the **Target decoys** field is blank, all of the decoys running the web service are used as a default pool. The landmine agent randomly selects the decoys from the pool of target decoys and adds them to the browser. A maximum of two decoys are deployed for each browser and the type of lure. See image. The **GenAI** icon indicates browser lures that support generative AI decoys as target decoys.; If the target decoy is an authentication-enabled generative AI decoy and the **Credentials**lure option is enabled for a browser, then adversaries can use the fake credentials stored in the browsers to log in to the generative AI decoys. To learn more about authentication-enabled generative AI decoys, see [Configuring Services on a Network Decoy](https://help.zscaler.com/deception/configuring-services-network-decoy).
-4. Click **Save**. See image. Passwords for the browser lures are generated according to the rules configured in the [Password Settings](https://help.zscaler.com/deception/configuring-password-settings) module.
+4. Click **Save**. Passwords for the browser lures are generated according to the rules configured in the [Password Settings](https://help.zscaler.com/deception/configuring-password-settings) module.
 
 [Image: Edit a landmine policy]
 
 [Image: A screenshot of the Browser Lures module in a landmine policy]
-
-[Image: Browser Lures deception module added]
 
 [Image: Enabling Force Apply option for a landmine policy]
 <!-- /ZS-ARTICLE -->
@@ -3743,13 +3742,13 @@ To configure the credentials for the VM:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-custom-protocol-container","lastmod":"2026-05-13T01:18Z","nid":"1539306"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-custom-protocol-container","lastmod":"2026-08-03T00:19Z","nid":"1540513"} -->
 ## Configuring a Custom Protocol Container
 
 - Source: https://help.zscaler.com/deception/configuring-custom-protocol-container
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > High-Interaction Containers > Configuring a Custom Protocol Container
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a custom protocol container in the Zscaler Deception Admin Portal.
 
 You can create a custom protocol container dataset, which is a non-web application (e.g., PostgreSQL database server), and deploy it as a network decoy.
@@ -3776,13 +3775,13 @@ After you create the custom protocol container dataset, you can use it as a serv
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-custom-service-dataset","lastmod":"2026-05-13T01:18Z","nid":"1539399"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-custom-service-dataset","lastmod":"2026-08-03T00:19Z","nid":"1540606"} -->
 ## Configuring a Custom Service Dataset
 
 - Source: https://help.zscaler.com/deception/configuring-custom-service-dataset
 - Product: Deception
 - Path: Deception Help > Miragemaker > Custom Service Datasets > Configuring a Custom Service Dataset
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure custom service datasets
 
 You can create custom service datasets and use them in network decoys to configure network deception using custom services.
@@ -3808,13 +3807,13 @@ After configuring a custom service dataset, you can use it to set up network dec
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-decoy-connector-management-network","lastmod":"2026-05-13T01:18Z","nid":"1539126"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-decoy-connector-management-network","lastmod":"2026-08-03T00:19Z","nid":"1540333"} -->
 ## Configuring a Decoy Connector Management Network
 
 - Source: https://help.zscaler.com/deception/configuring-decoy-connector-management-network
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Decoy Connector Deployment Guides for Supported Platforms > Configuring a Decoy Connector Management Network
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Decoy Connector management network in the Zscaler Deception Recovery Console.
 
 After you configure a Decoy Connector on any supported hypervisor, you need to configure its management network.
@@ -3872,13 +3871,13 @@ The configured process can take more than two minutes to restart after it is sto
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-file-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539173"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-file-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540380"} -->
 ## Configuring File Decoys
 
 - Source: https://help.zscaler.com/deception/configuring-file-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Configuring File Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure landmine policies to deploy various types file decoys on endpoints.
 
 The File Decoys module enables you to place decoy files on endpoints. The Zscaler Deception Admin Portal generates alerts when an adversary attempts to interact with these file decoys.
@@ -4117,13 +4116,13 @@ Before you configure QRadar to forward logs, you must configure a Decoy Connecto
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-keyword-datasets","lastmod":"2026-05-13T01:18Z","nid":"1539370"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-keyword-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540577"} -->
 ## Configuring Keyword Datasets
 
 - Source: https://help.zscaler.com/deception/configuring-keyword-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > Keyword Datasets > Configuring Keyword Datasets
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure keyword datasets to use specific keywords when generating recommendations for various identifiers.
 
 You can configure [keyword datasets](https://help.zscaler.com/deception/understanding-keyword-datasets) to autogenerate recommendations for decoy parameters, such as hostnames, file and folder names, network decoy names, etc.
@@ -4141,13 +4140,13 @@ Zscaler recommends using keywords that can lure attackers. For example, you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-landmine-decoy-personality","lastmod":"2026-05-13T01:18Z","nid":"1539386"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-landmine-decoy-personality","lastmod":"2026-08-03T00:19Z","nid":"1540593"} -->
 ## Configuring a Landmine Decoy Personality
 
 - Source: https://help.zscaler.com/deception/configuring-landmine-decoy-personality
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Landmine Decoy Personalities > Configuring a Landmine Decoy Personality
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to create a landmine decoy personality.
 
 Landmine decoy personalities are templates that allow you to use [deception strategies](https://help.zscaler.com/deception/about-deception-strategy) to create and deploy landmine decoys. Similar to landmine decoys, the landmine decoy personalities rely on policies to create landmine decoys. The policy configuration for landmine decoy personalities is similar to the policy configuration for [landmine decoys](https://help.zscaler.com/deception/about-landmine-decoys).
@@ -4185,13 +4184,13 @@ After configuring a landmine decoy personality, you can use it to create and dep
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-logrythm-forward-active-directory-event-logs","lastmod":"2026-05-13T01:18Z","nid":"1539326"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-logrythm-forward-active-directory-event-logs","lastmod":"2026-08-03T00:19Z","nid":"1540533"} -->
 ## Configuring LogRhythm to Forward Active Directory Event Logs
 
 - Source: https://help.zscaler.com/deception/configuring-logrythm-forward-active-directory-event-logs
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Configuring LogRhythm to Forward Active Directory Event Logs
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure LogRhythm to filter event logs from the Active Directory (AD) domain controllers, and forward these logs to the Zscaler Deception Admin Portal.
 
 You can configure LogRhythm to filter event logs from the Active Directory (AD) domain controllers for decoy accounts or enumeration detection. You can forward these logs to the Zscaler Deception Admin Portal when adversary actions are detected.
@@ -4336,13 +4335,13 @@ The following tables map the XML version of the events (as viewed in the Event V
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-lure-refresh-interval","lastmod":"2026-05-13T01:18Z","nid":"1539184"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-lure-refresh-interval","lastmod":"2026-08-03T00:19Z","nid":"1540391"} -->
 ## Modifying Lure Refresh Interval
 
 - Source: https://help.zscaler.com/deception/configuring-lure-refresh-interval
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agent Configuration > Modifying Lure Refresh Interval
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to modify the landmine decoys lure refresh interval from the Zscaler Deception Admin Portal.
 
 The lure refresh interval is the frequency in which the decoys deployed on an endpoint are refreshed. You can configure the refresh interval (in hours) from the [Agent Configuration](https://help.zscaler.com/deception/about-landmine-settings) page.
@@ -4360,13 +4359,13 @@ To configure the lure refresh interval:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-aws-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539366"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-aws-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540573"} -->
 ## Configuring Lures Using AWS Decoys
 
 - Source: https://help.zscaler.com/deception/configuring-lures-using-aws-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Configuring Lures Using AWS Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure lures using AWS decoys
 
 After configuring the [integration between Amazon Web Services (AWS) and Zscaler Deception](https://help.zscaler.com/deception/setting-cloud-deception-aws#zd-integration-aws-decoys) and [deploying the necessary decoys](https://help.zscaler.com/deception/setting-cloud-deception-aws#zd-aws-decoys-setup), you can use the decoys to set up lures for attackers. You can use different methods to set up lures depending on the type of decoys, as explained in the following sections:
@@ -4439,13 +4438,13 @@ To learn more about generative AI models in AWS, refer to the [AWS documentation
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-azure-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539364"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-azure-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540571"} -->
 ## Configuring Lures Using Azure Decoys
 
 - Source: https://help.zscaler.com/deception/configuring-lures-using-azure-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Configuring Lures Using Azure Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure different types of lures using different types of Azure decoys.
 
 After configuring the [integration between Microsoft Azure and Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure#zd-integration-azure-decoys) and [deploying the necessary decoys](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure#zd-azure-decoys-setup), you can use the decoys to set up lures for attackers. You can use different methods to set up lures depending on the type of decoys, as explained in the following sections:
@@ -4539,13 +4538,13 @@ To learn more about generative AI models in Azure, refer to the [Microsoft docum
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-gcp-decoys","lastmod":"2026-06-14T07:06Z","nid":"1539472"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-gcp-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540679"} -->
 ## Configuring Lures Using GCP Decoys
 
 - Source: https://help.zscaler.com/deception/configuring-lures-using-gcp-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > GCP > Configuring Lures Using GCP Decoys
-- Last modified: 2026-06-14T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on the different types of GCP lures you can configure.
 
 After configuring the [integration between Google Cloud Platform (GCP) and Zscaler Deception](https://help.zscaler.com/deception/setting-cloud-deception-gcp#zd-integration-gcp-decoys) and [deploying the necessary decoys](https://help.zscaler.com/deception/setting-cloud-deception-gcp#zd-gcp-decoys-setup), you can use the decoys to set up lures for attackers. You can use different methods to set up lures depending on the type of decoys, as explained in the following sections:
@@ -4595,13 +4594,13 @@ To learn more about artifact registry in GCP, refer to the [Google documentation
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-microsoft-azure-forward-active-directory-event-logs","lastmod":"2026-05-13T01:18Z","nid":"1539327"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-microsoft-azure-forward-active-directory-event-logs","lastmod":"2026-08-03T00:19Z","nid":"1540534"} -->
 ## Configuring Microsoft Azure Sentinel to Forward Active Directory Event Logs
 
 - Source: https://help.zscaler.com/deception/configuring-microsoft-azure-forward-active-directory-event-logs
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Configuring Microsoft Azure Sentinel to Forward Active Directory Event Logs
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure Microsoft Azure Sentinel to filter event logs from the Active Directory (AD) domain controllers for decoy accounts or enumeration detection.
 
 You can configure Microsoft Azure Sentinel to filter event logs from the Active Directory (AD) domain controllers for decoy accounts or enumeration detection. You can forward these logs to the Zscaler Deception Admin Portal when adversary actions are detected.
@@ -4679,13 +4678,13 @@ To test AD decoys, log in to a decoy AD user account. You can see events trigger
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-mitm-attack-detection","lastmod":"2026-05-13T01:18Z","nid":"1539338"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-mitm-attack-detection","lastmod":"2026-08-03T00:19Z","nid":"1540545"} -->
 ## Configuring MITM Attack Detection
 
 - Source: https://help.zscaler.com/deception/configuring-mitm-attack-detection
 - Product: Deception
 - Path: Deception Help > Deceive  > MITM Detection > Configuring MITM Attack Detection
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure the MITM Attack Detection for network decoys in the Zscaler Deception Admin Portal.
 
 You can configure your [internal network decoys](https://help.zscaler.com/deception/creating-internal-network-decoy) to detect MITM attacks, such as Link-Local Multicast Name Resolution (LLMNR) poisoning, NetBIOS Name Service (NBT-NS) poisoning, and multicast DNS (mDNS) poisoning.
@@ -4700,7 +4699,7 @@ To configure MITM attack detection on your network decoys:
     - **mDNS**: Enable to detect mDNS poisoning by broadcasting decoy name resolution requests using mDNS protocol from network decoys. mDNS protocol is typically used on small networks that do not have a dedicated local name server. Responders to mDNS queries listen to UDP port 5353.
   2. **Broadcast Interval (In minutes)**: Specify the time interval (in minutes) to configure the frequency based on how often the network decoys should broadcast decoy name resolution requests.
   3. **Hostnames**: Enter hostnames (one hostname per line) that should be used to generate decoy name resolution requests. If a list of hostnames is configured in this field, then a hostname is selected at random from this list for each request. If the field is left blank, then the Zscaler service automatically generates a hostname for each request. Zscaler recommends configuring hostnames that can lure attackers to respond with malicious responses. For example, hostnames such as Admin-PC and DBSSERVER can lure attackers to send malicious responses. When configuring hostnames, make sure that they are unique and are not assigned to any real hosts on the network.
-  4. **Select subnets**: Select the subnet in which you want to detect MITM decoys by using the respective decoy connectors. MITM detection is not supported for decoys connected to Threat Intelligence Decoy Connectors, ZPA Decoy Connectors, and cloud-based Decoy Connectors. Hence, subnets associated with these Decoy Connectors are not listed.
+  4. **Select subnets**: Select the subnet in which you want to detect MITM decoys by using the respective decoy connectors. MITM detection is not supported for decoys connected to Threat Intelligence Decoy Connectors, Private Access (ZPA) Decoy Connectors, and cloud-based Decoy Connectors. Hence, subnets associated with these Decoy Connectors are not listed.
 3. Click **Save**.
 
 [Image: A screenshot capturing the page for configruing MITM attack detection]
@@ -4708,13 +4707,13 @@ To configure MITM attack detection on your network decoys:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-network-decoy-personality","lastmod":"2026-05-13T01:18Z","nid":"1539376"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-network-decoy-personality","lastmod":"2026-08-03T00:19Z","nid":"1540583"} -->
 ## Configuring a Network Decoy Personality
 
 - Source: https://help.zscaler.com/deception/configuring-network-decoy-personality
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Network Decoy Personalities > Configuring a Network Decoy Personality
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure network decoy personalities.
 
 You can create [internal network](https://help.zscaler.com/deception/creating-internal-network-decoy) decoys and [Zero Trust Network](https://help.zscaler.com/deception/creating-zero-trust-network-decoy) decoys using network decoy personalities either manually or via [deception strategies](https://help.zscaler.com/deception/about-deception-strategy). The configuration of network decoy personalities is similar to configuring the network decoys.
@@ -4755,13 +4754,13 @@ After configuring a network decoy personality, you can use it to create network 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-openid-single-sign","lastmod":"2026-06-19T02:25Z","nid":"1539229"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-openid-single-sign","lastmod":"2026-08-03T00:19Z","nid":"1540436"} -->
 ## Configuring OpenID for Single Sign-On
 
 - Source: https://help.zscaler.com/deception/configuring-openid-single-sign
 - Product: Deception
 - Path: Deception Help > Authentication > OpenID Configuration > Configuring OpenID for Single Sign-On
-- Last modified: 2026-06-19T02:25Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure OpenID for SSO on the Zscaler Deception Admin Portal.
 
 Zscaler recommends using [Authentication Service](https://help.zscaler.com/authentication-service/what-authentication-service) to configure primary and secondary [external identity providers (IdPs)](https://help.zscaler.com/authentication-service/about-external-identity-providers). Authentication Service supports both SAML and OpenID configurations. Contact Zscaler Support to subscribe to Authentication Service.
@@ -4815,13 +4814,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-openid-single-sign-using-google","lastmod":"2026-06-19T02:24Z","nid":"1539228"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-openid-single-sign-using-google","lastmod":"2026-08-03T00:19Z","nid":"1540435"} -->
 ## Configuring OpenID for Single Sign-On Using Google
 
 - Source: https://help.zscaler.com/deception/configuring-openid-single-sign-using-google
 - Product: Deception
 - Path: Deception Help > Authentication > OpenID Configuration > Configuring OpenID for Single Sign-On Using Google
-- Last modified: 2026-06-19T02:24Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure OpenID for single sign-on (SSO) using Google.
 
 Zscaler recommends using [Authentication Service](https://help.zscaler.com/authentication-service/what-authentication-service) to configure primary and secondary [external identity providers (IdPs)](https://help.zscaler.com/authentication-service/about-external-identity-providers). Authentication Service supports both SAML and OpenID configurations. Contact Zscaler Support to subscribe to Authentication Service.
@@ -4868,13 +4867,13 @@ After you obtain the client ID, client secret, and endpoint configuration detail
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-openid-single-sign-using-okta","lastmod":"2026-06-19T02:27Z","nid":"1539227"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-openid-single-sign-using-okta","lastmod":"2026-08-03T00:19Z","nid":"1540434"} -->
 ## Configuring OpenID for Single Sign-On Using Okta
 
 - Source: https://help.zscaler.com/deception/configuring-openid-single-sign-using-okta
 - Product: Deception
 - Path: Deception Help > Authentication > OpenID Configuration > Configuring OpenID for Single Sign-On Using Okta
-- Last modified: 2026-06-19T02:27Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure OpenID for single sign-on (SSO) using Okta.
 
 Zscaler recommends using [Authentication Service](https://help.zscaler.com/authentication-service/what-authentication-service) to configure primary and secondary [external identity providers (IdPs)](https://help.zscaler.com/authentication-service/about-external-identity-providers). Authentication Service supports both SAML and OpenID configurations. Contact Zscaler Support to subscribe to Authentication Service.
@@ -5033,13 +5032,13 @@ To configure proxy settings for a Decoy Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-safe-process","lastmod":"2026-07-02T21:12Z","nid":"1539309"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-safe-process","lastmod":"2026-07-05T07:06Z","nid":"1540516"} -->
 ## Configuring a Safe Process
 
 - Source: https://help.zscaler.com/deception/configuring-safe-process
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Safe Processes > Configuring a Safe Process
-- Last modified: 2026-07-02T21:12Z
+- Last modified: 2026-07-05T07:06Z
 - Summary: How to configure a process as safe in the Zscaler Deception Admin Portal.
 
 You can configure a process with filters and mark it as safe. These processes do not generate security events when accessing the decoy lures.
@@ -5074,8 +5073,7 @@ To configure a process as safe:
 See image.
 
 1. **Selection Type**:Choose the type of executable path you want to use for identifying a safe process. If you want to use a regular expression for the path value, select **Executable Path Regex**from the drop-down menu, and enter the regex expression in the **Executable Path Regex**field (e.g., `/Applications/.*\.app/Contents/MacOS/.*`). If you want to use an absolute path value, select **Executable File Path**from the drop-down menu, and enter the absolute path value in the **Executable File Path**field. (e.g., `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`). You can use regular expressions for path values if the processes that you want to mark as safe have names with a predictable string of characters, such as version number. See image.
-2. **Executable File Hash**: Enter the executable file hash of the macOS binary belonging to the safe process (e.g., `06EB891AAF62499719416B53F2CC9428D0ADE77C80A664A7F3A177F596E06BA7`). If more than one field is configured, a process is classified as a safe process only if all the field values match with their respective attributes of the process.
-3. **Detection Types**: Select the types of safe process and also select the subtypes to define the safe process at a granular level. For macOS endpoints, the following types and subtypes are supported:
+2. **Detection Types**: Select the types of safe process and also select the subtypes to define the safe process at a granular level. For macOS endpoints, the following types and subtypes are supported:
   | Detection Type | Subtype |
   | --- | --- |
   | File Decoy | `read`; `rename`; `delete`; `copy` |
@@ -5090,13 +5088,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-active-directory-federation-services","lastmod":"2026-06-19T02:31Z","nid":"1539226"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-active-directory-federation-services","lastmod":"2026-08-03T00:19Z","nid":"1540433"} -->
 ## Configuring SAML for Active Directory Federation Services
 
 - Source: https://help.zscaler.com/deception/configuring-saml-active-directory-federation-services
 - Product: Deception
 - Path: Deception Help > Authentication > SAML Configuration > Configuring SAML for Active Directory Federation Services
-- Last modified: 2026-06-19T02:31Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure Microsoft Active Directory Federation Services (ADFS) as SAML identity provider (IdP) for the Zscaler Deception Admin Portal.
 
 Zscaler recommends using [Authentication Service](https://help.zscaler.com/authentication-service/what-authentication-service) to configure primary and secondary [external identity providers (IdPs)](https://help.zscaler.com/authentication-service/about-external-identity-providers). Authentication Service supports both SAML and OpenID configurations. Contact Zscaler Support to subscribe to Authentication Service.
@@ -5243,13 +5241,13 @@ After the configuration, sign in to the Deception Admin Portal page. You will se
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-azure-active-directory-single-sign","lastmod":"2026-06-19T02:32Z","nid":"1539325"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-azure-active-directory-single-sign","lastmod":"2026-08-03T00:19Z","nid":"1540532"} -->
 ## Configuring SAML for Microsoft Azure Active Directory Single Sign-On
 
 - Source: https://help.zscaler.com/deception/configuring-saml-azure-active-directory-single-sign
 - Product: Deception
 - Path: Deception Help > Authentication > SAML Configuration > Configuring SAML for Microsoft Azure Active Directory Single Sign-On
-- Last modified: 2026-06-19T02:32Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure Microsoft Azure Active Directory (AD) as a SAML identity provider (IdP) for single sign-on (SSO).
 
 Zscaler recommends using [Authentication Service](https://help.zscaler.com/authentication-service/what-authentication-service) to configure primary and secondary [external identity providers (IdPs)](https://help.zscaler.com/authentication-service/about-external-identity-providers). Authentication Service supports both SAML and OpenID configurations. Contact Zscaler Support to subscribe to Authentication Service.
@@ -5395,13 +5393,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-okta-single-sign","lastmod":"2026-06-19T02:30Z","nid":"1539222"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-okta-single-sign","lastmod":"2026-08-03T00:19Z","nid":"1540429"} -->
 ## Configuring SAML for Okta Single Sign-On
 
 - Source: https://help.zscaler.com/deception/configuring-saml-okta-single-sign
 - Product: Deception
 - Path: Deception Help > Authentication > SAML Configuration > Configuring SAML for Okta Single Sign-On
-- Last modified: 2026-06-19T02:30Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure Okta as a SAML identity provider (IdP) for the Zscaler Deception Admin Portal.
 
 Zscaler recommends using [Authentication Service](https://help.zscaler.com/authentication-service/what-authentication-service) to configure primary and secondary [external identity providers (IdPs)](https://help.zscaler.com/authentication-service/about-external-identity-providers). Authentication Service supports both SAML and OpenID configurations. Contact Zscaler Support to subscribe to Authentication Service.
@@ -5582,13 +5580,13 @@ If the group attribute specified is not part of the SAML assertion when logging 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-single-sign","lastmod":"2026-06-19T02:28Z","nid":"1539217"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-single-sign","lastmod":"2026-06-19T02:48Z","nid":"1540424"} -->
 ## Configuring SAML for Single Sign-On
 
 - Source: https://help.zscaler.com/deception/configuring-saml-single-sign
 - Product: Deception
 - Path: Deception Help > Authentication > SAML Configuration > Configuring SAML for Single Sign-On
-- Last modified: 2026-06-19T02:28Z
+- Last modified: 2026-06-19T02:48Z
 - Summary: How to configure the Zscaler Deception Admin Portal as a service provider (SP) and use SAML single sign-on (SSO) for authenticating and provisioning users.
 
 Zscaler recommends using [Authentication Service](https://help.zscaler.com/authentication-service/what-authentication-service) to configure primary and secondary [external identity providers (IdPs)](https://help.zscaler.com/authentication-service/about-external-identity-providers). Authentication Service supports both SAML and OpenID configurations. Contact Zscaler Support to subscribe to Authentication Service.
@@ -5664,13 +5662,13 @@ Every time a user signs in using SAML, the role is updated regardless of if the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-scadaiot-dataset","lastmod":"2026-05-13T01:18Z","nid":"1539372"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-scadaiot-dataset","lastmod":"2026-08-03T00:19Z","nid":"1540579"} -->
 ## Configuring a SCADA/IoT Dataset
 
 - Source: https://help.zscaler.com/deception/configuring-scadaiot-dataset
 - Product: Deception
 - Path: Deception Help > Miragemaker > SCADA/IoT Datasets > Configuring a SCADA/IoT Dataset
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure a SCADA/IoT dataset.
 
 You can create a custom dataset for Supervisory Control and Data Acquisition (SCADA) and Internet of Things (IoT) devices, and use them to create SCADA/IoT decoys.
@@ -5697,13 +5695,13 @@ You can use the dataset in network decoys to deploy SCADA/IoT decoys. To learn m
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-service-connector","lastmod":"2026-05-13T01:18Z","nid":"1539253"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-service-connector","lastmod":"2026-08-03T00:19Z","nid":"1540460"} -->
 ## Configuring a Service Connector
 
 - Source: https://help.zscaler.com/deception/configuring-service-connector
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > Configuring a Service Connector
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Service Connector on your Windows or Linux system.
 
 You can configure a Service Connector on your Windows or Linux system by downloading and running the Service Connector executables from the Zscaler Deception Admin Portal.
@@ -5800,13 +5798,13 @@ After you configure a Service Connector, you can integrate the Deception with a 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-services-network-decoy","lastmod":"2026-05-13T01:18Z","nid":"1539146"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-services-network-decoy","lastmod":"2026-08-03T00:19Z","nid":"1540353"} -->
 ## Configuring Services on a Network Decoy
 
 - Source: https://help.zscaler.com/deception/configuring-services-network-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Configuring Services on a Network Decoy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure services on a network decoy in the Zscaler Deception Admin Portal.
 
 Services are interactive components that simulate the functionality of legitimate systems, such as web pages, Gen AI applications, etc. Configuring services on a network decoy makes it look like a genuine resource to attackers. It lures the attackers to interact with the decoy and enables threat detection. This article describes how to customize services such as Generative AI (Gen AI), Web, SSH, Telnet, SCADA/IoT, and FTP on a network decoy.
@@ -5859,8 +5857,8 @@ See image.
   2. Enter the custom header key and value.
 
 1. **High Interaction Dataset**: Select a Gen AI high-interaction container.
-2. **Model Name**: Select an AI model name. An AI model is a program trained to identify patterns, process information, and make decisions with little human intervention. You can add model names according to your organization’s use case by configuring Gen AI model names in a [datalist](https://help.zscaler.com/deception/configuring-and-managing-datalists).
-3. **System Prompt**: Edit the text per your requirements. The system prompt outlines the chatbot's behavior and provides initial instructions to guide its responses. Deception provides a default system prompt and automatically retrieves some details. For example, the customer's name is automatically populated, and if ZPA is enabled for a customer, the domain names configured in the ZPA Admin Portal are automatically populated. See image.
+2. **Model Name**: Select an AI model name. An AI model is a program trained to identify patterns, process information, and make decisions with little human intervention. You can add model names according to your organization's use case by configuring Gen AI model names in a [datalist](https://help.zscaler.com/deception/configuring-and-managing-datalists).
+3. **System Prompt**: Edit the text per your requirements. The system prompt outlines the chatbot's behavior and provides initial instructions to guide its responses. Deception provides a default system prompt and automatically retrieves some details. For example, the customer's name is automatically populated, and if Private Access (ZPA) is enabled for a customer, the domain names configured in the Zscaler Admin Console are automatically populated. See image.
 4. Under **Decoy Type**, choose one of the following decoy types to customize the decoy:
   - Select **API** to use APIs that are fully compatible with OpenAI specifications. Optionally, enable **Authentication**. When enabled, adversaries can leverage decoy credentials deployed via [browser lures](https://help.zscaler.com/deception/configuring-browser-lures-module) or [file decoys](https://help.zscaler.com/deception/configuring-file-decoys-module#credential-file-decoys) to authenticate the API, and then use the returned bearer token to access other APIs that provide functionalities such as chat completion and model retrieval. See image.
   - Select **UI** to configure the decoy user interface (UI).
@@ -5886,7 +5884,7 @@ See image.
 An adaptive Gen AI application is an interactive application that dynamically adjusts to attackers' requests and provides tailored responses using AI. It addresses attacks such as SQL injection, exfiltration of exposed cloud credentials (e.g., `https://``<application server>``/.aws/credentials`), etc., by adapting to the requests and generating contextually appropriate responses that lure attackers into entering various crafted malicious intent requests.
 
 1. **High Interaction Dataset**: Select a Gen AI high-interaction container.
-2. **Model Name**: Select an AI model name. An AI model is a program trained to identify patterns, process information, and make decisions with little human intervention. You can add model names according to your organization’s use case by configuring Gen AI model names in a [datalist](https://help.zscaler.com/deception/configuring-and-managing-datalists).
+2. **Model Name**: Select an AI model name. An AI model is a program trained to identify patterns, process information, and make decisions with little human intervention. You can add model names according to your organization's use case by configuring Gen AI model names in a [datalist](https://help.zscaler.com/deception/configuring-and-managing-datalists).
 3. Under **Ports**, enter the port number and enable or disable **SSL** for each port per your requirements.
 4. (Optional) Under **Certificate Settings**:
   1. **SSL Certificat**e: Upload an SSL certificate in the privacy-enhanced mail (PEM) format.
@@ -6140,13 +6138,13 @@ To configure a sinkhole for an aggregator:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-splunk-forward-active-directory-event-logs","lastmod":"2026-05-13T01:18Z","nid":"1539204"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-splunk-forward-active-directory-event-logs","lastmod":"2026-08-03T00:19Z","nid":"1540411"} -->
 ## Configuring Splunk to Forward Active Directory Event Logs
 
 - Source: https://help.zscaler.com/deception/configuring-splunk-forward-active-directory-event-logs
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Configuring Splunk to Forward Active Directory Event Logs
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Splunk server to automate real-time alerts and forward event logs to the Zscaler Deception Admin Portal.
 
 You can configure a Splunk server to filter event logs from the Active Directory (AD) domain controllers for decoy accounts or enumeration detection. You can forward these logs to the Zscaler Deception Admin Portal when adversary actions are detected.
@@ -6223,13 +6221,13 @@ To configure a subnet:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-threat-intelligence-decoy-personality","lastmod":"2026-05-13T01:18Z","nid":"1539381"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-threat-intelligence-decoy-personality","lastmod":"2026-08-03T00:19Z","nid":"1540588"} -->
 ## Configuring a Threat Intelligence Decoy Personality
 
 - Source: https://help.zscaler.com/deception/configuring-threat-intelligence-decoy-personality
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Threat Intelligence Decoy Personalities > Configuring a Threat Intelligence Decoy Personality
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure a Threat Intelligence (TI) decoy personality
 
 Threat intelligence (TI) decoy personalities are templates that you can use in [deception strategies](https://help.zscaler.com/deception/about-deception-strategy) to create and deploy [TI decoys](https://help.zscaler.com/deception/about-threat-intelligence-decoys).
@@ -6257,13 +6255,13 @@ After configuring a TI decoy personality, you can use it to create and deploy [T
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-threatparse-rule","lastmod":"2026-05-13T01:18Z","nid":"1539402"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-threatparse-rule","lastmod":"2026-08-03T00:19Z","nid":"1540609"} -->
 ## Configuring a ThreatParse Rule
 
 - Source: https://help.zscaler.com/deception/configuring-threatparse-rule
 - Product: Deception
 - Path: Deception Help > Miragemaker > ThreatParse Rules > Configuring a ThreatParse Rule
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure ThreatParse rules.
 
 You can create custom ThreatParse rules using various attack parameters and conditions to reconstruct attack details into plain English. The rules are triggered by the ThreatParse engine when an event matching the rule conditions occurs, simplifying the threat analysis.
@@ -6369,13 +6367,13 @@ Zscaler recommends not modifying the default OTP duration. However, you can incr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-web-application-container","lastmod":"2026-05-13T01:18Z","nid":"1539305"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-web-application-container","lastmod":"2026-08-03T00:19Z","nid":"1540512"} -->
 ## Configuring a Web Application Container
 
 - Source: https://help.zscaler.com/deception/configuring-web-application-container
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > High-Interaction Containers > Configuring a Web Application Container
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a web application high-interaction container in the Zscaler Deception Admin Portal.
 
 You can create a web application container dataset that is a fully interactive application, such as Drupal, Jenkins, Joomla, etc., and deploy it as a Threat Intelligence (TI) or network decoy.
@@ -6405,13 +6403,13 @@ After you create the web application container dataset, you can use it to deploy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-windows-task-scheduler-enable-alerting","lastmod":"2026-05-13T01:18Z","nid":"1539203"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-windows-task-scheduler-enable-alerting","lastmod":"2026-08-03T00:19Z","nid":"1540410"} -->
 ## Configuring Windows Task Scheduler to Enable Alerting
 
 - Source: https://help.zscaler.com/deception/configuring-windows-task-scheduler-enable-alerting
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Configuring Windows Task Scheduler to Enable Alerting
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure Windows Task Scheduler to enable alerting for the Active Directory (AD) decoys in the Zscaler Deception Admin Portal.
 
 After you download the trigger script from the Zscaler Deception Admin Portal, you can import it to the Windows Task Scheduler to enable alerts for the Active Directory (AD) decoys.
@@ -6448,13 +6446,13 @@ To configure the Task Scheduler:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-aws-guardduty","lastmod":"2026-05-13T01:18Z","nid":"1539450"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-aws-guardduty","lastmod":"2026-08-03T00:19Z","nid":"1540657"} -->
 ## Containment Configuration Guide for Amazon GuardDuty
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-aws-guardduty
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for Amazon GuardDuty
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Amazon GuardDuty to contain and isolate detected attackers.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Amazon GuardDuty to contain and isolate detected attackers.
@@ -6544,13 +6542,13 @@ You can contain detected attackers automatically by creating an orchestration ru
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-check-point-firewall","lastmod":"2026-05-13T01:18Z","nid":"1539275"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-check-point-firewall","lastmod":"2026-08-03T00:19Z","nid":"1540482"} -->
 ## Containment Configuration Guide for Check Point Firewall
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-check-point-firewall
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for Check Point Firewall
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Check Point Firewall to contain and isolate detected attackers.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Check Point Firewall to contain and isolate detected attackers.
@@ -6628,13 +6626,13 @@ After containing the detected attackers, you can [view the details of the attack
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-crowdstrike","lastmod":"2026-05-13T01:18Z","nid":"1539290"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-crowdstrike","lastmod":"2026-08-03T00:19Z","nid":"1540497"} -->
 ## Containment Configuration Guide for CrowdStrike
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-crowdstrike
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for CrowdStrike
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with the CrowdStrike Falcon Insight solution to contain and isolate detected attackers.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with CrowdStrike Falcon Insight to contain and isolate endpoints when an attack is detected. In addition, you can configure Deception to share intelligence along with suggested actions that CrowdStrike should perform for events with indicators of compromise (IOC) and indicators of attack (IOA). You can also configure Deception to share IPs or process hashes as indicators of compromise and process trees as indicators of attack.
@@ -6750,13 +6748,13 @@ After containing the detected attackers, you can [view the details of the attack
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-fortinet","lastmod":"2026-05-13T01:18Z","nid":"1539266"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-fortinet","lastmod":"2026-08-03T00:19Z","nid":"1540473"} -->
 ## Containment Configuration Guide for Fortinet
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-fortinet
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for Fortinet
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Fortinet to contain and isolate detected attackers.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Fortinet to contain and isolate detected attackers.
@@ -6826,13 +6824,13 @@ After containing the detected attackers, you can [view the details of the attack
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-identity-threat-protection-okta-ai","lastmod":"2026-05-13T01:18Z","nid":"1539429"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-identity-threat-protection-okta-ai","lastmod":"2026-08-03T00:19Z","nid":"1540636"} -->
 ## Containment Configuration Guide for Identity Threat Protection with Okta AI
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-identity-threat-protection-okta-ai
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for Identity Threat Protection with Okta AI
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Okta to update user risk score of Zscaler Client Connector based on their adversarial behavior and apply relavant Okta polices on them.
 
 This guide provides prerequisites and instructions on configuring a containment integration for [Identity Threat Protection with Okta AI](https://help.okta.com/oie/en-us/content/topics/itp/overview.htm). Identity Threat Protection with Okta AI is a risk assessment and response solution from Okta that continuously analyzes the risk signals that are native to Okta, the risk signals from integrated security partner vendors, and your policy conditions to safeguard your organization against identity attacks.
@@ -6920,13 +6918,13 @@ To create an orchestration rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-internet-saas","lastmod":"2026-05-13T01:18Z","nid":"1539329"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-internet-saas","lastmod":"2026-08-03T00:19Z","nid":"1540536"} -->
 ## Containment Configuration Guide for Internet & SaaS
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-internet-saas
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for Internet & SaaS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Internet & SaaS to block internet access to Zscaler Client Connector users who display malicious behavior.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Internet & SaaS (ZIA).
@@ -6997,13 +6995,13 @@ After containing the detected attackers, you can [view the details of the attack
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-microsoft-defender","lastmod":"2026-05-13T01:18Z","nid":"1539280"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-microsoft-defender","lastmod":"2026-08-03T00:19Z","nid":"1540487"} -->
 ## Containment Configuration Guide for Microsoft Defender
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-microsoft-defender
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for Microsoft Defender
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with the Microsoft Defender solution to contain and isolate detected attackers.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Microsoft Defender to contain and isolate detected attackers.
@@ -7129,13 +7127,13 @@ After containing the detected attackers, you can [view the details of the attack
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-palo-alto-networks","lastmod":"2026-05-13T01:18Z","nid":"1539276"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-palo-alto-networks","lastmod":"2026-08-03T00:19Z","nid":"1540483"} -->
 ## Containment Configuration Guide for Palo Alto Networks
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-palo-alto-networks
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for Palo Alto Networks
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Palo Alto Networks to contain and isolate detected attackers.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Palo Alto Networks to contain and isolate detected attackers.
@@ -7203,13 +7201,13 @@ After containing the detected attackers, you can [view the details of the attack
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-private-access","lastmod":"2026-05-13T01:18Z","nid":"1539279"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-private-access","lastmod":"2026-08-03T00:19Z","nid":"1540486"} -->
 ## Containment Configuration Guide for Private Access
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-private-access
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for Private Access
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with the Private Access service to contain and isolate detected attackers.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Private Access (ZPA) to contain and isolate [detected attackers](https://help.zscaler.com/deception/viewing-blocked-identities).
@@ -7275,13 +7273,13 @@ After containing the detected attackers, you can [view the details of the attack
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-vmware-carbon-black-edr","lastmod":"2026-05-13T01:18Z","nid":"1539278"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-vmware-carbon-black-edr","lastmod":"2026-08-03T00:19Z","nid":"1540485"} -->
 ## Containment Configuration Guide for VMware Carbon Black EDR
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-vmware-carbon-black-edr
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for VMware Carbon Black EDR
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with VMware Carbon Black EDR to contain and isolate detected attackers.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with VMware Carbon Black EDR to contain and isolate detected attackers.
@@ -7353,13 +7351,13 @@ After containing the detected attackers, you can [view the details of the attack
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-vmware-carbon-black-endpoint-standard","lastmod":"2026-05-13T01:18Z","nid":"1539277"} -->
+<!-- ZS-ARTICLE {"url":"/deception/containment-configuration-guide-vmware-carbon-black-endpoint-standard","lastmod":"2026-08-03T00:19Z","nid":"1540484"} -->
 ## Containment Configuration Guide for VMware Carbon Black Endpoint Standard
 
 - Source: https://help.zscaler.com/deception/containment-configuration-guide-vmware-carbon-black-endpoint-standard
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Containment Configuration Guide for VMware Carbon Black Endpoint Standard
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with VMware Carbon Black Endpoint Standard to contain and isolate detected attackers.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with VMware Carbon Black Endpoint Standard to contain and isolate detected attackers.
@@ -7443,13 +7441,13 @@ After containing the detected attackers, you can [view the details of the attack
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/controlling-threat-events","lastmod":"2026-05-13T01:18Z","nid":"1539236"} -->
+<!-- ZS-ARTICLE {"url":"/deception/controlling-threat-events","lastmod":"2026-08-03T00:19Z","nid":"1540443"} -->
 ## Controlling Threat Events
 
 - Source: https://help.zscaler.com/deception/controlling-threat-events
 - Product: Deception
 - Path: Deception Help > Investigate  > Controlling Threat Events
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to take action to contain attacks from the Zscaler Deception dashboard.
 
 When threat events are identified, you can respond immediately to contain the incident and mitigate the potential risk.
@@ -7499,8 +7497,8 @@ Forward the attacker's details to the following security tools or services to re
 - [Palo Alto Networks](https://help.zscaler.com/deception/zscaler-deception-and-palo-alto-networks-deployment-guide)
 - [VMware Carbon Black EDR](https://help.zscaler.com/deception/zscaler-deception-and-vmware-carbon-black-endpoint-standard-deployment-guide)
 - [VMware Carbon Black Endpoint Standard](https://help.zscaler.com/deception/zscaler-deception-and-vmware-carbon-black-edr-deployment-guide)
-- [Zscaler Internet Access (ZIA)](https://help.zscaler.com/deception/zscaler-deception-and-zscaler-internet-access-deployment-guide)
-- [Zscaler Private Access (ZPA)](https://help.zscaler.com/deception/zscaler-deception-and-zscaler-private-access-deployment-guide)
+- [Internet & SaaS (ZIA)](https://help.zscaler.com/deception/containment-configuration-guide-internet-saas)
+- [Private Access (ZPA)](https://help.zscaler.com/deception/containment-configuration-guide-private-access)
 
 Before forwarding the attacker's details, make sure to enable the settings for these tools on the [Containment](https://help.zscaler.com/deception/v6.0/v4_31/about-containment-integration) page. You can also automate containment using orchestration rules. To learn more, see [Creating an Orchestration Rule](https://help.zscaler.com/deception/creating-orchestration-rule).
 
@@ -7515,13 +7513,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-and-managing-tags-aws","lastmod":"2026-05-13T01:18Z","nid":"1539421"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-and-managing-tags-aws","lastmod":"2026-08-03T00:19Z","nid":"1540628"} -->
 ## Creating and Managing Tags for AWS Resources
 
 - Source: https://help.zscaler.com/deception/creating-and-managing-tags-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Creating and Managing Tags for AWS Resources
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to configure and manage tags for resources deployed on AWS.
 
 Tags are key-value pairs that allow you to organize resources in Amazon Web Services (AWS). You can configure and manage AWS tags directly from the Zscaler Deception Admin Portal for resources that are [deployed by Zscaler Deception](https://help.zscaler.com/deception/about-cloud-deception-with-aws). You can create the following types of tags from the Deception Admin Portal:
@@ -7595,13 +7593,13 @@ Deleting tags prevents further usage of the tags. The existing resources are not
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-api-token","lastmod":"2026-05-13T01:18Z","nid":"1539282"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-api-token","lastmod":"2026-08-03T00:19Z","nid":"1540489"} -->
 ## Creating an API Token
 
 - Source: https://help.zscaler.com/deception/creating-api-token
 - Product: Deception
 - Path: Deception Help > Orchestrate  > API Token Management > Creating an API Token
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create an API token to make API calls in Zscaler Deception.
 
 You can add and configure API tokens for authentication and making API calls.
@@ -7649,13 +7647,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-app-service-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539344"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-app-service-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540551"} -->
 ## Creating an App Service Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-app-service-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating an App Service Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure an app service decoy in Microsoft Azure.
 
 Microsoft Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can create an app service decoy application and lure attackers. The most effective way to lure attackers using app service decoys is to add these app service decoys to a [landmine policy](https://help.zscaler.com/deception/about-policies). The app service decoys can detect the following attack paths:
@@ -7729,13 +7727,13 @@ Upon successful deployment, the app service decoy is added to Microsoft Azure un
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-arm-template-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539348"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-arm-template-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540555"} -->
 ## Creating an ARM Template Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-arm-template-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating an ARM Template Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure an ARM template decoy in Microsoft Azure.
 
 Azure Resource Manager (ARM) templates are JSON files that define the infrastructure and configuration for your project. It is an Infrastructure as Code (IaC) solution to create, update, and deploy Microsoft Azure resources. You can create ARM template decoys with embedded lures for other Azure identity-based decoys such as user decoys, service principal decoys, and Azure IaaS URLs that belong to key vault and storage account file shares. The ARM template decoys act as cloud lures. The ARM template decoys can detect the following attack paths:
@@ -7813,13 +7811,13 @@ Upon successful deployment, the ARM template decoy is added to Microsoft Azure. 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-artifact-registry-decoy-gcp","lastmod":"2026-07-04T07:06Z","nid":"1539469"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-artifact-registry-decoy-gcp","lastmod":"2026-08-03T00:19Z","nid":"1540676"} -->
 ## Creating an Artifact Registry Decoy in GCP
 
 - Source: https://help.zscaler.com/deception/creating-artifact-registry-decoy-gcp
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > GCP > Creating an Artifact Registry Decoy in GCP
-- Last modified: 2026-07-04T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create an artifact registry decoy in GCP.
 
 An artifact registry in Google Cloud Platform (GCP) is a service used to store and manage software artifacts such as container images and language packages. Artifact registry repositories provide secure storage for build outputs used in application deployment. You can create an artifact registry with decoy artifacts. Any attempt to access or enumerate these repositories is detected and logged as an attack. You can view and analyze the attack details from the [Zscaler Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
@@ -7867,13 +7865,13 @@ To create an artifact registry decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-blocklist","lastmod":"2026-05-13T01:18Z","nid":"1539209"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-blocklist","lastmod":"2026-08-03T00:19Z","nid":"1540416"} -->
 ## Creating Blocklists
 
 - Source: https://help.zscaler.com/deception/creating-blocklist
 - Product: Deception
 - Path: Deception Help > Deceive  > Deceive Settings > Creating Blocklists
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a blocklist to prevent ranges of or individual IP addresses from accessing one or more decoy IP addresses in the Zscaler Deception Admin Portal.
 
 The Blocklist feature allows you to create a firewall rule that prevents ranges of or individual IP addresses from accessing one or more decoy IP addresses. Traffic from blocklisted IP addresses to the specified destination decoys and ports are dropped and not processed or stored in Zscaler Deception. For the blocklisted systems, it appears as if nothing is running at the destination port.
@@ -7927,13 +7925,13 @@ To create blocklists across multiple Decoy Connectors:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-cloud-sql-decoy-gcp","lastmod":"2026-07-04T07:06Z","nid":"1539465"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-cloud-sql-decoy-gcp","lastmod":"2026-08-03T00:19Z","nid":"1540672"} -->
 ## Creating a Cloud SQL Decoy in GCP
 
 - Source: https://help.zscaler.com/deception/creating-cloud-sql-decoy-gcp
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > GCP > Creating a Cloud SQL Decoy in GCP
-- Last modified: 2026-07-04T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a cloud SQL decoy in GCP.
 
 The cloud SQL in Google Cloud Platform (GCP) is a service that allows you to set up and host relational databases (MySQL or PostgreSQL). You can create cloud SQL decoy databases (public or private) based on MySQL or PostgreSQL to lure adversaries that are looking for databases to disrupt services or steal data. Optionally, the credentials of the master user (or root) of the database along with the URL can be added to a [landmine policy](https://help.zscaler.com/deception/about-policies) as a lure. You can view and analyze the attack details from the [Zscaler Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
@@ -8001,13 +7999,13 @@ If the error occurs, follow these steps:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-cloud-storage-decoy-gcp","lastmod":"2026-07-04T07:06Z","nid":"1539464"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-cloud-storage-decoy-gcp","lastmod":"2026-08-03T00:19Z","nid":"1540671"} -->
 ## Creating a Cloud Storage Decoy in GCP
 
 - Source: https://help.zscaler.com/deception/creating-cloud-storage-decoy-gcp
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > GCP > Creating a Cloud Storage Decoy in GCP
-- Last modified: 2026-07-04T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a cloud storage decoy in GCP.
 
 Google Cloud Storage is an object-based storage service on Google Cloud Platform (GCP). You can create cloud storage decoys and associate [file datasets](https://help.zscaler.com/deception/about-file-datasets). Optionally, the URLs of cloud storage decoys can be added to a [landmine policy](https://help.zscaler.com/deception/about-policies) to add lures to the endpoints. Cloud storage decoys can detect the following attack paths:
@@ -8063,13 +8061,13 @@ To create a cloud storage decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-container-registry-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539349"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-container-registry-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540556"} -->
 ## Creating a Container Registry Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-container-registry-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Container Registry Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a container registry decoy in Microsoft Azure.
 
 An Azure Container Registry (ACR) is a service in Microsoft Azure that hosts Docker and Open Contain Initiative (OCI) images. You can create a container registry decoy (public or private) that detects the following attack paths:
@@ -8144,13 +8142,13 @@ Upon successful deployment, the container registry decoy is added to Microsoft A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-decoy-active-directory-user","lastmod":"2026-05-13T01:18Z","nid":"1539198"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-decoy-active-directory-user","lastmod":"2026-08-03T00:19Z","nid":"1540405"} -->
 ## Creating an Active Directory Decoy User
 
 - Source: https://help.zscaler.com/deception/creating-decoy-active-directory-user
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Creating an Active Directory Decoy User
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a decoy user account in an Active Directory (AD) in the Zscaler Deception Admin Portal.
 
 [Watch a video on Creating Active Directory Decoy Users and Computers.](https://fast.wistia.net/embed/iframe/d0d5qnq153)
@@ -8200,13 +8198,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-dynamo-db-decoy-aws","lastmod":"2026-05-13T01:18Z","nid":"1539355"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-dynamo-db-decoy-aws","lastmod":"2026-08-03T00:19Z","nid":"1540562"} -->
 ## Creating a DynamoDB Decoy in AWS
 
 - Source: https://help.zscaler.com/deception/creating-dynamo-db-decoy-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Creating a DynamoDB Decoy in AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a DynamoDB decoy in AWS.
 
 DynamoDB is a NoSQL, key-value pair database in Amazon Web Services (AWS). You can create DynamoDB decoy databases to lure adversaries that are looking for databases to disrupt services or steal data.
@@ -8275,13 +8273,13 @@ To create a DynamoDB database decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-ecr-decoy-aws","lastmod":"2026-05-13T01:18Z","nid":"1539354"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-ecr-decoy-aws","lastmod":"2026-08-03T00:19Z","nid":"1540561"} -->
 ## Creating an ECR Decoy in AWS
 
 - Source: https://help.zscaler.com/deception/creating-ecr-decoy-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Creating an ECR Decoy in AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure an ECR decoy in AWS.
 
 An Elastic Container Registry (ECR) is a service in Amazon Web Services (AWS) that hosts Docker or Open Container Initiative (OCI) images. You can create an AWS ECR decoy (public or private) to detect the following attack paths:
@@ -8355,13 +8353,13 @@ To create an ECR decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-gen-ai-decoy-aws","lastmod":"2026-05-13T01:18Z","nid":"1539452"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-gen-ai-decoy-aws","lastmod":"2026-08-03T00:19Z","nid":"1540659"} -->
 ## Creating a Gen AI Decoy in AWS
 
 - Source: https://help.zscaler.com/deception/creating-gen-ai-decoy-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Creating a Gen AI Decoy in AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a Gen AI decoy in AWS.
 
 Amazon Web Services (AWS) allows you to build generative AI (Gen AI) applications using various foundation models from leading companies. You can create a Gen AI decoy using the Amazon Bedrock-optimized foundation models. The Gen AI decoys are interactive, and you can customize the decoys to generate fake responses to lure attackers into entering more prompts. You can also log the prompts and responses between the adversary and the Gen AI decoy to gain insights into the objectives of the adversaries.
@@ -8430,13 +8428,13 @@ To create a Gen AI decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-gen-ai-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539453"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-gen-ai-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540660"} -->
 ## Creating a Gen AI Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-gen-ai-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Gen AI Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a Gen AI decoy in Azure.
 
 Microsoft Azure allows you to build generative AI (Gen AI) applications using various foundation models through Azure AI Foundry. You can create a Gen AI decoy using Azure OpenAI models in Azure AI Foundry. The Gen AI decoys are interactive, and you can customize the decoys to generate fake responses to lure attackers into entering more prompts.
@@ -8547,13 +8545,13 @@ To create a docker image:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-iam-decoy-aws","lastmod":"2026-05-13T01:18Z","nid":"1539351"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-iam-decoy-aws","lastmod":"2026-08-03T00:19Z","nid":"1540558"} -->
 ## Creating an IAM Decoy in AWS
 
 - Source: https://help.zscaler.com/deception/creating-iam-decoy-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Creating an IAM Decoy in AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure an IAM decoy in AWS.
 
 An Identity Access Management (IAM) user in Amazon Web Services (AWS) is a representation of a human user or a workload that uses IAM credentials to access AWS resources. You can create AWS decoy IAM users to detect any attempt to sign in using these decoy user credentials. These decoy users have access to all other AWS decoys. The most effective way to lure attackers using IAM decoys is to add these decoys to a [landmine policy](https://help.zscaler.com/deception/about-policies).
@@ -8617,13 +8615,13 @@ To create an IAM decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-internal-network-decoy","lastmod":"2026-05-13T01:18Z","nid":"1539150"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-internal-network-decoy","lastmod":"2026-08-03T00:19Z","nid":"1540357"} -->
 ## Creating an Internal Decoy
 
 - Source: https://help.zscaler.com/deception/creating-internal-network-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Creating an Internal Decoy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create an Internal decoy in the Zscaler Deception Admin Portal.
 
 [Watch a video on Creating an Internal Decoy.](https://fast.wistia.net/embed/iframe/i113pmpxyt)
@@ -8681,13 +8679,13 @@ After the Internal decoy is created, you can [test](https://help.zscaler.com/dec
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-key-vault-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539347"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-key-vault-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540554"} -->
 ## Creating a Key Vault Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-key-vault-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Key Vault Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a key vault decoy in Microsoft Azure.
 
 A key vault is a service in Microsoft Azure that allows you to securely store and retrieve secrets such as passwords, API keys, cryptographic keys, etc. You can create a key vault decoy that includes enticing credential files with URLs to the [Threat Intelligence (TI) decoys](https://help.zscaler.com/deception/about-threat-intelligence-decoys) containing random user names and passwords. These decoys act as cloud lures.
@@ -8757,13 +8755,13 @@ Upon successful deployment, the key vault decoy is added to Microsoft Azure. The
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-landmine-policy","lastmod":"2026-05-13T01:18Z","nid":"1539165"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-landmine-policy","lastmod":"2026-08-03T00:19Z","nid":"1540372"} -->
 ## Creating a Landmine Policy
 
 - Source: https://help.zscaler.com/deception/creating-landmine-policy
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Creating a Landmine Policy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a landmine policy in the Zscaler Deception Admin Portal.
 
 [Watch a video on Creating Landmine Policies and Decoys.](https://fast.wistia.net/embed/iframe/c3w5mose6l)
@@ -8861,13 +8859,13 @@ After the selection criterion is specified, you can configure the required lure 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-managed-identity-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539343"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-managed-identity-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540550"} -->
 ## Creating a Managed Identity Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-managed-identity-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Managed Identity Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a managed identity decoy in Microsoft Azure.
 
 Managed identities provide an automatically managed identity in Azure AD (Entra ID) for applications to use when connecting to resources that support Azure AD (Entra ID) authentication. You can create a managed identity decoy (user-defined) that has access to all other decoy resources in a decoy resource group (Decoys Resource Group) [configured by Zscaler Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure). This managed identity decoy can be attached to your production resources. It can also be included in your deployment templates to add deception capabilities to your production resources. If an adversary compromises any of the production resources, they will be lured toward the decoys.
@@ -8941,13 +8939,13 @@ Upon successful deployment, the managed identity decoy is added to Microsoft Azu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-network-decoy-group","lastmod":"2026-05-13T01:18Z","nid":"1539206"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-network-decoy-group","lastmod":"2026-08-03T00:19Z","nid":"1540413"} -->
 ## Creating a Network Decoy Group
 
 - Source: https://help.zscaler.com/deception/creating-network-decoy-group
 - Product: Deception
 - Path: Deception Help > Deceive  > Deceive Settings > Creating a Network Decoy Group
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create network Decoy groups to logically organize network and threat intelligence decoysin the Zscaler Deception Admin Portal.
 
 [Watch a video on Zero Trust Network Decoys.](https://fast.wistia.net/embed/iframe/jra2iq1bd6)
@@ -8977,13 +8975,13 @@ Under **Actions**, click the **Edit** icon to edit the network decoy group or th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-orchestration-rule","lastmod":"2026-05-13T01:18Z","nid":"1539427"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-orchestration-rule","lastmod":"2026-08-03T00:19Z","nid":"1540634"} -->
 ## Creating an Orchestration Rule
 
 - Source: https://help.zscaler.com/deception/creating-orchestration-rule
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Orchestration Rules > Creating an Orchestration Rule
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to create an orchestration rule in Zscaler Deception Admin Portal.
 
 An orchestration rule allows you to automate various actions performed in the Zscaler Deception Admin Portal based on custom conditions created using a purpose-built query language. Using the orchestration rule, you can automate actions that fall broadly under the following categories:
@@ -9103,13 +9101,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-python-based-handler-cve-datasets","lastmod":"2026-06-14T07:06Z","nid":"1539474"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-python-based-handler-cve-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540681"} -->
 ## Creating a Python-Based Handler for CVE Datasets
 
 - Source: https://help.zscaler.com/deception/creating-python-based-handler-cve-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > Vulnerable Application Datasets > Creating a Python-Based Handler for CVE Datasets
-- Last modified: 2026-06-14T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a Python-based handler for CVE datasets.
 
 A CVE handler is a Python file that teaches a decoy how to respond to exploit attempts targeting a specific vulnerability. When an attacker sends a request matching a known CVE, the handler returns a convincing fake response, making the decoy appear vulnerable which lures the attacker in.
@@ -9223,13 +9221,13 @@ To validate the Python handler:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-rds-decoy-aws","lastmod":"2026-05-13T01:18Z","nid":"1539353"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-rds-decoy-aws","lastmod":"2026-08-03T00:19Z","nid":"1540560"} -->
 ## Creating an RDS Decoy in AWS
 
 - Source: https://help.zscaler.com/deception/creating-rds-decoy-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Creating an RDS Decoy in AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure an RDS decoy in AWS.
 
 The Relational Database Service (RDS) in Amazon Web Services (AWS) is a web service that allows you to set up and host relational databases (MySQL or PostgreSQL) on the cloud. You can create RDS decoy databases (public or private) based on MySQL or PostgreSQL to lure adversaries that are looking for databases to disrupt services or steal data. Optionally, the credentials of the master user of the database along with the URL can be added to a [landmine policy](https://help.zscaler.com/deception/about-policies) as a lure.
@@ -9302,13 +9300,13 @@ To create an RDS decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-s3-decoy-aws","lastmod":"2026-05-13T01:18Z","nid":"1539352"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-s3-decoy-aws","lastmod":"2026-08-03T00:19Z","nid":"1540559"} -->
 ## Creating an S3 Decoy in AWS
 
 - Source: https://help.zscaler.com/deception/creating-s3-decoy-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Creating an S3 Decoy in AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure an S3 decoy in AWS.
 
 The Simple Storage Service (S3) is an object-based storage service on Amazon Web Services (AWS). You can create AWS S3 decoys and associate [file datasets](https://help.zscaler.com/deception/about-file-datasets). Optionally, these S3 bucket URLs can be added to a [landmine policy](https://help.zscaler.com/deception/about-policies) to add lures to the endpoints. The S3 decoys can detect the following attack paths:
@@ -9380,13 +9378,13 @@ To create an S3 decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-secret-manager-decoy-gcp","lastmod":"2026-07-04T07:06Z","nid":"1539468"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-secret-manager-decoy-gcp","lastmod":"2026-08-03T00:19Z","nid":"1540675"} -->
 ## Creating a Secret Manager Decoy in GCP
 
 - Source: https://help.zscaler.com/deception/creating-secret-manager-decoy-gcp
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > GCP > Creating a Secret Manager Decoy in GCP
-- Last modified: 2026-07-04T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a secret manager decoy in GCP.
 
 A secret manager in Google Cloud Platform (GCP) is a service used to securely store, manage, and control access to sensitive information such as API keys, passwords, certificates, and tokens. Secrets are stored centrally and accessed by applications through authenticated requests based on IAM permissions. You can create secret manager decoys containing fake secret identifiers or access references. Any attempt to access or enumerate these decoy secrets is detected and logged as an attack. You can view and analyze the attack details from the [Zscaler Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
@@ -9432,13 +9430,13 @@ To create a secret manager decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-service-account-decoy-gcp","lastmod":"2026-07-04T07:06Z","nid":"1539467"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-service-account-decoy-gcp","lastmod":"2026-08-03T00:19Z","nid":"1540674"} -->
 ## Creating a Service Account Decoy in GCP
 
 - Source: https://help.zscaler.com/deception/creating-service-account-decoy-gcp
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > GCP > Creating a Service Account Decoy in GCP
-- Last modified: 2026-07-04T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a service account decoy in GCP.
 
 A service account in Google Cloud Platform (GCP) is a special type of account used by applications or services to authenticate and interact with Google Cloud resources. A service account is identified by its unique email address. You can create service account decoys with API credentials that can be placed in credential files on endpoints using landmine decoys. Any enumeration using these credentials is detected and logged as an attack. You can view and analyze the attack details from the [Zscaler Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
@@ -9484,13 +9482,13 @@ To create a service account decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-service-principal-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539342"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-service-principal-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540549"} -->
 ## Creating a Service Principal Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-service-principal-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Service Principal Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a service principal decoy in Microsoft Azure.
 
 Service principals are identities created for use with applications, hosted services, and automated tools to access Microsoft Azure resources. You can create service principal decoys with credentials attached to them. Any attempt to sign in using the credentials of the service principals will be detected as an attack or compromise. These service principal decoys have access to all other Azure decoys that are part of the decoy resource group (Decoys Resource Group) [configured by Zscaler Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure). The most effective way to lure attackers using decoy users is to add these decoy users to a [landmine policy](https://help.zscaler.com/deception/about-policies).
@@ -9575,13 +9573,13 @@ To learn how to configure lures using service principal decoys, see [Configuring
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-storage-account-container-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539345"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-storage-account-container-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540552"} -->
 ## Creating a Storage Account Container Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-storage-account-container-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Storage Account Container Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a storage account container decoy in Microsoft Azure.
 
 A storage account container in Microsoft Azure is a type of cloud storage used for storing unstructured data. You can create storage account container decoys and associate [file datasets](https://help.zscaler.com/deception/about-file-datasets) with them. Optionally, these storage account container decoys can be added to a [landmine policy](https://help.zscaler.com/deception/about-policies) to add lures on the endpoints. The storage account container decoys can detect the following attack paths:
@@ -9660,13 +9658,13 @@ Upon successful deployment, the storage container decoy is added to Microsoft Az
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-storage-account-file-share-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539346"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-storage-account-file-share-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540553"} -->
 ## Creating a Storage Account File Share Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-storage-account-file-share-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Storage Account File Share Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a storage account container decoy in Microsoft Azure.
 
 A storage account file share in Microsoft Azure is a file share service mountable on endpoints and can be Server Message Block (SMB) protocol or Network File System (NFS) protocol. Zscaler Deception allows you to create storage account file share decoys that include decoy file datasets and mount them on endpoints to lure adversaries.
@@ -9815,13 +9813,13 @@ After the strategy is created, you can [deploy it](https://help.zscaler.com/dece
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-threat-intelligence-decoy","lastmod":"2026-05-13T01:18Z","nid":"1539158"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-threat-intelligence-decoy","lastmod":"2026-08-03T00:19Z","nid":"1540365"} -->
 ## Creating a Threat Intelligence Decoy
 
 - Source: https://help.zscaler.com/deception/creating-threat-intelligence-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Threat Intelligence Decoys > Creating a Threat Intelligence Decoy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create a Threat Intelligence (TI) decoy in the Zscaler Deception Admin Portal.
 
 [Watch a video on Creating Threat Intelligence Decoys.](https://fast.wistia.net/embed/iframe/x1u6oijljq)
@@ -9909,13 +9907,13 @@ After the decoys are created, you can [test](https://help.zscaler.com/deception/
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-user-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539341"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-user-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540548"} -->
 ## Creating a User Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-user-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a User Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a user decoy in Microsoft Azure.
 
 You can create Azure AD (Entra ID) decoy users to detect any attempt to sign in using the credentials of the decoy users. These decoy users have access to all other Azure decoys that are part of the decoy resource group (Decoys Resource Group) [configured by Zscaler Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure). The most effective way to lure attackers using decoy users is to add these decoy users to a [landmine policy](https://help.zscaler.com/deception/about-policies).
@@ -10001,13 +9999,13 @@ To learn how to configure lures using user decoys, see [Configuring Lures Using 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-vm-image-decoy-aws","lastmod":"2026-05-13T01:18Z","nid":"1539356"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-vm-image-decoy-aws","lastmod":"2026-08-03T00:19Z","nid":"1540563"} -->
 ## Creating a VM Image Decoy in AWS
 
 - Source: https://help.zscaler.com/deception/creating-vm-image-decoy-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Creating a VM Image Decoy in AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a VM image decoy in AWS.
 
 Virtual machine (VM) images are used on Amazon Web Services (AWS) to launch new instances of your VMs. You can create a VM image decoy snapshot (public or private) that creates an EC2 instance temporarily in AWS, adds a callback script for detection, and creates a snapshot. Adversaries enumerate public [Amazon Machine Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) (AMI) with keywords related to your organization in the AMI Catalog with the intention of stealing and accessing the file system by booting up a VM in their environment to extract credentials and exfiltrate sensitive data.
@@ -10078,13 +10076,13 @@ To create a VM image decoy in AWS:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-vm-image-decoy-azure","lastmod":"2026-05-13T01:18Z","nid":"1539350"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-vm-image-decoy-azure","lastmod":"2026-08-03T00:19Z","nid":"1540557"} -->
 ## Creating a VM Image Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-vm-image-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a VM Image Decoy in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a VM image decoy in Microsoft Azure.
 
 A virtual machine (VM) image is a collection of metadata and pointers to a set of VHDs (one VHD per disk) stored as page blobs in Azure Storage. You can create a VM image decoy snapshot (public or private) that creates a VM temporarily in Azure, adds a callback script for detection, and creates a snapshot. Adversaries enumerate public Azure snapshots with keywords related to your organization with the intention of stealing and accessing the file system to extract credentials and exfiltrate sensitive data by booting up the VM in their environment.
@@ -10155,26 +10153,26 @@ Upon successful deployment, the VM image decoy is added to Microsoft Azure. The 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-zero-trust-network-decoy","lastmod":"2026-05-13T01:18Z","nid":"1539152"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-zero-trust-network-decoy","lastmod":"2026-08-03T00:19Z","nid":"1540359"} -->
 ## Creating a Zero Trust Network Decoy
 
 - Source: https://help.zscaler.com/deception/creating-zero-trust-network-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Creating a Zero Trust Network Decoy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create Zero Trust Network Decoys in the Zscaler Deception Admin Portal.
 
 [Watch a video on Creating Zero Trust Network Decoys.](https://fast.wistia.net/embed/iframe/jra2iq1bd6)
 
-Zero Trust Network decoys are decoy network assets that mimic servers, databases, and other internal applications in your network environment that are frequently targeted during scanning and lateral movement. These decoys run on a dedicated cloud environment hosted by Zscaler and are made available to an adversary using Zscaler Private Access (ZPA) via Zscaler Client Connector. You can create Zero Trust Network decoys on the production application segment in ZPA.
+Zero Trust Network decoys are decoy network assets that mimic servers, databases, and other internal applications in your network environment that are frequently targeted during scanning and lateral movement. These decoys run on a dedicated cloud environment hosted by Zscaler and are made available to an adversary using Private Access (ZPA) via Zscaler Client Connector. You can create Zero Trust Network decoys on the production application segment in Private Access.
 
 ## Prerequisites
 
 Before creating a Zero Trust Network decoy, make sure that the following prerequisites are met:
 
-- You have a provisioned ZPA tenant ID.
+- You have a provisioned Private Access tenant ID.
 - Zscaler Client Connector is installed on the endpoints.
-- There are free FQDNs that are not assigned to any of the existing systems in the ZPA service. For real applications, ports must be available on the real production ZPA application segment to which you want to add a decoy. For example, if you want to add a MySQL database decoy service on a real production ZPA application segment, which is a web server with ports 80 and 443 used, then port 3306 must be available to add a decoy service. This prerequisite is not applicable to new ZPA decoys for real applications in ZPA.
+- There are free FQDNs that are not assigned to any of the existing systems in the Private Access service. For real applications, ports must be available on the real production Private Access application segment to which you want to add a decoy. For example, if you want to add a MySQL database decoy service on a real production Private Access application segment, which is a web server with ports 80 and 443 used, then port 3306 must be available to add a decoy service. This prerequisite is not applicable to new Private Access decoys for real applications in Private Access.
 
 ## Creating a Zero Trust Network Decoy
 
@@ -10186,8 +10184,8 @@ To create a Zero Trust Network decoy:
 4. On the **Zero Trust Network Decoy Detail** page, under the **General** tab:
   1. **Enabled**: Select to enable the Zero Trust Network decoy.
   2. Choose one of the following options:
-    - Create a Zero Trust Network decoy in ZPA.
-    - Create a Zero Trust Network decoy of a production application in ZPA.
+    - Create a Zero Trust Network decoy in Private Access.
+    - Create a Zero Trust Network decoy of a production application in Private Access.
 5. Click the **Services** tab to view, customize, enable, or disable the services that the network decoy will host. To learn more, see [Configuring Services for a Network Decoy](https://help.zscaler.com/deception/configuring-services-network-decoy).
 6. Click **Submit**. The decoy is created. The red status icon ([Image: Red decoy deployment status icon]) next to the decoy indicates that the decoy is inactive. See image.
 7. [Start the decoys](https://help.zscaler.com/deception/viewing-and-managing-decoy-deployment#deception-start-decoys).
@@ -10197,9 +10195,9 @@ To create a Zero Trust Network decoy:
 2. **FQDN**: This field is automatically populated. Click the **Autogenerate** icon ([Image: Autogenerate icon]) to generate another FQDN suggestion, or manually enter a hostname or FQDN of your choice.
 3. **Network Decoy Groups**: Select an existing decoy group from the drop-down menu, or click **Create Decoy Group** to create a new decoy group. ​See image.
 
-1. **Real App**: Enable to add a Zero Trust Network decoy service on unused ports of a real or production ZPA application segment.
+1. **Real App**: Enable to add a Zero Trust Network decoy service on unused ports of a real or production Private Access application segment.
 2. **Personality**: Select a decoy based on the production application segment from the drop-down menu.
-3. **Application Segment**: Enter at least three characters to search for a ZPA production application segment. Zscaler supports only those application segments that have at least one FQDN.
+3. **Application Segment**: Enter at least three characters to search for a Private Access production application segment. Zscaler supports only those application segments that have at least one FQDN.
 4. **FQDN**: Select an FQDN from the drop-down menu. All FQDNs that belong to the selected application segment are automatically populated.
 5. **Network Decoy Groups**: Select an existing decoy group from the drop-down menu, or click **Create Decoy Group** to create a new decoy group. See image.
 
@@ -10207,13 +10205,13 @@ To create a Zero Trust Network decoy:
 
 Manually analyzing Zero Trust Network decoy configuration and deciding on hostnames, services, and service configurations such as datasets and banners can be time consuming. Deception leverages AI to generate recommendations with preselected datasets, banners, services, and ports. This simplifies decoy creation and deployment, and reduces manual effort.
 
-For AI-powered recommendations to work, you must have a minimum of 5 [application segments](https://help.zscaler.com/zpa/about-applications) with non-wildcard FQDNs in ZPA.
+For AI-powered recommendations to work, you must have a minimum of 5 [application segments](https://help.zscaler.com/zpa/about-applications) with non-wildcard FQDNs in Private Access.
 
 To create Zero Trust Network decoys based on AI-powered recommendations:
 
 1. [Stop the decoys](https://help.zscaler.com/deception/viewing-and-managing-decoy-deployment#deception-stop-decoys).
 2. Go to **Deceive** > **Network Decoys** > **Zero Trust Network**. See image.
-3. Click **AI-Powered Recommendations**. The hostnames (FQDNs) and port configurations from the applications segments in ZPA are fetched, the information is supplied to AI, and decoy recommendations are generated. See image.
+3. Click **AI-Powered Recommendations**. The hostnames (FQDNs) and port configurations from the applications segments in Private Access are fetched, the information is supplied to AI, and decoy recommendations are generated. See image.
 4. Verify the recommendations. See image.
 5. Click **Save**. The decoys are created. The red status icon ([Image: Red decoy deployment status icon]) next to the decoys indicate that the decoy is inactive. See image.
 6. [Start the decoys](https://help.zscaler.com/deception/viewing-and-managing-decoy-deployment#deception-start-decoys).
@@ -10221,9 +10219,9 @@ To create Zero Trust Network decoys based on AI-powered recommendations:
 
 After the decoys are created, you can [test](https://help.zscaler.com/deception/testing-network-decoy) them to simulate an attack.
 
-Make sure that there are no FQDN-port combinations conflicting with any of the existing application segments in ZPA.
+Make sure that there are no FQDN-port combinations conflicting with any of the existing application segments in Private Access.
 
-You can select the **Deception** filter on the [Application Segments](https://help.zscaler.com/zpa/about-applications) page in ZPA to view the Zero Trust Network decoys.
+You can select the **Deception** filter on the [Application Segments](https://help.zscaler.com/zpa/about-applications) page in Private Access to view the Zero Trust Network decoys.
 
 [Image: Add a Zero Trust Network]
 
@@ -10248,39 +10246,25 @@ You can select the **Deception** filter on the [Application Segments](https://he
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/customizing-event-notification-templates","lastmod":"2025-05-12T04:30Z","nid":"1539255"} -->
+<!-- ZS-ARTICLE {"url":"/deception/customizing-event-notification-templates","lastmod":"2026-07-28T19:43Z","nid":"1540462"} -->
 ## Customizing Event Notification Templates
 
 - Source: https://help.zscaler.com/deception/customizing-event-notification-templates
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Event Templates > Customizing Event Notification Templates
-- Last modified: 2025-05-12T04:30Z
-- Summary: How to customize email notification template.
+- Last modified: 2026-07-28T19:43Z
+- Summary: How to customize an email notification template.
 
-Zscaler Deception allows you to send event notifications when a threat is detected. Event notifications are sent as emails. You can enable notifications and customize the default email notification template.
-
-## Customizing the Email Notification Template
-
-By default, the subject line for the email notification uses the text:
-
-```
-{kill_chain_phase} activity on {decoy.appliance.name}
-```
-
-You can modify this text using the built-in events.
-
-You cannot change the template of the email body. However, you can include more event fields in the email body.
+You can customize the email notification subject and the event fields included in email notifications using event notification templates.
 
 To customize the email notification template:
 
-1. Go to **Orchestrate** > **Event Templates**.
-2. Select **Enable Custom Templates**.
-3. Under **Email Subject**, enter the text and built-in events (within the curly braces).
-4. Under **Email Custom Fields**, enter the built-in events that you want to include in the email body. If **Email Custom Fields** is blank, the default list of events is sent in the email body.
-
-See image.
-
-1. Click **Save**.
+1. Go to **Orchestrate** > **Event Templates**. The **Event Templates** window appears.
+2. In the **Event Templates** window: See image.
+  1. Select **Enable Custom Templates**.
+  2. Under **Email Subject**, enter the text and built-in events (within the curly braces).
+  3. Under **Email Custom Fields**, enter the built-in events that you want to include in the email body. If **Email Custom Fields** is blank, the default list of events is sent in the email body.
+3. Click **Save**.
 
 [Image: Customize email notification template]
 <!-- /ZS-ARTICLE -->
@@ -10312,13 +10296,13 @@ To customize the landmine agent installer properties:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/customizing-lure-passwords","lastmod":"2026-06-29T22:26Z","nid":"1539167"} -->
+<!-- ZS-ARTICLE {"url":"/deception/customizing-lure-passwords","lastmod":"2026-06-28T20:43Z","nid":"1540374"} -->
 ## Customizing Lure Passwords
 
 - Source: https://help.zscaler.com/deception/customizing-lure-passwords
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Customizing Lure Passwords
-- Last modified: 2026-06-29T22:26Z
+- Last modified: 2026-06-28T20:43Z
 - Summary: How to configure landmine policies to create customized decoy credentials that are used in lures and decoys on endpoints.
 
 You can create and customize lure passwords and place them in browser lures, session lures, and file decoys. When these lure passwords are enumerated by attackers, the event is logged as an attack.
@@ -10372,13 +10356,13 @@ To configure lure settings via a landmine policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-aws","lastmod":"2026-05-13T01:18Z","nid":"1539142"} -->
+<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-aws","lastmod":"2026-08-03T00:19Z","nid":"1540349"} -->
 ## Decoy Connector Deployment Guide for AWS
 
 - Source: https://help.zscaler.com/deception/decoy-connector-deployment-guide-aws
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Decoy Connector Deployment Guides for Supported Platforms > Decoy Connector Deployment Guide for AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to deploy a Zscaler Deception Decoy Connector on Amazon Web Services (AWS), including platform prerequisites, configuring the network interface, and connecting a Decoy Connector to the Zscaler Deception Admin Portal.
 
 This deployment guide provides information on prerequisites, how to deploy a Decoy Connector on Amazon Web Services (AWS), how to configure the network interface, and how to connect the Decoy Connector to the Zscaler Deception Admin Portal.
@@ -10502,16 +10486,16 @@ You need to [add the Decoy Connector and connect it to the Deception Admin Porta
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-microsoft-azure","lastmod":"2026-06-14T20:03Z","nid":"1539141"} -->
+<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-microsoft-azure","lastmod":"2026-08-03T00:19Z","nid":"1540348"} -->
 ## Decoy Connector Deployment Guide for Microsoft Azure
 
 - Source: https://help.zscaler.com/deception/decoy-connector-deployment-guide-microsoft-azure
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Decoy Connector Deployment Guides for Supported Platforms > Decoy Connector Deployment Guide for Microsoft Azure
-- Last modified: 2026-06-14T20:03Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to deploy a Zscaler Deception Decoy Connector on Microsoft Azure, including platform prerequisites, configuring the network interface, and connecting a Decoy Connector to the Zscaler Deception Admin Portal.
 
-This deployment guide provides information on prerequisites, how to deploy a Decoy Connector on Microsoft Azure, how to configure the Decoy Connector network interface, and how to connect the Decoy Connector to the Zscaler Deception Admin Portal.
+This deployment guide provides information on prerequisites, how to deploy a Decoy Connector on Microsoft Azure, how to configure the Decoy Connector network interface, and how to connect the Decoy Connectorr to the Zscaler Deception Admin Portal.
 
 ## Prerequisites
 
@@ -10525,7 +10509,7 @@ Before deploying a Decoy Connector, Zscaler strongly recommends reading the foll
 - Ensure that you have:
   - An Azure account with admin privileges to do the following:
     - Upload an image to the Azure Blob storage.
-    - Create a managed image from the Decoy Connector image (.vhd file) in the block storage.
+    - Create an image from the Decoy Connector image (.vhd file) in the block storage.
     - Create a new virtual machine (VM) from the Decoy Connector image.
   - 50 GB disk storage. An SSD-backed storage is recommended.
 
@@ -10546,67 +10530,56 @@ To deploy a Decoy Connector on Azure:
 - a. Create a Decoy Connector VM on Azure.
 - b. Add a network interface to the Decoy Connector VM on Azure.
 
-- i. Upload the Decoy Connector image to the Azure portal.
-- ii. Create a managed image from the Decoy Connector image.
-- iii. Create a VM from the managed image.
-
 1. Log in to the [Azure portal](http://portal.azure.com/) using your credentials.
 2. Go to **Azure services** > **Storage accounts**. See image.
-3. Select the storage account where you want to upload the Decoy Connector image. See image.
+3. Select a storage account. See image.
 4. In the left-side navigation, go to **Data storage** > **Containers**. See image.
-5. Click the preferred blob container, and on the blob container page, click **Upload**. See image. If a blob container does not exist, create a blob container. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal).
-6. In the **Upload blob** drawer, click the **Select a file** icon to find and select the image (.vhd) file that you downloaded in Step 1, and then click **Upload**. See image.
-
-1. Go to **Azure services** > **Images**. See image.
-2. Click **Create**. See image.
-3. On the **Basics** tab: See image.
-  1. In the **Project details**section, choose a **Resource group**.
-  2. In the **Instance details**section:
-    1. **Name**: Enter a name for the image.
-    2. **Region**: Select a region from the drop-down menu.
-  3. In the **OS disk**section:
-    1. **OS type**: Select **Linux**.
-    2. **VM generation**: Select **Gen 1**.
-    3. **Storage blob**: Click **Browse** and select the image (.vhd) file that you uploaded.
-    4. **Account type**: Select **Standard SSD** from the drop-down menu.
-    5. Configure the remaining information for the VM.
-4. Click **Review + create**.
-5. On the **Review + create** tab, review the image configuration, and then click **Create**. See image.
-6. Make sure that the image is deployed successfully. See image.
-
-1. Go to **Azure services** > **Virtual machines**. See image.
-2. Click the **Create** drop-down menu, and then click **Azure virtual machine**. See image.
-3. On the **Basics** tab: See image. The Zscaler Deception Decoy Connector VM does not use the administrator's credentials configured at the time of the VM creation.
-  1. In the **Project details** section, from the **Resource group**drop-down menu, select a resource group.
-  2. In the **Instance details**section:
-    1. **Virtual machine name**: Enter a name for the VM.
-    2. **Region**: Select a region. Ensure that you select the same region that you specified while configuring the image.
-    3. **Image**: Select the image that you deployed.
-    4. **Size**: Select **Standard_B2s – 2vcpus**, **4 GiB memory**from the drop-down menu.
-    5. Configure the remaining information for the VM.
-4. On the **Networking** tab, under the **Network interface**section, select **SSH (22)**from the **Select inbound ports** drop-down menu. See image.
-5. Click **Review + create**.
-6. On the **Review + create** tab, review the VM configuration, and then click **Create**. See image. After connection of the Decoy Connector to the Deception Admin Portal is completed, the **Public inbound ports** option under the **Networking** tab can be set to **None.** See image.
-7. Make sure that the VM is deployed successfully. See image.
+5. Select a container, and then click **Upload**. See image.
+6. In the **Upload blob** window, click the **Select a file** icon to find and select the image (.vhd ) file that you downloaded in Step 1, and then click **Upload**. See image.
+7. Go to **Azure services** > **Images**. See image.
+8. Click **Create**. See image.
+9. On the **Basics** tab:
+  1. Under **Project details**section, choose a **Resource group**.
+  2. Under **Instance details**section:
+    1. Enter a **Name** for the image.
+    2. Select a **Region** from the drop-down menu.
+  3. Under **OS disk**section:
+    1. For **OS type**, select **Linux**.
+    2. For **VM generation**, select **Gen 1**.
+    3. For **Storage blob**, click **Browse** and select the image (.vhd) file that you uploaded.
+    4. For **Account type**, select **Standard SSD** from the drop-down menu, and then configure the rest of the general information for the VM.
+10. Click **Review + create**. See image.
+11. On the **Review + create** tab, review the image configuration, and then click **Create**. See image.
+12. Make sure that the image is deployed successfully. See image.
+13. Go to **Azure services** > **Virtual machines**. See image.
+14. Click the **Create** drop-down menu, and then click **Azure virtual machine**. See image.
+15. On the **Basics** tab: See image. The Zscaler Deception Decoy Connector VM does not use the administrator's credentials configured at the time of the VM creation.
+  1. Under the **Project details** section, choose a **Resource group**from the drop-down menu.
+  2. Under the **Instance details**section, enter the **Virtual machine name**.
+  3. Select a **Region**. Ensure that you select the same region that you specified while configuring the image.
+  4. For**Image**, select the image that you deployed.
+  5. For **Size**, select **Standard_B2s – 2vcpus**, **4 GiB memory**from the drop-down menu, and then configure the rest of the general information for the VM.
+16. On the **Networking** tab, under the **Network interface**section, select **SSH (22)**for the **Select inbound ports** drop-down menu.
+17. Click **Review + create**. See image.
+18. On the **Review + create** tab, review the VM configuration, and then click **Create**. See image. After connection of the Decoy Connector to the Deception Admin Portal is completed, the **Public inbound ports** option under the **Networking** tab can be set to **None.** See image.
+19. Make sure that the VM is deployed successfully. See image.
 
 To add decoys, each Decoy Connector VM needs to have at least two network interfaces. Therefore, you must add another network interface.
 
 1. Log in to the [Azure portal](http://portal.azure.com/) using your credentials.
 2. Go to **Azure services** > **Virtual machines.** See image.
-3. Select the VM for which you want to configure an additional network interface.
-4. On the **VM Overview**page, click **Stop**, and then confirm your selection. Ensure that the VM status has changed to **Stopped (deallocated)**.
-5. For the VM, in the left-side navigation, go to **Settings** > **Networking**. See image.
-6. On the **Networking**page, click **Attach network interface**. See image.
-7. On the **Attach network interface** page, click **Create and attach network interface**, and then click **OK**. See image.
-8. In the **Create network interface** window, under the **Network interface**section: See image.
-  1. **Name**: Enter a name for the network interface.
-  2. **Subnet**: Select a subnet where you want to configure the decoys from the drop-down menu.
-  3. **NIC network security group**: Select **Advanced**.
-  4. **Configure network security group**: Select a security group that allows inbound access to the IP address from the drop-down menu.
-  5. **Private IP address assignment**: Select either the **Dynamic** or **Static IP** address option per your requirement.
-9. Click **Create**.
-10. Make sure the network interface is created on the **Attach network interface** page, select the network interface, and then click **OK**.
-11. Start the VM. See image.
+3. Select the VM for which you want to configure an additional network interface. Make sure the VM is not running.
+4. For the VM, in the left-side navigation, go to **Settings** > **Networking**. See image.
+5. On the **Networking**page, click **Attach network interface**. See image.
+6. On the **Attach network interface** page, click **Create and attach network interface**, and then click **OK**. See image.
+7. In the **Create network interface** window, under **Network interface**section: See image.
+  1. Enter a **Name** for the network interface.
+  2. Select a **Subnet** where you want to configure the decoys.
+  3. Select a security group that allows inbound access to the IP address.
+  4. Select either the **Dynamic** or **Static IP** address option per your requirement.
+  5. Click **Create**.
+8. Make sure the network interface is created on the **Attach network interface** page, select the network interface, and then click **OK**.
+9. Start the VM. See image.
 
 - For a VM, each network interface can be in a different subnet. However, all of the network interfaces must be a part of the same virtual network.
 - The number of network interfaces that you can add to a VM depends on its image size. The recommended image size is Standard_B2s, which allows you to add three network interfaces to a VM.
@@ -10632,7 +10605,7 @@ You need to [add the Decoy Connector and connect it to the Deception Admin Porta
 
 [Image: Configure Image basic settings]
 
-[Image: Review and create an image on Azure]
+[Image: Review and create an Image on Azure]
 
 [Image: Image deployed on Azure]
 
@@ -10645,8 +10618,6 @@ You need to [add the Decoy Connector and connect it to the Deception Admin Porta
 [Image: Configure VM network settings in Azure]
 
 [Image: Review VM summary in Azure]
-
-[Image: Configuring public inbound ports for the VM]
 
 [Image: VM deployed in Azure]
 
@@ -10665,13 +10636,13 @@ You need to [add the Decoy Connector and connect it to the Deception Admin Porta
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-microsoft-hyper-v","lastmod":"2026-05-13T01:18Z","nid":"1539140"} -->
+<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-microsoft-hyper-v","lastmod":"2026-08-03T00:19Z","nid":"1540347"} -->
 ## Decoy Connector Deployment Guide for Microsoft Hyper-V
 
 - Source: https://help.zscaler.com/deception/decoy-connector-deployment-guide-microsoft-hyper-v
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Decoy Connector Deployment Guides for Supported Platforms > Decoy Connector Deployment Guide for Microsoft Hyper-V
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to deploy a Zscaler Deception Decoy Connector on Microsoft Hyper-V, including platform prerequisites, configuring the network interface, and connecting a Decoy Connector to theZscaler Deception Admin Portal.
 
 This deployment guide provides information on prerequisites, how to deploy a Decoy Connector on Microsoft Hyper-V (Windows Server 2012 R2 or later), how to configure the Connector management network, and how to connect the Decoy Connector to the Zscaler Deception Admin Portal.
@@ -10775,13 +10746,13 @@ After the Decoy Connector management network interface is configured, you need t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-nutanix-ahv","lastmod":"2026-05-13T01:18Z","nid":"1539328"} -->
+<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-nutanix-ahv","lastmod":"2026-08-03T00:19Z","nid":"1540535"} -->
 ## Decoy Connector Deployment Guide for Nutanix AHV
 
 - Source: https://help.zscaler.com/deception/decoy-connector-deployment-guide-nutanix-ahv
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Decoy Connector Deployment Guides for Supported Platforms > Decoy Connector Deployment Guide for Nutanix AHV
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to deploy a Zscaler Deception Decoy Connector on Nutanix AHV, including platform prerequisites, configuring the network interface, and connecting a Decoy Connector to the Zscaler Deception Admin Portal.
 
 This deployment guide provides information on prerequisites, how to deploy a Decoy Connector on Nutanix AHV, how to configure the management network, and how to connect the Decoy Connector to the Zscaler Deception Admin Portal.
@@ -10910,13 +10881,13 @@ After the Decoy Connector management network is configured, you need to [add the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-vmware","lastmod":"2026-05-13T01:18Z","nid":"1539125"} -->
+<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-vmware","lastmod":"2026-08-03T00:19Z","nid":"1540332"} -->
 ## Decoy Connector Deployment Guide for VMware Platforms
 
 - Source: https://help.zscaler.com/deception/decoy-connector-deployment-guide-vmware
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Decoy Connector Deployment Guides for Supported Platforms > Decoy Connector Deployment Guide for VMware Platforms
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to deploy a Zscaler Deception Decoy Connector on VMware, including platform prerequisites, configuring the network interface, and connecting a Decoy Connector to the Zscaler Deception Admin Portal.
 
 This deployment guide provides information on prerequisites, how to deploy a Decoy Connector on a VMware platform with vSphere Hypervisor (ESXi) client, how to configure the management network, and how to connect the Decoy Connector to the Zscaler Deception Admin Portal.
@@ -11042,16 +11013,16 @@ After the Decoy Connector management network is configured, you must [add the De
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-07-29T19:57Z","nid":"1539274"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-07-26T22:06Z","nid":"1540481"} -->
 ## Deploying Endpoint Deception with Zscaler Client Connector for Windows
 
 - Source: https://help.zscaler.com/deception/deploying-endpoint-deception-zscaler-client-connector-windows
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Deploying Endpoint Deception with Zscaler Client Connector for Windows
-- Last modified: 2026-07-29T19:57Z
+- Last modified: 2026-07-26T22:06Z
 - Summary: How to deploy endpoint deception with Zscaler Client Connector for Windows.
 
-If your organization is provisioned for Internet & SaaS (ZIA), you can deploy endpoint deception capabilities on Microsoft Windows machines using Zscaler Client Connector.
+If your organization is provisioned for Zscaler Internet Access (ZIA), you can deploy endpoint deception capabilities on Microsoft Windows machines using Zscaler Client Connector.
 
 This article provides information on prerequisites and how to deploy endpoint deception with Zscaler Client Connector for the Microsoft Windows operating system.
 
@@ -11059,7 +11030,7 @@ This article provides information on prerequisites and how to deploy endpoint de
 
 Before deploying endpoint deception with Zscaler Client Connector, ensure that you have:
 
-- Enabled endpoint deception capabilities on your Zscaler Client Connector by contacting your Zscaler Account team. Endpoint deception is not supported in Virtual Desktop Infrastructure (VDI) environments.
+- Enabled endpoint deception capabilities on your Zscaler Client Connector by contacting your Zscaler Account team.
 - Endpoints with Windows 10 (64-bit only) or later with a 64-bit version of Zscaler Client Connector are installed. You must[upgrade Zscaler Client Connector](https://help.zscaler.com/client-connector/downloading-zscaler-client-connector) to one of the supported versions: For Zscaler-recommended best practices for deploying Zscaler Client Connector, see [Best Practices for Zscaler Client Connector Deployment](https://help.zscaler.com/zscaler-client-connector/best-practices-zscaler-client-connector-deployment).
   - 4.6.0.123 or later
   - 4.7.0.47 or later
@@ -11136,13 +11107,13 @@ Follow these steps to deploy endpoint deception with Zscaler Client Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-file-based-generative-ai-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539444"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-file-based-generative-ai-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540651"} -->
 ## Deploying File-Based Gen AI Decoys
 
 - Source: https://help.zscaler.com/deception/deploying-file-based-generative-ai-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Gen AI Decoys > Deploying File-Based Gen AI Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to create file-based gen AI decoys.
 
 [Watch a video about Deploying File-Based Gen AI Decoys](https://fast.wistia.net/embed/iframe/qf0fwfsxxm).
@@ -11263,18 +11234,18 @@ The file-based Gen AI decoys are enumerated directly by adversaries, or you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-interactive-gen-ai-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539443"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-interactive-gen-ai-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540650"} -->
 ## Deploying Interactive Gen AI Decoys
 
 - Source: https://help.zscaler.com/deception/deploying-interactive-gen-ai-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Gen AI Decoys > Deploying Interactive Gen AI Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to deploy interactive Gen AI decoys in the Zscaler Deception Admin Portal.
 
 [Watch a video on Deploying Interactive Gen AI Decoys.](https://fast.wistia.net/embed/iframe/hmy8a4j6dl)
 
-Interactive generative AI (Gen AI) decoys mimic common Gen AI infrastructure such as Chatbots, LLM servers, open-source applications, APIs, etc. You can deploy Gen AI decoys on the internal network, Zero Trust Exchange, and the internet via ZPA, Internal, and Threat Intelligence (TI) using out-of-the-box Gen AI high-interaction or static application datasets.
+Interactive generative AI (Gen AI) decoys mimic common Gen AI infrastructure such as Chatbots, LLM servers, open-source applications, APIs, etc. You can deploy Gen AI decoys on the internal network, Zero Trust Exchange, and the internet via Private Access (ZPA), Internal, and Threat Intelligence (TI) using out-of-the-box Gen AI high-interaction or static application datasets.
 
 The following application datasets are available to create interactive Gen AI decoys:
 
@@ -11292,12 +11263,12 @@ The following application datasets are available to create interactive Gen AI de
 
 To learn more, see [About Static Application Datasets](https://help.zscaler.com/deception/about-static-application-datasets) and [About High-Interaction Containers](https://help.zscaler.com/deception/about-high-interaction-containers).
 
-You can deploy up to three interactive Gen AI decoys using the high-interaction dataset with ZPA and Internal decoys combined. However, the number of Gen AI decoys you can create using static datasets depends on your organization's licensing agreement. To learn more, see [Ranges & Limitations](https://help.zscaler.com/deception/ranges-and-limitations).
+You can deploy up to three interactive Gen AI decoys using the high-interaction dataset with Private Access and Internal decoys combined. However, the number of Gen AI decoys you can create using static datasets depends on your organization's licensing agreement. To learn more, see [Ranges & Limitations](https://help.zscaler.com/deception/ranges-and-limitations).
 
 Interactive Gen AI decoys that are deployed using high-interaction datasets don't support the TLS protocol. When configuring these decoys, don't use TLS ports (e.g., 443).
 
 - Deploying Gen AI Decoys on Internal Networks via Internal Decoys
-- Deploying Gen AI Decoys on the Zero Trust Exchange via Zero Trust Network (ZPA) Decoys
+- Deploying Gen AI Decoys on the Zero Trust Exchange via Zero Trust Network (Private Access) Decoys
 - Deploying Gen AI Decoys on the Internet via Threat Intelligence (TI) Decoys
 
 When configuring the [Internal decoys](https://help.zscaler.com/deception/about-network-decoys), make sure you configure the [Gen AI service](https://help.zscaler.com/deception/configuring-services-network-decoy#deception-config-gen-ai-service-network-decoys), which uses preconfigured AI-based high-interaction or static application datasets. Before creating an Internal decoy, make sure that the [prerequisites](https://help.zscaler.com/deception/creating-internal-network-decoy#zd-deception-internal-decoy-prerequisite) are met.
@@ -11311,7 +11282,7 @@ The Gen AI decoy is deployed on the internal network via an Internal decoy.
 
 See image.
 
-When configuring the [Zero Trust Network (ZPA) decoy](https://help.zscaler.com/deception/about-network-decoys), make sure you configure the [Gen AIservice](https://help.zscaler.com/deception/configuring-services-network-decoy#deception-config-gen-ai-service-network-decoys), which uses preconfigured AI-based high-interaction or static application datasets. Before creating a Zero Trust Network decoy, make sure that the [prerequisites](https://help.zscaler.com/deception/creating-zero-trust-network-decoy#zd-deception-zpa-decoy-prerequisite) are met.
+When configuring the [Zero Trust Network (Private Access) decoy](https://help.zscaler.com/deception/about-network-decoys), make sure you configure the [Gen AIservice](https://help.zscaler.com/deception/configuring-services-network-decoy#deception-config-gen-ai-service-network-decoys), which uses preconfigured AI-based high-interaction or static application datasets. Before creating a Zero Trust Network decoy, make sure that the [prerequisites](https://help.zscaler.com/deception/creating-zero-trust-network-decoy#zd-deception-zpa-decoy-prerequisite) are met.
 
 To deploy the Gen AI decoy on the Zero Trust Exchange via a Zero Trust Network decoy:
 
@@ -11358,13 +11329,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-radius-decoy","lastmod":"2026-05-13T01:18Z","nid":"1539457"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-radius-decoy","lastmod":"2026-08-03T00:19Z","nid":"1540664"} -->
 ## Deploying a RADIUS Decoy
 
 - Source: https://help.zscaler.com/deception/deploying-radius-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > RADIUS Decoys > Deploying a RADIUS Decoy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to deploy a RADIUS decoy on internal networks via Internal decoys.
 
 A RADIUS decoy mimics a real RADIUS server. You can deploy a RADIUS decoy on internal networks via [Internal decoys](https://help.zscaler.com/deception/creating-internal-network-decoy).
@@ -11388,13 +11359,13 @@ After the decoy is deployed, you can [test it](https://help.zscaler.com/deceptio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-strategy","lastmod":"2026-05-13T06:41Z","nid":"1539316"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-strategy","lastmod":"2026-08-03T00:19Z","nid":"1540523"} -->
 ## Deploying a Strategy
 
 - Source: https://help.zscaler.com/deception/deploying-strategy
 - Product: Deception
 - Path: Deception Help > Deceive  > Deploy Strategy > Deploying a Strategy
-- Last modified: 2026-05-13T06:41Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to deploy Deception strategies using Zscaler Private Access (ZPA) and Internal network decoys.
 
 You can deploy single or combined strategies to build and deploy environments with a single click.
@@ -11416,7 +11387,7 @@ To deploy a single or combined strategies:
   - Click **Configure Strategies** to create and deploy Private Access (ZPA) decoys on a dedicated cloud environment that is accessible using the Zero Trust Network Access (ZTNA) platform.
   - Click the **Expand** icon next to **Configure Strategies**, and then select **Internal Decoys** to create and deploy decoys within your organization's network.
 4. In the **Deploy Network Strategy** window:
-  1. (Applicable to Private Access decoys only) Under **ZPA**, make sure **ZPA**is enabled and all the ZPA domains are selected by default. You can click **Create domain** to add a new domain. Enable **Real App** if you want to add and deploy Private Access decoys on unused ports of a real or production Private Access application segment.
+  1. (Applicable to Private Access decoys only) Under **ZPA**, make sure ZPA is enabled and all the ZPA domains are selected by default. You can click **Create domain** to add a new domain. Enable **Real App** if you want to add and deploy Private Access decoys on unused ports of a real or production Private Access application segment.
   2. Under **Threat Intelligence Decoys**:
     - **Enabled**: Select to enable Threat Intelligence (TI) decoys.
     - **Domains**: Select a domain from the drop-down menu. Click **Create domain** to add a new domain.
@@ -11490,13 +11461,13 @@ On the **Landmine Policy** tab, configure the Landmine decoys:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/disabling-network-decoy","lastmod":"2026-05-13T01:18Z","nid":"1539144"} -->
+<!-- ZS-ARTICLE {"url":"/deception/disabling-network-decoy","lastmod":"2026-08-03T00:19Z","nid":"1540351"} -->
 ## Disabling a Network Decoy
 
 - Source: https://help.zscaler.com/deception/disabling-network-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Network Decoy Management > Disabling a Network Decoy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to disable a network decoy in the Zscaler Deception Admin Portal.
 
 You can stop all decoys at once via the Summary page (Deceive > Summary). If you want to stop a single decoy, you can disable it.
@@ -11728,13 +11699,13 @@ To download landmine agentless:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-landmine-agents","lastmod":"2026-05-13T01:18Z","nid":"1539176"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-landmine-agents","lastmod":"2026-08-03T00:19Z","nid":"1540383"} -->
 ## Downloading Landmine Agents
 
 - Source: https://help.zscaler.com/deception/downloading-landmine-agents
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Downloading Landmine Agents
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to download a landmine agent from the Zscaler Deception Admin Portal.
 
 Landmine agents are persistent agents installed on endpoints, such as desktops or laptops on your network. These agents deploy decoy credentials, files, processes, and lures on the endpoints.
@@ -11805,6 +11776,47 @@ The network decoy personality is downloaded to your system as a JSON file.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/deception/downloading-private-access-app-connector-debug-logs","lastmod":"2026-06-24T21:06Z","nid":"1540631"} -->
+## Downloading Private Access App Connector Debug Logs
+
+- Source: https://help.zscaler.com/deception/downloading-private-access-app-connector-debug-logs
+- Product: Deception
+- Path: Deception Help > Settings > Topology > ZPA App Connectors > Downloading Private Access App Connector Debug Logs
+- Last modified: 2026-06-24T21:06Z
+- Summary: How to download Private Access App Connector debug logs.
+
+Debug logs are system-generated logs that are stored on a Private Access (ZPA) App Connector. Debug logs are copied to the Zscaler Deception Admin Portal when you initiate a download request. The logs contain timestamps and messages that help you troubleshoot any issues with network decoys that use App Connectors.
+
+For an App Connector, you can download either the most recent or all debug logs.
+
+Make sure that the App Connector is connected to the Deception Admin Portal before you download the debug logs.
+
+To download debug logs:
+
+1. Go to **Settings** > **Topology** > **ZPA App Connectors**.
+2. Click **Logs**for an App Connector to download the debug logs.
+3. Select an option from the **Logs** drop-down menu: See image.
+  - **Request recent debug logs**: Download the last 1,000 lines from each log file.
+  - **Request all debug logs**: Download the complete log files.
+4. After the download logs request is initiated and completed, click **Download debug logs**. See image.
+5. In the **Debug Logs** window, click the **Download** icon. See image. The debug logs are downloaded and formatted in a .tar.xz file. Extract the file using a file compression tool (e.g., WinZip, 7-zip, etc.).
+6. Click **Close**.
+
+If the debug log files consume a large amount of disk space, you can periodically delete them. Click the **Delete** icon to delete the logs from the Deception Admin Portal.
+
+See image.
+
+[Image: Request ZPA App Connector debug logs]
+
+[Image: Download ZPA Connector debug logs]
+
+[Image: Debug logs download icon]
+
+[Image: Delete ZPA App Connector debug logs]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/deception/downloading-scadaiot-dataset","lastmod":"2025-05-12T02:41Z","nid":"1539373"} -->
 ## Downloading a SCADA/IoT Dataset
 
@@ -11847,13 +11859,13 @@ To download a static application dataset:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-strategy","lastmod":"2026-05-13T01:18Z","nid":"1539318"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-strategy","lastmod":"2026-08-03T00:19Z","nid":"1540525"} -->
 ## Downloading a Strategy
 
 - Source: https://help.zscaler.com/deception/downloading-strategy
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Deception Strategy > Downloading a Strategy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to download a strategy as a JSON file.
 
 You can download a single strategy as a JSON file. You also have the option to [export all strategies to a compressed file (.zip)](https://help.zscaler.com/deception/exporting-strategies).
@@ -11918,54 +11930,13 @@ To download a vulnerable application dataset:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-zpa-app-connector-debug-logs","lastmod":"2024-03-15T07:06Z","nid":"1539424"} -->
-## Downloading ZPA App Connector Debug Logs
-
-- Source: https://help.zscaler.com/deception/downloading-zpa-app-connector-debug-logs
-- Product: Deception
-- Path: Deception Help > Settings > Topology > ZPA App Connectors > Downloading ZPA App Connector Debug Logs
-- Last modified: 2024-03-15T07:06Z
-- Summary: How to download ZPA App Connector debug logs.
-
-Debug logs are system-generated logs that are stored on a ZPA App Connector. Debug logs are copied to the Zscaler Deception Admin Portal when you initiate a download request. The logs contain timestamps and messages that help you troubleshoot any issues with network decoys that use App Connectors.
-
-For an App Connector, you can download either the most recent or all debug logs.
-
-Make sure that the App Connector is connected to the Deception Admin Portal before you download the debug logs.
-
-To download debug logs:
-
-1. Go to **Settings** > **Topology** > **ZPA App Connectors**.
-2. Click **Logs**for an App Connector to download the debug logs.
-3. Select an option from the **Logs** drop-down menu: See image.
-  - **Request recent debug logs**: Download the last 1,000 lines from each log file.
-  - **Request all debug logs**: Download the complete log files.
-4. After the download logs request is initiated and completed, click **Download debug logs**. See image.
-5. In the **Debug Logs** window, click the **Download** icon. See image. The debug logs are downloaded and formatted in a .tar.xz file. Extract the file using a file compression tool (e.g., WinZip, 7-zip, etc.).
-6. Click **Close**.
-
-If the debug log files consume a large amount of disk space, you can periodically delete them. Click the **Delete** icon to delete the logs from the Deception Admin Portal.
-
-See image.
-
-[Image: Request ZPA App Connector debug logs]
-
-[Image: Download ZPA Connector debug logs]
-
-[Image: Debug logs download icon]
-
-[Image: Delete ZPA App Connector debug logs]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/editing-and-deleting-network-decoy","lastmod":"2026-05-13T01:18Z","nid":"1539151"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-and-deleting-network-decoy","lastmod":"2026-08-03T00:19Z","nid":"1540358"} -->
 ## Editing and Deleting a Network Decoy
 
 - Source: https://help.zscaler.com/deception/editing-and-deleting-network-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Network Decoy Management > Editing and Deleting a Network Decoy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to edit and delete a configured network decoy in the Zscaler Deception Admin portal.
 
 You can edit or delete network decoys that you configured in the Zscaler Deception Admin Portal.
@@ -12006,13 +11977,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-and-deleting-threat-intelligence-decoy","lastmod":"2026-05-13T01:18Z","nid":"1539155"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-and-deleting-threat-intelligence-decoy","lastmod":"2026-08-03T00:19Z","nid":"1540362"} -->
 ## Editing and Deleting a Threat Intelligence Decoy
 
 - Source: https://help.zscaler.com/deception/editing-and-deleting-threat-intelligence-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Threat Intelligence Decoys > Threat Intelligence Decoy Management > Editing and Deleting a Threat Intelligence Decoy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to edit and delete a Threat Intelligence (TI) decoy in the Zscaler Deception Admin Portal.
 
 You can edit or delete a Threat Intelligence (TI) decoy that you have configured in the Zscaler Deception Admin Portal.
@@ -12056,13 +12027,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-active-directory-decoy-personality","lastmod":"2026-05-13T01:18Z","nid":"1539394"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-active-directory-decoy-personality","lastmod":"2026-08-03T00:19Z","nid":"1540601"} -->
 ## Editing or Deleting an Active Directory Decoy Personality
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-active-directory-decoy-personality
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Active Directory Decoy Personalities > Editing or Deleting an Active Directory Decoy Personality
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete Active Directory (AD) decoy personalities.
 
 You can edit or delete Active Directory (AD) decoy personalities configured in the Zscaler Deception Admin Portal.
@@ -12106,13 +12077,13 @@ The default AD decoy personalities cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-active-directory-domain","lastmod":"2026-05-13T01:18Z","nid":"1539195"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-active-directory-domain","lastmod":"2026-08-03T00:19Z","nid":"1540402"} -->
 ## Editing or Deleting an Active Directory Domain
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-active-directory-domain
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Active Directory Decoy Management > Editing or Deleting an Active Directory Domain
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to edit or delete an Active Directory (AD) domain in the Zscaler Deception Admin Portal.
 
 You can edit or delete an Active Directory (AD) domain that you have configured in the Zscaler Deception Admin Portal.
@@ -12147,50 +12118,6 @@ If you delete an AD domain and create it again in the Deception Admin Portal, yo
 [Image: Edit AD domain details]
 
 [Image: Delete an AD domain]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-api-token","lastmod":"2025-05-12T04:29Z","nid":"1539283"} -->
-## Editing or Deleting an API Token
-
-- Source: https://help.zscaler.com/deception/editing-or-deleting-api-token
-- Product: Deception
-- Path: Deception Help > Orchestrate  > API Token Management > Editing or Deleting an API Token
-- Last modified: 2025-05-12T04:29Z
-- Summary: How to edit or delete an API token that you have configured in the Zscaler Deception Admin Portal.
-
-You can edit or delete an API token that you configured in the Zscaler Deception Admin Portal.
-
-## Editing an API Token
-
-1. Go to **Orchestrate** > **API Tokens**.
-2. Select the API token you want to modify, and under **Actions**, click the **Edit** icon.
-
-See image.
-
-1. In the **API Token Details**window, modify the required fields.
-
-See image.
-
-You cannot edit the API token expiration period.
-
-1. Click **Submit**.
-
-## Deleting an API Token
-
-1. Go to **Orchestrate** > **API Tokens**.
-2. Select the API token you want to delete, and under **Actions**, click the **Delete** icon.
-
-See image.
-
-1. In the confirmation window, click **OK**.
-
-[Image: Edit icon on the API Tokens page]
-
-[Image: Edit an API token details]
-
-[Image: Delete icon on the API Tokens page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12243,13 +12170,13 @@ To delete mutiple or all blocklists:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-custom-service-dataset","lastmod":"2026-05-13T01:18Z","nid":"1539400"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-custom-service-dataset","lastmod":"2026-08-03T00:19Z","nid":"1540607"} -->
 ## Editing or Deleting a Custom Service Dataset
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-custom-service-dataset
 - Product: Deception
 - Path: Deception Help > Miragemaker > Custom Service Datasets > Editing or Deleting a Custom Service Dataset
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete a custom service dataset
 
 You can edit or delete custom service datasets that you configured in the Zscaler Deception Admin Portal
@@ -12334,13 +12261,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-decoy-active-directory-user","lastmod":"2026-05-13T01:18Z","nid":"1539196"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-decoy-active-directory-user","lastmod":"2026-08-03T00:19Z","nid":"1540403"} -->
 ## Editing or Deleting an Active Directory Decoy User
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-decoy-active-directory-user
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Active Directory Decoy Management > Editing or Deleting an Active Directory Decoy User
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to edit or delete an Active Directory (AD) decoy user in the Zscaler Deception Admin Portal.
 
 You can edit or delete an Active Directory (AD) decoy user that you have configured in the Zscaler Deception Admin Portal.
@@ -12381,13 +12308,13 @@ When you delete an AD decoy user that is deployed in an AD domain managed by a s
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-deployed-strategy","lastmod":"2026-05-13T01:18Z","nid":"1539321"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-deployed-strategy","lastmod":"2026-08-03T00:19Z","nid":"1540528"} -->
 ## Editing or Deleting a Deployed Strategy
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-deployed-strategy
 - Product: Deception
 - Path: Deception Help > Deceive  > Deploy Strategy > Editing or Deleting a Deployed Strategy
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to edit or delete a deployed strategy in the Zscaler Deception Admin Portal.
 
 You can edit or delete a deployed strategy in the Zscaler Deception Admin Portal.
@@ -12466,13 +12393,13 @@ The default dynamic application datasets cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-file-dataset","lastmod":"2026-05-13T01:18Z","nid":"1539411"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-file-dataset","lastmod":"2026-08-03T00:19Z","nid":"1540618"} -->
 ## Editing or Deleting a File Dataset
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-file-dataset
 - Product: Deception
 - Path: Deception Help > Miragemaker > File Datasets & Templates > File Datasets > Editing or Deleting a File Dataset
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete a file dataset.
 
 You can edit or delete file datasets that you configured in the Zscaler Deception Admin Portal.
@@ -12507,13 +12434,13 @@ The default file datasets cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-file-template","lastmod":"2026-05-13T01:18Z","nid":"1539412"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-file-template","lastmod":"2026-08-03T00:19Z","nid":"1540619"} -->
 ## Editing or Deleting a File Template
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-file-template
 - Product: Deception
 - Path: Deception Help > Miragemaker > File Datasets & Templates > File Templates > Editing or Deleting a File Template
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete a file template.
 
 You can edit or delete file templates that you configured in the Zscaler Deception Admin Portal.
@@ -12548,13 +12475,13 @@ The default file templates cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-high-interaction-container","lastmod":"2026-05-13T01:18Z","nid":"1539407"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-high-interaction-container","lastmod":"2026-08-03T00:19Z","nid":"1540614"} -->
 ## Editing or Deleting a High-Interaction Container
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-high-interaction-container
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > High-Interaction Containers > Editing or Deleting a High-Interaction Container
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete high-interaction containers.
 
 You can edit or delete high-interaction containers that you configured in the Zscaler Deception Admin Portal.
@@ -12589,13 +12516,13 @@ The default high-interaction containers cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-landmine-decoy-personality","lastmod":"2026-05-13T01:18Z","nid":"1539388"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-landmine-decoy-personality","lastmod":"2026-08-03T00:19Z","nid":"1540595"} -->
 ## Editing or Deleting a Landmine Decoy Personality
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-landmine-decoy-personality
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Landmine Decoy Personalities > Editing or Deleting a Landmine Decoy Personality
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete landmine decoy personalities.
 
 You can edit or delete landmine decoy personalities that you configured in the Zscaler Deception Admin Portal.
@@ -12641,13 +12568,13 @@ The default landmine decoy personalities cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-network-decoy-personality","lastmod":"2026-05-13T01:18Z","nid":"1539378"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-network-decoy-personality","lastmod":"2026-08-03T00:19Z","nid":"1540585"} -->
 ## Editing or Deleting a Network Decoy Personality
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-network-decoy-personality
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Network Decoy Personalities > Editing or Deleting a Network Decoy Personality
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete network decoy personalities.
 
 You can edit or delete network decoy personalities that you configured in the Zscaler Deception Admin Portal.
@@ -12687,80 +12614,6 @@ The default network decoy personalities cannot be deleted.
 [Image: The personality details window]
 
 [Image: Delete a network decoy personality]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-openid-idp-configuration","lastmod":"2025-10-31T07:06Z","nid":"1539441"} -->
-## Editing or Deleting an OpenID IdP Configuration
-
-- Source: https://help.zscaler.com/deception/editing-or-deleting-openid-idp-configuration
-- Product: Deception
-- Path: Deception Help > Authentication > OpenID Configuration > Editing or Deleting an OpenID IdP Configuration
-- Last modified: 2025-10-31T07:06Z
-- Summary: How to edit or delete an OpenID identity provider (IdP) configuration
-
-You can edit or delete an OpenID identity provider (IdP) configuration in the Zscaler Deception Admin Portal.
-
-## Editing an OpenID IdP Configuration
-
-To edit an OpenID IdP configuration:
-
-1. Go to **Settings** > **Users & Roles** > **IdP Providers**.
-2. In the table, locate an OpenID IdP configuration you want to modify, and then click the **Edit** icon. See image.
-3. In the **OpenID Provider Details** window, modify the required fields. See image.
-4. Click **Save**.
-
-## Deleting an OpenID IdP Configuration
-
-To delete an OpenID IdP Configuration:
-
-1. Go to **Settings** > **Users & Roles** > **IdP Providers**.
-2. In the table, locate an OpenID IdP configuration you want to delete, and then click the **Delete** icon. See image.
-3. In the confirmation window, click **OK**.
-
-[Image: Edit OpenID IdP]
-
-[Image: Modify OpenID IdP details]
-
-[Image: Delete OpenID IdP]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-rule","lastmod":"2026-05-12T22:03Z","nid":"1539287"} -->
-## Editing or Deleting a Rule
-
-- Source: https://help.zscaler.com/deception/editing-or-deleting-rule
-- Product: Deception
-- Path: Deception Help > Orchestrate  > Orchestration Rules > Editing or Deleting a Rule
-- Last modified: 2026-05-12T22:03Z
-- Summary: How to edit or delete a rule that you have configured in the Zscaler Deception Admin Portal.
-
-You can edit or delete an orchestration rule that you configured in the Zscaler Deception Admin Portal.
-
-## Editing a Rule
-
-To edit a rule:
-
-1. Go to **Orchestrate** > **Rules**.
-2. Locate the rule that you want to modify, and click the **Edit** icon under the **Actions**column. See image.
-3. In the **Rule Detail** window, modify the required fields. See image.
-4. Click **Save**.
-
-## Deleting a Rule
-
-To delete a rule:
-
-1. Go to **Orchestrate** > **Rules**.
-2. Locate the rule that you want to delete, and click the **Delete**icon under the **Actions**column. See image.
-3. In the confirmation window, click **OK**.
-
-[Image: Edit icon on the Rules page]
-
-[Image: Modify rule details]
-
-[Image: Delete icon on the Rules page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12847,107 +12700,13 @@ The default SCADA/IoT datasets cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-service-connector","lastmod":"2025-05-12T04:41Z","nid":"1539254"} -->
-## Editing or Deleting a Service Connector
-
-- Source: https://help.zscaler.com/deception/editing-or-deleting-service-connector
-- Product: Deception
-- Path: Deception Help > Orchestrate  > SIEM Integrations > Editing or Deleting a Service Connector
-- Last modified: 2025-05-12T04:41Z
-- Summary: How to edit or delete a Service Connector that you configured in the Zscaler Deception Admin Portal.
-
-You can edit or delete a Service Connector that you configured in the Zscaler Deception Admin Portal.
-
-## Editing a Service Connector
-
-To edit a Service Connector:
-
-1. Go to **Orchestrate** > **Service Connectors**.
-2. In the table, select the Service Connector you want to modify, and then click the **Edit** icon.
-
-See image.
-
-1. In the **Service Connector Details** window, modify the fields as necessary.
-
-See image.
-
-1. Click **Save**.
-
-## Deleting a Service Connector
-
-To delete a Service Connector:
-
-1. Go to **Orchestrate** > **Service Connectors**.
-2. In the table, select the Service Connector you want to delete, and then click the **Delete** icon.
-
-See image.
-
-1. In the confirmation window, click **OK**.
-
-When you delete a Service Connector, all SIEM integrations with the Service Connector are deleted.
-
-[Image: Edit icon on the Service Connectors page]
-
-[Image: Edit Service Connector details]
-
-[Image: Delete icon on the Service Connectors page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-siem-integration","lastmod":"2025-05-12T04:42Z","nid":"1539261"} -->
-## Editing or Deleting a SIEM Integration
-
-- Source: https://help.zscaler.com/deception/editing-or-deleting-siem-integration
-- Product: Deception
-- Path: Deception Help > Orchestrate  > SIEM Integrations > Editing or Deleting a SIEM Integration
-- Last modified: 2025-05-12T04:42Z
-- Summary: How to edit or delete a SIEM integration configured on the Zscaler Deception Admin Portal.
-
-You can edit or delete a SIEM integration that you configured in the Zscaler Deception Admin Portal.
-
-## Editing a SIEM Integration
-
-To edit a SIEM integration:
-
-1. Go to **Orchestrate** > **SIEM** **Integrations**.
-2. In the table, locate the SIEM integration you want to modify, and then click the **Edit** icon.
-
-See image.
-
-1. In the SIEM details window, modify the fields as necessary.
-
-See image.
-
-1. Click **Save**.
-
-## Deleting a SIEM Integration
-
-To delete a SIEM integration:
-
-1. Go to **Orchestrate** > **SIEM Integrations**.
-2. In the table, locate the SIEM integration you want to delete, and then click the **Delete** icon.
-
-See image.
-
-1. In the confirmation window, click **OK**.
-
-[Image: Edit icon on the SIEM Integrations page]
-
-[Image: Edit SIEM integrations details]
-
-[Image: Delete SIEM integration icon]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-static-application-dataset","lastmod":"2026-05-13T01:18Z","nid":"1539406"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-static-application-dataset","lastmod":"2026-08-03T00:19Z","nid":"1540613"} -->
 ## Editing or Deleting a Static Application Dataset
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-static-application-dataset
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > Static Application Datasets > Editing or Deleting a Static Application Dataset
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete a static application dataset.
 
 You can edit or delete static application datasets that you configured in the Zscaler Deception Admin Portal.
@@ -12982,18 +12741,18 @@ The default static application datasets cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-subnet","lastmod":"2024-01-03T01:15Z","nid":"1539268"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-subnet","lastmod":"2026-06-24T21:06Z","nid":"1540475"} -->
 ## Editing or Deleting a Subnet
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-subnet
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Network Interfaces > Editing or Deleting a Subnet
-- Last modified: 2024-01-03T01:15Z
+- Last modified: 2026-06-24T21:06Z
 - Summary: How to edit or delete a subnet.
 
 You can edit or delete a subnet that you have configured in the Zscaler Deception Admin Portal.
 
-Zscaler Deception uses Zscaler Private Access (ZPA) or Threat Intelligence (TI) subnets to deploy decoys in a dedicated Deception cloud. You cannot edit or delete these subnets. Contact Zscaler Support to manage them.
+Zscaler Deception uses Private Access (ZPA) or Threat Intelligence (TI) subnets to deploy decoys in a dedicated Deception cloud. You cannot edit or delete these subnets. Contact Zscaler Support to manage them.
 
 ## Editing a Subnet
 
@@ -13067,13 +12826,13 @@ The default TI decoy personalities cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-threatparse-rule","lastmod":"2026-05-13T01:18Z","nid":"1539403"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-threatparse-rule","lastmod":"2026-08-03T00:19Z","nid":"1540610"} -->
 ## Editing or Deleting a ThreatParse Rule
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-threatparse-rule
 - Product: Deception
 - Path: Deception Help > Miragemaker > ThreatParse Rules > Editing or Deleting a ThreatParse Rule
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete a ThreatParse rule.
 
 You can edit or delete ThreatParse Rules that you configured in the Zscaler Deception Admin Portal.
@@ -13172,13 +12931,13 @@ To edit your user profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enabling-auto-clean-duplicate-landmine-agents","lastmod":"2026-05-13T01:18Z","nid":"1539185"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enabling-auto-clean-duplicate-landmine-agents","lastmod":"2026-08-03T00:19Z","nid":"1540392"} -->
 ## Enabling Auto Clean-Up of Duplicate Landmine Agents
 
 - Source: https://help.zscaler.com/deception/enabling-auto-clean-duplicate-landmine-agents
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agent Configuration > Enabling Auto Clean-Up of Duplicate Landmine Agents
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to enable the auto clean up feature to automatically delete landmine agents with duplicate hostnames from the Zscaler Deception Admin Portal.
 
 You can enable the auto clean-up feature to automatically delete landmine agents with duplicate hostnames from the [Agent Configuration](https://help.zscaler.com/deception/about-landmine-settings)page. The most recently connected hostnames and the ones that are connected for less than 7 days are retained.
@@ -13222,13 +12981,13 @@ Enabling this feature stops any automatic updates for agents that are not a part
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-abuseipdb","lastmod":"2026-05-13T01:18Z","nid":"1539292"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-abuseipdb","lastmod":"2026-08-03T00:19Z","nid":"1540499"} -->
 ## Enrichment Configuration Guide for AbuseIPDB
 
 - Source: https://help.zscaler.com/deception/enrichment-configuration-guide-abuseipdb
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Enrichment Integrations > Enrichment Configuration Guide for AbuseIPDB
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with AbuseIPDB to enhance events generated on the Zscaler Deception Admin Portal with additional context.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with AbuseIPDB to enhance events that are generated in the Zscaler Deception Admin Portal with additional context.
@@ -13275,13 +13034,13 @@ After the enrichment integration is enabled, you can see the data from AbuseIPDB
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-greynoise-intelligence","lastmod":"2026-05-13T01:18Z","nid":"1539289"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-greynoise-intelligence","lastmod":"2026-08-03T00:19Z","nid":"1540496"} -->
 ## Enrichment Configuration Guide for GreyNoise Intelligence
 
 - Source: https://help.zscaler.com/deception/enrichment-configuration-guide-greynoise-intelligence
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Enrichment Integrations > Enrichment Configuration Guide for GreyNoise Intelligence
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with GreyNoise Intelligence to enhance events generated on the Zscaler Deception Admin Portal with additional context.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with GreyNoise Intelligence to enhance events that are generated in the Zscaler Deception Admin Portal with additional context.
@@ -13329,13 +13088,13 @@ After the enrichment integration is enabled, you can see the data from GreyNoise
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-hybrid-analysis","lastmod":"2026-05-13T01:18Z","nid":"1539296"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-hybrid-analysis","lastmod":"2026-08-03T00:19Z","nid":"1540503"} -->
 ## Enrichment Configuration Guide for Hybrid Analysis
 
 - Source: https://help.zscaler.com/deception/enrichment-configuration-guide-hybrid-analysis
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Enrichment Integrations > Enrichment Configuration Guide for Hybrid Analysis
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Hybrid Analysis to enrich the security events generated on the Zscaler Deception Admin Portal.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Hybrid Analysis to enhance the security events generated in the Zscaler Deception Admin Portal with additional context.
@@ -13372,13 +13131,13 @@ To test the integration, run an application file on a network decoy with Windows
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-ipinfo","lastmod":"2026-05-13T01:18Z","nid":"1539293"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-ipinfo","lastmod":"2026-08-03T00:19Z","nid":"1540500"} -->
 ## Enrichment Configuration Guide for IPinfo
 
 - Source: https://help.zscaler.com/deception/enrichment-configuration-guide-ipinfo
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Enrichment Integrations > Enrichment Configuration Guide for IPinfo
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with IPinfo to enrich events that are generated on the Zscaler Deception Admin Portal with additional context.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with IPinfo to enrich security events that are generated in the Zscaler Deception Admin Portal with additional context.
@@ -13415,13 +13174,13 @@ After the enrichment is enabled, the enriched IP geolocation data from IPinfo is
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-joe-sandbox","lastmod":"2026-05-13T01:18Z","nid":"1539291"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-joe-sandbox","lastmod":"2026-08-03T00:19Z","nid":"1540498"} -->
 ## Enrichment Configuration Guide for Joe Sandbox
 
 - Source: https://help.zscaler.com/deception/enrichment-configuration-guide-joe-sandbox
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Enrichment Integrations > Enrichment Configuration Guide for Joe Sandbox
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Joe Sandbox to enhance events generated on the Zscaler Deception Admin Portal with additional context.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Joe Sandbox to enhance events that are generated in the Zscaler Deception Admin Portal with additional context.
@@ -13456,13 +13215,13 @@ To test the integration, run an application file on a network decoy with Windows
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-palo-alto-networks-wildfire","lastmod":"2026-05-13T01:18Z","nid":"1539294"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-palo-alto-networks-wildfire","lastmod":"2026-08-03T00:19Z","nid":"1540501"} -->
 ## Enrichment Configuration Guide for Palo Alto Networks WildFire
 
 - Source: https://help.zscaler.com/deception/enrichment-configuration-guide-palo-alto-networks-wildfire
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Enrichment Integrations > Enrichment Configuration Guide for Palo Alto Networks WildFire
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Palo Alto Networks WildFire to enrich incident investigations and response.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Palo Alto Networks WildFire. You can send the Deception evidence files to the Palo Alto Networks WildFire sandbox to enrich incident investigations and response.
@@ -13498,13 +13257,13 @@ To test the integration, run an application file on a network decoy with Windows
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-shadowserver","lastmod":"2026-05-27T21:06Z","nid":"1539295"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-shadowserver","lastmod":"2026-08-03T00:19Z","nid":"1540502"} -->
 ## Enrichment Configuration Guide for Shadowserver
 
 - Source: https://help.zscaler.com/deception/enrichment-configuration-guide-shadowserver
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Enrichment Integrations > Enrichment Configuration Guide for Shadowserver
-- Last modified: 2026-05-27T21:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with Shadowserver to enrich the security events generated on the Zscaler Deception Admin Portal.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with Shadowserver to enhance the security events generated in the Zscaler Deception Admin Portal with additional context.
@@ -13540,13 +13299,13 @@ After the enrichment integration is enabled, you can see the data from Shadowser
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-virustotal","lastmod":"2026-05-13T01:18Z","nid":"1539288"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enrichment-configuration-guide-virustotal","lastmod":"2026-08-03T00:19Z","nid":"1540495"} -->
 ## Enrichment Configuration Guide for VirusTotal
 
 - Source: https://help.zscaler.com/deception/enrichment-configuration-guide-virustotal
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Enrichment Integrations > Enrichment Configuration Guide for VirusTotal
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to integrate Zscaler Deception with VirusTotal to add the quality of the events generated on the Zscaler Deception Admin Portal.
 
 This configuration guide provides information on prerequisites and how to integrate Zscaler Deception with VirusTotal to enhance events generated in the Zscaler Deception Admin Portal with additional context.
@@ -13754,13 +13513,13 @@ A CSV file with the decoy configuration details is downloaded to your local syst
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/exporting-root-ca-certificate-active-directory-certificate-service","lastmod":"2026-05-13T01:18Z","nid":"1539200"} -->
+<!-- ZS-ARTICLE {"url":"/deception/exporting-root-ca-certificate-active-directory-certificate-service","lastmod":"2026-08-03T00:19Z","nid":"1540407"} -->
 ## Exporting a Root CA Certificate from an Active Directory Certificate Service
 
 - Source: https://help.zscaler.com/deception/exporting-root-ca-certificate-active-directory-certificate-service
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Exporting a Root CA Certificate from an Active Directory Certificate Service
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to extract a Root CA certificate from an (AD CS) server.
 
 When you create an AD domain with credentials in the Zscaler Deception Admin Portal, you must upload a domain CA certificate (.crt) to enable a secure LDAP connection. This certificate must be in the PEM format. This article provides instructions for exporting a CA certificate from an Active Directory Certificate Service (AD CS) server.
@@ -13944,13 +13703,13 @@ A CSV file is downloaded to your system.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agent-linux","lastmod":"2026-05-13T01:18Z","nid":"1539193"} -->
+<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agent-linux","lastmod":"2026-08-03T00:19Z","nid":"1540400"} -->
 ## Installing a Landmine Agent on Linux
 
 - Source: https://help.zscaler.com/deception/installing-landmine-agent-linux
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Installing a Landmine Agent on Linux
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to install a landmine agent on the Linux platform using the command line interface (CLI).
 
 This article provides instructions for installing a landmine agent on the Linux platform using the command line interface (CLI).
@@ -14041,13 +13800,13 @@ Example proxy URLs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agent-macos","lastmod":"2026-05-13T01:18Z","nid":"1539180"} -->
+<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agent-macos","lastmod":"2026-08-03T00:19Z","nid":"1540387"} -->
 ## Installing a Landmine Agent on macOS
 
 - Source: https://help.zscaler.com/deception/installing-landmine-agent-macos
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Installing a Landmine Agent on macOS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to install a landmine agent on macOS.
 
 This article provides instructions for installing a landmine agent on the macOS platform using the CLI.
@@ -14148,13 +13907,13 @@ A profile with a Full Disk Access grant must be deployed before installing Landm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agent-using-active-directory-gpo","lastmod":"2026-05-13T01:18Z","nid":"1539337"} -->
+<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agent-using-active-directory-gpo","lastmod":"2026-08-03T00:19Z","nid":"1540544"} -->
 ## Installing a Landmine Agent Using an Active Directory Group Policy Object
 
 - Source: https://help.zscaler.com/deception/installing-landmine-agent-using-active-directory-gpo
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Installing a Landmine Agent Using an Active Directory Group Policy Object
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to install a landmine agent on domain-joined user machines using Active Directory’s (AD) Group Policy Object (GPO).
 
 You can install a landmine agent on domain-joined user machines using Active Directory (AD) Group Policy Object (GPO).
@@ -14201,13 +13960,13 @@ To install a landmine agent using an AD GPO:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agent-windows","lastmod":"2026-07-29T00:09Z","nid":"1539177"} -->
+<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agent-windows","lastmod":"2026-08-03T00:19Z","nid":"1540384"} -->
 ## Installing a Landmine Agent on Windows
 
 - Source: https://help.zscaler.com/deception/installing-landmine-agent-windows
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Installing a Landmine Agent on Windows
-- Last modified: 2026-07-29T00:09Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to install a landmine agent on the Windows platform using the command line interface (CLI).
 
 This article provides instructions for installing a landmine agent on the Windows platform using the command line interface (CLI).
@@ -14216,7 +13975,7 @@ This article provides instructions for installing a landmine agent on the Window
 
 Before installing a landmine agent, ensure that your endpoints have:
 
-- Windows 10 (64-bit only) or Windows 11 (64-bit only) with Windows Installer and .NET version 4.6.1 or later Microsoft Windows 7, Windows 8, and Windows 8.1 are not supported.; Zscaler recommends using the latest version of .NET framework. For Windows 10 version 1607 and earlier, installing the latest version of the .NET framework is mandatory for the installation to succeed.; Endpoint deception is not supported in Virtual Desktop Infrastructure (VDI) environments.
+- Windows 10 (64-bit only) or Windows 11 (64-bit only) with Windows Installer and .NET version 4.6.1 or later Microsoft Windows 7, Windows 8, and Windows 8.1 are not supported.; Zscaler recommends using the latest version of .NET framework. For Windows 10 version 1607 and earlier, installing the latest version of the .NET framework is mandatory for the installation to succeed.
 - 100 MB of free memory
 - 1 GB of free storage, preferably in an SSD
 - A minimum of 256 Kbps internet bandwidth and an open outbound port 443 on the system where the agent is installed to connect to the Zscaler Deception Admin Portal. This connection is proxy ware, and you can either use a statically defined proxy or the proxy configured for the `SYSTEM` user.
@@ -14334,13 +14093,13 @@ Example PAC file URLs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agents-windows-using-mecm-or-sccm","lastmod":"2026-05-13T01:18Z","nid":"1539192"} -->
+<!-- ZS-ARTICLE {"url":"/deception/installing-landmine-agents-windows-using-mecm-or-sccm","lastmod":"2026-08-03T00:19Z","nid":"1540399"} -->
 ## Installing Landmine Agents on Windows Using MECM or SCCM
 
 - Source: https://help.zscaler.com/deception/installing-landmine-agents-windows-using-mecm-or-sccm
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Installing Landmine Agents on Windows Using MECM or SCCM
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to install a landmine agent on the Windows platform using MECM or SCCM.
 
 This article provides instructions for installing a landmine agent on the Windows platform using Microsoft Endpoint Configuration Manager (MECM) (formerly known as Microsoft System Center Configuration Manager (SCCM)).
@@ -14424,13 +14183,13 @@ The application is deployed. The value under **Compliance %** changes after the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-advanced-settings","lastmod":"2026-05-13T01:18Z","nid":"1539246"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-advanced-settings","lastmod":"2026-08-03T00:19Z","nid":"1540453"} -->
 ## Managing Advanced Setting
 
 - Source: https://help.zscaler.com/deception/managing-advanced-settings
 - Product: Deception
 - Path: Deception Help > Settings > Managing Advanced Setting
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to manage Advanced Settings in the Zscaler Deception Admin Portal.
 
 Advanced Settings allow you to view license details, manage events logs and evidence files, configure a retention policy for logs, and more.
@@ -14505,13 +14264,13 @@ To delete an evidence file from a Decoy Connector:
 
 The download and delete evidence operations trigger a download of up to 10,000 files or 3 GB of uncompressed evidence at a time. You might have to run these operations multiple times to clear evidence for large date ranges.
 
-The Zscaler Deception Admin Portal uses the Zscaler Private Access (ZPA) service to deploy decoys in a dedicated Zscaler Deception cloud. To learn more, see [Understanding the Zscaler Deception Architecture](https://help.zscaler.com/deception/understanding-zscaler-deception-architecture). You can show or hide ZPA components, such as ZPA Decoy Connectors and interfaces, in the Deception Admin Portal.
+The Zscaler Deception Admin Portal uses the Private Access (ZPA) service to deploy decoys in a dedicated Zscaler Deception cloud. To learn more, see [Understanding the Zscaler Deception Architecture](https://help.zscaler.com/deception/understanding-zscaler-deception-architecture). You can show or hide Private Access components, such as Private Access Decoy Connectors and interfaces, in the Deception Admin Portal.
 
-To show ZPA interfaces:
+To show Private Access interfaces:
 
 1. On the **Show/Hide Internal Components**tab, enable **Show internal components**. See image.
 2. Click **Save**.
-3. Go to **Settings** > **Topology** > **Interfaces**. The ZPA interfaces appear on the **Interfaces** page. See image.
+3. Go to **Settings** > **Topology** > **Interfaces**. The Private Access interfaces appear on the **Interfaces** page. See image.
 
 [Image: Show or hide internal components]
 
@@ -14607,13 +14366,46 @@ To delete an agent update group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-aws-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539363"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-api-tokens","lastmod":"2026-07-26T21:02Z","nid":"1540490"} -->
+## Managing API Tokens
+
+- Source: https://help.zscaler.com/deception/managing-api-tokens
+- Product: Deception
+- Path: Deception Help > Orchestrate  > API Token Management > Managing API Tokens
+- Last modified: 2026-07-26T21:02Z
+- Summary: How to edit or delete an API token that you have configured in the Zscaler Deception Admin Portal.
+
+You can edit or delete API tokens configured in the Zscaler Deception Admin Portal.
+
+## Editing an API Token
+
+1. Go to **Orchestrate** > **API Tokens**.
+2. Select the API token you want to modify, and under **Actions**, click the **Edit** icon. See image.
+3. In the **API Token Details**window, modify the required fields. See image. You cannot edit the API token expiration period.
+4. Click **Submit**.
+
+## Deleting an API Token
+
+1. Go to **Orchestrate** > **API Tokens**.
+2. Select the API token you want to delete, and under **Actions**, click the **Delete** icon. See image.
+3. In the confirmation window, click **OK**.
+
+[Image: Edit icon on the API Tokens page]
+
+[Image: Edit an API token details]
+
+[Image: Delete icon on the API Tokens page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/managing-aws-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540570"} -->
 ## Managing AWS Decoys
 
 - Source: https://help.zscaler.com/deception/managing-aws-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Managing AWS Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to manage AWS decoys, including checking status and editing or deleting them.
 
 You can manage your Amazon Web Services (AWS) decoys from the Zscaler Deception Admin Portal. All decoys created from the Deception Admin Portal are tabulated under their respective decoy category tabs. Each table shows the details associated with each decoy in the category and its deployment status. You can also edit or delete decoys by using the respective options from the decoys table.
@@ -14731,13 +14523,13 @@ To delete an AWS decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-azure-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539362"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-azure-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540569"} -->
 ## Managing Azure Decoys
 
 - Source: https://help.zscaler.com/deception/managing-azure-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Managing Azure Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to manage Azure decoys.
 
 You can manage your Microsoft Azure decoys from the Zscaler Deception Admin Portal. All decoys created from the Deception Admin Portal are tabulated under their respective decoy category tabs. Each table shows the details associated with each decoy in the category and also shows its deployment status. You can also edit or delete decoys by using the respective options from the decoys table.
@@ -14861,13 +14653,13 @@ Upon successful execution, the changes are propagated to the Azure Cloud.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-cloud-deception-settings-aws-account","lastmod":"2026-05-13T01:18Z","nid":"1539418"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-cloud-deception-settings-aws-account","lastmod":"2026-08-03T00:19Z","nid":"1540625"} -->
 ## Managing Cloud Deception Settings for an AWS Account
 
 - Source: https://help.zscaler.com/deception/managing-cloud-deception-settings-aws-account
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Managing Cloud Deception Settings for an AWS Account
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to edit or delete an AWS Cloud Deception account.
 
 You can edit or delete Cloud Deception settings configured for your Amazon Web Services (AWS) accounts from the Zscaler Deception Admin Portal.
@@ -14995,13 +14787,13 @@ In some cases, the deployment script might fail to remove the entries of the AWS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-cloud-deception-settings-azure-account","lastmod":"2026-05-13T01:18Z","nid":"1539417"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-cloud-deception-settings-azure-account","lastmod":"2026-08-03T00:19Z","nid":"1540624"} -->
 ## Managing Cloud Deception Settings for an Azure Account
 
 - Source: https://help.zscaler.com/deception/managing-cloud-deception-settings-azure-account
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Managing Cloud Deception Settings for an Azure Account
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to edit or delete the Azure Cloud Deception settings.
 
 ## Editing an Azure Account
@@ -15222,13 +15014,13 @@ To complete deletion in the GCP cloud:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-decoy-connectors","lastmod":"2026-05-13T01:18Z","nid":"1539459"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-decoy-connectors","lastmod":"2026-08-03T00:19Z","nid":"1540666"} -->
 ## Managing Decoy Connectors
 
 - Source: https://help.zscaler.com/deception/managing-decoy-connectors
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Managing Decoy Connectors
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to manage Decoy Connectors in the Zscaler Deception Admin Portal.
 
 You can perform the following actions on a Decoy Connector:
@@ -15284,7 +15076,7 @@ To download debug logs:
 
 You can edit or delete a configured Decoy Connector in the Deception Admin Portal.
 
-Deception uses Zscaler Private Access (ZPA) or Threat Intelligence Decoy Connectors to deploy decoys in a dedicated Deception cloud. You cannot edit or delete them. Contact Zscaler Support to manage them.
+Deception uses Private Access (ZPA) or Threat Intelligence Decoy Connectors to deploy decoys in a dedicated Deception cloud. You cannot edit or delete them. Contact Zscaler Support to manage them.
 
 ## Edit a Decoy Connector
 
@@ -15328,13 +15120,13 @@ To delete a Decoy Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-gcp-decoys","lastmod":"2026-07-04T07:06Z","nid":"1539470"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-gcp-decoys","lastmod":"2026-07-05T07:06Z","nid":"1540677"} -->
 ## Managing GCP Decoys
 
 - Source: https://help.zscaler.com/deception/managing-gcp-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > GCP > Managing GCP Decoys
-- Last modified: 2026-07-04T07:06Z
+- Last modified: 2026-07-05T07:06Z
 - Summary: How to manage GCP decoys, including checking status and editing or deleting them.
 
 You can manage your Google Cloud Platform (GCP) decoys from the Zscaler Deception Admin Portal. All decoys created from the Deception Admin Portal are tabulated under their respective decoy category tabs. Each table shows the details associated with each decoy in the category and its deployment status. You can also edit or delete decoys by using the respective options from the decoys table.
@@ -15413,13 +15205,13 @@ To delete a GCP decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-landmine-policies","lastmod":"2026-05-13T01:18Z","nid":"1539163"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-landmine-policies","lastmod":"2026-08-03T00:19Z","nid":"1540370"} -->
 ## Managing Landmine Policies
 
 - Source: https://help.zscaler.com/deception/managing-landmine-policies
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Policy Management > Managing Landmine Policies
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to edit or delete landmine policies in the Zscaler Deception Admin Portal.
 
 You can edit or delete a landmine policy that you configured in the Zscaler Deception Admin Portal.
@@ -15467,13 +15259,104 @@ To delete one or more landmine policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-resource-groups-azure","lastmod":"2026-05-13T01:18Z","nid":"1539451"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-openid-idp-configurations","lastmod":"2026-07-28T19:16Z","nid":"1540648"} -->
+## Managing OpenID IdP Configurations
+
+- Source: https://help.zscaler.com/deception/managing-openid-idp-configurations
+- Product: Deception
+- Path: Deception Help > Authentication > OpenID Configuration > Managing OpenID IdP Configurations
+- Last modified: 2026-07-28T19:16Z
+- Summary: How to edit or delete an OpenID identity provider (IdP) configuration
+
+You can edit or delete OpenID identity provider (IdP) configurations in the Zscaler Deception Admin Portal.
+
+## Editing an OpenID IdP Configuration
+
+To edit an OpenID IdP configuration:
+
+1. Go to **Settings** > **Users & Roles** > **IdP Providers**.
+2. In the table, locate an OpenID IdP configuration you want to modify, and then click the **Edit** icon. See image.
+3. In the **OpenID Provider Details** window, modify the required fields. See image.
+4. Click **Save**.
+
+## Deleting an OpenID IdP Configuration
+
+To delete an OpenID IdP Configuration:
+
+1. Go to **Settings** > **Users & Roles** > **IdP Providers**.
+2. In the table, locate an OpenID IdP configuration you want to delete, and then click the **Delete** icon. See image.
+3. In the confirmation window, click **OK**.
+
+[Image: Edit OpenID IdP]
+
+[Image: Modify OpenID IdP details]
+
+[Image: Delete OpenID IdP]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/managing-orchestration-rules","lastmod":"2026-07-30T05:13Z","nid":"1540494"} -->
+## Managing Orchestration Rules
+
+- Source: https://help.zscaler.com/deception/managing-orchestration-rules
+- Product: Deception
+- Path: Deception Help > Orchestrate  > Orchestration Rules > Managing Orchestration Rules
+- Last modified: 2026-07-30T05:13Z
+- Summary: How to edit, delete, or pause orchestration rules in the Zscaler Deception Admin Portal.
+
+You can manage Zscaler Deception orchestration by editing or deleting rules, or pausing orchestration when needed.
+
+## Editing a Rule
+
+To edit a rule:
+
+1. Go to **Orchestrate** > **Rules**.
+2. Locate the rule that you want to modify, and click the **Edit** icon under the **Actions**column. See image.
+3. In the **Rule Detail** window, modify the required fields. See image.
+4. Click **Save**.
+
+## Deleting a Rule
+
+To delete a rule:
+
+1. Go to **Orchestrate** > **Rules**.
+2. Locate the rule that you want to delete, and click the **Delete**icon under the **Actions**column. See image.
+3. In the confirmation window, click **OK**.
+
+## Pausing Orchestration
+
+You can pause orchestration to temporarily suspend orchestration rules without modifying their configuration.
+
+To pause orchestration:
+
+1. Go to **Orchestrate** > **Rules**.
+2. Click **Pause Orchestration**. See image.
+
+After pausing orchestration, no event is evaluated against any orchestration rules until the orchestration is resumed. To resume orchestration, click **Resume Orchestration**.
+
+See image.
+
+rhces[Image: Edit icon on the Rules page]
+
+[Image: Modify rule details]
+
+[Image: Delete icon on the Rules page]
+
+[Image: Rules page highlighting the option to pause orchestration]
+
+[Image: Rules page highlighting the option to resume orhcestration]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/managing-resource-groups-azure","lastmod":"2026-08-03T00:19Z","nid":"1540658"} -->
 ## Managing Resource Groups in Azure
 
 - Source: https://help.zscaler.com/deception/managing-resource-groups-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Managing Resource Groups in Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to manage resource groups in Azure.
 
 You can view or delete resource groups created to hold decoys from the Zscaler Deception Admin Portal. The list of all resource groups created by Zscaler Deception in the Microsoft Azure portal is displayed on the Resource Group Management tab (Deceive > Cloud Deception).
@@ -15503,13 +15386,13 @@ To delete resource groups:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-saml-idp-configurations","lastmod":"2026-07-26T21:46Z","nid":"1539440"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-saml-idp-configurations","lastmod":"2026-07-28T19:18Z","nid":"1540647"} -->
 ## Managing SAML IdP Configurations
 
 - Source: https://help.zscaler.com/deception/managing-saml-idp-configurations
 - Product: Deception
 - Path: Deception Help > Authentication > SAML Configuration > Managing SAML IdP Configurations
-- Last modified: 2026-07-26T21:46Z
+- Last modified: 2026-07-28T19:18Z
 - Summary: How to edit or delete a SAML identity provider (IdP).
 
 You can edit or delete SAML identity provider (IdP) configurations in the Zscaler Deception Admin Portal.
@@ -15540,6 +15423,80 @@ To delete a SAML IdP Configuration:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/deception/managing-service-connectors","lastmod":"2026-07-30T06:31Z","nid":"1540461"} -->
+## Managing Service Connectors
+
+- Source: https://help.zscaler.com/deception/managing-service-connectors
+- Product: Deception
+- Path: Deception Help > Orchestrate  > SIEM Integrations > Managing Service Connectors
+- Last modified: 2026-07-30T06:31Z
+- Summary: How to edit or delete a Service Connector in the Zscaler Deception Admin Portal.
+
+You can edit or delete Service Connectors configured in the Zscaler Deception Admin Portal.
+
+## Editing a Service Connector
+
+To edit a Service Connector:
+
+1. Go to **Orchestrate** > **Service Connectors**.
+2. In the table, select the Service Connector you want to modify, and then click the **Edit** icon. See image.
+3. In the **Service Connector Details** window, modify the fields as necessary. See image.
+4. Click **Save**.
+
+## Deleting a Service Connector
+
+To delete a Service Connector:
+
+1. Go to **Orchestrate** > **Service Connectors**.
+2. In the table, select the Service Connector you want to delete, and then click the **Delete** icon. See image.
+3. In the confirmation window, click **OK**. When you delete a Service Connector, all SIEM integrations with the Service Connector are deleted.
+
+[Image: Edit icon on the Service Connectors page]
+
+[Image: Edit Service Connector details]
+
+[Image: Delete icon on the Service Connectors page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/managing-siem-integrations","lastmod":"2026-07-28T19:27Z","nid":"1540468"} -->
+## Managing SIEM Integrations
+
+- Source: https://help.zscaler.com/deception/managing-siem-integrations
+- Product: Deception
+- Path: Deception Help > Orchestrate  > SIEM Integrations > Managing SIEM Integrations
+- Last modified: 2026-07-28T19:27Z
+- Summary: How to edit or delete a SIEM integration configured in the Zscaler Deception Admin Portal.
+
+You can edit or delete a SIEM integration configured in the Zscaler Deception Admin Portal.
+
+## Editing a SIEM Integration
+
+To edit a SIEM integration:
+
+1. Go to **Orchestrate** > **SIEM** **Integrations**.
+2. In the table, locate the SIEM integration you want to modify, and then click the **Edit** icon. See image.
+3. In the SIEM details window, modify the fields as necessary. See image.
+4. Click **Save**.
+
+## Deleting a SIEM Integration
+
+To delete a SIEM integration:
+
+1. Go to **Orchestrate** > **SIEM Integrations**.
+2. In the table, locate the SIEM integration you want to delete, and then click the **Delete** icon. See image.
+3. In the confirmation window, click **OK**.
+
+[Image: Edit icon on the SIEM Integrations page]
+
+[Image: Edit SIEM integrations details]
+
+[Image: Delete SIEM integration icon]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/deception/obtaining-agent-registration-token","lastmod":"2024-03-15T07:06Z","nid":"1539161"} -->
 ## Obtaining the Agent Registration Token
 
@@ -15564,13 +15521,13 @@ To obtain the agent registration token:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/obtaining-deployment-script-aws","lastmod":"2026-05-13T01:18Z","nid":"1539420"} -->
+<!-- ZS-ARTICLE {"url":"/deception/obtaining-deployment-script-aws","lastmod":"2026-08-03T00:19Z","nid":"1540627"} -->
 ## Obtaining the Deployment Script for AWS
 
 - Source: https://help.zscaler.com/deception/obtaining-deployment-script-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Obtaining the Deployment Script for AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to obtain the deployment script for AWS.
 
 Zscaler Deception relies on a deployment script to propagate changes and sync settings between Deception and Amazon Web Services (AWS). You can obtain the deployment script using one of the following methods:
@@ -15689,20 +15646,20 @@ To stop processing more rules:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/ranges-and-limitations","lastmod":"2026-05-13T01:18Z","nid":"1539267"} -->
+<!-- ZS-ARTICLE {"url":"/deception/ranges-and-limitations","lastmod":"2026-08-03T00:19Z","nid":"1540474"} -->
 ## Ranges & Limitations
 
 - Source: https://help.zscaler.com/deception/ranges-and-limitations
 - Product: Deception
 - Path: Deception Help > Getting Started > Admin Portal > Ranges & Limitations
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: About ranges and limitations for Zscaler Deception features.
 
 This article lists the ranges and limitations for Zscaler Deception features. All values are per organization unless noted otherwise.
 
 - If you need to increase maximum limits or upgrade the plan from Deception Standard to Deception Advanced, contact your Zscaler Account team or send a request to Zscaler Support.
 - If you switch plans, then you can use only the features that are available in the active plan. Any additional features that are not a part of the active plan are disabled.
-- If you subscribed to a Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA) edition that includes a Deception Standard or Deception Advanced plan, you must have a minimum of 1,000 users in your subscription to be eligible to claim your Deception entitlement.
+- If you subscribed to a Internet & SaaS (ZIA) or Private Access (ZPA) edition that includes a Deception Standard or Deception Advanced plan, you must have a minimum of 1,000 users in your subscription to be eligible to claim your Deception entitlement.
 
 ## Decoy Connectors
 
@@ -15773,7 +15730,7 @@ The following table shows the ranges and limitations for the [Orchestrate](https
 | Customizing Event Notification Templates | Not supported | Supported |
 | Zscaler Sandbox Integration | Not supported | Supported |
 | Managed Threat Hunting Integration | Not supported | Supported |
-| Zscaler Private Access (ZPA) Containment | Not supported | Supported |
+| Private Access Containment | Not supported | Supported |
 | Fair Usage Policy (FUP) for Email Notifications | Deception limits the number of email notifications triggered to 500 emails per day. |  |
 
 ## Miragemaker
@@ -15815,16 +15772,16 @@ The following table shows the ranges and limitations for the [Enterprise](https:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/rebooting-zpa-app-connector","lastmod":"2024-03-15T07:06Z","nid":"1539425"} -->
-## Rebooting a ZPA App Connector
+<!-- ZS-ARTICLE {"url":"/deception/rebooting-private-access-app-connector","lastmod":"2026-06-09T22:27Z","nid":"1540632"} -->
+## Rebooting a Private Access App Connector
 
-- Source: https://help.zscaler.com/deception/rebooting-zpa-app-connector
+- Source: https://help.zscaler.com/deception/rebooting-private-access-app-connector
 - Product: Deception
-- Path: Deception Help > Settings > Topology > ZPA App Connectors > Rebooting a ZPA App Connector
-- Last modified: 2024-03-15T07:06Z
-- Summary: How to reboot a ZPA App Connector in the Zscaler Deception Admin Portal.
+- Path: Deception Help > Settings > Topology > ZPA App Connectors > Rebooting a Private Access App Connector
+- Last modified: 2026-06-09T22:27Z
+- Summary: How to reboot a Private Access App Connector in the Zscaler Deception Admin Portal.
 
-You can reboot a ZPA App Connector that you configured in the Zscaler Deception Admin Portal.
+You can reboot a Private Access (ZPA) App Connector that you configured in the Zscaler Deception Admin Portal.
 
 To reboot an App Connector:
 
@@ -16100,13 +16057,13 @@ Enabling the logs increases the volume of logs generated by the AD.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/running-landmine-agentless-installer-linux","lastmod":"2026-05-13T01:18Z","nid":"1539214"} -->
+<!-- ZS-ARTICLE {"url":"/deception/running-landmine-agentless-installer-linux","lastmod":"2026-08-03T00:19Z","nid":"1540421"} -->
 ## Running Landmine Agentless on Linux
 
 - Source: https://help.zscaler.com/deception/running-landmine-agentless-installer-linux
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Landmine Agentless > Running Landmine Agentless on Linux
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to run a landmine agentless installer on the Linux platform.
 
 This article provides instructions for running landmine agentless on the Linux platform.
@@ -16148,13 +16105,13 @@ Landmine agentless runs as the current user. If multiple users use the same syst
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/running-landmine-agentless-installer-macos","lastmod":"2026-05-13T01:18Z","nid":"1539213"} -->
+<!-- ZS-ARTICLE {"url":"/deception/running-landmine-agentless-installer-macos","lastmod":"2026-08-03T00:19Z","nid":"1540420"} -->
 ## Running Landmine Agentless on macOS
 
 - Source: https://help.zscaler.com/deception/running-landmine-agentless-installer-macos
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Landmine Agentless > Running Landmine Agentless on macOS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to run landmine agentless on the macOS platform.
 
 This article provides instructions for running landmine agentless on the macOS platform.
@@ -16191,13 +16148,13 @@ Landmine agentless runs as the current user. If multiple users use the same syst
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/running-landmine-agentless-installer-windows","lastmod":"2026-05-13T01:18Z","nid":"1539212"} -->
+<!-- ZS-ARTICLE {"url":"/deception/running-landmine-agentless-installer-windows","lastmod":"2026-08-03T00:19Z","nid":"1540419"} -->
 ## Running Landmine Agentless on Windows
 
 - Source: https://help.zscaler.com/deception/running-landmine-agentless-installer-windows
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Landmine Agentless > Running Landmine Agentless on Windows
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to run landmine agentless on the Windows platform.
 
 This article provides instructions for running landmine agentless on the Windows platform using the command line interface (CLI).
@@ -16232,13 +16189,13 @@ Landmine agentless runs as the current user. If multiple users use the same syst
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/setting-cloud-deception-aws","lastmod":"2026-05-13T01:18Z","nid":"1539361"} -->
+<!-- ZS-ARTICLE {"url":"/deception/setting-cloud-deception-aws","lastmod":"2026-08-03T00:19Z","nid":"1540568"} -->
 ## Setting Up Cloud Deception with AWS
 
 - Source: https://help.zscaler.com/deception/setting-cloud-deception-aws
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Setting Up Cloud Deception with AWS
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on how to set up Cloud Deception using AWS.
 
 This integration guide provides information on prerequisites and how to integrate Amazon Web Services (AWS) with Zscaler Deception to set up Cloud Deception by deploying various AWS-specific decoy resources.
@@ -16379,13 +16336,13 @@ Using this method, you can download the deployment script as a ZIP file, upload 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/setting-cloud-deception-gcp","lastmod":"2026-07-04T07:06Z","nid":"1539473"} -->
+<!-- ZS-ARTICLE {"url":"/deception/setting-cloud-deception-gcp","lastmod":"2026-08-03T00:19Z","nid":"1540680"} -->
 ## Setting Up Cloud Deception with GCP
 
 - Source: https://help.zscaler.com/deception/setting-cloud-deception-gcp
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > GCP > Setting Up Cloud Deception with GCP
-- Last modified: 2026-07-04T07:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to set up Cloud Deception using GCP.
 
 This integration guide provides information on prerequisites and how to integrate Google Cloud Platform (GCP) with Zscaler Deception to set up Cloud Deception by deploying various GCP-specific decoy resources.
@@ -16452,13 +16409,13 @@ After deploying the necessary decoys based on your requirements, you can configu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/setting-cloud-deception-microsoft-azure","lastmod":"2026-05-13T01:18Z","nid":"1539360"} -->
+<!-- ZS-ARTICLE {"url":"/deception/setting-cloud-deception-microsoft-azure","lastmod":"2026-08-03T00:19Z","nid":"1540567"} -->
 ## Setting Up Cloud Deception with Microsoft Azure
 
 - Source: https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Setting Up Cloud Deception with Microsoft Azure
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to set up Cloud Deception using Microsoft Azure.
 
 This integration guide provides information on prerequisites and how to integrate Microsoft Azure with Zscaler Deception to set up Cloud Deception by deploying various Azure-specific decoy resources.
@@ -16591,13 +16548,13 @@ Using this method, you can download the deployment script as a PSM1 file, upload
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-arcsight","lastmod":"2026-05-13T01:18Z","nid":"1539258"} -->
+<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-arcsight","lastmod":"2026-08-03T00:19Z","nid":"1540465"} -->
 ## SIEM Configuration Guide for ArcSight Enterprise Security Manager
 
 - Source: https://help.zscaler.com/deception/siem-configuration-guide-arcsight
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > SIEM Configuration Guide for ArcSight Enterprise Security Manager
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Service Connector to forward events or audit logs to an ArcSight SIEM in the Zscaler Deception Admin Portal.
 
 This article provides information on prerequisites and how to configure a Service Connector to forward events or audit logs to the ArcSight Enterprise Security Manager (ESM) security information and event management (SIEM) solution.
@@ -16640,13 +16597,13 @@ To test the ArcSight SIEM integration, access a decoy and generate alerts on the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-ibm-qradar","lastmod":"2026-05-13T01:18Z","nid":"1539263"} -->
+<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-ibm-qradar","lastmod":"2026-08-03T00:19Z","nid":"1540470"} -->
 ## SIEM Configuration Guide for IBM QRadar
 
 - Source: https://help.zscaler.com/deception/siem-configuration-guide-ibm-qradar
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > SIEM Configuration Guide for IBM QRadar
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Service Connector to forward events or audit logs to IBM QRadar.
 
 This article provides information on prerequisites and how to configure a Service Connector to forward events or audit logs to the IBM QRadar security information and event management (SIEM) solution.
@@ -16724,13 +16681,13 @@ To test the QRadar SIEM integration, access a decoy and generate alerts on the [
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-microsoft-sentinel","lastmod":"2026-05-13T01:18Z","nid":"1539262"} -->
+<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-microsoft-sentinel","lastmod":"2026-08-03T00:19Z","nid":"1540469"} -->
 ## SIEM Configuration Guide for Microsoft Sentinel
 
 - Source: https://help.zscaler.com/deception/siem-configuration-guide-microsoft-sentinel
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > SIEM Configuration Guide for Microsoft Sentinel
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Service Connector to forward events or audit logs to Microsoft Sentinel.
 
 This article provides information on how to configure a Service Connector to forward events or audit logs to Microsoft Sentinel.
@@ -16739,66 +16696,150 @@ This article provides information on how to configure a Service Connector to for
 
 Before you configure a Service Connector, make sure the following prerequisites are met:
 
-- Create a log analytics workspace on Sentinel. To learn more, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard).
-- Have network connectivity between the Service Connector and Sentinel API server on TCP port 443.
 - Use the TCP protocol.
+- Create a log analytics workspace on Sentinel. To learn more, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard).
+- You have network connectivity between the Service Connector and Sentinel API server on TCP port 443.
+- A Microsoft Azure contributor has access to the resource group.
+- A log analytics workspace with Microsoft Sentinel is enabled.
+- You have a sample JSON log file for events or audit logs to define schema. You can download a sample file from the Zscaler Deception Admin Portal. Go to SIEM, click New, click Integrations, and select an event or audit log.
 
 The Sentinel SIEM integration is proxy aware if direct network connectivity is not available.
 
 ## Configuring a Service Connector
 
+Microsoft has deprecated the legacy log ingestion method. If you previously configured Microsoft Sentinel using this method, you must reconfigure the integration to use data collection rule-based log ingestion.
+
 Follow these steps to configure a Service Connector to forward events or audit logs to Microsoft Sentinel:
 
-- Step 1: Obtain the Log Analytics Workspace ID and Primary Key from the Microsoft Azure Portal
-- Step 2: Forward Logs to Sentinel
+- Step 1: Set Up Azure Infrastructure
+- Step 2: Manage Application Access
+- Step 3: Configure SIEM in the Zscaler Deception Admin Portal
+
+- a. Create a data collection endpoint.
+- b. Create a custom table and data collection rule.
+- c. Extract integration keys.
 
 1. Log in to the [Microsoft Azure portal](http://portal.azure.com/) using your credentials.
-2. Go to **Azure services** > **Microsoft Sentinel**.
-3. Open the workspace that you created for the Sentinel SIEM integration.
-4. Go to **Settings** > **Agents management**.
-5. Copy the **Workspace ID.** See image.
-6. Log in to the Azure CLI using the `az login` command.
-7. Select the Microsoft Sentinel subscription.
-8. Use the following command to get the primary key for Sentinel configuration in the Zscaler Deception Admin Portal: `az monitor log-analytics workspace get-shared-keys --resource-group <resource_group> --workspace-name <workspace_name>`
-9. Copy the primary key.
+2. Search for Data Collection Endpoints in the Azure portal.
+3. Click **Create**.
+4. On the **Create data collection endpoint**page, on the **Basics**tab: See image.
+  1. **Endpoint Name**:Enter a name for the endpoint.
+  2. **Subscription**:Select a subscription from the drop-down menu.
+  3. **Resource Group**:Select a resource group based on the selected subscription.
+  4. **Region**:Select a region, and ensure that it matches your log analytics workspace.
+  5. Click **Review + create**.
+5. On the **Review + create**tab, review the endpoint details and click **Create**. See image.
+6. When the data collection endpoint is created successfully, copy the log ingestion URI (e.g., `https://my-dce-xxxx.region.ingest.monitor.azure.com`). The DCE acts as the unique gateway (URL) for your application logs.
+
+1. Search for `Log Analytics Workspace` in the Azure portal.
+2. Create a new workspace, or select a preconfigured workspace from the table.
+3. Go to **Settings**> **Tables**.
+4. Click **Create**.
+5. On the **Create a custom log**page, on the **Basics**tab:
+  1. **Table name**: Enter the name of the table (e.g., `MyAppLogs`). Azure automatically appends `_CL` to the end of the name.
+  2. **Data collection rule**: Select **Create a new data collection rule**. The **Create a new data collection rule**drawer opens.
+  3. In the **Create a new data collection rule** drawer, select the same **Subscription**and **Resource group** that you selected while creating the data collection endpoint in the previous step, and click **Done**.
+  4. **Data collection endpoint:**Select the data collection endpoint that you created in the previous step.
+  5. Click **Next**. See image.
+6. On the **Schema and transformation** tab, upload your sample JSON file.
+7. Click **Transformation editor** and add the following KQL to ensure that logs are timestamped correctly: `source | extend TimeGenerated = now()`
+8. Click **Run**to verify. See image.
+9. Click **Apply**.
+10. Click **Next**.
+11. On the **Review**tab, click **Create**.
+
+1. Search for `Data Collection Rule` in the Azure portal.
+2. Select the data collection rule that you created.
+3. Click **JSON View**.
+4. Copy the `immutableId` value (e.g., `dcr-c25b2acf48d84826955ac597ddc9cb99`).
+5. Copy the `streamDeclarations`name (e.g., `Custom-qa_sentinel_audit_table_CL`). See image.
+
+- a. Register an application.
+- b. Grant RBAC permissions.
+
+1. Go to **Azure Active Directory** > **App registrations**.
+2. Click **New registration**.
+3. On the **Register an application**page: See image.
+  1. **Name**: Enter the name of an app (e.g., `Zscaler-Deception-Sentinel-App`).
+  2. **Supported account types**: Select **Single tenant only - Zscaler ITDR - Azure Research**.
+  3. Click **Register**.
+4. Go to **Manage**> **Certificate & secrets**.
+5. Click **New client secret**.
+6. In the **Add a client secret** drawer: See image.
+  1. **Description**: Enter a description for the client secret.
+  2. **Expires**: Select an expiration time for the client secret.
+  3. Click **Add**.
+7. Copy the **Value**and **Secret ID**from the table. See image.
+
+1. Search for `Data Collection Rule` in the Azure portal.
+2. Select the data collection rule that you created in the previous step.
+3. From the left-side navigation, select**Access Control (IAM)**.
+4. Click **Add**> **Add role assignment**.
+5. On the **Add role assignment** page, select the **Role** tab, select the **Job function roles** tab, and search for and review `Monitoring Metrics Publisher`. See image.
+6. On the **Members** tab: See image.
+  1. **Assign access to**: Select **User, group, or service principal**.
+  2. Click **Select members**. The **Select members** drawer opens.
+  3. In the **Select members** drawer, search for the application name that you created in the previous step (e.g., `Zscaler-Deception-Sentinel-App`), and click **Select**.
+7. On the **Review + assign** tab, click **Review + Assign**.
 
 1. In the Zscaler Deception Admin Portal, go to **Orchestrate** > **SIEM Integrations**.
-2. Click **Add Integration**, and select **Sentinel** from the drop-down menu. See image.
-3. In the **Sentinel Details** window: See image.
+2. Click **Add Integration**, and select **Sentinel** **DCR**from the drop-down menu. See image.
+3. In the **Sentinel DCR Details** window: See image.
   1. **Name**: Enter a name for the Sentinel SIEM integration.
   2. **Enabled**: Select to enable SIEM integration.
   3. **Service Connector:** Select a Service Connector from the drop-down menu:
     - If you select a Service Connector that is configured in the Deception Admin Portal, the portal sends logs to Sentinel.
     - If you select a Service Connector that is configured on a Decoy Connector, the selected Decoy Connector sends logs to Sentinel.
-  4. **Type of logs**: Select an option from the drop-down menu.
+  4. **Type of logs**: Select an option from the drop-down menu:
     - **Events**: Send events to Sentinel.
-    - **Audit Logs**: Send audit logs to the Sentinel.
+    - **Audit Logs**: Send audit logs to Sentinel.
   5. **Include Safe Events**: Enable to forward the events that are [marked as safe](https://help.zscaler.com/deception/taking-action-from-the-dashboard#mark-as-safe) to Sentinel.
   6. **Filter**: Specify a query if you want to send filtered event logs to Sentinel. If this field is blank, all event logs are sent to Sentinel. To learn how to build queries, see [Understanding and Building Queries](https://help.zscaler.com/deception/understanding-and-building-queries). The **Filter** option is available only for event logs.
-  7. **Workspace ID**: Enter the Workspace ID you copied from Sentinel.
-  8. **Primary Key**: Enter the primary keyyou copied from Sentinel.
-  9. **Log Type**: Enter an identifier for the log type.
-  10. **Use Proxy Settings**: Enable if the Service Connector requires a proxy to connect to the Sentinel server.
+  7. **Tenant ID**: Enter the tenant ID. To find the tenant ID, search for `Microsoft Entra ID` in the Azure portal, and copy the tenant ID displayed under **Basic information**.
+  8. **Client ID**: Enter the client ID you copied from the Azure portal.
+  9. **Client Secret**: Enter the client secret value you copied from the Azure portal.
+  10. **DCR Immutable ID**: Enter the immutable ID you copied from the data collection rule in the Azure portal.
+  11. **DCE Endpoint**: Enter the log ingestion URI you copied from the data collection endpoint in the Azure portal.
+  12. **Stream Name**: Enter the stream name you copied from the data collection rule in the Azure portal.
+  13. **Use Proxy Settings**: Enable if the Service Connector requires a proxy to connect to the Sentinel server.
 4. Click **Save**. The Sentinel SIEM integration is added.
 
-To test Sentinel SIEM integration, access a decoy and generate alerts on the [Zscaler Deception dashboard](https://help.zscaler.com/deception/viewing-and-managing-zscaler-deception-dashboard). The Sentinel starts receiving the logs in 10 to 15 minutes.
+To test Sentinel SIEM integration, access a decoy and generate alerts on the [Zscaler Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard). The Sentinel starts receiving the logs in 10 to 15 minutes.
 
-[Image: Copy the Workspace ID from Azure Sentinel]
+[Image: Basics tab on Create data collection endpoint page in Azure Admin portal]
 
-[Image: Sentinel SIEM integration option]
+[Image: Review + Create tab on Create data collection endpoint page]
 
-[Image: Sentinel SIEM integration details]
+[Image: Basics tab on Create a custom log page]
+
+[Image: Schema and transformation tab on Create a custom log page]
+
+[Image: immutableid on Resource JSON page in DCR]
+
+[Image: Register an application page in App registration]
+
+[Image: Add a client secret drawer on Certificate & secret page]
+
+[Image: Copy value and secret ID from the Certificate & secrets page]
+
+[Image: Role tab on Add role assignment page]
+
+[Image: Members tab on Add role assignment page]
+
+[Image: Selecting Sentinel DCR integration option on the SIEM Integrations page]
+
+[Image: Configuring SIEM integration on the Sentinel DCR Details page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-netmonastery","lastmod":"2026-05-13T01:18Z","nid":"1539259"} -->
+<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-netmonastery","lastmod":"2026-08-03T00:19Z","nid":"1540466"} -->
 ## SIEM Configuration Guide for Netmonastery DNIF
 
 - Source: https://help.zscaler.com/deception/siem-configuration-guide-netmonastery
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > SIEM Configuration Guide for Netmonastery DNIF
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Service Connector to forward events or audit logs to a Netmonastery DNIF SIEM solution.
 
 This article provides information on prerequisites and how to configure a Service Connector to forward events or audit logs to a Netmonastery DNIF security information and event management (SIEM) solution.
@@ -16841,13 +16882,13 @@ To test the Netmonastery DNIF SIEM integration, access a decoy and generate aler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-splunk","lastmod":"2026-05-13T01:18Z","nid":"1539256"} -->
+<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-splunk","lastmod":"2026-08-03T00:19Z","nid":"1540463"} -->
 ## SIEM Configuration Guide for Splunk Enterprise and Cloud Platform
 
 - Source: https://help.zscaler.com/deception/siem-configuration-guide-splunk
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > SIEM Configuration Guide for Splunk Enterprise and Cloud Platform
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Service Connector to forward events or audit logs to the Splunk SIEM.
 
 This article provides information on prerequisites and how to configure a Service Connector to forward events or audit logs to the Splunk security information and event management (SIEM) solution.
@@ -16933,13 +16974,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-sumo-logic","lastmod":"2026-05-13T01:18Z","nid":"1539330"} -->
+<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-sumo-logic","lastmod":"2026-08-03T00:19Z","nid":"1540537"} -->
 ## SIEM Configuration Guide for Sumo Logic
 
 - Source: https://help.zscaler.com/deception/siem-configuration-guide-sumo-logic
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > SIEM Configuration Guide for Sumo Logic
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Service Connector to forward events or audit logs to the Sumo Logic SIEM solution.
 
 This article provides information on how to configure a Service Connector to forward events or audit logs to the Sumo Logic security information and event management (SIEM) solution.
@@ -17008,13 +17049,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-syslog-server","lastmod":"2026-07-02T21:06Z","nid":"1539257"} -->
+<!-- ZS-ARTICLE {"url":"/deception/siem-configuration-guide-syslog-server","lastmod":"2026-08-03T00:19Z","nid":"1540464"} -->
 ## SIEM Configuration Guide for Syslog
 
 - Source: https://help.zscaler.com/deception/siem-configuration-guide-syslog-server
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > SIEM Configuration Guide for Syslog
-- Last modified: 2026-07-02T21:06Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to configure a Service Connector to forward events or audit logs to a Syslog server.
 
 This article provides information on prerequisites and how to configure a Service Connector to forward events or audit logs to a Syslog security information and event management (SIEM) server.
@@ -17069,13 +17110,13 @@ The Syslog server receives the event logs.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/step-step-configuration-guide-zscaler-deception","lastmod":"2026-06-19T02:15Z","nid":"1539324"} -->
+<!-- ZS-ARTICLE {"url":"/deception/step-step-configuration-guide-zscaler-deception","lastmod":"2026-08-03T00:19Z","nid":"1540531"} -->
 ## Step-by-Step Configuration Guide for Zscaler Deception
 
 - Source: https://help.zscaler.com/deception/step-step-configuration-guide-zscaler-deception
 - Product: Deception
 - Path: Deception Help > Getting Started > Step-by-Step Configuration Guide for Zscaler Deception
-- Last modified: 2026-06-19T02:15Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Step-by-Step Guide Configuration Guide for Zscaler Deception.
 
 This guide takes you through the configuration steps you need to complete to begin using Zscaler Deception for your organization.
@@ -17267,13 +17308,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/supported-deception-features-landmine-agent-and-agentless","lastmod":"2026-05-13T01:18Z","nid":"1539191"} -->
+<!-- ZS-ARTICLE {"url":"/deception/supported-deception-features-landmine-agent-and-agentless","lastmod":"2026-08-03T00:19Z","nid":"1540398"} -->
 ## Supported Deception Features for Landmine Agent and Agentless Installers
 
 - Source: https://help.zscaler.com/deception/supported-deception-features-landmine-agent-and-agentless
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Supported Deception Features for Landmine Agent and Agentless Installers
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Supported deception modules and features for the landmine agent and agentless installers.
 
 The landmine agent and agentless installers support the following modules.
@@ -17340,13 +17381,13 @@ The following table shows features supported in the [Advanced Deception Capabili
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/supported-mcp-server-decoy-applications-and-tools","lastmod":"2026-05-13T01:18Z","nid":"1539461"} -->
+<!-- ZS-ARTICLE {"url":"/deception/supported-mcp-server-decoy-applications-and-tools","lastmod":"2026-08-03T00:19Z","nid":"1540668"} -->
 ## Supported MCP Server Decoy Applications and Tools
 
 - Source: https://help.zscaler.com/deception/supported-mcp-server-decoy-applications-and-tools
 - Product: Deception
 - Path: Deception Help > Deceive  > Gen AI Decoys > Supported MCP Server Decoy Applications and Tools
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information about the list of supported MCP decoy applications and tools.
 
 The [Model Context Protocol (MCP) server decoy](https://help.zscaler.com/deception/configuring-services-network-decoy#deception-config-service-gen-ai-mcp-server-app-section) integrates an AI application or a Large Language Model (LLM) chatbot with decoy applications and tools. The AI application or LLM uses these decoy tools to generate fake responses. The following tables show the supported MCP applications and tools:
@@ -17435,13 +17476,13 @@ To add a new application or tool, contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/testing-generative-ai-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539445"} -->
+<!-- ZS-ARTICLE {"url":"/deception/testing-generative-ai-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540652"} -->
 ## Testing Gen AI Decoys
 
 - Source: https://help.zscaler.com/deception/testing-generative-ai-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Gen AI Decoys > Testing Gen AI Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to test Gen AI decoys.
 
 This article provides information on how to test if configured generative AI (Gen AI) decoys are properly deployed and working. Gen AI decoys can be deployed on internal networks, Zero Trust networks, endpoints, and public cloud platforms. When users interact with these decoys, the interaction is considered an attack and an event is generated on the Zscaler Deception dashboard. The deployment of decoys and the subsequent event-generating interaction depend on the type of Gen AI decoy, so the steps required to test a decoy vary.
@@ -17479,13 +17520,13 @@ To test a file-based Gen AI decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/testing-landmine-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539434"} -->
+<!-- ZS-ARTICLE {"url":"/deception/testing-landmine-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540641"} -->
 ## Testing Landmine Decoys
 
 - Source: https://help.zscaler.com/deception/testing-landmine-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Testing Landmine Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to test if landmine decoys are configured and deployed.
 
 You can test if configured landmine decoys are properly deployed and working in the Zscaler Deception Admin Portal. Landmine decoys are deployed on endpoints via different methods (Agents, Agentless, and Zscaler Client Connector). Landmine decoys deploy a number of different types of lures configured in the landmine policies that are applied to endpoints based on the configured criterion. When users interact with these decoys, the interaction is considered an attack and an event is generated on the Zscaler Deception dashboard. The deployment of decoys and the subsequent event-generating interaction depend on the type of lures configured, so the steps required to test a landmine decoy depend on the specific type of lure configured.
@@ -17604,13 +17645,13 @@ You can test decoys configured with other services. However, you must access the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/testing-radius-decoys","lastmod":"2026-05-13T01:18Z","nid":"1539458"} -->
+<!-- ZS-ARTICLE {"url":"/deception/testing-radius-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540665"} -->
 ## Testing RADIUS Decoys
 
 - Source: https://help.zscaler.com/deception/testing-radius-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > RADIUS Decoys > Testing RADIUS Decoys
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to test RADIUS decoys.
 
 You can deploy [RADIUS decoys](https://help.zscaler.com/deception/understanding-radius-decoys)on internal networks to enumerate authentication services. When attackers interact with these decoys, the interaction is considered an attack, and an event is generated. RADIUS decoys respond to authentication attempts, and the events they produce depend on whether the attempt succeeds or fails. Every attempt produces a distinct response. You can test and verify if configured RADIUS decoys are properly deployed and working.
@@ -17674,13 +17715,13 @@ To verify events:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/testing-rule","lastmod":"2026-05-13T01:18Z","nid":"1539286"} -->
+<!-- ZS-ARTICLE {"url":"/deception/testing-rule","lastmod":"2026-08-03T00:19Z","nid":"1540493"} -->
 ## Testing a Rule
 
 - Source: https://help.zscaler.com/deception/testing-rule
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Orchestration Rules > Testing a Rule
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: How to test a rule to validate if the rule conditions match with the events.
 
 You can test an orchestration rule to validate if the rule conditions match a set of events. You can use a set of events from the exported [event logs](https://help.zscaler.com/deception/viewing-managing-event-logs) JSON file, or automatically add a sample event to test a rule.
@@ -17744,13 +17785,13 @@ If the IPinfo integration is enabled, the Deception Admin Portal attempts to geo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-and-building-queries","lastmod":"2026-05-13T01:18Z","nid":"1539368"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-and-building-queries","lastmod":"2026-08-03T00:19Z","nid":"1540575"} -->
 ## Understanding and Building Queries
 
 - Source: https://help.zscaler.com/deception/understanding-and-building-queries
 - Product: Deception
 - Path: Deception Help > Getting Started > Admin Portal > Understanding and Building Queries
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on Zscaler Deception Query Language.
 
 Zscaler Deception uses a purpose-built rule engine to evaluate queries used to build user-defined conditions and filters across different modules. The rules are built using Boolean expressions based on a custom query language. You can use the query language to build custom conditions or filters in the following modules:
@@ -17998,13 +18039,13 @@ While single constant expressions have no identifiers, they are still valid and 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-application-datasets","lastmod":"2026-05-13T01:18Z","nid":"1539414"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-application-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540621"} -->
 ## Understanding Application Datasets
 
 - Source: https://help.zscaler.com/deception/understanding-application-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > Application Datasets > Understanding Application Datasets
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Understanding different types of application datasets.
 
 Application datasets are resources used to build and deploy decoy web applications. You can create static, dynamic, or high-interaction web application decoys by deploying the datasets using [Threat Intelligence (TI) decoys](https://help.zscaler.com/deception/about-threat-intelligence-decoys) or [web services on network decoys](https://help.zscaler.com/deception/configuring-services-network-decoy#configuring-web-service). The following list of application datasets in Miragemaker allows you to create different types of application decoys:
@@ -18049,13 +18090,41 @@ The following diagram illustrates the interactions between various components in
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-aws-deployment-script","lastmod":"2026-05-13T01:18Z","nid":"1539428"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-event-notification-templates","lastmod":"2026-08-03T00:19Z","nid":"1542040"} -->
+## Understanding Event Notification Templates
+
+- Source: https://help.zscaler.com/deception/understanding-event-notification-templates
+- Product: Deception
+- Path: Deception Help > Orchestrate  > Event Templates > Understanding Event Notification Templates
+- Last modified: 2026-08-03T00:19Z
+- Summary: Information about event notification templates.
+
+Zscaler Deception allows you to send event notifications as emails when a threat is detected. You can enable notifications and customize the notification subject and the event fields included in the email body to provide the information most relevant to your organization.
+
+By default, the subject line for the email notification uses the following text:
+
+```
+{kill_chain_phase}
+activity on
+{decoy.appliance.name}
+```
+
+You can modify this text using the built-in events.
+
+You cannot change the template of the email body. However, you can include more event fields in the email body.
+
+To learn more, see [Customizing Event Notification Templates](https://help.zscaler.com/deception/customizing-event-notification-templates).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-aws-deployment-script","lastmod":"2026-08-03T00:19Z","nid":"1540635"} -->
 ## Understanding the Functions of the AWS Resources Used for Cloud Deception
 
 - Source: https://help.zscaler.com/deception/understanding-functions-aws-deployment-script
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Understanding the Functions of the AWS Resources Used for Cloud Deception
-- Last modified: 2026-05-13T01:18Z
+- Last modified: 2026-08-03T00:19Z
 - Summary: Information on the tasks and functions performed by the deployment script for Cloud Deception with AWS.
 
 Zscaler Deception relies on Amazon Web Services (AWS) logs to generate events in the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) for interactions with AWS decoys. Depending on the deployment method, the [CloudShell deployment script](https://help.zscaler.com/deception/obtaining-deployment-script-aws) of the Terraform script is responsible for creating logging resources, deploying decoys, deleting decoys, and enabling logging for the decoys via the logging resources in the AWS cloud. To collect and store logs, Deception creates various resources. The Zscaler Deception Admin Portal polls logs every 3 minutes from the logging resources to generate events.
@@ -18086,51 +18155,4 @@ The following table lists the details of AWS logging resources utilized by Decep
 | ECR Decoy | Creates public or private container registries. |
 | DynamoDB Decoy | Creates a DynamoDB instance and enables logging in CloudTrail. |
 | VM Image Decoy | Deploys an EC2 instance, creates a snapshot for the instance, and builds an image from the snapshot. The EC2 instance is created using the t3.small/t2.small series available in the region of deployment. It persists for a duration for 5 minutes and is terminated after the snapshot is built. |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-azure-deployment-script","lastmod":"2026-05-13T01:18Z","nid":"1539430"} -->
-## Understanding the Functions of the Azure Deployment Script
-
-- Source: https://help.zscaler.com/deception/understanding-functions-azure-deployment-script
-- Product: Deception
-- Path: Deception Help > Deceive  > Cloud Deception > Azure > Understanding the Functions of the Azure Deployment Script
-- Last modified: 2026-05-13T01:18Z
-- Summary: Information on the tasks and functions performed by the deployment script for Cloud Deception with Azure.
-
-Zscaler Deception relies on Azure logs to generate events in the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) for interactions with Azure decoys. The deployment script for Azure Cloud Deception is responsible for creating logging resources, deploying decoys, deleting decoys, and enabling logging for the decoys via the logging resources in the Azure cloud. To collect and store logs, the deployment script creates various resources. The Zscaler Deception Admin Portal polls logs every 3 minutes from the logging resources created by the deployment script to generate events.
-
-## Azure Resources Created by the Deployment Script
-
-The following table lists the resources created by the deployment script to enable log collection and storage for Azure decoys.
-
-| Resource | Description |
-| --- | --- |
-| Decoy Resource Group | A resource group in which all decoys are created. The prefix string for the Decoy Resource Group is specified while setting up Cloud Deception with Azure. |
-| Management Resource Group | A resource group in which all necessary management resources such as Function App, Logging Storage Account, App Service Plan, etc. are created to support Cloud Deception functionalities. |
-| Logging Storage Account | A storage account created for logging purposes. The appropriate diagnostic setting is enabled for all decoy resources to push all diagnostic logs to this storage account for analysis and generating alerts on the Deception dashboard. |
-| Client ID and Client Secret | A service principal that has access to polling log files from the created logging storage account. |
-| Decoy Health Check Function App | A function app that is triggered at an interval of 15 minutes from the Deception Admin Portal to check whether the deployed decoys exists in the Azure cloud. This function app does not check the actual health of the deployed Azure resources. |
-| Decoy Access Role | A role that has full access to the Decoy Resource Group. This role is associated with the user and service principal decoys created in the Deception Admin Portal. |
-| App Service Plan | A service plan created to deploy app service decoys. |
-
-## Workflows for Decoy Deployment
-
-The following table describes the workflow followed by the deployment script to deploy decoys and enable logging for them.
-
-| Decoy | Workflow |
-| --- | --- |
-| User Decoy | Create an Azure AD (Entra ID) user, associate the Decoy Access Role with it, and enable the diagnostic setting for logging. |
-| Service Principal Decoy | Create a service principal (Client ID and Client Secret), associate the Decoy Access Role with it, and enable the diagnostic setting for logging. |
-| Managed Identity Decoy | Create a user-assigned managed identity and associate the Decoy Access Role with the managed identity. |
-| App Service Decoy | Create a web app and create a managed identity for the web app, associate the Contributor and Website Contributor roles to it, and enable the diagnostic setting for logging. |
-| Storage Account Container Decoy | Create a storage account and a storage account container, upload the decoy file datasets, and enable the diagnostic setting for logging. |
-| Storage Account File Share Decoy | Create a storage account and create a file share with the `TransactionOptimized` access tier, upload the decoy file datasets, and enable the diagnostic setting for logging. |
-| Key Vault Decoy | Create a key vault, add passwords or keys of the created user or service principal decoys as decoy datasets in the vault, and enable the diagnostic setting for logging. |
-| Azure Resource Manager (ARM) Template Decoy | Create a deployment template for selected decoys (user, service principal, key vault, or Azure file share decoys). This template does not deploy any actual resources but creates an entry for template deployment in the history. |
-| Container Registry Decoy | Create an empty container registry and enable the diagnostic setting for logging. |
-| Virtual Machine (VM) Image Decoy | Deploy a VM instance, create a snapshot, and build a disk image from the snapshot. A Standard VM instance is deployed to create the snapshot. The VM instance persists for a duration of 5 minutes and is terminated after the snapshot is built. For public VM image decoys, a shareable link is also created for adding it as a lure in landmines. |
-
-To learn how to obtain the deployment script for Azure Cloud Deception, see [Obtaining the Deployment Script for Azure](https://help.zscaler.com/deception/obtaining-deployment-script-azure).
 <!-- /ZS-ARTICLE -->

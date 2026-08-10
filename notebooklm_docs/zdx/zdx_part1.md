@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 130
 
 ---
@@ -49,20 +49,20 @@ On the Admin Groups page (Administrator > Administrator Management > Administrat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-administrators","lastmod":"2026-07-31T15:56Z","nid":"1374826"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-administrators","lastmod":"2026-08-07T11:13Z","nid":"1374826"} -->
 ## About Administrators
 
 - Source: https://help.zscaler.com/zdx/about-administrators
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > About Administrators
-- Last modified: 2026-07-31T15:56Z
+- Last modified: 2026-08-07T11:13Z
 - Summary: Provide overview information for the Administrators page for ZDX admins.
 
 [Watch a video about Administrators in ZDX](https://fast.wistia.net/embed/iframe/eidy76se80) (shows legacy UI).
 
-On the Administrators page for ZDX, admins can manage users, create new admins, and reassign existing admins. With Zscaler role-based administration, you can add as many additional admins as necessary to meet the specific needs of your organization. You can also edit and delete admins as necessary at any time. Also, depending on their admin role and scope, configured admins can add, edit, or delete admin accounts.
+On the Administrators page for Zscaler Digital Experience (ZDX), admins can manage users, create new admins, and reassign existing admins. With Zscaler role-based administration, you can add as many additional admins as necessary to meet the specific needs of your organization. You can also edit and delete admins as necessary at any time. Also, depending on their admin role and scope, configured admins can add, edit, or delete admin accounts.
 
-Administration provides the following benefits and enables you to:
+ZDX Administration provides the following benefits and enables you to:
 
 - Configure administration for ZDX admins (specified by role).
 - Configure administration responsibilities between different administrators for the entire organization, location, or department (specified by scope).
@@ -84,13 +84,15 @@ On the Administrators page (Administration > Admin Management > Role Based Acces
   - **Name**: The name of the admin.
   - **Role**: The role that the admin was assigned during configuration.
   - **Scope**: The admin scope (**Organization**, **Location**, **Applications**, or **Department**). If a user switches departments or locations, the user's data is reported as the latest configured department or location.
-  - **Login Type**: This can be a configured password for the ZDX admin or SAML.
+  - **Login Type**: This is either a configured password for the ZDX admin or SAML.
   - **Password Expired**: If the configured password has expired, this field indicates **True**. If the configured password has not expired, this field indicates **False**. To learn more, see [Configuring Password Expiration](https://help.zscaler.com/zdx/configuring-password-expiration).
-  - **Comments**: Any comments that were entered during configuration.
+  - **Comments**: Displays any comments that were entered during configuration.
   - **Status**: Indicates if the admin is currently **Enabled** or **Disabled**.
   - **Actions**: The types of action you can take for the ZDX admin. Depending on your scope and role, you have different actions.
 5. [View, edit, or delete an admin's settings.](https://help.zscaler.com/zdx/managing-zdx-admins)
 6. Go to the [Administrator Management](https://help.zscaler.com/zdx/configuring-administrator-management-settings) page to configure admins, or go to the [Admin Groups](https://help.zscaler.com/zdx/about-admin-groups) page to manage admin groups.
+
+[Image: Overview of the Administrators Page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -159,42 +161,42 @@ On the Alerts page (Analytics > Digital Experience > Alerts > Ongoing Alerts), y
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-api-key-management","lastmod":"2025-09-12T07:06Z","nid":"1397201"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-api-key-management","lastmod":"2026-08-06T12:14Z","nid":"1397201"} -->
 ## About API Key Management
 
 - Source: https://help.zscaler.com/zdx/about-api-key-management
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > API Key Management > About API Key Management
-- Last modified: 2025-09-12T07:06Z
+- Last modified: 2026-08-06T12:14Z
 - Summary: To provide overview information on how to use the API Key Management.
 
-API Key Management is a repository for an organization to store created API keys for admin roles. An API key consists of an API Key ID and Secret. These two items are required for access to ZDX APIs.
+API Key Management is a repository for an organization to store created API keys for admin roles. An API key consists of an API Key ID and Secret. These two items are required for access to Zscaler Digital Experience (ZDX) APIs.
 
 API Key Management provides the following benefits and enables you to:
 
-- Provide a repository of generated, authorized API keys for programmatic access to ZDX API.
+- Provide a repository of generated, authorized API keys for programmatic access to ZDX APIs.
 - Maintain the configuration of API keys by creating, viewing, editing, or deleting the API keys as required.
 - Identify the life cycle of an API key to maintain security.
 
-If you need to obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [About API Clients](https://help.zscaler.com/zidentity/about-api-clients) in Authentication Service.
+If you must obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [About API Clients](https://help.zscaler.com/authentication-service/about-api-clients).
 
 ## About the API Key Management Page
 
-On the API Key Management page (Administration > Authentication > API Key Management), you can do the following:
+On the API Key Management page (Administration > API Configuration > Legacy API > Digital Experience API), you can do the following:
 
 1. [Create a new API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#CreateAPIKey)
 2. View a list of created API keys. For each API key, you can view:
   - **Name**: The name of the API key.
   - **Key ID**: The ID of the API key.
   - **Role**: The role the API key is assigned to.
-  - **Created By**: The user name that created the API key.
+  - **Created By**: The username that created the API key.
   - **Last Updated On**: The timestamp of when the API key was last updated.
   - **Actions**: The View, Edit, and Delete actions that can be performed on the API key.
 3. [View an API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#ViewAPIKey)
 4. [Edit an API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#EditAPIKey)
 5. [Delete an API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#DeleteAPIKey)
 
-[Image: The API Key Management Page provides an overview of the API Keys.]
+[Image: The Digital Experience API page displaying the different aspects on the page.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2201,22 +2203,22 @@ Click **Next**.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/administrator-management-settings","lastmod":"2026-07-31T15:37Z","nid":"1456556"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/administrator-management-settings","lastmod":"2026-08-07T09:42Z","nid":"1456556"} -->
 ## Administrator Management Settings
 
 - Source: https://help.zscaler.com/zdx/administrator-management-settings
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Administrator Management Settings
-- Last modified: 2026-07-31T15:37Z
+- Last modified: 2026-08-07T09:42Z
 - Summary: Information on password management for administrators in ZDX.
 
-On the Administrator Management page (Administration > Administrator Management > Administrator Management), you can configure restricted access for admins, password expiration, and SAML authentication for admins.
+To access the Administrator Management page, go to **Administration** > **Admin Management** > **Role Based Access Control** > **Administrators** > **Administrator Management**. You can configure restricted access, password expiration, and SAML authentication for admins.
 
-The Administrator Management page shows a link to the Authentication Service if you are subscribed to Authentication Service. You can manage your admins from the Authentication Service Admin Portal. To learn more, see [What is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
+The Administrator Management page shows a link to the [Authentication Service](https://help.zscaler.com/authentication-service) if you are subscribed to Authentication Service. You can manage your admins from the Authentication Service in the Zscaler Admin Console. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
 
 ## Password Management
 
-If you're using the Zscaler-hosted [admin](https://help.zscaler.com/zdx/about-administrators) database to authenticate admins, you can enable password expiration for all admins logging in to the Internet & SaaS and ZDX. To learn more, see [Configuring Password Expiration](https://help.zscaler.com/zdx/configuring-password-expiration).
+If you're using the Zscaler-hosted [admin](https://help.zscaler.com/zdx/about-administrators) database to authenticate admins, you can enable password expiration for all admins logging in to the Internet & SaaS and Zscaler Digital Experience (ZDX). To learn more, see [Configuring Password Expiration](https://help.zscaler.com/zdx/configuring-password-expiration).
 
 ## SAML Authentication for Administrators
 
@@ -2233,7 +2235,7 @@ Admins can configure an action when SCIM deletes a linked user account.
 
 See image.
 
-[Image: Administrator Management Page]
+[Image: Administrator Management Page (Shows Legacy UI)]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2548,13 +2550,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-06-24T21:06Z","nid":"1487146"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-08-06T14:15Z","nid":"1487146"} -->
 ## Configuring Data Explorer Views
 
 - Source: https://help.zscaler.com/zdx/configuring-data-explorer-views
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Configuring Data Explorer Views
-- Last modified: 2026-06-24T21:06Z
+- Last modified: 2026-08-06T14:15Z
 - Summary: How to configure Data Explorer views in the Zscaler Admin Console.
 
 Data Explorer provides the flexibility to build and organize your own customized views of applications and metrics to analyze data. To learn more, see [Monitoring Data Explorer Views](https://help.zscaler.com/zdx/monitoring-data-explorer-views).
@@ -2586,12 +2588,12 @@ To create a view for End User Monitoring:
 3. Structure your view:
   - a. Applications
   - b. Metrics
-  - c. Group By
-  - d. Aggregation Type
+  - c. Filters
+  - d. Operations
   - e. View Type
 4. Apply filters such as **User Groups** to analyze interactions tied to a specific group or **Geolocations**to focus on data based on user locations.
 5. Click **Run Query** to display your customized view:
-  - The chart format displays individual charts for your selected applications and metrics. For details about the interaction and format of Data Explorer charts, see [Viewing System-Generated Reports](https://help.zscaler.com/zdx/viewing-system-generated-reports). See image.
+  - The chart format displays individual charts for your selected applications and metrics. For details about the interaction and format of Data Explorer charts, see [Viewing Predefined Reports](https://help.zscaler.com/zdx/viewing-predefined-reports). See image.
   - The tabular format provides the flexibility to filter your selected applications and metrics for an instant view of the data. To capture your configured table information in a CSV file, click **Export**, then click the **Download**icon. See image.
 6. Click **Save**to keep your view for future access. To learn more, see [Monitoring Data Explorer Views](https://help.zscaler.com/zdx/monitoring-data-explorer-views).
 7. Enter a name for your view in the dialog window, and click **Save**to save your configuration.
@@ -2606,20 +2608,21 @@ To create a view for Managed Monitoring:
 
 1. On the **Untitled View** page, select **Managed Monitoring** from the **Data Source** drop-down menu.
 2. Use the time range filter to narrow the results of your view. The default time range is 24 Hours. Your time range also determines the granularity of the data displayed in your views.
-3. Use the **Zscaler Managed Locations** filter to select the Zscaler data centers to run your probes.
+3. Use the **Zscaler Managed Locations** filter to select the Zscaler data centers to run your probes. You can select the following:
+  - List of Zscaler Managed Locations
 4. Structure your view:
   - a. Probes
   - b. Metrics
-  - c. Group By
-  - d. Aggregation Type
+  - c. Filters
+  - d. Operations
   - e. View Type
   - f. Overlays
 5. Click **Run Query** to display your customized view:
-  - The chart format displays individual charts for your selected applications and metrics. For details about the interaction and format of Data Explorer charts, see [Viewing System-Generated Reports](https://help.zscaler.com/zdx/viewing-system-generated-reports). See image.
-  - The tabular format provides the flexibility to filter your selected applications and metrics for an instant view of the data. Only the top 1,000 rows are displayed. To capture your configured table information in a CSV file, click **Export**, then click the **Download**icon. See image.
+  - The chart format displays individual charts for your selected applications and metrics. For details about the interaction and format of Data Explorer charts, see [Viewing Predefined Reports](https://help.zscaler.com/zdx/viewing-predefined-reports). See image.
   - The scatter format displays your selected applications and metrics as dispersed data points. See image.
+  - The tabular format provides the flexibility to filter your selected applications and metrics for an instant view of the data. Only the top 1,000 rows are displayed. To capture your configured table information in a CSV file, click **Export**, then click the **Download**icon. See image.
   - The range format displays your selected applications and metrics as dispersed data points across a continuous range of values, helping you analyze distribution patterns. Note: This format is unavailable when multiple probes or metrics are selected. See image.
-  - The multipath visualization format displays Cloud Path visualization data corresponding to the selected timestamp in the chart view. Located under the chart, this format helps you analyze how data traverses different cloud paths for the selected applications and metrics. Use it to gain deeper insight into routing behaviors and path performance at specific moments in time. This view is unavailable if you select multiple probes.; You can select a time range only between 2 hours and 7 days.; You cannot choose an option from the **Group By** drop-down menu; Zscaler Managed Locations is set by default.; You cannot change the selection under **Metrics**; latency metrics are selected by default.; By default, the Cloud Path visualization shows data from the last 24 hours. See image.
+  - The multipath visualization format displays Cloud Path visualization data corresponding to the selected timestamp in the chart view. Located under the chart, this format helps you analyze how data traverses different cloud paths for the selected applications and metrics. Use it to gain deeper insight into routing behaviors and path performance at specific moments in time. See image. This view is unavailable if you select multiple probes.; You can select a time range only between 2 hours and 7 days.; You cannot choose an option from the **Group By** drop-down menu; Zscaler Managed Locations is set by default.; You cannot change the selection under **Metrics**, latency metrics are selected by default.; By default, the Cloud Path visualization shows data from the last 24 hours.
 6. Click **Save**to keep your view for future access. To learn more, see [Monitoring Data Explorer Views](https://help.zscaler.com/zdx/monitoring-data-explorer-views).
 7. Enter a name for your view in the dialog window, and click **Save**to save your configuration.
 
@@ -2633,9 +2636,9 @@ To edit a Data Explorer view:
 
 1. Go to **Analytics**> **Digital Experience** > **Reports** > **Data Explorer**.
 2. Search for the view you want to edit in the Data Explorer table.
-3. Click the **Edit**icon for the view.
+3. Under **Actions**, click the **View**icon.
 4. Make your edits.
-5. Click **Run Query** to display your edited view.
+5. Click **Run Query** to display your view.
 6. Click **Update**.
 7. [Activate your changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -2647,11 +2650,11 @@ To delete a Data Explorer view:
 
 1. Go to **Analytics**> **Digital Experience** > **Reports** > **Data Explorer**.
 2. Search for the view you want to delete in the Data Explorer table.
-3. Click the **Delete**icon for the view.
+3. Under **Actions**, click the **Delete**icon.
 4. In the dialog window, confirm you want to delete the view.
 5. [Activate your change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: Button to Create New View]
+[Image: Click the Create New View button]
 
 [Image: Chart view]
 
@@ -2682,13 +2685,22 @@ After selecting your metrics, you can apply Metric-Based filters to refine the d
 
 [Image: Adding Metrics to your view]
 
+Click **Add** to select filters for your view.
+
+[Image: Filters Selection]
+
+You can group data based on selected filters and select how data is aggregated.
+
+- Group By
+- Aggregation Type
+
 Click **Add**to specify the metrics for your view. You can add up to 10 metrics for Managed Monitoring.
 
 If a Web probe is configured with a Cloud Path probe as a companion probe, **Page Fetch Time** and **End-to-End Latency** metrics are automatically selected by default.
 
 After selecting your metrics, you can apply Metric-Based filters to refine the dataset being displayed in your view. These filters allow you to specify conditions or thresholds based on the metrics you've chosen.
 
-[Image: Adding metrics to your hosted monitoring view]
+[Image: Adding Metrics to Managed Monitoring]
 
 Select an option to group data by **Zscaler Locations**, **Geolocations**, **Departments**, **Applications, Last Mile ISPs,**or **Zscaler Data Center**. If you group by Applications, views are rendered for each metric. If you group by other options in the drop-down menu, views are rendered for each application and metric.
 
@@ -2702,6 +2714,35 @@ If you've selected more than one metric for your view in chart format, your **Gr
 
 [Image: Select how to group data]
 
+Click **Add** to select filters for your view.
+
+[Image: Filters Selection]
+
+You can group data based on selected filters and select how data is aggregated.
+
+- Group By
+- Aggregation Type
+
+- Zscaler-Amsterdam-NE
+- Zscaler-Atlanta-GA-US
+- Zscaler-Chennai-IN
+- Zscaler-Chicago-IL-US
+- Zscaler-Dallas-TX-US
+- Zscaler-Delhi-IN
+- Zscaler-Frankfurt-DE
+- Zscaler-Los Angeles-CA-US
+- Zscaler-London-UK
+- Zscaler-Mumbai-IN
+- Zscaler-New York-NY-US
+- Zscaler-Osaka-JP
+- Zscaler-Paris-FR
+- Zscaler-San Jose-CA-US
+- Zscaler-Singapore-SG
+- Zscaler-Sydney-AU
+- Zscaler-Tokyo-JP
+- Zscaler-Washington-DC-US
+- Zscaler-Zurich-CH
+
 Select the **Average**, **Minimum**, **Maximum**, or **Median**method for data aggregation across all users. The default setting is Average.
 
 [Image: Select Aggregation Type]
@@ -2714,9 +2755,9 @@ Select a **View Type** icon to display views in a chart or tabular format.
 
 [Image: Select View Type options]
 
-Select the **View Type** icon to display your view in a chart, scatter, range, tabular, or multipath visualization format.
+Select a **View Type** icon to display your view in a chart, scatter, range, tabular, or multipath visualization format.
 
-[Image: Hosted View Chart View]
+[Image: Managed Monitoring - View Type]
 
 [Image: Displays a tabular view of the Managed data.]
 
@@ -4370,13 +4411,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-04-03T15:33Z","nid":"1391316"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-08-06T13:56Z","nid":"1391316"} -->
 ## Evaluating User Details
 
 - Source: https://help.zscaler.com/zdx/evaluating-user-details
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Users > Evaluating User Details
-- Last modified: 2026-04-03T15:33Z
+- Last modified: 2026-08-06T13:56Z
 - Summary: Information about the user details page, accessed from the Users Dashboard.
 
 To better understand the digital experience for a user, view the user details page for user and device metrics.
@@ -4631,9 +4672,9 @@ The side panel reveals a granular breakdown that includes timestamps, category, 
 
 [Image: User Device Events]
 
-The Category drop-down menu provides the option to filter the event categories for Zscaler, Hardware, Software, Network, and Microsoft Endpoint:
+The Category drop-down menu provides the option to filter the event categories for Zscaler, Hardware, Software, and Network:
 
-[Image: Screen shows the device event icons and the category drop-down menu]
+[Image: Screen shows the category drop-down menu]
 
 To learn more, see [Viewing Device Events Reports](https://help.zscaler.com/zdx/viewing-device-events-reports).
 
@@ -5505,18 +5546,18 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-zdx-api-keys","lastmod":"2025-09-12T07:06Z","nid":"1403316"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-zdx-api-keys","lastmod":"2026-08-06T12:19Z","nid":"1403316"} -->
 ## Managing ZDX API Keys
 
 - Source: https://help.zscaler.com/zdx/managing-zdx-api-keys
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > API Key Management > Managing ZDX API Keys
-- Last modified: 2025-09-12T07:06Z
+- Last modified: 2026-08-06T12:19Z
 - Summary: Information about how to manage the ZDX API Key Management.
 
-After your API subscription is enabled, the ZDX API Key Management page is accessible to an admin role. From there, the admin can provision and display available API keys.
+After your API subscription is enabled, the Zscaler Digital Experience (ZDX) API Key Management page is accessible to a ZDX admin. From there, the admin can provision and display available API keys.
 
-If you need to obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [About API Clients](https://help.zscaler.com/zidentity/about-api-clients) in Authentication Service.
+If you must obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [About API Clients](https://help.zscaler.com/authentication-service/about-api-clients).
 
 The API Key Management page allows you to perform the following actions:
 
@@ -5527,36 +5568,33 @@ The API Key Management page allows you to perform the following actions:
 
 To learn more, see [About API Key Management](https://help.zscaler.com/zdx/about-api-key-management).
 
-1. Go to **Administration > Authentication > API Key Management**.
+1. Go to **Administration > API Configuration > Legacy API > Digital Experience API**.
 2. Click the **View** icon for a specific API key to open the **API Key** window.
-3. You can:
-  - Click **Copy** to copy the API Key ID.
-  - Click **Copy** to copy the API Key Secret.
-  - Click **Download** to download a JSON file of the API key.
+3. Click **Copy** to copy the API Key ID.
 
-[Image: View the API Key window to copy API Key information or download a JSON file.]
+[Image: Window that displays the available information for viewing an API key]
 
-1. Go to **Administration > Authentication > API Key Management**.
-2. Click **Create New API Key**.
-3. Enter the required information: [Image: Create a new API Key]
+1. Go to **Administration > API Configuration**> **Legacy API**> **Digital Experience API**.
+2. Click **Create API Key**.
+3. Enter the required information: [Image: Create an API Key]
   - **Name**: Enter the API key name.
   - **Select Role**: Select an admin role to be assigned the API key.
 4. Click **Create Key** to confirm, and the **API Key** window appears.
-5. Click **Copy** to copy the API Key ID or Key Secret, or click **Download** to download the JSON file. You need both the API Key ID and Key Secret for [authentication](https://help.zscaler.com/zdx/getting-started-zdx-api/#authenticate-api). [Image: Copy API Key ID or Secret or Download API Key]
+5. Click **Copy** to copy the API Key ID or Key Secret, or click **Download** to download the JSON file. You need both the API Key ID and Key Secret for [authentication](https://help.zscaler.com/zdx/getting-started-zdx-api/#authenticate-api). [Image: Window that displays the information needed once an API key is created]
 6. Close the window.
 
-1. Go to **Administration > Authentication > API Key Management**.
+1. Go to **Administration > API Configuration > Legacy API > Digital Experience API.**
 2. Click the **Edit** icon for a specific API key to open the **Edit API Key** window.
 3. Edit the **Name** or choose a new role from the **Select Role** drop-down menu.
 4. Click **Save** to confirm the changes.
 
-[Image: Edit the API key name or role.]
+[Image: Edit the API key name or role]
 
 The **Delete** action allows you to delete the specified API key.
 
 To delete a specific API key:
 
-1. Go to **Administration > Authentication > API Key Management**.
+1. Go to **Administration > API Configuration > Legacy API > Digital Experience API**.
 2. Click the **Delete** icon for a specific API key to open the **Delete API Key** window.
 3. Click **Delete** to confirm the deletion.
 
@@ -7972,13 +8010,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-07-30T17:43Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-08-07T08:09Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-30T17:43Z
+- Last modified: 2026-08-07T08:09Z
 - Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -9892,13 +9930,13 @@ Diagnostics Sessions in the **History** table can have one of the following stat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-managed-monitoring","lastmod":"2026-07-16T10:25Z","nid":"1505966"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-managed-monitoring","lastmod":"2026-08-06T14:23Z","nid":"1505966"} -->
 ## Understanding Managed Monitoring
 
 - Source: https://help.zscaler.com/zdx/understanding-managed-monitoring
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Understanding Managed Monitoring
-- Last modified: 2026-07-16T10:25Z
+- Last modified: 2026-08-06T14:23Z
 - Summary: Understanding Zscaler Managed collections and probes.
 
 [Watch a video about Managed Monitoring.](https://fast.wistia.net/embed/iframe/vcmq8namoq)
@@ -9911,8 +9949,29 @@ To access Managed Monitoring:
 
 1. Go to **Analytics**> **Digital Experience** > **Applications** > **Managed Monitoring**.
 2. Select a probe from a collection in the left-side navigation.
-3. Select the **Zscaler Managed Locations** from the drop-down menu to specify the Zscaler data centers from where the probe is run. All locations are selected by default.
+3. Select the **Zscaler Managed Locations** from the drop-down menu to specify the Zscaler data centers from where the probe is run. All locations are selected by default. You can select the following:
+  - List of Zscaler Managed Locations
 4. Click **Apply**. The applicable probe charts are displayed for either a Web probe or Cloud Path probe. See image.
+
+- Zurich, CH
+- Frankfurt, DE
+- Amsterdam, NE
+- Chicago, IL, USA
+- San Jose, CA, USA
+- Washington, DC, USA
+- Sydney, AU
+- Delhi, IN
+- Mumbai, IN
+- Chennai, IN
+- Tokyo, JP
+- Osaka, JP
+- Paris, FR
+- Singapore, SG
+- London, UK
+- Atlanta, GA, USA
+- Dallas, TX, USA
+- Los Angeles, CA, USA
+- New York, NY, USA
 
 ## Setting a Time Range
 
@@ -12544,13 +12603,13 @@ Configuring user domain settings does not manipulate the existing data in the Se
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/zdx-module-processes-allowlist","lastmod":"2026-07-09T14:17Z","nid":"1541220"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/zdx-module-processes-allowlist","lastmod":"2026-08-06T13:03Z","nid":"1541220"} -->
 ## ZDX Module Processes to Allowlist
 
 - Source: https://help.zscaler.com/zdx/zdx-module-processes-allowlist
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Getting Started > ZDX Module Processes to Allowlist
-- Last modified: 2026-07-09T14:17Z
+- Last modified: 2026-08-06T13:03Z
 - Summary: Information on binaries and processes that the users' devices should allowlist for ZDX Module.
 
 Zscaler recommends that your users' devices have rules that allow the binaries and processes for ZDX Module. These are important prerequisites to allow ZDX Module to run specific ZDX features.
@@ -12565,6 +12624,8 @@ This section lists the file or file paths to allowlist.
 
 - Windows
 - macOS
+
+You must allowlist `ZSUpmInstaller` to allow ZDX Module to upgrade to the latest version.
 
 The location of files to allowlist depends on your version of ZDX Module.
 
@@ -12596,6 +12657,17 @@ Allowlist the entire path of the following files:
 | Feature | Allowlist |
 | --- | --- |
 | [Real User Monitoring (RUM)](https://help.zscaler.com/zdx/understanding-real-user-monitoring) | `/Library/Application Support/Zscaler/UPM/ZUpmApplication` |
+
+## Process Usage
+
+The following list describes what each process is used for:
+
+| Process | Description |
+| --- | --- |
+| ZSAUpm | Runs the ZDX service. |
+| ZSAUpmInstaller | Runs the ZDX service installer for ZDX Module upgrades. |
+| ZSAScript | Runs remote scripts on the device. |
+| ZUpmApplication | Gathers RUM metrics. |
 <!-- /ZS-ARTICLE -->
 
 ---

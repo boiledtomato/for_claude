@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 186
 
 ---
@@ -1568,13 +1568,13 @@ On the Data Inventory page (Analytics > Data Security > DSPM > Data Inventory), 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-third-party-integrations","lastmod":"2026-04-01T02:58Z","nid":"1474786"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-third-party-integrations","lastmod":"2026-08-04T02:57Z","nid":"1474786"} -->
 ## About Third-Party Integrations
 
 - Source: https://help.zscaler.com/dspm/about-third-party-integrations
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > About Third-Party Integrations
-- Last modified: 2026-04-01T02:58Z
+- Last modified: 2026-08-04T02:57Z
 - Summary: Information about integrating DSPM with third-party cloud storage services, ITSM, and ChatOps tools.
 
 Security information and event management (SIEM) is a solution to detect and address security threats and vulnerabilities. Data from security systems, network devices, servers, domain controllers, etc., is aggregated and analyzed to identify threats or anomalies, enabling security teams to investigate and address these issues.
@@ -9950,13 +9950,13 @@ The Snowflake account is deleted from the Zscaler Admin Console.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-third-party-integrations","lastmod":"2026-04-01T02:58Z","nid":"1487821"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-third-party-integrations","lastmod":"2026-08-04T02:57Z","nid":"1487821"} -->
 ## Editing or Deleting Third-Party Integrations
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-third-party-integrations
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Editing or Deleting Third-Party Integrations
-- Last modified: 2026-04-01T02:58Z
+- Last modified: 2026-08-04T02:57Z
 - Summary: How to edit or delete third-party integrations in the Zscaler Admin Console.
 
 You can edit or delete any cloud storage, ITSM, or ChatOps integration as required.
@@ -10716,13 +10716,13 @@ After the initialization completes, the scanner VM registers with the DSPM tenan
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-s3","lastmod":"2026-04-01T02:59Z","nid":"1487531"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-s3","lastmod":"2026-08-04T02:56Z","nid":"1487531"} -->
 ## Integrating with Amazon S3
 
 - Source: https://help.zscaler.com/dspm/integrating-amazon-s3
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating with Amazon S3
-- Last modified: 2026-04-01T02:59Z
+- Last modified: 2026-08-04T02:56Z
 - Summary: How to integrate DSPM with Amazon S3 to send alert details to the cloud storage service.
 
 You can integrate DSPM with Amazon Simple Storage Service (Amazon S3). This integration enables DSPM to send the alert data logs of your cloud resources to the Amazon S3 buckets for storage.
@@ -10773,13 +10773,13 @@ You can see the integration details on the **Integrations** page. The initial st
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-security-lake","lastmod":"2026-04-01T03:00Z","nid":"1487541"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-security-lake","lastmod":"2026-08-04T02:55Z","nid":"1487541"} -->
 ## Integrating with Amazon Security Lake
 
 - Source: https://help.zscaler.com/dspm/integrating-amazon-security-lake
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating with Amazon Security Lake
-- Last modified: 2026-04-01T03:00Z
+- Last modified: 2026-08-04T02:55Z
 - Summary: How to integrate DSPM with Amazon Security Lake and send alert details.
 
 You can integrate DSPM with the Amazon Security Lake service to export and store the alert data in a dedicated Amazon Simple Storage Service (S3) bucket that is pre-configured as part of the Amazon Security Lake setup.
@@ -10937,13 +10937,13 @@ Make sure you have the following information for setting up the DSPM integration
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-azure-blob-storage","lastmod":"2026-06-26T00:57Z","nid":"1487536"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-azure-blob-storage","lastmod":"2026-08-04T02:55Z","nid":"1487536"} -->
 ## Integrating with Azure Blob Storage
 
 - Source: https://help.zscaler.com/dspm/integrating-azure-blob-storage
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating with Azure Blob Storage
-- Last modified: 2026-06-26T00:57Z
+- Last modified: 2026-08-04T02:55Z
 - Summary: How to integrate DSPM with Azure Blob Storage and send alert details.
 
 You can integrate DSPM with your Azure Blob Storage. This integration enables DSPM to send the alert data logs of your cloud resources to the Azure Blob Storage containers for storage and data analysis by third-party SIEM or ITSM tools.
@@ -10988,13 +10988,13 @@ You can see the integration details on the **Integrations** page. The initial st
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-cloud-storage-services","lastmod":"2026-04-01T02:59Z","nid":"1487561"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-cloud-storage-services","lastmod":"2026-08-04T02:56Z","nid":"1487561"} -->
 ## Integrating DSPM with Cloud Storage Services
 
 - Source: https://help.zscaler.com/dspm/integrating-dspm-cloud-storage-services
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating DSPM with Cloud Storage Services
-- Last modified: 2026-04-01T02:59Z
+- Last modified: 2026-08-04T02:56Z
 - Summary: Information on integrating DSPM with various cloud storage services.
 
 Cloud Storage is a service that allows you to store and organize data. You can granularly control access to this data and use it for data analysis, auditing, threat detection, etc., based on your organization's security and compliance requirements.
@@ -11012,13 +11012,13 @@ You can integrate DSPM with the following cloud storage services:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-itsm-tools","lastmod":"2026-04-01T03:00Z","nid":"1487571"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-itsm-tools","lastmod":"2026-08-04T02:54Z","nid":"1487571"} -->
 ## Integrating DSPM with ITSM Tools
 
 - Source: https://help.zscaler.com/dspm/integrating-dspm-itsm-tools
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ITSM Tools > Integrating DSPM with ITSM Tools
-- Last modified: 2026-04-01T03:00Z
+- Last modified: 2026-08-04T02:54Z
 - Summary: Information on integrating DSPM with various ITSM tools.
 
 Security information and event management (SIEM) is a software solution that collects security data like alert details from security systems, aggregates, and applies analytics to that data to discover trends, detect threats, and enable organizations to investigate and take the necessary action.
@@ -11033,13 +11033,13 @@ DSPM supports connection with the following ITSM tools:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-jira","lastmod":"2026-06-26T01:09Z","nid":"1487566"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-jira","lastmod":"2026-08-04T02:54Z","nid":"1487566"} -->
 ## Integrating with Jira
 
 - Source: https://help.zscaler.com/dspm/integrating-jira
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ITSM Tools > Integrating with Jira
-- Last modified: 2026-06-26T01:09Z
+- Last modified: 2026-08-04T02:54Z
 - Summary: How to integrate DSPM with Jira and send alert notifications.
 
 DSPM leverages Jira APIs to automatically create tickets when sensitive data or any misconfigurations are detected in your cloud resources. You can integrate DSPM with Jira to leverage the alert data logs from the cloud storage services and create incidents for further evaluation.
@@ -11124,13 +11124,13 @@ The integration is added, and the details are displayed on the **Integrations** 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-servicenow","lastmod":"2026-06-26T01:11Z","nid":"1487556"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-servicenow","lastmod":"2026-08-04T02:54Z","nid":"1487556"} -->
 ## Integrating with ServiceNow
 
 - Source: https://help.zscaler.com/dspm/integrating-servicenow
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ITSM Tools > Integrating with ServiceNow
-- Last modified: 2026-06-26T01:11Z
+- Last modified: 2026-08-04T02:54Z
 - Summary: How to integrate DSPM with ServiceNow and send alert notifications.
 
 DSPM leverages ServiceNow APIs to automatically create tickets when sensitive data or a misconfiguration is detected in the cloud resources. You can integrate DSPM with ServiceNow to create incidents on ServiceNow whenever a security policy violation occurs on the selected cloud resources.
@@ -11169,13 +11169,13 @@ The integration details are displayed on the **Integrations** page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-slack","lastmod":"2026-04-01T03:01Z","nid":"1487526"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-slack","lastmod":"2026-08-04T02:53Z","nid":"1487526"} -->
 ## Integrating with Slack
 
 - Source: https://help.zscaler.com/dspm/integrating-slack
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ChatOps Tools > Integrating with Slack
-- Last modified: 2026-04-01T03:01Z
+- Last modified: 2026-08-04T02:53Z
 - Summary: How to integrate DSPM with Slack.
 
 You can integrate DSPM with Slack, a tool for centralized communication and collaboration. DSPM detects sensitive data or misconfigurations in the cloud resources and generates alerts. These alert notifications are sent to the configured Slack channels so you can investigate and address the issues on a common platform and streamline the mitigation directly into your developer tool.
@@ -13963,13 +13963,13 @@ To onboard an AWS account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/predefined-roles-and-permissions","lastmod":"2026-07-02T00:54Z","nid":"1474986"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/predefined-roles-and-permissions","lastmod":"2026-08-07T07:06Z","nid":"1474986"} -->
 ## Predefined DSPM Roles and Permissions
 
 - Source: https://help.zscaler.com/dspm/predefined-roles-and-permissions
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Role Management > Predefined DSPM Roles and Permissions
-- Last modified: 2026-07-02T00:54Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: Information about predefined roles and permissions in the Zscaler Admin Console.
 
 DSPM provides the following set of predefined [roles](https://help.zscaler.com/dspm/about-roles) and permissions that you can assign to [users](https://help.zscaler.com/zidentity/about-users).
@@ -14930,13 +14930,13 @@ The following features are not supported:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/supported-data-stores-file-types-and-regions","lastmod":"2026-07-01T23:29Z","nid":"1498686"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/supported-data-stores-file-types-and-regions","lastmod":"2026-08-07T07:06Z","nid":"1498686"} -->
 ## Supported Data Stores, File Types, and Regions
 
 - Source: https://help.zscaler.com/dspm/supported-data-stores-file-types-and-regions
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Supported Data Stores, File Types, and Regions
-- Last modified: 2026-07-01T23:29Z
+- Last modified: 2026-08-07T07:06Z
 - Summary: Information about the different data stores, file types, and regions that DSPM provides support for data scanning.
 
 DSPM supports the scanning of AWS, Azure, GCP data stores (storage services, virtual machines, and their associated disks and databases), and on-premises databases for sensitive data, vulnerabilities, and misconfigurations. This article outlines the support level for both managed and unmanaged data stores, specific capabilities regarding posture management, data classification (DLP), scan methods, and authentication mechanisms. To learn more, see [About Scan Settings](https://help.zscaler.com/dspm/about-scan-settings).
@@ -15144,6 +15144,8 @@ DSPM supports the following change feed events:
 | Data Store | Microsoft Information Protection Labeling |
 | --- | --- |
 | Azure Storage Account - File Shares | ✔ |
+| On-Premises SMB File Shares | ✔ |
+| On-Premises NFS File Shares | ✔ |
 
 | Region Code | Display Name | Location |
 | --- | --- | --- |

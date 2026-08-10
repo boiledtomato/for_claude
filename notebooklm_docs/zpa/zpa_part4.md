@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-03 02:47 UTC
+Generated: 2026-08-10 01:47 UTC
 Articles in this file: 25
 
 ---
@@ -868,13 +868,13 @@ In the Map view, you can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/vpn-redundancy-deployment-guide","lastmod":"2026-06-29T07:06Z","nid":"1535291"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/vpn-redundancy-deployment-guide","lastmod":"2026-08-07T07:38Z","nid":"1535291"} -->
 ## VPN Redundancy Deployment Guide
 
 - Source: https://help.zscaler.com/zpa/vpn-redundancy-deployment-guide
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Redundancy Deployment Guide
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-08-07T07:38Z
 - Summary: Information on how to enable VPN redundancy for your Network Connectors.
 
 This guide explains how to configure VPN redundancy for your organization's traffic using Network Connectors that support redundancy within a Network Connector group. Network Connectors that support redundancy solve the following failure scenarios:
@@ -917,6 +917,8 @@ To add Network Connectors, see the following articles:
 
 - [About Network Connectors](https://help.zscaler.com/zpa/about-network-connectors)
 - [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors)
+
+To create Network Connectors using a provisioning key, see [About Network Connector Provisioning Keys](https://help.zscaler.com/zpa/about-network-connector-provisioning-keys).
 
 Ensure the following settings for the Network Connector group when configuring Network Connectors:
 
@@ -965,18 +967,18 @@ To add access polices, see the following articles:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/what-is-microsegmentation","lastmod":"2026-07-10T14:22Z","nid":"1531937"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/what-is-microsegmentation","lastmod":"2026-08-05T13:33Z","nid":"1531937"} -->
 ## What Is Microsegmentation?
 
 - Source: https://help.zscaler.com/zpa/what-is-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > What Is Microsegmentation?
-- Last modified: 2026-07-10T14:22Z
-- Summary: Information about Zscaler's Microsegmentation in the Zscaler Admin Console.
+- Last modified: 2026-08-05T13:33Z
+- Summary: Information about Microsegmentation in the Zscaler Admin Console.
 
 Zscaler Microsegmentation is a platform within the [Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console) that provides the capability to visualize traffic flows within private applications and segment them on a fractional level, reducing the attack surface and preventing lateral movement of any threats on your network. It is a multi-tenant software-as-a-service solution optimized for security, reliability, and scale, using a system divided into the Zscaler cloud and deployed agents. The Zscaler cloud and agents work together to collect and analyze application flow and telemetry data and also monitor the health of all managed systems.
 
-The [deployed agents](https://help.zscaler.com/zpa/configuring-agents) sit on Windows or Linux hosts in your environment and collect information about application activity. Agents are deployed to your servers, whether they are virtual or physical, cloud based, or in your data center. The agents are responsible for downloading the latest access policies from the Zscaler cloud and translating them to rules that are specific to local OS enforcement points (e.g., Windows Filtering Platform and Linux nftables). You can create [agent groups](https://help.zscaler.com/zpa/configuring-agent-groups) and [AppZones](https://help.zscaler.com/zpa/configuring-appzones) that group together specific machines and their applications that you want to monitor for certain data flows.
+The deployed agents sit on Windows or Linux hosts in your environment and collect information about application activity. Agents are deployed to your servers, whether they are virtual or physical, cloud based, or in your data center. The agents are responsible for downloading the latest access policies from the Zscaler cloud and translating them to rules that are specific to local OS enforcement points (e.g., Windows Filtering Platform and Linux nftables). You can create [agent groups](https://help.zscaler.com/zpa/configuring-agent-groups) and [AppZones](https://help.zscaler.com/zpa/configuring-appzones) that group together specific machines and their applications that you want to monitor for certain data flows.
 
 You can enable Microsegmentation for organizations that have [Private Access (ZPA)](https://help.zscaler.com/zpa/what-zscaler-private-access). The backend framework is hosted and managed by the Zscaler cloud and is available across the US region. The data collection is localized to the region of choice of the administrator, and the data retention cycle is a 14-day rolling period. You can deploy the managed resources to any other region. The installed agents operate in continuous mode.
 
@@ -1097,13 +1099,13 @@ Zero trust has become a popular model for secure user access to applications and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-07-23T10:08Z","nid":"1485956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-08-06T07:23Z","nid":"1485956"} -->
 ## App Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Software by Platform
-- Last modified: 2026-07-23T10:08Z
+- Last modified: 2026-08-06T07:23Z
 - Summary: The current App Connector software downloads by platform.
 
 App Connectors are supported on [many different platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms). Each supported platform has an App Connector image you can use to deploy App Connectors on that platform. To learn more, see [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -1399,13 +1401,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-07-22T09:45Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-08-06T08:30Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-07-22T09:45Z
+- Last modified: 2026-08-06T08:30Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.
