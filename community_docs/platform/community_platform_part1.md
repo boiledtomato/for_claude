@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 13:55 UTC
-Posts in this file: 208
+Generated: 2026-08-10 03:10 UTC
+Posts in this file: 209
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -5614,4 +5614,21 @@ we have our NSS server status always showing unhealthy. what could be the reason
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>We noticed today that the <strong>Zscaler Gov</strong> Enterprise Application no longer appears in <strong>GCC </strong>Azure tenants. It still appears in <strong>GCC-High </strong>tenants, but we have some clients that use <strong>FedRAMP Moderate Zscaler Internet Access (zscalergov.net) </strong>along with their <strong>GCC </strong>tenant.</p><p>I instructed my team to use the standard <strong>Zscaler Internet Access ZSNet</strong> Enterprise Application, since that should work perfectly as long as we overwrite it with the correct Gov data during the SAML/SCIM configuration.</p><p><br></p><p>I wanted to confirm: is this the officially recommended workaround for GCC tenants? If so, can the documentation on the page below be updated to include this note?</p><p><br></p><p><a href="https://help.zscaler.us/zia/saml-scim-configuration-guide-microsoft-entra-id" rel="noopener noreferrer" target="_blank">SAML &amp; SCIM Configuration Guide for Microsoft Entra ID | Zscaler</a></p><p><span style="font-size: 13px;">https://help.zscaler.us/zia/saml-scim-configuration-guide-microsoft-entra-id</span></p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures","lastmod":"2026-08-03T12:41:30.000Z","id":"0D5PJ00000zoFsY0AU"} -->
+## SAML Authentication Expired Causing Private Application Access Failures
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures
+- Type: Q&A
+- Posted: 2026-08-03T12:41:30.000Z
+- Last activity: 2026-08-03T12:41:30.000Z
+- Answers: 0
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>I'm troubleshooting an issue where users are unable to access an internally published application. </p><p><br></p><p>It is a Domain Controller.</p><p><br></p><p>The logs show a BRK_MT_SETUP_FAIL_SAML_EXPIRED failure while attempting to access an internal resource. The transaction references UDP/389, but the connection is denied with a re-authentication action of Deny before any traffic is exchanged. Has anyone seen SAML expiration errors occur before connector/app selection? And what it is weird, we are not having any authentication issue internally.</p><p><br></p><p>Note</p><p>We don't have any <span style="font-size: 16px; font-family: Inter-Medium;">Timeout Policy.</span></p><p><br></p>
 <!-- /ZS-POST -->

@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 13:55 UTC
+Generated: 2026-08-10 03:10 UTC
 Posts in this file: 655
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -15305,14 +15305,14 @@ Regards
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000yvj990AA/ondemand-zcczpa-for-3rd-party-vendors","lastmod":"2026-07-28T17:05:17.000Z","id":"0D5PJ00000yvj990AA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000yvj990AA/ondemand-zcczpa-for-3rd-party-vendors","lastmod":"2026-08-05T15:31:45.000Z","id":"0D5PJ00000yvj990AA"} -->
 ## On-demand ZCC/ZPA for 3rd Party Vendors
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000yvj990AA/ondemand-zcczpa-for-3rd-party-vendors
 - Type: Q&A
 - Posted: 2026-07-21T19:41:41.000Z
-- Last activity: 2026-07-28T17:05:17.000Z
-- Answers: 0
+- Last activity: 2026-08-05T15:31:45.000Z
+- Answers: 2
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。

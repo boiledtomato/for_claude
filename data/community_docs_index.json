@@ -1,6 +1,6 @@
 {
  "fetch_mode": "api",
- "generated_at": "2026-08-03T04:28:17Z",
+ "generated_at": "2026-08-10T03:10:07Z",
  "posts": {
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
    "category": "zcc",
@@ -18505,8 +18505,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000yvj990AA/ondemand-zcczpa-for-3rd-party-vendors": {
    "category": "zcc",
-   "hash": "05307a7006870d16",
-   "lastmod": "2026-07-28T17:05:17.000Z",
+   "hash": "9d773a6134c7d86d",
+   "lastmod": "2026-08-05T15:31:45.000Z",
    "title": "On-demand ZCC/ZPA for 3rd Party Vendors",
    "type": "question"
   },
@@ -18543,6 +18543,34 @@
    "hash": "1ec18311ea27d9fa",
    "lastmod": "2026-07-31T11:37:28.000Z",
    "title": "Windows Endpoint Occasionally Matched to iOS Posture-Based Firewall Policy",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip": {
+   "category": "zia",
+   "hash": "86c30437e4055a10",
+   "lastmod": "2026-08-04T18:23:07.000Z",
+   "title": "Microsoft URLs with Dedicated IP",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ00000zd3j40AA/inquiry-about-discounts-for-zdte-certification": {
+   "category": "other",
+   "hash": "fc79470cd13823bd",
+   "lastmod": "2026-08-05T02:23:02.000Z",
+   "title": "Inquiry About Discounts for ZDTE certification",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures": {
+   "category": "platform",
+   "hash": "9be37ea0863c9fdd",
+   "lastmod": "2026-08-03T12:41:30.000Z",
+   "title": "SAML Authentication Expired Causing Private Application Access Failures",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ00000zwfni0AA/tenant-profile-for-claude": {
+   "category": "other",
+   "hash": "50dc6b7035a93041",
+   "lastmod": "2026-08-05T15:03:17.000Z",
+   "title": "Tenant Profile for Claude",
    "type": "question"
   }
  },
@@ -19695,6 +19723,8 @@
   "https://community.zscaler.com/s/Guides/aSoPJ0000006ZPh0AM/how-to-integrate-workflow-automation-with-cloudtocloud-aws": "2026-07-30T13:57:51.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006ZRJ0A2/zpa-clientless-apps-access-via-microsoft-entra-id-for-external-guest-users": "2026-07-30T17:38:57.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006Zcb0AE/what-is-zpa-b2b-federation": "2026-07-31T12:17:01.000Z",
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006aaH0AQ/zpa-credential-management-certificate-credential-agent-setup": "2026-08-05T15:12:00.000Z",
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006alZ0AQ/how-to-renew-microsoft-entra-id-zpa-certificate-before-it-expires": "2026-08-07T07:02:27.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evml4CAA/new-community-signups-welcome-picturespictures": "2023-07-06T12:57:39.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmvxCAA/guide-deploy-zscaler-client-connector-with-intune-ios-android": "2023-07-06T13:02:32.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmwrCAA/guide-integrate-zscaler-with-azure-sentinel": "2023-07-06T13:03:45.000Z",

@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 13:55 UTC
-Posts in this file: 727
+Generated: 2026-08-10 03:10 UTC
+Posts in this file: 728
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -17044,4 +17044,21 @@ Regards
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>Has anyone seen a Windows endpoint being matched to an iOS posture-based firewall policy?</p><p><br></p><p>Environment:</p><p>- Windows PC</p><p>- ZCC</p><p>- Static IP Location</p><p><br></p><p>We have a firewall policy that should only apply to iOS(ZCC) devices with a Low Trust posture.</p><p>Very rarely, traffic from a Windows endpoint is blocked by that policy. Firewall Insights shows:</p><p>- OS Type : Windows</p><p>- Matched Rule : iOS(ZCC) only firewall policy</p><p><br></p><p>At the same time, ZCC logs show successful posture evaluation and a compliant state.</p><p>The issue disappears immediately after either:</p><p>- Restarting the browser, or</p><p>- Reloading the browser, or</p><p>- Running "Repair App" in ZCC.</p><p><br></p><p>Has anyone experienced something similar or identified a root cause?</p><p>I'm particularly interested in posture evaluation timing, policy matching issues, or session/token caching behavior.</p><p><br></p><p>Thanks!</p><p><br></p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip","lastmod":"2026-08-04T18:23:07.000Z","id":"0D5PJ00000zcATo0AM"} -->
+## Microsoft URLs with Dedicated IP
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip
+- Type: Q&A
+- Posted: 2026-07-31T17:41:04.000Z
+- Last activity: 2026-08-04T18:23:07.000Z
+- Answers: 0
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>I’m looking for some help to resolve Microsoft URLs with Dedicated IP in combination with Microsoft's ip whitelisting function, called Conditional Access.</p><p><br></p><p>Just like Identity Proxy, you can NOT use Identity Proxy for Microsoft services IF your IDP is Entra. It’s the classic problem of trying to white list logging in, before you are authenticated.</p><p><br></p><p>Same problem with Dedicated IP. After we enter some Microsoft service URLs in the dedicated IP mechanism (in this case the Storage Browser service), it doesn’t work because we can’t authenticate first. We also our Zscaler dedicated IP entered into their Microsoft Conditional Access policy. We tested with one user by entering that user's outgoing Zscaler IP (from ip.zscaler.com) into the Microsoft Conditional Access policy, and it worked. So the theory of what's blocking is confirmed.</p><p><br></p><p>What this tells us is the Login Services are not getting through. The obvious solution is the start entering Login service URLs to the Dedicated IP ruleset, but I’ve tried this in the past and had conflicting results as the login URLs are a moving target.</p><p><br></p><p>So, my question is has somebody figured out a consistent approach to this? Thank you.</p>
 <!-- /ZS-POST -->
