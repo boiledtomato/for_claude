@@ -242,20 +242,25 @@ h1{
 
       <div class="note">
         <h2>描画</h2>
-        <h3>元アイコンを油彩に描き替える</h3>
+        <h3>フィルタをやめて、一筆ずつ置く</h3>
         <p>
-          <code>PackageManager</code> からインストール済みアプリの実アイコンを取得し、4段階で油絵にします。
+          最初はフィルタ（ぼかし＋Kuwahara）でやろうとして、失敗しました。
+          <b>フィルタには「筆跡」という概念がありません。</b>元アイコンをぼかすだけなので、
+          油絵ではなく「ぼやけたシール」にしかならない。そこで、実際に塗ることにしました。
         </p>
         <ol class="steps">
-          <li>ノイズ場で微小にワープ ── 筆の揺らぎ、直線を殺す</li>
-          <li>Kuwahara フィルタ ── 輪郭を保ったまま筆致の面に分解する</li>
-          <li>輝度勾配から擬似ライティング ── 絵の具の厚み（インパスト）</li>
-          <li>キャンバス目と、不定形の縁 ── 機械的な角丸をやめる</li>
+          <li>地の面を、太い筆から順に置く ── まず大きく塗り、まだ元絵と食い違う場所だけ細い筆で追う</li>
+          <li>一筆は輪郭に沿って走る ── 画像の勾配に直交する向き。平坦な面はそのアイコン固有の運筆方向へ</li>
+          <li>一筆ごとに色をずらす（絵の具の混ざりムラ）、毛の跡、左上から光る盛り上がり</li>
+          <li>図形は別レイヤー ── 輪郭は保ったまま、表面だけ筆で荒らす</li>
         </ol>
         <p style="margin-top:12px">
+          <b>4番目が要点です。</b>図形まで筆で再構成すると、80px ではカメラがカメラに見えなくなります
+          （実際にそうなりました）。ランチャーのアイコンは一瞬で識別できることが先で、
+          油絵はその上に乗せるものです。地の面は自由に、図形は忠実に。
+        </p>
+        <p>
           1アプリ1回だけ計算してディスクにキャッシュするので、2回目以降は即表示です。
-          Kuwahara は総和面積表に落として1画素あたり4回の参照で済ませてあり、半径を上げても重くなりません。
-          GPU シェーダは使っていません ── 1回きりの計算に必要がないからです。
           <b>左の絵は、この手順をそのまま JS で走らせた実物です</b>（元アイコンだけは、商標を避けて仮のものを描いています）。
         </p>
       </div>
@@ -416,6 +421,59 @@ function bristles(c,img,seed){
   }
 }
 
+function baseField(spec){
+  const cv = document.createElement("canvas"); cv.width = cv.height = RES;
+  const c = cv.getContext("2d");
+  const gd = c.createLinearGradient(0,0,RES,RES);
+  gd.addColorStop(0,spec.b); gd.addColorStop(1,spec.a);
+  c.fillStyle = gd; c.fillRect(0,0,RES,RES);
+  const gs = c.createRadialGradient(RES*.28,RES*.2,4,RES*.28,RES*.2,RES*.85);
+  gs.addColorStop(0,"rgba(255,255,255,.30)"); gs.addColorStop(1,"rgba(255,255,255,0)");
+  c.fillStyle = gs; c.fillRect(0,0,RES,RES);
+  return c.getImageData(0,0,RES,RES);
+}
+
+/**
+ * The symbol, painted but shape-faithful.
+ *
+ * Reconstructing the glyph out of contour-following strokes is what made the
+ * icons unreadable: at 80 px a camera has no contour left to follow. So the
+ * silhouette is kept and only its surface is brushed — warped slightly so it
+ * is drawn rather than plotted, then marked with bristles clipped inside it.
+ */
+function glyphLayer(spec,seed){
+  const cv = document.createElement("canvas"); cv.width = cv.height = RES;
+  const c = cv.getContext("2d");
+  c.save(); c.translate(RES*.14,RES*.14); c.scale(RES*.72/100,RES*.72/100);
+  GLYPH[spec.g](c); c.restore();
+  c.putImageData(warp(c.getImageData(0,0,RES,RES),1.5,seed*1.7),0,0);
+
+  const R = rng(seed*613+3);
+  c.globalCompositeOperation = "source-atop";
+  c.lineCap = "round";
+  for(let i=0;i<26;i++){
+    const x=R()*RES, y=R()*RES, a=R()*Math.PI, L=10+R()*26;
+    c.strokeStyle = `rgba(${230+R()*25|0},${220+R()*30|0},${200+R()*40|0},${(0.14+R()*0.20).toFixed(3)})`;
+    c.lineWidth = 3+R()*7;
+    c.beginPath();
+    c.moveTo(x-Math.cos(a)*L/2, y-Math.sin(a)*L/2);
+    c.lineTo(x+Math.cos(a)*L/2, y+Math.sin(a)*L/2);
+    c.stroke();
+  }
+  c.globalCompositeOperation = "source-over";
+  return cv;
+}
+
+/** Same silhouette, solid black — bedded under the glyph so it lifts off the field. */
+function glyphShadow(glyph){
+  const cv = document.createElement("canvas"); cv.width = cv.height = RES;
+  const c = cv.getContext("2d");
+  c.drawImage(glyph,0,0);
+  c.globalCompositeOperation = "source-in";
+  c.fillStyle = "#000"; c.fillRect(0,0,RES,RES);
+  return cv;
+}
+
 function baseIcon(spec){
   const cv = document.createElement("canvas"); cv.width = cv.height = RES;
   const c = cv.getContext("2d");
@@ -507,7 +565,166 @@ function edgePath(c,shape,seed){
   c.closePath();
 }
 
-function paint(spec,seed){
+/* ---------------------------------------------------------------------- *
+ * Constructive painting.
+ *
+ * A filter can only ever blur an icon — it has no notion of a mark. Real oil
+ * paint is built up: broad strokes block the shapes in, smaller ones go back
+ * over wherever the canvas still disagrees with the subject, and each stroke
+ * runs ALONG the contour (perpendicular to the image gradient) with its own
+ * colour, bristle marks and raised edge.
+ *
+ * So the icon is not filtered here. It is repainted, stroke by stroke, from a
+ * blurred reference — the classic layered painterly-rendering approach.
+ * ---------------------------------------------------------------------- */
+
+const saturate = (col,k) => { const l = 0.299*col[0]+0.587*col[1]+0.114*col[2];
+  return col.map(v => Math.max(0, Math.min(255, l + (v-l)*(1+k))) | 0); };
+const shade = (col,k) => col.map(v => Math.max(0, Math.min(255, k >= 0 ? v + (255-v)*k : v*(1+k))) | 0);
+
+/** Box blur through a summed-area table — the reference each layer paints from. */
+function blurBox(src,r){
+  const {width:w,height:h,data:d} = src, W = w+1;
+  const N = W*(h+1);
+  const sR=new Float64Array(N), sG=new Float64Array(N), sB=new Float64Array(N);
+  for(let y=0;y<h;y++) for(let x=0;x<w;x++){
+    const i=(y*w+x)*4, p=(y+1)*W+x+1, a=(y+1)*W+x, b=y*W+x+1, cc=y*W+x;
+    sR[p]=d[i]+sR[a]+sR[b]-sR[cc];
+    sG[p]=d[i+1]+sG[a]+sG[b]-sG[cc];
+    sB[p]=d[i+2]+sB[a]+sB[b]-sB[cc];
+  }
+  const box=(s,x0,y0,x1,y1)=> s[(y1+1)*W+x1+1]-s[y0*W+x1+1]-s[(y1+1)*W+x0]+s[y0*W+x0];
+  const out=new Uint8ClampedArray(d.length);
+  for(let y=0;y<h;y++) for(let x=0;x<w;x++){
+    const x0=Math.max(0,x-r), x1=Math.min(w-1,x+r);
+    const y0=Math.max(0,y-r), y1=Math.min(h-1,y+r);
+    const n=(x1-x0+1)*(y1-y0+1), i=(y*w+x)*4;
+    out[i]=box(sR,x0,y0,x1,y1)/n; out[i+1]=box(sG,x0,y0,x1,y1)/n;
+    out[i+2]=box(sB,x0,y0,x1,y1)/n; out[i+3]=255;
+  }
+  return new ImageData(out,w,h);
+}
+
+/** Luminance gradient of the reference — strokes are laid across it. */
+function gradAt(d,x,y){
+  const xi=Math.max(1,Math.min(RES-2,x|0)), yi=Math.max(1,Math.min(RES-2,y|0));
+  const L=(px,py)=>{ const o=(py*RES+px)*4; return 0.299*d[o]+0.587*d[o+1]+0.114*d[o+2]; };
+  const gx = L(xi+1,yi)-L(xi-1,yi), gy = L(xi,yi+1)-L(xi,yi-1);
+  return {gx, gy, m: Math.hypot(gx,gy)};
+}
+
+/**
+ * One stroke: start where the canvas is furthest from the reference, then walk
+ * along the contour, stopping when the reference no longer matches the colour
+ * the brush picked up.
+ */
+function planStroke(ref,x0,y0,B,R,baseAng){
+  const d = ref.data;
+  const o = ((y0|0)*RES + (x0|0))*4;
+  const col = [d[o],d[o+1],d[o+2]];
+  const pts = [[x0,y0]];
+  let x=x0, y=y0, ldx=0, ldy=0;
+
+  for(let i=1;i<=12;i++){
+    const g = gradAt(d,x,y);
+    // a flat passage has no contour to follow, so it takes the icon's own lay
+    let dx, dy;
+    if(g.m < 3){ dx = Math.cos(baseAng); dy = Math.sin(baseAng); }
+    else { dx = -g.gy; dy = g.gx; }
+    let m = Math.hypot(dx,dy);
+    if(m < 1e-6){ if(i===1) break; dx=ldx; dy=ldy; m=1; }
+    dx/=m; dy/=m;
+    if(ldx*dx + ldy*dy < 0){ dx=-dx; dy=-dy; }   // never double back
+    if(i > 1){                                   // limit how fast it can curve
+      dx = 0.45*dx + 0.55*ldx; dy = 0.45*dy + 0.55*ldy;
+      const m2 = Math.hypot(dx,dy) || 1; dx/=m2; dy/=m2;
+    }
+    x += dx*B*0.9; y += dy*B*0.9;
+    if(x < -B || x > RES+B || y < -B || y > RES+B) break;
+    const px = Math.max(0,Math.min(RES-1,x|0)), py = Math.max(0,Math.min(RES-1,y|0));
+    const oo = (py*RES+px)*4;
+    if(Math.abs(d[oo]-col[0]) + Math.abs(d[oo+1]-col[1]) + Math.abs(d[oo+2]-col[2]) > 105) break;
+    pts.push([x,y]);
+    ldx=dx; ldy=dy;
+  }
+  // broken colour: no two strokes carry exactly the same mix
+  return {pts, B, col: saturate(col.map(v => Math.max(0,Math.min(255, v + (R()-0.5)*18))), 0.14)};
+}
+
+/** Body, bristle marks, and a raised edge lit from the upper left. */
+function drawStroke(c,s,R){
+  const {pts,col,B} = s;
+  const path = (ox,oy) => {
+    c.beginPath();
+    c.moveTo(pts[0][0]+ox, pts[0][1]+oy);
+    if(pts.length === 1) c.lineTo(pts[0][0]+ox+0.01, pts[0][1]+oy);
+    else for(let i=1;i<pts.length;i++) c.lineTo(pts[i][0]+ox, pts[i][1]+oy);
+    c.stroke();
+  };
+  c.lineCap = "round"; c.lineJoin = "round";
+
+  if(B >= 10){ c.strokeStyle = `rgba(${shade(col,-0.42).join(",")},0.17)`; c.lineWidth = B; path(1.1,1.3); }
+  c.strokeStyle = `rgb(${col.join(",")})`;                    c.lineWidth = B;        path(0,0);
+
+  const last = pts[pts.length-1];
+  let dx = last[0]-pts[0][0], dy = last[1]-pts[0][1];
+  const dl = Math.hypot(dx,dy) || 1;
+  const nx = -dy/dl, ny = dx/dl;
+  for(let i=0;i<3 && B>=10;i++){
+    const t = (i/2 - 0.5) * 0.62 * B;
+    c.strokeStyle = `rgba(${shade(col,(R()<0.5?-1:1)*0.18).join(",")},0.34)`;
+    c.lineWidth = B*0.16;
+    path(nx*t, ny*t);
+  }
+
+  c.strokeStyle = `rgba(${shade(col,0.34).join(",")},0.26)`; c.lineWidth = B*0.5;     path(-0.9,-1.0);
+}
+
+function paintPainterly(spec,seed){
+  const src = baseField(spec);
+  const R = rng(seed*131+7);
+  const baseAng = R()*Math.PI;
+  const cv = document.createElement("canvas"); cv.width = cv.height = RES;
+  const c = cv.getContext("2d");
+
+  // underpainting: a darker wash of the icon's own colour, left showing between strokes
+  let ar=0, ag=0, ab=0;
+  for(let i=0;i<src.data.length;i+=4){ ar+=src.data[i]; ag+=src.data[i+1]; ab+=src.data[i+2]; }
+  const n = src.data.length/4;
+  c.fillStyle = `rgb(${shade([ar/n,ag/n,ab/n],-0.16).join(",")})`;
+  c.fillRect(0,0,RES,RES);
+
+  // broad first, then only where the canvas still disagrees with the subject
+  for(const [B,T] of [[28,0],[14,34],[7,64]]){
+    const ref = blurBox(src, Math.max(1, Math.round(B*0.5)));
+    const cur = c.getImageData(0,0,RES,RES).data;
+    const rd = ref.data;
+    const g = Math.max(3, Math.round(B*1.15));
+    const strokes = [];
+    for(let gy=0; gy<RES; gy+=g) for(let gx=0; gx<RES; gx+=g){
+      let sum=0, cnt=0, best=-1, bx=gx, by=gy;
+      for(let y=gy; y<Math.min(RES,gy+g); y++) for(let x=gx; x<Math.min(RES,gx+g); x++){
+        const o=(y*RES+x)*4;
+        const e = Math.abs(rd[o]-cur[o]) + Math.abs(rd[o+1]-cur[o+1]) + Math.abs(rd[o+2]-cur[o+2]);
+        sum += e; cnt++;
+        if(e > best){ best=e; bx=x; by=y; }
+      }
+      if(cnt && sum/cnt > T) strokes.push(planStroke(ref,bx,by,B,R,baseAng));
+    }
+    for(let i=strokes.length-1;i>0;i--){            // no visible painting order
+      const j = (R()*(i+1))|0; const t = strokes[i]; strokes[i]=strokes[j]; strokes[j]=t;
+    }
+    for(const s of strokes) drawStroke(c,s,R);
+  }
+
+  const glyph = glyphLayer(spec,seed);
+  c.globalAlpha = 0.26; c.drawImage(glyphShadow(glyph), 1.4, 1.6);
+  c.globalAlpha = 1;    c.drawImage(glyph, 0, 0);
+  return finish(cv,c,spec,seed);
+}
+
+/** The original filter pipeline, kept only for the before/after comparison. */
+function paintFiltered(spec,seed){
   let img = baseIcon(spec);
   img = warp(img,2.6,seed);
   img = kuwahara(img,3);
@@ -517,8 +734,13 @@ function paint(spec,seed){
   const c = cv.getContext("2d");
   c.putImageData(img,0,0);
   bristles(c,img,seed);
+  return finish(cv,c,spec,seed);
+}
 
-  // cut the painted panel out with a hand-made edge
+const paint = paintPainterly;
+
+/** Cut the panel out, raise its rim, and read off the brush's colours. */
+function finish(cv,c,spec,seed){
   c.globalCompositeOperation = "destination-in";
   edgePath(c,spec.sh,seed); c.fillStyle = "#000"; c.fill();
 
