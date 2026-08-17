@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — その他 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-10 03:10 UTC
-Posts in this file: 717
+Generated: 2026-08-17 02:18 UTC
+Posts in this file: 718
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -10003,14 +10003,14 @@ Thanks
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009ezG1FCAU/step-5-how-to-post-content","lastmod":"2023-09-23T13:47:45.000Z","id":"0D54u00009ezG1FCAU"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009ezG1FCAU/step-5-how-to-post-content","lastmod":"2026-08-14T13:36:19.000Z","id":"0D54u00009ezG1FCAU"} -->
 ## STEP 5 - How to post content
 
 - Source: https://community.zscaler.com/s/question/0D54u00009ezG1FCAU/step-5-how-to-post-content
 - Type: Q&A
 - Posted: 2023-06-03T18:16:00.000Z
-- Last activity: 2023-09-23T13:47:45.000Z
-- Answers: 0
+- Last activity: 2026-08-14T13:36:19.000Z
+- Answers: 2
 - Likes: 1
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
@@ -13540,14 +13540,14 @@ How ever, we are able to telnet to the AWS IP on 3389 Port with out any issue.
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000aV3kL0AS/zidentity-for-user-management","lastmod":"2026-07-31T11:44:13.000Z","id":"0D5PJ00000aV3kL0AS"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000aV3kL0AS/zidentity-for-user-management","lastmod":"2026-08-16T13:13:07.000Z","id":"0D5PJ00000aV3kL0AS"} -->
 ## ZIdentity for User Management
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000aV3kL0AS/zidentity-for-user-management
 - Type: Q&A
 - Posted: 2025-07-02T17:10:25.000Z
-- Last activity: 2026-07-31T11:44:13.000Z
-- Answers: 7
+- Last activity: 2026-08-16T13:13:07.000Z
+- Answers: 8
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
@@ -14755,14 +14755,14 @@ Workaround is hit back and try again but that is annoying to see this.
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zd3j40AA/inquiry-about-discounts-for-zdte-certification","lastmod":"2026-08-05T02:23:02.000Z","id":"0D5PJ00000zd3j40AA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zd3j40AA/inquiry-about-discounts-for-zdte-certification","lastmod":"2026-08-13T20:37:50.000Z","id":"0D5PJ00000zd3j40AA"} -->
 ## Inquiry About Discounts for ZDTE certification
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000zd3j40AA/inquiry-about-discounts-for-zdte-certification
 - Type: Q&A
 - Posted: 2026-07-31T19:28:55.000Z
-- Last activity: 2026-08-05T02:23:02.000Z
-- Answers: 1
+- Last activity: 2026-08-13T20:37:50.000Z
+- Answers: 2
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
@@ -14772,17 +14772,34 @@ Workaround is hit back and try again but that is annoying to see this.
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zwfni0AA/tenant-profile-for-claude","lastmod":"2026-08-05T15:03:17.000Z","id":"0D5PJ00000zwfni0AA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zwfni0AA/tenant-profile-for-claude","lastmod":"2026-08-14T22:11:55.000Z","id":"0D5PJ00000zwfni0AA"} -->
 ## Tenant Profile for Claude
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000zwfni0AA/tenant-profile-for-claude
 - Type: Q&A
 - Posted: 2026-08-04T16:36:21.000Z
-- Last activity: 2026-08-05T15:03:17.000Z
+- Last activity: 2026-08-14T22:11:55.000Z
 - Answers: 2
-- Likes: 0
+- Likes: 1
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>Hey - it would be great if Zscaler could add a Tenant Profile for Claude? Each org has an org ID, so guessing it could be based off that. Any plans in this area?</p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000010YUg00AG/zscaler-dc-expansion-introduced-new-ip-range-impacting-govt-site-accessibility","lastmod":"2026-08-12T13:43:42.000Z","id":"0D5PJ000010YUg00AG"} -->
+## Zscaler DC Expansion Introduced New IP Range impacting Govt. Site Accessibility
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000010YUg00AG/zscaler-dc-expansion-introduced-new-ip-range-impacting-govt-site-accessibility
+- Type: Q&A
+- Posted: 2026-08-12T13:43:42.000Z
+- Last activity: 2026-08-12T13:43:42.000Z
+- Answers: 0
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>Hi Community Members,</p><p><br></p><p>Our users facing issues in accessing the Indian Government sites after the Delhi DC Expansion that introduced new IP Ranges 175.107.140.0/23, 175.107.142.0/23</p><p><br></p><p>I have tracert the sites and found that whenever the traffic routes through these IP ranges, sites get inaccessible, while it works fine with Zscaler Other IP Ranges.</p><p><br></p><p>Please help me how to fix this...</p>
 <!-- /ZS-POST -->

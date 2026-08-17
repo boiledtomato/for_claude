@@ -1,6 +1,6 @@
 {
  "fetch_mode": "api",
- "generated_at": "2026-08-10T03:10:07Z",
+ "generated_at": "2026-08-17T02:18:14Z",
  "posts": {
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
    "category": "zcc",
@@ -11925,8 +11925,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u00009ezG1FCAU/step-5-how-to-post-content": {
    "category": "other",
-   "hash": "43f0433051b54e0d",
-   "lastmod": "2023-09-23T13:47:45.000Z",
+   "hash": "daea6058afbf9177",
+   "lastmod": "2026-08-14T13:36:19.000Z",
    "title": "STEP 5 - How to post content",
    "type": "question"
   },
@@ -16839,8 +16839,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000aV3kL0AS/zidentity-for-user-management": {
    "category": "other",
-   "hash": "b70ae8680b580c3f",
-   "lastmod": "2026-07-31T11:44:13.000Z",
+   "hash": "e87ae397a48d31ad",
+   "lastmod": "2026-08-16T13:13:07.000Z",
    "title": "ZIdentity for User Management",
    "type": "question"
   },
@@ -18316,8 +18316,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000utSHz0AM/zcc-for-vdi-citrix-browserbased-users-auth-with-idp-okta-via-kerberos": {
    "category": "zcc",
-   "hash": "c796452ae8f5de78",
-   "lastmod": "2026-05-28T15:17:38.000Z",
+   "hash": "8e6dbe58fa89a1cc",
+   "lastmod": "2026-08-14T18:59:08.000Z",
    "title": "ZCC for VDI (Citrix) browser-based users auth with iDP (Okta) via Kerberos",
    "type": "question"
   },
@@ -18330,8 +18330,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000uzLQn0AM/antigravity-zia": {
    "category": "zia",
-   "hash": "58044c079f28ff69",
-   "lastmod": "2026-05-26T17:56:34.000Z",
+   "hash": "7d7572872cc0d095",
+   "lastmod": "2026-08-14T19:18:49.000Z",
    "title": "Antigravity & ZIA",
    "type": "question"
   },
@@ -18456,8 +18456,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000xZllV0AS/zscaler-gov-enterprise-application-is-only-available-in-gcch": {
    "category": "platform",
-   "hash": "247f488389e79838",
-   "lastmod": "2026-06-30T19:12:21.000Z",
+   "hash": "20b969cdae857a93",
+   "lastmod": "2026-08-11T19:04:52.000Z",
    "title": "\"Zscaler Gov\" Enterprise Application is Only Available in GCCH",
    "type": "question"
   },
@@ -18484,8 +18484,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000y9tR40AI/zia-disaster-recovery": {
    "category": "zia",
-   "hash": "d4a8da5269040d8d",
-   "lastmod": "2026-07-09T17:47:09.000Z",
+   "hash": "2e58f851abb350d2",
+   "lastmod": "2026-08-13T20:52:51.000Z",
    "title": "ZIA Disaster Recovery",
    "type": "question"
   },
@@ -18547,15 +18547,15 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip": {
    "category": "zia",
-   "hash": "86c30437e4055a10",
-   "lastmod": "2026-08-04T18:23:07.000Z",
+   "hash": "08f4cf10910c6845",
+   "lastmod": "2026-08-14T22:05:14.000Z",
    "title": "Microsoft URLs with Dedicated IP",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D5PJ00000zd3j40AA/inquiry-about-discounts-for-zdte-certification": {
    "category": "other",
-   "hash": "fc79470cd13823bd",
-   "lastmod": "2026-08-05T02:23:02.000Z",
+   "hash": "19fef2cef2fe0703",
+   "lastmod": "2026-08-13T20:37:50.000Z",
    "title": "Inquiry About Discounts for ZDTE certification",
    "type": "question"
   },
@@ -18568,9 +18568,16 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000zwfni0AA/tenant-profile-for-claude": {
    "category": "other",
-   "hash": "50dc6b7035a93041",
-   "lastmod": "2026-08-05T15:03:17.000Z",
+   "hash": "15a8f1b00a0ac078",
+   "lastmod": "2026-08-14T22:11:55.000Z",
    "title": "Tenant Profile for Claude",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000010YUg00AG/zscaler-dc-expansion-introduced-new-ip-range-impacting-govt-site-accessibility": {
+   "category": "other",
+   "hash": "79c084d76a68939b",
+   "lastmod": "2026-08-12T13:43:42.000Z",
+   "title": "Zscaler DC Expansion Introduced New IP Range impacting Govt. Site Accessibility",
    "type": "question"
   }
  },
@@ -18975,6 +18982,8 @@
   "https://community.zscaler.com/s/Articles/aSmPJ00000Geh1p0AB/zero-trust-branch-whats-new-in-812": "2026-07-23T23:32:18.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000Geiyn0AB/zero-trust-branch-routed-tunnel": "2026-07-27T16:27:33.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000Gej5F0AR/zero-trust-branch-videos": "2026-07-28T03:02:39.000Z",
+  "https://community.zscaler.com/s/Articles/aSmPJ00000GelOn0AJ/leverage-red-canary-zscaler-oneapi-for-automated-zia-threat-response": "2026-08-10T15:04:12.000Z",
+  "https://community.zscaler.com/s/Articles/aSmPJ00000Genwr0AB/forwarding-profiles-made-simple": "2026-08-14T13:29:50.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ00000000b70AA/zscaler-certification-at-pub-sec-in-march": "2025-03-04T16:04:40.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ00000001Ab0AI/new-courses-alert-explore-them-now": "2025-05-07T20:23:09.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ00000001CD0AY/3rd-party-contractors-how-to-protect-data-from-mobile-personal-laptop-": "2025-05-09T18:42:31.000Z",
@@ -19327,6 +19336,8 @@
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000c8X0AQ/understanding-network-intelligence": "2026-06-11T17:21:00.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000dHV0AY/passion-to-impact-certification-champion-spotlight-with-fernando-miranda": "2026-07-08T21:12:04.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000dsb0AA/joy-to-recognition-certification-champion-spotlight-with-manuel-bock": "2026-07-24T19:38:55.000Z",
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000ebl0AA/chaotic-caffeinated-and-community-powered-david-gillot-spotlight": "2026-08-12T17:46:45.000Z",
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000eez0AA/choose-your-edu100-session-monthly-lineup-apj-emea-ams": "2026-08-14T17:19:46.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": "2025-04-28T14:39:01.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000005aCX0AY/how-to-access-your-cases-in-the-zscaler-customer-support-portal": "2025-09-25T16:40:36.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000005aMD0AY/how-to-access-customer-support-portal-csp-and-view-the-service-status-section": "2025-10-09T07:00:19.000Z",
@@ -19718,13 +19729,13 @@
   "https://community.zscaler.com/s/Guides/aSoPJ0000006YQP0A2/understanding-why-performance-can-differ-when-using-zscaler": "2026-07-24T17:17:02.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006Yjl0AE/using-postman-api-to-fetch-active-enrolled-devices-from-zcc-mobile-admin-portal": "2026-07-27T07:18:45.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006Z4j0AE/how-to-apply-a-dlp-policy-for-internal-applications-without-sipa": "2026-07-29T18:28:56.000Z",
-  "https://community.zscaler.com/s/Guides/aSoPJ0000006Z6L0AU/how-to-apply-a-dlp-policy-for-internal-applications-without-sipa": "2026-07-29T18:24:48.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006ZJF0A2/checking-zscaler-client-connector-logs-for-split-vpn-trusted-network-detection": "2026-07-29T19:19:19.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006ZPh0AM/how-to-integrate-workflow-automation-with-cloudtocloud-aws": "2026-07-30T13:57:51.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006ZRJ0A2/zpa-clientless-apps-access-via-microsoft-entra-id-for-external-guest-users": "2026-07-30T17:38:57.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006Zcb0AE/what-is-zpa-b2b-federation": "2026-07-31T12:17:01.000Z",
-  "https://community.zscaler.com/s/Guides/aSoPJ0000006aaH0AQ/zpa-credential-management-certificate-credential-agent-setup": "2026-08-05T15:12:00.000Z",
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006aaH0AQ/zpa-credential-management-certificate-credential-agent-setup": "2026-08-12T16:23:07.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006alZ0AQ/how-to-renew-microsoft-entra-id-zpa-certificate-before-it-expires": "2026-08-07T07:02:27.000Z",
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006bWL0AY/how-to-configure-a-custom-watermark-message-in-cloud-browser-isolation": "2026-08-11T17:02:28.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evml4CAA/new-community-signups-welcome-picturespictures": "2023-07-06T12:57:39.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmvxCAA/guide-deploy-zscaler-client-connector-with-intune-ios-android": "2023-07-06T13:02:32.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmwrCAA/guide-integrate-zscaler-with-azure-sentinel": "2023-07-06T13:03:45.000Z",

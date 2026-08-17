@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-10 03:10 UTC
+Generated: 2026-08-17 02:18 UTC
 Posts in this file: 655
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -15203,14 +15203,14 @@ Regards
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000utSHz0AM/zcc-for-vdi-citrix-browserbased-users-auth-with-idp-okta-via-kerberos","lastmod":"2026-05-28T15:17:38.000Z","id":"0D5PJ00000utSHz0AM"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000utSHz0AM/zcc-for-vdi-citrix-browserbased-users-auth-with-idp-okta-via-kerberos","lastmod":"2026-08-14T18:59:08.000Z","id":"0D5PJ00000utSHz0AM"} -->
 ## ZCC for VDI (Citrix) browser-based users auth with iDP (Okta) via Kerberos
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000utSHz0AM/zcc-for-vdi-citrix-browserbased-users-auth-with-idp-okta-via-kerberos
 - Type: Q&A
 - Posted: 2026-05-19T02:05:02.000Z
-- Last activity: 2026-05-28T15:17:38.000Z
-- Answers: 0
+- Last activity: 2026-08-14T18:59:08.000Z
+- Answers: 1
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。

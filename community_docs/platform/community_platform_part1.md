@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-10 03:10 UTC
+Generated: 2026-08-17 02:18 UTC
 Posts in this file: 209
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -5601,14 +5601,14 @@ we have our NSS server status always showing unhealthy. what could be the reason
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000xZllV0AS/zscaler-gov-enterprise-application-is-only-available-in-gcch","lastmod":"2026-06-30T19:12:21.000Z","id":"0D5PJ00000xZllV0AS"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000xZllV0AS/zscaler-gov-enterprise-application-is-only-available-in-gcch","lastmod":"2026-08-11T19:04:52.000Z","id":"0D5PJ00000xZllV0AS"} -->
 ## "Zscaler Gov" Enterprise Application is Only Available in GCCH
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000xZllV0AS/zscaler-gov-enterprise-application-is-only-available-in-gcch
 - Type: Q&A
 - Posted: 2026-06-30T19:12:21.000Z
-- Last activity: 2026-06-30T19:12:21.000Z
-- Answers: 0
+- Last activity: 2026-08-11T19:04:52.000Z
+- Answers: 1
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。

@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-10 03:10 UTC
+Generated: 2026-08-17 02:18 UTC
 Posts in this file: 728
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -16912,14 +16912,14 @@ Regards
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000uzLQn0AM/antigravity-zia","lastmod":"2026-05-26T17:56:34.000Z","id":"0D5PJ00000uzLQn0AM"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000uzLQn0AM/antigravity-zia","lastmod":"2026-08-14T19:18:49.000Z","id":"0D5PJ00000uzLQn0AM"} -->
 ## Antigravity & ZIA
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000uzLQn0AM/antigravity-zia
 - Type: Q&A
 - Posted: 2026-05-20T10:02:42.000Z
-- Last activity: 2026-05-26T17:56:34.000Z
-- Answers: 0
+- Last activity: 2026-08-14T19:18:49.000Z
+- Answers: 1
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
@@ -17014,14 +17014,14 @@ Regards
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000y9tR40AI/zia-disaster-recovery","lastmod":"2026-07-09T17:47:09.000Z","id":"0D5PJ00000y9tR40AI"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000y9tR40AI/zia-disaster-recovery","lastmod":"2026-08-13T20:52:51.000Z","id":"0D5PJ00000y9tR40AI"} -->
 ## ZIA Disaster Recovery
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000y9tR40AI/zia-disaster-recovery
 - Type: Q&A
 - Posted: 2026-07-09T17:47:09.000Z
-- Last activity: 2026-07-09T17:47:09.000Z
-- Answers: 0
+- Last activity: 2026-08-13T20:52:51.000Z
+- Answers: 1
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
@@ -17048,15 +17048,15 @@ Regards
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip","lastmod":"2026-08-04T18:23:07.000Z","id":"0D5PJ00000zcATo0AM"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip","lastmod":"2026-08-14T22:05:14.000Z","id":"0D5PJ00000zcATo0AM"} -->
 ## Microsoft URLs with Dedicated IP
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip
 - Type: Q&A
 - Posted: 2026-07-31T17:41:04.000Z
-- Last activity: 2026-08-04T18:23:07.000Z
-- Answers: 0
-- Likes: 0
+- Last activity: 2026-08-14T22:05:14.000Z
+- Answers: 2
+- Likes: 1
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
 
