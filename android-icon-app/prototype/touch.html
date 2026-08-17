@@ -169,6 +169,30 @@ function hsv2rgb(h,s,v){
 }
 const mixHue=(a,b,t)=>{ const d=((b-a+540)%360)-180; return (a+d*t+360)%360; };
 const shade=(col,k)=>col.map(v=>Math.max(0,Math.min(255,k>=0? v+(255-v)*k : v*(1+k)))|0);
+
+/* Seurat's marks are tâches, not dots — short dabs off a loaded brush, each
+   one elongated and turned, none of them a clean circle. Every dab is a
+   wobbled ellipse whose long axis leans on the passage's prevailing lay, so
+   a field reads as brushed rather than as a screen of printed dots. */
+const DAB_N = 11;
+const DAB_COS = Array.from({length:DAB_N+1},(_,i)=>Math.cos(i/DAB_N*Math.PI*2));
+const DAB_SIN = Array.from({length:DAB_N+1},(_,i)=>Math.sin(i/DAB_N*Math.PI*2));
+function dab(c,x,y,r,ang,R){
+  const ry = r*(0.58+R()*0.34);
+  const rx = ry*(1.0+R()*1.45);          // 1.0-2.45 : round-ish through to a slash
+  const ca = Math.cos(ang), sa = Math.sin(ang);
+  const w1 = 0.10+R()*0.11, w2 = 0.05+R()*0.09, p1 = R()*6.283, p2 = R()*6.283;
+  c.beginPath();
+  for(let i=0;i<=DAB_N;i++){
+    const t = i/DAB_N*Math.PI*2;
+    const k = 1 + w1*Math.sin(2*t+p1) + w2*Math.sin(3*t+p2);
+    const ex = DAB_COS[i]*rx*k, ey = DAB_SIN[i]*ry*k;
+    const px = x+ex*ca-ey*sa, py = y+ex*sa+ey*ca;
+    i ? c.lineTo(px,py) : c.moveTo(px,py);
+  }
+  c.closePath(); c.fill();
+}
+
 const SUN_H=45, SHADE_H=238;
 
 function canvasPath(c,seed,inset){
@@ -266,6 +290,7 @@ function dotColor(base,R,onBorder,isSubject){
 const SP = 5.0;
 function renderSeurat(app,seed){
   const R=rng(seed*131+7);
+  const dabLay=R()*Math.PI;            // this canvas's prevailing brush direction
   const {fd,sd}=sources(app,seed);
   const {panel,inner}=panelMasks(seed);
   const cv=document.createElement("canvas"); cv.width=cv.height=RES;
@@ -280,7 +305,7 @@ function renderSeurat(app,seed){
       const onBorder=!inner[mi], isSubject=!onBorder && sd[mi*4+3]>90;
       const src=isSubject?sd:fd;
       c.fillStyle=`rgb(${dotColor([src[mi*4],src[mi*4+1],src[mi*4+2]],R,onBorder,isSubject).join(",")})`;
-      c.beginPath(); c.arc(x,y,2.2+R()*1.2,0,7); c.fill();
+      dab(c,x,y,2.4+R()*1.3,(isSubject ? dabLay+1.0 : dabLay)+(R()-0.5)*2.1,R);
     }
   }
   weave(c,seed,1);
