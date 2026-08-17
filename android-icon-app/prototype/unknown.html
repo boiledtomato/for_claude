@@ -1,0 +1,514 @@
+<title>手描きのないアプリをどうするか</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --bg:#D8D8D2; --surface:#E9E9E3; --ink:#1E2328; --ink-2:#4C535A; --ink-3:#7A8188;
+  --rule:rgba(30,35,40,.16); --accent:#1F6B5A; --accent-soft:rgba(31,107,90,.12);
+  --wall-a:#EFEDE5; --wall-b:#DCD8CC; --shadow:rgba(34,30,24,.24);
+  --warn:#A8613C; --warn-soft:rgba(168,97,60,.15);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#11161A; --surface:#1A2127; --ink:#ECE6D9; --ink-2:#A6AEB3; --ink-3:#737C83;
+    --rule:rgba(236,230,217,.15); --accent:#54B79D; --accent-soft:rgba(84,183,157,.14);
+    --wall-a:#1E262B; --wall-b:#0E1317; --shadow:rgba(0,0,0,.6);
+    --warn:#E0966B; --warn-soft:rgba(224,150,107,.15);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11161A; --surface:#1A2127; --ink:#ECE6D9; --ink-2:#A6AEB3; --ink-3:#737C83;
+  --rule:rgba(236,230,217,.15); --accent:#54B79D; --accent-soft:rgba(84,183,157,.14);
+  --wall-a:#1E262B; --wall-b:#0E1317; --shadow:rgba(0,0,0,.6);
+  --warn:#E0966B; --warn-soft:rgba(224,150,107,.15);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(18px,4vw,40px) 90px}
+.eyebrow{
+  font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-3);
+  font-weight:600; margin:0 0 14px; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::after{content:""; flex:1; height:1px; background:var(--rule)}
+h1{font-size:clamp(27px,4.4vw,42px); line-height:1.26; font-weight:800; letter-spacing:-.025em; margin:0 0 18px; text-wrap:balance}
+.lead{font-size:clamp(15px,1.6vw,17px); color:var(--ink-2); margin:0 0 10px; max-width:38em}
+.lead b{color:var(--ink)}
+
+.tiers{display:grid; gap:14px; margin-top:clamp(30px,4vw,44px)}
+.tier{
+  display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start;
+  background:var(--surface); border:1px solid var(--rule); border-radius:12px;
+  padding:clamp(14px,2vw,20px);
+}
+.tier .no{
+  width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
+  background:var(--accent-soft); color:var(--accent); font-weight:800; font-size:13px;
+}
+.tier h2{margin:0 0 2px; font-size:17px; font-weight:770; letter-spacing:-.015em}
+.tier .cov{font-size:10px; letter-spacing:.15em; color:var(--ink-3); font-weight:700; text-transform:uppercase}
+.tier p{margin:8px 0 0; font-size:14px; color:var(--ink-2)}
+.tier b{color:var(--ink)}
+.tier code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+  background:var(--accent-soft); color:var(--accent); padding:1.5px 5px; border-radius:4px}
+
+h3.sec{
+  margin:clamp(38px,5vw,54px) 0 4px; font-size:11px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--accent); font-weight:700;
+}
+h4.sec{margin:0 0 14px; font-size:21px; font-weight:770; letter-spacing:-.02em}
+p.sec{margin:0 0 18px; font-size:14.5px; color:var(--ink-2); max-width:42em}
+
+.demo{
+  border-radius:14px; border:1px solid var(--rule); padding:clamp(14px,2.5vw,22px);
+  background:radial-gradient(120% 100% at 30% 8%,var(--wall-a),var(--wall-b) 82%);
+  display:grid; gap:clamp(14px,2vw,20px);
+}
+.strip{display:grid; gap:9px}
+.strip .lbl{
+  font-size:10px; letter-spacing:.18em; font-weight:700; color:var(--ink-3);
+  display:flex; align-items:center; gap:9px; text-transform:uppercase;
+}
+.strip .lbl::after{content:""; flex:1; height:1px; background:var(--rule)}
+.six{display:grid; grid-template-columns:repeat(6,1fr); gap:clamp(6px,1.4vw,12px)}
+.six > div{display:grid; gap:5px; justify-items:center}
+.six canvas{width:100%; height:auto; display:block; filter:drop-shadow(0 4px 8px var(--shadow))}
+.six .nm{font-size:9px; letter-spacing:.04em; color:var(--ink); opacity:.7; font-weight:600; text-align:center; line-height:1.45}
+
+.wallbox{
+  border-radius:14px; border:1px solid var(--rule); padding:clamp(18px,3vw,28px);
+  background:radial-gradient(120% 100% at 30% 8%,var(--wall-a),var(--wall-b) 82%);
+  display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(12px,2.5vw,22px);
+}
+.wallbox > div{display:grid; gap:6px; justify-items:center}
+.wallbox canvas{width:100%; height:auto; display:block; filter:drop-shadow(0 6px 11px var(--shadow))}
+.wallbox .nm{font-size:9px; letter-spacing:.06em; color:var(--ink); opacity:.66; font-weight:600; text-align:center}
+.wallbox .nm i{display:block; font-style:normal; color:var(--accent); font-size:8px; letter-spacing:.12em; margin-top:1px}
+
+.close{border-top:1px solid var(--rule); margin-top:clamp(34px,5vw,50px); padding-top:20px; max-width:42em}
+.close h3{margin:0 0 10px; font-size:18px; font-weight:760; letter-spacing:-.015em}
+.close p{margin:0 0 10px; font-size:14.5px; color:var(--ink-2)}
+.close b{color:var(--ink)}
+.flag{
+  border-left:3px solid var(--warn); background:var(--warn-soft);
+  padding:12px 14px; border-radius:0 8px 8px 0; margin:14px 0;
+}
+.flag p{margin:0; font-size:13.5px; color:var(--ink)}
+.flag ul{margin:8px 0 0; padding:0; list-style:none; display:grid; gap:6px}
+.flag li{font-size:13.5px; color:var(--ink-2); padding-left:16px; position:relative}
+.flag li::before{content:""; position:absolute; left:0; top:.66em; width:8px; height:2px; background:var(--warn); border-radius:2px}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">点描ランチャー &nbsp;/&nbsp; 未知のアプリ</p>
+  <h1>手描きは15個で打ち止め。<br>残りをどうするか。</h1>
+  <p class="lead">
+    答えは<b>はい、用意できます</b>。ただし銀行アプリもゲームも手で描くわけにはいかないので、
+    3段構えにします。<b>下の段ほど自動で、どんなアプリが来ても必ず成立します。</b>
+  </p>
+  <p class="lead">
+    以下の6つは、この説明のために作った<b>架空のアプリ</b>です（実在のサービスとは関係ありません）。
+    実機では <code>PackageManager</code> から取得した本物のアイコンが同じ処理を通ります。
+  </p>
+
+  <div class="tiers">
+    <div class="tier">
+      <div class="no">1</div>
+      <div>
+        <h2>手描きのモチーフ</h2>
+        <div class="cov">15個 — 手で足せる</div>
+        <p>日傘、帆船、犬。<b>よく使うアプリだけ</b>にこの特別扱いをします。あとから
+        「このアプリにはこの絵」と足していけます。</p>
+      </div>
+    </div>
+    <div class="tier">
+      <div class="no">2</div>
+      <div>
+        <h2>本物のアイコンを点描に変換</h2>
+        <div class="cov">自動 — 実質すべてのアプリ</div>
+        <p>ここが主力です。Android の<b>アダプティブアイコンは、背景レイヤーと前景レイヤーに
+        最初から分かれています</b> ── この描画エンジンがまさに必要としている2枚組そのもの。
+        <code>getBackground()</code> を地に、<code>getForeground()</code> を図形に流し込むだけで、
+        手描きと完全に同じ処理が走ります。</p>
+      </div>
+    </div>
+    <div class="tier">
+      <div class="no">3</div>
+      <div>
+        <h2>色面に還元する</h2>
+        <div class="cov">自動 — 段2が崩れたとき</div>
+        <p>ロゴが文字だらけだったり細すぎたりして段2が潰れる場合の逃げ道。
+        アイコンから<b>色だけ抜き出して</b>、分割した色面に置き換えます。何のアプリかは語りませんが、
+        色は元のままなので手掛かりは残ります。</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sec">検証</h3>
+  <h4 class="sec">架空の6アプリを通してみる</h4>
+  <p class="sec">
+    上段が変換前の「いまどきのアイコン」、中段が段2（点描変換）、下段が段3（色面）です。
+  </p>
+
+  <div class="demo">
+    <div class="strip"><div class="lbl">変換前 — 素のアイコン</div><div class="six" id="rowA"></div></div>
+    <div class="strip"><div class="lbl">段2 — 本物のアイコンを点描に変換</div><div class="six" id="rowB"></div></div>
+    <div class="strip"><div class="lbl">段3 — 色だけ残して色面に還元</div><div class="six" id="rowC"></div></div>
+  </div>
+
+  <h3 class="sec">本番</h3>
+  <h4 class="sec">手描きと自動変換を、同じ壁に混ぜる</h4>
+  <p class="sec">
+    これが本当に知りたかったことです。左5枚が手描きのモチーフ、右5枚が段2の自動変換。
+    <b>混ざっていても壁として成立するか。</b>
+  </p>
+
+  <div class="wallbox" id="wall1"></div>
+  <div class="wallbox" id="wall2" style="margin-top:14px"></div>
+
+  <div class="close">
+    <h3>見てのとおり、混ざります</h3>
+    <p>
+      理由ははっきりしていて、<b>アイコンを揃えているのは絵柄ではなく筆触だから</b>です。
+      同じ楕円のタッチ、同じ麻のキャンバス、同じ手で裁った縁、同じ補色の縁取り。
+      中身が日傘だろうと銀行のロゴだろうと、<b>同じ絵の具で同じ人が塗った</b>ように見えます。
+    </p>
+    <p>
+      むしろ自動変換のほうが色が強く出るので、手描きのモチーフが少し地味に見えるくらいです。
+      これは手描き側の地の彩度を上げれば揃います。
+    </p>
+
+    <div class="flag">
+      <p><b>とはいえ、段2が苦手なものはあります。</b></p>
+      <ul>
+        <li>ロゴが文字だけのアプリ ── 点描にすると文字が読めなくなる。段3に落とすのが正解</li>
+        <li>白地に細い線のアイコン ── 地と図形の明度が近く、沈む。地に色を足して救う</li>
+        <li>アダプティブアイコン非対応の古いアプリ ── 背景と前景が分かれていないので、
+            平均色を地に、そこから外れた画素を図形とみなす推定処理になる。精度は落ちる</li>
+        <li>写真そのままのアイコン ── 情報量が多すぎて、点描にすると濁る</li>
+      </ul>
+    </div>
+
+    <p>
+      なので実装としては、<b>段2で描いたあと自動で品質を見て、危なければ段3へ落とす</b>のが良いと思います。
+      判定は難しくなくて、変換後の図形と地のコントラスト差を測るだけです。
+      それでも気に入らないものは、長押しで段を切り替えられるようにします。
+    </p>
+    <p>
+      そして<b>気に入らないアプリだけ、あとから手描きを足せます。</b>
+      15個が上限ではなく、15個が今の在庫というだけです。
+    </p>
+  </div>
+</div>
+
+<script>
+(() => {
+"use strict";
+const RES = 192;
+
+/* ---- the pointillist engine, identical to the home screen ------------ */
+function rng(seed){ let s=(seed*2654435761)>>>0;
+  return () => { s=(s+0x6D2B79F5)>>>0; let t=s;
+    t=Math.imul(t^(t>>>15),t|1); t^=t+Math.imul(t^(t>>>7),t|61);
+    return ((t^(t>>>14))>>>0)/4294967296; }; }
+function rgb2hsv(r,g,b){
+  r/=255; g/=255; b/=255;
+  const mx=Math.max(r,g,b), mn=Math.min(r,g,b), d=mx-mn;
+  let h=0;
+  if(d){ if(mx===r) h=((g-b)/d)%6; else if(mx===g) h=(b-r)/d+2; else h=(r-g)/d+4;
+         h*=60; if(h<0) h+=360; }
+  return [h, mx?d/mx:0, mx];
+}
+function hsv2rgb(h,s,v){
+  const c=v*s, x=c*(1-Math.abs(((h/60)%2)-1)), m=v-c;
+  let r=0,g=0,b=0;
+  if(h<60){r=c;g=x;} else if(h<120){r=x;g=c;} else if(h<180){g=c;b=x;}
+  else if(h<240){g=x;b=c;} else if(h<300){r=x;b=c;} else {r=c;b=x;}
+  return [(r+m)*255|0,(g+m)*255|0,(b+m)*255|0];
+}
+const mixHue=(a,b,t)=>{ const d=((b-a+540)%360)-180; return (a+d*t+360)%360; };
+const shade=(col,k)=>col.map(v=>Math.max(0,Math.min(255,k>=0? v+(255-v)*k : v*(1+k)))|0);
+const SUN_H=45, SHADE_H=238;
+
+const DAB_N=11;
+const DAB_COS=Array.from({length:DAB_N+1},(_,i)=>Math.cos(i/DAB_N*Math.PI*2));
+const DAB_SIN=Array.from({length:DAB_N+1},(_,i)=>Math.sin(i/DAB_N*Math.PI*2));
+function dab(c,x,y,r,ang,R){
+  const ry=r*(0.58+R()*0.34), rx=ry*(1.0+R()*1.45);
+  const ca=Math.cos(ang), sa=Math.sin(ang);
+  const w1=0.10+R()*0.11, w2=0.05+R()*0.09, p1=R()*6.283, p2=R()*6.283;
+  c.beginPath();
+  for(let i=0;i<=DAB_N;i++){
+    const t=i/DAB_N*Math.PI*2;
+    const k=1+w1*Math.sin(2*t+p1)+w2*Math.sin(3*t+p2);
+    const ex=DAB_COS[i]*rx*k, ey=DAB_SIN[i]*ry*k;
+    const px=x+ex*ca-ey*sa, py=y+ex*sa+ey*ca;
+    i?c.lineTo(px,py):c.moveTo(px,py);
+  }
+  c.closePath(); c.fill();
+}
+function dotColor(base,R,onBorder,isSubject){
+  let [h,s,v]=rgb2hsv(base[0],base[1],base[2]);
+  if(onBorder) return hsv2rgb((h+180)%360, Math.min(1,Math.max(s,0.28)+R()*0.16), Math.min(1,v*(0.74+R()*0.18)));
+  if(isSubject){
+    h=mixHue(h, R()<0.5?SUN_H:SHADE_H, R()*0.18);
+    s=Math.min(1,Math.max(s,0.09)+R()*0.15);
+    return hsv2rgb(h,s,Math.min(1,v*(0.96+R()*0.10)));
+  }
+  const m=R();
+  if(m<0.62){ h=(h+(R()-0.5)*14+360)%360; s=Math.min(1,s*(1.02+R()*0.24)); v=Math.min(1,v*(0.96+R()*0.11)); }
+  else if(m<0.80){ h=mixHue(h,SUN_H,0.18+R()*0.16); s=Math.min(1,Math.max(s,0.18)+R()*0.14); v=Math.min(1,v*1.07+0.05); }
+  else if(m<0.94){ h=mixHue(h,SHADE_H,0.22+R()*0.18); s=Math.min(1,Math.max(s,0.22)+R()*0.14); v=v*(0.88+R()*0.07); }
+  else { h=(h+180)%360; s=Math.min(1,Math.max(s,0.26)+R()*0.14); v=Math.min(1,v*(0.97+R()*0.12)); }
+  return hsv2rgb(h,s,v);
+}
+function canvasPath(c,seed,inset){
+  const r=RES/2-inset, mid=RES/2, s=seed*1.37, n=8;
+  c.beginPath();
+  for(let i=0;i<=240;i++){
+    const t=i/240*Math.PI*2, ct=Math.cos(t), st=Math.sin(t);
+    const j=1+0.013*Math.sin(3*t+s)+0.009*Math.sin(7*t+s*2.1);
+    const x=mid+Math.sign(ct)*Math.pow(Math.abs(ct),2/n)*r*j;
+    const y=mid+Math.sign(st)*Math.pow(Math.abs(st),2/n)*r*j;
+    i?c.lineTo(x,y):c.moveTo(x,y);
+  }
+  c.closePath();
+}
+function panelMasks(seed){
+  const mask=(inset)=>{
+    const cv=document.createElement("canvas"); cv.width=cv.height=RES;
+    const c=cv.getContext("2d");
+    c.fillStyle="#000"; canvasPath(c,seed,inset); c.fill();
+    const d=c.getImageData(0,0,RES,RES).data, m=new Uint8Array(RES*RES);
+    for(let i=0;i<m.length;i++) m[i]=d[i*4+3]>128?1:0;
+    return m;
+  };
+  return {panel:mask(5), inner:mask(13)};
+}
+function weave(c,seed){
+  const P=4.2;
+  for(let x=0;x<RES;x+=P){
+    const w=x+Math.sin(x*0.9+seed)*0.6;
+    c.fillStyle="rgba(255,250,238,.034)"; c.fillRect(w,0,P*0.44,RES);
+    c.fillStyle="rgba(58,46,34,.034)";    c.fillRect(w+P*0.44,0,P*0.56,RES);
+  }
+  for(let y=0;y<RES;y+=P){
+    const h=y+Math.cos(y*0.8+seed)*0.6;
+    c.fillStyle="rgba(255,250,238,.030)"; c.fillRect(0,h,RES,P*0.44);
+    c.fillStyle="rgba(58,46,34,.030)";    c.fillRect(0,h+P*0.44,RES,P*0.56);
+  }
+}
+function warp(src,amp,seed){
+  const {width:w,height:h,data:d}=src, out=new Uint8ClampedArray(d.length);
+  for(let y=0;y<h;y++) for(let x=0;x<w;x++){
+    const dx=Math.round(amp*(Math.sin(y*0.13+seed)+0.6*Math.sin(x*0.061+y*0.037+seed*1.7)));
+    const dy=Math.round(amp*(Math.sin(x*0.115+seed*2.3)+0.6*Math.sin(y*0.055-x*0.041+seed)));
+    const sx=Math.min(w-1,Math.max(0,x+dx)), sy=Math.min(h-1,Math.max(0,y+dy));
+    const s=(sy*w+sx)*4, o=(y*w+x)*4;
+    out[o]=d[s]; out[o+1]=d[s+1]; out[o+2]=d[s+2]; out[o+3]=d[s+3];
+  }
+  return new ImageData(out,w,h);
+}
+const SP=5.0;
+
+/**
+ * The one renderer everything goes through.
+ * @param bgDraw  paints the ground over the whole panel (the icon's background layer)
+ * @param fgDraw  paints the subject in a 100x100 space (the icon's foreground layer)
+ */
+function paint(bgDraw,fgDraw,seed){
+  const R=rng(seed*131+7);
+  const dabLay=R()*Math.PI;
+
+  const fc=document.createElement("canvas"); fc.width=fc.height=RES;
+  const fx=fc.getContext("2d"); bgDraw(fx);
+  const fd=fx.getImageData(0,0,RES,RES).data;
+
+  const sc=document.createElement("canvas"); sc.width=sc.height=RES;
+  const sx=sc.getContext("2d");
+  sx.save(); sx.translate(RES*.13,RES*.13); sx.scale(RES*.74/100,RES*.74/100);
+  fgDraw(sx); sx.restore();
+  sx.putImageData(warp(sx.getImageData(0,0,RES,RES),1.4,seed*1.7),0,0);
+  const sd=sx.getImageData(0,0,RES,RES).data;
+
+  const {panel,inner}=panelMasks(seed);
+  const cv=document.createElement("canvas"); cv.width=cv.height=RES;
+  const c=cv.getContext("2d");
+
+  let ar=0,ag=0,ab=0;
+  for(let i=0;i<fd.length;i+=4){ ar+=fd[i]; ag+=fd[i+1]; ab+=fd[i+2]; }
+  const n=fd.length/4;
+  c.fillStyle=`rgb(${shade([ar/n,ag/n,ab/n],-0.08).join(",")})`;
+  c.fillRect(0,0,RES,RES);
+
+  for(const [ox,oy,keep] of [[0,0,1],[SP/2,SP/2,0.64]]){
+    for(let gy=-SP; gy<RES+SP; gy+=SP) for(let gx=-SP; gx<RES+SP; gx+=SP){
+      if(R()>keep) continue;
+      const x=gx+ox+(R()-0.5)*SP*0.95, y=gy+oy+(R()-0.5)*SP*0.95;
+      const mi=Math.max(0,Math.min(RES-1,y|0))*RES+Math.max(0,Math.min(RES-1,x|0));
+      if(!panel[mi]) continue;
+      const onBorder=!inner[mi], isSubject=!onBorder && sd[mi*4+3]>90;
+      const src=isSubject?sd:fd;
+      c.fillStyle=`rgb(${dotColor([src[mi*4],src[mi*4+1],src[mi*4+2]],R,onBorder,isSubject).join(",")})`;
+      dab(c,x,y,2.4+R()*1.3,(isSubject?dabLay+1.0:dabLay)+(R()-0.5)*2.1,R);
+    }
+  }
+  weave(c,seed);
+  c.globalCompositeOperation="destination-in";
+  canvasPath(c,seed,5); c.fillStyle="#000"; c.fill();
+  c.globalCompositeOperation="source-atop";
+  c.save(); c.translate(-1.4,-1.6); canvasPath(c,seed,5);
+  c.strokeStyle="rgba(255,251,240,.40)"; c.lineWidth=3.4; c.stroke(); c.restore();
+  c.save(); c.translate(1.4,1.8); canvasPath(c,seed,5);
+  c.strokeStyle="rgba(44,34,24,.34)"; c.lineWidth=3.4; c.stroke(); c.restore();
+  c.globalCompositeOperation="source-over";
+  return cv;
+}
+
+/* ------------------------------- drawing ------------------------------ */
+function rr(c,x,y,w,h,r){ c.beginPath(); c.moveTo(x+r,y);
+  c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r);
+  c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); c.fill(); }
+function ci(c,x,y,r){ c.beginPath(); c.arc(x,y,r,0,7); c.fill(); }
+function tri(c,p){ c.beginPath(); c.moveTo(p[0],p[1]); c.lineTo(p[2],p[3]); c.lineTo(p[4],p[5]); c.closePath(); c.fill(); }
+function ln(c,x1,y1,x2,y2,w){ c.lineWidth=w; c.lineCap="round"; c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke(); }
+const grad=(a,b)=>(c)=>{
+  const g=c.createLinearGradient(0,0,RES,RES);
+  g.addColorStop(0,b); g.addColorStop(1,a);
+  c.fillStyle=g; c.fillRect(0,0,RES,RES);
+};
+
+/* Six invented apps — the sort of flat, gradient-and-white-mark icon a phone
+   is full of in 2026. Nothing here refers to a real product. */
+const W="#FFFFFF";
+const THIRD = [
+  {n:"ハルカ銀行", a:"#16345F", b:"#4272AE", fg:(c)=>{
+    c.fillStyle=W; c.beginPath();
+    c.moveTo(50,8); c.lineTo(88,24); c.lineTo(88,54);
+    c.bezierCurveTo(88,78,68,90,50,96);
+    c.bezierCurveTo(32,90,12,78,12,54); c.lineTo(12,24); c.closePath(); c.fill();
+    c.fillStyle="#16345F"; rr(c,30,38,40,9,4); rr(c,30,54,40,9,4); rr(c,30,70,26,9,4); }},
+
+  {n:"Tsumugi", a:"#A62463", b:"#E4699E", fg:(c)=>{
+    c.strokeStyle=W; c.lineWidth=13; c.lineCap="round";
+    c.beginPath(); c.arc(36,44,24,0.6,5.2); c.stroke();
+    c.beginPath(); c.arc(66,60,22,3.4,2.1); c.stroke(); }},
+
+  {n:"コウト乗換", a:"#186B45", b:"#4FA277", fg:(c)=>{
+    c.strokeStyle=W; c.lineWidth=12; c.lineCap="round"; c.lineJoin="round";
+    c.beginPath(); c.moveTo(20,34); c.lineTo(56,34); c.stroke();
+    c.beginPath(); c.moveTo(44,20); c.lineTo(58,34); c.lineTo(44,48); c.stroke();
+    c.beginPath(); c.moveTo(80,66); c.lineTo(44,66); c.stroke();
+    c.beginPath(); c.moveTo(56,52); c.lineTo(42,66); c.lineTo(56,80); c.stroke(); }},
+
+  {n:"Momo Pay", a:"#B4491A", b:"#E89A55", fg:(c)=>{
+    c.fillStyle=W; ci(c,50,50,36);
+    c.fillStyle="#B4491A"; ci(c,50,50,26);
+    c.fillStyle=W; rr(c,45,26,10,48,5); rr(c,32,42,36,9,4); rr(c,32,58,36,9,4); }},
+
+  {n:"楽園RPG", a:"#432663", b:"#8A5FA8", fg:(c)=>{
+    c.fillStyle=W;
+    c.beginPath(); c.moveTo(50,6); c.lineTo(62,30); c.lineTo(62,66);
+    c.lineTo(50,80); c.lineTo(38,66); c.lineTo(38,30); c.closePath(); c.fill();
+    rr(c,20,64,60,10,5); rr(c,44,74,12,22,4);
+    c.fillStyle="#432663"; ci(c,50,88,6); }},
+
+  {n:"Yotsuba", a:"#0F5E5E", b:"#4CA0A0", fg:(c)=>{
+    c.fillStyle=W;
+    ci(c,34,34,19); ci(c,66,34,19); ci(c,34,66,19); ci(c,66,66,19);
+    c.fillStyle="#0F5E5E"; ci(c,50,50,9); }},
+];
+
+/** The flat icon as the phone ships it — a rounded square, before any paint. */
+function flatIcon(app){
+  const cv=document.createElement("canvas"); cv.width=cv.height=RES;
+  const c=cv.getContext("2d");
+  const g=c.createLinearGradient(0,0,RES,RES);
+  g.addColorStop(0,app.b); g.addColorStop(1,app.a);
+  c.fillStyle=g; rr(c,4,4,RES-8,RES-8,RES*0.23);
+  c.save(); c.translate(RES*.13,RES*.13); c.scale(RES*.74/100,RES*.74/100);
+  app.fg(c); c.restore();
+  return cv;
+}
+
+/** Tier 3: keep only the colours, throw the drawing away. */
+function tier3(app,seed){
+  const R=rng(seed*911+5);
+  const cut=0.30+R()*0.3;
+  const bg=(c)=>{
+    c.fillStyle=app.a; c.fillRect(0,0,RES,RES);
+    c.fillStyle=app.b;
+    if(R()<0.5) c.fillRect(0,0,RES,RES*cut);
+    else { c.beginPath(); c.moveTo(0,RES); c.lineTo(RES,RES*cut); c.lineTo(RES,RES); c.closePath(); c.fill(); }
+  };
+  const fg=(c)=>{
+    c.fillStyle=W;
+    const m=R();
+    if(m<0.34) ci(c,50,46,20);
+    else if(m<0.67) rr(c,26,40,48,20,10);
+    else rr(c,42,14,16,72,8);
+  };
+  return paint(bg,fg,seed);
+}
+
+/* five of the hand-drawn motifs, for the mixed wall */
+const LINEN="#E8DCC0", SLATE="#2E3440", WOOD="#6A4526", WOOD_D="#3E2614", BRASS="#C79733";
+const HAND = [
+  {n:"天気", label:"日傘", a:"#4E7C3A", b:"#98C06A", fg:(c)=>{
+    c.fillStyle=LINEN;
+    c.beginPath(); c.moveTo(10,52); c.bezierCurveTo(16,14,84,14,90,52); c.closePath(); c.fill();
+    c.strokeStyle="rgba(120,100,60,.45)"; c.lineWidth=2.4;
+    for(let i=1;i<5;i++){ const x=10+i*16; c.beginPath(); c.moveTo(50,17); c.lineTo(x,52); c.stroke(); }
+    c.fillStyle=LINEN; ci(c,50,14,5);
+    c.strokeStyle=WOOD; ln(c,50,52,50,92,5); }},
+  {n:"地図", label:"帆船", a:"#2C5E7E", b:"#7FB3C9", fg:(c)=>{
+    c.fillStyle=LINEN; tri(c,[48,8,48,66,16,66]);
+    c.fillStyle="#DCCFAE"; tri(c,[56,22,56,66,84,66]);
+    c.strokeStyle=WOOD_D; ln(c,52,8,52,70,3.5);
+    c.fillStyle=SLATE;
+    c.beginPath(); c.moveTo(10,70); c.lineTo(90,70); c.lineTo(74,84); c.lineTo(24,84); c.closePath(); c.fill(); }},
+  {n:"写真", label:"犬", a:"#6E8A34", b:"#C0D07A", fg:(c)=>{
+    c.fillStyle=SLATE; rr(c,22,44,52,24,11); ci(c,80,42,12);
+    tri(c,[74,32,84,30,80,44]);
+    rr(c,26,62,8,26,4); rr(c,40,62,8,26,4); rr(c,58,62,8,26,4); rr(c,68,62,8,26,4);
+    c.strokeStyle=SLATE; ln(c,22,48,8,32,7);
+    c.fillStyle=LINEN; ci(c,86,40,2.6); }},
+  {n:"時計", label:"木と影", a:"#5D8A3C", b:"#B4CE79", fg:(c)=>{
+    c.fillStyle=WOOD_D; rr(c,44,34,10,50,3);
+    c.fillStyle="#3F6B2E"; ci(c,48,26,22); ci(c,66,32,15); ci(c,32,34,14);
+    c.fillStyle="rgba(38,52,66,.55)";
+    c.save(); c.translate(52,86); c.rotate(-0.22);
+    c.beginPath(); c.ellipse(-16,0,34,7,0,0,7); c.fill(); c.restore(); }},
+  {n:"電話", label:"鳩", a:"#4E7C6A", b:"#9AC4AE", fg:(c)=>{
+    c.fillStyle=LINEN;
+    c.beginPath(); c.ellipse(46,56,28,16,-0.18,0,7); c.fill();
+    ci(c,76,42,12); tri(c,[22,54,4,44,20,68]);
+    c.fillStyle="#D2C8AA"; c.beginPath(); c.ellipse(42,52,19,9,0.48,0,7); c.fill();
+    c.fillStyle=BRASS; tri(c,[86,38,98,42,86,47]);
+    c.fillStyle=SLATE; ci(c,80,38,2.8); }},
+];
+
+/* -------------------------------- build ------------------------------- */
+const cell=(canvas,name,sub)=>{
+  const d=document.createElement("div");
+  d.appendChild(canvas);
+  const n=document.createElement("div"); n.className="nm";
+  n.innerHTML = sub ? `${name}<i>${sub}</i>` : name;
+  d.appendChild(n);
+  return d;
+};
+
+const rowA=document.getElementById("rowA"), rowB=document.getElementById("rowB"), rowC=document.getElementById("rowC");
+THIRD.forEach((app,i)=>{
+  rowA.appendChild(cell(flatIcon(app), app.n));
+  rowB.appendChild(cell(paint(grad(app.a,app.b), app.fg, 40+i*7), app.n));
+  rowC.appendChild(cell(tier3(app, 90+i*7), app.n));
+});
+
+const wall1=document.getElementById("wall1"), wall2=document.getElementById("wall2");
+HAND.forEach((h,i)=> wall1.appendChild(cell(paint(grad(h.a,h.b), h.fg, 3+i*5), h.n, "手描き")));
+THIRD.slice(0,5).forEach((app,i)=> wall2.appendChild(cell(paint(grad(app.a,app.b), app.fg, 40+i*7), app.n, "自動")));
+})();
+</script>
