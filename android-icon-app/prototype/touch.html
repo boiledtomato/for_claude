@@ -1,0 +1,526 @@
+<title>島の日曜日を、二つの筆で</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --bg:#D8D8D2; --surface:#E9E9E3; --ink:#1E2328; --ink-2:#4C535A; --ink-3:#7A8188;
+  --rule:rgba(30,35,40,.16); --accent:#1F6B5A; --accent-soft:rgba(31,107,90,.12);
+  --wall-a:#EFEDE5; --wall-b:#DCD8CC; --shadow:rgba(34,30,24,.24);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#11161A; --surface:#1A2127; --ink:#ECE6D9; --ink-2:#A6AEB3; --ink-3:#737C83;
+    --rule:rgba(236,230,217,.15); --accent:#54B79D; --accent-soft:rgba(84,183,157,.14);
+    --wall-a:#1E262B; --wall-b:#0E1317; --shadow:rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11161A; --surface:#1A2127; --ink:#ECE6D9; --ink-2:#A6AEB3; --ink-3:#737C83;
+  --rule:rgba(236,230,217,.15); --accent:#54B79D; --accent-soft:rgba(84,183,157,.14);
+  --wall-a:#1E262B; --wall-b:#0E1317; --shadow:rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(18px,4vw,40px) 90px}
+.eyebrow{
+  font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-3);
+  font-weight:600; margin:0 0 14px; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::after{content:""; flex:1; height:1px; background:var(--rule)}
+h1{font-size:clamp(27px,4.4vw,42px); line-height:1.26; font-weight:800; letter-spacing:-.025em; margin:0 0 18px; text-wrap:balance}
+.lead{font-size:clamp(15px,1.6vw,17px); color:var(--ink-2); margin:0 0 10px; max-width:38em}
+.lead b{color:var(--ink)}
+
+.heroes{
+  display:grid; grid-template-columns:1fr 1fr; gap:clamp(14px,2.5vw,26px);
+  margin-top:clamp(34px,5vw,50px);
+}
+.h{
+  display:grid; gap:10px; justify-items:center; padding:clamp(14px,2.5vw,24px);
+  border-radius:14px; border:1px solid var(--rule);
+  background:radial-gradient(120% 100% at 30% 12%,var(--wall-a),var(--wall-b) 80%);
+}
+.h canvas{width:100%; max-width:210px; height:auto; display:block; filter:drop-shadow(0 10px 18px var(--shadow))}
+.h .who{display:grid; gap:2px; justify-items:center; text-align:center}
+.h .who b{font-size:15.5px; font-weight:760; letter-spacing:-.01em}
+.h .who span{font-size:10px; letter-spacing:.16em; color:var(--ink-3); font-weight:600}
+
+.grid{
+  margin-top:clamp(26px,4vw,38px); border-radius:14px; border:1px solid var(--rule);
+  background:radial-gradient(120% 100% at 30% 8%,var(--wall-a),var(--wall-b) 82%);
+  padding:clamp(14px,2.5vw,22px);
+  display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,2vw,20px) clamp(8px,1.5vw,14px);
+}
+@media (min-width:640px){ .grid{grid-template-columns:repeat(6,1fr)} }
+.pair{display:grid; gap:5px; justify-items:center}
+.pair .two{display:grid; grid-template-columns:1fr 1fr; gap:5px; width:100%}
+.pair canvas{width:100%; height:auto; display:block; filter:drop-shadow(0 4px 8px var(--shadow))}
+.pair .nm{font-size:9.5px; letter-spacing:.06em; color:var(--ink); opacity:.72; font-weight:600; text-align:center; line-height:1.5}
+.key{
+  display:flex; gap:16px; justify-content:center; margin-top:14px;
+  font-size:10px; letter-spacing:.14em; color:var(--ink-3); font-weight:600;
+}
+.key i{display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:5px; vertical-align:-1px}
+
+.cols{display:grid; gap:clamp(20px,3vw,32px); margin-top:clamp(34px,5vw,50px); grid-template-columns:1fr}
+@media (min-width:760px){ .cols{grid-template-columns:1fr 1fr} }
+.col{border-top:1px solid var(--rule); padding-top:16px}
+.col h2{margin:0 0 3px; font-size:19px; font-weight:770; letter-spacing:-.015em}
+.col .sub{margin:0 0 12px; font-size:10.5px; letter-spacing:.16em; color:var(--accent); font-weight:700; text-transform:uppercase}
+.col p{margin:0 0 10px; font-size:14px; color:var(--ink-2)}
+.col b{color:var(--ink)}
+.col ul{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:7px}
+.col li{font-size:13.5px; color:var(--ink-2); padding-left:17px; position:relative}
+.col li::before{content:""; position:absolute; left:0; top:.66em; width:9px; height:2px; background:var(--accent); border-radius:2px}
+
+.close{border-top:1px solid var(--rule); margin-top:clamp(32px,5vw,46px); padding-top:20px; max-width:40em}
+.close h3{margin:0 0 10px; font-size:18px; font-weight:760; letter-spacing:-.015em}
+.close p{margin:0 0 10px; font-size:14.5px; color:var(--ink-2)}
+.close b{color:var(--ink)}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">点描ランチャー &nbsp;/&nbsp; 筆触の比較</p>
+  <h1>島の日曜日を、<br>二つの筆で描いてみる。</h1>
+  <p class="lead">
+    モチーフは決まった B 案のまま ── 日傘、帆船、ラッパ吹き、二人の人影、木と影、犬。
+    塗り方だけを<b>スーラの点描</b>と<b>ゴッホの厚塗り</b>で入れ替えました。
+  </p>
+  <p class="lead">
+    同じ下絵、同じキャンバス、同じ大きさです。違うのは筆の置き方だけ。
+  </p>
+
+  <div class="heroes" id="heroes"></div>
+
+  <div class="grid" id="grid"></div>
+  <p class="key"><span><i style="background:#8FA9C4"></i>左 = スーラ</span><span><i style="background:#D08A2E"></i>右 = ゴッホ</span></p>
+
+  <div class="cols">
+    <div class="col">
+      <h2>スーラ</h2>
+      <p class="sub">点描 — 混ぜずに並べる</p>
+      <p>純色の点を並べ、混色は目の中で起こさせる。絵の具は薄く、キャンバスの目が最後まで見えています。</p>
+      <ul>
+        <li>色が澄んでいて、光っている</li>
+        <li>面が静止している。落ち着いて見ていられる</li>
+        <li>形の輪郭がやわらかく、小さいと少し曖昧になる</li>
+        <li>麻の織り目がそのまま活きる</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>ゴッホ</h2>
+      <p class="sub">厚塗り — 一筆ずつ、うねらせる</p>
+      <p>長く太い筆を渦を巻くように置き、絵の具の尾根が光を受けます。形のまわりには濃紺の輪郭。</p>
+      <ul>
+        <li>画面が動いている。渦が視線を回す</li>
+        <li>輪郭線があるぶん、小さくても形が強い</li>
+        <li>色が濃く重い。並べると壁が賑やかになる</li>
+        <li>絵の具が厚いので、キャンバスの目はほぼ埋まる</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="close">
+    <h3>どちらを採るか</h3>
+    <p>
+      <b>ランチャーとしてはゴッホのほうが強い</b>と思います。濃紺の輪郭が効いて、78px でも形が
+      はっきり読める。点描は輪郭がやわらかいぶん、小さくすると少しぼやけます。
+    </p>
+    <p>
+      ただ<b>15枚を壁に並べたときは点描のほうが静か</b>です。ゴッホは一枚でも主張が強いので、
+      壁一面がうるさくなる可能性があります。実際に並べてみないと分からないところなので、
+      決めていただければホーム画面の壁を両方で作って見比べます。
+    </p>
+    <p>
+      なお、どちらも自動生成です。ゴッホの筆致は<b>渦を巻く流れ場</b>に沿って筆を走らせ、
+      一筆ごとに影・本体・尾根のハイライトを重ねて厚みを出しています。
+    </p>
+  </div>
+</div>
+
+<script>
+(() => {
+"use strict";
+const RES = 192;
+
+/* ----------------------------- shared ----------------------------- */
+function rng(seed){ let s=(seed*2654435761)>>>0;
+  return () => { s=(s+0x6D2B79F5)>>>0; let t=s;
+    t=Math.imul(t^(t>>>15),t|1); t^=t+Math.imul(t^(t>>>7),t|61);
+    return ((t^(t>>>14))>>>0)/4294967296; }; }
+
+function rgb2hsv(r,g,b){
+  r/=255; g/=255; b/=255;
+  const mx=Math.max(r,g,b), mn=Math.min(r,g,b), d=mx-mn;
+  let h=0;
+  if(d){ if(mx===r) h=((g-b)/d)%6; else if(mx===g) h=(b-r)/d+2; else h=(r-g)/d+4;
+         h*=60; if(h<0) h+=360; }
+  return [h, mx?d/mx:0, mx];
+}
+function hsv2rgb(h,s,v){
+  const c=v*s, x=c*(1-Math.abs(((h/60)%2)-1)), m=v-c;
+  let r=0,g=0,b=0;
+  if(h<60){r=c;g=x;} else if(h<120){r=x;g=c;} else if(h<180){g=c;b=x;}
+  else if(h<240){g=x;b=c;} else if(h<300){r=x;b=c;} else {r=c;b=x;}
+  return [(r+m)*255|0,(g+m)*255|0,(b+m)*255|0];
+}
+const mixHue=(a,b,t)=>{ const d=((b-a+540)%360)-180; return (a+d*t+360)%360; };
+const shade=(col,k)=>col.map(v=>Math.max(0,Math.min(255,k>=0? v+(255-v)*k : v*(1+k)))|0);
+const SUN_H=45, SHADE_H=238;
+
+function canvasPath(c,seed,inset){
+  const r=RES/2-inset, mid=RES/2, s=seed*1.37, n=8;
+  c.beginPath();
+  for(let i=0;i<=240;i++){
+    const t=i/240*Math.PI*2, ct=Math.cos(t), st=Math.sin(t);
+    const j=1+0.013*Math.sin(3*t+s)+0.009*Math.sin(7*t+s*2.1);
+    const x=mid+Math.sign(ct)*Math.pow(Math.abs(ct),2/n)*r*j;
+    const y=mid+Math.sign(st)*Math.pow(Math.abs(st),2/n)*r*j;
+    i?c.lineTo(x,y):c.moveTo(x,y);
+  }
+  c.closePath();
+}
+function panelMasks(seed){
+  const mask=(inset)=>{
+    const cv=document.createElement("canvas"); cv.width=cv.height=RES;
+    const c=cv.getContext("2d");
+    c.fillStyle="#000"; canvasPath(c,seed,inset); c.fill();
+    const d=c.getImageData(0,0,RES,RES).data, m=new Uint8Array(RES*RES);
+    for(let i=0;i<m.length;i++) m[i]=d[i*4+3]>128?1:0;
+    return m;
+  };
+  return {panel:mask(5), inner:mask(13)};
+}
+function weave(c,seed,k){
+  const P=4.2;
+  for(let x=0;x<RES;x+=P){
+    const w=x+Math.sin(x*0.9+seed)*0.6;
+    c.fillStyle=`rgba(255,250,238,${0.034*k})`; c.fillRect(w,0,P*0.44,RES);
+    c.fillStyle=`rgba(58,46,34,${0.034*k})`;    c.fillRect(w+P*0.44,0,P*0.56,RES);
+  }
+  for(let y=0;y<RES;y+=P){
+    const h=y+Math.cos(y*0.8+seed)*0.6;
+    c.fillStyle=`rgba(255,250,238,${0.030*k})`; c.fillRect(0,h,RES,P*0.44);
+    c.fillStyle=`rgba(58,46,34,${0.030*k})`;    c.fillRect(0,h+P*0.44,RES,P*0.56);
+  }
+}
+function warp(src,amp,seed){
+  const {width:w,height:h,data:d}=src, out=new Uint8ClampedArray(d.length);
+  for(let y=0;y<h;y++) for(let x=0;x<w;x++){
+    const dx=Math.round(amp*(Math.sin(y*0.13+seed)+0.6*Math.sin(x*0.061+y*0.037+seed*1.7)));
+    const dy=Math.round(amp*(Math.sin(x*0.115+seed*2.3)+0.6*Math.sin(y*0.055-x*0.041+seed)));
+    const sx=Math.min(w-1,Math.max(0,x+dx)), sy=Math.min(h-1,Math.max(0,y+dy));
+    const s=(sy*w+sx)*4, o=(y*w+x)*4;
+    out[o]=d[s]; out[o+1]=d[s+1]; out[o+2]=d[s+2]; out[o+3]=d[s+3];
+  }
+  return new ImageData(out,w,h);
+}
+/** Render the app's field and subject once; both touches paint from these. */
+function sources(app,seed){
+  const fc=document.createElement("canvas"); fc.width=fc.height=RES;
+  const fx=fc.getContext("2d"); app.field(fx);
+  const sc=document.createElement("canvas"); sc.width=sc.height=RES;
+  const sx=sc.getContext("2d");
+  sx.save(); sx.translate(RES*.13,RES*.13); sx.scale(RES*.74/100,RES*.74/100);
+  app.subject(sx); sx.restore();
+  sx.putImageData(warp(sx.getImageData(0,0,RES,RES),1.4,seed*1.7),0,0);
+  return {fd:fx.getImageData(0,0,RES,RES).data, sd:sx.getImageData(0,0,RES,RES).data, subjectCanvas:sc};
+}
+function cutPanel(c,seed){
+  c.globalCompositeOperation="destination-in";
+  canvasPath(c,seed,5); c.fillStyle="#000"; c.fill();
+  c.globalCompositeOperation="source-atop";
+  c.save(); c.translate(-1.4,-1.6); canvasPath(c,seed,5);
+  c.strokeStyle="rgba(255,251,240,.40)"; c.lineWidth=3.4; c.stroke(); c.restore();
+  c.save(); c.translate(1.4,1.8); canvasPath(c,seed,5);
+  c.strokeStyle="rgba(44,34,24,.34)"; c.lineWidth=3.4; c.stroke(); c.restore();
+  c.globalCompositeOperation="source-over";
+}
+function primeGround(c,fd,k){
+  let ar=0,ag=0,ab=0;
+  for(let i=0;i<fd.length;i+=4){ ar+=fd[i]; ag+=fd[i+1]; ab+=fd[i+2]; }
+  const n=fd.length/4;
+  c.fillStyle=`rgb(${shade([ar/n,ag/n,ab/n],k).join(",")})`;
+  c.fillRect(0,0,RES,RES);
+}
+
+/* --------------------------- Seurat: dots --------------------------- */
+function dotColor(base,R,onBorder,isSubject){
+  let [h,s,v]=rgb2hsv(base[0],base[1],base[2]);
+  if(onBorder) return hsv2rgb((h+180)%360, Math.min(1,Math.max(s,0.28)+R()*0.16), Math.min(1,v*(0.74+R()*0.18)));
+  if(isSubject){
+    h=mixHue(h, R()<0.5?SUN_H:SHADE_H, R()*0.18);
+    s=Math.min(1,Math.max(s,0.09)+R()*0.15);
+    return hsv2rgb(h,s,Math.min(1,v*(0.96+R()*0.10)));
+  }
+  const m=R();
+  if(m<0.62){ h=(h+(R()-0.5)*14+360)%360; s=Math.min(1,s*(1.02+R()*0.24)); v=Math.min(1,v*(0.96+R()*0.11)); }
+  else if(m<0.80){ h=mixHue(h,SUN_H,0.18+R()*0.16); s=Math.min(1,Math.max(s,0.18)+R()*0.14); v=Math.min(1,v*1.07+0.05); }
+  else if(m<0.94){ h=mixHue(h,SHADE_H,0.22+R()*0.18); s=Math.min(1,Math.max(s,0.22)+R()*0.14); v=v*(0.88+R()*0.07); }
+  else { h=(h+180)%360; s=Math.min(1,Math.max(s,0.26)+R()*0.14); v=Math.min(1,v*(0.97+R()*0.12)); }
+  return hsv2rgb(h,s,v);
+}
+const SP = 5.0;
+function renderSeurat(app,seed){
+  const R=rng(seed*131+7);
+  const {fd,sd}=sources(app,seed);
+  const {panel,inner}=panelMasks(seed);
+  const cv=document.createElement("canvas"); cv.width=cv.height=RES;
+  const c=cv.getContext("2d");
+  primeGround(c,fd,-0.08);
+  for(const [ox,oy,keep] of [[0,0,1],[SP/2,SP/2,0.64]]){
+    for(let gy=-SP; gy<RES+SP; gy+=SP) for(let gx=-SP; gx<RES+SP; gx+=SP){
+      if(R()>keep) continue;
+      const x=gx+ox+(R()-0.5)*SP*0.95, y=gy+oy+(R()-0.5)*SP*0.95;
+      const mi=Math.max(0,Math.min(RES-1,y|0))*RES + Math.max(0,Math.min(RES-1,x|0));
+      if(!panel[mi]) continue;
+      const onBorder=!inner[mi], isSubject=!onBorder && sd[mi*4+3]>90;
+      const src=isSubject?sd:fd;
+      c.fillStyle=`rgb(${dotColor([src[mi*4],src[mi*4+1],src[mi*4+2]],R,onBorder,isSubject).join(",")})`;
+      c.beginPath(); c.arc(x,y,2.2+R()*1.2,0,7); c.fill();
+    }
+  }
+  weave(c,seed,1);
+  cutPanel(c,seed);
+  return cv;
+}
+
+/* ------------------------- Van Gogh: impasto ------------------------- *
+ * The opposite of pointillism. Long fat strokes ride a swirling flow
+ * field, each one laid down as shadow / body / ridge so the paint stands
+ * off the canvas, and every form carries a dark blue contour — which is
+ * what keeps the shapes readable when the icon is only 78px across.
+ * -------------------------------------------------------------------- */
+const CONTOUR = "#16233F";
+
+function vgColor(base,R,isSubject){
+  let [h,s,v]=rgb2hsv(base[0],base[1],base[2]);
+  s = Math.min(1, s*1.32 + 0.10);
+  const m=R();
+  if(m<0.54){ h=(h+(R()-0.5)*22+360)%360; v=Math.min(1,v*(0.94+R()*0.16)); }
+  else if(m<0.78){ h=mixHue(h,SUN_H,0.22+R()*0.20); v=Math.min(1,v*1.12+0.05); }
+  else if(m<0.93){ h=mixHue(h,SHADE_H,0.26+R()*0.20); v=v*(0.78+R()*0.10); }
+  else { h=(h+180)%360; s=Math.min(1,s*0.92); v=Math.min(1,v*(1.0+R()*0.12)); }
+  if(isSubject) v=Math.min(1, v*1.04);
+  return hsv2rgb(h,s,v);
+}
+
+/** Swirl blended with a prevailing direction — Van Gogh's turning sky. */
+function flowAt(x,y,f){
+  const tang = Math.atan2(y-f.cy, x-f.cx) + Math.PI/2;
+  const ax = Math.cos(f.base)*(1-f.swirl) + Math.cos(tang)*f.swirl;
+  const ay = Math.sin(f.base)*(1-f.swirl) + Math.sin(tang)*f.swirl;
+  return Math.atan2(ay,ax) + (Math.sin(x*0.035+f.p) + Math.sin(y*0.028+f.q)) * f.wob;
+}
+/** Along the form: perpendicular to the subject's own luminance gradient. */
+function formAt(d,x,y,fallback){
+  const xi=Math.max(1,Math.min(RES-2,x|0)), yi=Math.max(1,Math.min(RES-2,y|0));
+  const L=(px,py)=>{ const o=(py*RES+px)*4; return (0.299*d[o]+0.587*d[o+1]+0.114*d[o+2]) * (d[o+3]/255); };
+  const gx=L(xi+1,yi)-L(xi-1,yi), gy=L(xi,yi+1)-L(xi,yi-1);
+  return Math.hypot(gx,gy) < 6 ? fallback : Math.atan2(gx,-gy);
+}
+
+function ribbon(c,pts,w,col,R){
+  const n=pts.length-1;
+  if(n<1) return;
+  const a=Math.atan2(pts[n][1]-pts[0][1], pts[n][0]-pts[0][0]);
+  const nx=-Math.sin(a), ny=Math.cos(a);
+
+  // a loaded brush is fat in the middle and thin where it lands and lifts,
+  // so the ribbon is stroked segment by segment rather than as one polyline
+  const pass=(ox,oy,k,style,alpha)=>{
+    c.lineCap="round"; c.lineJoin="round";
+    c.strokeStyle=style; c.globalAlpha=alpha;
+    for(let i=1;i<=n;i++){
+      const t=(i-0.5)/n;
+      c.lineWidth=Math.max(0.6, w*k*(0.5+0.5*Math.pow(Math.sin(Math.PI*t),0.45)));
+      c.beginPath();
+      c.moveTo(pts[i-1][0]+ox,pts[i-1][1]+oy);
+      c.lineTo(pts[i][0]+ox,pts[i][1]+oy);
+      c.stroke();
+    }
+    c.globalAlpha=1;
+  };
+
+  pass(1.2,1.5,1,`rgb(${shade(col,-0.52).join(",")})`,0.55);       // the paint's own shadow
+  pass(0,0,1,`rgb(${col.join(",")})`,1);                            // body
+  for(let i=0;i<2;i++){                                             // bristle furrows
+    const t=(i-0.5)*w*0.46;
+    pass(nx*t,ny*t,0.17,`rgb(${shade(col,(R()<0.5?-1:1)*0.24).join(",")})`,0.5);
+  }
+  pass(-1.1,-1.4,0.4,`rgb(${shade(col,0.42).join(",")})`,0.6);      // ridge catching the light
+}
+
+/** Dilated silhouette minus the silhouette: the dark contour ring alone. */
+function contourRing(subjectCanvas){
+  const cv=document.createElement("canvas"); cv.width=cv.height=RES;
+  const c=cv.getContext("2d");
+  for(const [dx,dy] of [[-2.2,0],[2.2,0],[0,-2.2],[0,2.2],[-1.6,-1.6],[1.6,1.6],[-1.6,1.6],[1.6,-1.6]])
+    c.drawImage(subjectCanvas,dx,dy);
+  c.globalCompositeOperation="destination-out";
+  c.drawImage(subjectCanvas,0,0);
+  c.globalCompositeOperation="source-in";
+  c.fillStyle=CONTOUR; c.fillRect(0,0,RES,RES);
+  return cv;
+}
+
+function renderVanGogh(app,seed){
+  const R=rng(seed*277+11);
+  const {fd,sd,subjectCanvas}=sources(app,seed);
+  const {panel,inner}=panelMasks(seed);
+  const cv=document.createElement("canvas"); cv.width=cv.height=RES;
+  const c=cv.getContext("2d");
+  primeGround(c,fd,-0.34);
+
+  const flow={
+    cx: RES*(0.25+R()*0.5), cy: RES*(0.25+R()*0.5),
+    base: R()*Math.PI*2, swirl: 0.45+R()*0.4,
+    p: R()*6, q: R()*6, wob: 0.16+R()*0.14,
+  };
+
+  // a dark contour, laid first so strokes bite into it rather than cover it
+  const ring=contourRing(subjectCanvas);
+  c.drawImage(ring,0,0);
+
+  const lay=(spacing,wLo,wHi,lenLo,lenHi,wantSubject)=>{
+    const jobs=[];
+    for(let gy=-spacing; gy<RES+spacing; gy+=spacing){
+      for(let gx=-spacing; gx<RES+spacing; gx+=spacing){
+        const x0=gx+(R()-0.5)*spacing*0.9, y0=gy+(R()-0.5)*spacing*0.9;
+        const mi0=Math.max(0,Math.min(RES-1,y0|0))*RES + Math.max(0,Math.min(RES-1,x0|0));
+        if(!panel[mi0]) continue;
+        const onBorder=!inner[mi0];
+        const isSubject=sd[mi0*4+3]>90;
+        if(isSubject !== wantSubject) continue;
+
+        const src=isSubject?sd:fd;
+        const col=vgColor([src[mi0*4],src[mi0*4+1],src[mi0*4+2]],R,isSubject);
+        const w=wLo+R()*(wHi-wLo);
+        const len=lenLo+R()*(lenHi-lenLo);
+
+        // the border band takes strokes running along the edge, like a frame
+        const edgeAng=Math.atan2(y0-RES/2, x0-RES/2)+Math.PI/2;
+        let a = onBorder ? edgeAng
+              : isSubject ? formAt(sd,x0,y0,flowAt(x0,y0,flow))
+                          : flowAt(x0,y0,flow);
+
+        const steps=6, step=len/steps;
+        const pts=[[x0,y0]];
+        let x=x0, y=y0;
+        for(let i=0;i<steps;i++){
+          x+=Math.cos(a)*step; y+=Math.sin(a)*step;
+          const mi=Math.max(0,Math.min(RES-1,y|0))*RES + Math.max(0,Math.min(RES-1,x|0));
+          // stop at the panel edge, and at the form's edge — a ground stroke
+          // that runs on across the parasol destroys the silhouette
+          if(!panel[mi]) break;
+          if((sd[mi*4+3]>90) !== isSubject) break;
+          pts.push([x,y]);
+          a = onBorder ? a
+            : isSubject ? formAt(sd,x,y,a)*0.5 + a*0.5
+                        : flowAt(x,y,flow)*0.35 + a*0.65;
+        }
+        jobs.push({pts,w,col});
+      }
+    }
+    for(let i=jobs.length-1;i>0;i--){ const j=(R()*(i+1))|0; const t=jobs[i]; jobs[i]=jobs[j]; jobs[j]=t; }
+    for(const j of jobs) ribbon(c,j.pts,j.w,j.col,R);
+  };
+
+  lay(9, 6, 9, 24, 44, false);       // ground and sky
+  lay(6, 4.5, 7, 12, 24, true);      // the form itself, in tighter strokes
+
+  // the contour again on top — this is what keeps the shape readable at 78px
+  c.globalAlpha=0.8; c.drawImage(ring,0,0); c.globalAlpha=1;
+
+  weave(c,seed,0.35);                // thick paint fills most of the tooth
+  cutPanel(c,seed);
+  return cv;
+}
+
+/* ------------------------------- motifs ------------------------------ */
+function rr(c,x,y,w,h,r){ c.beginPath(); c.moveTo(x+r,y);
+  c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r);
+  c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); c.fill(); }
+function ci(c,x,y,r){ c.beginPath(); c.arc(x,y,r,0,7); c.fill(); }
+function tri(c,p){ c.beginPath(); c.moveTo(p[0],p[1]); c.lineTo(p[2],p[3]); c.lineTo(p[4],p[5]); c.closePath(); c.fill(); }
+function ln(c,x1,y1,x2,y2,w){ c.lineWidth=w; c.lineCap="round"; c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke(); }
+function ground(a,b){ return (c)=>{
+  const g=c.createLinearGradient(0,0,RES,RES);
+  g.addColorStop(0,b); g.addColorStop(1,a);
+  c.fillStyle=g; c.fillRect(0,0,RES,RES);
+}; }
+const WOOD="#6A4526", WOOD_D="#3E2614", SLATE="#2E3440", LINEN="#E8DCC0";
+
+const APPS = [
+  {name:"天気", label:"日傘", field:ground("#4E7C3A","#98C06A"), subject:(c)=>{
+    c.fillStyle=LINEN;
+    c.beginPath(); c.moveTo(10,52); c.bezierCurveTo(16,14,84,14,90,52); c.closePath(); c.fill();
+    c.strokeStyle="rgba(120,100,60,.45)"; c.lineWidth=2.4;
+    for(let i=1;i<5;i++){ const x=10+i*16; c.beginPath(); c.moveTo(50,17); c.lineTo(x,52); c.stroke(); }
+    c.fillStyle=LINEN; ci(c,50,14,5);
+    c.strokeStyle=WOOD; ln(c,50,52,50,92,5);
+  }},
+  {name:"地図", label:"帆船", field:ground("#2C5E7E","#7FB3C9"), subject:(c)=>{
+    c.fillStyle=LINEN; tri(c,[48,8,48,66,16,66]);
+    c.fillStyle="#DCCFAE"; tri(c,[56,22,56,66,84,66]);
+    c.strokeStyle=WOOD_D; ln(c,52,8,52,70,3.5);
+    c.fillStyle=SLATE;
+    c.beginPath(); c.moveTo(10,70); c.lineTo(90,70); c.lineTo(74,84); c.lineTo(24,84); c.closePath(); c.fill();
+  }},
+  {name:"音楽", label:"ラッパ吹き", field:ground("#7A4A1E","#C79049"), subject:(c)=>{
+    c.fillStyle=SLATE; ci(c,42,20,12);
+    c.beginPath(); c.moveTo(30,34); c.lineTo(54,34); c.lineTo(60,96); c.lineTo(26,96); c.closePath(); c.fill();
+    c.strokeStyle=SLATE; ln(c,50,42,68,30,9);
+    c.fillStyle="#C79733"; tri(c,[64,32,92,12,94,34]);
+    c.strokeStyle="#C79733"; ln(c,54,34,66,31,6);
+  }},
+  {name:"メッセージ", label:"二人の人影", field:ground("#3E6E4C","#8CBA83"), subject:(c)=>{
+    c.fillStyle=SLATE; ci(c,32,24,11);
+    c.beginPath(); c.moveTo(21,36); c.lineTo(43,36); c.lineTo(48,96); c.lineTo(16,96); c.closePath(); c.fill();
+    c.fillStyle="#43363F"; ci(c,68,30,10);
+    c.beginPath(); c.moveTo(58,41); c.lineTo(78,41); c.lineTo(84,96); c.lineTo(54,96); c.closePath(); c.fill();
+    c.fillStyle=LINEN; ci(c,32,14,7);
+  }},
+  {name:"時計", label:"木と影", field:ground("#5D8A3C","#B4CE79"), subject:(c)=>{
+    c.fillStyle=WOOD_D; rr(c,44,34,10,50,3);
+    c.fillStyle="#3F6B2E"; ci(c,48,26,22); ci(c,66,32,15); ci(c,32,34,14);
+    c.fillStyle="rgba(38,52,66,.55)";
+    c.save(); c.translate(52,86); c.rotate(-0.22);
+    c.beginPath(); c.ellipse(-16,0,34,7,0,0,7); c.fill(); c.restore();
+  }},
+  {name:"写真", label:"犬", field:ground("#6E8A34","#C0D07A"), subject:(c)=>{
+    c.fillStyle=SLATE; rr(c,22,44,52,24,11); ci(c,80,42,12);
+    tri(c,[74,32,84,30,80,44]);
+    rr(c,26,62,8,26,4); rr(c,40,62,8,26,4); rr(c,58,62,8,26,4); rr(c,68,62,8,26,4);
+    c.strokeStyle=SLATE; ln(c,22,48,8,32,7);
+    c.fillStyle=LINEN; ci(c,86,40,2.6);
+  }},
+];
+
+/* -------------------------------- build ------------------------------ */
+const heroes=document.getElementById("heroes"), grid=document.getElementById("grid");
+[["スーラ","POINTILLISME — 点描",renderSeurat],["ゴッホ","IMPASTO — 厚塗り",renderVanGogh]]
+  .forEach(([who,sub,fn])=>{
+    const d=document.createElement("div"); d.className="h";
+    d.appendChild(fn(APPS[0],3));
+    const w=document.createElement("div"); w.className="who";
+    w.innerHTML=`<b>${who}</b><span>${sub}</span>`;
+    d.appendChild(w); heroes.appendChild(d);
+  });
+
+APPS.forEach((app,i)=>{
+  const cell=document.createElement("div"); cell.className="pair";
+  const two=document.createElement("div"); two.className="two";
+  two.appendChild(renderSeurat(app,3+i*5));
+  two.appendChild(renderVanGogh(app,3+i*5));
+  cell.appendChild(two);
+  const nm=document.createElement("div"); nm.className="nm";
+  nm.innerHTML=`${app.name}<br>${app.label}`;
+  cell.appendChild(nm);
+  grid.appendChild(cell);
+});
+})();
+</script>
