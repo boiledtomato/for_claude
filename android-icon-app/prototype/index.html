@@ -193,8 +193,8 @@ h1{
   <p class="eyebrow">Android ホーム画面 &nbsp;/&nbsp; 初稿</p>
   <h1>アイコンを、ぜんぶ<br>点描で描き直す。</h1>
   <p class="lead">
-    各アプリの元アイコンを点描で描き直し、張りキャンバスとして壁に掛ける。
-    絵の具は混ぜず、純色の点を並べて目の中で混ぜる。触れると、その絵の上を筆が一度だけ走ってからアプリが開く。
+    元のアイコンは使いません。1884年の島の日曜日にあったもの ── 日傘、帆、ラッパ吹き、犬 ──
+    に描き替え、点描で塗って張りキャンバスとして壁に掛ける。触れると、その絵の上を筆が一度だけ走ってからアプリが開く。
   </p>
 
   <div class="stage">
@@ -267,7 +267,7 @@ h1{
         </p>
         <p>
           縁取りはグラン・ジャット島の額縁と同じで、隣り合う面の<b>補色</b>の点で描いています。
-          <b>左の絵は、この手順をそのまま JS で走らせた実物です</b>（元アイコンだけは、商標を避けて仮のものを描いています）。
+          <b>左の絵は、この手順をそのまま JS で走らせた実物です。</b>モチーフは全て描き起こしなので、他社アイコンの流用はありません。
         </p>
       </div>
 
@@ -326,23 +326,23 @@ const WHITE = "#F4EFE3", DARK = "rgba(18,16,14,.45)";
  * drift between them, deliberate empty wall in the gaps.
  * ------------------------------------------------------------------ */
 const WALL = [
-  {n:"カメラ",     g:"camera",  a:"#3E5C76", b:"#7FA0BC", sh:"sq", x:18, y:10.5, s:23.5},
-  {n:"メッセージ", g:"message", a:"#4E7A5B", b:"#8AB58B", sh:"ci", x:52, y:7.0,  s:15.9},
-  {n:"天気",       g:"weather", a:"#D9A227", b:"#F2D379", sh:"ci", x:80, y:14.0, s:19.0},
-  {n:"音楽",       g:"music",   a:"#8E3B5E", b:"#C87A95", sh:"sq", x:12, y:33.3, s:16.9},
-  {n:"地図",       g:"map",     a:"#2F6E63", b:"#69AE9E", sh:"sq", x:44, y:31.1, s:22.6},
-  {n:"ブラウザ",   g:"globe",   a:"#3A4E8C", b:"#7A8ECB", sh:"ci", x:78, y:40.1, s:14.9},
-  {n:"カレンダー", g:"cal",     a:"#C0492F", b:"#E69073", sh:"sq", x:22, y:56.1, s:18.5},
-  {n:"メモ",       g:"note",    a:"#B8862B", b:"#E6BA69", sh:"sq", x:55, y:58.3, s:14.4},
-  {n:"写真",       g:"photo",   a:"#7A4E8C", b:"#B78FCA", sh:"sq", x:82, y:65.3, s:20.5},
-  {n:"時計",       g:"clock",   a:"#4A4A52", b:"#90909A", sh:"ci", x:16, y:78.9, s:14.9},
-  {n:"設定",       g:"gear",    a:"#6B5B3E", b:"#AE9A7C", sh:"ci", x:46, y:81.0, s:16.4},
+  {n:"カメラ",     g:"tripod",  a:"#2E4A5C", b:"#7FA0B6", x:18, y:10.5, s:23.5},
+  {n:"メッセージ", g:"pair",    a:"#3E6E4C", b:"#8CBA83", x:52, y:7.0,  s:15.9},
+  {n:"天気",       g:"parasol", a:"#4E7C3A", b:"#98C06A", x:80, y:14.0, s:19.0},
+  {n:"音楽",       g:"cornet",  a:"#7A4A1E", b:"#C79049", x:12, y:33.3, s:16.9},
+  {n:"地図",       g:"sail",    a:"#2C5E7E", b:"#7FB3C9", x:44, y:31.1, s:22.6},
+  {n:"ブラウザ",   g:"opera",   a:"#33566E", b:"#7C9FB6", x:78, y:40.1, s:14.9},
+  {n:"カレンダー", g:"bouquet", a:"#8A5A2A", b:"#CFA163", x:22, y:56.1, s:18.5},
+  {n:"メモ",       g:"carnet",  a:"#5A5136", b:"#9C9161", x:55, y:58.3, s:14.4},
+  {n:"写真",       g:"dog",     a:"#6E8A34", b:"#C0D07A", x:82, y:65.3, s:20.5},
+  {n:"時計",       g:"tree",    a:"#5D8A3C", b:"#B4CE79", x:16, y:78.9, s:14.9},
+  {n:"設定",       g:"bowler",  a:"#46607E", b:"#92AEC4", x:46, y:81.0, s:16.4},
 ];
 const DOCK = [
-  {n:"電話",   g:"phone", a:"#2E7D5B", b:"#75BE9A", sh:"ci", x:18.2, y:36, s:15.5},
-  {n:"メール", g:"mail",  a:"#B85C2E", b:"#E6A071", sh:"ci", x:38.8, y:36, s:15.5},
-  {n:"電卓",   g:"calc",  a:"#3D5A5A", b:"#80A0A0", sh:"ci", x:61.2, y:36, s:15.5},
-  {n:"検索",   g:"search",a:"#8C6A2F", b:"#CAA671", sh:"ci", x:81.8, y:36, s:15.5},
+  {n:"電話",   g:"dove",   a:"#4E7C6A", b:"#9AC4AE", x:18.2, y:36, s:15.5},
+  {n:"メール", g:"letter", a:"#2C4A34", b:"#68936D", x:38.8, y:36, s:15.5},
+  {n:"電卓",   g:"picnic", a:"#7C5A3A", b:"#C1996C", x:61.2, y:36, s:15.5},
+  {n:"検索",   g:"glass",  a:"#3E5C76", b:"#8FADC4", x:81.8, y:36, s:15.5},
 ];
 
 /* --------------------------- glyphs (100x100 space) --------------------------- */
@@ -353,47 +353,103 @@ function ci(c,x,y,r){ c.beginPath(); c.arc(x,y,r,0,7); c.fill(); }
 function ln(c,x1,y1,x2,y2,w){ c.lineWidth=w; c.lineCap="round"; c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke(); }
 function tri(c,p){ c.beginPath(); c.moveTo(p[0],p[1]); c.lineTo(p[2],p[3]); c.lineTo(p[4],p[5]); c.closePath(); c.fill(); }
 
+const LINEN="#E8DCC0", SLATE="#2E3440", WOOD="#6A4526", WOOD_D="#3E2614", BRASS="#C79733";
+
+/* The subjects, drawn in a 100x100 space. Not app icons — things from a
+   Sunday afternoon on the island: a parasol, a sail, the trumpeter, the dog.
+   Bold silhouettes only: at 78px a thin line or a dark shape on a dark
+   ground disappears, which is how the first pass of these was lost. */
 const GLYPH = {
-  camera(c){ c.fillStyle=WHITE; rr(c,34,18,32,14,5); rr(c,10,30,80,54,11);
-    c.fillStyle=DARK; ci(c,50,57,18); c.fillStyle=WHITE; ci(c,50,57,8);
-    c.fillStyle=DARK; ci(c,76,42,4); },
-  message(c){ c.fillStyle=WHITE; rr(c,12,20,76,50,15); tri(c,[30,66,30,88,52,68]);
-    c.fillStyle=DARK; ci(c,34,45,5); ci(c,50,45,5); ci(c,66,45,5); },
-  weather(c){ c.fillStyle=WHITE; ci(c,38,36,16);
-    c.fillStyle=DARK; for(let i=0;i<8;i++){ const t=i*Math.PI/4; c.strokeStyle=DARK;
-      ln(c,38+Math.cos(t)*20,36+Math.sin(t)*20,38+Math.cos(t)*26,36+Math.sin(t)*26,4); }
-    c.fillStyle=WHITE; ci(c,44,64,14); ci(c,62,58,19); ci(c,76,66,13); rr(c,44,60,34,20,10); },
-  music(c){ c.fillStyle=WHITE; ci(c,32,72,12); ci(c,70,64,12);
-    rr(c,38,24,7,50,3); rr(c,76,16,7,50,3);
-    c.beginPath(); c.moveTo(38,24); c.lineTo(83,16); c.lineTo(83,30); c.lineTo(38,38); c.closePath(); c.fill(); },
-  map(c){ c.fillStyle=WHITE; ci(c,50,40,25); tri(c,[31,55,69,55,50,90]);
-    c.fillStyle=DARK; ci(c,50,40,10); },
-  globe(c){ c.strokeStyle=WHITE; c.lineWidth=8; c.beginPath(); c.arc(50,50,33,0,7); c.stroke();
-    c.lineWidth=6.5; c.beginPath(); c.ellipse(50,50,15,33,0,0,7); c.stroke();
-    ln(c,18,50,82,50,6.5); },
-  cal(c){ c.fillStyle=WHITE; rr(c,10,22,80,66,10);
-    c.fillStyle=DARK; c.fillRect(10,32,80,10);
-    c.fillStyle=WHITE; rr(c,26,12,9,18,4.5); rr(c,65,12,9,18,4.5);
-    c.fillStyle=DARK; for(let r=0;r<2;r++)for(let k=0;k<3;k++) ci(c,32+k*18,56+r*16,5); },
-  note(c){ c.fillStyle=WHITE; rr(c,18,12,64,76,9);
-    c.fillStyle=DARK; rr(c,29,32,42,6,3); rr(c,29,48,42,6,3); rr(c,29,64,26,6,3); },
-  photo(c){ c.fillStyle=WHITE; rr(c,10,20,80,60,10);
-    c.fillStyle=DARK; ci(c,31,39,8); tri(c,[20,74,46,42,72,74]); tri(c,[52,74,68,52,86,74]); },
-  clock(c){ c.strokeStyle=WHITE; c.lineWidth=8; c.beginPath(); c.arc(50,50,33,0,7); c.stroke();
-    ln(c,50,50,50,28,7); ln(c,50,50,68,58,7); },
-  gear(c){ c.fillStyle=WHITE; for(let i=0;i<8;i++){ c.save(); c.translate(50,50); c.rotate(i*Math.PI/4);
-      rr(c,-7,-42,14,20,4); c.restore(); } ci(c,50,50,29);
-    c.fillStyle=DARK; ci(c,50,50,12); },
-  phone(c){ c.fillStyle=WHITE; c.save(); c.translate(50,50); c.rotate(-0.62);
-    rr(c,-11,-40,22,26,9); rr(c,-11,14,22,26,9); rr(c,-5.5,-16,11,32,5); c.restore(); },
-  mail(c){ c.fillStyle=WHITE; rr(c,10,26,80,50,8);
-    c.strokeStyle=DARK; c.lineJoin="round"; c.lineWidth=8; c.beginPath();
-    c.moveTo(16,32); c.lineTo(50,56); c.lineTo(84,32); c.stroke(); },
-  calc(c){ c.fillStyle=WHITE; rr(c,20,10,60,80,10);
-    c.fillStyle=DARK; rr(c,28,18,44,17,4);
-    for(let r=0;r<3;r++)for(let k=0;k<3;k++) rr(c,28+k*16,42+r*15,11,11,3); },
-  search(c){ c.strokeStyle=WHITE; c.lineWidth=9; c.beginPath(); c.arc(43,43,23,0,7); c.stroke();
-    ln(c,60,60,80,80,11); },
+  parasol(c){ c.fillStyle=LINEN;
+    c.beginPath(); c.moveTo(10,52); c.bezierCurveTo(16,14,84,14,90,52); c.closePath(); c.fill();
+    c.strokeStyle="rgba(120,100,60,.45)"; c.lineWidth=2.4;
+    for(let i=1;i<5;i++){ const x=10+i*16; c.beginPath(); c.moveTo(50,17); c.lineTo(x,52); c.stroke(); }
+    c.fillStyle=LINEN; ci(c,50,14,5);
+    c.strokeStyle=WOOD; ln(c,50,52,50,92,5); },
+
+  sail(c){ c.fillStyle=LINEN; tri(c,[48,8,48,66,16,66]);
+    c.fillStyle="#DCCFAE"; tri(c,[56,22,56,66,84,66]);
+    c.strokeStyle=WOOD_D; ln(c,52,8,52,70,3.5);
+    c.fillStyle=SLATE;
+    c.beginPath(); c.moveTo(10,70); c.lineTo(90,70); c.lineTo(74,84); c.lineTo(24,84); c.closePath(); c.fill(); },
+
+  cornet(c){ c.fillStyle=SLATE; ci(c,34,22,12);
+    c.beginPath(); c.moveTo(22,36); c.lineTo(46,36); c.lineTo(52,96); c.lineTo(18,96); c.closePath(); c.fill();
+    c.strokeStyle=SLATE; c.lineWidth=10; c.lineCap="round";
+    c.beginPath(); c.moveTo(44,48); c.lineTo(62,33); c.stroke();
+    c.fillStyle=BRASS; tri(c,[56,38,96,8,98,42]);
+    c.fillStyle="#8A6520"; c.save(); c.translate(95,25); c.rotate(-0.62);
+    c.beginPath(); c.ellipse(0,0,6,18,0,0,7); c.fill(); c.restore(); },
+
+  pair(c){ c.fillStyle=SLATE; ci(c,32,24,11);
+    c.beginPath(); c.moveTo(21,36); c.lineTo(43,36); c.lineTo(48,96); c.lineTo(16,96); c.closePath(); c.fill();
+    c.fillStyle="#43363F"; ci(c,68,30,10);
+    c.beginPath(); c.moveTo(58,41); c.lineTo(78,41); c.lineTo(84,96); c.lineTo(54,96); c.closePath(); c.fill();
+    c.fillStyle=LINEN; ci(c,32,14,7); },
+
+  tree(c){ c.fillStyle=WOOD_D; rr(c,44,34,10,50,3);
+    c.fillStyle="#3F6B2E"; ci(c,48,26,22); ci(c,66,32,15); ci(c,32,34,14);
+    c.fillStyle="rgba(38,52,66,.55)";
+    c.save(); c.translate(52,86); c.rotate(-0.22);
+    c.beginPath(); c.ellipse(-16,0,34,7,0,0,7); c.fill(); c.restore(); },
+
+  dog(c){ c.fillStyle=SLATE; rr(c,22,44,52,24,11); ci(c,80,42,12);
+    tri(c,[74,32,84,30,80,44]);
+    rr(c,26,62,8,26,4); rr(c,40,62,8,26,4); rr(c,58,62,8,26,4); rr(c,68,62,8,26,4);
+    c.strokeStyle=SLATE; ln(c,22,48,8,32,7);
+    c.fillStyle=LINEN; ci(c,86,40,2.6); },
+
+  tripod(c){ c.strokeStyle=WOOD_D; c.lineWidth=7; c.lineCap="round";
+    for(const [x,y] of [[18,96],[72,96],[48,94]]){ c.beginPath(); c.moveTo(46,60); c.lineTo(x,y); c.stroke(); }
+    c.fillStyle="#C99A58"; rr(c,8,20,52,40,5);
+    c.strokeStyle="rgba(58,34,14,.5)"; c.lineWidth=3.5;
+    for(let i=0;i<3;i++){ c.beginPath(); c.moveTo(21+i*11,21); c.lineTo(21+i*11,59); c.stroke(); }
+    c.fillStyle=BRASS; ci(c,70,40,19);
+    c.fillStyle="#1E222A"; ci(c,70,40,11);
+    c.fillStyle=LINEN; ci(c,65,35,4.2); },
+
+  opera(c){ c.fillStyle=SLATE; rr(c,4,28,42,44,13); rr(c,54,28,42,44,13); rr(c,42,42,16,12,4);
+    c.fillStyle=LINEN; ci(c,25,50,15); ci(c,75,50,15);
+    c.fillStyle="#5E8CAE"; ci(c,25,50,9); ci(c,75,50,9); },
+
+  bouquet(c){ c.strokeStyle="#4E6B32"; ln(c,50,90,42,56,4.5); ln(c,50,90,60,58,4.5); ln(c,50,90,50,50,4.5);
+    c.fillStyle="#EDE7CC"; ci(c,40,46,13);
+    c.fillStyle="#D9829A"; ci(c,62,48,12);
+    c.fillStyle="#EFC44E"; ci(c,50,32,13);
+    c.fillStyle=LINEN; rr(c,40,82,20,14,5); },
+
+  carnet(c){ c.fillStyle=LINEN; rr(c,14,20,72,60,4);
+    c.fillStyle=WOOD_D; rr(c,46,20,8,60,2);
+    c.strokeStyle="rgba(90,70,45,.5)";
+    for(let i=0;i<3;i++){ ln(c,22,36+i*13,42,36+i*13,3); ln(c,58,36+i*13,78,36+i*13,3); } },
+
+  bowler(c){ c.fillStyle=SLATE;
+    c.beginPath(); c.ellipse(50,66,40,10,0,0,7); c.fill();
+    c.beginPath(); c.moveTo(26,66); c.bezierCurveTo(26,26,74,26,74,66); c.closePath(); c.fill();
+    c.fillStyle="rgba(232,220,192,.45)"; rr(c,26,56,48,8,3); },
+
+  dove(c){ c.fillStyle=LINEN;
+    c.beginPath(); c.ellipse(46,56,28,16,-0.18,0,7); c.fill();
+    ci(c,76,42,12);
+    tri(c,[22,54,4,44,20,68]);
+    c.fillStyle="#D2C8AA"; c.beginPath(); c.ellipse(42,52,19,9,0.48,0,7); c.fill();
+    c.fillStyle=BRASS; tri(c,[86,38,98,42,86,47]);
+    c.fillStyle=SLATE; ci(c,80,38,2.8); },
+
+  letter(c){ c.fillStyle=LINEN; rr(c,10,26,80,50,4);
+    c.strokeStyle="rgba(90,70,45,.55)"; c.lineJoin="round"; c.lineWidth=5;
+    c.beginPath(); c.moveTo(12,29); c.lineTo(50,55); c.lineTo(88,29); c.stroke();
+    c.fillStyle="#AE3323"; ci(c,50,66,12);
+    c.fillStyle="rgba(60,14,8,.4)"; ci(c,50,66,6); },
+
+  picnic(c){ c.fillStyle=LINEN; rr(c,10,18,80,66,4);
+    c.fillStyle="rgba(178,58,48,.62)";
+    for(let r=0;r<5;r++) for(let k=0;k<5;k++)
+      if((r+k)%2===0) c.fillRect(10+k*16,18+r*13.2,16,13.2); },
+
+  glass(c){ c.fillStyle="rgba(226,234,240,.55)"; ci(c,44,42,24);
+    c.strokeStyle=BRASS; c.lineWidth=9; c.beginPath(); c.arc(44,42,24,0,7); c.stroke();
+    c.strokeStyle=WOOD; ln(c,61,59,84,82,12); },
 };
 
 /* --------------------------- oil-paint pipeline --------------------------- *
