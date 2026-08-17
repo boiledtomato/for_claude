@@ -32,14 +32,6 @@
    "nid": "1532869",
    "title": "Accessing and Navigating the Zscaler Security Operations (SecOps) Platform"
   },
-  "/aem/configuring-apache-kafka-outegration": {
-   "category": "exposure_mgmt",
-   "hash": "f904141daef2572b",
-   "in_bulletins": false,
-   "lastmod": "2026-06-29T07:06Z",
-   "nid": "1540206",
-   "title": "Configuring the Apache Kafka Outegration"
-  },
   "/aem/configuring-asset-compliance-policies": {
    "category": "exposure_mgmt",
    "hash": "3116068d103abc1f",
@@ -47,22 +39,6 @@
    "lastmod": "2025-11-11T14:07Z",
    "nid": "1533688",
    "title": "Configuring Asset Compliance Policies"
-  },
-  "/aem/configuring-azure-devops-outegration": {
-   "category": "exposure_mgmt",
-   "hash": "ae7ca811c754f13c",
-   "in_bulletins": false,
-   "lastmod": "2025-11-10T14:25Z",
-   "nid": "1533653",
-   "title": "Configuring Azure DevOps Outegration"
-  },
-  "/aem/configuring-azure-devops-outegration-webhook": {
-   "category": "exposure_mgmt",
-   "hash": "f6d183fae7bfdbb5",
-   "in_bulletins": false,
-   "lastmod": "2025-11-10T14:50Z",
-   "nid": "1533654",
-   "title": "Configuring the Azure DevOps Outegration Webhook"
   },
   "/aem/configuring-discovery-settings": {
    "category": "exposure_mgmt",
@@ -72,31 +48,6 @@
    "nid": "1538687",
    "title": "Configuring Discovery Settings"
   },
-  "/aem/configuring-freshservice-outegration": {
-   "category": "exposure_mgmt",
-   "hash": "876739ee7a07a786",
-   "in_bulletins": false,
-   "lastmod": "2026-01-25T06:06Z",
-   "nid": "1534277",
-   "title": "Configuring the Freshservice Outegration"
-  },
-  "/aem/configuring-freshservice-outegration-webhook": {
-   "category": "exposure_mgmt",
-   "hash": "818ae897c0dfac6f",
-   "in_bulletins": false,
-   "lastmod": "2026-02-17T06:06Z",
-   "nid": "1534278",
-   "title": "Configuring the Freshservice Outegration Webhook"
-  },
-  "/aem/configuring-google-cloud-storage-outegration": {
-   "canonical": "/aem/configuring-google-cloud-storage-outegration",
-   "category": "exposure_mgmt",
-   "hash": "b8c34a4ead0ad815",
-   "in_bulletins": false,
-   "lastmod": "2026-07-31T07:06Z",
-   "nid": "1541147",
-   "title": "Configuring Google Cloud Storage Outegration"
-  },
   "/aem/configuring-grouping-rules-aem": {
    "category": "exposure_mgmt",
    "hash": "874b49be761d4228",
@@ -104,86 +55,6 @@
    "lastmod": "2026-02-17T06:06Z",
    "nid": "1534045",
    "title": "Configuring Grouping Rules in AEM"
-  },
-  "/aem/configuring-jira-outegration": {
-   "category": "exposure_mgmt",
-   "hash": "7982e338677b4790",
-   "in_bulletins": false,
-   "lastmod": "2025-11-10T15:05Z",
-   "nid": "1533655",
-   "title": "Configuring the Jira Outegration"
-  },
-  "/aem/configuring-jira-outegration-webhook": {
-   "category": "exposure_mgmt",
-   "hash": "b013196f47add227",
-   "in_bulletins": false,
-   "lastmod": "2025-11-10T15:08Z",
-   "nid": "1533656",
-   "title": "Configuring the Jira Outegration Webhook"
-  },
-  "/aem/configuring-microsoft-entra-id-sso": {
-   "category": "exposure_mgmt",
-   "hash": "484fc01ecfe981b7",
-   "in_bulletins": false,
-   "lastmod": "2025-10-31T13:54Z",
-   "nid": "1532883",
-   "title": "Configuring Microsoft Entra ID SSO"
-  },
-  "/aem/configuring-okta-sso": {
-   "category": "exposure_mgmt",
-   "hash": "a1cc2e28f948bb94",
-   "in_bulletins": false,
-   "lastmod": "2025-10-31T13:55Z",
-   "nid": "1532884",
-   "title": "Configuring Okta SSO"
-  },
-  "/aem/configuring-pingfederate-sso": {
-   "category": "exposure_mgmt",
-   "hash": "5d6cc3c88f05135b",
-   "in_bulletins": false,
-   "lastmod": "2025-10-31T13:53Z",
-   "nid": "1532882",
-   "title": "Configuring PingFederate SSO"
-  },
-  "/aem/configuring-pingone-sso": {
-   "category": "exposure_mgmt",
-   "hash": "5c415c9721f897ae",
-   "in_bulletins": false,
-   "lastmod": "2026-01-12T06:06Z",
-   "nid": "1534070",
-   "title": "Configuring PingOne SSO"
-  },
-  "/aem/configuring-secureauth-sso": {
-   "category": "exposure_mgmt",
-   "hash": "99235c7dd4e49fd1",
-   "in_bulletins": false,
-   "lastmod": "2026-01-12T06:06Z",
-   "nid": "1534073",
-   "title": "Configuring SecureAuth SSO"
-  },
-  "/aem/configuring-servicenow-cmdb-outegration": {
-   "category": "exposure_mgmt",
-   "hash": "2d9672652305be32",
-   "in_bulletins": false,
-   "lastmod": "2026-01-23T06:06Z",
-   "nid": "1534010",
-   "title": "Configuring ServiceNow CMDB Outegration"
-  },
-  "/aem/configuring-servicenow-outegration": {
-   "category": "exposure_mgmt",
-   "hash": "87237c30b66a213f",
-   "in_bulletins": false,
-   "lastmod": "2025-11-10T15:10Z",
-   "nid": "1533657",
-   "title": "Configuring the ServiceNow Outegration"
-  },
-  "/aem/configuring-servicenow-outegration-webhook": {
-   "category": "exposure_mgmt",
-   "hash": "627c39987eb4c91c",
-   "in_bulletins": false,
-   "lastmod": "2025-11-10T15:11Z",
-   "nid": "1533658",
-   "title": "Configuring the ServiceNow Outegration Webhook"
   },
   "/aem/configuring-violation-ticket-workflows": {
    "category": "exposure_mgmt",
@@ -217,14 +88,6 @@
    "nid": "1532874",
    "title": "Creating & Managing Third-Party Tickets"
   },
-  "/aem/enabling-email-notifications-failures": {
-   "category": "exposure_mgmt",
-   "hash": "667ae8e25d830932",
-   "in_bulletins": false,
-   "lastmod": "2026-02-17T06:06Z",
-   "nid": "1533629",
-   "title": "Enabling Email Notifications for Failures"
-  },
   "/aem/exporting-reports-discovery-profiles": {
    "category": "exposure_mgmt",
    "hash": "718b1fef8afb8a49",
@@ -232,14 +95,6 @@
    "lastmod": "2026-05-22T07:06Z",
    "nid": "1538690",
    "title": "Exporting Reports for Discovery Profiles"
-  },
-  "/aem/generating-saml-details": {
-   "category": "exposure_mgmt",
-   "hash": "0d8ced457e7a6c6f",
-   "in_bulletins": false,
-   "lastmod": "2025-10-31T13:51Z",
-   "nid": "1532881",
-   "title": "Generating SAML Details"
   },
   "/aem/grouping-data-entity-pages": {
    "category": "exposure_mgmt",
@@ -298,10 +153,11 @@
    "title": "Release Upgrade Summary (2025)"
   },
   "/aem/release-upgrade-summary-2026": {
+   "canonical": "/aem/release-upgrade-summary-2026",
    "category": "exposure_mgmt",
-   "hash": "50874ac1382663ad",
+   "hash": "36adb81df33e898e",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T11:00Z",
+   "lastmod": "2026-08-11T08:33Z",
    "nid": "1534298",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -320,14 +176,6 @@
    "lastmod": "2026-05-17T07:06Z",
    "nid": "1538684",
    "title": "Understanding Asset Discovery with Zscaler EASM"
-  },
-  "/aem/understanding-source-configuration-guides": {
-   "category": "exposure_mgmt",
-   "hash": "645150dbf8e016b7",
-   "in_bulletins": false,
-   "lastmod": "2025-12-04T11:07Z",
-   "nid": "1533767",
-   "title": "Understanding Source Configuration Guides"
   },
   "/aem/understanding-zscaler-easm-capabilities": {
    "category": "exposure_mgmt",
@@ -376,14 +224,6 @@
    "lastmod": "2025-11-11T14:13Z",
    "nid": "1533691",
    "title": "Using the Tool Coverage Policy"
-  },
-  "/aem/viewing-audit-logs": {
-   "category": "exposure_mgmt",
-   "hash": "49be15bd1da3dd1a",
-   "in_bulletins": false,
-   "lastmod": "2026-05-23T07:06Z",
-   "nid": "1539933",
-   "title": "Viewing Audit Logs"
   },
   "/aem/viewing-managing-assets-aem": {
    "category": "exposure_mgmt",
@@ -468,18 +308,20 @@
    "title": "About AI Assets - Agents"
   },
   "/ai-asset-mgmt/about-ai-assets-mcp-servers": {
+   "canonical": "/ai-asset-mgmt/about-ai-assets-mcp-servers",
    "category": "exposure_mgmt",
-   "hash": "c9b7845374817e5e",
-   "in_bulletins": true,
-   "lastmod": "2026-07-10T05:29Z",
+   "hash": "8a9bbcfc4cd5b5a1",
+   "in_bulletins": false,
+   "lastmod": "2026-08-11T07:06Z",
    "nid": "1540822",
    "title": "About AI Assets - MCP Servers"
   },
   "/ai-asset-mgmt/about-ai-assets-models": {
+   "canonical": "/ai-asset-mgmt/about-ai-assets-models",
    "category": "exposure_mgmt",
-   "hash": "9799abe2ff83a0a2",
-   "in_bulletins": true,
-   "lastmod": "2026-07-10T03:45Z",
+   "hash": "2e058f25e6be7203",
+   "in_bulletins": false,
+   "lastmod": "2026-08-11T07:06Z",
    "nid": "1540775",
    "title": "About AI Assets - Models"
   },
@@ -775,10 +617,11 @@
    "title": "Configuring Scan Rule for AWS Virtual Machines"
   },
   "/ai-asset-mgmt/configuring-scan-rule-azure-acr-repositories": {
+   "canonical": "/ai-asset-mgmt/configuring-scan-rule-azure-acr-repositories",
    "category": "exposure_mgmt",
-   "hash": "d83a1a1d6c30e052",
-   "in_bulletins": true,
-   "lastmod": "2026-07-15T23:26Z",
+   "hash": "f98b4d4bc176f5aa",
+   "in_bulletins": false,
+   "lastmod": "2026-08-11T07:06Z",
    "nid": "1541564",
    "title": "Configuring Scan Rule for Azure Container Registry (ACR) Repositories"
   },
@@ -1007,6 +850,15 @@
    "nid": "1540165",
    "title": "Integrating AI Security with Cloud Storage Services"
   },
+  "/ai-asset-mgmt/integrating-ai-security-servicenow": {
+   "canonical": "/ai-asset-mgmt/integrating-ai-security-servicenow",
+   "category": "exposure_mgmt",
+   "hash": "938beabdc1dbd6d6",
+   "in_bulletins": true,
+   "lastmod": "2026-08-09T23:28Z",
+   "nid": "1541827",
+   "title": "Integrating AI Security with ServiceNow"
+  },
   "/ai-asset-mgmt/integrating-amazon-s3": {
    "category": "exposure_mgmt",
    "hash": "7c746469b6fb981a",
@@ -1130,10 +982,11 @@
    "title": "Onboarding a GCP Organization"
   },
   "/ai-asset-mgmt/onboarding-github-tenant": {
+   "canonical": "/ai-asset-mgmt/onboarding-github-tenant",
    "category": "exposure_mgmt",
-   "hash": "ec50d1fbf4f22c93",
-   "in_bulletins": true,
-   "lastmod": "2026-07-28T01:09Z",
+   "hash": "b863d8e792e9460d",
+   "in_bulletins": false,
+   "lastmod": "2026-08-15T07:06Z",
    "nid": "1541396",
    "title": "Onboarding GitHub Tenant"
   },
@@ -1170,10 +1023,11 @@
    "title": "Query Builder for Policies and Investigation"
   },
   "/ai-asset-mgmt/release-upgrade-summary-2026": {
+   "canonical": "/ai-asset-mgmt/release-upgrade-summary-2026",
    "category": "exposure_mgmt",
-   "hash": "0ca28daa28d8b760",
+   "hash": "7cec2f50f87d1b6e",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T10:00Z",
+   "lastmod": "2026-08-11T09:15Z",
    "nid": "1539122",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -1317,10 +1171,11 @@
    "title": "Understanding Threat Categories"
   },
   "/ai-asset-mgmt/understanding-zscaler-ai-security-api": {
+   "canonical": "/ai-asset-mgmt/understanding-zscaler-ai-security-api",
    "category": "exposure_mgmt",
-   "hash": "796933617c1b1358",
+   "hash": "7bf7128b00df6cc2",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T00:34Z",
+   "lastmod": "2026-08-11T09:51Z",
    "nid": "1542069",
    "title": "Understanding Zscaler AI Security API"
   },
@@ -1701,10 +1556,11 @@
    "title": "Assigning Entitlements to Users and User Groups"
   },
   "/authentication-service/automatic-upgrade-to-zscaler-admin-console": {
+   "canonical": "/authentication-service/automatic-upgrade-to-zscaler-admin-console",
    "category": "platform",
-   "hash": "5ec72be95ebc6a16",
+   "hash": "f68a6232321424db",
    "in_bulletins": false,
-   "lastmod": "2026-07-10T02:20Z",
+   "lastmod": "2026-08-12T20:10Z",
    "nid": "1539868",
    "title": "Automatic Upgrade to Zscaler Admin Console"
   },
@@ -1750,26 +1606,29 @@
    "title": "Configuring Microsoft AD FS as an External IdP"
   },
   "/authentication-service/configuring-microsoft-entra-id-external-idp": {
+   "canonical": "/authentication-service/configuring-microsoft-entra-id-external-idp",
    "category": "platform",
-   "hash": "beb0e84d80eac40e",
+   "hash": "2040f3205e8aae9a",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T19:22Z",
+   "lastmod": "2026-08-09T23:14Z",
    "nid": "1499421",
    "title": "Configuring Microsoft Entra ID as an External IdP"
   },
   "/authentication-service/configuring-multi-factor-authentication": {
+   "canonical": "/authentication-service/configuring-multi-factor-authentication",
    "category": "platform",
-   "hash": "35041f5e42bb6645",
+   "hash": "477d4fb8f5f0679e",
    "in_bulletins": false,
-   "lastmod": "2026-07-17T08:51Z",
+   "lastmod": "2026-08-10T05:56Z",
    "nid": "1499196",
    "title": "Configuring Multi-Factor Authentication"
   },
   "/authentication-service/configuring-okta-external-idp": {
+   "canonical": "/authentication-service/configuring-okta-external-idp",
    "category": "platform",
-   "hash": "44e69bf97c6e9c6e",
+   "hash": "41f7ede5587a4591",
    "in_bulletins": false,
-   "lastmod": "2026-06-24T20:24Z",
+   "lastmod": "2026-08-09T23:46Z",
    "nid": "1499411",
    "title": "Configuring Okta as an External IdP"
   },
@@ -1790,18 +1649,20 @@
    "title": "Configuring the Password Policy"
   },
   "/authentication-service/configuring-pingfederate-external-idp": {
+   "canonical": "/authentication-service/configuring-pingfederate-external-idp",
    "category": "platform",
-   "hash": "1a280d47d0afe913",
+   "hash": "e93a20345cf987c7",
    "in_bulletins": false,
-   "lastmod": "2026-06-24T20:27Z",
+   "lastmod": "2026-08-09T23:40Z",
    "nid": "1499471",
    "title": "Configuring PingFederate as an External IdP"
   },
   "/authentication-service/configuring-pingone-external-idp": {
+   "canonical": "/authentication-service/configuring-pingone-external-idp",
    "category": "platform",
-   "hash": "e4da738b41d9bae7",
+   "hash": "938a76dbc658d673",
    "in_bulletins": false,
-   "lastmod": "2026-06-24T20:25Z",
+   "lastmod": "2026-08-09T23:18Z",
    "nid": "1499331",
    "title": "Configuring PingOne as an External IdP"
   },
@@ -1905,10 +1766,11 @@
    "title": "Migrating End Users to Authentication Service"
   },
   "/authentication-service/migrating-zscaler-service-admins-authentication-service": {
+   "canonical": "/authentication-service/migrating-zscaler-service-admins-authentication-service",
    "category": "platform",
-   "hash": "e4390c6d5acce915",
+   "hash": "e3c840a609e836a8",
    "in_bulletins": false,
-   "lastmod": "2026-07-17T08:52Z",
+   "lastmod": "2026-08-10T06:05Z",
    "nid": "1499436",
    "title": "Migrating Zscaler Service Admins to Authentication Service"
   },
@@ -1929,18 +1791,20 @@
    "title": "Release Upgrade Summary (2024)"
   },
   "/authentication-service/release-upgrade-summary-2025": {
+   "canonical": "/authentication-service/release-upgrade-summary-2025",
    "category": "platform",
-   "hash": "866852b9cb24d17d",
+   "hash": "f1af454b8c47c673",
    "in_bulletins": false,
-   "lastmod": "2026-06-01T00:35Z",
+   "lastmod": "2026-08-11T03:03Z",
    "nid": "1515736",
    "title": "Release Upgrade Summary (2025)"
   },
   "/authentication-service/release-upgrade-summary-2026": {
+   "canonical": "/authentication-service/release-upgrade-summary-2026",
    "category": "platform",
-   "hash": "6604ddd2c10054e2",
+   "hash": "c5aa25315484345d",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T11:35Z",
+   "lastmod": "2026-08-11T21:06Z",
    "nid": "1534313",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -2034,10 +1898,11 @@
    "title": "Viewing Entitlements Assigned to Users"
   },
   "/authentication-service/what-authentication-service": {
+   "canonical": "/authentication-service/what-authentication-service",
    "category": "platform",
-   "hash": "d228e9551b8b649b",
+   "hash": "9267de2a955b7868",
    "in_bulletins": false,
-   "lastmod": "2026-06-30T21:06Z",
+   "lastmod": "2026-08-10T05:54Z",
    "nid": "1499041",
    "title": "What Is Authentication Service?"
   },
@@ -2602,10 +2467,11 @@
    "title": "Integrating a SaaS Application for Workflow Automation"
   },
   "/business-insights/managing-queued-contracts": {
+   "canonical": "/business-insights/managing-queued-contracts",
    "category": "platform",
-   "hash": "ae28d6d570221332",
+   "hash": "a9de4b639197a083",
    "in_bulletins": false,
-   "lastmod": "2025-06-12T23:55Z",
+   "lastmod": "2026-08-12T22:26Z",
    "nid": "1506986",
    "title": "Managing Queued Contracts"
   },
@@ -2929,10 +2795,11 @@
    "title": "About Google Cloud Platform Zero Trust Gateways"
   },
   "/cloud-branch-connector/about-insights": {
+   "canonical": "/cloud-branch-connector/about-insights",
    "category": "branch",
-   "hash": "564fa77b31923ce7",
+   "hash": "f2bf264773ed40dd",
    "in_bulletins": false,
-   "lastmod": "2026-07-27T19:21Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1420536",
    "title": "About Insights"
   },
@@ -3021,18 +2888,18 @@
   "/cloud-branch-connector/about-nss-feeds": {
    "canonical": "/cloud-branch-connector/about-nss-feeds",
    "category": "branch",
-   "hash": "70cb357cd3daf56d",
+   "hash": "46ad14997cb67c8d",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T21:09Z",
+   "lastmod": "2026-08-13T21:06Z",
    "nid": "1420626",
    "title": "About NSS Feeds"
   },
   "/cloud-branch-connector/about-nss-servers": {
    "canonical": "/cloud-branch-connector/about-nss-servers",
    "category": "branch",
-   "hash": "10919ac44974e297",
+   "hash": "e987ba14a0c05383",
    "in_bulletins": false,
-   "lastmod": "2026-07-30T16:49Z",
+   "lastmod": "2026-08-13T21:06Z",
    "nid": "1420736",
    "title": "About NSS Servers"
   },
@@ -3069,10 +2936,11 @@
    "title": "About Traffic Forwarding"
   },
   "/cloud-branch-connector/about-upgrade-manager": {
+   "canonical": "/cloud-branch-connector/about-upgrade-manager",
    "category": "branch",
-   "hash": "cf70b2715063b3b5",
+   "hash": "01dffd582e48b0c2",
    "in_bulletins": false,
-   "lastmod": "2026-07-12T07:06Z",
+   "lastmod": "2026-08-13T07:06Z",
    "nid": "1534347",
    "title": "About Upgrade Manager"
   },
@@ -3129,10 +2997,11 @@
    "title": "About Zero Trust Branch Devices"
   },
   "/cloud-branch-connector/accessing-cloud-branch-connector-monitoring": {
+   "canonical": "/cloud-branch-connector/accessing-cloud-branch-connector-monitoring",
    "category": "branch",
-   "hash": "31ef82598416a1bc",
+   "hash": "e75c86695da4ba43",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T22:46Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1420526",
    "title": "Accessing Cloud & Branch Connector Monitoring"
   },
@@ -3232,33 +3101,36 @@
   "/cloud-branch-connector/adding-nss-feeds": {
    "canonical": "/cloud-branch-connector/adding-nss-feeds",
    "category": "branch",
-   "hash": "bc8bba2893c9f10f",
+   "hash": "2ecae27e81cf1ead",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T21:14Z",
+   "lastmod": "2026-08-13T21:06Z",
    "nid": "1420631",
    "title": "Adding NSS Feeds"
   },
   "/cloud-branch-connector/adding-nss-feeds-dns-logs": {
+   "canonical": "/cloud-branch-connector/adding-nss-feeds-dns-logs",
    "category": "branch",
-   "hash": "6039aaa7d6e6c2e9",
+   "hash": "831aa812d1331eef",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T14:31Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1420716",
    "title": "Adding NSS Feeds for DNS Logs"
   },
   "/cloud-branch-connector/adding-nss-feeds-event-logs": {
+   "canonical": "/cloud-branch-connector/adding-nss-feeds-event-logs",
    "category": "branch",
-   "hash": "b240421016a81015",
+   "hash": "fd4235348f542b25",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T14:35Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1458956",
    "title": "Adding NSS Feeds for Event Logs"
   },
   "/cloud-branch-connector/adding-nss-feeds-metrics-logs": {
+   "canonical": "/cloud-branch-connector/adding-nss-feeds-metrics-logs",
    "category": "branch",
-   "hash": "be451f4fbfc165ea",
+   "hash": "e98133c81347e87e",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T14:36Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1458961",
    "title": "Adding NSS Feeds for Metrics Logs"
   },
@@ -3274,9 +3146,9 @@
   "/cloud-branch-connector/adding-nss-servers": {
    "canonical": "/cloud-branch-connector/adding-nss-servers",
    "category": "branch",
-   "hash": "c1054ffea48c251e",
+   "hash": "23446913dbabce9b",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T21:01Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1420616",
    "title": "Adding NSS Servers"
   },
@@ -3335,18 +3207,20 @@
    "title": "Analyzing Amazon Web Services Zero Trust Gateway Details"
   },
   "/cloud-branch-connector/analyzing-branch-connector-details": {
+   "canonical": "/cloud-branch-connector/analyzing-branch-connector-details",
    "category": "branch",
-   "hash": "6784bdaf21e502a2",
+   "hash": "977bd56549bd2df3",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T22:52Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1447011",
    "title": "Analyzing Branch Connector Details"
   },
   "/cloud-branch-connector/analyzing-cloud-connector-details": {
+   "canonical": "/cloud-branch-connector/analyzing-cloud-connector-details",
    "category": "branch",
-   "hash": "8558c30c165271a0",
+   "hash": "e1d4a10b7de2dfdc",
    "in_bulletins": false,
-   "lastmod": "2026-07-27T15:33Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1420706",
    "title": "Analyzing Cloud Connector Details"
   },
@@ -3378,35 +3252,38 @@
    "title": "Analyzing Microsoft Azure Account Details"
   },
   "/cloud-branch-connector/analyzing-traffic-flow": {
+   "canonical": "/cloud-branch-connector/analyzing-traffic-flow",
    "category": "branch",
-   "hash": "00c12cac21a051d3",
+   "hash": "2bfb2e489e2e074b",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T22:14Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1420711",
    "title": "Analyzing Traffic Flow"
   },
   "/cloud-branch-connector/analyzing-traffic-monitoring": {
+   "canonical": "/cloud-branch-connector/analyzing-traffic-monitoring",
    "category": "branch",
-   "hash": "8b8a2f6b1ceccce6",
+   "hash": "5564cf7ca146010f",
    "in_bulletins": false,
-   "lastmod": "2026-07-27T18:55Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1420531",
    "title": "Analyzing Traffic Monitoring"
   },
   "/cloud-branch-connector/analyzing-traffic-using-insights": {
+   "canonical": "/cloud-branch-connector/analyzing-traffic-using-insights",
    "category": "branch",
-   "hash": "b26764aeba78d1b6",
+   "hash": "ee111c75bba456c8",
    "in_bulletins": false,
-   "lastmod": "2026-07-27T16:05Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1420666",
    "title": "Analyzing Traffic Using Insights"
   },
   "/cloud-branch-connector/analyzing-zero-trust-gateways": {
    "canonical": "/cloud-branch-connector/analyzing-zero-trust-gateways",
    "category": "branch",
-   "hash": "dfb2a66f0df40581",
+   "hash": "9110659853beb9b5",
    "in_bulletins": false,
-   "lastmod": "2026-08-03T14:07Z",
+   "lastmod": "2026-08-14T10:57Z",
    "nid": "1516906",
    "title": "Analyzing Zero Trust Gateways"
   },
@@ -3677,9 +3554,9 @@
   "/cloud-branch-connector/deploying-nss-virtual-appliances": {
    "canonical": "/cloud-branch-connector/deploying-nss-virtual-appliances",
    "category": "branch",
-   "hash": "c3c7f9ee393e0cad",
+   "hash": "073f2a1514c0f213",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T21:05Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1420621",
    "title": "Deploying NSS Virtual Appliances"
   },
@@ -3701,19 +3578,20 @@
    "title": "Deploying Zscaler Cloud Connector with Amazon Web Services"
   },
   "/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform": {
+   "canonical": "/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform",
    "category": "branch",
-   "hash": "9661caa375b04ddb",
+   "hash": "ca2114bb88c7162f",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T13:48Z",
+   "lastmod": "2026-08-10T14:53Z",
    "nid": "1461611",
    "title": "Deploying Zscaler Cloud Connector on the Google Cloud Platform"
   },
   "/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure": {
    "canonical": "/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure",
    "category": "branch",
-   "hash": "a3df9ce9304ec1d6",
+   "hash": "48b525eb4f32b815",
    "in_bulletins": false,
-   "lastmod": "2026-08-05T15:00Z",
+   "lastmod": "2026-08-12T15:03Z",
    "nid": "1420751",
    "title": "Deploying Zscaler Cloud Connector with Microsoft Azure"
   },
@@ -3821,10 +3699,11 @@
    "title": "Enabling Remote Assistance"
   },
   "/cloud-branch-connector/general-guidelines-nss-feeds-and-feed-formats": {
+   "canonical": "/cloud-branch-connector/general-guidelines-nss-feeds-and-feed-formats",
    "category": "branch",
-   "hash": "f446bf0137fab75a",
+   "hash": "3da5c7f343f4cb49",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T14:39Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1420831",
    "title": "General Guidelines for NSS Feeds and Feed Formats"
   },
@@ -3898,35 +3777,38 @@
    "title": "Networking Flows for Cloud Connector"
   },
   "/cloud-branch-connector/nss-feed-output-format-dns-logs": {
+   "canonical": "/cloud-branch-connector/nss-feed-output-format-dns-logs",
    "category": "branch",
-   "hash": "122e30e76ec23f58",
+   "hash": "ba9ec50f69702b47",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T14:44Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1420841",
    "title": "NSS Feed Output Format: DNS Logs"
   },
   "/cloud-branch-connector/nss-feed-output-format-event-logs": {
+   "canonical": "/cloud-branch-connector/nss-feed-output-format-event-logs",
    "category": "branch",
-   "hash": "9d8202f797ad0d11",
+   "hash": "671555e08b61692b",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T14:47Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1459131",
    "title": "NSS Feed Output Format: Event Logs"
   },
   "/cloud-branch-connector/nss-feed-output-format-metrics-logs": {
+   "canonical": "/cloud-branch-connector/nss-feed-output-format-metrics-logs",
    "category": "branch",
-   "hash": "c10b53e9f26889fc",
+   "hash": "23c0ef561e85dfa6",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T14:50Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1459136",
    "title": "NSS Feed Output Format: Metrics Logs"
   },
   "/cloud-branch-connector/nss-feed-output-format-session-logs": {
    "canonical": "/cloud-branch-connector/nss-feed-output-format-session-logs",
    "category": "branch",
-   "hash": "d91756a815f8b5a7",
+   "hash": "385a88f930ec2f9f",
    "in_bulletins": false,
-   "lastmod": "2026-07-30T14:11Z",
+   "lastmod": "2026-08-13T21:06Z",
    "nid": "1420836",
    "title": "NSS Feed Output Format: Session Logs"
   },
@@ -3999,10 +3881,11 @@
    "title": "Rotating Zscaler Service Account Passwords"
   },
   "/cloud-branch-connector/session-data-types-filters": {
+   "canonical": "/cloud-branch-connector/session-data-types-filters",
    "category": "branch",
-   "hash": "5e486608495e2d19",
+   "hash": "67633c405666d930",
    "in_bulletins": false,
-   "lastmod": "2026-07-27T15:28Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1420701",
    "title": "Session Data Types and Filters"
   },
@@ -4016,19 +3899,20 @@
    "title": "Session Insights Logs: Columns"
   },
   "/cloud-branch-connector/session-insights-logs-filters": {
+   "canonical": "/cloud-branch-connector/session-insights-logs-filters",
    "category": "branch",
-   "hash": "09dcae8fec00ad95",
+   "hash": "5a60993afbec87ab",
    "in_bulletins": false,
-   "lastmod": "2026-07-27T15:29Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1420696",
    "title": "Session Insights Logs: Filters"
   },
   "/cloud-branch-connector/siem-integration-nss": {
    "canonical": "/cloud-branch-connector/siem-integration-nss",
    "category": "branch",
-   "hash": "fcea89565d047743",
+   "hash": "236e6df4cb83d6c6",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T21:04Z",
+   "lastmod": "2026-08-12T21:06Z",
    "nid": "1455426",
    "title": "SIEM Integration for NSS"
   },
@@ -4050,10 +3934,11 @@
    "title": "Step-by-Step Configuration Guide for Zscaler Client Connector for VDI"
   },
   "/cloud-branch-connector/step-step-configuration-guide-zscaler-cloud-connector": {
+   "canonical": "/cloud-branch-connector/step-step-configuration-guide-zscaler-cloud-connector",
    "category": "branch",
-   "hash": "93cdce37cd22cdaa",
+   "hash": "29c546c8b3011149",
    "in_bulletins": false,
-   "lastmod": "2026-04-08T10:21Z",
+   "lastmod": "2026-08-14T14:36Z",
    "nid": "1420756",
    "title": "Step-by-Step Configuration Guide for Zscaler Cloud Connector"
   },
@@ -4069,9 +3954,9 @@
   "/cloud-branch-connector/supported-regions-zero-trust-gateways": {
    "canonical": "/cloud-branch-connector/supported-regions-zero-trust-gateways",
    "category": "branch",
-   "hash": "fdd8b7a33a8d818d",
+   "hash": "8039ae5941c04fb6",
    "in_bulletins": true,
-   "lastmod": "2026-08-03T14:09Z",
+   "lastmod": "2026-08-14T11:06Z",
    "nid": "1538721",
    "title": "Supported Regions for Zero Trust Gateways"
   },
@@ -4118,10 +4003,11 @@
    "title": "Troubleshooting Zscaler Client Connector for VDI"
   },
   "/cloud-branch-connector/tunnel-data-types-filters": {
+   "canonical": "/cloud-branch-connector/tunnel-data-types-filters",
    "category": "branch",
-   "hash": "a48198327c8f8378",
+   "hash": "817d8bd5cd453002",
    "in_bulletins": false,
-   "lastmod": "2026-07-27T15:49Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1420661",
    "title": "Tunnel Data Types and Filters"
   },
@@ -4135,18 +4021,20 @@
    "title": "Tunnel Insights Logs: Columns"
   },
   "/cloud-branch-connector/tunnel-insights-logs-filters": {
+   "canonical": "/cloud-branch-connector/tunnel-insights-logs-filters",
    "category": "branch",
-   "hash": "7b230869eaabef45",
+   "hash": "f56bf75fca32683d",
    "in_bulletins": false,
-   "lastmod": "2026-07-27T15:41Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1420686",
    "title": "Tunnel Insights Logs: Filters"
   },
   "/cloud-branch-connector/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups": {
+   "canonical": "/cloud-branch-connector/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups",
    "category": "branch",
-   "hash": "4ded924fb5c210f2",
+   "hash": "4e4a34ab92b61b82",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T07:36Z",
+   "lastmod": "2026-08-11T21:06Z",
    "nid": "1529197",
    "title": "Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups"
   },
@@ -4194,19 +4082,20 @@
    "title": "Understanding Zero Trust SD-WAN Devices"
   },
   "/cloud-branch-connector/using-sublocation-scopes-group-cloud-connector-workloads-amazon-web": {
+   "canonical": "/cloud-branch-connector/using-sublocation-scopes-group-cloud-connector-workloads-amazon-web",
    "category": "branch",
-   "hash": "1dd1799fd0a64e23",
+   "hash": "7930befbc0492f70",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T07:38Z",
+   "lastmod": "2026-08-11T21:06Z",
    "nid": "1532858",
    "title": "Using Sublocation Scopes to Group Cloud Connector Workloads in Amazon Web Services"
   },
   "/cloud-branch-connector/what-zero-trust-gateways": {
    "canonical": "/cloud-branch-connector/what-zero-trust-gateways",
    "category": "branch",
-   "hash": "bce7a0ff8520dbd9",
+   "hash": "dcbb69f472ac7c7b",
    "in_bulletins": false,
-   "lastmod": "2026-08-03T13:51Z",
+   "lastmod": "2026-08-14T10:41Z",
    "nid": "1517756",
    "title": "What Are Zero Trust Gateways?"
   },
@@ -4541,15 +4430,6 @@
    "nid": "1540592",
    "title": "About Landmine Decoy Personalities"
   },
-  "/deception/about-landmine-decoys": {
-   "canonical": "/deception/about-landmine-decoys",
-   "category": "deception",
-   "hash": "0764e60534c785fb",
-   "in_bulletins": false,
-   "lastmod": "2026-08-03T00:19Z",
-   "nid": "1540401",
-   "title": "About Landmine Decoys"
-  },
   "/deception/about-landmine-settings": {
    "canonical": "/deception/about-landmine-settings",
    "category": "deception",
@@ -4706,11 +4586,11 @@
   "/deception/accessing-and-navigating-zscaler-deception-admin-portal": {
    "canonical": "/deception/accessing-and-navigating-zscaler-deception-admin-portal",
    "category": "deception",
-   "hash": "05a209488ab14680",
+   "hash": "bfa2fb4ad8573fa0",
    "in_bulletins": false,
-   "lastmod": "2026-08-03T00:19Z",
+   "lastmod": "2026-08-14T08:21Z",
    "nid": "1540337",
-   "title": "Accessing and Navigating the Zscaler Deception Admin Portal"
+   "title": "Accessing and Navigating the Deception Admin Portal"
   },
   "/deception/adding-active-directory-domain": {
    "canonical": "/deception/adding-active-directory-domain",
@@ -5723,9 +5603,9 @@
   "/deception/customizing-event-notification-templates": {
    "canonical": "/deception/customizing-event-notification-templates",
    "category": "deception",
-   "hash": "e31a95f67edaee03",
+   "hash": "567f213a9c74a150",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T19:43Z",
+   "lastmod": "2026-08-11T21:06Z",
    "nid": "1540462",
    "title": "Customizing Event Notification Templates"
   },
@@ -6426,9 +6306,9 @@
   "/deception/managing-api-tokens": {
    "canonical": "/deception/managing-api-tokens",
    "category": "deception",
-   "hash": "fd43584005476671",
+   "hash": "3dab9dd094b01912",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:02Z",
+   "lastmod": "2026-08-09T21:06Z",
    "nid": "1540490",
    "title": "Managing API Tokens"
   },
@@ -6515,9 +6395,9 @@
   "/deception/managing-orchestration-rules": {
    "canonical": "/deception/managing-orchestration-rules",
    "category": "deception",
-   "hash": "d49e8d8f7fffa9fb",
+   "hash": "83d4b5b82a45c264",
    "in_bulletins": false,
-   "lastmod": "2026-07-30T05:13Z",
+   "lastmod": "2026-08-13T21:06Z",
    "nid": "1540494",
    "title": "Managing Orchestration Rules"
   },
@@ -6542,18 +6422,18 @@
   "/deception/managing-service-connectors": {
    "canonical": "/deception/managing-service-connectors",
    "category": "deception",
-   "hash": "3eaab880408bfcd9",
+   "hash": "e0110345a4969b05",
    "in_bulletins": false,
-   "lastmod": "2026-07-30T06:31Z",
+   "lastmod": "2026-08-13T21:06Z",
    "nid": "1540461",
    "title": "Managing Service Connectors"
   },
   "/deception/managing-siem-integrations": {
    "canonical": "/deception/managing-siem-integrations",
    "category": "deception",
-   "hash": "3fd37544402abf7c",
+   "hash": "9d168e70f1b5e7ed",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T19:27Z",
+   "lastmod": "2026-08-11T21:06Z",
    "nid": "1540468",
    "title": "Managing SIEM Integrations"
   },
@@ -6641,11 +6521,12 @@
    "title": "Release Upgrade Summary (2025)"
   },
   "/deception/release-upgrade-summary-2026": {
+   "canonical": "/deception/release-upgrade-summary-2026",
    "category": "deception",
-   "hash": "177e0d60f6288b96",
+   "hash": "e8a377895422bf7d",
    "in_bulletins": false,
-   "lastmod": "2026-02-24T06:06Z",
-   "nid": "1539466",
+   "lastmod": "2026-08-09T22:51Z",
+   "nid": "1540673",
    "title": "Release Upgrade Summary (2026)"
   },
   "/deception/removing-landmine-agentless-registration-and-policy": {
@@ -6994,9 +6875,9 @@
   "/deception/understanding-zscaler-deception-architecture": {
    "canonical": "/deception/understanding-zscaler-deception-architecture",
    "category": "deception",
-   "hash": "918fc106897d34ff",
+   "hash": "835f1b62dc978ece",
    "in_bulletins": false,
-   "lastmod": "2026-06-24T21:06Z",
+   "lastmod": "2026-08-14T08:59Z",
    "nid": "1540336",
    "title": "Understanding the Zscaler Deception Architecture"
   },
@@ -7165,10 +7046,11 @@
    "title": "About Alert Notifications"
   },
   "/dspm/about-alerts": {
+   "canonical": "/dspm/about-alerts",
    "category": "data_security",
-   "hash": "0a5a3d04be82f253",
-   "in_bulletins": false,
-   "lastmod": "2026-04-15T00:25Z",
+   "hash": "0deb1a253d774f3c",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T21:54Z",
    "nid": "1477776",
    "title": "About Alerts"
   },
@@ -7213,10 +7095,11 @@
    "title": "About Data Classification Settings"
   },
   "/dspm/about-data-duplications": {
+   "canonical": "/dspm/about-data-duplications",
    "category": "data_security",
-   "hash": "6d7261883eb7f981",
+   "hash": "a758ddcff6e9cd76",
    "in_bulletins": true,
-   "lastmod": "2026-07-01T23:38Z",
+   "lastmod": "2026-08-12T21:14Z",
    "nid": "1529294",
    "title": "About Data Duplications"
   },
@@ -7277,10 +7160,11 @@
    "title": "About Resource Inventory"
   },
   "/dspm/about-saas-applications": {
+   "canonical": "/dspm/about-saas-applications",
    "category": "data_security",
-   "hash": "39bdf57142b22969",
+   "hash": "5c9d04374d6105d4",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T08:34Z",
+   "lastmod": "2026-08-12T22:37Z",
    "nid": "1538456",
    "title": "About SaaS Applications"
   },
@@ -7301,10 +7185,11 @@
    "title": "About Service Registration"
   },
   "/dspm/about-the-data-inventory": {
+   "canonical": "/dspm/about-the-data-inventory",
    "category": "data_security",
-   "hash": "f755a8ea2ef8f6fd",
+   "hash": "b9fbc9d7bb420025",
    "in_bulletins": false,
-   "lastmod": "2026-07-29T08:55Z",
+   "lastmod": "2026-08-10T02:19Z",
    "nid": "1542173",
    "title": "About the Data Inventory"
   },
@@ -7349,6 +7234,15 @@
    "nid": "1474991",
    "title": "Adding and Managing Custom Roles"
   },
+  "/dspm/adding-azure-target-subscriptions": {
+   "canonical": "/dspm/adding-azure-target-subscriptions",
+   "category": "data_security",
+   "hash": "e9651ec8c8498cd1",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T21:47Z",
+   "nid": "1542652",
+   "title": "Adding Azure Target Subscriptions"
+  },
   "/dspm/adding-custom-compliance-framework": {
    "category": "data_security",
    "hash": "04000d363c80dec5",
@@ -7358,10 +7252,11 @@
    "title": "Adding a Custom Compliance Framework"
   },
   "/dspm/adding-databricks-workspace-or-account": {
+   "canonical": "/dspm/adding-databricks-workspace-or-account",
    "category": "data_security",
-   "hash": "a05acc62a0f5e787",
-   "in_bulletins": false,
-   "lastmod": "2026-06-29T22:34Z",
+   "hash": "6e85df70ef4f2b14",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T22:29Z",
    "nid": "1532035",
    "title": "Adding a Databricks Workspace or Account"
   },
@@ -7390,10 +7285,11 @@
    "title": "Adding an LDAP Server"
   },
   "/dspm/adding-microsoft-entra-tenant-or-management-group": {
+   "canonical": "/dspm/adding-microsoft-entra-tenant-or-management-group",
    "category": "data_security",
-   "hash": "ef1099627958499d",
+   "hash": "b98d0c2cc71dc66e",
    "in_bulletins": false,
-   "lastmod": "2026-06-09T00:42Z",
+   "lastmod": "2026-08-12T21:40Z",
    "nid": "1517356",
    "title": "Adding Microsoft Entra Tenant or Management Group"
   },
@@ -7477,6 +7373,15 @@
    "nid": "1474926",
    "title": "Changing a Business Unit"
   },
+  "/dspm/changing-client-secret-azure-application": {
+   "canonical": "/dspm/changing-client-secret-azure-application",
+   "category": "data_security",
+   "hash": "6f8c10c0e4ca21df",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T21:48Z",
+   "nid": "1542654",
+   "title": "Changing Client Secret for Azure Application"
+  },
   "/dspm/changing-gcp-orchestrator-account": {
    "category": "data_security",
    "hash": "92093ad3c627eac2",
@@ -7486,10 +7391,11 @@
    "title": "Changing a GCP Orchestrator Account"
   },
   "/dspm/changing-orchestrator-subscription": {
+   "canonical": "/dspm/changing-orchestrator-subscription",
    "category": "data_security",
-   "hash": "e8d4ca9a0dbf0401",
+   "hash": "85ef8858e4e66922",
    "in_bulletins": false,
-   "lastmod": "2026-04-24T22:46Z",
+   "lastmod": "2026-08-12T21:42Z",
    "nid": "1479311",
    "title": "Changing an Azure Orchestrator Subscription"
   },
@@ -7725,6 +7631,15 @@
    "nid": "1519401",
    "title": "Configuring Server Role for Unmanaged Databases"
   },
+  "/dspm/configuring-workspace": {
+   "canonical": "/dspm/configuring-workspace",
+   "category": "data_security",
+   "hash": "8f14be90acfb407c",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T22:33Z",
+   "nid": "1542761",
+   "title": "Configuring the Workspace"
+  },
   "/dspm/creating-custom-policies": {
    "category": "data_security",
    "hash": "5f2580ee27b2fcd2",
@@ -7744,9 +7659,9 @@
   "/dspm/customizing-page-settings": {
    "canonical": "/dspm/customizing-page-settings",
    "category": "data_security",
-   "hash": "2982395f3600be4d",
+   "hash": "d01783b7670b0e9e",
    "in_bulletins": false,
-   "lastmod": "2026-07-30T21:42Z",
+   "lastmod": "2026-08-09T23:28Z",
    "nid": "1542085",
    "title": "Customizing Page Settings"
   },
@@ -7767,10 +7682,11 @@
    "title": "Deploying the AWS Tree Discovery Template"
   },
   "/dspm/deploying-azure-onboarding-template": {
+   "canonical": "/dspm/deploying-azure-onboarding-template",
    "category": "data_security",
-   "hash": "51698b11e3d68a81",
+   "hash": "3f1e8611a331c347",
    "in_bulletins": false,
-   "lastmod": "2026-04-24T22:45Z",
+   "lastmod": "2026-08-12T21:41Z",
    "nid": "1517981",
    "title": "Deploying the Azure Onboarding Template"
   },
@@ -7791,10 +7707,11 @@
    "title": "Deploying the Orchestrator Template"
   },
   "/dspm/deploying-tree-discovery-template": {
+   "canonical": "/dspm/deploying-tree-discovery-template",
    "category": "data_security",
-   "hash": "dfbee4fab6cd0d4e",
+   "hash": "ff6cb83bce29cfc8",
    "in_bulletins": false,
-   "lastmod": "2026-05-26T07:06Z",
+   "lastmod": "2026-08-12T21:41Z",
    "nid": "1517346",
    "title": "Deploying the Tree Discovery Template"
   },
@@ -7904,10 +7821,11 @@
    "title": "Enabling or Disabling a Scan Rule"
   },
   "/dspm/iam-roles-and-permissions-aws": {
+   "canonical": "/dspm/iam-roles-and-permissions-aws",
    "category": "data_security",
-   "hash": "7b7ba476424051f7",
-   "in_bulletins": false,
-   "lastmod": "2026-03-18T07:06Z",
+   "hash": "d9e494cf17702540",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T22:05Z",
    "nid": "1486391",
    "title": "IAM Roles and Permissions for AWS"
   },
@@ -7920,10 +7838,11 @@
    "title": "IAM Roles and Permissions for GCP"
   },
   "/dspm/iam-roles-and-permissions-microsoft-azure": {
+   "canonical": "/dspm/iam-roles-and-permissions-microsoft-azure",
    "category": "data_security",
-   "hash": "6f0cf01b56ff8862",
+   "hash": "7bf2963488ab2a77",
    "in_bulletins": false,
-   "lastmod": "2026-07-12T07:06Z",
+   "lastmod": "2026-08-12T21:43Z",
    "nid": "1486396",
    "title": "IAM Roles and Permissions for Microsoft Azure"
   },
@@ -8032,10 +7951,11 @@
    "title": "Managing Alerts"
   },
   "/dspm/managing-application-details-and-client-secret": {
+   "canonical": "/dspm/managing-application-details-and-client-secret",
    "category": "data_security",
-   "hash": "8776972a4e1dbbe9",
+   "hash": "e9abed11c6226cbe",
    "in_bulletins": false,
-   "lastmod": "2026-04-24T22:46Z",
+   "lastmod": "2026-08-12T21:43Z",
    "nid": "1479331",
    "title": "Managing Application Details and Client Secret"
   },
@@ -8104,10 +8024,11 @@
    "title": "Managing Monitoring Scope for GCP"
   },
   "/dspm/managing-monitoring-scope-microsoft-azure": {
+   "canonical": "/dspm/managing-monitoring-scope-microsoft-azure",
    "category": "data_security",
-   "hash": "12e0d4f8a663c7ff",
+   "hash": "7e91489db66277f6",
    "in_bulletins": false,
-   "lastmod": "2026-04-24T22:46Z",
+   "lastmod": "2026-08-12T21:43Z",
    "nid": "1479316",
    "title": "Managing Monitoring Scope for Microsoft Azure"
   },
@@ -8183,11 +8104,21 @@
    "nid": "1474896",
    "title": "Onboarding an AWS Organization"
   },
-  "/dspm/onboarding-gcp-organization": {
+  "/dspm/onboarding-azure-subscription": {
+   "canonical": "/dspm/onboarding-azure-subscription",
    "category": "data_security",
-   "hash": "99135750a28054f9",
+   "hash": "3d8d86c19be7d4de",
    "in_bulletins": true,
-   "lastmod": "2026-07-02T00:43Z",
+   "lastmod": "2026-08-12T21:38Z",
+   "nid": "1541173",
+   "title": "Onboarding an Azure Subscription"
+  },
+  "/dspm/onboarding-gcp-organization": {
+   "canonical": "/dspm/onboarding-gcp-organization",
+   "category": "data_security",
+   "hash": "0b506005d50ae705",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T22:09Z",
    "nid": "1498091",
    "title": "Onboarding a GCP Organization"
   },
@@ -8200,10 +8131,11 @@
    "title": "Onboarding a Microsoft 365 Tenant"
   },
   "/dspm/onboarding-microsoft-entra-tenant-or-management-group": {
+   "canonical": "/dspm/onboarding-microsoft-entra-tenant-or-management-group",
    "category": "data_security",
-   "hash": "4eb3bf4295915ccb",
+   "hash": "e865a53174cb2fc2",
    "in_bulletins": false,
-   "lastmod": "2026-06-09T00:55Z",
+   "lastmod": "2026-08-12T21:40Z",
    "nid": "1479301",
    "title": "Onboarding a Microsoft Entra Tenant or Management Group"
   },
@@ -8218,9 +8150,9 @@
   "/dspm/predefined-roles-and-permissions": {
    "canonical": "/dspm/predefined-roles-and-permissions",
    "category": "data_security",
-   "hash": "946dfe53d7d9319a",
-   "in_bulletins": false,
-   "lastmod": "2026-08-07T07:06Z",
+   "hash": "fc5eab9ab3fbd29d",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T22:21Z",
    "nid": "1474986",
    "title": "Predefined DSPM Roles and Permissions"
   },
@@ -8249,18 +8181,20 @@
    "title": "Release Upgrade Summary (2025)"
   },
   "/dspm/release-upgrade-summary-2026": {
+   "canonical": "/dspm/release-upgrade-summary-2026",
    "category": "data_security",
-   "hash": "74f3a5562fc7f6fa",
+   "hash": "545d3a70acc68370",
    "in_bulletins": false,
-   "lastmod": "2026-07-28T10:10Z",
+   "lastmod": "2026-08-12T21:38Z",
    "nid": "1534312",
    "title": "Release Upgrade Summary (2026)"
   },
   "/dspm/resetting-orchestrator-monitoring-scope": {
+   "canonical": "/dspm/resetting-orchestrator-monitoring-scope",
    "category": "data_security",
-   "hash": "0447fc9bfc099dca",
+   "hash": "4c88f96a3e450c8b",
    "in_bulletins": false,
-   "lastmod": "2026-04-24T22:46Z",
+   "lastmod": "2026-08-12T21:44Z",
    "nid": "1504071",
    "title": "Resetting Orchestrator & Monitoring Scope"
   },
@@ -8273,10 +8207,11 @@
    "title": "Resolving Configuration Issues for GCP"
   },
   "/dspm/resolving-configuration-issues-microsoft-azure": {
+   "canonical": "/dspm/resolving-configuration-issues-microsoft-azure",
    "category": "data_security",
-   "hash": "463f920d00a1bcf2",
+   "hash": "8f3498f281326450",
    "in_bulletins": false,
-   "lastmod": "2026-04-24T22:45Z",
+   "lastmod": "2026-08-12T21:42Z",
    "nid": "1504231",
    "title": "Resolving Configuration Issues for Microsoft Azure"
   },
@@ -8297,10 +8232,11 @@
    "title": "Selecting the AWS Orchestrator and Monitoring Scope"
   },
   "/dspm/selecting-orchestrator-and-monitoring-scope": {
+   "canonical": "/dspm/selecting-orchestrator-and-monitoring-scope",
    "category": "data_security",
-   "hash": "3cf82eaf7a02731d",
+   "hash": "aab85643e2e85086",
    "in_bulletins": false,
-   "lastmod": "2026-07-02T07:06Z",
+   "lastmod": "2026-08-12T21:41Z",
    "nid": "1517986",
    "title": "Selecting the Orchestrator and Monitoring Scope"
   },
@@ -8331,9 +8267,9 @@
   "/dspm/supported-data-stores-file-types-and-regions": {
    "canonical": "/dspm/supported-data-stores-file-types-and-regions",
    "category": "data_security",
-   "hash": "93395e3d24ad0d3f",
-   "in_bulletins": false,
-   "lastmod": "2026-08-07T07:06Z",
+   "hash": "775d81e84de34db1",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T21:52Z",
    "nid": "1498686",
    "title": "Supported Data Stores, File Types, and Regions"
   },
@@ -8402,10 +8338,11 @@
    "title": "Understanding Orchestrator"
   },
   "/dspm/understanding-predefined-dlp-engines-and-dictionaries": {
+   "canonical": "/dspm/understanding-predefined-dlp-engines-and-dictionaries",
    "category": "data_security",
-   "hash": "3094da481e2ef0eb",
-   "in_bulletins": false,
-   "lastmod": "2026-05-24T07:06Z",
+   "hash": "98514b562c1d04f1",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T23:24Z",
    "nid": "1539995",
    "title": "Understanding Predefined DLP Engines and Dictionaries"
   },
@@ -8506,20 +8443,31 @@
    "title": "Viewing the Alert Graph"
   },
   "/dspm/viewing-alerts-grouped-policy": {
+   "canonical": "/dspm/viewing-alerts-grouped-policy",
    "category": "data_security",
-   "hash": "5a3797a1e970769d",
-   "in_bulletins": false,
-   "lastmod": "2026-04-15T00:33Z",
+   "hash": "0faabbc113e186c6",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T21:55Z",
    "nid": "1478171",
    "title": "Viewing Alerts Grouped by Policy"
   },
   "/dspm/viewing-alerts-grouped-resource": {
+   "canonical": "/dspm/viewing-alerts-grouped-resource",
    "category": "data_security",
-   "hash": "c2b94b4f7f09e0ea",
-   "in_bulletins": false,
-   "lastmod": "2026-04-15T00:33Z",
+   "hash": "c239fd72aef3d191",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T21:56Z",
    "nid": "1478176",
    "title": "Viewing Alerts Grouped by Resource"
+  },
+  "/dspm/viewing-and-managing-data-inventory-details": {
+   "canonical": "/dspm/viewing-and-managing-data-inventory-details",
+   "category": "data_security",
+   "hash": "cb2f418fcf9c7804",
+   "in_bulletins": true,
+   "lastmod": "2026-08-13T03:06Z",
+   "nid": "1529820",
+   "title": "Viewing and Managing Data Inventory Details"
   },
   "/dspm/viewing-compliance-details": {
    "category": "data_security",
@@ -8536,14 +8484,6 @@
    "lastmod": "2026-07-28T04:27Z",
    "nid": "1477746",
    "title": "Viewing the Data Discovery Dashboard"
-  },
-  "/dspm/viewing-data-inventory-details": {
-   "category": "data_security",
-   "hash": "21bb1d4c382e5277",
-   "in_bulletins": true,
-   "lastmod": "2026-07-29T02:03Z",
-   "nid": "1529820",
-   "title": "Viewing the Data Inventory Details"
   },
   "/dspm/viewing-graph-ai-services": {
    "category": "data_security",
@@ -8570,10 +8510,11 @@
    "title": "Viewing the Graph for Azure Data Stores"
   },
   "/dspm/viewing-graph-databases": {
+   "canonical": "/dspm/viewing-graph-databases",
    "category": "data_security",
-   "hash": "3c0e01b23b085cb5",
-   "in_bulletins": false,
-   "lastmod": "2026-04-28T21:06Z",
+   "hash": "2aed0fb297c69156",
+   "in_bulletins": true,
+   "lastmod": "2026-08-13T00:41Z",
    "nid": "1532158",
    "title": "Viewing the Graph for Databases"
   },
@@ -8681,11 +8622,21 @@
    "nid": "1518586",
    "title": "Viewing the Roles and Templates"
   },
-  "/dspm/viewing-sensitive-data-details": {
+  "/dspm/viewing-saas-overview-dashboard": {
+   "canonical": "/dspm/viewing-saas-overview-dashboard",
    "category": "data_security",
-   "hash": "9a5c516cb26a71ad",
+   "hash": "b0c4e9b7c117481e",
    "in_bulletins": true,
-   "lastmod": "2026-06-30T22:58Z",
+   "lastmod": "2026-08-12T21:25Z",
+   "nid": "1542064",
+   "title": "Viewing the SaaS Overview Dashboard"
+  },
+  "/dspm/viewing-sensitive-data-details": {
+   "canonical": "/dspm/viewing-sensitive-data-details",
+   "category": "data_security",
+   "hash": "f8ee989a1379bb9f",
+   "in_bulletins": true,
+   "lastmod": "2026-08-13T03:31Z",
    "nid": "1478121",
    "title": "Viewing the Sensitive Data Details"
   },
@@ -9017,14 +8968,6 @@
    "nid": "1539050",
    "title": "Configuring Entity Drawers"
   },
-  "/identity-protection/connecting-anysource-using-aws-s3": {
-   "category": "exposure_mgmt",
-   "hash": "7d8e3750f2498087",
-   "in_bulletins": false,
-   "lastmod": "2026-05-22T07:06Z",
-   "nid": "1539064",
-   "title": "Connecting AnySource Using AWS S3"
-  },
   "/identity-protection/managing-itdr-configurations": {
    "category": "exposure_mgmt",
    "hash": "fb1ef2cb80115265",
@@ -9146,10 +9089,11 @@
    "title": "Admin Audit Logs"
   },
   "/legacy-apis/admin-role-management": {
+   "canonical": "/legacy-apis/admin-role-management",
    "category": "api",
-   "hash": "fc08f1ae69b64780",
+   "hash": "82037b299fef5720",
    "in_bulletins": false,
-   "lastmod": "2026-07-15T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1402446",
    "title": "Admin & Role Management"
   },
@@ -9243,10 +9187,11 @@
    "title": "API Key Management"
   },
   "/legacy-apis/api-rate-limit-summary": {
+   "canonical": "/legacy-apis/api-rate-limit-summary",
    "category": "api",
-   "hash": "729d3d6586a08afe",
-   "in_bulletins": true,
-   "lastmod": "2026-07-13T04:18Z",
+   "hash": "d5ef694fd079310d",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T07:06Z",
    "nid": "1400476",
    "title": "API Rate Limit Summary"
   },
@@ -9259,10 +9204,11 @@
    "title": "API Rate Limit Summary"
   },
   "/legacy-apis/api-rate-limit-summary-workflow-automation-api": {
+   "canonical": "/legacy-apis/api-rate-limit-summary-workflow-automation-api",
    "category": "api",
-   "hash": "9f361eda96961c3a",
+   "hash": "76880374fd14d8e3",
    "in_bulletins": false,
-   "lastmod": "2026-06-10T03:32Z",
+   "lastmod": "2026-08-14T08:53Z",
    "nid": "1452126",
    "title": "API Rate Limit Summary"
   },
@@ -9459,10 +9405,11 @@
    "title": "Certificate Management"
   },
   "/legacy-apis/cloud-app-control-policy": {
+   "canonical": "/legacy-apis/cloud-app-control-policy",
    "category": "api",
-   "hash": "9b9ec01e8e3b8a5b",
+   "hash": "1d95e8c3265c5da9",
    "in_bulletins": false,
-   "lastmod": "2026-05-31T07:06Z",
+   "lastmod": "2026-08-14T02:39Z",
    "nid": "1500121",
    "title": "Cloud App Control Policy"
   },
@@ -9494,9 +9441,9 @@
   "/legacy-apis/cloud-nanolog-streaming-service-nss": {
    "canonical": "/legacy-apis/cloud-nanolog-streaming-service-nss",
    "category": "api",
-   "hash": "e1929fb18226813b",
+   "hash": "bfef27d67ca49ad2",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1510451",
    "title": "Cloud Nanolog Streaming Service (NSS)"
   },
@@ -9884,10 +9831,11 @@
    "title": "Customers"
   },
   "/legacy-apis/data-loss-prevention": {
+   "canonical": "/legacy-apis/data-loss-prevention",
    "category": "api",
-   "hash": "63ccc56b1add897f",
-   "in_bulletins": false,
-   "lastmod": "2026-07-20T07:06Z",
+   "hash": "3e7d8ec6f29f7bb5",
+   "in_bulletins": true,
+   "lastmod": "2026-08-14T02:23Z",
    "nid": "1402466",
    "title": "Data Loss Prevention"
   },
@@ -9924,10 +9872,11 @@
    "title": "Devices"
   },
   "/legacy-apis/dlp-incidents-workflow-automation-api": {
+   "canonical": "/legacy-apis/dlp-incidents-workflow-automation-api",
    "category": "api",
-   "hash": "39b1e03eae1afc32",
+   "hash": "7cfc03eff1ca247c",
    "in_bulletins": false,
-   "lastmod": "2026-01-06T23:49Z",
+   "lastmod": "2026-08-14T08:47Z",
    "nid": "1451946",
    "title": "DLP Incidents"
   },
@@ -9963,6 +9912,15 @@
    "nid": "1400431",
    "title": "Downloading Audit Logs and Event Logs Using API"
   },
+  "/legacy-apis/email-quarantine": {
+   "canonical": "/legacy-apis/email-quarantine",
+   "category": "api",
+   "hash": "17440e517e73b5d1",
+   "in_bulletins": false,
+   "lastmod": "2026-08-14T08:46Z",
+   "nid": "1542825",
+   "title": "Email Quarantine"
+  },
   "/legacy-apis/emergency-access-user-management": {
    "category": "api",
    "hash": "7407962abed563d6",
@@ -9972,10 +9930,11 @@
    "title": "Emergency Access User Management"
   },
   "/legacy-apis/end-user-notifications": {
+   "canonical": "/legacy-apis/end-user-notifications",
    "category": "api",
-   "hash": "af39da72fbee5b7c",
-   "in_bulletins": true,
-   "lastmod": "2026-07-09T07:47Z",
+   "hash": "45299e6631165600",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T07:06Z",
    "nid": "1514651",
    "title": "End User Notifications"
   },
@@ -10197,10 +10156,11 @@
    "title": "IoT Report"
   },
   "/legacy-apis/ips-control-policy": {
+   "canonical": "/legacy-apis/ips-control-policy",
    "category": "api",
-   "hash": "95076e31045ccc64",
-   "in_bulletins": true,
-   "lastmod": "2026-07-13T04:16Z",
+   "hash": "7f10a020c4dd9f89",
+   "in_bulletins": false,
+   "lastmod": "2026-08-14T07:06Z",
    "nid": "1510461",
    "title": "IPS Control Policy"
   },
@@ -10824,10 +10784,11 @@
    "title": "Rule Labels"
   },
   "/legacy-apis/saas-security-api": {
+   "canonical": "/legacy-apis/saas-security-api",
    "category": "api",
-   "hash": "ef57beb96edae727",
-   "in_bulletins": false,
-   "lastmod": "2026-01-06T23:49Z",
+   "hash": "5718b8dc0200f6e6",
+   "in_bulletins": true,
+   "lastmod": "2026-08-14T02:30Z",
    "nid": "1529817",
    "title": "SaaS Security API"
   },
@@ -11110,10 +11071,11 @@
    "title": "Understanding Rate Limits"
   },
   "/legacy-apis/understanding-workflow-automation-api": {
+   "canonical": "/legacy-apis/understanding-workflow-automation-api",
    "category": "api",
-   "hash": "6b0617e0a2118a42",
+   "hash": "2472ab5d26574977",
    "in_bulletins": false,
-   "lastmod": "2026-06-11T11:33Z",
+   "lastmod": "2026-08-14T08:52Z",
    "nid": "1452066",
    "title": "Understanding Workflow Automation API"
   },
@@ -11314,10 +11276,11 @@
    "title": "Zscaler Virtual IP Address Range Management"
   },
   "/logs-fair-use/authentication-service-logs": {
+   "canonical": "/logs-fair-use/authentication-service-logs",
    "category": "platform",
-   "hash": "4dc998ab6e648226",
+   "hash": "2f0ddebacbd9a24b",
    "in_bulletins": false,
-   "lastmod": "2026-06-26T09:35Z",
+   "lastmod": "2026-08-11T12:05Z",
    "nid": "1541005",
    "title": "Authentication Service Logs"
   },
@@ -11646,6 +11609,15 @@
    "nid": "1541815",
    "title": "Zscaler Experience Center Logs"
   },
+  "/logs-fair-use/zscaler-health360-logs": {
+   "canonical": "/logs-fair-use/zscaler-health360-logs",
+   "category": "platform",
+   "hash": "3c9d07b75714242e",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T11:11Z",
+   "nid": "1538480",
+   "title": "Zscaler Health360 Logs"
+  },
   "/logs-fair-use/zscaler-identity-protection-licensing-and-fair-use": {
    "category": "platform",
    "hash": "5531ebb59239d89b",
@@ -11793,10 +11765,11 @@
    "title": "Zscaler Zero Trust Branch Logs"
   },
   "/logs-fair-use/zscaler-zero-trust-browser-logs": {
+   "canonical": "/logs-fair-use/zscaler-zero-trust-browser-logs",
    "category": "platform",
-   "hash": "271bf7b7ca1ae89a",
+   "hash": "35ae464c8805c008",
    "in_bulletins": false,
-   "lastmod": "2026-07-08T13:34Z",
+   "lastmod": "2026-08-12T12:53Z",
    "nid": "1539031",
    "title": "Zscaler Zero Trust Browser Logs"
   },
@@ -12218,10 +12191,11 @@
    "title": "Return Merchandise Authorization (RMA) Process and Policy"
   },
   "/product-usage-terms/hardware-usage-terms-policy": {
+   "canonical": "/product-usage-terms/hardware-usage-terms-policy",
    "category": "operations",
-   "hash": "9183cc93ccf588c2",
+   "hash": "f72a152d1e5ac338",
    "in_bulletins": false,
-   "lastmod": "2026-06-03T15:38Z",
+   "lastmod": "2026-08-12T17:15Z",
    "nid": "1539906",
    "title": "Hardware Usage Terms"
   },
@@ -12498,10 +12472,11 @@
    "title": "Release Upgrade Summary (2025)"
   },
   "/risk360/release-upgrade-summary-2026": {
+   "canonical": "/risk360/release-upgrade-summary-2026",
    "category": "exposure_mgmt",
-   "hash": "1ff5f1a6a8b9794a",
+   "hash": "1162e48eb6074ff6",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T09:50Z",
+   "lastmod": "2026-08-13T22:39Z",
    "nid": "1534327",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -12732,14 +12707,14 @@
    "nid": "1541819",
    "title": "AI Guard Policy Testing"
   },
-  "/secure-ai-apps-infra/architecture-ai-guard-apps-dasapi-mode": {
-   "canonical": "/secure-ai-apps-infra/architecture-ai-guard-apps-dasapi-mode",
+  "/secure-ai-apps-infra/architecture-ai-guard-apps-proxy-das-api-mode": {
+   "canonical": "/secure-ai-apps-infra/architecture-ai-guard-apps-proxy-das-api-mode",
    "category": "ai_security",
-   "hash": "1b7ddd8a71b2c3ac",
+   "hash": "e446d81fbd027197",
    "in_bulletins": false,
-   "lastmod": "2026-08-05T12:38Z",
-   "nid": "1542642",
-   "title": "Architecture of AI Guard for Apps in DAS/API Mode"
+   "lastmod": "2026-08-12T10:00Z",
+   "nid": "1542640",
+   "title": "Architecture of AI Guard for Apps in Proxy and DAS/API Modes"
   },
   "/secure-ai-apps-infra/best-practices-runbook-competitor-detector": {
    "category": "ai_security",
@@ -12774,10 +12749,11 @@
    "title": "Configuring a Broker"
   },
   "/secure-ai-apps-infra/configuring-connection": {
+   "canonical": "/secure-ai-apps-infra/configuring-connection",
    "category": "ai_security",
-   "hash": "4635f5e05117b250",
+   "hash": "9fefe8cdcd2a385c",
    "in_bulletins": false,
-   "lastmod": "2026-07-17T05:12Z",
+   "lastmod": "2026-08-16T00:15Z",
    "nid": "1540061",
    "title": "Configuring a Connection"
   },
@@ -12798,10 +12774,11 @@
    "title": "Connect an Asset"
   },
   "/secure-ai-apps-infra/copilot-studio": {
+   "canonical": "/secure-ai-apps-infra/copilot-studio",
    "category": "ai_security",
-   "hash": "2333b0c6bdb3c5f6",
+   "hash": "533bb89ecfacd227",
    "in_bulletins": false,
-   "lastmod": "2026-06-29T03:45Z",
+   "lastmod": "2026-08-14T18:13Z",
    "nid": "1541104",
    "title": "Copilot Studio"
   },
@@ -12813,12 +12790,21 @@
    "nid": "1540186",
    "title": "Creating a New Test Run"
   },
+  "/secure-ai-apps-infra/glean": {
+   "canonical": "/secure-ai-apps-infra/glean",
+   "category": "ai_security",
+   "hash": "827be5c90e565aa5",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T22:59Z",
+   "nid": "1541107",
+   "title": "Glean"
+  },
   "/secure-ai-apps-infra/managing-ai-guard-log-exports": {
    "canonical": "/secure-ai-apps-infra/managing-ai-guard-log-exports",
    "category": "ai_security",
-   "hash": "74ca6aef99345dc3",
+   "hash": "b9190498d54a6cc9",
    "in_bulletins": false,
-   "lastmod": "2026-08-06T15:11Z",
+   "lastmod": "2026-08-11T10:04Z",
    "nid": "1541825",
    "title": "Managing AI Guard Log Exports"
   },
@@ -12860,27 +12846,56 @@
   "/secure-ai-apps-infra/managing-tenant-settings": {
    "canonical": "/secure-ai-apps-infra/managing-tenant-settings",
    "category": "ai_security",
-   "hash": "94d7d0f1b23d4d42",
+   "hash": "8334d49e987c6d71",
    "in_bulletins": false,
-   "lastmod": "2026-08-06T15:09Z",
+   "lastmod": "2026-08-11T10:34Z",
    "nid": "1541820",
    "title": "Managing Tenant Settings"
   },
-  "/secure-ai-apps-infra/openai-rest-api": {
+  "/secure-ai-apps-infra/microsoft-teams": {
+   "canonical": "/secure-ai-apps-infra/microsoft-teams",
    "category": "ai_security",
-   "hash": "a84e88877a1511f9",
+   "hash": "7318025e3afbb8fc",
    "in_bulletins": false,
-   "lastmod": "2026-05-29T21:06Z",
+   "lastmod": "2026-08-16T00:13Z",
+   "nid": "1542864",
+   "title": "Microsoft Teams"
+  },
+  "/secure-ai-apps-infra/openai-rest-api": {
+   "canonical": "/secure-ai-apps-infra/openai-rest-api",
+   "category": "ai_security",
+   "hash": "eb1b9f7c858df8f9",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T19:44Z",
    "nid": "1540734",
    "title": "OpenAI REST API"
   },
   "/secure-ai-apps-infra/proxy-sdk": {
+   "canonical": "/secure-ai-apps-infra/proxy-sdk",
    "category": "ai_security",
-   "hash": "07c085167d314043",
+   "hash": "bb901d90bc85cae5",
    "in_bulletins": false,
-   "lastmod": "2026-06-08T03:24Z",
+   "lastmod": "2026-08-10T19:43Z",
    "nid": "1540722",
    "title": "Proxy SDK"
+  },
+  "/secure-ai-apps-infra/quick-start-guide-dasapi-mode": {
+   "canonical": "/secure-ai-apps-infra/quick-start-guide-dasapi-mode",
+   "category": "ai_security",
+   "hash": "9a548b6c03ae0cea",
+   "in_bulletins": false,
+   "lastmod": "2026-08-12T09:56Z",
+   "nid": "1542215",
+   "title": "Quick Start Guide for DAS/API Mode"
+  },
+  "/secure-ai-apps-infra/quick-start-guide-proxy-mode": {
+   "canonical": "/secure-ai-apps-infra/quick-start-guide-proxy-mode",
+   "category": "ai_security",
+   "hash": "076cacc8e1c7391b",
+   "in_bulletins": false,
+   "lastmod": "2026-08-12T09:57Z",
+   "nid": "1542208",
+   "title": "Quick Start Guide for Proxy Mode"
   },
   "/secure-ai-apps-infra/registering-broker": {
    "category": "ai_security",
@@ -12893,17 +12908,18 @@
   "/secure-ai-apps-infra/release-upgrade-summary-2026": {
    "canonical": "/secure-ai-apps-infra/release-upgrade-summary-2026",
    "category": "ai_security",
-   "hash": "52f6773f35826fa5",
+   "hash": "100b699a7ddd0860",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T12:45Z",
+   "lastmod": "2026-08-12T10:07Z",
    "nid": "1539124",
    "title": "Release Upgrade Summary (2026)"
   },
   "/secure-ai-apps-infra/rest-api": {
+   "canonical": "/secure-ai-apps-infra/rest-api",
    "category": "ai_security",
-   "hash": "1266183c450d562d",
+   "hash": "c7727a1d94c95d4c",
    "in_bulletins": false,
-   "lastmod": "2026-05-29T21:06Z",
+   "lastmod": "2026-08-10T19:42Z",
    "nid": "1540063",
    "title": "REST API"
   },
@@ -12931,6 +12947,15 @@
    "lastmod": "2026-08-06T14:49Z",
    "nid": "1541882",
    "title": "Test LLM Provider Endpoints in AI Guard Proxy Mode"
+  },
+  "/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues": {
+   "canonical": "/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues",
+   "category": "ai_security",
+   "hash": "ad50cc7cb5fc26b1",
+   "in_bulletins": true,
+   "lastmod": "2026-08-10T19:19Z",
+   "nid": "1541957",
+   "title": "Troubleshooting AI Red Teaming Broker Issues"
   },
   "/secure-ai-apps-infra/understanding-ai-security-broker": {
    "category": "ai_security",
@@ -13071,9 +13096,9 @@
   "/secure-ai-users/managing-ai-guard-log-exports": {
    "canonical": "/secure-ai-users/managing-ai-guard-log-exports",
    "category": "ai_security",
-   "hash": "1f77c2718b305cf6",
+   "hash": "2f4fdb283d4fed52",
    "in_bulletins": false,
-   "lastmod": "2026-08-03T11:29Z",
+   "lastmod": "2026-08-11T10:02Z",
    "nid": "1540889",
    "title": "Managing AI Guard Log Exports"
   },
@@ -13102,10 +13127,11 @@
    "title": "Managing Role-Based Access Control in AI Guard"
   },
   "/secure-ai-users/managing-tenant-settings": {
+   "canonical": "/secure-ai-users/managing-tenant-settings",
    "category": "ai_security",
-   "hash": "34cf6bcb3de9a0e8",
+   "hash": "acc1713ccd6606b3",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T09:54Z",
+   "lastmod": "2026-08-11T10:33Z",
    "nid": "1540885",
    "title": "Managing Tenant Settings"
   },
@@ -13128,9 +13154,9 @@
   "/secure-ai-users/release-upgrade-summary-2026": {
    "canonical": "/secure-ai-users/release-upgrade-summary-2026",
    "category": "ai_security",
-   "hash": "dc8657438e2129b5",
+   "hash": "c966c2814da6c7f6",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T12:44Z",
+   "lastmod": "2026-08-12T10:08Z",
    "nid": "1539123",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -13310,46 +13336,6 @@
    "nid": "1539817",
    "title": "Configuring the Microsoft Entra ID Connector"
   },
-  "/soc-workbench/configuring-microsoft-entra-id-sso": {
-   "category": "soc_workbench",
-   "hash": "6d1963630caa667d",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T14:24Z",
-   "nid": "1539762",
-   "title": "Configuring Microsoft Entra ID SSO"
-  },
-  "/soc-workbench/configuring-okta-sso": {
-   "category": "soc_workbench",
-   "hash": "44365f839370784d",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T14:26Z",
-   "nid": "1539763",
-   "title": "Configuring Okta SSO"
-  },
-  "/soc-workbench/configuring-pingfederate-sso": {
-   "category": "soc_workbench",
-   "hash": "dd2220599b06fabd",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T14:33Z",
-   "nid": "1539765",
-   "title": "Configuring PingFederate SSO"
-  },
-  "/soc-workbench/configuring-pingone-sso": {
-   "category": "soc_workbench",
-   "hash": "98a577e354b39308",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T14:28Z",
-   "nid": "1539764",
-   "title": "Configuring PingOne SSO"
-  },
-  "/soc-workbench/configuring-secureauth-sso": {
-   "category": "soc_workbench",
-   "hash": "7963e3d2750df0c0",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T14:35Z",
-   "nid": "1539766",
-   "title": "Configuring SecureAuth SSO"
-  },
   "/soc-workbench/configuring-sentinelone-connector": {
    "category": "soc_workbench",
    "hash": "921117181e443b09",
@@ -13390,14 +13376,6 @@
    "nid": "1539820",
    "title": "Configuring the Snyk Connector"
   },
-  "/soc-workbench/configuring-suppression-rules": {
-   "category": "soc_workbench",
-   "hash": "f2a1f1728f07297f",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T14:58Z",
-   "nid": "1539769",
-   "title": "Configuring Suppression Rules"
-  },
   "/soc-workbench/configuring-wiz-connector": {
    "category": "soc_workbench",
    "hash": "ae579ed140a6c7a9",
@@ -13422,22 +13400,6 @@
    "nid": "1539822",
    "title": "Configuring the Zscaler Client Connector Devices Connector"
   },
-  "/soc-workbench/connecting-anysource": {
-   "category": "soc_workbench",
-   "hash": "af1b2132ce4d11df",
-   "in_bulletins": false,
-   "lastmod": "2026-04-16T11:30Z",
-   "nid": "1539809",
-   "title": "Connecting AnySource"
-  },
-  "/soc-workbench/connecting-anysource-using-aws-s3": {
-   "category": "soc_workbench",
-   "hash": "eadbe0a988344bdc",
-   "in_bulletins": false,
-   "lastmod": "2026-04-16T12:16Z",
-   "nid": "1539810",
-   "title": "Connecting AnySource Using AWS S3"
-  },
   "/soc-workbench/creating-custom-incident": {
    "category": "soc_workbench",
    "hash": "83532aa57528a367",
@@ -13445,14 +13407,6 @@
    "lastmod": "2026-06-22T21:06Z",
    "nid": "1540861",
    "title": "Creating a Custom Incident"
-  },
-  "/soc-workbench/creating-data-sources": {
-   "category": "soc_workbench",
-   "hash": "510340e5d8bcac06",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T14:40Z",
-   "nid": "1539767",
-   "title": "Creating Data Sources"
   },
   "/soc-workbench/creating-formatting-rules": {
    "category": "soc_workbench",
@@ -13470,14 +13424,6 @@
    "nid": "1539529",
    "title": "Creating & Managing Saved Views"
   },
-  "/soc-workbench/creating-outegrations": {
-   "category": "soc_workbench",
-   "hash": "fb9699d835f8d597",
-   "in_bulletins": false,
-   "lastmod": "2026-04-16T11:18Z",
-   "nid": "1539807",
-   "title": "Creating Outegrations"
-  },
   "/soc-workbench/customizing-alert-and-incident-detail-pages": {
    "category": "soc_workbench",
    "hash": "d3c01277bbd002b6",
@@ -13494,22 +13440,6 @@
    "nid": "1541098",
    "title": "Customizing Incident and Alert Statuses"
   },
-  "/soc-workbench/enabling-email-notifications-failures": {
-   "category": "soc_workbench",
-   "hash": "cfbac0c58d791c41",
-   "in_bulletins": false,
-   "lastmod": "2026-03-28T05:59Z",
-   "nid": "1539530",
-   "title": "Enabling Email Notifications for Failures"
-  },
-  "/soc-workbench/generating-saml-details": {
-   "category": "soc_workbench",
-   "hash": "5c53343d319ddf2f",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T14:25Z",
-   "nid": "1539761",
-   "title": "Generating SAML Details"
-  },
   "/soc-workbench/grouping-data-entity-pages": {
    "category": "soc_workbench",
    "hash": "bd623beb6d5294e7",
@@ -13517,22 +13447,6 @@
    "lastmod": "2026-03-28T05:28Z",
    "nid": "1539528",
    "title": "Grouping Data on Entity Pages"
-  },
-  "/soc-workbench/managing-data-sources": {
-   "category": "soc_workbench",
-   "hash": "f1f5171b8356f1ab",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T14:56Z",
-   "nid": "1539768",
-   "title": "Managing Data Sources"
-  },
-  "/soc-workbench/managing-outegrations": {
-   "category": "soc_workbench",
-   "hash": "e06ba25bde3d2e97",
-   "in_bulletins": false,
-   "lastmod": "2026-04-16T11:26Z",
-   "nid": "1539808",
-   "title": "Managing Outegrations"
   },
   "/soc-workbench/managing-table-columns": {
    "category": "soc_workbench",
@@ -13566,14 +13480,6 @@
    "nid": "1540857",
    "title": "Taking Action Based on Incidents"
   },
-  "/soc-workbench/tracking-source-runs": {
-   "category": "soc_workbench",
-   "hash": "76ac7dcaf9301938",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T15:00Z",
-   "nid": "1539770",
-   "title": "Tracking Source Runs"
-  },
   "/soc-workbench/understanding-severity-scores": {
    "category": "soc_workbench",
    "hash": "43f5b88239445b7b",
@@ -13581,14 +13487,6 @@
    "lastmod": "2026-06-22T21:06Z",
    "nid": "1541099",
    "title": "Understanding Severity Scores"
-  },
-  "/soc-workbench/understanding-threatlabz-source": {
-   "category": "soc_workbench",
-   "hash": "f36c1eafbcf0ab6f",
-   "in_bulletins": false,
-   "lastmod": "2026-04-14T15:01Z",
-   "nid": "1539771",
-   "title": "Understanding the ThreatLabz Source"
   },
   "/soc-workbench/understanding-zscaler-soc-workbench": {
    "category": "soc_workbench",
@@ -14021,10 +13919,11 @@
    "title": "Adding an Adaptive Access Profile"
   },
   "/unified/adding-your-company-logo": {
+   "canonical": "/unified/adding-your-company-logo",
    "category": "platform",
-   "hash": "17ca5df50ff34e61",
+   "hash": "fd8d219da978559e",
    "in_bulletins": false,
-   "lastmod": "2026-04-27T21:06Z",
+   "lastmod": "2026-08-12T12:20Z",
    "nid": "1488046",
    "title": "Adding Your Company Logo"
   },
@@ -14117,9 +14016,9 @@
   "/unified/configuring-custom-dashboards": {
    "canonical": "/unified/configuring-custom-dashboards",
    "category": "platform",
-   "hash": "3d867950f18ce93d",
+   "hash": "61348380f7f20cc1",
    "in_bulletins": true,
-   "lastmod": "2026-08-07T02:10Z",
+   "lastmod": "2026-08-12T03:06Z",
    "nid": "1541899",
    "title": "Configuring Custom Dashboards"
   },
@@ -14141,6 +14040,42 @@
    "nid": "1541716",
    "title": "Configuring Field Unification"
   },
+  "/unified/configuring-microsoft-entra-id-sso": {
+   "canonical": "/unified/configuring-microsoft-entra-id-sso",
+   "category": "platform",
+   "hash": "cb67242cce794046",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T12:26Z",
+   "nid": "1541913",
+   "title": "Configuring Microsoft Entra ID SSO"
+  },
+  "/unified/configuring-okta-sso": {
+   "canonical": "/unified/configuring-okta-sso",
+   "category": "platform",
+   "hash": "25d4fe3aabfd8ad5",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T12:16Z",
+   "nid": "1541914",
+   "title": "Configuring Okta SSO"
+  },
+  "/unified/configuring-pingfederate-sso": {
+   "canonical": "/unified/configuring-pingfederate-sso",
+   "category": "platform",
+   "hash": "4090cd645c67d8f6",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T12:04Z",
+   "nid": "1541917",
+   "title": "Configuring PingFederate SSO"
+  },
+  "/unified/configuring-pingone-sso": {
+   "canonical": "/unified/configuring-pingone-sso",
+   "category": "platform",
+   "hash": "b29245c8e0fb3471",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T12:10Z",
+   "nid": "1541916",
+   "title": "Configuring PingOne SSO"
+  },
   "/unified/configuring-private-access-tenant": {
    "category": "platform",
    "hash": "9a361e53de307d78",
@@ -14148,6 +14083,15 @@
    "lastmod": "2026-02-11T06:40Z",
    "nid": "1490856",
    "title": "Configuring the Private Access Tenant"
+  },
+  "/unified/configuring-secureauth-sso": {
+   "canonical": "/unified/configuring-secureauth-sso",
+   "category": "platform",
+   "hash": "83baeff061d1ce4e",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T11:59Z",
+   "nid": "1541918",
+   "title": "Configuring SecureAuth SSO"
   },
   "/unified/configuring-security-operations-platform-gateway": {
    "canonical": "/unified/configuring-security-operations-platform-gateway",
@@ -14161,9 +14105,9 @@
   "/unified/configuring-suppression-rules": {
    "canonical": "/unified/configuring-suppression-rules",
    "category": "platform",
-   "hash": "5e81976784d74af3",
+   "hash": "b0c5d77945f36f82",
    "in_bulletins": true,
-   "lastmod": "2026-08-05T00:18Z",
+   "lastmod": "2026-08-12T17:20Z",
    "nid": "1541934",
    "title": "Configuring Suppression Rules"
   },
@@ -14203,9 +14147,9 @@
   "/unified/creating-data-sources": {
    "canonical": "/unified/creating-data-sources",
    "category": "platform",
-   "hash": "56b1aa85488192e9",
+   "hash": "7cc914ddc8eaf30c",
    "in_bulletins": true,
-   "lastmod": "2026-08-06T09:05Z",
+   "lastmod": "2026-08-12T17:24Z",
    "nid": "1541932",
    "title": "Creating Data Sources"
   },
@@ -14230,18 +14174,18 @@
   "/unified/creating-outegrations": {
    "canonical": "/unified/creating-outegrations",
    "category": "platform",
-   "hash": "f9a166fd956d6853",
+   "hash": "aa05968a24ce29b2",
    "in_bulletins": true,
-   "lastmod": "2026-08-05T23:43Z",
+   "lastmod": "2026-08-12T17:14Z",
    "nid": "1541968",
    "title": "Creating Outegrations"
   },
   "/unified/creating-reports": {
    "canonical": "/unified/creating-reports",
    "category": "platform",
-   "hash": "a414e5261caf1679",
+   "hash": "6dfb81014dfb5c29",
    "in_bulletins": true,
-   "lastmod": "2026-08-07T05:30Z",
+   "lastmod": "2026-08-12T03:05Z",
    "nid": "1541632",
    "title": "Creating Reports"
   },
@@ -14303,6 +14247,15 @@
    "nid": "1515906",
    "title": "Editing or Deleting an Adaptive Access Profile"
   },
+  "/unified/enabling-email-notifications-failures": {
+   "canonical": "/unified/enabling-email-notifications-failures",
+   "category": "platform",
+   "hash": "cc047c7fbd33286b",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T11:39Z",
+   "nid": "1541908",
+   "title": "Enabling Email Notifications for Failures"
+  },
   "/unified/enabling-remote-assistance": {
    "category": "platform",
    "hash": "1e399a9cee264a71",
@@ -14335,12 +14288,21 @@
    "nid": "1541965",
    "title": "Exploring Source Data in Mapping"
   },
+  "/unified/generating-saml-details": {
+   "canonical": "/unified/generating-saml-details",
+   "category": "platform",
+   "hash": "f0d0bf3fac00612b",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T12:32Z",
+   "nid": "1541912",
+   "title": "Generating SAML Details"
+  },
   "/unified/integrating-3rd-party-connectors-risk-factors": {
    "canonical": "/unified/integrating-3rd-party-connectors-risk-factors",
    "category": "platform",
-   "hash": "5fdebaf37adaf56e",
+   "hash": "20f58cece508cbde",
    "in_bulletins": false,
-   "lastmod": "2026-08-05T06:23Z",
+   "lastmod": "2026-08-13T21:50Z",
    "nid": "1542636",
    "title": "Integrating 3rd-Party Connectors for Risk Factors"
   },
@@ -14384,6 +14346,15 @@
    "nid": "1526921",
    "title": "Investigating Sections of a Risk Problem"
   },
+  "/unified/managing-ai-capabilities-secops-platform": {
+   "canonical": "/unified/managing-ai-capabilities-secops-platform",
+   "category": "platform",
+   "hash": "c34b14c2a5d80538",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T11:47Z",
+   "nid": "1541910",
+   "title": "Managing AI Capabilities in the Security Operations Platform"
+  },
   "/unified/managing-authentication-data-sources-and-outegrations": {
    "canonical": "/unified/managing-authentication-data-sources-and-outegrations",
    "category": "platform",
@@ -14413,9 +14384,9 @@
   "/unified/managing-data-sources": {
    "canonical": "/unified/managing-data-sources",
    "category": "platform",
-   "hash": "921904a9cb80bd99",
+   "hash": "2e0c7737ad290481",
    "in_bulletins": true,
-   "lastmod": "2026-08-04T23:59Z",
+   "lastmod": "2026-08-12T17:22Z",
    "nid": "1541933",
    "title": "Managing Data Sources"
   },
@@ -14465,9 +14436,9 @@
   "/unified/managing-reports": {
    "canonical": "/unified/managing-reports",
    "category": "platform",
-   "hash": "22dc51255c474055",
+   "hash": "c3024da7e8512d76",
    "in_bulletins": true,
-   "lastmod": "2026-08-07T06:02Z",
+   "lastmod": "2026-08-11T11:52Z",
    "nid": "1541633",
    "title": "Managing Reports"
   },
@@ -14518,9 +14489,9 @@
   "/unified/mapping-data-sources": {
    "canonical": "/unified/mapping-data-sources",
    "category": "platform",
-   "hash": "ee96210562d1a752",
+   "hash": "b5ef7de2f8ca6fe5",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T01:24Z",
+   "lastmod": "2026-08-12T06:09Z",
    "nid": "1541959",
    "title": "Mapping Data Sources"
   },
@@ -14543,9 +14514,9 @@
   "/unified/ranges-limitations": {
    "canonical": "/unified/ranges-limitations",
    "category": "platform",
-   "hash": "e2337b7fc2dbf8ce",
+   "hash": "aadf116401d70c3f",
    "in_bulletins": true,
-   "lastmod": "2026-08-06T09:27Z",
+   "lastmod": "2026-08-14T00:17Z",
    "nid": "1492411",
    "title": "Ranges & Limitations"
   },
@@ -14675,9 +14646,9 @@
   "/unified/tracking-data-source-runs": {
    "canonical": "/unified/tracking-data-source-runs",
    "category": "platform",
-   "hash": "b911a3192ea42618",
+   "hash": "777079113e20b4a7",
    "in_bulletins": true,
-   "lastmod": "2026-08-05T23:39Z",
+   "lastmod": "2026-08-12T17:08Z",
    "nid": "1541966",
    "title": "Tracking Data Source Runs"
   },
@@ -14735,9 +14706,9 @@
   "/unified/understanding-historical-data": {
    "canonical": "/unified/understanding-historical-data",
    "category": "platform",
-   "hash": "350d7a456e8705b8",
+   "hash": "0578996188a87f16",
    "in_bulletins": true,
-   "lastmod": "2026-08-07T02:13Z",
+   "lastmod": "2026-08-12T07:57Z",
    "nid": "1542007",
    "title": "Understanding Historical Data"
   },
@@ -14776,14 +14747,14 @@
    "nid": "1541732",
    "title": "Understanding System Roles"
   },
-  "/unified/understanding-threatlabz-source": {
-   "canonical": "/unified/understanding-threatlabz-source",
+  "/unified/understanding-threatlabz-data-source": {
+   "canonical": "/unified/understanding-threatlabz-data-source",
    "category": "platform",
-   "hash": "08e7c818da16004f",
+   "hash": "82f794b303e9aae0",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T00:18Z",
+   "lastmod": "2026-08-13T05:08Z",
    "nid": "1541967",
-   "title": "Understanding the ThreatLabz Source"
+   "title": "Understanding the ThreatLabz Data Source"
   },
   "/unified/understanding-zscaler-cloud-names": {
    "category": "platform",
@@ -14893,6 +14864,33 @@
    "nid": "1526651",
    "title": "Viewing an Asset's Risk"
   },
+  "/unified/viewing-audit-logs": {
+   "canonical": "/unified/viewing-audit-logs",
+   "category": "platform",
+   "hash": "b822575685b935db",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T11:43Z",
+   "nid": "1541909",
+   "title": "Viewing Audit Logs"
+  },
+  "/unified/viewing-best-practice-details": {
+   "canonical": "/unified/viewing-best-practice-details",
+   "category": "platform",
+   "hash": "51b498b760d82a3e",
+   "in_bulletins": true,
+   "lastmod": "2026-08-13T23:55Z",
+   "nid": "1542705",
+   "title": "Viewing Best Practice Details"
+  },
+  "/unified/viewing-best-practices-optimal-health": {
+   "canonical": "/unified/viewing-best-practices-optimal-health",
+   "category": "platform",
+   "hash": "1600847f87351f14",
+   "in_bulletins": true,
+   "lastmod": "2026-08-15T05:26Z",
+   "nid": "1541607",
+   "title": "Viewing Best Practices for Optimal Health"
+  },
   "/unified/viewing-connector-activity-dashboard": {
    "category": "platform",
    "hash": "29f502f8bbbfa369",
@@ -14900,6 +14898,15 @@
    "lastmod": "2026-02-11T06:04Z",
    "nid": "1517171",
    "title": "Viewing the Connector Activity Dashboard"
+  },
+  "/unified/viewing-connectors-tunnels-zscaler-client-connector-health": {
+   "canonical": "/unified/viewing-connectors-tunnels-zscaler-client-connector-health",
+   "category": "platform",
+   "hash": "56f30b7ddfde34b5",
+   "in_bulletins": true,
+   "lastmod": "2026-08-15T05:23Z",
+   "nid": "1541637",
+   "title": "Viewing Connectors, Tunnels, & Zscaler Client Connector Health"
   },
   "/unified/viewing-cybersecurity-dashboard": {
    "category": "platform",
@@ -14957,6 +14964,15 @@
    "nid": "1535051",
    "title": "Viewing the Endpoint Data Security Dashboard"
   },
+  "/unified/viewing-executive-insights-zscaler-services": {
+   "canonical": "/unified/viewing-executive-insights-zscaler-services",
+   "category": "platform",
+   "hash": "50516e930c366a3d",
+   "in_bulletins": true,
+   "lastmod": "2026-08-15T05:33Z",
+   "nid": "1541710",
+   "title": "Viewing Executive Insights for Zscaler Services"
+  },
   "/unified/viewing-experience-center-home-page": {
    "category": "platform",
    "hash": "8f36eaeeddf47af6",
@@ -14972,6 +14988,15 @@
    "lastmod": "2026-02-16T21:53Z",
    "nid": "1526666",
    "title": "Viewing Financial Risk"
+  },
+  "/unified/viewing-health360-dashboard": {
+   "canonical": "/unified/viewing-health360-dashboard",
+   "category": "platform",
+   "hash": "c1366f596324b0c8",
+   "in_bulletins": true,
+   "lastmod": "2026-08-13T23:28Z",
+   "nid": "1541348",
+   "title": "Viewing the Health360 Dashboard"
   },
   "/unified/viewing-incidents-dashboard": {
    "category": "platform",
@@ -15040,10 +15065,11 @@
    "title": "Viewing Risk Insights"
   },
   "/unified/viewing-risk360-dashboard": {
+   "canonical": "/unified/viewing-risk360-dashboard",
    "category": "platform",
-   "hash": "7f296ec16bf26465",
+   "hash": "6913abdee0341ab3",
    "in_bulletins": false,
-   "lastmod": "2026-02-11T20:49Z",
+   "lastmod": "2026-08-12T21:55Z",
    "nid": "1526546",
    "title": "Viewing the Risk360 Dashboard"
   },
@@ -15070,6 +15096,15 @@
    "lastmod": "2026-02-11T06:10Z",
    "nid": "1498761",
    "title": "Viewing the Self Service Dashboard"
+  },
+  "/unified/viewing-service-health-china-connectivity": {
+   "canonical": "/unified/viewing-service-health-china-connectivity",
+   "category": "platform",
+   "hash": "8e9a3a2138babed3",
+   "in_bulletins": true,
+   "lastmod": "2026-08-15T05:29Z",
+   "nid": "1541705",
+   "title": "Viewing Service Health for China Connectivity"
   },
   "/unified/viewing-ssl-inspection-dashboard": {
    "category": "platform",
@@ -15103,6 +15138,24 @@
    "nid": "1498786",
    "title": "Viewing the Transactional Activity Dashboard"
   },
+  "/unified/viewing-zscaler-service-adoption": {
+   "canonical": "/unified/viewing-zscaler-service-adoption",
+   "category": "platform",
+   "hash": "23170c1b2e0f2ab6",
+   "in_bulletins": true,
+   "lastmod": "2026-08-15T05:34Z",
+   "nid": "1541706",
+   "title": "Viewing Zscaler Service Adoption"
+  },
+  "/unified/viewing-zscaler-service-adoption-details": {
+   "canonical": "/unified/viewing-zscaler-service-adoption-details",
+   "category": "platform",
+   "hash": "c35460ede842bcda",
+   "in_bulletins": true,
+   "lastmod": "2026-08-14T03:50Z",
+   "nid": "1541708",
+   "title": "Viewing Zscaler Service Adoption Details"
+  },
   "/unified/what-data-unification": {
    "canonical": "/unified/what-data-unification",
    "category": "platform",
@@ -15111,6 +15164,15 @@
    "lastmod": "2026-07-29T12:04Z",
    "nid": "1541703",
    "title": "What Is Data Unification?"
+  },
+  "/unified/what-health360": {
+   "canonical": "/unified/what-health360",
+   "category": "platform",
+   "hash": "6a07b96c80a0401f",
+   "in_bulletins": true,
+   "lastmod": "2026-08-13T23:17Z",
+   "nid": "1541019",
+   "title": "What Is Health360?"
   },
   "/unified/what-zscaler-experience-center": {
    "category": "platform",
@@ -15151,14 +15213,6 @@
    "lastmod": "2026-07-13T21:06Z",
    "nid": "1531068",
    "title": "Accessing and Navigating the Security Operations Platform"
-  },
-  "/uvm/configuring-apache-kafka-outegration": {
-   "category": "exposure_mgmt",
-   "hash": "dcea7279a35b2370",
-   "in_bulletins": false,
-   "lastmod": "2026-06-29T07:06Z",
-   "nid": "1540205",
-   "title": "Configuring the Apache Kafka Outegration"
   },
   "/uvm/configuring-apiiro-connector": {
    "category": "exposure_mgmt",
@@ -15226,18 +15280,20 @@
    "title": "Configuring the Azure Cloud Assets Connector"
   },
   "/uvm/configuring-azure-devops-outegration": {
+   "canonical": "/uvm/configuring-azure-devops-outegration",
    "category": "exposure_mgmt",
-   "hash": "6bf83b6063663ce7",
+   "hash": "ca84e6c3bb2ca62b",
    "in_bulletins": false,
-   "lastmod": "2025-11-20T03:47Z",
+   "lastmod": "2026-08-16T00:47Z",
    "nid": "1532592",
    "title": "Configuring Azure DevOps Outegration"
   },
   "/uvm/configuring-azure-devops-outegration-webhook": {
+   "canonical": "/uvm/configuring-azure-devops-outegration-webhook",
    "category": "exposure_mgmt",
-   "hash": "5e537ebf6c52565d",
+   "hash": "1236dcecf7a3b1fe",
    "in_bulletins": false,
-   "lastmod": "2025-10-13T21:54Z",
+   "lastmod": "2026-08-16T00:48Z",
    "nid": "1532593",
    "title": "Configuring the Azure DevOps Outegration Webhook"
   },
@@ -15372,14 +15428,6 @@
    "nid": "1527911",
    "title": "Configuring Entity Drawers in UVM"
   },
-  "/uvm/configuring-entra-id-sso": {
-   "category": "exposure_mgmt",
-   "hash": "308732543b51d2bd",
-   "in_bulletins": false,
-   "lastmod": "2025-11-13T03:33Z",
-   "nid": "1527931",
-   "title": "Configuring Microsoft Entra ID SSO"
-  },
   "/uvm/configuring-flexera-assets-connector": {
    "canonical": "/uvm/configuring-flexera-assets-connector",
    "category": "exposure_mgmt",
@@ -15399,18 +15447,20 @@
    "title": "Configuring the Freshservice Connector"
   },
   "/uvm/configuring-freshservice-outegration": {
+   "canonical": "/uvm/configuring-freshservice-outegration",
    "category": "exposure_mgmt",
-   "hash": "3038df1495ac52c3",
+   "hash": "910651299a5ff966",
    "in_bulletins": false,
-   "lastmod": "2026-02-17T06:06Z",
+   "lastmod": "2026-08-16T00:49Z",
    "nid": "1528076",
    "title": "Configuring the Freshservice Outegration"
   },
   "/uvm/configuring-freshservice-outegration-webhook": {
+   "canonical": "/uvm/configuring-freshservice-outegration-webhook",
    "category": "exposure_mgmt",
-   "hash": "45e941e5c1ba9072",
+   "hash": "d54dce7b292acddb",
    "in_bulletins": false,
-   "lastmod": "2026-02-17T06:06Z",
+   "lastmod": "2026-08-16T00:50Z",
    "nid": "1533938",
    "title": "Configuring the Freshservice Outegration Webhook"
   },
@@ -15441,9 +15491,9 @@
   "/uvm/configuring-google-cloud-storage-outegration": {
    "canonical": "/uvm/configuring-google-cloud-storage-outegration",
    "category": "exposure_mgmt",
-   "hash": "e1dd07830d3acb01",
+   "hash": "c8b8a09220e62ee4",
    "in_bulletins": false,
-   "lastmod": "2026-07-31T07:06Z",
+   "lastmod": "2026-08-16T00:37Z",
    "nid": "1541146",
    "title": "Configuring Google Cloud Storage Outegration"
   },
@@ -15525,18 +15575,20 @@
    "title": "Configuring the Jira Issues Connector"
   },
   "/uvm/configuring-jira-outegration": {
+   "canonical": "/uvm/configuring-jira-outegration",
    "category": "exposure_mgmt",
-   "hash": "4eec83b66e6a493c",
+   "hash": "fedc39e693709654",
    "in_bulletins": false,
-   "lastmod": "2025-11-25T20:06Z",
+   "lastmod": "2026-08-16T00:57Z",
    "nid": "1527961",
    "title": "Configuring the Jira Outegration"
   },
   "/uvm/configuring-jira-outegration-webhook": {
+   "canonical": "/uvm/configuring-jira-outegration-webhook",
    "category": "exposure_mgmt",
-   "hash": "8f065f0de9dd41df",
+   "hash": "245a23980d8c1acc",
    "in_bulletins": false,
-   "lastmod": "2025-10-07T21:06Z",
+   "lastmod": "2026-08-16T00:58Z",
    "nid": "1527986",
    "title": "Configuring the Jira Outegration Webhook"
   },
@@ -15615,30 +15667,6 @@
    "nid": "1528006",
    "title": "Configuring the NetBox Connector"
   },
-  "/uvm/configuring-okta-sso": {
-   "category": "exposure_mgmt",
-   "hash": "2f8cae541f374a1b",
-   "in_bulletins": false,
-   "lastmod": "2026-07-20T12:39Z",
-   "nid": "1527936",
-   "title": "Configuring Okta SSO"
-  },
-  "/uvm/configuring-ping-federate-sso": {
-   "category": "exposure_mgmt",
-   "hash": "8ac56bb2ee1fa52b",
-   "in_bulletins": false,
-   "lastmod": "2025-11-27T20:06Z",
-   "nid": "1527916",
-   "title": "Configuring PingFederate SSO"
-  },
-  "/uvm/configuring-pingone-sso": {
-   "category": "exposure_mgmt",
-   "hash": "dd886abdc7702482",
-   "in_bulletins": false,
-   "lastmod": "2026-01-12T06:06Z",
-   "nid": "1527906",
-   "title": "Configuring PingOne SSO"
-  },
   "/uvm/configuring-prisma-cloud-connector": {
    "category": "exposure_mgmt",
    "hash": "c9592ea6bb303a66",
@@ -15703,14 +15731,6 @@
    "nid": "1534108",
    "title": "Configuring the runZero Vulnerabilities Connector"
   },
-  "/uvm/configuring-secureauth-sso": {
-   "category": "exposure_mgmt",
-   "hash": "1f1b1f2984a4c741",
-   "in_bulletins": false,
-   "lastmod": "2026-01-12T06:06Z",
-   "nid": "1527786",
-   "title": "Configuring SecureAuth SSO"
-  },
   "/uvm/configuring-securityscorecard-alerts-connector": {
    "category": "exposure_mgmt",
    "hash": "c17ec38334c19957",
@@ -15744,10 +15764,11 @@
    "title": "Configuring Service Level Agreement Settings"
   },
   "/uvm/configuring-servicenow-cmdb-outegration": {
+   "canonical": "/uvm/configuring-servicenow-cmdb-outegration",
    "category": "exposure_mgmt",
-   "hash": "54c4e41c927f7abd",
+   "hash": "52b9b74557b3a531",
    "in_bulletins": false,
-   "lastmod": "2026-01-23T06:06Z",
+   "lastmod": "2026-08-16T01:01Z",
    "nid": "1534007",
    "title": "Configuring ServiceNow CMDB Outegration"
   },
@@ -15770,18 +15791,20 @@
    "title": "Configuring the ServiceNow Generic Connector"
   },
   "/uvm/configuring-servicenow-outegration": {
+   "canonical": "/uvm/configuring-servicenow-outegration",
    "category": "exposure_mgmt",
-   "hash": "45dfd9c4d040af7d",
+   "hash": "70f4ec4a651c9c1b",
    "in_bulletins": false,
-   "lastmod": "2026-02-05T01:30Z",
+   "lastmod": "2026-08-16T00:59Z",
    "nid": "1528026",
    "title": "Configuring the ServiceNow Outegration"
   },
   "/uvm/configuring-servicenow-outegration-webhook": {
+   "canonical": "/uvm/configuring-servicenow-outegration-webhook",
    "category": "exposure_mgmt",
-   "hash": "f0759f967d1eb6c9",
+   "hash": "7e44c988ffe76859",
    "in_bulletins": false,
-   "lastmod": "2025-11-18T07:53Z",
+   "lastmod": "2026-08-16T01:00Z",
    "nid": "1528051",
    "title": "Configuring the ServiceNow Outegration Webhook"
   },
@@ -15901,18 +15924,20 @@
    "title": "Configuring the Zscaler Client Connector Devices Connector"
   },
   "/uvm/connecting-anysource": {
+   "canonical": "/uvm/connecting-anysource",
    "category": "exposure_mgmt",
-   "hash": "d1686d5b1f39ee4d",
+   "hash": "f8b604ba06eb9005",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T07:17Z",
+   "lastmod": "2026-08-16T01:14Z",
    "nid": "1528226",
    "title": "Connecting AnySource"
   },
   "/uvm/connecting-anysource-using-aws-s3": {
+   "canonical": "/uvm/connecting-anysource-using-aws-s3",
    "category": "exposure_mgmt",
-   "hash": "e22b67693f47a3c0",
+   "hash": "deda4c9132719985",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T07:17Z",
+   "lastmod": "2026-08-16T01:12Z",
    "nid": "1528386",
    "title": "Connecting AnySource Using AWS S3"
   },
@@ -15941,14 +15966,6 @@
    "nid": "1528131",
    "title": "Creating & Managing Third-Party Tickets"
   },
-  "/uvm/enabling-email-notifications-failures": {
-   "category": "exposure_mgmt",
-   "hash": "f9e6d895cb3db246",
-   "in_bulletins": false,
-   "lastmod": "2026-02-17T06:06Z",
-   "nid": "1529806",
-   "title": "Enabling Email Notifications for Failures"
-  },
   "/uvm/exporting-reports-discovery-profiles": {
    "category": "exposure_mgmt",
    "hash": "ec6d1d72d290a690",
@@ -15957,14 +15974,6 @@
    "nid": "1538692",
    "title": "Exporting Reports for Discovery Profiles"
   },
-  "/uvm/generating-saml-details": {
-   "category": "exposure_mgmt",
-   "hash": "dca2f10526ece9e4",
-   "in_bulletins": false,
-   "lastmod": "2025-12-04T20:06Z",
-   "nid": "1530692",
-   "title": "Generating SAML Details"
-  },
   "/uvm/grouping-data-entity-pages": {
    "category": "exposure_mgmt",
    "hash": "32e83a9e121576a9",
@@ -15972,14 +15981,6 @@
    "lastmod": "2025-08-25T22:52Z",
    "nid": "1528096",
    "title": "Grouping Data on Entity Pages"
-  },
-  "/uvm/managing-ai-capabilities-secops-platform": {
-   "category": "exposure_mgmt",
-   "hash": "2538ac7a7cb409a6",
-   "in_bulletins": false,
-   "lastmod": "2026-06-29T03:44Z",
-   "nid": "1533911",
-   "title": "Managing AI Capabilities in the SecOps Platform"
   },
   "/uvm/managing-discovery-profiles": {
    "category": "exposure_mgmt",
@@ -16048,9 +16049,9 @@
   "/uvm/release-upgrade-summary-2026": {
    "canonical": "/uvm/release-upgrade-summary-2026",
    "category": "exposure_mgmt",
-   "hash": "a93345c38bb29e24",
+   "hash": "aabca4de5d8f55bf",
    "in_bulletins": false,
-   "lastmod": "2026-08-03T17:28Z",
+   "lastmod": "2026-08-11T08:33Z",
    "nid": "1534299",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -16079,10 +16080,11 @@
    "title": "Supported Browsers for Zscaler SecOps"
   },
   "/uvm/triggering-asset-scans-uvm": {
+   "canonical": "/uvm/triggering-asset-scans-uvm",
    "category": "exposure_mgmt",
-   "hash": "db2b6ce5a6b957fb",
+   "hash": "900a44d2c2c8915c",
    "in_bulletins": false,
-   "lastmod": "2026-04-11T07:06Z",
+   "lastmod": "2026-08-13T05:20Z",
    "nid": "1535394",
    "title": "Triggering Asset Scans in UVM"
   },
@@ -16112,10 +16114,11 @@
    "title": "Understanding Severity Scores"
   },
   "/uvm/understanding-uvm-measurement-terminology": {
+   "canonical": "/uvm/understanding-uvm-measurement-terminology",
    "category": "exposure_mgmt",
-   "hash": "cdc34f6bd8da967e",
+   "hash": "c6e8b34502649d00",
    "in_bulletins": false,
-   "lastmod": "2025-12-22T06:06Z",
+   "lastmod": "2026-08-16T01:06Z",
    "nid": "1533637",
    "title": "Understanding UVM Measurement Terminology"
   },
@@ -16142,14 +16145,6 @@
    "lastmod": "2026-04-12T07:06Z",
    "nid": "1533873",
    "title": "Using Remediation Copilot in UVM"
-  },
-  "/uvm/viewing-audit-logs": {
-   "category": "exposure_mgmt",
-   "hash": "81367df764e6722d",
-   "in_bulletins": false,
-   "lastmod": "2026-05-23T07:06Z",
-   "nid": "1539932",
-   "title": "Viewing Audit Logs"
   },
   "/uvm/viewing-findings-uvm": {
    "category": "exposure_mgmt",
@@ -16250,9 +16245,9 @@
   "/workflow-automation/adding-email-notification-templates": {
    "canonical": "/workflow-automation/adding-email-notification-templates",
    "category": "operations",
-   "hash": "9131b66b92b4d18c",
+   "hash": "6064a34db5ec1a5b",
    "in_bulletins": true,
-   "lastmod": "2026-08-06T09:50Z",
+   "lastmod": "2026-08-11T08:16Z",
    "nid": "1495191",
    "title": "Adding Email Notification Templates"
   },
@@ -16267,18 +16262,18 @@
   "/workflow-automation/adding-microsoft-teams-notification-templates": {
    "canonical": "/workflow-automation/adding-microsoft-teams-notification-templates",
    "category": "operations",
-   "hash": "5454125275e573f7",
+   "hash": "4ea1d507265227f0",
    "in_bulletins": true,
-   "lastmod": "2026-08-06T09:20Z",
+   "lastmod": "2026-08-11T06:46Z",
    "nid": "1495211",
    "title": "Adding Microsoft Teams Notification Templates"
   },
   "/workflow-automation/adding-slack-notification-templates": {
    "canonical": "/workflow-automation/adding-slack-notification-templates",
    "category": "operations",
-   "hash": "9f13c1472be52610",
+   "hash": "e4368c1ff35b0720",
    "in_bulletins": true,
-   "lastmod": "2026-08-06T09:31Z",
+   "lastmod": "2026-08-11T06:35Z",
    "nid": "1495206",
    "title": "Adding Slack Notification Templates"
   },
@@ -16339,10 +16334,11 @@
    "title": "Configuring the DLP Application Integration Using Google Cloud Platform"
   },
   "/workflow-automation/managing-account-settings": {
+   "canonical": "/workflow-automation/managing-account-settings",
    "category": "operations",
-   "hash": "f9b39e9f15e89cfe",
+   "hash": "8dc6c7920bfe531a",
    "in_bulletins": false,
-   "lastmod": "2026-05-25T07:06Z",
+   "lastmod": "2026-08-12T08:09Z",
    "nid": "1418021",
    "title": "Managing Account Settings"
   },
@@ -16411,18 +16407,20 @@
    "title": "Managing Downloads"
   },
   "/workflow-automation/managing-incident-and-digest-template-mappings": {
+   "canonical": "/workflow-automation/managing-incident-and-digest-template-mappings",
    "category": "operations",
-   "hash": "34bcfe684c317ad6",
+   "hash": "1e23db28f6b6b8f5",
    "in_bulletins": false,
-   "lastmod": "2026-05-01T06:45Z",
+   "lastmod": "2026-08-12T09:58Z",
    "nid": "1418216",
    "title": "Managing Incident and Digest Template Mappings"
   },
   "/workflow-automation/managing-incident-group-mappings": {
+   "canonical": "/workflow-automation/managing-incident-group-mappings",
    "category": "operations",
-   "hash": "753df1a17517366d",
+   "hash": "6a7ddc102f8b2fe4",
    "in_bulletins": true,
-   "lastmod": "2026-07-14T09:47Z",
+   "lastmod": "2026-08-12T08:11Z",
    "nid": "1418161",
    "title": "Managing Incident Group Mappings"
   },
@@ -16468,10 +16466,11 @@
    "title": "Managing Labels"
   },
   "/workflow-automation/managing-notification-templates": {
+   "canonical": "/workflow-automation/managing-notification-templates",
    "category": "operations",
-   "hash": "398f3498b14bb000",
+   "hash": "0423f9c12da4f30b",
    "in_bulletins": false,
-   "lastmod": "2026-04-10T13:27Z",
+   "lastmod": "2026-08-11T07:55Z",
    "nid": "1419961",
    "title": "Managing Notification Templates"
   },
@@ -16492,10 +16491,11 @@
    "title": "Managing Roles and Permissions"
   },
   "/workflow-automation/managing-survey-templates": {
+   "canonical": "/workflow-automation/managing-survey-templates",
    "category": "operations",
-   "hash": "023ae73e5619f580",
+   "hash": "922266f8ddd04737",
    "in_bulletins": false,
-   "lastmod": "2026-04-30T11:43Z",
+   "lastmod": "2026-08-11T06:52Z",
    "nid": "1420016",
    "title": "Managing Survey Templates"
   },
@@ -16548,10 +16548,11 @@
    "title": "Managing Workflow Automation Integration with Slack"
   },
   "/workflow-automation/managing-workflow-mappings": {
+   "canonical": "/workflow-automation/managing-workflow-mappings",
    "category": "operations",
-   "hash": "b5043749db819418",
+   "hash": "d5070af79ef3c62f",
    "in_bulletins": false,
-   "lastmod": "2026-06-29T07:06Z",
+   "lastmod": "2026-08-12T09:56Z",
    "nid": "1455966",
    "title": "Managing Workflow Mappings"
   },
@@ -16598,9 +16599,9 @@
   "/workflow-automation/release-upgrade-summary-2026": {
    "canonical": "/workflow-automation/release-upgrade-summary-2026",
    "category": "operations",
-   "hash": "44e97a77ae9dd66f",
+   "hash": "4871a7c0386d7829",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T07:51Z",
+   "lastmod": "2026-08-14T10:16Z",
    "nid": "1534330",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -16613,27 +16614,29 @@
    "title": "Responding to a DLP Admin Digest Notification"
   },
   "/workflow-automation/responding-end-user-notification": {
+   "canonical": "/workflow-automation/responding-end-user-notification",
    "category": "operations",
-   "hash": "64396d8a59b54c53",
+   "hash": "374dd1b8df016cb1",
    "in_bulletins": false,
-   "lastmod": "2026-07-09T14:28Z",
+   "lastmod": "2026-08-12T08:15Z",
    "nid": "1421056",
    "title": "Responding to an End User Notification"
   },
   "/workflow-automation/responding-escalation-notification": {
    "canonical": "/workflow-automation/responding-escalation-notification",
    "category": "operations",
-   "hash": "d221beab9c3d7609",
+   "hash": "5983b08797b4a4bd",
    "in_bulletins": false,
-   "lastmod": "2026-07-31T07:06Z",
+   "lastmod": "2026-08-12T08:16Z",
    "nid": "1433821",
    "title": "Responding to an Escalation Notification"
   },
   "/workflow-automation/responding-user-digest-notification": {
+   "canonical": "/workflow-automation/responding-user-digest-notification",
    "category": "operations",
-   "hash": "3f94af8142974320",
+   "hash": "b39c6dce8bffc38b",
    "in_bulletins": false,
-   "lastmod": "2026-07-23T21:06Z",
+   "lastmod": "2026-08-12T08:18Z",
    "nid": "1447086",
    "title": "Responding to a User Digest Notification"
   },
@@ -16690,9 +16693,9 @@
   "/workflow-automation/viewing-managing-incident-details": {
    "canonical": "/workflow-automation/viewing-managing-incident-details",
    "category": "operations",
-   "hash": "194e6e0d1f6ff747",
+   "hash": "437982c25d34c2fe",
    "in_bulletins": true,
-   "lastmod": "2026-08-06T08:45Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1420336",
    "title": "Viewing & Managing Incident Details"
   },
@@ -16973,10 +16976,11 @@
    "title": "Configuring a Predefined Application"
   },
   "/zdx/configuring-probe": {
+   "canonical": "/zdx/configuring-probe",
    "category": "zdx",
-   "hash": "bf43f08b48980446",
+   "hash": "b41f60262a17dd30",
    "in_bulletins": true,
-   "lastmod": "2026-06-26T11:06Z",
+   "lastmod": "2026-08-11T13:27Z",
    "nid": "1350846",
    "title": "Configuring a Probe"
   },
@@ -17369,9 +17373,9 @@
   "/zdx/release-upgrade-summary-2026": {
    "canonical": "/zdx/release-upgrade-summary-2026",
    "category": "zdx",
-   "hash": "426bf8b2a621376d",
+   "hash": "ff43b27252e53a18",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T08:09Z",
+   "lastmod": "2026-08-11T13:52Z",
    "nid": "1534310",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -17440,10 +17444,11 @@
    "title": "Step-by-Step Configuration Guide for ZDX"
   },
   "/zdx/supported-versions-feature-compatibility": {
+   "canonical": "/zdx/supported-versions-feature-compatibility",
    "category": "zdx",
-   "hash": "e48faf36dcaf18d4",
-   "in_bulletins": false,
-   "lastmod": "2026-06-11T12:59Z",
+   "hash": "399bd39b14efd0ab",
+   "in_bulletins": true,
+   "lastmod": "2026-08-11T13:49Z",
    "nid": "1433851",
    "title": "Supported Versions & Feature Compatibility"
   },
@@ -17762,26 +17767,29 @@
    "title": "About Integrations"
   },
   "/zero-trust-branch/about-objects": {
+   "canonical": "/zero-trust-branch/about-objects",
    "category": "branch",
-   "hash": "f7f86ab252b4fc10",
+   "hash": "2483ad36b76dfffb",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T09:03Z",
+   "lastmod": "2026-08-14T03:57Z",
    "nid": "1533894",
    "title": "About Objects"
   },
   "/zero-trust-branch/adding-app-connector-site": {
+   "canonical": "/zero-trust-branch/adding-app-connector-site",
    "category": "branch",
-   "hash": "50958da7f6ee54b0",
+   "hash": "0609942415f935b6",
    "in_bulletins": false,
-   "lastmod": "2026-07-20T15:06Z",
+   "lastmod": "2026-08-11T11:07Z",
    "nid": "1529430",
    "title": "Adding App Connectors to a Site"
   },
   "/zero-trust-branch/adding-bgp-site": {
+   "canonical": "/zero-trust-branch/adding-bgp-site",
    "category": "branch",
-   "hash": "9ab0fb500ff74927",
+   "hash": "227218b90f30a01f",
    "in_bulletins": false,
-   "lastmod": "2026-07-20T14:17Z",
+   "lastmod": "2026-08-11T11:07Z",
    "nid": "1525631",
    "title": "Adding a Border Gateway Protocol to a Site"
   },
@@ -17794,10 +17802,11 @@
    "title": "Adding a Hub"
   },
   "/zero-trust-branch/adding-objects": {
+   "canonical": "/zero-trust-branch/adding-objects",
    "category": "branch",
-   "hash": "5be192d8ebcf2da7",
+   "hash": "f9f4be9575f7812b",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T09:04Z",
+   "lastmod": "2026-08-14T05:29Z",
    "nid": "1533897",
    "title": "Adding Objects"
   },
@@ -17811,10 +17820,11 @@
    "title": "Configuring Airgap-Lite Mode for Assets"
   },
   "/zero-trust-branch/configuring-dhcp-options-site": {
+   "canonical": "/zero-trust-branch/configuring-dhcp-options-site",
    "category": "branch",
-   "hash": "d54827994762267e",
+   "hash": "d8d8d0e994306763",
    "in_bulletins": false,
-   "lastmod": "2026-07-20T15:06Z",
+   "lastmod": "2026-08-11T11:07Z",
    "nid": "1538823",
    "title": "Configuring DHCP Options for a Site"
   },
@@ -17827,18 +17837,20 @@
    "title": "Configuring Firewall Policies"
   },
   "/zero-trust-branch/configuring-ha-site-vrrp": {
+   "canonical": "/zero-trust-branch/configuring-ha-site-vrrp",
    "category": "branch",
-   "hash": "8177df8d7827bac0",
+   "hash": "a72b91c49f1c702f",
    "in_bulletins": false,
-   "lastmod": "2026-07-20T14:17Z",
+   "lastmod": "2026-08-11T11:09Z",
    "nid": "1529555",
    "title": "Configuring a High Availability Site with Virtual Router Redundancy Protocol"
   },
   "/zero-trust-branch/configuring-ip-reservation-assets-within-vlan": {
+   "canonical": "/zero-trust-branch/configuring-ip-reservation-assets-within-vlan",
    "category": "branch",
-   "hash": "36efa96a5ca318b7",
+   "hash": "327d5bd597a051e0",
    "in_bulletins": false,
-   "lastmod": "2026-07-20T14:06Z",
+   "lastmod": "2026-08-11T11:08Z",
    "nid": "1533840",
    "title": "Configuring IP Address Reservation for Assets within a VLAN"
   },
@@ -17875,10 +17887,11 @@
    "title": "Configuring Site DNS Policies"
   },
   "/zero-trust-branch/configuring-vlan": {
+   "canonical": "/zero-trust-branch/configuring-vlan",
    "category": "branch",
-   "hash": "2b1dc23b194224a3",
+   "hash": "9c8d7d484ed512f8",
    "in_bulletins": false,
-   "lastmod": "2026-07-17T14:32Z",
+   "lastmod": "2026-08-11T11:09Z",
    "nid": "1533839",
    "title": "Configuring a VLAN"
   },
@@ -17925,9 +17938,9 @@
   "/zero-trust-branch/deploying-zero-trust-branch-appliance": {
    "canonical": "/zero-trust-branch/deploying-zero-trust-branch-appliance",
    "category": "branch",
-   "hash": "facc2ab064cf30ff",
+   "hash": "7782f882fa1f3501",
    "in_bulletins": false,
-   "lastmod": "2026-08-05T15:58Z",
+   "lastmod": "2026-08-11T10:59Z",
    "nid": "1532526",
    "title": "Deploying a Zero Trust Branch Appliance"
   },
@@ -17972,10 +17985,11 @@
    "title": "Integrating Armis with Zero Trust Branch"
   },
   "/zero-trust-branch/integrating-crowdstrike-zero-trust-branch": {
+   "canonical": "/zero-trust-branch/integrating-crowdstrike-zero-trust-branch",
    "category": "branch",
-   "hash": "024c345a8748246a",
+   "hash": "f0fae1c8ac7059c6",
    "in_bulletins": false,
-   "lastmod": "2026-07-15T16:16Z",
+   "lastmod": "2026-08-12T19:26Z",
    "nid": "1534196",
    "title": "Integrating CrowdStrike with Zero Trust Branch"
   },
@@ -17988,10 +18002,11 @@
    "title": "Integrating SentinelOne with Zero Trust Branch"
   },
   "/zero-trust-branch/interface-monitoring": {
+   "canonical": "/zero-trust-branch/interface-monitoring",
    "category": "branch",
-   "hash": "865c57028db0c0d7",
+   "hash": "b41464347ca250b4",
    "in_bulletins": false,
-   "lastmod": "2026-07-20T15:07Z",
+   "lastmod": "2026-08-11T11:15Z",
    "nid": "1525246",
    "title": "Interface Monitoring"
   },
@@ -18028,10 +18043,11 @@
    "title": "Managing Routing Policies"
   },
   "/zero-trust-branch/managing-sites": {
+   "canonical": "/zero-trust-branch/managing-sites",
    "category": "branch",
-   "hash": "572bb6f574d8f5c7",
+   "hash": "017c15a6837c8b8a",
    "in_bulletins": true,
-   "lastmod": "2026-07-22T16:11Z",
+   "lastmod": "2026-08-11T11:06Z",
    "nid": "1525146",
    "title": "Managing Sites"
   },
@@ -18070,9 +18086,9 @@
   "/zero-trust-branch/release-upgrade-summary-2026": {
    "canonical": "/zero-trust-branch/release-upgrade-summary-2026",
    "category": "branch",
-   "hash": "883350fbf2da8463",
+   "hash": "1a7a768955ab1f33",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T15:27Z",
+   "lastmod": "2026-08-12T10:13Z",
    "nid": "1534294",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -18111,10 +18127,11 @@
    "title": "Understanding Alarms and Notifications"
   },
   "/zero-trust-branch/understanding-bonding-interfaces": {
+   "canonical": "/zero-trust-branch/understanding-bonding-interfaces",
    "category": "branch",
-   "hash": "7e1afc508422f9bf",
+   "hash": "e46d7fe947ba55f5",
    "in_bulletins": false,
-   "lastmod": "2026-07-21T14:15Z",
+   "lastmod": "2026-08-12T19:36Z",
    "nid": "1538749",
    "title": "Understanding Bonding Interfaces"
   },
@@ -18224,10 +18241,11 @@
    "title": "Uploading a NAC-MAC Authentication List"
   },
   "/zero-trust-branch/using-appliance-version-manager": {
+   "canonical": "/zero-trust-branch/using-appliance-version-manager",
    "category": "branch",
-   "hash": "06f56665f72ce3dc",
+   "hash": "80661eefd93f418f",
    "in_bulletins": false,
-   "lastmod": "2026-06-29T07:06Z",
+   "lastmod": "2026-08-11T11:00Z",
    "nid": "1539798",
    "title": "Using Appliance Version Manager"
   },
@@ -18264,10 +18282,11 @@
    "title": "What Are Site DNS Policies?"
   },
   "/zero-trust-branch/what-zero-trust-branch": {
+   "canonical": "/zero-trust-branch/what-zero-trust-branch",
    "category": "branch",
-   "hash": "44a2ed66ae6f3700",
+   "hash": "93a65cca04bf1001",
    "in_bulletins": false,
-   "lastmod": "2026-04-29T19:30Z",
+   "lastmod": "2026-08-12T10:46Z",
    "nid": "1508551",
    "title": "What Is Zero Trust Branch?"
   },
@@ -18280,18 +18299,20 @@
    "title": "Working with Tags"
   },
   "/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual": {
+   "canonical": "/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual",
    "category": "branch",
-   "hash": "4b06825ad0b147b6",
-   "in_bulletins": false,
-   "lastmod": "2026-07-28T15:42Z",
+   "hash": "aa2e041c4d19b066",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T14:36Z",
    "nid": "1529460",
    "title": "Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual"
   },
   "/zero-trust-branch/zero-trust-branch-physical-port-mapping": {
+   "canonical": "/zero-trust-branch/zero-trust-branch-physical-port-mapping",
    "category": "branch",
-   "hash": "9fd58f9b8ef93e20",
-   "in_bulletins": false,
-   "lastmod": "2026-07-22T09:37Z",
+   "hash": "2edcda368e7a2bdd",
+   "in_bulletins": true,
+   "lastmod": "2026-08-12T14:36Z",
    "nid": "1532276",
    "title": "Zero Trust Branch Physical Port Mapping"
   },
@@ -18312,10 +18333,11 @@
    "title": "About Isolation Banner Notifications for Private Access"
   },
   "/zero-trust-browser/about-isolation-profiles-for-internet-and-saas": {
+   "canonical": "/zero-trust-browser/about-isolation-profiles-for-internet-and-saas",
    "category": "browser",
-   "hash": "6e32a62df76fbdfc",
+   "hash": "534bd5ccc3794dfb",
    "in_bulletins": false,
-   "lastmod": "2026-07-01T18:10Z",
+   "lastmod": "2026-08-12T07:12Z",
    "nid": "1539920",
    "title": "About Isolation Profiles for Internet & SaaS"
   },
@@ -18425,10 +18447,11 @@
    "title": "Configuring Internet & SaaS for Zero Trust Browser"
   },
   "/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas": {
+   "canonical": "/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas",
    "category": "browser",
-   "hash": "9e27eabfb9eafd3f",
+   "hash": "c394062f6349c083",
    "in_bulletins": true,
-   "lastmod": "2026-07-01T18:12Z",
+   "lastmod": "2026-08-12T07:44Z",
    "nid": "1447211",
    "title": "Creating Isolation Profiles for Internet & SaaS"
   },
@@ -18466,6 +18489,15 @@
    "nid": "1450616",
    "title": "Deleting a Banner Theme for the Isolation End-User Notification in Private Access"
   },
+  "/zero-trust-browser/deleting-isolation-profile-internet-and-saas": {
+   "canonical": "/zero-trust-browser/deleting-isolation-profile-internet-and-saas",
+   "category": "browser",
+   "hash": "05cd582ec4b2c64d",
+   "in_bulletins": false,
+   "lastmod": "2026-08-14T12:15Z",
+   "nid": "1447281",
+   "title": "Deleting an Isolation Profile for Internet & SaaS"
+  },
   "/zero-trust-browser/deleting-isolation-profile-private-access": {
    "canonical": "/zero-trust-browser/deleting-isolation-profile-private-access",
    "category": "browser",
@@ -18491,14 +18523,6 @@
    "nid": "1450601",
    "title": "Deleting a Root Certificate for Zero Trust Browser in Private Access"
   },
-  "/zero-trust-browser/deleting-your-isolation-profile-internet-and-saas": {
-   "category": "browser",
-   "hash": "9de2dba7f4989ae9",
-   "in_bulletins": false,
-   "lastmod": "2026-07-14T21:06Z",
-   "nid": "1447281",
-   "title": "Deleting Your Isolation Profile for Internet & SaaS"
-  },
   "/zero-trust-browser/editing-banner-theme-isolation-end-user-notification-internet-and-saas": {
    "category": "browser",
    "hash": "30e4f622779092c0",
@@ -18515,6 +18539,24 @@
    "nid": "1450611",
    "title": "Editing a Banner Theme for the Isolation End-User Notification in Private Access"
   },
+  "/zero-trust-browser/editing-isolation-profile-internet-and-saas": {
+   "canonical": "/zero-trust-browser/editing-isolation-profile-internet-and-saas",
+   "category": "browser",
+   "hash": "ecf0b8bffe7330a4",
+   "in_bulletins": false,
+   "lastmod": "2026-08-14T12:14Z",
+   "nid": "1447276",
+   "title": "Editing an Isolation Profile for Internet & SaaS"
+  },
+  "/zero-trust-browser/editing-isolation-profile-private-access": {
+   "canonical": "/zero-trust-browser/editing-isolation-profile-private-access",
+   "category": "browser",
+   "hash": "a83ce107a26149ab",
+   "in_bulletins": false,
+   "lastmod": "2026-08-14T12:13Z",
+   "nid": "1450576",
+   "title": "Editing an Isolation Profile for Private Access"
+  },
   "/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access": {
    "category": "browser",
    "hash": "6f95ed24d2e18c47",
@@ -18530,24 +18572,6 @@
    "lastmod": "2026-07-02T17:19Z",
    "nid": "1447361",
    "title": "Editing Root Certificates for Zero Trust Browser in Internet & SaaS"
-  },
-  "/zero-trust-browser/editing-your-isolation-profile-internet-and-saas": {
-   "canonical": "/zero-trust-browser/editing-your-isolation-profile-internet-and-saas",
-   "category": "browser",
-   "hash": "a82e849762b5d6cb",
-   "in_bulletins": false,
-   "lastmod": "2026-08-04T15:29Z",
-   "nid": "1447276",
-   "title": "Editing Your Isolation Profile for Internet & SaaS"
-  },
-  "/zero-trust-browser/editing-your-isolation-profile-private-access": {
-   "canonical": "/zero-trust-browser/editing-your-isolation-profile-private-access",
-   "category": "browser",
-   "hash": "6c3fec69c4591c53",
-   "in_bulletins": false,
-   "lastmod": "2026-08-04T17:17Z",
-   "nid": "1450576",
-   "title": "Editing Your Isolation Profile for Private Access"
   },
   "/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation": {
    "canonical": "/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation",
@@ -18586,9 +18610,9 @@
   "/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal": {
    "canonical": "/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal",
    "category": "browser",
-   "hash": "86a688fcbfb30cb5",
+   "hash": "2333a3f1d2f257d4",
    "in_bulletins": false,
-   "lastmod": "2026-08-04T17:26Z",
+   "lastmod": "2026-08-13T12:17Z",
    "nid": "1463476",
    "title": "Secure SaaS Access from Unmanaged Devices via User Portal"
   },
@@ -18857,10 +18881,11 @@
    "title": "About Audit Logs"
   },
   "/zia/about-auditors": {
+   "canonical": "/zia/about-auditors",
    "category": "zia",
-   "hash": "47fabc61affec27d",
+   "hash": "c51803b728e3754a",
    "in_bulletins": false,
-   "lastmod": "2026-06-22T21:06Z",
+   "lastmod": "2026-08-11T09:09Z",
    "nid": "1399001",
    "title": "About Auditors"
   },
@@ -18883,9 +18908,9 @@
   "/zia/about-backup-and-restore": {
    "canonical": "/zia/about-backup-and-restore",
    "category": "zia",
-   "hash": "ad4681a5a44932a6",
+   "hash": "2ca9ef9a9cf433b8",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1398956",
    "title": "About Backup and Restore"
   },
@@ -19196,10 +19221,11 @@
    "title": "About DNS Application Groups"
   },
   "/zia/about-dns-control": {
+   "canonical": "/zia/about-dns-control",
    "category": "zia",
-   "hash": "0765ebbe802dd910",
+   "hash": "10a7888f9cfc2791",
    "in_bulletins": false,
-   "lastmod": "2026-07-16T11:53Z",
+   "lastmod": "2026-08-10T10:24Z",
    "nid": "1399916",
    "title": "About DNS Control"
   },
@@ -19230,9 +19256,9 @@
   "/zia/about-email-labels": {
    "canonical": "/zia/about-email-labels",
    "category": "zia",
-   "hash": "5bd8f169d3c62018",
+   "hash": "74c2483d5331dbb3",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1444161",
    "title": "About Email Labels"
   },
@@ -19341,10 +19367,11 @@
    "title": "About File Type Control Policy"
   },
   "/zia/about-firewall-filtering": {
+   "canonical": "/zia/about-firewall-filtering",
    "category": "zia",
-   "hash": "b5cb5682c376e7d0",
-   "in_bulletins": false,
-   "lastmod": "2026-05-25T21:06Z",
+   "hash": "6726f5925a5098a9",
+   "in_bulletins": true,
+   "lastmod": "2026-08-11T05:41Z",
    "nid": "1399861",
    "title": "About Firewall Filtering"
   },
@@ -19447,9 +19474,9 @@
   "/zia/about-index-tool": {
    "canonical": "/zia/about-index-tool",
    "category": "zia",
-   "hash": "c55bcd6e2aff06f0",
+   "hash": "6f5bed37a976d3d5",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1400641",
    "title": "About the Index Tool"
   },
@@ -19536,9 +19563,9 @@
   "/zia/about-ips-control": {
    "canonical": "/zia/about-ips-control",
    "category": "zia",
-   "hash": "cd38d0bb79341370",
+   "hash": "3caaaca0a3a421cc",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T08:05Z",
+   "lastmod": "2026-08-10T10:28Z",
    "nid": "1400966",
    "title": "About IPS Control"
   },
@@ -19793,10 +19820,11 @@
    "title": "About SaaS Security Insights Logs"
   },
   "/zia/about-saas-security-report": {
+   "canonical": "/zia/about-saas-security-report",
    "category": "zia",
-   "hash": "58ade4438dcd538a",
+   "hash": "6bce49e6d8bd239f",
    "in_bulletins": false,
-   "lastmod": "2026-06-26T01:49Z",
+   "lastmod": "2026-08-14T13:51Z",
    "nid": "1401911",
    "title": "About the SaaS Security Report"
   },
@@ -19817,10 +19845,11 @@
    "title": "About SaaS Workflows"
   },
   "/zia/about-sandbox": {
+   "canonical": "/zia/about-sandbox",
    "category": "zia",
-   "hash": "7b2c959361e08f86",
+   "hash": "2cf29b88a670ded3",
    "in_bulletins": false,
-   "lastmod": "2026-06-24T08:37Z",
+   "lastmod": "2026-08-14T13:02Z",
    "nid": "1399801",
    "title": "About Sandbox"
   },
@@ -20180,10 +20209,11 @@
    "title": "Adding Admin Roles"
   },
   "/zia/adding-ai-ml-applications-rule-cloud-app-control": {
+   "canonical": "/zia/adding-ai-ml-applications-rule-cloud-app-control",
    "category": "zia",
-   "hash": "80194cd0e07e7086",
+   "hash": "8b2fdf8b58c4ae70",
    "in_bulletins": false,
-   "lastmod": "2026-07-09T04:01Z",
+   "lastmod": "2026-08-14T00:07Z",
    "nid": "1459041",
    "title": "Adding an AI & ML Applications Rule for Cloud App Control"
   },
@@ -20424,9 +20454,9 @@
   "/zia/adding-custom-dlp-dictionary": {
    "canonical": "/zia/adding-custom-dlp-dictionary",
    "category": "zia",
-   "hash": "0562307c63bc9d20",
+   "hash": "de0fead5fe55f869",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1400076",
    "title": "Adding Custom DLP Dictionaries"
   },
@@ -20498,9 +20528,9 @@
   "/zia/adding-email-label": {
    "canonical": "/zia/adding-email-label",
    "category": "zia",
-   "hash": "f34608fc27dbe8c1",
+   "hash": "88ad3886c9eb90f4",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1444181",
    "title": "Adding an Email Label"
   },
@@ -21061,10 +21091,11 @@
    "title": "Adding TCP NSS Feeds for Web Logs"
   },
   "/zia/adding-tenant-profiles": {
+   "canonical": "/zia/adding-tenant-profiles",
    "category": "zia",
-   "hash": "b35cfd025a64a333",
+   "hash": "bf99e12fb91a74bc",
    "in_bulletins": false,
-   "lastmod": "2026-05-26T06:29Z",
+   "lastmod": "2026-08-14T00:00Z",
    "nid": "1401746",
    "title": "Adding Tenant Profiles"
   },
@@ -21256,9 +21287,9 @@
   "/zia/authorizing-custom-zscaler-connector-microsoft-applications": {
    "canonical": "/zia/authorizing-custom-zscaler-connector-microsoft-applications",
    "category": "zia",
-   "hash": "7e4b55c2a9dc8509",
+   "hash": "3a86e266d385e150",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1483116",
    "title": "Authorizing a Custom Zscaler Connector for Microsoft Applications"
   },
@@ -21383,18 +21414,20 @@
    "title": "Checking for IP Addresses on the Denylist"
   },
   "/zia/choosing-between-private-service-edge-and-virtual-service-edge-internet-saas": {
+   "canonical": "/zia/choosing-between-private-service-edge-and-virtual-service-edge-internet-saas",
    "category": "zia",
-   "hash": "bfc0d7201effdd82",
+   "hash": "4374b502fa95d62d",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:19Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1401146",
    "title": "Choosing Between Private Service Edge and Virtual Service Edge for Internet & SaaS"
   },
   "/zia/choosing-ca-certificate-ssltls-inspection": {
+   "canonical": "/zia/choosing-ca-certificate-ssltls-inspection",
    "category": "zia",
-   "hash": "626d6b8f0834f2e3",
+   "hash": "77c2ff2712b1445a",
    "in_bulletins": false,
-   "lastmod": "2026-05-03T23:25Z",
+   "lastmod": "2026-08-11T21:32Z",
    "nid": "1401906",
    "title": "Choosing the CA Certificate for SSL/TLS Inspection"
   },
@@ -21470,14 +21503,6 @@
    "nid": "1401136",
    "title": "Configuring the Acceptable Use Policy"
   },
-  "/zia/configuring-advanced-configuration-admins": {
-   "category": "zia",
-   "hash": "cb332752b7c9e452",
-   "in_bulletins": false,
-   "lastmod": "2026-06-01T09:51Z",
-   "nid": "1402406",
-   "title": "Configuring Advanced Configuration for Admins"
-  },
   "/zia/configuring-advanced-nss-settings": {
    "category": "zia",
    "hash": "dbc9c179c483f193",
@@ -21496,10 +21521,11 @@
    "title": "Configuring Advanced Policy Settings"
   },
   "/zia/configuring-advanced-settings": {
+   "canonical": "/zia/configuring-advanced-settings",
    "category": "zia",
-   "hash": "064ad4cede7a5fd5",
+   "hash": "c6808433db7a594b",
    "in_bulletins": true,
-   "lastmod": "2026-07-28T03:01Z",
+   "lastmod": "2026-08-12T04:24Z",
    "nid": "1399146",
    "title": "Configuring Advanced Settings"
   },
@@ -21633,10 +21659,11 @@
    "title": "Configuring Custom URL Categories"
   },
   "/zia/configuring-data-rest-scanning-dlp-policy-content-inspection": {
+   "canonical": "/zia/configuring-data-rest-scanning-dlp-policy-content-inspection",
    "category": "zia",
-   "hash": "1b3de6efefd44e0a",
+   "hash": "3be0902e7d91048c",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T09:31Z",
+   "lastmod": "2026-08-14T03:26Z",
    "nid": "1529452",
    "title": "Configuring the Data at Rest Scanning DLP Policy with Content Inspection"
   },
@@ -21651,9 +21678,9 @@
   "/zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection": {
    "canonical": "/zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection",
    "category": "zia",
-   "hash": "6bb262feed588900",
+   "hash": "3cbc7ad30cb7519b",
    "in_bulletins": false,
-   "lastmod": "2026-08-04T23:24Z",
+   "lastmod": "2026-08-14T03:53Z",
    "nid": "1529455",
    "title": "Configuring the Data at Rest Scanning DLP Policy without Content Inspection"
   },
@@ -21756,27 +21783,27 @@
   "/zia/configuring-dlp-policy-rules-content-inspection": {
    "canonical": "/zia/configuring-dlp-policy-rules-content-inspection",
    "category": "zia",
-   "hash": "4aafe6b53ffaeeb1",
+   "hash": "6f4844f147f7749c",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1400121",
    "title": "Configuring DLP Policy Rules with Content Inspection"
   },
   "/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled": {
    "canonical": "/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled",
    "category": "zia",
-   "hash": "2317455b161e4516",
+   "hash": "987ecfb9a68e32c5",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1471836",
    "title": "Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled"
   },
   "/zia/configuring-dlp-policy-rules-without-content-inspection": {
    "canonical": "/zia/configuring-dlp-policy-rules-without-content-inspection",
    "category": "zia",
-   "hash": "1d7e5409f56c501e",
+   "hash": "c85db1aad10f6f08",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1400126",
    "title": "Configuring DLP Policy Rules without Content Inspection"
   },
@@ -21789,10 +21816,11 @@
    "title": "Configuring DNS Application Groups"
   },
   "/zia/configuring-dns-control-policy": {
+   "canonical": "/zia/configuring-dns-control-policy",
    "category": "zia",
-   "hash": "e31cd6288dd6f340",
-   "in_bulletins": true,
-   "lastmod": "2026-07-22T12:37Z",
+   "hash": "d6c1d18462de09cf",
+   "in_bulletins": false,
+   "lastmod": "2026-08-11T07:06Z",
    "nid": "1399991",
    "title": "Configuring the DNS Control Policy"
   },
@@ -21917,10 +21945,11 @@
    "title": "Configuring Forwarding Control Policy"
   },
   "/zia/configuring-ftp-control-policy": {
+   "canonical": "/zia/configuring-ftp-control-policy",
    "category": "zia",
-   "hash": "22ed257d8775789e",
+   "hash": "7d92253c57e6f011",
    "in_bulletins": false,
-   "lastmod": "2026-06-22T05:39Z",
+   "lastmod": "2026-08-12T10:25Z",
    "nid": "1400596",
    "title": "Configuring the FTP Control Policy"
   },
@@ -21975,27 +22004,27 @@
   "/zia/configuring-index-tool-amazon-web-services": {
    "canonical": "/zia/configuring-index-tool-amazon-web-services",
    "category": "zia",
-   "hash": "da82e1843f339b16",
+   "hash": "896c3be2d87f3b16",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1443226",
    "title": "Configuring the Index Tool with Amazon Web Services"
   },
   "/zia/configuring-index-tool-azure-vms": {
    "canonical": "/zia/configuring-index-tool-azure-vms",
    "category": "zia",
-   "hash": "b692f62f396f39ec",
+   "hash": "e9c028f26af27baf",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1467486",
    "title": "Configuring the Index Tool with Azure"
   },
   "/zia/configuring-index-tool-vmware": {
    "canonical": "/zia/configuring-index-tool-vmware",
    "category": "zia",
-   "hash": "3f69e42cc2dd3aa4",
+   "hash": "d27788bce64a593f",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1400651",
    "title": "Configuring the Index Tool with VMWare"
   },
@@ -22076,9 +22105,9 @@
   "/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp": {
    "canonical": "/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp",
    "category": "zia",
-   "hash": "819b17f565421530",
+   "hash": "e1ed8dcbc4b069b3",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1492736",
    "title": "Configuring Microsoft Exchange for Zscaler Outbound Email DLP"
   },
@@ -22162,14 +22191,6 @@
    "nid": "1492701",
    "title": "Configuring Outbound Email Policy Rules"
   },
-  "/zia/configuring-password-expiration": {
-   "category": "zia",
-   "hash": "c055012b70d62a78",
-   "in_bulletins": false,
-   "lastmod": "2026-06-01T09:56Z",
-   "nid": "1400731",
-   "title": "Configuring Password Expiration"
-  },
   "/zia/configuring-patient-0-alert": {
    "category": "zia",
    "hash": "5fdabfcdf320ee4c",
@@ -22219,18 +22240,20 @@
    "title": "Configuring Quarantine Tombstone Notification Templates"
   },
   "/zia/configuring-restricted-access-admins": {
+   "canonical": "/zia/configuring-restricted-access-admins",
    "category": "zia",
-   "hash": "ddfc5ccabdeecae5",
+   "hash": "3229a366b2feac96",
    "in_bulletins": false,
-   "lastmod": "2026-06-02T05:04Z",
+   "lastmod": "2026-08-11T10:23Z",
    "nid": "1402211",
    "title": "Configuring Restricted Access for Admins"
   },
   "/zia/configuring-role-based-administration": {
+   "canonical": "/zia/configuring-role-based-administration",
    "category": "zia",
-   "hash": "7ebb6f912478c6e5",
+   "hash": "c3e2369a25141541",
    "in_bulletins": false,
-   "lastmod": "2026-06-15T21:06Z",
+   "lastmod": "2026-08-11T11:46Z",
    "nid": "1399706",
    "title": "Configuring Role-Based Administration"
   },
@@ -22347,10 +22370,11 @@
    "title": "Configuring Smart Browser Isolation Policy"
   },
   "/zia/configuring-software-protection-intermediate-ca-certificate": {
+   "canonical": "/zia/configuring-software-protection-intermediate-ca-certificate",
    "category": "zia",
-   "hash": "57df987d6172aaa5",
+   "hash": "6ea01a2ea53b0e36",
    "in_bulletins": false,
-   "lastmod": "2026-06-26T01:21Z",
+   "lastmod": "2026-08-11T21:30Z",
    "nid": "1402641",
    "title": "Configuring Software Protection Intermediate CA Certificate"
   },
@@ -22379,10 +22403,11 @@
    "title": "Configuring Source IP Groups"
   },
   "/zia/configuring-ssltls-inspection-policy": {
+   "canonical": "/zia/configuring-ssltls-inspection-policy",
    "category": "zia",
-   "hash": "088d95bb1e6da58d",
+   "hash": "fe84c68e2c62d35f",
    "in_bulletins": false,
-   "lastmod": "2026-07-03T12:18Z",
+   "lastmod": "2026-08-11T21:35Z",
    "nid": "1401851",
    "title": "Configuring SSL/TLS Inspection Policy"
   },
@@ -22514,10 +22539,11 @@
    "title": "Configuring Virtual Service Edge for Internet & SaaS and NTP Server Synchronization"
   },
   "/zia/configuring-virtual-service-edge-internet-saas-nutanix": {
+   "canonical": "/zia/configuring-virtual-service-edge-internet-saas-nutanix",
    "category": "zia",
-   "hash": "bee427fd65196465",
+   "hash": "06574dbc6eb98466",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T14:51Z",
+   "lastmod": "2026-08-12T07:47Z",
    "nid": "1541987",
    "title": "Configuring Virtual Service Edge for Internet & SaaS: Nutanix"
   },
@@ -22597,10 +22623,11 @@
    "title": "Connecting Your Platforms to 3rd-Party App Governance"
   },
   "/zia/connecting-your-platforms-advanced-sspm": {
+   "canonical": "/zia/connecting-your-platforms-advanced-sspm",
    "category": "zia",
-   "hash": "97f1c5b0ea4c799a",
+   "hash": "1cb3cebaa2a6094d",
    "in_bulletins": false,
-   "lastmod": "2026-06-17T23:19Z",
+   "lastmod": "2026-08-12T22:39Z",
    "nid": "1517116",
    "title": "Connecting Your Platforms to Advanced SSPM"
   },
@@ -22615,9 +22642,9 @@
   "/zia/creating-exact-data-match-template": {
    "canonical": "/zia/creating-exact-data-match-template",
    "category": "zia",
-   "hash": "846969095c60180d",
+   "hash": "710baac99581ff5a",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1400656",
    "title": "Creating an Exact Data Match Template"
   },
@@ -22774,10 +22801,11 @@
    "title": "Deploying NSS Virtual Appliances"
   },
   "/zia/deploying-private-service-edge-internet-saas": {
+   "canonical": "/zia/deploying-private-service-edge-internet-saas",
    "category": "zia",
-   "hash": "a7dfa0020d7a117a",
+   "hash": "5224b3bf551e94e6",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T22:00Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1401241",
    "title": "Deploying Private Service Edge for Internet & SaaS"
   },
@@ -22893,6 +22921,15 @@
    "lastmod": "2026-06-02T03:03Z",
    "nid": "1529181",
    "title": "DNS Static Web End User Notification"
+  },
+  "/zia/doc-65712-understanding-geolocalization-ip": {
+   "canonical": "/zia/doc-65712-understanding-geolocalization-ip",
+   "category": "zia",
+   "hash": "65d1fbf71978b41d",
+   "in_bulletins": false,
+   "lastmod": "2026-08-13T09:37Z",
+   "nid": "1542800",
+   "title": "DOC 65712 Understanding Geolocalization IP"
   },
   "/zia/downloading-and-printing-policies": {
    "category": "zia",
@@ -23234,10 +23271,11 @@
    "title": "Extranet Insights Logs: Filters"
   },
   "/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments": {
+   "canonical": "/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments",
    "category": "zia",
-   "hash": "c751f56052988bfb",
+   "hash": "1363b13bf70a97cc",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:37Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1400466",
    "title": "Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments"
   },
@@ -23258,10 +23296,11 @@
    "title": "Firewall HTTP Tunnel Connectivity"
   },
   "/zia/firewall-insights-logs-columns": {
+   "canonical": "/zia/firewall-insights-logs-columns",
    "category": "zia",
-   "hash": "7b41ac02e3a70b61",
+   "hash": "33ac0b3dc20e9446",
    "in_bulletins": true,
-   "lastmod": "2026-07-28T05:42Z",
+   "lastmod": "2026-08-12T04:32Z",
    "nid": "1401006",
    "title": "Firewall Insights Logs: Columns"
   },
@@ -23394,18 +23433,20 @@
    "title": "Importing VPN Credentials from a CSV File"
   },
   "/zia/installing-advanced-dlp-private-service-edge-internet-saas": {
+   "canonical": "/zia/installing-advanced-dlp-private-service-edge-internet-saas",
    "category": "zia",
-   "hash": "b6c3873e6908e641",
+   "hash": "58e8d51756700b8e",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:58Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1529877",
    "title": "Installing Advanced DLP Private Service Edge for Internet & SaaS"
   },
   "/zia/installing-private-service-edge-internet-saas": {
+   "canonical": "/zia/installing-private-service-edge-internet-saas",
    "category": "zia",
-   "hash": "449fd49decc498a9",
+   "hash": "64cb6679c3d32e0d",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:54Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1401246",
    "title": "Installing Private Service Edge for Internet & SaaS"
   },
@@ -23746,10 +23787,11 @@
    "title": "Looking Up URLs in the Zscaler Admin Console"
   },
   "/zia/maintenance-support-virtual-service-edge-internet-saas": {
+   "canonical": "/zia/maintenance-support-virtual-service-edge-internet-saas",
    "category": "zia",
-   "hash": "503461329cb8f803",
+   "hash": "19acace0353506f0",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:17Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1417031",
    "title": "Maintenance Support for Virtual Service Edge for Internet & SaaS"
   },
@@ -23926,10 +23968,11 @@
    "title": "Monitoring or Blocking Outbound Content by Data Size"
   },
   "/zia/monitoring-virtual-service-edge-clusters-internet-saas": {
+   "canonical": "/zia/monitoring-virtual-service-edge-clusters-internet-saas",
    "category": "zia",
-   "hash": "b5aaabe9180c408c",
+   "hash": "698044e24e00b387",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:44Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1398876",
    "title": "Monitoring Virtual Service Edge Clusters for Internet & SaaS"
   },
@@ -24361,9 +24404,9 @@
   "/zia/release-upgrade-summary-2026": {
    "canonical": "/zia/release-upgrade-summary-2026",
    "category": "zia",
-   "hash": "c5f1807c976f875e",
+   "hash": "743feffb3dd6cde8",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T11:33Z",
+   "lastmod": "2026-08-14T11:27Z",
    "nid": "1534325",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -24752,10 +24795,11 @@
    "title": "Troubleshooting Users' Traffic not Going to the Nearest Public Service Edge for Internet & SaaS"
   },
   "/zia/troubleshooting-virtual-service-edges-internet-saas": {
+   "canonical": "/zia/troubleshooting-virtual-service-edges-internet-saas",
    "category": "zia",
-   "hash": "c02ae0803ddc7f81",
+   "hash": "4c48aad16100b8d9",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:45Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1401261",
    "title": "Troubleshooting Virtual Service Edges for Internet & SaaS"
   },
@@ -24799,28 +24843,21 @@
    "nid": "1399731",
    "title": "Understanding Admin Scope"
   },
-  "/zia/understanding-administrator-management-settings": {
-   "category": "zia",
-   "hash": "29004226a5bf3df7",
-   "in_bulletins": false,
-   "lastmod": "2026-06-02T04:56Z",
-   "nid": "1399691",
-   "title": "Understanding Administrator Management Settings"
-  },
   "/zia/understanding-advanced-dlp-private-service-edge-internet-saas": {
+   "canonical": "/zia/understanding-advanced-dlp-private-service-edge-internet-saas",
    "category": "zia",
-   "hash": "3de05e77ff3a566e",
+   "hash": "8ed57539943f9cdc",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:56Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1529876",
    "title": "Understanding Advanced DLP Private Service Edge for Internet & SaaS"
   },
   "/zia/understanding-assets-report-assets-with-incidents": {
    "canonical": "/zia/understanding-assets-report-assets-with-incidents",
    "category": "zia",
-   "hash": "1f96a4112fb812a0",
+   "hash": "320d2c8ceba44000",
    "in_bulletins": false,
-   "lastmod": "2026-08-05T02:35Z",
+   "lastmod": "2026-08-14T03:59Z",
    "nid": "1401971",
    "title": "Understanding the Assets Report: Assets with Incidents"
   },
@@ -24923,10 +24960,11 @@
    "title": "Understanding Firewall Capabilities"
   },
   "/zia/understanding-ftp-control": {
+   "canonical": "/zia/understanding-ftp-control",
    "category": "zia",
-   "hash": "a1892df76fc1e5bb",
+   "hash": "690d87fc549c92b8",
    "in_bulletins": false,
-   "lastmod": "2026-05-26T21:06Z",
+   "lastmod": "2026-08-12T10:24Z",
    "nid": "1398756",
    "title": "Understanding FTP Control"
   },
@@ -24947,10 +24985,11 @@
    "title": "Understanding Geolocalization IP"
   },
   "/zia/understanding-global-public-service-edges-internet-saas": {
+   "canonical": "/zia/understanding-global-public-service-edges-internet-saas",
    "category": "zia",
-   "hash": "acdb2e9d39eae5e2",
+   "hash": "3e8e54247cddedf2",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:49Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1400866",
    "title": "Understanding Global Public Service Edges for Internet & SaaS"
   },
@@ -25085,9 +25124,9 @@
   "/zia/understanding-predefined-dlp-dictionaries": {
    "canonical": "/zia/understanding-predefined-dlp-dictionaries",
    "category": "zia",
-   "hash": "3c08cbbbcc121c9a",
+   "hash": "a04de1502d75e2ea",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1447026",
    "title": "Understanding Predefined DLP Dictionaries"
   },
@@ -25100,10 +25139,11 @@
    "title": "Understanding Predefined Firewall Filtering Rules"
   },
   "/zia/understanding-private-service-edge-internet-saas": {
+   "canonical": "/zia/understanding-private-service-edge-internet-saas",
    "category": "zia",
-   "hash": "126a817738dcd9ed",
+   "hash": "398d5e660ac5aad9",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:53Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1401236",
    "title": "Understanding Private Service Edge for Internet & SaaS"
   },
@@ -25125,10 +25165,11 @@
    "title": "Understanding Proxy Mode"
   },
   "/zia/understanding-public-service-edges-internet-saas": {
+   "canonical": "/zia/understanding-public-service-edges-internet-saas",
    "category": "zia",
-   "hash": "4030281cc12ed45a",
+   "hash": "16d471b95a3bc5f8",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:47Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1401041",
    "title": "Understanding Public Service Edges for Internet & SaaS"
   },
@@ -25151,9 +25192,9 @@
   "/zia/understanding-saas-security-supported-capabilities": {
    "canonical": "/zia/understanding-saas-security-supported-capabilities",
    "category": "zia",
-   "hash": "8b46e9078cc44dba",
+   "hash": "5d12b93a1b293d68",
    "in_bulletins": false,
-   "lastmod": "2026-08-05T02:30Z",
+   "lastmod": "2026-08-14T03:45Z",
    "nid": "1529918",
    "title": "Understanding SaaS Security Supported Capabilities"
   },
@@ -25278,10 +25319,11 @@
    "title": "Understanding Zscaler Cookies"
   },
   "/zia/understanding-zscaler-managed-business-continuity-cloud": {
+   "canonical": "/zia/understanding-zscaler-managed-business-continuity-cloud",
    "category": "zia",
-   "hash": "5c4b670c0c18a9e8",
+   "hash": "1a02c1fa41db29fa",
    "in_bulletins": false,
-   "lastmod": "2026-07-15T21:06Z",
+   "lastmod": "2026-08-11T03:51Z",
    "nid": "1529409",
    "title": "Understanding Zscaler-Managed Business Continuity Cloud"
   },
@@ -25390,10 +25432,11 @@
    "title": "Using an External Load Balancer with Virtual Service Edge Clusters for Internet & SaaS"
   },
   "/zia/using-pac-files-private-service-edge-internet-saas-deployments": {
+   "canonical": "/zia/using-pac-files-private-service-edge-internet-saas-deployments",
    "category": "zia",
-   "hash": "4c440faccedfbfee",
+   "hash": "119c5300d8aafbc1",
    "in_bulletins": false,
-   "lastmod": "2026-07-26T21:42Z",
+   "lastmod": "2026-08-10T21:06Z",
    "nid": "1400576",
    "title": "Using PAC Files: Private Service Edge for Internet & SaaS Deployments"
   },
@@ -25561,18 +25604,18 @@
   "/zia/web-insights-logs-columns": {
    "canonical": "/zia/web-insights-logs-columns",
    "category": "zia",
-   "hash": "686ee1d81b341145",
+   "hash": "18a47e17ca9f1735",
    "in_bulletins": true,
-   "lastmod": "2026-07-29T22:52Z",
+   "lastmod": "2026-08-12T04:28Z",
    "nid": "1401046",
    "title": "Web Insights Logs: Columns"
   },
   "/zia/web-insights-logs-filters": {
    "canonical": "/zia/web-insights-logs-filters",
    "category": "zia",
-   "hash": "d0f15a9365aa35e9",
+   "hash": "af326213a36fd3cd",
    "in_bulletins": true,
-   "lastmod": "2026-07-30T01:09Z",
+   "lastmod": "2026-08-12T04:30Z",
    "nid": "1401016",
    "title": "Web Insights Logs: Filters"
   },
@@ -25585,10 +25628,11 @@
    "title": "What Is 3rd-Party App Governance?"
   },
   "/zia/what-advanced-posture-management": {
+   "canonical": "/zia/what-advanced-posture-management",
    "category": "zia",
-   "hash": "7e2f1d3aff14897f",
+   "hash": "00234bad0ea89600",
    "in_bulletins": false,
-   "lastmod": "2026-06-16T11:24Z",
+   "lastmod": "2026-08-12T22:29Z",
    "nid": "1508606",
    "title": "What Is Advanced Posture Management?"
   },
@@ -25866,10 +25910,11 @@
    "title": "About Branch Connectors"
   },
   "/zpa/about-browser-access": {
+   "canonical": "/zpa/about-browser-access",
    "category": "zpa",
-   "hash": "8c8f4894a313adfa",
+   "hash": "051c8899a5a041dc",
    "in_bulletins": false,
-   "lastmod": "2026-06-17T15:05Z",
+   "lastmod": "2026-08-14T15:37Z",
    "nid": "1484046",
    "title": "About Browser Access"
   },
@@ -26866,19 +26911,20 @@
    "title": "Analyzing Risk with MITRE ATT&CK for AppProtection"
   },
   "/zpa/app-connector-deployment-guide-docker": {
+   "canonical": "/zpa/app-connector-deployment-guide-docker",
    "category": "zpa",
-   "hash": "db305bcf78a5ac31",
+   "hash": "e570eb2f838b20c1",
    "in_bulletins": false,
-   "lastmod": "2026-06-02T14:27Z",
+   "lastmod": "2026-08-13T13:30Z",
    "nid": "1484921",
    "title": "App Connector Deployment Guide for Docker"
   },
   "/zpa/app-connector-deployment-guide-google-cloud-platform": {
    "canonical": "/zpa/app-connector-deployment-guide-google-cloud-platform",
    "category": "zpa",
-   "hash": "a76406ba4a838aa4",
+   "hash": "0116721847293f3b",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T15:50Z",
+   "lastmod": "2026-08-10T14:55Z",
    "nid": "1505701",
    "title": "App Connector Deployment Guide for Google Cloud Platform"
   },
@@ -26975,9 +27021,9 @@
   "/zpa/app-connector-release-summary-2026": {
    "canonical": "/zpa/app-connector-release-summary-2026",
    "category": "zpa",
-   "hash": "7641d5fc398d1755",
+   "hash": "b6e2e4c0c8b2e3a0",
    "in_bulletins": false,
-   "lastmod": "2026-08-06T08:05Z",
+   "lastmod": "2026-08-11T10:30Z",
    "nid": "1534306",
    "title": "App Connector Release Summary (2026)"
   },
@@ -27276,10 +27322,11 @@
    "title": "Configuring the Company Profile"
   },
   "/zpa/configuring-connectors": {
+   "canonical": "/zpa/configuring-connectors",
    "category": "zpa",
-   "hash": "2fdb01a7fe639fad",
-   "in_bulletins": true,
-   "lastmod": "2026-07-20T09:30Z",
+   "hash": "e49798f85745d812",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T07:06Z",
    "nid": "1483546",
    "title": "Configuring App Connectors"
   },
@@ -27309,10 +27356,11 @@
    "title": "Configuring the Default Microsegmentation Policy"
   },
   "/zpa/configuring-defined-application-segments": {
+   "canonical": "/zpa/configuring-defined-application-segments",
    "category": "zpa",
-   "hash": "5172909a8ba77e07",
+   "hash": "b5ff5d8a6c977cd8",
    "in_bulletins": true,
-   "lastmod": "2026-07-23T15:13Z",
+   "lastmod": "2026-08-14T15:36Z",
    "nid": "1483606",
    "title": "Configuring Defined Application Segments"
   },
@@ -27531,10 +27579,11 @@
    "title": "Configuring Privileged Credentials Policies"
   },
   "/zpa/configuring-privileged-portals": {
+   "canonical": "/zpa/configuring-privileged-portals",
    "category": "zpa",
-   "hash": "eba07de3ad45b86b",
+   "hash": "8a7d887b743ea6b6",
    "in_bulletins": false,
-   "lastmod": "2026-06-11T15:47Z",
+   "lastmod": "2026-08-14T14:38Z",
    "nid": "1485116",
    "title": "Configuring Privileged Portals"
   },
@@ -27661,10 +27710,11 @@
    "title": "Configuring User Portal Links"
   },
   "/zpa/configuring-user-portals": {
+   "canonical": "/zpa/configuring-user-portals",
    "category": "zpa",
-   "hash": "eb9437b484433cd4",
+   "hash": "c0a2040cb087d68d",
    "in_bulletins": false,
-   "lastmod": "2026-06-18T13:36Z",
+   "lastmod": "2026-08-13T15:25Z",
    "nid": "1484316",
    "title": "Configuring User Portals"
   },
@@ -27711,9 +27761,9 @@
   "/zpa/configuring-websocket-controls": {
    "canonical": "/zpa/configuring-websocket-controls",
    "category": "zpa",
-   "hash": "17fe16cdbc246054",
+   "hash": "45691fed9d0c37de",
    "in_bulletins": false,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1485211",
    "title": "Configuring WebSocket Controls"
   },
@@ -28352,10 +28402,11 @@
    "title": "Editing Privileged Credentials Policies"
   },
   "/zpa/editing-privileged-portals": {
+   "canonical": "/zpa/editing-privileged-portals",
    "category": "zpa",
-   "hash": "64808acc5a1122e4",
+   "hash": "b635bef5b77c787f",
    "in_bulletins": false,
-   "lastmod": "2026-07-02T09:46Z",
+   "lastmod": "2026-08-14T15:12Z",
    "nid": "1485106",
    "title": "Editing Privileged Portals"
   },
@@ -28441,10 +28492,11 @@
    "title": "Editing User Portal Links"
   },
   "/zpa/editing-user-portals": {
+   "canonical": "/zpa/editing-user-portals",
    "category": "zpa",
-   "hash": "232939b9c38810aa",
+   "hash": "5286d7eed727f769",
    "in_bulletins": false,
-   "lastmod": "2026-06-18T13:30Z",
+   "lastmod": "2026-08-14T14:53Z",
    "nid": "1484331",
    "title": "Editing User Portals"
   },
@@ -28491,9 +28543,9 @@
   "/zpa/editing-websocket-controls": {
    "canonical": "/zpa/editing-websocket-controls",
    "category": "zpa",
-   "hash": "44ab8f38cc3196be",
+   "hash": "95eb1a9b1bc3e25e",
    "in_bulletins": false,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1485206",
    "title": "Editing WebSocket Controls"
   },
@@ -28631,9 +28683,9 @@
   "/zpa/managing-deployed-software-components": {
    "canonical": "/zpa/managing-deployed-software-components",
    "category": "zpa",
-   "hash": "c6eb48af28d83c44",
-   "in_bulletins": true,
-   "lastmod": "2026-08-06T07:33Z",
+   "hash": "bcf7841ce063cd2b",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T07:06Z",
    "nid": "1540995",
    "title": "Managing Deployed Software Components"
   },
@@ -28792,10 +28844,11 @@
    "title": "Networking Deployed Software Components"
   },
   "/zpa/prerequisites-browser-access-applications-managed-zscaler": {
+   "canonical": "/zpa/prerequisites-browser-access-applications-managed-zscaler",
    "category": "zpa",
-   "hash": "d136d9296f99b6e6",
+   "hash": "224249b560fc3bb5",
    "in_bulletins": false,
-   "lastmod": "2026-06-25T13:58Z",
+   "lastmod": "2026-08-14T15:40Z",
    "nid": "1528948",
    "title": "Prerequisites for Browser Access Applications Managed by Zscaler"
   },
@@ -28819,9 +28872,9 @@
   "/zpa/private-cloud-controller-deployment-guide-linux": {
    "canonical": "/zpa/private-cloud-controller-deployment-guide-linux",
    "category": "zpa",
-   "hash": "de7a027970811d6b",
-   "in_bulletins": true,
-   "lastmod": "2026-08-06T07:44Z",
+   "hash": "7186e35dd7df39d9",
+   "in_bulletins": false,
+   "lastmod": "2026-08-10T07:06Z",
    "nid": "1507451",
    "title": "Private Cloud Controller Deployment Guide for Linux"
   },
@@ -29001,17 +29054,18 @@
   "/zpa/release-upgrade-summary-2026": {
    "canonical": "/zpa/release-upgrade-summary-2026",
    "category": "zpa",
-   "hash": "3caf9a7a69047d2f",
+   "hash": "678110e8ee1051e6",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T07:10Z",
+   "lastmod": "2026-08-14T10:33Z",
    "nid": "1534305",
    "title": "Release Upgrade Summary (2026)"
   },
   "/zpa/replacing-or-migrating-network-connectors-support-redundancy": {
+   "canonical": "/zpa/replacing-or-migrating-network-connectors-support-redundancy",
    "category": "zpa",
-   "hash": "2df521c6bffc497b",
+   "hash": "cb6b3722d83b6a7b",
    "in_bulletins": false,
-   "lastmod": "2026-06-11T09:17Z",
+   "lastmod": "2026-08-14T09:18Z",
    "nid": "1538660",
    "title": "Replacing or Migrating Existing Network Connectors with Network Connectors that Support Redundancy"
   },
@@ -29132,9 +29186,9 @@
   "/zpa/supported-versions-os-compatibility-microsegmentation": {
    "canonical": "/zpa/supported-versions-os-compatibility-microsegmentation",
    "category": "zpa",
-   "hash": "665b013d4178a894",
+   "hash": "e30e701520267839",
    "in_bulletins": true,
-   "lastmod": "2026-08-05T13:35Z",
+   "lastmod": "2026-08-14T10:36Z",
    "nid": "1531938",
    "title": "Supported Versions & OS Compatibility for Microsegmentation"
   },
@@ -29356,10 +29410,11 @@
    "title": "Understanding Disaster Recovery"
   },
   "/zpa/understanding-double-encryption": {
+   "canonical": "/zpa/understanding-double-encryption",
    "category": "zpa",
-   "hash": "e1337f4db1f95459",
+   "hash": "9de91df2776e6a09",
    "in_bulletins": false,
-   "lastmod": "2026-06-15T06:14Z",
+   "lastmod": "2026-08-10T22:45Z",
    "nid": "1483871",
    "title": "Understanding Double Encryption"
   },
@@ -29880,6 +29935,15 @@
    "nid": "1483761",
    "title": "Viewing the Users Dashboard"
   },
+  "/zpa/viewing-vpn-service-edges-dashboard": {
+   "canonical": "/zpa/viewing-vpn-service-edges-dashboard",
+   "category": "zpa",
+   "hash": "23dde51a5fa6df7c",
+   "in_bulletins": false,
+   "lastmod": "2026-08-11T13:33Z",
+   "nid": "1542720",
+   "title": "Viewing the VPN Service Edges Dashboard"
+  },
   "/zpa/viewing-where-your-apps-are-served": {
    "category": "zpa",
    "hash": "6ac8d810ea9f0f71",
@@ -30198,10 +30262,11 @@
    "title": "Viewing Network Event Details"
   },
   "/zscaler-cellular/viewing-sim-details": {
+   "canonical": "/zscaler-cellular/viewing-sim-details",
    "category": "branch",
-   "hash": "588e702204e5e803",
+   "hash": "f75122bf39bfd91a",
    "in_bulletins": false,
-   "lastmod": "2026-07-21T21:06Z",
+   "lastmod": "2026-08-14T04:45Z",
    "nid": "1518126",
    "title": "Viewing SIM Details"
   },
@@ -30714,19 +30779,20 @@
    "title": "Client Connector App Release Summary (2024)"
   },
   "/zscaler-client-connector/client-connector-app-release-summary-2025": {
+   "canonical": "/zscaler-client-connector/client-connector-app-release-summary-2025",
    "category": "zcc",
-   "hash": "d169c6568f501695",
+   "hash": "9aaaee87a54dc119",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T12:35Z",
+   "lastmod": "2026-08-11T11:00Z",
    "nid": "1516141",
    "title": "Client Connector App Release Summary (2025)"
   },
   "/zscaler-client-connector/client-connector-app-release-summary-2026": {
    "canonical": "/zscaler-client-connector/client-connector-app-release-summary-2026",
    "category": "zcc",
-   "hash": "cb95c0758a662e55",
+   "hash": "706a7323a6fab276",
    "in_bulletins": false,
-   "lastmod": "2026-08-04T16:36Z",
+   "lastmod": "2026-08-14T13:55Z",
    "nid": "1535130",
    "title": "Client Connector App Release Summary (2026)"
   },
@@ -30739,10 +30805,11 @@
    "title": "Configuring an Acceptable Use Policy for Zscaler Client Connector"
   },
   "/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store": {
+   "canonical": "/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store",
    "category": "zcc",
-   "hash": "294aba2fc36d4d84",
+   "hash": "b9a6a06de9848a8b",
    "in_bulletins": false,
-   "lastmod": "2026-06-05T10:41Z",
+   "lastmod": "2026-08-14T11:45Z",
    "nid": "1285441",
    "title": "Configuring an App Update in the Zscaler Client Connector App Store"
   },
@@ -30949,9 +31016,9 @@
   "/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles": {
    "canonical": "/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles",
    "category": "zcc",
-   "hash": "8d2db949f8157993",
+   "hash": "14e00963ae7e5b00",
    "in_bulletins": false,
-   "lastmod": "2026-08-05T09:46Z",
+   "lastmod": "2026-08-14T11:42Z",
    "nid": "1285411",
    "title": "Configuring Zscaler Client Connector App Profiles"
   },
@@ -31608,9 +31675,9 @@
   "/zscaler-client-connector/release-upgrade-summary-2026": {
    "canonical": "/zscaler-client-connector/release-upgrade-summary-2026",
    "category": "zcc",
-   "hash": "b20c56cc55134aa7",
+   "hash": "91d0d63ad14a6098",
    "in_bulletins": false,
-   "lastmod": "2026-08-07T08:14Z",
+   "lastmod": "2026-08-14T07:57Z",
    "nid": "1534303",
    "title": "Release Upgrade Summary (2026)"
   },
@@ -32130,10 +32197,11 @@
    "title": "ZDX Module Release Summary (2025)"
   },
   "/zscaler-client-connector/zdx-module-release-summary-2026": {
+   "canonical": "/zscaler-client-connector/zdx-module-release-summary-2026",
    "category": "zcc",
-   "hash": "7d8223582f47245f",
+   "hash": "5c66855059fecc4a",
    "in_bulletins": false,
-   "lastmod": "2026-07-22T09:55Z",
+   "lastmod": "2026-08-11T14:13Z",
    "nid": "1534304",
    "title": "ZDX Module Release Summary (2026)"
   },
@@ -32221,9 +32289,9 @@
   "/zscaler-client-connector/zscaler-client-connector-processes-allowlist": {
    "canonical": "/zscaler-client-connector/zscaler-client-connector-processes-allowlist",
    "category": "zcc",
-   "hash": "eb0f3793e1b9a815",
+   "hash": "562c95aa76044897",
    "in_bulletins": false,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1285511",
    "title": "Zscaler Client Connector Processes to Allowlist"
   },
@@ -32648,9 +32716,9 @@
   "/zscaler-technology-partners/zscaler-and-cimcor-deployment-guide": {
    "canonical": "/zscaler-technology-partners/zscaler-and-cimcor-deployment-guide",
    "category": "partners",
-   "hash": "59474b1108f94a4f",
+   "hash": "c7ac988394ec52b0",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1506551",
    "title": "Zscaler and Cimcor Deployment Guide"
   },
@@ -32721,9 +32789,9 @@
   "/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide": {
    "canonical": "/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide",
    "category": "partners",
-   "hash": "cea828c8e3448be2",
+   "hash": "5c0da6b5d0977725",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1389181",
    "title": "Zscaler and CrowdStrike Deployment Guide"
   },
@@ -32890,9 +32958,9 @@
   "/zscaler-technology-partners/zscaler-and-firewall-technology-partner-deployment-guides": {
    "canonical": "/zscaler-technology-partners/zscaler-and-firewall-technology-partner-deployment-guides",
    "category": "partners",
-   "hash": "9f0cff269cb6438f",
+   "hash": "9ce30ea61474f06d",
    "in_bulletins": false,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1508636",
    "title": "Zscaler and Firewall Technology Partner Deployment Guides"
   },
@@ -32995,9 +33063,9 @@
   "/zscaler-technology-partners/zscaler-and-igel-deployment-guide": {
    "canonical": "/zscaler-technology-partners/zscaler-and-igel-deployment-guide",
    "category": "partners",
-   "hash": "e74b8ad90a56925e",
+   "hash": "02b46f8a76ca0e69",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1509981",
    "title": "Zscaler and IGEL Deployment Guide"
   },
@@ -33164,9 +33232,9 @@
   "/zscaler-technology-partners/zscaler-and-nile-secure-deployment-guide": {
    "canonical": "/zscaler-technology-partners/zscaler-and-nile-secure-deployment-guide",
    "category": "partners",
-   "hash": "9df5253db5107e40",
+   "hash": "1c4cdd858ca8a6b0",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1509971",
    "title": "Zscaler and Nile Deployment Guide"
   },
@@ -33205,9 +33273,9 @@
   "/zscaler-technology-partners/zscaler-and-panther-deployment-guide": {
    "canonical": "/zscaler-technology-partners/zscaler-and-panther-deployment-guide",
    "category": "partners",
-   "hash": "ae48bbf82bd5733c",
+   "hash": "df4851b2c70865cc",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1510336",
    "title": "Zscaler and Panther Deployment Guide"
   },
@@ -33303,9 +33371,9 @@
   "/zscaler-technology-partners/zscaler-and-saas-application-tenant-technology-partner-deployment-guides": {
    "canonical": "/zscaler-technology-partners/zscaler-and-saas-application-tenant-technology-partner-deployment-guides",
    "category": "partners",
-   "hash": "690f1adc340cecfc",
+   "hash": "fe06f882602c425f",
    "in_bulletins": false,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1508691",
    "title": "Zscaler and SaaS Application Tenant Technology Partner Deployment Guides"
   },
@@ -33352,9 +33420,9 @@
   "/zscaler-technology-partners/zscaler-and-sd-wan-technology-partner-deployment-guides": {
    "canonical": "/zscaler-technology-partners/zscaler-and-sd-wan-technology-partner-deployment-guides",
    "category": "partners",
-   "hash": "9ae96310748801f9",
+   "hash": "141a575481e84367",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1508631",
    "title": "Zscaler and SD-WAN Technology Partner Deployment Guides"
   },
@@ -33393,9 +33461,9 @@
   "/zscaler-technology-partners/zscaler-and-sentinelone-deployment-guide": {
    "canonical": "/zscaler-technology-partners/zscaler-and-sentinelone-deployment-guide",
    "category": "partners",
-   "hash": "a93258e1620eeb80",
+   "hash": "a3b7dcdeb2e1352f",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1389191",
    "title": "Zscaler and SentinelOne Deployment Guide"
   },
@@ -33522,9 +33590,9 @@
   "/zscaler-technology-partners/zscaler-and-tines-deployment-guide": {
    "canonical": "/zscaler-technology-partners/zscaler-and-tines-deployment-guide",
    "category": "partners",
-   "hash": "a9b12249dfe23591",
+   "hash": "e04b32394fe61e1d",
    "in_bulletins": true,
-   "lastmod": "2026-08-09T07:06Z",
+   "lastmod": "2026-08-16T07:06Z",
    "nid": "1509986",
    "title": "Zscaler and Tines Deployment Guide"
   },
@@ -34068,9 +34136,9 @@
   "/zsdk/understanding-zsdk-error-codes": {
    "canonical": "/zsdk/understanding-zsdk-error-codes",
    "category": "api",
-   "hash": "c132aae6a512c9d4",
+   "hash": "6e7fb755489d837d",
    "in_bulletins": true,
-   "lastmod": "2026-08-06T10:32Z",
+   "lastmod": "2026-08-12T12:31Z",
    "nid": "1533769",
    "title": "Understanding ZSDK Error Codes"
   },
@@ -34155,5 +34223,5 @@
    "title": "ZSDK Platform Release Upgrade Summary (2025)"
   }
  },
- "generated_at": "2026-08-10T01:47:41Z"
+ "generated_at": "2026-08-17T01:14:12Z"
 }

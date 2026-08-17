@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 297
 
 ---
@@ -1132,52 +1132,6 @@ On the Landmine Decoy Personalities page (Miragemaker > Strategy Builder > Landm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-landmine-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540401"} -->
-## About Landmine Decoys
-
-- Source: https://help.zscaler.com/deception/about-landmine-decoys
-- Product: Deception
-- Path: Deception Help > Deceive  > Landmine Decoys > About Landmine Decoys
-- Last modified: 2026-08-03T00:19Z
-- Summary: Information about the Landmine Decoys page in the Zscaler Deception Admin Portal.
-
-[Watch a video on Creating Landmine Decoys and Policies](https://fast.wistia.net/embed/iframe/c3w5mose6l).
-
-Landmine decoys look like valuable assets ripe for exfiltration. They can be decoy files, credentials, and application lures on endpoints. When adversaries access these decoys, Zscaler Deception sends alerts about the adversary's presence. You can use the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) to analyze an adversary's behavior, hunt for threats across the network, or block access.
-
-Landmine decoys can detect the following types of attacks:
-
-- Defense Evasion
-  - T1562.001: Impair defenses – Disable or modify tools
-- Impact
-  - T1489: Service stop
-  - T1485: Data destruction
-- Credential Access
-  - T1552.001: Unsecured credential – Credentials in files
-  - T1557.001: Man-in-the-Middle – Link-local multicast name resolution (LLMNR) poisoning and server message block (SMB) relay
-- Collection
-  - T1005: Data from local system
-
-Landmine decoys provide the following benefits and enable you to:
-
-- Protect endpoints against ransomware attacks such as attempts to encrypt files and credentials stealing at every stage of the kill chain.
-- Intercept adversaries who have bypassed traditional perimeter-based defenses and limit their ability to find targets or move laterally.
-
-You can create landmine decoys based on policies. A landmine agent fetches these policies and verifies if they apply to an endpoint, and then deploys the decoys. You can create a base policy that enables a simple detection mechanism or an advanced base policy that enables advanced detection mechanisms to detect adversarial techniques.
-
-## About the Landmine Page
-
-On the Landmine page (Deceive > Landmine), you can do the following:
-
-1. Configure landmine [policies](https://help.zscaler.com/deception/about-policies) with selection criteria and modules.
-2. Install landmine [agent](https://help.zscaler.com/deception/about-landmine-agents) or agentless installers.
-3. Customize the landmine installer [settings](https://help.zscaler.com/deception/about-landmine-settings).
-4. Release software update in a [phased](https://help.zscaler.com/deception/about-landmine-agent-update-phase-groups) rollout.
-5. Configure [safe processes](https://help.zscaler.com/deception/about-safe-processes). [Image: About the Landmine page]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/deception/about-landmine-settings","lastmod":"2026-08-03T00:19Z","nid":"1540389"} -->
 ## About Agent Configuration
 
@@ -2119,14 +2073,14 @@ On the Vulnerable Application Datasets (CVE Datasets) page (Miragemaker > Vulner
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/accessing-and-navigating-zscaler-deception-admin-portal","lastmod":"2026-08-03T00:19Z","nid":"1540337"} -->
-## Accessing and Navigating the Zscaler Deception Admin Portal
+<!-- ZS-ARTICLE {"url":"/deception/accessing-and-navigating-zscaler-deception-admin-portal","lastmod":"2026-08-14T08:21Z","nid":"1540337"} -->
+## Accessing and Navigating the Deception Admin Portal
 
 - Source: https://help.zscaler.com/deception/accessing-and-navigating-zscaler-deception-admin-portal
 - Product: Deception
-- Path: Deception Help > Getting Started > Admin Portal > Accessing and Navigating the Zscaler Deception Admin Portal
-- Last modified: 2026-08-03T00:19Z
-- Summary: Information on the Zscaler Deception Admin Portal including how you can sign in to and navigate the portal.
+- Path: Deception Help > Getting Started > Admin Portal > Accessing and Navigating the Deception Admin Portal
+- Last modified: 2026-08-14T08:21Z
+- Summary: Information on the Deception Admin Portal including how you can sign in to and navigate the portal.
 
 This article covers the following topics:
 
@@ -2136,41 +2090,41 @@ This article covers the following topics:
 
 After your organization is provisioned for Zscaler Deception, you will receive an email with the following details:
 
-- Link to your Zscaler Deception instance
+- Link to your Deception instance
 - Link to set your password
 - Security code
 
 To sign in to the Deception Admin Portal:
 
-1. Click the password link in your email. You need to set your password when you sign in for the first time.
-2. When the **Reset Password** page appears, enter your new password and then confirm it.
-3. Enter the **Security Code**from your email.
-4. Click **Next**. See image.
-5. When a QR code appears, scan it using a two-factor authentication (2FA) app to complete the 2FA configuration.
-6. Enter the **One-Time Password (OTP)**. This is the 6-digit code shown on the authenticator app.
-7. Click **Submit**. See image.
-8. When the Sign In page appears, enter your **Email** and **Password**.
-9. Click **Sign in**. See image.
-10. When the **Two-factor authentication** page appears, enter the **2FA code** from the authentication app.
-11. Click **Submit**. See image.
+1. Click the password link in your email.
+2. On the **Reset Password** page, enter a new password and confirm it.
+3. Enter the **Security Code**from your email. See image.
+4. Click **Next**.
+5. Scan the QR code that appears using a two-factor authentication (2FA) app to complete the 2FA configuration. See image.
+6. Enter the **One-Time Password (OTP),** which is a6-digit code shown on the authenticator app.
+7. Click **Submit**.
+8. When the **Sign In** page appears, enter your **Email** and **Password**. See image.
+9. Click **Sign in**.
+10. When the **Two-factor authentication** page appears, enter the 2FA code from the authenticator app. See image.
+11. Click **Submit**.
 
 ## For Authentication Service-Enabled Customers
 
 If you're subscribed to Authentication Service:
 
-1. Log in to Authentication Service.
-2. From the Authentication Service Portal, click the **Deception** tile to access the Deception Admin Portal.
+1. The Authentication Service landing page.
+2. Click the **Deception** tile to access the Deception Admin Portal.
 
 If Authentication Service is enabled, no other sign-in methods are allowed.
 
 ## For Customers Using SSO
 
-Zscaler recommends using Authentication Service to configure primary and secondary external identity providers (IdPs). Contact Zscaler Support to subscribe to Authentication Service. To learn more, see [About External Identity Providers](https://help.zscaler.com/authentication-service/about-external-identity-providers).
+Zscaler recommends that you use the Authentication Service Admin Portal to configure primary and secondary external identity providers (IdPs). Contact[Zscaler Support](https://help.zscaler.com/contact-support) to subscribe to Authentication Service. To learn more, see [About External Identity Providers](https://help.zscaler.com/authentication-service/about-external-identity-providers).
 
-If your account is configured to use a single sign-on (SSO) with an IdP:
+If your account is configured to use single sign-on (SSO) with an IdP:
 
-1. On the Sign In page, click the sign-in button with the IdP name. See image.
-2. You are redirected to your IdP's login page. Log in with your credentials. If you log in successfully, you are redirected back to the Deception Admin Portal.
+1. On the **Sign In**page, click **Zscaler Login**. See image.
+2. You are redirected to your IdP's login page. Enter your credentials. If the login is successful, you are redirected back to the Deception Admin Portal.
 
 Based on your organization's [authentication preference](https://help.zscaler.com/authentication-service/configuring-multi-factor-authentication), sign in to Authentication Service using one of the following methods:
 
@@ -2178,22 +2132,22 @@ Based on your organization's [authentication preference](https://help.zscaler.co
 - Email One-Time Password (OTP)
 - Security Key or Biometric
 
-1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**. See image.
+1. Enter your login ID. If you want the service to remember your login ID the next time you log in, select the **Remember Me**checkbox. See image.
 2. Click**Next**.
-3. Enter your **Password**and click **Sign In**. See image.
-4. Based on your organization's multi-factor authentication policy, two-factor authentication (2FA) is required. Complete your 2FA to access the Authentication Service landing page. If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+3. Enter your passwordand click **Sign In**. See image.
+4. Based on your organization's MFA policy, 2FA is required. Complete your 2FA to access the Authentication Service landing page. If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset link is sent to your email ID. The reset link expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
 
 If your account is configured with MFA, you can sign in using an email OTP:
 
-1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
-2. Click**Next** and then click **Other Sign-in Options**. See image. The **Sign-in Options** window appears.
+1. Enter your login ID. If you want the service to remember your login ID the next time you log in, select the **Remember Me**checkbox.
+2. Click**Next**,and then click **Other Sign-in Options**. See image. The **Sign-in Options** window appears.
 3. In the **Sign-in Options** window, click **Email OTP**. See image.
 4. Enter the OTP sent to your email address and click **Sign In**. The OTP expires after 15 minutes. If the OTP expires or you don't receive an OTP, click **Resend**to receive another OTP after 60 seconds. See image.
 
-1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
-2. Select **Sign-in using Security Key or Biometric**. See image.
+1. Enter your login ID. If you want the service to remember your login ID the next time you log in, select the **Remember Me**checkbox.
+2. Select the **Sign-in using Security Key or Biometric**checkbox. See image.
 3. Click**Next**.
-4. Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page. If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+4. Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page. If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset link is sent to your email ID. The reset link expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
 
 [Image: Authentication Service login page with blurred Login ID and Remember Me option selected.]
 
@@ -2222,14 +2176,14 @@ The Deception Admin Portal contains the following items in the left-side navigat
 - Miragemaker
 - Deceive
 - Settings
+- Search
 - System Messages
 - Account Settings
 - Help
-- Logout
 
-The Deception dashboard (the **Investigate** tab) is the landing page that displays all the logged forensics and attacker information in a graphical format. You can leverage this information to reduce the mean time to detect (MTTD) and improve security efficiency. The dashboard allows you to monitor and analyze the activities that adversaries conduct on your decoys to understand their tactics, techniques, and procedures (TTPs).
+The Deception dashboard (the Investigate tab) is the landing page that displays all the logged forensics and attacker information in a graphical format. You can leverage this information to reduce the mean time to detect (MTTD) and improve security efficiency. The dashboard allows you to monitor and analyze the activities that adversaries conduct on your decoys to understand their tactics, techniques, and procedures (TTPs).
 
-Click **Orchestrate** to:
+On the Orchestrate page, you can perform the following actions:
 
 - Automate rules.
 - Integrate with the security information and event management (SIEM) solutions and other log aggregation repositories to forward events.
@@ -2237,27 +2191,29 @@ Click **Orchestrate** to:
 - Enrich alerts.
 - Create API tokens for additional platform integration.
 
-To learn more, see [About Orchestrate](https://help.zscaler.com/deception/about-orchestrate).
+To learn more, see [About Orchestrate](https://help.zscaler.com/deception/v4_27/about-orchestrate).
 
-Click **Miragemaker** to configure built-in decoys and customize them to match your requirements. It makes realistic-looking decoys scalable and provides built-in decoy datasets for a variety of use cases to launch deception campaigns rapidly. You can add or edit datasets for the decoys to serve as application content. This includes uploaded or dynamically generated files, web application interfaces, interactive web applications, interactive SCADA and IoT templates, custom text or binary protocols, etc. You can also load high-interaction containers.
+On the Miragemaker page you can configure built-in decoys and customize them to match your requirements. Miragemaker makes realistic-looking decoys scalable and provides built-in decoy datasets for a variety of use cases to launch deception campaigns rapidly. You can add or edit datasets for the decoys to serve as application content. This includes uploaded or dynamically generated files, web application interfaces, interactive web applications, interactive SCADA and IoT templates, custom text or binary protocols, etc. You can also load high-interaction containers.
 
-Click **Deceive** to add, configure, and manage decoys to detect threats. You can deploy decoys across the public-facing perimeter, endpoints, network, cloud, and Active Directory (AD) to detect threats. You can also launch your first deception campaign with ready-to-use decoys and focus on detecting threats instead of configuring a new solution.
+To learn more, see [Understanding the Miragemaker Module](https://help.zscaler.com/deception/understanding-miragemaker-module).
 
-To learn more, see [About Deceive](https://help.zscaler.com/deception/about-deceive).
+On the Deceive page you can add, configure, and manage decoys to detect threats. You can deploy decoys across the public-facing perimeter, endpoints, network, cloud, and Active Directory (AD) to detect threats. You can also launch your first deception campaign with ready-to-use decoys and focus on detecting threats instead of configuring a new solution.
 
-Click **Settings** to configure the prerequisites required for Deception, such as configuring a Decoy Connector, virtual local area networks (VLANs), or subnets. In addition, the **Settings** page allows you to configure users and roles and provides information regarding license consumption and audit trails.
+To learn more, see [About Deceive](https://help.zscaler.com/deception/v4_27/about-deceive).
 
-Click the **System Messages** icon to view audit logs, system messages, and debug logs.
+On the Settings page you can configure the prerequisites required for Deception, such as configuring a Decoy Connector, virtual local area networks (VLANs), or subnets. In addition, you can configure users and roles and view information regarding license consumption and audit trails.
 
-Click the **Account Settings** icon to reset your two-factor authentication (2FA), edit your profile, change your time zone, and change your password.
+To learn more, see [About Settings](https://help.zscaler.com/deception/v4_27/about-settings).
 
-To learn more, see [About Account Settings](https://help.zscaler.com/deception/about-account-settings).
+Click the System Messages icon to view audit logs, system messages, and debug logs.
 
-Click the **Help**icon to access the Zscaler Support Portal and submit a ticket to Zscaler Support.
+Click the Account Settings icon to reset your two-factor authentication (2FA), edit your profile, change your time zone, and change your password.
 
-Click the **Logout** icon to log out of the Deception Admin Portal.
+To learn more, see [About Account Settings](https://help.zscaler.com/deception/v4_27/about-account-settings).
 
-If Authentication Service is enabled, you are logged out of the Deception Admin Portal only. When you sign in again, you don't have to enter the user credentials.
+Click the Help icon to submit a ticket to [Zscaler Support](https://help.zscaler.com/contact-support).
+
+You can search for features, configurations, or events by entering keywords, with the drop-down menu offering organized paths to key sections.
 
 [Image: Set Admin Portal password]
 
@@ -10246,13 +10202,13 @@ You can select the **Deception** filter on the [Application Segments](https://he
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/customizing-event-notification-templates","lastmod":"2026-07-28T19:43Z","nid":"1540462"} -->
+<!-- ZS-ARTICLE {"url":"/deception/customizing-event-notification-templates","lastmod":"2026-08-11T21:06Z","nid":"1540462"} -->
 ## Customizing Event Notification Templates
 
 - Source: https://help.zscaler.com/deception/customizing-event-notification-templates
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Event Templates > Customizing Event Notification Templates
-- Last modified: 2026-07-28T19:43Z
+- Last modified: 2026-08-11T21:06Z
 - Summary: How to customize an email notification template.
 
 You can customize the email notification subject and the event fields included in email notifications using event notification templates.
@@ -14366,13 +14322,13 @@ To delete an agent update group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-api-tokens","lastmod":"2026-07-26T21:02Z","nid":"1540490"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-api-tokens","lastmod":"2026-08-09T21:06Z","nid":"1540490"} -->
 ## Managing API Tokens
 
 - Source: https://help.zscaler.com/deception/managing-api-tokens
 - Product: Deception
 - Path: Deception Help > Orchestrate  > API Token Management > Managing API Tokens
-- Last modified: 2026-07-26T21:02Z
+- Last modified: 2026-08-09T21:06Z
 - Summary: How to edit or delete an API token that you have configured in the Zscaler Deception Admin Portal.
 
 You can edit or delete API tokens configured in the Zscaler Deception Admin Portal.
@@ -15296,13 +15252,13 @@ To delete an OpenID IdP Configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-orchestration-rules","lastmod":"2026-07-30T05:13Z","nid":"1540494"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-orchestration-rules","lastmod":"2026-08-13T21:06Z","nid":"1540494"} -->
 ## Managing Orchestration Rules
 
 - Source: https://help.zscaler.com/deception/managing-orchestration-rules
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Orchestration Rules > Managing Orchestration Rules
-- Last modified: 2026-07-30T05:13Z
+- Last modified: 2026-08-13T21:06Z
 - Summary: How to edit, delete, or pause orchestration rules in the Zscaler Deception Admin Portal.
 
 You can manage Zscaler Deception orchestration by editing or deleting rules, or pausing orchestration when needed.
@@ -15423,13 +15379,13 @@ To delete a SAML IdP Configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-service-connectors","lastmod":"2026-07-30T06:31Z","nid":"1540461"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-service-connectors","lastmod":"2026-08-13T21:06Z","nid":"1540461"} -->
 ## Managing Service Connectors
 
 - Source: https://help.zscaler.com/deception/managing-service-connectors
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > Managing Service Connectors
-- Last modified: 2026-07-30T06:31Z
+- Last modified: 2026-08-13T21:06Z
 - Summary: How to edit or delete a Service Connector in the Zscaler Deception Admin Portal.
 
 You can edit or delete Service Connectors configured in the Zscaler Deception Admin Portal.
@@ -15460,13 +15416,13 @@ To delete a Service Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-siem-integrations","lastmod":"2026-07-28T19:27Z","nid":"1540468"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-siem-integrations","lastmod":"2026-08-11T21:06Z","nid":"1540468"} -->
 ## Managing SIEM Integrations
 
 - Source: https://help.zscaler.com/deception/managing-siem-integrations
 - Product: Deception
 - Path: Deception Help > Orchestrate  > SIEM Integrations > Managing SIEM Integrations
-- Last modified: 2026-07-28T19:27Z
+- Last modified: 2026-08-11T21:06Z
 - Summary: How to edit or delete a SIEM integration configured in the Zscaler Deception Admin Portal.
 
 You can edit or delete a SIEM integration configured in the Zscaler Deception Admin Portal.
@@ -15858,13 +15814,13 @@ The illusionblack.com cloud represents all clouds, and updates to specific cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-02-24T06:06Z","nid":"1539466"} -->
+<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-08-09T22:51Z","nid":"1540673"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/deception/release-upgrade-summary-2026
 - Product: Deception
 - Path: Deception Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-02-24T06:06Z
+- Last modified: 2026-08-09T22:51Z
 - Summary: Zscaler Deception release summary for updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Deception.
@@ -18155,4 +18111,51 @@ The following table lists the details of AWS logging resources utilized by Decep
 | ECR Decoy | Creates public or private container registries. |
 | DynamoDB Decoy | Creates a DynamoDB instance and enables logging in CloudTrail. |
 | VM Image Decoy | Deploys an EC2 instance, creates a snapshot for the instance, and builds an image from the snapshot. The EC2 instance is created using the t3.small/t2.small series available in the region of deployment. It persists for a duration for 5 minutes and is terminated after the snapshot is built. |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-azure-deployment-script","lastmod":"2026-08-03T00:19Z","nid":"1540637"} -->
+## Understanding the Functions of the Azure Deployment Script
+
+- Source: https://help.zscaler.com/deception/understanding-functions-azure-deployment-script
+- Product: Deception
+- Path: Deception Help > Deceive  > Cloud Deception > Azure > Understanding the Functions of the Azure Deployment Script
+- Last modified: 2026-08-03T00:19Z
+- Summary: Information on the tasks and functions performed by the deployment script for Cloud Deception with Azure.
+
+Zscaler Deception relies on Azure logs to generate events in the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) for interactions with Azure decoys. The deployment script for Azure Cloud Deception is responsible for creating logging resources, deploying decoys, deleting decoys, and enabling logging for the decoys via the logging resources in the Azure cloud. To collect and store logs, the deployment script creates various resources. The Zscaler Deception Admin Portal polls logs every 3 minutes from the logging resources created by the deployment script to generate events.
+
+## Azure Resources Created by the Deployment Script
+
+The following table lists the resources created by the deployment script to enable log collection and storage for Azure decoys.
+
+| Resource | Description |
+| --- | --- |
+| Decoy Resource Group | A resource group in which all decoys are created. The prefix string for the Decoy Resource Group is specified while setting up Cloud Deception with Azure. |
+| Management Resource Group | A resource group in which all necessary management resources such as Function App, Logging Storage Account, App Service Plan, etc. are created to support Cloud Deception functionalities. |
+| Logging Storage Account | A storage account created for logging purposes. The appropriate diagnostic setting is enabled for all decoy resources to push all diagnostic logs to this storage account for analysis and generating alerts on the Deception dashboard. |
+| Client ID and Client Secret | A service principal that has access to polling log files from the created logging storage account. |
+| Decoy Health Check Function App | A function app that is triggered at an interval of 15 minutes from the Deception Admin Portal to check whether the deployed decoys exists in the Azure cloud. This function app does not check the actual health of the deployed Azure resources. |
+| Decoy Access Role | A role that has full access to the Decoy Resource Group. This role is associated with the user and service principal decoys created in the Deception Admin Portal. |
+| App Service Plan | A service plan created to deploy app service decoys. |
+
+## Workflows for Decoy Deployment
+
+The following table describes the workflow followed by the deployment script to deploy decoys and enable logging for them.
+
+| Decoy | Workflow |
+| --- | --- |
+| User Decoy | Create an Azure AD (Entra ID) user, associate the Decoy Access Role with it, and enable the diagnostic setting for logging. |
+| Service Principal Decoy | Create a service principal (Client ID and Client Secret), associate the Decoy Access Role with it, and enable the diagnostic setting for logging. |
+| Managed Identity Decoy | Create a user-assigned managed identity and associate the Decoy Access Role with the managed identity. |
+| App Service Decoy | Create a web app and create a managed identity for the web app, associate the Contributor and Website Contributor roles to it, and enable the diagnostic setting for logging. |
+| Storage Account Container Decoy | Create a storage account and a storage account container, upload the decoy file datasets, and enable the diagnostic setting for logging. |
+| Storage Account File Share Decoy | Create a storage account and create a file share with the `TransactionOptimized` access tier, upload the decoy file datasets, and enable the diagnostic setting for logging. |
+| Key Vault Decoy | Create a key vault, add passwords or keys of the created user or service principal decoys as decoy datasets in the vault, and enable the diagnostic setting for logging. |
+| Azure Resource Manager (ARM) Template Decoy | Create a deployment template for selected decoys (user, service principal, key vault, or Azure file share decoys). This template does not deploy any actual resources but creates an entry for template deployment in the history. |
+| Container Registry Decoy | Create an empty container registry and enable the diagnostic setting for logging. |
+| Virtual Machine (VM) Image Decoy | Deploy a VM instance, create a snapshot, and build a disk image from the snapshot. A Standard VM instance is deployed to create the snapshot. The VM instance persists for a duration of 5 minutes and is terminated after the snapshot is built. For public VM image decoys, a shareable link is also created for adding it as a lure in landmines. |
+
+To learn how to obtain the deployment script for Azure Cloud Deception, see [Obtaining the Deployment Script for Azure](https://help.zscaler.com/deception/obtaining-deployment-script-azure).
 <!-- /ZS-ARTICLE -->

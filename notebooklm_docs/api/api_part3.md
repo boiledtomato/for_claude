@@ -1,8 +1,88 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 148
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 150
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/organization-details","lastmod":"2026-01-06T23:49Z","nid":"1510761"} -->
+## Organization Details
+
+- Source: https://help.zscaler.com/legacy-apis/organization-details
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Organization Details
+- Last modified: 2026-01-06T23:49Z
+
+API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
+
+### `GET /orgInformation`
+
+Retrieves detailed organization information, including headquarter location, geolocation, address, and contact details.
+
+- Operation ID: `OrganizationInformationResource_getOrganizationInformation`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `GET /orgInformation/lite`
+
+Retrieves minimal organization information.
+
+- Operation ID: `OrganizationInformationResource_getOrganizationInformationLite`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `GET /subscriptions`
+
+Retrieves information about the list of subscriptions enabled for your tenant. Subscriptions define the various features and levels of functionality that are available to your organization.
+
+- Operation ID: `SubscriptionsResource_getOrgStatus`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/organizations","lastmod":"2026-01-06T23:49Z","nid":"1532901"} -->
+## Organizations
+
+- Source: https://help.zscaler.com/legacy-apis/organizations
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > EASM API > API Developer & Reference Guide > Reference Guide > Organizations
+- Last modified: 2026-01-06T23:49Z
+
+API Reference Guide for the Zscaler EASM API
+
+### `GET /organizations`
+
+Retrieves all organizations configured for a tenant in the EASM Admin Portal
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `Authorization` | header | yes | object | API authentication token |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 500 | Internal Server Error |
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -11334,13 +11414,13 @@ Deletes the rule label for the specified ID.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/saas-security-api","lastmod":"2026-01-06T23:49Z","nid":"1529817"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/saas-security-api","lastmod":"2026-08-14T02:30Z","nid":"1529817"} -->
 ## SaaS Security API
 
 - Source: https://help.zscaler.com/legacy-apis/saas-security-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > SaaS Security API
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-08-14T02:30Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -17559,13 +17639,13 @@ As a best practice, after each call to an endpoint, your script should include a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-workflow-automation-api","lastmod":"2026-06-11T11:33Z","nid":"1452066"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-workflow-automation-api","lastmod":"2026-08-14T08:52Z","nid":"1452066"} -->
 ## Understanding Workflow Automation API
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-workflow-automation-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Workflow Automation API > Understanding Workflow Automation API
-- Last modified: 2026-06-11T11:33Z
+- Last modified: 2026-08-14T08:52Z
 - Summary: Information about the Workflow Automation API management.
 
 The Workflow Automation API gives you programmatic access to manage DLP incidents created in your organization. DLP incidents are transactions that have violated the Data Protection (DLP and SaaS API) policies configured by your organization in Zscaler Internet Access (ZIA). The admin to whom a DLP incident is assigned can take various actions to resolve the incident using Workflow Automation API. To learn more, see:
@@ -17574,6 +17654,12 @@ The Workflow Automation API gives you programmatic access to manage DLP incident
 - Audit Logs
 - CSV User Attributes
 - DLP Incidents
+- Email Quarantine
+
+Email Quarantine API resources allow you to release the quarantined email to one or more of its recipients. It also provides the quarantined email release status for the recipients. To learn more, see:
+
+- [Reference Guide > Email Quarantine](https://help.zscaler.com/legacy-apis/email-quarantine#/dlp/v1/incidents/%7BdlpIncidentId%7D/quarantine/release-post)
+- [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details)
 
 Audit logs API resources allow you to filter records of the actions that every admin performs in Workflow Automation. To learn more, see:
 
@@ -25579,13 +25665,13 @@ The Mobile Client SDK creates a unique device fingerprint and application signat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zsdk/understanding-zsdk-error-codes","lastmod":"2026-08-06T10:32Z","nid":"1533769"} -->
+<!-- ZS-ARTICLE {"url":"/zsdk/understanding-zsdk-error-codes","lastmod":"2026-08-12T12:31Z","nid":"1533769"} -->
 ## Understanding ZSDK Error Codes
 
 - Source: https://help.zscaler.com/zsdk/understanding-zsdk-error-codes
 - Product: Zscaler SDK for Mobile Apps
 - Path: Zscaler SDK for Mobile Apps Help > Zscaler SDK Developer Guide > Understanding ZSDK Error Codes
-- Last modified: 2026-08-06T10:32Z
+- Last modified: 2026-08-12T12:31Z
 - Summary: Information on error codes that can appear while you are configuring for ZSDK.
 
 The following tables are lists of error codes you can encounter for ZSDK.

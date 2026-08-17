@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 87
 
 ---
@@ -1317,13 +1317,13 @@ Before sending this request, ensure that you generate a report using `POST /audi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/admin-role-management","lastmod":"2026-07-15T07:06Z","nid":"1402446"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/admin-role-management","lastmod":"2026-08-16T07:06Z","nid":"1402446"} -->
 ## Admin & Role Management
 
 - Source: https://help.zscaler.com/legacy-apis/admin-role-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Admin & Role Management
-- Last modified: 2026-07-15T07:06Z
+- Last modified: 2026-08-16T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -2880,13 +2880,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-07-13T04:18Z","nid":"1400476"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-08-10T07:06Z","nid":"1400476"} -->
 ## API Rate Limit Summary
 
 - Source: https://help.zscaler.com/legacy-apis/api-rate-limit-summary
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > API Rate Limit Summary
-- Last modified: 2026-07-13T04:18Z
+- Last modified: 2026-08-10T07:06Z
 - Summary: Summarization of Zscaler's API resources and their rate limits for each method.
 
 The following table summarizes the Zscaler Internet Access (ZIA) API resources and their rate limits for each method.
@@ -3383,13 +3383,13 @@ Rate limits are subject to change. To learn more, see [Understanding Rate Limits
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary-workflow-automation-api","lastmod":"2026-06-10T03:32Z","nid":"1452126"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary-workflow-automation-api","lastmod":"2026-08-14T08:53Z","nid":"1452126"} -->
 ## API Rate Limit Summary
 
 - Source: https://help.zscaler.com/legacy-apis/api-rate-limit-summary-workflow-automation-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Workflow Automation API > API Developer & Reference Guide > Reference Guide > API Rate Limit Summary
-- Last modified: 2026-06-10T03:32Z
+- Last modified: 2026-08-14T08:53Z
 - Summary: Summary of Zscaler's Workflow Automation API resources and their rate limits for each method.
 
 The following table summarizes the Workflow Automation API resources and their rate limits for each API call.
@@ -3402,6 +3402,8 @@ Rate limits are subject to change. To learn more, see [Understanding API Rate Li
 | /dlp/v1/customer/audit | - | 20/min and 400/hr | - |
 | /dlp/v1/csv-user-data/{csv_user_data_uuid}/download | 30/min and 1,000/hr | - | - |
 | /dlp/v1/csv-user-data/import | - | 20/min and 400/hr | - |
+| /dlp/v1/incidents/{dlpIncidentId}/quarantine/release | - | 20/min and 400/hr | - |
+| /dlp/v1/incidents/{dlpIncidentId}/quarantine/status | 30/min and 1,000/hr | - | - |
 | /dlp/v1/incidents/transactions/{transactionId} | 30/min and 1,000/hr | - | - |
 | /dlp/v1/incidents/{dlpIncidentId} | 30/min and 1,000/hr | - | 30/min and 1,000/hr |
 | /dlp/v1/incidents/{dlpIncidentId}/change-history | 30/min and 1,000/hr | - | - |
@@ -8316,13 +8318,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-app-control-policy","lastmod":"2026-05-31T07:06Z","nid":"1500121"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-app-control-policy","lastmod":"2026-08-14T02:39Z","nid":"1500121"} -->
 ## Cloud App Control Policy
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-app-control-policy
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud App Control Policy
-- Last modified: 2026-05-31T07:06Z
+- Last modified: 2026-08-14T02:39Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -8555,7 +8557,7 @@ Gets the backend keys that match the application type string.
 
 ### `GET /webApplicationRules/{rule_type}`
 
-Gets the list of cloud application rules by the type of rule.
+Retrieves the list of cloud application rules by the type of rule
 
 - Operation ID: `WebApplicationRuleResource_getRulesByType`
 
@@ -8563,8 +8565,8 @@ Gets the list of cloud application rules by the type of rule.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `rule_type` | path | yes | object | The rule type selected from the available options. |
-| `search` | query | no | object | The search string used to match against a rule type option. |
+| `rule_type` | path | yes | object | Filters based on rule type selected from the available options |
+| `search` | query | no | object | The search string used to match against a rule type option |
 
 **Responses:**
 
@@ -8574,7 +8576,7 @@ Gets the list of cloud application rules by the type of rule.
 
 ### `POST /webApplicationRules/{rule_type}`
 
-Adds a new cloud application rule.
+Adds a new cloud application rule
 
 - Operation ID: `WebApplicationRuleResource_addRule`
 
@@ -8582,8 +8584,31 @@ Adds a new cloud application rule.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `rule_type` | path | yes | object | The rule type selected from the available options. |
-| `body` | body | no | WebApplicationRule | The Cloud App Control policy rule information. |
+| `rule_type` | path | yes | object | The rule type selected from the available options |
+| `body` | body | no | WebApplicationRule | The Cloud App Control policy rule information |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `POST /webApplicationRules/{rule_type}/allAvailableActions`
+
+Retrieves all granular actions supported by the web applications, including default actions such as allow, block, caution, etc., not supported by the
+
+**/webApplicationRules/{rule_type}/availableActions**
+
+endpoint.
+
+- Operation ID: `WebApplicationRuleResource_getAllAvailableActions`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `rule_type` | path | yes | object | Filters based on the rule type selected from the available options |
+| `body` | body | no | WebApplicationTypeList | The Cloud App Control policy rule information |
 
 **Responses:**
 
@@ -8593,7 +8618,7 @@ Adds a new cloud application rule.
 
 ### `POST /webApplicationRules/{rule_type}/availableActions`
 
-Fetches the granular actions supported for the applications.
+Retrieves the granular actions supported by the web applications
 
 - Operation ID: `WebApplicationRuleResource_getAvailableActions`
 
@@ -8601,8 +8626,8 @@ Fetches the granular actions supported for the applications.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `rule_type` | path | yes | object | The rule type selected from the available options. |
-| `body` | body | no | WebApplicationTypeList | The Cloud App Control policy rule information. |
+| `rule_type` | path | yes | object | Filters based on the rule type selected from the available options |
+| `body` | body | no | WebApplicationTypeList | The Cloud App Control policy rule information |
 
 **Responses:**
 
@@ -9776,13 +9801,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-08-09T07:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-08-16T07:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 

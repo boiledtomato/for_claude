@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 203
 
 ---
@@ -4232,13 +4232,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2025","lastmod":"2026-07-22T12:35Z","nid":"1516141"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2025","lastmod":"2026-08-11T11:00Z","nid":"1516141"} -->
 ## Client Connector App Release Summary (2025)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Release Notes (per OS) > Client Connector App Release Summary (2025)
-- Last modified: 2026-07-22T12:35Z
+- Last modified: 2026-08-11T11:00Z
 - Summary: Zscaler Client Connector app release summary for updates deployed, per OS and version, in 2025.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector app. To successfully update to the latest version of Zscaler Client Connector, see [Best Practices for Updating Latest Versions of Zscaler Client Connector Application](https://help.zscaler.com/zscaler-client-connector/best-practices-updating-latest-version-zscaler-client-connector-application).
@@ -4246,13 +4246,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-08-04T16:36Z","nid":"1535130"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-08-14T13:55Z","nid":"1535130"} -->
 ## Client Connector App Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Release Notes (per OS) > Client Connector App Release Summary (2026)
-- Last modified: 2026-08-04T16:36Z
+- Last modified: 2026-08-14T13:55Z
 - Summary: Zscaler Client Connector app release summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector app. To successfully update to the latest version of Zscaler Client Connector, see [Best Practices for Updating Latest Versions of Zscaler Client Connector Application](https://help.zscaler.com/zscaler-client-connector/best-practices-updating-latest-version-zscaler-client-connector-application).
@@ -4291,13 +4291,13 @@ To learn more about other Zscaler Client Connector Notifications features, see [
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store","lastmod":"2026-06-05T10:41Z","nid":"1285441"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store","lastmod":"2026-08-14T11:45Z","nid":"1285441"} -->
 ## Configuring an App Update in the Zscaler Client Connector App Store
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Store Settings > Configuring an App Update in the Zscaler Client Connector App Store
-- Last modified: 2026-06-05T10:41Z
+- Last modified: 2026-08-14T11:45Z
 - Summary: How to control which Zscaler Client Connector version is available for download, configure auto-update options for PCs, or make no versions available for download.
 
 Zscaler regularly releases new versions of Zscaler Client Connector. As an admin, you can decide what app version is used by your organization by configuring a Zscaler Client Connector app update. You can configure an app update to control which version (if any) is available when the app is automatically updated or when end users manually update the app.
@@ -4326,12 +4326,12 @@ The following app update options are available:
 Before you can configure an app update for a release, you must first enable a build.
 
 1. To enable builds on the New Releases tab: See image. Confirm the versions you enable on the **Registered Devices** tab, not the **New Releases** tab.
-  1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **Platform Releases**.
+  1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **Client Connector App Store**.
   2. On the **New Releases** tab, select a platform.
   3. Click **Enable Build**for the Zscaler Client Connector versions you want to configure for an app update.
   4. Click **Save**.
 2. To configure an app update for a release, click **Add App Store Group Policy**on the **Update Settings** tab. See image.
-3. In the **Add App Store Group Policy** window, select from the following settings: [Groups are synced](https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector) from Internet & SaaS.; If a group is already configured for an app update, that group cannot be added to subsequent app updates until the pending app update is complete. When multiple versions are configured for the same OS, and a user belongs to more than one group in those configurations, the latest version is updated for that user.; If any devices are already upgraded to a later version, you cannot roll out an update for an earlier version.
+3. In the **Add App Store Group Policy** window, select from the following settings: [Groups are synced](https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector) from Internet & SaaS, and are only available when Internet & SaaS is enabled and configured. If Internet & SaaS is not enabled, the groups might not appear.; If a group is already configured for an app update, that group cannot be added to subsequent app updates until the pending app update is complete. When multiple versions are configured for the same OS, and a user belongs to more than one group in those configurations, the latest version is updated for that user.; If any devices are already upgraded to a later version, you cannot roll out an update for an earlier version.
   1. From the**User Groups** drop-down menu, select the groups to which you want to apply this configuration.
   1. In the **Windows - Version to Install**, **macOS - Version to Install**, and **Linux - Version to Install** drop-down menus, select the Zscaler Client Connector version you want automatically updated on your users' devices.
   1. For Zscaler Client Connector version 3.7 and later for Windows, enable or disable **Use 64-Bit Installer for Windows**to install the 64-bit build on devices.
@@ -4369,10 +4369,10 @@ When you disable a Zscaler Client Connector update, Zscaler Client Connector nev
 
 To disable the Zscaler Client Connector app update option:
 
-1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **Platform Releases**.
+1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **Client Connector App Store**.
 2. Select the **Update Settings** tab, and click **Add App Store Group Policy**. See image.
 3. Select from the following settings in the **Add App Store Group Policy** window:
-  1. From the**User Groups** drop-down menu, select the groups to which you want to apply this configuration. [Groups are synced](https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector) from Internet & SaaS.; If a group is already configured for an app update, that group cannot be added to subsequent app updates until the pending app update is complete.
+  1. From the**User Groups** drop-down menu, select the groups to which you want to apply this configuration. [Groups are synced](https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector) from Internet & SaaS, and are only available when Internet & SaaS is enabled and configured. If Internet & SaaS is not enabled, the groups might not appear.; If a group is already configured for an app update, that group cannot be added to subsequent app updates until the pending app update is complete.
   2. In the **Windows - Version to Install**, **macOS - Version to Install**, and **Linux - Version to Install** drop-down menus, select **Disable**.
 4. Click **Save**. See image.
 5. In the **Group Based Version Rollout - Confirmation** window, click **Proceed**.
@@ -4381,7 +4381,7 @@ You can edit the default app store group policy, which allows you to specify a Z
 
 To edit the default app store group policy:
 
-1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **Platform Releases**.
+1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **Client Connector App Store**.
 2. Select the **Update Settings** tab, locate the group policy named **ALL**, and then click the **Edit** **(**) icon. See image.
 3. In the **Windows - Version to Install**, **macOS - Version to Install**, and **Linux - Version to Install**drop-down menus, select one of the following options:
   - **Latest**: Zscaler Client Connector automatically updates to the latest version.
@@ -6067,13 +6067,13 @@ To configure the machine tunnel for all devices:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles","lastmod":"2026-08-05T09:46Z","nid":"1285411"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles","lastmod":"2026-08-14T11:42Z","nid":"1285411"} -->
 ## Configuring Zscaler Client Connector App Profiles
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Profile Management > Configuring Zscaler Client Connector App Profiles
-- Last modified: 2026-08-05T09:46Z
+- Last modified: 2026-08-14T11:42Z
 - Summary: How to add and configure a new Zscaler Client Connector app profile rule for each platform, Windows, macOS, Linux, iOS, and Android.
 
 You can add a Zscaler Client Connector [profile](https://help.zscaler.com/zscaler-client-connector/about-zscaler-app-profiles) policy rule for each of the following device platforms:
@@ -6142,7 +6142,7 @@ To add a new Windows policy rule:
 - **Notification Template**: Select one of your configured notification templates from the drop-down menu. You can also search for items to select. To learn more, see [Configuring Notification Templates for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-notification-templates-zscaler-client-connector). This option is available only for Zscaler Client Connector version 4.8 and later for Windows. If you assign an app profile with a notification template to users with Zscaler Client Connector version 4.7 or earlier, the Legacy Notification Settings template is used regardless of what is selected.
 - **Enable Custom Theme**: When enabled, Zscaler Client Connector uses the company name and logos entered on the Zscaler Client Connector Theme page in the header of the app and in pop-up notifications instead of the Zscaler default logo. To learn more, see [Customizing the Zscaler Client Connector Theme](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-theme).
 
-- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy.
+- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy. [Groups are synced](https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector) from Internet & SaaS, and are only available when Internet & SaaS is enabled and configured. If Internet & SaaS is not enabled, the groups might not appear.
   - Click **Selected** to select user groups from the drop-down menu. The groups you've configured in the Zscaler Admin Console are displayed in this menu. There is no limit to the number of groups you can select.
   - Click **All**to select all groups.
 - **Users**: Select this option to apply this rule to a specific user. The users you've configured in the Zscaler Admin Console are displayed in this menu after a user enrolls Zscaler Client Connector with the Zscaler service. Zscaler Client Connector checks if the user belongs and downloads the app profile with the appropriate rule. You can select up to 50 users. By default, no users are selected. Don't select a user or a user group if you want to create and save a rule before applying it to a user or a user group.
@@ -6519,7 +6519,7 @@ To add a new macOS policy rule:
 - **Install Zscaler SSL Certificate**: If you’re using Zscaler Client Connector for Private Access (ZPA) only, skip this option. Enable this option to allow Zscaler Client Connector to automatically [install the Zscaler SSL certificate](https://help.zscaler.com/zscaler-client-connector/configuring-ssl-inspection-zscaler-client-connector) on users’ devices. If you [uploaded your organization’s custom certificate in the Zscaler Admin Console](https://help.zscaler.com/zscaler-client-connector/uploading-custom-ssl-certificate-zscaler-client-connector), the app installs your organization’s custom certificate instead.
 - **Reconnect Tunnel on System Wakeup**: Allows Zscaler Client Connector to immediately restart Z-Tunnel 2.0 after a device wakes up from sleep. You can enable [reconnectT2OnWake](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-microsoft-intune-macos#reconnect-tunnel-2) functionality either via a Mobile Device Management (MDM) platform or through the App Profile. Applies to Zscaler Client Connector versions 4.3.1.180 and 4.5.0.297 and later for macOS.
 
-- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy.
+- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy. [Groups are synced](https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector) from Internet & SaaS, and are only available when Internet & SaaS is enabled and configured. If Internet & SaaS is not enabled, the groups might not appear.
   - Click **Selected** to select user groups from the drop-down menu. The groups you've configured in the Zscaler Admin Console are displayed in this menu. There is no limit to the number of groups you can select.
   - Click **All**to select all groups.
 - **Users**: Select this option to apply this rule to a specific user. The users you've configured in the Zscaler Admin Console are displayed in this menu after a user enrolls Zscaler Client Connector with the Zscaler service. Zscaler Client Connector checks if the user belongs and downloads the app profile with the appropriate rule. You can select up to 50 users. By default, no users are selected. Don't select a user or a user group if you want to create and save a rule before applying it to a user or a user group.
@@ -6711,7 +6711,7 @@ To add a new Linux policy rule:
 - **ZIA Posture Profile**: Select an Internet & SaaS (ZIA) [posture profile](https://help.zscaler.com/client-connector/about-zia-posture-profiles) from the drop-down menu to apply to the app profile. You can also search for items to select.
 - **Install Zscaler SSL Certificate**: If you’re using Zscaler Client Connector for Private Access (ZPA) only, skip this option. Enable this option to allow Zscaler Client Connector to automatically [install the Zscaler SSL certificate](https://help.zscaler.com/zscaler-client-connector/configuring-ssl-inspection-zscaler-client-connector) on users’ devices. If you [uploaded your organization’s custom certificate in the Zscaler Admin Console](https://help.zscaler.com/zscaler-client-connector/uploading-custom-ssl-certificate-zscaler-client-connector), the app installs your organization’s custom certificate instead.
 
-- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy.
+- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy. [Groups are synced](https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector) from Internet & SaaS, and are only available when Internet & SaaS is enabled and configured. If Internet & SaaS is not enabled, the groups might not appear.
   - Click **Selected** to select user groups from the drop-down menu.
   - Click **All**to select all groups.
 - **Users**: Select this option to apply this rule to a specific user. The users you've configured in the Zscaler Admin Console are displayed in this menu after a user enrolls the app with the service. Zscaler Client Connector checks if the user belongs and downloads the app profile with the appropriate rule. You can select up to 50 users. By default, no users are selected. Don't select a user if you want to create and save a rule before applying it to a user.
@@ -6837,7 +6837,7 @@ To add a new iOS policy rule:
 - **Forwarding Profile**: Select a forwarding profile from your configured forwarding profiles from the drop-down menu. You can also search for items to select. The supported forwarding profile modes for iOS are Tunnel and None. To learn more, see [Configuring Forwarding Profiles for Zscaler Client Connector](https://help.zscaler.com/client-connector/configuring-forwarding-profiles-zscaler-client-connector).
 - **ZIA Posture Profile**: Select an Internet & SaaS (ZIA) [posture profile](https://help.zscaler.com/client-connector/about-zia-posture-profiles) from the drop-down menu to apply to the app profile. You can also search for items to select.
 
-- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy.
+- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy. [Groups are synced](https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector) from Internet & SaaS, and are only available when Internet & SaaS is enabled and configured. If Internet & SaaS is not enabled, the groups might not appear.
   - Click **Selected** to select user groups from the drop-down menu. The groups you've configured in the Zscaler Admin Console are displayed in this menu. There is no limit to the number of groups you can select.
   - Click **All**to select all groups.
 - **Users**: Select this option to apply this rule to a specific user. The users you've configured in the Zscaler Admin Console are displayed in this menu after a user enrolls Zscaler Client Connector with the Zscaler service. Zscaler Client Connector checks if the user belongs and downloads the app profile with the appropriate rule. You can select up to 50 users. By default, no users are selected. Don't select a user or a user group if you want to create and save a rule before applying it to a user or a user group.
@@ -7002,7 +7002,7 @@ If you use Z-Tunnel 2.0, you can configure traffic bypasses for IP-based applica
 - **ZIA Posture Profile**: Select an Internet & SaaS (ZIA) [posture profile](https://help.zscaler.com/zscaler-client-connector/about-zia-posture-profiles) from the drop-down menu to apply to the app profile. You can also search for items to select.
 - **Install Zscaler SSL Certificate**: If you’re using Zscaler Client Connector for Private Access (ZPA) only, skip this option. Enable this option to allow Zscaler Client Connector to automatically [install the Zscaler SSL certificate](https://help.zscaler.com/client-connector/configuring-ssl-inspection-zscaler-client-connector) on users’ devices. If you [uploaded your organization’s custom certificate in the Zscaler Admin Console](https://help.zscaler.com/client-connector/uploading-custom-ssl-certificate-zscaler-client-connector), the app installs your organization’s custom certificate instead.
 
-- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy.
+- **User Groups**: When a user enrolls Zscaler Client Connector with the Zscaler service, Zscaler Client Connector checks the group to which the user belongs and downloads the app profile with the appropriate rule. When new user groups are added, they are automatically selected. You can clear the checkbox to exclude them from your policy. [Groups are synced](https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector) from Internet & SaaS, and are only available when Internet & SaaS is enabled and configured. If Internet & SaaS is not enabled, the groups might not appear.
   - Click **Selected** to select user groups from the drop-down menu. The groups you've configured in the Zscaler Admin Console are displayed in this menu. There is no limit to the number of groups you can select.
   - Click **All**to select all groups.
 - **Users**: Select this option to apply this rule to a specific user. The users you've configured in the Zscaler Admin Console are displayed in this menu after a user enrolls Zscaler Client Connector with the Zscaler service. Zscaler Client Connector checks if the user belongs and downloads the app profile with the appropriate rule. You can select up to 50 users. By default, no users are selected. Don't select a user if you want to create and save a rule before applying it to a user or a user group.
@@ -13640,13 +13640,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/release-upgrade-summary-2026","lastmod":"2026-08-07T08:14Z","nid":"1534303"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/release-upgrade-summary-2026","lastmod":"2026-08-14T07:57Z","nid":"1534303"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/release-upgrade-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Portal Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-07T08:14Z
+- Last modified: 2026-08-14T07:57Z
 - Summary: Zscaler Client Connector Portal Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Client Connector Portal. Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).

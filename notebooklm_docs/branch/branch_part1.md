@@ -1,8 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 160
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 159
 
 ---
 
@@ -715,13 +715,13 @@ On the GCP Gateway page (Infrastructure > Connectors > Cloud > Zero Trust Gatewa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-insights","lastmod":"2026-07-27T19:21Z","nid":"1420536"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-insights","lastmod":"2026-08-10T21:06Z","nid":"1420536"} -->
 ## About Insights
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-insights
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > About Insights
-- Last modified: 2026-07-27T19:21Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Information on Zscaler Cloud & Branch Connectors Insights pages, the different types of traffic you can view, and the different sections on the pages.
 
 The Insights pages are where you can view and define traffic information when analyzing traffic through charts. To learn more about how to analyze your traffic on the Insights pages, see [Analyzing Traffic Using Insights](https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-using-insights).
@@ -1252,13 +1252,13 @@ On the Network Services page (Policies > Access Control > Firewall > Network Ser
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-feeds","lastmod":"2026-07-29T21:09Z","nid":"1420626"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-feeds","lastmod":"2026-08-13T21:06Z","nid":"1420626"} -->
 ## About NSS Feeds
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-nss-feeds
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > About NSS Feeds
-- Last modified: 2026-07-29T21:09Z
+- Last modified: 2026-08-13T21:06Z
 - Summary: Information on NSS feeds and the NSS feeds page on the Zscaler Admin Console.
 
 A Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. Both Cloud Connector and Branch Connector can generate Session, DNS, Event, and Metrics logs.
@@ -1290,13 +1290,13 @@ To learn more about adding NSS servers per platform, see the [NSS Deployment Gui
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-servers","lastmod":"2026-07-30T16:49Z","nid":"1420736"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-servers","lastmod":"2026-08-13T21:06Z","nid":"1420736"} -->
 ## About NSS Servers
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-nss-servers
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > About NSS Servers
-- Last modified: 2026-07-30T16:49Z
+- Last modified: 2026-08-13T21:06Z
 - Summary: Information on the NSS servers page in the Zscaler Admin Console.
 
 The Nanolog Streaming Service (NSS) uses a virtual machine (VM) to stream traffic logs in real time from the Zscaler Nanolog to your security information and event management (SIEM) system, enabling real-time alerting, correlation with the logs of your other devices, and long-term local log archival. An NSS server is the representation of the NSS VM in the Zscaler Admin Console.
@@ -1495,13 +1495,13 @@ On the Traffic Forwarding page (Infrastructure > Connectors > Edge > Forwarding 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-upgrade-manager","lastmod":"2026-07-12T07:06Z","nid":"1534347"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-upgrade-manager","lastmod":"2026-08-13T07:06Z","nid":"1534347"} -->
 ## About Upgrade Manager
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-upgrade-manager
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Group Management > About Upgrade Manager
-- Last modified: 2026-07-12T07:06Z
+- Last modified: 2026-08-13T07:06Z
 - Summary: Information on Upgrade Manager in the Zscaler Admin Console.
 
 The upgrade manager allows you to view detailed information about your Cloud Connector group release channel.
@@ -1797,13 +1797,13 @@ On the ZT Devices page (Infrastructure > Connectors > Edge > Management > ZT Dev
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/accessing-cloud-branch-connector-monitoring","lastmod":"2026-07-28T22:46Z","nid":"1420526"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/accessing-cloud-branch-connector-monitoring","lastmod":"2026-08-12T21:06Z","nid":"1420526"} -->
 ## Accessing Cloud & Branch Connector Monitoring
 
 - Source: https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Accessing Cloud & Branch Connector Monitoring
-- Last modified: 2026-07-28T22:46Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Information on accessing Cloud & Branch Connector Monitoring in the Zscaler Admin Console.
 
 The Cloud & Branch Connector Monitoring page provides information on the name, group, location, geolocation, and status of your Cloud and Branch Connector virtual machines (VMs) deployed in your cloud or branch accounts. You can use the **Refresh**icon to refresh the dashboard to view the most recent information.
@@ -2527,13 +2527,13 @@ The GCP gateway is created.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds","lastmod":"2026-07-29T21:14Z","nid":"1420631"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds","lastmod":"2026-08-13T21:06Z","nid":"1420631"} -->
 ## Adding NSS Feeds
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds
-- Last modified: 2026-07-29T21:14Z
+- Last modified: 2026-08-13T21:06Z
 - Summary: How to add NSS feeds for Session, DNS, Event, and Metrics logs in the Zscaler Admin Console.
 
 A Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. You can filter the data, so you send only the data you need to the SIEM. You can add one or more fields for the logs and one field for alerts. You can add up to 16 NSS feeds for each NSS. [Session logs](https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-session-logs) are limited to 8 feeds per NSS to ensure optimal performance. Each feed can have a different list of fields, a different format, and different filters. To learn more about how to configure each feed, see the following articles:
@@ -2546,13 +2546,13 @@ A Nanolog Streaming Service (NSS) feed specifies the data from the logs that the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-dns-logs","lastmod":"2026-07-29T14:31Z","nid":"1420716"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-dns-logs","lastmod":"2026-08-12T21:06Z","nid":"1420716"} -->
 ## Adding NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-dns-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for DNS Logs
-- Last modified: 2026-07-29T14:31Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Information on how to add NSS feeds for DNS logs in the Zscaler Admin Console.
 
 You can configure up to 16 Nanolog Streaming Service (NSS) feeds to specify the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -2630,13 +2630,13 @@ For item lists, you can view up to 500 items on a page; filter the list by searc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-event-logs","lastmod":"2026-07-29T14:35Z","nid":"1458956"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-event-logs","lastmod":"2026-08-12T21:06Z","nid":"1458956"} -->
 ## Adding NSS Feeds for Event Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-event-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for Event Logs
-- Last modified: 2026-07-29T14:35Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Information on how to add NSS feeds for Event logs in the Zscaler Admin Console.
 
 You can configure up to 16 Nanolog Streaming Service (NSS) feeds to specify the data from the Event logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -2669,13 +2669,13 @@ To configure a feed for Event logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-metrics-logs","lastmod":"2026-07-29T14:36Z","nid":"1458961"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-metrics-logs","lastmod":"2026-08-12T21:06Z","nid":"1458961"} -->
 ## Adding NSS Feeds for Metrics Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-metrics-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for Metrics Logs
-- Last modified: 2026-07-29T14:36Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Information on how to add NSS feeds for Metrics logs in the Zscaler Admin Console.
 
 You can configure up to 16 NSS feeds to specify the data from the Metrics logs that the Nanolog Streaming Service (NSS) sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -2774,13 +2774,13 @@ You can enter multiple entries. Press **Enter** after each entry, then click **A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-servers","lastmod":"2026-07-29T21:01Z","nid":"1420616"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-servers","lastmod":"2026-08-12T21:06Z","nid":"1420616"} -->
 ## Adding NSS Servers
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-servers
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > Adding NSS Servers
-- Last modified: 2026-07-29T21:01Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: How to add an NSS server on the NSS page from the Zscaler Admin Console.
 
 Before you set up a Nanolog Streaming Service (NSS) server on the Zscaler Admin Console, you must enter information about your traffic and users so the Zscaler service can compute the appropriate resources for your NSS. The NSS buffers the logs for at least one hour. If a security information and event management (SIEM) system goes offline for maintenance or if the connection between the NSS and the SIEM is disrupted, the NSS buffers the logs and sends them after the connection is re-established. The amount of memory required to buffer the logs is incorporated into the VM spec computation. The buffer size increases proportionally to the amount of RAM allocated to the NSS.
@@ -3446,13 +3446,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-branch-connector-details","lastmod":"2026-07-28T22:52Z","nid":"1447011"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-branch-connector-details","lastmod":"2026-08-12T21:06Z","nid":"1447011"} -->
 ## Analyzing Branch Connector Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-branch-connector-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Analyzing Branch Connector Details
-- Last modified: 2026-07-28T22:52Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Information on the Branch Connector Details page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 The Branch Connector details page provides general, management, and forwarding information for a selected Branch Connector. You can access the Branch Connector details page by clicking the **View** icon ([Image: View Icon in the Cloud & Branch Connector Monitoring Table]) in the [Cloud & Branch Connector Monitoring](https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring) table (**Infrastructure**> **Connectors**> **Edge**> **Branch Connector Monitoring**) for a selected Branch Connector.
@@ -3721,13 +3721,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-cloud-connector-details","lastmod":"2026-07-27T15:33Z","nid":"1420706"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-cloud-connector-details","lastmod":"2026-08-10T21:06Z","nid":"1420706"} -->
 ## Analyzing Cloud Connector Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-cloud-connector-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Analyzing Cloud Connector Details
-- Last modified: 2026-07-27T15:33Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Information on the Cloud Connector Details page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 The Cloud Connector details page provides general, forwarding, and management information for a selected Cloud Connector. You can access the Cloud Connector details page by clicking the **View** icon ([Image: View Icon in the Cloud & Branch Connector Monitoring Table]) in the [Cloud & Branch Connector Monitoring](https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring) table for a selected Cloud Connector.
@@ -4142,13 +4142,13 @@ The Storage Account list shows you the storage account details associated with t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-flow","lastmod":"2026-07-28T22:14Z","nid":"1420711"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-flow","lastmod":"2026-08-12T21:06Z","nid":"1420711"} -->
 ## Analyzing Traffic Flow
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-flow
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Analyzing Traffic Flow
-- Last modified: 2026-07-28T22:14Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Information about Traffic Flow page in the Zscaler Admin Console.
 
 The Traffic Flow page provides information about the Traffic and DNS Overview. You can access the Traffic Flow page by clicking the **View** icon ([Image: Traffic Monitoring View Icon in the Cloud & Branch Connector Table]) in the [Traffic Monitoring](https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-monitoring)'s Cloud & Branch Connector table (**Infrastructure** > **Connectors** > **Cloud** > **Cloud Connector Monitoring** > **Traffic Monitoring**), where you can see the throughput and session count forwarded via Internet & SaaS (ZIA), Private Access (ZPA), Direct, or Log & Control for the selected Cloud or Branch Connector.
@@ -4207,13 +4207,13 @@ Click a point on the graph to see the value for the specified time period. **Cli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-monitoring","lastmod":"2026-07-27T18:55Z","nid":"1420531"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-monitoring","lastmod":"2026-08-10T21:06Z","nid":"1420531"} -->
 ## Analyzing Traffic Monitoring
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-monitoring
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Analyzing Traffic Monitoring
-- Last modified: 2026-07-27T18:55Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Information on Traffic Monitoring page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 The Traffic Monitoring page provides information on the name, group, location, throughput, and session data across services of your Cloud or Branch Connector. You can use the **Refresh**icon ([Image: Refresh Icon on the Traffic Monitoring Page in the Zscaler Cloud & Branch Connector Admin Portal]) to refresh the dashboard to view the most recent information.
@@ -4288,13 +4288,13 @@ Click the **View** icon to access the [Traffic Flow](https://help.zscaler.com/cl
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-using-insights","lastmod":"2026-07-27T16:05Z","nid":"1420666"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-using-insights","lastmod":"2026-08-10T21:06Z","nid":"1420666"} -->
 ## Analyzing Traffic Using Insights
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-using-insights
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Analyzing Traffic Using Insights
-- Last modified: 2026-07-27T16:05Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: How to analyze your traffic using Insights pages in the Zscaler Cloud & Branch Connector Admin Portal.
 
 In the**Logs > Insights > Branch and Cloud Connectors > Tunnel, DNS, or Session Insights** windows, you can interactively drill down to specific transactions. To learn more about the Insights pages, see [About Insights](https://help.zscaler.com/cloud-branch-connector/about-insights).
@@ -4343,13 +4343,13 @@ You can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-08-03T14:07Z","nid":"1516906"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-08-14T10:57Z","nid":"1516906"} -->
 ## Analyzing Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Analyzing Zero Trust Gateways
-- Last modified: 2026-08-03T14:07Z
+- Last modified: 2026-08-14T10:57Z
 - Summary: Information on the Zero Trust Gateway page in the Zscaler Admin Console.
 
 The Zero Trust Gateway page provides information on the name, location, entitlement status, and health status of your Zero Trust Gateway. You can use the **Refresh**icon ([Image: Refresh Icon on the Traffic Monitoring Page in the Zscaler Cloud & Branch Connector Admin Portal]) to refresh the dashboard to view the most recent information.
@@ -7546,13 +7546,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-nss-virtual-appliances","lastmod":"2026-07-29T21:05Z","nid":"1420621"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-nss-virtual-appliances","lastmod":"2026-08-12T21:06Z","nid":"1420621"} -->
 ## Deploying NSS Virtual Appliances
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-nss-virtual-appliances
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Deployment Guides > Deploying NSS Virtual Appliances
-- Last modified: 2026-07-29T21:05Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: How to deploy NSS Virtual Appliances on the NSS page from the Zscaler Admin Console.
 
 To deploy your NSS virtual appliance, the Zscaler service needs to compute the appropriate resources for your NSS. To learn more, see the deployment guide linked below for your platform:
@@ -8041,13 +8041,13 @@ If you face any issues with your Cloud Connector deployment, see[Troubleshooting
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform","lastmod":"2026-07-28T13:48Z","nid":"1461611"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform","lastmod":"2026-08-10T14:53Z","nid":"1461611"} -->
 ## Deploying Zscaler Cloud Connector on the Google Cloud Platform
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Deploying Zscaler Cloud Connector on the Google Cloud Platform
-- Last modified: 2026-07-28T13:48Z
+- Last modified: 2026-08-10T14:53Z
 - Summary: Information on deploying Zscaler Cloud Connector on the Google Cloud Platform.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as a virtual machine (VM) on the Google Cloud Platform (GCP), and post-deployment configurations. This procedure describes the steps for deploying Zscaler Cloud Connector using Terraform. To learn more about the resources created when deploying Zscaler Cloud Connector, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector).
@@ -8088,32 +8088,35 @@ If you already created a dedicated admin role and role-based administrator for C
 Zscaler recommends that you create a dedicated admin role for Cloud Connector deployment. To configure a new [admin role](https://help.zscaler.com/cloud-branch-connector/adding-admin-roles):
 
 1. Log in to the [Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console) as a super admin.
-2. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Branch and Cloud Connector**.
+2. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Roles** > **Branch and Cloud Connector**.
 3. Click**Add Admin Role**.
-4. In the **Add Admin Role** window: See image.
+4. In the **Add Admin Role** window:
   - **Name**: Enter a unique name for the admin role (e.g., CloudConnector-Deployment-Role).
   - **Permissions**: Ensure that the admin has full access to **Location Management**and**Cloud Connector Provisioning**. Set all other permissions to**None**.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+See image.
+
+1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 - In Zscaler Cloud Connector
 - In Authentication Service
 
 After you configure the admin role, create a new role-based administrator dedicated to Cloud Connector deployment.
 
-For a Cloud Connector tenant linked to a Authentication Service service, after configuring the admin role in the Zscaler Admin Console, create administrators. You must create and manage the Cloud Connector admin account within the Zscaler Admin Console for these tenants.
+For a Cloud Connector tenant linked to a Authentication Service service, after configuring the admin role in the Zscaler Admin Console, create administrators from the Zscaler Admin Console. You must create and manage the Cloud Connector admin account within the Zscaler Admin Console for these tenants.
 
 To retrieve the API key:
 
 1. Log in to the Zscaler Admin Console.
 2. Go to **Administration** > **API Configuration** > **Legacy API** > **Cloud & Branch Connector API**.
-3. From the [API Key Management](https://help.zscaler.com/cloud-branch-connector/about-api-key-management) page, copy the API key and store it in a secure location. Cloud Connector uses the API key to authenticate and register the GCP with the Zscaler service.
+3. From the [API Key Management](https://help.zscaler.com/cloud-branch-connector/about-api-key-management) page, copy the API key and store it in a secure location. Cloud Connector uses the API key to authenticate and register the GCP with Zscaler.
 
 See image.
 
 You do not need to configure location templates because [locations](https://help.zscaler.com/cloud-branch-connector/about-locations) are created automatically when you deploy Cloud Connector to a cloud provider such as GCP. Optionally, you can configure your own location template:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Infrastructure** > **Locations** > **Location Templates**.
+2. Go to **Infrastructure** > **Locations** > **Location Resources** > **Location Templates**.
 3. Click [**Add Location Template**](https://help.zscaler.com/cloud-branch-connector/configuring-location-template).
   - In the **Name**field, enter a name for the location template.
   - In the **Template Prefix** field, enter a prefix for the location template. All locations created using this location template contain this prefix.
@@ -8132,7 +8135,7 @@ See image.
 Configure a [cloud provisioning template](https://help.zscaler.com/cloud-branch-connector/configuring-cloud-provisioning-template) and copy the cloud provisioning URL. To configure a cloud provisioning template:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Infrastructure** > **Connectors** > **Cloud** > **Provisioning.**
+2. Go to **Infrastructure** > **Connectors** > **Cloud** > **Management** > **Provisioning.**.
 3. Click **Add Cloud Connector Provisioning Template**.
 4. On the**Cloud Provisioning Template**page:
   - **Name**: Enter a name for the cloud provisioning template.
@@ -8225,7 +8228,9 @@ Each Cloud Run Function needs a service account assigned to it. You can let Terr
   - **Service account ID**: If necessary, change the ID. You cannot change the ID after the service account is created.
   - **Service account description**: (Optional) Enter a description of the service account's purpose. See image.
 5. Click **Create and Continue**.
-6. On the**Grant this service account access to project** page, from the **Select a role** drop-down menu, select **Compute Instance Admin (v1)**.
+6. On the**Grant this service account access to project** page, you can either:
+  - From the **Select a role** drop-down menu, select the existing **Compute Instance Admin (v1)** role.
+  - Create and add a new custom role to your service account. Add the following permissions to your new role: `permissions = [ "compute.instances.list", "compute.instances.get", "compute.instances.getSerialPortOutput", "compute.instances.stop", "compute.instances.start", "compute.instances.delete", "compute.instances.setMetadata", "compute.instances.setLabels", "compute.instanceGroupManagers.get", "compute.instanceGroupManagers.list", "compute.instanceGroupManagers.delete", "compute.instanceGroupManagers.update", "compute.instanceTemplates.get", "compute.zones.list", "resourcemanager.projects.get", ] }`By default, Terraform modules create a custom IAM role with the listed permissions.
 7. Click **Add Another Role**and add the following roles: **Monitoring Viewer**, **Logs Writer**, **Cloud Run Invoker**.
 8. Click **Add Another Role** and do one of the following, depending on the method you use to store and manage your secret credentials:
   - **GCP Secret Manager**: Select **Secret Manager Secret Accessor**.
@@ -8270,7 +8275,7 @@ To send traffic to your deployed Cloud Connector:
 7. From the left-side navigation, select **VPC Network** > **Routes**.
 8. On the **Routes**page, navigate to **Route Management**.
 9. Click **Create Route**.
-10. On the**Create a Route**page: See image.
+10. On the**Create a Route**page:
   - **Name**: Enter a name for your route table.
   - **Network**: Select the VPC where the workload is located (e.g., zscc-service-vpc-0yv34zh8).
   - **Route type**: From the drop-down menu, select**Static route**.
@@ -8280,10 +8285,13 @@ To send traffic to your deployed Cloud Connector:
   - **Next hop**: From the drop-down menu, select **Specify a forwarding rule of internal TCP/UDP load balancer**.
   - **Forwarding rule project**: From the drop-down menu, select the project in which the forwarding rule is located.
   - **Forwarding rule name**: From the drop-down menu, select the rule to forward traffic to the Cloud Connector.
-11. Click **Equivalent Command Line**to open the **gcloud command line**.
-12. Click **Run in Cloud Shell**.
-13. Attach the**network tag**to the string of the **Cloud Shell**.
-14. Press `Enter` to run the command in **Cloud Shell**. For example:
+
+See image.
+
+1. Click **Equivalent Command Line**to open the **gcloud command line**.
+2. Click **Run in Cloud Shell**.
+3. Attach the**network tag**to the string of the **Cloud Shell**.
+4. Press `Enter` to run the command in **Cloud Shell**. For example:
 
 ```
 Created [https://www.googleapis.com/compute/beta/projects/cc-poc-host-project-01/global/routes/route-from-workload-to-ilb-to-zscaler-cloud-connector].
@@ -8302,7 +8310,7 @@ You can manage the Cloud Connector from the Zscaler Admin Console. A deployed Cl
 
 See image.
 
-[Image: The geo view provides the geographical location of the deployed Cloud Connector]
+[Image: The geo view provides the geographical location of the deployed Cloud Connector.]
 
 After verifying deployment, you can configure the following policies:
 
@@ -8329,13 +8337,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-08-05T15:00Z","nid":"1420751"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-08-12T15:03Z","nid":"1420751"} -->
 ## Deploying Zscaler Cloud Connector with Microsoft Azure
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for Azure > Deploying Zscaler Cloud Connector with Microsoft Azure
-- Last modified: 2026-08-05T15:00Z
+- Last modified: 2026-08-12T15:03Z
 - Summary: How to deploy Zscaler Cloud Connector on Microsoft Azure, including prerequisites and post-deployment verification checks.
 
 When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, do not run both Virtual Machine Scale Sets (VMSS) and non-VMSS deployments within the same virtual network (VNet).
@@ -8384,7 +8392,7 @@ Ensure that you have the **User Access Administrator**, **Contributor**, and **K
 
 After configuring the admin role, create a new role-based administrator dedicated to Cloud Connector deployment.
 
-For a Cloud Connector tenant linked to Authentication Service, after configuring the admin role in the Zscaler Admin Console, create administrators. You must create and manage the Cloud Connector admin account within the Zscaler Admin Console for these tenants.
+For a Cloud Connector tenant linked to a Authentication Service service, after configuring the admin role in the Zscaler Admin Console, create administrators. You must create and manage the Cloud Connector admin account within the Zscaler Admin Console for these tenants.
 
 To retrieve the API key:
 
@@ -8572,7 +8580,7 @@ To deploy your Cloud Connector using Azure Marketplace:
   - **Availability Zones**: Select up to three availability zones. This option is only displayed if you selected **Availability Zones**on the **Load Balancer Settings**tab. See image.
   - **Virtual Network**: The virtual network in the resource group into which the Cloud Connector is deployed. By default, a new virtual network is automatically created. Alternatively, you can select another virtual network from the drop-down menu.
   - **zsccSubnet1**: The subnet in the resource group and virtual network into which the Cloud Connector is deployed. By default, a new subnet is automatically created. Alternatively, you can select another subnet from the drop-down menu. The subnet options that appear in the drop-down menu depend on the number of availability zones you select. There can be one subnet per availability zone. See image.
-11. On the **Tags** tab, configure tags to categorize resources, then click **Next**.
+11. On the **Tags** tab, configure tags to categorize resources. To opt out of Microsoft Azure Network Adapter (MANA)-enabled hardware, enable **LegacyVMNVA**. Then click **Next**. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-mana-network-virtual-appliance-opt-out).
 12. On the **Review + Create** tab, review the summary of your configurations, then click**Create**.
 
 Cloud Connector with VMSS deployment requires using the [Terraform Deployment Template with Virtual Machine Scale Sets (VMSS)](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector) and a new [Cloud Provisioning Template](https://help.zscaler.com/cloud-branch-connector/configuring-cloud-provisioning-template) with **Auto Scaling** set to **Enabled**. To enable autoscaling, contact Zscaler Support.
@@ -12336,13 +12344,13 @@ To enable remote assistance:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/general-guidelines-nss-feeds-and-feed-formats","lastmod":"2026-07-29T14:39Z","nid":"1420831"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/general-guidelines-nss-feeds-and-feed-formats","lastmod":"2026-08-12T21:06Z","nid":"1420831"} -->
 ## General Guidelines for NSS Feeds and Feed Formats
 
 - Source: https://help.zscaler.com/cloud-branch-connector/general-guidelines-nss-feeds-and-feed-formats
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > General Guidelines for NSS Feeds and Feed Formats
-- Last modified: 2026-07-29T14:39Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Guidelines on how to format NSS field outputs in the Zscaler Admin Console.
 
 This article provides guidelines and information about the different feeds and fields that you can include in the Nanolog Streaming Service (NSS) output for the logs.
@@ -12982,13 +12990,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-dns-logs","lastmod":"2026-07-29T14:44Z","nid":"1420841"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-dns-logs","lastmod":"2026-08-12T21:06Z","nid":"1420841"} -->
 ## NSS Feed Output Format: DNS Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/nss-feed-output-format-dns-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
-- Last modified: 2026-07-29T14:44Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Information about DNS log fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
 
 The DNS Nanolog Streaming Service (NSS) feed specifies the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -13076,13 +13084,13 @@ edom_str has been added as a hex-encoded field.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-event-logs","lastmod":"2026-07-29T14:47Z","nid":"1459131"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-event-logs","lastmod":"2026-08-12T21:06Z","nid":"1459131"} -->
 ## NSS Feed Output Format: Event Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/nss-feed-output-format-event-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Event Logs
-- Last modified: 2026-07-29T14:47Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Information about Event log fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
 
 The Event NSS feed specifies the data from the Event logs that the Nanolog Streaming Service (NSS) sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -13381,13 +13389,13 @@ The following tables display information about the Event fields and possible val
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-metrics-logs","lastmod":"2026-07-29T14:50Z","nid":"1459136"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-metrics-logs","lastmod":"2026-08-12T21:06Z","nid":"1459136"} -->
 ## NSS Feed Output Format: Metrics Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/nss-feed-output-format-metrics-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Metrics Logs
-- Last modified: 2026-07-29T14:50Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Information about Metrics log fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
 
 The Metrics Nanolog Streaming Service (NSS) feed specifies the data from the Metrics logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -13578,13 +13586,13 @@ Resource NSS feeds consist of metrics at the resource level. For example, a reso
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-session-logs","lastmod":"2026-07-30T14:11Z","nid":"1420836"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/nss-feed-output-format-session-logs","lastmod":"2026-08-13T21:06Z","nid":"1420836"} -->
 ## NSS Feed Output Format: Session Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/nss-feed-output-format-session-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Session Logs
-- Last modified: 2026-07-30T14:11Z
+- Last modified: 2026-08-13T21:06Z
 - Summary: Information about the Session fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
 
 The Session Nanolog Streaming Service (NSS) feed specifies the data from the Session logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -13905,13 +13913,13 @@ passwd zsroot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-data-types-filters","lastmod":"2026-07-27T15:28Z","nid":"1420701"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-data-types-filters","lastmod":"2026-08-10T21:06Z","nid":"1420701"} -->
 ## Session Data Types and Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/session-data-types-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Session Data Types and Filters
-- Last modified: 2026-07-27T15:28Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Information on Session data types to define Session traffic information in a dashboard and charts in Session Insights.
 
 There are two ways to view Session data types and filters to define Session traffic information. You can view them on a dashboard or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-using-insights).
@@ -14013,13 +14021,13 @@ You can select the following Session Insights (Logs > Insights > Branch & Cloud 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-insights-logs-filters","lastmod":"2026-07-27T15:29Z","nid":"1420696"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-insights-logs-filters","lastmod":"2026-08-10T21:06Z","nid":"1420696"} -->
 ## Session Insights Logs: Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/session-insights-logs-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > Session Insights Logs: Filters
-- Last modified: 2026-07-27T15:29Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Information on the different filters in the Session Insights Logs page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 Filters define the traffic information that you view in your Session Insight logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -14064,13 +14072,13 @@ You can select the following Session Insights Logs filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/siem-integration-nss","lastmod":"2026-07-29T21:04Z","nid":"1455426"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/siem-integration-nss","lastmod":"2026-08-12T21:06Z","nid":"1455426"} -->
 ## SIEM Integration for NSS
 
 - Source: https://help.zscaler.com/cloud-branch-connector/siem-integration-nss
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > SIEM Integration for NSS
-- Last modified: 2026-07-29T21:04Z
+- Last modified: 2026-08-12T21:06Z
 - Summary: Understanding SIEM Integration for NSS.
 
 Cloud NSS allows you to instantly stream logs from the Zscaler Admin Console directly into a compatible cloud-based security information and event management (SIEM) system. If you subscribe to Cloud NSS, you can enable direct cloud-to-cloud log streaming.
@@ -14316,13 +14324,13 @@ To learn more about bypasses, see [Configuring VDI Forwarding Profiles](https://
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/step-step-configuration-guide-zscaler-cloud-connector","lastmod":"2026-04-08T10:21Z","nid":"1420756"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/step-step-configuration-guide-zscaler-cloud-connector","lastmod":"2026-08-14T14:36Z","nid":"1420756"} -->
 ## Step-by-Step Configuration Guide for Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-cloud-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Step-by-Step Configuration Guide for Zscaler Cloud Connector
-- Last modified: 2026-04-08T10:21Z
+- Last modified: 2026-08-14T14:36Z
 - Summary: This guide takes you step-by-step through the configuration tasks you must complete for Zscaler Cloud Connector.
 
 This guide takes you through the configuration steps you need to complete before using Zscaler Cloud Connector for your organization.
@@ -14347,8 +14355,6 @@ To configure Cloud Connector, complete the following steps:
 
 To update and configure administrators and roles as applicable, see:
 
-- [Accessing Administrator Management](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management)
-- [About Administrators](https://help.zscaler.com/cloud-branch-connector/about-administrators)
 - [About Role Management](https://help.zscaler.com/cloud-branch-connector/about-role-management)
 - [Adding Admin Roles](https://help.zscaler.com/cloud-branch-connector/adding-admin-roles)
 
@@ -14550,13 +14556,13 @@ Gather the following information to respond to Terraform deployment wizard promp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-08-03T14:09Z","nid":"1538721"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-08-14T11:06Z","nid":"1538721"} -->
 ## Supported Regions for Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/supported-regions-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Supported Regions for Zero Trust Gateways
-- Last modified: 2026-08-03T14:09Z
+- Last modified: 2026-08-14T11:06Z
 - Summary: Information about the supported regions for Zscaler Zero Trust Gateways in the Zscaler Admin Console.
 
 Zscaler Zero Trust Gateways are supported in the following regions:
@@ -15434,13 +15440,13 @@ The following table lists Zscaler Client Connector for VDI Private Access data p
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-data-types-filters","lastmod":"2026-07-27T15:49Z","nid":"1420661"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-data-types-filters","lastmod":"2026-08-10T21:06Z","nid":"1420661"} -->
 ## Tunnel Data Types and Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/tunnel-data-types-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Tunnel Data Types and Filters
-- Last modified: 2026-07-27T15:49Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Information on tunnel, location, and VPN credential data types to define traffic information in a dashboard or when analyzing charts in Tunnel Insights.
 
 You can use tunnel data types and filters to define the tunnel traffic information that you want to view when analyzing charts on an Insights page. To learn more about how to analyze your traffic insights, see [Analyzing Traffic Using Insights](https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-using-insights).
@@ -15521,13 +15527,13 @@ You can select the following Tunnel Insights Log columns to view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-insights-logs-filters","lastmod":"2026-07-27T15:41Z","nid":"1420686"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-insights-logs-filters","lastmod":"2026-08-10T21:06Z","nid":"1420686"} -->
 ## Tunnel Insights Logs: Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/tunnel-insights-logs-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > Tunnel Insights Logs: Filters
-- Last modified: 2026-07-27T15:41Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Information on the different filters in the Tunnel Insights logs page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 Filters define the traffic information that you view in your Tunnel Insights logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -15548,13 +15554,13 @@ You can select the following Tunnel Insights Log filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups","lastmod":"2026-07-28T07:36Z","nid":"1529197"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups","lastmod":"2026-08-11T21:06Z","nid":"1529197"} -->
 ## Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups
-- Last modified: 2026-07-28T07:36Z
+- Last modified: 2026-08-11T21:06Z
 - Summary: Information about Autoscaling Groups with Zscaler Cloud Connector.
 
 An AWS Elastic Compute Cloud (EC2) Autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs), which are EC2 instances, to an Autoscaling group to meet the current load, and removes Cloud Connector VMs from the group when the load decreases. You define the desired capacity and the minimum and maximum number of VMs in the group.
@@ -16044,203 +16050,4 @@ This managed identity allows the Azure Functions App to make API calls to perfor
 User-assigned managed identities allow access to different entities in a VMSS deployment. Ensure that Cloud Connector is not assigned an Azure System-Assigned Managed Identity, because that identity overrides the deployment requirements.
 
 For information about creating managed identities and assigning roles, see [Deploying Zscaler Cloud Connector with Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling","lastmod":"2026-08-04T21:06Z","nid":"1535452"} -->
-## Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
-
-- Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
-- Last modified: 2026-08-04T21:06Z
-- Summary: Information about Google Cloud Platform autoscaling managed instance group (MIG) deployment with Zscaler Cloud Connector
-
-A Google Cloud Platform (GCP) Managed Instance Group (MIG) with autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs) to an instance group to meet the current load when it increases, and it removes Cloud Connector VMs from the instance group when the load decreases. For example, consider a virtual Windows workstation deployment where users log in to their own virtual workstations at the beginning of the work day and log out at the end of the day. This causes fluctuations in the number of users and the amount of traffic flow during these periods.
-
-Instance groups also constantly monitor the health of each Cloud Connector VM in the instance group. They remove unhealthy VMs from the instance group and replace them with healthy ones. If someone manually terminates a VM that is part of an instance group from the Google Cloud console, the instance group replaces the VM.
-
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, stopping or rebooting a VM that is part of an instance group from the Google Cloud console could cause the VM to be terminated.
-
-Instance groups with autoscaling provide the following benefits:
-
-- Dynamically scale the number of VMs in the instance group to match demand.
-- Automatically remove unhealthy VMs and replaces them with healthy ones.
-- Deploy VMs across availability zones for high availability. Load balancing distributes traffic among the VMs.
-
-This article describes instance groups and how they work in a Cloud Connector deployment. The deployment template prompts you to configure certain instance group settings mentioned in this article. For information about the deployment template and the deployment steps, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#azure-terraform) and [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform). For comprehensive autoscaling information, refer to the [GCP product documentation](https://docs.cloud.google.com/compute/docs/autoscaler).
-
-## Topology
-
-The following sections provide a diagram depicting the topology of an autoscaling deployment and a description of its components and flow.
-
-- Topology diagram
-- Topology details
-
-[Image: Diagram showing a Cloud Connector autoscaling deployment on the Google Cloud Platorm]
-
-- The security stack is deployed in either a dedicated GCP project or within the same project as the workloads, based on your organizational architecture. GCP has an architectural limitation where instances with multiple network interfaces require separate virtual private cloud (VPC) networks for each interface. Cloud Connector deployments therefore require the creation of two distinct VPCs: one for management and one for service and security operations. After the security stack is in place, you must configure custom routes in the workload VPCs to direct appropriate traffic to the load balancer in front of the Cloud Connectors. This load balancer serves as the central entry point for the security stack.
-- Zonal MIGs with autoscaling are deployed in each configured region or zone, ensuring high availability and automatic failover across zones.
-- A Cloud NAT gateway is deployed in each region for the Cloud Connectors. This arrangement provides managed, scalable outbound internet access and allocates dedicated external IPs for each gateway.
-- Two Google Cloud Run functions are deployed: The Resource Sync Cloud Run function uses RESTful APIs to communicate with the Cloud Connector API endpoint securely over HTTPS. The functions do not directly interact with individual Cloud Connector VMs; instead, they orchestrate via the Admin API.
-  - **Health Monitoring**: This function uses custom metrics exported from each Cloud Connector VM (for example, via Cloud Monitoring/Operations) to determine the health status of the VM. The instance group automatically terminates unhealthy Cloud Connector VMs and replaces them with new ones. The Health Monitoring function is triggered every minute by default using Cloud Scheduler.
-  - **Resource Sync**: This function ensures that the VMs registered in the Zscaler Admin Console match the membership of each Cloud Connector instance group. If the function discovers a Cloud Connector in the Zscaler Admin Console that is not part of any instance group, it issues an API call to the Zscaler Admin Console to delete the VM. This function runs every 10 minutes by default.
-- Each Cloud Function is packaged in a [ZIP file](https://zscaler-cc-functions-artifacts.s3.amazonaws.com/zscaler-cc-functions/latest/cloud-functions-latest.zip) and deployed via Google Cloud Storage. The ZIP file is uploaded either to a newly created storage bucket during deployment or to an existing bucket specified in the deployment configuration. The Cloud Functions retrieve their code from this bucket during initialization.
-
-## Scale-Out and Scale-In
-
-Each Cloud Connector independently posts data plane CPU utilization metrics at one-minute intervals to GCP Cloud Monitoring as a user-defined metric. The MIG autoscaling policy uses the aggregate CPU utilization value across all VMs in the instance group to determine whether a scale-in or scale-out event should happen based on a target percentage value.
-
-Auto Scaling uses custom CPU utilization metrics instead of VM-level metrics because custom metrics provide more detailed and precise information about CPU usage. In logs and reports, the CPU utilization metric is displayed as `smedge_cpu_utilization`.
-
-- Scaling Policy
-- Cooldown Period
-- Examples
-
-The scaling policy manages scale-out and scale-in events using the following variables:
-
-- **Target value**: By default, the target value is 80% aggregate CPU utilization across all VMs in the instance group over a period of two to three minutes. Autoscaling maintains CPU utilization as close to the target value as possible without exceeding it.
-- **Instance group size**: When a scaling event happens, autoscaling automatically determines the number of VMs to add or remove to bring the aggregate CPU utilization metric closer to the target value. By default, the maximum size of an instance group is 10 VMs and the minimum size is one VM. (The maximum cannot exceed the [Cloud Connector group limit of 16 VMs per group](https://help.zscaler.com/unified/ranges-limitations).)
-
-You can view the policy in the instance group details in the Google Cloud console.
-
-While your VMs are initializing, the utilization metric might not reflect normal conditions. As a safeguard, autoscaling provides a cooldown (or initialization) period, which is the number of seconds between scaling actions.
-
-- For scale-in events, autoscaling takes into account utilization data from all VMs, even those that are still in the cooldown period.
-- For scale-out events, autoscaling ignores utilization data from VMs that are still in the cooldown period.
-
-By default, the initialization period is 900 seconds (15 minutes).
-
-The following examples demonstrate how scaling events affect the size of an instance group with a minimum size of two, a maximum size of 5, and the default target value (80%):
-
-**Scale-Out**: Because the minimum instance group size is two, at least two VMs must always be running.
-
-- No scaling event happens in normal conditions with two VMs running at 60% aggregate CPU utilization.
-- If the aggregate CPU utilization exceeds 80%, a scale-out event happens, bringing the number of VMs in the instance group to three.
-- After the cooldown period, if the aggregated CPU utilization still exceeds 80%, another scale-out event adds one more VM to the instance group, bringing the number of VMs to 4. This continues after the cooldown period ends until the average is less than 80%.
-
-**Scale-In**: GCP autoscaling uses its own logic to determine what to do when the aggregate CPU utilization is less than 80%:
-
-- Wait because the value is too close to 80% or has not been under 80% long enough.
-- Trigger a scale-in event because, based on the time sample and the individual CPU utilization of each VM, removing one VM will meet the following criteria:
-  - The number of VMs will be at or above the minimum target group size.
-  - The average fluctuation for the remaining VM will likely remain below the target CPU utilization value.
-
-## Cloud Connector Health Monitoring
-
-Health monitoring includes the following entities:
-
-- **Custom Metric Publishing**: Each Cloud Connector publishes a VM-level custom metric at one-minute intervals. This metric value is either 0 for an unhealthy VM or 100 for a healthy VM. Custom metrics also include dataplane CPU utilization metrics published at one-minute intervals, described in the previous section.
-- **Health Monitoring**: The Health Monitor function consumes the health metric at one-minute intervals and initiates the termination of a VM that it determines is unhealthy. It uses two criteria to determine whether to terminate the VM: Recent Health Data; Missing Metrics Unhealthy VMs are terminated in iterations. By default, in a single iteration, 16 VMs can be terminated. After a VM is terminated, it is replaced immediately.
-
-The Health Monitor function evaluates recent health data using sliding window logic with the following configurable environment variables:
-
-- The size of the sliding window. The default is 10 consecutive minutes.
-- The amount of time the VM was in an unhealthy state. The default value for defining a VM as unhealthy is 5 consecutive minutes.
-- The tolerance for flapping values in the sliding window. The default value is 7 unhealthy counts in 10 consecutive minutes.
-
-The Health Monitor function uses the following configurable environment variables to handle scenarios in which a running VM does not post metrics:
-
-- If the VM does not report metrics for two minutes, the function generates a warning log.
-- If the VM does not report metrics for 5 minutes, the function generates a critical log.
-- If the VM does not report metrics for 10 minutes, the function generates a termination log and starts the process of deleting the VM.
-
-In logs and reports, the health metric is displayed as `cloud_connector_aggr_health`.
-
-## Viewing Metrics and Logs
-
-- Instance Group Details
-- Cloud Connector VM Details
-
-The details page for an instance group contains comprehensive information about the group, such as the capacity overview, configuration settings, scaling policy, instance management, activity history, metrics, and so on.
-
-To view the instance group details:
-
-1. Open the Google Cloud console.
-2. In the navigation pane, click **Instance Groups**.
-3. Select the instance group for which you want to view details. The **Overview**tab opens. See image.
-4. Click the **Details**tab to review the instance status, template, configuration, location, group size, and autoscaling policy. See image.
-5. Click the **Monitoring** tab to review instance group metrics over a period of time. See image.
-
-To view details about a VM in the instance group:
-
-1. Open the Google Cloud console.
-2. In the navigation pane, click **Instance Groups**.
-3. Select the instance group for which you want to view details.
-4. On the **Overview**tab, in the **VM instances** section, click an instance in the **Name** column.
-5. Click **Observability** to monitor VM health, behavior, and performance. See image.
-
-## Access to GCP Resources
-
-Service accounts provide secure access to Google Cloud resources. Three service accounts are required in a GCP autoscaling deployment:
-
-- Deployment Service Account
-- Cloud Connector VM Service Account
-- Cloud Function Service Account
-
-This service account allows Terraform to run during deployment. It needs the following roles:
-
-- Compute Instance Admin (v1)
-- Compute Network Admin
-- Compute Security Admin
-- Service Account Admin
-- Service Account User
-- Secret Manager Admin
-- Project IAM Admin
-- DNS Administrator (optional)
-- Cloud Functions Admin (Autoscaling only)
-- Cloud Scheduler Admin (Autoscaling only)
-- Storage Admin (Autoscaling only)
-
-This service account also needs the following APIs enabled:
-
-- Compute Engine API
-- Cloud DNS API
-- Cloud Resource Manager API
-- Identity and Access Management (IAM) API
-- Secret Manager API
-- Autoscaling deployments only:
-  - Cloud Functions API
-  - Cloud Scheduler API
-  - Cloud Monitoring API
-  - Cloud Logging API
-  - Cloud Build API
-
-This service account allows Cloud Connectors to access secret credentials. It needs the following roles:
-
-- Monitoring Metric Writer
-- One of the following roles, depending on the method you use to manage and store your secret credentials:
-  - Secret Manager Secret Accessor (for GCP Secret Manager)
-  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
-    - compute.instanceGroups.list
-    - compute.instances.get
-    - iam.serviceAccounts.get
-    - iam.serviceAccountKeys.get,
-    - iam.serviceAccounts.signJwt
-
-This service account allows the Cloud Run Functions (Health Monitor and Resource Sync) to make API calls to perform operations such as reading metrics, terminating VMs, and replacing VMs. It needs the following roles:
-
-- Compute Instance Admin (v1)
-- Monitoring Viewer
-- Logs Writer
-- Cloud Run Invoker
-- One of the following roles, depending on the method you use to manage and store your secret credentials:
-  - Secret Manager Secret Accessor (for GCP Secret Manager)
-  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
-    - compute.instanceGroups.list
-    - compute.instances.get
-    - iam.serviceAccounts.get
-    - iam.serviceAccountKays.get
-    - iam.serviceAccounts.sign.Jwt
-
-For information about creating service accounts and assigning roles, see [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/tech-pubs-drafts/deploying-zscaler-cloud-connector-google-cloud-platform-draft-doc-57264).
-
-[Image: Cloud Connector instance group Overview tab, showing status and other details, and the VM instances in the group]
-
-[Image: Cloud Connector instance group Details tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
-
-[Image: Cloud Connector instance group Monitoring tab, where you can view the group size and CPU utilization over a period of time]
-
-[Image: Cloud Connector instance Observability tab, where you can view the CPU utilization, memory utilization, network traffic, disk space utilization, new connections, and disk throughputDetails tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
 <!-- /ZS-ARTICLE -->

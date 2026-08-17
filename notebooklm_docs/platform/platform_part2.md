@@ -1,72 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 119
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-07-30T11:20Z","nid":"1541704"} -->
-## Configuring Entity Unification
-
-- Source: https://help.zscaler.com/unified/configuring-entity-unification
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Entity Unification
-- Last modified: 2026-07-30T11:20Z
-- Summary: How to configure entity unification rules to merge duplicate records.
-
-Ingesting data from multiple sources often leads to duplicate records that represent the same real-world entity. As part of the broader data unification process, entity unification focuses on data normalization by identifying and merging these duplicates to establish a single, trusted source of truth. You can create entity unification rules that specify how records are recognized as duplicates and the conditions under which they are merged. This step is especially critical for asset deduplication, and it serves as a foundation for consistent and reliable data across systems. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
-
-## Configuring Entity Unification Rule Sets
-
-An entity's unification rule set is a collection of individual rules designed to cluster duplicate entity records into a single merged entity based on specific conditions according to your organization's business logic. Within an entity unification rule set, you create the individual rules ("if-then" logic statements) that define how the source data should be clustered into a single entity. For example, you can create a rule to merge all Windows assets that share the same asset hostname into a single asset.
-
-For access to entity unification, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-managing-role-permissions) and [Assigning Roles to Users](https://help.zscaler.com/unified/assigning-roles-users).
-See image.
-
-[Image: The Model Management resource with all permissions enabled]
-
-To create a unification rule set:
-
-1. In the SecOps Platform Admin Portal, go to **Configure**> **Data Unification**> **Entities**. See image.
-2. Locate the entity you want to create the unification rule set for, and click **Merge**. See image. The **Merge**page appears.
-3. On the **Merge** page, click **New Rule**. The **Add Merge Rule** drawer opens.
-4. In the **Add Merge Rule** drawer:
-  - **Name**: Enter a name for the rule.
-  - **If**: Define the rule condition that determines which records the rule should apply to. See image.
-    1. Select a field from the drop-down menu on which the condition should be based. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. For example, when creating rules for the **Asset** entity, available fields include **Asset** fields (e.g., **Asset Name**, **Asset ID**), and fields with a relation to the **Asset** entity (e.g., **Application ID**, **Application Name**).
-    2. Select an operator from the drop-down menu. The available operators vary depending on the field type, indicated to the left of the field name.
-    3. Enter the value to which the rule should apply (e.g., `Windows`).
-    4. (Optional) Use **AND**/**OR** logic to define compound rules:
-      - **AND** merges entities only if they meet all conditions in the rule.
-      - **OR** merges entities if they meet any of the conditions in the rule.
-  - **Then**: Select at least one field according to which entities that meet your conditions should be merged. All entities with the same value are merged into a single entity. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. When merging entities based on multiple fields, the fields are evaluated using a logical **AND**relationship. This means that entities are merged only if the values in each of the specified fields match (e.g., the values in the **Asset ID** field must match, and the values in the **Asset Type** field must match for the record to merge). See image.
-  - (Recommended) Select the **Exclude Nulls from Merge** checkbox to avoid merging entities with null values in the defined fields.
-  - Click **Save** to save the rule. Repeat the process to add as many rules as necessary for the entity.
-5. Save the rule set to complete the process in one of the following ways: See image. A rule set that includes at least one conditional merging rule must also include a fallback rule, otherwise the rule set cannot be saved. The fallback rule specifies a single field to use for merging entities without applying any conditions. It ensures a default merging method is always in place, preventing data loss or conflicts.
-  - Click **Save** to save the rule set. Rules will apply the next time data is ingested into your account.
-  - From the **Save** drop-down menu, click **Save & Run** to save the rule set and immediately apply the rules to the data in your account.
-
-Your saved rule sets appear on the Data Unification - Entities page, where you can view, edit, and manage them as needed. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification).
-
-[Image: How to access the entities page]
-
-[Image: Merge button highlighted on entities page]
-
-## When Unification Rules Run
-
-Unification rules run when data related to the entity is ingested, directly processed, or indirectly impacted by a different processed entity. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
-
-## Rule Order in Entity Unification Rule Set
-
-The rules' order of appearance doesn't affect the order of their application. Each data point is evaluated against all rules, even if one rule has already been satisfied.
-
-[Image: Example if conditions in merge rule]
-
-[Image: Example then statements in merge rule]
-
-[Image: Click Save or Save and Run for your ruleset]
-<!-- /ZS-ARTICLE -->
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 136
 
 ---
 
@@ -235,6 +171,409 @@ The expression works by:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/configuring-microsoft-entra-id-sso","lastmod":"2026-08-10T12:26Z","nid":"1541913"} -->
+## Configuring Microsoft Entra ID SSO
+
+- Source: https://help.zscaler.com/unified/configuring-microsoft-entra-id-sso
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring Microsoft Entra ID SSO
+- Last modified: 2026-08-10T12:26Z
+- Summary: How to configure Microsoft Entra ID SSO account authentication.
+
+You can configure Microsoft Entra ID (formerly Azure AD) single sign-on (SSO) as the authentication method for the Security Operations Platform (SecOps Platform), allowing users to sign in through the Microsoft Entra ID SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Microsoft Entra ID. Each user must have an account with the same email address in both the SecOps Platform and Microsoft Entra ID. After SSO is enabled for a domain, it becomes the only authentication method for the SecOps Platform.
+
+To configure Microsoft Entra ID SSO, complete the following steps:
+
+- Step 1: Generate SAML Details
+- Step 2: Register an Application in Microsoft Entra ID
+- Step 3: Share Metadata With Zscaler
+
+To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps Platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/unified/generating-saml-details).
+
+After generating SAML details (Entity ID and Reply URL), you can proceed to registering a Microsoft Entra ID application and assigning users to the new application.
+
+To register a Microsoft Entra ID application:
+
+1. Sign in to the Azure portal.
+2. Select the **Microsoft Entra ID**service.
+3. In the left-side navigation, go to **Manage**> **Enterprise applications**.
+4. Click **New application**.
+5. On the **Browse Microsoft Entra Gallery**page, click **Create your own application**. The **Create your own application**drawer appears.
+6. In the **Create your own application**drawer:
+  1. **Name**: Enter a name for the application.
+  2. **What are you looking to do with your application?**: Select **Integrate any other application you don't find in the gallery (Non-gallery)**.
+  3. Click **Create**to complete the initial app registration.
+7. The app registration's **Overview**page appears.
+8. In the **Getting Started**section, locate the **Set up single sign on**tile and click **Get Started**. The **Single sign-on**page appears.
+9. On the **Single sign-on**page, select **SAML**as the single sign-on method. The **SAML-based Sign-on**page appears.
+10. On the **Basic SAML Configuration**tile, click **Edit**. See image.
+11. In the **Basic SAML Configuration**drawer:
+  1. **Identifier (Entity ID)**: Click **Add Identifier**and paste the **Entity ID**copied from the SecOps Platform.
+  2. **Reply URL (Assertion Consumer Service URL)**:Click **Add reply URL**and paste the **Reply URL**copied from SecOps Platform.
+  3. **Sign on URL**: (Optional) Enter `https://app.avalor.io`. See image.
+12. Click **Save.**
+13. On the **Attributes & Claims**tile, click **Edit**.
+14. Click **Add a group claim.**
+15. In the **Group Claims**drawer:
+  1. Select **Groups assigned to the application**.
+  2. **Source Attribute**: Select **Group ID**from the drop-down menu. See image.
+16. Click **Save.**
+17. Close the **Attributes & Claims**page to return to the **Set up Single Sign-on with SAML**page.
+
+After registering the Microsoft Entra ID application, you can assign users to the new app.
+
+To assign users to the app:
+
+1. In the left-side navigation, click **Users and groups.** See image.
+2. Click **Add user/group**.
+3. Add the relevant user in your organization.
+4. Click **Assign**.
+
+After creating a Microsoft Entra ID app, share XML metadata with your Zscaler Account team.
+
+To retrieve the XML metadata:
+
+1. Sign in to the Azure portal, and select the **Microsoft Entra ID**service.
+2. Open the application you created.
+3. In the left-side navigation, select **Single sign-on**. See image.
+4. Scroll down to the **SAML Signing Certificate**section and copy the **App Federation Metadata URL**. See image.
+
+To share metadata with Zscaler:
+
+1. In the SecOps Platform Admin Portal, click the **Profile**menu in the top navigation bar, and click **Account Settings**.
+2. In the **Authenticate**section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
+
+**[Image: The Edit icon on the SAML-based Sign-on page]**
+
+**[Image: The Basic SAML Configuration drawer showing the Identifier, Reply URL, and Sign on URL settings]**
+
+**[Image: The Group Claims dialog showing the Groups assigned to the application setting]**
+
+**[Image: Selecting Users and groups in the left-side navigation]**
+
+**[Image: Selecting Single sign-on in the left-side navigation]**
+
+**[Image: The Set up Single Sign-on with SAML panel showing the App Federation Metadata URL]**
+
+**[Image: The Authenticate section under Settings]**
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-okta-sso","lastmod":"2026-08-10T12:16Z","nid":"1541914"} -->
+## Configuring Okta SSO
+
+- Source: https://help.zscaler.com/unified/configuring-okta-sso
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring Okta SSO
+- Last modified: 2026-08-10T12:16Z
+- Summary: How to configure Okta SSO account authentication.
+
+You can configure Okta single sign-on (SSO) as the authentication method for the Security Operations Platform (SecOps Platform), allowing users to sign in through your Okta SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Okta. Each user must have an account with the same email address in both the SecOps Platform and in Okta. After SSO is enabled for a domain, it becomes the only authentication method for the SecOps Platform.
+
+To configure Okta SSO, complete the following steps:
+
+- Step 1: Generate SAML Details
+- Step 2: Create a Bookmark App
+- Step 3: Create an App Integration
+- Step 4: Share Metadata With Zscaler
+
+To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps Platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/unified/generating-saml-details).
+
+The SecOps Platform doesn't natively support identity provider (IdP)-initiated login. Instead, implement the following process using a Bookmark app that redirects to app.avalor.io.
+
+To configure a Bookmark app:
+
+1. Sign in to the Okta Admin Center.
+2. Go to the **Applications** page and click **Browse App Catalog.**
+3. Search for and add **Bookmark App**. See image.
+4. In the **General Settings**section:
+  1. **Application label**: Enter a name for the Bookmark app.
+  2. **URL**: Enter `https://app.avalor.io?domain=<Your Org Domain>`, replacing `<Your Org Domain>` with your actual organization domain.
+  3. **Application Visibility**: Leave the checkbox unselected so the **Bookmark**app isn't hidden. See image.
+  4. Click **Done**.
+5. Click the **Edit** icon on the logo to add Zscaler's logo: [Download Logo](https://help.zscaler.com/downloads/uvm/administration/account-management/admin-configuration-and-deployment/configuring-okta-sso/LOGO.png) See image.
+6. Click **Done**.
+
+To enable SAML-based authentication with Okta, you need to create and configure a new app integration.
+
+To create an app integration:
+
+1. Sign in to the Okta Admin Console.
+2. In the navigation menu, expand **Applications**, and then select **Applications**.
+3. Click **Create App Integration**.
+4. In the **Create a New Application Integration** window, select **SAML 2.0**as the **Sign on method**, and then click **Create**. See image.
+5. On the **Create SAML Integration** page:
+  1. On the **General Settings**tab:
+    1. **App name**: Enter a name for the app integration.
+    2. **App Visibility**: Select **Do not display application icon to users**.
+    3. Click **Next**.
+  2. On the **Configure SAML**tab:
+    1. **Single sign on URL**: Paste the **Reply URL** copied from the SecOps Platform.
+    2. **Audience URI (SP Entity ID)**: Paste the **Entity ID** copied from SecOps Platform.
+    3. **Name ID format**: Enter `EmailAddress`.
+    4. **Application username**: Select **Okta username**.
+    5. In the **Attribute Statements (optional)** section:
+      1. **Name:** Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+      2. **Value**: Enter `user.email`. See image.
+      3. Click **Next**.
+  3. On the **Feedback** tab, select **I'm an Okta customer adding an internal app**. See image.
+  4. Click **Finish**.
+6. Assign users or groups to authenticate using Okta:
+  1. Go to the **Assignments** tab of the application you added.
+  2. Click **Assign**.
+  3. Select **Assign to People**or **Assign to Groups**.
+  4. Enter the people or groups that you want to authenticate with the Okta IdP.
+  5. Click **Assign**.
+  6. Verify the attributes, and click **Save and Go Back**.
+7. Click **Done**.
+
+After creating a Bookmark App and an app integration, share XML metadata with your Zscaler Account team. To learn more, refer to the [Okta documentation](https://support.okta.com/help/s/article/Location-to-download-Okta-IDP-XML-metadata-for-a-SAML-app-in-the-new-Admin-User-Interface?language=en_US).
+
+To retrieve the XML metadata:
+
+1. In the Okta console, click the **Sign On** tab of the SAML application.
+2. Scroll down and click **View SAML setup instructions**. In the new tab that opens, all the required values are displayed.
+3. Copy the metadata from the **Optional** section. See image.
+
+To share metadata with Zscaler:
+
+1. In the SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar, and click **Account Settings**.
+2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
+
+**[Image: Adding a Bookmark App on the Add Application screen]**
+
+**[Image: The  General Settings screen showing the Application Label, URL, and Application Visibility settings]**
+
+**[Image: Using the edit icon to add the Zscaler logo]**
+
+**[Image: Selecting the SAML 2.0 sign on method on the Create a New Application Integration screen]**
+
+[Image: The Attribute Statements screen showing the Name and Value settings]
+
+[Image: The Feedback settings on the Create SAML Integration screen]
+
+[Image: Okta Metadata XML]
+
+**[Image: The Authenticate section under Settings]**
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-pingfederate-sso","lastmod":"2026-08-10T12:04Z","nid":"1541917"} -->
+## Configuring PingFederate SSO
+
+- Source: https://help.zscaler.com/unified/configuring-pingfederate-sso
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring PingFederate SSO
+- Last modified: 2026-08-10T12:04Z
+- Summary: How to configure PingFederate SSO account authentication.
+
+You can configure PingFederate single sign-on (SSO) as the authentication method for the Security Operations Platform (SecOps Platform), allowing users to sign in through your PingFederate SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingFederate. Each user must have an account with the same email address in both the SecOps Platform and PingFederate. After SSO is enabled for a domain, it becomes the only authentication method for the SecOps Platform.
+
+To configure PingFederate SSO, complete the following steps:
+
+- Step 1: Generate SAML Details
+- Step 2: Register an Application in PingFederate
+- Step 3: Share Metadata With Zscaler
+
+To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps Platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/unified/generating-saml-details).
+
+After generating SAML details (Entity ID and Reply URL), you can register a PingFederate application. The app registration process assumes you already have an IdP Adapter in place. To learn more, refer to the [PingFederate documentation](https://docs.pingidentity.com/integrations/azure/azure_ad_and_office_365_integration_guide/pf_azuread_office365_integration_create_an_idp_adapter.html).
+
+To register a PingFederate application:
+
+1. Sign in to the PingFederate Admin console.
+2. Go to **Identity Provider** > **SP Connections**.
+3. Click **Create Connection**. See image.
+4. On the **Connection Template** step, select **DO NOT USE A TEMPLATE FOR THIS CONNECTION** and click **Next**. See image.
+5. On the **Connection Type** step:
+  1. Select the **BROWSER SSO PROFILES**checkbox.
+  2. Select **SAML 2.0** from the **PROTOCOL** drop-down menu.
+  3. Click **Next**. See image.
+6. On the **Connection Options**step, select the **BROWSER SSO** checkbox and click **Next**. See image.
+7. On the **Import Metadata** step, select **None** for **METADATA** and click **Next**. See image.
+8. On the **General Info** step:
+  1. **Partner's Entity ID**: Paste the **Entity ID** copied from the SecOps Platform.
+  2. **Connection Name**: Enter a name for the application.
+  3. **Base URL**: Leaveempty.
+  4. Click **Next**.
+9. On the **Browser SSO** step, click **Configure Browser SSO**.
+  1. On the **SAML Profiles** tab, under **Single Sign-On (SSO) Profiles**, select the **SP-INITIATED SSO**checkbox, and then click **Next**. IdP-initiated SSO is not supported. See image.
+  2. On the **Assertion Lifetime** tab, leave the settings as is and click **Next**.
+10. On the **Assertion Creation** step, click **Configure Assertion Creation**. Select **STANDARD**, andclick **Next**. See image.
+11. On the **Attribute Contract** step, under **Extend the Contract**, enter `email`, and then click **Add**. See image.
+12. Click **Next**.
+13. On the **Authentication Source Mapping** step, click **Map New Adapter Instance.**
+  1. On the **Adapter Instance** tab, select the **Adapter Instance** for this app, and click **Next**.
+  2. On the **Mapping Method** tab, leave the settings as is and click **Next**.
+  3. On the **Attribute Contract Fulfillment** tab, configure the Attribute Contracts: **SAML SUBJECT** and **email**. For each:
+    1. Select **Adapter** from the **Source** drop-down menu.
+    2. Select **Email**from the **Value**drop-down menu.
+  4. On the **Issuance Criteria** tab, click **Next**.
+  5. On the **Summary**tab, review your entries, and then click **Done**.
+14. On the **Authentication Source Mapping** step, click **Next**.
+15. On the **Summary** tab, review your entries, and then click **Done**.
+16. On the **Assertion Creation** step, click **Next**.
+  1. On the**Protocol Settings** tab, click **Configure Protocol Settings**.
+  2. On the **Assertion Consumer Service URL** tab, select the **Default**checkbox.
+    1. **Binding**: Select **POST** from the drop-down menu.
+    2. **EndpointUrl**: Paste the **Reply URL** copied from the SecOps Platform.
+    3. Click **Add**, and then click **Next**. See image.
+  3. On the **Allowable SAML Bindings** tab, select the **POST**and **REDIRECT**checkboxes and click **Next**. See image.
+  4. On the **Signature Policy** tab, select **Always Sign Assertion** and click **Next**.
+  5. On the **Encryption Policy** tab, select **None**. Click **Next**.
+  6. On the **Summary** tab, review your entries, and then click **Done**.
+  7. On the **Protocol Settings** tab, click **Next**.
+  8. On the **Summary** tab, review your entries, and then click **Done**.
+17. On the **Browser SSO** step, click **Next**.
+18. On the **Credentials** step, click **Configure Credentials**, select the signature on the SAML, and click **Next**.
+19. On the **Summary** tab, review your entries, and then click **Done**.
+20. On the **Credentials** tab, click **Next**.
+21. On the **Activation & Summary** step, scroll to the bottom and click **Save**.
+
+After registering the SAML app in PingFederate, you are redirected to the SP Connections page, where you can copy your application's metadata to be used in the next step.
+
+**[Image: Creating a connection on the SP Connections screen]**
+
+**[Image: Setting no template on the Connections Template tab on the SP Connections screen]**
+
+**[Image: Selecting the SAML 2.0 protocol on the Connection Template screen]**
+
+**[Image: Setting BROWSER SSO on the Connection Option screen]**
+
+**[Image: Setting METADATA to NONE on the Import Metadata screen]**
+
+[Image: Setting the Browser SSO profile to SP-INITIATED SSO]
+
+[Image: Setting the Assertion to STANDARD]
+
+[Image: Setting the Attribute Contract to use email]
+
+**[Image: Configuring the protocol settings to use POST]**
+
+**[Image: Setting the Allowable SAML Bindings to use POST and REDIRECT]**
+
+After registering an app in PingFederate, share XML metadata with your Zscaler Account team.
+
+To retrieve the XML metadata:
+
+1. On the **SP Connections**page of the application you registered, click **Select Action** > **Export Metadata**. See image.
+2. Select the signing certificate and click **Next**.
+3. Scroll to the bottom of the page and click **Export**. The signing certificate file is saved to your computer.
+4. Click **Done**.
+
+To share metadata with Zscaler:
+
+1. In the SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar, and click **Account Settings**.
+2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
+
+[Image: Selecting the Export Metadata action]
+
+**[Image: SAML XML metadata field]**
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-pingone-sso","lastmod":"2026-08-10T12:10Z","nid":"1541916"} -->
+## Configuring PingOne SSO
+
+- Source: https://help.zscaler.com/unified/configuring-pingone-sso
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring PingOne SSO
+- Last modified: 2026-08-10T12:10Z
+- Summary: How to configure PingOne SSO account authentication.
+
+You can configure PingOne SSO as the authentication method for the Security Operations Platform (SecOps Platform), allowing users to sign in through your PingOne SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingOne. Each user must have an account with the same email address in both the SecOps Platform and PingOne. After SSO is enabled for a domain, it becomes the only authentication method for the SecOps Platform.
+
+To configure PingOne SSO, complete the following steps:
+
+- Step 1: Generate SAML Details
+- Step 2: Create an Application Portal Link
+- Step 3: Register an Application
+- Step 4: Share Metadata with Zscaler
+
+To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps Platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/unified/generating-saml-details).
+
+The SecOps Platform doesn't natively support identity provider (IdP)-initiated login. Instead, implement the following process using an Application Portal Link app that redirects to app.avalor.io.
+
+1. Log in to the Ping Identity admin center.
+2. In the **Applications**menu, click **Application Portal**. See image.
+3. On the **Application Portal** page, click the **Add**icon to add a new link. See image.
+4. In the **Add Link** window: See image.
+  1. **Link Name**: Enter a name for the application portal.
+  2. **Description**: Add a description.
+  3. **Icon**: Upload a logo from your system.
+  4. **URL**: Enter `https://app.avalor.io?domain=<Your Org Domain>`, replacing `<Your Org Domain>` with your actual organization domain.
+5. Click **Save**.
+
+[Image: Application Portal in the Ping Identity admin center]
+
+[Image: Page to add links to applications]
+
+**[Image: Profile details needed to add an application]**
+
+After generating SAML details, you can register an application in the Ping Identity admin center to define how your application interacts with the SecOps Platform. The application registration process is performed within the centralized PingOne admin center.
+
+1. Log in to the Ping Identity admin center.
+2. In the **Applications**menu, click **Applications**. See image.
+3. On the **Applications**page, click the + icon. See image.
+4. In the **Application Name**field, enter `SecOps Platform- Authentication Only`.
+5. Use the attached SecOps Platform logo as the application icon.
+6. Under **Choose Application Type**, select **SAML Application**. See image.
+7. In the**SAML Application** window, click **Configure**. See image. The **SAML Configuration** page appears.
+8. On the **SAML Configuration**page: See image.
+  1. Under **Provide Application Metadata**, select **Manually Enter**.
+  2. Under **ACS URLs**, enter the **Reply URL** you copied from the SecOps Platform.
+  3. For **Entity ID**, enter the **Entity ID** you copied from the SecOps Platform.
+9. Click **Save**.
+10. Go to the **Attribute Mappings** tab. See image.
+11. Click the **Edit**icon next to **Attributes**. The **Edit Attribute Mappings** page appears.
+12. On the **Edit Attribute Mappings** page: See image.
+  1. Under **Attributes**, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+  2. From the **PingOne Mappings**drop-down menu, select **Email Address**.
+  3. Select the **Required**checkbox.
+13. Click **Save**.
+14. Go to the **Access** tab. See image.
+15. Click the **Edit**icon next to **Attributes**.
+16. On the **Edit Access**page, deselect **Display this application in the Application Portal**. See image.
+17. Click **Save**.
+
+[Image: Applications under Connections]
+
+**[Image: Add a new application]**
+
+[Image: Application type of the application to be registered]
+
+[Image: Configurations required to create a SAML application]
+
+[Image: Application metadata required for SAML configuration]
+
+[Image: Attribute mapping details]
+
+[Image: Edit Attribute Mappings]
+
+[Image: Access details of the SAML application]
+
+[Image: Edit the Access tab details]
+
+After registering an app in the Ping Identity admin center, share XML metadata with your Zscaler Account team.
+
+1. Go to the **Configuration** tab. See image.
+2. Click **Download Metadata**.
+
+To share metadata with Zscaler:
+
+1. In the SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar, and click **Account Settings**.
+2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
+
+[Image: Configuration details of the application]
+
+**[Image: Add the SAML XML link in the SecOps platform]**
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/configuring-private-access-tenant","lastmod":"2026-02-11T06:40Z","nid":"1490856"} -->
 ## Configuring the Private Access Tenant
 
@@ -253,6 +592,93 @@ To configure your Private Access Tenant:
   - **Tenant ID**: The ID of your organization’s Private Applications (ZPA) tenant. This field cannot be edited.
   - **Favicon**: Click Select Image to upload your organization's favicon. You can upload an image with a valid image file type that is 32x32 pixels or smaller. After the favicon is successfully uploaded, it appears on the page. The favicon appears as the icon on a user portal browser tab, the PRA Portal browser tab, and privileged console browser tabs.
 3. Click **Save**.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-secureauth-sso","lastmod":"2026-08-10T11:59Z","nid":"1541918"} -->
+## Configuring SecureAuth SSO
+
+- Source: https://help.zscaler.com/unified/configuring-secureauth-sso
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring SecureAuth SSO
+- Last modified: 2026-08-10T11:59Z
+- Summary: How to configure SecureAuth SSO account authentication.
+
+You can configure SecureAuth SSO as the authentication method for the Security Operations Platform (SecOps Platform), allowing users to sign in through your SecureAuth SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through SecureAuth. Each user must have an account with the same email address in both the SecOps Platform and SecureAuth. After SSO is enabled for a domain, it becomes the only authentication method for the SecOps Platform.
+
+To configure SecureAuth SSO, complete the following steps:
+
+- Step 1: Generate SAML Details
+- Step 2: Create an App Integration
+- Step 3: Share Metadata with Zscaler
+
+To set up SecureAuth SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps Platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/unified/generating-saml-details).
+
+To enable SAML-based authentication with SecureAuth, you need to create and configure a new app integration.
+
+To create an app integration:
+
+1. Log in to the SecureAuth Identity Platform.
+2. In the left-side navigation, go to **New Experience**> **SecureAuth IdP**.
+3. Click **Application Manager**. See image.
+4. Click **Add an Application** to open the application template library.
+5. Select **SAML Application** from the library. See image.
+6. On the **Applications Details**page: See image.
+  1. **Application Name:** Enter the SecOps Platform name.
+  2. **Application Description**: Enter a description for the application.
+  3. **Upload**: Upload a logo from your system.
+  4. **Data Stores:** Enter the data stores to authenticate and allow user access.
+  5. **Groups:** Enter the groups allowed to access the application. You can also enable **Allow users from every group in your selected data stores access to this application**.
+7. Click **Continue.** The **Connection Settings**page appears.
+8. On the **Connection Settings** page:
+  1. In the **Configure Connection**section: See image.
+    1. Select **SP Initiated** from the **Connection Type** drop-down menu.
+    2. Select **By Redirect**.
+  2. In the **User ID Mapping**section: See image.
+    1. **User ID Profile Field:** Select the relevant user ID from the drop-down menu.
+    2. **Name ID Format:** The format is selected by default.
+  3. In the**SAML Assertion**section: See image.
+    1. **​​IdP Issuer:** Enter the entity ID from Step 1.
+    2. **Assertion Consumer Service (ACS):** Enter the Reply URL from Step 1.
+    3. **SP Login URL:** Enter the URL `https://app.avalor.io?domain=<your domain>`.
+    4. **Assertion will be valid for:** Select an appropriate value.
+    5. **Encrypt SAML Assertion:** Disable the toggle. All the remaining settings should be set to default.
+  4. In the **SAML Attributes** section, click **Add SAML Attribute**: See image.
+    1. **Attribute Name:** Enter the attribute name.
+    2. **Data Store Property:** Choose the value that represents the user's email (**Email**).
+    3. **Namespace (1.1)**: Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+9. Click **Add Application**. The **Information for Service Providers** page appears. See image.
+10. Click **Download Metadata**. You will need this information for the next step.
+11. Enter the SecureAuth IdP appliance URL or IP address as the domain name (e.g., `https://secureauth.company.com` or `https://111.222.33.44`). See image.
+12. Click **Download**to download the metadata.
+
+**[Image: Add an application]**
+
+[Image: Select the SAML application from the library]
+
+[Image: Enter all the application details]
+
+[Image: Add the configuration connection details]
+
+[Image: Add the user ID mapping details]
+
+[Image: Enter the SAML assertion details]
+
+[Image: Enter the SAML attribute details]
+
+[Image: Information for Service Providers page]
+
+[Image: Enter the domain name details to download the metadata file]
+
+After registering an app in the SecureAuth Identity Platform, share XML metadata with your Zscaler Account team.
+
+To share metadata with Zscaler:
+
+1. In the SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar, and click **Account Settings**.
+2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
+
+[Image: Add the SAML XML link in the SecOps platform]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -414,13 +840,13 @@ To resolve the authorization issue:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-suppression-rules","lastmod":"2026-08-05T00:18Z","nid":"1541934"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-suppression-rules","lastmod":"2026-08-12T17:20Z","nid":"1541934"} -->
 ## Configuring Suppression Rules
 
 - Source: https://help.zscaler.com/unified/configuring-suppression-rules
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Configuring Suppression Rules
-- Last modified: 2026-08-05T00:18Z
+- Last modified: 2026-08-12T17:20Z
 - Summary: How to configure suppression rules for data sources to either exclude data from ingestion, or to include a subset of the source data.
 
 When [creating a data source](https://help.zscaler.com/unified/creating-data-sources) to ingest data into the Security Operations Platform (SecOps Platform), you can apply suppression rules to control which data is included in the ingestion process. Suppression rules allow you to either exclude specific data (e.g., from decommissioned assets or test environments) or include only a targeted subset of the source data. This helps reduce noise, avoid processing irrelevant or sensitive information, and ensure that only actionable data is brought into the platform.
@@ -754,13 +1180,13 @@ The following table outlines key resources of SOC Workbench and the specific typ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-data-sources","lastmod":"2026-08-06T09:05Z","nid":"1541932"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-data-sources","lastmod":"2026-08-12T17:24Z","nid":"1541932"} -->
 ## Creating Data Sources
 
 - Source: https://help.zscaler.com/unified/creating-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Creating Data Sources
-- Last modified: 2026-08-06T09:05Z
+- Last modified: 2026-08-12T17:24Z
 - Summary: How to create a new data source in the Security Operations Platform, including source details, retrieval settings, scheduling, remediation detection settings, and suppression rules.
 
 The Security Operations Platform (SecOps Platform) collects and correlates security data and business context from a wide range of external tools, such as vulnerability scanners, asset inventories, and cloud providers. To begin ingesting this data into your environment, you must first connect the relevant sources to your account. Establishing these connections ensures that the SecOps Platform can continuously retrieve and normalize data for analysis, prioritization, and workflows.
@@ -1055,13 +1481,13 @@ To delete multiple users:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-outegrations","lastmod":"2026-08-05T23:43Z","nid":"1541968"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-outegrations","lastmod":"2026-08-12T17:14Z","nid":"1541968"} -->
 ## Creating Outegrations
 
 - Source: https://help.zscaler.com/unified/creating-outegrations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Creating Outegrations
-- Last modified: 2026-08-05T23:43Z
+- Last modified: 2026-08-12T17:14Z
 - Summary: How to create a new outegration in the Security Operations Platform.
 
 The Security Operations Platform (SecOps Platform) allows you to create outbound integrations (i.e., outegrations) that connect the SecOps Platform to external systems such as work management tools (e.g., [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration), [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration)), storage destinations, alert systems (e.g., Slack, email), automation tools, scanners (e.g., [Tenable](https://help.zscaler.com/uvm/configuring-tenable-outegration)), and other supported third-party services. Where supported, the SecOps Platform can synchronize updates between the systems. For information on managing existing outegrations, see [Managing Outegrations](https://help.zscaler.com/unified/managing-outegrations).
@@ -1084,13 +1510,13 @@ The new outegration appears on the Outegrations page and becomes available in th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-reports","lastmod":"2026-08-07T05:30Z","nid":"1541632"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-reports","lastmod":"2026-08-12T03:05Z","nid":"1541632"} -->
 ## Creating Reports
 
 - Source: https://help.zscaler.com/unified/creating-reports
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Reports > Creating Reports
-- Last modified: 2026-08-07T05:30Z
+- Last modified: 2026-08-12T03:05Z
 - Summary: How to create and configure reports in the Security Operations Platform.
 
 Reports provide a structured way to analyze and present data in the Security Operations Platform (SecOps Platform). You can create reports focused on key entities such as users, tenants, identity findings, tickets, and assets, and customize them with relevant parameters, measurements, and dimensions to highlight specific trends or areas of concern. Reports can be processed manually or scheduled for automatic delivery, helping you track progress, support audits, and keep stakeholders informed.
@@ -1157,9 +1583,18 @@ You can add filters to your report to customize it to your needs. The available 
 3. To remove a specific filter's values, click the filter field and click **Clear Selection**. See image.
 4. To remove all filters, click **Clear Filters**. See image.
 
+When configuring historical reports, select a filter evaluation time from the drop-down menu to specify how the filter applies. To learn more, see [Understanding Historical Data](https://help.zscaler.com/unified/understanding-historical-data).
+
+- **Current State**: Evaluates filter conditions based on the current, most recent state of the data. For example, if the filter **Asset Owner Equals DevOps Team**is applied, the report displays data for assets currently owned by the DevOps team, even if those assets weren't owned by the DevOps team during the selected date range.
+- **Historical State**: Evaluates the filter conditions for each time bucket within the selected date range, based on the data's state at that specific point in time, even if it doesn't currently meet the condition. For example, when filtering **Asset Owner Equals DevOps Team**on a report displaying **Total Critical Assets**for Jan 15 to Dec 15, broken down by week, the filter checks ownership for each week within the date range. For each week, it displays only the critical assets owned by the DevOps team during that week.
+
+See image.
+
 [Image: Clear selection for a specific filter field]
 
 **[Image: Clear all filters]**
+
+[Image: Historical Report Evaluation Time drop-down menu]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1451,6 +1886,36 @@ To delete an Adaptive Access profile:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/enabling-email-notifications-failures","lastmod":"2026-08-10T11:39Z","nid":"1541908"} -->
+## Enabling Email Notifications for Failures
+
+- Source: https://help.zscaler.com/unified/enabling-email-notifications-failures
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Enabling Email Notifications for Failures
+- Last modified: 2026-08-10T11:39Z
+- Summary: How to enable outegration failure email notifications.
+
+You can enable email notifications to receive alerts on errors for outegration workflows, source run failures, and issues with Extract, Transform, and Load (ETL) and data pipeline. This enables you to proactively resolve issues and~DMODS_S_htsk~~DMODS_S_enl0~ minimize disruptions.
+
+To enable email notifications, your assigned role must include the Edit permissions under the Platform - Outegrations resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
+
+To enable an email notification:
+
+1. In the SecOps Platform Admin Portal, click the **Profile**menu in the top navigation bar, and click **Profile Settings**. See image. [Image: Account name in the SecOps platform] The **Settings**page appears.
+2. In the **Email Notifications**section: See image. [Image: Email Notifications settings]
+  1. Select **Enable failure alert notifications**.
+  2. **Select alert type**: Select the options that you want to set the alert for:
+    - **Source Runs**:Source runs fail for various reasons, including API rate limits, expired or invalid credentials, schema changes, or upstream outages. Select this option to receive notifications and reduce the need to manually check the status.
+    - **ETL & Data Pipeline**: ETL and data pipeline processes can fail when data manipulation encounters errors such as data type mismatches, out-of-range values, invalid values, etc.
+    - **Outegrations**: Failures can occur during third-party outegrations. For example, expired tokens for Jira can stop tickets from being created.
+  3. **Select accounts**: Select the accounts for which you want to enable email notifications.
+  4. **Frequency**: The default setting is **Daily**. This setting cannot be modified.
+  5. **Time**: Set the local time you want the email delivered (based on your time zone).
+3. Click **Save**. Emails are sent at the configured time to the email address associated with the admin who enabled the notifications.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/enabling-remote-assistance","lastmod":"2026-07-23T11:55Z","nid":"1535138"} -->
 ## Enabling Remote Assistance
 
@@ -1618,13 +2083,53 @@ After exploring the ingested source data, you can use your insights to map field
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/integrating-3rd-party-connectors-risk-factors","lastmod":"2026-08-05T06:23Z","nid":"1542636"} -->
+<!-- ZS-ARTICLE {"url":"/unified/generating-saml-details","lastmod":"2026-08-10T12:32Z","nid":"1541912"} -->
+## Generating SAML Details
+
+- Source: https://help.zscaler.com/unified/generating-saml-details
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Generating SAML Details
+- Last modified: 2026-08-10T12:32Z
+- Summary: How to generate SAML details for setting up single sign-on to the Security Operations Platform.
+
+Setting up single sign-on (SSO) account authentication requires generating a SAML Entity ID and Reply URL in the Security Operations Platform (SecOps Platform).
+
+If you don't have access to this feature, contact your Zscaler Account team or Zscaler Support for assistance.
+
+To generate SAML details:
+
+1. In the SecOps Platform Admin Portal, click the **Profile**menu in the top navigation bar, and click **Account Settings**.
+2. In the **Authenticate** section: See image.
+  1. **Email Domain**: Your organization's email domain, from the **General Settings** section.
+  2. **Authentication Type**: Select **SAML** from the drop-down menu. If the **Authentication Type**drop-down menu is disabled, enter your organization's email domain name in the **General Settings** section and save your changes to enable it.
+  3. **Identity Provider Name**: Select the identity provider your organization uses (e.g., **Okta**).
+  4. **SAML XML Metadata**: Enter the configuration metadata generated by your SSO provider:
+    1. Click **Generate SAML Details** to generate values for **Entity ID** and **Reply URL**. See image.
+    2. Copy the **Entity ID** and **Reply URL** values and use them to create the XML metadata, following the setup steps for your SSO provider:
+      - [Configuring Microsoft Entra ID SSO](https://help.zscaler.com/unified/configuring-microsoft-entra-id-sso)
+      - [Configuring Okta SSO](https://help.zscaler.com/unified/configuring-okta-sso)
+      - [Configuring PingOne SSO](https://help.zscaler.com/unified/configuring-pingone-sso)
+      - [Configuring PingFederate SSO](https://help.zscaler.com/unified/configuring-pingfederate-sso)
+      - [Configuring SecureAuth SSO](https://help.zscaler.com/unified/configuring-secureauth-sso)
+    3. Paste the generated XML metadata from your SSO provider into the **SAML XML Metadata** field.
+  5. **Disable welcome emails**: Select the checkbox to disable the onboarding messages sent to new SSO users.
+  6. **Idle Time For Logout**: Select the default period of inactivity after which SSO users are logged out (e.g., **Never**, **1 hour**, **2 hours**).
+3. Click **Save**.
+
+[Image: The Authenticate section showing the Generate SAML Details link]
+
+[Image: The SAML Details pop-up showing the Entity ID and Reply URL values]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/integrating-3rd-party-connectors-risk-factors","lastmod":"2026-08-13T21:50Z","nid":"1542636"} -->
 ## Integrating 3rd-Party Connectors for Risk Factors
 
 - Source: https://help.zscaler.com/unified/integrating-3rd-party-connectors-risk-factors
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Integrating 3rd-Party Connectors for Risk Factors
-- Last modified: 2026-08-05T06:23Z
+- Last modified: 2026-08-13T21:50Z
 - Summary: Information about 3rd-party app integration for risk factors.
 
 The Risk360 service's integration with Zscaler Data Fabric helps in providing better security and a risk assessment that creates a holistic risk quantification environment observed for Zscaler and other third-party technologies. Data Fabric ingests Zscaler and third-party data sources and then harmonizes, deduplicates, correlates, and enriches the ingested data that is used in the Risk360 service for risk quantification. You can configure connectors in the Data Fabric to ingest third-party data sources.
@@ -1633,26 +2138,24 @@ The following out-of-the-box risk factors based on third-party data sources are 
 
 | Factor Name | Connector Name |
 | --- | --- |
-| CrowdStrike - Zero Trust Score | CrowdStrike Crowdscore |
-| CrowdStrike - Endpoint Security CrowdScore | CrowdStrike Crowdscore |
-| CrowdStrike - Unsupported Devices | CrowdStrike Environment Assets |
-| CrowdStrike - Unmanaged Devices | CrowdStrike Environment Assets |
-| CrowdStrike - End-of-Life Operating System | CrowdStrike Environment Assets |
+| CrowdStrike - Zero Trust Score CrowdStrike - Endpoint Security CrowdScore | CrowdStrike Crowdscore |
+| CrowdStrike - Unsupported Devices CrowdStrike - Unmanaged Devices CrowdStrike - End-of-Life Operating System | CrowdStrike Environment Assets |
 | CrowdStrike - Critical Domain Users Having High Privileges | CrowdStrike Identity Protection - Domain Users |
 | CrowdStrike - Identity Protection for Active Directory | CrowdStrike Identity Protection - Security Assessment |
 | CrowdStrike - Critical and High Incidents | CrowdStrike Incidents |
 | CrowdStrike - High Severity XDR Detections | CrowdStrike Alerts |
 | Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
 | Highly Exploitable Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
+| Is WAF Enabled Is WAF Enforced Is DDoS Protection Enabled Reach out to your Zscaler Account team to implement these factors. | F5 WAF Data |
 | Unaddressed Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
 
 Reach out to your Zscaler Account team to define and implement custom risk factors not listed in the preceding table to serve your organization's specific requirements.
 
 Refer to the following deployment guides for configuring connectors in Zscaler Data Fabric to implement the preceding factors:
 
-- Configuration Guides
+- Deployment Guides
 
-| Connector | Configuration Guide |
+| Connector | Deployment Guides |
 | --- | --- |
 | Microsoft Defender for Endpoints - Vulnerabilities | [Zscaler UVM and Microsoft Services Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-microsoft-services-deployment-guide) |
 | CrowdStrike Incidents CrowdStrike Alerts CrowdStrike Environment Assets CrowdStrike Vulnerabilities | [Zscaler and CrowdStrike Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide) |
@@ -2012,6 +2515,34 @@ The following screenshot illustrates an example section from a problem analyzed 
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/managing-ai-capabilities-secops-platform","lastmod":"2026-08-10T11:47Z","nid":"1541910"} -->
+## Managing AI Capabilities in the Security Operations Platform
+
+- Source: https://help.zscaler.com/unified/managing-ai-capabilities-secops-platform
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Managing AI Capabilities in the Security Operations Platform
+- Last modified: 2026-08-10T11:47Z
+- Summary: How to manage the availability of AI capabilities in the Security Operations Platform.
+
+AI capabilities within the Security Operations Platform (SecOps Platform) offer users access to AI-powered tools (e.g., [Remediation Copilot](https://help.zscaler.com/uvm/what-remediation-copilot), [Mapping Copilot](https://help.zscaler.com/uvm/what-mapping-copilot)). Admins can manage the availability of AI capabilities within the platform to control whether these tools are available to users.
+
+To manage AI capabilities:
+
+1. In the SecOps Platform Admin Portal, click the **Profile**menu in the top navigation bar, and click **Account Settings**.
+2. In the**AI Capabilities**section, select or deselect **Enable AI Capabilities**to opt in or out of AI features. See image. [Image: Enable AI Features Settings]
+3. Click **Save**.
+
+Opting in or out of AI capabilities applies the change at the account level and makes them available or unavailable to all users within the platform.
+
+## Privacy and Consent
+
+AI capabilities within the SecOps Platform process data entirely within Zscaler's secured services and are not used to train the underlying AI models. The data is not transmitted to external third parties and is protected by encryption and strict access controls. Though the system attempts to strip personally identifiable information (PII) before processing, users should exercise caution with sensitive information. By using the AI capabilities, users consent to the processing of the information they provide.
+
+To learn more about Zscaler's privacy practices and AI data handling, see [Acceptable Use Policy](https://help.zscaler.com/legal/acceptable-use-policy).
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/managing-authentication-data-sources-and-outegrations","lastmod":"2026-08-05T11:12Z","nid":"1542184"} -->
 ## Managing Authentication for Data Sources and Outegrations
 
@@ -2316,13 +2847,13 @@ To access a pinned dashboard in the app:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-data-sources","lastmod":"2026-08-04T23:59Z","nid":"1541933"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-data-sources","lastmod":"2026-08-12T17:22Z","nid":"1541933"} -->
 ## Managing Data Sources
 
 - Source: https://help.zscaler.com/unified/managing-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Managing Data Sources
-- Last modified: 2026-08-04T23:59Z
+- Last modified: 2026-08-12T17:22Z
 - Summary: How to manage existing data sources, including configuring auto-scheduling, editing, deleting, deactivating, mapping, processing, rerunning the last execution, viewing source runs, and checking audit logs.
 
 After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Security Operations Platform (SecOps Platform), you can manage it within a comprehensive list of all your data sources. This page provides access to the administrative actions used to maintain existing source configurations after deployment. For an overview of the deployment process, see [Deploying Data Source Configurations](https://help.zscaler.com/unified/deploying-data-source-configurations). For information about available source types, see [Security Operations Platform Configurations by Data Source](https://help.zscaler.com/unified/security-operations-platform-configurations-data-source).
@@ -2826,13 +3357,13 @@ To add a new peer score calculation strategy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-reports","lastmod":"2026-08-07T06:02Z","nid":"1541633"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-reports","lastmod":"2026-08-11T11:52Z","nid":"1541633"} -->
 ## Managing Reports
 
 - Source: https://help.zscaler.com/unified/managing-reports
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Reports > Managing Reports
-- Last modified: 2026-08-07T06:02Z
+- Last modified: 2026-08-11T11:52Z
 - Summary: How to manually export reports, schedule report exports, and trigger report exports through the API.
 
 After [creating a report](https://help.zscaler.com/unified/creating-reports), you can export it in CSV, JSONL, or Excel format from the appropriate Reports page in the Security Operations Platform (SecOps Platform).
@@ -3007,11 +3538,21 @@ curl --location '
 --header 'Authorization: Bearer
 <Bearer Token>
 ' \\
---data '{"query":"mutation ($id: String!) {processReport(id:$id,
-isPresignedUrl: true
-)}","variables":{"id":"
+--data '{"query":"mutation ($id: String!,$isPresignedUrl: Boolean, $deliveryConfiguration: DeliveryConfiguration) {processReport(id:$id, isPresignedUrl:$isPresignedUrl, deliveryConfiguration:$deliveryConfiguration)}","variables":{"id":"
 <Report ID>
-"}}'
+" "isPresignedUrl": "
+<true or false>
+", "deliveryConfiguration":{"type": "
+<EMAIL>
+", "title": "
+<Email Subject>
+", "message": "
+<Email Message>
+", "recipients": "
+<recipient@example.com>
+", "attachmentMetadata":{"fileFormat": "
+<CSV or JSONL or EXCEL_FORMAT>
+"}}}}'
 ```
 
 Replace the placeholders in the command with the following values:
@@ -3023,7 +3564,8 @@ Replace the placeholders in the command with the following values:
 - `bearer token`
 - `report ID`
 
-The `isPresignedUrl` parameter is only required if you want to generate a downloadable link for the report. If you configured the report to export to an S3 bucket, you can omit this parameter. The report that is generated with this method is exported in the format configured in the report scheduling settings.
+- The `isPresignedUrl` parameter is only required if you want to generate a downloadable link for the report. If you configured the report to export to an S3 bucket, you can omit this parameter. The report that is generated with this method is exported in the format configured in the report scheduling settings.
+- For the `deliveryConfiguration` parameter, if the `type` is `S3`, then use the following query structure: `curl --location '<URL>' \\ --header 'Content-Type: application/json' \\ --header 'accountId: <Account ID>' \\ --header 'graphqlname: processReport' \\ --header 'Authorization: Bearer <Bearer Token>' \\ --data '{"query":"mutation ($id: String!,$isPresignedUrl: Boolean, $deliveryConfiguration: DeliveryConfiguration) {processReport(id:$id, isPresignedUrl:$isPresignedUrl, deliveryConfiguration:$deliveryConfiguration)}","variables":{"id":"<Report ID>" "isPresignedUrl": "<true or false>", "deliveryConfiguration":{"type": "<S3>", "integrationId": "<S3 Integration ID>", "path": "<S3 Folder Path>", "attachmentMetadata":{"fileFormat": "PDF_FORMAT"}, "compressFile": "<true or false>", "compressType": "zip"}}}'`
 
 Response fields include the `runId` of the execution that must be used in the `getReportRunStatus` endpoint.
 
@@ -3093,6 +3635,10 @@ To create a report:
   5. **Tags**: Enter a tag name, or select from existing tags. You can add one or more tags to a dashboard to categorize it. See image.
 4. Click **Save** to apply your changes.
 
+(Optional) You can override these settings when starting a run via the API to simplify your automated reporting flows. If no override is provided, the report uses the delivery configuration saved in the Schedule Export Details window.
+
+See image.
+
 ### Configuring AWS S3 Export Settings
 
 To export the report to an S3 bucket, you must configure the AWS S3 destination setting.
@@ -3114,6 +3660,8 @@ To configure the report's destination settings:
 [Image: Edit Report Details window in the Creating a Report page]
 
 The Reporting API uses token-based authentication with client credentials. To authenticate API requests, you must first obtain client credentials (client ID and client secret) from Zscaler Support or your Zscaler Account team.
+
+[Image: Schedule Export Details window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3446,13 +3994,13 @@ If you have any questions about the End User Statement, send an email to exportc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-08-09T01:24Z","nid":"1541959"} -->
+<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-08-12T06:09Z","nid":"1541959"} -->
 ## Mapping Data Sources
 
 - Source: https://help.zscaler.com/unified/mapping-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Mapping Data Sources
-- Last modified: 2026-08-09T01:24Z
+- Last modified: 2026-08-12T06:09Z
 - Summary: How to map a data source's third-party vendor fields to the Security Operations Platform.
 
 After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Security Operations Platform (SecOps Platform), and ingesting data at least once, you must map the ingested fields to the SecOps Platform data model fields. Mapping is configured per source. After all sources are configured and mapped, the platform can deduplicate and merge records across multiple sources through [data unification](https://help.zscaler.com/unified/what-data-unification), to be used and consumed by the different [SecOps Platform applications](https://help.zscaler.com/uvm/what-zscaler-security-operations) (e.g., UVM, AEM).
@@ -3873,13 +4421,13 @@ Click **View All Iterations** to open the Simulation Results drawer. The drawer 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-08-06T09:27Z","nid":"1492411"} -->
+<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-08-14T00:17Z","nid":"1492411"} -->
 ## Ranges & Limitations
 
 - Source: https://help.zscaler.com/unified/ranges-limitations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Ranges & Limitations
-- Last modified: 2026-08-06T09:27Z
+- Last modified: 2026-08-14T00:17Z
 - Summary: Information about product and feature ranges and limitations.
 
 This article lists the ranges and limitations of rules, policies, fields, and other features. All values are per organization unless noted otherwise.
@@ -3912,7 +4460,7 @@ The following table shows the support settings for [Analytics](https://help.zsca
 | **Feature** | **Standard** | **Microsoft 365** | **Advanced** | **Advanced Plus** |
 | --- | --- | --- | --- | --- |
 | Hop View (Granular Expanded Cloud Path) | Supported | Supported | Supported | Supported |
-| Software and Device Inventory | Not supported | Not supported | Supported | Supported |
+| Software and Hardware Inventory | Not supported | Not supported | Supported | Supported |
 | Process Inventory | Not supported | Not supported | Not supported | Supported |
 | Software Patch Inventory | Supported | Supported | Supported | Supported |
 | UCaaS Monitoring | Not supported | Microsoft Teams Call Quality (only) | Supported | Supported |
@@ -3947,6 +4495,7 @@ The following table shows the ranges and limitations for [Applications and Probe
 | Active Probes (per user) | 3 | 7 | 30 | 30 |
 | Total Number of Cloud Path and Web Monitoring Probes | 512 | 512 | 512 | 512 |
 | Active Probes | 6 | 13 | 30 | 1,000 |
+| Collections | 1,000 | 1,000 | 1,000 | 1,000 |
 | Probing Interval | 15 minutes | 5 minutes | 5 minutes | 5 minutes |
 | Page Fetch Time Server Redirects | Not supported | Not supported | Not supported | Supported |
 | ZDX Autosense (Webex Call Quality) | Not supported | Not supported | Supported | Supported |
@@ -4077,7 +4626,7 @@ The following table shows the ranges and limitations for Endpoint DLP:
 
 ### EUNs
 
-The following table shows the ranges and limitations for EUNs:
+The following table shows the ranges and limitations for End User Notifications (EUNs):
 
 | Feature | Limit |
 | --- | --- |
@@ -4311,6 +4860,7 @@ The following table shows the ranges and limitations for URL Filtering and Cloud
 | Cloud Application Tags per Organization | 16 tags | Each tag can have up to 127 characters. |
 | Tenant Profiles per Rule | 16 tenant profiles | Each Cloud App Control Policy rule can have up to 16 tenant profiles associated with it. |
 | Amazon Web Services | 256 account IDs | Each account ID must have 12 digits. There can be a maximum of 2,048 account IDs across all profiles. |
+| Claude | 16 workspace IDs | Each workspace ID can have up to 64 characters. There can be a maximum of 64 workspace IDs per organization. |
 | ChatGPT | 128 workspace IDs | Each workspace ID can have up to 64 characters. You can associate a maximum of 16 tenant profiles or 20 workspace IDs per rule. |
 | Dropbox Team ID | 100 team IDs | Each team ID can have up to 64 characters. |
 | GitHub | One enterprise slug | Each enterprise slug can have up to 256 characters. There can be a maximum of 100 tenant profiles per organization. You can associate only one tenant profile per rule. |
@@ -6113,13 +6663,13 @@ Other browsers should be compatible, but are not actively tested.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/tracking-data-source-runs","lastmod":"2026-08-05T23:39Z","nid":"1541966"} -->
+<!-- ZS-ARTICLE {"url":"/unified/tracking-data-source-runs","lastmod":"2026-08-12T17:08Z","nid":"1541966"} -->
 ## Tracking Data Source Runs
 
 - Source: https://help.zscaler.com/unified/tracking-data-source-runs
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Tracking Data Source Runs
-- Last modified: 2026-08-05T23:39Z
+- Last modified: 2026-08-12T17:08Z
 - Summary: How to track data source runs and view run details to assist in troubleshooting errors.
 
 When connecting a data source to ingest data into the Security Operations Platform (SecOps Platform), you can schedule automatic full runs and incremental runs, as well as process data manually. To monitor the source's run status, track execution, and troubleshoot errors, you can view the data source run history on the [See Runs page](https://help.zscaler.com/unified/managing-data-sources#runs).
@@ -6686,13 +7236,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-historical-data","lastmod":"2026-08-07T02:13Z","nid":"1542007"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-historical-data","lastmod":"2026-08-12T07:57Z","nid":"1542007"} -->
 ## Understanding Historical Data
 
 - Source: https://help.zscaler.com/unified/understanding-historical-data
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Understanding Historical Data
-- Last modified: 2026-08-07T02:13Z
+- Last modified: 2026-08-12T07:57Z
 - Summary: Information about historical data in the Security Operations Platform and how it is calculated.
 
 The Security Operations Platform (SecOps Platform) captures the historical state of each entity at every point in time, allowing flexible reporting of over-time behavior based on change logs saved in the platform. You can filter this historical data to analyze performance during different time frames. This enables you to monitor trends, verify the impact of configuration changes in the SecOps Platform, and track progress on security and operational initiatives over time.
@@ -6782,8 +7332,8 @@ The following table shows the output of Ticket ID 123:
 
 | Measurement | January | February | March |
 | --- | --- | --- | --- |
-| **Total Open Tickets** | 1 | 1 | 0 |
-| **Total Closed Tickets** | 0 | 1 | 1 |
+| Total Open Tickets | 1 | 1 | 0 |
+| Total Closed Tickets | 0 | 1 | 1 |
 
 Last at measurements reflect whether the entity met the measurement's condition on the last day of the specified time range. These measurements provide a snapshot view of conditions as they were at the end of the period.
 
@@ -6793,8 +7343,8 @@ The following table shows the output data if Ticket ID 123 started off with 300 
 
 | Measurement | January | February | March |
 | --- | --- | --- | --- |
-| **Active Findings** | 25 | 0 | 0 |
-| **Max Finding Severity Score** | 8.8 | - | - |
+| Active Findings | 25 | 0 | 0 |
+| Max Finding Severity Score | 8.8 | - | - |
 
 Turn to measurements counting entities that transitioned to a specific condition during a given time period. These metrics highlight the transition or the change that occurred during the period. For example, the Opened Tickets measurement counts tickets first opened during the time range, the Remediated Tickets measurement counts tickets that were remediated (moved to the Remediated status) during the period, and the Closed Tickets measurement counts tickets that were closed during the period.
 
@@ -6802,9 +7352,9 @@ The following table shows the measurement output of Ticket ID 123:
 
 | Measurement | January | February | March |
 | --- | --- | --- | --- |
-| **Opened Tickets** | 1 | 0 | 0 |
-| **Remediated Tickets** | 1 | 1 | 0 |
-| **Closed Tickets** | 0 | 1 | 0 |
+| Opened Tickets | 1 | 0 | 0 |
+| Remediated Tickets | 1 | 1 | 0 |
+| Closed Tickets | 0 | 1 | 0 |
 
 Mean time to (MTTX) measurements calculate the average number of days it takes for an entity to transition from one condition to another. For example, Ticket Mean Time to Remediate measures the average duration (in days) it takes for a ticket to transition from the Active to the Inactive state. The key difference between current and historical data for MTTX measurements is that in current data, only the most recent remediation period (the time from when the ticket is open to when it's remediated) is considered, while in historical data, every remediation period within the time range is captured, displaying separate values for each.
 
@@ -6812,7 +7362,7 @@ The following table shows the output data if the first remediation period for Ti
 
 | Measurement | January | February | March |
 | --- | --- | --- | --- |
-| **Ticket Mean Time to Remediate** | 10 | 15 | - |
+| Ticket Mean Time to Remediate | 10 | 15 | - |
 
 ## Understanding Dimensions in Historical Data
 
@@ -6835,8 +7385,8 @@ When viewing the historical data for this ticket and adding the Assignee dimensi
 |  | January | February | March |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Assignee | Total Open Tickets | Closed Tickets | Total Open Tickets | Closed Tickets | Total Open Tickets | Closed Tickets |
-| **Team 1** | 1 | 0 | 1 | 0 | 0 | 0 |
-| **Team 5** | 0 | 0 | 1 | 1 | 0 | 0 |
+| Team 1 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Team 5 | 0 | 0 | 1 | 1 | 0 | 0 |
 
 Adding the Assignee dimension creates another level of granularity in addition to the time granularity, so the selected measurements are further grouped by the selected dimension:
 
@@ -6848,8 +7398,8 @@ Let's assume Ticket ID 123 started with 300 active findings at the beginning of 
 | Measurement | January | February | March |
 | --- | --- | --- | --- |
 | Assignee | Active Findings | Active Findings | Active Findings |
-| **Team 1** | 25 | 13 | 0 |
-| **Team 5** | 0 | 0 | 0 |
+| Team 1 | 25 | 13 | 0 |
+| Team 5 | 0 | 0 | 0 |
 
 Since Active Findings is a Last at measurement, it reflects the last recorded state of findings for each dimension and time interval:
 
@@ -6860,36 +7410,96 @@ Overall, for January, the Active Findings measurement displays the findings stil
 
 ## Applying Filters to Historical Data
 
-When filters are applied to historical data, the SecOps Platform evaluates the current state of entities, determines if they meet the filter criteria, and displays the historical data. This means that even if an entity matched the filter criteria at some point in the past, it is not included in the results unless it still matches the filter criteria today.
+When applying filters to historical data, by default, the SecOps Platform evaluates the current state of entities and determines if they meet the filter criteria. Historical data is displayed only for entities that match the filter condition in their current state. This means that even if an entity matched the filter during the selected date range, it is not included in the results unless it still matches the filter criteria today.
+
+In historical custom dashboards and reports, the filter evaluation time is configurable, allowing you to choose how the SecOps Platform evaluates the data:
+
+- Current State: Evaluates filter conditions based on the current, most recent state of the data. Only entities that currently match the filter criteria have their historical data included in the results. This is the default behavior for historical data.
+- Historical State: Evaluates the filter conditions for the selected date range, or for each time bucket if a date breakdown is selected. The filter is evaluated based on the data's state at that specific point in time, even if it doesn't currently meet the condition.
+
+To learn more, see [Configuring Custom Dashboards](https://help.zscaler.com/unified/configuring-custom-dashboards) and [Creating Reports](https://help.zscaler.com/unified/creating-reports).
 
 [Image: Historical data example with assignee]
 
-Ticket ID 123 is used as an example to show its progress through various statuses across three months:
+Tickets 123 and 456 are used as examples to show their progress through various statuses and how filtering behavior changes with each filter evaluation time.
 
-- January: Ticket 123 is opened, remediated, and subsequently reopened by the end of the month. The ticket is assigned to Team 1.
+Ticket ID 123:
+
+- January: The ticket is opened, remediated, and subsequently reopened by the end of the month. The ticket is assigned to Team 1.
 - February: The ticket turns from open to remediated, and it is closed before the end of the month. The ticket is reassigned to Team 5.
 - March: The ticket is closed. The ticket remains assigned to Team 5.
 
+Ticket ID 456:
+
+- January: The ticket began and remained open throughout the month. The ticket is assigned to Team 1.
+- February: The ticket turns from open to remediated, and it is closed before the end of the month. The ticket remains assigned to Team 1.
+- March: The ticket is closed. The ticket remains assigned to Team 1.
+
 ### Filter Behavior
 
-To view all tickets in the month of January only, apply the filter Assignee = Team 1 to view tickets assigned to Team 1.
+To view all tickets in the month of January that were assigned to Team 1, set the date range to January, and apply the filter Assignee = Team 1. The results depend on the filter evaluation time and the included measurements.
 
-Here's how the filter behaves:
+- Current State: Filters data based on its most recent state and only includes tickets that are currently assigned to Team 1.
+  - Ticket ID 123: Although it was assigned to Team 1 in January, its current assignment is Team 5 (as of March). Therefore, Ticket ID 123 is excluded from the results.
+  - Ticket ID 456: Because it is currently assigned to Team 1 (as of March) and meets the filter criteria, Ticket ID 456 is included, and its historical data from January is displayed.
+- Historical State: Evaluates filters to check whether tickets met the criteria in January.
+  - Ticket ID 123: Because it was assigned to Team 1 in January, Ticket ID 123 is included in the results, and its historical data from January is displayed.
+  - Ticket ID 456: Because it was assigned to Team 1 throughout January, Ticket ID 456 is included in the results, and its historical data from January is displayed.
 
-- Ticket ID 123: Was assigned to Team 1 in January, but is now assigned to Team 5.
-- Ticket ID 456: Is currently assigned to Team 1 and has been throughout the selected time range.
+The following table summarizes the behavior for the filters: Assignee = Team 1, Date Range = January.
 
-With the filter Assignee = Team 1:
+| Filter Evaluation | Ticket ID 123 | Ticket ID 456 |
+| --- | --- | --- |
+| Current State | Not displayed: Not currently assigned to Team 1. | Displayed: Currently assigned to Team 1. |
+| Historical State | Displayed: Was assigned to Team 1 in January. | Displayed: Was assigned to Team 1 in January. |
 
-- Ticket ID 123 does not appear in the results, even though it was assigned to Team 1 in January, because it is no longer assigned to Team 1 today.
-- Ticket ID 456 will appear, and all of its historical January data is displayed because it is currently assigned to Team 1.
+### Filter Evaluation Time with Measurements
+
+The measurements selected in the widget or report are calculated according to the measurement type (e.g., Was At, Last At, Turn To). Calculations are performed either for the entire selected date range, or for each time bucket (e.g., day, week, or month) if a date breakdown is applied.
+
+Tickets 123 and 456 are used to calculate two measurements for the month of January, with the filter Ticket Assignee = Team 1.
+
+- Total Open Tickets (Was At)
+- Remediated Tickets (Turn To)
+
+The Total Open Tickets measurement counts all tickets that were open at any point in January, regardless of whether they transitioned to another status during or after January.
+
+- Current State: Total Open Tickets = 1
+  - Ticket ID 123: Excluded from the displayed data. Its data is filtered out because it is not currently assigned to Team 1, even though it was assigned to Team 1 and open in January.
+  - Ticket ID 456: Counted. It is currently assigned to Team 1 and was open at some point in January.
+- Historical State: Total Open Tickets = 2
+  - Ticket ID 123: Counted. It was assigned to Team 1 and was open at some point in January.
+  - Ticket ID 456: Counted. It was open and assigned to Team 1 during January.
+
+The following table summarizes the behavior of the Total Open Tickets (Was At) measurement and the configured filters: Assignee = Team 1, Date Range = January.
+
+| Filter Evaluation | Ticket ID 123 | Ticket ID 456 | Count |
+| --- | --- | --- | --- |
+| Current State | Excluded: Not currently assigned to Team 1. | Counted: Currently assigned to Team 1 and was Open at some point in January. | 1 |
+| Historical State | Counted: Was assigned to Team 1 and Open at some point in January. | Counted: Was assigned to Team 1 and Open at some point in January. | 2 |
+
+The Remediated Tickets measurement counts all tickets that transitioned to the Remediated status during January.
+
+- Current State: Total Open Tickets = 0
+  - Ticket ID 123: Excluded from the displayed data. Its data is filtered out because it is not currently assigned to Team 1, even though it did transition to Remediated in January.
+  - Ticket ID 456: Not counted. It did not transition to the Remediated status in January.
+- Historical State: Total Open Tickets = 1
+  - Ticket ID 123: Counted. It transitioned to Remediated in January while assigned to Team 1.
+  - Ticket ID 456: Not counted. It did not transition to Remediated in January.
+
+The following table summarizes the behavior of the Remediated Tickets (Turn to) measurement and the configured filters: Assignee = Team 1, Date Range = January.
+
+| Filter Evaluation | Ticket ID 123 | Ticket ID 456 | Count |
+| --- | --- | --- | --- |
+| Current State | Excluded: Not currently assigned to Team 1. | Not counted: Currently assigned to Team 1 but did not transition to Remediated status in January. | 0 |
+| Historical State | Counted: Transitioned to Remediated while assigned to Team 1 in January. | Not counted: Was assigned to Team 1 in January but did not transition to Remediated. | 1 |
 
 ## Historical Data Caveats
 
 The SecOps Platform stores historical data in a separate dataset that captures all changes made to entities over time. This dataset is distinct from the one used for current data, which only retains the most recent version of the data. While the historical dataset enables detailed insights and flexible over-time analysis, it comes with the following considerations:
 
 - Retrieving historical data can result in slower performance compared to current data. This is because the SecOps Platform processes and queries large volumes of data to ensure all the relevant changes, transitions, and activity are included. Performance slowdowns are most noticeable when analyzing extended time ranges or applying detailed filters and dimensions.
-- Historical data is updated in periodic processing intervals, typically every 4 hours. As a result, new changes might not appear in the historical view until the next processing cycle. This can lead to temporary discrepancies between historical data and current data, that are updated in real time.
+- Historical data is updated in periodic processing intervals, typically every 4 hours. As a result, new changes might not appear in the historical view until the next processing cycle. This can lead to temporary discrepancies between historical data and current data that are updated in real time.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7047,28 +7657,28 @@ The following table details the different system roles for SOC Workbench and the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-threatlabz-source","lastmod":"2026-08-09T00:18Z","nid":"1541967"} -->
-## Understanding the ThreatLabz Source
+<!-- ZS-ARTICLE {"url":"/unified/understanding-threatlabz-data-source","lastmod":"2026-08-13T05:08Z","nid":"1541967"} -->
+## Understanding the ThreatLabz Data Source
 
-- Source: https://help.zscaler.com/unified/understanding-threatlabz-source
+- Source: https://help.zscaler.com/unified/understanding-threatlabz-data-source
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Understanding the ThreatLabz Source
-- Last modified: 2026-08-09T00:18Z
-- Summary: Information on the ThreatLabz source in the Security Operations Platform.
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Understanding the ThreatLabz Data Source
+- Last modified: 2026-08-13T05:08Z
+- Summary: Information on the ThreatLabz data source in the Security Operations Platform.
 
-ThreatLabz is a research organization within Zscaler that focuses on identifying and analyzing emerging threats, vulnerabilities, and attack techniques. As part of their effort, the ThreatLabz team maintains a database of CVEs with information onhow they're mitigated by different Zscaler services. The ThreatLabz source retrieves this data, which is then correlated with your deduplicated asset records and Zscaler service coverage. This information is used to calculate contextualized risk scores based on the level of protection provided by your Zscaler services.
+ThreatLabz is a research organization within Zscaler that focuses on identifying and analyzing emerging threats, vulnerabilities, and attack techniques. As part of their effort, the ThreatLabz team maintains a database of CVEs with information onhow they're mitigated by different Zscaler services. The ThreatLabz data source retrieves this data, which is then correlated with your deduplicated asset records and Zscaler service coverage. This information is used to calculate contextualized risk scores based on the level of protection provided by your Zscaler services.
 
-The ThreatLabz source is provisioned in every new account created within the Security Operations Platform (SecOps Platform). To access the ThreatLabz source in the SecOps Platform Admin Portal, go to Configure > Sources. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
+The ThreatLabz data source is provisioned in every new account created within the Security Operations Platform (SecOps Platform). To access the ThreatLabz data source in the SecOps Platform Admin Portal, go to Configure > Sources. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 See image.
 
-## ThreatLabz and the Zscaler Client Connector Source
+## ThreatLabz and the Zscaler Client Connector Data Source
 
-The ThreatLabz source retrieves data on which CVEs are mitigated by which Zscaler services, including Internet & SaaS (ZIA) and Private Access (ZPA). The Zscaler Client Connector Devices source retrieves data on assets in your organization, including which Zscaler services are installed on which assets. By cross-referencing ThreatLabz data with Zscaler Client Connector data, you can determine which of your Zscaler services are protecting against specific CVEs in your security environment. This insight can be used as a mitigating risk factor to inform finding scoring. To learn more, see [Configuring the Zscaler Client Connector Devices Connector](https://help.zscaler.com/uvm/configuring-zscaler-client-connector-devices-connector) and [Configuring the ZIA Devices and Users Connector](https://help.zscaler.com/uvm/configuring-zia-devices-and-users-connector).
+The ThreatLabz data source retrieves data on which CVEs are mitigated by which Zscaler services, including Internet & SaaS (ZIA) and Private Access (ZPA). The Zscaler Client Connector Devices data source retrieves data on assets in your organization, including which Zscaler services are installed on which assets. By cross-referencing ThreatLabz data with Zscaler Client Connector data, you can determine which of your Zscaler services are protecting against specific CVEs in your security environment. This insight can be used as a mitigating risk factor to inform finding scoring. To learn more, see [Configuring the Zscaler Client Connector Devices Connector](https://help.zscaler.com/uvm/configuring-zscaler-client-connector-devices-connector) and [Configuring the ZIA Devices and Users Connector](https://help.zscaler.com/uvm/configuring-zia-devices-and-users-connector).
 
 ### Finding Is Mitigated Field
 
-The Finding Is Mitigated field is populated based on the overlap between data from the two sources, returning TRUE when a match is found (i.e., when a CVE found on your asset is mitigated by a Zscaler service installed on it) or FALSE otherwise. The [unification](https://help.zscaler.com/unified/what-data-unification) rule checks if any of the services that can mitigate the vulnerability (as reported by the ThreatLabz source) are actually installed on the asset where the vulnerability was detected (as reported by the Zscaler Client Connector Devices source). If the service is installed on the asset, it sets the Finding Is Mitigated field to TRUE. Otherwise, it sets the value to FALSE. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification).
+The Finding Is Mitigated field is populated based on the overlap between data from the two data sources, returning TRUE when a match is found (i.e., when a CVE found on your asset is mitigated by a Zscaler service installed on it) or FALSE otherwise. The [unification](https://help.zscaler.com/unified/what-data-unification) rule checks if any of the services that can mitigate the vulnerability (as reported by the ThreatLabz data source) are actually installed on the asset where the vulnerability was detected (as reported by the Zscaler Client Connector Devices data source). If the service is installed on the asset, it sets the Finding Is Mitigated field to TRUE. Otherwise, it sets the value to FALSE. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification).
 
 See image.
 
@@ -7082,8 +7692,8 @@ See image.
 
 Consider the following example of a CVE finding:
 
-- The ThreatLabz source reports that CVE-2017-3044 is mitigated by Internet & SaaS (i.e., the value of the Vulnerability Mitigation Products field is ZIA).
-- The Zscaler Client Connector Devices source reports that Asset A has Internet & SaaS installed and contains the CVE-2017-3044 finding (i.e., the Asset Mitigation Products field value is ZIA).
+- The ThreatLabz data source reports that CVE-2017-3044 is mitigated by Internet & SaaS (i.e., the value of the Vulnerability Mitigation Products field is ZIA).
+- The Zscaler Client Connector Devices data source reports that Asset A has Internet & SaaS installed and contains the CVE-2017-3044 finding (i.e., the Asset Mitigation Products field value is ZIA).
 - CVE-2017-3044 is mitigated by Internet & SaaS, and Asset A has Internet & SaaS installed on it.
 
 These points indicate an overlap between the vulnerability mitigation services (i.e., Internet & SaaS) and the asset mitigation services (i.e., Internet & SaaS). This sets the Finding Is Mitigated field on Asset A for CVE-2017-3044 to TRUE, indicating that the vulnerability is no longer a significant threat to the asset. This information is then used to reduce the severity score of the finding.
@@ -8070,6 +8680,128 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/viewing-audit-logs","lastmod":"2026-08-10T11:43Z","nid":"1541909"} -->
+## Viewing Audit Logs
+
+- Source: https://help.zscaler.com/unified/viewing-audit-logs
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Viewing Audit Logs
+- Last modified: 2026-08-10T11:43Z
+- Summary: How to view and export audit logs in the Security Operations Platform.
+
+Audit logs track user-initiated actions within the Security Operations Platform (SecOps Platform). This enables you to monitor configuration changes, such as updates to reports, data source instances, and outegrations. You can download specific audit logs for immediate review, and schedule automated exports to an external destination such as an Amazon S3 bucket.
+
+Audit logs track key events including:
+
+- Configuration of grouping rules and rule sets.
+- Configuration of severity, score, and SLA settings.
+- Creating, managing, and assigning roles and content permissions.
+- Configuring field unification rule set.
+- Configuring UI configurations.
+- Updates to account settings and user settings.
+- Management of data source mapping, data source instances, and data source scheduling.
+- Configuration and mapping of outegrations.
+- Changes to dashboards and reports.
+
+## Viewing the Audit Logs Page
+
+To view the Audit Logs page:
+
+1. In the SecOps Platform Admin Portal, go to a configuration page: The configuration page for a user is provided here as an example. See image. [Image: Configuration Page of a User]
+  - For a user: Click the **Profile** menu in the top navigation bar, then click **Profile Settings**.
+  - For an account: Click the **Profile** menu in the top navigation bar, then click **Account Settings**.
+  - For a source: Go to **Configure** > **Sources**, then click a source.
+  - For an outegration: Go to **Configure**> **Outegrations**, then click an outegration.
+  - For a report: Go to an application in the top navigation bar (**Vulnerabilities**, **Assets**, etc.), click **My Reports**, and click a report.
+  - For SOC Workbench only: Go to **Settings** > **Scoring**, **Settings** > **Severity**, or **Settings**> **UI Config**.
+2. Click the **More**menu, and click **Audit Logs**. The **Audit Logs** page appears.
+3. On the **Audit Logs** page for a user, you can do the following: [Image: Additional Details] See image. [Image: Audit Logs Page]
+  - Filter and sort the logs by operation, type, and user name.
+  - Download the logs as a CSV file.
+  - View additional information by clicking the arrow icon. See image.
+
+Audit logs are retained for 90 days. To extend the retention period and to maintain a long-term history, you can export the logs to an Amazon S3 bucket or any other configured log destination.
+
+## Configuring Audit Log Export
+
+You can schedule audit logs to be sent on a daily or hourly basis via an outegration. To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations).
+
+To configure automated audit log export for a user:
+
+1. Click the **Profile** menu in the top navigation bar, then click **Account Settings**. The **Settings**page appears.
+2. In the **Audit Logs Export** section: See image. [Image: Audit Logs Export Drop-Down Menu]
+  1. Select **Enable Scheduling**.
+  2. **Included Entities**: Select the entity types to be included in the audit log (e.g., **Severity Score Settings**, **UI Configuration**).
+  3. **Frequency**: Define the time interval for the audit log export (e.g., **Daily**or **Hourly**).
+  4. **Select Storage Outegration**: Choose a destination for the audit log export.
+3. Click **Save**. Audit logs are automatically exported to the selected storage outegration based on the scheduling frequency.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practice-details","lastmod":"2026-08-13T23:55Z","nid":"1542705"} -->
+## Viewing Best Practice Details
+
+- Source: https://help.zscaler.com/unified/viewing-best-practice-details
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Best Practice Details
+- Last modified: 2026-08-13T23:55Z
+- Summary: Information about how to analyze practice details in Health360.
+
+When you click a best practice on the [Best Practices](https://help.zscaler.com/unified/viewing-best-practices-optimal-health) page, you are redirected to the Practice Details page, where you can view the following practice-specific data:
+
+- **Practice Title**: The name of the best practice.
+- **Category**: The category of the best practice (Resiliency or Performance).
+- **Product**: The Zscaler product the best practice belongs to.
+- **Priority**: The priority for addressing the practice based on its severity.
+- **Recommendation**: Zscaler's recommendation on how to implement the best practice.
+- **Percent Followed**: The best practice implementation percentage.
+- A table where you can view the data for each parameter involved in the practice (e.g., policy name, forwarding profile, server, ports). You can use the available filter options to narrow your search results. The filter options and the table data vary based on the best practice you choose to analyze.
+
+The following screenshot illustrates an example practice analyzed on the Practice Details page:
+
+[Image: The Practice Details Page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practices-optimal-health","lastmod":"2026-08-15T05:26Z","nid":"1541607"} -->
+## Viewing Best Practices for Optimal Health
+
+- Source: https://help.zscaler.com/unified/viewing-best-practices-optimal-health
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Best Practices for Optimal Health
+- Last modified: 2026-08-15T05:26Z
+- Summary: Information about best practices in Health360 for maintaining optimal health.
+
+The Best Practices page evaluates your configuration posture against Zscaler's recommended guidelines for each deployed Zscaler service. By providing a detailed view of individual checks and recommended actions, these metrics enable you to identify and remediate configuration gaps, and help determine whether your deployed services are configured in line with Zscaler's recommended best practices.
+
+On the Best Practices page (Analytics > Health360 > Best Practices), you can:
+
+1. **Best Practices Score**: View the overall best practices score (0–100). The best practices score is categorized across 4 color indicators:
+  - **Green**: A score of 90–100 is categorized as **Healthy**.
+  - **Amber**: A score of 70–89 is categorized as **Moderate**.
+  - **Red**: A score of 40–69 is categorized as **Degraded**.
+  - **Crimson Red**: A score of 0–39 is categorized as **Critical**.
+2. **Health Score Trend**: View the health score trend graph for the previous month. Hover over the graph to view the score for a specific day.
+3. Switch between **Resiliency** and **Performance** practices in the following table.
+4. Search for a practice by its name.
+5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+6. Show or hide filters.
+7. Apply filters to the table data.
+8. View a list of all practices. For each practice, you can view:
+  - **Practice Name**: The name of the best practice. Click the practice to further view the [practice details](https://help.zscaler.com/unified/viewing-best-practice-details).
+  - **Status**: The status of the best practice, whether it's implemented or not (**Followed**or **Not Followed**).
+  - **Product**: The Zscaler service associated with the best practice.
+  - **Percent Complaint**: The percentage at which the best practice is currently compliant. Only 100% compliant practices are categorized as **Followed**in the **Status** column.
+  - **Priority**: The priority for the practice (**Medium**or **High**).
+  - **Recommendations**: The remediation steps to implement the practice. You can navigate to the respective service's configuration pages in the Zscaler Admin Console to implement the practice.
+
+[Image: Best Practices page showing score for resilience and performance]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/viewing-connector-activity-dashboard","lastmod":"2026-02-11T06:04Z","nid":"1517171"} -->
 ## Viewing the Connector Activity Dashboard
 
@@ -8151,6 +8883,44 @@ See image.
 [Image: Table showing list of Connectors on the Connector Activity dashboard]
 
 [Image: Table showing list of Connectors on the Connector Activity dashboard]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/viewing-connectors-tunnels-zscaler-client-connector-health","lastmod":"2026-08-15T05:23Z","nid":"1541637"} -->
+## Viewing Connectors, Tunnels, & Zscaler Client Connector Health
+
+- Source: https://help.zscaler.com/unified/viewing-connectors-tunnels-zscaler-client-connector-health
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Connectors, Tunnels, & Zscaler Client Connector Health
+- Last modified: 2026-08-15T05:23Z
+- Summary: Information about Connectors, Tunnels, & Zscaler Client Connector health.
+
+The Connectors Health page evaluates the health of your devices, such as Zscaler connectors, Private Service Edges, Zscaler Client Connector, and tunnels. The main focus of this page is to deliver centralized visibility into the operational states of assets. It streamlines infrastructure management through the following key capabilities:
+
+- **Location-Based Diagnostics**: Rapidly identify offline, degraded, or unreachable components by region or site.
+- **Capacity Management**: Detect overloaded connectors, saturated tunnels, and uneven traffic distribution.
+- **Lifecycle Management**: Track connector versions, upgrade compliance, and end-of-support risks.
+
+To customize your data evaluation, you can adjust the dashboard view to display metrics for the last 24 hours, 48 hours, 7 days, 30 days, or a custom range.
+
+On the Connectors Health page (Analytics > Health360 > Connectors Health), you can:
+
+1. **Connectors Health Score**: View the overall connectors health score (0–100). This score is categorized across 4 color indicators:
+  - **Green**: A score of 90–100 is categorized as **Healthy**.
+  - **Amber**: A score of 70–89 is categorized as **Moderate**.
+  - **Red**: A score of 40–69 is categorized as **Degraded**.
+  - **Crimson Red**: A score of 0–39 is categorized as **Critical**.
+2. **Health Score Trend**: View the health score trend graph for the filtered time frame. Click any part of the trend graph to view the health of all the devices and events impacting the health score for that specific date and time.
+3. View the health tile for each device and its health status. You can also view the total number of devices and locations in your organization. Click the **Add** icon for devices that you want to filter in the subsequent **Locations with Connectors** section.
+4. **Locations With Connectors**: View the health status of devices by country. In this section, you can:
+  - Sort this list for the country by **Most Impacted**, **Name**, or **Locations Count**.
+  - View the same metrics in the map on the right pane.
+  - Hover over a country with devices to view the health status for all the devices in that country.
+  - Switch the map for devices in **Offices**or **Remote** locations.
+  - Filter the data in the map for a specific health status by selecting the health status at the top right.
+
+[Image: The Connectors Health page showing insights for Connectors, Tunnels, & Zscaler Client Connector]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8687,6 +9457,54 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/viewing-executive-insights-zscaler-services","lastmod":"2026-08-15T05:33Z","nid":"1541710"} -->
+## Viewing Executive Insights for Zscaler Services
+
+- Source: https://help.zscaler.com/unified/viewing-executive-insights-zscaler-services
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Executive Insights for Zscaler Services
+- Last modified: 2026-08-15T05:33Z
+- Summary: Information about executive insights in Health360 providing an overview of your applications, network, cloud, and incidents in your organization.
+
+Executive Insights provides a high-level overview of the applications, network, cloud, and incidents in your organization. You can drill down on each metric to further analyze the data.
+
+On the Executive Insights page (Analytics > Health360 > Executive Insights), you can view executive insights by accessing the following tabs:
+
+- Applications
+- Network
+- Cloud
+- Incident
+
+This tab shows private application-related insights with the following sections:
+
+- **What Internet Applications Are Users Accessing?**: This section contains a donut chart showing the overall traffic distribution across various categories with the percentage increase or decrease in traffic flow. You can hover over a category to view its total volume of data with its traffic percentage share from the overall traffic data. The center of the donut shows the total volume of data. This section also contains a graph for comparing each category to your industry peers. By accessing Zscaler Health360, you provide Zscaler the right to compare your organization's performance and effectiveness in using Zscaler services for the preceding month with other peer organizations and all companies using our cloud service. Peers are chosen based on business vertical, geographic region, and business size. The comparison is broken down by overall traffic, configuration baseline, traffic distribution by application categories, traffic distribution by region and access methods, and product usage. Click **View Application** to see the preceding information for the top 10 applications.
+- **Where are My Private Applications are Being Hosted?**: This section contains a graph showing the traffic data distribution for private applications for each host (e.g., AWS, GCP, Azure). Hover over a host to view the traffic data percentage and the total bytes of data for that host. Click **View Private App Hosts** to further drill down on the data.
+
+[Image: Executive Insights for Applications]
+
+This tab contains network-related insights with the following sections:
+
+- **Traffic by Access Path**: The graph shows total organizational traffic segregated between office and remote data for each country. Hover over a country bar to view the total traffic data and the split between office and remote network. Click **View Traffic Breakdown** to further see the preceding data by traffic type or geolocation.
+- **Top Locations Users Are Coming From**: The graph shows the top locations for your user traffic. You can view specific metrics for office or remote networks by switching the buttons at the top right.
+
+[Image: Executive Insights for Network]
+
+This tab contains data center-related insights with the following section:
+
+**Top ZTEs for Internet/SaaS Traffic**: The graph shows the total traffic data for top ZTEs. Click **View All ZTE Traffic** to further drill down on the information for all data centers.
+
+[Image: Executive Insights for Cloud]
+
+This tab contains incident-related insights with the following sections:
+
+- **Incidents by Location**: The graph shows the number of network and application-related incidents for the top 5 locations in descending order. You can filter the graph by incident severity. Hover over a location bar to view an incident split between applications and networks. Click **View All Incidents** to further drill down on the information for all incidents.
+- **Incidents Trend (MoM)**: The graph shows the incident trend for each month. You can filter the graph by incident severity.
+
+[Image: Executive Insights for Incidents]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/viewing-experience-center-home-page","lastmod":"2026-02-12T09:28Z","nid":"1529129"} -->
 ## Viewing the Experience Center Home Page
 
@@ -8834,6 +9652,50 @@ See image.
 [Image: Loss Curve Section]
 
 [Image: Top 10 Financial Contributing Factors Section]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/viewing-health360-dashboard","lastmod":"2026-08-13T23:28Z","nid":"1541348"} -->
+## Viewing the Health360 Dashboard
+
+- Source: https://help.zscaler.com/unified/viewing-health360-dashboard
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing the Health360 Dashboard
+- Last modified: 2026-08-13T23:28Z
+- Summary: Information about the Health360 dashboard in the Zscaler Admin Console.
+
+The Health360 dashboard serves as a comprehensive overview page, delivering an immediate snapshot of your deployment health across all major categories in your Zscaler ecosystem:
+
+- **Services**: This category encompasses all aspects of the third-party ecosystem used to access applications. This includes ISP networks, Zero Trust Exchange (ZTE) infrastructure, and applications. The ISP networks and applications health data is powered by Zscaler Digital Experience (ZDX), your digital experience monitoring product.
+- **Connectors**: This category focuses on the various devices used to connect to the Zero Trust Exchange (ZTE). Health360 provides actionable insights into these devices, including versions, performance, capacity, and health signals.
+- **Best Practices**: This category displays the best practices distilled from Zscaler's extensive experience in deploying and managing numerous ecosystems. This helps in identifying configuration gaps and improving your overall deployment posture.
+- **Adoption**: This category displays Zscaler platform adoption maturity by detailing deployment, entitlement, and utilization levels on a per-product basis.
+
+Designed to enhance visibility, the Health360 dashboard provides the following core capabilities:
+
+- Track overall health scores along with chronological trends for any chosen period.
+- Assess health performance filtered by specific geographical regions.
+- Identify and monitor ongoing incidents that threaten your deployment status.
+
+To customize your data evaluation, you can adjust the dashboard view to display metrics from the last 24 hours, 48 hours, 7 days, or 30 days.
+
+## Health360 Dashboard
+
+On the Health360 dashboard page (Analytics > Health360), you can:
+
+1. **Overall Health Score**: View your overall health score (0–100) averaged from all the categories of Health360. The health score is categorized across 4 indicators: This section shows health scores for the following categories: It also contains the health score trend graph for the filter time frame.
+  - **Green**: A score of 90–100 is categorized as **Healthy**.
+  - **Amber**: A score of 70–89 is categorized as **Moderate**.
+  - **Red**: A score of 40–69 is categorized as **Degraded**.
+  - **Crimson Red**: A score of 0–39 is categorized as **Critical**.
+  - **Best Practices**: View the best practices score based on health signals for optimal configuration, resilience, and performance factors.
+  - **Connectors Health**: View the score based on health signals from devices such as Zscaler Client Connector, App Connector, tunnels, etc.
+  - **Service Health**: View the score based on health signals like availability, ISP network latency, Zero Trust Exchange (ZTE), application performance, etc.
+2. **Overall Health by Regions**: View regions across the globe with health indicators. Hover over each indicator to view the overall health score along with the breakdown for each category for that region. Click the **Plus**(+) and **Minus**(-) icons at the bottom right to zoom in and out, respectively.
+3. **Incidents Impacting Your Health Score**: View top incidents impacting your overall health score. You can click **View All Incidents** to further analyze all incidents.
+
+[Image: Viewing the Health360 dashboard]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9371,13 +10233,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-risk360-dashboard","lastmod":"2026-02-11T20:49Z","nid":"1526546"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-risk360-dashboard","lastmod":"2026-08-12T21:55Z","nid":"1526546"} -->
 ## Viewing the Risk360 Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-risk360-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Viewing the Risk360 Dashboard
-- Last modified: 2026-02-11T20:49Z
+- Last modified: 2026-08-12T21:55Z
 - Summary: Information on the Risk360 dashboard and widgets accessible within the Admin Portal.
 
 The Risk360 Dashboard (Analytics > Risk360) gives visibility and insight into your organization's risk score, contributed by various underlying factors such as exposed servers, recent malware outbreaks, segmentation posture, and data uploads to risky applications. Zscaler's architecture quantifies these events across 4 major categories, such as exposure of attack surfaces, asset compromise, lateral propagation, and sensitive data loss. You can study how your organization's risk score has changed over time and compare your score against industry peers. Different risk factors bear different weights on the score. For example, an active infection is more severe than a blocked access attempt to a blocked destination.
@@ -9670,6 +10532,59 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/viewing-service-health-china-connectivity","lastmod":"2026-08-15T05:29Z","nid":"1541705"} -->
+## Viewing Service Health for China Connectivity
+
+- Source: https://help.zscaler.com/unified/viewing-service-health-china-connectivity
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Service Health for China Connectivity
+- Last modified: 2026-08-15T05:29Z
+- Summary: Information about China Connectivity health in Health360.
+
+Health360 Service Health provides a near-real-time overview of your China Premium connectivity, which gives you visibility into the current and historic bandwidth utilization against purchased bandwidth. This Services category provides the following benefits:
+
+- **Comprehension**: Correlates incidents dynamically with active users, application dependencies, and Zero Trust Exchange (ZTE) allocations.
+- **Enhanced SLO Visibility**: Supplies granular operational metrics to audit Zscaler service accountability and report reliability.
+
+On the Service Health: China Connectivity page (Analytics > Health360 > Service Health > China Connectivity), you can use the following options:
+
+- Select to display the data for the last 24 hours, 48 hours, 7 days, 30 days, or a custom range.
+- Select the data center for which you want to view the insights.
+- Export the data to a CSV file.
+- Switch between China Premium and Premium Plus connectivity health insights.
+
+See image.
+
+## Premium
+
+You can view the following China Premium connectivity health insights:
+
+- View the total bandwidth usage data for Internet & SaaS (ZIA) and Private Access (ZPA), and the number of times the usage exceeded the allowed limits.
+- **Internet Access Bandwidth Usage**: The graph shows the total inbound and outbound traffic for Internet & SaaS across all points of presence within China for the filtered time period. The inbound and outbound traffic are indicated with dark blue and light blue, respectively. An exceeded bandwidth limit is indicated with red.
+
+See image.
+
+## Premium Plus
+
+You can view the following China Premium Plus connectivity health insights:
+
+- View the total bandwidth usage data for Internet & SaaS and Private Access, and the number of times the usage exceeded the allowed limits.
+- **International - Internet Access Bandwidth Usage**: The graph shows the total international inbound and outbound traffic for Internet & SaaS routing through China international links for the filtered time period. The inbound and outbound traffic are indicated with dark blue and light blue, respectively. An exceeded bandwidth limit is indicated with red.
+- **Domestic - Internet Access Bandwidth Usage**: The graph shows the total domestic inbound and outbound traffic for Internet & SaaS routing within mainland China for the filtered time period. The inbound and outbound traffic are indicated with dark blue and light blue, respectively. An exceeded bandwidth limit is indicated with red.
+
+See image.
+
+To learn more, see [Managing Internet & SaaS Use in China](https://help.zscaler.com/zia/managing-internet-saas-use-china).
+
+[Image: Filter option in Service Health page]
+
+[Image: The China connectivity bandwidth utilization data]
+
+[Image: The China connectivity bandwidth utilization data]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/viewing-ssl-inspection-dashboard","lastmod":"2026-02-11T06:07Z","nid":"1498811"} -->
 ## Viewing the SSL Inspection Dashboard
 
@@ -9874,6 +10789,64 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption","lastmod":"2026-08-15T05:34Z","nid":"1541706"} -->
+## Viewing Zscaler Service Adoption
+
+- Source: https://help.zscaler.com/unified/viewing-zscaler-service-adoption
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Zscaler Service Adoption
+- Last modified: 2026-08-15T05:34Z
+- Summary: Information about the Adoption page in Health360.
+
+The Adoption dashboard provides a centralized overview of Zscaler platform adoption maturity. This dashboard functions across three distinct levels of granularity: high-level portfolio summaries engineered for executive leadership, operational matrices segmenting specific solution areas, and granular product drilldowns.
+
+On the Adoption page (Analytics > Health360 > Adoption), you can:
+
+1. Hide or unhide unsubscribed services to filter the adoption metrics data.
+2. **Zscaler Platform**: View services deployed for each Zscaler platform category such as:
+  - Users
+  - Data Security
+  - Branch
+  - Cloud
+  - AI Security
+  - Security Ops
+3. **Zscaler Products**: View the total number of subscriptions deployed for each Zscaler service. Each tile shows the percentage of license utilization. Click a tile to further drill down on the service utilization. To learn more, see [Viewing Zscaler Service Adoption Details](https://help.zscaler.com/unified/viewing-zscaler-service-adoption-details).
+
+[Image: The Adoption dashboard provides a centralized overview of platform adoption]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption-details","lastmod":"2026-08-14T03:50Z","nid":"1541708"} -->
+## Viewing Zscaler Service Adoption Details
+
+- Source: https://help.zscaler.com/unified/viewing-zscaler-service-adoption-details
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Zscaler Service Adoption Details
+- Last modified: 2026-08-14T03:50Z
+- Summary: Information about the Zscaler service adoption details in Health360.
+
+The adoption details page helps with granular Zscaler service drill-downs showing license utilization data and quantifiable value metrics.
+
+On the adoption details page (Analytics > Health360 > Adoption > click a product tile), you can:
+
+1. Hide or unhide unsubscribed services for adoption metrics data.
+2. **Products Deployed**: View the number of subscriptions deployed for the service.
+3. **Licenses Utilized**: View the license utilization percentage for the service. You can also see the number of active licenses and total available licenses.
+4. View a list of subscriptions provided for the service. For each subscription, you can see:
+  - **Products**: The name of the subscription.
+  - **Deployment Status**: Whether the subscription is deployed for your organization or not.
+  - **Utilization**: The number of licenses used versus the total licenses purchased.
+5. **License Utilization in Last 6 Months**: View the graph showing license utilization trends for the last 6 months. Hover over the bars to further view the number of active and total licenses available for the organization.
+6. **Traffic Zscaler is Processing for You**(available for Internet & SaaS (ZIA) service only): View the graph showing trends for the volume of SSL/TLS inspected traffic versus non-inspected traffic for the last 6 months. Hover over the bars to further view the total bytes of data, of which how much was SSL/TLS inspected and how much wasn't. **Application Segments in Your Organization** (available for Private Access (ZPA) service only): View the graph showing the number of application segment trends for the last 6 months. See image.
+
+[Image: The Service Adoption Details Page]
+
+[Image: Application Segments in Your Organization]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/what-data-unification","lastmod":"2026-07-29T12:04Z","nid":"1541703"} -->
 ## What Is Data Unification?
 
@@ -9919,6 +10892,40 @@ Unification rules run when data related to the entity is ingested, directly proc
 - Data ingestion: Unification rules are triggered automatically when new data related to an entity is ingested. For example, the Asset entity unification rules run when asset data is ingested.
 - Entity processing: Unification rules run when an entity is directly processed, or indirectly impacted by changes to a related entity. For example, running the Asset Is Crown Jewel field's unification rule can trigger the Ticket Severity unification rule tied to that asset.
 - Manual processing: Unification rules run when you trigger manual processing when splitting or merging tickets, or when you click Process or Process All on the Data Unification pages. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification) and [Managing Field Unification](https://help.zscaler.com/unified/managing-field-unification).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/what-health360","lastmod":"2026-08-13T23:17Z","nid":"1541019"} -->
+## What Is Health360?
+
+- Source: https://help.zscaler.com/unified/what-health360
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > What Is Health360?
+- Last modified: 2026-08-13T23:17Z
+- Summary: Information about Health360.
+
+Zscaler Health360 delivers centralized visibility into the deployment, health, and performance of your Zscaler environment. By providing real-time insights directly within the Zscaler Admin Console, it eliminates the manual analysis often required across multiple product consoles, interfaces, and custom reports. This service helps you easily monitor your active subscriptions, deployment status, configuration quality, and the overall value being delivered.
+
+Health360 serves as an analytical capability within the Zscaler Admin Console, delivering an immediate snapshot of your deployment health across all major categories in your Zscaler ecosystem:
+
+- **Services**: This category encompasses all aspects of the third-party ecosystem used to access applications. This includes ISP networks, Zero Trust Exchange (ZTE) infrastructure, and applications. The ISP networks and applications health data is powered by Zscaler Digital Experience (ZDX), your digital experience monitoring product.
+- **Connectors**: This category focuses on the various devices used to connect to the Zero Trust Exchange (ZTE). Health360 provides actionable insights into these devices, including versions, performance, capacity, and health signals.
+- **Best Practices**: This category displays the best practices distilled from Zscaler's extensive experience in deploying and managing numerous ecosystems. This helps in identifying configuration gaps and improving your overall deployment posture.
+- **Adoption**: This category displays Zscaler platform adoption maturity by detailing deployment, entitlement, and utilization levels on a per-product basis.
+
+The service is designed to support multiple needs where admins can proactively monitor service health, detect potential issues, and troubleshoot efficiently using a unified dashboard with actionable operational insights. Executives gain a high-level overview of platform adoption maturity, quantified health scoring, performance trends, and incidents that could impact deployment status.
+
+## Key Features and Benefits
+
+The following are the key features and benefits of Health360:
+
+- **Accelerated Time-to-Value**: Identify and resolve deployment gaps early in the implementation cycle.
+- **Optimized Configuration Posture**: Improve security and operational settings through best-practice scoring and remediation guidance.
+- **Demonstrable ROI Visibility**: Track business value and performance improvements with clear value-realization metrics.
+- **Proactive License Management**: Monitor entitlement and utilization details to optimize platform investments.
+- **Enhanced Operational Awareness**: Minimize the time needed to identify, troubleshoot, and resolve system issues.
+- **Comprehensive Platform Insights**: Access a single, consolidated view of overall platform health and performance trends.
 <!-- /ZS-ARTICLE -->
 
 ---

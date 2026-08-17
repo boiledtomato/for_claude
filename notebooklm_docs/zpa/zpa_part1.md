@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 173
 
 ---
@@ -1622,13 +1622,13 @@ On the Branch Connectors page (Infrastructure > Private Access > Component > Bra
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-browser-access","lastmod":"2026-06-17T15:05Z","nid":"1484046"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-browser-access","lastmod":"2026-08-14T15:37Z","nid":"1484046"} -->
 ## About Browser Access
 
 - Source: https://help.zscaler.com/zpa/about-browser-access
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > About Browser Access
-- Last modified: 2026-06-17T15:05Z
+- Last modified: 2026-08-14T15:37Z
 - Summary: Information on Browser Access and how to access and define applications that enable it for Private Access.
 
 [Watch a video about Browser Access (shows legacy UI).](https://fast.wistia.net/embed/iframe/yq2dct3r2t)
@@ -10521,13 +10521,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-docker","lastmod":"2026-06-02T14:27Z","nid":"1484921"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-docker","lastmod":"2026-08-13T13:30Z","nid":"1484921"} -->
 ## App Connector Deployment Guide for Docker
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-docker
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Docker
-- Last modified: 2026-06-02T14:27Z
+- Last modified: 2026-08-13T13:30Z
 - Summary: Information on how to deploy an App Connector on a Docker container.
 
 The App Connector Docker image is available on Docker Hub for both the arm64 and amd64 platforms:
@@ -10553,10 +10553,11 @@ To deploy the Docker image, create a new container using the `run` command and p
 
 Docker provides a random name for the container if you don’t include the “`--name`” option when you run the following command. If you want, you can replace “`zpa-connector`” with a different container name.
 
+The domain (e.g., api.private.com) in the echo statement will depend on what Private Access (ZPA) cloud you are on.
+
 For example:
 
-The domain (e.g., api.private.com) in the echo statement will depend on what Private Access cloud you are on.
-
+```
 sudo docker run -d --init \
 --name zpa-connector \
 --cap-add cap_net_admin \
@@ -10568,6 +10569,7 @@ sudo docker run -d --init \
 --restart always \
 -e ZPA_PROVISION_KEY="3|api.private.zscaler.com|..." \
 zscaler/zpa-connector:latest.amd64
+```
 
 To deploy the Docker image, create a new container using the `run` command and provisioning key.
 
@@ -10581,9 +10583,9 @@ To deploy the Docker image on ARM64 architecture, create a new container using t
 
 Docker provides a random name for the container if you don’t include the “`--name`” option when you run the following command. If you want, you can replace “`zpa-connector`” with a different container name.
 
-For example:
-
 The domain (e.g., api.private.com) in the echo statement will depend on what Private Access cloud you are on.
+
+For example:
 
 ```
 sudo docker run -d --init \
@@ -10620,13 +10622,13 @@ The following table provides a list of Linux capabilities that the container use
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-google-cloud-platform","lastmod":"2026-08-07T15:50Z","nid":"1505701"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-google-cloud-platform","lastmod":"2026-08-10T14:55Z","nid":"1505701"} -->
 ## App Connector Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-google-cloud-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Google Cloud Platform
-- Last modified: 2026-08-07T15:50Z
+- Last modified: 2026-08-10T14:55Z
 - Summary: How to deploy an App Connector on Google Cloud Platform (GCP), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on Google Cloud Platform (GCP), and post-deployment verification checks. For general information regarding App Connector deployment for Private Access (ZPA), see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -10634,7 +10636,7 @@ This deployment guide provides information on prerequisites, how to deploy an Ap
 - Step 1: Make Sure You Have Met All App Connector Deployment Prerequisites
 - Step 2: Deploy the App Connector on GCP
 - Step 3: Configure the Networking for the Deployed App Connector
-- Step 4: Verify the status of the deployed App Connector.
+- Step 4: Verify the status of the deployed App Connector
 
 After you have verified your deployment, you can perform additional tasks to maintain the system (i.e., changing your App Connector console admin credentials or performing system software updates). To learn more, see [Managing Deployed App Connectors](https://help.zscaler.com/zpa/managing-deployed-software-components).
 
@@ -10827,27 +10829,26 @@ To deploy an App Connector using an App Connector instance:
 1. Log in to the GCP Management Console.
 2. Create a project.
 3. Select your project (e.g., **zpa-connector**).
-4. Go to **Compute** **Engine** > **Images**. See image.
-5. Search for the custom image using a filter with the name of the image. An example of the custom name used for this step is **zpa-connector-el9-2024-06-3c70f809-feature**.
-6. Click the **Menu**icon, and then click **Create Instance.** See image. The **Create an instance** window appears.
-7. In the **Create an instance**window, select **New VM instance**. See image.
-8. In the **New VM instance**window for the **Machine Configuration** section, select the **Machine type**with preset amounts of vCPUs and memory that suit the workload. Zscaler recommends using the n2-standard-4 or n2-highcpu-4 machine types: See image.
+4. (Optional) If you want to add a startup script with a provisioning key, you need to add the provisioning key as a secret:
+  1. Go to **Security** > **Data Protection** > **Secret Manager**. The **Secret Manager** page appears. See image.
+  2. Click **Create Secret**. The **Create secret** page appears.
+  3. In the **Create secret**page: See image.
+    1. **Name**: Enter the name of the secret (e.g., `provisioning_key`).
+    2. **Secret value**: Enter the value for the secret (e.g., `<your provisioning key>`). You can acquire a provisioning key when creating an App Connector in the Zscaler Admin Console. To learn more, see [About App Connector Provisioning Keys](https://help.zscaler.com/zpa/about-connector-provisioning-keys).
+  4. Click **Create Secret**.
+5. Go to **Compute** **Engine** > **Storage** > **Images**. See image.
+6. Search for the custom image using a filter with the name of the image. An example of the custom name used for this step is **zpa-connector-el9-2024-06-3c70f809-feature**.
+7. Click the **Actions**icon, and then click **Create Instance.** The **Create an instance** page appears. See image.
+8. On the **Create an instance**page, under the **Machine Configuration** section, select the **Machine type**with preset amounts of vCPUs and memory that suit the workload. Zscaler recommends using the n2-standard-4 or n2-highcpu-4 machine types: See image.
   - **n2-standard-4**: The supported specifications are 4 vCPU, 2 core, and 16 GB memory.
   - **n2-highcpu-4**: The supported specifications are 4 vCPU, 2 core, and 4 GB memory.
-9. (Optional) Pass the startup script to the VM instance.
-  1. Click the **Menu**icon, and then click the **Security**tab.
-  2. In the left-side navigation, go to **Data Protection** > **Secret Manager**. See image.
-  3. Click **Create Secret**. The **Create secret** window appears.
-  4. In the **Create secret**window: See image.
-    1. **Name**: Enter the name of the secret (e.g., `provisioning_key`).
-    2. **Secret value**: Enter the value for the secret (e.g., `<your provisioning key>`). You can acquire a provisioning key when creating an App Connector in the Zscaler Admin Console. To learn more, see [About App Connector Provisioning Keys](https://help.zscaler.com/zpa/about-connector-provisioning-keys) and [Configuring App Connectors](https://help.zscaler.com/zpa/configuring-connectors).
-  5. Click **Create Secret**.
-  6. For **Access Scope**, select **Allow full access to all Cloud APIs**. This allows access to the provisioning_key present in the secret manager.
-  7. Expand the **Advanced options** section, and then expand the **Management** section.
-  8. Add a description in the **Description** field.
-  9. Enter the following script for the **Automation** field. `#!/usr/bin/bash # Sleep to allow the system to initialize sleep 15 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz tar -xf google-cloud-cli-linux-x86_64.tar.gz export PATH=$PATH:$PWD sudo ./google-cloud-sdk/install.sh # Install App Connector packages yum install -y zpa-connector # Stop the App Connector service which was auto-started at boot time systemctl stop zpa-connector # Fetch the secret from Secret Manager SECRET_NAME="Provision_key" SECRET_VALUE=$(gcloud secrets versions access latest --secret="$SECRET_NAME") # Use the secret in your application or script echo "The secret value is: $SECRET_VALUE" # Example: Export the secret as an environment variable export MY_SECRET="$SECRET_VALUE" # Create a file from the App Connector provisioning key created in the Zscaler Admin Console # Make sure that the provisioning key is between double quotes echo "$SECRET_VALUE" > /opt/zscaler/var/provision_key chmod 644 /opt/zscaler/var/provision_key # Start the App Connector service to enroll it in the ZPA cloud systemctl start zpa-connector # Wait for the App Connector to download the latest build sleep 60 # Stop and then start the App Connector for the latest build systemctl stop zpa-connector systemctl start zpa-connector # Run a yum update to apply the latest patches yum update -y`
+9. (Optional) If you are using a provisioning key for enrollment, you can pass the startup script to the VM instance.
+  1. Click **Security**. The **Security**page appears.
+  2. For **Access scopes**, select **Allow full access to all Cloud APIs**. This allows access to the provisioning_key present in the secret manager. See image.
+  3. Click **Advanced**.
+  4. Enter the following script for the **Automation** field using the name of the secret that you created previously: `#!/usr/bin/bash # Sleep to allow the system to initialize sleep 15 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz tar -xf google-cloud-cli-linux-x86_64.tar.gz export PATH=$PATH:$PWD sudo ./google-cloud-sdk/install.sh # Install App Connector packages yum install -y zpa-connector # Stop the App Connector service which was auto-started at boot time systemctl stop zpa-connector # Fetch the secret from Secret Manager SECRET_NAME="Provision_key" SECRET_VALUE=$(gcloud secrets versions access latest --secret="$SECRET_NAME") # Use the secret in your application or script echo "The secret value is: $SECRET_VALUE" # Example: Export the secret as an environment variable export MY_SECRET="$SECRET_VALUE" # Create a file from the App Connector provisioning key created in the Zscaler Admin Console # Make sure that the provisioning key is between double quotes echo "$SECRET_VALUE" > /opt/zscaler/var/provision_key chmod 644 /opt/zscaler/var/provision_key # Start the App Connector service to enroll it in the ZPA cloud systemctl start zpa-connector # Wait for the App Connector to download the latest build sleep 60 # Stop and then start the App Connector for the latest build systemctl stop zpa-connector systemctl start zpa-connector # Run a yum update to apply the latest patches yum update -y`
 10. Click **Create**.
-11. In the left-side navigation, go to **Compute Engine** > **Virtual Machines**> **VM instances**to verify that you created your instance. The instance name is displayed when creating the instance. See image.
+11. In the left-side navigation, go to **Compute Engine** > **Virtual Machines**> **VM instances**to verify that your instance is being created. The instance name is displayed while creating the instance. See image.
 12. SSH access is required to configure the GCP Private Key to the App Connector.
 
 - See instructions.
@@ -10955,22 +10956,6 @@ ssh admin@172.31.255.255 -i ~/.ssh/gcp_key
 
 1. When you are asked if you want to continue connecting, enter yes. [Image: Connecting to gcp_key]
 
-To create a firewall rule:
-
-1. Log in to the GCP Management Console.
-2. In the left-side navigation, click **Network Security**.
-3. Go to **Cloud NGFW** > **Firewall Policies**. See image. The **Firewall policies** window appears.
-4. In the **Firewall policies** window, click **Create firewall rule**. The **Create a firewall rule**window appears.
-5. In the **Create a firewall rule**window: See image.
-  - **Name**: Enter a name for the firewall rule.
-  - **Network**: Select the network to which the firewall rule applies.
-  - **Direction of traffic**: Select either **Ingress** (receiving traffic) or **Egress**(sending traffic).
-  - **Action on match**: Select whether the action permits (**Allow)** or blocks (**Deny**) the connection.
-  - **Targets**: Select the targets to which the firewall rule applies from the drop-down menu (**All instances in the network**, **Specific target tags**, or **Specified service account**).
-  - **Source filter**: Select a source filter range (**IPv4 ranges**, **IPv6 ranges**, or **Source tags**). Enter the IP address range in the **Source filter ranges** text box that appears after selecting a source filter range using the network IP/subnet format. An example IPv4 range would be `0.0.0.0/0`.
-  - **Protocols and ports**: Select **Specified protocols and ports** and specify the protocol (**TCP**, **UDP**, **Other**) and ports. The App Connector must have ingress and egress traffic directions on TCP port 22 for SSH, and egress traffic directions on TCP port 443 to reach Private Access.
-6. Click **Create**.
-
 If necessary, egress traffic directions can be restricted to Private Access hosts and ports. For details regarding required IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 
 This procedure describes how you can deploy Private Access in GCP through Launch Templates and Auto Scaling configurations to create a scalable and supportable infrastructure.
@@ -10980,13 +10965,11 @@ To deploy an App Connector on GCP using a Launch Template with Auto Scaling:
 1. Log in to the GCP Management Console.
 2. Click **Compute Engine**.
 3. In the left-side navigation, go to **Instance Groups** > **Instance Groups**.
-4. Click **Create Instance Group**.
+4. Click **Create Instance Group**. The **Create Instance Group** page appears.
 
 See image.
 
-The **Create Instance Group** window appears.
-
-1. In the **Create Instance Group** window:
+1. In the **Create Instance Group** page:
   1. Enter an **Instance group name**.
   2. Enter a **Description**.
   3. On the **Instance template**tab, click the drop-down menu and select the existing instance template, or click **Create a New Instance Template**to create a new instance template.
@@ -10994,16 +10977,12 @@ The **Create Instance Group** window appears.
 - See instructions.
 
 1. Select the region and zone from the drop-down menu.
-2. On the **Autoscaling** tab:
+2. Click **Configure** **Autoscaling**:
   1. Select a minimum and maximum number of instances as 2 and 4, respectively.
-  2. Select **CPU utilization**from the **Signal type**drop-down menu.
+  2. Click **CPU utilization**to show the **Edit signal** section.
   3. Enter `80` in the **Target CPU utilization** field.
   4. Enter `300` in the **Initialization period** field.
 3. Click **Create**.
-
-[Image: Navigating to Firewall policies in the GCP Management Console]
-
-[Image: Viewing the Create firewall rule window in the GCP Management Console]
 
 1. Enter the instance template **Name**.
 2. Enter the **Machine configuration**details.
@@ -11011,20 +10990,23 @@ The **Create Instance Group** window appears.
 
 See image.
 
-1. Select the customized zpa-connector that was taken from GCP Marketplace. To learn more, see [Zscaler](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-connector)[Private Access- GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-connector).
-2. For **Access scope**:
+1. Select the customized zpa-connector that was taken from GCP Marketplace. To learn more, see [Zscaler Private Access- GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-connector).
+2. Click **Select**. The **Boot disk** page closes.
+3. On the **Create an instance template** page, scroll down to **Access scopes**:
   1. Select **Allow full access to all cloud APIs** to access the provisioning key that is present in the secret manager.
   2. Expand the **Advanced options**section, and then expand the **Management**section.
   3. In the **Management**section:
     1. Provide a description in the **Description**field.
     2. Add the following script to the **Automation** field. `#!/usr/bin/bash # Sleep to allow the system to initialize sleep 15 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz tar -xf google-cloud-cli-linux-x86_64.tar.gz export PATH=$PATH:$PWD sudo ./google-cloud-sdk/install.sh # Install App Connector packages yum install -y zpa-connector # Stop the App Connector service which was auto-started at boot time systemctl stop zpa-connector # Fetch the secret from Secret Manager SECRET_NAME="Provision_key" SECRET_VALUE=$(gcloud secrets versions access latest --secret="$SECRET_NAME") # Use the secret in your application or script echo "The secret value is: $SECRET_VALUE" # Example: Export the secret as an environment variable export MY_SECRET="$SECRET_VALUE" # Create a file from the App Connector provisioning key created in the Zscaler Admin Console # Make sure that the provisioning key is between double quotes echo "$SECRET_VALUE" > /opt/zscaler/var/provision_key chmod 644 /opt/zscaler/var/provision_key # Start the App Connector service to enroll it in the ZPA cloud systemctl start zpa-connector # Wait for the App Connector to download the latest build sleep 60 # Stop and then start the App Connector for the latest build systemctl stop zpa-connector systemctl start zpa-connector # Run a yum update to apply the latest patches yum update -y`See image.
-    3. Click **Create**.
+    3. Click **Save and continue**.
 
 [Image: Selecting the Boot disk for the Auto Scaling Launch Template]
 
 [Image: Management section of the new instance within the Launch Template for GCP]
 
 [Image: Creating an Instance Group]
+
+[Image: Viewing the Security page when creating an instance in GCP]
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
 
@@ -11392,6 +11374,29 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 [Image: Adding an OAuth token to a Network Connector]
 
 Verify that the deployed Private Cloud Controller is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status). Also, check that it meets your [sizing](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing) requirements.
+
+To create a firewall rule:
+
+1. Log in to the GCP Management Console.
+2. In the left-side navigation, click **VPC Network**.
+3. Click**Firewall**.
+4. Go to **Cloud NGFW** > **Firewall Policies**. The **Firewall policies** page appears. See image.
+5. In the **Firewall policies** page, click **Create firewall rule**. The **Create a firewall rule**page appears.
+6. In the **Create a firewall rule**page: See image.
+  - **Name**: Enter a name for the firewall rule.
+  - **Network**: Select the network to which the firewall rule applies.
+  - **Direction of traffic**: Select either **Ingress** (receiving traffic) or **Egress**(sending traffic).
+  - **Action on match**: Select whether the action permits (**Allow)** or blocks (**Deny**) the connection.
+  - **Targets**: Select the targets to which the firewall rule applies from the drop-down menu (**All instances in the network**, **Specific target tags**, or **Specified service account**).
+  - **Source filter**: Select a source filter range (**IPv4 ranges**, **IPv6 ranges**, or **Source tags**). Enter the IP address range in the **Source filter ranges** text box that appears after selecting a source filter range using the network IP/subnet format. An example IPv4 range would be `0.0.0.0/0`.
+  - **Protocols and ports**: Select **Specified protocols and ports** and specify the protocol (**TCP**, **UDP**, **Other**) and ports. The Private Cloud Controller must have ingress and egress traffic directions on TCP port 22 for SSH, and egress traffic directions on TCP port 443 to reach Private Access.
+7. Click **Create**.
+
+If necessary, egress traffic directions can be restricted to Private Access hosts and ports. For details regarding required IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+
+[Image: Navigating to Firewall policies in the GCP Management Console]
+
+[Image: Viewing the Create firewall rule window in the GCP Management Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14099,13 +14104,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-08-06T08:05Z","nid":"1534306"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-08-11T10:30Z","nid":"1534306"} -->
 ## App Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/app-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA App Connector Release Notes > App Connector Release Summary (2026)
-- Last modified: 2026-08-06T08:05Z
+- Last modified: 2026-08-11T10:30Z
 - Summary: Zscaler Private Access (ZPA) App Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) App Connector version.

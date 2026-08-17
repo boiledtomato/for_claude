@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 130
 
 ---
@@ -3026,13 +3026,13 @@ To configure a predefined application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-probe","lastmod":"2026-06-26T11:06Z","nid":"1350846"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-probe","lastmod":"2026-08-11T13:27Z","nid":"1350846"} -->
 ## Configuring a Probe
 
 - Source: https://help.zscaler.com/zdx/configuring-probe
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Probes > Configuring a Probe
-- Last modified: 2026-06-26T11:06Z
+- Last modified: 2026-08-11T13:27Z
 - Summary: How to add a probe for an application for ZDX.
 
 [Watch a video about probes in ZDX](https://fast.wistia.net/embed/iframe/ni88xj64fh) (shows legacy UI).
@@ -3043,8 +3043,6 @@ You can configure a probe by doing the following:
 - [Editing a probe.](https://help.zscaler.com/zdx/editing-probe)
 - Copying a probe.
 - Deleting a probe.
-
-## Adding a Probe
 
 To add a probe for an application:
 
@@ -3063,20 +3061,16 @@ To add a probe for an application:
 6. Review your probe configurations and click **Submit**.
 7. [Activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-## Copying a Probe
-
 To copy a probe for an application:
 
 1. Go to one of the following:
   - **Policies** > **Digital Experience Monitoring** > **Probes**> **End User** > **Custom Apps Collection**
   - **Policies** > **Digital Experience Monitoring** > **Probes**> **End User** > **<Custom Collection name>**.
 2. Select an application from the **Collections** menu.
-3. Under the **Actions** column, click the 3 dots, and then click **Copy** on the probe you want to copy. [Image: Click Copy]
+3. Under the **Actions** column, click the **Kebab** icon (3 vertical dots), and then click **Copy** on the probe you want to copy. [Image: Click Copy]
 4. The **Copy Probe** configuration allows you to configure certain fields similar to when you add a probe. See image. Click **Next** to go through the configuration.
 5. Review the probe configuration and click **Submit**.
 6. [Activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-## Deleting a Probe
 
 To delete a probe for an application:
 
@@ -3084,74 +3078,17 @@ To delete a probe for an application:
   - **Policies** > **Digital Experience Monitoring** > **Probes**> **End User** > **Custom Apps Collection**
   - **Policies** > **Digital Experience Monitoring** > **Probes**> **End User** > **<Custom Collection name>**.
 2. Select an application from the **Collections** menu.
-3. Under the **Actions** column, click the 3 dots, and then click **Delete** on the probe you want to delete. [Image: Click Delete]
+3. Under the **Actions** column, click the **Kebab** icon (3 vertical dots), and then click **Delete** on the probe you want to delete. [Image: Click Delete]
 4. In the **Delete** window, click **Delete** to confirm the deletion. [Image: Deletion Window]
 
 When End User Web is selected, you can configure the following for a Web probe:
 
 See image.
 
-- For **General**:
-  - **Name**: Enter a name for your probe. The maximum length is 64 characters. Accepted characters are alphanumerics and a limited range of symbols, such as underscore (_), hyphen (-), space ( ), forward slash (/), period (.), pipe symbol (|), and parentheses ().
-  - **Status**: Select **Enable** or **Disable** to indicate the status of your probe.
-  - **App Name**: This view-only field is automatically populated with the previously selected application.
-  - **Probe Type**: This view-only field is automatically populated with the previously selected probe. If you've selected a Network application, the Cloud Path probe type is selected by default. Network applications do not require Web probes.
-  - **Run Frequency (minutes)**: Enter the number of minutes for how frequently your probe should run. The default probe frequency varies based on your subscription plan. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
-  - **Probe Class**: This field is automatically selected based on the selected application (**Predefined** or **Custom**).
-- For **Probing Criteria**: Select the criteria that you want to probe for the application. To learn more, see [Understanding Probing Criteria Logic](https://help.zscaler.com/zdx/understanding-probing-criteria-logic). You can configure the probe to monitor multiple user groups, users in particular locations or departments, or a combination of these. For example, you might want to run a probe for the sales group using a sales business application (e.g., Salesforce.com). Running a probe for the sales group helps to limit the number of probes associated with the application and avoid unnecessary traffic from non-sales users. Similarly, you can configure a probe to only run on multiple devices logged in by one user, or configure it to run on only specific devices. By default, all user groups, users, Zscaler locations, location groups, departments, and devices in Internet & SaaS are applied. However, the maximum number of each selection for user groups, users, Zscaler locations, location groups, departments, or devices cannot exceed 100. If your organization has an Internet & SaaS account, each field defaults to your organization's information, such as the following examples: When configuring Web probes for internal applications through Private Access, probe only for users, user groups, and departments that use the application.
-  - **User Groups**: Data Engineering
-  - **Users**: (Your organization's users)
-  - **Locations**: Zscaler HQ
-  - **Location Groups**: Server Traffic Group
-  - **Departments**: Dev Ops
-  - **Devices**: Desktop
-  - **OS**: Windows
-- For **Exclusion Criteria**: Select the criteria that you do not want to monitor for the application. To learn more, see [Understanding Probing Criteria Logic](https://help.zscaler.com/zdx/understanding-probing-criteria-logic). You can configure probes to run on all devices in a particular location by specifying the location in Monitoring Criteria, then exclude specific users or devices. For instance, you might want to run a probe for a productivity web application for all engineering group users but exclude the New York location, as that location does not use productivity web applications. By default, no user groups, users, Zscaler locations, location groups, departments, or devices are excluded. The maximum number of each selection for user groups, users, Zscaler locations, location groups, departments, or devices cannot exceed 100. The following are examples of excluded criteria: When configuring Web probes for internal applications through Private Access, probe only for users, user groups, and departments that use the application. If you configure Zscaler location-based inclusion or exclusion criteria, ZDX must be able to determine the device’s Zscaler location (location ID). If the device location can’t be determined, the probe is skipped.
-  - **User Groups**: Mobile Development
-  - **Users**: DEFAULT ADMIN
-  - **Locations**: Zscaler Lab
-  - **Location Groups**: HQ IT Group
-  - **Departments**: Marketing
-  - **Devices**: AUROUS
-  - **OS**: Windows
-- For **Additional Parameters**:
-  - **Probe Name**: This is the name you entered on the previous tab.
-  - **Application Name**: This is the name of the applicationthat was either preselected for you or that you selected manually on the previous tab.
-  - **Request Type**: **GET** is the only request type applicable to **Web**monitoring. POST is not supported. This field is view-only.
-  - **Destination URL**: Enter the web destination, either an HTTP or HTTPS URL. This is the web address the probe requests. This is editable if the URL requires a tenant name.
-  - **Request Header**: Enter the **Name** and **Value** for the request header. If you need to enter more than one name and value pair, click **Add More**. This specifies the HTTP request header to pass as part of the probe. For example, you can specify authorization of the header to pass a security token. These fields are disabled for predefined applications.
-  - **HTTP Response Status Codes**: You can probe for specific [HTTP Status Codes](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml). You can add HTTP codes that are not in the default list by entering any number between the range of 100–599. By default, the following 1xx (Informational), 2xx (Success), and 3xx (Redirection) codes are applied: You can remove any of these codes by clicking the **Close**icon. However, you cannot change the default codes for a predefined app.
-    - 100 Continue
-    - 101 Switching Protocol
-    - 102 Processing
-    - 103 Early Hints
-    - 200 OK
-    - 201 Created
-    - 202 Accepted
-    - 203 Non-Authoritative Information
-    - 204 No Content
-    - 205 Reset Content
-    - 206 Partial Content
-    - 207 Multi-Status
-    - 208 Already Reported
-    - 226 IM Used
-    - 300 Multiple Choices
-    - 301 Moved Permanently
-    - 302 Found
-    - 303 See Other
-    - 304 Not Modified
-    - 307 Temporary Redirect
-    - 308 Permanent Redirect
-  - **Number of Attempts**: The number of attempts before considering the monitor request failed. The default is 1 attempt, but can be increased. You cannot change the default number of attempts for a predefined application.
-  - **Timeout (seconds)**: The default is 60 seconds and cannot be changed for a predefined application.
-  - **Follow Redirect**: **Enable** or **Disable** this feature. To ensure accurate performance measurements for the following predefined applications, this setting is disabled by default and you cannot enable it:
-    - Box
-    - Microsoft Teams Web App
-    - OneDrive for Business
-    - Outlook Online
-    - ServiceNow
-    - SharePoint Online
-  - **Maximum Redirects**: This specifies the number of times the probe attempts to follow the HTTP redirect before it is considered failed. The default is 5 redirects. You cannot change the number of redirects for a predefined application. If **Follow Redirect** is disabled, **Maximum Redirects** is also disabled.
+- General
+- Probing Criteria
+- Exclusion Criteria
+- Additional Parameters
 
 Click **Next**.
 
@@ -3159,48 +3096,165 @@ When End User Cloud Path is selected, you can configure the following for a Clou
 
 See image.
 
-- For **General**:
-  - **Name**: Enter a name for your probe. The maximum length is 64 characters. Accepted characters are alphanumerics and a limited range of symbols, such as underscore (_), hyphen (-), space ( ), forward slash (/), period (.), pipe symbol (|), and parentheses ().
-  - **Status**: Select **Enable** or **Disable** to indicate the status of your probe.
-  - **App Name**: This view-only field is automatically populated with the previously selected application.
-  - **Probe Type**: This view-only field is automatically populated with the previously selected probe. If you are configuring for a Call Quality Monitoring (CQM) application, this field automatically shows the probe type and is the ZDX Autosense feature. ZDX Autosense is useful for automatically discovering the Cloud Path Host that is associated to the CQM application and allows you to monitor the CQM application and meetings. This is automatically configured as part of the Cloud Path probe when you first onboard a CQM application. You must have ZDX Autosense enabled to use this feature. To learn more, see: If you've selected a Network application, the Cloud Path probe type is selected by default. Network applications do not require Web probes.
-    - [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience)
-    - [Understanding Webex Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-webex-call-quality-zdx)
-    - [Understanding Microsoft Teams Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-microsoft-teams-call-quality-zdx)
-    - [Understanding Zoom Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-zoom-call-quality-zdx)
-    - [Zoom Call Quality for ZDX Integration Requirements](https://help.zscaler.com/zdx/zoom-call-quality-zdx-integration-requirements)
-  - **Follow Web Probe**: Select an accompanying Web probe to better visualize both Cloud Path probe and Web probe.
-  - **Run Frequency (minutes)**: Enter the number of minutes for how frequently your probe should run. The default probe frequency varies based on your subscription plan.
-  - **Probe Class**: This field is automatically selected based on the selected application (**Predefined** or **Custom**).
-- For **Probing Criteria**: Select the criteria that you want to probe for the application. To learn more, see [Understanding Probing Criteria Logic](https://help.zscaler.com/zdx/understanding-probing-criteria-logic). You can configure the probe to monitor multiple user groups, users in particular locations or departments, or a combination of these. For example, you might want to run a probe for the sales group using a sales business application (e.g., Salesforce.com). Running a probe for the sales group helps to limit the number of probes associated with the application and avoid unnecessary traffic from non-sales users. Similarly, you can configure a probe to only run on multiple devices logged in by one user, or configure it to run on only specific devices. By default, all user groups, users, Zscaler locations, location groups, departments, and devices in Internet & SaaS are applied. However, the maximum number of each selection for user groups, users, Zscaler locations, location groups, departments, or devices cannot exceed 100. If your organization has an Internet & SaaS account, each field defaults to your organization's information, such as the following examples: When configuring Web probes for internal applications through Private Access, probe only for users, user groups, and departments that use the application.
-  - **User Groups**: Data Engineering
-  - **Users**: (Your organization's users)
-  - **Locations**: Zscaler HQ
-  - **Location Groups**: Server Traffic Group
-  - **Departments**: Dev Ops
-  - **Devices**: Desktop
-  - **OS**: Windows
-- For **Exclusion Criteria**: Select the criteria that you do not want to monitor for the application. To learn more, see [Understanding Probing Criteria Logic](https://help.zscaler.com/zdx/understanding-probing-criteria-logic). You can configure probes to run on all devices in a particular location by specifying the location in Monitoring Criteria, then exclude specific users or devices. For instance, you might want to run a probe for a productivity web application for all engineering group users but exclude the New York location, as that location does not use productivity web applications. By default, no user groups, users, Zscaler locations, location groups, departments, or devices are excluded. The maximum number of each selection for user groups, users, Zscaler locations, location groups, departments, or devices cannot exceed 100. The following are examples of excluded criteria: When configuring Web probes for internal applications through Private Access, probe only for users, user groups, and departments that use the application. If you configure Zscaler location-based inclusion or exclusion criteria, Zscaler Digital Experience (ZDX) must be able to determine the device’s Zscaler location (location ID). If the device location can’t be determined, the probe is skipped.
-  - **User Groups**: Mobile Development
-  - **Users**: DEFAULT ADMIN
-  - **Locations**: Zscaler Lab
-  - **Location Groups**: HQ IT Group
-  - **Departments**: Marketing
-  - **Devices**: AUROUS
-  - **OS**: Windows
-- For **Additional Parameters**:
-  - **Protocol**: Select a protocol from the drop-down menu. Options include **Adaptive**, **ICMP**, **TCP**, and **UDP**. If you choose Adaptive Mode, the best protocol for each leg in the cloud is selected via an auto-discovery process. If you choose any of the other protocols, they are used for the path of the Cloud Path probe. To learn more, see [Using Adaptive Mode](https://help.zscaler.com/zdx/using-adaptive-mode).
-    - **TCP Port**: If you choose **Adaptive**or **TCP**as the protocol, this field is automatically displayed and populated with the standard TCP Port for HTTPS traffic, 443, though this can be edited. If you have chosen to follow a Web probe and then choose **TCP**as the protocol, you cannot edit the port value.
-    - **UDP Port**: If you choose **Adaptive**or **UDP**as the protocol, this field is automatically displayed and populated with the RFC-defined port for the destination server, 33434, though this can be edited.
-  - **Packet Count**: The number of probe packets sent per hop discovery that have the same TTL value. The default is `5` packets, the maximum is `20` packets, and the minimum is `3` packets. For Private Access, the recommended packet count is `3` packets, and the maximum is `6` packets. The Packet Count determines the number of these iterations or cycles. While the default packet count is 5, a higher packet count provides a more accurate measurement of packet loss.
-  - **Interval (ms)**: The time interval between probe packets with the same TTL. Probe packets of incremental TTL are paced evenly within this time interval. The number of iterations or cycles is defined by the configured Packet Count. The default is `1000`, the minimum is `1000`, and the maximum is `10000`. If the Interval is configured as `6000` ms, the packets for a run are spaced over 6000 ms. For a maximum of 30 hops, packets are paced at every 200 ms: the first packet with TTL 1 is sent at 0 ms, the packet with TTL 2 at 200 ms, the packet with TTL 3 at 400 ms, and so on.
-  - **Timeout (ms)**: The time to wait for a response to a probe packet before considering loss. The default is `1000`, the minimum is `500`, and the maximum is `5000`. The recommended setting for Private Access is `500`. If the Timeout is configured as `2000` ms, the first probe would time out at 2,000 ms, the second at 2,200 ms, the third at 2,400 ms, and so on.
-  - **Cloud Path Host**: The host IP address or fully qualified domain name for the host (i.e., the IPv4 IP address; IPv6 is not supported). Zscaler partially provides the domain name if the application selected is predefined. This is editable if a tenant name (i.e., CQM application) is required.
-  - **Force Reverse Cloud Path in Trusted Network**: The option to force a reverse traceroute in the trusted environment when a network device blocks the forward Cloud Path. Enable only if you cannot implement a different device configuration. Ideally, you should reconfigure the firewall or the device blocking the forward traceroute. If that isn't possible, this setting provides calculations for reverse latency from the Public Service Edge for Internet & SaaS to the Egress in the Cloud Path. During a reverse Cloud Path, the Egress IP address is derived from the location API, and therefore, can differ from the IP address used within the forward Cloud Path. In this scenario, the Egress is noted as a Reverse Egress, along with the IP address derived from the location API.
+- General
+- Probing Criteria
+- Exclusion Criteria
+- Additional Parameters
 
 Click **Next**.
 
 Cloud Path probes are sent every 15 minutes by default for Standard ZDX subscriptions, and every 5 minutes for Advanced ZDX subscriptions.
+
+- **Name**: Enter a name for your probe. The maximum length is 64 characters. Accepted characters are alphanumerics and a limited range of symbols, such as underscore (_), hyphen (-), space ( ), forward slash (/), period (.), pipe symbol (|), and parentheses ().
+- **Status**: Select **Enable** or **Disable** to indicate the status of your probe.
+- **App Name**: This view-only field is automatically populated with the previously selected application.
+- **Probe Type**: This view-only field is automatically populated with the previously selected probe. If you've selected a Network application, the Cloud Path probe type is selected by default. Network applications do not require Web probes.
+- **Run Frequency (minutes)**: Enter the number of minutes for how frequently your probe should run. The default probe frequency varies based on your subscription plan. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
+- **Probe Class**: This field is automatically selected based on the selected application (**Predefined** or **Custom**).
+
+Select the criteria that you want to probe for the application. To learn more, see [Understanding Probing Criteria Logic](https://help.zscaler.com/zdx/understanding-probing-criteria-logic).
+
+You can configure the probe to monitor multiple user groups, users in particular locations or departments, or a combination of these. For example, you might want to run a probe for the sales group using a sales business application (e.g., Salesforce.com). Running a probe for the sales group helps to limit the number of probes associated with the application and avoid unnecessary traffic from non-sales users.
+
+Similarly, you can configure a probe to only run on multiple devices logged in by one user, or configure it to run on only specific devices.
+
+By default, all user groups, users, Zscaler locations, location groups, departments, and devices in Internet & SaaS are applied. However, the maximum number of each selection for user groups, users, Zscaler locations, location groups, departments, or devices cannot exceed 100. If your organization has an Internet & SaaS account, each field defaults to your organization's information, such as the following examples:
+
+- **User Groups**: Data Engineering
+- **Users**: (Your organization's users)
+- **Locations**: Zscaler HQ
+- **Location Groups**: Server Traffic Group
+- **Departments**: Dev Ops
+- **Devices**: Desktop
+- **OS**: Windows
+
+When configuring Web probes for internal applications through Private Access, probe only for users, user groups, and departments that use the application.
+
+Select the criteria that you do not want to monitor for the application. To learn more, see [Understanding Probing Criteria Logic](https://help.zscaler.com/zdx/understanding-probing-criteria-logic).
+
+You can configure probes to run on all devices in a particular location by specifying the location in Monitoring Criteria, then exclude specific users or devices. For instance, you might want to run a probe for a productivity web application for all engineering group users but exclude the New York location, as that location does not use productivity web applications.
+
+By default, no user groups, users, Zscaler locations, location groups, departments, or devices are excluded. The maximum number of each selection for user groups, users, Zscaler locations, location groups, departments, or devices cannot exceed 100. The following are examples of excluded criteria:
+
+- **User Groups**: Mobile Development
+- **Users**: DEFAULT ADMIN
+- **Locations**: Zscaler Lab
+- **Location Groups**: HQ IT Group
+- **Departments**: Marketing
+- **Devices**: AUROUS
+- **OS**: Windows
+
+When configuring Web probes for internal applications through Private Access, probe only for users, user groups, and departments that use the application. If you configure Zscaler location-based inclusion or exclusion criteria, ZDX must be able to determine the device’s Zscaler location (location ID). If the device location can’t be determined, the probe is skipped.
+
+Configure the following fields:
+
+- **Probe Name**: This is the name you entered on the previous tab.
+- **Application Name**: This is the name of the applicationthat was either preselected for you or that you selected manually on the previous tab.
+- **Request Type**: **GET** is the only request type applicable to **Web**monitoring. POST is not supported. This field is view-only.
+- **Destination URL**: Enter the web destination, either an HTTP or HTTPS URL. This is the web address the probe requests. This is editable if the URL requires a tenant name.
+- **Request Header**: Enter the **Name** and **Value** for the request header. If you need to enter more than one name and value pair, click **Add More**. This specifies the HTTP request header to pass as part of the probe. For example, you can specify authorization of the header to pass a security token. These fields are disabled for predefined applications.
+- **HTTP Response Status Codes**: You can probe for specific [HTTP Status Codes](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml). You can add HTTP codes that are not in the default list by entering any number between the range of 100–599. By default, the following 1xx (Informational), 2xx (Success), and 3xx (Redirection) codes are applied: You can remove any of these codes by clicking the **Close**icon. However, you cannot change the default codes for a predefined app.
+  - 100 Continue
+  - 101 Switching Protocol
+  - 102 Processing
+  - 103 Early Hints
+  - 200 OK
+  - 201 Created
+  - 202 Accepted
+  - 203 Non-Authoritative Information
+  - 204 No Content
+  - 205 Reset Content
+  - 206 Partial Content
+  - 207 Multi-Status
+  - 208 Already Reported
+  - 226 IM Used
+  - 300 Multiple Choices
+  - 301 Moved Permanently
+  - 302 Found
+  - 303 See Other
+  - 304 Not Modified
+  - 307 Temporary Redirect
+  - 308 Permanent Redirect
+- **Number of Attempts**: The number of attempts before considering the monitor request failed. The default is 1 attempt, but can be increased. You cannot change the default number of attempts for a predefined application.
+- **Timeout (seconds)**: The default is 60 seconds and cannot be changed for a predefined application.
+- **Follow Redirect**: To ensure accurate performance measurements for the following predefined applications, this setting is disabled by default and you cannot enable it:
+  - Box
+  - Microsoft Teams Web App
+  - OneDrive for Business
+  - Outlook Online
+  - ServiceNow
+  - SharePoint Online
+- **Maximum Redirects**: This specifies the number of times the probe attempts to follow the HTTP redirect before it is considered failed. The default is 5 redirects. You cannot change the number of redirects for a predefined application. If **Follow Redirect** is disabled, **Maximum Redirects** is also disabled.
+
+- **Name**: Enter a name for your probe. The maximum length is 64 characters. Accepted characters are alphanumerics and a limited range of symbols, such as underscore (_), hyphen (-), space ( ), forward slash (/), period (.), pipe symbol (|), and parentheses ().
+- **Status**: Select **Enable** or **Disable** to indicate the status of your probe.
+- **App Name**: This view-only field is automatically populated with the previously selected application.
+- **Probe Type**: This view-only field is automatically populated with the previously selected probe. If you are configuring for a Call Quality Monitoring (CQM) application, this field automatically shows the probe type and is the ZDX Autosense feature. ZDX Autosense is useful for automatically discovering the Cloud Path Host that is associated to the CQM application and allows you to monitor the CQM application and meetings. This is automatically configured as part of the Cloud Path probe when you first onboard a CQM application. You must have ZDX Autosense enabled to use this feature. To learn more, see: If you've selected a Network application, the Cloud Path probe type is selected by default. Network applications do not require Web probes.
+  - [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience)
+  - [Understanding Webex Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-webex-call-quality-zdx)
+  - [Understanding Microsoft Teams Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-microsoft-teams-call-quality-zdx)
+  - [Understanding Zoom Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-zoom-call-quality-zdx)
+  - [Zoom Call Quality for ZDX Integration Requirements](https://help.zscaler.com/zdx/zoom-call-quality-zdx-integration-requirements)
+- **Follow Web Probe**: Select an accompanying Web probe to better visualize both Cloud Path probe and Web probe.
+- **Run Frequency (minutes)**: Enter the number of minutes for how frequently your probe should run. The default probe frequency varies based on your subscription plan.
+- **Probe Class**: This field is automatically selected based on the selected application (**Predefined** or **Custom**).
+
+Select the criteria that you want to probe for the application. To learn more, see [Understanding Probing Criteria Logic](https://help.zscaler.com/zdx/understanding-probing-criteria-logic).
+
+You can configure the probe to monitor multiple user groups, users in particular locations or departments, or a combination of these. For example, you might want to run a probe for the sales group using a sales business application (e.g., Salesforce.com). Running a probe for the sales group helps to limit the number of probes associated with the application and avoid unnecessary traffic from non-sales users.
+
+Similarly, you can configure a probe to only run on multiple devices logged in by one user, or configure it to run on only specific devices.
+
+By default, all user groups, users, Zscaler locations, location groups, departments, and devices in Internet & SaaS are applied. However, the maximum number of each selection for user groups, users, Zscaler locations, location groups, departments, or devices cannot exceed 100. If your organization has an Internet & SaaS account, each field defaults to your organization's information, such as the following examples:
+
+- **User Groups**: Data Engineering
+- **Users**: (Your organization's users)
+- **Locations**: Zscaler HQ
+- **Location Groups**: Server Traffic Group
+- **Departments**: Dev Ops
+- **Devices**: Desktop
+- **OS**: Windows
+
+When configuring Web probes for internal applications through Private Access, probe only for users, user groups, and departments that use the application.
+
+Select the criteria that you do not want to monitor for the application. To learn more, see [Understanding Probing Criteria Logic](https://help.zscaler.com/zdx/understanding-probing-criteria-logic).
+
+You can configure probes to run on all devices in a particular location by specifying the location in Monitoring Criteria, then exclude specific users or devices. For instance, you might want to run a probe for a productivity web application for all engineering group users but exclude the New York location, as that location does not use productivity web applications.
+
+By default, no user groups, users, Zscaler locations, location groups, departments, or devices are excluded. The maximum number of each selection for user groups, users, Zscaler locations, location groups, departments, or devices cannot exceed 100. The following are examples of excluded criteria:
+
+- **User Groups**: Mobile Development
+- **Users**: DEFAULT ADMIN
+- **Locations**: Zscaler Lab
+- **Location Groups**: HQ IT Group
+- **Departments**: Marketing
+- **Devices**: AUROUS
+- **OS**: Windows
+
+When configuring Web probes for internal applications through Private Access, probe only for users, user groups, and departments that use the application. If you configure Zscaler location-based inclusion or exclusion criteria, ZDX must be able to determine the device’s Zscaler location (location ID). If the device location can’t be determined, the probe is skipped.
+
+Configure the following fields:
+
+- **Protocol**: Select a protocol from the following:
+  - **Adaptive**: Choose **Adaptive** for [Adaptive Mode](https://help.zscaler.com/zdx/using-adaptive-mode) where the best protocol for each leg in the cloud is selected via an auto-discovery process. The **TCP Port** and **UDP Port** are automatically displayed and populated. The standard **TCP Port** for HTTPS traffic is `443` and editable. The standard **UDP Port** is `33434` and editable.
+  - **ICMP**: Choose **ICMP**to find the best protocol for general connectivity using latency. The standard **UDP Port** is `33434` and editable.
+  - **UDP**: Choose **UDP** for applications that use UDP for real-time application pathways. The **UDP Port** is automatically displayed and populated with the RFC-defined port for the destination server, `33434`, and is editable.
+  - **TCP**: Choose **TCP** if you want to know about port availability to determine application availability. Select a TCP type and configure the **TCP Port** information.
+    - List of TCP types
+- If you have chosen to follow a Web probe and then choose **TCP**as the protocol, you cannot edit the port value. If the minimum version compatibility is not met when you select Resilient TCP type or Strict TCP type, then the selection defaults to the Conventional TCP type.
+- **Packet Count**: The number of probe packets sent per hop discovery that have the same TTL value. The default is `5` packets, the maximum is `20` packets, and the minimum is `3` packets. For Private Access, the recommended packet count is `3` packets, and the maximum is `6` packets. The Packet Count determines the number of these iterations or cycles. While the default packet count is 5, a higher packet count provides a more accurate measurement of packet loss.
+- **Interval (ms)**: The time interval between probe packets with the same TTL. Probe packets of incremental TTL are paced evenly within this time interval. The number of iterations or cycles is defined by the configured Packet Count. The default is `1000`, the minimum is `1000`, and the maximum is `10000`. If the Interval is configured as `6000` ms, the packets for a run are spaced over 6000 ms. For a maximum of 30 hops, packets are paced at every 200 ms: the first packet with TTL 1 is sent at 0 ms, the packet with TTL 2 at 200 ms, the packet with TTL 3 at 400 ms, and so on.
+- **Timeout (ms)**: The time to wait for a response to a probe packet before considering loss. The default is `1000`, the minimum is `500`, and the maximum is `5000`. The recommended setting for Private Access is `500`. If the Timeout is configured as `2000` ms, the first probe would time out at 2,000 ms, the second at 2,200 ms, the third at 2,400 ms, and so on.
+- **Cloud Path Host**: The host IP address or fully qualified domain name for the host (i.e., the IPv4 IP address; IPv6 is not supported). Zscaler partially provides the domain name if the selected application is predefined. This is editable if a tenant name (i.e., CQM application) is required.
+- **Force Reverse Cloud Path in Trusted Network**: The option to force a reverse traceroute in the trusted environment when a network device blocks the forward Cloud Path. Enable only if you cannot implement a different device configuration. Ideally, you should reconfigure the firewall or the device blocking the forward traceroute. If that isn't possible, this setting provides calculations for reverse latency from the Public Service Edge for Internet & SaaS to the Egress in the Cloud Path. During a reverse Cloud Path, the Egress IP address is derived from the location API, and therefore, can differ from the IP address used within the forward Cloud Path. In this scenario, the Egress is noted as a Reverse Egress, along with the IP address derived from the location API.
+
+You can select one of the following TCP types:
+
+- **Resilient TCP Type**: A traceroute when the TCP connection fails, it will retry and automatically falls back to the Conventional TCP type, a sync (SYN) packet traceroute. This type requires a minimum version compatibility. This is the default selection. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
+- **Strict TCP Type**: A traceroute where if the TCP connection fails, then there is no fall back or handover. An error message appears to explain the details of why the traceroute is failing and displays the packet loss percentage. This type requires a minimum version compatibility. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
+- **Conventional TCP Type**: A traceroute where no TCP connections are established, and the traceroute relies on SYN packets. Therefore, the traceroute might be blocked by firewalls.
+
+See image.
 
 [Image: Configure a Web probe for an end user]
 
@@ -3211,6 +3265,8 @@ Cloud Path probes are sent every 15 minutes by default for Standard ZDX subscrip
 [Image: Select a collection with no probes]
 
 [Image: Copy configuration]
+
+[Image: Select a TCP type]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8010,13 +8066,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-08-07T08:09Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-08-11T13:52Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-07T08:09Z
+- Last modified: 2026-08-11T13:52Z
 - Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -9248,13 +9304,13 @@ Start a Diagnostics session to analyze any issues that users might be facing. To
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/supported-versions-feature-compatibility","lastmod":"2026-06-11T12:59Z","nid":"1433851"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/supported-versions-feature-compatibility","lastmod":"2026-08-11T13:49Z","nid":"1433851"} -->
 ## Supported Versions & Feature Compatibility
 
 - Source: https://help.zscaler.com/zdx/supported-versions-feature-compatibility
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Supported Versions & Feature Compatibility
-- Last modified: 2026-06-11T12:59Z
+- Last modified: 2026-08-11T13:49Z
 - Summary: To provide information on version compatibility and operating system that a user needs in order to use specific features of ZDX with Zscaler Client Connector.
 
 To begin configuring Zscaler Digital Experience (ZDX), you must first deploy the minimum required or later version of Zscaler Client Connector based on your OS.
@@ -9301,14 +9357,19 @@ Specific features (e.g., Software Inventory) require a later version compatibili
 
 Some ZDX features require a Zscaler Client Connector version for certain OS as indicated. The feature version compatibility is applicable to later versions (e.g., Software and Device Inventory requires a Zscaler Client Connector version 3.7.1.56 or later for Windows). If your organization does not meet the required feature version compatibility, upgrade your Zscaler Client Connector or ZDX Module as required.
 
-### Adaptive Mode
+### Cloud Path Probe Protocols
 
-The required version compatibility for the [Adaptive Mode](https://help.zscaler.com/zdx/about-adaptive-mode) feature is:
+The required version compatibility for the following [Cloud Path probe protocols](https://help.zscaler.com/zdx/configuring-probe#cp-protcols) are:
 
-| OS | Zscaler Client Connector Version | ZDX Module Version |
-| --- | --- | --- |
-| Windows | 3.4 | 2.3 |
-| macOS | 3.2 | 2.3.1 |
+| Protocol Type | OS | Zscaler Client Connector Version | ZDX Module Version |
+| --- | --- | --- | --- |
+| [Adaptive Mode](https://help.zscaler.com/zdx/about-adaptive-mode) | Windows | 3.4 | 2.3 |
+| [Adaptive Mode](https://help.zscaler.com/zdx/about-adaptive-mode) | macOS | 3.2 | 2.3.1 |
+| ICMP | Windows | 2.2.1 | 1.0.0 |
+| [TCP - Conventional](https://help.zscaler.com/zdx/configuring-probe#tcp) | Windows | 3.4 | 2.3 |
+| [TCP - Resilent](https://help.zscaler.com/zdx/configuring-probe#tcp) | Windows | 4.9 | 4.8.1.67 |
+| [TCP- Strict](https://help.zscaler.com/zdx/configuring-probe#tcp) | Windows | 4.9 | 4.8.1.67 |
+| UDP | Windows | 3.0 | 2.0 |
 
 ### Diagnostics
 

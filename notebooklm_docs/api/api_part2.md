@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 100
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 99
 
 ---
 
@@ -3794,13 +3794,13 @@ Gets a list of all locations for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/data-loss-prevention","lastmod":"2026-07-20T07:06Z","nid":"1402466"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/data-loss-prevention","lastmod":"2026-08-14T02:23Z","nid":"1402466"} -->
 ## Data Loss Prevention
 
 - Source: https://help.zscaler.com/legacy-apis/data-loss-prevention
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Data Loss Prevention
-- Last modified: 2026-07-20T07:06Z
+- Last modified: 2026-08-14T02:23Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -3819,6 +3819,7 @@ These Incident Receivers can be associated with Inline Web DLP and SaaS Security
 | `page` | query | no | object | Specifies the page offset |
 | `pageSize` | query | no | object | Specifies the page size |
 | `search` | query | no | object | The search string used to match against the names of Cloud-to-Cloud Incident Forwarding tenants and their configurations |
+| `excludeDisabledC2CForwarding` | query | no | object | A Boolean value that you can set to include or exclude Cloud-to-Cloud tenants that are onboarded only with Workflow Automation. When the value is **true**, the tenants onboarded with Workflow Automation-only are excluded from the GET request. |
 
 **Responses:**
 
@@ -3855,6 +3856,7 @@ Retrieves the number of DLP Incident Receivers configured for Cloud-to-Cloud Inc
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `search` | query | no | object | The search string used to match against the names of Cloud-to-Cloud Incident Forwarding tenants and their configurations |
+| `excludeDisabledC2CForwarding` | query | no | object | A Boolean value that you can set to include or exclude Cloud-to-Cloud tenants that are onboarded only with Workflow Automation. When the value is **true**, the tenants onboarded with Workflow Automation-only are excluded from the GET request. |
 
 **Responses:**
 
@@ -3879,6 +3881,7 @@ request.
 | `page` | query | no | object | Specifies the page offset |
 | `pageSize` | query | no | object | Specifies the page size |
 | `search` | query | no | object | The search string used to match against the names of Cloud-to-Cloud Incident Forwarding tenants and their configurations |
+| `excludeDisabledC2CForwarding` | query | no | object | A Boolean value that you can set to include or exclude Cloud-to-Cloud tenants that are onboarded only with Workflow Automation. When the value is **true**, the tenants onboarded with Workflow Automation-only are excluded from the GET request. |
 
 **Responses:**
 
@@ -5494,13 +5497,13 @@ Retrieves information about the registered device based on the device ID
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/dlp-incidents-workflow-automation-api","lastmod":"2026-01-06T23:49Z","nid":"1451946"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/dlp-incidents-workflow-automation-api","lastmod":"2026-08-14T08:47Z","nid":"1451946"} -->
 ## DLP Incidents
 
 - Source: https://help.zscaler.com/legacy-apis/dlp-incidents-workflow-automation-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Workflow Automation API > API Developer & Reference Guide > Reference Guide > DLP Incidents
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-08-14T08:47Z
 
 Zscaler Workflow Automation - DLP Incident Management API.
 
@@ -5516,7 +5519,7 @@ Gets the list of all DLP incidents associated with the transaction ID. A transac
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `transactionId` | path | yes | string | The ID of the transaction that violated the DLP rules. |
+| `transactionId` | path | yes | string | The ID of the transaction that violated the DLP rules |
 
 **Responses:**
 
@@ -5529,7 +5532,7 @@ Gets the list of all DLP incidents associated with the transaction ID. A transac
 
 ### `DELETE /dlp/v1/incidents/{dlpIncidentId}`
 
-Deletes the DLP incident for the specified incident ID.
+Deletes the DLP incident for the specified incident ID
 
 - Operation ID: `deleteDLPIncident`
 
@@ -5537,7 +5540,7 @@ Deletes the DLP incident for the specified incident ID.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of the incident. |
+| `dlpIncidentId` | path | yes | string | The ID of the incident |
 
 **Responses:**
 
@@ -5549,7 +5552,7 @@ Deletes the DLP incident for the specified incident ID.
 
 ### `GET /dlp/v1/incidents/{dlpIncidentId}`
 
-Gets the DLP incident details based on the incident ID.
+Gets the DLP incident details based on the incident ID
 
 - Operation ID: `getDLPIncidentDetail`
 
@@ -5557,7 +5560,7 @@ Gets the DLP incident details based on the incident ID.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of the incident. |
+| `dlpIncidentId` | path | yes | string | The ID of the incident |
 | `fields` | query | no | array<string> | The fields associated with the DLP incident. For example, `sourceActions`, `contentInfo`, `status`, `resolution`, etc. |
 
 **Responses:**
@@ -5579,7 +5582,7 @@ Gets the details of updates made to an incident based on the given ID and timeli
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of the incident. |
+| `dlpIncidentId` | path | yes | string | The ID of the incident |
 
 **Responses:**
 
@@ -5600,7 +5603,7 @@ Gets the information of the ticket generated for the incident. For example, tick
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of the incident. |
+| `dlpIncidentId` | path | yes | string | The ID of the incident |
 
 **Responses:**
 
@@ -5621,7 +5624,7 @@ Filters a list of DLP incident groups to which the specified incident ID belongs
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of the incident. |
+| `dlpIncidentId` | path | yes | string | The ID of the incident |
 
 **Request body:** `application/json` → ZSDLPIncidentGroupInfoRequest
 
@@ -5644,7 +5647,7 @@ Updates the status of the incident to resolved and closes the incident with a re
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of the incident. |
+| `dlpIncidentId` | path | yes | string | The ID of the incident |
 
 **Request body:** `application/json` → ZSDLPIncidentCloseRequest
 
@@ -5659,7 +5662,7 @@ Updates the status of the incident to resolved and closes the incident with a re
 
 ### `POST /dlp/v1/incidents/{dlpIncidentId}/notes`
 
-Adds notes to the incident during updates or status changes.
+Adds notes to the incident during updates or status changes
 
 - Operation ID: `addNoteDLPIncident`
 
@@ -5667,7 +5670,7 @@ Adds notes to the incident during updates or status changes.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of the incident for which the note is added. |
+| `dlpIncidentId` | path | yes | string | The ID of the incident for which the note is added |
 
 **Request body:** `application/json` → ZSDLPIncidentAddNoteRequest
 
@@ -5682,7 +5685,7 @@ Adds notes to the incident during updates or status changes.
 
 ### `POST /dlp/v1/incidents/{dlpIncidentId}/labels`
 
-Assign lables (a label name and it's associated value) to DLP incidents.
+Assign lables (a label name and it's associated value) to DLP incidents
 
 - Operation ID: `addLabelDLPIncident`
 
@@ -5690,7 +5693,7 @@ Assign lables (a label name and it's associated value) to DLP incidents.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of DLP incident to which the label is assigned. |
+| `dlpIncidentId` | path | yes | string | The ID of DLP incident to which the label is assigned |
 
 **Request body:** `application/json` → ZSDLPIncidentAddLabelsRequest
 
@@ -5711,7 +5714,6 @@ Filters DLP incidents based on the given time range and the field values. The su
 - Priority
 - Transaction ID
 - Status
-- Source
 - Source DLP Type
 - Labels
 - Incident Group
@@ -5730,7 +5732,7 @@ The supported time range values are:
 | --- | --- | --- | --- | --- |
 | `page` | query | no | integer | Specifies the page number of the incident in a multi-paginated response. This field is not required if page ID field is used. |
 | `pageSize` | query | no | integer | Specifies the page size (i.e., number of incidents per page). The maximum page size is 100. |
-| `pageId` | query | no | string | Specifies the page ID of the incident in a multi-paginated response. It is a unique identifier returned in the first search request. The page ID can be used instead of the page number in subsequent search requests for faster and more efficient results. |
+| `pageId` | query | no | string | Specifies the page ID of the incident in a multi-paginated response. It is a unique identifier returned in the first search request. You can use the page ID instead of the page number in subsequent search requests for faster and more efficient results. |
 
 **Request body:** `application/json` → SearchRequestFilters
 
@@ -5745,15 +5747,15 @@ The supported time range values are:
 
 ### `GET /dlp/v1/incidents/{dlpIncidentId}/triggers`
 
-Downloads the actual data that triggered the incident.
+Downloads the actual data that triggered the incident
 
-- Operation ID: `getDLPIncidentTrigger`
+- Operation ID: `getDLPIncidentTriggerV1`
 
 **Parameters:**
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of the incident for which the trigger data is downloaded. |
+| `dlpIncidentId` | path | yes | string | The ID of the incident for which the trigger data is downloaded |
 | `fetchTriggerContext` | query | no | boolean | (Optional) Specifies whether to download the complete incident trigger data, including the prefix and suffix information. Set this field to `true` to fetch the prefix and suffix data.The default value is `false`. |
 
 **Responses:**
@@ -5764,9 +5766,30 @@ Downloads the actual data that triggered the incident.
 | 401 | Authorization failure |
 | 404 | Resource does not exist |
 
+### `GET /dlp/v2/incidents/{dlpIncidentId}/triggers`
+
+Downloads the actual trigger metadata of the incident in a nested structure organized by source category.
+
+- Operation ID: `getDLPIncidentTriggerV2`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `dlpIncidentId` | path | yes | string | The ID of DLP Incident for which trigger data is returned |
+| `fetchTriggerContext` | query | no | boolean | Boolean value indicating whether to fetch trigger data context |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successfully returned DLP incident trigger data |
+| 401 | Authorization failure |
+| 404 | Resource does not exist |
+
 ### `GET /dlp/v1/incidents/{dlpIncidentId}/evidence`
 
-Gets the evidence URL of the incident. The evidence link can be used to view and download the XML file with the actual data that triggered the incident.
+Gets the evidence URL of the incident. You can use the evidence link to view and download the XML file with the actual data that triggered the incident.
 
 - Operation ID: `getDLPIncidentEvidenceMetadata`
 
@@ -5774,7 +5797,7 @@ Gets the evidence URL of the incident. The evidence link can be used to view and
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `dlpIncidentId` | path | yes | string | The ID of the incident for which evidence URL is fetched. |
+| `dlpIncidentId` | path | yes | string | The ID of the incident for which evidence URL is fetched |
 
 **Responses:**
 
@@ -5811,7 +5834,7 @@ Gets the evidence URL of the incident. The evidence link can be used to view and
 | `lastUpdatedAt` | string(date-time) | yes |
 | `sourceFirstObservedAt` | string(date-time) | yes |
 | `sourceLastObservedAt` | string | yes |
-| `userInfo` | ZSDLPIncidentUserInfo | no |
+| `resolvedAt` | ZSDLPIncidentUserInfo | no |
 | `applicationInfo` | object | no |
 | `contentInfo` | object | no |
 | `networkInfo` | object | no |
@@ -6046,7 +6069,7 @@ Gets the evidence URL of the incident. The evidence link can be used to view and
 | `name` | ZSDLPIncidentSearchableFields | no |
 | `value` | array<string> | no |
 
-- `ZSDLPIncidentSearchableFields`: string (enum: severity, priority, transactionId, status, source, sourceDLPType, labels, incidentGroupIds)
+- `ZSDLPIncidentSearchableFields`: string (enum: severity, priority, transactionId, status, sourceDLPType, labels, incidentGroupIds, engine)
 
 **`ZSDLPIncidentSearchTimeRange`**
 
@@ -6632,6 +6655,117 @@ The response is formatted according to the time zone configured in the Zscaler A
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/email-quarantine","lastmod":"2026-08-14T08:46Z","nid":"1542825"} -->
+## Email Quarantine
+
+- Source: https://help.zscaler.com/legacy-apis/email-quarantine
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Workflow Automation API > API Developer & Reference Guide > Reference Guide > Email Quarantine
+- Last modified: 2026-08-14T08:46Z
+
+Zscaler Workflow Automation - DLP Incident Management API.
+
+**Servers:** `https://api.us1.zsworkflow.net`
+
+### `POST /dlp/v1/incidents/{dlpIncidentId}/quarantine/release`
+
+Releases quarantined emails to specified recipients or all recipients for the DLP incident. This endpoint accepts a release request and processes it asynchronously and can mark an incident as a false positive if applicable.
+
+- Operation ID: `releaseQuarantinedEmail`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `dlpIncidentId` | path | yes | string | The DLP incident ID for which the quarantined email is released |
+
+**Request body:** `application/json` → ZSDLPIncidentQuarantineReleaseRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful operation |
+| 400 | Bad Request |
+| 401 | Authorization failure |
+| 404 | Resource does not exist |
+| 500 | Failed to process the request |
+
+### `GET /dlp/v1/incidents/{dlpIncidentId}/quarantine/status`
+
+Fetches the status of quarantined email release process for the recipients of the DLP incident. Returns detailed information about each recipient's quarantined email status.
+
+- Operation ID: `getRecipientStatus`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `dlpIncidentId` | path | yes | string | The ID of the DLP incident |
+| `operationType` | query | yes | string (enum: RELEASE) | The operation type for getting the status |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful operation |
+| 400 | Bad Request |
+| 401 | Authorization failure |
+| 404 | Resource does not exist |
+| 500 | Failed to process the request |
+
+### Schemas
+
+**`ZSDLPIncidentQuarantineReleaseRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `recipients` | array<string(email)> | no |
+| `releaseToAll` | boolean | yes |
+| `justificationReason` | string | no |
+| `markAsFalsePositive` | boolean | no |
+
+**`ZSRecipientStatusResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `incidentId` | string | yes |
+| `status` | string (enum: In Progress, Success, Failed, Partial) | yes |
+| `releaseToAll` | boolean | yes |
+| `message` | string | yes |
+| `recipients` | array<string(email)> | no |
+
+**`ErrorResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `internalMessage` | string | no |
+
+**`ZSDLPIncidentQuarantineReleaseResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `incidentId` | string | yes |
+| `status` | string (enum: success, partial, failed, pending) | yes |
+| `message` | string | yes |
+| `totalRecipients` | integer | yes |
+| `successCount` | integer | yes |
+| `failedCount` | integer | yes |
+| `inProgressCount` | integer | yes |
+| `releaseToAll` | boolean | yes |
+| `recipientStatuses` | array<ZSEmailRecipientStatus> | no |
+
+**`ZSEmailRecipientStatus`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `emailId` | string(email) | yes |
+| `status` | string (enum: SUCCESS, FAILED, IN_PROGRESS, PENDING) | yes |
+| `message` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/emergency-access-user-management","lastmod":"2026-01-06T23:49Z","nid":"1485966"} -->
 ## Emergency Access User Management
 
@@ -6866,13 +7000,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/end-user-notifications","lastmod":"2026-07-09T07:47Z","nid":"1514651"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/end-user-notifications","lastmod":"2026-08-10T07:06Z","nid":"1514651"} -->
 ## End User Notifications
 
 - Source: https://help.zscaler.com/legacy-apis/end-user-notifications
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > End User Notifications
-- Last modified: 2026-07-09T07:47Z
+- Last modified: 2026-08-10T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -14516,13 +14650,13 @@ Retrieve a list of discovered devices with the following key contexts, IP addres
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/ips-control-policy","lastmod":"2026-07-13T04:16Z","nid":"1510461"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/ips-control-policy","lastmod":"2026-08-14T07:06Z","nid":"1510461"} -->
 ## IPS Control Policy
 
 - Source: https://help.zscaler.com/legacy-apis/ips-control-policy
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > IPS Control Policy
-- Last modified: 2026-07-13T04:16Z
+- Last modified: 2026-08-14T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -28840,84 +28974,4 @@ To get details of all users that are connected to VPN Service Edges:
 ```
 
 A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/organization-details","lastmod":"2026-01-06T23:49Z","nid":"1510761"} -->
-## Organization Details
-
-- Source: https://help.zscaler.com/legacy-apis/organization-details
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Organization Details
-- Last modified: 2026-01-06T23:49Z
-
-API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
-
-### `GET /orgInformation`
-
-Retrieves detailed organization information, including headquarter location, geolocation, address, and contact details.
-
-- Operation ID: `OrganizationInformationResource_getOrganizationInformation`
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | Successful Operation |
-
-### `GET /orgInformation/lite`
-
-Retrieves minimal organization information.
-
-- Operation ID: `OrganizationInformationResource_getOrganizationInformationLite`
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | Successful Operation |
-
-### `GET /subscriptions`
-
-Retrieves information about the list of subscriptions enabled for your tenant. Subscriptions define the various features and levels of functionality that are available to your organization.
-
-- Operation ID: `SubscriptionsResource_getOrgStatus`
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | Successful Operation |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/organizations","lastmod":"2026-01-06T23:49Z","nid":"1532901"} -->
-## Organizations
-
-- Source: https://help.zscaler.com/legacy-apis/organizations
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > EASM API > API Developer & Reference Guide > Reference Guide > Organizations
-- Last modified: 2026-01-06T23:49Z
-
-API Reference Guide for the Zscaler EASM API
-
-### `GET /organizations`
-
-Retrieves all organizations configured for a tenant in the EASM Admin Portal
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `Authorization` | header | yes | object | API authentication token |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 401 | Unauthorized |
-| 500 | Internal Server Error |
 <!-- /ZS-ARTICLE -->

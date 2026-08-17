@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 92
 
 ---
@@ -780,13 +780,13 @@ You acknowledge and agree that it is your responsibility to remove any and all d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/hardware-usage-terms-policy","lastmod":"2026-06-03T15:38Z","nid":"1539906"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/hardware-usage-terms-policy","lastmod":"2026-08-12T17:15Z","nid":"1539906"} -->
 ## Hardware Usage Terms
 
 - Source: https://help.zscaler.com/product-usage-terms/hardware-usage-terms-policy
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > Hardware Usage Terms > Hardware Usage Terms
-- Last modified: 2026-06-03T15:38Z
+- Last modified: 2026-08-12T17:15Z
 - Summary: Information about Zscaler Hardware Usage Terms.
 
 If your Order includes Hardware, the following terms apply. For product-specific requirements, refer to the applicable Product-Specific Hardware Terms below.
@@ -8597,13 +8597,13 @@ There are three types of actions you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-email-notification-templates","lastmod":"2026-08-06T09:50Z","nid":"1495191"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-email-notification-templates","lastmod":"2026-08-11T08:16Z","nid":"1495191"} -->
 ## Adding Email Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-email-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Email Notification Templates
-- Last modified: 2026-08-06T09:50Z
+- Last modified: 2026-08-11T08:16Z
 - Summary: Information on how to configure various email notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various email notification templates using the email template builder to send notifications to the DLP admins, managers, approvers, and end users. The email template builder ensures that the email notification template displays properly to all email clients.
@@ -8612,7 +8612,7 @@ To add an email notification template:
 
 1. On the **Notification Template**page: After you select the template type, the email template builder appears, displaying the following: Using the drag-and-drop capability of these tools, you can configure or modify an email notification template. You can also change the template's structure and style. See image.
   - **Template Name**: Enter a name for the template.
-  - **Template Family**: From the drop-down menu, select an existing template family or add a new template family.
+  - **Template Family**: From the drop-down menu, select an existing template family or add a new template family. You cannot edit the template family for a template after the template is added.
   - **Type**: From the drop-down menu, select **Email**.
   - **Digest**: Enable this option to make this template a digest notification template. This option identifies whether the template is for a digest type of notification (user digest or DLP admin digest) or a non-digest type of notification (user notification or escalation). After you select this option, the **Digest Type** field appears.
   - **Source Language**: From the drop-down menu, select a language in which you want to create the notification template. The default language is **English**.
@@ -9769,13 +9769,13 @@ You can also integrate Workflow Automation with SaaS applications sanctioned for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-microsoft-teams-notification-templates","lastmod":"2026-08-06T09:20Z","nid":"1495211"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-microsoft-teams-notification-templates","lastmod":"2026-08-11T06:46Z","nid":"1495211"} -->
 ## Adding Microsoft Teams Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-microsoft-teams-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Microsoft Teams Notification Templates
-- Last modified: 2026-08-06T09:20Z
+- Last modified: 2026-08-11T06:46Z
 - Summary: Information on how to configure various Microsoft Teams notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various Microsoft Teams notification templates using the notification template builder to send notifications to the Data Loss Prevention (DLP) admins, managers, approvers, and end users. The notification template builder ensures that the notification template displays properly to all Microsoft Teams clients.
@@ -9786,7 +9786,7 @@ To add a Microsoft Teams notification template:
 
 1. On the **Notification Template**page: After you select the template type, a section to create the Microsoft Teams notification template appears under the row on the page. Using the options at the top of this new section, you can create and design a Microsoft Teams notification template, change the content of the template, and insert links. See image.
   - **Template Name**: Enter a name for the template.
-  - **Template Family**: From the drop-down menu, select an existing template family or add a new template family.
+  - **Template Family**: From the drop-down menu, select an existing template family or add a new template family. You cannot edit the template family for a template after the template is added.
   - **Type**: From the drop-down menu, select **Teams**.
   - **Digest**: Enable this option if you want to make this template a digest notification template. This option identifies whether the template is for a digest type of notification (user digest and DLP admin digest) or a non-digest type of notification (user notification and escalation). After you select this option, the **Digest Type** field appears.
   - **Source Language**: From the drop-down menu, select a language in which you want to create the notification template.
@@ -9798,11 +9798,7 @@ To add a Microsoft Teams notification template:
   - **HTML**: Add custom HTML.
   - **Lists**: Add a numbered list or a bulleted list.
   - **Link**: Apply a link to the text that you have entered.
-  - **Select Merge Tag**: From the drop-down menu, select a merge tag. You can use the merge tags that are provided by Workflow Automation to include incident attribute values in the notifications. Merge tags are:
-    - End User and Escalation Notification Templates
-    - End User Digest Notification Templates
-    - DLP Admin Digest Notification Templates
-    - Digest Notification Templates (Type Not Specified)
+  - **Select Merge Tag**: From the drop-down menu, select a merge tag. You can use the merge tags that are provided by Workflow Automation to include incident attribute values in the notifications. Merge tags are: End User and Escalation Notification Templates; End User Digest Notification Templates; DLP Admin Digest Notification Templates; Digest Notification Templates (Type Not Specified) **Action**; **Activity Type**; **Category**; **Channel**; **Client IP**; **Component**; **Confirm Action**; **Content Location**; **Current Time**; **Customer ID**; **Date**; **Department**; **Destination**; **Destination Location**; **Destination Type**; **Device Name**; **Device OS**; **Device Trust Level**; **DLP Admin**; **Document Name**; **Document Type**; **Domains**; **Email Quarantine Status**; **Email Subject**; **Expected Action**; **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **File Link Expiry**; **File MD5**; **File Modified By**; **File Shared At**; **File Shared By**; **File Size**; **File Source Location**; **File Type**; **Hostname or Application**; **Incident ID**; **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Is Copilot Accessible**; **Manager Email**; **Manager Name**; **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Note to the User**; **Other Recipients**; **Priority**; **Protocol**; **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Referral URL**; **Sender Email**; **Severity**; **Source**; **Source DLP Type**; **Source Location**; **Source Type**; **Subject**; **Time**; **URL**; **User Name**; **Violated Policy**; **Workspace** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **User Name** **Current Time**; **Customer ID**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name**
   - **Select Special Link**: From the drop-down menu, select a special link. The following are special links:
     - **Incident Justification Magic Link**: Redirects the user to the Incident page, where they can view and enter justification details for an incident.
     - **Incident Escalation Magic Link**: Redirects the manager or approver to the Incident page, where they can view and enter justification details for an incident.
@@ -9815,101 +9811,17 @@ To add a Microsoft Teams notification template:
 5. Click **Publish Template**. The template is published, and the status of the template is **Published**. Workflow Automation only uses published templates for its notifications.
 
 [Image: Adding a Microsoft Teams notification template on the Notification Template page.]
-
-- **Action**
-- **Activity Type**
-- **Category**
-- **Channel**
-- **Client IP**
-- **Component**
-- **Confirm Action**
-- **Content Location**
-- **Current Time**
-- **Customer ID**
-- **Date**
-- **Department**
-- **Destination**
-- **Destination Location**
-- **Destination Type**
-- **Device Name**
-- **Device OS**
-- **Device Trust Level**
-- **DLP Admin**
-- **Document Name**
-- **Document Type**
-- **Domains**
-- **Email Quarantine Status**
-- **Email Subject**
-- **Expected Action**
-- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **File Link Expiry**
-- **File MD5**
-- **File Modified By**
-- **File Shared At**
-- **File Shared By**
-- **File Size**
-- **File Source Location**
-- **File Type**
-- **Hostname or Application**
-- **Incident ID**
-- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **Is Copilot Accessible**
-- **Manager Email**
-- **Manager Name**
-- **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **Note to the User**
-- **Other Recipients**
-- **Priority**
-- **Protocol**
-- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **Referral URL**
-- **Sender Email**
-- **Severity**
-- **Source**
-- **Source DLP Type**
-- **Source Location**
-- **Source Type**
-- **Subject**
-- **Time**
-- **URL**
-- **User Name**
-- **Violated Policy**
-- **Workspace**
-
-- **All Incidents Waiting For Feedback Count**
-- **Current Time**
-- **Customer ID**
-- **High Priority Incidents Waiting For Feedback Count**
-- **User Name**
-
-- **Current Time**
-- **Customer ID**
-- **New Incidents Count**
-- **Open Incidents Count**
-- **State Changes Count**
-- **User Name**
-
-- **All Incidents Waiting For Feedback Count**
-- **Current Time**
-- **Customer ID**
-- **High Priority Incidents Waiting For Feedback Count**
-- **New Incidents Count**
-- **Open Incidents Count**
-- **State Changes Count**
-- **User Name**
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-slack-notification-templates","lastmod":"2026-08-06T09:31Z","nid":"1495206"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-slack-notification-templates","lastmod":"2026-08-11T06:35Z","nid":"1495206"} -->
 ## Adding Slack Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-slack-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Slack Notification Templates
-- Last modified: 2026-08-06T09:31Z
+- Last modified: 2026-08-11T06:35Z
 - Summary: Information on how to configure various Slack notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various Slack notification templates using the notification template builder to send notifications to the Data Loss Prevention (DLP) admins, managers, approvers, and end users. The notification template builder ensures that the notification template displays properly to all Slack clients.
@@ -9920,7 +9832,7 @@ To add a Slack notification template:
 
 1. On the **Notification Template**page: After you select the template type, a section to create the Slack notification template appears under the row on the page. Using the options at the top of this new section, you can create and design a Slack notification template, change the content of the template, and insert links. See image.
   - **Template Name**: Enter a name for the template.
-  - **Template Family**: From the drop-down menu, select an existing template family or add a new template family.
+  - **Template Family**: From the drop-down menu, select an existing template family or add a new template family. You cannot edit the template family for a template after the template is added.
   - **Type**: From the drop-down menu, select **Slack**.
   - **Digest**: Enable this option if you want to make this template a digest notification template. This option identifies whether the template is for a digest type of notification (user digest and DLP admin digest) or a non-digest type of notification (user notification and escalation). After you select this option, the **Digest Type** field appears.
   - **Source Language**: From the drop-down menu, select a language in which you want to create the notification template.
@@ -9932,11 +9844,7 @@ To add a Slack notification template:
   - **HTML**: Add custom HTML.
   - **Lists**: Add a numbered list or a bulleted list.
   - **Link**: Apply a link to the text that you have entered.
-  - **Select Merge Tag**: From the drop-down menu, select a merge tag. You can use the merge tags that are provided by Workflow Automation to include incident attribute values in the notifications. Merge tags are:
-    - End User and Escalation Notification Templates
-    - End User Digest Notification Templates
-    - DLP Admin Digest Notification Templates
-    - Digest Notification Templates (Type Not Specified)
+  - **Select Merge Tag**: From the drop-down menu, select a merge tag. You can use the merge tags that are provided by Workflow Automation to include incident attribute values in the notifications. Merge tags are: End User and Escalation Notification Templates; End User Digest Notification Templates; DLP Admin Digest Notification Templates; Digest Notification Templates (Type Not Specified) **Action**; **Activity Type**; **Category**; **Channel**; **Client IP**; **Component**; **Confirm Action**; **Content Location**; **Current Time**; **Customer ID**; **Date**; **Department**; **Destination**; **Destination Location**; **Destination Type**; **Device Name**; **Device OS**; **Device Trust Level**; **DLP Admin**; **Document Name**; **Document Type**; **Domains**; **Email Quarantine Status**; **Email Subject**; **Expected Action**; **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **File Link Expiry**; **File MD5**; **File Modified By**; **File Shared At**; **File Shared By**; **File Size**; **File Source Location**; **File Type**; **Hostname or Application**; **Incident ID**; **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Is Copilot Accessible**; **Manager Email**; **Manager Name**; **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Note to the User**; **Other Recipients**; **Priority**; **Protocol**; **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Referral URL**; **Sender Email**; **Severity**; **Source**; **Source DLP Type**; **Source Location**; **Source Type**; **Subject**; **Time**; **URL**; **User Name**; **Violated Policy**; **Workspace** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **User Name** **Current Time**; **Customer ID**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name**
   - **Select Special Link**: From the drop-down menu, select a special link. The following are special links:
     - **Incident Justification Magic Link**: Redirects the user to the Incident page, where they can view and enter justification details for an incident.
     - **Incident Escalation Magic Link**: Redirects the manager or approver to the Incident page, where they can view and enter justification details for an incident.
@@ -9949,90 +9857,6 @@ To add a Slack notification template:
 5. Click **Publish Template**. The template is published, and the status of the template is **Published**. Workflow Automation only uses published templates for its notifications.
 
 [Image: Adding a Slack notification template on the Notification Template page.]
-
-- **Action**
-- **Activity Type**
-- **Category**
-- **Channel**
-- **Client IP**
-- **Component**
-- **Confirm Action**
-- **Content Location**
-- **Current Time**
-- **Customer ID**
-- **Date**
-- **Department**
-- **Destination**
-- **Destination Location**
-- **Destination Type**
-- **Device Name**
-- **Device OS**
-- **Device Trust Level**
-- **DLP Admin**
-- **Document Name**
-- **Document Type**
-- **Domains**
-- **Email Quarantine Status**
-- **Email Subject**
-- **Expected Action**
-- **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **File Link Expiry**
-- **File MD5**
-- **File Modified By**
-- **File Shared At**
-- **File Shared By**
-- **File Size**
-- **File Source Location**
-- **File Type**
-- **Hostname or Application**
-- **Incident ID**
-- **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **Is Copilot Accessible**
-- **Manager Email**
-- **Manager Name**
-- **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **Note to the User**
-- **Other Recipients**
-- **Priority**
-- **Protocol**
-- **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
-- **Referral URL**
-- **Sender Email**
-- **Severity**
-- **Source**
-- **Source DLP Type**
-- **Source Location**
-- **Source Type**
-- **Subject**
-- **Time**
-- **URL**
-- **User Name**
-- **Violated Policy**
-- **Workspace**
-
-- **All Incidents Waiting For Feedback Count**
-- **Current Time**
-- **Customer ID**
-- **High Priority Incidents Waiting For Feedback Count**
-- **User Name**
-
-- **Current Time**
-- **Customer ID**
-- **New Incidents Count**
-- **Open Incidents Count**
-- **State Changes Count**
-- **User Name**
-
-- **All Incidents Waiting For Feedback Count**
-- **Current Time**
-- **Customer ID**
-- **High Priority Incidents Waiting For Feedback Count**
-- **New Incidents Count**
-- **Open Incidents Count**
-- **State Changes Count**
-- **User Name**
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12630,13 +12454,13 @@ Configure the DLP Cloud-to-Cloud Incident Forwarding on a GCP instance for Workf
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-account-settings","lastmod":"2026-05-25T07:06Z","nid":"1418021"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-account-settings","lastmod":"2026-08-12T08:09Z","nid":"1418021"} -->
 ## Managing Account Settings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-account-settings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Account Settings
-- Last modified: 2026-05-25T07:06Z
+- Last modified: 2026-08-12T08:09Z
 - Summary: How to manage account settings for Workflow Automation.
 
 Managing account settings is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation can manage the account settings for Workflow Automation. In account settings, admins can:
@@ -13766,13 +13590,13 @@ To restart a download:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-and-digest-template-mappings","lastmod":"2026-05-01T06:45Z","nid":"1418216"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-and-digest-template-mappings","lastmod":"2026-08-12T09:58Z","nid":"1418216"} -->
 ## Managing Incident and Digest Template Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Incident and Digest Template Mappings
-- Last modified: 2026-05-01T06:45Z
+- Last modified: 2026-08-12T09:58Z
 - Summary: How to manage incident and digest template mappings in Workflow Automation.
 
 Mapping incident and digest templates in Workflow Automation is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation must configure the template mappings. Incident template mappings determine which notification and survey templates Workflow Automation uses when it generates the notifications for the different notification types (end user notification and escalation). The digest template mapping determines which templates Workflow Automation uses when it generates the digest notifications for your organization.
@@ -13920,13 +13744,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-07-14T09:47Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-08-12T08:11Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-07-14T09:47Z
+- Last modified: 2026-08-12T08:11Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).

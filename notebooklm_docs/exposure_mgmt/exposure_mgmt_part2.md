@@ -1,1752 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 219
-
----
-
-<!-- ZS-ARTICLE {"url":"/breach-predictor/using-zscaler-breach-predictor","lastmod":"2025-08-09T07:06Z","nid":"1500446"} -->
-## Using Zscaler Breach Predictor
-
-- Source: https://help.zscaler.com/breach-predictor/using-zscaler-breach-predictor
-- Product: Breach Predictor
-- Path: Breach Predictor Help > Getting Started > Using Zscaler Breach Predictor
-- Last modified: 2025-08-09T07:06Z
-- Summary: How to use Zscaler Breach Predictor to prevent data breaches in your organization.
-
-This guide takes you through the basic high-level steps for how to use Zscaler Breach Predictor and provides links to more information. Because Breach Predictor uses data from other Zscaler tools, you should familiarize yourself with how Zscaler Internet Access (ZIA) and Zscaler Sandbox work so that you can better understand the log data that Breach Predictor uses to identify threats to your organization. Additionally, as a major part of its predictive intelligence, Breach Predictor relies on the MITRE ATT&CK framework to give you a clear picture of your overall security posture. Zscaler recommends reading the following articles before you begin using Breach Predictor:
-
-- [Understanding the ZIA Cloud Architecture](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture)
-- [About Sandbox](https://help.zscaler.com/zia/about-sandbox)
-- [Integrating with CrowdStrike](https://help.zscaler.com/zia/integrating-crowdstrike)
-- [MITRE ATT&CK Overview](https://attack.mitre.org/)
-
-To use Zscaler Breach Predictor, complete the following steps:
-
-- Step 1: Ensure Completion of Prerequisite Tasks
-- Step 2: Assess the Security Threats to Your Organization
-- Step 3: Use Breach Predictor Findings to Remediate with Policy Recommendations
-
-Before using Breach Predictor, ensure that you've completed prerequisite tasks and that you can log in to the Breach Predictor Portal. To learn more, see [Accessing and Navigating Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor).
-
-Breach Predictor uses easy-to-understand charts and tables to give you visibility into vast amounts of threat data across your organization. As you navigate the Breach Predictor Portal, you can use the interconnected data points to easily switch from macro to micro views of the data (e.g., clicking a threat family name on the **Dashboard** page takes you to the **Events** page with information about that particular threat family). You can use the following basic workflow to assess your threat risk:
-
-- Evaluate Your Overall Breach Probability Score and Prioritized Recommendations
-- Determine How Far Attacks Have Progressed
-- Examine Data from Users at Risk
-- Determine the Attack Path for Malware Families Present in Your Organization
-- Use ThreatLabz Research to Assess the Overall Threat Landscape
-
-To learn more, see [Accessing and Navigating Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor).
-
-After you've examined the Breach Predictor data for your organization, you might need to remediate policies (e.g., File Type Control, SSL Inspection, URL Filtering, etc.). As you plan for remediation, you should always work from right to left in the MITRE ATT&CK matrix. As a threat moves further to the right in the matrix, your organization is at a higher risk of a data breach. Use the policy recommendations provided by Breach Predictor to log Jira tickets for policy updates.
-
-To learn more, see [Requesting Updates in Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor) and [Evaluating a Security Issue with Breach Predictor](https://help.zscaler.com/breach-predictor/evaluating-security-issue-breach-predictor).
-
-On the **Dashboard** page, use the Overall Breach Probability score for an instant determination of the overall likelihood of a breach in your environment. Additionally, Breach Predictor provides a list of the highest-value policy updates based on imminent threats to your organization.
-
-On the **Dashboard**page, use the various charts and tables to assess your organization’s placement within the MITRE ATT&CK framework during the period you specify.
-
-To learn more, see [Analyzing the Dashboard](https://help.zscaler.com/breach-predictor/analyzing-dashboard).
-
-On the **Findings** page, you can see information about the malware families affecting your organization, as well as information about each user affected by each family. On the **Users** page, you can see the overall user information by department, threat type, and region. You can also drill down to see data for each user.
-
-Also on the **Findings** page, use attack-path data to help you interpret what your threat placement means, and to determine whether a threat has already achieved a particular technique or whether its movement to that technique is probable or just possible.
-
-On the **Threat Landscape** page, view cutting-edge data from [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) about the biggest current security threats affecting customers across the globe.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/breach-predictor/what-zscaler-breach-predictor","lastmod":"2025-08-02T07:06Z","nid":"1500431"} -->
-## What Is Zscaler Breach Predictor?
-
-- Source: https://help.zscaler.com/breach-predictor/what-zscaler-breach-predictor
-- Product: Breach Predictor
-- Path: Breach Predictor Help > Getting Started > What Is Zscaler Breach Predictor?
-- Last modified: 2025-08-02T07:06Z
-- Summary: How Zscaler Breach Predictor works and fits in with other products in the Zscaler ecosystem.
-
-The average time it takes a threat actor to move laterally beyond the point of compromise decreases every year. As a result, reactive breach response is no longer a practical strategy. To combat data breaches, Security Operations Center (SOC) teams must be proactive and have the ability to understand how threats propagate so that threat actors can be stopped preemptively. Breach Predictor is an essential part of your overall security ecosystem, anticipating threats, providing you context about those threats, and helping prevent threat actors from accessing sensitive data in your organization.
-
-Breach Predictor protects your organization by providing:
-
-- Enhanced Attack Visibility
-- Proactive Breach Risk Reduction
-- Improved Security Posture
-
-In fact, Breach Predictor not only simplifies your toolset, but it is specifically designed to take pressure off of your SOC teams and your organization as a whole by predicting where threats will move so that you aren't addressing incidents and vulnerabilities after they've happened, and by giving you comprehensive visibility across your security landscape.
-
-The following illustration provides a high-level look at the value Breach Predictor brings to your organization:
-
-See image.
-
-To learn more about how to use Breach Predictor, see [Using Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/using-zscaler-breach-predictor) and [Understanding Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/understanding-breach-predictor).
-
-[Image: Illustration of the Zscaler Breach Predictor Value Proposition]
-
-Breach Predictor leverages the power of machine learning to bring real-time insights into threat activity impacting users in your organization, mapped to the MITRE Adversarial Tactics, Techniques, and Common Knowledge (ATT&CK) framework techniques. Breach Predictor ingests and analyzes vast amounts of Zscaler and third-party data to provide actionable insights.
-
-The Breach Predictor Dashboard uses various charts and graphs to give you a high-level overview, with options to drill down to see log information on individual user activities as part of a larger whole. The main Sankey chart focuses on how many of your users are at risk, and tells you which threats are affecting them and which stage of an attack they are likely in (Discover Attack, Compromise, Lateral Movement, or Data Loss).
-
-The most prominent part of the Breach Predictor Dashboard is the Overall Breach Probability score, which gives you instant insight into your organization’s security posture. The score takes into account the number of observed malware families, their location on the MITRE ATT&CK matrix, and the number of affected users. A higher score indicates a higher probability that a breach will occur in your organization. To learn more, see [About the Dashboard](https://help.zscaler.com/breach-predictor/about-dashboard).
-
-On the Findings page, you can quickly see all threats affecting your organization, placed in the MITRE ATT&CK Mapping matrix. Breach Predictor uses the MITRE ATT&CK framework to provide a more granular set of techniques that fit within the traditional 4 stages of attack. This framework lets you see more precisely your current attack stage location, as well as where a threat is expected to move. The basic idea is that the further right you move on the MITRE ATT&CK matrix, the closer you are to a data breach. Breach Predictor lets you see the current position of a threat, as well as where it’s headed, so that you can preemptively fix policy issues. To learn more, see [About Findings](https://help.zscaler.com/breach-predictor/about-findings).
-
-The following table shows how MITRE ATT&CK techniques map to the 4 main stages of attack:
-
-| Attack Stages | MITRE ATT&CK Techniques |
-| --- | --- |
-| Discover Attack | [Reconnaissance](https://attack.mitre.org/tactics/TA0043/) [Resource Development](https://attack.mitre.org/tactics/TA0042/) |
-| Compromise | [Initial Access](https://attack.mitre.org/tactics/TA0001/) [Execution](https://attack.mitre.org/tactics/TA0002/) [Persistence](https://attack.mitre.org/tactics/TA0003/) [Privilege Escalation](https://attack.mitre.org/tactics/TA0004/) [Defense Evasion](https://attack.mitre.org/tactics/TA0005/) |
-| Lateral Movement | [Credential Access](https://attack.mitre.org/tactics/TA0006/) [Discovery](https://attack.mitre.org/tactics/TA0007/) [Lateral Movement](https://attack.mitre.org/tactics/TA0008/) [Collection](https://attack.mitre.org/tactics/TA0009/) |
-| Data Loss | [Command and Control](https://attack.mitre.org/tactics/TA0011/) [Exfiltration](https://attack.mitre.org/tactics/TA0010/) [Impact](https://attack.mitre.org/tactics/TA0040/) |
-
-Breach Predictor leverages AI-powered breach probability scoring and policy recommendations to preemptively eliminate attack paths, lowering your organization’s overall risk. It lets you quickly and easily analyze vast amounts of data from multiple log sources, peer best practices, current policy settings, and cutting-edge threat data from [Zscaler ThreatLabz](https://threatlabz.zscaler.com/), the security research arm of Zscaler.
-
-When Breach Predictor identifies a problem, the interface lets you address the issue more effectively by focusing on the attack path instead of on individual users. That way, you don’t get bogged down in granular data and can make adjustments that protect your organization as a whole. For example, suppose a large number of users are accessing a suspect URL. Instead of focusing on individual data because of individual alerts, Breach Predictor identifies the attack path and aggregates all users impacted by the attack and exposed at a particular URL.
-
-See image.
-
-[Image: Illustration of Proactive Breach Reduction in Zscaler Breach Predictor]
-
-Breach Predictor eases burdens on SOC workflows by providing context for each threat, how many users the threat has impacted, and any updates that might need to be made to your organization's existing policies. Breach Predictor isn’t meant to replace reactive security tools; instead, it’s designed to work in tandem with those tools to improve visibility and communication across your organization.
-
-Perhaps your SOC team doesn’t normally focus on security issues at a policy level, opting instead to concentrate on higher-level operations activities so that engineering can focus on policy work. However, adversaries don't confine themselves to specific boundaries, and the ever-evolving security landscape requires that security teams take the same approach. Bad actors are looking for any vulnerability to exploit, so your security tools must give you a complete view across your organization.
-
-By linking predictive modeling with policy visibility and recommendations, Breach Predictor helps bridge the gap between operations and engineering, encouraging improved communication with fewer silos. With traditional detection, you respond to an intruder who is already in your environment. With Breach Predictor, your team won’t spend as much time reacting to individual alerts; instead, you can focus on proactively anticipating and cutting off your adversaries’ next moves. Breach Predictor can help your SOC team develop an overarching strategy to avoid reactivity and deal with issues at the root level so that operational solutions are more effective.
-
-See image.
-
-[Image: Illustration of Improved Security Posture in Zscaler Breach Predictor]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/about-asset-inventory","lastmod":"2024-11-29T06:06Z","nid":"1503566"} -->
-## About Asset Inventory
-
-- Source: https://help.zscaler.com/easm/about-asset-inventory
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Inventory > About Asset Inventory
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on Asset Inventory in Zscaler External Attack Surface Management (EASM), including asset discovery, risk assessment, and inventory management features.
-
-Asset Discovery and Inventory are core functionalities of EASM that enable scanning the internet for identifying exposed assets and inventorying them periodically to provide actionable insights into the organization's external attack surface. The scanning process starts with one or more legitimate assets of the organization configured as seeds. The initial scan of the seeds brings up assets that are directly associated with the seeds, forming the first level of connections. Then the first level of connections are scanned to discover the second level of linked assets, and so on. This process of recursively scanning assets from each level of connection to the seed leads to the discovery of exposed assets sprawling up to the periphery of the organization's asset infrastructure with the seed at the center of the web of connections, ultimately mapping the attack surface of the organization. To learn more, see [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery).
-
-Asset Inventory provides the following benefits and enables you to:
-
-- Continuously scan and index internet-facing assets to maintain a detailed inventory of your organization's external attack surface, enabling proactive identification and monitoring of potentially vulnerable assets.
-- Leverage risk insights associated with each discovered asset to prioritize risk mitigation efforts, ensuring that your organization addresses the most critical vulnerabilities effectively and efficiently.
-
-All assets discovered through the scanning process are indexed, inventoried, and populated on the Assets page. Following the discovery process, the assets are investigated to identify the risks and vulnerabilities associated with them, and these risk insights are populated for the respective assets for further examination and risk mitigation. Furthermore, the assets are continuously monitored through periodic scans, and any changes in the asset's status and risk exposure are reflected on the Assets page.
-
-## About the Assets Page
-
-On the Assets page, you can do the following:
-
-1. View the list of assets discovered by EASM for your organization. For each asset, you can view:
-  - **Name**: An identifier for the asset sourced from the scan. Depending on the type of asset, this field might contain a domain name, host name, IP address or IP block, web page URL, autonomous system number (ASN), or certificate ID.
-  - **Type**: The type of the asset classified as Domain, Host, Web Page, Certificate, ASN, IP Address, or IP Block.
-  - **Risk Level**: The risk level assigned to the asset from Minimum, Low, Medium, High, and Critical.
-  - **Findings Count**: The number of risk findings that are identified and tracked for the asset.
-  - **Status**: The status of the asset represented by the values Approved, Candidate, and Archived, indicating the relationship status between the asset and the organization for determining whether the asset must be included in subsequent scans.
-  - **First Seen**: The timestamp when the asset was first discovered in a scan.
-  - **Last Seen**: The timestamp when the asset was last observed in a scan.
-  - **UUID**: A Universally Unique Identifier (UUID) generated and assigned to the asset by EASM.
-2. [Click an asset record to view comprehensive details about the asset and its associated risk insights](https://help.zscaler.com/easm/understanding-asset-details).
-3. [Filter the asset data based on specific parameters such as Status, Risk Level, Last Seen, and Type](https://help.zscaler.com/easm/filtering-customizing-assets-page).
-4. [Modify the table and its columns](https://help.zscaler.com/easm/filtering-customizing-assets-page).
-5. [Download the list of all assets for the selected organization into a CSV file](https://help.zscaler.com/easm/downloading-assets).
-6. Search for an asset by name.
-7. Select a different organization for which you want to view the asset inventory details. The default organization is automatically selected when the Assets page is accessed.
-8. View the timestamp when the asset inventory details were last updated.
-
-[Image: The Assets page in EASM showing the assets discovered and inventoried for the selected organization]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/about-discovery-profiles","lastmod":"2024-11-29T06:06Z","nid":"1503556"} -->
-## About Discovery Profiles
-
-- Source: https://help.zscaler.com/easm/about-discovery-profiles
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Discovery > About Discovery Profiles
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on Discovery Profiles in Zscaler External Attack Surface Management (EASM) to control asset discovery and manage organizational attack surfaces.
-
-EASM requires you to configure seed assets to initiate the scan for discovering your internet-facing assets. The seeds are known legitimate assets of your organization that are used as the first and central node in a series of asset connections that are discovered across your online asset infrastructure using recursive scanning, including assets that might otherwise be unknown or left unmonitored. While setting up asset discovery, EASM allows you to configure seeds by creating a discovery profile. A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. To learn more, see [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery).
-
-Discovery profiles provide the following benefits and enable you to:
-
-- Configure discovery profiles with specific seed assets to tailor your attack surface mapping, ensuring all internet-facing assets—including those that might be overlooked—are identified and monitored effectively.
-- Manage discovery and asset inventory for different entities within your organization (such as subsidiaries or business verticals) separately, allowing for more organized and efficient management of each entity’s unique attack surface.
-
-In addition, EASM allows you to set up [organizations](https://help.zscaler.com/easm/creating-managing-organizations) to help keep your attack surface discovery and inventory management separate for distinct entities, such as parent companies, subsidiaries, acquisitions, or business verticals that are part of your business enterprise. For each organization, you can configure distinct discovery profiles by configuring seeds using known legitimate assets of that specific organization.
-
-## About the Discovery Profiles Page
-
-On the Discovery Profiles page (Administration > Organization > [Organization Name]), you can do the following:
-
-1. [Create a new discovery profile.](https://help.zscaler.com/easm/creating-managing-discovery-profiles) Currently, only one discovery profile can be configured for an organization. When a discovery profile is added, the **Add New Discovery** button disappears.
-2. View the list of discovery profiles configured for the organization. For each discovery profile, you can see:
-  - **Name**: The name of the discovery profile.
-  - **Included Seeds**: The seeds that are included in the asset scan performed via the discovery profile.
-  - **Last Scan**: The timestamp when the last scan was performed via the discovery profile.
-  - **Duration**: The time taken for the last discovery scan to run to completion.
-  - **Frequency**: The frequency of asset scan.
-  - **Status**: The status of the discovery profile indicating whether it is enabled or disabled.
-3. [Edit a discovery profile or modify its status.](https://help.zscaler.com/easm/creating-managing-discovery-profiles)
-4. [Delete a discovery profile that has already been disabled.](https://help.zscaler.com/easm/creating-managing-discovery-profiles)
-5. Modify the table and its columns.
-6. Go to the **Included Seeds** tab.
-
-[Image: The Discovery Profile page with a list of discovery profiles added for an organization in EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/about-findings","lastmod":"2024-11-29T06:06Z","nid":"1503591"} -->
-## About Findings
-
-- Source: https://help.zscaler.com/easm/about-findings
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Findings > About Findings
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on Risk Findings in Zscaler External Attack Surface Management (EASM), including identifying vulnerabilities, tracking risks, and accessing detailed insights.
-
-EASM scans the internet to identify and track your organization's internet-facing assets and the risks associated with them to provide a comprehensive view into your organization's external attack surface. Following the discovery process, the assets are investigated to identify the risks associated with them, such as undetected vulnerabilities, misconfigurations, and compliance violations. The risk parameters identified in the assets are populated in the EASM Admin Portal as findings along with actionable insights and recommendations for individual findings. This enables you to take corrective measures to eliminate threats and vulnerabilities by prioritizing risks that impact business-critical assets or operations.
-
-Findings provide the following benefits and enable you to:
-
-- Gain comprehensive insights on vulnerabilities, misconfigurations, and compliance violations associated with your internet-facing assets, allowing you to prioritize corrective actions for the most critical risks that could impact your organization's operations.
-- Access detailed insights, including risk scores, threat severity, and remediation recommendations, to effectively address vulnerabilities and strengthen your organization's security posture against potential threats.
-
-The findings include a range of asset-based risks and vulnerabilities. Examples of risk findings include but are not limited to Common Vulnerabilities and Exposures (CVEs), TLS/SSL misconfigurations or outdated versions, expired digital certificates, domain registration expiration, exposed VPN appliances, insecure HTTP headers, internet-facing sensitive services (e.g., RDP, VNC, SSH, Telnet, SNMP). EASM provides insightful information into these findings and how to remediate risks in the associated assets. In addition, it provides extensive information on vulnerabilities, such as the threat severity, likelihood of exploitation, a risk score computed for the finding, comprehensive details on the origin of the vulnerability, exploitation mechanisms, impact level, and recommendations for risk remediation obtained from multiple sources, and more. You can access all of this information centrally from the Findings page on the EASM Admin Portal.
-
-For a summary of your findings based on key metrics, see [Insights Overview dashboard](https://help.zscaler.com/accessing-interacting-insights-overview-dashboard).
-
-## About the Findings Page
-
-On the Findings page (Insights > Findings), you can do the following:
-
-1. View the list of risk findings associated with the assets inventoried for the selected organization. For each finding, you can view:
-  - **Name**: An identifier for the finding sourced from the scan or assigned by EASM in some cases. Depending on the type of finding, this field can contain a wide variety of identifiers, such as CVE ID, VPN, Self-Signed Certificate, etc.
-  - **Category**: The category assigned to the finding from Exposure, Misconfiguration, and Vulnerability.
-  - **Status**: The status assigned to the finding from Not Verified, Verified, Disputed, Risk Accepted, and Resolved.
-  - **Risk Score**: A computed risk score for the finding by Zscaler based on multiple vectors such as threat severity, likelihood, and impact.
-  - **Impacted Asset**: The asset in which the finding was detected during the scan.
-  - **First Seen**: The timestamp when the finding was first identified in a scan.
-  - **Last Seen**: The timestamp when the finding was last observed in a scan.
-2. [Click a finding record to view comprehensive details about the finding.](https://help.zscaler.com/easm/understanding-finding-details)
-3. [Filter the findings data based on specific parameters such as Status, Risk Level, Last Seen, Category, and Type.](https://help.zscaler.com/easm/filtering-customizing-findings-page)
-4. [Modify the table and its columns.](https://help.zscaler.com/easm/filtering-customizing-findings-page)
-5. [Download the list of all findings tracked in the assets associated with the selected organization into a CSV file.](https://help.zscaler.com/easm/downloading-findings)
-6. Search for a finding by name.
-7. Select a different organization for which you want to view the findings. The default organization is automatically selected when the Findings page is accessed.
-8. View the timestamp when the findings data was last updated.
-
-[Image: Findings page in EASM that shows a list of risk findings associated with the assets discovered as part of the organization's attack surface]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/about-findings-impact","lastmod":"2026-01-16T06:06Z","nid":"1534119"} -->
-## About Findings Impact
-
-- Source: https://help.zscaler.com/easm/about-findings-impact
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Findings > About Findings Impact
-- Last modified: 2026-01-16T06:06Z
-- Summary: Information on EASM findings' return of investment (ROI), asset impact, and asset coverage.
-
-EASM ascertains the risk impact and the associated financial implications for each finding and expresses it as the Return on Investment (ROI) score to help organizations prioritize findings with substantial financial benefits for risk remediation. The ROI score provides a quantifiable measure of risk reduction and cost savings that can be achieved by remediating high-priority threats and vulnerabilities. The ROI score is computed based on factors that can quickly and efficiently reduce the attack surface, such as the assets affected by a finding, their risk level, and asset coverage percentage, using techniques designed by Zscaler's security research team, Threatlabz.
-
-Findings impact assessment provides the following benefits and enables you to:
-
-- Identify and prioritize findings based on quantified financial impact to minimize breach risk and avoid associated costs.
-- Increase operational efficiency and support regulatory compliance by enabling proactive remediation of high-priority threats.
-
-Findings with the highest ROI scores are highlighted on the Insights dashboard for greater visibility. To learn more, see [Accessing & Interacting with the Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard).
-
-## About the Findings Impact Page
-
-On the Findings Impact page (Insights > Findings Impact), you can do the following:
-
-1. View the timestamp of when the findings data was last updated.
-2. Select the organization for which you want to view the findings and their ROI scores. The default organization is automatically selected when you access this page.
-3. Search for a finding by name.
-4. View the list of risk findings and their computed ROI scores. For each finding, you can view: You can sort the table entries by the **Finding Name** and **ROI** columns.
-  - **Finding Name**: An identifier for the finding obtained from the asset scan or, in some cases, assigned by EASM. Depending on the type of finding, this field can contain a variety of identifiers, such as CVE ID, VPN name, certificate number, or HTTP header vulnerability names.
-  - **ROI**: The ROI calculated for the finding, on a scale of 1 to 10 (a higher ROI indicates that the risk remediation must be prioritized immediately).
-  - **Impacted Assets**: The number of assets that are affected by this finding.
-  - **Coverage**: The percentage of overall assets in the network that are affected by this finding.
-5. Click a finding name to view comprehensive information about the finding on the [Finding Details page](https://help.zscaler.com/easm/understanding-finding-details).
-
-[Image: Findings Impact page with Return on Investment (ROI) score, impacted assets, and asset coverage.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/about-lookalike-domains","lastmod":"2025-12-16T06:14Z","nid":"1508141"} -->
-## About Lookalike Domains
-
-- Source: https://help.zscaler.com/easm/about-lookalike-domains
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Lookalike Domains > About Lookalike Domains
-- Last modified: 2025-12-16T06:14Z
-- Summary: Information about lookalike or phishing domains detected for an organization's legitimate domains by EASM.
-
-As part of the asset discovery process that maps out your organization's digital attack surface, EASM identifies and tracks lookalike domains that are fraudulent or fake domains intentionally created by threat actors to mimic your legitimate domains. These domains, often used in phishing and other malicious activities, leverage domain-spoofing techniques to act under the guise of being a trusted source and deceive users into downloading malware or revealing sensitive information. EASM detects domains that resemble the seed domains that you configured via a [discovery profile](https://help.zscaler.com/easm/about-discovery-profiles).
-
-Lookalike domain detection provides the following benefits and enables you to:
-
-- Identify lookalike or phishing domains associated with your organization's legitimate domains and implement threat mitigation controls.
-- Safeguard your customers and employees from phishing domains and other forms of cyberattack, protect your brand identity, and prevent financial loss from cyberattacks.
-
-## About the Lookalike Domains Page
-
-On the Lookalike Domains page (Insights > Lookalike Domains), you can do the following:
-
-1. View the timestamp when the lookalike domain data was last updated.
-2. Select the required organization from the drop-down menu to view the lookalike domains detected for the organization. The default organization is automatically selected when you access the Lookalike Domains page.
-3. [Filter the lookalike domain data based on specific parameters such as Status, Exposure Score, Risk Category, and Deception Method.](https://help.zscaler.com/easm/filtering-customizing-lookalike-domains-page)
-4. Search for a lookalike domain by name.
-5. [Download the list of all lookalike domains tracked for your seed domains associated with the selected organization into a CSV file.](https://help.zscaler.com/easm/downloading-lookalike-domains)
-6. View the list of lookalike domains that are detected for your seed domains configured for the selected organization. For each lookalike domain, you can view:
-  - **Lookalike Domain**: The lookalike domain name.
-  - **Original Domain**: The legitimate domain impersonated by the lookalike domain.
-  - **Risk Category**: The risk categorization of the lookalike domain. Categories are Verified Phishing, Registered Lookalike, and Preventative Lookalike.
-  - **Risk Score**: A risk score computed for the lookalike domain on a scale of 1 to 100 (a higher score represents higher risk) based on various factors, such as the deception method used, graphical similarity between the original and lookalike domain, domain registration status, and identification of malicious and potentially phishing domain.
-  - **Deception Method**: The deception tactic used in the lookalike domain name to impersonate a legitimate domain. Examples of deception techniques include the use of homograph (i.e., by exploiting similar-looking characters or homoglyphs), substituting letters with numbers, hyphenation, intentional typos, or transposing letters.
-  - **Status**: The status assigned to the lookalike domain entry. Statuses are Not Verified, Verified, Risk Accepted, Resolved, and Disputed.
-  - **First Seen**: The timestamp when the lookalike domain was first identified in a scan.
-  - **Last Seen**: The timestamp when the lookalike domain was last observed in a scan.
-  - **Registered**: The registration status of the lookalike domain through a domain name registrar.
-  - **Registered By**: An individual or entity responsible for registering the lookalike domain, if available.
-7. [Modify the table and its columns.](https://help.zscaler.com/easm/filtering-customizing-lookalike-domains-page)
-8. [Click a lookalike domain record to view comprehensive details about the entity.](https://help.zscaler.com/easm/understanding-lookalike-domain-details)
-
-When EASM detects phishing lookalike domains, an alert icon appears on the Lookalike Domains tab in the left-side navigation. See image.
-
-[Image: The Lookalike Domains page in the EASM Admin Portal]
-
-[Image: Phishing lookalike domain alert displayed in the left-side navigation]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/about-role-management","lastmod":"2025-04-22T22:16Z","nid":"1503616"} -->
-## About Role Management
-
-- Source: https://help.zscaler.com/easm/about-role-management
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Administration > About Role Management
-- Last modified: 2025-04-22T22:16Z
-- Summary: Information on Role Management in Zscaler External Attack Surface Management (EASM) for assigning user roles and managing access permissions.
-
-EASM supports role-based access control (RBAC), allowing you to assign specific permissions and privileges to users for managing [EASM organizations](https://help.zscaler.com/easm/creating-managing-organizations) according to their roles. You can create tailored administrator roles with the necessary access permissions for specific EASM organizations and assign these roles to designated users.
-
-Role Management provides the following benefits and enables you to:
-
-- Enhance security with RBAC by granting users access only to the specific data and features needed for their roles, minimizing the risk of unauthorized access and ensuring compliance with security policies.
-- Simplify and streamline user permission management by enabling administrators to quickly create, assign, and customize roles, ensuring that access levels are consistently aligned with organizational requirements.
-
-While role management is supported in the EASM Admin Portal, role assignment to users takes place in Zscaler's centralized identity management platform, ZIdentity. To learn more, see [Managing Entitlements](https://help.zscaler.com/zidentity/managing-entitlements) and [Assigning Entitlements to Users and User Groups](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups#admin-entitlements).
-
-## About the Role Management Page
-
-On the Role Management page (Administration > Role Management), you can do the following:
-
-1. [Add an administrator role.](https://help.zscaler.com/easm/creating-managing-roles)
-2. View the list of administrator roles configured. For each role, you can view the following information:
-  - **Name**: The name of the administrator role.
-  - **Permissions**: The permissions to the EASM Admin Portal (Full Access or View Only) configured for the role.
-  - **Organizations**: The list of custom EASM organizations that are within the scope of the role.
-  - **Description**: Additional information about the role.
-3. [Edit or delete configured administrator roles.](https://help.zscaler.com/easm/creating-managing-roles) If you have view-only permission to the organization, a **View** icon appears instead.
-4. Search for an administrator role.
-
-[Image: Role management page in EASM]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/accessing-and-navigating-easm-admin-portal","lastmod":"2024-11-29T06:06Z","nid":"1503626"} -->
-## Accessing and Navigating the EASM Admin Portal
-
-- Source: https://help.zscaler.com/easm/accessing-and-navigating-easm-admin-portal
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Getting Started > Admin Portal > Accessing and Navigating the EASM Admin Portal
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to sign in to the EASM Admin Portal and navigate the features and functionalities.
-
-This article covers the following topics:
-
-- Signing in to the EASM Admin Portal
-- Accepting the End User Subscription Agreement (EUSA)
-- Navigating within the EASM Admin Portal
-
-When an EASM tenant is provisioned for your organization, a user account with the super admin role is created. This account allows you to access all functionalities and features in the EASM Admin Portal. Zscaler sends you an email with details such as the URL to access the EASM Admin Portal along with your login ID. Use the details in the email to complete your account registration. The registration process involves accessing the EASM Admin Portal through the provided link and configuring the authentication credentials for your account. This authentication flow also applies to the other administrator users that are configured with access to the EASM Admin Portal.
-
-You must complete the registration within the stipulated time mentioned in your email.
-
-The following steps are required to sign in to the EASM Admin Portal for all administrators added to the portal.
-
-To sign in to the EASM Admin Portal for the first time and complete your account registration:
-
-1. Click the Setup link sent via the email. This takes you to a password creation page served by Authentication Service, Zscaler's unified identity service that centralizes identity management, user authentication, and entitlement assignment for users to Zscaler services.
-2. On the **Create a Password** page: See image. This password is configured for Authentication Service through which you can centrally access all the supported Zscaler services.
-  1. **New Password**: Enter a password.
-  2. **Confirm New Password**: Re-enter the password to confirm.
-3. Click **Next** to continue.
-4. On the **Multi-Factor Authentication** page, select one of the following authentication methods as your second factor of authentication, then click **Set Up**: See image. Optionally, you can skip configuring MFA if your Authentication Service configuration allows it until a period of time and enroll later using the **Enroll Second Factor** button on the Welcome page. However, Zscaler recommends that all user accounts are enrolled for MFA for enhanced security. Your account is created, and the account details are displayed as shown in the following image. See image.
-  - Security Key or Biometric
-  - Google Authenticator
-  - Phone OTP
-  - Email OTP
-5. Click **Continue**. The Authentication Service Landing Page appears.
-6. On the Authentication Service Landing Page, click the **External Attack Surface Management** tile to access the EASM Admin Portal. See image.
-
-To sign in to the EASM Admin Portal subsequently after the initial login:
-
-1. Go to the [Authentication Service Landing page](https://help.zscaler.com/zidentity/accessing-and-navigating-zidentity-landing-page).
-2. Enter your login ID. Select the **Remember me** checkbox if you want the service to autofill your login ID information in subsequent sessions from the same device. See image.
-3. Click **Next**.
-4. Enter your password and click **Sign In**. See image.
-5. Depending on the second method of authentication configured, you are prompted to enter one of the following credentials to complete the sign-in process:
-  - Security Key or Biometric
-  - Google Authenticator
-  - Phone OTP
-  - Email OTP
-
-If you want to use a temporary alternative method to sign in without having to enter a password or the second factor authentication details, click **Other Sign-in Options** on the Password screen and select **Email OTP**. An OTP is sent to the email address configured for your account. Enter the OTP and click **Verify** to sign in your account. This option is supported only if you have configured MFA.
-
-See image.
-
-If you want to reset your password, click **Having trouble signing in?** > **Reset Password** to receive a password reset email. To configure a different method of authentication for MFA, click **Having trouble signing in?** > **Reset Second Factor** to receive an email with instructions to reset your second method of authentication a. The reset link within the email expires after 5 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/zidentity/resetting-login-credentials-or-mfa).
-
-See image.
-
-When administrators log in to the EASM Admin Portal for the first time, an EUSA is displayed. You need to accept the EUSA to start using the features in the EASM Admin Portal.
-
-You can access the EUSA anytime on the [Zscaler website](https://www.zscaler.com/legal/end-user-subscription-agreement).
-
-The EASM Admin Portal contains the following items in the left-side navigation:
-
-- Dashboard
-- Insights
-- Assets
-- Administration
-- Log Out
-
-See image.
-
-To configure a security key or biometric:
-
-1. When you click **Set Up**, a list of all Fast Identity Online 2 (FIDO2) supported methods available for your devices is displayed. FIDO2 is a set of protocols developed by the FIDO Alliance to provide the most secure passwordless authentication methods. The services, such as Windows Hello, YubiKey, etc., register and certify their security devices with FIDO2 to cater to their customers.
-2. Select one of the methods from the list to set up a security key or biometric authentication.
-3. Follow the instructions displayed on your screen to complete the set up.
-
-To set up Google Authenticator:
-
-1. Follow the steps shown on the screen and then click **Next**.
-2. In the **Google Authenticator Verification Code** field, enter the verification code that you see in the Google Authenticator and click **Verify**.
-
-To set up SMS one-time password (OTP):
-
-1. **Country**: Select the country of your phone number.
-2. **Phone Number**: Enter the phone number on which you want to receive the OTP and click **Send OTP via SMS**.
-3. **Enter SMS OTP**: Enter the OTP received on your phone and click **Verify**. The OTP is valid for two minutes. If it expires, click **Back** and then **Send OTP via SMS** to request a new one.
-
-You also have the option to go back and modify your number before verification. Currently, the SMS OTP option is only supported for phone numbers from India and the USA.
-
-Your second-factor authentication is configured as **Email OTP** as soon as you click **Set Up**. An email OTP is sent to your official email address during your login attempts as part of your secondary authentication.
-
-See image.
-
-Enter your security key or complete the biometric authentication.
-
-Enter the one-time verification code generated and shown on your Google Authenticator.
-
-Enter the **Country** and **Phone Number** and click **Request Code**. Enter the one-time password (OTP) received on your phone number and click **Verify**. The OTP expires after two minutes. If the OTP expires or if you don't receive an OTP, click **Resend** to receive another OTP after 60 seconds.
-
-Enter the OTP received at your email address and click **Verify**. The OTP expires after two minutes. If the OTP expires or if you don't receive an OTP, click **Resend** to receive another OTP after 60 seconds.
-
-Click the **Dashboard** drop-down menu to select between **Insights Overview** and **Assets Overview**. These dashboards provide a high-level summary of your organization's risk findings and asset inventory in graphical representations for a quick and easy interpretation of the data by adjusting the parameters as needed.
-
-To learn more, see [Understanding Dashboards](https://help.zscaler.com/easm/understanding-dashboards).
-
-Click the **Insights** drop-down menu to select between **Findings** and **Lookalike Domains**. The **Findings** page provides a cataloged list of risk findings associated with the assets attributed to your organization through EASM's discovery and inventory processes, along with critical information about the findings. The **Lookalike Domains** page provides a tabulated list of phishing domains detected for your legitimate domains. You can access detailed information about individual risk findings and lookalike domains from the repective pages.
-
-To learn more, see [About Findings](https://help.zscaler.com/easm/about-findings) and [About Lookalike Domains](https://help.zscaler.com/easm/about-lookalike-domains).
-
-Click **Assets** to view a tabulated list of all the internet-exposed assets linked to your organization along with critical information about each asset, such as the asset type, risk level, number of risk findings detected in the asset, when the asset was first and last seen, and more. You can access detailed information about each asset and its risk findings from this page.
-
-To learn more, see [About Asset Inventory](https://help.zscaler.com/easm/about-asset-inventory).
-
-Click the **Administration** drop-down menu to select from the following menu items displayed:
-
-- **Organization**: Add your organization and set up a discovery profile to scan and inventory the internet-facing assets that are linked to your organization. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
-- **Role Management**: Configure role-based access control to assign specific access permissions and privileges for users to organizations. To learn more, see [About Role Management](https://help.zscaler.com/easm/about-role-management).
-
-Click **Log Out** to sign out of the EASM Admin Portal. Users are automatically logged out of the portal after 1 hour of inactivity.
-
-[Image: Setting up EASM account by creating a password]
-
-[Image: Configure multi-factor authentication (MFA) for EASM account for enhanced security)]
-
-[Image: EASM account details displayed after completing authentication setup]
-
-[Image: EASM account sign-in page with login ID entered]
-
-[Image: EASM account sign-in process using password]
-
-[Image: EASM account sign-in using email OTP]
-
-[Image: EASM account additional sign-in options]
-
-[Image: EASM account authentication credentials reset]
-
-[Image: ZIdentity landing page to access EASM]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/accessing-interacting-assets-overview-dashboard","lastmod":"2024-11-29T06:06Z","nid":"1503536"} -->
-## Accessing & Interacting with the Assets Overview Dashboard
-
-- Source: https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Dashboards & Analytics > Accessing & Interacting with the Assets Overview Dashboard
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on interacting with the Assets Overview Dashboard in Zscaler External Attack Surface Management (EASM), including accessing and using widgets to monitor and manage asset risks and vulnerabilities.
-
-The Assets Overview dashboard has a collection of interactive widgets that present information on the assets based on various parameters, such as risk level, risk score, trend, distribution across geographic locations, sensitive information exposure via hostnames, distribution of SSL/TLS versions on the assets, etc. using appropriate graphical visualizations. It provides a consolidated view of your organization's exposed assets, highlighting the most vulnerable and risky assets to help you prioritize safeguarding business-critical assets and taking appropriate risk remediation steps. In addition to interacting with the widgets to visualize the data in the desired representation, you can click on individual data points to examine them in depth.
-
-## Accessing the Dashboard
-
-To access the Assets Overview dashboard, go to Dashboard > Assets Overview Dashboard in the EASM Admin Portal. The information presented in the Assets Overview dashboard corresponds to your organization selected on the top-right corner. You can use this drop-down menu to select the organization for which you want to view the dashboard. You can also see the timestamp when the current data displayed on the dashboard has been updated.
-
-## Interacting with Dashboard Widgets
-
-The Assets Overview dashboard includes the following widgets:
-
-- Asset Count by Type
-- Assets by Risk Level
-- Assets Over Time by Risk Level
-- Top Locations by Assets
-- Top 5 Assets by Revealing Hostnames
-- Top 5 Assets by Risk Level
-- Distribution of SSL/TLS Versions
-
-This widget provides information about the different classifications of assets used by Zscaler EASM and the asset distribution across the classifications. The following asset classifications are available:
-
-- Domains
-- Hosts
-- Web Pages
-- Certificates
-- ASNs
-- IP Addresses
-- IP Blocks
-
-For each asset type, you can view the number of assets within that type. You can click the count for a specific asset type to get a filtered, tabulated view of the corresponding assets on the [Assets page](https://help.zscaler.com/easm/about-asset-inventory), where you can drill down on each asset for detailed information.
-
-See image.
-
-This widget provides information on how the assets are distributed across different risk levels such as minimal, low, medium, high, and critical. The categorization of assets based on risk levels enables you to efficiently handle risk remediation by prioritizing the assets based on criticality and allocating appropriate resources. It also helps you quickly assess the overall level of risk exposure based on the volume of assets across risk levels. The risk level assigned to an asset is based on the risk score generated for the asset.
-
-Mapping Between Risk Level and Risk Score
-
-This widget includes a bar chart that plots the number of assets against risk levels. You can hover over each bar to view the number of assets assigned with a specific risk level. Furthermore, you can click each bar to get a filtered, tabulated view of the corresponding assets on the [Assets page](https://help.zscaler.com/easm/about-asset-inventory), where you can drill down on each asset for detailed information.
-
-See image.
-
-| Risk Level | Risk Score Range |
-| --- | --- |
-| Minimal | 0 |
-| Low | 1–39 |
-| Medium | 40–69 |
-| High | 70–89 |
-| Critical | 90–100 |
-
-This widget provides information about the trends of asset exposure over a specific period of time using a line graph that plots the number of assets against specific timelines. You can customize the information shown by this graph using the following options:
-
-- Select the time frame for which the trend is shown using the time filter on the top-right corner of the widget from last 7 days, last 30 days, last 90 days, and last 180 days.
-- Select a risk level using the checkbox at the bottom to view the trend of the assets assigned with that specific risk level. You can select multiple risk levels simultaneously to view the corresponding trends together.
-
-When customizing the graph for a time frame greater than the last 7 days, you can view the assets count for specific days by hovering over the line to the specific day.
-
-See image.
-
-This widget provides a worldwide proportional symbols map that plots the geographical regions or countries with the number of exposed assets attributed to your organization. The size of each circle visually represents the number of assets in each region relative to others; larger circles indicate more assets compared to regions represented by smaller circles.
-
-You can view the exact number of assets in a specific region by hovering over or clicking the region or the country on the map. In addition, the list of countries where the assets are located along with the number of assets for each country is shown on the left pane of the widget.
-
-See image.
-
-This widget provides the list of top 5 assets with hostnames containing revealing information that might inadvertently benefit attackers by exposing valuable information about your asset infrastructure. For example, hosts with names that are revealing of the asset's functionality or purpose, exposing the network topology, describing the application type, indicating static IP addresses, etc. might all be valuable information to a bad actor potentially looking to exploit an organization's exposed assets.
-
-The data in this widget is presented in a tabular form and the following information is available for each asset:
-
-- **Name**: The name of the asset with potentially revealing information.
-- **Impact Level**: The impact level of the information revealed in the hostname, which correlates with potential disclosed functionality of the asset. The top 5 assets are determined based on the highest level of impact and are listed on a decreasing order of magnitude.
-
-You can click an entry to view the asset and its related discoveries on the [Assets page](https://help.zscaler.com/easm/about-asset-inventory). For example, if you click a domain named `api.unlockedai.com`, any subdomains identified for the domain would also be listed on the Assets page. Also, if the domain is classified as both a web page and a host, both entries would be listed on the Assets page, and you can drill down on each entry to view detailed information about the asset and the specifics related to the asset type. You can also click **View All Assets** on the top-right corner of the widget to view the complete list of assets on the Assets page.
-
-See image.
-
-This widget provides the list of top 5 assets with the highest risk score. The data is presented in a tabular form and the following information is available for each asset:
-
-- **Name**: The name of the asset.
-- **Risk Score**: A risk score computed for the asset based on the findings that are associated with the asset.
-
-You can click an entry to view the asset and its related discoveries on the [Assets page](https://help.zscaler.com/easm/about-asset-inventory). For example, if you click a domain named `api.unlockedai.com`, any subdomains identified for the domain would also be listed on the Assets page. Also, if the domain is classified as both a web page and a host, both entries would be listed on the Assets page, and you can drill down on each entry to view detailed information about the asset and the specifics related to the asset type. To view the complete list of all assets, click **View All Assets** on the top-right corner of the widget and this takes you to the Assets page.
-
-See image.
-
-This widget provides a donut chart representing the percentage of SSL/TLS versions distributed across the assets discovered.
-
-Connections are only tested for the following SSL/TLS versions:
-
-- **SSL Versions**: 2.0 and 3.0
-- **TLS Versions**: 1.0, 1.1, 1.2, and 1.3
-
-You can hover over a specific area to view the number of connections using that specific SSL/TLS version, with the total number of connections shown in the center of the chart.
-
-See image.
-
-[Image: A widget providing information about the different classifications of assets in EASM's Assets Overview dashboard]
-
-[Image: A widget provides information on how the assets are distributed across different risk levels in EASM's Assets Overview dashboard]
-
-[Image: A widget providing information about the trends of asset exposure over time in EASM's Assets Overview dashboard]
-
-[Image: A widget showing a map of top locations with assets attributed to your organization in EASM's Assets Overview dashboard]
-
-[Image: A widget showing the list of top 5 assets with hostnames containing revealing information in EASM's Assets Overview dashboard]
-
-[Image: A widget providing the top 5 assets with the highest risk score in EASM's Assets Overview dashboard]
-
-[Image: A donut chart representing the percentage of SSL/TLS versions distributed across the assets discovered in EASM's Assets Overview dashboard]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/accessing-interacting-insights-overview-dashboard","lastmod":"2025-12-16T06:17Z","nid":"1503526"} -->
-## Accessing & Interacting with the Insights Overview Dashboard
-
-- Source: https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Dashboards & Analytics > Accessing & Interacting with the Insights Overview Dashboard
-- Last modified: 2025-12-16T06:17Z
-- Summary: Information on the Insights Overview Dashboard in Zscaler EASM, including accessing and utilizing interactive widgets to monitor risk findings and vulnerabilities.
-
-The Insights Overview dashboard has a collection of interactive widgets that present information on risk findings based on various parameters, such as their risk level, exposure, trend, type, distribution across geographic locations, certificate expiration, etc. using appropriate graphical visualizations. This dashboard provides a consolidated view of the risk findings and lookalike domains for your organization, highlighting the most critical and sensitive findings to enable you to identify them easily and take necessary action. In addition to interacting with the widgets to visualize the data in the desired representation, you can click on individual data points to examine them in depth.
-
-## Accessing the Dashboard
-
-To access the Insights Overview dashboard, go to Dashboard > Insights Overview Dashboard in the EASM Admin Portal. The information consolidated on the dashboard corresponds to your organization selected in the top-right corner. You can use this drop-down menu to select the organization for which you want to view the dashboard. You can also see the timestamp when the current data displayed on the dashboard has been updated.
-
-## Interacting with Dashboard Widgets
-
-The Insights Overview dashboard includes the following widgets:
-
-- Top 5 Findings by ROI
-- Distribution of Findings by Risk Level
-- Findings Over Time by Risk Level
-- Findings Percentage by Category
-- Top 5 Lookalike Domains by Exposure
-- Top 5 Exposed VPN Appliances
-- Top Locations by Findings
-- Top 5 Findings by Risk Level
-- Exposed Sensitive Services
-- SSL/TLS Certificate Expiration
-- Domain Registration Expiration
-
-This widget provides a list of the top 5 risk findings for an organization that have the highest Return on Investment (ROI) score. EASM ascertains the risk impact and the associated financial implications for each finding and expresses these factors as the Return on Investment (ROI) score. The ROI score provides a quantifiable measure of risk reduction and cost savings to help organizations prioritize findings for risk remediation. The ROI score is computed based on factors that can quickly and efficiently reduce the attack surface, such as the assets affected by a finding, their risk level, and asset coverage percentage.
-
-The data is presented in a tabular form, and the following information is available for each finding:
-
-- **Finding Name**: The name of the risk finding.
-- **ROI**: The ROI score calculated for the finding, on a scale of 1 to 10 (a higher ROI indicates that the risk remediation must be prioritized immediately).
-- **Impacted Assets**: The number of assets that are affected by this finding.
-
-You can click **View All Findings Impact**in the top-right corner of the widget to go to the [Findings Impact page](https://help.zscaler.com/easm/about-findings-impact). You can click a finding name in the table to go to the corresponding entry on the [Findings page](https://help.zscaler.com/easm/about-findings). On either page, you can further access detailed information about the findings by clicking a finding name.
-
-See image.
-
-This widget provides information on how risk findings are distributed across risk levels such as low, medium, high, and critical. The categorization of findings based on risk levels enables you to efficiently handle risk remediation by prioritizing the findings based on their criticality and allocating appropriate resources. It also helps you quickly assess the overall level of risk exposure based on the volume of findings across risk levels. This widget includes a single stacked bar chart that uses color coding to indicate the volume of findings in each risk level and a numerical representation of the data with a breakdown of the count of findings in each risk level. You can also view the number of findings present in each risk level by hovering over the respective color-coded bar in the stacked bar graph.
-
-You can click the number of findings in each risk level to get a filtered, tabulated view of the corresponding findings on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each finding for detailed information.
-
-See image.
-
-This widget provides information about the trends of risk findings over a specific period of time using a line graph that plots the number of findings against specific timelines. You can customize the information shown by this graph using the following options:
-
-- Select the time frame for which the trend is shown using the time filter in the top-right corner of the widget from last 7 days, last 30 days, last 90 days, and last 180 days.
-- Select a risk level using the checkbox at the bottom to view the trend of the findings assigned with that specific risk level. You can select multiple risk levels simultaneously to view the corresponding trends together.
-
-When customizing the graph for a time frame greater than the last 7 days, you can view the findings count for specific days by hovering over the line to the specific day.
-
-See image.
-
-This widget provides a donut chart representing the percentage of risk findings that are grouped within different categories:
-
-- **Exposure**: Shows the percentage of business-critical services, such as SSH, FTP, Telnet, and VPN services, MySQL data stores, revealing hostnames, etc.
-- **Misconfiguration**: Shows the percentage of outdated SSL/TLS versions, SSL/TLS certificate expiration, domain registration expiration, usage of self-signed certificates, and absence of common security headers in HTTP requests including but not limited to HTTP Strict Transport Security (HSTS), X-XSS-Protection, Set-Cookie, Cross-Origin-Opener-Policy (COOP), Permissions-Policy, etc.
-- **Vulnerability**: Shows the percentage of vulnerabilities that are part of the Common Vulnerabilities and Exposures (CVE) database.
-
-You can hover over a specific area to view the number of risk findings grouped within the corresponding category. Furthermore, you can click on a specific area of the chart to get a filtered, tabulated view of the corresponding risk findings on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each finding for detailed information.
-
-See image.
-
-This widget provides the list of the top 5 exposed VPN appliances linked to your organization with the highest risk scores. The data is presented in a tabular form and the following information is available for each VPN appliance:
-
-- **Name**: The name of the risk finding.
-- **Version**: The version number associated with the identified VPN application.
-- **CVE**: The CVE IDs of any publicly known vulnerabilities that are identified in the appliance.
-- **Known Exploits**: A Boolean value that indicates if the vulnerability identified in the appliance is recognized in the [Known Exploited Vulnerabilities (KEV) Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) maintained by the [CISA](https://www.cisa.gov/).
-- **Impacted Asset**: The name of the asset in which the finding was discovered.
-- **Risk Score**: A risk score computed for the finding based on multiple vectors such as threat severity, likelihood, and impact using a combination of open industry standard risk scoring systems; public, governmental, and threat intelligence sources on vulnerability risk computation; and Zscaler's proprietary computation method.
-
-You can click a specific VPN appliance finding in the table to go to the corresponding entry on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can click the entry to view more detailed information about the finding. You can also click the **View All VPN Appliances** button in the top-right corner of the widget to get a filtered view of all VPN appliances on the [Findings page](https://help.zscaler.com/easm/about-findings).
-
-See image.
-
-This widget provides a worldwide proportional symbols map that plots the geographical regions or countries with the number of risk findings detected as part of your attack surface. The size of each circle visually represents the number of risk findings in each region relative to others; larger circles indicate more findings compared to regions represented by smaller circles.
-
-You can view the exact number of findings in a specific region by hovering over or clicking the region or the country on the map. In addition, the list of countries where the findings are located along with the number of findings for each country is shown on the left pane of the widget.
-
-See image.
-
-This widget provides the list of top 5 findings with the highest risk levels. The data is presented in a tabular form and the following information is available for each finding:
-
-- **Name**: The name of the risk finding.
-- **Impacted Asset**: The name of the asset in which the finding was discovered.
-- **Risk Level**: The risk level assigned to the finding is based on the risk score generated for the finding. Mapping Between Risk Level and Risk Score
-
-You can also click the **View All Findings** button in the top-right corner of the widget to go to the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each finding for detailed information.
-
-See image.
-
-| Risk Level | Risk Score Range |
-| --- | --- |
-| Low | 1–39 |
-| Medium | 40–69 |
-| High | 70–89 |
-| Critical | 90–100 |
-
-This widget provides information about specific internet-exposed, business-critical services and the risk findings associated with these services using a bar chart. Examples of sensitive services include SSH, FTP, Telnet, VNC, TFTP (UDP), SNMP (UDP), databases such as MySQL, MongoDB and Redis, and other services such as Elasticsearch. This bar graph shows the sensitive services plotted against the number of risk findings identified in each of the services.
-
-You can hover over each bar to view the number of risk findings identified in a service. You can click a bar chart to get a filtered view of the risk findings for that specific service on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each finding for detailed information. Alternatively, you can click the **View All Exposed Services** button in the top-right corner of the widget to get a filtered view of all exposed services on the [Findings page](https://help.zscaler.com/easm/about-findings).
-
-See image.
-
-This widget provides information about SSL/TLS certificates detected in the assets attributed to your organization that are already expired or are nearing expiration. The certificates are categorized based on their expiration status and this widget provides a count breakdown for the following:
-
-- Certificates that are already expired
-- Certificates expiring in the next 30 days
-- Certificates with a validity period longer than the next 30 days
-
-You can click each of the counts to get a filtered, tabulated view of the corresponding certificates on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each certificate for detailed information.
-
-See image.
-
-This widget provides information about the domains that are attributed to your organization, categorized based on their expiration status. This widget provides a count breakdown for the following:
-
-- Domains that are already expired
-- Domains expiring in the next 30 days
-- Domains with a validity period longer than the next 30 days
-- Domains for which the validity period is unknown
-
-You can click each of the counts to get a filtered, tabulated view of the corresponding domains on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each domain for detailed information.
-
-See image.
-
-This widget provides the list of top 5 lookalike domains linked to the legitimate domains of your organization based on their exposure score. The data is presented in a tabular form and the following information is available for each finding:
-
-- **Original Domain**: The legitimate domain linked to your organization for which a lookalike domain has been identified.
-- **Lookalike Domain**: The lookalike domain identified based on your original domain linked to your organization.
-- **Risk Category**: The category assigned to the lookalike domain from Verified Phishing, Registered Lookalike, and Preventative Lookalike.
-- **Exposure Score**: The risk score computed for the lookalike domain.
-
-You can click the View **All Lookalike Domains** button in the top-right corner of the widget to go to the [Lookalike Domains page](https://help.zscaler.com/easm/about-lookalike-domains), where you can drill down on each entry for detailed information.
-
-See image.
-
-When EASM detects phishing lookalike domains, an alert appears on this widget with a link to the [Lookalike Domains page](https://help.zscaler.com/easm/understanding-lookalike-domain-details) with the appropriate filters selected (Risk Category is Phishing Lookalike and Status includes Verified and Not Verified). See image.
-
-You can block these domains for your organization users via Zscaler Internet Access (ZIA) by configuring URL Filtering policy rules using custom URL categories. To learn how to configure this policy, see [Configuring the URL Filtering Policy](https://help.zscaler.com/zia/configuring-url-filtering-policy).
-
-[Image: A widget providing information on how risk findings are distributed across risk levels in EASM's Insights Overview dashboard]
-
-[Image: A widget providing information about risk finding trends over time in EASM's Insights Overview dashboard]
-
-[Image: A donut chart widget representing the percentage of risk findings within categories in EASM's Insights Overview dashboard]
-
-[Image: A widget providing the list of top 5 lookalike domains in EASM's Insights Overview dashboard]
-
-[Image: A widget providing the list of the top 5 exposed VPN appliances in EASM's Insights Overview dashboard]
-
-[Image: A widget using a map that plots the geographical regions or countries with the number of risk findings detected in EASM's Insights Overview dashboard]
-
-[Image: A widget providing the list of top 5 findings with the highest risk levels in EASM's Insights Overview dashboard]
-
-[Image: A widget providing information about specific internet-exposed, business-critical services in EASM's Insights Overview dashboard]
-
-[Image: A widget providing information about SSL/TLS certificates detected in the assets attributed to your organization in EASM's Insights Overview dashboard]
-
-[Image: A widget providing information about the domains that are attributed to your organization in EASM's Insights Overview dashboard]
-
-[Image: Interacting with the Findings by ROI widget in the Insights Overview dashboard]
-
-[Image: Alert for phishing lookalike domain detection with a link to the corresponding Lookalike Domains page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/configuring-jira-integration","lastmod":"2026-02-17T06:06Z","nid":"1534124"} -->
-## Configuring the Jira Integration
-
-- Source: https://help.zscaler.com/easm/configuring-jira-integration
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Integrations > Configuring the Jira Integration
-- Last modified: 2026-02-17T06:06Z
-- Summary: Information on how to configure Jira integration with EASM organizations to facilitate Jira ticket creation and tracking for findings.
-
-You can connect your Jira instance with EASM to seamlessly create and track Jira tickets for your [findings](https://help.zscaler.com/easm/about-findings) directly from the EASM Admin Portal during the remediation process. EASM allows you to integrate Jira with individual EASM organizations as needed. After Jira is integrated with an EASM organization, admins with full access to the organization can create and view tickets for the corresponding findings.
-
-You can create Jira tickets for different projects and different issue types (e.g., Task, Story, and Bug) that exist in your Jira environment. When creating the tickets, you can fill out a set of predefined Jira fields, such as Project, Issue Type, Component, Priority, and Assignee. After you create the ticket, the record is added to Jira along with the finding details and any file attachments from EASM. The Jira ticket ID and status are reflected in EASM immediately. The ticket record details automatically synchronize between Jira and EASM.
-
-## Prerequisites
-
-Before configuring the Jira integration, ensure that you have:
-
-- Admin privileges to the EASM organization for which you want to enable the Jira integration.
-- User permission in Jira to create a personal access token, which is required for authenticating the integration.
-
-## Configuring the Jira Integration
-
-To set up the Jira integration, complete the following steps:
-
-- Step 1: Generate a personal access token in Jira.
-- Step 2: Authenticate the Jira connection in EASM.
-
-The first step in setting up this integration is generating a personal access token in Jira, which you can then use to authenticate the Jira connection in EASM.
-
-To create a personal access token:
-
-1. In the Jira application, go to **Profile picture** > **Manage account**> **Personal access tokens**.
-2. Click **Create token**.
-3. Enter a name for the token (e.g., `EASM-Jira Integration`).
-4. Set the token permissions to restrict the token only to specific, required activities. The token's permissions are set at your current level of access by default. Depending on your Jira configurations, you might not be able to modify the default permissions. To learn more, refer to the [Jira documentation](https://confluence.atlassian.com/jira).
-5. You can set the token to automatically expire after a specific time period. Setting an expiration period can be required or optional based on your admin configurations.
-6. Click **Create**. See image. Jira generates and displays an access token. The token displays only once and cannot be viewed again after you click **Close**. Ensure that you copy the token and store it securely.
-
-The personal access token must be valid at the time of configuring Jira integration in EASM, and subsequently, when admins create Jira tickets from EASM.
-
-The next step is establishing a secure connection with the Jira application using the personal access token you retrieved from Jira. To authenticate the Jira integration for an organization in EASM:
-
-1. In the EASM Admin Portal, go to **Administration** > **Organization**. The **Organization** window appears.
-2. In the **Organization** window: See image. The **Integrate Jira** window appears.
-  1. Locate and click the organization for which you want to enable the Jira integration.
-  2. Click **Integrations**.
-  3. In the Jira tile, click **Connect**.
-3. In the **Integrate Jira** window: See image.
-  1. Enter your organization's domain used in Jira. You can obtain this value from your Jira site URL (e.g., https://<your company domain>.atlassian.net or from a custom domain configured).
-  2. Enter your personal access token generated in Jira.
-  3. Click **Connect**.
-
-If the Jira connection is successfully established, a **Connected** badge and the token expiration time are displayed in the tile.
-
-You can edit the domain and personal access token details using the Edit button. The connection is re-established when you save the changes. To revoke the connection, use the vertical ellipses icon in the Jira tile and click **Disconnect**. In the confirmation prompt that appears, click **Disconnect** again to remove the integration.
-
-See image.
-
-After the integration is configured, admins can create Jira tickets for the findings associated with the organization. To learn more, see [Creating Jira Tickets for Findings](https://help.zscaler.com/easm/creating-jira-tickets-findings). Admins can create Jira tickets and the ticket synchronization takes place between Jira and EASM until the Jira token expires. When the token expires, you need to reconfigure the integration using a new token generated in Jira.
-
-[Image: Creating a personal access token in Jira]
-
-[Image: Configuring Jira integration in EASM]
-
-[Image: Configuring Jira integration in EASM]
-
-[Image: Finished setup of EASM-Jira integration]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/creating-jira-tickets-findings","lastmod":"2026-02-17T06:06Z","nid":"1534125"} -->
-## Creating Jira Tickets for Findings
-
-- Source: https://help.zscaler.com/easm/creating-jira-tickets-findings
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Findings > Creating Jira Tickets for Findings
-- Last modified: 2026-02-17T06:06Z
-- Summary: Information on how to create and view Jira tickets for EASM findings.
-
-You can integrate your Jira instance with one or more EASM organizations to create and track Jira tickets for the organization's [findings](https://help.zscaler.com/easm/about-findings) directly from the EASM Admin Portal. Admins with full permission to the organization can create Jira tickets for different projects and different issue types (e.g., Task, Story, and Bug) that exist in your Jira environment. To learn how to set up this integration, see [Configuring the Jira Integration](https://help.zscaler.com/easm/configuring-jira-integration). After an authenticated connection is established between an EASM organization and Jira through a valid personal access token (retrieved from Jira), admins can start creating Jira tickets for the corresponding findings.
-
-When creating the tickets, you can fill out a set of predefined Jira fields, such as Project, Issue Type, Component, Priority, and Assignee. After you create the ticket, the record is added to Jira along with data fetched from EASM such as the finding details and any attachment files present for the finding. The ticket details automatically synchronize between Jira and EASM until token expiration.
-
-To create Jira tickets for your findings:
-
-1. Go to **Insights** > **Findings** from the left-side navigation.
-2. Select the required organization using the drop-down menu in the top-right corner.
-3. Locate the finding for which you want to create a Jira ticket and click the finding. The **Finding Details** drawer appears.
-4. In the **Finding Details** drawer, click **Tickets**. Alternatively, you can click **View more details** on the drawer to go to the **Finding Details** page and then click the **Tickets** tab. The **Create Jira Ticket** window appears.
-5. In the **Create Jira Ticket** window, provide information for the following fields that correspond to Jira: Fields that have predefined values are automatically populated from Jira. See image.
-  1. **Ticket Name**: Enter a name that identifies your ticket.
-  2. **Project**: Select the Jira project to which the ticket must be added.
-  3. **Issue Type**: Select the issue type from the drop-down menu.
-  4. **Component**: Select the component that you want to associate with the ticket.
-  5. **Assignee**: Enter the name or email address of the Jira user who you want to assign to the ticket. As you type, EASM suggests matching user results, and you can select the required user from the populated list.
-  6. **Priority**: Select a priority for the ticket from the drop-down menu.
-  7. **Description**: Enter a description for the ticket.
-6. Click **Create**.
-
-The Jira ticket is created, and the record is added to Jira along with the finding details and any attachment files present for the finding in EASM. On the **Tickets** tab, the newly created ticket is listed. This tabulated list includes additional information about the ticket fetched from Jira, such as the ticket ID (labeled as **ID**), status (e.g., Open), and created and updated times. You can click the Jira ID to access the ticket details page in Jira.
-
-See image.
-
-Admins can create Jira tickets and the ticket records are synchronized between Jira and EASM until the Jira token expires. When the token expires, you need to [reconfigure the integration](https://help.zscaler.com/easm/configuring-jira-integration) using a new token generated in Jira.
-
-[Image: Adding Jira ticket in the EASM Admin Portal]
-
-[Image: Jira ticket listing in EASM for associated finding]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/creating-managing-discovery-profiles","lastmod":"2024-11-29T06:06Z","nid":"1503561"} -->
-## Creating & Managing Discovery Profiles
-
-- Source: https://help.zscaler.com/easm/creating-managing-discovery-profiles
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Discovery > Creating & Managing Discovery Profiles
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to create and manage discovery profiles in Zscaler EASM Admin Portal.
-
-While setting up asset discovery, EASM allows you to configure seeds by creating a discovery profile. A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. For each custom organization that you add, you can configure discovery profiles by adding seeds. To learn more, see [About Discovery Profiles](https://help.zscaler.com/easm/about-discovery-profiles).
-
-Only admins with full access permissions can create and manage discovery profiles. To learn more, see [Creating and Managing Roles](https://help.zscaler.com/easm/creating-and-managing-roles).
-
-The following sections explain how you can create and manage discovery profiles in the EASM Admin Portal. To learn how to configure and initiate asset discovery in EASM, see [Setting Up Asset Discovery](https://help.zscaler.com/easm/setting-up-asset-discovery).
-
-## Creating a Discovery Profile
-
-1. Go to **Administration** > **Organizations**. The **Organization** window appears.
-2. In the **Organization**window:
-  1. Locate and click the organization for which you want to create a discovery profile on the left pane.
-  2. Click the **Add Discovery Profile** button. See image. The **Profile Details** window appears.
-3. In the **Profile Details** window:
-  1. **Name**: Enter a name for the discovery profile.
-  2. **Description**: Enter a brief description for the profile.
-  3. The **Scan Frequency** is automatically set to **Weekly** and is non-editable.
-  4. Under **Manage Seeds** section:
-    - Select the type of the seed asset by clicking the respective tab. Currently, you can configure domains, IP addresses, and IP blocks as seed assets.
-    - When you are in the respective tab for adding seeds of a specific asset type, you can add seeds for that particular asset type. To add the list of seeds that must be included in the discovery profile, enter the seed name in the text box provided under the **Include** section. To add multiple seeds manually, press `Enter` or click **Add** after specifying each item. Alternatively, you can import a list of seeds from a CSV file by using the **Upload File** option. When you add the seeds manually, the seeds are displayed in a list under the **Include** section. To remove any seeds from the list, use the **Delete** icon that appears next to the seed name.
-4. Click **Save**. See image.
-
-The discovery profile is saved and displayed under a new **Discovery Profile** tab created for the organization. Additionally, an **Included Seeds**tab, appears for the organization where you can view the list of seeds configured for the entire organization. You can view the list of seeds along with their name, domain type, and the discovery profile to which they are mapped.
-
-See image.
-
-When you submit the discovery profile, EASM starts scanning the internet for asset connections using the seeds to map your organization’s attack surface and build an inventory of the internet-exposed assets. This process typically takes 24–48 hours and then you can view the asset inventory and the associated risks identified for the assets within the EASM Admin Portal.
-
-## Managing a Discovery Profile
-
-You can perform actions such as editing, disabling or enabling, and deleting discovery profiles within an organization. You can disable a discovery profile if you no longer want to monitor the inventoried assets or continue mapping the attack surface for a specific set of seeds. When a discovery profile is disabled, periodic scans for the inventoried assets are discontinued and the asset data and the associated risk information are no longer updated. Also, the asset discovery process using the seeds and their connections is suspended and no new asset links in the attack surface are identified.
-
-After disabling a discovery profile, you can still view the asset and findings data reported henceforth via the discovery profile in the EASM Admin Portal. However, you cannot perform any actions on the data (e.g., changing asset status) or modify the discovery profile configuration, including the seeds.
-
-If you no longer require the assets and findings data reported via a disabled discovery profile, you can take a further step to delete the discovery profile if needed. However, this action of deleting a discovery profile requires careful consideration about data backup and restoration before implementation. EASM allows you to download the list of assets and findings for an organization on the respective [Assets](https://help.zscaler.com/easm/about-asset-inventory) and [Findings](https://help.zscaler.com/easm/about-findings) page.
-
-Zscaler recommends exercising great caution when disabling or deleting a discovery profile for the following reasons:
-
-- If you disable a discovery profile, all scans defined within the profile are disabled. Only an admin user can re-enable the discovery profile.
-- If you delete a discovery profile, all associated assets and findings data are permanently removed. This action cannot be reversed and the deleted data cannot be restored.
-
-### Editing a Discovery Profile
-
-To edit a discovery profile:
-
-1. Go to **Administration** > **Organizations**. The **Organization** window appears.
-2. In the **Organization** window, under the **Discovery Profile** tab:
-  1. Locate the discovery profile that you want to modify and click the **Edit** icon displayed under the **Actions** column.
-  2. Under **Profile Details**, you can make changes to the **Name** and **Description** fields as needed.
-  3. Under **Manage Seeds**, you can select the respective tab for the seeds that you want to modify to add or remove seeds. To learn more about how to perform these actions, see Creating a Discovery Profile.
-3. Click **Save**.
-
-### Deleting a Discovery Profile
-
-Exercise caution when deleting a discovery profile because this permanently deletes all associated components, including the historical assets and findings discovered and inventoried via the discovery profile. This action cannot be reversed and the deleted data cannot be restored.
-
-You can delete only discovery profiles that have been disabled.
-
-To delete a discovery profile:
-
-1. Go to **Administration** > **Organizations**. The **Organization** window appears.
-2. In the **Organization** window under the **Discovery Profile** tab, locate the discovery profile that you want to delete and click the **Delete** icon displayed under the **Actions** column.
-
-[Image: The Add Discovery Profile button is annotated in EASM Admin Portal]
-
-[Image: The discovery profile configuration details in EASM Admin Portal]
-
-[Image: The discovery profile list view with discovery profile configuration details in EASM]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/creating-managing-organizations","lastmod":"2024-11-29T06:06Z","nid":"1503551"} -->
-## Creating & Managing Organizations
-
-- Source: https://help.zscaler.com/easm/creating-managing-organizations
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Discovery > Creating & Managing Organizations
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to create and manage organizations in Zscaler EASM Admin Portal.
-
-EASM allows you to add custom organizations to help keep your attack surface discovery and inventory management separate for distinct entities, subsidiaries, or business verticals that are part of your company. For each custom organization, you can configure distinct discovery profiles by adding seeds, which are known legitimate assets belonging to that specific organization. A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. To learn more, see [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery).
-
-EASM provides a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, Risk360, and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM. To learn more, see [What is Risk360?](https://help.zscaler.com/risk360/what-risk360)
-
-Only super admins can create and manage organization-specific configurations.
-
-The following sections explain how you can add and manage organizations in the EASM Admin Portal. To learn more about how to configure asset discovery in EASM, see [Setting Up Asset Discovery](https://help.zscaler.com/easm/setting-up-asset-discovery).
-
-## Adding an Organization
-
-To add a new organization:
-
-1. Go to **Administration** > **Organizations**. The **Organization** window appears.
-2. In the **Organization** window: A new organization is added with options to configure the discovery profile and other details for the organization shown on the right side. By default, the organization is enabled and this is required to initiate the asset discovery scan. To learn about discovery profiles, see [About Discovery Profiles](https://help.zscaler.com/easm/about-discovery-profiles). See image.
-  1. Click the **Add** icon on the left pane. If this is your first organization, you can alternatively use the **Add Organization** button. A text box to enter the name for the organization appears on the left pane.
-  2. Enter a name for the organization in the text box and click the **Tick** icon. See image.
-
-## Managing an Organization
-
-You can perform actions such as editing, disabling or enabling, and deleting the organizations added to the EASM Admin Portal. You can disable an organization if you no longer want to monitor the inventoried assets or continue mapping the organization's attack surface. When an organization is disabled:
-
-- all discovery profiles configured for the organization are disabled.
-- periodic scans for the inventoried assets performed via the discovery profiles are also discontinued and the asset data and the associated risk information are no longer updated.
-- the asset discovery process using the seeds within the discovery profiles and their connections is suspended, and no new asset links in the organization’s attack surface are identified.
-
-After disabling an organization, you can still view the assets and findings data reported henceforth for the organization in the EASM Admin Portal. However, you cannot perform any actions on the data (e.g., changing asset status) or modify any organization details. If you want to disable scans performed through specific discovery profiles, you can disable that discovery profile instead. To learn more, see [Creating & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
-
-If you no longer require the historical assets and findings data reported for a disabled organization, you can take a further step to delete the organization if needed. However, this action of deleting an organization requires careful consideration about data backup and restoration before implementation. EASM allows you to download the list of assets and findings for an organization on the respective [Assets](https://help.zscaler.com/easm/about-asset-inventory) and [Findings](https://help.zscaler.com/easm/about-findings) pages.
-
-Zscaler recommends exercising great caution when disabling or deleting an organization for the following reasons:
-
-- If you disable an organization, all associated discovery profile scans are disabled and the admins are locked out of the organization.
-- If you delete an organization, all associated components, including the historical assets and findings that were discovered and inventoried for that organization, are permanently removed. This action cannot be reversed and the deleted data cannot be restored.
-
-### Editing an Organization
-
-To modify the name or the status of an organization:
-
-1. Go to **Administration** > **Organizations**. The **Organization** window appears.
-2. In the Organization window, locate and click the organization for which you want to make changes.
-3. You can make the following changes to the organization:
-  - To modify the name of the organization, click the **Edit** icon, modify the name in the text box, and click the **Tick** icon to save the changes.
-  - To disable or re-enable the organization, use the **Enabled** slider provided and confirm your action in the confirmation pop-up window.
-
-### Deleting an Organization
-
-Exercise caution when deleting an organization because this would permanently delete all associated components, including historical assets and findings discovered and inventoried for the organization. This action cannot be reversed and the data deleted cannot be restored.
-
-You can only delete organizations that have been disabled. To delete an organization:
-
-1. Go to **Administration** > **Organizations**. The **Organization** window appears.
-2. In the Organization window, locate and click the organization for which you want to make changes.
-3. Click the **More** icon on the top-right corner of the page and click **Delete**. A confirmation window appears.
-4. In the confirmation window, click **Delete**.
-
-[Image: Add EASM organization for attack surface discovery and management]
-
-[Image: EASM organization added for attack surface discovery and management]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/downloading-assets","lastmod":"2024-12-02T06:06Z","nid":"1503581"} -->
-## Downloading Assets
-
-- Source: https://help.zscaler.com/easm/downloading-assets
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Inventory > Downloading Assets
-- Last modified: 2024-12-02T06:06Z
-- Summary: How to download the list of assets from the Assets page in Zscaler EASM Admin Portal.
-
-You can download the list of all assets that are part of your organization's external attack surface from the [Assets page](https://help.zscaler.com/easm/about-asset-inventory) as a CSV file. The data captured in the file directly replicates the table as it is displayed on the Assets page, reflecting any customization made through sorting, filtering, and selecting columns. This ensures that the downloaded file precisely mirrors the current view of the assets as seen on the page.
-
-To download a list of assets in the CSV format:
-
-1. Go to the **Assets** page.
-2. To customize the asset list:
-  - Apply filters to display the assets that must be downloaded.
-  - Select the required columns from the **Column Chooser** to include the respective data of the assets in the downloaded file.
-  - Sort the list of asset records by a specific column using the **Sorting** icon in the column header.
-3. Click the **Download** icon on the top-right corner of the page. The assets are downloaded as a CSV file.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/downloading-findings","lastmod":"2024-12-02T06:06Z","nid":"1503606"} -->
-## Downloading Findings
-
-- Source: https://help.zscaler.com/easm/downloading-findings
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Findings > Downloading Findings
-- Last modified: 2024-12-02T06:06Z
-- Summary: Information on how to download the list of findings from the Findings page in Zscaler EASM Admin Portal.
-
-You can download the list of all findings that are tracked in the discovered assets as part of your organization's external attack surface from the [Findings page](https://help.zscaler.com/easm/about-findings) as a CSV file. The data captured in the file directly replicates the table as it is displayed on the Findings page, reflecting any customization made through sorting, filtering, and selecting columns. This ensures that the downloaded file precisely mirrors the current view of the findings as seen on the page.
-
-To download a list of findings in the CSV format:
-
-1. Go to **Insights**> **Findings**.
-2. Customize the list as required using the following options:
-  - Apply filters to display the findings that must be downloaded.
-  - Select the required columns from the **Column Chooser** to include the respective data of the findings in the downloaded file.
-  - Sort the list of finding records by a specific column using the **Sorting** icon in the column header.
-3. Click the **Download**icon on the top-right corner of the page. The findings are downloaded as a CSV file.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/downloading-lookalike-domains","lastmod":"2024-12-19T06:06Z","nid":"1508156"} -->
-## Downloading Lookalike Domains
-
-- Source: https://help.zscaler.com/easm/downloading-lookalike-domains
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Downloading Lookalike Domains
-- Last modified: 2024-12-19T06:06Z
-- Summary: Information on how to download lookalike domains detected for an organization as a CSV file in the EASM Admin Portal.
-
-You can download the list of all lookalike domains that are tracked for your seed domains as a CSV file from the [Lookalike Domains](https://help.zscaler.com/easm/about-lookalike-domains) page. The data captured in the file directly replicates the table as it is displayed on the Lookalike Domains page, reflecting any customization made through sorting, filtering, and selecting columns. This ensures that the downloaded file precisely mirrors the current view of the lookalike domains as seen on the page.
-
-To download a list of lookalike domains in the CSV format:
-
-1. Go to **Insights** > **Lookalike Domains**.
-2. Customize the list as required using the following options:
-  - Apply filters to display the lookalike domains that must be downloaded.
-  - Select the required columns from the **Column Chooser** to include the respective data of the lookalike domains in the downloaded file.
-  - Sort the list of lookalike domain records by a specific column using the **Sorting** icon in the column header.
-3. Click the **Download** icon on the top-right corner of the page. The lookalike domains are downloaded as a CSV file.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/filtering-customizing-assets-page","lastmod":"2024-11-29T06:06Z","nid":"1503586"} -->
-## Filtering & Customizing the Assets Page
-
-- Source: https://help.zscaler.com/easm/filtering-customizing-assets-page
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Inventory > Filtering & Customizing the Assets Page
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to download the list of inventoried assets from the Assets page in Zscaler EASM Admin Portal.
-
-The [Assets page](https://help.zscaler.com/easm/about-asset-inventory) includes a set of filtering options that allows you to view a subset of data that matches specified criteria. You can set the criteria based on specific parameters of assets such as risk level, last seen, and type. These parameters can be applied individually or together to the Assets table to filter the data. After building a search query using the filters, you can optionally save the query as a custom filter to reuse it in the future for routine tasks. In addition, you can customize the table columns by choosing to show or hide specific columns from the table and by reordering and sorting the columns.
-
-The following sections describe how to apply filters on assets and how to customize the Assets table columns.
-
-The data on the Assets page corresponds to your organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
-
-## Applying Filters
-
-On the Assets page, you can select the required filters and select appropriate values to apply the filters. The mode of selection varies across the filters with some filters using a single select drop-down, while other filters support multiple select drop-downs from a predefined set of options. Some filters also support the use of logical operators to build more specific queries by manually entering the required values for match criteria.
-
-The following filters are available:
-
-- **Status**: Filters the assets based on their status. This filter allows you to select multiple values simultaneously by using the respective checkboxes. The following statuses are available for assets: Approved, Candidate, and Archived.
-- **Risk Level**: Filters the assets based on their criticality into Minimal, Low, Medium, High, and Critical risk levels, depending on the values chosen. This filter allows you to select multiple values simultaneously by using the respective checkboxes. The risk level assigned to an asset is based on the dynamic risk score generated for the asset. Mapping between Risk Level and Risk Score
-- **Last Seen**: Filters the assets based on when they were last detected in the EASM asset scan. This filter allows you to obtain the list of exposed assets that were observed in the most recent scans (within the last 7 days or 30 days) to a much greater range of timeline of 1 year. This filter supports single value selection using a drop-down menu and comes with the following options: Within 7 Days, Within 30 Days, Within 90 Days, and Within 1 Year.
-- **Type**: Filters the assets based on the type into which the asset is classified by EASM. The assets are classified into one or more of the following types: This filter allows you to select multiple values simultaneously by using the respective checkboxes.
-  - Domains
-  - Hosts
-  - Web Pages
-  - Certificates
-  - ASNs
-  - IP Addresses
-  - IP Blocks
-
-See image.
-
-## Customizing Table Columns
-
-You can customize the columns that appear within the Assets table by using the following options on the Assets page:
-
-- Select the columns that must be shown within the table by clicking the **Settings** icon in the top-right corner. In the **Column Chooser** window that appears, you can select or deselect columns by clicking on them to add or remove them from the table respectively. The table refreshes and displays the new column set. The **Name** column is always shown and cannot be modified.
-- Sort the list by a specific column in an alphabetical or numerical order by using the **Sort** icon shown in the column header. The sorting option is available only for specific columns, indicated by the **Sort** icon displayed next to the column name. To appropriately sort the columns, ensure that only one column is sorted at a time and deselect the Sort icon for other columns which use the functionality simultaneously.
-
-| Risk Level | Risk Score Range |
-| --- | --- |
-| Minimal | 0 |
-| Low | 1–39 |
-| Medium | 40–69 |
-| High | 70–89 |
-| Critical | 90–100 |
-
-[Image: Asset filters in EASM to view a subset of the asset data]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/filtering-customizing-findings-page","lastmod":"2024-11-29T06:06Z","nid":"1503611"} -->
-## Filtering & Customizing the Findings Page
-
-- Source: https://help.zscaler.com/easm/filtering-customizing-findings-page
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Findings > Filtering & Customizing the Findings Page
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to filter findings data and customize the Findings page in Zscaler EASM Admin Portal.
-
-The [Findings page](https://help.zscaler.com/easm/about-findings) includes a set of filtering options that allows you to view a subset of data that match a specified criteria. You can set the criteria based on specific parameters of findings such as risk level, last seen, category, and type. These parameters can be applied individually or together to the Findings table to filter the data. After building a search query using the filters, you can optionally save the query as a custom filter to reuse it in the future for routine tasks. In addition, you can customize the table columns by choosing to show or hide specific columns in the table and by reordering and sorting the columns.
-
-The following sections describe how to apply filters on findings and how to customize the Findings table columns.
-
-The data on the Findings page corresponds to your organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
-
-## Applying Filters
-
-On the Findings page (Insights > Findings), you can select the required filters and select appropriate values to apply the filters. The mode of selection varies across the filters with some filters using single select drop-down, while other filters support multiple select drop-down from a predefined set of options. Some filters also support the use of logical operators to build more specific queries by manually entering the required values for match criteria.
-
-The following filters are available:
-
-- **Status**: Filters the findings based on their status. This filter allows you to select multiple values simultaneously by using the respective checkboxes. The following statuses are available for findings: Not Verified, Verified, and Risk Accepted, Resolved, and Disputed.
-- **Risk Level**: Filters the findings based on their criticality into Low, Medium, High, and Critical risk levels, depending on the values chosen. This filter allows you to select multiple values simultaneously by using the respective checkboxes. The risk level assigned to a finding is based on the dynamic risk score generated for the finding. Mapping between Risk Level and Risk Score
-- **Last Seen**: Filters the findings based on when they were last detected in the EASM asset scan. This filter allows you to obtain the list of findings that were observed in the most recent scans (within the last 7 days or 30 days) to a much greater range of timeline of 1 year. This filter supports single value selection using a drop-down menu and comes with the following options: Within 7 Days, Within 30 Days, Within 90 Days, and Within 1 Year.
-- **Category**: Filters the findings based on the category assigned to them by EASM, allowing you to view the findings based on context. For example, you can get a list of all findings classified as vulnerabilities or misconfigurations using this filter. The categories available are: This filter supports single value selection using a drop-down menu.
-  - **Exposure**: Shows the percentage of business-critical services, such as SSH, FTP, Telnet, and VPN services, MySQL data stores, revealing hostnames, etc.
-  - **Misconfiguration**: Shows the percentage of outdated SSL/TLS versions, SSL/TLS certificate expirations, domain registration expiration, usage of self-signed certificates, absence of common security headers in HTTP requests including but not limited to HTTP Strict Transport Security (HSTS), X-XSS-Protection, Set-Cookie, Cross-Origin-Opener-Policy (COOP), Permissions-Policy, etc.
-  - **Vulnerability**: Shows the percentage of vulnerabilities that are part of the CVE database.
-- **Type**: Filters the findings based on the type into which the finding is classified by EASM. While Categories are broader classifications of findings, Types are sub-classifications of findings within specific Categories which enables a more specific categorization of findings. For example, if you want to view misconfigurations of a specific kind, such as expired SSL/TLS certificate, you can simply choose the type filter as Expired SSL/TLS Certificate. Zscaler uses a number of types to classify the findings, and this list is constantly updated based on new vulnerability and exploit discoveries and threat intelligence information. You can view the current list of filtering options available within Type by clicking this filter on the Findings page of the EASM Admin Portal.
-
-See image.
-
-## Customizing Table Columns
-
-You can customize the columns that appear within the Findings table by using the following options:
-
-- Choose the columns that must be shown within the table by clicking the **Settings** icon in the top-right corner. In the **Column Chooser** window that appears, you can click on the columns to add or remove them from the table. The table refreshes and displays the new column set. The **Name** column is always shown and cannot be modified.
-- Sort the list by a specific column in an alphabetical or numerical order by using the **Sort** icon shown in the column header. The sorting option is available only for specific columns, indicated by the **Sort** icon displayed next to the column name. To appropriately sort the columns, ensure that only one column is sorted at a time and deselect the **Sort** icon for other columns which use the functionality simultaneously.
-
-| Risk Level | Risk Score |
-| --- | --- |
-| Low | 1–39 |
-| Medium | 40–69 |
-| High | 70–89 |
-| Critical | 90–100 |
-
-[Image: Finding filters to view a subset of findings data in the EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/filtering-customizing-lookalike-domains-page","lastmod":"2024-11-29T06:06Z","nid":"1508161"} -->
-## Filtering & Customizing the Lookalike Domains Page
-
-- Source: https://help.zscaler.com/easm/filtering-customizing-lookalike-domains-page
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Filtering & Customizing the Lookalike Domains Page
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to filter lookalike domain data and customize the Lookalike Domains page in Zscaler EASM Admin Portal.
-
-The [Lookalike Domains](https://help.zscaler.com/easm/about-lookalike-domains) page includes a set of filtering options that allows you to view a subset of data that matches specified criteria. You can set the criteria based on specific parameters of lookalike domains such as status, exposure score, risk category, and deception method. These parameters can be applied individually or together to the Lookalike Domains table to filter the data. You can customize the table columns by choosing to show or hide specific columns in the table and by reordering and sorting the columns.
-
-The following sections describe how to apply filters on lookalike domains and how to customize the Lookalike Domains table columns.
-
-The data on the Lookalike Domains page corresponds to your organization selected on the top-right corner.
-
-## Applying Filters
-
-On the Lookalike Domains page (Insights > Lookalike Domains), you can select one or more filters along with appropriate values and apply the filters.
-
-The following filters are available:
-
-- **Status**: Filters the lookalike domains based on their [status](https://help.zscaler.com/easm/modifying-lookalike-domain-status). This filter allows you to select multiple values simultaneously by using the respective checkboxes. The following statuses are available for lookalike domains: Not Verified, Verified, and Risk Accepted, Resolved, and Disputed.
-- **Exposure Score**: Filters the lookalike domains based on their exposure score and categorization into Low, Medium, High, and Critical, depending on the values chosen. This filter allows you to select multiple values simultaneously by using the respective checkboxes.
-- **Risk Category**: Filters the lookalike domains based on the risk category assigned. This filter allows you to select multiple values simultaneously by using the respective checkboxes. Available Risk Categories
-- **Deception Method**: Filters the lookalike domains based on the deception tactic used in the domain name. Examples of deception techniques include the use of homograph (i.e., by exploiting similar-looking characters or homoglyphs), substituting letters with numbers, hyphenation, intentional typos, adding, removing, or transposing letters, etc. This filter allows you to select multiple values simultaneously by using the respective checkboxes.
-
-See image.
-
-## Customizing Table Columns
-
-You can customize the columns that appear within the Lookalike Domains table by using the following options:
-
-- Choose the columns that must be shown within the table by clicking the **Settings** icon on the top-right corner. In the **Column Chooser** window that appears, you can select or deselect the columns by clicking on them to add or remove them from the table respectively. The table refreshes and displays the new column set. The **Lookalike Domain** column is always shown and cannot be modified.
-- Sort the list by a specific column in an alphabetical or numerical order by using the **Sort** icon shown in the column header. The sorting option is available only for specific columns, indicated by the **Sort** icon displayed next to the column name. To appropriately sort the columns, ensure that only one column is sorted at a time and deselect the **Sort** icon for other columns which use the functionality simultaneously.
-
-- **Verified Phishing**: Indicates that the domain is verified to be a phishing site by Zscaler's web risk analyzer service.
-- **Registered Lookalike**: Indicates that the domain is registered through an internet company that provides domain registration services (i.e., registrar).
-- **Preventative Lookalike**: Indicates that the domain is not registered with a registrar.
-
-[Image: Applying filters on the lookalike domains list to view a subset of data in EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/generating-reports","lastmod":"2026-02-17T06:06Z","nid":"1534364"} -->
-## Generating Reports
-
-- Source: https://help.zscaler.com/easm/generating-reports
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Dashboards & Analytics > Generating Reports
-- Last modified: 2026-02-17T06:06Z
-- Summary: Information on how to generate reports for EASM organizations, presenting key aggregated data and insights into the organization's external security posture.
-
-EASM allows you to generate reports aggregating key analytic data and insights into an organization's exposure to cyber risk. You can generate reports for individual EASM organizations in the PPTX format, translating real-time technical security data from automated discovery findings into actionable strategic insights for diverse stakeholders. These reports consolidate critical asset findings along with their mitigation strategies, which helps organizations assess the resulting business and financial impact and focus on high-impact risk remediation. The report data varies across EASM organizations depending on the available discoveries, and some key metrics included are known vulnerabilities, exposed servers and public cloud instances, outdated SSL/TLS, domain expiration, and registered lookalike domains, emphasizing phishing domains for virtual takedown.
-
-These presentations can be used in executive- and board-level communication to report on the organization's external posture across dimensions, such as vulnerabilities, exposures, and compliance, aiding in key business decision-making and strategic management and governance. They can also be used in mergers and acquisitions to summarize the inherited risks of a target company, providing visibility into vulnerabilities and misconfigurations without requiring invasive internal scans. These reports also serve auditing purposes to demonstrate continuous monitoring and adherence to regulatory frameworks.
-
-Admins require full permission to an EASM organization to generate reports.
-
-To generate a report:
-
-1. Go to **Administration** > **Organization**.
-2. Select the required organization from the left pane. The organization page appears.
-3. On the organization page, click **Generate Report** displayed in the top-right corner. See image. The report is generated and downloaded to your system as a PPTX file.
-
-[Image: Generating reports for EASM organizations]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/modifying-asset-status","lastmod":"2025-10-23T03:52Z","nid":"1503576"} -->
-## Modifying Asset Status
-
-- Source: https://help.zscaler.com/easm/modifying-asset-status
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Inventory > Modifying Asset Status
-- Last modified: 2025-10-23T03:52Z
-- Summary: Information on how to change the asset status in Zscaler EASM Admin Portal.
-
-When your organization's assets are discovered, EASM maps them to your external attack surface by assigning the Approved status to the assets. The asset status allows you to manage your external attack surface by reviewing whether the assets should be included as part of the particular organization's external attack surface. Additionally, EASM offers a distinct advantage by uniquely monitoring and processing assets across various statuses. This enables your organization to maintain clear visibility into the most critical assets that are directly under your responsibility. The following three statuses are supported for assets, and assets can be transitioned from one status to any other status depending on the requirements:
-
-- Approved
-- Candidate
-- Archived
-
-You can view and manage all assets across all statuses from the Assets page. By default, the assets page is filtered to show only the approved assets. You can use the Status filter to include Candidate and Archived assets. To learn more, see [Filtering & Customizing the Assets Page](https://help.zscaler.com/easm/filtering-customizing-assets-page). You can modify the status of individual assets from the Asset Details drawer or the Asset Details page.
-
-To modify the status of an asset:
-
-The data on the Assets page corresponds to your organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
-
-1. Go to the **Assets** page.
-2. Click the asset record for which you want to modify the status. The Asset Details drawer opens on the right side.
-3. In the Asset Details drawer, under the **Asset Details** tab, you can modify the asset's status by using the **Status** drop-down menu. Alternatively, you can click the **View More Details** button to go to the asset details page and modify the status from there. See image. A **Status Update Confirmation** window appears.
-4. In the **Status Update Confirmation** window, enter the reason for modifying the asset's status which can be useful for auditing trails and general tracking purposes.
-5. Click **Accept**.
-
-**Approved**: Indicates that the asset comes under the responsibility or management of your organization. Assets in this state are periodically scanned to update their inventory details and their connections are also scanned. After assets are attributed to your organization through the discovery process, they are validated by EASM and the verified assets are marked with this status. Approved assets that are identified as forming your external attack surface are closely monitored and are given higher visibility in the EASM Admin Portal to help you easily identify, prioritize, and manage them. This is reflected in the [Assets Overview dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard), which provides insights into critical assets on the attack surface by highlighting key metrics on approved assets and the [Assets page](https://help.zscaler.com/easm/about-asset-inventory) that lists the approved assets by default.
-
-All seed assets are marked as approved by default.
-
-**Candidate**: Indicates that the asset needs further review and investigation into whether it comes under your organization's responsibility. This is the default status for all attributed assets before they are validated and marked as approved. Attributed assets are automatically validated by EASM after discovery. However, specific assets that are not validated by EASM need to be manually verified by admins. Additionally, you can review approved assets and manually change the status to Candidate if you want to investigate the asset's link to your organization or if the asset is not established to have a strong connection with your organization. Candidate assets are not included in periodic scans and are no longer part of the discovery chain that's established by its initial connection to the seed. Scanning of assets in this state is temporarily suspended, and the asset's successive connections are also not scanned.
-
-**Archived**: Assets that are reviewed confirmed to have no relationship with your organization or that no longer require monitoring can be marked as Archived. Assets in this state and their successive connections are removed from the scanning process. Archived assets are also not included in scanning and are not part of the discovery chain established by their original connection to the seed. Archived assets and their successive connections are permanently removed from the scanning process.
-
-[Image: Asset status change from Asset Details drawer and Asset Details page in EASM]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/modifying-finding-status","lastmod":"2024-11-29T06:06Z","nid":"1503601"} -->
-## Modifying Finding Status
-
-- Source: https://help.zscaler.com/easm/modifying-finding-status
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Findings > Modifying Finding Status
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to change the finding status in Zscaler EASM Admin Portal.
-
-[Findings](https://help.zscaler.com/easm/about-findings) offer deeper insights into your external attack surface, enabling you to identify, prioritize, and remediate business-critical risks and vulnerabilities. EASM supports various statuses for findings to help you effectively manage findings from discovery to closure, with different types of processing and management options based on the findings' statuses. For example, only findings in specific statuses relevant to the management of risks are highlighted on the [Insights Overview dashboard](https://help.zscaler.com/accessing-interacting-insights-overview-dashboard).
-
-When the risk parameters are initially detected in assets, they are populated in the EASM Admin Portal, automatically tagged with the label "Not Verified". You can validate the findings reported by EASM individually and mark them as "Verified" if they need to be managed as risks. The available finding statuses are:
-
-- **Not Verified**: All the risk findings identified by EASM in your organization's attack surface are tagged with the label "Not Verified".
-- **Verified**: Risk findings are investigated manually and it's verified that the risk is present (e.g., verifying an open port flagged on a host).
-- **Risk Accepted**: Represents risk findings that are deemed acceptable. For example, a jump server with port 22 open and exposed to the internet might be for intended use.
-- **Resolved**: Risk findings for which remediation steps are taken or are planned can be marked as resolved. With the previous example, if the server is decided to be moved behind Zscaler Private Access (ZPA) for example, then it could be marked as resolved. However, if the finding is discovered again in a subsequent scan, then it is marked as "Not Verified".
-- **Disputed**: If the manual verification of the finding turns out differently from the risk finding, the finding can be moved to the Disputed status, indicating that it might be a false positive.
-
-The Insights Overview dashboard focuses on findings that are in Not Verified and Verified statuses, highlighting risks that need immediate attention to prevent threats and penetration by bad actors into your network. Findings that are in Risk Accepted, Resolved, or Disputed statuses are excluded from the dashboard, as these risks are considered as not requiring any further actions from your security team. However, risks in these statuses can be moved to Not Verified or Verified if they require further examination.
-
-To modify the status of a finding:
-
-The data on the Findings page is specific to the organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
-
-1. Go to the **Findings** page.
-2. Click the finding record for which you want to modify the status. The **Finding Details** drawer opens on the right side.
-3. In the **Finding Details** drawer, under the **Finding Details** tab, you can modify the finding's status by using the **Status** drop-down menu. Alternatively, you can click the **View More Details** button to go to the finding details page and modify the status from there. See image. A **Status Update Confirmation** window appears.
-4. In the **Status Update Confirmation** window, enter the reason for modifying the finding's status which can be useful for auditing trails and general tracking purposes.
-5. Click **Accept**.
-
-[Image: Changing finding status from Finding Details drawer and Finding Details page in EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/modifying-lookalike-domain-status","lastmod":"2024-11-29T06:06Z","nid":"1508151"} -->
-## Modifying Lookalike Domain Status
-
-- Source: https://help.zscaler.com/easm/modifying-lookalike-domain-status
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Modifying Lookalike Domain Status
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to change the status of lookalike domains in the EASM Admin Portal.
-
-EASM supports various statuses for [lookalike domains](https://help.zscaler.com/easm/about-lookalike-domains) to help you effectively track and manage these domains and gain visibility into the threats posed by phishing domains detected for your legitimate domains. The following statuses are supported for lookalike domains:
-
-- **Not Verified**: All lookalike domains initially detected by EASM for your legitimate seed domains are automatically tagged with the label "Not Verified".
-- **Verified**: Lookalike domains are manually investigated and verified for risks. An example could be a high-risk domain that is verified to be a phishing site.
-- **Risk Accepted**: Represents that the risk is deemed acceptable. An example could be a domain that is not registered yet and can be put on the watchlist.
-- **Resolved**: Lookalike domains for which remediation steps are taken or are planned can be marked as resolved. For example, if a fake domain is taken offline or suspended by the registrar after reporting and the threat is eliminated, it can be marked as resolved. However, if the lookalike domain is discovered again in a subsequent scan, then it is marked as "Not Verified".
-- **Disputed**: If the manual verification of a lookalike domain turns out differently from the original detection, the lookalike domain can be moved to the Disputed status, indicating that it might be a false positive.
-
-To modify the status of a lookalike domain:
-
-The data on the Lookalike Domains page is specific to the organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
-
-1. Go to the Lookalike Domains page.
-2. Click the lookalike domain record for which you want to modify the status. The **Lookalike Domain Details** drawer opens on the right side.
-3. In the **Lookalike Domain Details** drawer, you can modify the domain's status by using the **Status** drop-down menu. See image. A **Status Update Confirmation** window appears.
-4. In the **Status Update Confirmation** window, enter the reason for modifying the lookalike domain's status which can be useful for auditing trails and general tracking purposes.
-5. Click **Accept**.
-
-[Image: Changing lookalike domain status in the EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/release-upgrade-summary-2025","lastmod":"2026-01-04T00:33Z","nid":"1516016"} -->
-## Release Upgrade Summary (2025)
-
-- Source: https://help.zscaler.com/easm/release-upgrade-summary-2025
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-01-04T00:33Z
-- Summary: EASM Release Upgrade Summary for service updates deployed in 2025.
-
-This article provides a summary of all new features and enhancements for EASM.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/setting-up-asset-discovery","lastmod":"2024-11-29T06:06Z","nid":"1503546"} -->
-## Setting Up Asset Discovery
-
-- Source: https://help.zscaler.com/easm/setting-up-asset-discovery
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Discovery > Setting Up Asset Discovery
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to configure and initiate the Asset Discovery process in Zscaler External Attack Surface Management (EASM).
-
-Asset Discovery, a core function of EASM, enables an organization to identify and inventory all their internet-facing assets and gain insights into an organization's external attack surface. To initiate a scan and discover assets, EASM requires seeds. A seed is a known legitimate asset of your organization. Domains, IP addresses, and IP blocks are assets that can be configured as seeds. While setting up asset discovery, EASM allows you to configure seeds by creating a [discovery profile](https://help.zscaler.com/easm/about-discovery-profiles). A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. In addition, EASM allows you to set up [organizations](https://help.zscaler.com/easm/creating-managing-organizations) to help keep your attack surface discovery and inventory management separate for distinct entities, such as parent companies, subsidiaries, or acquisitions that are part of your company. For each organization, you can configure distinct discovery profiles with seeds for known legitimate assets of that specific organization.
-
-When a discovery profile is created and submitted, EASM initially scans the configured seeds to discover assets that are immediately connected to the seeds. Then the first level of connections are scanned further to discover a second level of connected assets, followed by each consecutive level of connections being recursively scanned, leading up to the formation of a discovery chain and ultimately mapping the organization's attack surface. The assets discovered in each level of connections are evaluated to determine if their relationship with the previous seed is strong enough before being recursively scanned to discover subsequent connections. This recursive scanning continues until the weak links exposed in your online infrastructure, including unknown and unmonitored assets, are discovered. The scanning stops when all the internet-facing assets which your organization is responsible for managing are identified and tracked.
-
-After discovering and inventorying the assets, EASM investigates a number of asset parameters to identify the associated risks, such as known vulnerabilities, misconfigurations, exposed credentials, sensitive enterprise information, etc. that can be potentially exploited as attack vectors. EASM continuously monitors the discovered assets and the changing attack landscape using periodic scans to provide real-time visibility into the risk exposure of your internet-facing asset infrastructure and to help prioritize risks with contextual and actionable information for risk remediation.
-
-You need to complete the following steps to enable EASM to start discovering your internet-facing assets and building visibility into the attack surface:
-
-- 1. Set up an organization.
-- 2. Create a discovery profile for the organization by including seeds.
-
-EASM provides a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, [Risk360](https://help.zscaler.com/risk360/what-risk360), and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM. You can also add custom organizations per your requirements.
-
-To add a custom organization:
-
-Only super admins can create and manage organization-specific configurations.
-
-1. Go to **Administration** > **Organizations**. The Organization window appears.
-2. In the **Organization** window: A new organization is added with options to configure the discovery profile and other details for the organization shown on the right side. By default, the organization is enabled and this is required to initiate the asset discovery scan. See image.
-  1. Click the **Add** icon on the left pane. If this is your first organization, you can alternatively use the **Add Organization** button. A text box to enter the name for the organization appears on the left pane.
-  2. Enter a name for the organization in the text box and click the **Tick** icon. See image.
-
-After creating an organization, you can set up a discovery profile for the organization. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-organizations).
-
-To create a discovery profile for an organization:
-
-Only admins with full access permission to the target organization can perform this action.
-
-1. Go to **Administration** > **Organizations**. The **Organization** window appears.
-2. In the **Organization** window:
-  1. Locate and click the organization for which you want to create a discovery profile on the left pane.
-  2. Click the **Add Discovery Profile** button. See image. The **Profile Details** window appears.
-3. In the **Profile Details** window:
-  1. **Name**: Enter a name for the discovery profile.
-  2. **Description**: Enter a brief description for the profile.
-  3. The **Scan Frequency** is automatically set to **Weekly** and is non-editable.
-  4. Under **Manage Seeds** section:
-    1. Select the type of the seed asset by clicking the respective tab. Currently, you can configure domains, IP addresses, and IP blocks as seed assets.
-    2. When you are in the respective tab for adding seeds of a specific asset type, you can add seeds for that particular asset type. To add the list of seeds that must be included in the discovery profile, enter the seed name in the text box provided under the **Include** section. To add multiple seeds manually, press `Enter` or click **Add** after specifying each item. Alternatively, you can import a list of seeds from a CSV file by using the **Upload File** option. When you add the seeds manually, the seeds are displayed in a list under the **Include**section. To remove any seeds from the list, use the **Delete** icon that appears next to the seed name.
-4. Click **Save**. See image.
-
-When you save the discovery profile, EASM starts scanning the internet for asset connections using the seeds to map your organization's attack surface and build an inventory of the internet-exposed assets. This process typically takes 24–48 hours and then you can view the asset inventory and the associated risks identified for the assets within the EASM Admin Portal.
-
-The discovery profile is saved and displayed under a new **Discovery Profile** tab created for the organization. Additionally, an **Included Seeds** tab appears for the organization where you can view the list of seeds configured for the entire organization. To learn more, see [Configuring & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
-
-See image.
-
-[Image: Adding a new organization for attack surface discovery and management]
-
-[Image: New organization added for attack surface discovery and management]
-
-[Image: The Add Discovery Profile button is annotated]
-
-[Image: Creating discovery profile by configuring seeds in EASM]
-
-[Image: Discovery profile details in EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/step-step-configuration-guide-easm","lastmod":"2024-11-29T06:06Z","nid":"1503641"} -->
-## Step-by-Step Configuration Guide for EASM
-
-- Source: https://help.zscaler.com/easm/step-step-configuration-guide-easm
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Getting Started > Step-by-Step Configuration Guide for EASM
-- Last modified: 2024-11-29T06:06Z
-- Summary: A step-by-step guide to set up and configure Zscaler EASM for your organization.
-
-This guide takes you through the configuration steps you need to complete to begin using EASM for your organization. Each step guides you through essential tasks, ensuring you are fully equipped to start securing and monitoring your external attack surface efficiently.
-
-Zscaler recommends reviewing the following articles to learn more about the EASM configuration:
-
-- [What is Zscaler EASM?](https://help.zscaler.com/easm/what-zscaler-easm)
-- [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery)
-- [Accessing and Navigating the EASM Admin Portal](https://help.zscaler.com/easm/accessing-navigating-easm-admin-portal)
-
-## Configuring EASM
-
-To configure EASM, complete the following steps:
-
-- Step 1: Set Up Your Account
-- Step 2: Create Your Organization
-- Step 3: Configure a Discovery Profile
-- Step 4: Get Your Asset Inventory Information
-- Step 5: Monitor Your Attack Surface Using Dashboards
-
-After Zscaler provisions an EASM tenant for your organization, an email with instructions to complete your account registration is sent to you. To gain access to the EASM Admin Portal, you need to complete the account registration process by following the instructions in the email. To learn more, see [Accessing and Navigating the EASM Admin Portal](https://help.zscaler.com/easm/accessing-and-navigating-easm-admin-portal).
-
-Following your account setup, you can provision users on Authentication Service, Zscaler's centralized identity management platform, to provide them access to EASM. To do this, ensure that you have Authentication Service enabled for your organization. After provisioning is complete, you can assign roles to users to manage controlled access to specific organizations within the EASM Admin Portal. To learn more, see [Creating & Managing Roles](https://help.zscaler.com/easm/creating-managing-roles).
-
-The first step in setting up your attack surface discovery is to create an organization and configure a discovery profile for the organization. EASM offers a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, [Risk360](https://help.zscaler.com/risk360/what-risk360), and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM.
-
-In addition, you can create new organizations to discover and distinctly monitor the attack surface associated with different entities of your enterprise. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-organizations).
-
-To begin the discovery process for your internet-facing assets, EASM requires a known, legitimate asset from your organization, referred to as a "seed". This seed acts as the central node to discover connected assets in your digital asset infrastructure that are exposed to the internet, using various open-source intelligence (OSINT) methods employed by EASM. A discovery profile allows you to group multiple seeds and submit them for scanning. You can configure different types of assets as seeds, including domains, IP addresses, and IP blocks. To learn more, see [Creating & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
-
-After the initial scan, EASM compiles extensive data on the internet-facing assets that are discovered and inventoried as part of your organization's digital attack surface. This asset inventory consists of a vast amount of data that includes critical information such as asset details, key insights into vulnerabilities and risks, and the asset's relationship to your organization. The asset inventory is continuously updated through periodic scans, ensuring it reflects your evolving digital landscape with the latest data in the EASM Admin Portal.
-
-To get a high-level view of your threat landscape and assess your organization's security posture, you can start with the key metrics presented in EASM's dashboards. These dashboards summarize key information about your digital attack surface in highly interactive, visual representations that are easy to understand. Using these dashboards, you can identify the most critical threats in your asset infrastructure and then drill down on the individual assets or risk findings for further analysis. The dashboards essentially serve as the starting points for understanding your asset infrastructure, identifying key areas of concerns, and efficiently planning risk-mitigation strategies. To learn more, see [Accessing & Interacting with Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard) and [Accessing & Interacting with Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
-
-To analyze the individual assets in your inventory, EASM offers a customizable, tabulated list of the assets on the Assets page. You can customize the list by using filters to view specific asset data and further access detailed information to investigate each asset from this page. To learn more, see [About Asset Inventory](https://help.zscaler.com/easm/about-asset-inventory) and [Understanding Assets Details](https://help.zscaler.com/easm/understanding-asset-details).
-
-EASM also catalogs the risk findings discovered for the assets in a separate, highly customizable Findings page (Insights > Findings). This page provides essential information to help you assess the severity of risks, prioritize them, and plan mitigation strategies. To learn more, see [About Findings](https://help.zscaler.com/easm/about-findings) and [Understanding Finding Details](https://help.zscaler.com/easm/understanding-finding-details).
-
-EASM continuously monitors your asset infrastructure through periodic scans, ensuring your asset inventory is always up to date with the latest information. These scans can detect changes such as new assets detected in your attack surface through connections to existing assets or removal of previously discovered assets. You can track and monitor these changes in your digital attack surface and take remediation actions by using the key metrics presented on assets and risk findings in EASM's dashboards. To learn more, see [Accessing & Interacting with Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard) and [Accessing & Interacting with Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-asset-details","lastmod":"2025-10-23T03:47Z","nid":"1503571"} -->
-## Understanding Asset Details
-
-- Source: https://help.zscaler.com/easm/understanding-asset-details
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Inventory > Understanding Asset Details
-- Last modified: 2025-10-23T03:47Z
-- Summary: Information on understanding and analyzing asset inventory details in Zscaler External Attack Surface Management (EASM).
-
-The assets discovered as part of your digital attack surface are automatically added to your inventory and appear on the Assets page. These assets are continuously monitored through periodic scans, and they are subsequently used as targets to identify other linked assets that can be attributed to your organization. This process involves scanning across the internet recursively to uncover connected assets. Your external attack surface is constantly monitored and any changes to the attack surface, including new assets discovered and changes in the inventoried assets and their risk associations, are promptly reflected on the Assets page.
-
-The Assets page offers a highly customizable, tabulated list of assets, where you can click on each record to access detailed information and perform specific actions on a per-asset basis. The asset details consist of contextual information tailored to each asset type, helping you understand key aspects such as the technologies and services running on the asset, SSL/TLS certificates used, the asset's risk score and risk level, vulnerabilities and risks associated with the asset, and the asset's relationship to your organization through the discovery chain. The vulnerabilities and risks are evaluated based on a wide range of factors, including the technologies and services running on the asset, digital certificates used by the asset, domain registration, host names, HTTP headers used, other exposures, etc. The assets are mapped to their risk findings in a many-to-many relationship (i.e., one asset can have multiple risk findings and vice-versa). The discovered assets are categorized into one or more of the following types, with the details varying across asset types to ensure relevant and actionable insights for each category.
-
-- Domain
-- Host
-- Web Page
-- Certificate
-- ASN
-- IP Address
-- IP Block
-
-The asset details are presented in two different views, offering users the flexibility to drill down on the asset details as required. When you click on a row of the assets table, a right-side drawer referred to as the Asset Details drawer, opens, providing a quick overview of essential information. This drawer features a tabbed interface for the asset details and its associated findings. To further drill down on the asset information, from the Asset Details drawer, you can access a comprehensive, full-page view, referred to as the Asset Details page. This page offers more extensive details compared to the Asset Details drawer. To access the full-page view, click the View More Details button on the Asset Details tab of the Asset Details drawer.
-
-See image.
-
-The Asset Details page provides extensive information about the asset and also mirrors the tabbed interface for the asset details and findings, as seen in the Asset Details drawer. The Asset Details drawer serves as a streamlined, condensed version of the Asset Details page, allowing you to quickly switch between different assets to view their details from the list view with ease. On the other hand, the Asset Details page is designed for deeper analysis of a specific asset, offering full access to the complete data set available. This makes it particularly useful when a more thorough examination of the asset details is required. When you are in the Asset Details page, you can go back to the assets list view to access details of other assets.
-
-See image.
-
-The following sections provide a detailed overview of all the asset details that are available, following the presentation layout and the comprehensive information tracked in the Asset Details page. On the Asset Details page (Insights > [Asset record] > Asset Details > View More Details), the asset name is displayed at the top along with the asset's overview, details, and risks.
-
-Some of the following documented fields under each section are exclusive to the Asset Details page and might not appear in the Asset Details drawer and vice-versa. Additionally, the content organization differs between the two views to optimize the user experience for each.
-
-## Asset Overview
-
-This section provides the following high-level information about the asset:
-
-- **Type**: The type of the asset categorized into Domain, Host, Web Page, Certificate, ASN, IP Address, or IP Block. Depending on the type, the asset details presented in the inventory differ.
-- **Risk Level**: The risk level quantifies the amount of risk posed by an asset, and it is derived from the risk score calculated for the associated findings. The risk level ranges from Minimum to Critical, giving users an immediate sense of asset's criticality and providing guidance in prioritizing business-critical or concerning assets. For example, a critical or high risk level indicates that an asset poses significant risk without mitigation controls, whereas a low risk level might indicate an acceptable risk or commonly found issues. A medium risk level might indicate that the asset should be safeguarded but might have a lower priority compared to higher-risk assets. Available risk levels: Minimum, Low, Medium, High, and Critical.
-- **ID**: A Universally Unique Identifier (UUID) generated and assigned to the asset by EASM.
-- **First Seen**: The timestamp when the asset was first discovered in a scan.
-- **Last Seen**: The timestamp when the asset was last observed in a scan.
-- **Status**: Indicates the status of the asset's relationship with your organization and allows you to review and determine whether an asset must be included in the inventory. You can modify the status of the asset using the drop-down menu. The following three statuses are supported for assets, and assets can be transitioned from one status to any other status depending on the requirements: Available Statuses
-
-See image.
-
-## Asset Details
-
-On the Details tab, you can access extensive information including the asset metadata, comprehensive information about the asset registry obtained from the Whois database, technologies and services observed to be running on the asset, and the digital certificates associated with it. This tab includes the following sections:
-
-- **General Information**: This section provides basic information about the asset, which varies across the different types of asset, as captured in the following table. Available Fields for Each Asset Type
-- **Whois**: The Whois protocol is a query-and-response system used to retrieve registration and ownership data of internet resources. EASM uses this protocol to provide detailed information about the registry of an asset using Whois for different types of assets including domains, hosts, web pages, ASNs, IP addresses, and IP blocks. Available Fields
-- **Discovery Chain**: This section presents the full path of asset discovery in a sequential link chain, originating from the seed asset and interconnected to a series of assets identified in the subsequent mapping, leading up to the discovery of the current asset. It enables asset source traceability and provides attestation of auto-attributed assets based on a seed, allowing you to self-validate your assets using the investigative trail provided. The discovery path is presented as a link chain, featuring the seed asset, intermediate nodes, and the current asset in a sequence, along with the services and attributes used to identify assets in each discovery hop as applicable. See Examples The following actions are supported: When an asset is discovered in more than one way, the discovery path with the highest confidence is shown.
-  - Each asset node in the discovery chain is clickable and takes you to the corresponding asset page for further investigation.
-  - To view the asset link with more contextual text, you can turn off the toggle button on the top right of this section. This displays the asset links in a series of steps with additional information about each asset node.
-  - You can zoom in and out of the discovery chain when viewing it in the link chain view and move it around the canvas.
-- **Technologies**: This section provides a tabulated list of technologies used on the asset and their associated details, such as the version number, CVE ID for any associated vulnerabilities or exploits, and more. This data highlights risky technologies used on the asset, such as those with known vulnerabilities or deprecated technologies (e.g., ISC BIND, Apache HTTP Server, etc.). This data helps you quickly identify potential weakness in your external attack surface.
-- **Services**: This section provides a tabulated list of services that are observed to be running on the asset. It includes details such as open ports and their associated services, allowing you to identify any risky or unsecured ports that should not be accessible from the internet (e.g., insecure remote services commonly targeted by attackers). Information such as port number, protocol, and dates when the open port was first and last observed is available.
-- **SSL/TLS Certificates**: This section provides a tabulated list of SSL/TLS certificates used by the asset, highlighting old or outdated certificate versions that are often targeted by nefarious actors or versions that can be reverted to a previous version. The information provided includes SSL/TLS version, the server name protected by the certificate, issued date and expiration date for the certificate, and dates when the certificate was first and last observed in a scan.
-
-See image.
-
-## Risk Insights
-
-On the Risk tab, you can access information about the vulnerabilities and risks identified in the asset. This information helps you identify and remediate these issues by applying patches to mitigate the CVEs, retiring old technologies and services that are not in commission anymore, and adopting an access solution that can avoid exposure to unauthorized parties.
-
-This tab includes an overview of the asset's risk metrics and a list of risk findings associated with the asset, as explained in the following sections:
-
-- **Findings by Risk Level**: The findings associated with the asset plotted against risk levels in a bar graph, providing an overview of the distribution of findings across the risk levels. You can hover over each bar to view the number of findings marked with that specific risk level.
-- **Findings**: A tabulated list of all risk findings identified in the asset along with the number of findings indicated in the table header. This information provides visibility into all vulnerabilities, misconfigurations, and exposures detected in the asset, helping you assess the asset's potential threat vectors and address the issues. Available Fields
-
-You can use the **Settings** icon to select the columns that must be shown or hidden from the asset table. In addition, you can sort the list by specific table columns using the **Sort** icon that appears in the column header.
-
-See image.
-
-- **Approved**: Indicates that the asset comes under your organization's responsibility or management. Assets in this state are periodically scanned to update their inventory details and their connections are also scanned. After assets are attributed to your organization through the discovery process, they are validated by EASM and the verified assets are marked with this status. All seed assets are marked as Approved by default.
-- **Candidate**: Indicates that the asset needs further investigation into whether it comes under the responsibility of your organization. This is the default status for all attributed assets before they are validated and marked as Approved. Attributed assets are automatically validated by EASM after discovery. However, specific assets that are not validated by EASM need to be manually verified by admins. Additionally, if an asset's connection with your organization needs to be reviewed, you can change the asset's status to Candidate. Scanning of assets in this state is temporarily suspended, and the asset's successive connections are also not scanned.
-- **Archived**: Indicates that the assets are reviewed and are confirmed to have no link to your organization, or can be permanently removed from scanning for other reasons. Assets in this state and their successive connections are removed from the scanning process.
-
-See image.
-
-Approved assets are continuously monitored and are given higher visibility in the EASM Admin Portal to help you easily identify, prioritize, and manage them. This is reflected in the [Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard) that highlights key metrics on approved assets and the Assets page that lists the approved assets by default.
-
-- **Name**: An identifier for the finding sourced from the scan or assigned by EASM. Depending on the type of finding, this field can contain a wide variety of identifiers, such as CVE ID, VPN, Self-Signed Certificate, etc.
-- **Risk Level**: The amount of risk quantified for the finding using one of the following values: Low, Medium, High, and Critical.
-- **Category**: The classification of the finding as Exposure, Vulnerability, or Misconfiguration, which provides context about the finding instantly.
-- **Scan Type**: The scanning service that was used to uncover the risk finding. The available scan types are Web, Network, Certificate, and DNS scans.
-- **First Seen**: The timestamp when the finding was first detected in the asset.
-- **Last Seen**: The timestamp when the finding was last observed in the asset.
-
-You can access detailed information about each finding from the Findings page. To learn more, see [Understanding Finding Details](https://help.zscaler.com/easm/understanding-finding-details).
-
-| Asset Type | Field Name | Description |
-| --- | --- | --- |
-| **Domain** | No of Subdomains | The number of subdomains associated with the asset. |
-| Registration Expiration | The date when the asset's registration expires. |  |
-| WHOIS Registrar | The registrar listed in the Whois record. |  |
-| **Host** | Revealing Hostname | A Boolean value indicating whether the hostname exposes sensitive information about your asset infrastructure. |
-| TLS Versions Supported | The TLS versions supported by the asset. |  |
-| Country | The country of origin detected for the asset. |  |
-| IP Address | The IP address detected for the asset. |  |
-| **Web Page** | Revealing Hostname | A Boolean value indicating whether the hostname exposes sensitive information about your asset infrastructure. |
-| TLS Versions Supported | The TLS versions supported by the asset. |  |
-| **Certificate** | Certificate Issued | The date when the certificate was issued. |
-| Certificate Expires | The date when the certificate expires. |  |
-| Issuer Organization Name | The name of the entity (i.e., Certificate Authority) that was responsible for issuing the certificate. |  |
-| Country | The country where the subject's organization is located. |  |
-| Signature Algorithm | The signature key algorithm used to encrypt the certificate. |  |
-| Subject Common Name | The server name protected by the SSL certificate. |  |
-| Subject Organization Name | The name of the organization to which the certificate is issued. |  |
-| **ASN** | Allocation Date | The date when the Internet Assigned Numbers Authority (IANA) allocated an Autonomous System Number (ASN). |
-| Registry | The IANA registry which is responsible for overseeing the global coordination of the internet's unique identifiers, such as IP addresses, domain names, and protocol parameters. |  |
-| IPv4 Addresses | The IPv4 address space controlled by the AS. |  |
-| IPv6 Prefixes | The IPv6 prefix owned by the AS. |  |
-| Registrant Organization | The organization that owns the registered entity. |  |
-| AS Full Name | The full name of ASN. |  |
-| **IP Address** | Country | The country of origin detected for the asset. |
-| ASN | The ASN associated with the asset. |  |
-| WHOIS Registrant Organization | The organization that owns the registered entity as listed in the Whois record. |  |
-| WHOIS Registrar | The internet company whose service was used to register the entity as listed in the Whois record. |  |
-
-- **Registrant Organization**: The organization that owns the registered entity.
-- **Registrant Email**: Any contact email addresses provided by the registrant.
-- **Registrar**: The internet company that was used to register the asset. Popular registrars include GoDaddy, Namecheap, Bluehost, Domain.com, etc.
-
-These fields are available for all asset types except for certificates.
-
-- **Web Page**: In this example, the source is a seed domain configured by the admin. A Whois query for the registrant organization reveals a domain, and subsequently, a web page is discovered via the HTTP header for URL redirection. See image.
-- **IP Address**: The source is a seed domain. The domain host is identified, and the IP address is obtained using DNS records. See image.
-- **TLS Certificate**: The source is a seed domain. The domain host is identified, and then the host certificate is obtained through TLS discovery. See image.
-
-[Image: Accessing asset details page from the list view in EASM]
-
-[Image: Going back to the list view from asset details page in EASM]
-
-[Image: Asset overview section providing general information]
-
-[Image: Asset details tab providing extensive information about the asset in EASM]
-
-[Image: Risk findings associated with asset in EASM]
-
-[Image: Asset status change from the asset details page in EASM]
-
-[Image: Asset discovery chain for a web page]
-
-[Image: Asset discovery chain for an IP address]
-
-[Image: Asset discovery chain for a TLS certificate]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-asset-discovery","lastmod":"2024-11-29T06:06Z","nid":"1503541"} -->
-## Understanding Asset Discovery
-
-- Source: https://help.zscaler.com/easm/understanding-asset-discovery
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Discovery > Understanding Asset Discovery
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on Zscaler EASM asset discovery, its features, benefits and use cases for securing internet-facing assets.
-
-In the modern digital landscape, organizations deal with increasingly complex external attack surfaces, driven by their expanding online presence. As organizations expand digitally, their attack surfaces grow, introducing new potential vulnerabilities. Unknown or unmonitored assets are particularly dangerous because they might not be regularly updated or secured, leaving them exposed to attacks. This expansion includes assets resulting from mergers and acquisitions or third-party services that were once used but have since been forgotten.
-
-Asset discovery, a core function of EASM, helps organizations identify, inventory, and continuously monitor their internet-facing assets. This capability provides critical visibility into risks and potential vulnerabilities. Asset discovery involves identifying and inventorying all internet-facing assets an organization owns or manages. These assets include domains, hosts, web pages, certificates, ASNs, IP addresses, and IP blocks exposed to the public internet. In EASM, asset discovery provides organizations with a clear view of their external attack surface by mapping out these assets and any risks associated with them. The discovery process ensures that even unknown, unmanaged, or forgotten assets—often referred to as "shadow IT"—are identified and brought under security management.
-
-Effective asset discovery enables organizations to:
-
-- **Gain Visibility**: Establish a complete inventory of all internet-facing assets, which is critical for managing external threats.
-- **Identify Risks**: Proactively uncover and address risks from both known and unknown assets.
-- **Prioritize Remediation**: Prioritize actions to mitigate vulnerabilities, based on the risks associated with each asset.
-- **Monitor Changes**: Continuously track changes in the asset inventory, allowing security teams to respond quickly to new risks.
-
-To learn more about the use cases of EASM, see [What is Zscaler EASM?](https://help.zscaler.com/easm/what-zscaler-easm)
-
-## How Asset Discovery Works in EASM
-
-EASM's asset discovery process starts with the use of seeds. A seed is a legitimate asset provided by the organization, such as a known domain, IP address, or IP block, which serves as the starting point for discovery. EASM then uses this seed to begin mapping the organization’s external attack surface through a recursive process.
-
-Seeds are part of the discovery profile and EASM allows you to create distinct discovery profiles for different business entities (e.g., parent companies, subsidiaries), allowing organizations to have granular control over how they manage their attack surface.
-
-The following sections outline the key steps in EASM's asset discovery and monitoring process:
-
-1. **Seed-based Scanning**: EASM starts by scanning the seed, mapping its direct connections and discovering related assets.
-2. **Discovery Chain**: When the first level of assets connected to the seed is found, EASM recursively scans subsequent levels of connections, ultimately building a comprehensive map of the organization's attack surface.
-3. **Risk Evaluation**: After assets are discovered, EASM evaluates each asset against a set of risk parameters. This includes identifying known vulnerabilities, misconfigurations, and exposed sensitive services. Risks are continuously monitored as part of the asset inventory to provide real-time updates on the organization's external exposure.
-4. **Automated Monitoring**: After the discovery process is complete, EASM continues to monitor the organization's external attack surface through periodic scans. This ensures that any new risks are detected promptly and that any changes to existing assets are tracked.
-
-To learn how to set up asset discovery in EASM, see [Step-by-Step Configuration Guide for EASM](https://help.zscaler.com/easm/step-step-configuration-guide-easm).
-<!-- /ZS-ARTICLE -->
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 186
 
 ---
 
@@ -2338,112 +594,6 @@ You cannot edit a system tab, including the name, type, and default fields. Thes
 [Image: Adding a new field in a tab]
 
 [Image: Editing a field in a tab]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/connecting-anysource-using-aws-s3","lastmod":"2026-05-22T07:06Z","nid":"1539064"} -->
-## Connecting AnySource Using AWS S3
-
-- Source: https://help.zscaler.com/identity-protection/connecting-anysource-using-aws-s3
-- Product: Identity Protection
-- Path: Identity Protection Help > Analytics > Reports > Connecting AnySource Using AWS S3
-- Last modified: 2026-05-22T07:06Z
-- Summary: How to connect and set up an AnySource connector using the AWS S3 method.
-
-The Zscaler Security Operations (SecOps) platform can integrate with your AWS S3 buckets to automatically extract data. When a new file is added to the bucket, an alert is triggered and the file is retrieved.
-
-## Setting Up an S3 Integration
-
-Configuring an integration with your S3 data is a three-step process.
-
-- 1. Create a role that Zscaler can use to pull data.
-- 2. Create an SQS queue for the SecOps platform to subscribe to.
-- 3. Configure your bucket to send new object notifications to the SQS queue.
-
-1. Generate a unique identifier that will be used by Zscaler's service to assume the role. You can use this [UUID Generator](https://www.uuidgenerator.net).
-2. Run the SecOps platform's Cloud Formation Role Stack. You can either:
-  - [Follow the AWS instructions](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=AvalorStackIntegration&templateURL=https%3A%2F%2Favalor-platform-prod.s3.amazonaws.com/static/media/avalor-aws-standard.json).
-  - Use the following command: `aws cloudformation create-stack \ --region <Region> \ --stack-name AvalorStackIntegration \ --capabilities CAPABILITY_NAMED_IAM \ --template-url https://avalor-platform-public-prod.s3.amazonaws.com/static/media/avalor-aws-standard.json \ --parameters ParameterKey=ExternalId, ParameterValue=<Generated UUID>`
-    - Replace `<Region>` with the region of the AWS service you're retrieving data from.
-    - Replace `<Generated UUID>` with the UUID you created.
-    - The `template-url` script provides permissions for AWS. If you're connecting to AnySource only, you can edit the script to modify or remove unnecessary permissions.
-      - Permissions
-
-After running the command, the RoleARNID value appears under the stack's Output tab.
-
-{
-"Action": [
-"ec2:DescribeInstances", 
-"ecr:ListImages", 
-"ecr:DescribeImages",
-"ecr:DescribeRepositories",
-"ecr:DescribeImageScanFindings",
-"rds:DescribeDBInstances",
-"eks:ListClusters",
-"eks:DescribeCluster",
-"s3:ListAllMyBuckets",
-"inspector2:ListFindings",
-"securityhub:GetFindings"
-],
-"Effect": "Allow",
-"Resource": "*"
-},
-
-1. Create an SQS queue with the access policy as described in the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ways-to-add-notification-config-to-bucket.html#step1-create-sqs-queue-for-notification).
-2. Name the queue `avalor-s3-event-forwarder`.
-3. Copy and save the Queue ARN, to be used in the next step.
-
-Make sure to send the Queue URL to your Zscaler Account team representative to complete the configuration process.
-
-### KMS Encryption (Optional)
-
-If your organization uses KMS encryption, add the following to the key policy:
-
-```
-- Sid: Allow Role to use the key
-              Effect: Allow
-              Principal:
-                AWS: !GetAtt AvalorRole.Arn
-              Action:
-             - "kms:Decrypt"
-             - "kms:GenerateDataKey*"
-              Resource: "*"
-```
-
-The final step is configuring an event notification from the S3 buckets where the data is generated for the SQS Queue. To complete the process, refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html).
-
-When configuring the bucket:
-
-1. In step 6, select **All object create events**under **Event Type**.
-2. In step 7, select **SQS Queue** as the Destination, then enter **SQS queue ARN**. Paste the ARN obtained from the previous step.
-3. Click **Save Changes**.
-
-Repeat these steps for every bucket that you want to ingest data from.
-
-## Data Source Setup
-
-After you finish setting up your S3 integration, send the following details to your Zscaler Account team representative to use in setting up the data source.
-
-- AWS account ID
-- Region
-- Bucket
-- Role ARN
-- (Optional) Path
-- (Optional) External ID: The external ID is the unique identifier you create when creating a role for Zscaler. It is an additional security measure that can be used when accessing your account. While using an External ID is considered best practice, it is not mandatory.
-- (Optional) File pattern (regex)
-
-### Path and File Pattern Fields
-
-You can use the Path and File pattern fields to manage which files are retrieved to the source. This is useful if you have a main bucket for all Zscaler files but want to divide the files into different sources. The Path and File pattern fields can be used separately or together to fit your use case.
-
-#### Path
-
-The Path field is useful when you have subfolders in your main bucket, and each folder contains files that should be associated with a different source in the platform. For example, if one folder holds logs from the production environment and another from the test environment, you can enter the specific path when setting up the source to ensure that only files from that path are uploaded to the source.
-
-#### File
-
-The File pattern field also allows better control over the files uploaded to a specific source. For example, by entering a `*.jsonl` pattern, the platform will only retrieve files with a .jsonl extension in that particular source. The file pattern should be entered in a regex format.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4485,13 +2635,13 @@ This article provides a summary of all new features and enhancements for Risk360
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-07-22T09:50Z","nid":"1534327"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-08-13T22:39Z","nid":"1534327"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/risk360/release-upgrade-summary-2026
 - Product: Risk360
 - Path: Risk360 Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-22T09:50Z
+- Last modified: 2026-08-13T22:39Z
 - Summary: Risk360 Advanced Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Risk360 Advanced.
@@ -5603,151 +3753,6 @@ To pin an app to the top navigation bar, click the **App Menu** icon, then click
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-apache-kafka-outegration","lastmod":"2026-06-29T07:06Z","nid":"1540205"} -->
-## Configuring the Apache Kafka Outegration
-
-- Source: https://help.zscaler.com/uvm/configuring-apache-kafka-outegration
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Apache Kafka Outegration
-- Last modified: 2026-06-29T07:06Z
-- Summary: How to configure the Apache Kafka outegration to dispatch tickets.
-
-The Apache Kafka outegration is used to publish entity data from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to an external Kafka topic, ensuring a secure and reliable data flow.
-
-This article is a step-by-step guide to configuring the Kafka outegration.
-
-## Prerequisites
-
-Before configuring the outegration, make sure you have met the following prerequisites:
-
-- Create a Kafka topic.
-- Configure mTLS for authentication.
-- Configure the isolation level.
-- Enable ACL rules.
-- Configure the port in Internet & SaaS (ZIA).
-
-A Kafka topic must be previously created and configured for each outegration.
-
-Authentication is handled via Mutual TLS (mTLS), where the SecOps platform and Kafka broker verify each other's certificates. To set up mTLS authentication, ensure that you retrieve the following to enter them in the corresponding fields during the outegration setup:
-
-- Client Private Key: Generate an RSA-2048 private key (size must be exactly 2048 bits) or ECDSA (size can be 256, 384, and 521 bits) in PEM format. This key can be optionally encrypted.
-- Key Password: Obtain the password to decrypt the private key. This is required only if the generated client private key is encrypted.
-- Client Certificate Chain: Create the complete certificate chain (client certificate followed by any intermediate Certificate Authorities) in PEM format.
-- Broker CA Certificate: Obtain the Kafka broker's Certificate Authority (CA) certificate in PEM format. This is necessary if your broker uses a private CA.
-
-To learn more, refer to the [Kafka documentation](https://docs.confluent.io/platform/current/kafka/configure-mds/mutual-tls-auth-rbac.html).
-
-Kafka outegration ensures exactly-once behavior by publishing via transactions. For consistent behavior, the isolation level must be explicitly configured with `isolation.level=read_committed`. Failure to set this property potentially results in consumers reading messages from rolled-back transactions, which can compromise data integrity.
-
-Ensure that the Kafka cluster allows the transaction ID `zscaler-producer-transactional` in the ACL rules.
-
-```
-ACL Rules:
-kafka-acls.sh --bootstrap-server <your-broker-address>:<port> --add \
-     --allow-principal 'User:provider-test-client' \
-     --operation WRITE --operation DESCRIBE \
-     --transactional-id 'zscaler-producer-transactional'
-
-kafka-acls.sh --bootstrap-server <your-broker-address>:<port> --add \
-   --allow-principal 'User:provider-test-client' \
-   --operation IDEMPOTENT_WRITE \
-   --cluster
-```
-
-In Internet & SaaS network configuration, port 9094 is the only authorized port open to all IP addresses for Kafka traffic. To request the opening of any new or additional ports, contact Zscaler Support.
-
-## Configuring the Kafka Outegration
-
-To configure the Kafka outegration, complete the following steps:
-
-- Step 1: Authenticate the Kafka Connection (Connect)
-- Step 2: Configure the Outegration Visibility and Behavior (Settings)
-- Step 3: Map the Outegration Fields (Mapping)
-
-To establish a secure connection with the Kafka cluster, you need to authenticate with the security certificates you previously generated.
-
-1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
-2. Click **Create** and select **Kafka**. The **Connect**step appears.
-3. In the **Details** section: See image.
-  1. **Display Name**: Enter a name for the outegration.
-  2. **Active**: Enable to activate the Kafka outegration.
-  3. **Bootstrap Servers**: Enter the bootstrap endpoint in `host:port` format (e.g., `kafka-broker1:9092`, `kafka-broker2:9092`).
-  4. **Topic**: Enter the name of the Kafka topic for publishing ticket details.
-  5. **Authentication**: Select an existing authentication ID, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. See image.
-4. Click **Test** in the bottom-right corner of the page to verify the connection.
-5. After the connection is verified, click **Next**to proceed to the **Settings**step.
-
-[Image: List of outegrations]
-
-[Image: Kafka outegration setup details]
-
-[Image: Kafka outegration authentication setup]
-
-In the Settings step of the outegration setup wizard, configure Kafka outegration's visibility and behavior within the SecOps platform. In this step, you'll set the SecOps entity that triggers the Kafka dispatch (e.g., ticket, policy violation).
-
-To configure the outegration's visibility and behavior, in the **Advanced Settings** section, from the **Create Kafka item from**drop-down menu, select the entity that you want to configure the outegration for.
-
-See image.
-
-[Image: Advanced Settings options]
-
-In the Mapping step, configure the field mapping between your SecOps ticket fields and Kafka record value fields.
-
-The main objective of the mapping process is to map source fields with their corresponding Kafka record value fields. To do this, specify the source field on the left and the Kafka record value field on the right.
-
-### Creating a New Mapping
-
-To create a new mapping from a SecOps ticket to Kafka:
-
-1. Configure the source field value (left):
-  1. Click**Mapping**.
-  2. Click **Add value** on the left. See image.
-  3. The **Field Editor** appears. In the **Field Editor**, select one of the following methods to configure the value of the field:
-    - Field (Dictionary)
-    - Expression
-2. Enter a value in the Kafka field (right). See image.
-
-Repeatthe mapping process for any Kafka field you want to map.
-
-You can also set a SecOps ticket field as mandatory by selecting the **Set as Mandatory**checkbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
-
-See image.
-
-Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
-
-### Previewing the Ticket to Kafka Mapping
-
-After completing the field mappings from SecOps ticket to Kafka record value fields dispatch mapping, preview the mapping to review the configuration. This helps ensure that ticket dispatch is behaving as expected and that the Kafka record fields are populated correctly.
-
-To preview the mapping, click **Preview**on the bottom right of the data mapping fields. The Mapping Preview window appears. In the left of the Mapping Preview window, tickets in your account are listed and organized by ticket ID. You can select, filter, or search for tickets and preview the mapping to their corresponding Kafka record value fields. You can also open the actual ticket in a new tab for a more in-depth review.
-
-See image.
-
-For use cases that require more advanced configuration, you can use the Expression Editor to configure the field value to be mapped to the target field.
-
-[Image: Expression Editor]
-
-[Image: Mapping fields to populate on the right]
-
-[Image: Mapping fields to populate on the left]
-
-The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left.
-
-Kafka outegration does not support the dictionary feature.
-
-See image.
-
-[Image: Create mappings between specific values from the field on the right and values from the field on the left]
-
-[Image: Mapping Preview details]
-
-[Image: Select the Set as Mandatory checkbox to set a SecOps ticket field as mandatory]
-
-When the outegration setup is complete, you can begin dispatching SecOps alerts and events to Kafka. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/configuring-apiiro-connector","lastmod":"2026-07-05T07:06Z","nid":"1528251"} -->
 ## Configuring the Apiiro Connector
 
@@ -6623,13 +4628,13 @@ To learn more, refer to the [Microsoft documentation](https://learn.microsoft.co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-devops-outegration","lastmod":"2025-11-20T03:47Z","nid":"1532592"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-devops-outegration","lastmod":"2026-08-16T00:47Z","nid":"1532592"} -->
 ## Configuring Azure DevOps Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-azure-devops-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring Azure DevOps Outegration
-- Last modified: 2025-11-20T03:47Z
+- Last modified: 2026-08-16T00:47Z
 - Summary: How to configure the Azure DevOps outegration to dispatch tickets.
 
 The Azure DevOps outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Azure DevOps project, enabling you to track and assign tickets to a specific team for analysis and remediation.
@@ -6971,13 +4976,13 @@ When the outegration setup is complete, you can begin dispatching SecOps tickets
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-devops-outegration-webhook","lastmod":"2025-10-13T21:54Z","nid":"1532593"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-devops-outegration-webhook","lastmod":"2026-08-16T00:48Z","nid":"1532593"} -->
 ## Configuring the Azure DevOps Outegration Webhook
 
 - Source: https://help.zscaler.com/uvm/configuring-azure-devops-outegration-webhook
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Azure DevOps Outegration Webhook
-- Last modified: 2025-10-13T21:54Z
+- Last modified: 2026-08-16T00:48Z
 - Summary: How to configure the Azure DevOps outegration webhook for automatic syncing of tickets.
 
 The Azure DevOps outegration webhook enables automatic syncing of Azure DevOps ticket updates such as Status or SLA changes to their corresponding Zscaler SecOps tickets, reducing the need for manual changes. This step is required when configuring the Azure DevOps to SecOps ticket mapping to keep the tickets in the two systems in sync. To learn more, see [Configuring the Azure DevOps Outegration.](https://help.zscaler.com/uvm/configuring-azure-devops-outegration)
@@ -8405,81 +6410,6 @@ You cannot edit a system tab, including the name, type, and default fields. Thes
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-entra-id-sso","lastmod":"2025-11-13T03:33Z","nid":"1527931"} -->
-## Configuring Microsoft Entra ID SSO
-
-- Source: https://help.zscaler.com/uvm/configuring-entra-id-sso
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring Microsoft Entra ID SSO
-- Last modified: 2025-11-13T03:33Z
-- Summary: How to configure Microsoft Entra ID SSO account authentication.
-
-You can configure Microsoft Entra ID (formerly Azure AD) single sign-on (SSO) as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through the Microsoft Entra ID SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Microsoft Entra ID. Each user must have an account with the same email address in both the platform and Microsoft Entra ID. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure Microsoft Entra ID SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Register an Application in Microsoft Entra ID
-- Step 3: Share Metadata With Zscaler
-
-To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-After generating SAML details (Entity ID and Reply URL), you can proceed to registering a Microsoft Entra ID application and assigning users to the new application.
-
-To register a Microsoft Entra ID application:
-
-1. Sign in to the Azure portal.
-2. Select the **Microsoft Entra ID**service.
-3. In the left-side navigation, go to **Manage** > **Enterprise applications**.
-4. Click **New application**.
-5. On the **Browse Microsoft Entra Gallery** page, click**Create your own application**. The **Create your own application** drawer appears.
-6. In the **Create your own application** drawer:
-  1. **Name**: Enter a name for the application.
-  2. **What are you looking to do with your application?**: Select **Integrate any other application you don’t find in the gallery (Non-gallery)**.
-  3. Click **Create** to complete the initial app registration.
-7. The app registration's **Overview** page appears.
-8. In the **Getting Started** section, locate the**Set up single sign on** tile and click **Get Started**. The **Single sign-on** page appears.
-9. On the **Single sign-on** page, select **SAML**as the single sign-on method. The **SAML-based Sign-on** page appears.
-10. On the **Basic SAML Configuration** tile, click **Edit**. See image.
-11. In the **Basic SAML Configuration** drawer:
-  1. **Identifier (Entity ID)**: Click **Add Identifier** and paste the **Entity ID** copied from Zscaler.
-  2. **Reply URL (Assertion Consumer Service URL)**: Click **Add reply URL** and paste the **Reply URL** copied from Zscaler.
-  3. **Sign on URL**: (Optional) Enter `https://app.avalor.io`. See image.
-12. Click **Save**.
-13. On the **Attributes & Claims** tile, click **Edit**.
-14. Click **Add a group claim**.
-15. In the **Group Claims** drawer:
-  1. Select **Groups assigned to the application**.
-  2. **Source Attribute**: Select **Group ID**from the drop-down menu. See image.
-16. Click **Save**.
-17. Close the**Attributes & Claims** page to return to the **Set up Single Sign-on with SAML**page.
-
-After registering the Microsoft Entra ID application, you can assign users to the new app.
-
-To assign users to the app:
-
-1. In the left-side navigation, click **Users and groups.** See image.
-2. Click **Add user/group**.
-3. Add the relevant user in your organization.
-4. Click **Assign**.
-
-After creating a Microsoft Entra ID app, share XML metadata with your Zscaler Account team.
-
-To retrieve the XML metadata:
-
-1. Sign in to the Azure portal, and select the **Microsoft Entra ID**service.
-2. Open the application you created.
-3. In the left-side navigation, select **Single sign-on**. See image.
-4. Scroll down to the **SAML Signing Certificate** section and copy the **App Federation Metadata URL**. See image.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/configuring-flexera-assets-connector","lastmod":"2026-07-31T07:06Z","nid":"1528196"} -->
 ## Configuring the Flexera Assets Connector
 
@@ -8629,13 +6559,13 @@ The query parameters field allows you to apply granular filters to the data retr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-freshservice-outegration","lastmod":"2026-02-17T06:06Z","nid":"1528076"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-freshservice-outegration","lastmod":"2026-08-16T00:49Z","nid":"1528076"} -->
 ## Configuring the Freshservice Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-freshservice-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Freshservice Outegration
-- Last modified: 2026-02-17T06:06Z
+- Last modified: 2026-08-16T00:49Z
 - Summary: How to configure the Freshservice outegration for disptaching SecOps tickets to the Freshservice work management system.
 
 The Freshservice outegration is used to dispatch tickets from Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Freshservice tickets, creating a Freshservice ticket that can then be tracked, assigned, and managed by your remediation teams working with Freshservice.
@@ -8935,13 +6865,13 @@ When the outegration setup is complete, you can begin dispatching SecOps tickets
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-freshservice-outegration-webhook","lastmod":"2026-02-17T06:06Z","nid":"1533938"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-freshservice-outegration-webhook","lastmod":"2026-08-16T00:50Z","nid":"1533938"} -->
 ## Configuring the Freshservice Outegration Webhook
 
 - Source: https://help.zscaler.com/uvm/configuring-freshservice-outegration-webhook
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Freshservice Outegration Webhook
-- Last modified: 2026-02-17T06:06Z
+- Last modified: 2026-08-16T00:50Z
 - Summary: How to configure the Freshservice outegration webhook for bidirectional sync when setting up the Freshservice outegration.
 
 The Freshservice outegration workflow webhook enables automatic syncing of Freshservice ticket updates such as Status or SLA changes to their corresponding tickets, reducing the need for manual changes. This step is required when configuring the Freshservice to ticket mapping to keep Freshservice tickets and SecOps tickets in sync. To learn more, see [Configuring the Freshservice Outegration](https://help.zscaler.com/uvm/configuring-freshservice-outegration).
@@ -9417,13 +7347,13 @@ Leave this field empty, as the GCP connector does not require an admin email to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-google-cloud-storage-outegration","lastmod":"2026-07-31T07:06Z","nid":"1541146"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-google-cloud-storage-outegration","lastmod":"2026-08-16T00:37Z","nid":"1541146"} -->
 ## Configuring Google Cloud Storage Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-google-cloud-storage-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring Google Cloud Storage Outegration
-- Last modified: 2026-07-31T07:06Z
+- Last modified: 2026-08-16T00:37Z
 - Summary: How to configure Google Cloud Storage outegration in the Zscaler SecOps platform.
 
 The Google Cloud Platform (GCP) Storage outegration is used as a report delivery method to dispatch files from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Google Cloud Storage bucket.
@@ -10218,13 +8148,13 @@ Select the checkbox to retrieve all fields, including any custom fields configur
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration","lastmod":"2025-11-25T20:06Z","nid":"1527961"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration","lastmod":"2026-08-16T00:57Z","nid":"1527961"} -->
 ## Configuring the Jira Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-jira-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Jira Outegration
-- Last modified: 2025-11-25T20:06Z
+- Last modified: 2026-08-16T00:57Z
 - Summary: How to configure the Jira outegration for disptaching tickets to the Jira Data Center or Jira Cloud work management systems.
 
 The Jira outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Jira project, creating a Jira issue that can then be tracked, assigned, and managed by your remediation teams working with Jira.
@@ -10235,7 +8165,7 @@ Each Jira issue type (e.g., Bug, Task, Feature) requires a separate outegration 
 
 ## Prerequisites
 
-Before getting started, identify the Jira platform your organization uses: Jira Cloud or Jira Data Center. While the setup process for both Jira outegrations is mostly similar, Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Zscaler SecOps Platform Gateway](https://help.zscaler.com/uvm/configuring-zscaler-secops-platform-gateway).
+Before getting started, identify the Jira platform your organization uses: Jira Cloud or Jira Data Center. While the setup process for both Jira outegrations is mostly similar, Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway).
 
 Retrieve the required authentication parameters based on your Jira deployment type (i.e., Jira Cloud or Jira Data Center), and enter them in the corresponding fields during the Connect step of the outegration setup wizard.
 
@@ -10573,13 +8503,13 @@ When the outegration setup is complete, you can begin dispatching SecOps tickets
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration-webhook","lastmod":"2025-10-07T21:06Z","nid":"1527986"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration-webhook","lastmod":"2026-08-16T00:58Z","nid":"1527986"} -->
 ## Configuring the Jira Outegration Webhook
 
 - Source: https://help.zscaler.com/uvm/configuring-jira-outegration-webhook
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Jira Outegration Webhook
-- Last modified: 2025-10-07T21:06Z
+- Last modified: 2026-08-16T00:58Z
 - Summary: How to configure the Jira outegration webhook for bidirectional sync when setting up the Jira outegration.
 
 The Jira outegration webhook enables automatic syncing of Jira issue updates such as Status or SLA changes to their corresponding tickets, reducing the need for manual changes. This step is required when configuring the Jira to ticket mapping to keep issues and tickets in sync. To learn more, see [Configuring the Jira Outegration](https://help.zscaler.com/uvm/configuring-jira-outegration).
@@ -11479,286 +9409,6 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-okta-sso","lastmod":"2026-07-20T12:39Z","nid":"1527936"} -->
-## Configuring Okta SSO
-
-- Source: https://help.zscaler.com/uvm/configuring-okta-sso
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring Okta SSO
-- Last modified: 2026-07-20T12:39Z
-- Summary: How to configure Okta SSO account authentication.
-
-You can configure Okta single sign-on (SSO) as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through your Okta SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Okta. Each user must have an account with the same email address in both the platform and in Okta. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure Okta SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Create a Bookmark App
-- Step 3: Create an App Integration
-- Step 4: Share Metadata With Zscaler
-
-To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-The SecOps platform doesn't natively support identity provider (IdP)-initiated login. Instead, implement the following process using a Bookmark app that redirects to app.avalor.io.
-
-To configure a Bookmark app:
-
-1. Sign in to the Okta Admin Center.
-2. Go to the **Applications** page and click **Browse App Catalog.**
-3. Search for and add **Bookmark App**. See image.
-4. In the **General Settings**section:
-  1. **Application label**: Enter a name for the Bookmark app.
-  2. **URL**: Enter `https://app.avalor.io?domain=``<Your Org Domain>`, replacing `<Your Org Domain>` with your actual organization domain.
-  3. **Application Visibility**: Leave the checkbox unselected so the **Bookmark**app isn't hidden. See image.
-  4. Click **Done**.
-5. Click the **Edit** icon on the logo to add Zscaler's logo: [Download Logo](https://help.zscaler.com/downloads/uvm/administration/account-management/admin-configuration-and-deployment/configuring-okta-sso/LOGO.png) See image.
-6. Click **Done**.
-
-To enable SAML-based authentication with Okta, you need to create and configure a new app integration.
-
-To create an app integration:
-
-1. Sign in to the Okta Admin Console.
-2. In the navigation menu, expand **Applications**, and then select **Applications**.
-3. Click **Create App Integration**.
-4. In the **Create a New Application Integration** window, select **SAML 2.0**as the **Sign on method**, and then click **Create**. See image.
-5. On the **Create SAML Integration** page:
-  1. On the **General Settings**tab:
-    1. **App name**: Enter a name for the app integration.
-    2. **App Visibility**: Select **Do not display application icon to users**.
-    3. Click **Next**.
-  2. On the **Configure SAML**tab:
-    1. **Single sign on URL**: Paste the **Reply URL** copied from Zscaler.
-    2. **Audience URI (SP Entity ID)**: Paste the **Entity ID** copied from Zscaler.
-    3. **Name ID format**: Enter `EmailAddress`.
-    4. **Application username**: Select **Okta username**.
-    5. In the **Attribute Statements (optional)** section:
-      1. **Name:** Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-      2. **Value**: Enter `user.email`. See image.
-      3. Click **Next**.
-  3. On the **Feedback** tab, select **I'm an Okta customer adding an internal app**. See image.
-  4. Click **Finish**.
-6. Assign users or groups to authenticate using Okta:
-  1. Go to the **Assignments** tab of the application you added.
-  2. Click **Assign**.
-  3. Select **Assign to People**or **Assign to Groups**.
-  4. Enter the people or groups that you want to authenticate with the Okta IdP.
-  5. Click **Assign**.
-  6. Verify the attributes, and click **Save and Go Back**.
-7. Click **Done**.
-
-After creating a Bookmark App and an app integration, share XML metadata with your Zscaler Account team. To learn more, refer to the [Okta documentation](https://support.okta.com/help/s/article/Location-to-download-Okta-IDP-XML-metadata-for-a-SAML-app-in-the-new-Admin-User-Interface?language=en_US).
-
-To retrieve the XML metadata:
-
-1. In the Okta console, click the **Sign On** tab of the SAML application.
-2. Scroll down and click **View SAML setup instructions**. In the new tab that opens, all the required values are displayed.
-3. Copy the metadata from the **Optional** section. See image.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-
-[Image: Okta Metadata XML]
-
-**[Image: SAML XML Metadata field]**
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-ping-federate-sso","lastmod":"2025-11-27T20:06Z","nid":"1527916"} -->
-## Configuring PingFederate SSO
-
-- Source: https://help.zscaler.com/uvm/configuring-ping-federate-sso
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring PingFederate SSO
-- Last modified: 2025-11-27T20:06Z
-- Summary: How to configure PingFederate SSO account authentication.
-
-You can configure PingFederate single sign-on (SSO) as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through your PingFederate SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingFederate. Each user must have an account with the same email address in both the platform and PingFederate. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure PingFederate SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Register an Application in PingFederate
-- Step 3: Share Metadata With Zscaler
-
-To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-After generating SAML details (Entity ID and Reply URL), you can register a PingFederate application. The app registration process assumes you already have an IdP Adapter in place. To learn more, refer to the [PingFederate documentation](https://docs.pingidentity.com/integrations/azure/azure_ad_and_office_365_integration_guide/pf_azuread_office365_integration_create_an_idp_adapter.html).
-
-To register a PingFederate application:
-
-1. Sign in to the PingFederate Admin console.
-2. Go to **Identity Provider** > **SP Connections**.
-3. Click **Create Connection**. See image.
-4. On the **Connection Template** step, select **DO NOT USE A TEMPLATE FOR THIS CONNECTION** and click **Next**. See image.
-5. On the **Connection Type** step:
-  1. Select the **BROWSER SSO PROFILES**checkbox.
-  2. Select **SAML 2.0** from the **PROTOCOL** drop-down menu.
-  3. Click **Next**. See image.
-6. On the **Connection Options**step, select the **BROWSER SSO** checkbox and click **Next**. See image.
-7. On the **Import Metadata** step, select **None** for **METADATA** and click **Next**. See image.
-8. On the **General Info** step:
-  1. **Partner's Entity ID**: Paste the **Entity ID** copied from Zscaler.
-  2. **Connection Name**: Enter a name for the application.
-  3. **Base URL**: Leaveempty.
-  4. Click **Next**.
-9. On the **Browser SSO** step, click **Configure Browser SSO**.
-  1. On the **SAML Profiles** tab, under **Single Sign-On (SSO) Profiles**, select the **SP-INITIATED SSO**checkbox, and then click **Next**. IdP-initiated SSO is not supported. See image.
-  2. On the **Assertion Lifetime** tab, leave the settings as is and click **Next**.
-10. On the **Assertion Creation** step, click **Configure Assertion Creation**. Select **STANDARD**, andclick **Next**. See image.
-11. On the **Attribute Contract** step, under **Extend the Contract**, enter `email`, and then click **Add**. See image.
-12. Click **Next**.
-13. On the **Authentication Source Mapping** step, click **Map New Adapter Instance.**
-  1. On the **Adapter Instance** tab, select the **Adapter Instance** for this app, and click **Next**.
-  2. On the **Mapping Method** tab, leave the settings as is and click **Next**.
-  3. On the **Attribute Contract Fulfillment** tab, configure the Attribute Contracts: **SAML SUBJECT** and **email**. For each:
-    1. Select **Adapter** from the **Source** drop-down menu.
-    2. Select **Email**from the **Value**drop-down menu.
-  4. On the **Issuance Criteria** tab, click **Next**.
-  5. On the **Summary**tab, review your entries, and then click **Done**.
-14. On the **Authentication Source Mapping** step, click **Next**.
-  1. On the **Summary** tab, review your entries, and then click **Done**.
-15. On the **Assertion Creation** step, click **Next**.
-  1. On the**Protocol Settings** tab, click **Configure Protocol Settings**.
-  2. On the **Assertion Consumer Service URL** tab, select the **Default**checkbox.
-    1. **Binding**: Select **POST** from the drop-down menu.
-    2. **EndpointUrl**: Paste the **Reply URL** copied from Zscaler.
-    3. Click **Add**, and then click **Next**. See image.
-  3. On the **Allowable SAML Bindings** tab, select the **POST**and **REDIRECT**checkboxes and click **Next**. See image.
-  4. On the **Signature Policy** tab, select **Always Sign Assertion** and click **Next**.
-  5. On the **Encryption Policy** tab, select **None**. Click **Next**.
-  6. On the **Summary** tab, review your entries, and then click **Done**.
-  7. On the **Protocol Settings** tab, click **Next**.
-  8. On the **Summary** tab, review your entries, and then click **Done**.
-16. On the **Browser SSO** step, click **Next**.
-17. On the **Credentials** step, click **Configure Credentials**, select the signature on the SAML, and click **Next**.
-18. On the **Summary** tab, review your entries, and then click **Done**.
-19. On the **Credentials** tab, click **Next**.
-20. On the **Activation & Summary** step, scroll to the bottom and click **Save**.
-
-After registering the SAML app in PingFederate, you are redirected to the SP Connections page, where you can copy your application's metadata to be used in the next step.
-
-After registering an app in PingFederate, share XML metadata with your Zscaler Account team.
-
-To retrieve the XML metadata:
-
-1. On the **SP Connections**page of the application you registered, click **Select Action** > **Export Metadata**. See image.
-2. Select the signing certificate and click **Next**.
-3. Scroll to the bottom of the page and click **Export**. The signing certificate file is saved to your computer.
-4. Click **Done**.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-
-**[Image: SAML XML metadata field]**
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-pingone-sso","lastmod":"2026-01-12T06:06Z","nid":"1527906"} -->
-## Configuring PingOne SSO
-
-- Source: https://help.zscaler.com/uvm/configuring-pingone-sso
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring PingOne SSO
-- Last modified: 2026-01-12T06:06Z
-- Summary: How to configure PingOne SSO account authentication.
-
-You can configure PingOne SSO as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through your PingOne SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingOne. Each user must have an account with the same email address in both the platform and PingOne. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure PingOne SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Create an Application Portal Link
-- Step 3: Register an Application
-- Step 4: Share Metadata with Zscaler
-
-To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-The SecOps platform doesn't natively support identity provider (IdP)-initiated login. Instead, implement the following process using an Application Portal Link app that redirects to app.avalor.io.
-
-1. Log in to the Ping Identity admin center.
-2. In the **Applications**menu, click **Application Portal**. See image.
-3. On the **Application Portal** page, click the **Add**icon to add a new link. See image.
-4. In the **Add Link** window: See image.
-  1. **Link Name**: Enter a name for the application portal.
-  2. **Description**: Add a description.
-  3. **Icon**: Upload a logo from your system.
-  4. **URL**: Enter `https://app.avalor.io?domain=<Your Org Domain>`, replacing `<Your Org Domain>` with your actual organization domain.
-5. Click **Save**.
-
-[Image: Application Portal in the Ping Identity admin center]
-
-[Image: Page to add links to applications]
-
-**[Image: Profile details needed to add an application]**
-
-After generating SAML details, you can register an application in the Ping Identity admin center to define how your application interacts with the platform. The application registration process is performed within the centralized PingOne admin center.
-
-1. Log in to the Ping Identity admin center.
-2. In the **Applications**menu, click **Applications**. See image.
-3. On the **Applications**page, click the + icon. See image.
-4. In the **Application Name**field, enter `SecOps Platform- Authentication Only`.
-5. Use the attached SecOps platform's logo as the application icon.
-6. Under **Choose Application Type**, select **SAML Application**. See image.
-7. In the**SAML Application** window, click **Configure**. See image. The **SAML Configuration** page appears.
-8. On the **SAML Configuration**page: See image.
-  1. Under **Provide Application Metadata**, select **Manually Enter**.
-  2. Under **ACS URLs**, enter the **Reply URL** you copied from the SecOps platform.
-  3. For **Entity ID**, enter the **Entity ID** you copied from the SecOps platform.
-9. Click **Save**.
-10. Go to the **Attribute Mappings** tab. See image.
-11. Click the **Edit**icon next to **Attributes**. The **Edit Attribute Mappings** page appears.
-12. On the **Edit Attribute Mappings** page: See image.
-  1. Under **Attributes**, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-  2. From the **PingOne Mappings**drop-down menu, select **Email Address**.
-  3. Select the **Required**checkbox.
-13. Click **Save**.
-14. Go to the **Access** tab. See image.
-15. Click the **Edit**icon next to **Attributes**.
-16. On the **Edit Access**page, deselect **Display this application in the Application Portal**. See image.
-17. Click **Save**.
-
-[Image: Applications under Connections]
-
-**[Image: Add a new application]**
-
-[Image: Application type of the application to be registered]
-
-[Image: Configurations required to create a SAML application]
-
-[Image: Application metadata required for SAML configuration]
-
-[Image: Attribute mapping details]
-
-[Image: Edit Attribute Mappings]
-
-[Image: Access details of the SAML application]
-
-[Image: Edit the Access tab details]
-
-After registering an app in the Ping Identity admin center, share XML metadata with your Zscaler Account team.
-
-1. Go to the **Configuration** tab. See image.
-2. Click **Download Metadata**.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-
-[Image: Configuration details of the application]
-
-**[Image: Add the SAML XML link in the SecOps platform]**
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/configuring-prisma-cloud-connector","lastmod":"2026-03-26T12:25Z","nid":"1531035"} -->
 ## Configuring the Prisma Cloud Connector
 
@@ -12491,93 +10141,6 @@ You can retrieve a list of all organization IDs for your runZero account from th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-secureauth-sso","lastmod":"2026-01-12T06:06Z","nid":"1527786"} -->
-## Configuring SecureAuth SSO
-
-- Source: https://help.zscaler.com/uvm/configuring-secureauth-sso
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring SecureAuth SSO
-- Last modified: 2026-01-12T06:06Z
-- Summary: How to configure SecureAuth SSO account authentication.
-
-You can configure SecureAuth SSO as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through your SecureAuth SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through SecureAuth. Each user must have an account with the same email address in both the platform and SecureAuth. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure SecureAuth SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Create an App Integration
-- Step 3: Share Metadata with Zscaler
-
-To set up SecureAuth SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-To enable SAML-based authentication with SecureAuth, you need to create and configure a new app integration.
-
-To create an app integration:
-
-1. Log in to the SecureAuth Identity Platform.
-2. In the left-side navigation, go to **New Experience**> **SecureAuth IdP**.
-3. Click **Application Manager**. See image.
-4. Click **Add an Application** to open the application template library.
-5. Select **SAML Application** from the library. See image.
-6. On the **Applications Details**page: See image.
-  1. **Application Name:** Enter the SecOps platform name.
-  2. **Application Description**: Enter a description for the application.
-  3. **Upload**: Upload a logo from your system.
-  4. **Data Stores:** Enter the data stores to authenticate and allow user access.
-  5. **Groups:** Enter the groups allowed to access the application. You can also enable **Allow users from every group in your selected data stores access to this application**.
-7. Click **Continue.** The **Connection Settings**page appears.
-8. On the **Connection Settings** page:
-  1. In the **Configure Connection**section: See image.
-    1. Select **SP Initiated** from the **Connection Type** drop-down menu.
-    2. Select **By Redirect**.
-  2. In the **User ID Mapping**section: See image.
-    1. **User ID Profile Field:** Select the relevant user ID from the drop-down menu.
-    2. **Name ID Format:** The format is selected by default.
-  3. In the**SAML Assertion**section: See image.
-    1. **​​IdP Issuer:** Enter the entity ID from Step 1.
-    2. **Assertion Consumer Service (ACS):** Enter the Reply URL from Step 1.
-    3. **SP Login URL:** Enter the URL `https://app.avalor.io?domain=<your domain>`.
-    4. **Assertion will be valid for:** Select an appropriate value.
-    5. **Encrypt SAML Assertion:** Disable the toggle. All the remaining settings should be set to default.
-  4. In the **SAML Attributes** section, click **Add SAML Attribute**: See image.
-    1. **Attribute Name:** Enter the attribute name.
-    2. **Data Store Property:** Choose the value that represents the user's email (**Email**).
-    3. **Namespace (1.1)**: Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-9. Click **Add Application**. The **Information for Service Providers** page appears. See image.
-10. Click **Download Metadata**. You will need this information for the next step.
-11. Enter the SecureAuth IdP appliance URL or IP address as the domain name (e.g., `https://secureauth.company.com or https://111.222.33.44`). See image.
-12. Click **Download**to download the metadata.
-
-**[Image: Add an application]**
-
-[Image: Select the SAML application from the library]
-
-[Image: Enter all the application details]
-
-[Image: Add the configuration connection details]
-
-[Image: Add the user ID mapping details]
-
-[Image: Enter the SAML assertion details]
-
-[Image: Enter the SAML attribute details]
-
-[Image: Information for Service Providers page]
-
-After registering an app in the SecureAuth Identity Platform, share XML metadata with your Zscaler Account team.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-
-[Image: Enter the domain name details to download the metadata file]
-
-[Image: Add the SAML XML link in the SecOps platform]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/configuring-securityscorecard-alerts-connector","lastmod":"2026-04-07T07:06Z","nid":"1534149"} -->
 ## Configuring the SecurityScorecard Alerts Connector
 
@@ -12942,13 +10505,13 @@ The new rule appears in the Custom SLA Rules list and takes precedence over Defa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-cmdb-outegration","lastmod":"2026-01-23T06:06Z","nid":"1534007"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-cmdb-outegration","lastmod":"2026-08-16T01:01Z","nid":"1534007"} -->
 ## Configuring ServiceNow CMDB Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-servicenow-cmdb-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring ServiceNow CMDB Outegration
-- Last modified: 2026-01-23T06:06Z
+- Last modified: 2026-08-16T01:01Z
 - Summary: How to configure ServiceNow CMDB outegration.
 
 The ServiceNow CMDB outegration enables updates to CMDB records, such as adding missing assets, and maintaining an accurate and up-to-date CMDB. This is critical for improving operational efficiency, and strengthening policy compliance and audit readiness.
@@ -13507,13 +11070,13 @@ The list of fields retrieved from the table.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-outegration","lastmod":"2026-02-05T01:30Z","nid":"1528026"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-outegration","lastmod":"2026-08-16T00:59Z","nid":"1528026"} -->
 ## Configuring the ServiceNow Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-servicenow-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the ServiceNow Outegration
-- Last modified: 2026-02-05T01:30Z
+- Last modified: 2026-08-16T00:59Z
 - Summary: How to configure the ServiceNow outegration for disptaching SecOps tickets to the ServiceNow work management system.
 
 The ServiceNow outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your ServiceNow tables, creating a ServiceNow ticket that can then be tracked, assigned, and managed by your remediation teams working with ServiceNow.
@@ -13922,13 +11485,13 @@ When the outegration setup is complete, you can begin dispatching SecOps tickets
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-outegration-webhook","lastmod":"2025-11-18T07:53Z","nid":"1528051"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-outegration-webhook","lastmod":"2026-08-16T01:00Z","nid":"1528051"} -->
 ## Configuring the ServiceNow Outegration Webhook
 
 - Source: https://help.zscaler.com/uvm/configuring-servicenow-outegration-webhook
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the ServiceNow Outegration Webhook
-- Last modified: 2025-11-18T07:53Z
+- Last modified: 2026-08-16T01:00Z
 - Summary: How to configure the ServiceNow outegration webhook for bidirectional sync when setting up the ServiceNow outegration.
 
 The ServiceNow outegration webhook enables automatic syncing of ServiceNow ticket updates such as Status or SLA changes to their corresponding SecOps tickets, reducing the need for manual changes. This step is required when configuring the ServiceNow to SecOps ticket mapping to keep the tickets in the two systems in sync. To learn more, see [Configuring the ServiceNow Outegration](https://help.zscaler.com/uvm/configuring-servicenow-outegration).
@@ -15334,16 +12897,16 @@ Your cloud name is located in the URL that the admin uses to log in to the Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/connecting-anysource","lastmod":"2026-07-22T07:17Z","nid":"1528226"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/connecting-anysource","lastmod":"2026-08-16T01:14Z","nid":"1528226"} -->
 ## Connecting AnySource
 
 - Source: https://help.zscaler.com/uvm/connecting-anysource
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Connecting AnySource
-- Last modified: 2026-07-22T07:17Z
+- Last modified: 2026-08-16T01:14Z
 - Summary: How to connect and set up an AnySource data connector, including uploading files manually, or using AWS S3, GCP, webhook, and an uploading file API.
 
-When [creating a data source](https://help.zscaler.com/uvm/creating-data-sources) to ingest data into the platform, you can either use a dedicated vendor connector, or you can use the AnySource connector. The AnySource connector allows you to upload files directly to the platform. Uploaded files are stored in their original format and can be mapped to the platform's data model. Each source maintains a consistent field mapping, so all files uploaded to a given source should match the structure of the original file (e.g., headers, file type).
+When [creating a data source](https://help.zscaler.com/unified/creating-data-sources) to ingest data into the platform, you can either use a dedicated vendor connector, or you can use the AnySource connector. The AnySource connector allows you to upload files directly to the platform. Uploaded files are stored in their original format and can be mapped to the platform's data model. Each source maintains a consistent field mapping, so all files uploaded to a given source should match the structure of the original file (e.g., headers, file type).
 
 To set up the AnySource connector:
 
@@ -15358,7 +12921,7 @@ To set up the AnySource connector:
 - Webhook
 - Upload File API
 
-To complete the AnySource connector setup, including Remediation Detection Settings and Suppression Rules, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+To complete the AnySource connector setup, including Remediation Detection Settings and Suppression Rules, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 Manually upload a file by dragging and dropping it into the designated area, or selecting it from your local folders. The following file formats are supported for upload: JSON, JSONL, CSV, XLSX, ZIP, XML, ZST, ZSTD.
 
@@ -15539,7 +13102,7 @@ curl --request POST \
 
 ## Fields to Include in the AnySource File
 
-When ingesting data through the AnySource connector, it's important to include specific fields to enable effective data unification (i.e., entity resolution and data normalization) within the platform's unified data model. To learn more, see [What Is Data Unification?](https://help.zscaler.com/uvm/what-data-unification)
+When ingesting data through the AnySource connector, it's important to include specific fields to enable effective data unification (i.e., entity resolution and data normalization) within the platform's unified data model. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
 
 Unlike vendor-specific API connectors (e.g., CrowdStrike Managed Hosts, ServiceNow Assets), which automatically extract the necessary fields based on predefined integration logic, the AnySource connector requires you to explicitly determine which fields to include. For example, when uploading a data file manually, you can choose to include the appropriate fields directly in the file. In other cases, such as using the Upload File API, field selection is typically handled through the parsing logic you define.
 
@@ -15591,13 +13154,13 @@ Each entity type (e.g., assets, vulnerabilities) has its own set of core recomme
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/connecting-anysource-using-aws-s3","lastmod":"2026-07-22T07:17Z","nid":"1528386"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/connecting-anysource-using-aws-s3","lastmod":"2026-08-16T01:12Z","nid":"1528386"} -->
 ## Connecting AnySource Using AWS S3
 
 - Source: https://help.zscaler.com/uvm/connecting-anysource-using-aws-s3
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Connecting AnySource Using AWS S3
-- Last modified: 2026-07-22T07:17Z
+- Last modified: 2026-08-16T01:12Z
 - Summary: How to connect and set up an AnySource connector using the AWS S3 method.
 
 The Zscaler Security Operations (SecOps) platform can integrate with your AWS S3 buckets to automatically extract data. When a new file is added to the bucket, an alert is triggered and the file is retrieved.
@@ -15970,40 +13533,6 @@ After the tickets are unlinked, updates between the third-party ticket and the S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/enabling-email-notifications-failures","lastmod":"2026-02-17T06:06Z","nid":"1529806"} -->
-## Enabling Email Notifications for Failures
-
-- Source: https://help.zscaler.com/uvm/enabling-email-notifications-failures
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Admin Portal > Enabling Email Notifications for Failures
-- Last modified: 2026-02-17T06:06Z
-- Summary: How to enable outegration failure email notifications.
-
-You can enable email notifications to receive alerts on errors for outegration workflows, source run failures, and issues with Extract, Transform, and Load (ETL) and data pipeline. This enables you to proactively resolve issues and minimize disruptions.
-
-To enable email notifications, your assigned role must include the Edit permissions under the Platform - Outegrations resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/aem/creating-custom-roles) and [Assigning Roles to Users](https://help.zscaler.com/aem/assigning-roles-users).
-
-To enable an email notification:
-
-1. In the Zscaler Security Operations (SecOps) platform, click the **Profile**menu in the top right of the navigation bar, and click **Profile Settings**. See image. The **Settings**page appears. See image.
-2. In the **Email Notifications**section, select **Enable failure alert notifications**.
-3. In the**Email Notifications**settings:
-  1. **Select alert type**: Select the options that you want to set the alert for:
-    - **Source Runs**:Source runs fail for various reasons, including API rate limits, expired or invalid credentials, schema changes, or upstream outages. Select this option to receive notifications and reduce the need to manually check the status.
-    - **ETL & Data Pipeline**: ETL and data pipeline processes can fail when data manipulation encounters errors such as data type mismatches, out-of-range values, invalid values, etc.
-    - **Outegrations**: Failures can occur during third-party outegrations. For example, expired tokens for Jira can stop tickets from being created.
-  2. **Select accounts**: Select the accounts for which you want to enable email notifications.
-  3. **Frequency**: The default setting is **Daily**. This setting cannot be modified.
-  4. **Time**: Set the local time you want the email delivered (based on your time zone).
-4. Click **Save**. Emails are sent at the configured time to the email address associated with the admin who enabled the notifications.
-
-[Image: Account name in the SecOps platform]
-
-[Image: Email Notifications settings]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/exporting-reports-discovery-profiles","lastmod":"2026-05-17T07:06Z","nid":"1538692"} -->
 ## Exporting Reports for Discovery Profiles
 
@@ -16029,35 +13558,6 @@ To export a report:
 [Image: Exporting report for discovery profile from the EASM Settings page]
 
 [Image: Exporting report for EASM discovery profile]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/generating-saml-details","lastmod":"2025-12-04T20:06Z","nid":"1530692"} -->
-## Generating SAML Details
-
-- Source: https://help.zscaler.com/uvm/generating-saml-details
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Administration > Account Management > Admin Configuration and Deployment > Generating SAML Details
-- Last modified: 2025-12-04T20:06Z
-- Summary: How to generate SAML details for setting up single sign-on to the Zscaler SecOps platform.
-
-Setting up single sign-on (SSO) account authentication requires generating a SAML Entity ID and Reply URL in the Zscaler Security Operations (SecOps) platform.
-
-If you don't have access to this feature, contact your Zscaler Account team or Zscaler Support for assistance.
-
-To generate SAML details:
-
-1. In the SecOps platform, click the **Profile**menu on the top right of the navigation bar.
-2. Select **Account Settings**.
-3. In the **Authenticate** section:
-  1. **Email Domain**: Enter your organization's email domain including the suffix (e.g., `gmail.com`).
-  2. **Authentication Type**: Select SAML from the drop-down menu. If the **Authentication Type**drop-down menu is disabled, enter an email domain name and save your changes to enable it.
-  3. **Identity Provider Name**: Select the identity provider your organization uses (e.g., **Okta**).
-4. Click **Generate SAML Details**.
-5. Copy the **Entity ID** and **Reply URL**. See image.
-
-Use the Entity ID and Reply URL to configure your SSO, following the setup steps provided by your SSO provider.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16088,37 +13588,6 @@ Your grouping preferences can be saved as a set view. To learn more, see [Creati
 [Image: operational views group by]
 
 [Image: group by clear selection]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/managing-ai-capabilities-secops-platform","lastmod":"2026-06-29T03:44Z","nid":"1533911"} -->
-## Managing AI Capabilities in the SecOps Platform
-
-- Source: https://help.zscaler.com/uvm/managing-ai-capabilities-secops-platform
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Administration > Account Management > Managing AI Capabilities in the SecOps Platform
-- Last modified: 2026-06-29T03:44Z
-- Summary: How to manage the availability of AI capabilities in the SecOps Platform.
-
-AI capabilities within the Security Operations Platform (SecOps Platform) offer users access to AI-powered tools (e.g., [Remediation Copilot](https://help.zscaler.com/uvm/what-remediation-copilot), [Mapping Copilot](https://help.zscaler.com/uvm/what-mapping-copilot)). Admins can manage the availability of AI capabilities within the platform to control whether these tools are available to users.
-
-To manage AI capabilities:
-
-1. Click the **Profile**menu on the top right of the navigation bar.
-2. Select **Account Settings**.
-3. In the**AI Capabilities**section, select or deselect **Enable AI Capabilities**to opt in or out of AI features. See image.
-4. Click **Save**.
-
-Opting in or out of AI capabilities applies the change at the account level and makes them available or unavailable to all users within the platform.
-
-## Privacy and Consent
-
-AI capabilities within the SecOps Platform process data entirely within Zscaler's secured services and are not used to train the underlying AI models. The data is not transmitted to external third parties and is protected by encryption and strict access controls. Though the system attempts to strip personally identifiable information (PII) before processing, users should exercise caution with sensitive information. By using the AI capabilities, users consent to the processing of the information they provide.
-
-To learn more about Zscaler's privacy practices and AI data handling, see [Acceptable Use Policy](https://help.zscaler.com/legal/acceptable-use-policy).
-
-[Image: Enable AI Features Settings]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16777,13 +14246,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-08-03T17:28Z","nid":"1534299"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-08-11T08:33Z","nid":"1534299"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/uvm/release-upgrade-summary-2026
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-03T17:28Z
+- Last modified: 2026-08-11T08:33Z
 - Summary: Unified Vulnerability Management (UVM) Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Unified Vulnerability Management (UVM).
@@ -16965,13 +14434,13 @@ Other browsers should be compatible, but are not actively tested.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/triggering-asset-scans-uvm","lastmod":"2026-04-11T07:06Z","nid":"1535394"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/triggering-asset-scans-uvm","lastmod":"2026-08-13T05:20Z","nid":"1535394"} -->
 ## Triggering Asset Scans in UVM
 
 - Source: https://help.zscaler.com/uvm/triggering-asset-scans-uvm
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Triggering Asset Scans in UVM
-- Last modified: 2026-04-11T07:06Z
+- Last modified: 2026-08-13T05:20Z
 - Summary: How to trigger asset scans on a UVM asset.
 
 This feature is in limited availability. To learn more, contact Zscaler Support.
@@ -16982,9 +14451,9 @@ Zscaler Unified Vulnerability Management (UVM) enables you to trigger on-demand 
 
 Before you can trigger a scan, ensure the following requirements are met:
 
-- The assets you intend to scan must be ingested and managed by a configured data source connector. To learn more, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
-- You must have a configured and active scanner outegration to perform the scan. To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-- Your assigned role must include the Read and Edit permissions under the Vulnerabilities App - Asset Operational View resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/uvm/managing-user-roles).
+- The assets you intend to scan must be ingested and managed by a configured data source connector. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
+- You must have a configured and active scanner outegration to perform the scan. To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations).
+- Your assigned role must include the Read and Edit permissions under the Vulnerabilities App - Asset Operational View resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
 
 The SecOps platform currently supports the Tenable Vulnerability Management and the Tenable Security Center scanner outegrations. To learn more, see [Configuring the Tenable Outegration](https://help.zscaler.com/uvm/configuring-tenable-outegration).
 
@@ -17005,7 +14474,7 @@ The maximum number of scans that can run concurrently is determined by the Max N
 
 ### Tracking Scan Status
 
-After you trigger a scan, you can monitor its progress and completion status through the activity log for your scanner outegration. The activity log provides real-time updates so you can track each scan from initiation through completion. To learn more, see [Managing Outegrations](https://help.zscaler.com/uvm/managing-outegrations#outegration-activity-log).
+After you trigger a scan, you can monitor its progress and completion status through the activity log for your scanner outegration. The activity log provides real-time updates so you can track each scan from initiation through completion. To learn more, see [Managing Outegrations](https://help.zscaler.com/unified/managing-outegrations#outegration-activity-log).
 
 The time required to complete a scan depends on several factors, including the number of selected assets, scanner capacity limits, and current workload. You might also see multiple scans in progress if your outegration is configured to allow parallel execution. When the scan is complete, the outegration automatically polls for final results and updates the corresponding asset data in the SecOps platform. Results can be subject to a brief delay while queued ETL operations are processed within the platform.
 
@@ -17262,16 +14731,16 @@ If the risk and mitigating factors contribute only 30% to a finding's score, lea
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/understanding-uvm-measurement-terminology","lastmod":"2025-12-22T06:06Z","nid":"1533637"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/understanding-uvm-measurement-terminology","lastmod":"2026-08-16T01:06Z","nid":"1533637"} -->
 ## Understanding UVM Measurement Terminology
 
 - Source: https://help.zscaler.com/uvm/understanding-uvm-measurement-terminology
 - Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Analytics > Understanding UVM Measurement Terminology
-- Last modified: 2025-12-22T06:06Z
-- Summary: Describes built-in measurements used in the Zscaler SecOps platform's dashboards and reports.
+- Path: Unified Vulnerability Management (UVM) Help > Analyze for UVM > Understanding UVM Measurement Terminology
+- Last modified: 2026-08-16T01:06Z
+- Summary: Describes built-in measurements used in UVM's dashboards and reports.
 
-This article describes built-in measurements used in the Zscaler Security Operations (SecOps) platform's dashboards and reports. These measurements depend on the states and statuses of tickets. To learn more, see [About Tickets](https://help.zscaler.com/uvm/about-tickets).
+This article describes built-in measurements used in Unified Vulnerability Management (UVM)'s dashboards and reports. These measurements depend on the states and statuses of tickets. To learn more, see [About Tickets](https://help.zscaler.com/uvm/about-tickets).
 
 Additional measurements can be added upon request, and default measurements' calculations can be overridden according to specific needs. Contact your Zscaler Account team for more details.
 
@@ -17610,74 +15079,6 @@ When a ticket includes many findings, Remediation Copilot might run in limited-c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/viewing-audit-logs","lastmod":"2026-05-23T07:06Z","nid":"1539932"} -->
-## Viewing Audit Logs
-
-- Source: https://help.zscaler.com/uvm/viewing-audit-logs
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Admin Portal > Viewing Audit Logs
-- Last modified: 2026-05-23T07:06Z
-- Summary: How to view and export audit logs in the Zscaler Security Operations platform.
-
-Audit logs track user-initiated actions within the Zscaler Security Operations (SecOps) platform. This enables you to monitor configuration changes, such as updates to reports, data source instances, and outegrations. You can download specific audit logs for immediate review, and schedule automated exports to an external destination such as an Amazon S3 bucket.
-
-Audit logs track key events including:
-
-- Configuration of grouping rules and rule sets.
-- Configuration of severity, score, and SLA settings.
-- Creating, managing, and assigning roles and content permissions.
-- Configuring field unification rule set.
-- Configuring UI configurations.
-- Updates to account settings and user settings.
-- Management of data source mapping, data source instances, and data source scheduling.
-- Configuration and mapping of outegrations.
-- Changes to dashboards and reports.
-
-## Viewing the Audit Logs Page
-
-To view the Audit Logs page:
-
-1. Go to a configuration page to: The configuration page for a user is provided here as an example. See image.
-  - For a user: Click the profile menu in the top navigation bar, then click **Profile Settings**.
-  - For an account: Click the profile menu in the top navigation bar, then click **Account Settings**.
-  - For a source: Go to **Configure** > **Sources**, then click a source.
-  - For an outegration: Go to **Configure**> **Outegrations**, then click an outegration.
-  - For a report: Go to an app (**Vulnerabilities**, **Assets**, etc.), click **My Reports**, and click a report.
-2. Click the **More**menu, and click **Audit Logs**. The **Audit Logs** page appears.
-3. On the **Audit Logs** page for a user, you can do the following: See image.
-  - Filter and sort the logs by operation, type, and user name.
-  - Download the logs as a CSV file.
-  - View additional information by clicking the arrow icon. See image.
-
-Audit logs are retained for 90 days. To extend the retention period and to maintain a long-term history, you can export the logs to an Amazon S3 bucket or any other configured log destination.
-
-[Image: Configuration Page of a User]
-
-## Configuring Audit Log Export
-
-You can schedule audit logs to be sent on a daily or hourly basis via an S3 outegration.
-
-To configure automated audit log export for a user:
-
-1. Click the profile menu in the top navigation bar, then click **Account Settings**. The **Settings**page appears.
-2. Click the **Audit Logs Export** drop-down menu. See image.
-3. Select **Enable Scheduling**, then select the following options: See image.
-  1. **Included Entities**: Select the entity types to be included in the audit log (e.g., **Severity Score Settings**, **UI Configuration**).
-  2. **Frequency**: Define the time interval for the audit log export (e.g., **Daily**or **Hourly**).
-  3. **Select S3 Outegration**: Select **AWS S3**. To create an AWS S3 outegration, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-4. Click **Save**. Audit logs are automatically exported to the designated AWS S3 bucket based on the defined scheduling frequency.
-
-[Image: Audit Logs Page]
-
-[Image: Additional Details]
-
-[Image: Account Settings Page]
-
-[Image: Audit Logs Export Drop-Down Menu]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/viewing-findings-uvm","lastmod":"2026-07-13T21:06Z","nid":"1531067"} -->
 ## Viewing Findings in UVM
 
@@ -17843,4 +15244,628 @@ Clicking a ticket opens its drawer. To return to the asset drawer, click the ass
 [Image: The Assets page in UVM]
 
 [Image: The Assets drawer showing details]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-managing-tickets-uvm","lastmod":"2026-07-15T21:06Z","nid":"1531052"} -->
+## Viewing & Managing Tickets in UVM
+
+- Source: https://help.zscaler.com/uvm/viewing-managing-tickets-uvm
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Viewing & Managing Tickets in UVM
+- Last modified: 2026-07-15T21:06Z
+- Summary: How to view and manage ticket details in the Unified Vulnerability Management (UVM) application in the SecOps Platform.
+
+Unified Vulnerability Management (UVM) tickets aggregate related findings into a single work item that can be fixed as one task. Selecting a ticket on the Tickets page opens its drawer, where you can view detailed information and perform multiple actions for the ticket. To learn more, see [About Tickets](https://help.zscaler.com/uvm/about-tickets-operational-view).
+
+The actions you can perform in the ticket drawer depend on your user role in the UVM app. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles).
+
+The ticket drawer can be configured by admins and might look different in your account. The information provided in this article refers to the default ticket drawer settings. To learn more, see [Configuring Entity Drawers in UVM](https://help.zscaler.com/uvm/configuring-ticket-ui-vulnerabilities-app).
+
+To view the ticket drawer:
+
+1. Go to **Vulnerabilities**> **Tickets**. See image.
+2. Click the ticket you want to view. See image. A drawer appears with the following details and tabs:
+  - Top Panel
+  - Details
+  - Findings
+  - Assets
+  - Fixes
+  - Related Tickets
+  - Comments
+  - Activity
+3. Dispatch the ticket to the external work management systems (e.g., Jira) configured in your account's outegrations. To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations) and [Creating & Managing Third Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
+4. Click **Apply Changes** after making changes to the ticket.
+
+[Image: The Tickets page in UVM]
+
+[Image: Ticket drawer with details]
+
+In the top panel of the ticket drawer, you can view:
+
+- **Title**: The ticket title is set by your account's grouping rules.
+- **First Seen**: The ticket's first seen date reflects the earliest detected finding included in the ticket. The ticket creation date can differ from its first seen date due to ticket merges or changes to grouping rules.
+
+Additionally, you can perform the following actions:
+
+- Copy a shareable link to the ticket you're viewing.
+- View the ticket ID.
+- Expand the ticket's drawer to full screen.
+- Close the ticket drawer.
+- Check if the ticket is in Locked Scope, which means new findings cannot be added to it. Tickets are automatically locked when created through the findings split or ticket merge actions. A ticket might also be locked if it's linked to an external system or if an exception request was submitted for it. You can customize the conditions for locking tickets in the Ticket Workflows settings.
+- Access Remediation Copilot to open an AI-powered chat for generating contextual remediation guidance and fix recommendations. To learn more, see [What Is Remediation Copilot?](https://help.zscaler.com/uvm/what-remediation-copilot) and [Using Remediation Copilot](https://help.zscaler.com/uvm/using-remediation-copilot-uvm).
+- View and manually update the ticket's severity level and severity score. The score on the right is the ticket's original severity score, while the score on the left is the UVM score, which is calculated based on the configurable score settings. To learn more, see [Configuring Severity Score Formulas](https://help.zscaler.com/uvm/configuring-severity-score-formulas).
+- View and manually update the ticket's status to track and manage its progress in the workflow. To learn more, see [Managing Ticket Statuses in UVM](https://help.zscaler.com/uvm/managing-ticket-status). When remediating tickets, consider the distinction between the ticket's status and state. Ticket status is either set manually by the ticket assignee or synced from an external work management system, indicating the ticket's current step in your workflow. Ticket state reflects whether the ticket contains active findings that were detected in a recent scan. The ticket state can remain active as long as it contains active findings, regardless of the ticket status.
+
+On the **Details**tab, you can view:
+
+- **Sources**: The sources that the findings in the ticket were detected on.
+- **Assignee**: The agent or team responsible for handling the ticket.
+- **SLA**: The service level agreement (SLA) date that the ticket needs to be remediated by.
+- **Risk Mass**: The ticket's cumulative risk exposure, calculated by summing the severity scores of active findings for each severity level (i.e., Critical, High, Medium, Low), and rounding the result. This indicator can be used to prioritize tickets with similar risk profiles.
+- **Grouping Details**: Specifies the grouping rule and the ruleset that grouped the findings into the ticket. This can be used when investigating whether your account's grouping logic needs to be adjusted. To learn more, see [Configuring Grouping Rules](https://help.zscaler.com/uvm/configuring-grouping-rules).
+- **Exceptions**: The details of all exception requests to extend the ticket's SLA date that were submitted for the ticket. To learn more, see [Understanding Exception Requests](https://help.zscaler.com/uvm/understanding-exception-requests).
+
+Additionally, you can perform the following actions:
+
+- If the ticket isn't assigned, or if the ticket is incorrectly assigned, you can manually update the ticket assignee.
+- To add attachments to your ticket, click the **Attachment**icon, and select the files you want to attach. Supported formats include CSV and XSLX.
+- To request an exception for the ticket to extend its SLA date, click **Request Exception**. To learn more, see [Requesting Exceptions](https://help.zscaler.com/uvm/requesting-exceptions).
+
+On the **Findings**tab, you can explore the findings that the ticket contains, aggregated based on the grouping rules configured in the account. For example, you can view and filter findings by the asset that they were discovered on. To learn more, see [Configuring Grouping Rules](https://help.zscaler.com/uvm/configuring-grouping-rules).
+
+To view the finding's details (e.g., descriptions and [score calculation logic](https://help.zscaler.com/uvm/configuring-severity-score-formulas)), you can either expand the finding or drill down to the finding drawer.
+
+Additionally, you can perform the following actions:
+
+- Apply filters to adjust the displayed findings by relevant attributes (e.g., filtering the findings in the ticket by a particular asset).
+- Select the findings that you want to split into a new ticket, and click **Split into a New Ticket**. Splitting findings from a ticket into a new ticket can be used when you need to focus on a specific subset of findings, such as launching a targeted remediation campaign, requesting an SLA extension, assigning findings to different teams, or resolving cases where automatic grouping has incorrectly combined unrelated findings. To learn more, see [Manually Splitting Findings into New Tickets](https://help.zscaler.com/uvm/manually-splitting-findings-new-ticket).
+- To update key finding details, select the findings and click **Update**. The fields available to update include fields that were enabled for manual override in Configure > Data Model.
+- To export the findings in the ticket as a CSV file, click the **Export as CSV**icon.
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
+
+On the **Assets**tab, you can explore the list of assets on which the findings in the ticket were detected. For example, you can analyze the number of findings on each of the assets in the ticket and the percentage that are remediated.
+
+To view the asset's details in the asset drawer, hover over the asset and click **Drill to Asset Page**on the right.
+
+Additionally, you can perform the following actions:
+
+- Apply filters to adjust the displayed assets to focus on those relevant to your current task.
+- To update asset details, select the assets and click **Update**. The fields available to update include fields that were enabled for manual override in Configure > Data Model.
+- To export the assets in the ticket as a CSV file, click the **Export as CSV**icon.
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
+
+On the **Fixes**tab, you can view the recommended fixes for the findings in the ticket. This tab is displayed depending on factors such as ticket type or available remediation insights in data sources.
+
+The system extracts the following fix types from source data:
+
+- KB: Microsoft KB fixes
+- Version: Version updates
+- Text: Fixes descriptions
+
+You can group the fixes to optimize potential remediation strategies, to help you determine what fixes can be applied to resolve as many findings as possible.
+
+To group fixes:
+
+1. Click the **Settings**icon. The **Select your preferred table view** dialog window appears.
+2. Select a **Group By**option (e.g., **Component**, **Fix**, **Asset**).
+3. Click **Apply**.
+
+On the **Related Tickets**tab, you can view a list of tickets that are related to the ticket you're currently viewing.
+
+Related tickets include:
+
+- Tickets that were aggregated based on the same grouping rule as the locked ticket.
+- Tickets that were split from the current ticket.
+- Tickets that the current ticket were split from.
+
+On the **Comments**tab, you can add, delete, or edit comments to collaborate, inquire, or share information with other users.
+
+On the **Activity**tab, you can view the ticket's activity feed, which is the chronological record of actions performed on the ticket.
+
+You can filter the feed by:
+
+- **Manual**: Manual changes that were made to the ticket (e.g., manually assigning the ticket, or [splitting findings from the ticket](https://help.zscaler.com/uvm/manually-splitting-findings-new-ticket)).
+- **Outegrations Actions**: Changes performed on the ticket as a result of a two-way sync with a third-party ticket (e.g., creating a Jira issue, updating the ticket's status based on a linked ServiceNow ticket).
+- **System Actions**: Automatic actions performed by the system (e.g., newly discovered findings added to the ticket).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-overview-dashboard","lastmod":"2026-07-19T06:00Z","nid":"1540139"} -->
+## Viewing the Overview Dashboard
+
+- Source: https://help.zscaler.com/uvm/viewing-overview-dashboard
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Analyze for UVM > Viewing the Overview Dashboard
+- Last modified: 2026-07-19T06:00Z
+- Summary: How to view and interpret the Overview dashboard in UVM.
+
+The Overview dashboard provides a comprehensive view of your Zscaler Unified Vulnerability Management (UVM) findings from ingestion to remediation. The dashboard demonstrates the data deduplication, normalization, and prioritization capabilities in the Zscaler Security Operations (SecOps) platform, allowing you to view how fragmented data points are transformed into a streamlined set of prioritized work items.
+
+To access the dashboard, go to **Vulnerabilities** > **Overview**.
+
+See image.
+
+You can adjust the data displayed in the dashboard by using the filters at the top of the page. To learn more, see [Using Filters](https://help.zscaler.com/uvm/using-filters). You can save the adjusted view to return to without reapplying the filters each time. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/uvm/creating-managing-saved-views).
+
+## Tracking Discovery to Prioritization
+
+The primary view of the dashboard demonstrates the transition of high-volume findings from their raw source state to their final, prioritized, grouped state in tickets. Tracking from left to right, this visualization illustrates how the platform refines fragmented data into an actionable workload based on your defined business context.
+
+See image.
+
+### Source Findings and Assets
+
+On the left, the dashboard displays source findings and source assets for each of the [data sources configured in your account](https://help.zscaler.com/uvm/creating-data-sources) (e.g., Qualys, CrowdStrike, ServiceNow), after mapping but before unification.
+
+- Findings: The total number of findings reported by a specific source.
+- Assets: The number of assets that the source is reporting on.
+
+See image.
+
+### Unified Findings
+
+As you trace the flow toward the right, the source data is aggregated into the Findings node. The number of findings displayed in this node reflects the findings after they have been processed by the platform's [unification](https://help.zscaler.com/uvm/what-data-unification). UVM identifies when multiple different sources report the same vulnerability on the same machine and merges them into a single, unified record. Thus, you might see a lower number in the central Findings node than the sum of all raw source findings on the left. This provides you with an accurate count of unique findings in your environment without the duplication of overlapping scanner reports.
+
+The trend arrow indicates the percentage of increased or decreased deduplicated findings in the past 30 days.
+
+See image.
+
+### Findings Grouping to Tickets
+
+The flow continues from the Findings node to the Tickets node, including the findings to tickets ratio. The ratio represents the [grouping](https://help.zscaler.com/uvm/configuring-grouping-rules) of findings into actionable work items, illustrating the platform's ability to group related findings into a single ticket. The ratio between findings and tickets reflects the efficiency of your grouping logic. For example, a single ticket might group 50 different findings found on a single software component into one ticket, allowing a developer to address all 50 findings in a single work item.
+
+See image.
+
+### Tickets by Severity
+
+On the right, the tickets are broken down by severity (Critical, High, Medium, Low). This distribution reflects the ticket [severity](https://help.zscaler.com/uvm/configuring-severity-categories) distribution in your account. UVM takes the base severity provided by the scanner and adjusts it based on your specific business context, such as whether the asset is a Crown Jewel or if mitigating controls are present, to ensure that your team focuses on the highest true risk first.
+
+The Mean Time to Remediate (MTTR) measurement shows the average number of days it takes for a ticket to move from opened to resolved.
+
+See image.
+
+## Tracking Operational Health
+
+The tiles at the bottom of the dashboard provide key performance indicators (KPIs) that allow you to monitor the effectiveness of your remediation program and identify process bottlenecks.
+
+See image.
+
+### Vulnerable Assets
+
+The Vulnerable Assets tile displays the total number of unique, unified assets in your environment that have at least one active finding. This represents the actual footprint of your exposure and helps you understand how many physical or virtual machines require attention in your security landscape.
+
+### Total Unique CVE
+
+The Total Unique CVE tile counts the number of distinct Common Vulnerabilities and Exposures (CVE) identifiers currently active across your environment. This helps understand the diversity of your risk. A high number of unique CVEs suggests a wide range of different software issues, whereas a low number of CVEs paired with a high number of findings suggests a few specific vulnerabilities are widespread across your entire organization.
+
+### % Assigned Tickets
+
+The % Assigned Tickets tile tracks how many currently active tickets have been assigned to a specific owner or remediation team. A low assignment percentage indicates that tickets are being created but are sitting in an unassigned queue. You can automate assignment with [data unification](https://help.zscaler.com/uvm/what-data-unification) rules.
+
+### % Third-Party Tickets
+
+The % Third-Party Tickets tile represents the percentage of tickets that have been dispatched to an external work management system using [outegrations](https://help.zscaler.com/uvm/creating-outegrations) (e.g., Jira or ServiceNow). A high percentage indicates a healthy, automated integration where security insights are being pushed directly into the existing workflows of your IT and development teams.
+
+[Image: Vulnerabilities Overview dashboard]
+
+[Image: Overview dashboard central view]
+
+[Image: Raw source Findings and Assets]
+
+[Image: Overview dashboard Findings node]
+
+[Image: Finding to Tickets ratio and Total Tickets]
+
+[Image: Tickets broken down by severity]
+
+[Image: Overview dashboard tiles]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-remediation-history-dashboard","lastmod":"2025-11-20T21:04Z","nid":"1527771"} -->
+## Viewing the Remediation History Dashboard
+
+- Source: https://help.zscaler.com/uvm/viewing-remediation-history-dashboard
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Analyze for UVM > Viewing the Remediation History Dashboard
+- Last modified: 2025-11-20T21:04Z
+- Summary: Viewing data on the Remediation History dashboard in the Vulnerabilities app.
+
+The Vulnerabilities application in the Zscaler Security Operations (SecOps) platform features a Remediation History dashboard that provides insights into remediation efficiency, service level agreement (SLA) compliance, and the overall count and trend of tickets across statuses, teams, and severity levels. The historical data provided by the dashboard helps identify patterns in your remediation efforts, such as trends in fixing vulnerabilities, defects, or other issues.
+
+To view the Remediation History dashboard, go to Vulnerabilities > Remediation History.
+
+The data displayed on the dashboard is based on the selected view and the set filters.
+
+- Dashboard filter: Refine and customize the dashboard data to focus on the remediation details that are most relevant for analysis.
+- Date filter: Filter the chart by date and time to view data within the specified time frame and at the chosen level of detail, enabling you to identify trends, anomalies, and changes over time.
+- Saved views: Save the dashboard with frequently used filters as a saved view to switch between different data scopes. Saved views help to track and compare changes over time, allowing you to revisit specific remediation inquiries and share insights with team members.
+
+You can also Export the dashboard as a PDF by clicking the Export icon at the top of the dashboard.
+
+[Image: Export the dashboard data as a PDF]
+
+## Understanding Ticket Status and Ticket State
+
+To understand the impact of historical data, it is important to know the critical difference between ticket status and ticket state.
+
+- Ticket status: The status of a ticket is configured during account setup to reflect your organization's ticket remediation workflow. A ticket's status is set either manually by the ticket assignee or synced from an external case management system, indicating the ticket's current status in your workflow.
+- Ticket state: The state of a ticket is an attribute that reflects whether the ticket contains active findings detected in a recent scan. The ticket state can remain active as long as it has active findings that need to be addressed, regardless of its actively set status.
+
+This nuance enables you to monitor and differentiate a ticket's remediation progress based on its stage in your designed workflow, while still maintaining visibility into whether the findings it contains continue to be detected by your scanners (useful for identifying tickets that are Closed yet remain Active).
+
+In the dashboard charts explained in the following sections, ticket measurement titles that include Open refer to ticket status, while those that include Active refer to ticket state.
+
+## Top Panel Tiles
+
+The tiles in the top panel provide an overview of open tickets categorized by severity score. This data does not reflect any historical data, and is not affected by the time filter. Each tile shows the current number of open tickets in your account based on severity level (e.g., Critical, High, Medium, Low, etc.) along with the sum of active findings associated with these tickets (active or inactive).
+
+[Image: Open tickets categorized by severity score]
+
+## Key Metrics Over Time
+
+This chart offers insights into performance trends, allowing you to monitor improvements in metrics like MTTR and open tickets exceeding SLA over time. The chart data helps identify specific issues within the remediation process, enabling you to pinpoint areas for improvement and ensure a more efficient workflow that meets SLA targets.
+
+[Image: Insights on performance trends]
+
+The following metric measurements are displayed on the Key Metrics Over Time chart. Open tickets here refer to tickets that were in a status bucket but not tagged as Closed.
+
+- Total Open Tickets: The number of tickets that were open at some point during the specified time period (regardless of their state).
+- Active Tickets (Open): The number of open tickets that were set as Active at some point during the specified time period.
+- Total Tickets Over SLA: The number of open tickets that are past their SLA date at some point during the specified time period (can be Active or Inactive).
+  - For open tickets (i.e., not in the Closed status bucket), over SLA is considered when the set date range is after the set SLA for the ticket.
+  - For Closed tickets (i.e., in the Closed status bucket), over SLA is considered when the date on which the ticket was closed was after the set SLA date.
+- % Open Tickets Over SLA: The percentage of open tickets that were past their SLA date at some point during the specified time period, relative to the total number of tickets.
+
+To add more metrics, click the **+**icon at the top of the chart.
+
+The selection of measurements is limited to 8 metrics.
+
+## Active Tickets Progress Over Time
+
+This chart can reveal trends of discovered versus remediated findings across various severity levels. This is helpful for evaluating the effectiveness of your remediation efforts, highlighting how well your organization addresses emerging vulnerabilities over time.
+
+The measurement displayed in this chart is Total Active Tickets, and represents the sum of Active tickets of any status (including Closed) based on severity level (e.g., Critical) over the time set in the time filter.
+
+[Image: Active tickets of any status based on severity level]
+
+## Open Tickets by Current Status
+
+This chart shows the sum of open tickets (Active and Inactive) based on status buckets. You can hover over each status bar to view additional details based on sub-statuses in each bucket.
+
+As this chart displays only open tickets, status buckets tagged as Closed in your ticket status settings aren't displayed. Status buckets without any associated tickets aren't displayed in this chart.
+
+[Image: Open tickets based on status buckets]
+
+## Analyze Remediation Work
+
+This chart offers a comprehensive comparison of teams based on their efficiency and SLA compliance in vulnerability management efforts. It helps analyze each team's performance, and identify strengths and specific areas for improvement in their workflow processes.
+
+The chart displays the following details:
+
+- % Total Tickets Over SLA: The percentage of tickets that were over SLA at some point during the specified time period, relative to the total number of tickets, regardless of their status (Open or Closed).
+- Total Tickets Over SLA: The number of active or inactive tickets that are over their SLA date at some point during the specified time period.
+- Total Open Tickets: The sum of active and inactive tickets that were not in the Closed status bucket at some point during the specified time period.
+
+[Image: Compare teams on efficiency and SLA compliance]
+
+You can click the **By**drop-down menu and select an option based on how you want the data to be displayed. By default, the chart displays data based on the assignee.
+
+[Image: Select an option from the drop-down menu to filter the data]
+
+To add measurements to this chart, click the **+**icon. In addition to the option to export the entire dashboard as a PDF, you can also export this chart as a CSV by clicking the Export icon.
+
+[Image: Additional measures to analyze]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-risk-dashboard","lastmod":"2025-11-20T21:02Z","nid":"1527776"} -->
+## Viewing the Risk Dashboard
+
+- Source: https://help.zscaler.com/uvm/viewing-risk-dashboard
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Analyze for UVM > Viewing the Risk Dashboard
+- Last modified: 2025-11-20T21:02Z
+- Summary: Understanding components of the Risk dashboard in the Vulnerabilities app.
+
+The Vulnerabilities application in the Zscaler Security Operations (SecOps) platform features a Risk dashboard that displays charts providing high-level insights into your organization's vulnerability-related risk. Risk is measured by analyzing the severity scores of your organization's vulnerabilities. The Risk dashboard leverages the historical data of your account and helps identify trends, assess the effectiveness of remediation efforts, and prioritize risk management strategies.
+
+To view the Risk dashboard, go to Vulnerabilities > Risk.
+
+The data displayed on the dashboard is based on the selected view and the set filters.
+
+- Dashboard filter: Refine and customize the dashboard data to view the most relevant vulnerability-related risk details.
+- Saved views: Save the dashboard with frequently used filters as a saved view to switch between different data scopes. This enables you to revisit specific historical data and share insights with team members.
+
+You can export the dashboard as a PDF by clicking the Export icon at the top right of the dashboard.
+
+[Image: Export the dashboard as a PDF]
+
+## Risk Scoring Method
+
+Risk score is determined by the severity scores of active findings typically associated with an entity (e.g., [Assets](https://help.zscaler.com/uvm/about-assets-operational-view-uvm)) in your account.
+
+There are three methods for risk score calculation:
+
+- AVG Risk: Calculates the average severity score of findings associated with the entity. This is useful for analytical comparisons and trend measurement to reveal risk fluctuations and assess the effectiveness of remediation efforts.
+- Max Risk: Returns the highest severity score related to the entity. This helps in viewing a stable measure of maximum risk exposure, ensuring that significant vulnerabilities are prioritized and addressed efficiently.
+- Risk Mass: Calculates the sum of all severity scores of the active findings associated with the entity. This helps in gaining further insights into cumulative risk exposure. This facilitates effective prioritization of entities with similar risk profiles and enhances overall risk management strategies.
+
+The risk scoring methods complement one another, and toggling between them provides a comprehensive view of risk from multiple perspectives. You canselect your preferred method from the Risk Scoring Method drop-down menu at the top right of the dashboard.
+
+[Image: Methods used for risk score calculation]
+
+The following example charts in this article show the AVG Risk method.
+
+## Overall Risk
+
+This tile shows the average severity score of active findings in your account. This is useful for evaluating the trend in your organization's overall security posture. For example, if the average severity score is currently 5.58, up from 5.57 last month, your risk is indicated as trending up by 0.1%.
+
+[Image: Average severity score of active findings]
+
+## Key Metrics Over Time
+
+This chart shows the historical data over the last 6 months. The default measurement shown in the following chart is Active Findings, which displays the total number of all active findings at the end of each month over the past 6 months. This chart can be used to pinpoint specific months with a significant increase or decrease in the number of active findings, indicating the effectiveness of remediation efforts or the impact of new findings introduced during specific periods.
+
+[Image: Historical data over the last 6 months]
+
+You can add up to two measurements to the chart at a time by clicking the **+** icon.
+
+## Findings by Source Names
+
+This chart shows the number of active findings and their risk score based on sources with the highest count of active findings, and all other sources grouped as others.
+
+[Image: Active findings and Risk Score based on source names]
+
+You can click any of the slices on the chart (except Others) to filter all other charts in the dashboard by this value. This action adds a Slicer filter in the top-right corner of the selected chart and all other charts on the dashboard. Deselecting the selected slice returns the dashboard to the default view.
+
+[Image: Slicer filter to filter all other charts in the dashboard by this value]
+
+## Findings by Asset Type
+
+This chart shows the number of active findings and their risk score based on assets with the highest count of active findings, and all other sources grouped as others.
+
+[Image: Active Findings and Risk Score based on assets]
+
+You can click any of the slices on the chart (except Others) to filter all other charts in the dashboard by this value. This action adds a Slicer filter in the top-right corner of the selected chart and all other charts on the dashboard. Deselecting the selected slice returns the dashboard to the default view.
+
+[Image: Filter the pie chart based on a value]
+
+[Image: Filter tag displayed on all the charts in the dashboard]
+
+## Tile Widgets
+
+The Risk dashboard includes the following widgets.
+
+### Active Findings
+
+This widget displays the number of active findings in your account.
+
+[Image: Number of active findings in your account]
+
+### Vulnerable Assets
+
+The number in this widget represents the count of active assets that contain active findings. An increasing number of vulnerable assets can signal a growing vulnerability exposure.
+
+[Image: Number of vulnerable assets with active findings]
+
+### Findings - Last Week
+
+This widget helps track the number of discovered and undetected findings.
+
+#### Discovered
+
+The number of findings thatbecame active in the last 7 days and are active currently. These findings were either redetected by the scanners or discovered for the first time.
+
+#### Undetected
+
+The number of findings that were active and undetected in the last 7 days.
+
+[Image: Number of active findings that were discovered and those that were undetected]
+
+### Unique CVEs
+
+The number in this widget represents the count of unique CVEs linked to your active findings. It helps indicate the expected complexity of remediation efforts. Fewer unique CVEs suggest simpler and more efficient remediation.
+
+[Image: Number of unique CVEs linked to active findings]
+
+## Number of Assets by Risk Score
+
+This chart displays the number of assets across your account based on risk score ranges.
+
+[Image: Number of assets in your account based on their associated risk score]
+
+## Risk Severity By
+
+The charts in this section represent risk scattered across your organization's assets over time.
+
+### Overview Chart
+
+This chart displays the number of assets and the associated risk score based on the value you select from the Risk Severity drop-down menu. For example, selecting Application Source ID displays the number of assets linked to each application source and the associated risk score. If you click a specific application source ID in the left pane, it filters the chart accordingly.
+
+[Image: Number of assets and the associated Risk Score based on the selected value]
+
+### Risk Severity Over Time
+
+This chart provides insights into the findings' severity category, which make up each of the data points displayed as a scatter plot in the Overview chart over the last 6 months. For example, by selecting a specific application source ID in the scatter plot, you can examine the number of assets and findings linked to it over time. This helps visualize any significant changes and trends in risk exposure.
+
+[Image: Severity category of the findings over the last 6 months]
+
+Hovering over a specific bar shows a breakdown of the risk score by findings' severity categories.
+
+[Image: Breakdown of the risk severity for the selected data point]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-zscaler-secops-status-board","lastmod":"2025-08-25T22:54Z","nid":"1527821"} -->
+## Viewing the Zscaler SecOps Status Board
+
+- Source: https://help.zscaler.com/uvm/viewing-zscaler-secops-status-board
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Viewing the Zscaler SecOps Status Board
+- Last modified: 2025-08-25T22:54Z
+- Summary: How to view information in the Zscaler SecOps status board.
+
+To view the Zscaler Security Operations (SecOps) status board, refer to the [status page](https://avalorstatus.statuspage.io/). The status board presents historic and current incidents in the SecOps platform.
+
+On the status board, you can perform the following actions:
+
+- Report Issues
+- Subscribe to Updates and Feeds
+- View Current Status
+- View Incident History and Historical Uptime
+
+If you're a SecOps user and you've encountered an issue with the platform or one of its apps, you can report it to the SecOps team.
+
+To report an issue, click **Submit a request** at the top right of the page.
+
+You can subscribe to incident updates by email, phone, and Slack, and to the status board's Atom and RSS feeds.
+
+To subscribe to updates:
+
+1. Click **Subscribe to Updates**at the top right of the page.
+2. Click the icon of your preferred update method, and follow the onscreen instructions. See image.
+
+The SecOps platform's current status presents incidents in the last 90 days by region (US, EU), and each region is broken down into additional components:
+
+- Platform
+- Data Ingestion
+- Query Engine
+- UVM App
+- Detections App (only for US)
+
+The SecOps platform reports past incidents and historical uptime.
+
+## Incidents
+
+You can view past incident descriptions in 90-day increments.
+
+To view incident history, choose one of the following methods:
+
+- On the **Current Status** page, scroll to the bottom of the page and click **Incident History**.
+- On the **Uptime** page, click the **Incident**tab.
+
+## Uptime
+
+You can view historical uptime in 90-day increments and by one of the following components:
+
+- Platform
+- Data Ingestion
+- Query Engine
+- UVM App
+- Detections App (only for US)
+
+To view uptime history, choose one of the following methods:
+
+- On the **Current Status** page, click **View historical uptime** in the top right.
+- On the **Incidents** page, click the **Uptime**tab.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/what-remediation-copilot","lastmod":"2026-04-12T07:06Z","nid":"1533882"} -->
+## What Is Remediation Copilot?
+
+- Source: https://help.zscaler.com/uvm/what-remediation-copilot
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > What Is Remediation Copilot?
+- Last modified: 2026-04-12T07:06Z
+- Summary: Information about Remediation Copilot in the UVM app.
+
+Remediation Copilot is an AI-powered assistant integrated into Zscaler Unified Vulnerability Management (UVM) tickets. It provides intelligent, context-aware mitigation recommendations and ready-to-use instructions based on the specific finding, affected assets, and your environment. Remediation Copilot helps close the gap between detection and resolution, including cases where external sources do not provide clear remediation paths.
+
+Remediation Copilot is accessed from the ticket drawer. Previously saved chats appear in the ticket's Fixes tab.
+
+See image.
+
+To learn more, see [Using Remediation Copilot in UVM](https://help.zscaler.com/uvm/using-remediation-copilot-uvm) and[Viewing & Managing Tickets in UVM](https://help.zscaler.com/uvm/viewing-managing-tickets-uvm).
+
+## Key Features and Benefits
+
+Remediation Copilot provides the following features and benefits:
+
+- Contextual Remediation: Guidance is tailored to asset type and deployment (e.g., container images, Kubernetes workloads, virtual machines, or serverless functions). Instructions include commands, configuration changes, and validation checks where applicable.
+- Interactive Recommendations: Users can ask questions and iteratively refine fix paths directly in the ticket via an AI chat.
+- Gap Coverage When Fix Data Is Missing: When vendor advisories or connected sources do not provide a fix, Remediation Copilot suggests mitigations or workarounds and notes assumptions or risks.
+- Fix Preservation: Users can save a summary of the agreed remediation steps to the ticket's Fixes tab for traceability, handoffs, and audits.
+
+## How Remediation Copilot Works
+
+Remediation Copilot uses the ticket's context (grouped findings, asset details, environment data) to generate remediation paths and instructions. Recommendations adapt to constraints users share in the chat (e.g., minimal disruption, closest patch version, vendor-recommended targets).
+
+Example use cases that Remediation Copilot can assist with include:
+
+- Remediating CVEs: Remediation Copilot can produce patch or upgrade targets tailored to the asset and runtime. When fixes are unavailable, Remediation Copilot can provide mitigation recommendations.
+- Addressing Misconfigurations: Remediation Copilot can identify current vs. recommended secure settings, provide exact configuration changes, and offer compensating controls if secure configuration cannot be applied.
+- Addressing Code-Level Issues: Remediation Copilot can share secure coding practices and compensating measures when source code is not available, or suggest runtime or dependency-level actions where relevant.
+
+Remediation Copilot only provides guidance; it does not apply changes. You must review and test instructions in your environment before implementing them. Recommendations depend on the data available in the ticket and your environment, so more context yields more precise instructions.
+
+## Privacy and Consent
+
+Remediation Copilot operates within Zscaler services, and data shared with it is not transmitted to external third parties. Some ticket fields might contain sensitive information, so users should review content before submitting it. By using the assistant, users consent to sharing the information they enter for generating remediation guidance and remain responsible for the data they choose to provide. Where possible, the system strips personally identifiable information (PII) before processing. To learn more about Zscaler's privacy practices and AI data handling, see [Acceptable Use Policy](https://help.zscaler.com/legal/acceptable-use-policy).
+
+Use of AI-powered features in the Zscaler Security Operations (SecOps) platform is optional. Availability is controlled via admin opt-in in your account. To learn more, see [Managing AI Capabilities in the SecOps Platform](https://help.zscaler.com/uvm/managing-ai-capabilities-secops-platform).
+
+[Image: Remediation Copilot Chat and Fixes Tab]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/what-zscaler-security-operations","lastmod":"2026-05-22T07:06Z","nid":"1531027"} -->
+## What Is Zscaler Security Operations?
+
+- Source: https://help.zscaler.com/uvm/what-zscaler-security-operations
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Getting Started > What Is Zscaler Security Operations?
+- Last modified: 2026-05-22T07:06Z
+- Summary: Information on the Zscaler Security Operations (SecOps) platform.
+
+Zscaler Security Operations (SecOps) is a unified approach to security that integrates proactive and reactive measures to enhance an organization's overall security posture. It focuses on bridging the gap between traditional exposure management and threat management, creating a cohesive strategy for identifying, prioritizing, and responding to cyber risks. This comprehensive view helps accelerate incident response, improve operational efficiency, and simplify compliance efforts.
+
+## Key Features and Benefits
+
+Zscaler SecOps provides the following benefits and enables you to:
+
+- Integrate Zscaler SecOps and third-party data for rich context, providing a comprehensive view of your security landscape.
+- Offer automated workflows for remediation and updates.
+- Provide real-time visibility into security posture and metrics.
+
+There are two applications in the Zscaler SecOps platform:
+
+- Asset Exposure Management (AEM) enables organizations to collect and manage asset data from various sources to track asset inventory and coverage. It allows organizations to understand their attack surface, create policies, and track and remediate policy violations to reduce overall risk.
+- Unified Vulnerability Management (UVM) provides a single platform for managing vulnerabilities, simplifying the process of identifying and remediating security risks.
+
+The Zscaler SecOps platform natively integrates External Attack Surface Management (EASM) capabilities to automatically discover, inventory, and monitor internet-facing assets and detect their associated risk findings. This scanned asset and finding information is automatically merged with the context-rich data and capabilities of AEM and UVM to provide comprehensive asset visibility and enriched security insights, helping organizations secure their assets and remediate risks.
+
+## How Does Zscaler SecOps Work?
+
+Zscaler SecOps operates on a robust data fabric for security that centralizes and transforms disparate security data. Supported by machine learning and AI, the fabric harmonizes, deduplicates, correlates, and enriches information from various sources, including Zscaler telemetry and third-party tools. The clean, contextualized data leads to more accurate and informative security outcomes. These insights power exposure management solutions, such as AEM and UVM, enabling organizations to understand and address asset risk, prioritize vulnerabilities, and effectively quantify overall cyber risk.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/zscaler-secops-public-ip-addresses","lastmod":"2025-08-17T08:31Z","nid":"1527781"} -->
+## Zscaler SecOps Public IP Addresses
+
+- Source: https://help.zscaler.com/uvm/zscaler-secops-public-ip-addresses
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Zscaler SecOps Public IP Addresses
+- Last modified: 2025-08-17T08:31Z
+- Summary: A list of public IP addresses used by the Zscaler Security Operations platform and its applications (e.g., UVM, AEM) for allowlisting when configuring integrations with the platform.
+
+To ensure seamless connectivity and uninterrupted access to essential resources, you can allowlist the public IP addresses used by outgoing traffic from the Zscaler Security Operations (SecOps) platform and its applications (e.g., UVM, AEM). These IP addresses serve as the source for all egress traffic originating from the Zscaler tenant.
+
+Add the following IP addresses associated with your instance's region to your firewall's allowlist to ensure uninterrupted access to the required resources.
+
+| **Region** | **IP Addresses** |
+| --- | --- |
+| **US** | 3.137.47.190/32 3.15.110.62/32 3.129.232.141/32 |
+| **EU** | The recommended IP addresses listed in [Zscaler Hub IP Addresses](https://config.zscaler.com/zscalertwo.net/hubs) |
 <!-- /ZS-ARTICLE -->

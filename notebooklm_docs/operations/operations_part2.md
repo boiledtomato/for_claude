@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 60
 
 ---
@@ -578,18 +578,18 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-notification-templates","lastmod":"2026-04-10T13:27Z","nid":"1419961"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-notification-templates","lastmod":"2026-08-11T07:55Z","nid":"1419961"} -->
 ## Managing Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Notification Templates
-- Last modified: 2026-04-10T13:27Z
+- Last modified: 2026-08-11T07:55Z
 - Summary: How to manage notification templates in Workflow Automation.
 
 Adding notification templates in Workflow Automation is one of the tasks in configuring Workflow Automation. Admins with access to Workflow Automation must add and map the notification templates. Notification templates provide:
 
-- The format for the notifications that Workflow Automation generates and sends when admins are investigating an incident. Notifications are sent when the admin asks the end user to justify actions that led to an incident and when the admin escalates the incident to an approver from the Incidents page or the Incident Details page.
+- The format for the notifications that Workflow Automation generates and sends when admins are investigating an incident. Notifications are sent when the admin asks the end user to justify actions that led to an incident and when the admin escalates the incident to an approver from the Incidents page or the Incident Details drawer.
 - The format for the digest notifications that Workflow Automation sends to the users and the Data Loss Prevention (DLP) admins.
 - The format for the notifications that are generated and sent from the various workflows defined in Workflow Automation.
 
@@ -682,7 +682,7 @@ To edit a draft notification template:
 
 1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a draft template, click the**Edit Template** icon. The **Notification Template** page appears, displaying the notification template. See image.
-3. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates.
+3. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates. You cannot edit the template family for a template after the template is added.
 4. (Optional) Click **Save as Draft**. The edited template appears on the **Notification Templates** page with a draft status. You can come back later and continue to work on the template design.
 5. Click **Publish Template**. The template is published. Workflow Automation only uses published templates for its notifications.
 
@@ -694,7 +694,7 @@ To edit a published notification template:
 
 1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a published template, click the**Edit Template** icon. The **Notification Template** page appears, displaying the notification template. See image.
-3. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates.
+3. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates. You cannot edit the template family for a template after the template is added.
 4. Click **Update Template**. The published template is updated. The template still appears on the **Notification Templates** page with a published status.
 
 To delete a published notification template, click the **Delete Template** icon in the **Action** column next to the template.
@@ -892,13 +892,13 @@ To delete a role, click the **Delete** icon in the **Action** column next to the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-survey-templates","lastmod":"2026-04-30T11:43Z","nid":"1420016"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-survey-templates","lastmod":"2026-08-11T06:52Z","nid":"1420016"} -->
 ## Managing Survey Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-survey-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Survey Templates
-- Last modified: 2026-04-30T11:43Z
+- Last modified: 2026-08-11T06:52Z
 - Summary: How to manage survey templates in Workflow Automation.
 
 Adding survey templates is one of the tasks in configuring Workflow Automation. Admins with access to Workflow Automation can add and map survey templates. A survey template provides the format for the survey that a user or approver must complete when responding to an incident notification from Workflow Automation. The survey includes questions that, when answered, provide the justification for the incident.
@@ -942,7 +942,7 @@ To add a survey template:
 2. On the **Survey Templates** page, click **Add More**. The **Survey Template** page appears. See image.
 3. On the **Survey Template** page: After you select the template type, the survey creator section appears below the row. The survey creator section contains a **Designer** tab and a **Preview** tab and contains a placeholder drop-down type question titled Reason. Workflow Automation uses the Survey Creator component from SurveyJS. Using this drag-and-drop survey builder, you can create a survey template, change the content, include pictures, and link to files. In addition, you can change the template's structure and style. See image.
   - **Template Name**: Enter a name for the template.
-  - **Template Family**: From the drop-down menu, select a family for the template or add a new template family.
+  - **Template Family**: From the drop-down menu, select a family for the template or add a new template family. You cannot edit the template family for a template after the template is added.
   - **Type**: From the drop-down menu, select **Questionnaire**.
   - **Source Language**: From the drop-down menu, select the language for the template.
 4. Click the **Designer** tab.
@@ -996,7 +996,7 @@ To edit a survey template:
 
 1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
 2. In the**Action** column next to an existing published or draft template, click the **Edit Template** icon. You cannot edit a system default template. The **Survey Template** page appears, displaying the survey template on the **Designer** tab. See image.
-3. Edit the survey template details or the survey template design using one or more of the question and panel types in the toolbox.
+3. Edit the survey template details or the survey template design using one or more of the question and panel types in the toolbox. You cannot edit the template family for a template after the template is added.
 4. (Optional) Click **Save as Draft**. You can come back later and continue to work on the template design. This button is not available for published templates.
 5. Click **Publish Template**. The template is published. Workflow Automation only uses published templates for its surveys.
 
@@ -1788,13 +1788,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-mappings","lastmod":"2026-06-29T07:06Z","nid":"1455966"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-mappings","lastmod":"2026-08-12T09:56Z","nid":"1455966"} -->
 ## Managing Workflow Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Workflows > Managing Workflow Mappings
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-08-12T09:56Z
 - Summary: How to manage workflow mappings in Workflow Automation.
 
 A workflow mapping specifies the incidents that are associated with the workflow. Only admins with full access to Workflow Automation can map the workflows. Incidents are mapped to workflows, which are based on one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. Then, when an incident occurs in your organization that contains those attributes, the workflow automatically triggers and performs the actions that the workflow specifies.
@@ -2904,13 +2904,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-08-07T07:51Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-08-14T10:16Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-07T07:51Z
+- Last modified: 2026-08-14T10:16Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2984,13 +2984,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-07-09T14:28Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-08-12T08:15Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-07-09T14:28Z
+- Last modified: 2026-08-12T08:15Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -3284,13 +3284,13 @@ See image
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-escalation-notification","lastmod":"2026-07-31T07:06Z","nid":"1433821"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-escalation-notification","lastmod":"2026-08-12T08:16Z","nid":"1433821"} -->
 ## Responding to an Escalation Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-escalation-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an Escalation Notification
-- Last modified: 2026-07-31T07:06Z
+- Last modified: 2026-08-12T08:16Z
 - Summary: Information on how to review and respond to an escalation notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -3599,13 +3599,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-user-digest-notification","lastmod":"2026-07-23T21:06Z","nid":"1447086"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-user-digest-notification","lastmod":"2026-08-12T08:18Z","nid":"1447086"} -->
 ## Responding to a User Digest Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-user-digest-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to a User Digest Notification
-- Last modified: 2026-07-23T21:06Z
+- Last modified: 2026-08-12T08:18Z
 - Summary: Information on how to review and respond to a user digest notification from Workflow Automation.
 
 The format of the notification might not be the same as illustrated in this article. It depends upon the digest notification template that your organization configured in Workflow Automation.
@@ -4300,13 +4300,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-08-06T08:45Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-08-16T07:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-08-06T08:45Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.

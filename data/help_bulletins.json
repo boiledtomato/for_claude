@@ -1,20 +1,10 @@
 {
- "checked_at": "2026-08-10T01:47:41Z",
- "total": 269,
+ "checked_at": "2026-08-17T01:14:12Z",
+ "total": 290,
  "articles": [
   {
    "title": "About Account Onboarding",
    "url": "/ai-asset-mgmt/about-account-onboarding",
-   "product": "AI Asset Management"
-  },
-  {
-   "title": "About AI Assets - MCP Servers",
-   "url": "/ai-asset-mgmt/about-ai-assets-mcp-servers",
-   "product": "AI Asset Management"
-  },
-  {
-   "title": "About AI Assets - Models",
-   "url": "/ai-asset-mgmt/about-ai-assets-models",
    "product": "AI Asset Management"
   },
   {
@@ -28,11 +18,6 @@
    "product": "AI Asset Management"
   },
   {
-   "title": "Configuring Scan Rule for Azure Container Registry (ACR) Repositories",
-   "url": "/ai-asset-mgmt/configuring-scan-rule-azure-acr-repositories",
-   "product": "AI Asset Management"
-  },
-  {
    "title": "Configuring Scan Rule for GitHub",
    "url": "/ai-asset-mgmt/configuring-scan-rule-github",
    "product": "AI Asset Management"
@@ -43,8 +28,8 @@
    "product": "AI Asset Management"
   },
   {
-   "title": "Onboarding GitHub Tenant",
-   "url": "/ai-asset-mgmt/onboarding-github-tenant",
+   "title": "Integrating AI Security with ServiceNow",
+   "url": "/ai-asset-mgmt/integrating-ai-security-servicenow",
    "product": "AI Asset Management"
   },
   {
@@ -78,6 +63,11 @@
    "product": "Deception"
   },
   {
+   "title": "About Alerts",
+   "url": "/dspm/about-alerts",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
    "title": "About Data Duplications",
    "url": "/dspm/about-data-duplications",
    "product": "Data Security Posture Management (DSPM)"
@@ -98,8 +88,28 @@
    "product": "Data Security Posture Management (DSPM)"
   },
   {
+   "title": "Adding Azure Target Subscriptions",
+   "url": "/dspm/adding-azure-target-subscriptions",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Adding a Databricks Workspace or Account",
+   "url": "/dspm/adding-databricks-workspace-or-account",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
    "title": "Adding Organization Details",
    "url": "/dspm/adding-organization-details",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Changing Client Secret for Azure Application",
+   "url": "/dspm/changing-client-secret-azure-application",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Configuring the Workspace",
+   "url": "/dspm/configuring-workspace",
    "product": "Data Security Posture Management (DSPM)"
   },
   {
@@ -113,6 +123,11 @@
    "product": "Data Security Posture Management (DSPM)"
   },
   {
+   "title": "IAM Roles and Permissions for AWS",
+   "url": "/dspm/iam-roles-and-permissions-aws",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
    "title": "Managing Vulnerabilities in AWS Accounts",
    "url": "/dspm/managing-vulnerabilities-aws-accounts",
    "product": "Data Security Posture Management (DSPM)"
@@ -123,8 +138,23 @@
    "product": "Data Security Posture Management (DSPM)"
   },
   {
+   "title": "Onboarding an Azure Subscription",
+   "url": "/dspm/onboarding-azure-subscription",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
    "title": "Onboarding a GCP Organization",
    "url": "/dspm/onboarding-gcp-organization",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Predefined DSPM Roles and Permissions",
+   "url": "/dspm/predefined-roles-and-permissions",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Supported Data Stores, File Types, and Regions",
+   "url": "/dspm/supported-data-stores-file-types-and-regions",
    "product": "Data Security Posture Management (DSPM)"
   },
   {
@@ -133,19 +163,39 @@
    "product": "Data Security Posture Management (DSPM)"
   },
   {
-   "title": "Viewing the Data Inventory Details",
-   "url": "/dspm/viewing-data-inventory-details",
+   "title": "Understanding Predefined DLP Engines and Dictionaries",
+   "url": "/dspm/understanding-predefined-dlp-engines-and-dictionaries",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing Alerts Grouped by Policy",
+   "url": "/dspm/viewing-alerts-grouped-policy",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing Alerts Grouped by Resource",
+   "url": "/dspm/viewing-alerts-grouped-resource",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing and Managing Data Inventory Details",
+   "url": "/dspm/viewing-and-managing-data-inventory-details",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing the Graph for Databases",
+   "url": "/dspm/viewing-graph-databases",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing the SaaS Overview Dashboard",
+   "url": "/dspm/viewing-saas-overview-dashboard",
    "product": "Data Security Posture Management (DSPM)"
   },
   {
    "title": "Viewing the Sensitive Data Details",
    "url": "/dspm/viewing-sensitive-data-details",
    "product": "Data Security Posture Management (DSPM)"
-  },
-  {
-   "title": "API Rate Limit Summary",
-   "url": "/legacy-apis/api-rate-limit-summary",
-   "product": "Legacy Zscaler APIs"
   },
   {
    "title": "Branch Connectors",
@@ -193,8 +243,8 @@
    "product": "Legacy Zscaler APIs"
   },
   {
-   "title": "End User Notifications",
-   "url": "/legacy-apis/end-user-notifications",
+   "title": "Data Loss Prevention",
+   "url": "/legacy-apis/data-loss-prevention",
    "product": "Legacy Zscaler APIs"
   },
   {
@@ -223,11 +273,6 @@
    "product": "Legacy Zscaler APIs"
   },
   {
-   "title": "IPS Control Policy",
-   "url": "/legacy-apis/ips-control-policy",
-   "product": "Legacy Zscaler APIs"
-  },
-  {
    "title": "Obtaining Access Policy Details for Federated Applications Using API",
    "url": "/legacy-apis/obtaining-access-policy-details-federated-applications-using-api",
    "product": "Legacy Zscaler APIs"
@@ -245,6 +290,11 @@
   {
    "title": "Policies for B2B Federation",
    "url": "/legacy-apis/policies-b2b-federation",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "SaaS Security API",
+   "url": "/legacy-apis/saas-security-api",
    "product": "Legacy Zscaler APIs"
   },
   {
@@ -391,6 +441,11 @@
    "title": "Zscaler Client Connector Processes to Allowlist",
    "url": "/legacy-zscaler-client-connector/zscaler-client-connector-processes-allowlist",
    "product": "Legacy UI: Zscaler Client Connector"
+  },
+  {
+   "title": "Troubleshooting AI Red Teaming Broker Issues",
+   "url": "/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues",
+   "product": "Secure AI Apps & Infrastructure"
   },
   {
    "title": "SSL Inspection Policy [DOC-61890]",
@@ -673,8 +728,8 @@
    "product": "Getting Started with Zscaler"
   },
   {
-   "title": "Understanding the ThreatLabz Source",
-   "url": "/unified/understanding-threatlabz-source",
+   "title": "Understanding the ThreatLabz Data Source",
+   "url": "/unified/understanding-threatlabz-data-source",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -688,13 +743,58 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Viewing Best Practice Details",
+   "url": "/unified/viewing-best-practice-details",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Viewing Best Practices for Optimal Health",
+   "url": "/unified/viewing-best-practices-optimal-health",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Viewing Connectors, Tunnels, & Zscaler Client Connector Health",
+   "url": "/unified/viewing-connectors-tunnels-zscaler-client-connector-health",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Viewing the Data Security Dashboard",
    "url": "/unified/viewing-data-security-dashboard",
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Viewing Executive Insights for Zscaler Services",
+   "url": "/unified/viewing-executive-insights-zscaler-services",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Viewing the Health360 Dashboard",
+   "url": "/unified/viewing-health360-dashboard",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Viewing Items in a Widget Segment",
    "url": "/unified/viewing-items-widget-segment",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Viewing Service Health for China Connectivity",
+   "url": "/unified/viewing-service-health-china-connectivity",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Viewing Zscaler Service Adoption",
+   "url": "/unified/viewing-zscaler-service-adoption",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Viewing Zscaler Service Adoption Details",
+   "url": "/unified/viewing-zscaler-service-adoption-details",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "What Is Health360?",
+   "url": "/unified/what-health360",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -753,6 +853,11 @@
    "product": "Digital Experience Monitoring (ZDX)"
   },
   {
+   "title": "Supported Versions & Feature Compatibility",
+   "url": "/zdx/supported-versions-feature-compatibility",
+   "product": "Digital Experience Monitoring (ZDX)"
+  },
+  {
    "title": "Understanding Managed Monitoring",
    "url": "/zdx/understanding-managed-monitoring",
    "product": "Digital Experience Monitoring (ZDX)"
@@ -770,6 +875,16 @@
   {
    "title": "Managing Sites",
    "url": "/zero-trust-branch/managing-sites",
+   "product": "Zero Trust Branch"
+  },
+  {
+   "title": "Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual",
+   "url": "/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual",
+   "product": "Zero Trust Branch"
+  },
+  {
+   "title": "Zero Trust Branch Physical Port Mapping",
+   "url": "/zero-trust-branch/zero-trust-branch-physical-port-mapping",
    "product": "Zero Trust Branch"
   },
   {
@@ -800,6 +915,11 @@
   {
    "title": "About Email Labels",
    "url": "/zia/about-email-labels",
+   "product": "Internet & SaaS (ZIA)"
+  },
+  {
+   "title": "About Firewall Filtering",
+   "url": "/zia/about-firewall-filtering",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -940,11 +1060,6 @@
   {
    "title": "Configuring DLP Policy Rules without Content Inspection",
    "url": "/zia/configuring-dlp-policy-rules-without-content-inspection",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Configuring the DNS Control Policy",
-   "url": "/zia/configuring-dns-control-policy",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -1118,11 +1233,6 @@
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "Configuring App Connectors",
-   "url": "/zpa/configuring-connectors",
-   "product": "Private Access (ZPA)"
-  },
-  {
    "title": "Configuring Defined Application Segments",
    "url": "/zpa/configuring-defined-application-segments",
    "product": "Private Access (ZPA)"
@@ -1173,11 +1283,6 @@
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "Managing Deployed Software Components",
-   "url": "/zpa/managing-deployed-software-components",
-   "product": "Private Access (ZPA)"
-  },
-  {
    "title": "Merging AI-Powered Recommendations",
    "url": "/zpa/merging-ai-powered-recommendations",
    "product": "Private Access (ZPA)"
@@ -1195,11 +1300,6 @@
   {
    "title": "Network Connector Software by Platform",
    "url": "/zpa/network-connector-software-platform",
-   "product": "Private Access (ZPA)"
-  },
-  {
-   "title": "Private Cloud Controller Deployment Guide for Linux",
-   "url": "/zpa/private-cloud-controller-deployment-guide-linux",
    "product": "Private Access (ZPA)"
   },
   {
@@ -1296,6 +1396,11 @@
    "title": "Zscaler Client Connector: Windows Registry Keys",
    "url": "/zscaler-client-connector/zscaler-app-registry-keys",
    "product": "Client Connector"
+  },
+  {
+   "title": "Collaborating on UI Text and Presentation with Cross-Functional Teams",
+   "url": "/zscaler-tech-pubs-style-guide/collaborating-ui-text-and-presentation-cross-functional-teams",
+   "product": "Zscaler Tech Pubs Style Guide"
   },
   {
    "title": "Zscaler and Cimcor Deployment Guide",

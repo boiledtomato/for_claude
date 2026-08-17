@@ -1,8 +1,526 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 133
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 137
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/dns-insights-logs-columns","lastmod":"2026-06-04T18:41Z","nid":"1400996"} -->
+## DNS Insights Logs: Columns
+
+- Source: https://help.zscaler.com/zia/dns-insights-logs-columns
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Columns
+- Last modified: 2026-06-04T18:41Z
+- Summary: Information on the different columns in the DNS Insights Logs page in the Zscaler Admin Console.
+
+You can customize your DNS logs by using column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+
+Following are the DNS Insight Log columns you can select to view:
+
+- **Capture**: The name of the packet capture (PCAP) file that captured the transaction. You can download the file by clicking the **Download**icon next to the file name.
+- **Client IP**:The IP address from which the transaction originated. This is the IP address of the client device. You can sort this column.
+- **DNS Error Code**:The error code returned in the DNS response. All error codes derive from the standard set by the [Internet Engineering Task Force Organization](https://tools.ietf.org/html/rfc2929#section-2.3). An error code is populated in this field in the following scenarios: Possible DNS Error Codes Displayed in the DNS Response
+  - When the traffic matches with a DNS Control rule configured with the Block with Response Code action, the corresponding response code is populated in this field.
+  - When using [DNS Gateways](https://help.zscaler.com/zia/about-dns-gateways) to forward DNS queries (inbound over UDP/TCP/DoH) to an external DNS service over DoH, the Zscaler service may receive an HTTP response without a DNS response due to an error. In that case, the service tries to translate the HTTP status code into an equivalent DNS response and logs it using the DNS Error Code field.
+- **DNS Gateway Flags**: The DNS request status at the DNS Gateway level.
+- **DNS Request Type**: The DNS request type. DNS policy control and action enforcement are supported for all available DNS request types, but DNS logs might not display the specific request type values for all DNS request types, as indicated in the following section. See the mapping between DNS request types displayed in policy rules vs. DNS logs.
+- **DNS Response Type**: The DNS response type.
+- **Department**: The department of the user. You can sort and search through this column.
+- **Device Hostname**: The hostname information from support devices.
+- **Device Model**: The model of the device.
+- **Device Name**: The name of the device.
+- **Device OS Type**: The OS type of the device.
+- **Device OS Version**: The OS version the device uses.
+- **Device Owner**: The owner of the device.
+- **ECS Object Name**: The unique name assigned to and identifying the ECS object.
+- **ECS Prefix**: The ECS prefix used for the Client Subnet option in the DNS query.
+- **ECS Prefix Length**: The length of the client’s IP address specified for the Client Subnet option in the DNS query.
+- **Extranet Resource**: The extranet resource name.
+- **HTTP Status Code**: The status code returned by the DNS Over HTTPS (DoH) server, and is applicable only when the protocol used between the Internet & SaaS ZIA service and the DNS server is DoH.
+- **Request Categories**: The request category corresponding to the requested domain. If this is blank, then the domain is not categorized.
+- **Response Categories**: The response category corresponding to the response for the requested domain. If this is blank, then the resolved IP or the canonical name (CNAME) is not categorized.
+- **Event Time**: The date and time of the transaction. You can sort this column.
+- **Location**: The name of the location from which the DNS request was initiated. You can sort and search through this column.
+- **Logged Time**: The date and time the transaction was logged.
+- **Protocol Type**: UDP, TCP, or DNS over HTTP.
+- **Response Rule Name**: Name of the rule that was applied to the DNS response.
+- **Request Action**: The action taken on the DNS request. For block rules configured with either Block or Block with Response Code action, this field populates a "Block" value.
+- **Response Action**: The action taken on the DNS response. For block rules configured with either Block or Block with Response Code action, this field populates a "Block" value.
+- **Request Duration**: The request duration in milliseconds.
+- **Request Rule Name**: Name of the rule that was applied to the DNS request.
+- **Requested Domain**: The domain for which DNS resolution was requested. You can sort and search through this column.
+- **Resolved IP or Name**: The resolved IP or CNAME in the response. Whether this is an IP or Name is determined by the DNS response type field. You can sort this column.
+- **Resolver Gateway**: The name of the DNS resolver (primary or secondary, within the configured DNS Gateway of the triggered rule) that was successfully used to resolve the DNS request or displays the error resolution, if any. One of the following flags appears:
+  - Primary Server Attempted
+  - Secondary Server Attempted
+  - Query Forwarded to Destination
+  - Error Response Returned to Client
+  - Query Dropped
+- **Rule Name**: The rule that was triggered by the DNS request, response, or both. You can sort this column. This column is only displayed in the logs if the traffic is blocked. By default, this column is not displayed for allowed traffic.
+  - The following are the reasons why the Zscaler Bypass Traffic rule populates in the logs:
+    - When the domain name in the DNS request query matches a Zscaler cloud domain.
+    - When the DNS request query matches an Microsoft 365 endpoint listed in the [Office 365 One Click predefined firewall filtering rules](https://help.zscaler.com/zia/about-predefined-firewall-filtering-rules#office-one-click), if enabled.
+    - When the DNS response does not contain a resolved IP or CNAME.
+    - When the DNS response is not completely analyzed because of its resource record type. DNS Control performs detailed analysis of responses for A, AAAA, CNAME, and PTR record types.
+- **Server IP**: The actual DNS server IP address that resolves the DNS request. The user-targeted DNS server and the actual DNS server can vary depending on the NAT rule configuration for DNS traffic. To learn more, see [About DNS Control](https://help.zscaler.com/zia/about-dns-control). You can sort this column.
+- **Server Port**: The server port.
+- **Server Protocol**: The protocol used to communicate with the DNS server.
+- **Time**: The timestamp of the DNS request.
+- **User**: The user name. If this is blank, then location-based authentication is set. You can sort and search through this column.
+
+| Sl. No. | DNR Error Code | Description |
+| --- | --- | --- |
+| 1 | UNSUPPORTED | The DNS parser cannot decode, but there is no error in the DNS header. |
+| 2 | BYPASS | DNS transaction bypassed due to cloud domain/bypass list. |
+| 3 | INT_ERROR | DNS parser failed to parse supported types. |
+| 4 | SRV_TIMEOUT | DNS transaction timed out as server didn't respond. |
+| 5 | EMPTY_RESP | DNS response has no error, but the answer section is empty. |
+| 6 | REQ_BLOCKED | DNS request blocked by firewall, hence no DNS response. |
+| 7 | ADMIN_DROP | DNS transaction prematurely terminated due to the session being forced-dropped via CLI command. |
+| 8 | WCDN_TIMEOUT | DNS transaction timed out while waiting for Zscaler Message Transport System (MTS) to sync a wildcard domain resolution. |
+| 9 | IPS_BLOCK | DNS transaction blocked by IPS signature match. |
+| 10 | FQDN_RESOLV_FAIL | DNS Gateway server value for FQDN could not be resolved. |
+
+| DNS Rule: DNS Request Type | Description | DNS Logging: DNS Request Type |
+| --- | --- | --- |
+| A | IPv4 address record | A host address |
+| A6 | IPv6 address record | DNS type not mapped by ZS firewall |
+| AAAA | IPv6 address record | IP6 address |
+| AFSDB | Andrew File System Database record | For AFS Data Base location |
+| APL | Address Prefix List | DNS type not mapped by ZS firewall |
+| ATMA | Asynchronous Transfer Mode Address | DNS type not mapped by ZS firewall |
+| CDNSKEY | Child DNSKEY | DNS type not mapped by ZS firewall |
+| CDS | Child DS | DNS type not mapped by ZS firewall |
+| CERT | Certificate record | DNS type not mapped by ZS firewall |
+| CNAME | Canonical name record | The canonical name for an alias |
+| CSYNC | Child-to-Parent Synchronization | DNS type not mapped by ZS firewall |
+| DHCID | Dynamic Host Configuration Protocol Identifier | DNS type not mapped by ZS firewall |
+| DNAME | Non-terminal DNS name redirection | DNS type not mapped by ZS firewall |
+| DNSKEY | DNS Key record | DNS public key |
+| DS | Delegation Signer | Delegation Signer |
+| EID | DNS Endpoint Identifier resource records | DNS type not mapped by ZS firewall |
+| GPOS | Geographical Position record | DNS type not mapped by ZS firewall |
+| HINFO | Host Information record | Host Information |
+| HIP | Host Identity Protocol | Host Identity Protocol |
+| HTTPS | Service binding for HTTPS including Encrypted Client Hello (ECH) You need to block the HTTPS DNS resource record type to stop ECH and prevent unmanaged encrypted traffic flows happening through the secure web gateway. | SVCB-compatible type for use with HTTP |
+| IPSECKEY | IPSec Key | DNS type not mapped by ZS firewall |
+| ISDN | Integrated Services Digital Network address record | For ISDN address |
+| KEY | Key record | DNS type not mapped by ZS firewall |
+| KX | Key Exchanger record | DNS type not mapped by ZS firewall |
+| LOC | Location record | Location information |
+| MB | Mailbox record | A mailbox domain name |
+| MD | Mail Destination record | DNS type not mapped by ZS firewall |
+| MF | Mail Forwarding record | DNS type not mapped by ZS firewall |
+| MG | Mail Group Member record | A mail group member |
+| MINFO | Mailbox or mail list record | Mailbox or mail list information |
+| MR | Renamed mailbox record | A mail rename domain name |
+| MX | Mail Exchange record | Mail exchange |
+| NAPTR | Naming Authority Pointer | Naming Authority Pointer |
+| NIMLOC | Nimrod Locator resource records | DNS type not mapped by ZS firewall |
+| NINFO | DNS zone status | DNS type not mapped by ZS firewall |
+| NS | Name Server record | An authoritative name server |
+| NSAP | NSAP address record | DNS type not mapped by ZS firewall |
+| NSAP_PTR | A pointer to an NSAP address record | DNS type not mapped by ZS firewall |
+| NSEC | Next Secure record | DNS security extensions |
+| NSEC3 | Next Secure record version 3 | DNS type not mapped by ZS firewall |
+| NSEC3PARAM | NSEC3 parameters | DNS type not mapped by ZS firewall |
+| NULL | A null resource record | DNS type not mapped by ZS firewall |
+| NXT | The next existing server in the zone | DNS type not mapped by ZS firewall |
+| OPENPGPKEY | OpenPGP public key record | DNS type not mapped by ZS firewall |
+| OPT | An optional code | DNS type not mapped by ZS firewall |
+| PTR | Pointer record | A domain name pointer |
+| PX | X.400 mail mapping information | DNS type not mapped by ZS firewall |
+| RKEY | Record for storing keys which encrypt NAPTR records | DNS type not mapped by ZS firewall |
+| RP | Responsible Person | For Responsible Person |
+| RRSIG | Resource Record Signature used in Domain Name System Security Extensions (DNSSEC) | DNS type not mapped by ZS firewall |
+| RT | Route Through record | For Route Through |
+| SIG | Signature | DNS type not mapped by ZS firewall |
+| SINK | Record for the storage of miscellaneous structured information | DNS type not mapped by ZS firewall |
+| SOA | Start of an authority record zone | Marks the start of a zone of authority |
+| SRV | Service locator | Server selection |
+| SSHFP | SSH Public Key Fingerprint | DNS type not mapped by ZS firewall |
+| SVCB | General-purpose service binding | DNS type not mapped by ZS firewall |
+| TALINK | Trust Anchor LINK | DNS type not mapped by ZS firewall |
+| Text File | Text record | Text strings |
+| TLSA | TLSA certificate association | DNS type not mapped by ZS firewall |
+| WKS | A well-known service description | A well-known service description |
+| X25 | X.25 PSDN address | DNS type not mapped by ZS firewall |
+| ZONEMD | Message Digest Over Zone Data | DNS type not mapped by ZS firewall |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/dns-insights-logs-filters","lastmod":"2026-07-28T04:17Z","nid":"1400991"} -->
+## DNS Insights Logs: Filters
+
+- Source: https://help.zscaler.com/zia/dns-insights-logs-filters
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Filters
+- Last modified: 2026-07-28T04:17Z
+- Summary: Information on the different filters in the DNS Insights Logs page in the Zscaler Admin Console.
+
+Filters define the DNS traffic information that you view in your DNS Insight Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+
+Certain filters, like**Users**, **Departments**, **Locations**, and others, support the selection of multiple values. For these, you can select up to 200 values in a single filter. You can also choose to include or exclude the selected values. Also, certain filters support additional operators (i.e., Does Not Contain, Does Not Start With, Does Not End With, Is Null, Is Not Null) for filters that perform string match, like **Threat Category** and others.
+
+There are certain filter combinations that appear together in Insights Logs when applied, but won't appear together in Insights. For example, the **Department** and **Location** filters appear together in Insights Logs when applied, but won't appear together in Insights.
+
+Following are the DNS log filters you can select:
+
+- **Action**: Use this filter to limit the data to a specific action taken by your DNS Control policy.
+- **Capture**: Use this filter to limit the data to view transactions that were captured into a PCAP file.
+- **Client IP**: Use this filter to limit the data about traffic associated with a specific client IP address. Choose **Match**and enter an IP address, a range of IP addresses, or an IP address and netmask, as shown in the examples below the text box.
+- **ECS Object Name**: Use this filter to limit the data to traffic associated with an ECS object.
+- **ECS Prefix**: Use this filter to limit the data to traffic associated with the ECS prefix.ECS Prefix Length: Use this filter to limit the data to traffic associated with the
+- **ECS prefix length**. Enter the prefix length in the **Min**and **Max**fields to view the logs within that range.
+- **Data Center**: Use this filter to limit the data to traffic associated with a specific data center.
+- **Department**: Use this filter to limit the data to the traffic of a specific department. It lists 200 results at a time. Select **Hide Deleted**if you want to remove deleted departments from the list. Click **Select All** to select all the configured departments. Use the Search function to find a specific department. You can choose to include or exclude certain departments.
+- **Device Hostname**: The hostname information from support devices. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
+- **Device Model**: Use this filter to view transactions associated with a specific device model. Enter all or part of the device model in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Device Name**: Use this filter to view transactions associated with a specific device name. Enter all or part of the device name in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
+- **Device OS Type**: Use this filter to view transactions associated with a specific device OS type. Enter all or part of the device OS type in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Device OS Version**: Use this filter to view transactions associated with a specific device OS version. Enter all or part of the device OS version in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Device Owner**: Use this filter to view transactions associated with a specific device owner. Enter all or part of the device owner in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
+- **DNS Gateway Flags**: Use this filter to limit the data for DNS transactions that used a DNS Gateway. The following flags appear under this filter:
+  - Primary Server Attempted
+  - Secondary Server Attempted
+  - Query Forwarded to Destination
+  - Error Response Returned to Client
+  - Query Dropped
+- **DNS Request Type**: Use this filter to limit the data to the traffic associated with a specific type of DNS Request. Choose the request type from the list.
+- **DNS Response**: Use this filter to limit the data to the traffic associated with a specific DNS response. The following sub-filters appear:
+  - Resolved Name
+  - Resolved IPv4 Address
+  - Resolved IPv6 Address
+  - DNS Error Code
+
+The following Zscaler internal error codes might appear in the DNS Error Code column:
+
+- Empty_Resp
+- Bypass
+- Int_Error
+- Srv_TimeOut
+
+These codes are not listed under the DNS Error Code filter. Zscaler uses these error codes for diagnostic purposes. If you need further assistance, contact Zscaler Support.
+
+- **DNS Tunnel & Network App Categories**: Use this filter to limit the data to traffic that comes from a specific tunneling or network application category. Use the search function to find a specific category.
+- **DNS Tunnels & Network Apps**: Use this filter to view information about the type of tunnels and network applications used. Use the search function to find a specific application.
+- **Enrolled Device appversion**: Use this filter to view transactions associated with a specific enrolled device app version. Enter all or part of the enrolled device app version in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Extranet Resource**: Use this filter to view transactions associated with an extranet resource. You can also choose to include or exclude the selected values. The default option for this filter is **Any**.
+- **HTTP Status Code**: Use this filter to limit the data to traffic associated with a HTTP status code.
+- **Request Categories**: Use this filter to limit the data to the traffic associated with the request category of the requested domain.
+- **Response Categories**: Use this filter to limit the data to the traffic associated with the response category of the response IP or the canonical name (CNAME).
+- **Location**: Use this filter to limit the data to a location's traffic. Choose a location from the list of Internet gateway locations specified in the Locations page. The list includes Road Warrior, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. Select **Hide Deleted**if you want to remove deleted locations from the list. Click **Select All** to select all the configured locations. Use the Search function to find a specific location. You can choose to include or exclude certain locations.
+- **Location Group**: Use this filter to limit the data to a location group’s traffic. Choose a location group from the list. Use the Search function to find a specific location group.
+- **Location Type**: Use this filter to view transactions associated with a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
+  - Corporate User Traffic Group
+  - Guest Wifi Group
+  - IoT Traffic Group
+  - Server Traffic Group
+  - Unassigned Locations
+  - Workload Traffic Group
+- **Protocol Type**: Use this filter to limit data to TCP, UDP, or DNS over HTTP traffic.
+- **Request Duration**: Use this filter to limit the data to the traffic associated with the specified request duration.
+- **Requested Domain**: Use this filter to limit the data to the traffic associated with the domain for which DNS resolution was requested. Enter all or part of the domain in the text field and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+- **Resolver Gateway**: Use this filter to limit the data to traffic associated with a resolver gateway.
+- **Rule Name**: Use this filter to limit the data to specific rules in the firewall policy. Choose the rules from the list.
+- **Server IP**: Use this filter to limit the data to traffic associated with a specific server IP address. Choose **Match**and enter an IP address, a range of IP addresses, or an IP address and netmask, as shown in the examples below the text box.
+- **Server Port**: Use this filter to limit the data to traffic associated with a specific server port.
+- **Server Protocol**: Use this filter to limit the data to traffic associated with a server protocol.
+- **Show Delayed Logs**: Use this filter to limit the data to traffic based on delayed logs.
+- **User**: Use this filter to limit the data to the traffic of specific users. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search for specific users. Choose the usernames from the list. You can choose to include or exclude certain users.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/dns-static-web-end-user-notification","lastmod":"2026-06-02T03:03Z","nid":"1529181"} -->
+## DNS Static Web End User Notification
+
+- Source: https://help.zscaler.com/zia/dns-static-web-end-user-notification
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS Static Web End User Notification
+- Last modified: 2026-06-02T03:03Z
+- Summary: Information about Zscaler-hosted end user notification web page for blocked domains.
+
+Zscaler's [DNS Control policy](https://help.zscaler.com/zia/configuring-dns-control-policy) includes a Redirect Response action that replaces the IP address of the resolved hostname in the DNS response with a preferred IP address before sending the response to the client. Organizations can use this Redirect Response action to direct users to an end user notification (EUN) page when access to a domain is blocked. This page can either be a custom EUN web page hosted at a dedicated IP address managed by the organization, or a Zscaler-hosted static EUN web page hosted at `34.215.46.88`. To use the Zscaler-hosted EUN web page, you must manually configure this IP address in the Redirect Response action. This EUN page notifies users that access to the requested domain has been blocked based on your organization's policy.
+
+See image.
+
+The Zscaler-hosted EUN web page provides the following benefits:
+
+- The Zscaler-hosted EUN web page eliminates the need for organizations to host and manage their own notification page.
+- This static DNS EUN web page is supported for web traffic (primarily HTTP) irrespective of whether it is sent via tunnels. In addition to being available for tunneled traffic (via GRE, IPSec tunnel, or Z-Tunnel 2.0), this DNS EUN web page is accessible to users whose web traffic is not sent through forwarding tunnels and unauthenticated users, making it well-suited for guest Wi-Fi environments and similar scenarios.
+
+This static EUN web page is supported only with DNS Control policy using the Redirect Response action. This EUN web page is not customizable.
+
+## EUN Workflow and Requirements
+
+The following illustration demonstrates packet flow in the guest Wi-Fi scenario in which DNS requests are sent to Zscaler DNS Control, while web traffic is sent directly to the internet without going through Internet & SaaS (ZIA).
+
+[Image: Zscaler-hosted DNS Web EUN Packet Flow]
+
+The packet flow would be similar when web traffic is also sent via Internet & SaaS, except that Internet & SaaS would additionally perform SSL/TLS Inspection if enabled.
+
+The following are key points about the DNS EUN working mechanism, requirements, and any limitations:
+
+- The DNS EUN web server (`34.215.46.88`/`blockpage.zscaler.com`) only responds to web requests and drops all other traffic (e.g., ping traffic).
+- The display of the DNS EUN web page is predicated upon the browser falling back to using HTTP on receiving the "HTTP 400 Bad Request" response from the EUN web server, and subsequently making an HTTP GET request using HTTP. If the browser does not make this HTTP GET request using HTTP, the EUN page is not displayed.
+- The DNS EUN web page might not be displayed for blocked domains that use HTTP Strict Transport Security (HSTS).
+- If the web request to this DNS EUN web server is sent via Internet & SaaS, the browser would need to trust the Zscaler Certificate Authority (CA) certificate. Alternatively, you can configure an SSL/TLS Inspection bypass policy as outlined in the Recommended Policy Settings section.
+- If the web request to this DNS EUN web server is sent via Internet & SaaS, ensure that security policies configured in Internet & SaaS allow such traffic.
+- For the DNS Control policy to be applied to DoH (DNS over HTTPS) traffic, DoH traffic must be sent using a tunnel (GRE, IPSec, or Z-Tunnel 2.0) and SSL/TLS Inspection must be enabled for that traffic. See the Recommended Policy Settings section for information on additional configurations required to ensure DoH traffic gets inspected.
+- In the case of a guest Wi-Fi deployment, typically, only regular DNS traffic (DNS over UDP/TCP) is sent from a known location to a GRE VIP address configured as a DNS server address, with the rest of the traffic going out directly to the internet instead of going via Internet & SaaS. In such a scenario, DoH traffic is not sent to Internet & SaaS and so the DNS Control policy is not applied to DoH traffic.
+
+### EUN Web Server Certificate
+
+The following points highlight key information about the SSL certificate used by the EUN web server:
+
+- If the web request to the DNS EUN web server is sent directly to the internet instead of going via Internet & SaaS, the certificate displayed on the client browser for the web page, `blockpage.zscaler.com`, would be the one issued by a well-known CA. The following image shows an example certificate issued by DigiCert Global. See image.
+- If the web request to the DNS EUN web server is sent via Internet & SaaS and SSL/TLS Inspection is enabled for that web traffic, then the client browser displays a certificate for `blockpage.zscaler.com` that is issued by the Zscaler Intermediate Root CA (as shown in the following image). In this case, the client browser must trust the Zscaler CA certificate for the EUN page to load without certificate warnings. See image.
+
+### Recommended Policy Settings
+
+Zscaler recommends the following policy settings to ensure that the DNS EUN works effectively:
+
+- Zscaler Client Connector App Profile
+- SSL/TLS Inspection Policy
+- Firewall Filtering Policy
+
+It is preferable to bypass web traffic that is destined for the DNS EUN web server to directly reach the internet, instead of sending it via Internet & SaaS. For example, if you are using Zscaler Client Connector with Z-Tunnel 2.0, add the following entries in the [Zscaler Client Connector App Profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles):
+
+- `34.215.46.88` to the **IPv4 Exclusion** list under **App and IP Bypass** > **IP Bypasses**.
+- `blockpage.zscaler.com` to the **VPN Gateway Bypass** list under **App and IP Bypass** > **Global Bypasses**.
+
+See image.
+
+Similarly, if you are using a PAC file, add these entries to the PAC file to send the corresponding traffic directly to the internet.
+
+If the web request to the DNS EUN web server is sent via Internet & SaaS, add an [SSL/TLS Inspection](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy) bypass policy for this web traffic. For this, create a custom URL category containing the entries:
+
+- `34.215.46.88`
+- `blockpage.zscaler.com`
+
+See image.
+
+Then, create an SSL/TLS Inspection bypass policy for this custom URL category with rule actions set to **Do Not Inspect** and **Bypass Other Policies**.
+
+See image.
+
+If the client browser is using secure DNS or DoH, add a firewall filtering rule to block QUIC as a network service, or ensure that the Default Firewall Filtering Rule is blocking QUIC. Alternatively, you can block QUIC in the browser itself. This is because some secure DNS or DoH providers might use QUIC as the underlying transport protocol. However, Zscaler's best practice is to block QUIC. When it's blocked, QUIC has a failsafe to fall back to TCP. This enables SSL/TLS Inspection without negatively impacting user experience. To learn more, see [Managing the QUIC Protocol](https://help.zscaler.com/zia/managing-quic-protocol).
+
+[Image: Zscaler-hosted DNS EUN web page for blocked domains]
+
+[Image: DigiCert Global Certificate for DNS EUN web page displayed when traffic is not sent via Internet & SaaS]
+
+[Image: Zscaler Intermediate Root CA Certificate for DNS EUN web page displayed when traffic is sent via Internet & SaaS]
+
+[Image: SSL/TLS Inspection bypass policy for traffic to Zscaler-EUN web page]
+
+[Image: Custom URL category for Zscaler EUN web page IP address and domain name]
+
+[Image: Zscaler Client Connector App Profile configuration to bypass traffic destined for EUN web server]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/doc-65712-understanding-geolocalization-ip","lastmod":"2026-08-13T09:37Z","nid":"1542800"} -->
+## DOC 65712 Understanding Geolocalization IP
+
+- Source: https://help.zscaler.com/zia/doc-65712-understanding-geolocalization-ip
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > DOC 65712 Understanding Geolocalization IP
+- Last modified: 2026-08-13T09:37Z
+- Summary: Information on using the Zscaler Geolocalization IP in the Forwarding Control policy.
+
+For users in a country not serviced by Zscaler Point-of-Presence (PoP), the Geolocalization IP (GeoIP) feature can be used to access local content or destinations that restrict access based on the source IP address. However, you must consult with your compliance or legal team to ensure the configuration complies with applicable local laws.
+
+Organizations that are located across the globe often access destinations (local government websites or other restricted entities) that allow access only if the source IP address of the traffic is local to the country from where the traffic originates. When the users access these destinations through Zscaler, the client's source IP address reaching the destination is replaced with a Zscaler IP address. This leads to traffic being blocked if the Zscaler IP address is not native to the country.
+
+When Zscaler does not host a data center in a country and a user from that country accesses a local destination with source IP address-based access restrictions, the traffic is routed to the geographically closest Zscaler data center outside the country. As the egress source IP address is not local to the country from where the traffic originates, the user is either denied access to the destination or the results displayed are not localized to the user's location.
+
+To avoid bypassing security checks when traffic is routed to Zscaler data centers outside the country, Zscaler offers a cloud-based service that allows organizations to forward their traffic via the egress source IP address (GeoIP address) mapped to the country from where the traffic originates for countries that Zscaler does not host a data center in. This ensures that the user is able to access specific destinations which have source IP address-based restrictions, and localized content is displayed if the destination renders content based on the country of the originating request.
+
+The following steps are the primary process of using a GeoIP address to forward traffic:
+
+1. If not already available on your Internet & SaaS (ZIA) tenant, [contact Zscaler Support](https://help.zscaler.com/contact-support) to enable GeoIP for your Internet & SaaS tenant.
+2. After the feature is enabled, Zscaler enables GeoIP as a traffic forwarding method in the Zscaler Admin Console.
+3. Configure GeoIP forwarding policies and specify all the criteria to be met before forwarding the traffic. The criteria include location, users, network service, applications, source IPs, destination, etc. If you choose no criteria, all the traffic egresses with GeoIP addresses based on the source country.
+4. The forwarding gateway configuration is not required. Zscaler automatically forwards the traffic with a source IP address mapped to the country from where the traffic originates.
+
+The GeoIP feature leverages forwarding policies to steer traffic processed by Internet & SaaS to the destination servers, ensuring that the traffic is secure and that the egress source IP address is mapped to the source country. The Zscaler service determines the country that the user is in based on the user's source IP. You can configure granular policies in the Zscaler Admin Console to forward traffic using the GeoIP addresses to destinations that require an IP address native to the country of traffic's origin for access. To learn more about forwarding traffic via GeoIP, see [Configuring Forwarding Control Policy](https://help.zscaler.com/zia/configuring-forwarding-control-policy).
+
+For example, a GeoIP forwarding rule is applied to the traffic of a user located in Czechia, so the traffic is forwarded towards the destination with a Czechian source IP address. If the user moves to Serbia, then the traffic is forwarded to the destination with a Serbian local source IP address. The Zscaler service recognizes that the user is in Czechia or Serbia based on their source IP address. If the user is in a country which hosts a Zscaler data center, the traffic is serviced by the local data center and egresses with a country-local source IP address, and the GeoIP rule does not apply.
+
+When the GeoIP forwarding rule is triggered, Zscaler egresses the traffic with a local source IP address. In some cases, destination websites might not honor the source IP for country mapping to determine the location of the user and provide access. In such scenarios, you could deploy [App Connectors](https://help.zscaler.com/zpa/about-connectors) in the region for [Source IP Anchoring](https://help.zscaler.com/zia/understanding-source-ip-anchoring) with local IP addresses or deploy the Virtual Service Edges for Internet & SaaS or Private Service Edges for Internet & SaaS in the region for local IP addresses.
+
+## Supported Countries
+
+The following table lists the currently supported countries for the GeoIP feature:
+
+This table includes pagination. Use the Search function in the table to find your desired country.
+
+For the most accurate and up-to-date list of countries supported with the Geo IP feature, refer to the [Zscaler Geofeed list](https://config.zscaler.com/downloads/geofeed.csv).
+
+| Country Name | Region |
+| --- | --- |
+| Albania | Europe |
+| Algeria | Africa |
+| American Samoa | Americas |
+| Armenia | Middle East |
+| Aruba | Africa |
+| Azerbaijan | Europe |
+| Bahamas | Americas |
+| Bahrain | Middle East |
+| Bangladesh | APJ |
+| Belarus | Europe |
+| Benin | Africa |
+| Bolivia | Americas |
+| Bosnia and Herzegovina | Europe |
+| Bulgaria | Europe |
+| Burkina Faso | Africa |
+| Cambodia | APJ |
+| Cameroon | Africa |
+| Costa Rica | Americas |
+| Croatia | Europe |
+| Cyprus | Europe |
+| Czechia | Europe |
+| Djibouti | Africa |
+| Dominican Republic | Americas |
+| Ecuador | Americas |
+| Egypt | Africa |
+| El Salvador | Americas |
+| Equatorial Guinea | Africa |
+| Estonia | Europe |
+| Ethiopia | Africa |
+| Fiji | APJ |
+| French Guiana | Americas |
+| French Polynesia | Oceania |
+| Gabon | Africa |
+| Georgia | Europe |
+| Ghana | Africa |
+| Greece | Europe |
+| Guadeloupe | Americas |
+| Guam | APJ |
+| Guatemala | Americas |
+| Guinea | Africa |
+| Honduras | Americas |
+| Hungary | Europe |
+| Indonesia | APJ |
+| Ireland | Europe |
+| Jamaica | Americas |
+| Jersey | Europe |
+| Jordan | Middle East |
+| Kazakhstan | APJ |
+| Kenya | Africa |
+| Kuwait | Middle East |
+| Kyrgyzstan | Middle East |
+| Laayoune | Africa |
+| Latvia | Europe |
+| Lebanon | Middle East |
+| Liberia | Africa |
+| Libya | Africa |
+| Lithuania | Europe |
+| Luxembourg | Europe |
+| Madagascar | Africa |
+| Malawi | Africa |
+| Maldives | Africa |
+| Mali | Africa |
+| Malta | Europe |
+| Mauritania | Africa |
+| Mauritius | APJ |
+| Moldova | Europe |
+| Monaco | Europe |
+| Mongolia | APJ |
+| Montenegro | Africa |
+| Morocco | Africa |
+| Mozambique | Africa |
+| Myanmar | APJ |
+| Namibia | Africa |
+| Nepal | APJ |
+| New Caledonia | APJ |
+| Nicaragua | Americas |
+| Niger | Africa |
+| Oman | Middle East |
+| Pakistan | APJ |
+| Panama | Americas |
+| Papua New Guinea | Africa |
+| Paraguay | Americas |
+| Peru | Americas |
+| Philippines | APJ |
+| Puerto Rico | Americas |
+| Qatar | Middle East |
+| Republic of Côte d'Ivoire | Africa |
+| Romania | Europe |
+| Russia | Europe |
+| Rwanda | Africa |
+| Saint Martin | Americas |
+| Samoa | APJ |
+| Senegal | Africa |
+| Serbia | Europe |
+| Sierra Leone | Africa |
+| Slovakia | Europe |
+| Slovenia | Europe |
+| Somalia | Africa |
+| South Sudan | Africa |
+| Sri Lanka | APJ |
+| Sudan | Africa |
+| Suriname | Africa |
+| Tajikistan | APJ |
+| Tanzania | Africa |
+| Thailand | APJ |
+| Togo | Africa |
+| Trinidad and Tobago | Americas |
+| Tunisia | Africa |
+| Turkey | Europe |
+| Turkmenistan | APJ |
+| Uganda | Africa |
+| Ukraine | Europe |
+| Uruguay | Americas |
+| Uzbekistan | Europe |
+| Venezuela | Americas |
+| Vietnam | APJ |
+| Yemen | Africa |
+| Zambia | Africa |
+| Zimbabwe | Africa |
+
+## Benefits of GeoIP Address
+
+The following are a few benefits of using a GeoIP address:
+
+- Eliminates the need for organizations to maintain PAC files to bypass the Zscaler service to access certain destinations.
+- Eliminates the need to deploy on-premises infrastructure to provide a local source IP address.
+- Applies uniform Zscaler security policies throughout the organization's traffic irrespective of the user's location.
+- Provides you with the ability to granularly control the egress source IP address based on specified forwarding policy criteria.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/downloading-and-printing-policies","lastmod":"2026-06-30T21:06Z","nid":"1398761"} -->
+## Downloading and Printing Policies
+
+- Source: https://help.zscaler.com/zia/downloading-and-printing-policies
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Downloading and Printing Policies
+- Last modified: 2026-06-30T21:06Z
+- Summary: Information on how to download policies in PDF or JSON format or print policies and save them to a PDF file.
+
+You can download all of your organization's configured policies into a PDF or ZIP file. When you download policies in the ZIP format, a single ZIP file containing JSON representation of the policies is generated. One JSON file is created for each policy type within the ZIP file. In addition to downloading policies, you can print your policies.
+
+Policies that support the **View by** option can be printed either in **Rule Order** or **Rule Label** view.
+
+To download or print all policies, go to **Policies > Common Configuration > Advanced > View All Policies**.
+
+- To download policies, click the **Download** drop-down menu and select PDF or ZIP per your requirements. Selecting ZIP automatically downloads the policy contents into a ZIP file. If you select the PDF option, a window appears where you can change your preferred settings and then click **Save**.
+- To print policies, click **Print**. In the window that appears, you can change your preferred settings and then proceed to print the policies. See image.
+
+See sample files.
+
+[Image: Print All Policies Options]
+
+[Image: Downloaded policy files in ZIP and PDF formats]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -3012,13 +3530,13 @@ Following are the Extranet Insights Log filters that you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments","lastmod":"2026-07-26T21:37Z","nid":"1400466"} -->
+<!-- ZS-ARTICLE {"url":"/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments","lastmod":"2026-08-10T21:06Z","nid":"1400466"} -->
 ## Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments
 
 - Source: https://help.zscaler.com/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments
-- Last modified: 2026-07-26T21:37Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Instructions and requirements for properly configuring your corporate firewall and Zscaler PAC files for Private Service Edge for Internet & SaaS deployments.
 
 Your organization must configure your corporate firewall to allow for remote access:
@@ -3682,13 +4200,13 @@ To learn more about configuring GRE tunnels and Zscaler Client Connector app pro
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/firewall-insights-logs-columns","lastmod":"2026-07-28T05:42Z","nid":"1401006"} -->
+<!-- ZS-ARTICLE {"url":"/zia/firewall-insights-logs-columns","lastmod":"2026-08-12T04:32Z","nid":"1401006"} -->
 ## Firewall Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/firewall-insights-logs-columns
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Firewall Insights Logs: Columns
-- Last modified: 2026-07-28T05:42Z
+- Last modified: 2026-08-12T04:32Z
 - Summary: Information on the different columns in the Firewall Insights Logs page in the Zscaler Admin Console.
 
 You can customize your firewall logs by using column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -5628,13 +6146,13 @@ The following example adds an FQDN VPN credential and removes an IP VPN credenti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/installing-advanced-dlp-private-service-edge-internet-saas","lastmod":"2026-07-26T21:58Z","nid":"1529877"} -->
+<!-- ZS-ARTICLE {"url":"/zia/installing-advanced-dlp-private-service-edge-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1529877"} -->
 ## Installing Advanced DLP Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/installing-advanced-dlp-private-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Installing Advanced DLP Private Service Edge for Internet & SaaS
-- Last modified: 2026-07-26T21:58Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Instructions for properly installing Advanced DLP Private Service Edge for Internet & SaaS (ZIA) within your organization.
 
 Upon receipt of the hardware, install your pair of Advanced DLP Private Service Edges for Internet & SaaS (ZIA) according to the instructions provided. Both servers must be installed in the same location alongside your standard Private Service Edges.
@@ -5744,13 +6262,13 @@ To install the LB:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/installing-private-service-edge-internet-saas","lastmod":"2026-07-26T21:54Z","nid":"1401246"} -->
+<!-- ZS-ARTICLE {"url":"/zia/installing-private-service-edge-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1401246"} -->
 ## Installing Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/installing-private-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Installing Private Service Edge for Internet & SaaS
-- Last modified: 2026-07-26T21:54Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Instructions for properly installing Private Service Edge for Internet & SaaS (ZIA) within your organization.
 
 Upon receipt of the hardware, install your pair of Private Service Edges for Internet & SaaS (ZIA) according to the instructions provided. Both Private Service Edges must be installed in the same location.
@@ -12221,13 +12739,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/maintenance-support-virtual-service-edge-internet-saas","lastmod":"2026-07-26T21:17Z","nid":"1417031"} -->
+<!-- ZS-ARTICLE {"url":"/zia/maintenance-support-virtual-service-edge-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1417031"} -->
 ## Maintenance Support for Virtual Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/maintenance-support-virtual-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Maintenance Support for Virtual Service Edge for Internet & SaaS
-- Last modified: 2026-07-26T21:17Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Support information for ongoing Virtual Service Edge for Internet & SaaS (ZIA) maintenance in the Zscaler cloud.
 
 Virtual Service Edge for Internet & SaaS (ZIA) are installed in an organization’s data center and are dedicated to the organization’s traffic, but they are managed and maintained by Zscaler Cloud Operations. Zscaler maintains the Virtual Service Edges with a near zero touch needed from your organization.
@@ -15295,13 +15813,13 @@ To configure rules for this scenario:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/monitoring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-07-26T21:44Z","nid":"1398876"} -->
+<!-- ZS-ARTICLE {"url":"/zia/monitoring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1398876"} -->
 ## Monitoring Virtual Service Edge Clusters for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Monitoring Virtual Service Edge Clusters for Internet & SaaS
-- Last modified: 2026-07-26T21:44Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Information on how to monitor a Virtual Service Edge cluster for Internet & SaaS (ZIA) with a management system that supports SNMPv3. Listed are MIB objects queried to retrieve Virtual Service Edge cluster information.
 
 If you configure a GRE tunnel or L2 forwarding from your router to a Virtual Service Edge for Internet & SaaS (ZIA), you can enable IPSLAs to monitor the tunnels. Additionally, Virtual Service Edges support NET-SNMP, a collection of applications that are used to implement the SNMP protocol. To learn more about NET-SNMP and the MIB files distributed with NET-SNMP, refer to the [NET-SNMP documentation](http://net-snmp.sourceforge.net/).
@@ -17445,696 +17963,4 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 [Image: Download SSL certificate from NSS server]
 
 [Image: Verified NSS connections to the Zscaler Central Authority (CA) and SIEM]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-hyper-v","lastmod":"2026-07-31T11:28Z","nid":"1532796"} -->
-## NSS Deployment Guide for Hyper-V
-
-- Source: https://help.zscaler.com/zia/nss-deployment-guide-hyper-v
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Hyper-V
-- Last modified: 2026-07-31T11:28Z
-- Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Hyper-V.
-
-Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via Microsoft Hyper-V. This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
-
-## Prerequisites
-
-Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscriptions) to either NSS for Web or NSS for Firewall and review the following specifications and requirements:
-
-- VM Specs
-- Host Specs
-- Network Specs
-- Firewall Requirements
-
-## Deploying NSS
-
-To deploy NSS:
-
-- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate
-- Step 2: In the Zscaler Admin Console, Add a TCP NSS Feed
-- (Optional) Step 3: In the Zscaler Admin Console, Add an HTTP NSS Feed
-- Step 4: In the Zscaler Admin Console, Compute the Recommended VM Instance Specifications
-- Step 5: In the Hyper-V Manager, Create the VM Instance
-- Step 6: Configure and Verify the NSS on the VM Instance
-
-## Post-Deployment Tasks
-
-After you have verified your deployment, you can perform additional tasks:
-
-- Troubleshoot the NSS
-- Configure Advanced NSS Settings
-- Deploy Multiple NSS Virtual Machines for Reliability
-
-- 2 CPU cores: NSS uses one core for the control plane and another core for the data plane.
-- Instance memory: If you have more than 100K users, contact Zscaler Support.
-  - 8 GB for up to 8K users
-  - 16 GB for up to 20K users
-  - 32 GB for up to 50K users
-  - 48 GB for up to 75K users
-  - 64 GB for more than 75K users
-- Recommended disk size: 500 GB
-
-- Hypervisor: Hyper-V Manager
-- Host CPU: 64-bit Xeon or equivalent
-- Host CPU Speed: Greater than or equal to 2.40GHz
-- Hyper-V VM
-
-- Network Adapter: E1000
-- VM Network: 2 Virtual NICs. Optionally, you might need two additional virtual NICs as described in [Configuring Advanced NSS Settings](https://help.zscaler.com/zia/configuring-advanced-nss-settings).
-- Bandwidth for Log Download: 11 Mbps for 10K users is an example average value.
-- IP Addresses: The following table lists the IP addresses and the interfaces on which they're configured. Internal IP addresses are allowed. The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
-  | Virtual Interface | IP Address | Description |
-  | --- | --- | --- |
-  | hn0 (First network adapter) | Management IP Address | This is used for control connections to the Zscaler cloud and to make an SSH connection to the NSS VM for configuration and management. You can customize the deployment and define a separate IP address for the SSH connection to the NSS VM. To learn more, see [Configuring Advanced NSS Settings](https://help.zscaler.com/zia/configuring-advanced-nss-settings). |
-  | hn1 (Second network adapter) | Service IP Address | This is used for data connections to the Zscaler cloud and to the SIEM. |
-  | hn2 (Third network adapter) | (Optional) Second Management IP Address | In cases where the default management interface cannot be used for SSH due to VLAN restrictions, Zscaler recommends that you add another interface just for management, so the first interface is used only for control connections to the cloud. To learn more, see [Configuring Advanced NSS Settings](https://help.zscaler.com/zia/configuring-advanced-nss-settings). |
-  | hn3 (Fourth network adapter) | (Optional) Second Service IP Address | In cases where the default service interface cannot be used to connect to the Zscaler cloud and to the SIEM, you can add another service interface, so one service interface can be used to connect to the Zscaler cloud, and a separate interface can be used to connect to the SIEM. |
-
-The firewall requirements are as follows:
-
-- You must deploy the NSS instance behind a VM network security group. The NSS instance requires only outbound connections to the Zscaler cloud. It doesn't require any inbound connections to your network from the Zscaler cloud.
-- To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
-- The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
-- Communication from the NSS instance to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet & SaaS (ZIA) as this can result in networking, latency, and administration issues.
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. From the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
-3. In the **Add NSS Server**window: See image.
-  - **Name**: Enter a name for the NSS server.
-  - **Type**: **NSS for Web** is selected by default. If you are configuring an NSS for Firewall logs, select **NSS for Firewall**. If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
-  - **Status**: The NSS is **Enabled** by default.
-4. Click **Save**. The NSS server is added to the Zscaler Admin Console.
-5. Click **Download** in the **SSL Certificate** column of the newly added NSS server, and then save the SSL certificate for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-configure-start-nss). See image.
-
-A TCP Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. You can filter the data so that you send only the data you need to the SIEM, and you can add up to 16 TCP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per NSS server to ensure optimal performance.) Each feed can have different filters and fields, and a different output format (e.g., CSV). To learn more about how to configure each feed, see:
-
-- [Adding TCP NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-web-logs)
-- [Adding TCP NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-firewall-logs)
-- [Adding TCP NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-dns-logs)
-- [Adding TCP NSS Feeds for Tunnel Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-tunnel-logs)
-- [Adding TCP NSS Feeds for SaaS Security Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs)
-- [Adding TCP NSS Feeds for SaaS Security Activity Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-activity-logs)
-- [Adding TCP NSS Feeds for Alerts](https://help.zscaler.com/zia/adding-tcp-nss-feeds-alerts)
-- [Adding TCP NSS Feeds for Admin Audit Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-admin-audit-logs)
-- [Adding TCP NSS Feeds for Endpoint DLP Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-endpoint-dlp-logs)
-- [Adding TCP NSS Feeds for Email DLP Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-email-dlp-logs)
-- [Adding TCP NSS Feeds for Sandbox Verdict Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs)
-- [Adding TCP NSS Feeds for Authentication Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-authentication-logs)
-- [Adding TCP NSS Feeds for SCIM Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-scim-logs)
-- [Adding TCP NSS Feeds for 3rd-Party App Governance Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-3rd-party-app-governance-logs)
-- [Adding TCP NSS Feeds for Posture Management Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-posture-management-logs)
-
-When adding a feed, note the SIEM IP address and TCP port for later [verifying the NSS-to-SIEM connection](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#verify-nss-configuration).
-
-In addition to TCP-based NSS feeds, you can optionally stream NSS logs to SIEM over HTTP connections. To add HTTP-based NSS feeds, you must:
-
-1. Run the following command in your VM instance: `nss configure-nssas`
-2. (Optional) Run the following command to configure a self-signed certificate: You can use self-signed or internally issued certificates for the SIEM connectivity test. `nss add-cert-to-trust <self-signed certificate>`Replace <self-signed certificate> with the path of your self-signed certificate from the NSS node in the command.
-3. Run the following command to restart the NSS service: `sudo nss restart`
-
-After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet & SaaS (ZIA).
-
-An HTTP NSS feed specifies the data from the logs that the HTTP NSS sends to the security information and event management (SIEM) system. You can add up to 8 HTTP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to two feeds per NSS server to ensure optimal performance.
-
-To learn more about how to configure each feed, see the following links:
-
-- [Adding HTTP NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-web-logs)
-- [Adding HTTP NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-firewall-logs)
-- [Adding HTTP NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-dns-logs)
-- [Adding HTTP NSS Feeds for Tunnel Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-tunnel-logs)
-- [Adding HTTP NSS Feeds for SaaS Security Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-saas-security-logs)
-- [Adding HTTP NSS Feeds for SaaS Security Activity Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-saas-security-activity-logs)
-- [Adding HTTP NSS Feeds for Alerts](https://help.zscaler.com/zia/adding-http-nss-feeds-alerts)
-- [Adding HTTP NSS Feeds for Admin Audit Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-admin-audit-logs)
-- [Adding HTTP NSS Feeds for Endpoint DLP Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-endpoint-dlp-logs)
-- [Adding HTTP NSS Feeds for Email DLP Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-email-dlp-logs)
-- [Adding HTTP NSS Feeds for Sandbox Verdict Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-sandbox-verdict-logs)
-
-You must enter information about your traffic and users so that the Zscaler service can compute the appropriate resources for your NSS.
-
-The NSS buffers the logs for at least one hour. If a SIEM goes offline for maintenance, or if the connection between the NSS and the SIEM is disrupted, the NSS buffers the logs and sends them when the connection is re-established. The amount of memory required to buffer the logs is incorporated into the VM spec computation. The buffer size increases proportionally to the amount of RAM allocated to the NSS.
-
-To compute the appropriate resources for your NSS:
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. Click **Deploy NSS Virtual Appliance**. The **NSS Virtual Appliance Deployment** window appears.
-3. In the **NSS Virtual Appliance Deployment**window, choose either of the following NSS types: If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
-  - NSS for Web
-  - NSS for Firewall
-4. For your platform, select **Hyper-V**.
-5. Click **Compute**. The recommended VM specs and hypervisor specs are displayed.
-6. Click **Download NSS Virtual Appliance** to download the NSS VHDX file. See image.
-7. Click **Close**.
-
-To determine the memory and bandwidth requirements:
-
-- **Number of Users**:Enter the number of users. The service displays the recommended resources for the NSS and the Hyper-V Manager hypervisor.
-- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Analytics** >**Internet & SaaS** > **Dashboard**> **Web Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
-
-See image.
-
-The recommended internet bandwidth is the peak bandwidth required to download the logs from the Nanolog in the Zscaler cloud. If the NSS is not allocated the bandwidth it needs, the logs can accumulate in the Nanolog. This can result in frequent connection resets and the logs not being streamed to the NSS.
-
-To determine the memory and bandwidth requirements:
-
-- **Number of Users**:Enter the number of users. The service displays the recommended resources for the NSS and the Hyper-V Manager hypervisor.
-- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Analytics** >**Internet & SaaS** > **Dashboard** > **Firewall Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
-- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Analytics** >**Internet & SaaS** > **Dashboard** > **DNS Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
-
-See image.
-
-The recommended internet bandwidth is the peak bandwidth required to download the logs from the Nanolog in the Zscaler cloud. If the NSS is not allocated the bandwidth it needs, the logs can accumulate in the Nanolog. This can result in frequent connection resets and the logs not being streamed to the NSS.
-
-Before you create a VM instance on Hyper-V, ensure that you have [downloaded the NSS VHDX file](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-compute-recommended-vm-instance-specs) from the Zscaler Admin Console.
-
-To configure the NSS virtual appliance on the VM:
-
-1. Open Hyper-V Manager and connect to your virtualization server.
-2. Right-click the server name, select **New**, and then select **Virtual Machine**. See image. The **New Virtual Machine Wizard** appears displaying the **Before You Begin** page.
-3. On the **Before You Begin** page, review the instructions and click **Next**.
-4. On the **Specify Name and Location**page that appears, enter a name for the VM and click **Next**. See image. Optionally, you can enable **Store the virtual machine in a different location** to store the VM in a preferred location.
-5. On the **Specify Generation** page that appears, select **Generation 1** and click **Next**. See image.
-6. On the **Assign Memory** page that appears, enter the memory in MB to allocate to the VM and click **Next**. See image.
-7. On the **Configure Networking** page that appears, select the VM network from the **Connection** drop-down menu and click **Next**. See image.
-8. On the **Connect Virtual Hard Disk** page that appears, select **Use an existing virtual hard disk** and upload the NSS VHDX (`.vhdx`) file you previously downloaded. See image.
-9. Review your settings. Click **Finish** to close the wizard and deploy the VM.
-
-After you have configured the VM, you must add a minimum of two network interface adapters: one for the management interface and another for the service interface.
-
-To add network adapters to the VM:
-
-1. Select the newly created VM and go to **Settings**.
-2. Click **Add Hardware**.
-3. On the **Add Hardware** page, select **Network Adapter** and click **Add**. See image.
-4. On the **Network Adapter** page, select the network configuration from the **Virtual switch** drop-down menu. The network configuration you select must match the VM network selected on the [configure networking](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-configure-start-nss-vm-instance) page. See image. Optionally, you can enable the VLAN identification and bandwidth management settings.
-5. Click **Apply** and then **OK**.
-
-Similarly, add another network adapter for the VM with the same network configuration for the **Virtual Switch**.
-
-Before you configure and start the NSS on the Hyper-V VM, ensure that you have [downloaded the SSL certificate](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-add-nss-server-download-ssl-certificate) from the Zscaler Admin Console.
-
-Complete the following steps to configure NSS on the VM instance:
-
-- a. Configure the NSS and install the SSL certificate.
-- b. Verify the NSS configuration.
-- c. (Optional) Remove the SSL certificate.
-
-1. Go to the newly created VM instance from the Hyper-V console and assign the management IP address. To configure the management IP address, in the `/etc/rc.conf` file:
-  1. Add ifconfig_hn0= "xx.xx.xx.xx/xx".
-  2. Add defaultrouter= "xx.xx.xx.xx".
-  3. Ensure that the network_interfaces="hn0 hn1 lo0".
-  4. Save the file and reboot the VM to apply the management IP configuration.
-  5. After the VM reboots, the management IP address is available in the `ifconfig hn0` field and the gateway is reachable.
-2. When prompted, enter the username and password (e.g., `zsroot`/ `zsroot`).
-3. Run the following command to configure the NSS: sudo nss configure
-4. When prompted, enter the following IP addresses: The following configuration is an example. Replace the values in red with the IP addresses for your deployment: [root@nss /usr/home/zsroot]# nss dump-config Configured Values: CloudName:zscalerthree.net nameserver:169.254.169.254 Mgmt IP: Default gateway for Mgmt IP: Internal Mgmt IP: route_net: Service IP Address:/dev/tap0:192.168.4.13/24 Default Gateway for Service IP:192.168.4.1 Default Router:192.168.1.1 ifconfig_hn0: inet 192.168.1.100 netmask 255.255.255.0 Routes for Siem N/w:
-  1. Nameserver IP address
-  2. Internal service IP address associated with the service interface
-  3. Default gateway for the internal service IP address
-  4. Default gateway for the management IP address
-  5. Management interface IP with CIDR netmask
-5. Copy the [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-add-nss-server-download-ssl-certificate) SSL certificate to the VM instance.
-6. Run the following command to install the SSL certificate: nss install-cert <SSL Certificate>Replace the parameter in red with the SSL certificate file name (e.g., `NssCertificate.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NssCertificate.zip`). The NSS uses the SSL certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active VM at a time. Having multiple VMs that use only one certificate causes cloud connection flapping, which disrupts log streaming.
-7. Check the configuration by running the following command: sudo nss dump-config
-8. Before starting the NSS, run the following command to download and install the NSS binaries: sudo nss update-nowAfter the first NSS software deployment, the software is automatically updated with new versions.
-9. Run the following command to reboot the NSS: sudo reboot
-10. Run the following command to start the NSS: sudo nss startThe NSS starts within a few minutes.
-
-To verify the NSS configuration, run the following command:
-
-```
-sudo nss troubleshoot netstat | less
-```
-
-The output of the command shows the following TCP connections:
-
-- **Connection to the Zscaler cloud on port 443**: This is the control connection that is used to authenticate the NSS to the Zscaler Central Authority (CA) and to download the configuration. It is also the data connection to the Zscaler Nanolog so that it can stream the logs.
-- **Connection to the SIEM**: This is the long-lived TCP connection to the SIEM on the specified log data port (e.g., 192.168.0.3.34561). If there are multiple feeds configured, then multiple connections must be listed.
-
-The following image shows a sample output verifying the TCP connections are established:
-
-See image.
-
-### Troubleshooting
-
-If the NSS does not start, open the `/etc/rc.conf` file to verify the following configuration:
-
-```
-#configurable per-machine info goes here (hn0 is mgmt and hn1 is service int)
-network_interfaces="lo0 hn0 hn1"
-ifconfig_hn0="UP"
-ifconfig_hn0="DHCP"
-ifconfig_hn0="SYNCDHCP mtu 1460"
-```
-
-The configuration confirms that there are two network interfaces (i.e., management and service), and that the management interface (i.e., `hn0`) is working as expected. If the configuration is not present in `/etc/rc.conf`, add it to the file and save, and then run the following command to restart the service:
-
-```
-/etc/rc.d/netif restart
-```
-
-Zscaler recommends adding a custom route to the `sc.conf` file if your downstream SIEM IP address is in the same subnet.
-
-As a security measure, you can remove the SSL certificate from the VM. To remove the SSL certificate, run the `rm` command. See the following example:
-
-```
-rm NssCertificate.zip
-```
-
-If you do not remove the SSL certificate from the VM, you must change the file permission to be readable only by the root user.
-
-An [NSS server](https://help.zscaler.com/zia/adding-nss-servers) represents the NSS VM in the Zscaler Admin Console. When you create an NSS server in the console, an SSL certificate is generated. You download the SSL certificate from the console and upload it to the NSS VM that you configure and [deploy](https://help.zscaler.com/zia/deploying-nss-virtual-appliances). The newly configured NSS VM uses the SSL certificate to authenticate itself to the Zscaler service.
-
-Each NSS server supports up to 16 [NSS feeds](https://help.zscaler.com/zia/adding-nss-feeds). ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per NSS to ensure optimal performance.) Each NSS feed can have different filters and fields and a different output format (e.g., CSV).
-
-For site reliability, you can deploy multiple NSS VMs, either in an active-active or active-passive configuration.
-
-### Active-Active Configuration
-
-Zscaler recommends leveraging two NSS servers per NSS type (i.e., NSS for Web and NSS for Firewall) and deploying each pair in an active-active configuration. In this configuration, you create two NSS servers of the same NSS type in the Zscaler Admin Console with separate SSL certificates.
-
-Running multiple active NSS VMs with the same SSL certificate causes cloud connection flapping, which disrupts the streaming of logs to the NSS.
-
-Optionally, for optimal reliability, you can configure the NSS VMs to stream logs to two separate SIEMs. In this configuration, each NSS VM runs independently, streaming logs to its respective SIEM at the same time.
-
-Zscaler does not recommend configuring two NSS VMs of the same NSS type to stream logs to a single SIEM. In this case, each NSS VM sends copies of the same logs to the SIEM, which might not be able to deduplicate them.
-
-### Active-Passive Configuration
-
-Alternatively, you can deploy multiple NSS VMs in an active-passive configuration. In this configuration, you create one NSS server (for Web or Firewall) in the Zscaler Admin Console and use the generated SSL certificate to deploy one active NSS VM; the second VM serves as a cold standby. Both NSS VMs use the same SSL certificate in this configuration, but they should not connect to the Zscaler [Nanolog](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) at the same time as this results in connection flapping.
-
-If the active NSS VM fails, you must perform failover activities, ideally within one hour of the failure to prevent data loss. In this time frame, you can leverage the following NSS reliability mechanisms:
-
-- **NSS to SIEM**: The NSS buffers the logs in the VM memory to increase its resiliency to transient network issues between the SIEM and the NSS. If the connection drops, the NSS replays logs from the buffer, according to the Duplicate Logs setting.
-- **Nanolog to SIEM**: If the connectivity between the Zscaler cloud and the NSS is interrupted, the NSS misses logs that arrived at the [Nanolog cluster](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) during the interruption, and they are not delivered to the SIEM. When the connection is restored, the NSS one-hour recovery allows the Nanolog to replay logs up to one hour back.
-
-To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscriptions, contact Zscaler Support.
-
-When deploying the NSS, additional features that facilitate successful deployment require advanced NSS settings in cases where you have specific requirements or restrictions. It includes the following topics:
-
-The first three sections listed pertain to the [NSS deployment over VMware vSphere](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere) only.
-
-- Configuring a Second Management Interface
-- Configuring a Second Service Interface
-- Configuring the Additional Interfaces from the Console
-- Configuring a Local NTP Server
-- Configuring NSS in Explicit Proxy Mode
-- Updating an NSS VM Hostname
-- Allowing SSH Access to the NSS Only from a Specific Subnet or IP Address
-- Setting Up Key-Based Authentication to the NSS
-
-Sometimes, the default management interface can't be used for SSH due to VLAN restrictions. In those cases, Zscaler recommends that you add an additional interface just for management, so the first interface is used only for control connections to the cloud.
-
-There are two ways to add a second management interface:
-
-- Zscaler recommends that you log in to your client and configure the additional interface from the console tab. See [Configuring the Additional Interfaces from the Console](https://help.zscaler.com/zia/nss-advanced-deployment#Additional).
-- Alternatively, you can manually configure the second management interface.
-
-To manually add a management interface:
-
-1. Shut down the NSS and stop the VM.
-2. Using your client, assign an additional interface to the VM. Map it to an appropriate network or VLAN.
-3. Reboot the NSS.
-4. Run the following command and ensure that the em2 interface is active:
-
-```
-ifconfig
-```
-
-1. Update the system configuration file `/etc/rc.conf` to configure the interface automatically after each system restart. To do this, run the following command:
-
-```
-sudo vi /etc/rc.conf
-```
-
-1. Add the em2 interface to the list of network interfaces. Modify the line that starts with `network_interfaces` and change it to:
-
-```
-network_interfaces="em0 em1 em2 lo0"
-```
-
-1. Add a new line at the end of the file:
-
-```
-ifconfig_em2="
-<subnet-ip-address>
-"
-```
-
-Ensure that you replace <subnet-ip-address> with the IP address of the subnet. For example:
-
-```
-ifconfig_em2="
-192.168.1.100/24
-”
-```
-
-1. The default gateway is automatically added via the em0 interface. To add a static route to a different subnet or VLAN for the newly added em2 interface, add the following lines at the end of the file:
-
-```
-static_routes="em2"
-route_em2="-net
-<destination-subnet> <gateway-ip-address>
-"
-```
-
-Replace <destination-subnet> with the IP address of the destination subnet, and replace <gateway-ip-address>with the appropriate gateway IP address. For example:
-
-```
-static_routes="em2"
-route_em2="-net
-198.51.100.0/24 192.168.1.3
-"
-```
-
-1. Reboot the VM.
-2. To verify the changes, ping the newly added subnet gateway and run the following command to print the route information:
-
-```
-sudo netstat -rn
-```
-
-The NSS typically uses the service interface to download logs from the Nanolog in the Zscaler cloud and send them to your security information and event management (SIEM).
-
-Some organizations might need to use one interface to connect to the Zscaler cloud and another interface to connect to the SIEM. For example, an organization might have a SIEM in a management LAN that is not routed to the internet, and it might also have a service LAN that is routed to the internet but not to the management LAN, as shown in the following diagram:
-
-See image.
-
-If your organization has a similar requirement, you can configure a second service interface. You can then use one interface to connect to the Zscaler cloud to download the logs and a different interface to send the logs to the SIEM located in the management LAN.
-
-There are two ways to add a second service interface:
-
-- Zscaler recommends that you log in to your client and configure the additional interface from the console tab. See [Configuring the Additional Interfaces from the Console](https://help.zscaler.com/zia/nss-advanced-deployment#Additional).
-- Alternatively, you can manually configure the second service interface.
-
-[Image: One interface connecting to the Zscaler cloud and another interface connecting to the SIEM.]
-
-To manually add a second service interface:
-
-1. Shut down the NSS and stop the VM.
-2. Using your client, assign an additional interface to the VM. Map it to an appropriate network or VLAN.
-3. Reboot the NSS.
-4. Run the following command and ensure that the em2 interface is active:
-
-```
-ifconfig
-```
-
-1. Copy the `sc.conf` file.
-
-```
-cp /sc/conf/sc.conf /sc/conf/sc.conf.old
-```
-
-1. Use the vi Editor to edit the `sc.conf` file. Run the following command:
-
-```
-vi /sc/conf/sc.conf
-```
-
-1. Add the following lines to the file, replacing the sample values in red per your configuration:
-
-```
-smnet_dev=em2=zs1:
-192.168.223.41/24
-smnet_route=
-10.0.0.0/8
-/
-192.168.223.1
-```
-
-In this example, em2=zs1 is the second service interface, and 192.168.223.41/24 is the service IP address with the subnet mask. If your SIEM is in the same subnet, then the second line is not required. If your SIEM is in a different subnet, add `smnet_route` and define values in the second line. For example, to reach 10.0.0.0/8, use gateway 192.168.223.1.
-
-1. Save the changes in the file and then restart the NSS by running the following command:
-
-```
-sudo nss restart
-```
-
-1. Verify whether the NSS is using the second service interface by running the following command:
-
-```
-sudo nss dump-config
-```
-
-To configure both a second management interface and service interface, first ensure that you run the followingcommand to establish your network settings:
-
-```
-sudo nss configure
-```
-
-Then, run the following command to specify the IP addresses for the additional interfaces and their corresponding routes:
-
-```
-sudo nss configure split-interface
-```
-
-****[Image: The FreeBSD command prompt showing the command sudo nss configure split-interface]****
-
-During a split-interface configuration, the NSS asks for an `smnet_route`. If your SIEM is in a different network compared to the NSS smnet interface (em3=zs1) subnet, you can enter specific routes for feeds.
-
-See the following example:
-
-```
-[root@NSS /sc/update]# nss configure split-interface
-            ifconfig_em2 (Internal Management interface IP address with netmask) [1.1.1.1/23]:
-            route_net:-net 1.1.1.2/12 2.1.1.1 (Options <c:change, d:delete, n:no change>) [n]
-            Do you wish to add a new route_net? <n:no y:yes> [n]:
-            smnet_dev=em3 (Internal Service interface IP address with netmask) [10.10.35.20/24]:
-Do you wish to add a new smnet_route? <n:no y:yes> [n]: y
-            Atleast one entry required for smnet_route
-            smnet_route (Static route for Siem N/w ,e.g (network/subnet/gateway): 172.12.1.0/21/10.10.35.1) []: 1.3.2.1/2/2.2.1.2
-            Do you wish to add a new smnet_route? <n:no y:yes> [n]: 2.1.2.3/2/43.3.3.2
-```
-
-If you have a local NTP server, you can configure the NSS to synchronize time with that server:
-
-1. Run the following command as root:
-
-```
-crontab -e
-```
-
-1. Run the following command:
-
-```
-PATH=/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/games:/sc/update:/home/zsroot/bin:/sc/update
-```
-
-1. Run the following command:
-
-```
-*/10 * * * * ntpdate
-<ntp-server-name>
-```
-
-Replace <ntp-server-name> with your local NTP server's FQDN or IP address.
-
-1. Save and exit.
-
-The time synchronization command runs every 10 minutes. You can find logs for the NTP process in `/var/log/cron.`
-
-Some customers might have a [no-default route environment](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments). This prevents the NSS from establishing connections to the Zscaler cloud. For this scenario, you can configure the NSS in explicit proxy mode, so that it tunnels all Zscaler cloud-bound connections through a proxy. These include [network connections](https://config.zscaler.com/zscaler.net/nss) and TCP connections from the NSS to the:
-
-- Nanolog (SMSM)
-- Zscaler Central Authority (CA) (SMCA)
-- Update server (SMCDSS) for software updates
-- Kafka server for audit log streaming
-
-Connections from the NSS to the SIEM are not tunneled.
-
-The NSS in explicit proxy mode can tunnel Zscaler cloud-bound connections. Based on your configuration, you can tunnel these connections without the need for internet-facing DNS resolution.
-
-If you configure the `dnsoverproxy` flag to `1`, then the NSS in explicit proxy mode makes a CONNECT request to the following domains, and the explicit proxy performs the name resolution:
-
-- msmca.<cloudname> for the connection to the Zscaler CA
-- zdistribute.<cloudname> for the connection to the update server
-- kproxy.hdeu1.zdataservices.net for the connection to the Kafka server
-
-If you configure the `dnsoverproxy` flag to `0`, then the NSS needs DNS resolution for the connections to the current master CA IP address, update server, and Kafka server.
-
-NTP connections are not tunneled. The NSS needs DNS resolution for the NTP server. To learn more, see [Configuring a Local NTP Server](https://help.zscaler.com/zia/configuring-advanced-nss-settings#Local).
-
-To configure the NSS in explicit proxy mode:
-
-1. Run the `nss configure` command to configure the two network interfaces.
-2. Run the `nss configure proxy` command. For example:
-
-```
-[root@NSS /usr/home/zsroot]#
-nss configure proxy
-proxyserver (Proxy Host ) [10.81.153.26]:
-        proxyport (Proxy Port ) [443]:
-        dnsoverproxy (DNS over proxy: 0/1 ) []:
-1
-Successfully configured proxy
-```
-
-To undo this configuration, you can use `remove`:
-
-```
-nss configure proxy
-remove
-```
-
-1. Run the `sudo nss restart` command to restart the NSS service. When the NSS starts, it tries to connect to the Zscaler CA or Nanolog using the proxy it configured.
-2. Run the `nss troubleshoot netstat` command to verify the proxy (e.g., 10.81.153.26) connections for the Zscaler CA and Nanolog. See image.
-
-[Image: The established TCP connections to the Zscaler Central Authority (CA) and Nanolog]
-
-To update your NSS VM hostname:
-
-1. Log in to your NSS VM.
-2. Edit the file `/etc/rc.conf` using the vi Editor.
-
-```
-[zsroot@New_Hostname ~/$ vi /etc/rc.conf
-```
-
-1. Add the hostname entry to the file.
-
-```
-hostname=<name>
-```
-
-1. Run the `reboot` command.
-
-```
-root@New_Hostname:/usr/home/zsroot # reboot
-```
-
-1. After the NSS restarts, your new hostname appears.
-
-You can restrict SSH access based on IP/Subject using the following configuration in `sshd_config`:
-
-```
-AllowUsers zsroot@10.66.70.*
-```
-
-In this example, SSH is allowed only from the source IP address range 10.66.70.0/24. Then, run the followingcommand to make the configuration change effective:
-
-```
-service sshd restart
-```
-
-To configure key-based authentication:
-
-1. Create a .ssh directory in the home directory:`/home/zsroot/` under the user`root`*.*
-2. Upload your user public key file to the file `authorized_keys` under the directory `/home/zsroot/.ssh.`
-3. Adjust the file `/etc/ssh/sshd_config` with the following updates: (Make a backup of this file before changing it.)
-
-```
-ChallengeResponseAuthentication no
-PasswordAuthentication no
-```
-
-These entries are set to `yes` by default. You can set them to `no`or comment them out.
-
-1. Use the following command to restart the `sshd` service:
-
-```
-service sshd restart
-```
-
-Replace option `restart` with `stop` and `start` as required.
-
-1. Test the new configuration on the client side using SSH (e.g., PuTTY).
-
-You can use the following commands within the virtual machine (VM) console for your platform to configure and troubleshoot the NSS server. By default, root login is not permitted, so admins must use the `sudo` utility to run a command with higher privileges.
-
-- To start the service: `sudo nss start`
-- To stop the service: `sudo nss stop`
-- To restart the service: `sudo nss restart`
-- To smoothly shut down the OS: `sudo nss halt`
-- To change the network configuration (i.e., IP addresses, gateway information) for the service: `sudo nss configure`To learn more, see the [NSS deployment guide](https://help.zscaler.com/zia/deploying-nss-virtual-appliances) for your platform.
-- To configure additional interfaces: `sudo nss configure split-interface`To learn more, see [Configuring the Additional Interfaces from the Console](https://help.zscaler.com/zia/nss-advanced-deployment#Additional).
-- To configure an explicit proxy: `sudo nss configure proxy`To learn more, see [Configuring NSS in Explicit Proxy Mode](https://help.zscaler.com/zia/nss-advanced-deployment#proxy).
-- To remove the configuration (if you configured additional interfaces using the `sudo nss configure split-interface` command): `sudo nss configure split-interface --wipe`
-- To remove the network settings that were configured using the `sudo nss configure` command: `sudo nss configure --wipe`
-- To display the configuration file that was changed using the `sudo nss configure` command: `sudo nss dump-config`
-- To install NSS certificates from a specified certificate bundle file: `sudo nss install-cert <certificate bundle file>`
-- To check whether a new NSS version is available: `sudo nss checkversion`
-- To manually update the NSS to the latest version: `sudo nss update-now`
-- To force the NSS to update, regardless of whether a new version is available: `sudo nss force-update-now`
-- To check the firewall configuration: `sudo nss test-firewall`This command does active firewall configuration probing by attempting to resolve the DNS names and establishing outbound connections to the Zscaler cloud. This command doesn't reset the management IP interface, so you can run it on an SSH connection.
-- To view troubleshooting help command information: `sudo nss troubleshoot help`
-- To show the active connections on the service IP address: `sudo nss troubleshoot netstat`The output is similar to that of the `netstat` utility.
-- To show the connections and their statuses: `sudo nss troubleshoot connection`This command probes the connection status over a period of time and indicates whether the connections are stable or flapping.
-- To show the status of the NSS feeds for TCP, HTTP, and Cloud NSS: `sudo nss troubleshoot feeds`This command probes the status of the feeds and determines whether the logs are queued due to the slow consumption of logs by your security information and event management (SIEM).
-- To generate diagnostic information to send to Zscaler Support: `sudo nss collect-diagnostics`This command collects the configuration, vital statistics regarding the health of the NSS, and error statistics, and then downloads the data to a local file. You can email this file to Zscaler Support for troubleshooting purposes.
-- To reset the network configuration: `sudo nss reset-network`
-- To change the SNMP admin user configuration: `sudo nss snmp-admin-configure`You must restart the NSS using the `sudo nss restart` command for the changes to take effect.
-- To change the SNMP trap configuration: `sudo nss snmp-trap-configure`You must restart the NSS using the `sudo nss restart` command for the changes to take effect.
-- To set the SNMP community string: `sudo nss snmp-community-string <community string>`You must restart the NSS using the `sudo nss restart` command for the changes to take effect.
-- To automatically start the NSS after reboot: `sudo nss enable-autostart`
-- To disable the automatic start of the NSS after reboot: `sudo nss disable-autostart`
-- To set up and enable MCAS: `sudo nss configure-mcas2`You must restart the NSS using the `sudo nss restart` command for the changes to take effect. To learn more, see [Integrating with Microsoft Cloud App Security](https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security).
-- To disable MCAS: `sudo nss disable-mcas`You must restart the NSS using the `sudo nss restart` command for the changes to take effect. You can re-enable MCAS by re-issuing the `sudo nss configure-mcas2` command.
-
-## Enabling Remote Access
-
-An admin can request remote assistance and allow Zscaler Support to log in to their NSS server without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-Use the following commands to manage remote access to your NSS server:
-
-- To enable Zscaler Support to access your NSS server: `sudo nss support-access-start`This creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your NSS server.
-- To disable Zscaler Support access to your NSS server: `sudo nss support-access-stop`This brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-- To check the status of the Zscaler Support access to your NSS server: `sudo nss support-access-status`This checks the status of the long-lived SSH tunnel to the Zscaler cloud, which Zscaler Support uses to log in to your NSS server.
-- To enable a remote debugging session: `sudo nss enable-remote-debugging`
-- To disable a remote debugging session: `sudo nss disable-remote-debugging`
-
-## Error Codes
-
-The following are error codes that you might encounter when executing the `sudo nss update-now` command:
-
-| Error Code | Description |
-| --- | --- |
-| 96 | The client certificate is invalid. |
-| 97 | A timeout occurred while contacting the upgrade server. |
-| 99 | A problem occurred while downloading and installing the latest version. The `sudo force-update-now` command needs to be explicitly issued. |
-
-## Use Case
-
-You can use the following commands to check the DNS resolution issues on the service interface and routes to the surface interface:
-
-- To check the reachability of a server IP address using ICMP: `/sc/bin/smmgr -ys smnet='ping <IP address or Domain Name>'`
-- To print the server interface IP address config details: `/sc/bin/smmgr -ys smnet=ifconfig`
-- To check the DNS resolution of a hostname: `/sc/bin/smmgr -ys smnet='route'/sc/bin/smmgr -ys host="<Domain Name>" -ys connect=dns`
-- To check the communication or port reachability of a server: `/sc/bin/smmgr -ys host="<FQDN of SIEM server>" -ys port=<Listening port> -ys connect=tcp`
-
-## What happens if the NSS goes down?
-
-In the event of a connection loss between the NSS server and the cloud [Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture), the cloud retransmits the logs to the NSS up to a maximum of one hour. If the NSS is down for more than an hour, the logs falling out of the one-hour window aren't retrieved by the NSS.
-
-[Image: The Add NSS Server window on the Nanolog Streaming Service page]
-
-[Image: Option to download the SSL Certificate for the NSS Server]
-
-[Image: The recommended specs for the Hyper-V VM and Hypervisor for the NSS Virtual Appliance Deployment]
-
-[Image: Selecting the NSS type and platform for the Virtual Appliance Deployment for Web logs]
-
-[Image: Selecting the NSS type and platform for the Virtual Appliance Deployment for Firewall logs]
-
-[Image: The New > Virtual Machine option in the Hyper-V server]
-
-[Image: The Specify Name and Location page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Specify Generation page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Assign Memory page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Configure Networking page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Connect Virtual Hard Disk page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Add Hardware option to add network adapters for the Hyper-V server]
-
-[Image: Specifying the Network Adapter configurations for the Hyper-V server]
-
-[Image: Verifying TCP connections in Hyper-V server]
 <!-- /ZS-ARTICLE -->

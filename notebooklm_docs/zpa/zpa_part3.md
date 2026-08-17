@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 126
 
 ---
@@ -117,13 +117,13 @@ These requirements are relevant for VM platforms (such as VMWare and Nutanix AHV
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-08-06T07:44Z","nid":"1507451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-08-10T07:06Z","nid":"1507451"} -->
 ## Private Cloud Controller Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Guide for Linux
-- Last modified: 2026-08-06T07:44Z
+- Last modified: 2026-08-10T07:06Z
 - Summary: How to deploy a Private Cloud Controller on Red Hat, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Cloud Controller on Red Hat Enterprise Linux 9.x, and post-deployment verification checks.
@@ -5981,13 +5981,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-08-07T07:10Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-08-14T10:33Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-07T07:10Z
+- Last modified: 2026-08-14T10:33Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -5997,16 +5997,16 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/replacing-or-migrating-network-connectors-support-redundancy","lastmod":"2026-06-11T09:17Z","nid":"1538660"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/replacing-or-migrating-network-connectors-support-redundancy","lastmod":"2026-08-14T09:18Z","nid":"1538660"} -->
 ## Replacing or Migrating Existing Network Connectors with Network Connectors that Support Redundancy
 
 - Source: https://help.zscaler.com/zpa/replacing-or-migrating-network-connectors-support-redundancy
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Management > Network Connectors > Replacing or Migrating Existing Network Connectors with Network Connectors that Support Redundancy
-- Last modified: 2026-06-11T09:17Z
+- Last modified: 2026-08-14T09:18Z
 - Summary: How to replace or migrate existing Network Connectors with redundancy-capable Network Connectors.
 
-This article provides instructions on how to replace or migrate existing Network Connectors with new Network Connectors that support redundancy.
+This article provides instructions to replace or migrate existing Network Connectors with new Network Connectors that support redundancy.
 
 VPN (for Legacy Apps) supports redundant Network Connectors within a Network Connector group. Redundant Network Connectors resolve the following failure scenarios:
 
@@ -6017,26 +6017,18 @@ VPN (for Legacy Apps) supports redundant Network Connectors within a Network Con
 - A data center failure with traffic rerouting towards another data center
 - Scaling - ECMP (equal-cost multi-path) load balancing across Network Connectors from the VPN Service Edges and customer routers towards the Network Connector
 
+[Image: Diagram for the VPN network connectors]
+
 The redundancy design is based on External Border Gateway Protocol (EBGP) routing.
 
-If BGP is enabled on your tenant, you are running the latest version of VPN Service Edges. When enabled, a VPN Service Edge BGP Configuration page is available in the Zscaler Admin Console under Infrastructure > Private Access > Component > VPN Service Edge BGP Configuration. If you see this page, you need to add new VPN Service Edges and delete the old VPN Service Edges.
+If BGP is enabled on your tenant, you are running the latest version of VPN Service Edges. When enabled, a BGP Configuration tab appears on the VPN Service Edges page in the ZPA Admin Portal. If you see a BGP Configuration tab, you need to add new VPN Service Edges and delete the old VPN Service Edges.
 [Image: BGP Configuration Tab on the VPN Service Edges Page]
 If BGP is not enabled on your tenant, contact Zscaler Support or your Zscaler Account team to have the redundancy capability enabled.
 
-To verify if migration is needed:
-
-1. Go to **Infrastructure**>**Private Access**>**Component**>**VPN Service Edges**.
-2. In the table, verify that the **Local Router ID** and **Redundant Mode** columns appear. See image.
-3. Go to **Infrastructure**>**Private Access**>**Component**>**Network Connectors**. The **Network Connectors** page appears.
-4. In the table, locate the Network Connector you want to verify and click the **Edit** icon.
-5. In the **Edit Network Connector** drawer, verify that the **Local Router ID** option appears. See image.
-6. Go to **Infrastructure**>**Private Access**>**Component**>**Network Connector Groups**.
-7. In the table, expand the Network Connector group you want to verify and make sure **Redundant Mode** is enabled. See image. If all of the information described in these steps appears, then migration is not needed.
-
 The following options are available to replace or migrate to redundancy-capable Network Connectors:
 
-- Replace Existing Network Connectors with New Redundancy-Capable Network Connectors
-- Migrate Existing Network Connectors to New Redundancy-Capable Network Connectors
+- Replace Existing Network Connectors With New Redundancy-Capable Network Connectors
+- Migrate Existing Network Connectors To New Redundancy-Capable Network Connectors
 
 - Step 1: Make Sure That Redundancy Is Enabled
 - Step 2: Make Sure You Have Met All Network Connector Deployment Prerequisites
@@ -6138,22 +6130,22 @@ This Python script is a utility that manages and maintains custom firewall confi
 The script ensures that these firewall configurations persist and are reapplied dynamically after any firewalld reload event. It runs indefinitely, monitoring signal events, unless interrupted manually. This tool is particularly useful in scenarios where maintaining consistent network rules and access is critical—such as with VPN setups, custom networking interfaces, or specific port-based services.
 
 1. Download the latest Network Connector OVA or marketplace image for your platform. See download options.
-2. In the Zscaler Admin Console, [configure a new Network Connector](https://help.zscaler.com/zpa/configuring-network-connectors), making sure you create the following:
-  - A new Network Connector group to use for redundancy. If you want to use BGP, make sure that the following options are set:
+2. In the ZPA Admin Portal, [configure a new Network Connector](https://help.zscaler.com/zpa/configuring-network-connectors), making sure you create the following:
+  - A new Network Connector group to use for redundancy. If you want to use a static route, make sure that the following options are set:
     - **Advertise LAN Segments Locally:**Set this option to **Disabled**.
     - **External Routers**: Select the routers you want to associate with this Network Connector group.
     - **Enable Multi-Hop**: Enable this option to allow BGP sessions to be established between Network Connectors and the external routers that are not directly connected on the same network subnet.
     - **Interface**: Enter the interface name that has connectivity to the BGP router.
   - A new provisioning key and associate it with a new Network Connector group to use for redundancy.
 3. Install the Network Connector and apply the provisioning key on the VM.
-4. In the Zscaler Admin Console, [edit existing Network segments](https://help.zscaler.com/zpa/editing-network-segments) and map them to the new redundancy Network Connector group. Do not delete the mapping to the old Network Connector groups.
+4. In the ZPA Admin Portal, [edit existing network segments](https://help.zscaler.com/zpa/configuring-network-segments) and map them to the new redundancy Network Connector group. Do not delete the mapping to the old Network Connector groups.
 5. [Add the new BGP-capable VPN Service Edges](https://help.zscaler.com/zpa/configuring-vpn-service-edges) without a client subnet. The new VPN Service Edges automatically support redundancy. See image.
 6. Move the existing client subnet from the old VPN Service Edge to the new VPN Service Edge. The clients previously connected to the old VPN Service Edge automatically switch to the new VPN Service Edge. To force the client to reconnect to the new gateway, ensure that no older gateway is running in the same region that has the client subnet, otherwise the client might switch to the older gateway instead.
 7. Monitor at least one test client and confirm it successfully moves to the new gateway. All Network Connectors and VPN Service Edge statuses should be connected and online.
 8. Test the end-to-end flow using the new setup and confirm everything works. Ensure that the client is able to reach all LAN subnets mapped to the new Network Connector group.
 9. Deploy additional Network Connectors and VPN Service Edges until the original configuration is replicated, and then deprecate the original Network Connectors and VPN Service Edges. See image.
 
-[Image: Edit VPN Service Edge Page in the Zscaler Admin Console]
+[Image: Edit VPN Service Edge Page in the ZPA Admin Portal]
 
 [Image: VPN Service Edges Page with Redundancy Completed]
 
@@ -6164,7 +6156,7 @@ The following platforms support Network Connector software packages. Where appli
 | Platform | Software |
 | --- | --- |
 | Colocation / Data Centers |  |
-| [VMware](https://help.zscaler.com/zpa/network-connector-deployment-guide-vmware-platforms) | [OVA](https://dist.private.zscaler.com/vms/VMware/2026.03/zpa-network-connector-el9-2026.03.ova) [OVA checksum](https://dist.private.zscaler.com/vms/VMware/2026.03/zpa-network-connector-el9-2026.03.ova.sha256sum) |
+| [VMware](https://help.zscaler.com/zpa/network-connector-deployment-guide-vmware-platforms) | [OVA](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova) [OVA checksum](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova.sha256sum) |
 | Clouds |  |
 | Amazon Web Services (AWS) | [Private Access - AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-pmmdag3jsanga?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) |
 | Google Cloud Platform (GCP) | [Private Access - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-network-connector?q=search&referrer=search&organizationId=143569286330) |
@@ -6180,40 +6172,33 @@ Before you begin any procedures, make sure that you have met the following prere
 - Contact Zscaler Support or your Zscaler Account team and make sure that the VPN (for Legacy Apps) redundancy flag is enabled.
 - An outbound connection to the VPN Service Edges IP address on the UDP port range from 51820 to 53000 must be allowed, not blocked. This is required to establish a VPN tunnel between the Network Connector and VPN Service Edge.
 
-1. In the Zscaler Admin Console, go to **Infrastructure** > **Private Access**>**Component**>**Network Connector Groups**.
-2. Delete your existing Network Connectors. To learn more, see [About Network Connectors](https://help.zscaler.com/zpa/about-network-connectors).
-3. Delete your Network Connector groups. To learn more, see [About Network Connector Groups](https://help.zscaler.com/zpa/about-network-connector-groups).
-4. Go to **Infrastructure** > **Private Access**>**Component**> **VPN Service Edges**.
-5. Delete all your VPN Service Edges. To learn more, see [About VPN Service Edges](https://help.zscaler.com/zpa/about-vpn-service-edges).
-6. Add new VPN Service Edges based on the ones you deleted in the previous step. These new VPN Service Edge support redundancy-capable Network Connectors. To learn more, see [Configuring VPN Service Edges](https://help.zscaler.com/zpa/configuring-vpn-service-edges).
-7. Go to **Infrastructure** > **Private Access**>**Component**> **Network Connectors**.
-8. Click **Add**.
-9. Make sure you create a new Network Connector group and a new provisioning key. To learn more, see [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors).
-10. Log into the Network Connector console using your admin credentials.
-11. On Zscaler-provided virtual appliances, SSH is not enabled by default. It is required for a short time to configure the provisioning key for the Network Connector. Complete the following steps to temporarily enable SSH:
+1. In the ZPA Admin Portal, go to **Infrastructure** > **Private Access**>**Component**>**VPN (for Legacy Apps)**> **Network Connector Groups**..
+2. Delete your Network Connector groups. To learn more, see [About Network Connector Groups](https://help.zscaler.com/zpa/about-network-connector-group). Do not delete any Network Connectors; only delete the Network Connector groups.
+3. Go to **Infrastructure** > **Private Access**>**Component**> **VPN (for Legacy Apps)**> **VPN Service Edges**.
+4. Delete all your VPN Service Edges. To learn more, see [About VPN Service Edges](https://help.zscaler.com/zpa/about-vpn-service-edges).
+5. Add new VPN Service Edges based on the ones you deleted in the previous step. These new VPN Service Edge support redundancy-capable Network Connectors. To learn more, see [Configuring VPN Service Edges](https://help.zscaler.com/zpa/configuring-vpn-service-edges).
+6. Go to **Infrastructure** > **Private Access**>**Component**> **VPN (for Legacy Apps)**> **Network Connectors**.
+7. Click **Add**.
+8. Make sure you create a new Network Connector group and a new provisioning key. To learn more, see [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors).
+9. Log into the Network Connector console using your admin credentials.
+10. On Zscaler-provided virtual appliances, SSH is not enabled by default. It is required for a short time to configure the provisioning key for the Network Connector. Complete the following steps to temporarily enable SSH:
   - For Amazon Web Services (AWS), update your Security Group to allow inbound connections from port 22.
   - For Microsoft Azure, update your Network security group (firewall) to allow inbound connections from port 22.
   - Start the SSH daemon using the following command: `sudo systemctl enable sshd`This process requires a reboot so enable ssh is required.
-12. Stop running the Network Connector service: `sudo systemctl stop np-connector`
-13. Remove the old provisioning key file: `sudo bash -c "rm -rf /opt/zscaler/var/*"`
-14. Update the Manager software and Network Connector using the following command: `sudo yum update`
-15. Reboot the Network Connector appliance: `sudo reboot`
-16. Create a new provisioning key file with 644 permissions at `/opt/zscaler/var/provision_key`. For example: `sudo touch /opt/zscaler/var/provision_key sudo chmod 644 /opt/zscaler/var/provision_key`
-17. Copy the provisioning key from the Zscaler Admin Console, paste it into the file, and save. Use an editor, such as vi. `sudo vi /opt/zscaler/var/provision_key`If you are using vi, make sure it is in insert mode before you paste the key into the file. If you are unfamiliar with the vi editor, you can also use the following `echo` and `tee` commands to paste in the provisioning key: `echo "<Network Connector Provisioning Key>" | sudo tee /opt/zscaler/var/provision_key`Make sure that the key is within double quotes (").
-18. Enter the following command to verify the file's content: `sudo cat /opt/zscaler/var/provision_key`The output should return the provisioning key you entered in the previous step.
-19. Start the np-connector service: `sudo systemctl start np-connector`
-20. Verify the status of the np-connector service: `sudo systemctl status np-connector`
-21. After the Network Connector is enrolled, stop SSH using the following command: `sudo systemctl stop sshd`
-22. If you enabled SSH, disable it using the following command: `sudo systemctl disable sshd`
-23. Verify that the Network Connector is working properly in the Zscaler Admin Console:
-  1. Go to **Infrastructure** > **Private Access**>**Component**> **Network Connectors**.
+11. Stop running the Network Connector service: `sudo systemctl stop np-connector`
+12. Remove the old provisioning key file: `sudo bash -c "rm -rf /opt/zscaler/var/*"`
+13. Reboot the Network Connector appliance: `sudo reboot`
+14. Create a new provisioning key file with 644 permissions at `/opt/zscaler/var/provision_key`. For example: `sudo touch /opt/zscaler/var/provision_key sudo chmod 644 /opt/zscaler/var/provision_key`
+15. Copy the provisioning key from the ZPA Admin Portal, paste it into the file, and save. Use an editor, such as vi. `sudo vi /opt/zscaler/var/provision_key`If you are using vi, make sure it is in insert mode before you paste the key into the file. If you are unfamiliar with the vi editor, you can also use the following `echo` and `tee` commands to paste in the provisioning key: `echo "<Network Connector Provisioning Key>" | sudo tee /opt/zscaler/var/provision_key`Make sure that the key is within double quotes (").
+16. Enter the following command to verify the file's content: `sudo cat /opt/zscaler/var/provision_key`The output should return the provisioning key you entered in the previous step.
+17. Start the np-connector service: `sudo systemctl start np-connector`
+18. Verify the status of the np-connector service: `sudo systemctl status np-connector`
+19. After the Network Connector is enrolled, stop SSH using the following command: `sudo systemctl stop sshd`
+20. If you enabled SSH, disable it using the following command: `sudo systemctl disable sshd`
+21. Update the Manager software and Network Connector using the following command: `sudo yum update`
+22. Verify that the Network Connector is working properly in the ZPA Admin Portal:
+  1. Go to **Infrastructure** > **Private Access**>**Component**> **VPN (for Legacy Apps)**> **Network Connectors**.
   2. Check that the Network Connector appears in the table of configured Network Connectors.
-
-[Image: Verify if Local Router ID and Redundant Mode columns appear on VPN Service Edges page]
-
-[Image: Verify if Local Router ID appears on Edit Network Connector page]
-
-[Image: Verify if Redundant Mode appears on Network Connector Groups page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8485,13 +8470,13 @@ Verify that users can successfully connect to the VPN Service Edge. To learn mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-08-05T13:35Z","nid":"1531938"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-08-14T10:36Z","nid":"1531938"} -->
 ## Supported Versions & OS Compatibility for Microsegmentation
 
 - Source: https://help.zscaler.com/zpa/supported-versions-os-compatibility-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Supported Versions & OS Compatibility for Microsegmentation
-- Last modified: 2026-08-05T13:35Z
+- Last modified: 2026-08-14T10:36Z
 - Summary: Information on version compatibility and operating systems that a user needs to deploy to use agents for Microsegmentation.
 
 To begin configuring [Microsegmentation policies](https://help.zscaler.com/zpa/about-microsegmentation-policies), you must first configure and deploy agents to your machine based on your OS.
@@ -8506,9 +8491,9 @@ Each OS requires a specific compatible version to configure Microsegmentation. A
 | --- | --- | --- |
 | Windows | Server 2012 R2 Server 2016 Server 2019 Server 2022 Server 2025 | N/A |
 | Ubuntu Distribution | 16.04.7+ LTS 18.04 LTS 20.04 LTS 22.04 LTS 24.04 LTS 26.04 LTS | N/A |
-| Red Hat Enterprise Linux (RHEL) Distribution | RHEL 7.4 (3.10.0-693.el7.x86_64) RHEL 8 RHEL 9 | N/A |
+| Red Hat Enterprise Linux (RHEL) Distribution | RHEL 7.4 (3.10.0-693.el7.x86_64)+ RHEL 8 RHEL 9 RHEL 10 | N/A |
 | Amazon Linux | AL2 AL 2023 | N/A |
-| Suse Linux Enterprise | SLES 15 | Agent version 1.11.1; Agent manager version 1.11.1 |
+| SUSE Linux Enterprise | SLES 15 SLES 16 | Agent version 1.11.1; Agent manager version 1.11.1 |
 
 If you have the appropriate agent version and compatibility for your OS, then you have access to the following Microsegmentation capabilities in the Zscaler Admin Console:
 
@@ -11640,13 +11625,13 @@ You can also download the [Zscaler DNS Record Generator](https://help.zscaler.co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-double-encryption","lastmod":"2026-06-15T06:14Z","nid":"1483871"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-double-encryption","lastmod":"2026-08-10T22:45Z","nid":"1483871"} -->
 ## Understanding Double Encryption
 
 - Source: https://help.zscaler.com/zpa/understanding-double-encryption
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Understanding Double Encryption
-- Last modified: 2026-06-15T06:14Z
+- Last modified: 2026-08-10T22:45Z
 - Summary: Information about the double encryption methodology between Zscaler Client Connector, Private Access App Connectors, and Service Edges for Private Access.
 
 By default, traffic between Zscaler Client Connector and an App Connector is encrypted using TLS 1.2 tunnels between Zscaler Client Connector and the Public Service Edge or Private Service Edge for Private Access (ZPA), and between the App Connector and the Public Service Edge or Private Service Edge.

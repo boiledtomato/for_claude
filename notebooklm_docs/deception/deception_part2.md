@@ -1,55 +1,8 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 25
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-azure-deployment-script","lastmod":"2026-08-03T00:19Z","nid":"1540637"} -->
-## Understanding the Functions of the Azure Deployment Script
-
-- Source: https://help.zscaler.com/deception/understanding-functions-azure-deployment-script
-- Product: Deception
-- Path: Deception Help > Deceive  > Cloud Deception > Azure > Understanding the Functions of the Azure Deployment Script
-- Last modified: 2026-08-03T00:19Z
-- Summary: Information on the tasks and functions performed by the deployment script for Cloud Deception with Azure.
-
-Zscaler Deception relies on Azure logs to generate events in the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) for interactions with Azure decoys. The deployment script for Azure Cloud Deception is responsible for creating logging resources, deploying decoys, deleting decoys, and enabling logging for the decoys via the logging resources in the Azure cloud. To collect and store logs, the deployment script creates various resources. The Zscaler Deception Admin Portal polls logs every 3 minutes from the logging resources created by the deployment script to generate events.
-
-## Azure Resources Created by the Deployment Script
-
-The following table lists the resources created by the deployment script to enable log collection and storage for Azure decoys.
-
-| Resource | Description |
-| --- | --- |
-| Decoy Resource Group | A resource group in which all decoys are created. The prefix string for the Decoy Resource Group is specified while setting up Cloud Deception with Azure. |
-| Management Resource Group | A resource group in which all necessary management resources such as Function App, Logging Storage Account, App Service Plan, etc. are created to support Cloud Deception functionalities. |
-| Logging Storage Account | A storage account created for logging purposes. The appropriate diagnostic setting is enabled for all decoy resources to push all diagnostic logs to this storage account for analysis and generating alerts on the Deception dashboard. |
-| Client ID and Client Secret | A service principal that has access to polling log files from the created logging storage account. |
-| Decoy Health Check Function App | A function app that is triggered at an interval of 15 minutes from the Deception Admin Portal to check whether the deployed decoys exists in the Azure cloud. This function app does not check the actual health of the deployed Azure resources. |
-| Decoy Access Role | A role that has full access to the Decoy Resource Group. This role is associated with the user and service principal decoys created in the Deception Admin Portal. |
-| App Service Plan | A service plan created to deploy app service decoys. |
-
-## Workflows for Decoy Deployment
-
-The following table describes the workflow followed by the deployment script to deploy decoys and enable logging for them.
-
-| Decoy | Workflow |
-| --- | --- |
-| User Decoy | Create an Azure AD (Entra ID) user, associate the Decoy Access Role with it, and enable the diagnostic setting for logging. |
-| Service Principal Decoy | Create a service principal (Client ID and Client Secret), associate the Decoy Access Role with it, and enable the diagnostic setting for logging. |
-| Managed Identity Decoy | Create a user-assigned managed identity and associate the Decoy Access Role with the managed identity. |
-| App Service Decoy | Create a web app and create a managed identity for the web app, associate the Contributor and Website Contributor roles to it, and enable the diagnostic setting for logging. |
-| Storage Account Container Decoy | Create a storage account and a storage account container, upload the decoy file datasets, and enable the diagnostic setting for logging. |
-| Storage Account File Share Decoy | Create a storage account and create a file share with the `TransactionOptimized` access tier, upload the decoy file datasets, and enable the diagnostic setting for logging. |
-| Key Vault Decoy | Create a key vault, add passwords or keys of the created user or service principal decoys as decoy datasets in the vault, and enable the diagnostic setting for logging. |
-| Azure Resource Manager (ARM) Template Decoy | Create a deployment template for selected decoys (user, service principal, key vault, or Azure file share decoys). This template does not deploy any actual resources but creates an entry for template deployment in the history. |
-| Container Registry Decoy | Create an empty container registry and enable the diagnostic setting for logging. |
-| Virtual Machine (VM) Image Decoy | Deploy a VM instance, create a snapshot, and build a disk image from the snapshot. A Standard VM instance is deployed to create the snapshot. The VM instance persists for a duration of 5 minutes and is terminated after the snapshot is built. For public VM image decoys, a shareable link is also created for adding it as a lure in landmines. |
-
-To learn how to obtain the deployment script for Azure Cloud Deception, see [Obtaining the Deployment Script for Azure](https://help.zscaler.com/deception/obtaining-deployment-script-azure).
-<!-- /ZS-ARTICLE -->
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 24
 
 ---
 
@@ -281,13 +234,13 @@ Strategy Builder allows you to deploy different types of decoys in your environm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-06-24T21:06Z","nid":"1540336"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-08-14T08:59Z","nid":"1540336"} -->
 ## Understanding the Zscaler Deception Architecture
 
 - Source: https://help.zscaler.com/deception/understanding-zscaler-deception-architecture
 - Product: Deception
 - Path: Deception Help > Getting Started > Understanding the Zscaler Deception Architecture
-- Last modified: 2026-06-24T21:06Z
+- Last modified: 2026-08-14T08:59Z
 - Summary: Information on the Zscaler Deception architecture and key components.
 
 Zscaler Deception is a threat-detection solution built on the Zero Trust architecture, which is designed for seamless integration with the Zscaler service and other parts of your security environment. Deception is cloud-delivered and scalable, and requires minimal on-premises computing.
@@ -301,6 +254,7 @@ The Deception standalone architecture includes the following key components:
 - Zscaler Deception Admin Portal: A cloud-hosted user interface (UI) hosted by Zscaler. It serves as the central point of management and analysis for the Deception service. Decoy Connector and software agents connect to it. You can use the portal to create and deploy decoys across assets in your environment. The portal also provides a powerful dashboard for deep analysis and orchestration of events.
 - Decoy Connector: Lightweight virtual appliances that are hosted in your environment and can create decoy applications within multiple trunked virtual local area networks (VLANs) of your network. Decoy Connectors can be used as a secure relay for integration between the Deception Admin Portal and applications, such as Active Directory (AD), security information and event management (SIEM), firewalls, etc. in your network.
 - Landmine: Software agent installed on endpoints, such as desktops or laptops on your network. These agents deploy decoy credentials, files, processes, and lures to other decoys at your endpoints.
+- Cloud Decoys: Configure and deploy decoys designed to resemble legitimate resources and assets within public cloud platforms. Depending on the type and configuration of the decoy, adversaries can attempt to access, interact with, or carry out malicious operations against these cloud decoys. Such actions are classified as attacks and automatically logged. You can view and analyze the details of these attacks through the Deception dashboard.
 
 When an adversary probes for vulnerabilities and breaks into your network, the decoys look like real assets. The moment the adversary interacts with a decoy, the decoy detects the threat and relays all the information to the Deception Admin Portal.
 
@@ -312,21 +266,21 @@ Based on the type and severity of the actions that the adversary performs, the D
 - Sends high-fidelity alerts to specific personnel via phone, text messages, and emails.
 - Forwards the events to other security tools, such as a firewall or an EDR to automatically isolate the affected asset.
 
-## Deception Integrated with Private Access
+## Deception Integrated with ZPA
 
-Deception integrated with Private Access (ZPA) leverages the Zero Trust Network Access (ZTNA) solution that allows you to create decoy applications that look like they exist within your organization's environment, but leverage Private Access technology to redirect adversaries to the Deception cloud.
+Deception integrated with Zscaler Private Access (ZPA) leverages the Zero Trust Network Access (ZTNA) solution that allows you to create decoy applications that look like they exist within your organization's environment, but leverage ZPA's technology to redirect adversaries to the Deception cloud.
 
-Decoys that make use of Private Access provide better visibility, intelligence, and containment capabilities than their non-Private Access counterparts.
+Decoys that make use of ZPA provide better visibility, intelligence, and containment capabilities than their non-ZPA counterparts.
 
 [Image: Zscaler Deception integrated with ZPA architecture]
 
-Deception uses the Private Access service to deploy decoys in a dedicated Deception cloud. The Landmine agent deploys decoy credentials, files, processes, and lures to other decoys at your endpoints. These lures direct adversaries away from your legitimate assets and towards decoy applications.
+Deception uses the ZPA service to deploy decoys in a dedicated Deception cloud. The Landmine agent deploys decoy credentials, files, processes, and lures to other decoys at your endpoints. These lures direct adversaries away from your legitimate assets and towards decoy applications.
 
 You don't have to install any additional Decoy Connectors or make any changes to your network configurations to add deception to your environment.
 
-When an adversary breaks into your network and interacts with a decoy, Deception leverages Zero Trust access policies to block traffic from the adversary to the legitimate applications and contains the adversary to one system. Deception builds a complete picture of the adversary using the user and device identity information from the Private Access service.
+When an adversary breaks into your network and interacts with a decoy, Deception leverages Zero Trust access policies to block traffic from the adversary to the legitimate applications and contains the adversary to one system. Deception builds a complete picture of the adversary using the user and device identity information from the ZPA service.
 
-To learn more about Private Access architecture, see [Understanding the Private Access Cloud Architecture](https://help.zscaler.com/zpa/understanding-zpa-cloud-architecture).
+To learn more about ZPA architecture, see [Understanding the ZPA Cloud Architecture](https://help.zscaler.com/zpa/understanding-zpa-cloud-architecture).
 <!-- /ZS-ARTICLE -->
 
 ---

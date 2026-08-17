@@ -1,8 +1,8 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 25
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 26
 
 ---
 
@@ -802,6 +802,62 @@ This widget displays the top users by tunnel count in the selected time frame. T
   - **Name**: The username. This is the NameID in the SAML assertion from the IdP, and not the username entered in Zscaler Client Connector.
   - **Number of MTunnel(s)**: The number of tunnel counts accessed by the user in the selected time frame, and the percentage of that amount that represents the total number of tunnel counts accessed by the users shown in the widget.
 - Click a policy to view more details in **Diagnostics**.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-vpn-service-edges-dashboard","lastmod":"2026-08-11T13:33Z","nid":"1542720"} -->
+## Viewing the VPN Service Edges Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-vpn-service-edges-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the VPN Service Edges Dashboard
+- Last modified: 2026-08-11T13:33Z
+- Summary: Information about the VPN Service Edge dashboard and widgets available in the Zscaler Admin Console.
+
+The VPN Service Edges Dashboard provides information about the VPN Service Edges for your organization. To view the dashboard in the Zscaler Admin Console, go to Infrastructure > Private Access > Component > VPN Service Edges Dashboard.
+
+The dashboard displays a series of interactive timeseries charts. These charts show how data changes over a selected period and help you identify trends, patterns, and anomalies in performance and usage. You can hover over any point in a chart to see the specific value at that time.
+
+[Image: Learning about the widgets on the VPN service edges dashboard]
+
+## Dashboard Tools
+
+The VPN Service Edges Dashboard displays the following information and functionality:
+
+- **VPN Service Edge selection**: Select the VPN Service Edge that you want to view data for from the drop-down menu.
+- **Time Period Filter**: View VPN Service Edge data over a period between 1 hour to 14 days, or you can select **Custom**. If you use a custom range, the start and end dates must be within the last 14 days. You can adjust the time in hours and minutes for the start and end dates. This filter applies to all widgets on the dashboard. By default, the dashboard displays information about events that occurred in the last hour. Due to how data is aggregated for different time period filters, the same point in time in an Activity Monitor widget might show slightly different values depending on the selected time. For example, the data with the 1 Hour time period filter at 3:00 PM might not match the data with the 14 Days time period filter for the same date at 3:00 PM.
+- **Refresh icon**: Refresh the dashboard to adjust the time period filter to reflect the most current information.
+
+## Client Connectors Widgets
+
+The Client Connectors widgets provide a real-time overview of user device connectivity and data traffic.
+
+The following widgets are available:
+
+- **Total Number of Client Connectors**: Displays the total count of individual Zscaler Client Connectors that are currently connected to the VPN Service Edge.
+- **Bytes Received from Client Connectors**: Displays the volume of data traffic received from Zscaler Client Connectors to monitor inbound traffic from users.
+- **Bytes Sent to Client Connectors**: Displays the volume of data traffic sent to Zscaler Client Connectors to monitor outbound traffic to users.
+
+## Network Connectors Widgets
+
+The Network Connectors widgets show traffic from your private network locations. You can use these widgets to monitor traffic loads and plan ahead for potential network issues. This information helps you decide when to add Network Connectors for proper scaling and ensures service reliability.
+
+The following widgets are available:
+
+- **Total Number of Network Connectors**: Displays the total count of Network Connectors currently connected to the VPN Service Edge.
+- **Bytes Received from Network Connectors**: Displays the throughput of data received from Network Connectors, showing traffic from your internal networks.
+- **Bytes Sent to Network Connectors**: Displays the throughput of data sent to Network Connectors, showing traffic directed towards your internal networks.
+
+## VPN Service Edges Widgets
+
+The VPN Service Edges widgets provide key performance indicators and overall health metrics for VPN Service Edges.
+
+The following widgets are available:
+
+- **Total Number of VPN Service Edges**: Displays the total count of VPN Service Edges deployed within your organization.
+- **Bytes Received from VPN Service Edges**: Displays the total volume of inbound data processed by the VPN Service Edges from all sources.
+- **Bytes Sent to VPN Service Edges**: Displays the total volume of outbound data sent from the VPN Service Edges to all destinations.
 <!-- /ZS-ARTICLE -->
 
 ---

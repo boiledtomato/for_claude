@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 179
 
 ---
@@ -1897,13 +1897,13 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-auditors","lastmod":"2026-06-22T21:06Z","nid":"1399001"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-auditors","lastmod":"2026-08-11T09:09Z","nid":"1399001"} -->
 ## About Auditors
 
 - Source: https://help.zscaler.com/zia/about-auditors
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > About Auditors
-- Last modified: 2026-06-22T21:06Z
+- Last modified: 2026-08-11T09:09Z
 - Summary: Information on the Zscaler Auditors page and its features in the Zscaler Admin Console.
 
 [Watch a video about Auditors](https://fast.wistia.net/embed/iframe/68fj7gj7xh) (shows legacy UI).
@@ -1916,7 +1916,7 @@ Auditors provide the following benefits and enable you to:
 - Control and manage who can access obfuscated user names.
 - Keep track of the admins who request access to the user names.
 
-An auditor is generally an employee from the organization who has been given special permission to serve in the role through an organizational decision-making process. A super admin can create an account for the auditor through the Zscaler Admin Console] and share the credentials with the auditor. The auditor's credentials can only be used to provide admins permission to view obfuscated user names and device information. It can't be used to log in to the Zscaler Admin Console. For example, the auditor can give an admin permission to view obfuscated user names and device information through the following process:
+An auditor is generally an employee from the organization who has been given special permission to serve in the role through an organizational decision-making process. A super admin can create an account for the auditor through the Zscaler Admin Console and share the credentials with the auditor. The auditor's credentials can only be used to provide admins permission to view obfuscated user names and device information. It can't be used to log in to the Zscaler Admin Console. For example, the auditor can give an admin permission to view obfuscated user names and device information through the following process:
 
 1. An admin who has user names or device names obfuscated logs in to the Zscaler Admin Console. A message appears in the top-right corner notifying the admin that some information is obfuscated. See image.
 2. An auditor can click **Override** and enter their credentials to reveal the obfuscated information. See image.
@@ -2020,13 +2020,13 @@ On the Authentication Profiles page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-08-09T07:06Z","nid":"1398956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-08-16T07:06Z","nid":"1398956"} -->
 ## About Backup and Restore
 
 - Source: https://help.zscaler.com/zia/about-backup-and-restore
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > About Backup and Restore
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: Information about backing up and restoring policies, and configuration settings, within the Zscaler service.
 
 [Watch a video on backups and restore points](https://fast.wistia.net/embed/iframe/vohznch7uo) (shows legacy UI)
@@ -5465,13 +5465,13 @@ On the DNS Application Group page (Policies > Access Control > Firewall > DNS Ap
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dns-control","lastmod":"2026-07-16T11:53Z","nid":"1399916"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dns-control","lastmod":"2026-08-10T10:24Z","nid":"1399916"} -->
 ## About DNS Control
 
 - Source: https://help.zscaler.com/zia/about-dns-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > About DNS Control
-- Last modified: 2026-07-16T11:53Z
+- Last modified: 2026-08-10T10:24Z
 - Summary: Information on the Zscaler service DNS Control that allows you to define rules to control DNS requests and responses.
 
 [Watch a video About DNS Control Policy.](https://fast.wistia.net/embed/iframe/khlfl2wrll)
@@ -5517,21 +5517,53 @@ You can apply the DNS Control policy to recursive and iterative DNS requests wit
 
 On the DNS Control page (Policies > Access Control > Firewall > DNS Control), you can do the following:
 
-1. [Configure a DNS Filtering policy rule](https://help.zscaler.com/zia/configuring-dns-control-policy).
-2. Select one of the following **View by** option to see the DNS Filtering rules accordingly:
-  - **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in the ascending rule order. See image.
-  - **Rule Label**: Displays the rules based on the rule labels. The rules are grouped under the associated rule labels. You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons. See image.
+1. [Add a DNS Filtering policy rule](https://help.zscaler.com/zia/configuring-dns-control-policy).
+2. Filter the DNS policy rules by **Rule Label** to view the rules grouped under the selected labels. By default, the rules are listed in the ascending rule order. Applying Rule Labels
 3. Search for a DNS Filtering policy rule.
-4. View a list of all configured DNS Filtering policy rules. For each rule, you can view:
-  - **Rule Order**: The policy rule's order number. DNS Control policy rules are evaluated in ascending numerical order. You can sort this column.
-  - **Rule Name**: The name of this rule. You can sort this column.
-  - **Criteria**: A description of the different criteria that have been added to this rule.
-  - **Action**: Whether the policy is set to Allow, Block, Redirect Request, or Redirect Response.
-  - **Label and Description**: The label and description of the policy rule, if available.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit or duplicate a DNS Filtering policy rule](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+4. [Modify the column options to view the DNS Filtering policy rules accordingly.](https://help.zscaler.com/unified/using-tables#hide)
+5. View a list of all configured DNS Filtering policy rules. For each rule, you can view the following information. Policy Rule Details
+6. [Edit, duplicate, or delete a DNS Filtering policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+7. The DNS Filtering policy rules are paginated with up to 500 rules displayed per page.
 
 [Image: The DNS Control page shows a list of DNS filtering rules with criteria, action, rule order, label, and description]
+
+1. Click **Rule Label**.
+2. From the drop-down menu, select rule labels to view the rules associated with them. You can also search for rule labels.
+3. Click **Apply**. The associated rules populate in the DNS Control policy table.
+
+See image.
+
+Click **Clear** to remove all rule label selection.
+
+- **Rule Order**: The rule order number. DNS policy rules are evaluated in ascending numerical order. You can sort this column.
+- **Admin Rank**: The admin rank for this rule. This is only visible if you have enabled it in the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings). You can sort this column.
+- **Rule Name**: The name of the rule. You can sort this column.
+- **Label**: The label associated with the rule.
+- **Users**: The users included in the rule.
+- **Groups**: The user groups included in the rule.
+- **Departments**: The departments included in the rule.
+- **Locations**: The locations included in the rule.
+- **Location Groups**: The location groups included in the rule.
+- **Time**: The time period during which the rule applies.
+- **Source IPv4 Groups**: The source IPv4 groups included in the rule.
+- **Source IPv6 Groups**: The source IPv6 groups included in the rule.
+- **Source IP Addresses**: The source IP addresses included in the rule.
+- **Destination IPv4 Groups**: The destination IPv4 groups included in the rule.
+- **Destination IPv6 Groups**: The destination IPv6 groups included in the rule.
+- **Destination Addresses**: The destination addresses included in the rule.
+- **DNS Tunnels & Network Apps**: The DNS tunnels and network applications included in the rule.
+- **DNS Application Group**: The DNS application groups included in the rule.
+- **Destination Countries**: The destination countries included in the rule.
+- **Request/Response Categories**: The DNS request and response URL categories included in the rule.
+- **DNS Request Type**: The DNS request types included in the rule.
+- **Protocols**: The DNS protocols included in the rule.
+- **Endpoint Applications**: The endpoint applications included or excluded from the rule.
+- **Endpoint Application Tags**: The endpoint application tags included or excluded from the rule.
+- **Endpoint Application Risk Level**: The endpoint application risk levels included in the rule.
+- **Rule Action**: The rule action to allow, block, or redirect responses, redirect responses, or resolve domain names of Private Access (ZPA) applications. For a complete list of supported actions, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+- **Status**: The rule status that indicates whether the rule is enabled or disabled.
+- **Description**: The description of the rule.
+- **Actions**: The actions you can perform on a rule, such as editing, duplicating, and deleting.
 
 The Zscaler service directs users' DNS requests forwarded via GRE tunnels, IPSec tunnels, or Zscaler Client Connector (using Zscaler Tunnel (Z-Tunnel) 2.0) to a public DNS service (e.g., Google Public DNS 8.8.8.8) or a private service hosted publicly (e.g., AWS or Azure).
 
@@ -5546,9 +5578,7 @@ The Zscaler service can control traffic from the internal DNS server that acts a
 
 For DNS requests that come from the internal DNS server, you can only apply policies based on location and time.
 
-[Image: DNS Control page sorted by rule order]
-
-[Image: DNS Control page sorted by rule label]
+[Image: The DNS Control page shows a list of policy rules filtered by rule label]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5730,13 +5760,13 @@ On the EDNS Client Subnet Prefix Objects page (Policies > Access Control > Firew
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-08-09T07:06Z","nid":"1444161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-08-16T07:06Z","nid":"1444161"} -->
 ## About Email Labels
 
 - Source: https://help.zscaler.com/zia/about-email-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: Information on how to create email labels for Gmail and Microsoft Exchange clients.
 
 Email labels provide the option of adding response actions to Gmail and Microsoft Exchange clients based on the email content. Applying email labels creates categories in the users' email accounts automatically. These labels serve as indications to the users about the type of email content and the level of sensitivity.
@@ -6403,13 +6433,13 @@ On the File Type Control page (Policies > Access Control > Internet & SaaS > Fil
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-firewall-filtering","lastmod":"2026-05-25T21:06Z","nid":"1399861"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-firewall-filtering","lastmod":"2026-08-11T05:41Z","nid":"1399861"} -->
 ## About Firewall Filtering
 
 - Source: https://help.zscaler.com/zia/about-firewall-filtering
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Control > Firewall Filtering > About Firewall Filtering
-- Last modified: 2026-05-25T21:06Z
+- Last modified: 2026-08-11T05:41Z
 - Summary: Information on Firewall Filtering policy that provides granular control over your organization’s outbound TCP, UDP and ICMP traffic.
 
 [Watch a video about Firewall Control](https://fast.wistia.net/embed/iframe/aauzes6y9s) (shows legacy UI).
@@ -6467,6 +6497,7 @@ List of Search Categories
 
 - Rule Label
 - Rule Name
+- Rule Status
 - Rule Order
 - Description
 - Action
@@ -6482,8 +6513,18 @@ List of Search Categories
 - Source IP Group
 - Destination Group
 - Network Application
+- Network Application Groups
 - Network Services
+- Application Service Groups
 - Destination IP Categories
+- Source Country
+- Destination Country
+- Source IPv6 Groups
+- Destination IPv6 Groups
+
+Rule Status, Source Country, and Destination Country filters require you to select from predefined values to filter the associated rules, whereas the remaining new filters support searching by entity names (e.g., Network Application Groups requires manually entering group names to filter the associated rules).
+
+Source IPv6 Groups and Destination IPv6 Groups filters appear only when IPv6 configuration is enabled for your organization.
 
 [Image: Firewall Filtering Policy page sorted by rule order]
 
@@ -7065,13 +7106,13 @@ On the Identity Proxy Settings page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-08-09T07:06Z","nid":"1400641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-08-16T07:06Z","nid":"1400641"} -->
 ## About the Index Tool
 
 - Source: https://help.zscaler.com/zia/about-index-tool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: Information on Index Tool Configurations and the Index Tool virtual machine (VM), which are used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 The Index Tool allows you to configure index templates that can be applied when creating custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
@@ -7892,13 +7933,13 @@ On the IP Pool page (Policies > Access Control > Firewall > IP & FQDN Groups > I
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-ips-control","lastmod":"2026-08-07T08:05Z","nid":"1400966"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-ips-control","lastmod":"2026-08-10T10:28Z","nid":"1400966"} -->
 ## About IPS Control
 
 - Source: https://help.zscaler.com/zia/about-ips-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > About IPS Control
-- Last modified: 2026-08-07T08:05Z
+- Last modified: 2026-08-10T10:28Z
 - Summary: Information on Zscaler's Intrusion Prevention System (IPS) that uses signature-based detection to monitor and protect your network traffic against malicious activities through IPS Control.
 
 [Watch a video about IPS Control policy rules as well as how to configure them.](https://fast.wistia.net/embed/iframe/tnxy9sv0ks)
@@ -7923,26 +7964,49 @@ IPS Control is available only with Advanced Firewall. To learn more, see [Unders
 
 On the IPS Control page (Policies > Cybersecurity > Inline Security > IPS Control), you can do the following:
 
-1. [Configure an IPS Control rule](https://help.zscaler.com/zia/configuring-ips-control-policy).
-2. View the [recommended IPS Control policy](https://help.zscaler.com/zia/recommended-ips-control-policy).
-3. Select one of the following **View by** options to see the IPS Control rules accordingly:
-  - **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in the ascending rule order. See image.
-  - **Rule Label**: Displays the rules based on the rule labels. The rules are grouped under the associated rule labels. You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons. See image.
+1. Click **Recommended Policy** to view the [policy Zscaler recommends](https://help.zscaler.com/zia/recommended-ips-control-policy).
+2. [Add an IPS Control policy rule](https://help.zscaler.com/zia/configuring-ips-control-policy).
+3. Filter the IPS Control policy rules by **Rule Label** to view the rules grouped under the selected labels. By default, the rules are listed in the ascending rule order. Applying Rule Labels
 4. Search for an IPS Control rule.
-5. View a list of all configured IPS Control rules. For each rule you can view the following information:
-  - **Rule Order**: The policy rule order number. IPS Control policy rules are evaluated in ascending numerical order. You can sort this column.
-  - **Rule Name**: The name of this rule. You can sort this column.
-  - **Criteria**: A description of the different criteria that have been added to this rule.
-  - **Action**: The action configured for the policy rule.
-  - **Label and Description**: The label and description of the policy rule, if available.
+5. View a list of all configured IPS Control policy rules. For each rule you can view the following information. Policy Rule Details
 6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 7. [Edit, duplicate, or delete an IPS Control rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+8. The IPS Control policy rules are paginated with up to 500 rules displayed per page.
 
 [Image: The IPS Control Policy page shows a list of configured IPS rules with criteria, action, rule order, description, and more]
 
-[Image: IPS Control page sorted by rule order]
+1. Click **Rule Label**.
+2. From the drop-down menu, select rule labels to view the rules associated with them. You can also search for rule labels.
+3. Click **Apply**. The associated rules populate in the IPS Control policy table.
 
-[Image: IPS Control policy page sorted by rule label]
+Click **Clear** to remove all rule label selection.
+
+- **Rule Order**: The policy rule order number. IPS Control policy rules are evaluated in ascending numerical order. You can sort this column.
+- **Admin Rank**: The admin rank for this rule. This is only visible if you have enabled it in the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings). You can sort this column.
+- **Rule Name**: The name of this rule. You can sort this column.
+- **Description**: The description of the rule.
+- **Action**: The action configured for the policy rule to allow or block traffic, or bypass IPS.
+- **Label**: The label associated with the rule.
+- **Users**: The users included in the rule.
+- **Groups**: The user groups included in the rule.
+- **Departments**: The departments included in the rule.
+- **Locations**: The locations included in the rule.
+- **Time**: The time period during which the rule applies.
+- **Network Services**: The network services included in the rule.
+- **Network Service Groups**: The network service groups included in the rule.
+- **Source IPv4 Groups**: The source IPv4 groups included in the rule.
+- **Source IP Addresses**: The source IP addresses included in the rule.
+- **Destination Addresses**: The destination addresses included in the rule.
+- **Destination Countries**: The destination countries included in the rule.
+- **Destination IPv4 Groups**: The destination IPv4 groups included in the rule.
+- **Location Groups**: The location groups included in the rule.
+- **Source IPv6 Groups**: The source IPv6 groups included in the rule.
+- **Destination IPv6 Groups**: The destination IPv6 groups included in the rule.
+- **Destination IP Categories**: The destination URL categories included in the rule.
+- **Application Segments**: The application segments included in the rule.
+- **Application Service Groups**: The application service groups included in the rule.
+- **Advanced Threat Categories**: The threat categories included in the rule.
+- **Actions**: The actions you can perform on a rule, such as editing, duplicating, and deleting.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12025,20 +12089,20 @@ When a non-provisioned file owner within your organization is later provisioned 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-report","lastmod":"2026-06-26T01:49Z","nid":"1401911"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-report","lastmod":"2026-08-14T13:51Z","nid":"1401911"} -->
 ## About the SaaS Security Report
 
 - Source: https://help.zscaler.com/zia/about-saas-security-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > SaaS Security > About the SaaS Security Report
-- Last modified: 2026-06-26T01:49Z
+- Last modified: 2026-08-14T13:51Z
 - Summary: Information about the SaaS Security Report, which shows the number of sanctioned and unsanctioned applications being used and their number of users.
 
 The SaaS Security Report gives a breakdown of applications by their status — sanctioned, unsanctioned, unclassified, or under review and their number of users. It also shows the application categories, the risk index, and the certifications for each application. Zscaler supports up to 50K cloud applications.
 
 Shadow IT has drastically grown in recent years, especially with the adoption of multiple applications. These applications are installed by bypassing the IT department's approval for different reasons, like the ease of setting up applications with fewer approval stages and bottlenecks, the application being more efficient than the choices provided by the organization, etc.
 
-On the other hand, IT departments also appreciate fewer application requests so that they can direct their focus on more business-critical tasks. But oversight of the IT department can lead to significant security risks. These unsanctioned or unclassified applications must come under the radar of your IT team or relevant department at some stage to monitor their vulnerabilities and mitigate the exploitation surface for the attackers.
+On the other hand, IT departments also appreciate fewer application requests so that they can direct their focus on more business-critical tasks. However, lack of oversight by the IT department can lead to significant security risks. These unsanctioned or unclassified applications must come under the radar of your IT team or the relevant department at some stage to monitor their vulnerabilities and mitigate the exploitation surface for the attackers.
 
 The SaaS Security Report provides the following benefits and enables you to:
 
@@ -12354,16 +12418,16 @@ On the SaaS Workflows page (click Analytics, enable the toggle Switch to Existin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-sandbox","lastmod":"2026-06-24T08:37Z","nid":"1399801"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-sandbox","lastmod":"2026-08-14T13:02Z","nid":"1399801"} -->
 ## About Sandbox
 
 - Source: https://help.zscaler.com/zia/about-sandbox
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Sandbox > About Sandbox
-- Last modified: 2026-06-24T08:37Z
+- Last modified: 2026-08-14T13:02Z
 - Summary: Information on the Zscaler Sandbox and its features.
 
-[Watch a video about Sandbox](https://fast.wistia.net/embed/iframe/iavpojmxt1) (shows legacy UI).
+[Watch a video about Sandbox.](https://fast.wistia.net/embed/iframe/9arkpeo4b4)
 
 Sandbox provides an additional layer of security against zero-day threats and Advanced Persistent Threats (APTs) through Sandbox analysis, an integrated file behavioral analysis. To ensure your organization's web security, the Zscaler service runs and analyzes files in a virtual environment to detect malicious behavior. It propagates a hash of malicious files to all Public Service Edges for Internet & SaaS (ZIA) throughout the cloud, effectively maintaining a real-time denylist so it can prevent users anywhere in the world from downloading malicious files. Additionally, you can use AI analysis in the rules that make up your [Sandbox policy](https://help.zscaler.com/zia/configuring-sandbox-policy) to instantly determine the likelihood of a file being benign or suspicious.
 

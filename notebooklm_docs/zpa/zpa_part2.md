@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
+Generated: 2026-08-17 01:14 UTC
 Articles in this file: 210
 
 ---
@@ -1816,13 +1816,13 @@ To configure your organization's profile for Private Access (ZPA):
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-connectors","lastmod":"2026-07-20T09:30Z","nid":"1483546"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-connectors","lastmod":"2026-08-10T07:06Z","nid":"1483546"} -->
 ## Configuring App Connectors
 
 - Source: https://help.zscaler.com/zpa/configuring-connectors
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connectors > Configuring App Connectors
-- Last modified: 2026-07-20T09:30Z
+- Last modified: 2026-08-10T07:06Z
 - Summary: How to add and configure a new App Connector in the Zscaler Admin Console.
 
 If you are using OAuth enrollment, use this page to associate the App Connector with the Oauth enrollment tokens and groups. To learn more, see [Understanding Oauth Enrollment](https://help.zscaler.com/zpa/understanding-oauth-enrollment). For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -2144,13 +2144,13 @@ To enable and configure the default Microsegmentation policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-defined-application-segments","lastmod":"2026-07-23T15:13Z","nid":"1483606"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-defined-application-segments","lastmod":"2026-08-14T15:36Z","nid":"1483606"} -->
 ## Configuring Defined Application Segments
 
 - Source: https://help.zscaler.com/zpa/configuring-defined-application-segments
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Configuring Defined Application Segments
-- Last modified: 2026-07-23T15:13Z
+- Last modified: 2026-08-14T15:36Z
 - Summary: How to configure defined application segments and manage applications within the Zscaler Admin Console.
 
 When defining a new application within an application segment, you can:
@@ -4341,13 +4341,13 @@ Choose a specific SCIM group from the drop-down menu to apply the rule action to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-privileged-portals","lastmod":"2026-06-11T15:47Z","nid":"1485116"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-privileged-portals","lastmod":"2026-08-14T14:38Z","nid":"1485116"} -->
 ## Configuring Privileged Portals
 
 - Source: https://help.zscaler.com/zpa/configuring-privileged-portals
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > Configuring Privileged Portals
-- Last modified: 2026-06-11T15:47Z
+- Last modified: 2026-08-14T14:38Z
 - Summary: How to configure privileged portals within the Zscaler Admin Console.
 
 After you have added an [application segment](https://help.zscaler.com/zpa/configuring-defined-application-segments) with Privileged Remote Access (PRA), you can go to the Privileged Portals page. You can have up to 100 privileged portals. For a complete list of ranges and limits, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -5648,13 +5648,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-user-portals","lastmod":"2026-06-18T13:36Z","nid":"1484316"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-user-portals","lastmod":"2026-08-13T15:25Z","nid":"1484316"} -->
 ## Configuring User Portals
 
 - Source: https://help.zscaler.com/zpa/configuring-user-portals
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > User Portal > Configuring User Portals
-- Last modified: 2026-06-18T13:36Z
+- Last modified: 2026-08-13T15:25Z
 - Summary: How to configure user portals within the Zscaler Admin Console.
 
 After you configure a user portal, Private Access (ZPA) generates a canonical name (CNAME) that must be published in your public DNS. When a user's web browser resolves to the user portal URL, they need to be authenticated against their identity provider (IdP). After authentication, the user portal is displayed along with all associated application links. The user can only view links to applications they are allowed to access. To learn more, see [About User Portal Links](https://help.zscaler.com/zpa/about-user-portal-links).
@@ -6062,13 +6062,13 @@ Choose a specific SCIM group name from the drop-down menu to apply the rule acti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-08-09T07:06Z","nid":"1485211"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-08-16T07:06Z","nid":"1485211"} -->
 ## Configuring WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/configuring-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Configuring WebSocket Controls
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: How to add and configure a new set of WebSocket custom controls for AppProtection profiles within the Zscaler Admin Console.
 
 You can add WebSocket Controls to use as part of your [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) in the Zscaler Admin Console. To learn more, see [About WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls).
@@ -11455,13 +11455,13 @@ If you only want to change a privileged credentials policy rule's place in the R
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-privileged-portals","lastmod":"2026-07-02T09:46Z","nid":"1485106"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-privileged-portals","lastmod":"2026-08-14T15:12Z","nid":"1485106"} -->
 ## Editing Privileged Portals
 
 - Source: https://help.zscaler.com/zpa/editing-privileged-portals
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > Editing Privileged Portals
-- Last modified: 2026-07-02T09:46Z
+- Last modified: 2026-08-14T15:12Z
 - Summary: How to edit a privileged portal within the Zscaler Admin Console.
 
 To edit a privileged portal:
@@ -11746,13 +11746,13 @@ Click **Preview Link**to see how the link will appear in the user portal.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-user-portals","lastmod":"2026-06-18T13:30Z","nid":"1484331"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-user-portals","lastmod":"2026-08-14T14:53Z","nid":"1484331"} -->
 ## Editing User Portals
 
 - Source: https://help.zscaler.com/zpa/editing-user-portals
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > User Portal > Editing User Portals
-- Last modified: 2026-06-18T13:30Z
+- Last modified: 2026-08-14T14:53Z
 - Summary: How to edit a user portal in the Zscaler Admin Console.
 
 To edit a user portal:
@@ -11914,13 +11914,13 @@ To replace an expired certificate, you must upload a new one. To learn more, see
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-08-09T07:06Z","nid":"1485206"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-08-16T07:06Z","nid":"1485206"} -->
 ## Editing WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/editing-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Editing WebSocket Controls
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: How to edit a WebSocket custom control within the Zscaler Admin Console.
 
 All [WebSocket custom controls](https://help.zscaler.com/zpa/about-websocket-controls) can be edited, even ones currently in use by an [AppProtection profile](https://help.zscaler.com/zpa/about-inspection-profiles).
@@ -12551,13 +12551,13 @@ To delete a Chrome posture profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/managing-deployed-software-components","lastmod":"2026-08-06T07:33Z","nid":"1540995"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/managing-deployed-software-components","lastmod":"2026-08-10T07:06Z","nid":"1540995"} -->
 ## Managing Deployed Software Components
 
 - Source: https://help.zscaler.com/zpa/managing-deployed-software-components
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Managing Deployed Software Components
-- Last modified: 2026-08-06T07:33Z
+- Last modified: 2026-08-10T07:06Z
 - Summary: How to manage App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors after deployment, including checking status and sizing as well as updating system software and software packages.
 
 After you deploy a software component and complete the proper networking configurations, perform the following procedures to verify that the software component is running and healthy. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors. You should also verify that the sizing and scalability specifications you decided upon before deployment are still adequate for your organization's needs:
@@ -16732,13 +16732,13 @@ The Private Service Edge attempts to create a TLS session through the proxy spec
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-06-25T13:58Z","nid":"1528948"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-08-14T15:40Z","nid":"1528948"} -->
 ## Prerequisites for Browser Access Applications Managed by Zscaler
 
 - Source: https://help.zscaler.com/zpa/prerequisites-browser-access-applications-managed-zscaler
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Prerequisites for Browser Access Applications Managed by Zscaler
-- Last modified: 2026-06-25T13:58Z
+- Last modified: 2026-08-14T15:40Z
 - Summary: Prerequisites for Browser Access-enabled web applications that have Zscaler-managed certificates.
 
 This article provides the requirements to use a [Browser Access application](https://help.zscaler.com/zpa/configuring-defined-application-segments#BAsteps) with a Zscaler-managed certificate. If you are defining a Browser Access application with custom certificates and configuring an FQDN, see [Defining a Browser Access Application with Different External vs. Internal Domains](https://help.zscaler.com/zpa/defining-browser-access-application-different-external-vs-internal-domains).

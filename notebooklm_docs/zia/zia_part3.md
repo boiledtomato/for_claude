@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 100
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 98
 
 ---
 
@@ -1605,13 +1605,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-08-09T07:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-08-16T07:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -3649,13 +3649,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/choosing-between-private-service-edge-and-virtual-service-edge-internet-saas","lastmod":"2026-07-26T21:19Z","nid":"1401146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/choosing-between-private-service-edge-and-virtual-service-edge-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1401146"} -->
 ## Choosing Between Private Service Edge and Virtual Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/choosing-between-private-service-edge-and-virtual-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Choosing Between Private Service Edge and Virtual Service Edge for Internet & SaaS
-- Last modified: 2026-07-26T21:19Z
+- Last modified: 2026-08-10T21:06Z
 - Summary: Information on the differences between Private Service Edge and Virtual Service Edge for Internet & SaaS (ZIA).
 
 Zscaler can extend its patented cloud architecture to an organization's premise by providing Private Service Edge and Virtual Service Edge for Internet & SaaS (ZIA). These platforms are part of the Zscaler cloud and perform the same service as the [Public Service Edge for Internet & SaaS](https://help.zscaler.com/zia/about-public-service-edges).
@@ -3678,13 +3678,13 @@ Although they both provide the full benefits of the Zscaler cloud, there are sti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/choosing-ca-certificate-ssltls-inspection","lastmod":"2026-05-03T23:25Z","nid":"1401906"} -->
+<!-- ZS-ARTICLE {"url":"/zia/choosing-ca-certificate-ssltls-inspection","lastmod":"2026-08-11T21:32Z","nid":"1401906"} -->
 ## Choosing the CA Certificate for SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/choosing-ca-certificate-ssltls-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Choosing the CA Certificate for SSL/TLS Inspection
-- Last modified: 2026-05-03T23:25Z
+- Last modified: 2026-08-11T21:32Z
 - Summary: Information on the various CA certificate options that are available and how to choose a suitable CA certificate from the Zscaler Admin Console.
 
 When SSL/TLS Inspection is enabled, the Zscaler service establishes a separate SSL/TLS tunnel with the destination server and with the user’s browser. This allows the service to decrypt and inspect the HTTPS traffic coming to and from the user’s browser, as well as all traffic coming to and from the destination server.
@@ -3719,7 +3719,7 @@ You can enable the **Default Certificate**optionto make the Zscaler Intermediate
 
 Zscaler offers subscriptions to software and cloud HSM protection types to configure your intermediate CA certificates for SSL/TLS Inspection. You can subscribe to one or both of the protection types based on your requirements.
 
-If you have subscribed to only the software protection type, Zscaler allows you to create up to two intermediate CA certificates, but only one can be enabled at a time and used for SSL/TLS interception. If you have subscribed to both software and cloud HSM protection types, Zscaler allows you to create up to 8 intermediate CA certificates, but only 4 can be enabled at a time and used for SSL/TLS interception.
+If you have not subscribed to the cloud HSM protection type, Zscaler allows you to create up to two software intermediate CA certificates with the enabled status and can be used for SSL/TLS inspection. If you have subscribed to both software and cloud HSM protection types, Zscaler allows you to create up to 8 intermediate CA certificates, but only 4 can be enabled at a time and used for SSL/TLS interception.
 
 You can only have one default intermediate CA certificate. It can either be Zscaler’s default intermediate certificate or an enabled custom intermediate CA certificate.
 
@@ -4393,35 +4393,6 @@ If a user does not log in on the specified day, the service displays the AUP the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-configuration-admins","lastmod":"2026-06-01T09:51Z","nid":"1402406"} -->
-## Configuring Advanced Configuration for Admins
-
-- Source: https://help.zscaler.com/zia/configuring-advanced-configuration-admins
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Configuring Advanced Configuration for Admins
-- Last modified: 2026-06-01T09:51Z
-- Summary: How to configure advanced configuration for admins.
-
-You can configure the action to be taken against the admin account when an admin *user* *account* is deleted using SCIM.
-
-Actions on users through SCIM are reflected in the ZIA Admin Portal. For example, disabling a user through SCIM disables both the admin user and its linked user account in the ZIA Admin Portal. Configuring the action for deleted users only affects deleted users, and does not affect disabled users.
-
-To configure advanced configuration for admins:
-
-1. Go to **Administration** > **Administrator Management**.
-2. Click the **Administrator Management** tab.
-3. On the **Administrator Management** page, in the **Advanced Configuration** section, choose one of the following options from the **Admin Account** **Action When SCIM Deletes Linked User Account**drop-down menu: See image.
-  - Select**Delete** if you want to allow SCIM to delete the admin user and its linked user account.
-  - Select**Do Nothing** if you do not want to allow SCIM to delete the admin user and its linked user account. SCIM will return error 409 (Admin user cannot be deleted). **Do Nothing** is the default.
-4. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
-
-For tenants subscribed to the Authentication Service, the **Administrator Management** page displays a link to the Authentication Service Administration page. You can manage your advanced admin configurations on the Authentication Service page. To learn more, see [What is the Authentication Service](https://help.zscaler.com/authentication-service/what-authentication-service)?
-
-[Image: Selecting the Advanced Configuration option on the Administr]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-nss-settings","lastmod":"2026-05-06T07:59Z","nid":"1399051"} -->
 ## Configuring Advanced NSS Settings
 
@@ -4907,13 +4878,13 @@ Zscaler's DLP inspection and prompt capture capabilities are currently limited t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-07-28T03:01Z","nid":"1399146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-08-12T04:24Z","nid":"1399146"} -->
 ## Configuring Advanced Settings
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Configuring Advanced Settings
-- Last modified: 2026-07-28T03:01Z
+- Last modified: 2026-08-12T04:24Z
 - Summary: Information on how to configure the Advanced Settings page in the Zscaler Admin Console.
 
 On the Advanced Settings page in the Zscaler Admin Console, you can configure settings for a variety of Zscaler service features.
@@ -6682,13 +6653,13 @@ Admin A has a Location Group scope of England. The England location group contai
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-content-inspection","lastmod":"2026-07-22T09:31Z","nid":"1529452"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-content-inspection","lastmod":"2026-08-14T03:26Z","nid":"1529452"} -->
 ## Configuring the Data at Rest Scanning DLP Policy with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning DLP Policy with Content Inspection
-- Last modified: 2026-07-22T09:31Z
+- Last modified: 2026-08-14T03:26Z
 - Summary: How to configure Zscaler SaaS Security Data at Rest Scanning DLP policy rules using Zscaler DLP engines for content inspection.
 
 [Watch a video about SaaS Security Data at Rest Scanning and policy configuration](https://fast.wistia.net/embed/iframe/c6vd9jag4e) (shows legacy UI).
@@ -6909,11 +6880,15 @@ To add a DLP rule for file sharing applications:
     - **Redaction Profile**: If you select **Redact Sensitive Data** as the Action for sensitive content, you can select a redaction profile from the drop-down menu. You can also search for redaction profiles.
     - **Remove**: For Confluence, the rule reports the incident and removes all the attachments from the pages and blogs of the space.
     - **Remove All Collaborators**: The rule reports the incident and removes all of the file’s external and internal collaborators.
+    - **Remove Collaborators After Expiry**: This rule is only available for Google Drive. The rule removes all the file’s collaborators after expiration, including collaborator groups. When you choose this action, the **Time Period** field appears. From this drop-down menu, you can choose a periodic expiration time or set a custom expiration time using the date picker. The default expiration time period is 30 days.
     - **Remove External Collaborators**: The rule reports the incident and removes all of the file’s external collaborators, including external groups.
     - **Remove External Collaborators and Shareable Link**: The rule reports the incident and removes all of the file’s external collaborators, including external groups, and any shareable links. The actions **Remove External Collaborators** and **Remove External Collaborators and Shareable Link** remove all external groups. To manually remove individual external collaborators from a group, use the **Remove External Collaborators** action on the Remediation page (Analytics > SaaS Security > Assets).
+    - **Remove External Sharing Links After Expiry**: This rule is only available for Google Drive. The removes the file’s external shareable links after expiration. When you choose this action, the **Time Period** field appears. From this drop-down menu, you can choose a periodic expiration time or set a custom expiration time using the date picker. The default expiration time period is 30 days.
     - **Remove Internal Collaborators and Shareable Link**: The rule reports the incident and removes all internal collaborators, including internal groups, and any shareable links.
     - **Remove Internal Shareable Link**: The rule reports the incident and removes the file’s internal shareable link. Existing collaborators are unaffected.
+    - **Remove Internal Sharing Links After Expiry**: This rule is only available for Google Drive. The rule removes the file’s internal shareable links after expiration. When you choose this action, the **Time Period** field appears. From this drop-down menu, you can choose a periodic expiration time or set a custom expiration time using the date picker. The default expiration time period is 30 days.
     - **Remove Public Shareable Link**: The rule reports the incident and removes the file’s public shareable link. Existing collaborators are unaffected.
+    - **Remove Sharing After Expiry**: This rule is only available for Google Drive. The rule removes any shareable links after expiration. When you choose this action, the **Time Period** field appears. From this drop-down menu, you can choose a periodic expiration time or set a custom expiration time using the date picker. The default expiration time period is 30 days.
     - **Remove Sharing**: The rule reports the incident and removes all of the file’s collaborators and any shareable links.
     - **Report Incident Only**: The rule reports the incident only and makes no changes to the file’s collaboration scope.
     - **Watermark the Document**: The rule uses the specified [watermark profile](https://help.zscaler.com/zia/adding-editing-watermark-profiles) to add a watermark, as well as optional headers and footers to supported file types that contain sensitive information. On Confluence tenants, the Zscaler service applies watermarks only on files that are attached to Confluence pages, not on the Confluence pages themselves.
@@ -6924,8 +6899,9 @@ To add a DLP rule for file sharing applications:
     - **Update to Not Discoverable for All**: The rule reports the incident and changes the file’s collaboration scope to prevent it from being discoverable through public search engines or within your organization.
     - **Update to Not Discoverable Internally**: The rule reports the incident and changes the file’s collaboration scope to prevent it from being discoverable within your organization.
     - **Severity**: Select a severity level (i.e., **High**, **Medium**, **Low**, or **Information**) for the incidents that match this rule. The **Information** level allows you to track low-risk incidents that must be observed.
-  - **Email Recipient Domain Profiles**: If you select **Remove External Collaborators** for the action, you can then select the desired domain profiles and whether you want to **Include** or **Exclude** them from the action.
+  - **Email Recipient Domain Profiles**: If you select **Remove External Collaborators** or **Remove Collaborators After Expiry** for the action, you can then select the desired domain profiles and whether you want to **Include** or **Exclude** them from the action.
   - **Tombstone Template**: Select a tombstone template from the drop-down menu. The quarantine action creates a tombstone file template in the original location and adds the description from the tombstone template created on the **Quarantine**page (Administration > Notification Template > Quarantine). To learn more, see [About Quarantine Tombstone File Templates](https://help.zscaler.com/zia/about-quarantine-tombstone-file-templates).
+  - **Time Period**: For actions such as **Remove Internal Sharing Links After Expiry**, **Remove External Sharing Links After Expiry**, **Remove Collaborators After Expiry**, or **Remove Sharing After Expiry**, you can specify a file access expiration time. You can then select an expiration time period from a predefined drop-down menu or set a custom time period, after which access to the file is automatically revoked. When setting a custom expiration, you cannot set the expiration for less than 7 days from the current time.; In the case of periodic expiration periods (i.e., 7, 30, or 90 days), the policy continues to monitor and enforce the rule on new or existing files as long as it is enabled. Further, the expiration period is automatically extended when a new collaborator is added.; In case of a fixed expiration date (e.g., December 10), the policy becomes inactive after this date unless modified or reconfigured. The expiration period is not extended when a new collaborator is added.
 6. (Optional) Configure the email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
   1. For **Auditor Type**, select whether the auditor is from a **Hosted** database or **External**to your organization.
   2. Select the **Auditor**:
@@ -7225,13 +7201,13 @@ To create exceptions for source code repository applications:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection","lastmod":"2026-08-04T23:24Z","nid":"1529455"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection","lastmod":"2026-08-14T03:53Z","nid":"1529455"} -->
 ## Configuring the Data at Rest Scanning DLP Policy without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning DLP Policy without Content Inspection
-- Last modified: 2026-08-04T23:24Z
+- Last modified: 2026-08-14T03:53Z
 - Summary: How to configure Zscaler SaaS Security Data at Rest Scanning DLP policy rules without using Zscaler DLP engines for content inspection.
 
 [Watch a video about SaaS Security Data at Rest Scanning and policy configuration](https://fast.wistia.net/embed/iframe/c6vd9jag4e) (shows legacy UI).
@@ -7446,11 +7422,15 @@ To add a DLP rule for file sharing applications:
     - **Quarantine to User Root Folder**: The rule reports the incident and quarantines sensitive content to a user's root folder. When you select this option, the **Tombstone Template** drop-down menu appears.
     - **Remove**: For Confluence, the rule reports the incident and removes all the attachments from the pages and blogs of the space.
     - **Remove All Collaborators**: The rule reports the incident and removes all of the file’s external and internal collaborators.
+    - **Remove Collaborators After Expiry**: This rule is only available for Google Drive. The rule removes all the file’s collaborators after expiration, including collaborator groups. When you choose this action, the **Time Period** field appears. From this drop-down menu, you can choose a periodic expiration time or set a custom expiration time using the date picker. The default expiration time period is 30 days.
     - **Remove External Collaborators**: The rule reports the incident and removes all of the file’s external collaborators, including external groups.
     - **Remove External Collaborators and Shareable Link**: The rule reports the incident and removes all of the file’s external collaborators, including external groups, and any shareable links. The actions **Remove External Collaborators** and **Remove External Collaborators and Shareable Link** remove all external groups. To manually remove individual external collaborators from a group, use the **Remove External Collaborators** action on the Remediation page (Analytics > SaaS Security > Assets).
+    - **Remove External Sharing Links After Expiry**: This rule is only available for Google Drive. The removes the file’s external shareable links after expiration. When you choose this action, the **Time Period** field appears. From this drop-down menu, you can choose a periodic expiration time or set a custom expiration time using the date picker. The default expiration time period is 30 days.
     - **Remove Internal Collaborators and Shareable Link**: The rule reports the incident and removes all internal collaborators, including internal groups, and any shareable links.
     - **Remove Internal Shareable Link**: The rule reports the incident and removes the file’s internal shareable link. Existing collaborators are unaffected.
+    - **Remove Internal Sharing Links After Expiry**: This rule is only available for Google Drive. The rule removes the file’s internal shareable links after expiration. When you choose this action, the **Time Period** field appears. From this drop-down menu, you can choose a periodic expiration time or set a custom expiration time using the date picker. The default expiration time period is 30 days.
     - **Remove Public Shareable Link**: The rule reports the incident and removes the file’s public shareable link. Existing collaborators are unaffected.
+    - **Remove Sharing After Expiry**: This rule is only available for Google Drive. The rule removes any shareable links after expiration. When you choose this action, the **Time Period** field appears. From this drop-down menu, you can choose a periodic expiration time or set a custom expiration time using the date picker. The default expiration time period is 30 days.
     - **Remove Sharing**: The rule reports the incident and removes all of the file’s collaborators and any shareable links.
     - **Report Incident Only**: The rule reports the incident only and makes no changes to the file’s collaboration scope.
     - **Watermark the Document**: The rule uses the specified [watermark profile](https://help.zscaler.com/zia/adding-editing-watermark-profiles) to add a watermark, as well as optional headers and footers to supported file types that contain sensitive information. On Confluence tenants, the Zscaler service applies watermarks only on files that are attached to Confluence pages, not on the Confluence pages themselves.
@@ -7461,8 +7441,9 @@ To add a DLP rule for file sharing applications:
     - **Update to Not Discoverable for All**: The rule reports the incident and changes the file’s collaboration scope to prevent it from being discoverable through public search engines or within your organization.
     - **Update to Not Discoverable Internally**: The rule reports the incident and changes the file’s collaboration scope to prevent it from being discoverable within your organization.
     - **Severity**: Select a severity level (i.e., **High**, **Medium**, **Low**, or **Information**) for the incidents that match this rule. The **Information**level allows you to track low-risk incidents that must be observed.
-  - **Email Recipient Domain Profiles**: If you select **Remove External Collaborators** for the action, you can then select the desired domain profiles and whether you want to **Include** or **Exclude** them from the action.
+  - **Email Recipient Domain Profiles**: If you select **Remove External Collaborators** or **Remove Collaborators After Expiry** for the action, you can then select the desired domain profiles and whether you want to **Include** or **Exclude** them from the action.
   - **Tombstone Template**: Select a tombstone template from the drop-down menu. The quarantine action creates a tombstone file template in the original location and adds the description from the tombstone template created on the **Quarantine** page (Administration > Notification Template > Quarantine). To learn more, see [About Quarantine Tombstone File Templates](https://help.zscaler.com/zia/about-quarantine-tombstone-file-templates).
+  - **Time Period**: For actions such as **Remove Internal Sharing Links After Expiry**, **Remove External Sharing Links After Expiry**, **Remove Collaborators After Expiry**, or **Remove Sharing After Expiry**, you can specify a file access expiration time. You can then select an expiration time period from a predefined dropdown menu or set a custom time period, after which access to the file is automatically revoked. When setting a custom expiration, you cannot set the expiration for less than 7 days from the current time.; In the case of periodic expiration periods (i.e., 7, 30, or 90 days), the policy continues to monitor and enforce the rule on new or existing files as long as it is enabled. Further, the expiration period is automatically extended when a new collaborator is added.; In case of a fixed expiration date (e.g., December 10), the policy becomes inactive after this date unless modified or reconfigured. The expiration period is not extended when a new collaborator is added.
 6. (Optional) Configure the email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
   1. For **Auditor Type**, select whether the auditor is from a **Hosted** database or **External**to your organization.
   2. Select the **Auditor**:
@@ -9164,13 +9145,13 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-08-09T07:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-08-16T07:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
 [Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection.](https://fast.wistia.net/embed/iframe/za6nr8ax7t)
@@ -9352,13 +9333,13 @@ To learn how to use external DLP engines to detect data and also forward informa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-08-09T07:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-08-16T07:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
@@ -9896,13 +9877,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-08-09T07:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-08-16T07:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-08-16T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -10064,13 +10045,13 @@ To create a DNS application group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-control-policy","lastmod":"2026-07-22T12:37Z","nid":"1399991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-control-policy","lastmod":"2026-08-11T07:06Z","nid":"1399991"} -->
 ## Configuring the DNS Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-dns-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Configuring the DNS Control Policy
-- Last modified: 2026-07-22T12:37Z
+- Last modified: 2026-08-11T07:06Z
 - Summary: Information on how to create a DNS Control policy rule to control DNS requests and responses in the Zscaler Admin Console.
 
 [Watch a video about Configuring DNS Control Policy.](https://fast.wistia.net/embed/iframe/6e9wlolezd)
@@ -11534,177 +11515,4 @@ See image.
 [Image: Select Criteria to add to File Type Control Policy]
 
 [Image: Add Criteria when configuring a File Type Control Policy]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-firewall-filtering-policy","lastmod":"2026-07-17T10:32Z","nid":"1399876"} -->
-## Configuring the Firewall Filtering Policy
-
-- Source: https://help.zscaler.com/zia/configuring-firewall-filtering-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Control > Firewall Filtering > Configuring the Firewall Filtering Policy
-- Last modified: 2026-07-17T10:32Z
-- Summary: How to configure the Firewall Filtering policy using rule conditions and action to allow or block specific types of traffic.
-
-[Watch a video about Firewall Control, including how to configure the Firewall Filtering policy](https://fast.wistia.net/embed/iframe/aauzes6y9s) (shows legacy UI).
-
-You can add rules to the Firewall Filtering policy to allow or block specific types of traffic from your network to the internet based on the configured rule conditions. The Firewall Filtering policy has a [default rule](https://help.zscaler.com/zia/modifying-default-firewall-filtering-rule), which ensures that any traffic that is not explicitly allowed to or from the internet is blocked. In addition to the default rule, the policy includes a few [predefined, built-in rules](https://help.zscaler.com/zia/about-predefined-firewall-filtering-rules) that can be activated as needed.
-
-You can capture and store the traffic blocked through this policy as PCAP files. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
-
-After configuring the Firewall Filtering policy rules, you must [enable Firewall Control for known locations](https://help.zscaler.com/zia/configuring-locations) to apply the rules to the corresponding location traffic. Additionally, you might consider configuring [NAT Control](https://help.zscaler.com/zia/about-nat-control)and [DNS Control](https://help.zscaler.com/zia/about-dns-control) policy rules and [custom ports](https://help.zscaler.com/zia/configuring-custom-ports). Optionally, you can apply rules to remote user traffic forwarded via Zscaler Client Connector Zscaler Tunnel (Z-Tunnel) 1.0 and PAC files by selecting Enable Firewall for Z-Tunnel 1.0 and PAC Road Warriors in [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings).
-
-## Policy Execution
-
-There is a series of logical operators between the criteria in Firewall Filtering policy rules. The criteria on each tab have their own set of logical operators.
-
-The tabs trigger based on the following relationships:
-
-- **Who, Where, & When**: [ (Users `OR` Groups `OR` Departments) `AND` (Locations `OR` Location Groups) `AND` Time `AND` (Devices `OR` Device Groups) `AND` Device Trust Level `AND` Workload Groups]
-- **Services**: (Network Service Groups `OR` Network Services)
-- **Applications**: [ (Network Application Groups `OR` Network Applications `OR` Application Service Groups) `AND` ZPA Application Segment `AND` (Endpoint Applications `OR` Endpoint Application Tags) `AND` Endpoint Application Risk Level ]
-- **Source IP**: (Source IPv4 Groups `OR` Source IPv6 Groups `OR` IP Addresses `OR` Countries)
-- **Destination IP**: (Destination IPv4 Groups `OR` Destination IPv6 Groups `OR` IP Address/FQDN `OR` Countries `OR` URL Categories)
-
-In addition to the logical operators between criteria, the relationship between tabs is `AND`.
-
-See an example of how a Firewall Filtering policy rule triggers.
-
-## Prerequisites
-
-Before adding rules to the Firewall Filtering policy, ensure that you have configured the resources that the policy references:
-
-- [Users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), [departments](https://help.zscaler.com/zia/about-departments), [locations](https://help.zscaler.com/zia/about-locations), and [sublocations](https://help.zscaler.com/zia/understanding-sublocations) to which the IPS Control policy rules apply.
-- [Location groups](https://help.zscaler.com/zia/about-location-groups)
-- [Time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals)
-- [Workload Groups](https://help.zscaler.com/zia/about-workload-groups)
-- [Network Services](https://help.zscaler.com/zia/about-network-services). You can modify network services to edit services, add custom services, and create groups.
-- [Network Applications](https://help.zscaler.com/zia/about-network-applications). You can create network application groups as needed.
-- [Source](https://help.zscaler.com/zia/configuring-source-ip-groups) and [destination](https://help.zscaler.com/zia/configuring-destination-ip-groups) IP address groups
-- Optionally, [IPv6 configuration](https://help.zscaler.com/zia/understanding-ipv6-support).
-
-## Adding a Firewall Filtering Rule
-
-To add a Firewall Filtering policy rule:
-
-1. Go to **Policies** > **Access Control** > **Firewall**> **Firewall Filtering Policy**.
-2. Click **Add Firewall Filtering Rule**. The **Add Firewall Filtering Rule** window appears.
-3. In the **Add Firewall Filtering Rule** window, enter the rule attributes:
-  - **Rule Order**:A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you've enabled [Admin Rank](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Choose your admin rank. This option appears if you enable [Admin Ranking](https://help.zscaler.com/zia/about-admin-rank) on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. Enter a value from 0 to 7 (0 is the highest rank). Your assigned admin rank determines the values you can select. You cannot select a rank that is higher than your own. The rule's admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Rule Name**: A system-generated rule name is automatically populated, and the name can be edited. The name cannot exceed 63 characters.
-  - **Rule Status**:By default, the status is **Disabled**. You need to enable the rule to activate and enforce it on your traffic. Disabled rules can have a rule order assigned. During evaluation, the service skips the disabled rules and moves to the successive ones.
-  - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
-4. On the **Who, Where, & When** tab: Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**. See image.
-  - **Users**: Select the organization users to which this rule applies. You can select up to 32 users. If you do not select specific values, the field is set to **Any**, and this criterion is ignored during policy evaluation. You can search for users. If you've enabled the policy for unauthenticated users under[Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings) and want to apply this rule to unauthenticated traffic, you can do so by making selections accordingly in the **Users**and **Departments**fields. To learn more, see [Configuring Policies for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic).
-  - **Groups**: Select the user groups to which this rule applies. You can select up to 32 groups. If you do not select specific values, the field is set to **Any** by default, and this criterion is ignored during policy evaluation. You can search for groups.
-  - **Departments**: Select the departments to which this rule applies. You can select up to 32 departments. If you do not select specific values, the field is set to **Any**by default, and this criterion is ignored during policy evaluation. You can search for departments. If you've enabled the policy for unauthenticated users under[Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings) and want to apply this rule to unauthenticated traffic, you can do so by making selections accordingly in the **Users**and **Departments**fields. To learn more, see [Configuring Policies for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic).
-  - **Locations**: Select the locations to which this rule applies. You can select up to 32 locations. If you do not select specific values, the field is set to **Any**by default, and this criterion is ignored during policy evaluation. You can search for locations. To apply this rule only to remote user traffic, select **Road Warrior** for **Locations**. Rules configured for locations other than **Road Warrior** also apply to remote user traffic from those locations. Rules configured for the **Road Warrior** location apply to Z-Tunnel 1.0 and PAC only when the **Enable Firewall for Z-Tunnel 1.0 and PAC Road Warriors** option is enabled in [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#firewall-remote-users).
-  - **Location Groups**: Select the [location groups](https://help.zscaler.com/zia/about-location-groups) to which the rule applies. By default, this field is set to **Any**. If you do not select specific location groups, the field remains set to **Any**, and the criterion is ignored during policy evaluation. You can select up to 32 location groups. You can also search for specific location groups to select them.
-  - **Time**: Select the [time interval](https://help.zscaler.com/zia/defining-time-intervals) during which the rule applies. By default, the field is set to **Always**. You can select up to two time intervals. You can also search for a time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) for which you want to apply the rule. Selecting no value ignores the criterion in the policy evaluation.
-  - **Device Groups**: Select the [device group](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. Selecting no value ignores the criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **Workload Groups**: Select up to 8 [workload groups](https://help.zscaler.com/zia/about-workload-groups) for which you want to apply the rule. You can also search for a workload group. Selecting **None** ignores this criterion during policy evaluation.
-5. On the **Services**tab: See image.
-  - **Network Service Groups:** Select the [network service groups](https://help.zscaler.com/zia/configuring-network-service-groups) to which the rule applies.
-  - **Network Services:**Select the [network services](https://help.zscaler.com/zia/about-network-services) to which the rule applies. By default, this field is set to **Any**. If you do not select specific network services, the field remains set to **Any**, and the criterion is ignored during policy evaluation. The Zscaler Firewall has 50 predefined services, and you can configure up to 832 additional custom services. In standard mode, RTSP applications use RTP and RTCP. This means that if RTSP applications are allowed, then RTP and RTCP connections (which are dynamically created by RTSP) are automatically allowed too. This happens even if there is a Firewall rule to block RTP and RTCP network applications. This does not happen if the RTSP application is in interleaved mode.
-6. On the **Applications** tab: Dynamic policy enforcement based on endpoint applications is currently supported only for Windows endpoints running Zscaler Client Connector version 4.8 or later. See image.
-  - **Network Application Groups:**Select the [application groups](https://help.zscaler.com/zia/configuring-network-application-groups) that you want to control with this rule. The service provides predefined applications that you can group, but not modify.
-  - **Network Applications:**Select the [applications](https://help.zscaler.com/zia/about-network-applications) that you want to control with this rule. By default, this field is set to **Any**. If you do not select specific applications, the field remains set to **Any**, and the criterion is ignored during policy evaluation. The service provides predefined applications, which you can group, but not modify. Network services and application services configured in Zscaler are identified in the first packet, leading to immediate policy action. In contrast, multiple packets are typically required by deep packet inspection to identify network applications before a policy action can take place. Therefore, Zscaler recommends that you rank firewall filtering rules for network applications lower than rules for network services or application services to prevent packets from being allowed unnecessarily from traffic that would otherwise be blocked by rules using first-packet identification. To learn more, see [About Network Applications](https://help.zscaler.com/zia/about-network-applications).
-  - **Application Service Groups**: Select the [application service groups](https://help.zscaler.com/zia/about-application-service-groups) that you want to control with this rule. The service provides predefined and custom application services groups.
-  - **ZPA Application Segment:** Select **Any** to apply the rule to all [Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 Private Access application segments. You can also search for application segments. The list displays only those application segments that have the [Source IP Anchor](https://help.zscaler.com/zia/understanding-source-ip-anchoring) option enabled. If you select the**Inspect App Segments** option from the list, then the configured rule applies to all the Private Access application segments paired to your Internet & SaaS ZIA tenant. This option is only available if **SIPA App Segments** is enabled for your organization.
-  - **Endpoint Applications**: Choose whether the rule should specifically include the selected endpoint applications, or exclude them to cover all other non-specified applications. You can designate up to 100 endpoint applications to govern traffic originating from these selected applications. [Zscaler Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context) leverages telemetry from Zscaler Client Connector to enrich an inventory of frequently targeted applications found on endpoint devices. These endpoint applications and their associated tags are used as policy rule criteria to implement dynamic, risk-based, and application-aware security controls.
-  - **Endpoint Application Tags**: Choose whether the rule should specifically include the selected endpoint application tags, or exclude them to cover all other non-specified application tags. You can select up to 100 tags that [group endpoint applications](https://help.zscaler.com/zia/adding-resource-tags) by category or theme. This applies the policy rule to any traffic coming from applications linked to those tags.
-  - **Endpoint Application Risk Level**: You can apply the rule based on the risk profile of endpoint applications, with options including **High**, **Medium**, **Low**, and **Unknown**.
-7. On the **Source IP** tab: See image.
-  - **Source IPv4 Groups**: Select the [source IPv4 groups](https://help.zscaler.com/zia/about-source-ip-groups) that you want to control with this rule.
-  - **Source IPv6 Groups**: To control source IPv6 addresses with this rule, select the **All IPv6** group, which is the predefined source IPv6 group for all IPv6 addresses. Custom source IPv6 groups are currently not supported. To learn more, see [About Source IP Groups](https://help.zscaler.com/zia/about-source-ip-groups).
-  - **IP Addresses**: Enter addresses (IPv4 only) in any of the following formats: Specifying individual, subnet, or range of IPv6 addresses is currently not supported. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-    - An individual address, such as 192.0.2.1.
-    - A subnet, such as 192.0.2.0/24.
-    - An address range, such as 192.0.2.1 - 192.0.2.5.
-  - **Countries**: To apply the rule to traffic from specific countries, select the traffic's source country. The traffic's country of origin is determined using the geolocation of the client's IP address. When configuring this criterion, you can either use the **Include** option to match the rule on the specified countries or use the **Exclude** option to match the rule on all countries except those that are selected. When using the **Include** option, you can select specific countries or leave the field set to the default value, **Any**, which causes the criterion to be ignored during policy evaluation. However, selecting countries is mandatory when using the **Exclude** option.
-8. On the **Destination IP** tab: See image.
-  - **Destination IPv4 Groups**:Select the [destination IPv4 groups](https://help.zscaler.com/zia/about-destination-ip-groups) that you want to control with this rule.
-  - **Destination IPv6 Groups**: To control destination IPv6 addresses with this rule, select the **All IPv6** Group, which is the default destination IPv6 group for all IPv6 addresses. Custom destination IPv6 groups are currently not supported. To learn more, see [About Destination IP Groups](https://help.zscaler.com/zia/about-destination-ip-groups).
-  - **IP Address or Wildcard FQDN**: Enter addresses (IPv4 only) in any of the following formats: Specifying individual, subnet, or range of IPv6 addresses is currently not supported. You can also add FQDNs for applications with multiple or frequently changing IPv4 addresses. Wildcard FQDNs are also supported with an asterisk (*) as the wildcard character. For guidelines to configure wildcard FQDNs, see [Configuring Destination IP Groups](https://help.zscaler.com/zia/configuring-destination-ip-groups). When the rule is activated, FQDNs are resolved to their corresponding IP addresses and stored by the Zscaler service. To obtain the IP address of a domain, DNS queries are made until no new IP addresses are returned in two consecutive DNS responses. The resolved IP address(es) is then stored for a period of twice the Time to Live (TTL) value in the DNS record. As both FQDN and IP address values are available for a destination, this criterion applies to the web as well as non-web traffic examined by the Zscaler service. The Zscaler service employs an IP address match when evaluating non-web traffic using this criterion, whereas the web traffic evaluation relies on an FQDN match against the hostname in the HTTP/FTP header or Server Name Indication (SNI) for HTTPS. To evaluate wildcard FQDNs against non-web traffic, Zscaler requires the IP address to which the FQDN resolves. Hence, for non-web traffic, the Zscaler service should be aware of the preceding DNS request/response. To ensure this, forward *all* of your DNS traffic to the Zscaler service if you intend to configure wildcard FQDNs in policies. Additionally, a subscription or Internet & SaaS edition with DNS Control is required. This functionality is included in Advanced Firewall and DNS Control and [Internet & SaaS editions](https://www.zscaler.com/pricing-and-plans). To learn how DNS resolution is handled by the Zscaler service, see [Handling DNS Resolution for Various Traffic Forwarding Methods](https://help.zscaler.com/zia/handling-dns-resolution-various-traffic-forwarding-methods). Wildcard FQDN match against web traffic (HTTP and TLS/SNI) can function without meeting these conditions. To add multiple entries, press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If a rule blocks traffic solely based on the destination, removing destination IP addresses or FQDNs from the rule should be done cautiously as that might result in the rule blocking all traffic without requiring any criteria match.
-    - An individual address, such as 192.0.2.1.
-    - A subnet, such as 192.0.2.0/24.
-    - An address range, such as 192.0.2.1 - 192.0.2.5.
-  - **Countries**: Select the countries to apply the rule to the outgoing traffic that matches the specified countries. The country where the destination server is placed is determined using the geolocation of the server's IP address. By default, this field is set to **Any**. If you do not select specific countries, the field remains set to **Any**, and the criterion is ignored during policy evaluation.
-  - **URL Categories**: Select the [URL categories](https://help.zscaler.com/zia/configuring-advanced-settings) for which you want to control traffic. You can also select custom TLD categories from this field. By default, this field is set to **Any**. If you do not select specific URL categories, the field remains set to **Any**, and the criterion is ignored during policy evaluation. You can identify destinations based on the custom URL category of the domain. You can also use a custom URL category based on a specific database address (FQDN) or a wildcard FQDN which allows destinations to be placed on the allowlist or denylist as desired. Zscaler Firewall examines only the host portion of a URL (i.e., domain and subdomain) and ignores the URL path. For example, if a rule is configured to block traffic directed to www.subdomain.example.com/subdirectory/path.html via a URL category, all traffic bound to www.subdomain.example.com is blocked. Unlike the FQDNs specified directly in a rule via the **IP Address or Wildcard FQDN** field, FQDNs specified through a URL category are *not* pre-resolved to an IP address and stored by the Zscaler service. This restricts the URL category’s application to only web traffic, where an FQDN match against the hostname in the HTTP/FTP header or SNI for HTTPS triggers the rule. However, you can add IP addresses to URL categories in order to use this criterion for non-web traffic.
-9. Under **Action**: The **Capture** action requires [Traffic Capture to be enabled](https://help.zscaler.com/zia/configuring-traffic-capture) in Advanced Settings. It appears only when you select **Block** for **Network Traffic**. See image.
-  - **Network Traffic**: Select the action that the Zscaler service takes when packets match the rule:
-    - **Allow**: Allow the packets to pass through the firewall.
-    - **Block/Drop**: Silently block packets that match the rule. When the Block/Drop action is configured to block IP addresses, it might still result in sending packets to the destination server based on web sessions if the traffic is HTTPS and an end user notification (EUN) is served via web security policies. These packets are sent to obtain the server’s signed certificate (i.e., beaconing), which is a legitimate and necessary part of the EUN workflow.
-    - **Block/ICMP**: Drop all packets that match the rule and send the client an ICMP error message of Type 3 (Destination Unreachable) and Code 13 (Communication Administratively Prohibited).
-    - **Block/Reset**: For TCP traffic, the Zscaler service drops all packets that match the rule and sends the client a TCP reset. (A TCP packet with the reset (RST) flag is set to 1 in the TCPheader, indicating that the TCP connection must be instantly stopped.) For non-TCP traffic, the action is the same as Block/Drop.
-  - **Capture**: Enable this option to store the traffic captured during a block action in PCAP files for later analysis.
-  - **Logging**: Choose the logging type to apply: See log support details for Allow and Block rules in Standard vs. Advanced Firewall
-    - **Aggregate**: Groups together individual sessions based on user, rule, network service, network application, and records them periodically. Log aggregation happens approximately every 15 minutes.
-    - **Full**: Logs all sessions matching the rule individually in detail, with some exceptions. To learn more, see the following section.
-10. Under **Notification**: End user notification (EUN) is supported only with Block actions and requires Advanced Firewall. The EUN is supported on Windows devices running Zscaler Client Connector version 4.8 or later over Z-Tunnel 2.0. To learn more, see [Configuring EUNs for Firewall Filtering](https://help.zscaler.com/zia/configuring-euns-firewall-filtering).
-  - **End User Notification**: Enable this option to display a notification to end users through Zscaler Client Connector when they access traffic blocked by this rule.
-  - **Notification Message**: This option appears if the end user notification (EUN) is enabled, and allows you to select the notification message. You can select from default and custom notification messages to display for users.
-11. (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-12. Click **Save** and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
-
-The following example rule demonstrates the logical relationship between the rule criteria. The rule is configured with the following criteria and the Block/Drop action:
-
-- **Who, Where, & When**
-  - Users = John Doe
-  - Groups = Any
-  - Departments = Finance
-  - Locations = San Jose
-  - Location Groups = Any
-  - Time = Always
-  - Device = Left blank
-  - Device Groups = Left blank
-  - Device Trust Level = Left blank
-  - Workload Groups = Left blank
-- **Services & Applications**
-  - Network Service Groups = None
-  - Network Services = Any
-  - Application Service Groups = None
-- **Source IP**
-  - Source IPv4 Groups = Office IPs
-  - Source IPv6 Groups = Left blank
-  - IP Addresses = Left blank
-  - Countries = United States (included)
-- **Destination IP**
-  - Destination IPv4 Groups = None
-  - Destination IPv6 Groups = Left blank
-  - IP Address or Wildcard FQDN = 192.0.2.1 - 192.0.2.5
-  - Countries = Any
-  - Categories = Forbidden Websites (a custom category)
-
-Then, consider the following scenario:
-
-- The Zscaler service receives traffic from a user, John Doe, belonging to the Engineering department and located in San Jose. The **Who, Where, & When** tab triggers since there is an `OR` relationship between Users, Groups, and Departments, and there is a user match, even though there is no department match. The rule bypasses the fields that are set to **Any**,when any one of the fields has set criteria among the `OR` fields within an `AND` bracket.
-- The **Services & Applications** tab triggers since all network services and network applications are included in this rule.
-- The user's traffic originates in the United States, but the source IP address is not part of the Office IPs Source IPv4 Group. However, the **Source IP** tab triggers because of the `OR` relationship between these criteria.
-- The URL that the user attempts to visit belongs to Forbidden Websites, but the IP address of the URL does not fall within the specified range. The **Destination IP** tab triggers because of the `OR` relationship.
-
-The rule triggers for all field values if you set **Any** for all the fields that have an `OR` relation together within an `AND` bracket. Since all the tabs trigger, the policy rule triggers and the user is blocked from the transaction.
-
-In an alternative scenario, if the location of the user changed from San Jose to San Francisco, the **Who, Where, & When** tab would not trigger, causing the whole rule not to trigger.
-
-| Rule Type | Standard Firewall (Aggregate or Full logging option not selectable) | Advanced Firewall (Aggregate and Full logging options selectable) |
-| --- | --- | --- |
-| Allow | Aggregate logging is used for all traffic. Full or detailed logging for Allow rules requires Advanced Firewall or Full Logging license. | **Aggregate Logging**: Applies to all traffic when selected.; **Full Logging**: When selected, detailed logging applies to all traffic except web (HTTP/HTTPS) and FTP/FTPS sessions, which are managed by the secure web gateway. Sessions managed by the secure web gateway are always aggregated in Firewall logs because web transactions are logged in detail in Web logs. |
-| Block | Full or detailed logging is used for all traffic. | **Aggregate Logging**: Applies to all traffic when selected.; **Full Logging**: When selected, detailed logging applies to all traffic. |
-
-[Image: Who, where, and when criteria in firewall filtering rules]
-
-[Image: Network services criteria in firewall filtering rules]
-
-[Image: Source IP criteria in firewall filtering rules]
-
-[Image: Destination IP criteria in firewall filtering rules]
-
-[Image: Firewall filtering rules actions]
-
-[Image: Network applications criteria in firewall filtering rules]
 <!-- /ZS-ARTICLE -->

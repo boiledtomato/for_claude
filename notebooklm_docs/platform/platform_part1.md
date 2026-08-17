@@ -1,8 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-10 01:47 UTC
-Articles in this file: 259
+Generated: 2026-08-17 01:14 UTC
+Articles in this file: 261
 
 ---
 
@@ -1869,18 +1869,18 @@ If a user is assigned to a service's admin role individually, but they are also 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/automatic-upgrade-to-zscaler-admin-console","lastmod":"2026-07-10T02:20Z","nid":"1539868"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/automatic-upgrade-to-zscaler-admin-console","lastmod":"2026-08-12T20:10Z","nid":"1539868"} -->
 ## Automatic Upgrade to Zscaler Admin Console
 
 - Source: https://help.zscaler.com/authentication-service/automatic-upgrade-to-zscaler-admin-console
 - Product: Authentication Service
 - Path: Authentication Service Help > Automatic Upgrade to Zscaler Admin Console
-- Last modified: 2026-07-10T02:20Z
+- Last modified: 2026-08-12T20:10Z
 - Summary: Information on upgrading Authentication Service tenants to Zscaler Admin Console.
 
 Zscaler is upgrading organizations to Zscaler Admin Console, a centralized unified platform that provides a more secure and streamlined user experience. Administrators can now access and manage all the Zscaler products, unified policies and security analytics in one place.
 
-Starting August 1, 2026, some organizations are scheduled for an automatic upgrade to Zscaler Admin Console.
+Starting September 6, 2026, some organizations are scheduled for an automatic upgrade to Zscaler Admin Console.
 
 This article provides an overview of the upgrade process, upgrade options, and critical changes to the Authentication Service admins' login experience.
 
@@ -2558,13 +2558,13 @@ If you want to change this default behavior and have users redirected to Experie
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-07-28T19:22Z","nid":"1499421"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-08-09T23:14Z","nid":"1499421"} -->
 ## Configuring Microsoft Entra ID as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-microsoft-entra-id-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Microsoft Entra ID as an External IdP
-- Last modified: 2026-07-28T19:22Z
+- Last modified: 2026-08-09T23:14Z
 - Summary: How to configure Microsoft Entra ID as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Microsoft Entra ID as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Entra ID as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -2578,13 +2578,6 @@ If you want to leverage [step-up authentication](https://help.zscaler.com/authen
 - OIDC-Based Authentication via Microsoft Entra Gallery App Integration
 - SAML-Based Authentication
 - IdP-Initiated SSO for Authentication Service Tenants Enabled with Experience Center
-
-During the IdP-initiated SSO for Authentication Service, tenants using OIDC or SAML protocols are redirected as follows:
-
-- OIDC Protocol
-- SAML Protocol
-
-To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
 
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the Authentication Service Admin Portal instead of Experience Center.
 
@@ -2611,21 +2604,7 @@ To configure the `zidServiceId` attribute in Entra ID for SAML protocol:
     4. Enter `800000000103` as the **Value**. This value is the same for all tenants. See image.
     5. Click **Save**.
 
-Authentication Service tenants that are enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to Experience Center.
-
-To configure the homepage URL:
-
-1. In the Entra Admin Center, go to **Identity**> **Applications**> **Enterprise applications**.
-2. Open the application created for Authentication Service.
-3. Click **Single sign-on** and click **Go to application**. The app registration page for Zscaler app appears.
-4. On the app registration page, go to **Manage > Branding & Properties**, and enter the following value for the **Home page URL** field. `https://console.zscaler.com/?idp_id=<idp_id>&iss=<authentication-service-vanity-tenant-URL>`By default, `idp_id=default`. Replace the default value with the required IdP ID. Replace `<authentication-service-vanity-tenant-URL>` with your tenant's vanity URL. For example, `https://safemarch.zslogin.net`. When replacing `<authentication-service-vanity-tenant-URL>` with your tenant URL, ensure that the protocol string `https://` is included to prevent login failures.
-5. Click **Save**.
-
-Authentication Service tenants that are not enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to the Authentication Service Admin Portal. They can click the Experience Center link and go to Experience Center from the [Authentication Service Portal](https://help.zscaler.com/authentication-service/accessing-and-navigating-authentication-service-landing-page).
-
-See image.
-
-If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
+To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
 
 This section explains how to configure Microsoft Entra ID as the OpenID Provider (OP) for the Authentication Service via prebuilt app integration to facilitate SSO to various Zscaler services for admin access management.
 
@@ -3285,22 +3264,20 @@ You can provision Entra ID users for Authentication Service using Just-in-time (
 [Image: Sample SAML Assertion]
 
 [Image: JIT provisioning]
-
-[Image: Authentication Service Portal with highlighted banner at the top.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-multi-factor-authentication","lastmod":"2026-07-17T08:51Z","nid":"1499196"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-multi-factor-authentication","lastmod":"2026-08-10T05:56Z","nid":"1499196"} -->
 ## Configuring Multi-Factor Authentication
 
 - Source: https://help.zscaler.com/authentication-service/configuring-multi-factor-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Configuring Multi-Factor Authentication
-- Last modified: 2026-07-17T08:51Z
+- Last modified: 2026-08-10T05:56Z
 - Summary: Information on configuring the authentication method in the Zscaler Admin Console.
 
-Authentication Service (formerly ZIdentity) supports multi-factor authentication (MFA) for enhanced security, and it is required by default for all admins. Zscaler strongly recommends keeping MFA enabled. You can authenticate users with a password and a second factor (i.e., SMS one-time passcode (OTP), email OTP, time-based OTP (TOTP), and Fast IDentity Online (FIDO) authentication). In addition, you can configure passwordless authentication by setting up FIDO2 as the primary authenticator.
+Authentication Service (formerly ZIdentity) supports multi-factor authentication (MFA) for enhanced security, and it is required by default for all admins. Zscaler strongly recommends keeping MFA enabled. You can authenticate users with a password and a second factor (i.e., time-based OTP (TOTP), and Fast IDentity Online (FIDO) authentication). In addition, you can configure passwordless authentication by setting up FIDO2 as the primary authenticator.
 
 ## Enabling MFA or FIDO2
 
@@ -3331,7 +3308,6 @@ To configure MFA:
 4. On the **Multi-Factor Authentication**page, select one of the following authentication types, then click **Set Up**: See image.
   - TOTP Authenticator
   - Security Key or Biometric
-  - SMS OTP
   - Email OTP
 
 Your Authentication Service account is successfully created. You can make a note of your login ID displayed on the screen and proceed to log in to your account.
@@ -3371,11 +3347,6 @@ To configure a security key or biometric:
 2. Select one of the methods from the list to set up a security key or biometric authentication.
 3. Follow the instructions displayed on your screen to complete the setup.
 
-1. **Country**: Select the country of your phone number. Supported Countries
-2. **Phone Number**: Enter the phone number on which you want to receive the OTP and click **Request Code**.
-3. **Enter the Code**: Enter the OTP received on your phone and click **Verify**. The OTP is only valid for two minutes, after which you can click ****Resend****.
-4. (Optional)Click **Update MFA** to register another MFA type. After the SMS OTP MFA deprecation announcement, admins and users are prompted with the **Update MFA**option every time they sign in. Zscaler recommends registering another MFA type before SMS OTP is deprecated or click **Skip for now** to continue using SMS OTP MFA until August 07, 2026. The SMS OTP MFA option will no longer be supported after August 07, 2026 for hosted users and admins, and they will be enforced to register another MFA type. To learn more, see [End-of-Support for SMS OTP Authentication in Authentication Service](https://help.zscaler.com/product-usage-terms/end-support-sms-otp-authentication-zidentity). See image.
-
 After clicking **Set Up**, your secondary authenticator is configured as Email OTP. You don't have to verify your email address because it was verified at the beginning of the registration.
 
 The Email OTP option is not enabled by default as it is not recommended for MFA as per [NIST guidelines](https://pages.nist.gov/800-63-FAQ/#q-b11). If you want to enable it, you can raise a [Zscaler Support](https://help.zscaler.com/contact-support) ticket.
@@ -3410,100 +3381,11 @@ To verify:
 2. After the verification is successful, you are redirected to authenticate via the external IdP.
 3. After the IdP authentication is successful, you can configure MFA in Authentication Service.
 
-The following table provides the list of supported countries for SMS OTP:
-
-| Country | ISO Code |
-| --- | --- |
-| Albania | AL |
-| Algeria | DZ |
-| Andorra | AD |
-| Australia | AU |
-| Austria | AT |
-| Bahrain | BH |
-| Bangladesh | BD |
-| Barbados | BB |
-| Brazil | BR |
-| British Indian Ocean Territory | IO |
-| Bulgaria | BG |
-| Cambodia | KH |
-| Colombia | CO |
-| Costa Rica | CR |
-| Côte d'Ivoire (Ivory Coast) | CI |
-| Czech Republic | CZ |
-| Denmark | DK |
-| Egypt | EG |
-| Estonia | EE |
-| Eswatini (Swaziland) | SZ |
-| Finland | FI |
-| France | FR |
-| French Polynesia | PF |
-| Germany | DE |
-| Ghana | GH |
-| Greece | GR |
-| Hong Kong | HK |
-| Hungary | HU |
-| India | IN |
-| Indonesia | ID |
-| Iraq | IQ |
-| Ireland | IE |
-| Israel | IL |
-| Italy | IT |
-| Jamaica | JM |
-| Japan | JP |
-| Jordan | JO |
-| Kazakhstan | KZ |
-| Kenya | KE |
-| Kiribati | KI |
-| Laos | LA |
-| Lithuania | LT |
-| Malaysia | MY |
-| Maldives | MV |
-| Mauritius | MU |
-| Mexico | MX |
-| Moldova | MD |
-| Mongolia | MN |
-| Morocco | MC |
-| Myanmar | MM |
-| Nepal | NP |
-| Netherlands | NL |
-| New Zealand | NZ |
-| Nigeria | NG |
-| Norway | NO |
-| Oman | OM |
-| Pakistan | PK |
-| Panama | PA |
-| Peru | PE |
-| Poland | PL |
-| Portugal | PT |
-| Qatar | QA |
-| Réunion | RE |
-| Romania | RO |
-| Russia | RU |
-| Saudi Arabia | SA |
-| Serbia | RS |
-| Singapore | SG |
-| Slovakia | SK |
-| South Africa | ZA |
-| South Korea | KR |
-| Spain | ES |
-| Sri Lanka | LK |
-| Sweden | SE |
-| Switzerland | CH |
-| Tanzania | TZ |
-| Thailand | TH |
-| Tunisia | TN |
-| Turkey | TR |
-| United Kingdom | GB |
-| United States | US |
-| Uzbekistan | UZ |
-| Vietnam | VN |
-| Zimbabwe | ZW |
-
 [Image: The authentication methods MFA and FIDO2 in a list with their respective toggles]
 
 [Image: A message describing what happens when you disable FIDO2]
 
-[Image: Select the MFA method]
+[Image: Multi-factor Authentication page displaying authentication methods in Authentication Service for external IdP admins]
 
 [Image: Authentication Service Welcome page with blurred Login ID and Remember Me checkbox checked]
 
@@ -3518,19 +3400,17 @@ The following table provides the list of supported countries for SMS OTP:
 [Image: Account Creation Success page without MFA configuration]
 
 [Image: Verify identity before configuring MFA]
-
-[Image: Update MFA option for SMS OTP MFA enrollment]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-06-24T20:24Z","nid":"1499411"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-08-09T23:46Z","nid":"1499411"} -->
 ## Configuring Okta as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-okta-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Okta as an External IdP
-- Last modified: 2026-06-24T20:24Z
+- Last modified: 2026-08-09T23:46Z
 - Summary: How to configure Okta as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Okta as an external Identity Provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Okta as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -4131,13 +4011,6 @@ To set up Okta as an idP for Authentication Service:
 - 2. Configure app integration for Authentication Service in Okta.
 - 3. Provision users for Authentication Service using JIT or SCIM provisioning.
 
-During the IdP-initiated SSO for Authentication Service, tenants using OIDC or SAML protocols are redirected as follows:
-
-- OIDC Protocol
-- SAML Protocol
-
-To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
-
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the Authentication Service Admin Portal instead of Experience Center.
 
 If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
@@ -4156,23 +4029,6 @@ To configure the `zidServiceId` attribute in Okta for SAML protocol:
 8. In the **Value**field, enter `800000000103`. This value is the same for all tenants. See image.
 9. Click **Next**.
 10. On the **Feedback**tab, click **Finish**.
-
-Authentication Service tenants that are enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to Experience Center.
-
-To configure the homepage URL:
-
-1. Go to the Okta Admin console, and go to the OIN app added for Authentication Service.
-2. On the **Sign On** tab: See image.
-  1. Click **Edit**.
-  2. **Redirect URI**: Paste the URI you copied from the Zscaler Admin Console.
-  3. **Initiate Login URI**: Enter the following value as required: `https://console.zscaler.com/?idp_id=<idp_id>&iss=<authentication-service-vanity-tenant-URL>`By default, `idp_id=default`. Replace the default value with the required IdP ID. Replace `<authentication-service-vanity-tenant-URL>` with your tenant's vanity URL. For example, `https://safemarch.zslogin.net`. When replacing `<authentication-service-vanity-tenant-URL>` with your tenant URL, ensure that the protocol string `https://` is included to prevent login failures.
-3. Click **Save**.
-
-Authentication Service tenants that are not enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to the Authentication Service Admin Portal They can click the Experience Center link and go to the Experience Center from the [Authentication Service Portal](https://help.zscaler.com/authentication-service/accessing-and-navigating-zidentity-landing-page).
-
-See image.
-
-If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
 
 1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
 2. Click **Add Primary IdP**(or **Add Secondary IdP**). The **Add Primary Identity Provider**(or **Add Secondary Identity Provider**)drawer appears.
@@ -4535,10 +4391,6 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
 [Image: Adding Authentication Service app integration to Okta with the Add Integration button highlighted]
 
 [Image: Adding Authentication Service app to Okta]
-
-[Image: Authentication Service Portal with highlighted banner at the top.]
-
-[Image: Configuring Login URI in Okta]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4757,13 +4609,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-06-24T20:27Z","nid":"1499471"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-08-09T23:40Z","nid":"1499471"} -->
 ## Configuring PingFederate as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingfederate-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingFederate as an External IdP
-- Last modified: 2026-06-24T20:27Z
+- Last modified: 2026-08-09T23:40Z
 - Summary: How to configure PingFederate as an external IdP for Authentication Service.
 
 This guide provides information on how to configure PingFederate as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure PingFederate as an external IdP to enable SSO to Authentication Service using the Security Assertion Markup Language (SAML) authentication protocol. You can provision users to Authentication Service from PingFederate using System for Cross-domain Identity Management (SCIM) provisioning.
@@ -5397,35 +5249,20 @@ You can provision PingFederate users for Authentication Service using just-in-ti
 
 [Image: Reviewing the Activation & Summary tab in PingFederate]
 
-During the IdP-initiated SSO for Authentication Service, tenants using OIDC or SAML protocols are redirected as follows:
-
-- OIDC Protocol
-- SAML Protocol
-
-To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
-
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the Authentication Service Admin Portal instead of Experience Center.
 
-Authentication Service tenants that are enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to Experience Center.
-
-Authentication Service tenants that are not enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to the Authentication Service Admin Portal. They can click the Experience Center link and go to the Experience Center from the [Authentication Service Portal](https://help.zscaler.com/authentication-service/accessing-and-navigating-zidentity-landing-page).
-
-See image.
-
-If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
-
-[Image: Authentication Service Portal with highlighted banner at the top.]
+To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-06-24T20:25Z","nid":"1499331"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-08-09T23:18Z","nid":"1499331"} -->
 ## Configuring PingOne as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingone-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingOne as an External IdP
-- Last modified: 2026-06-24T20:25Z
+- Last modified: 2026-08-09T23:18Z
 - Summary: This guide provides information on how to configure PingOne as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure PingOne as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -5440,22 +5277,9 @@ Ensure that you have:
 
 ## IdP-Initiated SSO for Authentication Service Tenants Enabled with Experience Center
 
-During the IdP-initiated SSO for Authentication Service, tenants using OIDC or SAML protocols are redirected as follows:
-
-- OIDC Protocol
-- SAML Protocol
-
-To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
-
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the Authentication Service Admin Portal instead of Experience Center.
 
-Authentication Service tenants that are enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to Experience Center.
-
-Authentication Service tenants that are not enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to the Authentication Service Admin Portal . They can click the Experience Center link and go to Experience Center from the [Authentication Service Portal](https://help.zscaler.com/zidentity/accessing-and-navigating-zidentity-landing-page).
-
-See image.
-
-If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
+To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
 
 ## Configuring PingOne as OP for Authentication Service
 
@@ -5725,8 +5549,6 @@ After configuring step-up authentication in Authentication Service and PingOne, 
 [Image: Selecting groups for provisioning in PingOne]
 
 [Image: Enabling a rule for group provisioning in PingOne]
-
-[Image: Authentication Service Landing page with highlighted banner at the top.]
 
 [Image: MFA Policies page with the option to add a new policy highlighted]
 
@@ -6384,13 +6206,13 @@ Private Access emergency access users cannot be selected as test users.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-zscaler-service-admins-authentication-service","lastmod":"2026-07-17T08:52Z","nid":"1499436"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-zscaler-service-admins-authentication-service","lastmod":"2026-08-10T06:05Z","nid":"1499436"} -->
 ## Migrating Zscaler Service Admins to Authentication Service
 
 - Source: https://help.zscaler.com/authentication-service/migrating-zscaler-service-admins-authentication-service
 - Product: Authentication Service
 - Path: Authentication Service Help > Migrating Zscaler Service Admins to Authentication Service
-- Last modified: 2026-07-17T08:52Z
+- Last modified: 2026-08-10T06:05Z
 - Summary: How to migrate admins of various Zscaler services to Authentication Service.
 
 [Watch a video on Authentication Service admin migration](https://fast.wistia.net/embed/iframe/hmlnvqvvvo) (shows legacy UI).
@@ -6417,7 +6239,7 @@ All administrators must use multi-factor authentication (MFA). You can either us
 
 The authentication process changes after the admins are migrated to Authentication Service. After the migration, the credential validation for admins of all Zscaler services is handled by Authentication Service.
 
-To improve security, all admins with credentials hosted at Zscaler must use MFA for admin login. The MFA options supported include security key or biometric, Google Authenticator, email OTP, and SMS OTP.
+To improve security, all admins with credentials hosted at Zscaler must use MFA for admin login. The MFA options supported include security key or biometric, Google Authenticator, and email OTP.
 
 Admins can authenticate in any of the following ways:
 
@@ -6480,7 +6302,7 @@ Authentication Service does not support users with both IdP mapping and password
 
 [Image: Complete migration window]
 
-[Image: Select the MFA method]
+[Image: Selecting the authentication type]
 
 [Image: Email for completing MFA enrollment]
 
@@ -6519,13 +6341,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2025","lastmod":"2026-06-01T00:35Z","nid":"1515736"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2025","lastmod":"2026-08-11T03:03Z","nid":"1515736"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2025
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-06-01T00:35Z
+- Last modified: 2026-08-11T03:03Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2025.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -6533,13 +6355,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-07-22T11:35Z","nid":"1534313"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-08-11T21:06Z","nid":"1534313"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2026
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-22T11:35Z
+- Last modified: 2026-08-11T21:06Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -7726,13 +7548,13 @@ Each Authentication Service user can be assigned to different [service entitleme
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/what-authentication-service","lastmod":"2026-06-30T21:06Z","nid":"1499041"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/what-authentication-service","lastmod":"2026-08-10T05:54Z","nid":"1499041"} -->
 ## What Is Authentication Service?
 
 - Source: https://help.zscaler.com/authentication-service/what-authentication-service
 - Product: Authentication Service
 - Path: Authentication Service Help > What Is Authentication Service?
-- Last modified: 2026-06-30T21:06Z
+- Last modified: 2026-08-10T05:54Z
 - Summary: Information on Authentication Service, its key features and how it works as an identity and access management (IAM) service.
 
 ZIdentity has changed to Authentication Service. This name change better reflects the nature of the identity service at Zscaler.
@@ -7743,7 +7565,7 @@ Authentication Service is a unified identity and authentication service for Zsca
 
 With Authentication Service, users can securely log in once with a single authentication into Zscaler and seamlessly access the Zscaler services used by their organization, without worrying about remembering or managing multiple passwords.
 
-Authentication Service supports multi-factor authentication (MFA) for enhanced security, and it is required by default. Zscaler strongly recommends enabling MFA. You can authenticate users with a password, password and a second factor such as SMS one-time password (OTP), email OTP, Google Authenticator (TOTP), and fast identity online (FIDO) authentication.
+Authentication Service supports multi-factor authentication (MFA) for enhanced security, and it is required by default. Zscaler strongly recommends enabling MFA. You can authenticate users with a password, password and a second factor such as Google Authenticator (TOTP), and Fast IDentity Online (FIDO) authentication.
 
 You can use Authentication Service to enroll users to your subscribed Zscaler services using the Authentication Service user database. This mitigates the time-consuming effort of creating a separate user database in each Zscaler service to provision users.
 
@@ -10335,13 +10157,13 @@ To enable Workflow Automation for an application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/managing-queued-contracts","lastmod":"2025-06-12T23:55Z","nid":"1506986"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/managing-queued-contracts","lastmod":"2026-08-12T22:26Z","nid":"1506986"} -->
 ## Managing Queued Contracts
 
 - Source: https://help.zscaler.com/business-insights/managing-queued-contracts
 - Product: Business Insights
 - Path: Business Insights Help > Application Insights > Managing Queued Contracts
-- Last modified: 2025-06-12T23:55Z
+- Last modified: 2026-08-12T22:26Z
 - Summary: How to edit the queued contracts in the Business Insights Admin Portal.
 
 Whenever the uploaded contract file is not processed successfully, the status field displays **Error** on the [Processing Queue](https://help.zscaler.com/business-insights/processing-queue-contracts) page.
@@ -12243,13 +12065,13 @@ To learn more, see [Understanding Business Insights Architecture](https://help.z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/authentication-service-logs","lastmod":"2026-06-26T09:35Z","nid":"1541005"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/authentication-service-logs","lastmod":"2026-08-11T12:05Z","nid":"1541005"} -->
 ## Authentication Service Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/authentication-service-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Authentication Service Logs
-- Last modified: 2026-06-26T09:35Z
+- Last modified: 2026-08-11T12:05Z
 - Summary: Information about Authentication Service logs.
 
 Zscaler Authentication Service provides centralized authentication and identity management across Zscaler products. By using Zscaler products, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs. For Authentication Service, Audit Logs are defined as follows:
@@ -13282,6 +13104,24 @@ By accessing Zscaler Experience Center, you provide Zscaler the right to process
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-health360-logs","lastmod":"2026-08-10T11:11Z","nid":"1538480"} -->
+## Zscaler Health360 Logs
+
+- Source: https://help.zscaler.com/logs-fair-use/zscaler-health360-logs
+- Product: Logs & Fair Use
+- Path: Logs & Fair Use > Logs & Data > Zscaler Health360 Logs
+- Last modified: 2026-08-10T11:11Z
+- Summary: Information about Zscaler Health360 Logs.
+
+By accessing Zscaler Health360, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs. For Health360, *logs* are defined as follows:
+
+- **Definition:** Product usage data, policy and configuration data, and product health data that are processed to generate insights regarding your use of Zscaler products.
+- **Retention:** Zscaler retains general product insights data for a rolling period of 30 days and executive insights data for a rolling period of 12 months during the subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to the applicable retention period.
+- **Storage:** Health360 Logs are stored in the European Union.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-identity-protection-licensing-and-fair-use","lastmod":"2026-06-26T09:48Z","nid":"1541073"} -->
 ## Zscaler Identity Protection Licensing and Fair Use
 
@@ -13651,13 +13491,13 @@ During the deployment process, you can choose to have the logs stored in either 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-zero-trust-browser-logs","lastmod":"2026-07-08T13:34Z","nid":"1539031"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-zero-trust-browser-logs","lastmod":"2026-08-12T12:53Z","nid":"1539031"} -->
 ## Zscaler Zero Trust Browser Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-zero-trust-browser-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler Zero Trust Browser Logs
-- Last modified: 2026-07-08T13:34Z
+- Last modified: 2026-08-12T12:53Z
 - Summary: Information about Zscaler Zero Trust Browser Logs.
 
 In order to provide the Zscaler Zero Trust Browser service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
@@ -13674,7 +13514,7 @@ To enhance support and improve system performance analysis, logs may also contai
 
 The Agent Logs and Workspaces Logs are stored on your users’ local machines and are only accessible by your users and administrators. These logs are not stored in Zscaler clouds. In case of any specific failure that you want to report to Zscaler, Zscaler will process, store, and use these logs for debugging purposes.
 
-Zero Trust Extension Tenant Dashboard Logs are retained by Zscaler for the term of the subscription. When the subscription term ends or expires, the logs are deleted by Zscaler after one month.
+Zero Trust Extension Tenant Dashboard Logs are retained by Zscaler for a rolling period of six months during the term of subscription. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
 
 During the deployment process, you can choose to have the Zero Trust Extension Tenant Dashboard Logs stored in the United States, the European Union, Singapore, or India.
 <!-- /ZS-ARTICLE -->
@@ -15634,13 +15474,13 @@ The newly created profile is displayed on the **Profiles**page. The Adaptive Acc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/adding-your-company-logo","lastmod":"2026-04-27T21:06Z","nid":"1488046"} -->
+<!-- ZS-ARTICLE {"url":"/unified/adding-your-company-logo","lastmod":"2026-08-12T12:20Z","nid":"1488046"} -->
 ## Adding Your Company Logo
 
 - Source: https://help.zscaler.com/unified/adding-your-company-logo
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Adding Your Company Logo
-- Last modified: 2026-04-27T21:06Z
+- Last modified: 2026-08-12T12:20Z
 - Summary: How to add your company logo to banners, user notifications, and emails sent from Zscaler.
 
 You can customize the Zscaler Admin Console to include your logo in application banners, notifications, and emails sent to your users regarding security issues.
@@ -15648,14 +15488,19 @@ You can customize the Zscaler Admin Console to include your logo in application 
 To add a logo during set up:
 
 1. On the **Miscellaneous** page, under **Company Logo**, click **Upload File**.
-2. Upload the logo from your local directory. Zscaler supports logos with the following specifications:
+
+See image.
+
+1. Upload the logo from your local directory. Zscaler supports logos with the following specifications:
   - Dimensions of 300 x 220 pixels or less
   - Size of 10 KB or less
   - PNG, JPG, or GIF file types
-3. Click **Save**.
-4. Click **Next**to [review and activate policies](https://help.zscaler.com/unified/review-and-activate-policies) and complete your Zscaler Admin Console setup.
+2. Click **Save**.
+3. Click **Next**to [review and activate policies](https://help.zscaler.com/unified/review-and-activate-policies) and complete your Zscaler Admin Console setup.
 
 If you need to edit the logo later, you can go to **Administration** > **Account Management** > **Branding**. To learn more, see [Customizing Branding](https://help.zscaler.com/unified/customizing-branding).
+
+[Image: Adding a company logo during onboarding]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16239,13 +16084,13 @@ The Internet & SaaS service automatically creates a profile for your organizatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-custom-dashboards","lastmod":"2026-08-07T02:10Z","nid":"1541899"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-custom-dashboards","lastmod":"2026-08-12T03:06Z","nid":"1541899"} -->
 ## Configuring Custom Dashboards
 
 - Source: https://help.zscaler.com/unified/configuring-custom-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Configuring Custom Dashboards
-- Last modified: 2026-08-07T02:10Z
+- Last modified: 2026-08-12T03:06Z
 - Summary: How to configure custom dashboards and add widgets to the dashboard.
 
 You can create a custom dashboard according to your organization's requirements in the Security Operations Platform (SecOps Platform). These dashboards provide the flexibility to add and customize various widgets as required. You must add at least one widget to configure a new custom dashboard. You can also use predefined dashboard templates to create a custom dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).
@@ -16332,7 +16177,9 @@ To sort and reorder the data:
 
 To apply condition filters:
 
-1. **Filter Evaluation Time**: If you selected **Historical**for the **Timeframe**setting, this drop-down menu appears. Select **Current State** to filter data by its current state, or select **Historical State** to filter data by the time of its query.
+1. **Filter Evaluation Time**: If you selected **Historical**for the **Timeframe**setting, this drop-down menu appears. Select an evaluation time to specify how the filter applies to the data. To learn more, see [Understanding Historical Data](https://help.zscaler.com/unified/understanding-historical-data). See image. The selected date range and filter evaluation time appear when hovering over the widget's historical icon. See image.
+  - **Current State**: Evaluates filter conditions based on the current, most recent state of the data. For example, if the filter **Asset Owner Equals DevOps Team**is applied, the widget displays data for assets currently owned by the DevOps team, even if those assets weren't owned by the DevOps team during the selected date range.
+  - **Historical State**: Evaluates the filter conditions for each time bucket within the selected date range, based on the data's state at that specific point in time, even if it doesn't currently meet the condition. For example, when filtering **Asset Owner Equals DevOps Team**on a widget displaying **Total Critical Assets**for Jan 15 to Dec 15, broken down by week, the filter checks ownership for each week within the date range. For each week, it displays only the critical assets owned by the DevOps team during that week.
 2. **Select Field**: Select the field you want to filter from the drop-down menu.
 3. **Select Operator**: Select an operator. The available operators vary depending on the selected field type.
 4. **Type Value**: Enter the field value against which the filter is evaluated.
@@ -16340,6 +16187,10 @@ To apply condition filters:
 Use the operators (**AND**, **OR**) and repeat this process to add multiple conditions filters to the widget. To remove a filter condition, click the **Delete** icon located to the right of the condition. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
 
 See image.
+
+[Image: Filter Evaluation Time drop-down menu]
+
+[Image: Hovering over the Historical icon in a widget]
 
 [Image: Filters conditions]
 
@@ -16380,4 +16231,68 @@ After the drill-down hierarchy is configured, you can click the widget to drill 
 [Image: Interactions tab]
 
 [Image: All Dashboards page in Security Operations platform]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-07-30T11:20Z","nid":"1541704"} -->
+## Configuring Entity Unification
+
+- Source: https://help.zscaler.com/unified/configuring-entity-unification
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Entity Unification
+- Last modified: 2026-07-30T11:20Z
+- Summary: How to configure entity unification rules to merge duplicate records.
+
+Ingesting data from multiple sources often leads to duplicate records that represent the same real-world entity. As part of the broader data unification process, entity unification focuses on data normalization by identifying and merging these duplicates to establish a single, trusted source of truth. You can create entity unification rules that specify how records are recognized as duplicates and the conditions under which they are merged. This step is especially critical for asset deduplication, and it serves as a foundation for consistent and reliable data across systems. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
+
+## Configuring Entity Unification Rule Sets
+
+An entity's unification rule set is a collection of individual rules designed to cluster duplicate entity records into a single merged entity based on specific conditions according to your organization's business logic. Within an entity unification rule set, you create the individual rules ("if-then" logic statements) that define how the source data should be clustered into a single entity. For example, you can create a rule to merge all Windows assets that share the same asset hostname into a single asset.
+
+For access to entity unification, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-managing-role-permissions) and [Assigning Roles to Users](https://help.zscaler.com/unified/assigning-roles-users).
+See image.
+
+[Image: The Model Management resource with all permissions enabled]
+
+To create a unification rule set:
+
+1. In the SecOps Platform Admin Portal, go to **Configure**> **Data Unification**> **Entities**. See image.
+2. Locate the entity you want to create the unification rule set for, and click **Merge**. See image. The **Merge**page appears.
+3. On the **Merge** page, click **New Rule**. The **Add Merge Rule** drawer opens.
+4. In the **Add Merge Rule** drawer:
+  - **Name**: Enter a name for the rule.
+  - **If**: Define the rule condition that determines which records the rule should apply to. See image.
+    1. Select a field from the drop-down menu on which the condition should be based. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. For example, when creating rules for the **Asset** entity, available fields include **Asset** fields (e.g., **Asset Name**, **Asset ID**), and fields with a relation to the **Asset** entity (e.g., **Application ID**, **Application Name**).
+    2. Select an operator from the drop-down menu. The available operators vary depending on the field type, indicated to the left of the field name.
+    3. Enter the value to which the rule should apply (e.g., `Windows`).
+    4. (Optional) Use **AND**/**OR** logic to define compound rules:
+      - **AND** merges entities only if they meet all conditions in the rule.
+      - **OR** merges entities if they meet any of the conditions in the rule.
+  - **Then**: Select at least one field according to which entities that meet your conditions should be merged. All entities with the same value are merged into a single entity. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. When merging entities based on multiple fields, the fields are evaluated using a logical **AND**relationship. This means that entities are merged only if the values in each of the specified fields match (e.g., the values in the **Asset ID** field must match, and the values in the **Asset Type** field must match for the record to merge). See image.
+  - (Recommended) Select the **Exclude Nulls from Merge** checkbox to avoid merging entities with null values in the defined fields.
+  - Click **Save** to save the rule. Repeat the process to add as many rules as necessary for the entity.
+5. Save the rule set to complete the process in one of the following ways: See image. A rule set that includes at least one conditional merging rule must also include a fallback rule, otherwise the rule set cannot be saved. The fallback rule specifies a single field to use for merging entities without applying any conditions. It ensures a default merging method is always in place, preventing data loss or conflicts.
+  - Click **Save** to save the rule set. Rules will apply the next time data is ingested into your account.
+  - From the **Save** drop-down menu, click **Save & Run** to save the rule set and immediately apply the rules to the data in your account.
+
+Your saved rule sets appear on the Data Unification - Entities page, where you can view, edit, and manage them as needed. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification).
+
+[Image: How to access the entities page]
+
+[Image: Merge button highlighted on entities page]
+
+## When Unification Rules Run
+
+Unification rules run when data related to the entity is ingested, directly processed, or indirectly impacted by a different processed entity. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
+
+## Rule Order in Entity Unification Rule Set
+
+The rules' order of appearance doesn't affect the order of their application. Each data point is evaluated against all rules, even if one rule has already been satisfied.
+
+[Image: Example if conditions in merge rule]
+
+[Image: Example then statements in merge rule]
+
+[Image: Click Save or Save and Run for your ruleset]
 <!-- /ZS-ARTICLE -->
