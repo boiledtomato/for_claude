@@ -26,18 +26,18 @@
   },
   "community_other_part1.md": {
    "rel": "other/community_other_part1.md",
-   "sha256": "1b3e3d43136af265e5d5a51e9f064b9c2ca7ba4bab7a8c8590c112e2c2fdd32a",
-   "source_id": "d85ba56f-ecb7-4d84-b353-4d2b6ea41003"
+   "sha256": "c44fa6600aa2e755090009841ce53e7bf04acc486b60e70f577d5acf5daf5e75",
+   "source_id": "ebfb5f54-ebe2-4669-9ec5-920adcbd3f3d"
   },
   "community_platform_part1.md": {
    "rel": "platform/community_platform_part1.md",
-   "sha256": "9b8fe546ae9c51cace64d0e7809ac0f455482831ff64441904751460d1b5b845",
-   "source_id": "acd5d1be-400c-4cf4-ba4e-e4970feacdaa"
+   "sha256": "69608ed1f3861ed0882569ac1caff092299a3e44ff44d7c84610e235b06f912f",
+   "source_id": "8855ebcb-a4c9-49ae-a6d5-a53ca97203b5"
   },
   "community_zcc_part1.md": {
    "rel": "zcc/community_zcc_part1.md",
-   "sha256": "51b691ce0902701ccadacadc2d15260cd7180075a32c2b2656621cecdbf7d91b",
-   "source_id": "7c93552f-f9bb-4365-aff6-e3307d61ec0a"
+   "sha256": "f73105aec26f26ad041257847754e29a1480cb642516ecf76be1b763a9534502",
+   "source_id": "c306af21-442e-421f-9ea0-3a0e5bb75557"
   },
   "community_zdx_part1.md": {
    "rel": "zdx/community_zdx_part1.md",
@@ -46,8 +46,8 @@
   },
   "community_zia_part1.md": {
    "rel": "zia/community_zia_part1.md",
-   "sha256": "284cb655f11d7d11346368238c79d6cd769b1c97db3d83ed409b2ba1a3808191",
-   "source_id": "6e0f3ca8-be89-4534-8a95-eabc3f05a8b1"
+   "sha256": "c903720077d852d4e3e107199ff259285c99844fee29e961196ebb658e43839a",
+   "source_id": "9634c23f-6f0f-4c2a-b538-39e3e42b6fd5"
   },
   "community_zpa_part1.md": {
    "rel": "zpa/community_zpa_part1.md",
@@ -55,5 +55,5 @@
    "source_id": "818305b9-8a4e-4e10-954a-0523af640aa9"
   }
  },
- "synced_at": "2026-08-10T03:11:14Z"
+ "synced_at": "2026-08-17T02:19:24Z"
 }
