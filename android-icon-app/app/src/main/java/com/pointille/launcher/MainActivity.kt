@@ -1,4 +1,4 @@
-package com.impasto.launcher
+package com.pointille.launcher
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,6 +6,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -13,10 +14,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.foundation.layout.Box
-import com.impasto.launcher.data.AppRepository
-import com.impasto.launcher.data.LayoutStore
-import com.impasto.launcher.ui.HomeScreen
+import com.pointille.launcher.data.AppRepository
+import com.pointille.launcher.data.LayoutStore
+import com.pointille.launcher.ui.HomeScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -37,11 +37,7 @@ class MainActivity : ComponentActivity() {
                 Box(
                     Modifier
                         .fillMaxSize()
-                        .background(
-                            Brush.radialGradient(
-                                listOf(Color(0xFF1C2429), Color(0xFF0D1215)),
-                            )
-                        )
+                        .background(Brush.radialGradient(listOf(Color(0xFF1C2429), Color(0xFF0D1215))))
                 ) {
                     HomeScreen(repo, store)
                 }

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.impasto.launcher"
+    namespace = "com.pointille.launcher"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.impasto.launcher"
+        applicationId = "com.pointille.launcher"
         minSdk = 26                 // adaptive icons, which the painter unpacks by layer
         targetSdk = 35
         versionCode = 1

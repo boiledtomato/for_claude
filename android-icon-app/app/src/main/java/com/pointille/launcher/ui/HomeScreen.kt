@@ -1,11 +1,17 @@
-package com.impasto.launcher.ui
+package com.pointille.launcher.ui
 
 import android.content.Context
-import android.graphics.Bitmap
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.detectVerticalDragGestures
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -15,6 +21,10 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -27,6 +37,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
@@ -42,21 +53,20 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.material3.Text
-import androidx.compose.foundation.Image
-import com.impasto.launcher.data.AppEntry
-import com.impasto.launcher.data.AppRepository
-import com.impasto.launcher.data.LayoutStore
-import com.impasto.launcher.data.Salon
-import com.impasto.launcher.data.Slot
-import com.impasto.launcher.paint.OilPainter
+import com.pointille.launcher.data.AppEntry
+import com.pointille.launcher.data.AppRepository
+import com.pointille.launcher.data.LayoutStore
+import com.pointille.launcher.data.Salon
+import com.pointille.launcher.data.Slot
+import com.pointille.launcher.paint.IconSource
+import com.pointille.launcher.paint.Pointillist
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.random.Random
 
-/** A finished painting: the bitmap, and the colours its brush is loaded with. */
+/** A finished panel: the bitmap, and the colours its brush is loaded with. */
 class Painting(val image: ImageBitmap, val colors: List<Color>)
 
 /** An app on its way open, held while the screen paints over. */
@@ -64,33 +74,61 @@ private class Launch(val entry: AppEntry, val painting: Painting)
 
 private const val WIPE_MS = 360
 private const val WIPE_HOLD_MS = 300
+private val LABEL = Color(0xFFECE6D9)
+
+/**
+ * Panels, painted off the main thread and kept for as long as the launcher
+ * lives. Painting is idempotent and disk-cached, so asking twice is cheap; what
+ * this avoids is asking on the main thread.
+ */
+private class Studio(private val ctx: Context, private val repo: AppRepository) {
+    val panels = mutableStateMapOf<String, Painting>()
+    private val pending = HashSet<String>()
+
+    suspend fun paint(entry: AppEntry) {
+        if (panels.containsKey(entry.packageName)) return
+        if (!pending.add(entry.packageName)) return
+        val p = withContext(Dispatchers.Default) {
+            val bmp = IconSource.painted(ctx, entry.cacheKey, entry.packageName, repo.icon(entry), entry.seed)
+            Painting(bmp.asImageBitmap(), Pointillist.brushColors(bmp).map { Color(it) })
+        }
+        panels[entry.packageName] = p
+    }
+}
 
 @Composable
 fun HomeScreen(repo: AppRepository, store: LayoutStore) {
     val ctx = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val studio = remember { Studio(ctx, repo) }
 
+    var all by remember { mutableStateOf<List<AppEntry>>(emptyList()) }
     var wall by remember { mutableStateOf<List<AppEntry>>(emptyList()) }
     var dock by remember { mutableStateOf<List<AppEntry>>(emptyList()) }
-    val paintings = remember { mutableStateMapOf<String, Painting>() }
-
     var launching by remember { mutableStateOf<Launch?>(null) }
+    var drawerOpen by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         val apps = repo.installedApps()
+        all = apps
         val byPackage = apps.associateBy { it.packageName }
         val (wallPkgs, dockPkgs) = store.load() ?: store.seed(apps).also { store.save(it.first, it.second) }
         wall = wallPkgs.mapNotNull(byPackage::get)
         dock = dockPkgs.mapNotNull(byPackage::get)
-
-        // paint on a background thread, one at a time, so the wall fills in
-        // rather than blocking on the whole set
-        (wall + dock).forEachIndexed { i, entry ->
-            val shape = (Salon.WALL + Salon.DOCK).getOrNull(i)?.shape ?: OilPainter.SHAPE_SQUIRCLE
-            paint(ctx, repo, entry, shape)?.let { paintings[entry.packageName] = it }
-        }
+        // the wall fills in one panel at a time rather than blocking on the set
+        (wall + dock).forEach { studio.paint(it) }
     }
 
-    Box(Modifier.fillMaxSize()) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .pointerInput(Unit) {
+                detectVerticalDragGestures { _, dy ->
+                    if (dy < -18f) drawerOpen = true
+                    if (dy > 18f) drawerOpen = false
+                }
+            }
+    ) {
         Column(Modifier.fillMaxSize()) {
             BoxWithConstraints(
                 Modifier
@@ -98,23 +136,26 @@ fun HomeScreen(repo: AppRepository, store: LayoutStore) {
                     .fillMaxWidth()
                     .padding(horizontal = 10.dp, vertical = 24.dp)
             ) {
-                val wallW = maxWidth
-                val wallH = maxHeight
+                val w = maxWidth
+                val h = maxHeight
                 wall.forEachIndexed { i, entry ->
                     val slot = Salon.WALL.getOrNull(i) ?: return@forEachIndexed
-                    PaintingSlot(
-                        entry = entry,
-                        painting = paintings[entry.packageName],
-                        slot = slot,
-                        index = i,
-                        wallW = wallW,
-                        wallH = wallH,
-                        showLabel = true,
-                    ) { p -> launching = Launch(entry, p) }
+                    Panel(entry, studio.panels[entry.packageName], slot, i, w, h, showLabel = true) { p ->
+                        launching = Launch(entry, p)
+                    }
                 }
             }
+            PaletteDock(dock, studio.panels) { entry, p -> launching = Launch(entry, p) }
+        }
 
-            PaletteDock(dock, paintings) { entry, p -> launching = Launch(entry, p) }
+        AnimatedVisibility(
+            visible = drawerOpen,
+            enter = slideInVertically { it },
+            exit = slideOutVertically { it },
+        ) {
+            Drawer(all, studio, scope) { entry ->
+                studio.panels[entry.packageName]?.let { launching = Launch(entry, it) }
+            }
         }
 
         launching?.let { l ->
@@ -124,25 +165,16 @@ fun HomeScreen(repo: AppRepository, store: LayoutStore) {
                 // only once the screen is covered, so the stroke and the wipe
                 // both get seen before the app takes the window
                 onCovered = { runCatching { ctx.startActivity(l.entry.launchIntent()) } },
-                onDone = { launching = null },
+                onDone = { launching = null; drawerOpen = false },
             )
         }
     }
 }
 
-private suspend fun paint(
-    ctx: Context,
-    repo: AppRepository,
-    entry: AppEntry,
-    shape: Float,
-): Painting? = withContext(Dispatchers.Default) {
-    val icon = repo.icon(entry) ?: return@withContext null
-    val bmp: Bitmap = OilPainter.paint(ctx, entry.cacheKey, icon, entry.seed, shape)
-    Painting(bmp.asImageBitmap(), OilPainter.brushColors(bmp).map { Color(it) })
-}
+// -------------------------------------------------------------------- panels
 
 @Composable
-private fun PaintingSlot(
+private fun Panel(
     entry: AppEntry,
     painting: Painting?,
     slot: Slot,
@@ -153,60 +185,67 @@ private fun PaintingSlot(
     onOpen: (Painting) -> Unit,
 ) {
     val side = wallW * slot.size
-    val scope = rememberCoroutineScope()
-    var strokes by remember { mutableStateOf(0) }
-
     Box(
         Modifier
             .offset(x = wallW * slot.x - side / 2, y = wallH * slot.y - side / 2)
             .width(side)
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Box(
-                Modifier
-                    .size(side)
-                    .rotate(slot.rotation(index))
-                    .pointerInput(entry.packageName, painting) {
-                        detectTapGestures(
-                            onPress = {
-                                strokes++                 // the brush runs on touch down
-                                tryAwaitRelease()
-                            },
-                            onTap = {
-                                val p = painting ?: return@detectTapGestures
-                                scope.launch {
-                                    delay(STROKE_MS.toLong())   // let the stroke finish first
-                                    onOpen(p)
-                                }
-                            },
-                        )
-                    }
-            ) {
-                painting?.let {
-                    Image(
-                        bitmap = it.image,
-                        contentDescription = entry.label,
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Fit,
-                    )
-                    BrushStroke(
-                        colors = it.colors,
-                        trigger = strokes,
-                        modifier = Modifier.fillMaxSize(),
+        PanelBody(entry, painting, side, slot.rotation(index), showLabel, onOpen)
+    }
+}
+
+@Composable
+private fun PanelBody(
+    entry: AppEntry,
+    painting: Painting?,
+    side: Dp,
+    rotation: Float,
+    showLabel: Boolean,
+    onOpen: (Painting) -> Unit,
+) {
+    val scope = rememberCoroutineScope()
+    var strokes by remember(entry.packageName) { mutableStateOf(0) }
+
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Box(
+            Modifier
+                .size(side)
+                .rotate(rotation)
+                .pointerInput(entry.packageName, painting) {
+                    detectTapGestures(
+                        onPress = {
+                            strokes++                       // the brush runs on touch down
+                            tryAwaitRelease()
+                        },
+                        onTap = {
+                            val p = painting ?: return@detectTapGestures
+                            scope.launch {
+                                delay(STROKE_MS.toLong())   // let the stroke finish first
+                                onOpen(p)
+                            }
+                        },
                     )
                 }
-            }
-            if (showLabel) {
-                Text(
-                    text = entry.label,
-                    color = Color(0xFFECE6D9).copy(alpha = 0.68f),
-                    fontSize = 9.5.sp,
-                    letterSpacing = 0.1.sp,
-                    maxLines = 1,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(top = 5.dp),
+        ) {
+            painting?.let {
+                Image(
+                    bitmap = it.image,
+                    contentDescription = entry.label,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Fit,
                 )
+                BrushStroke(it.colors, strokes, Modifier.fillMaxSize())
             }
+        }
+        if (showLabel) {
+            Text(
+                text = entry.label,
+                color = LABEL.copy(alpha = 0.68f),
+                fontSize = 9.5.sp,
+                maxLines = 1,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(top = 5.dp),
+            )
         }
     }
 }
@@ -215,7 +254,7 @@ private fun PaintingSlot(
 @Composable
 private fun PaletteDock(
     dock: List<AppEntry>,
-    paintings: Map<String, Painting>,
+    panels: Map<String, Painting>,
     onOpen: (AppEntry, Painting) -> Unit,
 ) {
     BoxWithConstraints(
@@ -227,21 +266,14 @@ private fun PaletteDock(
         val boxW = maxWidth
         val boxH = boxW * (132f / 340f)
 
-        Canvas(Modifier.size(width = boxW, height = boxH)) {
+        Canvas(Modifier.size(boxW, boxH)) {
             drawPath(palettePath(size), Color(0xFF44392B).copy(alpha = 0.55f))
         }
-
         dock.forEachIndexed { i, entry ->
             val slot = Salon.DOCK.getOrNull(i) ?: return@forEachIndexed
-            PaintingSlot(
-                entry = entry,
-                painting = paintings[entry.packageName],
-                slot = slot,
-                index = Salon.WALL.size + i,
-                wallW = boxW,
-                wallH = boxH,
-                showLabel = false,
-            ) { p -> onOpen(entry, p) }
+            Panel(entry, panels[entry.packageName], slot, Salon.WALL.size + i, boxW, boxH, showLabel = false) { p ->
+                onOpen(entry, p)
+            }
         }
     }
 }
@@ -261,14 +293,54 @@ private fun palettePath(size: Size): Path {
         cubicTo(x(316f), y(102f), x(250f), y(128f), x(170f), y(128f))
         cubicTo(x(90f), y(128f), x(24f), y(102f), x(24f), y(60f))
         close()
-        addOval(
-            androidx.compose.ui.geometry.Rect(
-                Offset(x(66f), y(92f)),
-                radius = minOf(x(15f), y(15f)),
-            )
-        )
+        addOval(Rect(Offset(x(66f), y(92f)), minOf(x(15f), y(15f))))
     }
 }
+
+// -------------------------------------------------------------------- drawer
+
+/**
+ * Everything the wall does not hold. Panels here are painted only as they
+ * scroll into view — a phone with 150 apps would otherwise spend a minute
+ * painting on first open.
+ */
+@Composable
+private fun Drawer(
+    apps: List<AppEntry>,
+    studio: Studio,
+    scope: kotlinx.coroutines.CoroutineScope,
+    onOpen: (AppEntry) -> Unit,
+) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(Color(0xE60D1215))
+    ) {
+        LazyVerticalGrid(
+            columns = GridCells.Adaptive(minSize = 88.dp),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(20.dp),
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
+            verticalArrangement = Arrangement.spacedBy(18.dp),
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            items(apps, key = { it.packageName }) { entry ->
+                LaunchedEffect(entry.packageName) { studio.paint(entry) }
+                BoxWithConstraints {
+                    PanelBody(
+                        entry = entry,
+                        painting = studio.panels[entry.packageName],
+                        side = maxWidth,
+                        rotation = ((entry.seed % 9) - 4) * 0.5f,
+                        showLabel = true,
+                        onOpen = { onOpen(entry) },
+                    )
+                }
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------- launch wipe
 
 /**
  * The screen is painted over in the opened app's own colours: sixteen broad
@@ -282,34 +354,33 @@ private fun LaunchWipe(
     onDone: () -> Unit,
 ) {
     val t = remember { Animatable(0f) }
-    val sweeps = remember(painting) { Sweep.build(painting.colors) }
+    val sweeps = remember(painting) { WipeBand.build(painting.colors) }
     var showLabel by remember { mutableStateOf(false) }
 
     LaunchedEffect(painting) {
         t.animateTo(1f, tween(WIPE_MS))
         showLabel = true
         onCovered()
-        // the app now owns the window; drop the overlay so coming home shows
+        // the app owns the window now; drop the overlay so coming home shows
         // the wall again rather than a screen still full of paint
         delay(WIPE_HOLD_MS.toLong())
         onDone()
     }
 
     Box(Modifier.fillMaxSize()) {
-        Canvas(Modifier.fillMaxSize()) { drawSweeps(sweeps, t.value) }
+        Canvas(Modifier.fillMaxSize()) { drawWipe(sweeps, t.value) }
         if (showLabel) {
             Text(
                 text = label,
                 color = Color(0xFFF6F1E4),
                 fontSize = 20.sp,
-                letterSpacing = 4.sp,
                 modifier = Modifier.align(Alignment.Center),
             )
         }
     }
 }
 
-private class Sweep(
+private class WipeBand(
     val yFrac: Float,
     val slope: Float,
     val lag: Float,
@@ -318,16 +389,16 @@ private class Sweep(
     val tips: FloatArray,
 ) {
     companion object {
-        const val BANDS = 16
+        const val COUNT = 16
 
-        fun build(colors: List<Color>): List<Sweep> {
+        fun build(colors: List<Color>): List<WipeBand> {
             val pal = colors.ifEmpty { listOf(Color(0xFFE6DFCE)) }
             val rnd = Random(29)
-            return (0 until BANDS).map { i ->
-                Sweep(
-                    yFrac = (i + 0.5f) / BANDS + (rnd.nextFloat() - 0.5f) * 0.3f / BANDS,
+            return (0 until COUNT).map { i ->
+                WipeBand(
+                    yFrac = (i + 0.5f) / COUNT + (rnd.nextFloat() - 0.5f) * 0.3f / COUNT,
                     slope = (rnd.nextFloat() - 0.5f) * 0.07f,
-                    lag = (i.toFloat() / BANDS) * 0.34f + rnd.nextFloat() * 0.13f,
+                    lag = (i.toFloat() / COUNT) * 0.34f + rnd.nextFloat() * 0.13f,
                     color = pal[(i * 5 + rnd.nextInt(pal.size)) % pal.size],
                     over = 1f + rnd.nextFloat() * 0.3f,
                     tips = FloatArray(4) { rnd.nextFloat() },
@@ -337,12 +408,12 @@ private class Sweep(
     }
 }
 
-private fun DrawScope.drawSweeps(sweeps: List<Sweep>, t: Float) {
+private fun DrawScope.drawWipe(bands: List<WipeBand>, t: Float) {
     if (t <= 0f) return
     val w = size.width
-    val bh = size.height / Sweep.BANDS
+    val bh = size.height / WipeBand.COUNT
 
-    for (s in sweeps) {
+    for (s in bands) {
         var k = ((t - s.lag) / (1f - s.lag).coerceAtLeast(0.0001f)).coerceIn(0f, 1f)
         k = k * k * (3f - 2f * k)
         val len = k * w * 1.3f

@@ -1,4 +1,4 @@
-package com.impasto.launcher.data
+package com.pointille.launcher.data
 
 import android.content.ComponentName
 import android.content.Context
@@ -12,9 +12,9 @@ data class AppEntry(
     val packageName: String,
     val activityName: String,
     val label: String,
-    /** Stable per-app value, so the painter's noise is the same on every run. */
+    /** Stable per-app value, so a panel is painted the same way on every run. */
     val seed: Int,
-    /** Cache key — bumping with the app's version repaints on update, nothing else does. */
+    /** Cache key — bumping with the app's version repaints on update, nothing else. */
     val cacheKey: String,
 ) {
     val component: ComponentName get() = ComponentName(packageName, activityName)
@@ -33,14 +33,13 @@ class AppRepository(private val ctx: Context) {
         val query = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)
         pm.queryIntentActivities(query, 0)
             .asSequence()
-            .filter { it.activityInfo.packageName != ctx.packageName }   // don't list ourselves
+            .filter { it.activityInfo.packageName != ctx.packageName }   // never list ourselves
             .map { info ->
                 val pkg = info.activityInfo.packageName
-                val label = info.loadLabel(pm).toString()
                 AppEntry(
                     packageName = pkg,
                     activityName = info.activityInfo.name,
-                    label = label,
+                    label = info.loadLabel(pm).toString(),
                     seed = pkg.hashCode() and 0x7FFFFFFF,
                     cacheKey = "$pkg@${versionOf(pm, pkg)}",
                 )
@@ -57,8 +56,6 @@ class AppRepository(private val ctx: Context) {
     }
 
     private fun versionOf(pm: PackageManager, pkg: String): Long = runCatching {
-        val info = pm.getPackageInfo(pkg, 0)
-        if (android.os.Build.VERSION.SDK_INT >= 28) info.longVersionCode
-        else @Suppress("DEPRECATION") info.versionCode.toLong()
+        pm.getPackageInfo(pkg, 0).longVersionCode
     }.getOrDefault(0L)
 }
