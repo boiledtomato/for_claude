@@ -91,33 +91,43 @@ app/src/main/java/com/pointille/launcher/
 
 ### 検証状況
 
-この環境に Android SDK は無いので Gradle ビルドは通せませんが、`android.jar`
-(API 35)、kotlinx-coroutines、Compose 1.7.6 / material3 1.3.1 /
-activity-compose 1.9.3 を実際に取得して kotlinc 2.0.21 で型検査してあります。
+**ビルド成功。`app-debug.apk` (8.8MB) が生成できています。**
 
-| | 状態 |
-|---|---|
-| `paint/` `data/` | **完全にコンパイル成功**（フロントエンド＋コード生成） |
-| `ui/` `MainActivity.kt` | **型検査は成功**。Composable のコード生成のみ、この環境では Compose コンパイラプラグインを登録できず未実行 |
+この環境には Android SDK が入っていませんが、必要な部品を取得して組み立てたところ
+Gradle ビルドが最後まで通りました。Compose のコード生成・dex 化・署名まで含めて全部です。
 
-この検査で実際に2件のバグを潰しました。
-
-1. `0x80000000` 以上の16進リテラルは Kotlin では `Long` になる。ARGB 色の
-   6箇所が `Int` として通らず、`.toInt()` が必要だった
-2. パネルの切り抜きを `DST_IN` でやっていた。Skia はパスの被覆範囲内でしか
-   合成しないので、**外側が消えず正方形のまま残る**。マスクを先に塗って
-   `SRC_IN` で中身を載せる順に直した（プロトタイプでも同じ罠を踏んだ箇所）
-
-### ビルド
-
-```bash
-cd android-icon-app
-./gradlew :app:installDebug      # ラッパー同梱。Gradle 8.11.1 を自動取得します
+```
+BUILD SUCCESSFUL in 2m 58s
+package: name='com.pointille.launcher' versionName='0.1' targetSdkVersion='35'
+launchable-activity: name='com.pointille.launcher.MainActivity'
+Signer #1 certificate DN: C=US, O=Android, CN=Android Debug
 ```
 
-Android Studio で `android-icon-app/` を開いても構いません。
+SDK が無い環境で組み立てる手順（再現用）:
 
-インストール後、**設定 → アプリ → デフォルトのアプリ → ホームアプリ** で Pointille を選択します。
+```bash
+# 1. プラットフォームと build-tools を取得
+curl -LO https://dl.google.com/android/repository/platform-35_r02.zip
+curl -LO https://dl.google.com/android/repository/build-tools_r35_linux.zip
+mkdir -p sdk/platforms sdk/build-tools sdk/licenses
+unzip -q platform-35_r02.zip -d sdk/platforms      # → sdk/platforms/android-35
+unzip -q build-tools_r35_linux.zip -d sdk/build-tools
+mv sdk/build-tools/android-* sdk/build-tools/35.0.0
+
+# 2. ライセンスを置く（無いと AGP が不足分を取得できない）
+printf '\n8933bad161af4178b1185d1a37fbf41ea5269c55\n24333f8a63b6825ea9c5514f83c2829b004d1fee\n' \
+  > sdk/licenses/android-sdk-license
+
+# 3. 場所を教えてビルド
+echo "sdk.dir=$(pwd)/sdk" > android-icon-app/local.properties
+cd android-icon-app && ./gradlew :app:assembleDebug
+```
+
+不足する build-tools 34 と platform-tools は、AGP がライセンスを見て自動で取りに行きます。
+
+**まだ確かめていないこと** ── 実機で動かしたときの挙動です。初回起動時に何十枚の
+パネルを描く時間と、実際のアプリのアイコンが段2でどこまで読めるかは、ビルドが通った
+ことでは分かりません。
 
 ### 操作
 
