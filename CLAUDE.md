@@ -466,6 +466,21 @@ matching is on title/slug/body rather than URL prefix, since community URLs carr
 no product path. Order matters — the first matching category wins, so put the more
 specific product (e.g. `zcc`) above the broader one (`zia`).
 
+## android-icon-app/ — 点描ランチャー Pointille
+
+Android のホーム画面のアイコンを、スーラの点描で描いた小さな絵に統一する個人用
+ホームアプリ。このリポジトリの他の内容（Zscaler ダッシュボード）とは独立しています。
+
+- `android-icon-app/prototype/*.html` — 仕様の正。ブラウザで開くとそのまま動きます
+- `android-icon-app/app/` — Kotlin + Compose 実装
+
+**このディレクトリに触る前に `android-icon-app/README.md` の「この案件で踏んだ罠」を
+読んでください。** マスクの合成順・小サイズでの可読性・Kotlin の16進リテラルなど、
+一度直したのに再発した項目がまとめてあります。
+
+Android SDK はこの環境にありませんが、`android.jar` と Compose 一式を取得すれば
+kotlinc で型検査できます（手順は README の「検証状況」）。
+
 ## Conventions
 
 ### Commit messages

@@ -39,21 +39,30 @@ object IconSource {
     /** Below this difference in value, a converted icon would read as a smudge. */
     private const val MIN_CONTRAST = 26f
 
+    /** Tiers, as a person can force them from the long-press sheet. */
+    const val AUTO = 0
+    const val HAND = 1
+    const val CONVERT = 2
+    const val FIELDS = 3
+
     /**
-     * @param key stable cache key — "package@versionCode", so an app update
-     *            repaints its panel and nothing else does.
+     * @param key   stable cache key — "package@versionCode", so an app update
+     *              repaints its panel and nothing else does.
+     * @param force [AUTO] to pick a tier automatically, or a tier to insist on.
+     *              Each choice caches separately, so switching back is instant.
      */
-    fun painted(ctx: Context, key: String, pkg: String, icon: Drawable?, seed: Int): Bitmap {
-        cacheFile(ctx, key).let { f ->
+    fun painted(ctx: Context, key: String, pkg: String, icon: Drawable?, seed: Int, force: Int = AUTO): Bitmap {
+        val cacheKey = if (force == AUTO) key else "$key#$force"
+        cacheFile(ctx, cacheKey).let { f ->
             if (f.exists()) BitmapFactory.decodeFile(f.path)?.let { return it }
         }
 
-        val (field, subject) = source(pkg, icon, seed)
+        val (field, subject) = source(pkg, icon, seed, force)
         val painted = Pointillist.render(field, subject, seed)
         field.recycle(); subject?.recycle()
 
         runCatching {
-            val f = cacheFile(ctx, key)
+            val f = cacheFile(ctx, cacheKey)
             f.parentFile?.mkdirs()
             f.outputStream().use { painted.compress(Bitmap.CompressFormat.PNG, 100, it) }
         }
@@ -70,15 +79,23 @@ object IconSource {
 
     // ------------------------------------------------------------------ tiers
 
-    private fun source(pkg: String, icon: Drawable?, seed: Int): Pair<Bitmap, Bitmap?> {
-        Motifs.forPackage(pkg)?.let { m ->                       // tier 1
-            return Motifs.ground(m.groundA, m.groundB) to Motifs.subject(m.draw)
+    private fun source(pkg: String, icon: Drawable?, seed: Int, force: Int): Pair<Bitmap, Bitmap?> {
+        if (force == AUTO || force == HAND) {
+            Motifs.forPackage(pkg)?.let { m ->                   // tier 1
+                return Motifs.ground(m.groundA, m.groundB) to Motifs.subject(m.draw)
+            }
+            // asked for a motif that does not exist — fall through rather than
+            // hand back an empty panel
         }
         if (icon == null) return colourFields(Color.rgb(110, 120, 130), Color.rgb(60, 70, 80), seed) to null
 
-        val split = split(icon)                                  // tier 2
-        if (split != null && readable(split.first, split.second)) return split
-        split?.first?.recycle(); split?.second?.recycle()
+        if (force != FIELDS) {
+            val split = split(icon)                              // tier 2
+            // when it was asked for outright, the contrast check is skipped:
+            // the person looking at the screen outranks the heuristic
+            if (split != null && (force == CONVERT || readable(split.first, split.second))) return split
+            split?.first?.recycle(); split?.second?.recycle()
+        }
 
         val (a, b) = dominantPair(icon)                          // tier 3
         return colourFields(a, b, seed) to null

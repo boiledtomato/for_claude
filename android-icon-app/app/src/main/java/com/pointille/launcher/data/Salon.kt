@@ -65,6 +65,22 @@ class LayoutStore(ctx: Context) {
             .apply()
     }
 
+    /** Which tier a package has been forced to, when the automatic pick was wrong. */
+    fun tiers(): Map<String, Int> {
+        val raw = prefs.getString(TIER_KEY, null) ?: return emptyMap()
+        return runCatching {
+            val o = JSONObject(raw)
+            o.keys().asSequence().associateWith { o.getInt(it) }
+        }.getOrDefault(emptyMap())
+    }
+
+    fun setTier(pkg: String, tier: Int) {
+        val o = JSONObject()
+        tiers().forEach { (k, v) -> if (k != pkg) o.put(k, v) }
+        if (tier != 0) o.put(pkg, tier)
+        prefs.edit().putString(TIER_KEY, o.toString()).apply()
+    }
+
     /**
      * First run. The apps with a hand-drawn motif go on the wall first, since
      * those are the ones that look like paintings rather than conversions.
@@ -86,6 +102,7 @@ class LayoutStore(ctx: Context) {
 
     private companion object {
         const val KEY = "layout_v1"
+        const val TIER_KEY = "tiers_v1"
         val DOCK_HINTS = listOf("dialer", "mail", "calculator", "search")
     }
 }

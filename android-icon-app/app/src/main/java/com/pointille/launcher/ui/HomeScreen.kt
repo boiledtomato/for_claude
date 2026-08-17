@@ -3,6 +3,7 @@ package com.pointille.launcher.ui
 import android.content.Context
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
@@ -12,6 +13,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -24,7 +26,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.activity.compose.BackHandler
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -36,6 +40,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
@@ -83,16 +88,30 @@ private val LABEL = Color(0xFFECE6D9)
  */
 private class Studio(private val ctx: Context, private val repo: AppRepository) {
     val panels = mutableStateMapOf<String, Painting>()
-    private val pending = HashSet<String>()
+    /** Drawer items ask concurrently as they scroll in, so this must be shared-safe. */
+    private val pending = java.util.Collections.newSetFromMap(java.util.concurrent.ConcurrentHashMap<String, Boolean>())
+    var tiers: Map<String, Int> = emptyMap()
 
     suspend fun paint(entry: AppEntry) {
         if (panels.containsKey(entry.packageName)) return
         if (!pending.add(entry.packageName)) return
-        val p = withContext(Dispatchers.Default) {
-            val bmp = IconSource.painted(ctx, entry.cacheKey, entry.packageName, repo.icon(entry), entry.seed)
-            Painting(bmp.asImageBitmap(), Pointillist.brushColors(bmp).map { Color(it) })
-        }
-        panels[entry.packageName] = p
+        panels[entry.packageName] = render(entry)
+    }
+
+    /** After the tier is changed by hand: drop what is on the wall and paint again. */
+    suspend fun repaint(entry: AppEntry) {
+        panels.remove(entry.packageName)
+        pending.remove(entry.packageName)
+        pending.add(entry.packageName)
+        panels[entry.packageName] = render(entry)
+    }
+
+    private suspend fun render(entry: AppEntry): Painting = withContext(Dispatchers.Default) {
+        val bmp = IconSource.painted(
+            ctx, entry.cacheKey, entry.packageName, repo.icon(entry), entry.seed,
+            tiers[entry.packageName] ?: IconSource.AUTO,
+        )
+        Painting(bmp.asImageBitmap(), Pointillist.brushColors(bmp).map { Color(it) })
     }
 }
 
@@ -107,29 +126,58 @@ fun HomeScreen(repo: AppRepository, store: LayoutStore) {
     var dock by remember { mutableStateOf<List<AppEntry>>(emptyList()) }
     var launching by remember { mutableStateOf<Launch?>(null) }
     var drawerOpen by remember { mutableStateOf(false) }
+    var sheetFor by remember { mutableStateOf<AppEntry?>(null) }
+    var swapFrom by remember { mutableStateOf<AppEntry?>(null) }
+
+    fun place(wallPkgs: List<String>, dockPkgs: List<String>, byPackage: Map<String, AppEntry>) {
+        wall = wallPkgs.mapNotNull(byPackage::get)
+        dock = dockPkgs.mapNotNull(byPackage::get)
+        store.save(wallPkgs, dockPkgs)
+    }
+
+    /** Put [b] where [a] hangs. Either may live on the wall, the palette, or neither. */
+    fun swap(a: AppEntry, b: AppEntry) {
+        val w = wall.map { it.packageName }.toMutableList()
+        val d = dock.map { it.packageName }.toMutableList()
+        fun setAt(list: MutableList<String>, i: Int, v: String) { if (i >= 0) list[i] = v }
+        val aw = w.indexOf(a.packageName); val ad = d.indexOf(a.packageName)
+        val bw = w.indexOf(b.packageName); val bd = d.indexOf(b.packageName)
+        setAt(w, aw, b.packageName); setAt(d, ad, b.packageName)
+        setAt(w, bw, a.packageName); setAt(d, bd, a.packageName)
+        val byPackage = all.associateBy { it.packageName }
+        place(w, d, byPackage)
+    }
 
     LaunchedEffect(Unit) {
         val apps = repo.installedApps()
         all = apps
         val byPackage = apps.associateBy { it.packageName }
         val (wallPkgs, dockPkgs) = store.load() ?: store.seed(apps).also { store.save(it.first, it.second) }
+        studio.tiers = store.tiers()
         wall = wallPkgs.mapNotNull(byPackage::get)
         dock = dockPkgs.mapNotNull(byPackage::get)
         // the wall fills in one panel at a time rather than blocking on the set
         (wall + dock).forEach { studio.paint(it) }
     }
 
-    Box(
-        Modifier
-            .fillMaxSize()
-            .pointerInput(Unit) {
-                detectVerticalDragGestures { _, dy ->
-                    if (dy < -18f) drawerOpen = true
-                    if (dy > 18f) drawerOpen = false
+    /** Tapping a panel while one is picked up puts them in each other's place. */
+    fun onPanelTap(entry: AppEntry, p: Painting) {
+        val from = swapFrom
+        if (from == null) { launching = Launch(entry, p); return }
+        swapFrom = null
+        if (from.packageName != entry.packageName) swap(from, entry)
+    }
+
+    Box(Modifier.fillMaxSize()) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                // the drag lives on the wall, not the root: on the root it
+                // competes with the drawer's own scrolling
+                .pointerInput(Unit) {
+                    detectVerticalDragGestures { _, dy -> if (dy < -18f) drawerOpen = true }
                 }
-            }
-    ) {
-        Column(Modifier.fillMaxSize()) {
+        ) {
             BoxWithConstraints(
                 Modifier
                     .weight(1f)
@@ -140,12 +188,27 @@ fun HomeScreen(repo: AppRepository, store: LayoutStore) {
                 val h = maxHeight
                 wall.forEachIndexed { i, entry ->
                     val slot = Salon.WALL.getOrNull(i) ?: return@forEachIndexed
-                    Panel(entry, studio.panels[entry.packageName], slot, i, w, h, showLabel = true) { p ->
-                        launching = Launch(entry, p)
-                    }
+                    Panel(
+                        entry = entry,
+                        painting = studio.panels[entry.packageName],
+                        slot = slot,
+                        index = i,
+                        wallW = w,
+                        wallH = h,
+                        showLabel = true,
+                        pickedUp = swapFrom?.packageName == entry.packageName,
+                        onLongPress = { sheetFor = entry },
+                        onOpen = { p -> onPanelTap(entry, p) },
+                    )
                 }
             }
-            PaletteDock(dock, studio.panels) { entry, p -> launching = Launch(entry, p) }
+            PaletteDock(
+                dock = dock,
+                panels = studio.panels,
+                pickedUp = swapFrom?.packageName,
+                onLongPress = { sheetFor = it },
+                onOpen = { entry, p -> onPanelTap(entry, p) },
+            )
         }
 
         AnimatedVisibility(
@@ -153,9 +216,49 @@ fun HomeScreen(repo: AppRepository, store: LayoutStore) {
             enter = slideInVertically { it },
             exit = slideOutVertically { it },
         ) {
-            Drawer(all, studio, scope) { entry ->
-                studio.panels[entry.packageName]?.let { launching = Launch(entry, it) }
-            }
+            Drawer(
+                apps = all,
+                studio = studio,
+                onLongPress = { sheetFor = it },
+                onOpen = { entry ->
+                    val p = studio.panels[entry.packageName] ?: return@Drawer
+                    val from = swapFrom
+                    if (from == null) launching = Launch(entry, p)
+                    else { swapFrom = null; drawerOpen = false; swap(from, entry) }
+                },
+            )
+        }
+        swapFrom?.let { from ->
+            Text(
+                text = "「${from.label}」の掛け替え先を選んでください",
+                color = LABEL,
+                fontSize = 12.sp,
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .padding(top = 44.dp)
+                    .background(Color(0xCC1A2127))
+                    .padding(horizontal = 14.dp, vertical = 7.dp),
+            )
+        }
+
+        // Back closes the drawer; the activity swallows it otherwise, so without
+        // this the drawer would be a trap
+        BackHandler(enabled = drawerOpen) { drawerOpen = false }
+        BackHandler(enabled = !drawerOpen && swapFrom != null) { swapFrom = null }
+
+        sheetFor?.let { entry ->
+            PanelSheet(
+                entry = entry,
+                tier = studio.tiers[entry.packageName] ?: IconSource.AUTO,
+                onSwap = { sheetFor = null; swapFrom = entry },
+                onTier = { next ->
+                    sheetFor = null
+                    store.setTier(entry.packageName, next)
+                    studio.tiers = store.tiers()
+                    scope.launch { studio.repaint(entry) }
+                },
+                onDismiss = { sheetFor = null },
+            )
         }
 
         launching?.let { l ->
@@ -171,6 +274,63 @@ fun HomeScreen(repo: AppRepository, store: LayoutStore) {
     }
 }
 
+/**
+ * What long-pressing a panel offers: move it, or paint it a different way.
+ *
+ * Deliberately two choices and no more. The tier cycle is the escape hatch for
+ * when the automatic pick reads badly — a wordmark that turned to mush, or a
+ * colour field where the real icon would have been fine.
+ */
+@Composable
+private fun PanelSheet(
+    entry: AppEntry,
+    tier: Int,
+    onSwap: () -> Unit,
+    onTier: (Int) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val names = mapOf(
+        IconSource.AUTO to "自動",
+        IconSource.HAND to "手描きのモチーフ",
+        IconSource.CONVERT to "アイコンを点描に",
+        IconSource.FIELDS to "色面だけ",
+    )
+    val next = when (tier) {
+        IconSource.AUTO -> IconSource.CONVERT
+        IconSource.CONVERT -> IconSource.FIELDS
+        IconSource.FIELDS -> IconSource.HAND
+        else -> IconSource.AUTO
+    }
+
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(Color(0xB3000000))
+            .pointerInput(Unit) { detectTapGestures { onDismiss() } }
+    ) {
+        Column(
+            Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .background(Color(0xFF1A2127))
+                // swallow taps, or the scrim behind would dismiss the sheet
+                .pointerInput(Unit) { detectTapGestures { } }
+                .padding(22.dp),
+        ) {
+            Text(entry.label, color = LABEL, fontSize = 17.sp)
+            Text(
+                "いまの描き方: ${names[tier]}",
+                color = LABEL.copy(alpha = 0.6f),
+                fontSize = 12.sp,
+                modifier = Modifier.padding(top = 4.dp, bottom = 16.dp),
+            )
+            TextButton(onClick = onSwap) { Text("場所を入れ替える", color = LABEL) }
+            TextButton(onClick = { onTier(next) }) { Text("描き直す → ${names[next]}", color = LABEL) }
+        }
+    }
+    BackHandler { onDismiss() }
+}
+
 // -------------------------------------------------------------------- panels
 
 @Composable
@@ -182,6 +342,8 @@ private fun Panel(
     wallW: Dp,
     wallH: Dp,
     showLabel: Boolean,
+    pickedUp: Boolean,
+    onLongPress: () -> Unit,
     onOpen: (Painting) -> Unit,
 ) {
     val side = wallW * slot.size
@@ -190,7 +352,7 @@ private fun Panel(
             .offset(x = wallW * slot.x - side / 2, y = wallH * slot.y - side / 2)
             .width(side)
     ) {
-        PanelBody(entry, painting, side, slot.rotation(index), showLabel, onOpen)
+        PanelBody(entry, painting, side, slot.rotation(index), showLabel, pickedUp, onLongPress, onOpen)
     }
 }
 
@@ -201,15 +363,19 @@ private fun PanelBody(
     side: Dp,
     rotation: Float,
     showLabel: Boolean,
+    pickedUp: Boolean,
+    onLongPress: () -> Unit,
     onOpen: (Painting) -> Unit,
 ) {
     val scope = rememberCoroutineScope()
     var strokes by remember(entry.packageName) { mutableStateOf(0) }
+    val lift by animateFloatAsState(if (pickedUp) 1.12f else 1f, label = "lift")
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
             Modifier
                 .size(side)
+                .scale(lift)
                 .rotate(rotation)
                 .pointerInput(entry.packageName, painting) {
                     detectTapGestures(
@@ -217,6 +383,7 @@ private fun PanelBody(
                             strokes++                       // the brush runs on touch down
                             tryAwaitRelease()
                         },
+                        onLongPress = { onLongPress() },
                         onTap = {
                             val p = painting ?: return@detectTapGestures
                             scope.launch {
@@ -240,7 +407,7 @@ private fun PanelBody(
         if (showLabel) {
             Text(
                 text = entry.label,
-                color = LABEL.copy(alpha = 0.68f),
+                color = LABEL.copy(alpha = if (pickedUp) 1f else 0.68f),
                 fontSize = 9.5.sp,
                 maxLines = 1,
                 textAlign = TextAlign.Center,
@@ -255,6 +422,8 @@ private fun PanelBody(
 private fun PaletteDock(
     dock: List<AppEntry>,
     panels: Map<String, Painting>,
+    pickedUp: String?,
+    onLongPress: (AppEntry) -> Unit,
     onOpen: (AppEntry, Painting) -> Unit,
 ) {
     BoxWithConstraints(
@@ -271,9 +440,18 @@ private fun PaletteDock(
         }
         dock.forEachIndexed { i, entry ->
             val slot = Salon.DOCK.getOrNull(i) ?: return@forEachIndexed
-            Panel(entry, panels[entry.packageName], slot, Salon.WALL.size + i, boxW, boxH, showLabel = false) { p ->
-                onOpen(entry, p)
-            }
+            Panel(
+                entry = entry,
+                painting = panels[entry.packageName],
+                slot = slot,
+                index = Salon.WALL.size + i,
+                wallW = boxW,
+                wallH = boxH,
+                showLabel = false,
+                pickedUp = pickedUp == entry.packageName,
+                onLongPress = { onLongPress(entry) },
+                onOpen = { p -> onOpen(entry, p) },
+            )
         }
     }
 }
@@ -302,23 +480,23 @@ private fun palettePath(size: Size): Path {
 /**
  * Everything the wall does not hold. Panels here are painted only as they
  * scroll into view — a phone with 150 apps would otherwise spend a minute
- * painting on first open.
+ * painting before showing anything.
  */
 @Composable
 private fun Drawer(
     apps: List<AppEntry>,
     studio: Studio,
-    scope: kotlinx.coroutines.CoroutineScope,
+    onLongPress: (AppEntry) -> Unit,
     onOpen: (AppEntry) -> Unit,
 ) {
     Box(
         Modifier
             .fillMaxSize()
-            .background(Color(0xE60D1215))
+            .background(Color(0xF20D1215))
     ) {
         LazyVerticalGrid(
             columns = GridCells.Adaptive(minSize = 88.dp),
-            contentPadding = androidx.compose.foundation.layout.PaddingValues(20.dp),
+            contentPadding = PaddingValues(20.dp),
             horizontalArrangement = Arrangement.spacedBy(14.dp),
             verticalArrangement = Arrangement.spacedBy(18.dp),
             modifier = Modifier.fillMaxSize(),
@@ -332,6 +510,8 @@ private fun Drawer(
                         side = maxWidth,
                         rotation = ((entry.seed % 9) - 4) * 0.5f,
                         showLabel = true,
+                        pickedUp = false,
+                        onLongPress = { onLongPress(entry) },
                         onOpen = { onOpen(entry) },
                     )
                 }
