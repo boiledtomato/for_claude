@@ -1,0 +1,561 @@
+<title>点描アイコン 4つのモチーフ案</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --bg:#D8D8D2; --surface:#E9E9E3; --ink:#1E2328; --ink-2:#4C535A; --ink-3:#7A8188;
+  --rule:rgba(30,35,40,.16); --accent:#1F6B5A; --accent-soft:rgba(31,107,90,.12);
+  --wall-a:#EFEDE5; --wall-b:#DCD8CC; --shadow:rgba(34,30,24,.24);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#11161A; --surface:#1A2127; --ink:#ECE6D9; --ink-2:#A6AEB3; --ink-3:#737C83;
+    --rule:rgba(236,230,217,.15); --accent:#54B79D; --accent-soft:rgba(84,183,157,.14);
+    --wall-a:#1E262B; --wall-b:#0E1317; --shadow:rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11161A; --surface:#1A2127; --ink:#ECE6D9; --ink-2:#A6AEB3; --ink-3:#737C83;
+  --rule:rgba(236,230,217,.15); --accent:#54B79D; --accent-soft:rgba(84,183,157,.14);
+  --wall-a:#1E262B; --wall-b:#0E1317; --shadow:rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+  font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(18px,4vw,40px) 90px}
+.eyebrow{
+  font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-3);
+  font-weight:600; margin:0 0 14px; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::after{content:""; flex:1; height:1px; background:var(--rule)}
+h1{font-size:clamp(27px,4.4vw,42px); line-height:1.26; font-weight:800; letter-spacing:-.025em; margin:0 0 18px; text-wrap:balance}
+.lead{font-size:clamp(15px,1.6vw,17px); color:var(--ink-2); margin:0 0 10px; max-width:38em}
+.lead b{color:var(--ink)}
+
+.deck{display:grid; gap:clamp(30px,4vw,44px); margin-top:clamp(36px,5vw,54px)}
+.card{
+  background:var(--surface); border:1px solid var(--rule); border-radius:14px;
+  padding:clamp(20px,3vw,30px); display:grid; gap:22px;
+}
+.card > header{display:grid; gap:6px}
+.tag{
+  font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent); font-weight:700;
+}
+.card h2{margin:0; font-size:clamp(19px,2.4vw,25px); font-weight:780; letter-spacing:-.02em}
+.card h2 small{display:block; font-size:12.5px; font-weight:600; color:var(--ink-3); letter-spacing:.12em; margin-top:3px}
+.thesis{margin:0; font-size:14.5px; color:var(--ink-2); max-width:44em}
+
+.show{
+  display:grid; gap:clamp(18px,3vw,30px); align-items:start;
+  grid-template-columns:1fr;
+}
+@media (min-width:720px){ .show{grid-template-columns:auto minmax(0,1fr)} }
+.hero{
+  display:grid; gap:8px; justify-items:center;
+  padding:16px; border-radius:12px;
+  background:radial-gradient(120% 100% at 30% 12%,var(--wall-a),var(--wall-b) 80%);
+}
+.hero canvas{width:186px; height:186px; display:block; filter:drop-shadow(0 8px 14px var(--shadow))}
+.hero span{font-size:10px; letter-spacing:.16em; color:var(--ink-3); font-weight:600}
+
+.row{
+  padding:18px 14px; border-radius:12px;
+  background:radial-gradient(120% 100% at 30% 12%,var(--wall-a),var(--wall-b) 80%);
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px 10px; align-content:start;
+}
+@media (min-width:520px){ .row{grid-template-columns:repeat(6,1fr)} }
+.ic{display:grid; gap:6px; justify-items:center}
+.ic canvas{width:100%; max-width:78px; height:auto; display:block; filter:drop-shadow(0 5px 9px var(--shadow))}
+.ic span{font-size:9.5px; letter-spacing:.08em; color:var(--ink); opacity:.7; font-weight:600; text-align:center}
+
+.verdict{display:grid; gap:8px; margin:0}
+.verdict div{display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:baseline; font-size:13.5px; color:var(--ink-2)}
+.verdict b{
+  font-size:9.5px; letter-spacing:.14em; font-weight:700; padding:2px 7px; border-radius:20px;
+  white-space:nowrap; justify-self:start;
+}
+.yes b{background:var(--accent-soft); color:var(--accent)}
+.no b{background:rgba(160,90,60,.16); color:#A8613C}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .no b{color:#E0966B} }
+:root[data-theme="dark"] .no b{color:#E0966B}
+
+.close{border-top:1px solid var(--rule); margin-top:clamp(34px,5vw,50px); padding-top:20px; max-width:40em}
+.close h3{margin:0 0 10px; font-size:18px; font-weight:760; letter-spacing:-.015em}
+.close p{margin:0 0 10px; font-size:14.5px; color:var(--ink-2)}
+.close b{color:var(--ink)}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">点描ランチャー &nbsp;/&nbsp; アイコン案</p>
+  <h1>元の絵柄を捨てて、<br>1884年のものに描き替える。</h1>
+  <p class="lead">
+    カメラのアイコンだからカメラを描く、という縛りを外しました。
+    <b>印象派が実際に描いた時代のものへモチーフごと置き換え</b>、そのうえで筆触分割で塗っています。
+    4案とも同じ6アプリで、同じ点描エンジンです ── 変えたのは何を描くかだけ。
+  </p>
+  <p class="lead">
+    上の大きい1枚が筆触の見え方、右の6枚が実機での大きさです。
+  </p>
+
+  <div class="deck" id="deck"></div>
+
+  <div class="close">
+    <h3>選び方について</h3>
+    <p>
+      4案は<b>おしゃれさと識別しやすさのトレードオフ</b>で並んでいます。
+      A から D へ行くほど絵として強くなり、同時に「どれがどのアプリか」は覚えないと分からなくなります。
+    </p>
+    <p>
+      ランチャーは1日に何十回も触るので、私の推しは <b>A（道具）</b> です。
+      形が機能を語るので迷いがなく、それでいて2026年のアイコンには全く見えない。
+      ただ<b>D（色面）が一番おしゃれ</b>なのは間違いなく、位置で覚えてしまえば実用にもなります。
+      A と D を混ぜる ── よく使う4つだけ道具、残りは色面 ── という手もあります。
+    </p>
+    <p>
+      混色は一切していません。どの案も、隣り合う純色の点を目が混ぜています。
+    </p>
+  </div>
+</div>
+
+<script>
+(() => {
+"use strict";
+const RES = 192;
+
+/* ------------------------- pointillist engine ------------------------- *
+ * Unchanged from the home-screen prototype — the only thing these four
+ * proposals vary is the subject, so the rendering has to stay identical
+ * for the comparison to mean anything.
+ * --------------------------------------------------------------------- */
+function rng(seed){ let s=(seed*2654435761)>>>0;
+  return () => { s=(s+0x6D2B79F5)>>>0; let t=s;
+    t=Math.imul(t^(t>>>15),t|1); t^=t+Math.imul(t^(t>>>7),t|61);
+    return ((t^(t>>>14))>>>0)/4294967296; }; }
+
+function rgb2hsv(r,g,b){
+  r/=255; g/=255; b/=255;
+  const mx=Math.max(r,g,b), mn=Math.min(r,g,b), d=mx-mn;
+  let h=0;
+  if(d){ if(mx===r) h=((g-b)/d)%6; else if(mx===g) h=(b-r)/d+2; else h=(r-g)/d+4;
+         h*=60; if(h<0) h+=360; }
+  return [h, mx?d/mx:0, mx];
+}
+function hsv2rgb(h,s,v){
+  const c=v*s, x=c*(1-Math.abs(((h/60)%2)-1)), m=v-c;
+  let r=0,g=0,b=0;
+  if(h<60){r=c;g=x;} else if(h<120){r=x;g=c;} else if(h<180){g=c;b=x;}
+  else if(h<240){g=x;b=c;} else if(h<300){r=x;b=c;} else {r=c;b=x;}
+  return [(r+m)*255|0,(g+m)*255|0,(b+m)*255|0];
+}
+const mixHue=(a,b,t)=>{ const d=((b-a+540)%360)-180; return (a+d*t+360)%360; };
+const shade=(col,k)=>col.map(v=>Math.max(0,Math.min(255,k>=0? v+(255-v)*k : v*(1+k)))|0);
+const SUN_H=45, SHADE_H=238;
+
+function dotColor(base,R,onBorder,isSubject){
+  let [h,s,v]=rgb2hsv(base[0],base[1],base[2]);
+  if(onBorder) return hsv2rgb((h+180)%360, Math.min(1,Math.max(s,0.28)+R()*0.16), Math.min(1,v*(0.74+R()*0.18)));
+  if(isSubject){
+    h=mixHue(h, R()<0.5?SUN_H:SHADE_H, R()*0.18);
+    s=Math.min(1,Math.max(s,0.09)+R()*0.15);
+    return hsv2rgb(h,s,Math.min(1,v*(0.96+R()*0.10)));
+  }
+  const m=R();
+  if(m<0.62){ h=(h+(R()-0.5)*14+360)%360; s=Math.min(1,s*(1.02+R()*0.24)); v=Math.min(1,v*(0.96+R()*0.11)); }
+  else if(m<0.80){ h=mixHue(h,SUN_H,0.18+R()*0.16); s=Math.min(1,Math.max(s,0.18)+R()*0.14); v=Math.min(1,v*1.07+0.05); }
+  else if(m<0.94){ h=mixHue(h,SHADE_H,0.22+R()*0.18); s=Math.min(1,Math.max(s,0.22)+R()*0.14); v=v*(0.88+R()*0.07); }
+  else { h=(h+180)%360; s=Math.min(1,Math.max(s,0.26)+R()*0.14); v=Math.min(1,v*(0.97+R()*0.12)); }
+  return hsv2rgb(h,s,v);
+}
+
+function canvasPath(c,seed,inset){
+  const r=RES/2-inset, mid=RES/2, s=seed*1.37, n=8;
+  c.beginPath();
+  for(let i=0;i<=240;i++){
+    const t=i/240*Math.PI*2, ct=Math.cos(t), st=Math.sin(t);
+    const j=1+0.013*Math.sin(3*t+s)+0.009*Math.sin(7*t+s*2.1);
+    const x=mid+Math.sign(ct)*Math.pow(Math.abs(ct),2/n)*r*j;
+    const y=mid+Math.sign(st)*Math.pow(Math.abs(st),2/n)*r*j;
+    i?c.lineTo(x,y):c.moveTo(x,y);
+  }
+  c.closePath();
+}
+function panelMasks(seed){
+  const mask=(inset)=>{
+    const cv=document.createElement("canvas"); cv.width=cv.height=RES;
+    const c=cv.getContext("2d");
+    c.fillStyle="#000"; canvasPath(c,seed,inset); c.fill();
+    const d=c.getImageData(0,0,RES,RES).data, m=new Uint8Array(RES*RES);
+    for(let i=0;i<m.length;i++) m[i]=d[i*4+3]>128?1:0;
+    return m;
+  };
+  return {panel:mask(5), inner:mask(13)};
+}
+function weave(c,seed){
+  const P=4.2;
+  for(let x=0;x<RES;x+=P){
+    const w=x+Math.sin(x*0.9+seed)*0.6;
+    c.fillStyle="rgba(255,250,238,.034)"; c.fillRect(w,0,P*0.44,RES);
+    c.fillStyle="rgba(58,46,34,.034)";    c.fillRect(w+P*0.44,0,P*0.56,RES);
+  }
+  for(let y=0;y<RES;y+=P){
+    const h=y+Math.cos(y*0.8+seed)*0.6;
+    c.fillStyle="rgba(255,250,238,.030)"; c.fillRect(0,h,RES,P*0.44);
+    c.fillStyle="rgba(58,46,34,.030)";    c.fillRect(0,h+P*0.44,RES,P*0.56);
+  }
+}
+function warp(src,amp,seed){
+  const {width:w,height:h,data:d}=src, out=new Uint8ClampedArray(d.length);
+  for(let y=0;y<h;y++) for(let x=0;x<w;x++){
+    const dx=Math.round(amp*(Math.sin(y*0.13+seed)+0.6*Math.sin(x*0.061+y*0.037+seed*1.7)));
+    const dy=Math.round(amp*(Math.sin(x*0.115+seed*2.3)+0.6*Math.sin(y*0.055-x*0.041+seed)));
+    const sx=Math.min(w-1,Math.max(0,x+dx)), sy=Math.min(h-1,Math.max(0,y+dy));
+    const s=(sy*w+sx)*4, o=(y*w+x)*4;
+    out[o]=d[s]; out[o+1]=d[s+1]; out[o+2]=d[s+2]; out[o+3]=d[s+3];
+  }
+  return new ImageData(out,w,h);
+}
+
+const DOT_SPACING = 5.0;
+
+function render(app,seed){
+  const R = rng(seed*131+7);
+
+  const fc = document.createElement("canvas"); fc.width=fc.height=RES;
+  const fx = fc.getContext("2d");
+  app.field(fx);
+  const fd = fx.getImageData(0,0,RES,RES).data;
+
+  const sc = document.createElement("canvas"); sc.width=sc.height=RES;
+  const sx = sc.getContext("2d");
+  sx.save(); sx.translate(RES*.13,RES*.13); sx.scale(RES*.74/100,RES*.74/100);
+  app.subject(sx); sx.restore();
+  sx.putImageData(warp(sx.getImageData(0,0,RES,RES),1.4,seed*1.7),0,0);
+  const sd = sx.getImageData(0,0,RES,RES).data;
+
+  const {panel,inner} = panelMasks(seed);
+  const cv = document.createElement("canvas"); cv.width=cv.height=RES;
+  const c = cv.getContext("2d");
+
+  let ar=0,ag=0,ab=0;
+  for(let i=0;i<fd.length;i+=4){ ar+=fd[i]; ag+=fd[i+1]; ab+=fd[i+2]; }
+  const n=fd.length/4;
+  c.fillStyle=`rgb(${shade([ar/n,ag/n,ab/n],-0.08).join(",")})`;
+  c.fillRect(0,0,RES,RES);
+
+  for(const [ox,oy,keep] of [[0,0,1],[DOT_SPACING/2,DOT_SPACING/2,0.64]]){
+    for(let gy=-DOT_SPACING; gy<RES+DOT_SPACING; gy+=DOT_SPACING){
+      for(let gx=-DOT_SPACING; gx<RES+DOT_SPACING; gx+=DOT_SPACING){
+        if(R()>keep) continue;
+        const x=gx+ox+(R()-0.5)*DOT_SPACING*0.95;
+        const y=gy+oy+(R()-0.5)*DOT_SPACING*0.95;
+        const xi=Math.max(0,Math.min(RES-1,x|0)), yi=Math.max(0,Math.min(RES-1,y|0));
+        const mi=yi*RES+xi;
+        if(!panel[mi]) continue;
+        const onBorder=!inner[mi];
+        const isSubject=!onBorder && sd[mi*4+3]>90;
+        const src=isSubject?sd:fd;
+        const col=dotColor([src[mi*4],src[mi*4+1],src[mi*4+2]],R,onBorder,isSubject);
+        c.fillStyle=`rgb(${col.join(",")})`;
+        c.beginPath(); c.arc(x,y,2.2+R()*1.2,0,7); c.fill();
+      }
+    }
+  }
+
+  weave(c,seed);
+  c.globalCompositeOperation="destination-in";
+  canvasPath(c,seed,5); c.fillStyle="#000"; c.fill();
+  c.globalCompositeOperation="source-atop";
+  c.save(); c.translate(-1.4,-1.6); canvasPath(c,seed,5);
+  c.strokeStyle="rgba(255,251,240,.40)"; c.lineWidth=3.4; c.stroke(); c.restore();
+  c.save(); c.translate(1.4,1.8); canvasPath(c,seed,5);
+  c.strokeStyle="rgba(44,34,24,.34)"; c.lineWidth=3.4; c.stroke(); c.restore();
+  c.globalCompositeOperation="source-over";
+  return cv;
+}
+
+/* ------------------------------- drawing ------------------------------ */
+function rr(c,x,y,w,h,r){ c.beginPath(); c.moveTo(x+r,y);
+  c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r);
+  c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); c.fill(); }
+function ci(c,x,y,r){ c.beginPath(); c.arc(x,y,r,0,7); c.fill(); }
+function tri(c,p){ c.beginPath(); c.moveTo(p[0],p[1]); c.lineTo(p[2],p[3]); c.lineTo(p[4],p[5]); c.closePath(); c.fill(); }
+function ln(c,x1,y1,x2,y2,w){ c.lineWidth=w; c.lineCap="round"; c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke(); }
+
+/** A flat two-stop ground; every field is some variation on this. */
+function ground(a,b){
+  return (c)=>{
+    const g=c.createLinearGradient(0,0,RES,RES);
+    g.addColorStop(0,b); g.addColorStop(1,a);
+    c.fillStyle=g; c.fillRect(0,0,RES,RES);
+  };
+}
+/** Sky over land, for the landscape proposal. */
+function horizon(sky,skyLo,land,landLo,y){
+  return (c)=>{
+    const g=c.createLinearGradient(0,0,0,RES*y);
+    g.addColorStop(0,sky); g.addColorStop(1,skyLo);
+    c.fillStyle=g; c.fillRect(0,0,RES,RES*y);
+    const g2=c.createLinearGradient(0,RES*y,0,RES);
+    g2.addColorStop(0,landLo); g2.addColorStop(1,land);
+    c.fillStyle=g2; c.fillRect(0,RES*y,RES,RES*(1-y));
+  };
+}
+
+const BRASS="#C79733", BRASS_D="#7E5A18", WOOD="#6A4526", WOOD_D="#3E2614",
+      IVORY="#F2E9D2", WAX="#AE3323", SLATE="#2E3440", LINEN="#E8DCC0";
+
+/* ------------------------------ proposals ----------------------------- */
+const DIRECTIONS = [
+{
+  id:"A", tag:"案 A", name:"道具", sub:"ATELIER — 1884年の持ちもの",
+  thesis:"その時代の人が実際に机に置いていた道具に置き換える。形が機能をそのまま語るので、初見で何のアプリか分かる。もっとも保守的で、もっとも実用的な案。",
+  yes:"形が機能を語る。説明なしで使える",
+  no:"4案の中では一番おとなしい。絵としての驚きは薄い",
+  apps:[
+    {name:"天気", label:"寒暖計", field:ground("#7C4B2A","#C08A4E"), subject:(c)=>{
+      c.fillStyle=IVORY; rr(c,34,6,26,72,13);
+      c.fillStyle=IVORY; ci(c,47,78,17);
+      c.fillStyle=WAX; ci(c,47,78,12); rr(c,42,34,10,40,5);
+      c.fillStyle=BRASS_D; for(let i=0;i<6;i++) rr(c,52,18+i*9,7,3,1.5);
+    }},
+    {name:"地図", label:"コンパス", field:ground("#1F4E63","#4E8AA0"), subject:(c)=>{
+      c.strokeStyle=BRASS; c.lineWidth=5; c.beginPath(); c.arc(50,50,37,0,7); c.stroke();
+      c.fillStyle=BRASS_D;
+      for(let i=0;i<4;i++){ const t=i*Math.PI/2+Math.PI/4;
+        tri(c,[50+Math.cos(t)*23,50+Math.sin(t)*23, 50+Math.cos(t+2.4)*8,50+Math.sin(t+2.4)*8, 50+Math.cos(t-2.4)*8,50+Math.sin(t-2.4)*8]); }
+      c.fillStyle=IVORY;
+      for(let i=0;i<4;i++){ const t=i*Math.PI/2;
+        tri(c,[50+Math.cos(t)*33,50+Math.sin(t)*33, 50+Math.cos(t+2.2)*9,50+Math.sin(t+2.2)*9, 50+Math.cos(t-2.2)*9,50+Math.sin(t-2.2)*9]); }
+      c.fillStyle=BRASS; ci(c,50,50,5.5);
+    }},
+    {name:"音楽", label:"コルネット", field:ground("#5C2440","#9B5273"), subject:(c)=>{
+      c.strokeStyle=BRASS; c.lineWidth=14; c.lineCap="round";
+      c.beginPath(); c.arc(42,56,25,0.6,5.4); c.stroke();
+      c.fillStyle=BRASS; tri(c,[58,38,94,12,96,48]);
+      c.fillStyle=IVORY; c.save(); c.translate(93,29); c.rotate(-0.62);
+      c.beginPath(); c.ellipse(0,0,6,17,0,0,7); c.fill(); c.restore();
+      c.strokeStyle=BRASS_D; ln(c,14,72,30,64,8);
+    }},
+    {name:"メッセージ", label:"封蝋の手紙", field:ground("#2C4A34","#68936D"), subject:(c)=>{
+      c.fillStyle=IVORY; rr(c,10,24,80,54,4);
+      c.strokeStyle="rgba(90,70,45,.55)"; c.lineJoin="round"; c.lineWidth=5;
+      c.beginPath(); c.moveTo(12,27); c.lineTo(50,54); c.lineTo(88,27); c.stroke();
+      c.fillStyle=WAX; ci(c,50,66,13);
+      c.fillStyle="rgba(60,14,8,.45)"; ci(c,50,66,7);
+    }},
+    {name:"時計", label:"懐中時計", field:ground("#2A3550","#657CA0"), subject:(c)=>{
+      c.fillStyle=BRASS_D; rr(c,44,6,12,12,4); ci(c,50,14,7);
+      c.fillStyle=BRASS; ci(c,50,56,37);
+      c.fillStyle=IVORY; ci(c,50,56,30);
+      c.fillStyle=SLATE; for(let i=0;i<12;i++){ const t=i*Math.PI/6; ci(c,50+Math.cos(t)*24,56+Math.sin(t)*24,1.9); }
+      c.strokeStyle=SLATE; ln(c,50,56,50,36,4.5); ln(c,50,56,66,63,4);
+      c.fillStyle=SLATE; ci(c,50,56,3.5);
+    }},
+    {name:"写真", label:"暗箱カメラ", field:ground("#26333F","#5E7386"), subject:(c)=>{
+      c.fillStyle="#C08A4A"; rr(c,8,26,58,52,5);
+      c.strokeStyle="rgba(58,34,14,.55)"; c.lineWidth=3.5;
+      for(let i=0;i<3;i++){ c.beginPath(); c.moveTo(24+i*13,27); c.lineTo(24+i*13,77); c.stroke(); }
+      c.fillStyle=BRASS; ci(c,74,52,20);
+      c.fillStyle="#1E222A"; ci(c,74,52,11.5);
+      c.fillStyle=IVORY; ci(c,69,47,4.5);
+    }},
+  ],
+},
+{
+  id:"B", tag:"案 B", name:"島の日曜日", sub:"LA JATTE — 絵の中から借りる",
+  thesis:"参照した《グランド・ジャット島の日曜日の午後》に実際に描かれているものだけを使う。日傘、帆、ラッパ、人影、木。6枚並べたときの一体感がもっとも強い。",
+  yes:"6枚で一枚の絵に見える。出典が明確で世界観が濃い",
+  no:"モチーフと機能の対応は連想。覚えるまで迷う（特に写真＝犬）",
+  apps:[
+    {name:"天気", label:"日傘", field:ground("#4E7C3A","#98C06A"), subject:(c)=>{
+      c.fillStyle=LINEN;
+      c.beginPath(); c.moveTo(10,52);
+      c.bezierCurveTo(16,14,84,14,90,52); c.closePath(); c.fill();
+      c.strokeStyle="rgba(120,100,60,.45)"; c.lineWidth=2.4;
+      for(let i=1;i<5;i++){ const x=10+i*16; c.beginPath(); c.moveTo(50,17); c.lineTo(x,52); c.stroke(); }
+      c.fillStyle=LINEN; ci(c,50,14,5);
+      c.strokeStyle=WOOD; ln(c,50,52,50,92,5);
+    }},
+    {name:"地図", label:"帆船", field:ground("#2C5E7E","#7FB3C9"), subject:(c)=>{
+      c.fillStyle=LINEN; tri(c,[48,8,48,66,16,66]);
+      c.fillStyle="#DCCFAE"; tri(c,[56,22,56,66,84,66]);
+      c.strokeStyle=WOOD_D; ln(c,52,8,52,70,3.5);
+      c.fillStyle=SLATE;
+      c.beginPath(); c.moveTo(10,70); c.lineTo(90,70); c.lineTo(74,84); c.lineTo(24,84); c.closePath(); c.fill();
+    }},
+    {name:"音楽", label:"ラッパ吹き", field:ground("#7A4A1E","#C79049"), subject:(c)=>{
+      c.fillStyle=SLATE;
+      ci(c,42,20,12);                       // head
+      c.beginPath(); c.moveTo(30,34); c.lineTo(54,34); c.lineTo(60,96); c.lineTo(26,96); c.closePath(); c.fill();
+      c.strokeStyle=SLATE; ln(c,50,42,68,30,9);
+      c.fillStyle=BRASS; tri(c,[64,32,92,12,94,34]);
+      c.strokeStyle=BRASS; ln(c,54,34,66,31,6);
+    }},
+    {name:"メッセージ", label:"二人の人影", field:ground("#3E6E4C","#8CBA83"), subject:(c)=>{
+      c.fillStyle=SLATE;
+      ci(c,32,24,11);
+      c.beginPath(); c.moveTo(21,36); c.lineTo(43,36); c.lineTo(48,96); c.lineTo(16,96); c.closePath(); c.fill();
+      c.fillStyle="#43363F";
+      ci(c,68,30,10);
+      c.beginPath(); c.moveTo(58,41); c.lineTo(78,41); c.lineTo(84,96); c.lineTo(54,96); c.closePath(); c.fill();
+      c.fillStyle=LINEN; ci(c,32,14,7);     // her hat
+    }},
+    {name:"時計", label:"木と影", field:ground("#5D8A3C","#B4CE79"), subject:(c)=>{
+      c.fillStyle=WOOD_D; rr(c,44,34,10,50,3);
+      c.fillStyle="#3F6B2E"; ci(c,48,26,22); ci(c,66,32,15); ci(c,32,34,14);
+      c.fillStyle="rgba(38,52,66,.55)";
+      c.save(); c.translate(52,86); c.rotate(-0.22); c.beginPath();
+      c.ellipse(-16,0,34,7,0,0,7); c.fill(); c.restore();
+    }},
+    {name:"写真", label:"犬", field:ground("#6E8A34","#C0D07A"), subject:(c)=>{
+      c.fillStyle=SLATE;
+      rr(c,22,44,52,24,11);                  // body
+      ci(c,80,42,12);                        // head
+      tri(c,[74,32,84,30,80,44]);            // ear
+      rr(c,26,62,8,26,4); rr(c,40,62,8,26,4);
+      rr(c,58,62,8,26,4); rr(c,68,62,8,26,4);
+      c.strokeStyle=SLATE; ln(c,22,48,8,32,7);
+      c.fillStyle=LINEN; ci(c,86,40,2.6);
+    }},
+  ],
+},
+{
+  id:"C", tag:"案 C", name:"窓", sub:"FENÊTRE — 一枚ごとに小さな風景",
+  thesis:"モチーフをやめて、アイコンそのものを小さな風景画にする。区別は時刻と色調で ── 真昼の空、川、夕暮れの並木、朝靄、月夜、麦畑。壁に掛けたときが最も美しい。",
+  yes:"6枚並べたときの美しさは圧倒的。時刻で世界が並ぶ",
+  no:"機能を全く語らない。位置と色で覚えるしかない",
+  apps:[
+    {name:"天気", label:"真昼の空", field:horizon("#4E86B8","#A9CFE4","#7FA84E","#B7D177",0.72), subject:(c)=>{
+      c.fillStyle="#F6EBB8"; ci(c,72,22,14);
+      c.fillStyle="#F3EEE2"; ci(c,30,34,15); ci(c,46,30,19); ci(c,58,37,12);
+    }},
+    {name:"地図", label:"川", field:horizon("#8FB6CE","#CFE0E6","#3E7390","#6C9BB4",0.42), subject:(c)=>{
+      c.fillStyle="#4C7B4A"; c.fillRect(0,36,100,8);
+      c.fillStyle="#F0E7CE"; tri(c,[56,26,56,54,38,54]);
+      c.fillStyle="rgba(240,231,206,.42)"; tri(c,[56,58,56,84,38,58]);
+      c.fillStyle="rgba(255,255,255,.30)";
+      for(let i=0;i<4;i++) rr(c,10+i*6,62+i*8,66-i*10,3,1.5);
+    }},
+    {name:"音楽", label:"夕暮れの並木", field:horizon("#D98A4A","#F4CE8E","#5A4468","#8A6A82",0.66), subject:(c)=>{
+      c.fillStyle="#3B2E44";
+      for(const [x,h,w] of [[16,54,7],[34,64,8],[54,48,6],[74,60,8],[90,42,5]]){
+        rr(c,x,100-h,w,h,2);
+        c.beginPath(); c.ellipse(x+w/2,100-h,w*1.9,h*0.30,0,0,7); c.fill();
+      }
+      c.fillStyle="#F7D9A0"; ci(c,50,52,9);
+    }},
+    {name:"メッセージ", label:"朝靄の道", field:horizon("#D6D8CE","#EFEDE2","#8C9A6E","#B9C093",0.58), subject:(c)=>{
+      c.fillStyle="#C6C4A6";
+      c.beginPath(); c.moveTo(38,56); c.lineTo(56,56); c.lineTo(86,100); c.lineTo(6,100); c.closePath(); c.fill();
+      c.fillStyle="rgba(90,86,70,.55)";
+      rr(c,24,40,5,18,2); rr(c,68,38,5,20,2);
+      c.fillStyle="rgba(255,255,255,.42)"; c.fillRect(0,50,100,14);
+    }},
+    {name:"時計", label:"月夜", field:horizon("#1E2A4A","#3E5480","#16233C","#25406A",0.55), subject:(c)=>{
+      c.fillStyle="#EFE6C4"; ci(c,68,26,13);
+      c.fillStyle="rgba(239,230,196,.30)";
+      for(let i=0;i<5;i++) rr(c,52+i*3,60+i*8,34-i*6,3,1.5);
+      c.fillStyle="#0E1729"; c.beginPath();
+      c.moveTo(0,56); c.lineTo(22,42); c.lineTo(44,56); c.closePath(); c.fill();
+    }},
+    {name:"写真", label:"麦畑", field:horizon("#8FA8C4","#D3DFE6","#C09A3C","#E4C878",0.34), subject:(c)=>{
+      c.fillStyle="#A87F28";
+      for(let i=0;i<26;i++){ const x=(i*13)%100, y=44+((i*29)%52);
+        rr(c,x,y,3,10,1.5); }
+      c.fillStyle="#6E5A34"; rr(c,72,20,4,16,2);
+      c.fillStyle="#6E5A34"; ci(c,74,18,6);
+    }},
+  ],
+},
+{
+  id:"D", tag:"案 D", name:"色面", sub:"PANNEAU — 具象をやめる",
+  thesis:"何も描かない。分割された色面と一つの幾何形だけで、色の和音として区別する。筆触分割そのものが主役になり、いちばん今日的に見える案。",
+  yes:"純粋にきれい。どんなアプリが来ても破綻しない",
+  no:"何のアプリか一切語らない。完全に位置と色で覚える",
+  apps:[
+    {name:"天気", label:"黄と菫", field:(c)=>{
+      c.fillStyle="#E0B32E"; c.fillRect(0,0,RES,RES);
+      c.fillStyle="#6A5A9E"; c.fillRect(0,RES*0.62,RES,RES*0.38);
+    }, subject:(c)=>{ c.fillStyle="#F6EFD6"; ci(c,50,36,17); }},
+    {name:"地図", label:"青緑と群青", field:(c)=>{
+      c.fillStyle="#2C7C74"; c.fillRect(0,0,RES,RES);
+      c.fillStyle="#2A3E86"; c.beginPath();
+      c.moveTo(0,RES); c.lineTo(RES,RES*0.28); c.lineTo(RES,RES); c.closePath(); c.fill();
+    }, subject:(c)=>{ c.fillStyle="#EDE3C6"; rr(c,42,10,10,80,5); }},
+    {name:"音楽", label:"朱と緑", field:(c)=>{
+      c.fillStyle="#C4402A"; c.fillRect(0,0,RES,RES);
+      c.fillStyle="#3E7A46"; c.fillRect(RES*0.58,0,RES*0.42,RES);
+    }, subject:(c)=>{ c.fillStyle="#F2E7CC"; ci(c,58,50,20); c.fillStyle="#C4402A"; ci(c,58,50,8); }},
+    {name:"メッセージ", label:"桃と青", field:(c)=>{
+      c.fillStyle="#D07A86"; c.fillRect(0,0,RES,RES);
+      c.fillStyle="#3D6E9E"; c.beginPath(); c.arc(RES*0.5,RES*1.02,RES*0.62,Math.PI,0); c.fill();
+    }, subject:(c)=>{ c.fillStyle="#F4E9D4"; rr(c,16,42,68,10,5); }},
+    {name:"時計", label:"藍と黄土", field:(c)=>{
+      c.fillStyle="#26456E"; c.fillRect(0,0,RES,RES);
+      c.fillStyle="#B78C34"; c.beginPath(); c.arc(RES/2,RES/2,RES*0.34,0,7); c.fill();
+    }, subject:(c)=>{ c.fillStyle="#1D3352"; ci(c,50,50,15); }},
+    {name:"写真", label:"菫と黄緑", field:(c)=>{
+      c.fillStyle="#6E4E8E"; c.fillRect(0,0,RES,RES);
+      c.fillStyle="#9CB44A"; c.fillRect(0,0,RES,RES*0.3);
+      c.fillStyle="#48356A"; c.fillRect(0,RES*0.74,RES,RES*0.26);
+    }, subject:(c)=>{ c.fillStyle="#F0E8D2"; rr(c,26,34,48,34,3); }},
+  ],
+},
+];
+
+/* -------------------------------- build ------------------------------- */
+const deck = document.getElementById("deck");
+DIRECTIONS.forEach((dir, di) => {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  const head = document.createElement("header");
+  head.innerHTML = `<span class="tag">${dir.tag}</span>
+    <h2>${dir.name}<small>${dir.sub}</small></h2>`;
+  card.appendChild(head);
+
+  const thesis = document.createElement("p");
+  thesis.className = "thesis"; thesis.textContent = dir.thesis;
+  card.appendChild(thesis);
+
+  const show = document.createElement("div");
+  show.className = "show";
+
+  const hero = document.createElement("div");
+  hero.className = "hero";
+  const heroApp = dir.apps[0];
+  const heroCv = render(heroApp, di*17 + 3);
+  hero.appendChild(heroCv);
+  const heroCap = document.createElement("span");
+  heroCap.textContent = `${heroApp.name} — ${heroApp.label}`;
+  hero.appendChild(heroCap);
+  show.appendChild(hero);
+
+  const row = document.createElement("div");
+  row.className = "row";
+  dir.apps.forEach((app,i) => {
+    const cell = document.createElement("div");
+    cell.className = "ic";
+    cell.appendChild(render(app, di*17 + 3 + i*5));   // i=0 repeats the hero's seed
+    const cap = document.createElement("span");
+    cap.innerHTML = `${app.name}<br>${app.label}`;
+    cell.appendChild(cap);
+    row.appendChild(cell);
+  });
+  show.appendChild(row);
+  card.appendChild(show);
+
+  const v = document.createElement("div");
+  v.className = "verdict";
+  v.innerHTML = `<div class="yes"><b>向く</b><span>${dir.yes}</span></div>
+                 <div class="no"><b>弱み</b><span>${dir.no}</span></div>`;
+  card.appendChild(v);
+
+  deck.appendChild(card);
+});
+
+})();
+</script>
