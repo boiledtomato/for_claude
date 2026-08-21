@@ -1,5 +1,16 @@
 {
-  "last_updated": "2026-08-20T00:51:37Z",
-  "total": 0,
-  "articles": []
+  "last_updated": "2026-08-21T00:55:24Z",
+  "total": 1,
+  "articles": [
+    {
+      "id": "258971afe3ebca1b",
+      "title": "Tufin expands Unified Control Plane with AI intelligence and multi-vendor automation",
+      "url": "https://www.helpnetsecurity.com/2026/08/20/tufin-expands-unified-control-plane-with-ai-intelligence-and-multi-vendor-automation/",
+      "summary": "Tufin has announced the availability of Tufin Orchestration Suite (TOS) 5.3, helping enterprises further simplify security operations and maintain consistent control across increasingly complex multi-vendor, hybrid environments. As enterprise security environments continue to expand across cloud, firewalls, SASE, SD-WAN, microsegmentation, and distributed infrastructure, organizations increasingly",
+      "date": "2026-08-20T07:31:56Z",
+      "source": "Help Net Security",
+      "category": "industry_news",
+      "tags": []
+    }
+  ]
 }
