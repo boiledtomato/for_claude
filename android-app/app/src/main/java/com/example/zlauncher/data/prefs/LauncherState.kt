@@ -3,6 +3,7 @@ package com.example.zlauncher.data.prefs
 import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CardLayout
 import com.example.zlauncher.domain.model.DEFAULT_CARD_LAYOUT
+import com.example.zlauncher.domain.model.WidgetPlacement
 import kotlinx.serialization.Serializable
 
 /**
@@ -18,6 +19,8 @@ data class LauncherState(
     /** お気に入り（ドック）。ComponentName ではなく packageName で持つ */
     val favorites: List<String> = emptyList(),
     val cards: List<CardLayout> = DEFAULT_CARD_LAYOUT,
+    /** ホーム上部に並べるウィジェット。既定値があるので旧バージョンの JSON もそのまま読める */
+    val widgets: List<WidgetPlacement> = emptyList(),
 ) {
     companion object {
         const val CURRENT_VERSION = 1

@@ -1,7 +1,8 @@
 # ZLauncher — Android ホームランチャー MVP
 
-Kotlin + Jetpack Compose のホームランチャー。ホーム画面（アプリグリッド＋お気に入りドック）と、
-カード型のコンソール画面（ダークコンソール調・並べ替え可能）の 2 画面構成。
+Kotlin + Jetpack Compose のホームランチャー。ホーム画面（ウィジェット＋アプリ検索＋アプリグリッド
+＋お気に入りドック）と、カード型のコンソール画面（ダークコンソール調・並べ替え可能）、
+ウィジェットピッカーの 3 画面構成。
 
 UI モックアップ: [Android Launcher Console](https://claude.ai/code/artifact/ef5bddd6-040a-497f-8bcc-f7a89fe8567f)
 
@@ -27,6 +28,7 @@ app/src/main/java/com/example/zlauncher/
 ├── data/
 │   ├── apps/                          # LauncherApps ラッパ・一覧・並び順・アイコン・お気に入り
 │   ├── prefs/                         # LauncherState（version 付き）と DataStore
+│   ├── widgets/                       # AppWidgetHost の管理とウィジェット配置の永続化
 │   └── dashboard/                     # ダミーデータとカード配置の永続化
 └── ui/
     ├── home/                          # ホーム画面（グリッド＋ドック＋長押しメニュー）
@@ -38,9 +40,13 @@ app/src/main/java/com/example/zlauncher/
 ## 画面
 
 - **ホーム** — 起動可能アプリを 4 列グリッドに自動整列（名前順 / インストール日時順）。
-  下部にお気に入りドック 4 枠。アイコン長押しで「ドックに追加 / アプリ情報」。
+  上部にウィジェット（全幅・縦一列）とアプリ検索、下部にお気に入りドック 4 枠。
+  アイコン長押しで「ドックに追加 / アプリ情報」。
 - **コンソール** — 12 カラムグリッドにカードを配置。全幅 / 1・2 幅。
-  「編集」でドラッグ並べ替え・表示切替・幅変更・既定に戻す。
+  「編集」でドラッグ並べ替え・表示切替・幅変更・既定に戻す。ウィジェット追加と
+  並び順切替の入口もここ。
+- **ウィジェットピッカー** — インストール済みプロバイダの一覧。選ぶと ID 払い出し →
+  バインド同意 → 設定画面 → 保存まで進む。
 
 ## 配置モデル（重要）
 
@@ -50,6 +56,45 @@ app/src/main/java/com/example/zlauncher/
   アプリ更新でランチャーアクティビティのクラス名が変わると配置が消えるため。
 - お気に入りは `FavoritesRepository` でインストール済みアプリの Flow と `combine` して解決する。
   アンインストールされたアプリは自動でドックから落ちるので、削除処理を書く必要がない。
+
+## ウィジェット
+
+`AppWidgetHost` を `WidgetHostController` に閉じ込め、配置は座標ではなく**順序リスト**で持つ
+（全幅・縦一列）。自由座標にするとグリッド列数の変化で配置が破綻するため MVP では採らない。
+
+追加フローの要点（`WidgetPickerScreen`）:
+
+1. `allocateAppWidgetId()` で ID を払い出す
+2. `bindAppWidgetIdIfAllowed()` を試す — **`BIND_APPWIDGET` 権限は署名 / 特権アプリ専用**で
+   一般アプリには付与されないため、既定ホームでなければ大抵 false が返る
+3. false なら `ACTION_APPWIDGET_BIND` でユーザーの同意を取る
+4. `configure` を持つプロバイダは `ACTION_APPWIDGET_CONFIGURE` を起動する
+   （拒否されることがあるので、失敗しても未設定のまま追加する）
+5. 保存する
+
+**どこで中断されても払い出した ID を返す**のが肝（`cancel()`）。放置すると ID がリークする。
+`startListening` / `stopListening` は Activity の onStart / onStop に合わせる。掃除
+（`pruneMissing`）は listening 開始後にだけ走らせる — 開始前だと有効なウィジェットまで
+「提供元が無い」と誤判定しかねない。
+
+## 仕事用プロファイル（Work Profile）
+
+`LauncherApps` + `UserManager.userProfiles` で個人用と仕事用の両方を 1 つのグリッドに出す
+（プロファイルのタブ分けはしない）。アイコンは `getUserBadgedIcon` でバッジ付きにする。
+
+制限:
+
+- 仕事用プロファイルのアプリが実際に見えるのは**既定のホームアプリのときだけ**。
+  取得できなければ現在のユーザーだけに落ちる。
+- **ドックは個人用アプリのみ**。お気に入りを `packageName` だけで保存しており、
+  同一パッケージが両プロファイルに存在しうるため。仕事用アプリの長押しメニューには
+  「ドックに追加」を出さない。
+- ウィジェットも現在のユーザーのプロバイダのみ。
+
+## アプリ検索
+
+ホーム上部の検索バーでラベル / パッケージ名の部分一致で絞り込む。アプリ数が増えると
+配置より検索の方が早く目的に着くうえ、下記の並び順の制限も緩和できる。
 
 ## 並び順の制限（Android の制約）
 
@@ -70,7 +115,8 @@ AOSP の Launcher3 も同じ挙動。回避策として「インストール日�
 | debug は `applicationIdSuffix ".debug"`。既定ホームを壊さず共存できる | `app/build.gradle.kts` |
 | DataStore の `corruptionHandler` と JSON デコード失敗の既定値フォールバック | `LauncherPreferencesRepository` |
 | 未知のカード ID はスキップ、`reconcile` で増減に追従 | `DashboardLayoutRepository` / `CardCatalog` |
-| アイコンのラスタライズは IO + LruCache | `AppIconLoader` |
+| アイコンのラスタライズは IO + LruCache（キーはコンポーネント＋ユーザー） | `AppIconLoader` |
+| ウィジェット ID は中断時も必ず `deleteAppWidgetId` で返す | `WidgetPickerScreen` |
 | `LauncherApps` の呼び出しはすべて例外を握って空に落とす | `LauncherAppsDataSource` |
 
 ## ビルド
@@ -94,10 +140,10 @@ Gradle wrapper の jar はコミットしていないため、初回は Android 
 applicationId が別なので標準ランチャーと共存するが、既定に指定した状態でクラッシュすると
 復帰操作が取りづらい。コンソール画面には常設で「ホームアプリ設定を開く」導線を置いてある。
 
-## MVP に含まれないもの
+## まだ入っていないもの
 
-ウィジェット（`AppWidgetHost`）、フォルダ、ページ分割ワークスペース、自由座標配置、
-壁紙ピッカー、通知バッジ、ディープショートカット、Work Profile、アプリ検索。
+フォルダ、ページ分割ワークスペース、アイコンの自由座標配置、ウィジェットのリサイズ、
+壁紙ピッカー、通知バッジ、ディープショートカット、プロファイル別タブ。
 
 コンソールの数値は `DashboardDataSource` の固定値（ダミー）。実データを繋ぐときは
 このクラスだけ差し替えれば、カード側は変更しなくてよい。

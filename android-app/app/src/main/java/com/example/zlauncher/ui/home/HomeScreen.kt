@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -47,7 +48,10 @@ import com.example.zlauncher.core.designsystem.LocalStatusColors
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.domain.model.AppEntry
+import com.example.zlauncher.data.widgets.WidgetHostController
+import com.example.zlauncher.ui.home.component.AppSearchBar
 import com.example.zlauncher.ui.home.component.AppTile
+import com.example.zlauncher.ui.home.component.HomeWidgetItem
 import com.example.zlauncher.ui.home.component.FavoritesDock
 import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
@@ -55,15 +59,18 @@ import java.util.Date
 import java.util.Locale
 
 private const val DOCK_AREA_HEIGHT_DP = 176
+private const val HOME_COLUMNS = 4
 
 @Composable
 fun HomeScreen(
     onOpenConsole: () -> Unit,
+    widgetHost: WidgetHostController,
     modifier: Modifier = Modifier,
     gridState: LazyGridState = rememberLazyGridState(),
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val widgets by viewModel.widgets.collectAsStateWithLifecycle()
 
     // ホームでは戻る操作を無効化する。ランチャーの Activity は終了しないのが正しい
     BackHandler(enabled = true) { }
@@ -76,19 +83,54 @@ fun HomeScreen(
     ) {
         Column(Modifier.fillMaxSize().padding(WindowInsets.safeDrawing.asPaddingValues())) {
             ClockHeader(chips = state.statusChips)
-            Spacer(Modifier.height(20.dp))
+            Spacer(Modifier.height(14.dp))
+            AppSearchBar(
+                query = state.query,
+                onQueryChange = viewModel::setQuery,
+                onClear = viewModel::clearQuery,
+                modifier = Modifier.padding(horizontal = 20.dp),
+            )
+            Spacer(Modifier.height(16.dp))
             LazyVerticalGrid(
-                columns = GridCells.Fixed(4),
+                columns = GridCells.Fixed(HOME_COLUMNS),
                 state = gridState,
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(start = 12.dp, end = 12.dp, bottom = DOCK_AREA_HEIGHT_DP.dp),
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
+                // ウィジェットは全幅・縦一列。検索中は結果を押し下げないよう隠す
+                if (!state.isSearching) {
+                    items(
+                        items = widgets,
+                        key = { it.appWidgetId },
+                        span = { GridItemSpan(HOME_COLUMNS) },
+                    ) { placement ->
+                        HomeWidgetItem(
+                            placement = placement,
+                            controller = widgetHost,
+                            onRemove = { viewModel.removeWidget(placement.appWidgetId) },
+                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
+                        )
+                    }
+                }
+
+                if (state.isEmptyResult) {
+                    item(span = { GridItemSpan(HOME_COLUMNS) }) {
+                        Text(
+                            text = "「${state.query}」に一致するアプリはありません",
+                            style = ZType.Body,
+                            color = ZColors.TextSecondary,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 24.dp),
+                        )
+                    }
+                }
+
                 items(state.apps, key = { it.key }) { entry ->
                     HomeAppItem(
                         entry = entry,
                         isFavorite = state.isFavorite(entry),
+                        canFavorite = !entry.isWorkProfile,
                         favoritesFull = state.isFavoritesFull,
                         iconProvider = viewModel::icon,
                         onLaunch = viewModel::launch,
@@ -140,6 +182,7 @@ fun HomeScreen(
 private fun HomeAppItem(
     entry: AppEntry,
     isFavorite: Boolean,
+    canFavorite: Boolean,
     favoritesFull: Boolean,
     iconProvider: suspend (AppEntry) -> androidx.compose.ui.graphics.ImageBitmap?,
     onLaunch: (AppEntry, android.graphics.Rect?) -> Unit,
@@ -161,7 +204,11 @@ private fun HomeAppItem(
             onLongClick = { menuOpen = true },
         )
         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
-            if (isFavorite) {
+            // 仕事用プロファイルのアプリはドックに入れられない（ドックは packageName で
+            // 個人用アプリを解決するため）。項目自体を出さない
+            if (!canFavorite) {
+                Unit
+            } else if (isFavorite) {
                 DropdownMenuItem(
                     text = { Text("ドックから外す", style = ZType.Body, color = ZColors.TextPrimary) },
                     onClick = { menuOpen = false; onRemoveFavorite(entry) },

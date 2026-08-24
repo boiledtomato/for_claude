@@ -54,6 +54,7 @@ private const val GRID_COLUMNS = 12
 @Composable
 fun DashboardScreen(
     onBack: () -> Unit,
+    onAddWidget: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DashboardViewModel = hiltViewModel(),
 ) {
@@ -151,6 +152,8 @@ fun DashboardScreen(
                     Column {
                         Spacer(Modifier.height(4.dp))
                         SortOrderRow(current = sortOrder, onSelect = viewModel::setSortOrder)
+                        Spacer(Modifier.height(8.dp))
+                        SettingsRow(label = "ウィジェットを追加", onClick = onAddWidget)
                         Spacer(Modifier.height(8.dp))
                         SettingsRow(
                             label = if (DefaultLauncher.isDefault(context)) {

@@ -21,7 +21,8 @@ class FavoritesRepository @Inject constructor(
 ) {
     val favorites: Flow<List<AppEntry>> =
         combine(preferences.state, installedApps.apps) { state, apps ->
-            val byPackage = apps.associateBy { it.packageName }
+            // 同じパッケージが個人用と仕事用の両方にありうる。ドックは個人用のみを解決する
+            val byPackage = apps.filterNot { it.isWorkProfile }.associateBy { it.packageName }
             state.favorites.mapNotNull { byPackage[it] }
         }
 

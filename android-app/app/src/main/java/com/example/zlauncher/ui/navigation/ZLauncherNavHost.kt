@@ -7,18 +7,21 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.ui.dashboard.DashboardScreen
 import com.example.zlauncher.ui.home.HomeScreen
+import com.example.zlauncher.ui.widgets.WidgetPickerScreen
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 object Route {
     const val HOME = "home"
     const val DASHBOARD = "dashboard"
+    const val WIDGETS = "widgets"
 }
 
 @Composable
-fun ZLauncherNavHost(homeKeyPresses: Flow<Unit>) {
+fun ZLauncherNavHost(homeKeyPresses: Flow<Unit>, widgetHost: WidgetHostController) {
     val navController = rememberNavController()
     val homeGridState = rememberLazyGridState()
     val scope = rememberCoroutineScope()
@@ -35,11 +38,18 @@ fun ZLauncherNavHost(homeKeyPresses: Flow<Unit>) {
         composable(Route.HOME) {
             HomeScreen(
                 onOpenConsole = { navController.navigate(Route.DASHBOARD) },
+                widgetHost = widgetHost,
                 gridState = homeGridState,
             )
         }
         composable(Route.DASHBOARD) {
-            DashboardScreen(onBack = { navController.popBackStack() })
+            DashboardScreen(
+                onBack = { navController.popBackStack() },
+                onAddWidget = { navController.navigate(Route.WIDGETS) },
+            )
+        }
+        composable(Route.WIDGETS) {
+            WidgetPickerScreen(onDone = { navController.popBackStack() })
         }
     }
 }

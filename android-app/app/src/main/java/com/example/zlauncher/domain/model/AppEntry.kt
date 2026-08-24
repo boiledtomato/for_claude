@@ -15,6 +15,9 @@ data class AppEntry(
     val label: String,
     val user: UserHandle,
     val firstInstallTime: Long,
+    /** 仕事用プロファイル（managed profile）のアプリかどうか */
+    val isWorkProfile: Boolean = false,
 ) {
-    val key: String get() = componentName.flattenToShortString()
+    /** 同じパッケージが個人用と仕事用の両方に存在しうるので、キーにユーザーを含める */
+    val key: String get() = "${componentName.flattenToShortString()}#${user.hashCode()}"
 }

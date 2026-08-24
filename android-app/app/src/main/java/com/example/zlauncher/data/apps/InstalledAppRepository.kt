@@ -33,18 +33,21 @@ class InstalledAppRepository @Inject constructor(
         .stateIn(scope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     private fun loadApps(): List<AppEntry> {
-        val user = dataSource.currentUser
         val pm = context.packageManager
-        return dataSource.activityList(user).mapNotNull { info ->
-            runCatching {
-                AppEntry(
-                    packageName = info.componentName.packageName,
-                    componentName = info.componentName,
-                    label = info.label?.toString().orEmpty().ifBlank { info.componentName.packageName },
-                    user = user,
-                    firstInstallTime = pm.firstInstallTimeOf(info.componentName.packageName),
-                )
-            }.onFailure { Log.w(TAG, "skip ${info.componentName}", it) }.getOrNull()
+        val currentUser = dataSource.currentUser
+        return dataSource.profiles.flatMap { user ->
+            dataSource.activityList(user).mapNotNull { info ->
+                runCatching {
+                    AppEntry(
+                        packageName = info.componentName.packageName,
+                        componentName = info.componentName,
+                        label = info.label?.toString().orEmpty().ifBlank { info.componentName.packageName },
+                        user = user,
+                        firstInstallTime = pm.firstInstallTimeOf(info.componentName.packageName),
+                        isWorkProfile = user != currentUser,
+                    )
+                }.onFailure { Log.w(TAG, "skip ${info.componentName}", it) }.getOrNull()
+            }
         }
     }
 
