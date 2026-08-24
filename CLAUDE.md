@@ -37,6 +37,8 @@ for_claude/
 ├── community_docs/                   # Zenith Community Markdown — not published
 │   ├── README.md
 │   └── <category>/community_<category>_partN.md
+├── android-app/                      # Kotlin + Compose ホームランチャー（独立プロジェクト）
+│   └── app/src/main/java/com/example/zlauncher/
 ├── docs/
 │   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
@@ -373,6 +375,24 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 - **Commit message format:** `docs: Zenith Community 週次更新 YYYY-MM-DD`
 - Syncs with `--docs-dir community_docs --state-file
   data/community_notebooklm_sync_state.json --notebook-title Zscaler_community`
+
+## Android launcher app (`android-app/`)
+
+An independent Gradle project — it shares nothing with the Python/HTML pipeline and is
+not deployed by any workflow. Kotlin + Jetpack Compose home launcher (`HOME` intent
+filter) with two screens: an auto-sorted app grid with a favourites dock, and a
+card-based console screen with drag-and-drop reordering.
+
+- Build: `cd android-app && ./gradlew assembleDebug` (needs an Android SDK with
+  compileSdk 36; `local.properties` is git-ignored)
+- Debug builds carry `applicationIdSuffix ".debug"` so they coexist with the device's
+  real launcher — **do not set a debug build as the default home until it is verified**
+- Console values come from `DashboardDataSource` and are dummy data
+- See `android-app/README.md` for the placement model, the Japanese app-name sorting
+  limitation, and the launcher-specific manifest flags
+
+`daily-update.yml` excludes `android-app/` (and `ios-app/`) from the Pages staging tar —
+app sources are not published.
 
 ## Development Workflows
 
