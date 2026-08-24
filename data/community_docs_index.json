@@ -1,6 +1,6 @@
 {
  "fetch_mode": "api",
- "generated_at": "2026-08-17T02:18:14Z",
+ "generated_at": "2026-08-24T02:21:18Z",
  "posts": {
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
    "category": "zcc",
@@ -18183,8 +18183,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000rzADj0AM/pra-portal-with-user-portal-links": {
    "category": "other",
-   "hash": "fdcdc12dc96952da",
-   "lastmod": "2026-04-01T00:08:24.000Z",
+   "hash": "b69c78e7ccf59f85",
+   "lastmod": "2026-08-17T17:10:10.000Z",
    "title": "PRA Portal with User Portal Links",
    "type": "question"
   },
@@ -18498,8 +18498,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000yL0Ml0AK/zpa-usage-report-for-60-days-and-90-days": {
    "category": "zpa",
-   "hash": "16773cd3c9e692d5",
-   "lastmod": "2026-07-14T14:15:47.000Z",
+   "hash": "57bef84be26fc084",
+   "lastmod": "2026-08-17T17:03:07.000Z",
    "title": "ZPA Usage report for 60 days and 90 days",
    "type": "question"
   },
@@ -18512,8 +18512,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000z7NO90AM/cloud-connector-has-two-service-nics-primary-and-secondary": {
    "category": "branch",
-   "hash": "42ad445ac6afa6f6",
-   "lastmod": "2026-07-28T17:05:07.000Z",
+   "hash": "048bf2c339da010c",
+   "lastmod": "2026-08-20T18:30:03.000Z",
    "title": "Cloud Connector has two service NICs: primary and secondary",
    "type": "question"
   },
@@ -18561,8 +18561,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures": {
    "category": "platform",
-   "hash": "9be37ea0863c9fdd",
-   "lastmod": "2026-08-03T12:41:30.000Z",
+   "hash": "90ad182f289a9a02",
+   "lastmod": "2026-08-20T17:32:01.000Z",
    "title": "SAML Authentication Expired Causing Private Application Access Failures",
    "type": "question"
   },
@@ -18578,6 +18578,13 @@
    "hash": "79c084d76a68939b",
    "lastmod": "2026-08-12T13:43:42.000Z",
    "title": "Zscaler DC Expansion Introduced New IP Range impacting Govt. Site Accessibility",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000010uTCP0A2/zscaler-directly-removed-via-script-in-mac-machine": {
+   "category": "other",
+   "hash": "3f04a45f07283880",
+   "lastmod": "2026-08-18T12:57:22.000Z",
+   "title": "ZSCALER directly removed via script in MAC machine",
    "type": "question"
   }
  },

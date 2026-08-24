@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-17 02:18 UTC
+Generated: 2026-08-24 02:21 UTC
 Posts in this file: 209
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -5618,14 +5618,14 @@ we have our NSS server status always showing unhealthy. what could be the reason
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures","lastmod":"2026-08-03T12:41:30.000Z","id":"0D5PJ00000zoFsY0AU"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures","lastmod":"2026-08-20T17:32:01.000Z","id":"0D5PJ00000zoFsY0AU"} -->
 ## SAML Authentication Expired Causing Private Application Access Failures
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures
 - Type: Q&A
 - Posted: 2026-08-03T12:41:30.000Z
-- Last activity: 2026-08-03T12:41:30.000Z
-- Answers: 0
+- Last activity: 2026-08-20T17:32:01.000Z
+- Answers: 1
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
