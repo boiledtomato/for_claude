@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 113
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 111
 
 ---
 
@@ -3130,13 +3130,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-08-16T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-08-23T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
@@ -4176,13 +4176,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-08-16T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-08-23T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under SaaS Security API DLP and Malware policies into categories based on the sensitivity of the email data.
@@ -4270,22 +4270,29 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-tenants","lastmod":"2026-07-07T14:58Z","nid":"1492711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-tenants","lastmod":"2026-08-21T07:10Z","nid":"1492711"} -->
 ## Adding Email Tenants
 
 - Source: https://help.zscaler.com/zia/adding-email-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Email Tenants
-- Last modified: 2026-07-07T14:58Z
+- Last modified: 2026-08-21T07:10Z
 - Summary: How to add email tenants for use in Zscaler Outbound Email Policy rules.
 
-Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your outbound email policy rules. The email tenants you create are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp) and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
+Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you create are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp) and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
+
+For next-hop validation to enforce strict security checks during SMTP connections, the Zscaler service:
+
+- Strictly enforces SSL/TLS for secure SMTP connections.
+- Performs server certificate validation that requires the presented certificate to be valid and trusted.
+- Does not allow self-signed, expired, or otherwise invalid certificates.
 
 To add an email tenant:
 
-1. Go to **Policies**> **Data Protection**> **Policy**> **Email Tenants**.
-2. Click **Add Email Tenant**. The **Add Email Tenant**page appears.
-3. On the **Add Email Tenant** page, under **Choose the Email Service Provider**, select **Gmail** or **Exchange**.
+1. In the Zscaler Admin Console, go to **Policies**> **Data Protection**> **Policy**> **Email Tenants**.
+2. Click **Add Email Tenant**. The **Add Email Tenant**window appears.
+3. Under **Choose the Email Service Provider**, select **Secure Email Gateway**, **Gmail**, or **Exchange**.
+  - Configure Secure Email Gateway
   - Configure Gmail
   - Configure Exchange
 4. Click save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -4303,7 +4310,7 @@ Under **Email Tenant Security Options**, the **Workflow Automation** option is a
   - **Port Number**: Enter the port number for the email domain (e.g., `587`).
 4. Click **Add Domain**. The domain information is added to the email tenant. See image.
 
-[Image: Email Tenant Domain Configuration]
+[Image: Screenshot of the Email Tenant Domain Configuration]
 
 1. Under **Name Email Tenant**, enter a unique name for the tenant.
 2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
@@ -4341,13 +4348,13 @@ Under **Email Tenant Security Options**, the **Workflow Automation** option is a
 
 [Image: Search for role in the MS Exchange Portal]
 
-[Image: Assign Role in the Zscaler Admin Console]
+[Image: Assign Role in the ZIA Admin Portal]
 
-[Image: View your SaaS Connector ID in the Zscaler Admin Console]
+[Image: View your SaaS Connector ID in the ZIA Admin Portal]
 
-[Image: View your Tenant ID in the Zscaler Admin Console]
+[Image: View your Tenant ID in the ZIA Admin Portal]
 
-[Image: Workflow Automation check box]
+[Image: Workflow Automation check box in the ZIA Admin Portal]
 
 1. Sign in to the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home#/homepage).
 2. In the left-side navigation, go to **Settings > Domains**. See image. The **Domains** page appears.
@@ -4357,17 +4364,35 @@ Under **Email Tenant Security Options**, the **Workflow Automation** option is a
 6. On the **MX record** page, in the **Expected record** row, copy the value from the **Points to address or Value** column. See image.
 7. In the Zscaler Admin Console, paste the copied value into the **Next Hop Address** field.
 
-[Image: Domains menu option in the Microsoft M365 Admin Center]
+[Image: A screenshot of the Domains menu option in the Microsoft M365 Admin Center]
 
-[Image: Domain Overview page in the Microsoft M365 Admin Center]
+[Image: A screenshot of the Domain Overview page in the Microsoft M365 Admin Center]
 
-[Image: Copy the MX record value in the Microsoft M365 Admin Center]
+[Image: A screenshot of the copy MX record value in the Microsoft M365 Admin Center]
 
-[Image: Email Tenant Connectors and Rules Configuration]
+[Image: Screenshot highlighting the Email Tenant Connectors and Rules Configuration]
 
-[Image: Email Tenant Connectors and Rules Configuration]
+[Image: Screenshot highlighting the Email Tenant Connectors and Rules Configuration]
 
-[Image: Email Tenant Domain Configuration]
+[Image: Screenshot of the Email Tenant Domain Configuration]
+
+If your organization uses a secure email gateway (SEG) (e.g., Mimecast, Cisco IronPort), you can onboard your SEG tenant to use as part of your outbound email DLP policies. After you onboard SEG tenants on the **Email Tenants** page, you can then select those tenants when creating [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
+
+1. Under **Name Email Tenant**, enter a unique name for the tenant.
+2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
+3. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Smart Host FQDN** and **Key for Transport Rules** information appears. See image.
+4. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the SEG.
+5. Under **Email Domain Configuration**,click **Add Domain** then specify information for the email domain: See image.
+  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile). For explicitly configured domains, the Zscaler service uses the source IP address for the incoming connection to determine the mapping to the next hop. Domains that you do not explicitly configure are considered default domains. If you select **Default domain** from the list, the Zscaler service uses the source IP of the incoming connection to map messages to the corresponding next hop servers. For this routing to occur, your SEG must include the `X-Zscaler-TenantID: <tenant-key>` header in messages sent to the Zscaler smart host. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp).
+  - **Next Hop Address**: Specify information for the next hop, which is where the Zscaler service sends email content after inspection. You can enter an IPv4 address, an IPv6 address, or a valid domain name.
+  - **Port Number**: Enter the port number for the email domain (e.g., `587`).
+  - **Client Certificate Common Name**: Enter the common name associated with the client certificate (e.g., `example.com` or `www.example.com`) then click **Add Items**. This field does not support wildcard characters for subdomain matching (e.g., `*.example.com`). However, if the common name of the connecting client has a wildcard certificate, then the configured common name should match exactly, including wildcard characters.
+  - **Source IP Allow list**: Enter the IP addresses for allowed SMTP traffic (e.g., `10.20.30.0/24` allows SMTP traffic originating from 10.20.30.0 to 10.20.30.255) then click **Add Items**.
+  - **Include Subdomains**: Select whether to automatically include subdomains in the domain profile (e.g., `blog.example.com` is a subdomain of `example.com`).
+
+[Image: Configure Connectors and Rules section for email tenant onboarding]
+
+[Image: Email Domain Configuration section for email tenant onboarding]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4543,13 +4568,13 @@ Choose to isolate viewing the content on cloud applications through a remote bro
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-finance-rule-cloud-app-control","lastmod":"2026-06-29T02:44Z","nid":"1402141"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-finance-rule-cloud-app-control","lastmod":"2026-08-19T05:32Z","nid":"1402141"} -->
 ## Adding a Finance Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-finance-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Finance Rule for Cloud App Control
-- Last modified: 2026-06-29T02:44Z
+- Last modified: 2026-08-19T05:32Z
 - Summary: Information on how to add a rule for Finance cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
@@ -6576,13 +6601,13 @@ java -version
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-mip-account","lastmod":"2026-07-01T11:23Z","nid":"1402391"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-mip-account","lastmod":"2026-08-21T05:55Z","nid":"1402391"} -->
 ## Adding an MIP Account
 
 - Source: https://help.zscaler.com/zia/adding-mip-account
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an MIP Account
-- Last modified: 2026-07-01T11:23Z
+- Last modified: 2026-08-21T05:55Z
 - Summary: How to add an MIP account.
 
 Add a Microsoft Information Protection (MIP) account in the Zscaler Admin Console to enable the scan and retrieval of the MIP labels from Microsoft to the Zscaler Admin Console. After the MIP account has been successfully validated, the service can scan and retrieve the MIP labels from Microsoft for the MIP account in the Zscaler Admin Console. For the service to scan and retrieve the MIP labels from Microsoft, you need to change the status on the MIP account from Validation Successful to Active using the Edit MIP Account window. To stop the scan and retrieval of these MIP labels from Microsoft, change the status of the MIP account to Tenant Inactive. To learn more, see [Retrieving MIP Labels from Microsoft to the MIP Account](https://help.zscaler.com/zia/retrieving-mip-labels-microsoft-zscaler).
@@ -6602,12 +6627,10 @@ See image.
 
 The **Add MIP Account** window reappears, displaying the next window for account details.
 
-See image.
-
 1. In the **Add MIP Account** window, under **Account Name**, enter a name you want to associate with the Microsoft account. It must be unique.
 2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-The MIP account is added to the Zscaler Admin Console. The MIP Account displays a status of **Validation Successful**if the account is authorized. It displays a status of **Validation Failed** if the account is not authorized. If the status on the MIP account is **Validation Failed**, you can try the authorization process again by clicking **Reauthorize** in the **Edit MIP Account** window.
+The MIP account is added to the Zscaler Admin Console. The MIP account displays a status of **Validation Successful**if the MIP account is authorized. It displays a status of **Validation Failed** if the MIP account is not authorized. If the status on the MIP account is **Validation Failed**, you can try the authorization process again by clicking **Reauthorize** in the **Edit MIP Account** window.
 
 1. Click **Authorize**.
 
@@ -6617,13 +6640,19 @@ The Microsoft Portal appears.
 
 A Microsoft window appears listing the permissions requested by the Zscaler service.
 
-1. Review the required permissions for the Internet & SaaS service to access the Microsoft account and click **Accept**.
+See image.
+
+1. Review the required permissions for the Internet & SaaS (ZIA) service to access the Microsoft account and click **Accept**.
 
 To create a custom MIP connector, you must first configure permissions in Azure so that you can provide the **Client ID**, **Client Secret**, and **Tenant ID** for the MIP account in the Zscaler Admin Console. To learn more, see [Authorizing a Custom Zscaler Connector for Microsoft Applications](https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications).
+
+See Image.
 
 [Image: Authorizing the MIP account]
 
 [Image: Required Microsoft Permissions Window]
+
+[Image: Custom window of adding an MIP account]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7295,13 +7324,13 @@ The **Add Rule Label** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-07-29T21:58Z","nid":"1399881"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-08-21T08:23Z","nid":"1399881"} -->
 ## Adding Rules to the Bandwidth Control Policy
 
 - Source: https://help.zscaler.com/zia/adding-rules-bandwidth-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Adding Rules to the Bandwidth Control Policy
-- Last modified: 2026-07-29T21:58Z
+- Last modified: 2026-08-21T08:23Z
 - Summary: Information on how to add rules to the Bandwidth Control policy in the Zscaler Admin Console.
 
 [Watch a video about Bandwidth Control](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
@@ -7316,23 +7345,23 @@ You must first enable Bandwidth Control for the location before you can add rule
 
 To add rules to the Bandwidth Control policy:
 
-1. Go to **Analytics** > **Internet & SaaS** > **Dashboard**> **Bandwidth Control**.
+1. Go to **Infrastructure**> **Internet & SaaS**>**Network Policies**> **Rules**.
 2. Click **Add Rule**. You can also copy an existing rule by clicking the [Duplicate icon](https://help.zscaler.com/zia/editing-deleting-duplicating-items). The **Add Rule**window appears. See image.
-3. In the **Add Bandwidth Control Rule**window, enter the **Bandwidth Control Rule**attributes: See image.
+3. In the **Add Rule**window, enter the **Bandwidth Control Rule**attributes: See image.
   - **Rule Order:** Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you have enabled [Admin Rank](https://help.zscaler.com/zia/6.1/about-admin-rank), your assigned admin rank determines the rule order values you can select.
   - **Rule Name:**Enter a name for the rule.
   - **Admin Rank:** Enter a value from 0 to 7 (0 is the highest rank). Your assigned [Admin Rank](https://help.zscaler.com/zia/6.1/about-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule's Admin Rank determines the value you can select in the rule order so that a rule with a higher Admin Rank always precedes a rule with a lower Admin Rank.
   - **Rule Status:** An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
   - **Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
 4. Define the **Criteria**: See image.
-  - **Bandwidth Classes:**Select the [Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes) to which you want to apply this rule. You first must add URLs or cloud applications to predefined or custom bandwidth classes. Select any number of bandwidth classes. You can also search for bandwidth classes or click the **Add** icon to add a new bandwidth class.
+  - **Bandwidth Classes:**Select the [bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes) to which you want to apply this rule. You first must add URLs or cloud applications to predefined or custom bandwidth classes. Select any number of bandwidth classes. You can also search for bandwidth classes or click the **Add** icon to add a new bandwidth class.
   - **Locations:** Select**Any** to apply this rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can search for a location or click the **Add** icon to add a new location. You must enable Bandwidth Control for these locations and specify the download and upload bandwidth limits for each location. Contact Zscaler Support to increase the limit of **Locations**.
   - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
   - **Time:**Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/about-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add** icon to add a new time interval.
   - **Protocols**: If you have the Firewall subscription, select the protocols to which the rule applies: Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
     - **DNS over HTTPS**: Bandwidth from DNS over HTTPS websites.
     - **FTP over HTTP**: Bandwidth from FTP over HTTP websites.
-    - **HTTP**: Bandwidth from HTTP websites.
+    - **HTTP**: Bandwidth from HTTP websites. HTTP/2 traffic is covered under HTTPS. To enable HTTP/2 support, contact Zscaler Support. When enabled, enforcement occurs per HTTP/2 stream; there is no separate protocol selection required.
     - **HTTP Proxy**: Bandwidth from HTTP proxy servers.
     - **HTTPS**: Bandwidth from HTTP websites encrypted by SSL/TLS.
     - **Native FTP**: Bandwidth from native FTP servers.
@@ -7347,7 +7376,7 @@ To add rules to the Bandwidth Control policy:
 6. **Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
 7. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-The Bandwidth Control Policy has two predefined rules that you can edit or delete, and a default rule that you can edit but not delete. You can also edit or delete any administrator-defined rule.
+The Bandwidth Control policy has two predefined rules that you can edit or delete, and a default rule that you can edit but not delete. You can also edit or delete any administrator-defined rule.
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
@@ -11623,74 +11652,4 @@ To add a custom threat category,
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Adding a custom threat category by specifying name and description]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-04-24T03:21Z","nid":"1399311"} -->
-## Adding URLs to the Allowlist
-
-- Source: https://help.zscaler.com/zia/adding-urls-allowlist
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
-- Last modified: 2026-04-24T03:21Z
-- Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
-
-There might be trusted websites of partners or vendors whose webmail or file downloads might otherwise be blocked due to anti-virus, anti-spyware, anti-malware, or URL filtering policies. You can exempt URLs from security scans, URL filtering, or both.
-
-The allowlist applies to [Malware Protection](https://help.zscaler.com/zia/about-malware-protection), [Advanced Threat Protection](https://help.zscaler.com/zia/about-advanced-threat-protection), [Sandbox](https://help.zscaler.com/zia/about-sandbox), and [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policies. To learn more about how security exceptions impact policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/how-does-zscaler-service-enforce-policies).
-
-You can allowlist URLs completely by exempting them from security scans and URL filtering.
-
-## Adding URLs to Allowlist for Security Scans
-
-Adding URLs to the allowlist for security scans allows users to download content from these URLs without inspecting the traffic.
-
-To add URLs to the allowlist for security policies:
-
-1. Go to one of the following pages:
-  - **Policies**> **Cybersecurity**> **Inline Security**> **Malware Protection**.
-  - **Policies**>**Cybersecurity**> **Inline Security**> **Advanced Threat Protection**
-2. Click the **Security Exceptions** tab.
-3. In **Do Not Scan Content from these URLs**, enter the URLs you want to allowlist and click **Add Items**. You can enter multiple entries by pressing `Enter` after each entry. You can add up to 1,024 URLs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-This allowlist also applies to the [Sandbox](https://help.zscaler.com/zia/about-sandbox) policy.
-
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-## Adding URLs to Allowlist for URL Filtering
-
-Adding URLs to the allowlist for URL filtering allows access to the content without being blocked by other URL Filtering policy rules.
-
-To add URLs to allowlist for URL Filtering policy:
-
-1. Add the URLs you want to allowlist to a [custom URL category](https://help.zscaler.com/zia/adding-custom-url-categories).
-2. [Configure a URL Filtering rule](https://help.zscaler.com/zia/configuring-url-filtering-policy) to allow the custom URL category.
-
-Ensure that the rule order of this rule is higher than the URL Filtering rule that blocks these URLs.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-urls-denylist","lastmod":"2026-07-02T05:05Z","nid":"1398821"} -->
-## Adding URLs to the ATP URL Allowlist or Denylist
-
-- Source: https://help.zscaler.com/zia/adding-urls-denylist
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Adding URLs to the ATP URL Allowlist or Denylist
-- Last modified: 2026-07-02T05:05Z
-- Summary: How to place URLs on the allowlist and denylist using the Zscaler Advanced Threats Protection policy.
-
-Manage URLs by adding them to the allowlist or denylist with the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy). You can grant specific URLs permissions to access designated websites, browsers, or applications by adding them to the allowlist. URLs that have been added to the allowlist are accessible even if they would otherwise be blocked by other security measures or policies. You can also add specific URLs to the denylist to block access to these URLs and prevent users from accessing potentially malicious content.
-
-To add a URL to the allowlist or denylist:
-
-1. Go to **Policies** > **Cybersecurity** > **Inline Security** > **Advanced Threat Protection**.
-2. On the **Advanced Threats Policy**page, under **Blocked Malicious URLs**, enter the URLs you want to block for your organization. See image. You can view the list of blocked malicious URLs on the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#Malicious) page. Also, you can see the blocked URLs accessed by the users on the [Insights Logs](https://help.zscaler.com/zia/about-insights-logs) page. If you need further assistance, contact Zscaler Support.
-3. Optional: To add a comment to a URL, enter two forward slashes (//) after each URL entry. Separate each entry by pressing `Shift+Enter`.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
-
-[Image: Add URLs you Blocked Malicious URLs list in Advanced Threat Protection]
 <!-- /ZS-ARTICLE -->

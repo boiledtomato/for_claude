@@ -1,7 +1,7 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 261
 
 ---
@@ -4573,16 +4573,16 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-password-policy","lastmod":"2026-07-01T21:06Z","nid":"1499076"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-password-policy","lastmod":"2026-08-19T04:30Z","nid":"1499076"} -->
 ## Configuring the Password Policy
 
 - Source: https://help.zscaler.com/authentication-service/configuring-password-policy
 - Product: Authentication Service
 - Path: Authentication Service Help > Policies > Configuring the Password Policy
-- Last modified: 2026-07-01T21:06Z
+- Last modified: 2026-08-19T04:30Z
 - Summary: How to configure password policy for administrators logging in to the Zscaler Admin Console.
 
-The Password Policy page allows you to configure policies that users must follow while creating or resetting passwords to access the Zscaler Admin Console.
+The password policy is a set of rules that you can use to create or reset passwords for users accessing the Zscaler Admin Console.
 
 To configure the password policy:
 
@@ -4594,9 +4594,9 @@ To configure the password policy:
   - **Minimum No. of Numeric Characters**: Set the minimum number of numeric characters required in the password.
   - **Minimum No. of Special Characters**: Set the minimum number of special characters required in the password.
   - **Password must not include company name, username, first name, or last name**: Turn on to restrict the user from including their company name, username, first name, or last name in the password.
-  - **Reject reuse of last 5 passwords**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to restrict users from reusing their last 5 passwords. Passwords that are changed after a 24-hour gap fall under this criterion. Any password changes that occur within 24 hours are disregarded by Authentication Service. For example, if you reset your password 3 times (the second reset being after 24 hours of the first reset, and the third reset being within 24 hours of the second reset), the second password change is disregarded and can be used again as a new password. If the **Reject reuse of last 5 passwords** option is turned off, users can set any password regardless of what they used previously.
-  - **Deactivate user after 10 unsuccessful attempts**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to deactivate the user account after 10 unsuccessful login attempts.
-  - **Allow administrator to create or change user's password**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to allow the administrator to create or change user's password.
+  - **Reject reuse of last 5 passwords**: Turn on and set the number to restrict users from reusing their previous passwords. By default, the value is set to 5, but you can set the number between 3 and 10. If this option is turned off, users can reuse their old passwords. Passwords that are changed after a 24-hour gap fall under this criterion. Any password changed within 24 hours is ignored by Authentication Service. For example, if you reset your password 3 times (the second reset being after 24 hours of the first reset, and the third reset being within 24 hours of the second reset), the second password change is ignored and it can be reused.
+  - **Deactivate user after 10 unsuccessful attempts**: Turn on and set the number to deactivate the user account after unsuccessful login attempts. By default, the value is set to 10, but you can set the number between 3 and 10.
+  - **Allow administrator to create or change user's password**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to allow the administrator to create or change the user's password.
   - **Enforce password change after the initial login**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to prompt users to change their password after the initial login.
   - **Password expiration period (in days)**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Set the password expiration period after which users can reset their passwords. You can set the expiration period from 15 to 365 days.
 
@@ -6355,13 +6355,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-08-11T21:06Z","nid":"1534313"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-08-19T05:05Z","nid":"1534313"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2026
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-11T21:06Z
+- Last modified: 2026-08-19T05:05Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -12346,13 +12346,13 @@ The usage of ZIA China Premium Plus is expected to be in accordance with the [Ac
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-licensing-and-fair-use","lastmod":"2026-02-27T07:45Z","nid":"1390816"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-licensing-and-fair-use","lastmod":"2026-08-18T08:17Z","nid":"1390816"} -->
 ## ZIA Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zia-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > ZIA Licensing and Fair Use
-- Last modified: 2026-02-27T07:45Z
+- Last modified: 2026-08-18T08:17Z
 - Summary: Information about Zscaler Internet Access (ZIA) licensing and fair use.
 
 Zscaler Internet Access (ZIA) is a Software as a Service (SaaS) product that can be licensed in various ways. This article includes information on licensing types, license renewal process, and Zscaler’s Fair Use Policy.
@@ -12444,13 +12444,13 @@ The usage of ZPA China Premium is expected to be in accordance with the [Accepta
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-licensing-and-fair-use","lastmod":"2026-03-09T08:37Z","nid":"1390801"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-licensing-and-fair-use","lastmod":"2026-08-18T08:19Z","nid":"1390801"} -->
 ## ZPA Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zpa-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > ZPA Licensing and Fair Use
-- Last modified: 2026-03-09T08:37Z
+- Last modified: 2026-08-18T08:19Z
 - Summary: Information about Zscaler Private Access (ZPA) licensing and fair use.
 
 Zscaler Private Access (ZPA) is a Software as a Service (SaaS) product that is licensed in various ways. This article includes information on licensing types, the license renewal process, and Zscaler’s Fair Use Policy.
@@ -12478,13 +12478,13 @@ The usage of ZPA is expected to be in accordance with the [Acceptable Use Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-logs","lastmod":"2025-11-24T11:42Z","nid":"1390951"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-logs","lastmod":"2026-08-17T14:38Z","nid":"1390951"} -->
 ## ZPA Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zpa-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZPA Logs
-- Last modified: 2025-11-24T11:42Z
+- Last modified: 2026-08-17T14:38Z
 - Summary: Information about Zscaler Private Access (ZPA) logs.
 
 In order to access the Zscaler Private Access (ZPA) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs. For ZPA, *logs* are defined as follows:
@@ -12500,7 +12500,7 @@ In order to access the Zscaler Private Access (ZPA) service, Zscaler has the rig
 
 Logs do not include your internal system logs.
 
-Zscaler retains User Activity, User Status, Inspection, and App Connector log information for a rolling period of at least 14 days during the subscription term. Zscaler retains audit log information for a rolling period of six months during the subscription term. If you subscribe to the Extended Retention feature, Zscaler retains User Activity, User Status, Inspection, and App Connector log information for a rolling period of six months during the subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to the applicable retention cycles. You can also view your logs or stream logs in real-time using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service).
+Zscaler retains User Activity, User Status, AppProtection, and App Connector log information for a rolling period of at least 14 days during the subscription term. Zscaler retains audit log information for a rolling period of six months during the subscription term. If you subscribe to the Extended Retention feature, Zscaler retains User Activity, User Status, Inspection, and App Connector log information for a rolling period of six months during the subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to the applicable retention cycles. You can also view your logs or stream logs in real-time using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service).
 
 During the deployment process, you can choose to have the logs stored in either the United States or the European Union.
 
@@ -15004,13 +15004,13 @@ On the Custom Dashboards page (Analytics> Custom Dashboards), you can do the fol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-08-07T02:10Z","nid":"1541896"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-08-19T09:51Z","nid":"1541896"} -->
 ## About Dashboards
 
 - Source: https://help.zscaler.com/unified/about-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > About Dashboards
-- Last modified: 2026-08-07T02:10Z
+- Last modified: 2026-08-19T09:51Z
 - Summary: Information about the My Dashboards page in the Security Operations Platform.
 
 You can create, manage, and monitor custom dashboards in the Security Operations Platform. These dashboards provide visibility into identity findings, risks, and MITRE ATT&CK techniques across tenants.
@@ -16031,25 +16031,29 @@ After authentications are created, ongoing management of them are done through t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-blocked-countries","lastmod":"2024-08-20T16:17Z","nid":"1488041"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-blocked-countries","lastmod":"2026-08-21T13:59Z","nid":"1488041"} -->
 ## Configuring Blocked Countries
 
 - Source: https://help.zscaler.com/unified/configuring-blocked-countries
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Configuring Blocked Countries
-- Last modified: 2024-08-20T16:17Z
+- Last modified: 2026-08-21T13:59Z
 - Summary: How to specify the countries from which you want to block internet traffic.
 
 You can block internet traffic to and from web servers based in specific countries.
 
-To block countries, on the Miscellaneous page, review the list of Zscaler-recommended blocked countries under **Block Countries**.
+To block countries, on the **Miscellaneous** page, under **Block Countries**:
 
-- To add another blocked country, click the **Add**icon and search for the country you want to block.
-- To remove a blocked country, click the **Close**icon within the country you want to remove from the blocked list.
+1. (Optional) Click the **Add**icon and search for the country you want to block.
+2. (Optional) Click the **Close**icon within the country you want to remove from the blocked list.
 
-You can review the list of blocked countries later in the Admin Portal.
+See image.
 
-When you are done setting up blocked countries, you can [add your company logo to banners, emails, and user notifications sent from Zscaler](https://help.zscaler.com/unified/adding-your-company-logo) on the bottom of the Miscellaneous page.
+You can also [add your company logo to banners, emails, and user notifications sent from Zscaler](https://help.zscaler.com/unified/adding-your-company-logo) or click **Next** to review the internet security settings you've configured.
+
+You can review the list of blocked countries later in the Zscaler Admin Console.
+
+[Image: Set up blocked countries during the onboarding process]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16084,13 +16088,13 @@ The Internet & SaaS service automatically creates a profile for your organizatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-custom-dashboards","lastmod":"2026-08-12T03:06Z","nid":"1541899"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-custom-dashboards","lastmod":"2026-08-19T10:25Z","nid":"1541899"} -->
 ## Configuring Custom Dashboards
 
 - Source: https://help.zscaler.com/unified/configuring-custom-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Configuring Custom Dashboards
-- Last modified: 2026-08-12T03:06Z
+- Last modified: 2026-08-19T10:25Z
 - Summary: How to configure custom dashboards and add widgets to the dashboard.
 
 You can create a custom dashboard according to your organization's requirements in the Security Operations Platform (SecOps Platform). These dashboards provide the flexibility to add and customize various widgets as required. You must add at least one widget to configure a new custom dashboard. You can also use predefined dashboard templates to create a custom dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).

@@ -1,8 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 109
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 107
 
 ---
 
@@ -514,13 +514,13 @@ In the [Amazon VPC console](https://console.aws.amazon.com/vpc/), you must assig
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-08-14T10:41Z","nid":"1517756"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-08-17T14:39Z","nid":"1517756"} -->
 ## What Are Zero Trust Gateways?
 
 - Source: https://help.zscaler.com/cloud-branch-connector/what-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > What Are Zero Trust Gateways?
-- Last modified: 2026-08-14T10:41Z
+- Last modified: 2026-08-17T14:39Z
 - Summary: Introductory information, key features, and benefits of Zero Trust Gateways accessible in the Zscaler Admin Console.
 
 The Zscaler Zero Trust Gateway service transforms how you can secure your workloads and workload traffic deployed in public clouds. Built on the Zscaler Zero Trust Exchange (ZTE), the Zero Trust Gateway service simplifies cloud workload security for enterprises.
@@ -3379,30 +3379,6 @@ You can configure a password and additional settings to prevent other devices us
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-device-using-zero-touch-provisioning","lastmod":"2026-07-22T09:36Z","nid":"1529033"} -->
-## Deploying an Appliance Using Zero Touch Provisioning
-
-- Source: https://help.zscaler.com/zero-trust-branch/deploying-device-using-zero-touch-provisioning
-- Product: Zero Trust Branch
-- Path: Zero Trust Branch Help > Deploying Zero Trust Branch > Deploying an Appliance Using Zero Touch Provisioning
-- Last modified: 2026-07-22T09:36Z
-- Summary: How to deploy Zero Trust Branch appliances using Zero Touch Provisioning.
-
-You can quickly deploy an appliance to Zero Trust Branch by adding a site with Zero Touch Provisioning (ZTP):
-
-1. Follow all the steps in [Adding a Site](https://help.zscaler.com/zero-trust-branch/adding-site). Refer to the following table to determine which template to use for your appliance: You can clone and edit the template to meet your deployment configuration. To learn more, see [Managing Templates](https://help.zscaler.com/zero-trust-branch/managing-templates).
-  | Appliance | Template (High Availability) | Template (Standalone) |
-  | --- | --- | --- |
-  | ZT800 | `zt800-ha-default` | `zt800-standalone-default` |
-  | ZT600 | `zt600-ha-default` | `zt600-standalone-default` |
-  | ZT400 | `zt400-ha-default` | `zt400-standalone-default` |
-  | ZT8010 | `zt8010-ha-default` | `zt8010-standalone-default` |
-2. In the **DHCP Service** field, if not set by the template, select **DHCP S****erver** for a DHCP server; for a relay to a server, select **r****elay**.
-3. Verify that all other site parameters are set correctly for the appliance you are deploying.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-appliance","lastmod":"2026-08-11T10:59Z","nid":"1532526"} -->
 ## Deploying a Zero Trust Branch Appliance
 
@@ -3878,152 +3854,6 @@ See image.
 [Image: Reviewing and completing the VM creation in VMware ESXi]
 
 [Image: Option to power on the Zero Trust Branch VM]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zscaler-zt800-without-zero-trust-provisioning","lastmod":"2026-07-22T09:35Z","nid":"1509601"} -->
-## Deploying on a Zscaler ZT800 without Zero Touch Provisioning
-
-- Source: https://help.zscaler.com/zero-trust-branch/deploying-zscaler-zt800-without-zero-trust-provisioning
-- Product: Zero Trust Branch
-- Path: Zero Trust Branch Help > Deploying Zero Trust Branch > Deploying on a Zscaler ZT800 without Zero Touch Provisioning
-- Last modified: 2026-07-22T09:35Z
-- Summary: How to deploy Zero Trust Branch on a Zscaler ZT800 appliance without Zero Touch Provisioning in version 7.8 or earlier.
-
-Zero Trust Branch appliances can be deployed on a ZT800 appliance without using Zero Touch Provisioning for version 7.8 or earlier.
-
-## Prerequisites
-
-- Hardware Specifications
-- Network Information
-- Typical Setup
-
-## Configuration
-
-The steps below describe how to configure Zero Trust Branch on a Zscaler ZT800 when using version 7.8 or earlier.
-
-- Step 1: Connect to a Zscaler ZT800.
-- Step 2: Configure the WAN port.
-- Step 3: Activate Zero Trust Branch appliances.
-- Step 4: Configure Zero Trust Branch appliance LAN.
-- Step 5: Configure VLAN.
-
-When deployed on a Zscaler ZT800, Zero Trust Branch uses six 1GbE RJ45 ports and two 1GbE SFP ports. Any two of these can be configured as LAN (device-side) and WAN (firewall-/router-side) ports.
-Connect a laptop to the management port of the branch appliance over the RJ45 cable. Configure your laptop’s Ethernet interface with a static IP address in the subnet of 192.168.99.0/24 (e.g., 192.168.99.10).
-
-1. Log in to the branch appliance over SSH using the default management IP address and credentials. You can also connect to the branch appliance over the serial RJ45 console port.
-2. In the gateway command line interface, configure the LAN and WAN ports. Select `1` to configure the branch appliance and `1` to configure the network. Review [this recording](https://www.loom.com/share/9ea0049d436d4116997dc92e42eeab4d?sid=44a4b036-6e01-40ac-9857-e7176c74a96d) for more information.
-3. Select the LAN and WAN interface from the available options.
-
-Zscaler recommends that you connect the WAN port group to the network and ensure internet connectivity is active.
-
-1. Connect the switchport on the WAN side to the untagged or access port and refer to the following sample Cisco configuration. In this example, the switchport (Ge1/1/5) connecting to the WAN side of Zero Trust Branch is part of the VLAN445 and is configured as an access port. `interface GigabitEthernet1/1/5 switchport access vlan 445 switchport mode access`
-2. The WAN port can be configured with the static address or the DHCP. Virtual IP address is a floating IP address shared across both branch appliances when configured in the HA pair. Review [this recording](https://www.loom.com/share/9ea0049d436d4116997dc92e42eeab4d?sid=4b4d899b-cd31-4454-9df4-ddbf4cab10fc) where enp8s0f0 and enp10s0f0 are 1GbE interfaces and configured as a LAN/WAN interface.
-3. Branch appliances communicate with various AWS public cloud services such as RDS, ALB, and Elastic over the WAN uplink. These connections can be aggregated into a single outgoing connection via Zero Trust Branch-hosted forward proxy (e.g., `hub3.goairgap.com`) on TCP port 1883. To configure this proxy setting, select option `2` in the **Configure Gateway** menu of the gateway command line interface.
-4. After configuring the IP address and proxy, and establishing internet connectivity for the branch appliance, a 6-digit code displays in the gateway command line interface.
-
-Branch appliance configuration, policy management, logging, and reporting are managed via the SaaS-based Zscaler Admin Console.
-
-To activate the branch appliance:
-
-1. Go to **Networking > Gateways.**
-2. Click **Add Gateway**. See image.
-3. In the **Add Gateway** panel, complete the following information: [This recording](https://www.loom.com/share/894d129cae994d939de9e64ed98ba4ff?sid=67950ff9-4826-4237-9620-7f07c5e7fdc0) shows the gateway activation process. See image.
-  1. **Location**: Select the location for this branch appliance, or select **Add New Location**.
-  2. **Name**: (Optional) If adding a new location, enter a name for the location.
-  3. **Gateway Name**: Enter a name for the branch appliance.
-  4. **DHCP Service**: Select **DHCP Server** or **DHCP Relay**, based on whether the branch appliance is a DHCP server or relay to your existing DHCP server.
-  5. **NAT Enable**: (Optional) Select this checkbox if your branch appliance uses NAT to route all the traffic leaving the branch appliance toward the non-Zero Trust Branch network.
-  6. **Activation Code**: Enter the code you received when you configured the WAN port. It can take 5 to 10 minutes to activate and provision the appropriate microservices.
-  7. **WAN Virtual IP**: Enter the floating IP address to be used between two branch appliances.
-  8. **WAN VRRP Group ID (1 - 255**): Enter a number between 1–255 to uniquely identify the WAN router.
-  9. Click **Add**.
-4. To deploy the branch appliance's high availability pair, configure another appliance and activate it as a standby gateway using the following steps:
-  1. On the **Gateways** page, click the **Gear**icon for the gateway that you want to make a standby.
-  2. Select **Add Standby Gateway** from the menu.
-  3. Provide the standby gateway name, 6-digit code from the newly installed VM, and WAN virtual IP address and group ID number as described in the previous step.
-  4. Click **Add**.
-
-A single cluster of branch appliances can be deployed to protect multiple VLANs. To process multiple VLANs, the switchport connecting to the LAN-side interface of the branch appliance must be configured as a trunk port, and it must allow the VLANs that need to be protected by Zero Trust Branch.
-
-The following is a sample Cisco configuration of a switchport connecting to the LAN side of branch appliances. In this example, Ge1/1/4 is connected to the LAN side, is configured with trunk, and allows VLAN 226 and VLAN 227.
-
-```
-interface GigabitEthernet1/1/4
-switchport trunk allowed vlan 226,227
-switchport mode trunk
-```
-
-Zero Trust Branch deployment is not complete until the VLAN to be protected is enabled in the Zscaler Admin Console. Ensure that a LAN port is connected to the switch and that it is in the same VLAN as the devices (broadcast packets from the devices must reach the LAN port). This section describes how to configure Zero Trust Branch to receive traffic from VLAN 226 and VLAN 227 and protect devices connected to those VLANs.
-
-1. Go to **Infrastructure**>**Connectors**>**Edge**>**Sites**.
-2. On the **Sites** page, select the site where the Zero Trust Branch-protected VLAN is configured, and click **Add Airgap VLAN**. See image.
-3. In the **Add Airgap VLAN** panel, complete the information for this VLAN. For an untagged port, enter `1` in the **VLAN Tag** field. See image.
-4. If you are using an existing production VLAN, make sure that the default gateway IP address is the same as the existing Switch Virtual Interface (SVI) address for that VLAN. [This recording](https://www.loom.com/share/6677958ff3b84ba0bc5e60d0c5cab544?sid=67dc69db-238e-4884-88f3-08bc07d2ac22) shows how to add a VLAN.
-5. Log in to your existing L2/L3 switch, router, or firewall, and shut down the SVI/VLAN interface. Add a return route for VLAN with Zero Trust Branch WAN Virtual IP address as a nexthop. Here are sample Cisco commands (for VLAN 226 with subnet mask 10.16.226.0/24): `#conf t #int vlan 226 #shutdown #exit #ip route 10.16.226.0 255.255.255.0 < airgap-wan-vip >`
-6. Turn on the VLAN in the Zscaler Admin Console. By default, the VLANs are created in the staged state. Each VLAN must be enabled to configure it into the branch appliances.
-
-The DHCP Service option provides DHCP service ON/OFF and non-airgapped options:
-
-- DHCP Service ON: The branch appliance assigns the IP address and `/32` net mask and ringfences the endpoints in the VLAN.
-- DHCP Service OFF: The branch appliance acts as a DHCP relay and modifies the DHCP response to `/32` net mask and ringfences all the endpoints in the VLAN.
-- Non-Airgapped: The branch appliance assigns the net mask as per the default configured network subnet mask or network mask received from the DHCP servers. It does not ringfence the endpoints. However, the admin can still create segmentation policies based on network and group-level policies.
-
-[Image: Adding and updating network gateways on the Gateways page.]
-
-[Image: Add Gateway panel.]
-
-[Image: VLANs page.]
-
-[Image: Add VLAN panel.]
-
-| Parameter | Specification |
-| --- | --- |
-| CPU | 8C Atom |
-| Memory | 16 GB |
-| Storage | 256 GB |
-| Ports | 6x 1GbE; 2x 1GbE small form-factor pluggable (SFP) Supported SFPs:Finisar FCLF8522P2BTL; Finisar FTLF8519P3BNL; Finisar FTLF1318P3BTL |
-| Form Factor | Desktop |
-| Throughput (64KB HTTP) | 6 Gbps |
-| Sessions | 500K |
-| Number of Endpoints | 750 |
-
-| Details | Value | Description |
-| --- | --- | --- |
-| Site/Location Name | <name> | Site or branch name. |
-| Branch Appliance Names | <name1>, <name2> | Appliance names. |
-| Zero Trust Branch WAN/Uplink IPs | <IP1>, <IP2> | Zero Trust Branch upstream/WAN/NIC. Two IP addresses must be in the existing network. Three IP addresses are required for the high availability deployment. |
-| Appliance Default Gateway | <IP> | Default gateways for the branch appliances. |
-| DNS Servers | <IP1>, <IP2> | Enterprise private DNS server IP addresses that must be assigned to devices in the Zero Trust Branch network. |
-| DHCP Servers | <IP1>, <IP2> | DHCP servers to which DHCP requests are relayed. Ensure that you have a pool assigned for Zero Trust Branch VLANs. |
-| Internet Connectivity | `hub3.goairgap.com` (TCP:1883); `wg.goairgap.com` (UDP:51820) | Branch appliances require internet connectivity using these outbound TCP and UDP ports. |
-
-### Port Configuration
-
-[Image: Port configuration for a ZT800]
-
-The ZT800 has the following ports:
-
-1. Serial RJ45 Console Port: You can use PuTTY or similar serial console application to access the Zero Trust Branch console. Use the following settings for proper serial connection:
-  - Baud Rate: 115,200
-  - Data Bits: 8
-  - Parity: None
-  - Stop Bits: 1
-  - Flow Control: Off
-2. enp2s0f0 - 1GbE SFP LAN/WAN Port
-3. enp2s0f1 - 1GbE SFP LAN/WAN Port
-4. enp2s0f2 - Reserved
-5. Management Port (enp2s0f3): Out-of-band management port with a fixed address of 192.168.99.99/24.
-6. enp8s0f0 - 1GbE Port
-7. enp8s0f1 - 1GbE Port
-8. enp10s0f0 - 1GbE Port
-9. enp10s0f1 - 1GbE Port
-
-Ports 1, 2, and 6–9 can be used as either LAN or WAN ports.
-
-- When used as LAN ports, device-side interfaces connected to the L2 switch via the trunk interface with Zero Trust Branch-protected VLANs allowed as member ports. The LAN port acts as the default gateway for both Zero Trust Branch-protected VLANs and devices.
-- When used as WAN ports, the upstream interface connects to the L2 switch as an untagged port in the same VLAN as the upstream firewall or L2/L3 switch. All internet-bound or non-Zero Trust Branch destined traffic is routed to the network/VLAN after the policy check.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4709,13 +4539,13 @@ To configure route preference:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-08-11T11:06Z","nid":"1525146"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-08-23T07:06Z","nid":"1525146"} -->
 ## Managing Sites
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-sites
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Sites > Managing Sites
-- Last modified: 2026-08-11T11:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to add new sites, manage site-specific DNS configurations, and configure static routes in Zero Trust Branch.
 
 Sites are where Zero Trust Branch appliances are deployed. From the Zscaler Admin Console, you can add new sites, manage site-specific DNS configurations, and configure static routes. To learn more about templates, see [Managing Templates](https://help.zscaler.com/zero-trust-branch/managing-templates).
@@ -5079,13 +4909,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-08-12T10:13Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-08-21T21:06Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-12T10:13Z
+- Last modified: 2026-08-21T21:06Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -5319,13 +5149,13 @@ Press [Enter] to continue
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/step-step-configuration-guide-zero-trust-branch","lastmod":"2026-08-03T14:36Z","nid":"1532103"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/step-step-configuration-guide-zero-trust-branch","lastmod":"2026-08-17T21:06Z","nid":"1532103"} -->
 ## Step-by-Step Configuration Guide for Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/step-step-configuration-guide-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Step-by-Step Configuration Guide for Zero Trust Branch
-- Last modified: 2026-08-03T14:36Z
+- Last modified: 2026-08-17T21:06Z
 - Summary: Step-by-Step Configuration Guide for Zero Trust Branch
 
 This guide takes you through the configuration steps you need to complete before using Zscaler Zero Trust Branch for your organization.
@@ -6175,13 +6005,13 @@ The list of IP addresses associated with the routing policy displays.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-zero-trust-branch-access-roles","lastmod":"2026-08-03T14:35Z","nid":"1532522"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-zero-trust-branch-access-roles","lastmod":"2026-08-17T21:06Z","nid":"1532522"} -->
 ## Understanding Zero Trust Branch Access Roles
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-zero-trust-branch-access-roles
 - Product: Zero Trust Branch
-- Path: Zero Trust Branch Help > Configuration > Understanding Zero Trust Branch Access Roles
-- Last modified: 2026-08-03T14:35Z
+- Path: Zero Trust Branch Help > Deployment Preparation > Understanding Zero Trust Branch Access Roles
+- Last modified: 2026-08-17T21:06Z
 - Summary: Information about access roles in the Zero Trust Branch.
 
 Zero Trust Branch uses role-based access control (RBAC) to determine the granted permissions that enable admins and users to perform their job functions. By separating duties across clearly defined roles, RBAC minimizes the risk of misconfigurations, unauthorized access, and insider threats while maintaining operational efficiency and compliance.
@@ -6761,18 +6591,18 @@ To access the traffic flow chart:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/what-site-dns-policies","lastmod":"2026-07-16T11:06Z","nid":"1531224"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/what-site-dns-policies","lastmod":"2026-08-20T09:41Z","nid":"1531224"} -->
 ## What Are Site DNS Policies?
 
 - Source: https://help.zscaler.com/zero-trust-branch/what-site-dns-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Site DNS Policies > What Are Site DNS Policies?
-- Last modified: 2026-07-16T11:06Z
+- Last modified: 2026-08-20T09:41Z
 - Summary: Introductory information, key features, and benefits of DNS policies used for Zero Trust Branch sites.
 
 The DNS is a key part of the internet, offering the power of quickly translating between the human language of FQDNs and the computer language of IP addresses.
 
-Within Zero Trust Branch, you can use DNS policies to define rules that control DNS requests and responses to your Zero Trust Branch sites. To learn more about configuring site DNS policies, see [Configuring Site DNS Policies](https://help.zscaler.com/zero-trust-branch/configuring-site-dns-policies).
+Within Zero Trust Branch, you can use DNS policies to define rules that control DNS requests and responses to your Zero Trust Branch sites. To see site DNS policies, go to Infrastructure > Connectors > Edge > Sites > [Site Name] > DNS Policy. To learn more about configuring site DNS policies, see [Configuring Site DNS Policies](https://help.zscaler.com/zero-trust-branch/configuring-site-dns-policies).
 
 ## Key Features and Benefits
 

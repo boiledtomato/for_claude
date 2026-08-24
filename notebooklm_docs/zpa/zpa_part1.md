@@ -1,18 +1,18 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 173
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 174
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-access-policies-defined-partners","lastmod":"2026-07-20T08:50Z","nid":"1540799"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-access-policies-defined-partners","lastmod":"2026-08-21T07:06Z","nid":"1540799"} -->
 ## About Access Policies Defined by Partners
 
 - Source: https://help.zscaler.com/zpa/about-access-policies-defined-partners
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Access Policy > About Access Policies Defined by Partners
-- Last modified: 2026-07-20T08:50Z
+- Last modified: 2026-08-21T07:06Z
 - Summary: Information on access policy rules, which enable you to implement role-based access control, and the Defined by Partners page within the Zscaler Admin Console.
 
 Access policy rules defined by partners enable you to implement role-based access control and provide access to a partner's applications for [Business-to-Business (B2B) Federation](https://help.zscaler.com/zpa/understanding-business-business-federation). The Defined by Partners page displays the list of policy rules created by the guest partner for the host partner's applications. The Defined by My Tenant page displays the list of policy rules that are defined by the host partner for internal applications and users. Additionally, a guest partner configures the policy rules for all the host partner's applications. To learn more about access policy rules defined by your tenant, see [About Access Policy](https://help.zscaler.com/zpa/about-access-policy).
@@ -43,13 +43,13 @@ On the Defined by Partners page (Policies > Access Control > Private Application
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-access-policy","lastmod":"2026-08-05T16:52Z","nid":"1483656"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-access-policy","lastmod":"2026-08-21T07:06Z","nid":"1483656"} -->
 ## About Access Policy
 
 - Source: https://help.zscaler.com/zpa/about-access-policy
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Access Policy > About Access Policy
-- Last modified: 2026-08-05T16:52Z
+- Last modified: 2026-08-21T07:06Z
 - Summary: Information on access policy rules, which enable you to implement role-based access control, and the Access Policy page within the Zscaler Admin Console.
 
 Access policy rules enable you to implement role-based access control. To configure an access policy rule, you must first define the users and then define which applications or segment groups they can access. For example, you would specify the users first (i.e., Sales Staff), then specify which application segments or segment groups they can access (i.e., Sales App and Intranet Group). For a complete list of ranges and limitations for access policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -952,13 +952,13 @@ On the Protected Applications page (Policies > Cybersecurity > Inline Security >
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-appprotection-controls","lastmod":"2026-08-05T15:55Z","nid":"1484976"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-appprotection-controls","lastmod":"2026-08-22T07:06Z","nid":"1484976"} -->
 ## About AppProtection Controls
 
 - Source: https://help.zscaler.com/zpa/about-appprotection-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > About AppProtection Controls
-- Last modified: 2026-08-05T15:55Z
+- Last modified: 2026-08-22T07:06Z
 - Summary: Information on AppProtection controls and the Open Web Application Security Project (OWASP) Predefined Controls page in the Zscaler Admin Console.
 
 All [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) have a set of AppProtection controls that you can use to help you define how AppProtections are managed. AppProtection controls are grouped by predefined controls that come from ThreatLabZ, Open Web Application Security Project (OWASP), and WebSocket, or custom WebSocket or HTTP controls. To learn more, see [About ThreatLabZ Controls](https://help.zscaler.com/zpa/about-threatlabz-controls), [About Custom Controls](https://help.zscaler.com/zpa/about-custom-controls), and [About WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls).
@@ -1064,13 +1064,13 @@ On the AppProtection Policy page (Policies > Cybersecurity > Inline Security > P
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-appprotection-profiles","lastmod":"2026-08-07T09:33Z","nid":"1485006"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-appprotection-profiles","lastmod":"2026-08-22T07:06Z","nid":"1485006"} -->
 ## About AppProtection Profiles
 
 - Source: https://help.zscaler.com/zpa/about-appprotection-profiles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > AppProtection for Private Application Traffic Profiles > About AppProtection Profiles
-- Last modified: 2026-08-07T09:33Z
+- Last modified: 2026-08-22T07:06Z
 - Summary: Information on the AppProtection Profiles page in the Zscaler Admin Console.
 
 AppProtection profiles allow you to determine how traffic is inspected and managed. Each AppProtection profile uses a paranoia level if using [API controls](https://help.zscaler.com/zpa/about-api-protection-controls), [ThreatLabZ predefined controls](https://help.zscaler.com/zpa/about-threatlabz-controls), [Open Web Application Security Project (OWASP) predefined controls](https://help.zscaler.com/zpa/about-appprotection-controls), or [WebSocket predefined controls](https://help.zscaler.com/zpa/about-websocket-controls). Predefined controls are a selection of the controls to establish the requirements for AppProtection, and what action is taken for those controls. You can use your own [WebSocket custom controls](https://help.zscaler.com/zpa/about-websocket-controls) or [HTTP custom controls](https://help.zscaler.com/zpa/about-custom-controls), or you can use the ThreatLabZ predefined controls, OWASP predefined controls, API controls, or WebSocket predefined controls. You can also apply the same action for all the controls, or a different action for each control in the AppProtection profile.
@@ -2031,14 +2031,16 @@ On the Cloud Connectors page (Infrastructure > Private Access > Component > Clou
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-connector-groups","lastmod":"2026-07-07T15:01Z","nid":"1483586"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-connector-groups","lastmod":"2026-08-20T14:50Z","nid":"1483586"} -->
 ## About App Connector Groups
 
 - Source: https://help.zscaler.com/zpa/about-connector-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Groups > About App Connector Groups
-- Last modified: 2026-07-07T15:01Z
+- Last modified: 2026-08-20T14:50Z
 - Summary: Information on App Connector groups and the App Connector Groups page within the Zscaler Admin Console.
+
+[Watch a video about App Connector Groups.](https://fast.wistia.net/embed/iframe/zbtq82bmh0)
 
 Zscaler recommends deploying App Connectors in groups for high availability and horizontal scaling. Every App Connector belongs to a specific App Connector group, and every App Connector group should always be associated with at least one OAuth 2.0 enrollment token or provisioning key and one Server group to serve any application. App Connector groups must be associated with applications that the App Connector can access (i.e., only assign App Connectors to applications that the App Connector is capable of reaching). Private Access (ZPA) selects the closest App Connector given the location of the user and the App Connector-to-application latency.
 
@@ -2339,6 +2341,93 @@ On the Consoles Policy page (Policies > Access Control > Clientless > Privileged
   - [Privileged Credentials Policy](https://help.zscaler.com/zpa/about-privileged-credentials-policy)
 
 [Image: Consoles Policy page within the ZPA Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/about-credential-classes","lastmod":"2026-08-17T11:28Z","nid":"1541027"} -->
+## About Credential Classes
+
+- Source: https://help.zscaler.com/zpa/about-credential-classes
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Credential Classes
+- Last modified: 2026-08-17T11:28Z
+- Summary: Information about credential classes for Privileged Remote Access (PRA) in the Zscaler Admin Console.
+
+A credential class is a rotation schedule that you can assign to rotate the password for a [managed credential](https://help.zscaler.com/zpa/about-privileged-managed-credentials). You can set the rotation policy to determine when the rotation for a managed credential is triggered.
+
+Credential classes provide the following benefits and enable you to:
+
+- Set rotation schedules for each managed credential based on the need of that credential.
+- Ensure that frequently used credentials have passwords rotated on a consistent basis.
+- Gain insight into the number of managed credentials using each credential class.
+
+## About the Credential Classes Page
+
+On the Credential Classes page (Policies > Access Control > Clientless > Credential Classes), you can do the following:
+
+1. Click the **Filter** icon to display or hide the filters.
+2. Click the **Search** icon to locate specific information in the table.
+3. Refresh the Credential Classes page to reflect the most current information.
+4. [Add a new credential class.](https://help.zscaler.com/zpa/configuring-credential-classes)
+5. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
+6. View a list of all credential classes that are configured. For each credential class, you can see:
+  - **Name**: The name of the credential class.
+  - **Rotation Policy**: The rotation frequency that is set for the credential class (**Scheduled**, **After Each Use**, and **Never**).
+  - **Members**: The number of managed credentials using this credential class.
+7. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+8. [Edit a credential class.](https://help.zscaler.com/zpa/editing-credential-classes)
+9. Delete a credential class.
+10. Display more rows or a different page of the table.
+
+[Image: Viewing the Credential Classes page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/about-credential-providers","lastmod":"2026-08-17T11:23Z","nid":"1541004"} -->
+## About Credential Providers
+
+- Source: https://help.zscaler.com/zpa/about-credential-providers
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Credential Providers
+- Last modified: 2026-08-17T11:23Z
+- Summary: Information about credential providers for Privileged Remote Access (PRA) in the Zscaler Admin Console.
+
+A credential provider is the external identity source (e.g., Active Directory (AD) or Entra ID) used to [discover credentials](https://help.zscaler.com/zpa/about-discovered-credentials) after you set up the credential agent for a designated identity provider (IdP). You can manage the credential providers in the Zscaler Admin Console. When you create a credential provider, you can map the credential agent application segment to the external identity source.
+
+Credential providers include the following benefits and enable you to:
+
+- Manage the oversight of discovered, managed, and ignored credentials for each external identity source.
+- Track the status of configured credential providers.
+- Review the amount of saved queries for each credential provider.
+
+## About the Credential Provider Page
+
+On the Credential Providers page (Policies > Access Control > Clientless > Credential Providers), you can do the following:
+
+1. Click the **Filter** icon to display or hide the filters.
+2. Use the **Search** field to locate specific information in the table.
+3. Refresh the Credential Providers page to reflect the most current information.
+4. [Add a new credential provider.](https://help.zscaler.com/zpa/configuring-credential-providers)
+5. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
+6. View a list of all credential providers that are configured. For each credential provider, you can see:
+  - **Provider Name**: The name of the credential provider.
+  - **Application**: The credential agent application that has been assigned to the credential provider.
+  - **Status**: The status of the credential provider.
+    - **OK**: The credential provider can provide discovered credentials.
+    - **Error**: There is an issue with the credential provider.
+    - **Validating**: The credential provider is in the process of validation.
+    - **Pending**: The validation of the credential provider is pending.
+  - **Saved Queries**: The number of queries saved for the credential provider.
+  - **New Credentials**: The number of discovered credentials for the credential provider.
+  - **Managed Credentials**: The number of credentials that are managed for the credential provider.
+  - **Ignored Credentials**: The number of ignored credentials for the credential provider.
+7. [Edit a credential provider.](https://help.zscaler.com/zpa/edit-credential-providers)
+8. Delete a credential provider.
+9. Display more rows or a different page of the table.
+
+[Image: Viewing the Credential Providers page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4581,14 +4670,16 @@ On the Private Clouds page (Infrastructure > Private Access > Business Continuit
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edge-groups","lastmod":"2026-05-28T21:06Z","nid":"1484471"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edge-groups","lastmod":"2026-08-19T11:20Z","nid":"1484471"} -->
 ## About Private Service Edge Groups
 
 - Source: https://help.zscaler.com/zpa/about-private-service-edge-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Groups > About Private Service Edge Groups
-- Last modified: 2026-05-28T21:06Z
+- Last modified: 2026-08-19T11:20Z
 - Summary: Information on Private Service Edge for Private Access (ZPA) groups and the Private Service Edge Groups page in the Zscaler Admin Console.
+
+[Watch a video about Private Service Edge Groups.](https://fast.wistia.net/embed/iframe/ahp2va5mtu)
 
 Zscaler recommends deploying Private Service Edges for Private Access (ZPA) in groups for high availability and horizontal scaling. You can create new Private Service Edge groups whenever you [add a new Private Service Edge](https://help.zscaler.com/zpa/configuring-service-edges) using a new provisioning key. Every Private Service Edge belongs to a specific Private Service Edge group.
 
@@ -4847,13 +4938,13 @@ If you delete a privileged console, you can no longer form a new connection and 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-credential-pools","lastmod":"2026-07-23T13:49Z","nid":"1520511"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-credential-pools","lastmod":"2026-08-17T11:55Z","nid":"1520511"} -->
 ## About Privileged Credential Pools
 
 - Source: https://help.zscaler.com/zpa/about-privileged-credential-pools
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Privileged Credential Pools
-- Last modified: 2026-07-23T13:49Z
+- Last modified: 2026-08-17T11:55Z
 - Summary: Information on the Privileged Credential Pools page in the Zscaler Admin Console.
 
 Privileged credential pools can be used to streamline access to privileged consoles by mapping authentication details using a privileged credentials policy. Multiple users can gain access to the privileged console that the privileged credential pools are designated to. After you create a privileged credential pool, you can map it to a privileged console by creating a privileged credential policy using the SAML and SCIM policy criteria types.
@@ -4865,7 +4956,7 @@ Privileged credential pools provide the following benefits and enable you to:
 - Allow users to start a privileged console session without needing to provide credentials.
 - Prevent users from accessing the privileged console if all privileged credentials from the privileged credentials pool are exhausted or in use.
 
-If you want to use privileged credential pools, you must first [create privileged credentials](https://help.zscaler.com/zpa/configuring-privileged-credentials) and the [privileged portals](https://help.zscaler.com/zpa/about-privileged-portals) and [privileged consoles](https://help.zscaler.com/zpa/about-privileged-consoles) that you want to assign the credentials to.
+If you want to use privileged credential pools, you must first [discover credentials](https://help.zscaler.com/zpa/about-discovered-credentials) from external identity sources (e.g., Active Directory (AD) or Entra ID) or [create credentials locally](https://help.zscaler.com/zpa/configuring-privileged-credentials) in the Zscaler Admin Console. You also need to create the [privileged portals](https://help.zscaler.com/zpa/about-privileged-portals) and [privileged consoles](https://help.zscaler.com/zpa/about-privileged-consoles) that you want to assign the credentials to.
 
 ## About the Credential Pools Page
 
@@ -4949,13 +5040,13 @@ You need to have at least two privileged credential policies created for the fir
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-managed-credentials","lastmod":"2026-06-30T14:38Z","nid":"1485551"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-managed-credentials","lastmod":"2026-08-17T14:02Z","nid":"1485551"} -->
 ## About Managed Privileged Credentials
 
 - Source: https://help.zscaler.com/zpa/about-privileged-managed-credentials
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Managed Privileged Credentials
-- Last modified: 2026-06-30T14:38Z
+- Last modified: 2026-08-17T14:02Z
 - Summary: Information about managed privileged credentials for Privileged Remote Access (PRA) within the Zscaler Admin Console.
 
 Privileged credentials streamline access to privileged consoles by mapping authentication details to a [privileged credentials policy](https://help.zscaler.com/zpa/about-privileged-credentials-policy). Based on the privileged credentials policy, credentials are automatically injected into the privileged console without having to manually add them.
@@ -4974,7 +5065,7 @@ To use a privileged credential, you must first create a [privileged portal](http
 On the Managed page (Policies > Access Control > Clientless > Privileged Credentials > Managed), you can do the following:
 
 1. [Add a new privileged credential.](https://help.zscaler.com/zpa/configuring-privileged-credentials)
-2. Discover credentials from the AD.
+2. [Discover credentials from the AD](https://help.zscaler.com/zpa/configuring-discovered-credentials).
 3. Click the **Filter** icon to display or hide the filters.
 4. Click the **Search** icon to locate specific information in the table.
 5. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter). If you are using a [Microtenant](https://help.zscaler.com/zpa/about-microtenants), then the **Microtenant Ownership Type** filter is available. By default, the **Configured within Microtenant** filter option is applied to show the privileged credentials configured within that specific Microtenant. The options for the filter are based on access type (**Global**and **Configured within Microtenant**). The **Global** option filters the information in the table that is configured within the Default Microtenant. The only available operator for this filter type is **Equals**.
@@ -7071,13 +7162,13 @@ You can block specific users from accessing specific applications and segment gr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-and-viewing-support-information","lastmod":"2026-07-15T10:24Z","nid":"1485056"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-and-viewing-support-information","lastmod":"2026-08-19T08:26Z","nid":"1485056"} -->
 ## Accessing and Viewing Support Information
 
 - Source: https://help.zscaler.com/zpa/accessing-and-viewing-support-information
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Accessing and Viewing Support Information
-- Last modified: 2026-07-15T10:24Z
+- Last modified: 2026-08-19T08:26Z
 - Summary: How to view and access information about the Support Information page in the Zscaler Admin Console.
 
 This article describes how to add, view, and filter data from App Connectors and Private Service Edges for Private Access. Using Support Information, you can create sessions that run commands on App Connectors and Private Service Edges, and then filter and view the outputs of these sessions to assist in troubleshooting. For a complete list of ranges and limits for Support Information, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
@@ -7196,7 +7287,7 @@ The following table provides a list of commands:
 | TCP PING | The Transmission Control Protocol (TCP) ping command to test reachability to a port, or range of ports, for a list of hostnames or IP addresses. | Examples of valid arguments: Jira.corp.com:80; 1.1.1.1:443; Google.com:443; IP in IPv6 format with port: [2607:f8b0:400a:806:200]:80 | Any alphanumeric with optional port | ^[a-z0-9-_.]*[a-z]+[a-z0-9-_.]*(:[0-9]+)?$ |
 | PCAP | The PCAP (Packet Capture or TCP Dump) command to capture network traffic. This allows admins to troubleshoot connectivity between an App Connector, Private Service Edge, or Private Cloud Controller and Public Service Edge for Adaptive Access Engine, or between an App Connector, Private Service Edge, or Private Cloud Controller and applications. A maximum of one PCAP command per session is allowed. The maximum PCAP file size for a single session is 1 GB, while the maximum size of the individual PCAP files is 100 MB (e.g., if the PCAP capture is 350 MB, then three files are downloaded at 100 MB each, and then one file is downloaded at 50 MB). After the files are downloaded on the host machine, you can merge the files for analysis. After the PCAP session is complete, you can download the session output. To download the session output of the PCAP: Expand the PCAP session in the table.; Click the App Connector, Private Service Edge, or Private Cloud Controller.The **Session Output** window appears. In the **Session Output** window, click the **Download**icon. | Examples of valid arguments: Interfaces: eth0 (optional); Application: jira.corp.com (optional); 10.1.1.1 (optional); IP in IPv4 and IPv6 formats: [2607:f8b0:400a:806:200] and [2607:f8b0:400a:806:200]:80; FQDN: Fully resolvable by the device as done by tcpdump. The maximum allowed characters is 51; IP with port supported: 1.1.1.1:80; FQDN with port: abc.com:80 | Any alphanumeric with optional port | N/A |
 | GET NETWORK INTERFACES | The command to display all the interfaces or a specific target interface for an App Connector. | Argument is optional. If not provided, all interfaces are included. Examples when using the argument to target a specific interface: eth0; vpn_vrf1 | Any valid alphanumeric string (interface name) | N/A |
-| JOURNALCTL | The command to fetch service logs or full system logs for an App Connector, Private Service Edge, or Private Cloud Controller to help troubleshoot and diagnose issues. In general, logs are compressed into an LZ4-formatted file (e.g., `admin-probe-journalctl-<uuid>.lz4`). The compressed file is then uploaded to an AWS S3 bucket for storage. In the following instances, logs skip compression: If the log file size is below 4 KB (e.g., logs collected over a very short interval).; If the service is unavailable when the log is fetched.When compression is skipped, the log file is uploaded in its raw uncompressed format as `downloaded_file.log`. To download and decompress the log files: Expand the JOURNALCTL session in the table.; Click the **Download** icon.; Decompress the log file using an open-source LZ4 tool. | Examples of valid arguments: 50; 1,000 (default); 10,000; 100,000 (maximum) | Numeric positive integer value | N/A |
+| JOURNALCTL | The command to fetch service logs or full system logs for an App Connector, Private Service Edge, or Private Cloud Controller to help troubleshoot and diagnose issues. Docker-based App Connectors or Private Service Edges don't run `systemd` or `journald` so this command isn't available. Instead, collect logs via Docker logs or by exporting the containers' JSON logs on the host (`/var/lib/docker/containers/*/…json.log`). In general, logs are compressed into an LZ4-formatted file (e.g., `admin-probe-journalctl-<uuid>.lz4`). The compressed file is then uploaded to an AWS S3 bucket for storage. In the following instances, logs skip compression: If the log file size is below 4 KB (e.g., logs collected over a very short interval).; If the service is unavailable when the log is fetched.When compression is skipped, the log file is uploaded in its raw uncompressed format as `downloaded_file.log`. To download and decompress the log files: Expand the JOURNALCTL session in the table.; Click the **Download** icon.; Decompress the log file using an open-source LZ4 tool. | Examples of valid arguments: 50; 1,000 (default); 10,000; 100,000 (maximum) | Numeric positive integer value | N/A |
 
 The time when the component starts running commands. The time displayed is based on the time zone set.
 
@@ -9410,13 +9501,13 @@ Some of the following filter options only appear with specific Protocol Discover
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-user-activity-diagnostics","lastmod":"2026-08-05T16:55Z","nid":"1483771"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-user-activity-diagnostics","lastmod":"2026-08-21T07:06Z","nid":"1483771"} -->
 ## Accessing User Activity Diagnostics
 
 - Source: https://help.zscaler.com/zpa/accessing-user-activity-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Accessing User Activity Diagnostics
-- Last modified: 2026-08-05T16:55Z
+- Last modified: 2026-08-21T07:06Z
 - Summary: Information about User Activity diagnostics and user event data, accessible within the Zscaler Admin Console.
 
 You can view and filter user activity log data and trend data for past events.
@@ -10303,13 +10394,13 @@ After a backup is created manually or automatically, you can view a list of back
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/adding-connectors-existing-connector-group","lastmod":"2026-07-20T08:43Z","nid":"1483691"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/adding-connectors-existing-connector-group","lastmod":"2026-08-21T16:05Z","nid":"1483691"} -->
 ## Adding App Connectors to an Existing App Connector Group
 
 - Source: https://help.zscaler.com/zpa/adding-connectors-existing-connector-group
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Groups > Adding App Connectors to an Existing App Connector Group
-- Last modified: 2026-07-20T08:43Z
+- Last modified: 2026-08-21T16:05Z
 - Summary: How to add an App Connector to an existing App Connector group within the Zscaler Admin Console.
 
 This article describes how to add an App Connector to an existing group if you are using a provisioning key for enrollment.
@@ -10317,7 +10408,7 @@ This article describes how to add an App Connector to an existing group if you a
 To add an App Connector to an existing App Connector group:
 
 1. Go to **Infrastructure**> **Private Access** > **Component** > **App Connector Keys**. The **App Connector Keys** page appears.
-2. Verify that the private key you plan to use has enough available keys to reuse in the**Provisioning Key Unitilization** column. If not, [edit the provisioning key](https://help.zscaler.com/zpa/editing-connector-provisioning-keys%C2%A0) to update the maximum reuse value.
+2. Verify that the private key you plan to use has enough available keys to reuse in the**Provisioning Key Utilization** column. If not, [edit the provisioning key](https://help.zscaler.com/zpa/editing-connector-provisioning-keys%C2%A0) to update the maximum reuse value.
 3. Copy the App Connector provisioning key from the list. You will need to enter this key when you deploy the App Connector to a platform.
 4. Deploy your App Connector on the chosen platform and use the copied provisioning key to enroll the App Connector. To learn more, see the [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/knowledge-base-categories/supported-platforms-connectors).
 <!-- /ZS-ARTICLE -->
@@ -10622,13 +10713,13 @@ The following table provides a list of Linux capabilities that the container use
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-google-cloud-platform","lastmod":"2026-08-10T14:55Z","nid":"1505701"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-google-cloud-platform","lastmod":"2026-08-21T13:44Z","nid":"1505701"} -->
 ## App Connector Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-google-cloud-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Google Cloud Platform
-- Last modified: 2026-08-10T14:55Z
+- Last modified: 2026-08-21T13:44Z
 - Summary: How to deploy an App Connector on Google Cloud Platform (GCP), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on Google Cloud Platform (GCP), and post-deployment verification checks. For general information regarding App Connector deployment for Private Access (ZPA), see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -10636,7 +10727,7 @@ This deployment guide provides information on prerequisites, how to deploy an Ap
 - Step 1: Make Sure You Have Met All App Connector Deployment Prerequisites
 - Step 2: Deploy the App Connector on GCP
 - Step 3: Configure the Networking for the Deployed App Connector
-- Step 4: Verify the status of the deployed App Connector
+- Step 4: Verify the Status of the Deployed App Connector
 
 After you have verified your deployment, you can perform additional tasks to maintain the system (i.e., changing your App Connector console admin credentials or performing system software updates). To learn more, see [Managing Deployed App Connectors](https://help.zscaler.com/zpa/managing-deployed-software-components).
 
@@ -10795,7 +10886,7 @@ The following prerequisites must be met before deploying the App Connector insta
 You can deploy the image on GCP using one of the following methods:
 
 - Deploying an App Connector Using the Instance Wizard
-- Deploying an App Connector Using a Launch Template and Auto Scaling (Advanced Deployment)
+- Deploying an App Connector Using a Launch Template and Autoscaling (Advanced Deployment)
 
 [Image: Diagram of Zscaler for GCP workloads]
 
@@ -10822,7 +10913,7 @@ See image.
 1. Review your configuration and then click **Deploy**.
 2. Verify the newly created VM on the Management page.
 
-[Image: Entering the Service Account ID within GCP Marketplace]
+[Image: Entering the Service Account ID in GCP]
 
 To deploy an App Connector using an App Connector instance:
 
@@ -10831,14 +10922,14 @@ To deploy an App Connector using an App Connector instance:
 3. Select your project (e.g., **zpa-connector**).
 4. (Optional) If you want to add a startup script with a provisioning key, you need to add the provisioning key as a secret:
   1. Go to **Security** > **Data Protection** > **Secret Manager**. The **Secret Manager** page appears. See image.
-  2. Click **Create Secret**. The **Create secret** page appears.
-  3. In the **Create secret**page: See image.
+  2. Click **Create secret**. The **Create secret** page appears.
+  3. On the **Create secret**page: See image.
     1. **Name**: Enter the name of the secret (e.g., `provisioning_key`).
     2. **Secret value**: Enter the value for the secret (e.g., `<your provisioning key>`). You can acquire a provisioning key when creating an App Connector in the Zscaler Admin Console. To learn more, see [About App Connector Provisioning Keys](https://help.zscaler.com/zpa/about-connector-provisioning-keys).
-  4. Click **Create Secret**.
+  4. Click **Create secret**.
 5. Go to **Compute** **Engine** > **Storage** > **Images**. See image.
 6. Search for the custom image using a filter with the name of the image. An example of the custom name used for this step is **zpa-connector-el9-2024-06-3c70f809-feature**.
-7. Click the **Actions**icon, and then click **Create Instance.** The **Create an instance** page appears. See image.
+7. Click the **Actions**icon, and then click **Create instance.** The **Create an instance** page appears. See image.
 8. On the **Create an instance**page, under the **Machine Configuration** section, select the **Machine type**with preset amounts of vCPUs and memory that suit the workload. Zscaler recommends using the n2-standard-4 or n2-highcpu-4 machine types: See image.
   - **n2-standard-4**: The supported specifications are 4 vCPU, 2 core, and 16 GB memory.
   - **n2-highcpu-4**: The supported specifications are 4 vCPU, 2 core, and 4 GB memory.
@@ -10848,14 +10939,14 @@ To deploy an App Connector using an App Connector instance:
   3. Click **Advanced**.
   4. Enter the following script for the **Automation** field using the name of the secret that you created previously: `#!/usr/bin/bash # Sleep to allow the system to initialize sleep 15 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz tar -xf google-cloud-cli-linux-x86_64.tar.gz export PATH=$PATH:$PWD sudo ./google-cloud-sdk/install.sh # Install App Connector packages yum install -y zpa-connector # Stop the App Connector service which was auto-started at boot time systemctl stop zpa-connector # Fetch the secret from Secret Manager SECRET_NAME="Provision_key" SECRET_VALUE=$(gcloud secrets versions access latest --secret="$SECRET_NAME") # Use the secret in your application or script echo "The secret value is: $SECRET_VALUE" # Example: Export the secret as an environment variable export MY_SECRET="$SECRET_VALUE" # Create a file from the App Connector provisioning key created in the Zscaler Admin Console # Make sure that the provisioning key is between double quotes echo "$SECRET_VALUE" > /opt/zscaler/var/provision_key chmod 644 /opt/zscaler/var/provision_key # Start the App Connector service to enroll it in the ZPA cloud systemctl start zpa-connector # Wait for the App Connector to download the latest build sleep 60 # Stop and then start the App Connector for the latest build systemctl stop zpa-connector systemctl start zpa-connector # Run a yum update to apply the latest patches yum update -y`
 10. Click **Create**.
-11. In the left-side navigation, go to **Compute Engine** > **Virtual Machines**> **VM instances**to verify that your instance is being created. The instance name is displayed while creating the instance. See image.
+11. In the left-side navigation, go to **Compute Engine** > **Virtual machines**> **VM instances**to verify that your instance is being created. The instance name is displayed while creating the instance. See image.
 12. SSH access is required to configure the GCP Private Key to the App Connector.
 
 - See instructions.
 
 1. Enroll the App Connector using one of the following methods: The image attempts to use OAuth enrollment tokens by default but applies a provisioning key first if one is available.
-  1. OAuth 2.0 enrollment token See instructions.
-  2. App Connector provisioning key See instructions.
+  - OAuth 2.0 enrollment token See instructions.
+  - App Connector provisioning key See instructions.
 2. After enrolling the App Connector, verify that the deployed App Connector is running using the following commands: `sudo su ps aux | grep zpa-connector`For example: `# ps -aux | grep zpa-connector root 1258 0.1 0.2 524684 21880 ? Ssl 06:36 0:01 /opt/zscaler/bin/zpa-connector root 7154 0.0 0.0 3880 2048 pts/1 S+ 06:57 0:00 grep --color=auto zpa-connector`To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components#Status).
 3. Zscaler highly recommends [updating the App Connector system software](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating) before proceeding.
 
@@ -10865,26 +10956,24 @@ To deploy an App Connector using an App Connector instance:
 
 [Image: Viewing the Create an instance page]
 
-[Image: Selecting the machine type when creating an instance]
-
-[Image: Verifying the VM instance after its creation in the GCP Management Console]
+[Image: Verifying the VM instance after its creation]
 
 [Image: Viewing the Secret Manager page]
 
-[Image: Viewing the Create secret window]
+[Image: Viewing the Create secret page]
 
 To create an SSH key pair:
 
 1. Open the App Connector terminal, and use the following `ssh-keygen` command with the `-c` flag to create a new SSH key pair: `ssh-keygen -t rsa -f ~/.ssh/gcp_key -C admin -b 2048`To learn more, refer to the [Google Cloud documention](https://cloud.google.com/compute/docs/connect/create-ssh-keys).
 2. In the **Compute Engine** settings, click **Metadata**> **SSH Keys**. See image.
 3. Click **Edit**.
-4. Click **Add Item**. See image.
+4. Click **Add item**. See image.
 5. Upload the SSH public key to the GCP Management Console.
 6. Click **Save**.
 
-[Image: Accessing the SSH Keys page in the GCP Management Console]
+[Image: Accessing the SSH Keys page in GCP]
 
-[Image: Uploading the SSH key in the GCP Management Console]
+[Image: Uploading the SSH key in GCP]
 
 1. Stop running the zpa-connector service using the following command. If the provisioning key is not detected when the App Connector first started, then the App Connector is in a sleep cycle and looks for the key again every 24 hours.
 
@@ -10956,36 +11045,31 @@ ssh admin@172.31.255.255 -i ~/.ssh/gcp_key
 
 1. When you are asked if you want to continue connecting, enter yes. [Image: Connecting to gcp_key]
 
-If necessary, egress traffic directions can be restricted to Private Access hosts and ports. For details regarding required IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+This procedure describes how you can deploy Private Access in GCP through launch templates and autoscaling configurations to create a scalable and supportable infrastructure.
 
-This procedure describes how you can deploy Private Access in GCP through Launch Templates and Auto Scaling configurations to create a scalable and supportable infrastructure.
-
-To deploy an App Connector on GCP using a Launch Template with Auto Scaling:
+To deploy an App Connector on GCP using a launch template with autoscaling:
 
 1. Log in to the GCP Management Console.
 2. Click **Compute Engine**.
-3. In the left-side navigation, go to **Instance Groups** > **Instance Groups**.
-4. Click **Create Instance Group**. The **Create Instance Group** page appears.
+3. In the left-side navigation, go to **Instance groups** > **Instance groups**.
+4. Click **Create instance group**. The **Create Instance Group** page appears.
 
 See image.
 
-1. In the **Create Instance Group** page:
-  1. Enter an **Instance group name**.
-  2. Enter a **Description**.
-  3. On the **Instance template**tab, click the drop-down menu and select the existing instance template, or click **Create a New Instance Template**to create a new instance template.
-
-- See instructions.
-
-1. Select the region and zone from the drop-down menu.
-2. Click **Configure** **Autoscaling**:
+1. On the **Create Instance Group** page:
+  1. **Instance group name**: Enter a name for the instance group.
+  2. **Description**: Enter a description for the instance group.
+  3. On the **Instance template**drop-down menu, select an existing instance template, or click **Create a new instance template**to create a new instance template. See instructions.
+2. Select the region and zone from the drop-down menu.
+3. Click **Configure** **Autoscaling**:
   1. Select a minimum and maximum number of instances as 2 and 4, respectively.
   2. Click **CPU utilization**to show the **Edit signal** section.
   3. Enter `80` in the **Target CPU utilization** field.
   4. Enter `300` in the **Initialization period** field.
-3. Click **Create**.
+4. Click **Create**.
 
-1. Enter the instance template **Name**.
-2. Enter the **Machine configuration**details.
+1. **Name**: Enter a name for the instance template.
+2. **Machine configuration**: Enter the details for the configuration.
 3. Under **Boot disk**, click **Change**.
 
 See image.
@@ -10996,8 +11080,8 @@ See image.
   1. Select **Allow full access to all cloud APIs** to access the provisioning key that is present in the secret manager.
   2. Expand the **Advanced options**section, and then expand the **Management**section.
   3. In the **Management**section:
-    1. Provide a description in the **Description**field.
-    2. Add the following script to the **Automation** field. `#!/usr/bin/bash # Sleep to allow the system to initialize sleep 15 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz tar -xf google-cloud-cli-linux-x86_64.tar.gz export PATH=$PATH:$PWD sudo ./google-cloud-sdk/install.sh # Install App Connector packages yum install -y zpa-connector # Stop the App Connector service which was auto-started at boot time systemctl stop zpa-connector # Fetch the secret from Secret Manager SECRET_NAME="Provision_key" SECRET_VALUE=$(gcloud secrets versions access latest --secret="$SECRET_NAME") # Use the secret in your application or script echo "The secret value is: $SECRET_VALUE" # Example: Export the secret as an environment variable export MY_SECRET="$SECRET_VALUE" # Create a file from the App Connector provisioning key created in the Zscaler Admin Console # Make sure that the provisioning key is between double quotes echo "$SECRET_VALUE" > /opt/zscaler/var/provision_key chmod 644 /opt/zscaler/var/provision_key # Start the App Connector service to enroll it in the ZPA cloud systemctl start zpa-connector # Wait for the App Connector to download the latest build sleep 60 # Stop and then start the App Connector for the latest build systemctl stop zpa-connector systemctl start zpa-connector # Run a yum update to apply the latest patches yum update -y`See image.
+    1. **Description**: Enter a description of the automation script.
+    2. **Automation**: Copy and paste the following script into the field. `#!/usr/bin/bash # Sleep to allow the system to initialize sleep 15 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz tar -xf google-cloud-cli-linux-x86_64.tar.gz export PATH=$PATH:$PWD sudo ./google-cloud-sdk/install.sh # Install App Connector packages yum install -y zpa-connector # Stop the App Connector service which was auto-started at boot time systemctl stop zpa-connector # Fetch the secret from Secret Manager SECRET_NAME="Provision_key" SECRET_VALUE=$(gcloud secrets versions access latest --secret="$SECRET_NAME") # Use the secret in your application or script echo "The secret value is: $SECRET_VALUE" # Example: Export the secret as an environment variable export MY_SECRET="$SECRET_VALUE" # Create a file from the App Connector provisioning key created in the Zscaler Admin Console # Make sure that the provisioning key is between double quotes echo "$SECRET_VALUE" > /opt/zscaler/var/provision_key chmod 644 /opt/zscaler/var/provision_key # Start the App Connector service to enroll it in the ZPA cloud systemctl start zpa-connector # Wait for the App Connector to download the latest build sleep 60 # Stop and then start the App Connector for the latest build systemctl stop zpa-connector systemctl start zpa-connector # Run a yum update to apply the latest patches yum update -y`See image.
     3. Click **Save and continue**.
 
 [Image: Selecting the Boot disk for the Auto Scaling Launch Template]
@@ -11373,23 +11457,23 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 [Image: Adding an OAuth token to a Network Connector]
 
-Verify that the deployed Private Cloud Controller is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status). Also, check that it meets your [sizing](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing) requirements.
+Verify that the deployed App Connector is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status). Also, check that it meets your [sizing](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing) requirements.
 
 To create a firewall rule:
 
 1. Log in to the GCP Management Console.
-2. In the left-side navigation, click **VPC Network**.
+2. In the left-side navigation, click **VPC networks**.
 3. Click**Firewall**.
-4. Go to **Cloud NGFW** > **Firewall Policies**. The **Firewall policies** page appears. See image.
-5. In the **Firewall policies** page, click **Create firewall rule**. The **Create a firewall rule**page appears.
-6. In the **Create a firewall rule**page: See image.
-  - **Name**: Enter a name for the firewall rule.
-  - **Network**: Select the network to which the firewall rule applies.
-  - **Direction of traffic**: Select either **Ingress** (receiving traffic) or **Egress**(sending traffic).
-  - **Action on match**: Select whether the action permits (**Allow)** or blocks (**Deny**) the connection.
-  - **Targets**: Select the targets to which the firewall rule applies from the drop-down menu (**All instances in the network**, **Specific target tags**, or **Specified service account**).
-  - **Source filter**: Select a source filter range (**IPv4 ranges**, **IPv6 ranges**, or **Source tags**). Enter the IP address range in the **Source filter ranges** text box that appears after selecting a source filter range using the network IP/subnet format. An example IPv4 range would be `0.0.0.0/0`.
-  - **Protocols and ports**: Select **Specified protocols and ports** and specify the protocol (**TCP**, **UDP**, **Other**) and ports. The Private Cloud Controller must have ingress and egress traffic directions on TCP port 22 for SSH, and egress traffic directions on TCP port 443 to reach Private Access.
+4. Go to **Cloud NGFW** > **Firewall policies**. The **Firewall policies** page appears. See image.
+5. On the **Firewall policies** page, click **Create firewall rule**. The **Create a firewall rule**page appears.
+6. On the **Create a firewall rule**page: See image.
+  1. **Name**: Enter a name for the firewall rule.
+  2. **Network**: Select the network to which the firewall rule applies.
+  3. **Direction of traffic**: Select either **Ingress** (receiving traffic) or **Egress**(sending traffic).
+  4. **Action on match**: Select whether the action permits (**Allow**) or blocks (**Deny**) the connection.
+  5. **Targets**: Select the targets to which the firewall rule applies from the drop-down menu (**All instances in the network**, **Specific target tags**, or **Specified service account**).
+  6. **Source filter**: Select a source filter range (**IPv4 ranges**, **IPv6 ranges**, or **Source tags**). Enter the IP address range in the **Source filter ranges** text box that appears after selecting a source filter range using the network IP/subnet format. An example IPv4 range is `0.0.0.0/0`.
+  7. **Protocols and ports**: Select **Specified protocols and ports** and specify the protocol (**TCP**, **UDP**, **Other**) and ports. The Private Cloud Controller must have ingress and egress traffic directions on TCP port 22 for SSH, and egress traffic directions on TCP port 443 to reach Private Access.
 7. Click **Create**.
 
 If necessary, egress traffic directions can be restricted to Private Access hosts and ports. For details regarding required IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
@@ -11810,13 +11894,13 @@ The following table provides a list of Kubernetes App Connector Linux capabiliti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-linux","lastmod":"2026-08-06T07:30Z","nid":"1484561"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-linux","lastmod":"2026-08-20T15:13Z","nid":"1484561"} -->
 ## App Connector Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Linux
-- Last modified: 2026-08-06T07:30Z
+- Last modified: 2026-08-20T15:13Z
 - Summary: How to deploy an App Connector on Red Hat Enterprise Linux. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on Red Hat Enterprise Linux 9.x (and 8.x), and post-deployment verification checks. For general information regarding App Connector deployment for Private Access, see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -12057,14 +12141,14 @@ Determining fastest mirrors
   * updates: mirrors.cat.pdx.edu
 Resolving Dependencies
 --> Running transaction check
----> Package zpa-connector.x86_64 0:26.55.1-1.el9 will be installed
+---> Package zpa-connector.x86_64 0:26.56.5-1.el9 will be installed
 --> Finished Dependency Resolution
 Dependencies Resolved
 ================================================================================
   Package               Arch        Version               Repository      Size
 ================================================================================
 Installing:
-  zpa-connector         x86_64      26.55.1-1.el9         zscaler         1.1 M
+  zpa-connector         x86_64      26.56.5-1.el9         zscaler         1.1 M
 Transaction Summary
 ================================================================================
 Install 1 Package
@@ -12073,9 +12157,9 @@ Installed size: 2.9 M
 Is this ok [y/d/N]:
 y
 Downloading packages:
-warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-connector-26.55.1-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
-Public key for zpa-connector-26.55.1-1.el9.x86_64.rpm is not installed
-zpa-connector-26.55.1-1.el9.x86_64.rpm                                                                                              | 1.1 MB      00:00:03
+warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-connector-26.56.5-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
+Public key for zpa-connector-26.56.5-1.el9.x86_64.rpm is not installed
+zpa-connector-26.56.5-1.el9.x86_64.rpm                                                                                              | 1.1 MB      00:00:03
 Retrieving key from https://yum.private.zscaler.com/gpg
 Importing GPG key 0x8765E1DD:
  Userid
@@ -12089,10 +12173,10 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-  Installing : zpa-connector-26.55.1-1.el9.x86_64                           1/1
-  Verifying  : zpa-connector-26.55.1-1.el9.x86_64                           1/1
+  Installing : zpa-connector-26.56.5-1.el9.x86_64                           1/1
+  Verifying  : zpa-connector-26.56.5-1.el9.x86_64                           1/1
 Installed:
-  zpa-connector.x86_64 0:26.55.1-1.el9
+  zpa-connector.x86_64 0:26.56.5-1.el9
 Complete!
 ```
 
@@ -12102,7 +12186,7 @@ After the App Connector provisioning key is applied, and you have made any neces
 
 1. Zscaler highly recommends [updating the App Connector system software](https://help.zscaler.com/zpa/understanding-software-updates-private-access) before proceeding.
 
-Console outputs reference 26.55.1-1.el8 if you are using the App Connector RPM package for Red Hat Enterprise Linux 8-based deployments.
+Console outputs reference 26.56.5-1.el8 if you are using the App Connector RPM package for Red Hat Enterprise Linux 8-based deployments.
 
 If the App Connector can't download the RPM package, you must download the package on a server.
 
@@ -12110,15 +12194,15 @@ To download the RPM on a server:
 
 1. Download the following files on a server with access:
   - For Red Hat Enterprise Linux 8-based deployments:
-    - RPM package ([zpa-connector.rpm](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.55.1-1.el8.x86_64.rpm))
+    - RPM package ([zpa-connector.rpm](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.56.5-1.el8.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el8/gpg](https://yum.private.zscaler.com/yum/el8/gpg))
   - For Red Hat Enterprise Linux 9-based deployments
-    - RPM package ([zpa-connector.rpm](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.55.1-1.el9.x86_64.rpm))
+    - RPM package ([zpa-connector.rpm](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.56.5-1.el9.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el9/gpg](https://yum.private.zscaler.com/yum/el9/gpg))
 2. Use the `scp` command to copy the RPM package and GPG public key to the App Connector. For example:
 
 ```
-$ scp zpa-connector-26.55.1-1.el9.x86_64.rpm admin@
+$ scp zpa-connector-26.56.5-1.el9.x86_64.rpm admin@
 <App Connector Hostname or IP Address>
 $ scp gpg admin@
 <App Connector Hostname or IP Address>
@@ -12268,7 +12352,7 @@ The configuration output should look similar to the following:
 
 ```
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
-inet 192.0.2.1 netmask 255.255.255.128 broadcast 192.168.144.127
+inet 192.0.2.1 netmask 255.255.256.528 broadcast 192.168.144.127
 inet6 fe80::20c:29ff:fef5:5d43 prefixlen 64 scopeid 0x20<link>
 ether 00:0c:29:f5:5d:43 txqueuelen 1000 (Ethernet)
 RX packets 8504 bytes 8732964 (8.3 MiB)
@@ -14104,13 +14188,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-08-11T10:30Z","nid":"1534306"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-08-20T15:40Z","nid":"1534306"} -->
 ## App Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/app-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA App Connector Release Notes > App Connector Release Summary (2026)
-- Last modified: 2026-08-11T10:30Z
+- Last modified: 2026-08-20T15:40Z
 - Summary: Zscaler Private Access (ZPA) App Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) App Connector version.
@@ -15187,13 +15271,13 @@ Private Access requires an application to be defined as a wildcard with *any* po
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-access-policies","lastmod":"2026-08-06T08:27Z","nid":"1483501"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-access-policies","lastmod":"2026-08-21T07:06Z","nid":"1483501"} -->
 ## Configuring Access Policies
 
 - Source: https://help.zscaler.com/zpa/configuring-access-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Access Policy > Configuring Access Policies
-- Last modified: 2026-08-06T08:27Z
+- Last modified: 2026-08-21T07:06Z
 - Summary: How to configure an access policy rule within the Zscaler Admin Console.
 
 Access policy rules enable you to implement role-based access control. For a complete list of ranges and limitations for access policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -15751,71 +15835,4 @@ Enable to allow **Full**or **Read Only** access to the following VPN Configurati
 [Image: Reverting changes back to the Zscaler recommended settings]
 
 [Image: Viewing an error next to the permission group]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-agent-groups","lastmod":"2026-08-05T11:35Z","nid":"1531956"} -->
-## Configuring Agent Groups
-
-- Source: https://help.zscaler.com/zpa/configuring-agent-groups
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > Configuring Agent Groups
-- Last modified: 2026-08-05T11:35Z
-- Summary: How to configure agent groups for Microsegmentation in the Zscaler Admin Console.
-
-Agents in Microsegmentation are installed on servers' workloads, such as virtual machines, bare metal servers, or Kubernetes clusters. You can install agents using most configuration management tools that accommodate Windows `.msi` files or Linux `.deb` and `.rpm` files.
-
-You must place agents in the same group based on the upgrade plan and location. For the upgrade plan, agents in the same agent group inherit the same upgrade plan, including version profile, upgrade schedule, upgrade order (serial or parallel), and upgrade failure behavior (halt or skip). For agents deployed in on-premises data center environments, you must provide the admin-supplied region, virtual private cloud (VPC), and Subnet IDs. These attributes are inherited by all agents in the group.
-
-Agent groups allow admins to group together different agents to organize them depending on different local machines they are deployed to. Admins can configure, [edit](https://help.zscaler.com/zpa/editing-agent-groups), and [delete](https://help.zscaler.com/zpa/deleting-agent-groups) agent groups as needed.
-
-To configure an agent group:
-
-1. Go to **Infrastructure**>**Connectors**>**Cloud** >**Agent Groups**.
-2. Click **Add Agent Group**. See image. The **Add Agent Group** wizard appears.
-3. In the **General Information** section, configure the following, then click **Next**:
-  1. **Type**: Select the agent group type: **Virtual Machines** or **Kubernetes Cluster**.
-  2. **Name**: Enter a name for the agent group.
-  3. **Admin Status**: (Optional) Enable or disable this setting to make this agent group visible to only admins.
-  4. **Policy Status**: (Optional) Enable or disable this setting to allow this agent group to be used in policy configuration.
-  5. **Description**: (Optional) Enter a description. The limit is 2,500 characters.
-  6. **Cloud**: (Optional) Select the cloud for the agent group:
-    - For VM agent groups, select **AWS**, **Azure**, **GCP**, or **On Premises**.
-      - If you select **Azure**, you must provide the **VNET ID** and **Subnet ID**.
-      - If you select **On Premises**, you must provide the **VPC ID**, **Subnet ID**, and **Region**.
-    - For Kubernetes Cluster agent groups, select **EKS**, **GKE**, or **AKS**. If you select **AKS**, you must provide the **VNET ID** and **Subnet ID**.
-  7. **Tamper Protection**: Enable or disable this setting to prevent or detect unauthorized attempts at agent management.
-  8. **Agent Age Out**: (Optional) Enable the age out time for inactive agents. If enabled, enter the amount of time before the agents time out: **Days**, **Hours**, or **Minutes**. See image.
-  9. Expand **Version Profile & Configurations** and configure the following: See image.
-    1. **Version Profile**: The **Default** version profile is selected by default. Optionally, select **Latest** or **Custom**.
-      - If you select **Latest**, the latest version profile is selected.
-      - If you select **Custom**, select the **Custom Version Profile**.
-    2. **Agent Version**: The agent version changes depending on the selected **Version Profile**.
-    3. **Auto Update**: Select **Enabled**or **Disabled**. If you select **Enabled**, configure the following:
-      1. **Schedule Agent Upgrade On**: Choose the day of the week, time, and time zone when upgrades should happen.
-      2. **Update Sequence**: Select **Serial** or **Parallel**.
-        - If you select **Serial**, agents are upgraded one at a time.
-        - If you select **Parallel**, the system automatically upgrades agents in one or more batches. The batch size is automatically calculated depending on the total agent count in the group. For smaller agent groups, the first batch could include all agents, so users might notice all agents are being upgraded.
-      3. **In case of upgrade failure**: Select one of the following:
-        - If you select **Halt next agent upgrade**, two potential behaviors can happen:
-          - If selected with the **Serial** upgrade sequence, then the upgrade process is immediately paused and the agent group is marked as Failed.
-          - If selected with the **Parallel** upgrade sequence, then the current batch of agents continues upgrading until they return to their respective status. However, the next agent batch is not started, and the agent groups are marked as Failed.
-        - If you select **Skip to next agent**, the system continues to upgrade the next agent, and the agent group's status is marked as Incomplete.
-  10. In the **Provisioning Key**section, configure the following, then click**Next**: See image.
-    - **Name**: Enter the provisioning key name.
-    - **Maximum Reuse of Key**: Enter a number from 1 to 1000 for how many times the provisioning key can be reused.
-    - **Signing Certificate**: Select a signing certificate.
-  11. In the **Review**section, verify your agent group configuration, then click **Save**. The agent group is created successfully.
-  12. In the **Review Documentation**section, review documentation for downloading and installing the agent manager for VM agent groups or the Helm chart for Kubernetes Cluster agent groups, then click **Done**.
-
-The agent group appears in the list of agent groups.
-
-[Image: Add an agent group on the Agents Groups page]
-
-[Image: The General Information section of the Add Agent Group wizard]
-
-[Image: The Version Profile & Configurations section of the Add Agent Group wizard]
-
-[Image: The Provisioning Keys section of the Add Agent Group wizard]
 <!-- /ZS-ARTICLE -->

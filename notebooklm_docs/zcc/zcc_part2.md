@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 52
 
 ---
@@ -1184,13 +1184,13 @@ If you want to delay a rollout beyond the 180-day maximum (e.g., you encountered
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-06-12T09:38Z","nid":"1317631"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-08-18T11:31Z","nid":"1317631"} -->
 ## Viewing Device Fingerprint for an Enrolled Device
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Viewing Device Fingerprint for an Enrolled Device
-- Last modified: 2026-06-12T09:38Z
+- Last modified: 2026-08-18T11:31Z
 - Summary: How to view device fingerprint information for enrolled devices in the Zscaler Client Connector Portal.
 
 From the Zscaler Admin Console, you can view device fingerprint information for [enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices).
@@ -1239,7 +1239,7 @@ See image.
 See image.
 
 - Under **Service Status**:
-  - **ZIA Enabled**: Displays **True**if the user is entitled for the Internet & SaaS service in Zscaler Client Connector. Displays **False**if the user is not entitled for the Internet & SaaS service in Zscaler Client Connector.
+  - **ZIA Enabled**: Displays **True**if the user is entitled for the Internet & SaaS (ZIA) service in Zscaler Client Connector. Displays **False**if the user is not entitled for the Internet & SaaS service in Zscaler Client Connector.
   - **ZIA Health**:Displays **Active**if Zscaler Client Connector is connected to Internet & SaaS. Displays **Inactive**if Zscaler Client Connector is not connected to Internet & SaaS.
   - **Last Seen Connected to ZIA**:The last known date and time of connection to Internet & SaaS.
   - **ZPA Enabled**: Displays **True**if the user is entitled for the Private Access service in Zscaler Client Connector. Displays **False**if the user is not entitled for the Private Access service in Zscaler Client Connector.
@@ -1263,7 +1263,7 @@ See image.
   - **Configuration Download Count**: The total number of times the app profile was updated since enrollment.
   - **One-Time Password**: Displays a temporary password for login.
   - **Logout, Disable, Uninstall Password**: The password associated with the device’s app profile. Applies to Zscaler Client Connector version 4.0 for Windows and Zscaler Client Connector version 4.1 for macOS. To learn more, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-  - For Zscaler Client Connector version 4.0 and later for Windows and Zscaler Client Connector version 4.1 and later for macOS, the following optional one-time passwords (OTPs) listed are associated with the device’s app profile and are configured in [app profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles): Click the **Copy** icon to copy the password to your clipboard.
+  - For Zscaler Client Connector version 4.0 and later for Windows, Zscaler Client Connector version 4.1 and later for macOS, and Zscaler Client Connector version 4.2.1 and later for Linux, you can view and copy the following one-time passwords (OTPs) for each enrolled device. You can use these passwords in place of passwords defined in [app profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles). To learn more, see [Accessing One-Time Passwords for Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/about-one-time-passwords-enrolled-devices). Click the **Copy** icon to copy the password to your clipboard.
     - **Logout OTP**: The password users must enter to log out of Zscaler Client Connector.
     - **Revert OTP**: The password users must enter to revert to the previous Zscaler Client Connector version.
     - **Uninstall OTP**: The password users must enter to uninstall Zscaler Client Connector.
@@ -1271,9 +1271,10 @@ See image.
     - **Disable ZIA OTP**: The password users must enter to disable the Internet & SaaS service.
     - **Disable ZPA OTP**: The password users must enter to disable the Private Access service.
     - **Disable ZDX OTP**: The password users must enter to disable the ZDX service.
-    - **Disable Endpoint DLP OTP**: The password users must enter to disable data protection in Zscaler Client Connector.
+    - **Deception Settings OTP**: The password users must enter to disable the Deception service. Applies to Zscaler Client Connector version 4.0 and later for Windows.
+    - **Disable Anti-Tampering OTP**: The password used to disable anti-tampering protection. Applies to Zscaler Client Connector version 4.1 and later for Windows.
+    - **Disable Endpoint DLP OTP**: The password users must enter to disable data protection in Zscaler Client Connector. Applies to Zscaler Client Connector version 4.3 and later for Windows and Zscaler Client Connector version 4.2 and later for macOS.
   - **Device Trust Level**: Displays the device trust level based on the configured levels in [Internet & SaaS posture profiles](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles). Trust levels are **Low**, **Medium**, **High**, or **Unknown**.
-  - **Disable Anti-Tampering OTP**: The password used to disable anti-tampering protection. This option is available for Zscaler Client Connector version 4.1 and later for Windows.
   - **Anti-Tampering Status**: Displays whether anti-tampering is enabled or disabled.
 
 See image.
@@ -1311,7 +1312,7 @@ See image.
 
 See image.
 
-- Under **ZPA Partner Logins**: Displays partner logins that logged in to a device’s tenant. To learn more, see [Enabling Private Access Partner Logins](https://help.zscaler.com/zscaler-client-connector/enabling-private-access-partner-logins).
+- Under **ZPA Partner Logins**: Displays Private Access (ZPA) partner logins that logged in to a device’s tenant. To learn more, see [Enabling Private Access Partner Logins](https://help.zscaler.com/zscaler-client-connector/enabling-private-access-partner-logins).
 
 See image.
 
@@ -2960,13 +2961,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-08-16T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-08-23T07:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.

@@ -1,8 +1,78 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 98
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 100
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-04-24T03:21Z","nid":"1399311"} -->
+## Adding URLs to the Allowlist
+
+- Source: https://help.zscaler.com/zia/adding-urls-allowlist
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
+- Last modified: 2026-04-24T03:21Z
+- Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
+
+There might be trusted websites of partners or vendors whose webmail or file downloads might otherwise be blocked due to anti-virus, anti-spyware, anti-malware, or URL filtering policies. You can exempt URLs from security scans, URL filtering, or both.
+
+The allowlist applies to [Malware Protection](https://help.zscaler.com/zia/about-malware-protection), [Advanced Threat Protection](https://help.zscaler.com/zia/about-advanced-threat-protection), [Sandbox](https://help.zscaler.com/zia/about-sandbox), and [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policies. To learn more about how security exceptions impact policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/how-does-zscaler-service-enforce-policies).
+
+You can allowlist URLs completely by exempting them from security scans and URL filtering.
+
+## Adding URLs to Allowlist for Security Scans
+
+Adding URLs to the allowlist for security scans allows users to download content from these URLs without inspecting the traffic.
+
+To add URLs to the allowlist for security policies:
+
+1. Go to one of the following pages:
+  - **Policies**> **Cybersecurity**> **Inline Security**> **Malware Protection**.
+  - **Policies**>**Cybersecurity**> **Inline Security**> **Advanced Threat Protection**
+2. Click the **Security Exceptions** tab.
+3. In **Do Not Scan Content from these URLs**, enter the URLs you want to allowlist and click **Add Items**. You can enter multiple entries by pressing `Enter` after each entry. You can add up to 1,024 URLs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+This allowlist also applies to the [Sandbox](https://help.zscaler.com/zia/about-sandbox) policy.
+
+1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+## Adding URLs to Allowlist for URL Filtering
+
+Adding URLs to the allowlist for URL filtering allows access to the content without being blocked by other URL Filtering policy rules.
+
+To add URLs to allowlist for URL Filtering policy:
+
+1. Add the URLs you want to allowlist to a [custom URL category](https://help.zscaler.com/zia/adding-custom-url-categories).
+2. [Configure a URL Filtering rule](https://help.zscaler.com/zia/configuring-url-filtering-policy) to allow the custom URL category.
+
+Ensure that the rule order of this rule is higher than the URL Filtering rule that blocks these URLs.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-urls-denylist","lastmod":"2026-07-02T05:05Z","nid":"1398821"} -->
+## Adding URLs to the ATP URL Allowlist or Denylist
+
+- Source: https://help.zscaler.com/zia/adding-urls-denylist
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Adding URLs to the ATP URL Allowlist or Denylist
+- Last modified: 2026-07-02T05:05Z
+- Summary: How to place URLs on the allowlist and denylist using the Zscaler Advanced Threats Protection policy.
+
+Manage URLs by adding them to the allowlist or denylist with the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy). You can grant specific URLs permissions to access designated websites, browsers, or applications by adding them to the allowlist. URLs that have been added to the allowlist are accessible even if they would otherwise be blocked by other security measures or policies. You can also add specific URLs to the denylist to block access to these URLs and prevent users from accessing potentially malicious content.
+
+To add a URL to the allowlist or denylist:
+
+1. Go to **Policies** > **Cybersecurity** > **Inline Security** > **Advanced Threat Protection**.
+2. On the **Advanced Threats Policy**page, under **Blocked Malicious URLs**, enter the URLs you want to block for your organization. See image. You can view the list of blocked malicious URLs on the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#Malicious) page. Also, you can see the blocked URLs accessed by the users on the [Insights Logs](https://help.zscaler.com/zia/about-insights-logs) page. If you need further assistance, contact Zscaler Support.
+3. Optional: To add a comment to a URL, enter two forward slashes (//) after each URL entry. Separate each entry by pressing `Shift+Enter`.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
+
+[Image: Add URLs you Blocked Malicious URLs list in Advanced Threat Protection]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -110,30 +180,30 @@ To add a VPN credential:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-webhook","lastmod":"2026-07-14T21:06Z","nid":"1403116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-webhook","lastmod":"2026-08-20T05:43Z","nid":"1403116"} -->
 ## Adding a Webhook
 
 - Source: https://help.zscaler.com/zia/adding-webhook
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > Adding a Webhook
-- Last modified: 2026-07-14T21:06Z
+- Last modified: 2026-08-20T05:43Z
 - Summary: Information on how to add a webhook in the Zscaler Admin Console.
 
-[Watch a video about Security & UEBA Alerts including configuration](https://fast.wistia.net/embed/iframe/xg2ozazz6z) (shows leagcy UI).
+[Watch a video about Security & UEBA Alerts including configuration](https://fast.wistia.net/embed/iframe/xg2ozazz6z) (shows legacy UI).
 
-Webhook configuration in the Zscaler Admin Console allows you to deliver alerts for the configured events in the alert rule to third-party applications (e.g., ServiceNow, Splunk, etc.) for incident management. The feature comprises two parts:
+Webhook configuration in the Zscaler Admin Console allows you to deliver alerts for the configured events in the alert rule to third-party applications (e.g., ServiceNow, Splunk) for incident management. The feature comprises two parts:
 
 1. Creating a webhook
 2. Associating the webhook with the alert rules
 
 To add a webhook:
 
-1. Go to **Administration**> **Alerts** > **Security & UEBA Alerts**>**Alerts**> **Webhooks**.
+1. Go to **Administration**> **Alerts** > **Security & UEBA Alerts**>**Webhooks**.
 2. Click **Add Webhook**. The **Add Webhook** window appears.
 3. In the **Add Webhook**window: See image.
   - **Name**: Enter a name for the webhook.
   - **Status**: Choose **Disabled** to disable the webhook. By default, the field is **Enabled**.
-  - **URL**: Enter the URL of the webhook provider
+  - **URL**: Enter the URL of the webhook provider.
   - **Authentication Type**: Choose either **Basic** or **Token** for authentication. The webhook provider determines the authentication type used. Refer to your provider for details.
     - For **Basic**, enter the **Username**and**Password**.
     - For **Token**, enter the **Bearer Token**. A bearer token is a unique alphanumeric string used for authentication. You can obtain the bearer token from your webhook provider.
@@ -141,7 +211,7 @@ To add a webhook:
 5. If the test is successful, a message indicating success appears.
 6. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: Add a webhook to trigger emails for configured alert rules.]
+[Image: Add a webhook to trigger emails for configured alert rules]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1605,13 +1675,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-08-16T07:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-08-23T07:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -4150,16 +4220,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/cloning-predefined-dlp-dictionaries","lastmod":"2026-05-14T21:06Z","nid":"1450991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/cloning-predefined-dlp-dictionaries","lastmod":"2026-08-21T09:43Z","nid":"1450991"} -->
 ## Cloning Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Cloning Predefined DLP Dictionaries
-- Last modified: 2026-05-14T21:06Z
+- Last modified: 2026-08-21T09:43Z
 - Summary: How to clone predefined DLP dictionaries in the Zscaler Admin Console.
 
-Cloning a predefined Data Loss Prevention (DLP) dictionary allows you to easily leverage an existing dictionary for a different purpose when [configuring DLP policy rules](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines). You can use clones of the same dictionary with different Confidence Score Thresholds, as well as with different dictionary-specific parameters. For example, suppose you want to use one dictionary to look more aggressively for Bank Identification Numbers (BIN), and another dictionary to look less aggressively for other credit card data. In that scenario, you can clone the predefined Credit Card dictionary, and then add BIN numbers to the clone, with a Confidence Score Threshold of Medium. In the existing predefined Credit Card dictionary, you can leave out BIN numbers and set the Confidence Score Threshold to High.
+Cloning a predefined Data Loss Prevention (DLP) dictionary allows you to easily leverage existing dictionaries and sub-dictionaries for a different purpose when [configuring DLP policy rules](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines). You can use clones of the same dictionary with different Confidence Score Thresholds, as well as with different dictionary-specific parameters. For example, suppose you want to use one dictionary to look more aggressively for Bank Identification Numbers (BIN), and another dictionary to look less aggressively for other credit card data. In that scenario, you can clone the predefined Credit Card dictionary, and then add BIN numbers to the clone, with a Confidence Score Threshold of Medium. In the existing predefined Credit Card dictionary, you can leave out BIN numbers and set the Confidence Score Threshold to High.
 
 The Zscaler service supports cloning identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers). You can create up to 4 clones from a predefined dictionary.
 
@@ -5274,13 +5344,13 @@ Google Hangouts has been deprecated by Google and replaced by Google Chat. To lo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-alert-rule","lastmod":"2026-07-14T21:06Z","nid":"1403286"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-alert-rule","lastmod":"2026-08-20T05:44Z","nid":"1403286"} -->
 ## Configuring an Alert Rule
 
 - Source: https://help.zscaler.com/zia/configuring-alert-rule
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > Configuring an Alert Rule
-- Last modified: 2026-07-14T21:06Z
+- Last modified: 2026-08-20T05:44Z
 - Summary: How to configure and edit an alert rule for different event types under Security & UEBA Alerts in the Zscaler Admin Console.
 
 [Watch a video about Security & UEBA Alerts including configuration](https://fast.wistia.net/embed/iframe/xg2ozazz6z) (shows legacy UI).
@@ -5291,9 +5361,9 @@ You can configure alert rules to get high-level statistics of each event type an
 
 To add an alert rule:
 
-1. Go to **Administration**> **Alerts**> **Security & UEBA Alerts** > **Alerts**> **Alert Rules**.
-2. Click **Add Alert Rule**. The **Add Alert Rule** window appears.
-3. In the **Add Alert Rule** window:
+1. Go to **Administration**> **Alerts**> **Security & UEBA Alerts** > **Alert Rules**.
+2. Click **Add Alert Rule**. The **Add Alert Rule** page appears.
+3. On the **Add Alert Rule** page: See image.
   1. Under the **Alert Definition** section, configure the appropriate parameters:
     - **Alert Name**: Enter an alert name. The maximum length is 31 characters.
     - **Alert Class**: Select the alert class for the rule. By default, the alert class is set to **Security**.
@@ -5301,18 +5371,22 @@ To add an alert rule:
   2. Under the **Alert Trigger Criteria** section, configure the appropriate parameters:
     - For Security Alerts
     - For UEBA Alerts
-  3. For Security alerts, under the **Evaluation Status**section, to trigger the alert rule, enable **Send Alert Update every ___ intervals** and add the number of times you want to trigger the alert in the **intervals** field.
+  3. For Security alerts, under the **Evaluation Status**section:
+    - Update the values for **Alert trigger criteria have been met atleast ___ times in the last ___ time intervals** to trigger an alert when the trigger criteria are met a specified number of times within the defined time window.
+    - Enable **Send Alert Update every ___ intervals** and add the number of times you want to trigger the alert in the **intervals** field.
   4. For UEBA alerts, under **Actions**, select **Trigger an Alert**or **Place user in group**to trigger the alert rule. Select a **User Group** and **Time Interval** under **Action**for **Place user in group**.
-  5. Under the **Recipients**section, configure the appropriate parameters: See image.
+  5. Under the **Recipients**section, configure the appropriate parameters:
     - **Webhooks**: Select a webhook from the list.
     - **Email Addresses**: Add the email address, addresses, or email alias to trigger the alert email notification for the respective alert.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-- **Event Type**: Select the event type for the rule. Select from a list of **Advanced Threat Protection**, **Malware Protection**, or **Sandbox**.
+- **Event Type**: Select the event type for the rule. Select from a list of **Advanced Threat Protection**, **Malware**, or **Sandbox**.
 - **Within Time Interval**: Choose the span of time within which an event's occurrence triggers an alert. You can choose from 10 minutes, 15 minutes, 30 minutes, 45 minutes, or 1 hour.
-- **Add Filters**: You can add filters to security alerts to make the rule more specific. You can apply the filters to **Location**, **Users**, **Department**, and **System Impacted**.
+- **Add Filter**: You can add filters to security alerts to make the rule more specific. You can apply the filters to **Department**, **Location**, **System Impacted**,and **Users**.
 
-- **Event Type**: Select the event type for the rule. Select **Access**, **Data**, or **Privilege**from the drop-down.
+The alert trigger criteria fields vary based on the selected alert type and are not available for all alert types.
+
+- **Event Type**: Select the event type for the rule. Select **Access**, **Data**, or **Privilege**from the drop-down menu.
 - **Alert Type**: Select the alert type of the rule. The alert types depend on the selected **Event Type**. Each channel type has different alert types to choose from. The list of alert types includes:
   - Inline
   - API
@@ -5332,9 +5406,9 @@ To add an alert rule:
 
 To edit an existing alert rule:
 
-1. Go to **Administration**> **Alerts**> **Security & UEBA Alerts** > **Alerts**> **Alert Rules**.
-2. In the alerts table, click the **Edit** icon to edit a selected preconfigured alert rule. The **Edit Alert Rule** window appears.
-3. In the **Edit Alert Rule** window:
+1. Go to **Administration**> **Alerts**> **Security & UEBA Alerts** > **Alert Rules**.
+2. In the alerts table, click the **Edit** icon to edit a selected preconfigured alert rule. The **Edit Alert Rule** page appears.
+3. On the **Edit Alert Rule** page: See image.
   1. Under the **Alert Definition** section, configure the appropriate parameters:
     - **Alert Name**: Enter an alert name. The maximum length is 31 characters.
     - **Alert Class**: Select the alert class for the rule. By default, the alert class is set to **Security**.
@@ -5342,16 +5416,20 @@ To edit an existing alert rule:
   2. Under the **Alert Trigger Criteria** section, configure the appropriate parameters:
     - For Security Alerts
     - For UEBA Alerts
-  3. For Security alerts, under the **Evaluation Status**section, to trigger the alert rule, enable **Send Alert Update every ___ intervals** and add the number of times you want to trigger the alert in the **intervals** field.
+  3. For Security alerts, under the **Evaluation Status**section:
+    - Update the values for **Alert trigger criteria have been met atleast ___ times in the last ___ time intervals** to trigger an alert when the trigger criteria are met a specified number of times within the defined time window.
+    - Enable **Send Alert Update every ___ intervals** and add the number of times you want to trigger the alert in the **intervals** field.
   4. For UEBA alerts, under **Actions**, select **Trigger an Alert**or **Place user in group**to trigger the alert rule. Select a **User Group** and **Time Interval** under **Action**for **Place user in group**.
-  5. Under the **Recipients**section, configure the appropriate parameters: See image.
+  5. Under the **Recipients**section, configure the appropriate parameters:
     - **Webhooks**: Select a webhook from the list.
     - **Email Addresses**: Add the email address, addresses, or email alias to trigger the alert email notification for the respective alert.
 4. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-- **Event Type**: Select the event type for the rule. Select from a list of **Advanced Threat Protection**, **Malware Protection**, or **Sandbox**.
+- **Event Type**: Select the event type for the rule. Select from a list of **Advanced Threat Protection**, **Malware**, or **Sandbox**.
 - **Within Time Interval**: Choose the span of time within which an event's occurrence triggers an alert. You can choose from 10 minutes, 15 minutes, 30 minutes, 45 minutes, or 1 hour.
-- **Add Filters**: You can add filters to security alerts to make the rule more specific. You can apply the filters to **Location**, **Users**, **Department**, and **System Impacted**.
+- **Add Filter**: You can add filters to security alerts to make the rule more specific. You can apply the filters to **Department**, **Location**, **System Impacted**,and **Users**.
+
+The alert trigger criteria fields vary based on the selected alert type and are not available for all alert types.
 
 - **Event Type**: Select the event type for the rule. Select **Access**, **Data**, or **Privilege**from the drop-down.
 - **Alert Type**: Select the alert types of the rule. The alert types depend on the selected **Event Type**.
@@ -5367,9 +5445,9 @@ To edit an existing alert rule:
 - **Activity**: Select the type of activity for the rule to apply.
 - **Countries**: Select the country for the rule to apply. You can select one, multiple, or all countries from the drop-down menu.
 
-[Image: The Add Alert Rule window helps to configure various rules for different events.]
+[Image: The Add Alert Rule window helps to configure various rules for different events]
 
-[Image: The Edit Alert Rule window helps to edit various preconfigured alert rules for different events.]
+[Image: The Edit Alert Rule window helps to edit various preconfigured alert rules for different events]
 
 ## Alert Rule Exceptions
 
@@ -5377,12 +5455,12 @@ The UEBA alert also provides the option to exempt multiple users from an alert r
 
 To edit the list of user exceptions:
 
-1. Edit an existing alert from the Alert Rules table. The **Edit Alert Rule** window is displayed.
-2. Click **Exceptions**. The list of users exempted from evaluation appears.
+1. Edit an existing alert from the Alert Rules table. The **Edit Alert Rule** page is displayed.
+2. Click the **Exceptions** tab. The list of users exempted from evaluation appears.
 3. To delete a user from the list, click the **Remove**icon (**x** icon) next to their name. See image.
 4. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: The Exceptions page allows users to be added to the list of exception for evaluation of traffic.]
+[Image: The Exceptions page allows users to be added to the list of exception for evaluation of traffic]
 
 | Alert Type | Description |
 | --- | --- |
@@ -5414,7 +5492,7 @@ To edit the list of user exceptions:
 | Data exfiltration by password protected or encrypted docs | Identify users who have shared data after applying encryption or passwords to avoid content inspection. |
 | Upload to high risk countries | Identify users who have uploaded data to locations in suspicious countries. |
 | Upload from high risk countries | Identify users who have uploaded data from locations in suspicious countries. |
-| Bulk Activity Alert | Identify users who have performed a certain set of activities in a short period of time. Through this alert multiple activities for the SaaS Security API can be tracked for a user. Supported Activities: Upload, Share, Create, Edit, Delete, Comment, Download, Rename, Form Sharing, File Transfer, Chat, Post, Send email, Send Attachments, and Comment |
+| Bulk Activity | Identify users who have performed a certain set of activities in a short period of time. Through this alert multiple activities for the SaaS Security API can be tracked for a user. Supported Activities: Upload, Share, Create, Edit, Delete, Comment, Download, Rename, Form Sharing, File Transfer, Chat, Post, Send email, Send Attachments, and Comment |
 | Bulk upload of sensitive data | Identify users who have uploaded sensitive data in a short period of time. |
 | Bulk download of sensitive data | Identify users who have downloaded sensitive data in a short period of time. |
 <!-- /ZS-ARTICLE -->
@@ -5538,20 +5616,20 @@ You can view all Azure hub locations from this tab under the **Locations** tab. 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-bandwidth-control-policy","lastmod":"2026-07-01T10:05Z","nid":"1398771"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-bandwidth-control-policy","lastmod":"2026-08-21T08:21Z","nid":"1398771"} -->
 ## Configuring the Bandwidth Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-bandwidth-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Configuring the Bandwidth Control Policy
-- Last modified: 2026-07-01T10:05Z
+- Last modified: 2026-08-21T08:21Z
 - Summary: How to configure the bandwidth control policy for a location in the ZIA Admin Portal.
 
 [Click to watch a video about Configuring the Bandwidth Control Policy](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
 
 The Bandwidth Control policy specifies how an organization's bandwidth is allocated. You can add rules that prioritize business-critical apps and ensure that recreational or non-business-critical applications do not affect productivity. It contains a default rule, which you can edit, but not delete. To learn more, see [About Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control).
 
-You can also define the bandwidth classes that you want to include in the Bandwidth Control policy before you add rules to the policy or while you're adding the rules. To learn more, see [About bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes).
+You can also define the bandwidth classes that you want to include in the Bandwidth Control policy before you add rules to the policy or while you're adding the rules. To learn more, see [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes).
 
 To see how this policy fits into the overall order of policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/6.1/about-policy-enforcement).
 
@@ -5561,6 +5639,10 @@ The Bandwidth Control rules consist of a series of logical operators between the
 
 Bandwidth classes (`AND`) [Location Groups (`OR`) Locations] (`AND`) Time (`AND`) Protocols.
 
+Protocols for HTTP/2 are negotiated over TLS and included under HTTPS for policy purposes. When enabled, enforcement occurs per HTTP/2 stream; there is no separate protocol selection for HTTP/2.
+
+To enable HTTP/2 support for Bandwidth Control, contact Zscaler Support.
+
 ## Configuring the Bandwidth Control Policy
 
 To configure the Bandwidth Control policy of a location:
@@ -5569,7 +5651,7 @@ To configure the Bandwidth Control policy of a location:
 2. Enable Bandwidth Control for a Sublocation.
 3. [Add Rules to the Bandwidth Control Policy.](https://help.zscaler.com/zia/adding-rules-bandwidth-control-policy)
 
-You can then go to the Bandwidth Control [dashboard](https://help.zscaler.com/zia/about-dashboards) (Analytics > Internet & SaaS > Dashboard > Bandwidth Control) to view your organization's bandwidth usage in real time or go to **Analytics**>**Internet & SaaS**> **Analytics**>**Interactive Reports** to view the Bandwidth Control standard reports.
+You can then go to the Bandwidth Control [dashboard](https://help.zscaler.com/zia/about-dashboards) (Analytics > Internet & SaaS > Dashboard > Bandwidth Control) to view your organization's bandwidth usage in real time or go to Analytics > Internet & SaaS > Analytics > Interactive Reports to view the Bandwidth Control standard reports.
 
 To enable Bandwidth Control for the location:
 
@@ -5942,20 +6024,20 @@ If there are CSS styles modifying the same properties in the [Notification Messa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-browser-control-policy","lastmod":"2026-07-16T09:02Z","nid":"1398716"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-browser-control-policy","lastmod":"2026-08-19T20:03Z","nid":"1398716"} -->
 ## Configuring the Browser Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-browser-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Browser Control > Configuring the Browser Control Policy
-- Last modified: 2026-07-16T09:02Z
+- Last modified: 2026-08-19T20:03Z
 - Summary: Information on the Browser Control policy and how to enable warnings for browsers, plugins, and applications as well as block browsers and their versions.
 
 [Watch a video about Browser Control](https://fast.wistia.net/embed/iframe/hwz5y9619y) (shows legacy UI).
 
 You can define a Browser Control policy to warn users from going to the internet when they are using outdated or vulnerable browsers, plugins, and applications. The Zscaler service examines browser versions and patches (including beta browsers), internet applications (e.g., Adobe Flash, Sun Java, Apple QuickTime), and media download applications (e.g., Windows Media Player).
 
-You can also reduce the security risk of your organization by blocking the use of browsers or specific browser versions that are older or that have known vulnerabilities. The Zscaler Admin Console refreshes automatically to displays the latest 12 versions for most browsers. However, your allow or block selections do not change automatically when new versions are released. If you block by specific versions, review Secure Browsing reports and update the Browser Control policy as needed. The How Often to Check setting controls how frequently Zscaler checks user browsers and notifies users about outdated and vulnerable versions; it does not modify your allow or block selections.
+You can also reduce the security risk of your organization by blocking the use of browsers or specific browser versions that are earlier or that have known vulnerabilities. The Zscaler Admin Console refreshes automatically to display the latest 12 versions for most browsers. However, your allow or block selections do not change automatically when new versions are released. If you block by specific versions, review Secure Browsing reports and update the Browser Control policy as needed. The How Often to Check setting controls how frequently Zscaler checks user browsers and notifies users about outdated and vulnerable versions; it does not modify your allow or block selections. Outdated browsers are versions earlier than a defined minimum you set per browser, earlier than vendor-supported channels, or outside the 12 latest versions shown in the Zscaler Admin Console. Zscalertreats a browser as vulnerable when its version is known to have security vulnerabilities; the service examines browser versions and patches, including beta browsers, to determine status.
 
 The Zscaler service has Secure Browsing reports that you can run to track the use of vulnerable browsers, plugins, and applications, and then modify your Browser Control policy if needed. To learn more, see [Viewing Secure Browsing Reports](https://help.zscaler.com/zia/viewing-secure-browsing-reports).
 
@@ -6378,13 +6460,13 @@ To assign a custom authentication profile to a location:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-file-types","lastmod":"2026-05-14T21:06Z","nid":"1532304"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-file-types","lastmod":"2026-08-19T20:07Z","nid":"1532304"} -->
 ## Configuring Custom File Types
 
 - Source: https://help.zscaler.com/zia/configuring-custom-file-types
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > File Type Control > Configuring Custom File Types
-- Last modified: 2026-05-14T21:06Z
+- Last modified: 2026-08-19T20:07Z
 - Summary: Information on how to create custom file types with the Zscaler File Type Control policy.
 
 Creating and configuring custom file types with simple extension-based detections provides you with greater flexibility when creating File Type Control policies. Zscaler-defined file types are detected before custom file types.
@@ -6397,7 +6479,7 @@ To add a custom file type:
 2. In the upper-left corner, click **Add File Type**. The **Add File Type** window appears.
 3. In the **Add File Type**window: See image.
   - **Name**: Enter a name for the new custom file type. File type names can only contain alphanumeric characters, underscores, hyphens, periods, parentheses, and spaces.
-  - **Extension**: Enter the extension that you want the custom file type to belong to. The maximum extension length is 10 characters. Existing Zscaler extensions cannot be added to custom file types.
+  - **Extension**: Enter the extension that you want the custom file type to belong to. The maximum extension length is 10 characters. Existing Zscaler extensions cannot be added to custom file types. Custom file types are restricted for the ServiceNow application. Only standard file extensions are supported.
   - **Description**: (Optional) Enter additional notes or information.
 4. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
 
@@ -8884,13 +8966,13 @@ If you are configuring with Workflow Automation, you will have two different buc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-notification-templates","lastmod":"2026-07-02T02:38Z","nid":"1400041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-notification-templates","lastmod":"2026-08-20T05:18Z","nid":"1400041"} -->
 ## Configuring DLP Notification Templates
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > Configuring DLP Notification Templates
-- Last modified: 2026-07-02T02:38Z
+- Last modified: 2026-08-20T05:18Z
 - Summary: How to configure Data Loss Prevention (DLP) notification templates within the Zscaler Admin Console.
 
 [Watch a video about Adding DLP Notification Templates](https://fast.wistia.net/embed/iframe/buqs745qjx) (shows legacy UI).
@@ -8899,7 +8981,7 @@ You can create templates for the email notification, which can be referenced whi
 
 To add a DLP notification template:
 
-1. Go to **Policies**>**Data Protection**>**Common Resources**>**Notification Template**.
+1. Go to **Policies**>**Data Protection**>**Common Resources**>**Notification Templates**.
 2. On the **DLP** tab, click **Add DLP Notification Template**.
 3. In the **Add DLP Notification Template** window:
   1. Enter a **Name** for the notification.
@@ -8924,7 +9006,7 @@ See image.
 
 To modify an existing DLP notification template:
 
-1. Go to **Policies**>**Data Protection**>**Common Resources**>**Notification Template**.
+1. Go to **Policies**>**Data Protection**>**Common Resources**>**Notification Templates**.
 2. On the **DLP** tab, locate the notification template you want to modify in the table, and click the **Edit** icon.
 3. You can edit the **Name**, **Subject**, **Message as Plain Text**, and **Message as HTML** fields. You can also enable or disable the **Attach Violating Content** and **Use TLS** settings. See image.
 
@@ -9145,13 +9227,13 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-08-16T07:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-08-23T07:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
 [Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection.](https://fast.wistia.net/embed/iframe/za6nr8ax7t)
@@ -9333,13 +9415,13 @@ To learn how to use external DLP engines to detect data and also forward informa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-08-16T07:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-08-23T07:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
@@ -9877,13 +9959,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-08-16T07:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-08-23T07:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).

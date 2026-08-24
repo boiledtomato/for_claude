@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 119
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 120
 
 ---
 
@@ -1026,13 +1026,13 @@ It is also recommended that you create a minimal set of root CA certificates for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-08-16T07:06Z","nid":"1443226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-08-23T07:06Z","nid":"1443226"} -->
 ## Configuring the Index Tool with Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-amazon-web-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Amazon Web Services
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 Before you can create index templates for DLP dictionaries (i.e.,[Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Amazon Web Services (AWS), Azure, or VMware.
@@ -1270,13 +1270,13 @@ sudo zadp start
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-08-16T07:06Z","nid":"1467486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-08-23T07:06Z","nid":"1467486"} -->
 ## Configuring the Index Tool with Azure
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-azure-vms
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Azure
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool VM in Azure. The Index Tool is used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 To create index templates for DLP dictionaries (i.e., [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Azure, Amazon Web Services (AWS), or VMware.
@@ -1651,13 +1651,13 @@ sudo zadp start
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-08-16T07:06Z","nid":"1400651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-08-23T07:06Z","nid":"1400651"} -->
 ## Configuring the Index Tool with VMWare
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-vmware
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with VMWare
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 New or clean deployment of Index Tool requires VM image running on Zscaler OS version 24.
@@ -1702,13 +1702,13 @@ The following commands can be used to configure, update, and troubleshoot your V
 
 To deploy the Zscaler Index Tool on VMware, you need the following:
 
-- If your index templates include less than 300 million records, Zscaler recommends the following configuration:
+- If any of your index templates include less than 300 million records, Zscaler recommends the following configuration:
   - **Hypervisor**: VMware ESX/ESXi version 6.0 or later.
   - **CPUs**: 4 CPUs. Zscaler requires 4 CPUs because the CPUs ensure that hash generation performance is not impacted.
   - **RAM**: 16 GB
   - **Disk**: 600 GB
   - **VM Network**: 1 Virtual NIC
-- If your index templates include more than 300 million records, Zscaler recommends the following configuration:
+- If any of your index templates include more than 300 million records, Zscaler recommends the following configuration: For OVA customization (hardware version, disk, memory), contact Zscaler Support.
   - **Hypervisor**: VMware ESX/ESXi version 6.0 or later.
   - **CPUs**: 4 CPUs. Zscaler requires 4 CPUs because the CPUs ensure that hash generation performance is not impacted.
   - **RAM**: 64 GB
@@ -2535,13 +2535,13 @@ To edit or delete a manual location group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-08-16T07:06Z","nid":"1492736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-08-23T07:06Z","nid":"1492736"} -->
 ## Configuring Microsoft Exchange for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Configuring Microsoft Exchange for Zscaler Outbound Email DLP
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information on how to configure Microsoft Excchange for Zscaler Outbound Email Data Loss Prevention (DLP).
 
 Zscaler Outbound Email Data Loss Prevention (DLP) allows you to establish a connection between your Exchange server and Zscaler's cutting-edge Data Loss Prevention (DLP) tools to prevent the exfiltration of sensitive data in outbound emails sent to external domains. To do so, you must configure connectors to allow bidirectional communication between your Exchange server and the Zscaler smart host, and you must configure mail flow rules (also known as transport rules) to determine how mail flows from your Exchange server to the Zscaler service, and vice versa.
@@ -3490,20 +3490,20 @@ To log in with a one-time link, click the link in the email to log in to the Zsc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-outbound-email-policy-rules","lastmod":"2026-02-02T13:12Z","nid":"1492701"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-outbound-email-policy-rules","lastmod":"2026-08-21T08:35Z","nid":"1492701"} -->
 ## Configuring Outbound Email Policy Rules
 
 - Source: https://help.zscaler.com/zia/configuring-outbound-email-policy-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Configuring Outbound Email Policy Rules
-- Last modified: 2026-02-02T13:12Z
+- Last modified: 2026-08-21T08:35Z
 - Summary: How to configure an outbound email policy using the Zscaler service to prevent data loss in outbound emails sent to external domains.
 
 You can use Zscaler Outbound Email Policy to detect data, allow or block activities, and add custom headers when content in an email sent to an external domain triggers an outbound email policy rule. You can also create exception rules, which are child rules that allow you to exclude specific users or groups in your organization that must perform tasks as part of a necessary workflow that might otherwise violate outbound email policy.
 
 When content triggers outbound email policy rules, the Zscaler service adds headers to those emails and sends them back to your email server for enforcement. Depending on how outbound email policy rules are configured, the headers instruct your email server to take a default action (i.e., allow or block content), or an action mapped to a custom header configured on the server.
 
-To learn more, see [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp) and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
+To learn more, see [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp), [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp), and [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-segs-zscaler-outbound-email-dlp).
 
 To configure an Outbound Email Policy rule:
 
@@ -3525,6 +3525,7 @@ To configure an Outbound Email Policy rule:
     - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule. You can also search for rule labels.
     - **Severity**: Select the severity of the violation from the drop-down menu (i.e., **High**, **Medium**, **Low**, or **Information**).
   2. Define the following **Criteria**:
+    - **Email Tenants**: Select up to 8 secure email gateway (SEG), Gmail, or Microsoft Exchange tenants from the drop-down menu.
     - **Content Matching**: Select **Select DLP Engines** to select up to 4 engines. You can also search for DLP engines. If you select **None**, then the Zscaler service doesn't use DLP engines to scan the content; instead, the service functions as a filter, only flagging content based on the criteria you specify.
     - **Content Locations**: Specify the where the Zscaler service should look for sensitive data (i.e., **Email Attachments, Email Body,** or **Email Subject**).
     - **File Type**: From the drop-down menu, choose the file types for the rule. The list of available file types changes based on whether you're using DLP engines for content inspection. You can create policy rules that apply only to content being sent via specific file types. Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB.
@@ -3583,6 +3584,7 @@ To define an exception rule:
     - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the exception rule. You can also search for rule labels.
     - **Severity**: Select the severity of the violation from the drop-down menu (i.e., **High**, **Medium**, **Low**, or **Information**).
   2. Define the following **Criteria**:
+    - **Email Tenants**: Select up to 8 secure email gateway (SEG), Gmail, or Microsoft Exchange tenants from the drop-down menu.
     - **Content Matching**: Select **Select DLP Engines** to select up to 4 engines. You can also search for DLP engines. If you select **None**, then the Zscaler service doesn't use DLP engines to scan the content; instead, the service functions as a filter, only flagging content based on the criteria you specify.
     - **Content Locations**: Specify the where the Zscaler service should look for sensitive data (i.e., **Email Attachments, Email Body,** or **Email Subject**).
     - **File Type**: From the drop-down menu, choose the file types for the exception rule. The list of available file types changes based on whether you're using DLP engines for content inspection. You can create policy rules that apply only to content being sent via specific file types. Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB.
@@ -3975,14 +3977,14 @@ To customize the quarantine notification:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-quarantine-tombstone-notification-templates","lastmod":"2026-07-01T12:57Z","nid":"1452711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-quarantine-tombstone-notification-templates","lastmod":"2026-08-20T04:32Z","nid":"1452711"} -->
 ## Configuring Quarantine Tombstone Notification Templates
 
 - Source: https://help.zscaler.com/zia/configuring-quarantine-tombstone-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > Configuring Quarantine Tombstone Notification Templates
-- Last modified: 2026-07-01T12:57Z
-- Summary: How to configure quarantine tombstone notification templates within the Zscaler Internet Access (ZIA) Admin Portal.
+- Last modified: 2026-08-20T04:32Z
+- Summary: How to configure quarantine tombstone notification templates within the Zscaler Admin Console.
 
 You can create templates for the tombstone file created when a file is quarantined, which is configured through the SaaS Security API Quarantine policy rules. To learn more, see [About SaaS Security API Malware Detection](https://help.zscaler.com/zia/6.1/about-saas-security-api-malware-detection) and [Configuring the SaaS Security API Malware Detection Policy](https://help.zscaler.com/zia/6.1/configuring-saas-security-api-malware-detection-policy).
 
@@ -3997,7 +3999,7 @@ See image.
 1. Under **Description**, enter the text you want the tombstone file to contain.
 2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: Add Tombstone File Template page]
+[Image: Add Tombstone File Template window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4314,14 +4316,16 @@ To configure the Zscaler service as the SP for SAML:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-sandbox-advanced-policy-settings","lastmod":"2026-06-24T08:52Z","nid":"1403036"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-sandbox-advanced-policy-settings","lastmod":"2026-08-20T12:31Z","nid":"1403036"} -->
 ## Configuring Sandbox Advanced Policy Settings
 
 - Source: https://help.zscaler.com/zia/configuring-sandbox-advanced-policy-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Sandbox > Configuring Sandbox Advanced Policy Settings
-- Last modified: 2026-06-24T08:52Z
+- Last modified: 2026-08-20T12:31Z
 - Summary: Add custom file hashes in Zscaler Sandbox  Advanced Policy Settings.
+
+[Watch a video about Configuring Sandbox Policy Rules including Advanced Policy Settings.](https://fast.wistia.net/embed/iframe/0syhugivt0)
 
 On the Advanced Policy Settings page for the [Sandbox policy](https://help.zscaler.com/zia/about-sandbox), you can add custom MD5 hash values to the Denylist for your organization to block specific files that are applicable to Zscaler Sandbox analysis. You can also add custom MD5 hash values to the Allowlist to allow specific files access.
 
@@ -4361,13 +4365,13 @@ To remove a custom MD5 hash from the Allowlist or Denylist:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-sandbox-policy","lastmod":"2026-06-24T08:44Z","nid":"1399811"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-sandbox-policy","lastmod":"2026-08-20T12:22Z","nid":"1399811"} -->
 ## Configuring the Sandbox Policy
 
 - Source: https://help.zscaler.com/zia/configuring-sandbox-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Sandbox > Configuring the Sandbox Policy
-- Last modified: 2026-06-24T08:44Z
+- Last modified: 2026-08-20T12:22Z
 - Summary: Information on how to configure rules for the Zscaler Sandbox policy in the Zscaler Admin Console.
 
 If you have Advanced Sandbox, you can add rules to the Sandbox policy. You can configure different rules in your Sandbox policy to apply to different sets of users or locations. Due to the wide range of risk tolerance and performance expectations, configuring the Sandbox policy might vary significantly. To learn more, see the recommended Sandbox policy.
@@ -4387,7 +4391,7 @@ Before adding rules to the Sandbox policy, ensure that you have configured the f
 
 ## Adding a Sandbox Rule
 
-[Watch a video about Configuring the Sandbox Policy](https://fast.wistia.net/embed/iframe/c0j9m9qmbl?quality=1080p) (shows legacy UI).
+[Watch a video about Configuring Sandbox Policy Rules.](https://fast.wistia.net/embed/iframe/0syhugivt0?quality=1080p)
 
 To add a Sandbox rule:
 
@@ -4733,6 +4737,71 @@ See image.
 1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Screenshot of the Security Exceptions tab for Malware Protection.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-segs-zscaler-outbound-email-dlp","lastmod":"2026-08-21T06:40Z","nid":"1542202"} -->
+## Configuring SEGs for Zscaler Outbound Email DLP
+
+- Source: https://help.zscaler.com/zia/configuring-segs-zscaler-outbound-email-dlp
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Configuring SEGs for Zscaler Outbound Email DLP
+- Last modified: 2026-08-21T06:40Z
+- Summary: Information on how to configure your Secure Email Gateway (SEG) for Zscaler Outbound Email Data Loss Prevention (DLP).
+
+This article provides a basic overview for configuring your Secure Email Gateway (SEG) to use Zscaler Outbound Email Data Loss Prevention (DLP) for scanning outbound messages to detect and prevent sensitive data exfiltration over email. Although there are many SEG options available, the basic configuration process and workflow is the same across products.
+
+At a high level, when you onboard an SEG to use Zscaler Outbound Email DLP, outbound email uses the following basic flow:
+
+1. An end user composes and sends an outbound email message.
+2. Your email server (i.e., Exchange or Gmail) routes the outbound email to your SEG.
+3. Your SEG routes the message to the Zscaler smart host for inspection.
+4. The Zscaler smart host evaluates the message based on outbound email DLP policies, adds a verdict header to the email (e.g., `X-Zscaler-Block`, `X-Zscaler-Quarantine`), and then sends the message back to your SEG.
+5. Your SEG receives the inspected message from the Zscaler smart host as the configured next hop and applies SEG policy based on the Zscaler header (i.e., delivers to the recipient or takes enforcement action).
+6. If the email was not blocked or quarantined based on Zscaler or SEG policy, the recipient receives the email message.
+
+See image.
+
+## Configuring Your SEG To Use Zscaler Outbound Email DLP
+
+The Zscaler service supports multiple SEG options, so this section covers the basic steps you need to follow to integrate your SEG with Zscaler Outbound Email DLP. To learn more about specific steps, refer to the documentation for your SEG.
+
+To configure your SEG to use Zscaler Outbound Email DLP:
+
+- 1. Onboard your SEG tenant.
+- 2. Retrieve the IP ranges for the Zscaler smart host.
+- 3. Configure your SEG to forward outbound emails to the Zscaler smart host.
+- 4. Ensure that emails from the Zscaler smart host are allowlisted on your SEG.
+- 5. Create enforcement rules on your SEG to enforce policy based on Zscaler verdict headers.
+- 6. Validate your setup.
+
+[Image: Basic SEG Mailflow with Zscaler Outbound Email DLP]
+
+Before you can configure your SEG to use Zscaler Outbound Email DLP, you must first [onboard your SEG tenant](https://help.zscaler.com/zia/adding-email-tenants#secure-email-gateway) in the Zscaler Admin Console.
+
+1. Go to [config.zscaler.com](http://config.zscaler.com). The **Zscaler Config** page appears.
+2. Select your organization's Zscaler cloud from the **Cloud** drop-down menu at the top left of the page.
+3. In the left-side navigation, go to **Email DLP**. The **Email DLP** page lists all of the outbound connections that need to be configured for the Zscaler smart host to communicate with your SEG. See image.
+4. Make note of all the IPs that are listed on this page because you need to add them when you configure your SEG to communicate with the Zscaler smart host.
+
+[Image: Zscaler Config page for Outbound Email DLP]
+
+Configure your SEG to add `X-Zscaler-TenantID: <tenant-key>` on messages routed to Zscaler. You can find the `<tenant-key>` value when you [onboard your SEG tenant](https://help.zscaler.com/zia/adding-email-tenants#secure-email-gateway) in the Zscaler Admin Console listed as the **Key for Transport Rules**. The key is unique to each email tenant that you onboard and is used by the Zscaler service to verify the source of email messages received by the Zscaler smart host.
+
+Your SEG must be configured to accept processed email from the Zscaler smart host by allowlisting the Zscaler smart host egress IPs or validating the client certificate Common Name (CN) presented by Zscaler. This configuration ensures that only authorized Zscaler smart host connections can relay scanned emails back to your SEG.
+
+The Zscaler service appends one of the following three headers to each outbound email message:
+
+- `X-Zscaler-Block: 0`: Your SEG should deliver emails that use this header to the intended recipient.
+- `X-Zscaler-Block: 1`: Your SEG should block emails that contain this header.
+- `X-Zscaler-Quarantine: 1`: Your SEG should quarantine emails that use this header.
+
+Your SEG should use these headers to detect messages that have already been processed by the Zscaler service to prevent mail routing loops (i.e., sending the same email messages back to the Zscaler service for processing). You can configure your SEG to look for the `X-Zscaler-Block` header to prevent mail routing loops, as the Zscaler service appends either an `X-Zscaler-Block: 0` or `X-Zscaler-Block: 1` header to all inspected messages.
+
+You can use the **Custom Header Insertion** action on a Zscaler Outbound Email DLP policy rule to create a custom header that is then mapped to an action on your SEG. For example, you can configure an outbound email policy rule in the Zscaler Admin Console to attach a custom header (e.g., `X-Zscaler-Encrypt:1`) to emails that trigger the policy. You can then map the custom header to the appropriate action in your SEG. To learn more, see [Configuring Outbound Email Policy Rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
+
+To ensure that your SEG is properly configured to use Zscaler Outbound Email DLP, send two outbound test emails from a test user to an external recipient. One email should be benign, and the other should contain a test payload that violates an existing policy rule. In the [Email DLP Insights Logs](https://help.zscaler.com/zia/about-insights-logs), confirm that the message appears for that sender and timeframe, and that it shows a DLP scan and verdict. If the email is visible in Email DLP Insights Logs, it indicates that your SEG is successfully routing mail to the Zscaler smart host and the email flow is working as expected.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5646,13 +5715,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-traffic-capture-policy","lastmod":"2026-05-22T08:26Z","nid":"1532182"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-traffic-capture-policy","lastmod":"2026-08-18T09:10Z","nid":"1532182"} -->
 ## Configuring the Traffic Capture Policy
 
 - Source: https://help.zscaler.com/zia/configuring-traffic-capture-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Traffic Capture > Configuring the Traffic Capture Policy
-- Last modified: 2026-05-22T08:26Z
+- Last modified: 2026-08-18T09:10Z
 - Summary: Information on how to create and configure the Traffic Capture policy. This enables you to capture and store traffic in PCAPNG files.
 
 You can add rules to the Traffic Capture policy to capture matching traffic and forward it for storage. To learn more, see [About Traffic Capture Policy](https://help.zscaler.com/zia/about-traffic-capture-policy).
@@ -8766,13 +8835,13 @@ To set up SSO with ShareFile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-08-06T14:48Z","nid":"1401726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-08-21T14:53Z","nid":"1401726"} -->
 ## Configuring the Zscaler Incident Receiver for On-Premises VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for On-Premises VMs
-- Last modified: 2026-08-06T14:48Z
+- Last modified: 2026-08-21T14:53Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) for on-premises VMs.
 
 New or clean deployment of a Zscaler Incident Receiver requires a virtual machine (VM) image running on Zscaler OS version 24.
@@ -8829,7 +8898,7 @@ To deploy the Zscaler Incident Receiver, make sure the following prerequisites a
 Zscaler recommends using an SFTP storage server to store data for on-premises Incident Receiver VMs. To use an S3 storage bucket with an on-premises VM, you must set up an S3 credentials file on the VM where the Incident Receiver resides. For this method, manually create a `/root/.aws/credentials` file and a `/home/zsroot/.aws/credentials` file with the proper `aws_access_key_id` and `aws_secret_access_key` on the VM. To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
 
 - A static public IP address for the Incident Receiver VM. Additionally, you need a firewall rule configured to allow inbound ICAP messages from the FCC cloud to the correct TCP port on the Incident Receiver VM (e.g., port 1344).
-- VM specifications:
+- VM specifications: For OVA customization (hardware version, disk, memory), contact Zscaler Support.
   - Hypervisor: VMware ESX/ESXi version 6.0 or later, Oracle VM VirtualBox
   - CPUs: 4 CPUs
   - RAM: 8 GB
@@ -8915,7 +8984,7 @@ If the Zscaler Incident Receiver was configured properly, it performs the follow
 
 After the Zscaler Incident Receiver service has started, you can add it to the DLP policy rule. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection), [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection), and [Configuring the SaaS Security API DLP Policy](https://help.zscaler.com/zia/configuring-saas-security-api-dlp-policy).
 
-You can log in to the storage server to see information about DLP policy violations. For each policy violation, the storage server creates a directory containing the policy-violating file and a JSON file for the DLP policy scan metadata.
+You can log in to the storage server to see information about DLP policy violations. For each policy violation, the storage server creates a directory containing the policy-violating file and a JSON file for the DLP policy scan metadata. The policy-violating files can be a maximum of 100 MB.
 
 [Download a sample JSON file for Endpoint DLP policy](https://help.zscaler.com/downloads/zia/policies/data-loss-prevention/dlp-incident-receiver/ENDPOINT-DLP-IR-METADATA.json)
 
@@ -9088,13 +9157,13 @@ If your organization requires you to update your SSH key, upgrade to the ED25519
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-azure-vms","lastmod":"2026-08-06T14:52Z","nid":"1455536"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-azure-vms","lastmod":"2026-08-21T14:52Z","nid":"1455536"} -->
 ## Configuring the Zscaler Incident Receiver for Azure VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-azure-vms
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for Azure VMs
-- Last modified: 2026-08-06T14:52Z
+- Last modified: 2026-08-21T14:52Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) on Azure VMs.
 
 Before you can use a [Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver), you must configure the virtual machine (VM) image for the Incident Receiver on an Azure VM, an Amazon Web Services (AWS) EC2 instance, or an on-premises VM. To learn more, see [Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-for-ec2) and [Configuring the Zscaler Incident Receiver for On-Premises VMs](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver).
@@ -9474,7 +9543,7 @@ See image.
 
 After the Zscaler Incident Receiver service has started, you can add it to the Data Loss Prevention (DLP) policy rule. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection), [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection), and [Configuring the SaaS Security API DLP Policy](https://help.zscaler.com/zia/configuring-saas-security-api-dlp-policy).
 
-You can log in to the storage server to see information about DLP policy violations. For each policy violation, the storage server creates a directory containing the policy-violating file and a JSON file for the DLP policy scan metadata.
+You can log in to the storage server to see information about DLP policy violations. For each policy violation, the storage server creates a directory containing the policy-violating file and a JSON file for the DLP policy scan metadata. The policy-violating files can be a maximum of 100 MB.
 
 [Download a sample JSON file for Endpoint DLP policy](https://help.zscaler.com/downloads/zia/policies/data-loss-prevention/dlp-incident-receiver/ENDPOINT-DLP-IR-METADATA.json)
 
@@ -9634,13 +9703,13 @@ If your organization requires you to update your SSH key, upgrade to the ED25519
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-for-ec2","lastmod":"2026-08-06T14:49Z","nid":"1449896"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-for-ec2","lastmod":"2026-08-21T14:51Z","nid":"1449896"} -->
 ## Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-for-ec2
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs
-- Last modified: 2026-08-06T14:49Z
+- Last modified: 2026-08-21T14:51Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) on Amazon Web Services (AWS) EC2 VMs.
 
 Before you can use a [Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver), you must configure the VM image for the Incident Receiver on an Amazon Web Services (AWS) EC2 instance, an Azure VM, or an on-premises VM.
@@ -9915,7 +9984,7 @@ See image.
 
 After the Zscaler Incident Receiver service has started, you can add it to the DLP policy rule. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection), [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection), and [Configuring the SaaS Security API DLP Policy](https://help.zscaler.com/zia/configuring-saas-security-api-dlp-policy).
 
-You can log in to the storage server to see information about DLP policy violations. For each policy violation, the storage server creates a directory containing the policy-violating file and a JSON file for the DLP policy scan metadata.
+You can log in to the storage server to see information about DLP policy violations. For each policy violation, the storage server creates a directory containing the policy-violating file and a JSON file for the DLP policy scan metadata. The policy-violating files can be a maximum of 100 MB.
 
 [Download a sample JSON file for Endpoint DLP policy](https://help.zscaler.com/downloads/zia/policies/data-loss-prevention/dlp-incident-receiver/ENDPOINT-DLP-IR-METADATA.json)
 
@@ -10351,13 +10420,13 @@ When you copy a report, it’s added to the **Custom Reports** tab. You can do t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-08-16T07:06Z","nid":"1400656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-08-23T07:06Z","nid":"1400656"} -->
 ## Creating an Exact Data Match Template
 
 - Source: https://help.zscaler.com/zia/creating-exact-data-match-template
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > Creating an Exact Data Match Template
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to create, modify, or delete an Exact Data Match index template using the Zscaler Index Tool for Data Loss Prevention (DLP).
 
 [Watch a video on Exact Data Match](https://fast.wistia.net/embed/iframe/5jnzyl383a) (shows legacy UI).
@@ -10995,13 +11064,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/creating-scheduled-backup-configuration","lastmod":"2026-06-29T07:25Z","nid":"1401821"} -->
+<!-- ZS-ARTICLE {"url":"/zia/creating-scheduled-backup-configuration","lastmod":"2026-08-23T07:06Z","nid":"1401821"} -->
 ## Creating Scheduled Backup Configuration
 
 - Source: https://help.zscaler.com/zia/creating-scheduled-backup-configuration
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > Creating Scheduled Backup Configuration
-- Last modified: 2026-06-29T07:25Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information related to creating a scheduled backup configuration to back up policies and configuration settings in a fixed interval.
 
 The backup configuration allows you to automatically back up policies and configuration settings. You can create a backup configuration schedule where the [restore points](https://help.zscaler.com/zia/about-backup-and-restore) are automatically created at fixed intervals. An organization can have up to 12 restore points, including [manual](https://help.zscaler.com/zia/adding-restore-points-manually) and scheduled backups. If the number of restore points reaches a limit of 12, then the next restore point is created by removing the oldest restore point in the list. However, if the oldest restore point is a Golden Restore Point, then the next oldest restore point is removed.
@@ -11935,18 +12004,14 @@ To deploy Basic authentication for traffic:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/deploying-kerberos-authentication","lastmod":"2024-07-18T14:32Z","nid":"1399566"} -->
+<!-- ZS-ARTICLE {"url":"/zia/deploying-kerberos-authentication","lastmod":"2026-08-20T07:10Z","nid":"1399566"} -->
 ## Deploying Kerberos Authentication
 
 - Source: https://help.zscaler.com/zia/deploying-kerberos-authentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Deploying Kerberos Authentication
-- Last modified: 2024-07-18T14:32Z
-- Summary: How to deploy Kerberos authentication for your organization.
-
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
-
-?xml version='1.0' encoding='UTF-8'?
+- Last modified: 2026-08-20T07:10Z
+- Summary: Information on deploying Kerberos authentication for your organization.
 
 This article provides step-by-step instructions for deploying Kerberos authentication for your organization. To learn more about using Kerberos for your organization, see [About Kerberos Authentication](https://help.zscaler.com/zia/about-kerberos-authentication).
 
@@ -11983,21 +12048,17 @@ To verify that your Kerberos realm name is a registered domain on the Zscaler se
 Provision users on the Zscaler service. You can provision users with one of the following options:
 
 - [Manually adding users to the Zscaler Hosted User Database](https://help.zscaler.com/zia/adding-user-account)
-- [Importing users to the Zscaler Hosted Uster Database](https://help.zscaler.com/zia/importing-user-information-csv-file)
+- [Importing users to the Zscaler Hosted User Database](https://help.zscaler.com/zia/importing-user-information-csv-file)
 - [Synchronizing user data from an Active Directory or LDAP server](https://help.zscaler.com/zia/synchronizing-users-directory-server)
 
 The sAMAccountName@Windows- Domain is sent as the Kerberos identifier. You might need to change the user login attribute in your synchronization settings to map to the sAMAccountName.
 
 Configure your outbound firewall to allow the necessary connections. To view the Zscaler Central Authority and ZIA Public Service Edge IP addresses, log in to the ZIA Admin Portal and go to **Help**>**Cloud Configuration Requirements**.
 
-| Source: Client Workstation |  |
-| --- | --- |
-| Destination | Destination |
-| Destination Port | Destination Port |
-| Description | Description |
-| Central Authority IP Addresses | ZIA Public Service Edge IP Address Ranges |
-| TCP 88 or UDP 88 The choice of TCP or UDP is determined by the client. Some clients fall back to the other protocol if either TCP or UDP port 88 is blocked, but this is not guaranteed. | TCP 8800 (The default Kerberos authentication port on ZIA Public Service Edges.) |
-| Enables the client to authenticate against the Zscaler Domain KDC. | Enables the client to send traffic to the global Kerberos authentication port on the ZIA Public Service Edge. Not required if Kerberos is enabled on a location. Enabling Kerberos on a location automatically enforces Kerberos authentication, so you can send traffic to the default proxy ports, such as port 80. |
+| Source | Destination | Destination Port | Description |
+| --- | --- | --- | --- |
+| Client Workstation | Central Authority IP Addresses | TCP 88 or UDP 88 | Enables the client to authenticate against the Zscaler domain KDC. The choice of TCP or UDP is determined by the client. Some clients fall back to the other protocol if either port is blocked, but this is not guaranteed. |
+| Client Workstation | Public Service Edge IP Address Ranges | TCP 8800 (The default Kerberos authentication port on Public Service Edges.) | Enables the client to send traffic to the global Kerberos authentication port on the Public Service Edge. Not required if Kerberos is enabled on a location. Enabling Kerberos on a location automatically enforces Kerberos authentication, so you can send traffic to the default proxy ports, such as port 80. |
 
 Configure Kerberos as an authentication mechanism to generate the domain trust password that is used to establish the trust relationship between the Zscaler domain and your organization's domain. This password is required when you configure the trust relationship.
 
@@ -12184,13 +12245,13 @@ To deploy your NSS virtual appliance, see the deployment guide for your platform
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/deploying-private-service-edge-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1401241"} -->
+<!-- ZS-ARTICLE {"url":"/zia/deploying-private-service-edge-internet-saas","lastmod":"2026-08-19T11:40Z","nid":"1401241"} -->
 ## Deploying Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/deploying-private-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Deploying Private Service Edge for Internet & SaaS
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-08-19T11:40Z
 - Summary: Requirements and configuration information for properly deploying Private Service Edge for Internet & SaaS in the Zscaler cloud.
 
 A Private Service Edge for Internet & SaaS (ZIA) is part of the Zscaler cloud. It communicates with other nodes in the cloud, such as the Zscaler Central Authority (CA) for user authentication and policy updates, and the cloud routers and Nanolog clusters for logging and reporting. To learn more, see [Understanding Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas).

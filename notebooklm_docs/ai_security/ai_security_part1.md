@@ -1,8 +1,8 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 75
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 77
 
 ---
 
@@ -937,6 +937,177 @@ To test an AI Guard policy:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/amazon-bedrock-agentcore","lastmod":"2026-08-16T19:33Z","nid":"1542865"} -->
+## Amazon Bedrock AgentCore
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/amazon-bedrock-agentcore
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > Amazon Bedrock AgentCore
+- Last modified: 2026-08-16T19:33Z
+- Summary: Integration information for Amazon Bedrock AgentCore is provided in this article
+
+After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details.
+
+[Image: bedrock_agentcore]
+
+IMAGE PLACEHOLDER: Figure 1: Amazon Bedrock AgentCore Integration Example
+
+- **Agent Runtime ARN** - ARN (Amazon Resource Name) of the Bedrock AgentCore runtime you want to invoke.
+- **AWS Region** - AWS region where that runtime is deployed (for example: "us-east-1").
+- **AWS Access Key Id** - IAM (Identity and Access Management) access key used to sign Bedrock AgentCore API calls.
+- **AWS Secret Access Key** - IAM secret access key paired with the Access Key Id. Note that AWS **only shows secret keys at creation time**, so store it securely.
+- **Qualifier** - Optional runtime qualifier (for example a version or alias) used to route the invocation to a specific runtime revision. Leave it empty to use the runtime's default.
+- **Payload Template** - JSON payload sent to the AgentCore runtime on each invocation. Use placeholders to let the platform inject dynamic values:
+  - **{message}** - the current probe/test message.
+  - **{session_id}** - unique identifier for the conversation session (useful for multi-step tests).
+- **Response Path** - The JSON path pointing to the text response in the response.
+- **Image Response Path** - The JSON path pointing to generated **images** in the response (for example an array of base64 strings or URLs). Leave empty if your runtime does not return images.
+- **Audios Response Path** - The JSON path pointing to generated **audio** in the response. Leave empty if not applicable.
+- **Documents Response Path** - The JSON path pointing to generated **documents/files** in the response. Leave empty if not applicable.
+
+## Obtaining the Required Fields
+
+- Agent Runtime ARN
+- AWS Region
+- AWS Access Key Id/AWS Secret Access Keys
+- Qualifier
+- Payload Template
+- Response Path
+- Image Response Path
+- Audios Response Path
+- Documents Response Path
+
+To obtain the Agent Runtime ARN:
+
+1. Find the runtime in the AWS console where you manage your AgentCore runtime.
+2. Copy the resource **ARN** from the runtime details page.
+3. If you provisioned it via IaC (CloudFormation/Terraform/CDK), you can also use the output variable that contains the ARN.
+
+To obtain the AWS Region:
+
+1. Use the same region where the runtime lives.
+2. You can read it from the AWS console region selector or from the ARN itself.
+
+To obtain the AWS Access Key Id and AWS Secret Access Key:
+
+1. Create an access key for an IAM principal that has permission to invoke the runtime.
+2. IAM console path: **IAM** → **Users** → select user → **Security credentials** → **Access keys**.
+3. AWS docs: [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+
+To obtain the Qualifier:
+
+1. Only needed if your runtime supports routing by version or alias.
+2. Use the exact qualifier value your runtime expects. Otherwise leave it blank.
+
+To obtain the Payload Template:
+
+1. Use the request payload schema your runtime expects.
+2. Example: `{ "prompt": "{message}", "session": "{session_id}", "media": {"type": "image", "data": "{image_base64}"} }`
+3. Easiest way: run one test invocation from your app or SDK, then copy the JSON body and replace the user message with `**{message}**`.
+4. Add `**{session_id}**` if your runtime supports multi-turn sessions.
+
+| Placeholder | Description |
+| --- | --- |
+| {message} | Main text message |
+| {session_id} | Runtime session ID |
+| {image_url} | Image URL |
+| {image_base64} | Image as base64 data URL |
+| {audio_url} | Audio URL |
+| {audio_base64} | Audio as base64 data URL |
+| {document_url} | Document URL |
+| {document_base64} | Document as base64 data URL |
+
+To obtain the Response Path:
+
+1. Invoke the runtime once and inspect the raw JSON response.
+2. Set this to the JSON path pointing to the **text** content you want evaluated.
+3. If you're unsure about the JSON path format, see the definition used in the [REST API connection](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app).
+
+To obtain the Image Response Path:
+
+- JSON path to images in the response (array of base64 strings or URLs), if your runtime returns images.
+
+To obtain the Audios Response Path:
+
+- JSON path to audio in the response, if your runtime returns audio.
+
+To obtain the Documents Response Path:
+
+- JSON path to documents or files in the response, if your runtime returns documents.
+
+**Warning:** If you can't locate a field in the AWS console, it is likely that it's in **your runtime's request/response contract** (payload template and response paths) rather than AWS metadata.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/amazon-bedrock-agents","lastmod":"2026-08-17T20:46Z","nid":"1542890"} -->
+## Amazon Bedrock Agents
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/amazon-bedrock-agents
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > Amazon Bedrock Agents
+- Last modified: 2026-08-17T20:46Z
+- Summary: Integration Setup information for Amazon Bedrock Agents is provided in this article
+
+After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details.
+
+IMAGE PLACEHOLDER: Figure 1: Amazon Bedrock Agents
+
+- **Agent Id** - Unique identifier of the Bedrock Agent you want to invoke.
+- **Agent Alias Id** - Identifier of the **agent alias** to invoke. Aliases route traffic to a specific agent version.
+- **AWS Region** - AWS region where the agent is created (for example: "us-east-1").
+- **AWS Access Key Id** - IAM (Identity and Access Management) access key used to sign Bedrock Agent Runtime requests.
+- **AWS Secret Access Key** - IAM secret access key paired with the Access Key Id. AWS **only shows secret keys at creation time**, so store it securely.
+
+**Possible Internal Server Error When Rate Limit Is Exceeded (Code Interpreter Notice)**
+
+If your Bedrock Agent has **Code Interpreter enabled**, AWS enforces a limit on concurrent active sessions per account/region (minimum 25). When running scans with high concurrency, **this limit can be reached quickly, causing requests to fail.**
+
+To avoid this, we recommend adjusting the following in Target Configuration:
+
+- **Rate Limit** to a lower value (e.g. **20 or lower**) to control the number of messages per minute.
+- **Disable Parallel Requests** or keep concurrency low.
+
+## Obtaining the Required Fields
+
+- Agent Id
+- Agent Alias Id
+- AWS Region
+- AWS Access Key Id
+- AWS Secret Access Key
+
+To obtain the Agent Id:
+
+1. Open the AWS console and go to **Amazon Bedrock** → **Agents**.
+2. Select the agent you want to test.
+3. Copy the **Agent ID** from the agent details (or extract it from the agent ARN).
+
+To obtain the Agent Alias Id:
+
+1. Open the same agent in the AWS console.
+2. Go to **Aliases** and pick the alias you want to invoke (for example `prod` or `staging`).
+3. Copy the **Alias ID** (or extract it from the alias ARN).
+4. Ensure the alias points to the correct agent version you want to test.
+
+To obtain the AWS Region:
+
+1. Use the same region where you created the agent.
+2. Read it from the AWS console region selector (top bar).
+
+To obtain the AWS Access Key Id:
+
+1. Create an access key for an IAM principal that can invoke the Bedrock Agent Runtime.
+2. IAM console path: **IAM** → **Users** → select user → **Security credentials** → **Access keys**.
+3. AWS docs: [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+
+To obtain the AWS Secret Access Key:
+
+1. Generated together with the Access Key Id during access key creation.
+2. AWS shows the secret value only once. If you lost it, create a new access key.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/architecture-ai-guard-apps-proxy-das-api-mode","lastmod":"2026-08-12T10:00Z","nid":"1542640"} -->
 ## Architecture of AI Guard for Apps in Proxy and DAS/API Modes
 
@@ -1470,13 +1641,13 @@ To configure a broker target, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/configuring-connection","lastmod":"2026-08-16T00:15Z","nid":"1540061"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/configuring-connection","lastmod":"2026-08-17T20:48Z","nid":"1540061"} -->
 ## Configuring a Connection
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/configuring-connection
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Configuring a Connection
-- Last modified: 2026-08-16T00:15Z
+- Last modified: 2026-08-17T20:48Z
 - Summary: Information about selecting connection types for connecting an AI application to AI Security Admin Portal.
 
 After you select the appropriate connection type on the [**Connect AI App**](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app) page, enter the required details in the **Configure your connection**tab. This tab is specific to the selected connection type.
@@ -1503,8 +1674,8 @@ Test runs are executed on chatbots that are accessible through external platform
 - Slack
 - WhatsApp
 - [Agentforce](https://help.zscaler.com/secure-ai-apps-infra/agentforce)
-- Amazon Bedrock AgentCore
-- Amazon Bedrock Agents
+- [Amazon Bedrock AgentCore](https://help.zscaler.com/secure-ai-apps-infra/amazon-bedrock-agentcore)
+- [Amazon Bedrock Agents](https://help.zscaler.com/secure-ai-apps-infra/amazon-bedrock-agents)
 
 Tests are executed directly on the Large Language Model.
 
@@ -2953,13 +3124,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-08-12T10:07Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-08-19T08:40Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-12T10:07Z
+- Last modified: 2026-08-19T08:40Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -4860,13 +5031,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-07-28T11:59Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-08-17T12:18Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-07-28T11:59Z
+- Last modified: 2026-08-17T12:18Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -4877,6 +5048,7 @@ Before you can integrate ZIA with AI Guard, ensure that you:
 
 - Have an AI Guard subscription.
 - Have linked ZIA and AI Guard. Contact Zscaler Support to ensure they are linked.
+  - AI Guard can only be mapped to a single tenant and a single domain. For example, if `acme.com` exists in both the QA and Production tenant, AI Guard can map to either the QA or Production tenant, but not both.
 - Have Experience Center enabled for your tenant. Instructions for ZIA-related configuration assume that it will be performed via Experience Center.
 - Have the CA certificate of the AI Guard endpoint. Contact Zscaler Support if you need help getting it.
 - Are using a supported generative AI application. The following table lists the supported AI applications (last updated: July 02, 2026); use the page controls at the bottom-right of the table to view all providers:
@@ -5112,13 +5284,13 @@ To add a Splunk event export instance:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-policy-control","lastmod":"2026-07-28T11:18Z","nid":"1540883"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-policy-control","lastmod":"2026-08-17T11:24Z","nid":"1540883"} -->
 ## Managing AI Guard Policy Control
 
 - Source: https://help.zscaler.com/secure-ai-users/managing-ai-guard-policy-control
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Managing AI Guard Policy Control
-- Last modified: 2026-07-28T11:18Z
+- Last modified: 2026-08-17T11:24Z
 - Summary: Learn to create and manage AI Guard policy control.
 
 After you create an AI Guard policy configuration, you can then attach it to an LLM provider, user, or user group by adding policy control. Policies are evaluated from top-to-bottom and the evaluation will stop after matching the first policy. To learn more, see [Adding and Managing AI Guard Policies](https://help.zscaler.com/secure-ai-users/adding-and-managing-ai-guard-policy-configurations).
@@ -5136,7 +5308,10 @@ To create user policy control:
   - **Rule Order**: Enter a number for the order in which you want the policy match applied.
   - **Rule Status**: Select whether you want the rule to be enabled or disabled.
   - **Match Criteria**: At least one match criteria must be defined:
-    - **LLM Provider & Models**: Click **Add More** and click the drop-down menus to select at least one **LLM** and **Model**.
+    - **LLM Provider & Models**: Click **Add More**.
+      - **LLM**: Select an LLM provider.
+      - **Models**: Select an AI model.
+      - **Account Type**: If Organization Restrictions are enabled, select Enterprise, Personal, or Both. To learn more about Organization Restrictions, see [Managing Tenant Settings](https://help.zscaler.com/secure-ai-users/managing-tenant-settings).
     - **Users**: Click the drop-down menu and select the users you want to include with the match criteria.
     - **User Groups**: Click the drop-down to select the groups you want to include in the match criteria.
 5. Click **Submit** to return to the **Policy Control** page. The new policy control appears at the **Rule Order** number you entered.
@@ -5342,13 +5517,13 @@ To learn more about AI Guard System Users, see [Viewing AI Guard System Users](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-tenant-settings","lastmod":"2026-08-11T10:33Z","nid":"1540885"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-tenant-settings","lastmod":"2026-08-17T11:17Z","nid":"1540885"} -->
 ## Managing Tenant Settings
 
 - Source: https://help.zscaler.com/secure-ai-users/managing-tenant-settings
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Managing Tenant Settings
-- Last modified: 2026-08-11T10:33Z
+- Last modified: 2026-08-17T11:17Z
 - Summary: Learn how to manage the following AI Guard tenant settings: Network Access Control Policy, Custom Request Headers, Security Settings, and Syncing ZIA End Users and Groups.
 
 From the AI Guard **Tenant Settings** page, you can view information and make additional customizations to your AI Guard tenant. In addition to basic tenant information, you can also make changes to your security and encryption settings, and sync your Zscaler Internet Access (ZIA) end users, groups, and domains.
@@ -5404,7 +5579,7 @@ See image.
 
 After entering the block message, click **Save**.
 
-## Organization Settings
+## Organization Restrictions
 
 AI Guard's tenancy restriction feature allows you to restrict user traffic access either to personal accounts, enterprise accounts, or both, and apply different access-control rules to each. This feature is currently available for Anthropic and OpenAI.
 
@@ -5413,8 +5588,10 @@ User traffic is automatically tagged at runtime. Requests matching a registered 
 To enable this functionality:
 
 1. In the left-side navigation, click **Tenant Settings**. The **Tenant Settings** page appears.
-2. Go to the **Security** tab and find the **Organisation Restrictions** section. See image.
-3. Choose to enable the toggle for **Anthropic** or **OpenAI**.
+2. Go to the **Security** tab and find the **Organization Restrictions** section. See image.
+3. Choose to enable the toggle for **Anthropic** or **OpenAI**. It may take up to five minutes for the changes to take effect.
+  1. When enabled, AI Guard will permit the listed organizations and deny all others.
+  2. When disabled, AI Guard will allow all traffic through and treat the list of organizations as Enterprise accounts. For everything else, it will assume those are Personal accounts.
 4. Under the LLM providers you enabled, enter your organization's specific Anthropic Org IDs or OpenAI Workspace IDs.
 5. Click **Save Restrictions**.
 

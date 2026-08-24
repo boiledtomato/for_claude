@@ -1,8 +1,8 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 24
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 25
 
 ---
 
@@ -74,6 +74,51 @@ When keywords are configured, Zscaler generates recommendations that include the
 Only one keyword is used for each keyword-based recommendation.
 
 To learn how to configure keyword datasets, see [Configuring Keyword Datasets](https://help.zscaler.com/deception/configuring-keyword-datasets).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/understanding-landmine-decoys","lastmod":"2026-08-10T19:52Z","nid":"1540401"} -->
+## Understanding Landmine Decoys
+
+- Source: https://help.zscaler.com/deception/understanding-landmine-decoys
+- Product: Deception
+- Path: Deception Help > Deceive  > Landmine Decoys > Understanding Landmine Decoys
+- Last modified: 2026-08-10T19:52Z
+- Summary: Information about the Landmine Decoys page in the Zscaler Deception Admin Portal.
+
+[Watch a video on Creating Landmine Decoys and Policies](https://fast.wistia.net/embed/iframe/c3w5mose6l).
+
+Landmine decoys look like valuable assets ripe for exfiltration. They can be decoy files, credentials, and application lures on endpoints. When adversaries access these decoys, Zscaler Deception sends alerts about the adversary's presence. You can use the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) to analyze an adversary's behavior, hunt for threats across the network, or block access.
+
+Landmine decoys can detect the following types of attacks:
+
+- Defense Evasion
+  - T1562.001: Impair defenses – Disable or modify tools
+- Impact
+  - T1489: Service stop
+  - T1485: Data destruction
+- Credential Access
+  - T1552.001: Unsecured credential – Credentials in files
+  - T1557.001: Man-in-the-Middle – Link-local multicast name resolution (LLMNR) poisoning and server message block (SMB) relay
+- Collection
+  - T1005: Data from local system
+
+Landmine decoys provide the following benefits and enable you to:
+
+- Protect endpoints against ransomware attacks such as attempts to encrypt files and credentials stealing at every stage of the kill chain.
+- Intercept adversaries who have bypassed traditional perimeter-based defenses and limit their ability to find targets or move laterally.
+
+You can create landmine decoys based on policies. A landmine agent fetches these policies and verifies if they apply to an endpoint, and then deploys the decoys. You can create a base policy that enables a simple detection mechanism or an advanced base policy that enables advanced detection mechanisms to detect adversarial techniques.
+
+To learn more, see the following articles:
+
+- [About Landmine Policies](https://help.zscaler.com/deception/about-policies)
+- [About Landmine Agent and Agentless](https://help.zscaler.com/deception/about-landmine-agent-agentless)
+- [About Agent Configuration](https://help.zscaler.com/deception/about-landmine-settings)
+- [About Agent Update Groups](https://help.zscaler.com/deception/about-agent-update-groups)
+- [About Safe Processes](https://help.zscaler.com/deception/about-safe-processes)
+- [Deploying Endpoint Deception with Zscaler Client Connector for Windows](https://help.zscaler.com/deception/deploying-endpoint-deception-zscaler-client-connector-windows)
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -234,13 +279,13 @@ Strategy Builder allows you to deploy different types of decoys in your environm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-08-14T08:59Z","nid":"1540336"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-08-19T22:40Z","nid":"1540336"} -->
 ## Understanding the Zscaler Deception Architecture
 
 - Source: https://help.zscaler.com/deception/understanding-zscaler-deception-architecture
 - Product: Deception
 - Path: Deception Help > Getting Started > Understanding the Zscaler Deception Architecture
-- Last modified: 2026-08-14T08:59Z
+- Last modified: 2026-08-19T22:40Z
 - Summary: Information on the Zscaler Deception architecture and key components.
 
 Zscaler Deception is a threat-detection solution built on the Zero Trust architecture, which is designed for seamless integration with the Zscaler service and other parts of your security environment. Deception is cloud-delivered and scalable, and requires minimal on-premises computing.

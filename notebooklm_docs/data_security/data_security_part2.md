@@ -1,8 +1,265 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 19
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 20
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-databases","lastmod":"2026-08-13T00:41Z","nid":"1532158"} -->
+## Viewing the Graph for Databases
+
+- Source: https://help.zscaler.com/dspm/viewing-graph-databases
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Databases
+- Last modified: 2026-08-13T00:41Z
+- Summary: Graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result.
+
+The graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result. The graph provides in-depth details of the databases containing sensitive data, the DLP engines and dictionaries that match the sensitive data, whether data is publicly exposed to the internet, including the public exposure path, and the list of entities that can access the databases. These details are helpful to quickly evaluate and remediate the issues, protect the sensitive data, and maintain a strong security posture.
+
+You can view graphs for the following databases:
+
+- Managed Database
+- Unmanaged Database
+- Snowflake
+- On-Premises File Servers
+- Databricks
+- Unmanaged AWS and Azure MongoDB Servers
+- On-Premises MongoDB Servers
+
+To view the graph for a database:
+
+1. Go to **Analytics**> **Data Security** > **DSPM**> **Resource Inventory**.
+2. Click any resource name to view the resource's details page. See image.
+3. In the resource's details page, select the **Risk Explorer** tab. The following information is displayed:
+  - On-Premises Database
+  - Unmanaged Database
+  - Snowflake Database
+
+[Image: View all the resource details]
+
+The following graph is for an on-premises database:
+
+[Image: Shows the risk explorer graph for an on-premises database]
+
+Click the nodes to view additional details of each entity:
+
+- 1. Primary Resource
+- 2. Database with Sensitive Data
+- 3. Table with Sensitive Data
+- 4. Sensitive Records
+- 5. Databases
+- 6. Database Principals
+- 7. Admin Principals
+- 8. Server Principals
+
+View the following details of the primary resource:
+
+- **Resource Category**: The type of data store.
+- **Resource Type**: The type of resource.
+- **Data Center ID**: The unique identifier of the data center.
+- **Data Center Name**: The name of the data center.
+- **Region**: The region where the resource is located.
+- **Last Scan Status**: The status (e.g., completed) of the last scan.
+- **Last Completed Scan**: The date and time when the last scan was completed.
+- **Data Scanned**: The amount of data scanned.
+- **Triggers**: The number of alerts raised for this resource.
+- **Matched Tables**: The number of tables that match the DLP engines.
+- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match sensitive records.
+- **DLP Dictionaries**: The [DLP dictionaries](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) associated with DLP engines.
+- **ID**: The unique identifier of the resource.
+- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
+- **Metadata**: Click to view the metadata for the resource.
+
+[Image: Shows the details related to the primary resource]
+
+View the details of the database that contains sensitive data.
+
+[Image: Shows the details of database with sensitive data]
+
+View the details of the table within the impacted database that contains sensitive data.
+
+[Image: Shows the details of the table within the database that contains sensitive data]
+
+View the details of sensitive records.
+
+[Image: Shows details of sensitive records]
+
+View all the databases, including those that do not contain any sensitive data and the ones that are not scanned.
+
+[Image: Shows the databases associated with the resource]
+
+- View the list of all database principals that can access the resource. [Image: Shows details of database principals that can access the resource]
+
+- Click the **Entity Name** to view additional details. See image.
+- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
+
+[Image: Shows details of on-prem database principals]
+
+[Image: Shows access path graph for a database principal]
+
+- View the list of all admin principals that can access the resource. [Image: Shows details of admin principals that access the resource]
+
+- Click the **Entity Name** to view additional details. See image.
+- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
+
+[Image: Shows details of the admin principals]
+
+[Image: Shows access path of the admin principal]
+
+- View the list of all server principals that can access the resource. [Image: Shows details of server principals that can access the resource]
+
+- Click the **Entity Name** to view additional details. See image.
+- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
+
+[Image: Shows details of server principals]
+
+[Image: Shows the access path details of server principal]
+
+The following graph is for an unmanaged database:
+
+[Image: Shows the Risk Explorer graph for an unmanaged database.]
+
+Click the nodes to view additional details of each entity:
+
+- 1. Primary Resource
+- 2. Resource with Sensitive Data
+- 3. Sensitive Records
+- 4. Resource
+- 5. Admin Principals
+- 6. Server Principals
+- 7. Database Principals
+
+- **Data Store Type**: The type of data store.
+- **Resource Type**: The type of resource.
+- **Subscription ID**: The unique identifier of the subscription in which the resource is stored.
+- **Subscription Name**: The name of the subscription in which the resource is stored.
+- **Tenant ID**: The unique identifier of the tenant to which the subscription belongs.
+- **Region**: The region where the resource is located.
+- **Last Completed Scan**: The date and time when the resource was last scanned.
+- **Data Scanned**: The amount of data scanned.
+- **Triggers**: The number of sensitive records in the resource.
+- **Matched Tables**: The number of tables that matched the DLP engines.
+- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match sensitive records.
+- **DLP Dictionaries**: The [DLP dictionaries](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) associated with DLP engines.
+- **ID**: Copy the tenant ID to identify the resource.
+- **Tags**: The tags associated with the resource.
+- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
+- **Metadata**: Click to view the metadata for the resource.
+
+[Image: Shows the details of the primary resource]
+
+View the details of the database that contains sensitive data.
+
+[Image: Shows the database that contains sensitive data]
+
+View the details of sensitive records.
+
+[Image: Shows details of sensitive records]
+
+View all the associated resources, including those that do not contain any sensitive data and the ones that are not scanned. In this scenario, the Azure PostgresSQL server has two databases that contain sensitive data.
+
+[Image: Shows the details of the associated resources]
+
+- View the list of admin principals that can access the resource. [Image: Shows the details of all the admins that can access the resource]
+- Click the **Entity Name** to view additional details. See image.
+- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
+
+[Image: Shows details of unmanaged database admin principals]
+
+[Image: Shows access path of admin principals for an unmanaged database]
+
+- View the list of all server principals that can access the resource. [Image: Shows the details of all the entities that can access server resources]
+- Click the **Entity Name** to view additional details. See image.
+- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
+
+[Image: Shows details of unmanaged database server principals]
+
+[Image: Shows access path of server principals]
+
+- View the list of all database principals that can access the resource. [Image: Shows details of database principals]
+- Click the **Entity Name** to view additional details. See image.
+- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
+
+[Image: Shows details of database principals]
+
+[Image: Shows access path of database principals]
+
+The following graph is for a Snowflake database:
+
+[Image: Shows the risk explorer graph for Snowflake]
+
+Click the nodes to view additional details of each entity:
+
+- 1. Primary Resource
+- 2. Resource with Sensitive Data
+- 3. Sensitive Records
+- 4. Tables
+- 5. Users
+- 6. Services
+- 7. Admin Principals
+- 8. Public Internet
+
+- **Resource Category**: The type of datastore.
+- **Resource Type**: The type of resource.
+- **Account ID**: The unique identifier of the account in which the resource is located.
+- **Account Name**: The name of the account in which the resource is located.
+- **Organization ID**: The unique identifier of the organization to which the account belongs.
+- **Region**: The region where the organization is located.
+- **Latest Scan Status**: The status of the most recent scan.
+- **Last Completed Scan**: The date and time when the resource was last scanned.
+- **Data Scanned**: The amount of data scanned.
+- **Triggers**: The number of alerts raised for this resource.
+- **Matched Tables**: The number of tables that matched the DLP engines.
+- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match sensitive records.
+- **DLP Dictionaries**: The [DLP dictionaries](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) associated with DLP engines.
+- **ID**: Copy the tenant ID to identify this resource in the tenant.
+- **Tags**: The tags associated with the resource.
+- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
+- **Metadata**: Click to view the metadata for the resource.
+
+[Image: Shows the details of the primary resource]
+
+View the details of the tables that contain sensitive data.
+
+[Image: Shows details of tables that contain sensitive data]
+
+- View the details of sensitive records.[Image: Shows the details of sensitive records]
+- Click **View Sensitive Data** to view the sensitive data discovered by the scan. See image.
+
+View all the associated resources, including those that do not contain any sensitive data and the ones that are not scanned.
+
+[Image: Shows details of all the associated resources]
+
+- View the list of all the services that can access the Snowflake database. [Image: Shows the details of services that can access the Snowflake database]
+- Click **Entity Name** to view additional details. See image.
+- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
+
+- View the list of all admin entities that can access the Snowflake database. [Image: Shows the details of all the admins that can access the Snowflake database]
+- Click the **Entity Name** to view additional details. See image.
+- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
+
+- View the list of all the users who can access the Snowflake database. [Image: Shows the details of users that can access the Snowflake database]
+- Click the **Entity Name** to view additional details. See image.
+- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
+
+- View the details of public internet.[Image: Snowflake database exposure screen showing Public Internet access and exposure]
+- **View Metadata**: Click to view metadata for the network or user policy that defines how the database is accessed over the internet.
+
+[Image: Shows detail about Snowflake user]
+
+[Image: Shows the access path graph for Snowflake user]
+
+[Image: Shows the details of Snowflake service]
+
+[Image: Shows the access path for a Snowflake service]
+
+[Image: Shows details of Snowflake admin principal]
+
+[Image: Shows the access path graph of Snowflake admin principal]
+
+[Image: Shows the sensitive information]
+<!-- /ZS-ARTICLE -->
 
 ---
 

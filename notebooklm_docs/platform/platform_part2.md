@@ -1,7 +1,7 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 136
 
 ---
@@ -979,49 +979,63 @@ To search the logs for suppressed data:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-url-filtering","lastmod":"2026-02-12T08:54Z","nid":"1488016"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-url-filtering","lastmod":"2026-08-21T13:32Z","nid":"1488016"} -->
 ## Configuring URL Filtering Policies
 
 - Source: https://help.zscaler.com/unified/configuring-url-filtering
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Configuring URL Filtering Policies
-- Last modified: 2026-02-12T08:54Z
+- Last modified: 2026-08-21T13:32Z
 - Summary: How to configure your initial URL filtering policies to limit the exposure of your users to potentially risky websites.
 
-URL filtering policies allow you to use predefined URL categories to determine how internet traffic in each of the categories is handled by Zscaler. There are three ways to route traffic:
+URL Filtering policies allow you to use predefined URL categories to determine how internet traffic in each of the categories is handled by Zscaler. There are three ways to route traffic:
 
-- **Block**: websites belonging to blocked categories cannot be accessed by users in your organization.
-- **Isolate**: websites belonging to isolated categories will open in a remote browser in a Zscaler data center, preventing any active content from the web page from reaching the user's device. To learn more, see [About Isolation Policy](https://help.zscaler.com/zpa/about-isolation-policy).
-- **Allow**: websites belonging to allowed categories will open normally within the user's browser.
+- **Block**: Websites belonging to blocked categories cannot be accessed by users in your organization.
+- **Isolate**: Websites belonging to isolated categories open in a remote browser in a Zscaler data center, preventing any active content from the web page from reaching the user's device. To learn more, see [About Isolation Policy](https://help.zscaler.com/zpa/about-isolation-policy).
+- **Allow**: Websites belonging to allowed categories open normally within the user's browser.
 
-To define URL filtering policies:
+To define URL Filtering policies:
 
 1. After you have set up users and traffic forwarding, click **Set Up Policies**.
-2. The U**RL Filtering** page shows a recommended setup to route internet traffic when users visit websites matching each of the specified URL categories. You can drag the URL categories to the **Block**, **Isolate**, or **Allow**columns to set up the filtering policy appropriate for your organization.
-3. When done, click **Next** to move on to [configure SSL inspection](https://help.zscaler.com/unified/configuring-ssl-inspection).
 
-You can fine-tune your configuration later in the Admin Portal. To learn more about how URLs are categorized, see [About URL Categories](https://help.zscaler.com/zia/about-url-categories)*.*
+See image.
+
+1. The **URL Filtering** page shows a recommended setup to route internet traffic when users visit websites matching each of the specified URL categories. You can drag the URL categories to the **Block**, **Isolate**, or **Allow**columns to set up the filtering policy appropriate for your organization.
+
+See image.
+
+1. When done, click **Next** to move on to [configure SSL/TLS Inspection](https://help.zscaler.com/unified/configuring-ssl-inspection).
+
+You can fine-tune your configuration later in the Zscaler Admin Console. To learn more about how URLs are categorized, see [About URL Categories](https://help.zscaler.com/zia/about-url-categories)*.*
+
+[Image: Set Up Policies option during the onboarding process]
+
+[Image: URL Filtering page during the onboarding process]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-user-privacy","lastmod":"2024-08-20T17:01Z","nid":"1488036"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-user-privacy","lastmod":"2026-08-21T13:57Z","nid":"1488036"} -->
 ## Configuring User Privacy
 
 - Source: https://help.zscaler.com/unified/configuring-user-privacy
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Configuring User Privacy
-- Last modified: 2024-08-20T17:01Z
+- Last modified: 2026-08-21T13:57Z
 - Summary: How to configure policies to protect user and device privacy in your organization.
 
-User privacy policies protect your users from having their personally identifiable information (PII) and device information viewable by administrators within your organization.
+User Privacy policies protect your users from having their personally identifiable information (PII) and device information viewable by administrators within your organization.
 
-You can configure these user privacy policies during onboarding, or later at any time in the Admin Portal:
+You can configure User Privacy policies after you have set up [Cyber Threat Protection policies](https://help.zscaler.com/unified/reviewing-cyber-threat-protection-policies), or you can update them later at any time in the Zscaler Admin Console:
 
 - **Collect device owner information and traffic**: When this setting is enabled, administrators in your organization are able to view user device information (i.e., device hostname, device owner, and device name) when they view dashboards, reports, or insights. This setting is enabled by default; it should be disabled where required by law, such as regions governed by the General Data Protection Regulation (GDPR). Click the toggle to disable this feature.
-- **Turn off automatic crash reporting**: When this setting is enabled, Zscaler will upload reports of system crashes experienced by your users for analysis. These reports might contain user identifiable information. This setting is disabled by default in compliance with GDPR. Click the toggle to enable this feature.
+- **Enable automatic crash reporting**: When this setting is enabled, the Zscaler service uploads reports of system crashes experienced by your users for analysis. These reports might contain user identifiable information. This setting is disabled by default in compliance with GDPR. Click the toggle to enable this feature.
 
 Click **Next** when you are done reviewing the policies to [configure blocked countries](https://help.zscaler.com/unified/configuring-blocked-countries) and [customize user notifications](https://help.zscaler.com/unified/customizing-user-notifications).
+
+See image.
+
+[Image: Privacy policy options during the onboarding process]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1180,13 +1194,13 @@ The following table outlines key resources of SOC Workbench and the specific typ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-data-sources","lastmod":"2026-08-12T17:24Z","nid":"1541932"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-data-sources","lastmod":"2026-08-20T00:44Z","nid":"1541932"} -->
 ## Creating Data Sources
 
 - Source: https://help.zscaler.com/unified/creating-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Creating Data Sources
-- Last modified: 2026-08-12T17:24Z
+- Last modified: 2026-08-20T00:44Z
 - Summary: How to create a new data source in the Security Operations Platform, including source details, retrieval settings, scheduling, remediation detection settings, and suppression rules.
 
 The Security Operations Platform (SecOps Platform) collects and correlates security data and business context from a wide range of external tools, such as vulnerability scanners, asset inventories, and cloud providers. To begin ingesting this data into your environment, you must first connect the relevant sources to your account. Establishing these connections ensures that the SecOps Platform can continuously retrieve and normalize data for analysis, prioritization, and workflows.
@@ -1637,25 +1651,25 @@ To customize the logo and email:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/customizing-your-account-settings","lastmod":"2026-06-08T17:33Z","nid":"1498541"} -->
+<!-- ZS-ARTICLE {"url":"/unified/customizing-your-account-settings","lastmod":"2026-08-21T14:08Z","nid":"1498541"} -->
 ## Customizing Your Account Settings
 
 - Source: https://help.zscaler.com/unified/customizing-your-account-settings
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Customizing Your Account Settings
-- Last modified: 2026-06-08T17:33Z
+- Last modified: 2026-08-21T14:08Z
 - Summary: How to customize your account settings in the Zscaler Admin Console.
 
-Zscaler automatically creates a profile for each account in the Zscaler Admin Console where you can change your display language, time zone, password, and default Zscaler cloud.
+Zscaler automatically creates a profile for each account in the Zscaler Admin Console where you can change your display language, time zone, password, and default Internet & SaaS (ZIA) cloud.
 
 To view and change your account settings:
 
 1. In the top navigation, click the **Account Settings** icon to display the following items: See image.
   - **Login ID**: The ID you use to log in to the Zscaler Admin Console.
   - **Organization ID**: The unique identifier of your organization.
-  - **Private Access Microtenant**: If your organization has multiple [private access Microtenants](https://help.zscaler.com/zpa/about-microtenants), you can select the one you want from the drop-down menu, or use the default.
-  - **Zscaler Cloud**: Select the Internet & SaaS (ZIA) cloud that has been provisioned for your organization. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
-  - **Private Access Cloud**: Select the Private Access (ZPA) that has been provisioned for your organization. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names). When you change clouds, you only see the entitlements granted to you on that cloud. This might affect the menu options available to you within the Zscaler Admin Console.
+  - **Private Access Microtenant**: If your organization has multiple [Private Access (ZPA) Microtenants](https://help.zscaler.com/zpa/about-microtenants), you can select the one you want from the drop-down menu, or use the default.
+  - **Internet & SaaS Cloud**: Select the Internet & SaaS cloud that has been provisioned for your organization. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+  - **Private Access Cloud**: Select the Private Access cloud that has been provisioned for your organization. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names). When you change clouds, you only see the entitlements granted to you on that cloud. This might affect the menu options available to you within the Zscaler Admin Console.
   - **Account Settings**: Click to edit your account settings.
   - **Sign Out**: Click to sign out of the Zscaler Admin Console.
 2. When you click **Account Settings**, you can see your login ID, your organization's unique identifier, and the Zscaler cloud you are currently using.
@@ -1673,7 +1687,7 @@ To view and change your account settings:
     - **Light Theme**: The light mode display theme is always used.
     - **Dark Theme**: The dark mode display theme is always used.
     - **System Theme**: Applies your device's system display theme preference.
-  - **Default Zscaler Cloud**: Select the Internet & SaaS cloud you want to log in to by default.
+  - **Default Internet & SaaS Cloud**: Select the Internet & SaaS cloud you want to log in to by default.
   - **Default Private Access Cloud**: Select the Private Access cloud you want to log in to by default. The drop-down menu is displayed if there is only one cloud that has been provisioned for your organization. When you change clouds, you only see the entitlements granted to you on that cloud. This might affect the menu options available to you within the Zscaler Admin Console.
 4. Click **Save.**
 
@@ -1739,13 +1753,13 @@ If a source behaves unexpectedly, you can also review audit logs to track change
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-08-05T23:47Z","nid":"1541895"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-08-20T21:06Z","nid":"1541895"} -->
 ## Deploying Outegration Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-outegration-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Deploying Outegration Configurations
-- Last modified: 2026-08-05T23:47Z
+- Last modified: 2026-08-20T21:06Z
 - Summary: Information about deploying outegration configuration in the Security Operations Platform.
 
 The Security Operations Platform (SecOps Platform) enables you to send security findings, alerts, remediation tasks, and operational context to a wide array of external tools, including ticketing systems, work management platforms, cloud storage services, streaming platforms, and other third-party systems. Connecting these external destinations to your account establishes outbound workflows that move SecOps Platform data and actions into the systems where security, IT, and engineering teams already work.
@@ -1820,29 +1834,33 @@ Click **View All** to view all the reports for a specific category.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/editing-newly-onboarded-users","lastmod":"2026-07-27T04:54Z","nid":"1498456"} -->
+<!-- ZS-ARTICLE {"url":"/unified/editing-newly-onboarded-users","lastmod":"2026-08-21T13:24Z","nid":"1498456"} -->
 ## Editing Newly Onboarded Users
 
 - Source: https://help.zscaler.com/unified/editing-newly-onboarded-users
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Onboarding New Users > Editing Newly Onboarded Users
-- Last modified: 2026-07-27T04:54Z
+- Last modified: 2026-08-21T13:24Z
 - Summary: How to edit and delete users created while onboarding to Experience Center.
 
-After you have [onboarded users](https://help.zscaler.com/unified/onboarding-users-experience-center) to Experience Center, you can edit the user details or delete users before completing the onboarding process.
+After you have [onboarded users](https://help.zscaler.com/unified/onboarding-users-experience-center) to Experience Center, you can edit the user details or delete users before completing the onboarding process. At least one user in your organization must be a Full Admin. If you delete or remove admin privileges from the only Full Admin user, you are prompted to select a different user to become a Full Admin.
 
-At least one user in your organization must be a Full Admin. If you delete or remove admin privileges from the only Full Admin user, you will be prompted to select a different user to become a Full Admin.
+After completing the onboarding process, you can update user details by going to the Users page (Administration > Identity > Authentication Service > Users) in the Zscaler Admin Console. To learn more, see [Adding Users](https://help.zscaler.com/authentication-service/adding-users).
 
-Post the onboarding process, you can update user details by going to the Users page (Administration > Identity > Authentication Service > Users) in the Zscaler Admin Console. To learn more, see [Adding Users](https://help.zscaler.com/authentication-service/adding-users).
-
-To edit the user details:
-
-After you have imported, uploaded, or added a user, the **Users**page is displayed, showing the list of users. The list can consist of multiple pages.
+After you import, upload, or add a user, the **Users**page appears, showing the list of users. The list can consist of multiple pages.
 See image.
 
-1. On the **Users** page, click the **Edit**icon next to a user to change the user's name, email address or change the user role between End User or Full Admin.
-2. Click **Save**. During onboarding, you can only [assign users to either the Full Admin or End User role](https://help.zscaler.com/unified/setting-up-secure-access#add-users). However, after you complete onboarding, any Full Admin can assign users to other admin roles in the Zscaler Admin Console. To learn more about Internet & SaaS (ZIA) roles, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles). To learn more about Private Access (ZPA) roles, see [About Roles](https://help.zscaler.com/zpa/about-private-access-roles). To learn more about Zscaler Client Connector roles, see [Adding Roles](https://help.zscaler.com/zscaler-client-connector/adding-roles).
-3. Click the **Delete**icon next to a user you want to remove. You cannot delete individual users that were imported from an IdP.
+To edit user details:
+
+1. On the **Users** page, click the **Edit**icon next to a user to change the user's name, email address or change the user role between End User or Full Admin. See image. During onboarding, you can only [assign users to either the Full Admin or End User role](https://help.zscaler.com/unified/setting-up-secure-access#add-users). However, after you complete onboarding, any Full Admin can assign users to other admin roles in the Zscaler Admin Console.; To learn more about Internet & SaaS (ZIA) roles, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles). To learn more about Private Access (ZPA) roles, see [About Roles](https://help.zscaler.com/zpa/about-private-access-roles). To learn more about Zscaler Client Connector roles, see [Adding Roles](https://help.zscaler.com/zscaler-client-connector/adding-roles).
+2. Click **Save**.
+3. Click the **Delete**icon next to a user you want to remove. You cannot delete individual users that were imported from an IdP. See image.
+
+[Image: Users page during the onboarding process]
+
+[Image: Edit icon on the Users page during the onboarding process]
+
+[Image: Delete icon on the Users page during the onboarding process]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1886,16 +1904,16 @@ To delete an Adaptive Access profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/enabling-email-notifications-failures","lastmod":"2026-08-10T11:39Z","nid":"1541908"} -->
+<!-- ZS-ARTICLE {"url":"/unified/enabling-email-notifications-failures","lastmod":"2026-08-17T09:21Z","nid":"1541908"} -->
 ## Enabling Email Notifications for Failures
 
 - Source: https://help.zscaler.com/unified/enabling-email-notifications-failures
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Enabling Email Notifications for Failures
-- Last modified: 2026-08-10T11:39Z
+- Last modified: 2026-08-17T09:21Z
 - Summary: How to enable outegration failure email notifications.
 
-You can enable email notifications to receive alerts on errors for outegration workflows, source run failures, and issues with Extract, Transform, and Load (ETL) and data pipeline. This enables you to proactively resolve issues and~DMODS_S_htsk~~DMODS_S_enl0~ minimize disruptions.
+You can enable email notifications to receive alerts on errors for outegration workflows, source run failures, and issues with Extract, Transform, and Load (ETL) and data pipeline. This enables you to proactively resolve issues and minimize disruptions.
 
 To enable email notifications, your assigned role must include the Edit permissions under the Platform - Outegrations resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
 
@@ -2776,13 +2794,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-custom-dashboards","lastmod":"2026-08-07T02:12Z","nid":"1541901"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-custom-dashboards","lastmod":"2026-08-19T10:03Z","nid":"1541901"} -->
 ## Managing Custom Dashboards
 
 - Source: https://help.zscaler.com/unified/managing-custom-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Managing Custom Dashboards
-- Last modified: 2026-08-07T02:12Z
+- Last modified: 2026-08-19T10:03Z
 - Summary: How to manage existing dashboards, including editing the dashboard, pinning it to an app, and accessing pinned dashboards.
 
 You can view and manage the dashboards that you have access to.
@@ -3666,13 +3684,13 @@ The Reporting API uses token-based authentication with client credentials. To au
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-source-mapping","lastmod":"2026-08-05T08:34Z","nid":"1541963"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-source-mapping","lastmod":"2026-08-19T21:06Z","nid":"1541963"} -->
 ## Managing Source Mapping
 
 - Source: https://help.zscaler.com/unified/managing-source-mapping
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Managing Source Mapping
-- Last modified: 2026-08-05T08:34Z
+- Last modified: 2026-08-19T21:06Z
 - Summary: How to manage a data source's mapping in the Security Operations Platform.
 
 Data source mapping defines how data from your external vendors is translated in the Security Operations Platform (SecOps Platform). You can manage data source mapping to ensure that your ingested data remains accurate and aligned with the SecOps Platform data model as your security environment or vendor schemas evolve. To learn more, see [Mapping Data Sources](https://help.zscaler.com/unified/mapping-data-sources) and [Using Mapping Copilot](https://help.zscaler.com/unified/using-mapping-copilot).
@@ -3751,13 +3769,13 @@ To unmap all fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-system-and-custom-roles","lastmod":"2026-08-06T23:51Z","nid":"1541763"} -->
-## Managing System and Custom Roles
+<!-- ZS-ARTICLE {"url":"/unified/managing-system-and-custom-roles","lastmod":"2026-08-21T05:18Z","nid":"1541763"} -->
+## Managing System & Custom Roles
 
 - Source: https://help.zscaler.com/unified/managing-system-and-custom-roles
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > User Management > Managing System and Custom Roles
-- Last modified: 2026-08-06T23:51Z
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > User Management > Managing System & Custom Roles
+- Last modified: 2026-08-21T05:18Z
 - Summary: How to manage role permissions in the Security Operations Platform, including system roles and custom roles.
 
 You can manage and monitor roles from the Roles page in the Security Operations Platform (SecOps Platform), where you'll find a centralized view of all configured system roles and custom roles in your account. To learn more, see [Understanding System Roles](https://help.zscaler.com/unified/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles). To assign roles to users, see [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
@@ -3932,13 +3950,13 @@ When removing a user's role without assigning them a new role, the user is autom
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-widgets","lastmod":"2026-08-07T02:12Z","nid":"1541902"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-widgets","lastmod":"2026-08-19T10:06Z","nid":"1541902"} -->
 ## Managing Widgets
 
 - Source: https://help.zscaler.com/unified/managing-widgets
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Managing Widgets
-- Last modified: 2026-08-07T02:12Z
+- Last modified: 2026-08-19T10:06Z
 - Summary: How to manage existing widgets, including editing, duplicating, and deleting widgets.
 
 A [custom dashboard](https://help.zscaler.com/unified/configuring-custom-dashboards) in the Security Operations Platform includes dynamic widgets that can be configured to display relevant [measurements and dimensions](https://help.zscaler.com/unified/understanding-measurements-and-dimensions).
@@ -4261,13 +4279,13 @@ If you mapped only `asset_id` as the key, all 4 records would share the same ide
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/onboarding-users-experience-center","lastmod":"2026-07-29T03:26Z","nid":"1542045"} -->
+<!-- ZS-ARTICLE {"url":"/unified/onboarding-users-experience-center","lastmod":"2026-08-21T13:21Z","nid":"1542045"} -->
 ## Onboarding Users to Experience Center
 
 - Source: https://help.zscaler.com/unified/onboarding-users-experience-center
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Onboarding New Users > Onboarding Users to Experience Center
-- Last modified: 2026-07-29T03:26Z
+- Last modified: 2026-08-21T13:21Z
 - Summary: How to onboard users to Experience Center.
 
 While onboarding to Experience Center for the first time, as a super admin, you can import users via your identity provider (IdP), import user details using a CSV file, or add individual users.
@@ -4275,11 +4293,11 @@ While onboarding to Experience Center for the first time, as a super admin, you 
 To add users:
 
 1. Sign in to [Experience Center](https://console.zscaler.com).
-2. On the **Welcome** page, click **Initial Set Up** under **Set Up New Users**. See image. The **Users** page appears. See image.
+2. On the **Welcome** page, click **Initiate Set Up** under **Set Up New Users**. See image. The **Users** page appears. See image.
 3. On the **Users** page, add users by using all or any of the following three methods: The user details are displayed on the **Users** page.
-  - Import Users via Your IdP
-  - Import User Details using a CSV File
-  - Add Individual Users Manually
+  - Import users via your IdP.
+  - Import user details using a CSV file.
+  - Add individual users manually.
 
 You can add additional users after completing the onboarding process. To learn more, see [Adding Users](https://help.zscaler.com/authentication-service/adding-users).
 
@@ -4302,7 +4320,9 @@ If you manage users with an IdP, Zscaler can import those users directly. You ne
 6. Under **Provisioning**, click **Generate Token** to generate a bearer token, which is used by the IdP to connect to Zscaler. Click the toggle if you want to skip this step and disable SCIM provisioning. To learn more, see[Enabling SCIM for Identity Management](https://help.zscaler.com/zpa/enabling-scim-identity-management).
 7. Click **Finish** to link to your IdP and import your users.
 
-If you want to remove all imported users from Zscaler, click the **Disconnect**<IdP Name> link at the top of the page. This action cannot be undone. See image.
+If you want to remove all imported users from Zscaler, click the **Disconnect**<IdP Name> link at the top of the page. This action cannot be undone.
+
+See image.
 
 - **Redirect URI**: Filled in automatically. Your unique URI to log into Zscaler.
 - **Client ID**: Enter ID to log in to the IdP.
@@ -4322,6 +4342,8 @@ The following IdP information is displayed:
 - **IdP Certificate**: The certificate used to verify the digital signature of the IdP.
 
 Review the information and click **Next**to continue.
+
+[Image: Connect IdP option on the Users page during onboarding]
 
 1. On the **Users**page, click **Upload CSV**.
 2. In the **Upload CSV** dialog box, click **Download CSV Template** to download Zscaler's user template file. See image. The template file has the following format: `Action,Login Name,Display Name,First Name,Last Name,Primary Email,Secondary Email,Language,Department,Timezone,Password Reset,Group Names,, +,psmith@example.com,Priya Smith,Priya,Smith,psmith@example.com,,English (US),Engineering,(UTC+00:00) GMT,true,Group1,Group2,Group3 +,aramirez@aramirez.com,Alonso Ramirez,Alonso,Ramirez,aramirez@example.com,,English (US),Human Resource,(UTC+00:00) GMT,false,Group2,Group3,`
@@ -4358,7 +4380,7 @@ Review the information and click **Next**to continue.
 
 [Image: Click Disconnect <IdP> to remove users imported from the IdP]
 
-[Image: Click Initial Set Up to add users]
+[Image: Click Initiate Set Up to add users]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4421,13 +4443,13 @@ Click **View All Iterations** to open the Simulation Results drawer. The drawer 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-08-14T00:17Z","nid":"1492411"} -->
+<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-08-18T09:31Z","nid":"1492411"} -->
 ## Ranges & Limitations
 
 - Source: https://help.zscaler.com/unified/ranges-limitations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Ranges & Limitations
-- Last modified: 2026-08-14T00:17Z
+- Last modified: 2026-08-18T09:31Z
 - Summary: Information about product and feature ranges and limitations.
 
 This article lists the ranges and limitations of rules, policies, fields, and other features. All values are per organization unless noted otherwise.
@@ -4460,7 +4482,7 @@ The following table shows the support settings for [Analytics](https://help.zsca
 | **Feature** | **Standard** | **Microsoft 365** | **Advanced** | **Advanced Plus** |
 | --- | --- | --- | --- | --- |
 | Hop View (Granular Expanded Cloud Path) | Supported | Supported | Supported | Supported |
-| Software and Hardware Inventory | Not supported | Not supported | Supported | Supported |
+| Software and Device Inventory | Not supported | Not supported | Supported | Supported |
 | Process Inventory | Not supported | Not supported | Not supported | Supported |
 | Software Patch Inventory | Supported | Supported | Supported | Supported |
 | UCaaS Monitoring | Not supported | Microsoft Teams Call Quality (only) | Supported | Supported |
@@ -4479,7 +4501,6 @@ The following table shows the support settings for [Analytics](https://help.zsca
 | Network Intelligence | Not supported | Not supported | Not supported | Supported |
 | Device Health Dashboard | Not supported | Not supported | Not supported | Supported |
 | Device Events Reports | Not supported | Not supported | Supported | Supported |
-| Remediation | Not supported | Not supported | Not Supported | Supported |
 | Real User Monitoring | Not supported | Not supported | Not supported | Supported |
 
 *Identical ranges and limitations across add-ons for Standard, Microsoft 365, and Advanced subscriptions.
@@ -4538,14 +4559,15 @@ The following table shows the ranges and limitations for Organization settings:
 
 ### Remediation
 
-[Remediation](https://help.zscaler.com/zdx/understanding-remediation) is currently supported for Advanced Plus subscriptions.
-
 The following table shows the ranges and limitations for Remediation:
 
-| Feature | Limit |
-| --- | --- |
-| [Scripts](https://help.zscaler.com/zdx/about-scripts) | 1,000 scripts 100 enabled scripts |
-| [Jobs](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation) | 1,000 jobs Jobs can be In Progress, Scheduled, or Completed. |
+| Feature | Standard, Microsoft 365, Advanced | Advanced Plus |
+| --- | --- | --- |
+| [Remediation Settings](https://help.zscaler.com/zdx/configuring-remediation-settings) | Supported | Supported |
+| [Predefined Scripts](https://help.zscaler.com/zdx/managing-scripts#predefinedscripts) | Limited Support Predefined scripts for Zscaler platform use (e.g., [SSL certificate](https://help.zscaler.com/zia/adding-custom-certificate-application-specific-trust-store) issues for various developer tools). | Supported Additional predefined scripts (e.g., Service Desk or general purpose) |
+| [Custom Scripts](https://help.zscaler.com/zdx/managing-scripts#add) | Not supported | Supported |
+| Scripts Limitations | 1,000 configured scripts 100 enabled scripts | 1,000 configured scripts 100 enabled scripts |
+| [Jobs](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation) | 1,000 jobs Jobs can be In Progress, Scheduled, or Completed. | 1,000 jobs Jobs can be In Progress, Scheduled, or Completed. |
 
 To learn more about how Remediation retains data, see [ZDX Logs](https://help.zscaler.com/logs-fair-use/zdx-logs).
 
@@ -5612,93 +5634,111 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/reviewing-activating-policies","lastmod":"2026-02-12T09:00Z","nid":"1490911"} -->
+<!-- ZS-ARTICLE {"url":"/unified/reviewing-activating-policies","lastmod":"2026-08-21T14:03Z","nid":"1490911"} -->
 ## Reviewing and Activating Policies
 
 - Source: https://help.zscaler.com/unified/reviewing-activating-policies
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Reviewing and Activating Policies
-- Last modified: 2026-02-12T09:00Z
+- Last modified: 2026-08-21T14:03Z
 - Summary: How to review and activate the security policies to complete your Zscaler installation.
 
 The final onboarding step displays all the policy configurations you have selected. To make changes to any set of policies, click the **Edit**icon to return to that section. You can also make changes later in the Zscaler Admin Console.
 
 Click **Activate and Launch**to activate Zscaler with the policies you have selected and launch the [Networking dashboard](https://help.zscaler.com/unified/viewing-networking-dashboard) in the Zscaler Admin Console. From there, you have access to all Zscaler capabilities.
 
+See image.
+
 To learn more, see [Signing in to the Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal).
+
+[Image: Reviewing internet security settings during the onboarding process]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/reviewing-cyber-threat-protection-policies","lastmod":"2026-02-12T08:57Z","nid":"1488026"} -->
+<!-- ZS-ARTICLE {"url":"/unified/reviewing-cyber-threat-protection-policies","lastmod":"2026-08-21T13:50Z","nid":"1488026"} -->
 ## Reviewing Cyber Threat Protection Policies
 
 - Source: https://help.zscaler.com/unified/reviewing-cyber-threat-protection-policies
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Reviewing Cyber Threat Protection Policies
-- Last modified: 2026-02-12T08:57Z
+- Last modified: 2026-08-21T13:50Z
 - Summary: Review the policies that protect your users from cyber threats such as botnets, phishing, fraud, and malware.
 
-Cyber threat protection policies protect your users from a variety of security threats. Zscaler offers the following types of cyberthreat protection:
+After you have set up [SSL/TLS Inspection policies](https://help.zscaler.com/unified/reviewing-ssl-tls-inspection), review the Cyber Threat Protection policies that protect your users from a variety of security threats. Zscaler offers the following types of cyberthreat protection:
 
-- **Isolation**: uses browser isolation to open suspicious URLs which have not yet been categorized in a remote browser in a Zscaler data center. These include newly registered URLs, dormant URLs, as well as URLs which have not yet been observed and categorized by Zscaler.
-- **Botnet Protection**: protects your users from botnets with a series of methods including blocking known command and control (C2) servers, blocking domain generation algorithms, and examining potential botnet traffic.
-- **Phishing & Fraud Protection**: blocks known and suspected phishing sites, and blocks adware, spyware, web spam, and cryptomining to protect your users from fraud.
-- **Malicious Active Content Prevention**: blocks a number of vulnerabilities that may cause users to download malware, including websites that attempt to load dangerous content, exploitable file formats, and web browser vulnerabilities.
-- **P2P Protection**: blocks the use of peer-to-peer filing sharing applications, many of which encrypt content so they cannot be inspected for data leakage.
-- **Malware Protection**: blocks malware by inspecting inbound and outbound traffic, HTTP, FTP, and FTP over HTTP using signature-based detection and protection using malware feeds from trusted industry partners.
-- **Zero-Day Attack Protection**: isolates and analyzes zero-day threats in a sandbox environment.
-
-During onboarding, Zscaler sets up its default cyber threat protection policies. You can fine-tune these policies later in the Admin Portal. To learn more, see [Configuring the Advanced Threat Protection Policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy).
+- **Isolation**: Uses browser isolation to open suspicious URLs which have not yet been categorized in a remote browser in a Zscaler data center. These include newly registered URLs, dormant URLs, as well as URLs which have not yet been observed and categorized by Zscaler.
+- **Botnet Protection**: Protects your users from botnets with a series of methods including blocking known command and control (C2) servers, blocking domain generation algorithms, and examining potential botnet traffic.
+- **Phishing & Fraud Protection**: Blocks known and suspected phishing sites, and blocks adware, spyware, web spam, and cryptomining to protect your users from fraud.
+- **Malicious Active Content Prevention**: Blocks a number of vulnerabilities that might cause users to download malware, including websites that attempt to load dangerous content, exploitable file formats, and web browser vulnerabilities.
+- **P2P File Sharing Protection**: Blocks the use of peer-to-peer file-sharing applications, many of which encrypt content so they cannot be inspected for data leakage.
+- **Malware Protection**: Blocks malware by inspecting inbound and outbound traffic, HTTP, FTP, and FTP over HTTP using signature-based detection and protection using malware feeds from trusted industry partners.
+- **Zero-Day Attack Protection**: Isolates and analyzes zero-day threats in a sandbox environment.
 
 When you are done reviewing the cyber threat protection policies, click **Next** to move on to review the [data protection policies](https://help.zscaler.com/unified/configuring-data-protection).
+
+See image.
+
+During onboarding, Zscaler sets up its default cyber threat protection policies. You can fine-tune these policies later in the Zscaler Admin Console. To learn more, see [Configuring the Advanced Threat Protection Policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy).
+
+[Image: Cyber Threat Protection policy options during the onboarding process]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/reviewing-data-protection-policies","lastmod":"2026-02-12T08:58Z","nid":"1488031"} -->
+<!-- ZS-ARTICLE {"url":"/unified/reviewing-data-protection-policies","lastmod":"2026-08-21T13:54Z","nid":"1488031"} -->
 ## Reviewing Data Protection Policies
 
 - Source: https://help.zscaler.com/unified/reviewing-data-protection-policies
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Reviewing Data Protection Policies
-- Last modified: 2026-02-12T08:58Z
+- Last modified: 2026-08-21T13:54Z
 - Summary: Review data protection policies that ensure that users do not leak corporate or sensitive data outside your organization.
 
-Data protection policies protect your organization from users intentionally or unintentionally leaking data via attachments or social media.
+Data Protection policies protect your organization from users intentionally or unintentionally leaking data via attachments or social media.
 
-Zscaler provides the following types of data protection:
+After you have set up [Cyber Threat Protection policies](https://help.zscaler.com/unified/reviewing-cyber-threat-protection-policies), review the Zscaler Data Protection policies:
 
 - **Visibility & Classification**: Data Loss Prevention (DLP) dictionaries contain algorithms to inspect user traffic for potential data leakage, such as bank information, PII, sensitive file formats and more. To learn more, see [About DLP Dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries).
-- **Data Classification Dashboard**: This dashboard gives you high-level visibility and insight into your organization's Data Loss Prevention (DLP) content. To learn more, see [About the Data Discovery Report](https://help.zscaler.com/zia/about-data-discovery-report).
-
-During onboarding, Zscaler sets up its default set of data protection policies. You can fine-tune these policies later in the Admin Portal. To learn more about Zscaler's data protection, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention).
+- **Data Classification Dashboard**: This dashboard gives you high-level visibility and insight into your organization's DLP content. To learn more, see [About the Data Discovery Report](https://help.zscaler.com/zia/about-data-discovery-report).
 
 Click **Next** when you are done reviewing the policies to review the [user privacy settings](https://help.zscaler.com/unified/configuring-user-privacy).
+
+See image.
+
+During onboarding, Zscaler sets up its default set of data protection policies. You can fine-tune these policies later in the Zscaler Admin Console. To learn more about Zscaler's data protection, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention).
+
+[Image: Data Protection policy options during the onboarding process]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/reviewing-ssl-inspection","lastmod":"2026-02-12T08:56Z","nid":"1488021"} -->
-## Reviewing SSL Inspection Policies
+<!-- ZS-ARTICLE {"url":"/unified/reviewing-ssltls-inspection","lastmod":"2026-08-21T13:43Z","nid":"1488021"} -->
+## Reviewing SSL/TLS Inspection Policies
 
-- Source: https://help.zscaler.com/unified/reviewing-ssl-inspection
+- Source: https://help.zscaler.com/unified/reviewing-ssltls-inspection
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Reviewing SSL Inspection Policies
-- Last modified: 2026-02-12T08:56Z
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Reviewing SSL/TLS Inspection Policies
+- Last modified: 2026-08-21T13:43Z
 - Summary: How to configure the SSL inspection policies that protect traffic sent via HTTPS from being exploited to deliver security threats.
 
-SSL inspection policies allow you to inspect traffic sent using the secure HTTPS protocol to ensure that it is, in fact, encrypted and fully secure and is not exploited to deliver security threats. Zscaler inspects SSL traffic by establishing a separate SSL tunnel between the user's browser and the destination server.
+SSL/TLS Inspection policies allow you to inspect traffic sent using the secure HTTPS protocol to ensure that it is, in fact, encrypted and fully secure and is not exploited to deliver security threats. Zscaler inspects SSL/TLS traffic by establishing a separate SSL tunnel between the user's browser and the destination server.
 
-To review SSL inspection policies:
+After you have set up [URL Filtering options](https://help.zscaler.com/zia/configuring-ssl-inspection-policy), review the following SSL/TLS Inspection policies:
 
-1. Under**Exempted Categories**, review the categories that Zscaler exempts from SSL inspection. These categories (Healthcare and Finance) are not inspected because they may contain a user's personally identifiable information (PII).
-2. By default, Zscaler inspects SSL traffic from Microsoft's web-based applications such as OneDrive. If you want to use Microsoft's recommended setting, which exempts that traffic from SSL inspection, click **Advanced SSL Settings**, select **M365 Exempted**, and click **Save**.
-3. Under **All Users, All Other Destinations**, note that categories that are not exempted above will have their SSL traffic inspected.
-4. Under **SSL Root Certificate**, the Zscaler's intermediate root certificate is installed. You can select your own certificate later in the Admin Portal.
-5. When you are done reviewing the SSL inspection policies, click **Next**to move on to review the [cyber threat protection policies](https://help.zscaler.com/unified/configuring-cyber-threat-protection).
+1. Under**Exempted Categories**, review the categories that Zscaler exempts from SSL/TLS inspection. These categories (Healthcare and Finance) are not inspected because they might contain a user's personally identifiable information (PII).
 
-Zscaler installs its recommended SSL inspection policies by default. You can fine-tune these policies later in the Admin Portal. To learn more, see [Configuring SSL Inspection Policy](https://help.zscaler.com/zia/configuring-ssl-inspection-policy).
+By default, Zscaler inspects SSL/TLS traffic from Microsoft's web-based applications such as OneDrive. If you want to use Microsoft's recommended setting, which exempts that traffic from SSL/TLS inspection, click **Advanced SSL Settings**, select **M365 Exempted**, and click **Save**.
+
+1. Under **All Users, All Other Destinations**, note that categories that are not exempted have their SSL/TLS traffic inspected.
+2. Under **SSL Root Certificate**, Zscaler's intermediate root certificate is installed. You can select your own certificate later in the Zscaler Admin Console.
+3. When you are done reviewing the SSL/TLS Inspection policies, click **Next**to move on to review the [cyber threat protection policies](https://help.zscaler.com/unified/configuring-cyber-threat-protection).
+
+See image.
+
+Zscaler installs its recommended SSL/TLS Inspection policies by default. You can fine-tune these policies later in the Zscaler Admin Console. To learn more, see [Configuring SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).
+
+[Image: Review SSL/TLS Inspection options during the onboarding process]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5785,13 +5825,13 @@ The search provides auto-complete suggestions as you type, and keeps a history o
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/security-operations-platform-configurations-data-source","lastmod":"2026-08-02T00:19Z","nid":"1541925"} -->
+<!-- ZS-ARTICLE {"url":"/unified/security-operations-platform-configurations-data-source","lastmod":"2026-08-16T21:06Z","nid":"1541925"} -->
 ## Security Operations Platform Configurations by Data Source
 
 - Source: https://help.zscaler.com/unified/security-operations-platform-configurations-data-source
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Security Operations Platform Configurations by Data Source
-- Last modified: 2026-08-02T00:19Z
+- Last modified: 2026-08-16T21:06Z
 - Summary: The current Security Operations Platform data sources by vendor.
 
 The Security Operations Platform (SecOps Platform) supports a wide range of third-party data sources that ingest security, asset, identity, cloud, and operational data into the platform. Use this article to identify the available data sources, the streams each one supports, and the types of data each stream retrieves. For deployment prerequisites and setup steps, see [Deploying Data Source Configurations](https://help.zscaler.com/unified/deploying-data-source-configurations). To configure a specific source, see [Source Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/sources/source-configuration-guides).
@@ -6345,20 +6385,20 @@ Enter the same bearer token used in the script. A bearer token is a unique alpha
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/setting-up-secure-access","lastmod":"2026-07-27T04:47Z","nid":"1486816"} -->
+<!-- ZS-ARTICLE {"url":"/unified/setting-up-secure-access","lastmod":"2026-08-21T12:15Z","nid":"1486816"} -->
 ## Setting Up Secure Access
 
 - Source: https://help.zscaler.com/unified/setting-up-secure-access
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Setting Up Secure Access
-- Last modified: 2026-07-27T04:47Z
+- Last modified: 2026-08-21T12:15Z
 - Summary: How to set up secure internet access to Experience Center for all the users in your organization.
 
-You can get started protecting your users quickly with Zscaler. Once you're set up, you'll be able to adjust your configuration as needed in the Zscaler Admin Console.
+You can get started protecting your users quickly with Zscaler. After you're set up, you're able to adjust your configuration as needed in the Zscaler Admin Console.
 
 Before you begin, you must be logged in to an existing Zscaler account. To learn more, see [Signing in to the Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console).
 
-Click the **Test Security** button to check the status of your current security configuration to understand your current vulnerabilities using Zscaler's [Internet Threat Exposure Analysis](http://securitypreview.zscaler.com/). You can return to this test after you have completed the onboarding process to see how you are protected.
+Click the **Test Security** button to check the status of your current security configuration to understand your current vulnerabilities using Zscaler's [Internet Threat Exposure Analysis](http://securitypreview.zscaler.com/). You can return to this test after you complete the onboarding process to see how you are protected.
 
 To make your setup go as smoothly as possible, review the steps before beginning and make sure you have immediate access to all the information you will need, such as login information for your IdP.
 
@@ -6371,6 +6411,8 @@ You can click **Skip**to bypass all or part of the guided onboarding setup and g
 
 Click **Initiate Setup**to start adding users to be protected by Zscaler. You can repeat this process as many times as you need to from the Zscaler Admin Console. To learn more, see [Onboarding Users to Experience Center](https://help.zscaler.com/unified/onboarding-users-experience-center).
 
+See image.
+
 During onboarding, you can assign users to one of these two roles:
 
 - **End User**: A regular user who does not require any administrator access. These users are assigned to the Authentication Service Dynamic Group Registered Domains group.
@@ -6378,39 +6420,75 @@ During onboarding, you can assign users to one of these two roles:
 
 To learn more about Authentication Service groups, see [About User Groups](https://help.zscaler.com/authentication-service/about-user-groups). If you want to change user roles before you complete onboarding, see [Editing Newly Onboarded Users](https://help.zscaler.com/unified/editing-newly-onboarded-users).
 
-After you've added users to your setup, you'll send those users a link to install Zscaler Client Connector, an application that will ensure that all user traffic is protected with the security settings you decide. You can change these settings later if you need to.
+[Image: Initiate Setup option during onboarding]
+
+After you've added users to your setup, you'll send those users a link to install Zscaler Client Connector, an application that ensures that all user traffic is protected with the security settings you decide. You can change these settings later if you need to.
 
 Users must have administrator permissions on their devices that allow them to install applications.
 
 To set up traffic forwarding:
 
-1. Click**Secure Setup** to specify the users you want to protect.
-2. On the **Clients**page, select the checkboxes for the applicable platforms for your users. Click **Next**to continue.
-3. On the **Traffic Forwarding** page, select whether your users currently connect to your organization via a VPN:
+1. Click**Secure Traffic**to specify the users you want to protect.
+
+See image.
+
+1. On the **Clients**page, select the checkboxes for the applicable platforms for your users. Click **Next**to continue.
+
+See image.
+
+1. On the **Traffic Forwarding** page, select whether your users currently connect to your organization via a VPN:
   - If you're not using a VPN, select **No**and click **Next**.
-  - If you are using a VPN, select **Yes** and enter the IP addresses and hostnames for the VPN. Zscaler will ignore traffic to those addresses so that the VPN can continue to work. Click **Next**to continue.
-4. On the **Select Users for Zscaler Client Connector Distribution** page, select the users who you want to receive an email containing a link to download Zscaler Client Connector. You can check the box next to the **Name**heading to select all users. Click **Next**to continue.
-5. On the **Distribute Zscaler Client Connector Application** page:
-  - By default, users will receive automatic software updates to Zscaler Client Connector. Disable the toggle if you do not want users to receive automatic updates.
+  - If you're using a VPN, select **Yes** and enter the IP addresses and hostnames for the VPN. Zscaler will ignore traffic to those addresses so that the VPN can continue to work. Click **Next**to continue.
+
+See image.
+
+1. On the **Select Users for Zscaler Client Connector Distribution** page, select the users who you want to receive an email containing a link to download Zscaler Client Connector. You can check the box next to the **Name**heading to select all users. Click **Next**to continue.
+
+See image.
+
+1. On the **Distribute Zscaler Client Connector Application** page:
+  - By default, users receive automatic software updates to Zscaler Client Connector. Disable the toggle if you do not want users to receive automatic updates.
   - Review the email that will be sent to the users you selected with links to install Zscaler Client Connector.
   - Click **Finish**to send the email with installation links to your users.
 
+See image.
+
+[Image: Secure Traffic option during onboarding]
+
+[Image: Clients page during onboarding]
+
+[Image: VPN setup on the Traffic Forwarding page during onboarding]
+
+[Image: Selecting Users for Zscaler Client Connector Distribution page during onboarding]
+
+[Image: Distribute Zscaler Client Connector Application page during onboarding]
+
 The final step in securing your internet is defining the security policies for your organization.
 
-Click **Set Up Policies** to start configuring the following types of security policies:
+Click **Set Up Policies** to start configuring security policies.
 
-- [URL filtering](https://help.zscaler.com/unified/configuring-url-filtering): block, isolate, or allow internet destinations by URL category.
-- [SSL inspection](https://help.zscaler.com/unified/configuring-ssl-inspection): configure what types of secure internet traffic (SSL) is inspected for added security.
-- [Cyber threat protection](https://help.zscaler.com/unified/reviewing-cyber-threat-protection-policies): review additional protection policies for cyber threats, such as botnets, phishing, and malware.
-- [Data protection](https://help.zscaler.com/unified/reviewing-data-protection-policies): review data protection policies that ensure sensitive data is not inadvertently leaked via email, social media, file sharing, or other means.
-- [Privacy](https://help.zscaler.com/unified/configuring-user-privacy): configure how you protect your users' personally identifiable information (PII).
+See image.
 
-You can also configure the following settings:
+You can set up the following types of security policies:
 
-- [Block countries](https://help.zscaler.com/unified/configuring-blocked-countries): block internet traffic from specific countries
-- [Add your company logo to banners, emails, and notifications](https://help.zscaler.com/unified/adding-your-company-logo): add your company logo to banners, emails, and user notifications sent from Zscaler
+- [URL Filtering](https://help.zscaler.com/unified/configuring-url-filtering): Block, isolate, or allow internet destinations by URL category.
+- [SSL/TLS Inspection](https://help.zscaler.com/unified/configuring-ssl-inspection): Configure what types of SSL/TLS traffic is inspected for added security.
+- [Cyber Threat Protection](https://help.zscaler.com/unified/reviewing-cyber-threat-protection-policies): Review additional protection policies for cyber threats, such as botnets, phishing, and malware.
+- [Data Protection](https://help.zscaler.com/unified/reviewing-data-protection-policies): Review data protection policies that ensure sensitive data is not inadvertently leaked via email, social media, file sharing, or other means.
+- [Privacy](https://help.zscaler.com/unified/configuring-user-privacy): Configure how you protect your users' personally identifiable information (PII).
+
+You can also click **Miscellaneous** to configure the following settings:
+
+- [Block countries](https://help.zscaler.com/unified/configuring-blocked-countries): Block internet traffic from specific countries
+- [Add your company logo to banners, emails, and notifications](https://help.zscaler.com/unified/adding-your-company-logo): Add your company logo to banners, emails, and user notifications sent from Zscaler
 
 When you have finished defining your initial policy configuration, click **Activate & Launch** to enable the policies you have selected and launch the Zscaler Admin Console.
+
+See image.
+
+[Image: Set Up Policies option during onboarding]
+
+[Image: Review internet security settings for all users during onboarding]
 
 When you complete the steps above, your organization's initial security configuration and access to the internet is complete and the [Networking dashboard](https://help.zscaler.com/unified/viewing-networking-dashboard) in the Zscaler Admin Console is displayed by default.
 
@@ -6551,13 +6629,13 @@ If you need to onboard users, see [Setting up Secure Access](https://help.zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/source-file-parser-types","lastmod":"2026-08-05T08:37Z","nid":"1541964"} -->
+<!-- ZS-ARTICLE {"url":"/unified/source-file-parser-types","lastmod":"2026-08-19T21:06Z","nid":"1541964"} -->
 ## Source File Parser Types
 
 - Source: https://help.zscaler.com/unified/source-file-parser-types
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Source File Parser Types
-- Last modified: 2026-08-05T08:37Z
+- Last modified: 2026-08-19T21:06Z
 - Summary: Information about file parser types used for parsing data source files when ingesting data into the Security Operations Platform.
 
 A parser type controls how the Security Operations Platform (SecOps Platform) reads your source file and converts it into records that are available for field mapping. Selecting a parser type is most relevant when you ingest data using [AnySource](https://help.zscaler.com/uvm/connecting-anysource), but it can also be used when [mapping a system data source](https://help.zscaler.com/unified/mapping-data-sources) connector to determine how the source is parsed.
@@ -6936,13 +7014,13 @@ Copilot: Channels 1 and 13 are less congested.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-dashboard-widget-types","lastmod":"2026-08-07T02:13Z","nid":"1541898"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-dashboard-widget-types","lastmod":"2026-08-19T10:14Z","nid":"1541898"} -->
 ## Understanding Dashboard Widget Types
 
 - Source: https://help.zscaler.com/unified/understanding-dashboard-widget-types
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Understanding Dashboard Widget Types
-- Last modified: 2026-08-07T02:13Z
+- Last modified: 2026-08-19T10:14Z
 - Summary: Information about widget types for presenting data on custom dashboards in the Security Operations Platform.
 
 When adding widgets to your [custom dashboards](https://help.zscaler.com/unified/configuring-custom-dashboards), you can choose a widget type that is appropriate for presenting the measurements and dimensions of the data you want to view. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/unified/understanding-measurements-and-dimensions).
@@ -7236,13 +7314,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-historical-data","lastmod":"2026-08-12T07:57Z","nid":"1542007"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-historical-data","lastmod":"2026-08-19T10:25Z","nid":"1542007"} -->
 ## Understanding Historical Data
 
 - Source: https://help.zscaler.com/unified/understanding-historical-data
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Understanding Historical Data
-- Last modified: 2026-08-12T07:57Z
+- Last modified: 2026-08-19T10:25Z
 - Summary: Information about historical data in the Security Operations Platform and how it is calculated.
 
 The Security Operations Platform (SecOps Platform) captures the historical state of each entity at every point in time, allowing flexible reporting of over-time behavior based on change logs saved in the platform. You can filter this historical data to analyze performance during different time frames. This enables you to monitor trends, verify the impact of configuration changes in the SecOps Platform, and track progress on security and operational initiatives over time.
@@ -7526,13 +7604,13 @@ Every cloud is associated to the [Zscaler Admin Console](https://help.zscaler.co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-measurements-and-dimensions","lastmod":"2026-08-07T02:10Z","nid":"1541897"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-measurements-and-dimensions","lastmod":"2026-08-19T09:38Z","nid":"1541897"} -->
 ## Understanding Measurements and Dimensions
 
 - Source: https://help.zscaler.com/unified/understanding-measurements-and-dimensions
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Understanding Measurements and Dimensions
-- Last modified: 2026-08-07T02:10Z
+- Last modified: 2026-08-19T09:38Z
 - Summary: Information on dashboard measurements and dimensions in the Security Operations Platform.
 
 The Security Operations Platform (SecOps Platform) uses measurements and dimensions to organize and analyze data in [reports](https://help.zscaler.com/unified/creating-reports), [dashboards](https://help.zscaler.com/unified/configuring-custom-dashboards), and [saved views](https://help.zscaler.com/unified/creating-managing-saved-views). A dashboard or report is configured by selecting one or more dimensions and a measurement. The dimension defines how data is grouped (e.g., by user, tenant, or severity, etc.) and the measurement defines the value to be calculated and displayed (e.g., count of alerts, number of users, or risk score, etc.).
@@ -7792,13 +7870,13 @@ Access to the current standalone portals (i.e., Admin Portals) will continue to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/using-dashboard-templates","lastmod":"2026-08-07T02:13Z","nid":"1541900"} -->
+<!-- ZS-ARTICLE {"url":"/unified/using-dashboard-templates","lastmod":"2026-08-19T10:16Z","nid":"1541900"} -->
 ## Using Dashboard Templates
 
 - Source: https://help.zscaler.com/unified/using-dashboard-templates
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Using Dashboard Templates
-- Last modified: 2026-08-07T02:13Z
+- Last modified: 2026-08-19T10:16Z
 - Summary: How to create a dashboard using a template in the Security Operations Platform
 
 You can [create custom dashboards](https://help.zscaler.com/unified/configuring-custom-dashboards) by using preconfigured dashboard templates from the Template Gallery page. These templates include preconfigured widgets designed to address common use cases that you can customize as necessary. You can also clone an existing template to create a new dashboard.
@@ -7879,13 +7957,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/using-mapping-copilot","lastmod":"2026-08-05T08:00Z","nid":"1541960"} -->
+<!-- ZS-ARTICLE {"url":"/unified/using-mapping-copilot","lastmod":"2026-08-19T21:06Z","nid":"1541960"} -->
 ## Using Mapping Copilot
 
 - Source: https://help.zscaler.com/unified/using-mapping-copilot
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Using Mapping Copilot
-- Last modified: 2026-08-05T08:00Z
+- Last modified: 2026-08-19T21:06Z
 - Summary: How to use Mapping Copilot in the Security Operations Platform to assist in mapping data sources to the data model.
 
 Mapping Copilot is an AI-powered assistant within the Security Operations Platform (SecOps Platform). It supports admins by accelerating the data mapping process for data source integrations. This is especially useful when the source schema is unfamiliar, which is common with organization-specific proprietary sources (i.e., [AnySource](https://help.zscaler.com/uvm/connecting-anysource)) and integrations that do not include default mappings. By analyzing file statistics and system guidelines, Mapping Copilot provides intelligent, context-aware recommendations for mapping third-party source data to the SecOps data model, transforming complex data investigations into simple, guided conversations.
@@ -8765,13 +8843,13 @@ The following screenshot illustrates an example practice analyzed on the Practic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practices-optimal-health","lastmod":"2026-08-15T05:26Z","nid":"1541607"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practices-optimal-health","lastmod":"2026-08-17T22:09Z","nid":"1541607"} -->
 ## Viewing Best Practices for Optimal Health
 
 - Source: https://help.zscaler.com/unified/viewing-best-practices-optimal-health
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Best Practices for Optimal Health
-- Last modified: 2026-08-15T05:26Z
+- Last modified: 2026-08-17T22:09Z
 - Summary: Information about best practices in Health360 for maintaining optimal health.
 
 The Best Practices page evaluates your configuration posture against Zscaler's recommended guidelines for each deployed Zscaler service. By providing a detailed view of individual checks and recommended actions, these metrics enable you to identify and remediate configuration gaps, and help determine whether your deployed services are configured in line with Zscaler's recommended best practices.
@@ -8793,7 +8871,7 @@ On the Best Practices page (Analytics > Health360 > Best Practices), you can:
   - **Practice Name**: The name of the best practice. Click the practice to further view the [practice details](https://help.zscaler.com/unified/viewing-best-practice-details).
   - **Status**: The status of the best practice, whether it's implemented or not (**Followed**or **Not Followed**).
   - **Product**: The Zscaler service associated with the best practice.
-  - **Percent Complaint**: The percentage at which the best practice is currently compliant. Only 100% compliant practices are categorized as **Followed**in the **Status** column.
+  - **Percent Compliant**: The percentage at which the best practice is currently compliant. Only 100% compliant practices are categorized as **Followed**in the **Status** column.
   - **Priority**: The priority for the practice (**Medium**or **High**).
   - **Recommendations**: The remediation steps to implement the practice. You can navigate to the respective service's configuration pages in the Zscaler Admin Console to implement the practice.
 
@@ -9457,13 +9535,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-executive-insights-zscaler-services","lastmod":"2026-08-15T05:33Z","nid":"1541710"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-executive-insights-zscaler-services","lastmod":"2026-08-17T22:15Z","nid":"1541710"} -->
 ## Viewing Executive Insights for Zscaler Services
 
 - Source: https://help.zscaler.com/unified/viewing-executive-insights-zscaler-services
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Executive Insights for Zscaler Services
-- Last modified: 2026-08-15T05:33Z
+- Last modified: 2026-08-17T22:15Z
 - Summary: Information about executive insights in Health360 providing an overview of your applications, network, cloud, and incidents in your organization.
 
 Executive Insights provides a high-level overview of the applications, network, cloud, and incidents in your organization. You can drill down on each metric to further analyze the data.
@@ -9477,8 +9555,8 @@ On the Executive Insights page (Analytics > Health360 > Executive Insights), you
 
 This tab shows private application-related insights with the following sections:
 
-- **What Internet Applications Are Users Accessing?**: This section contains a donut chart showing the overall traffic distribution across various categories with the percentage increase or decrease in traffic flow. You can hover over a category to view its total volume of data with its traffic percentage share from the overall traffic data. The center of the donut shows the total volume of data. This section also contains a graph for comparing each category to your industry peers. By accessing Zscaler Health360, you provide Zscaler the right to compare your organization's performance and effectiveness in using Zscaler services for the preceding month with other peer organizations and all companies using our cloud service. Peers are chosen based on business vertical, geographic region, and business size. The comparison is broken down by overall traffic, configuration baseline, traffic distribution by application categories, traffic distribution by region and access methods, and product usage. Click **View Application** to see the preceding information for the top 10 applications.
-- **Where are My Private Applications are Being Hosted?**: This section contains a graph showing the traffic data distribution for private applications for each host (e.g., AWS, GCP, Azure). Hover over a host to view the traffic data percentage and the total bytes of data for that host. Click **View Private App Hosts** to further drill down on the data.
+- **What Internet Applications Are my Users Accessing?**: This section contains a donut chart showing the overall traffic distribution across various categories with the percentage increase or decrease in traffic flow. You can hover over a category to view its total volume of data with its traffic percentage share from the overall traffic data. The center of the donut shows the total volume of data. This section also contains a graph for comparing each category to your industry peers. By accessing Zscaler Health360, you provide Zscaler the right to compare your organization's performance and effectiveness in using Zscaler services for the preceding month with other peer organizations and all companies using our cloud service. Peers are chosen based on business vertical, geographic region, and business size. The comparison is broken down by overall traffic, configuration baseline, traffic distribution by application categories, traffic distribution by region and access methods, and product usage. Click **View Application** to see the preceding information for the top 10 applications.
+- **Where are My Private Applications Being Hosted?**: This section contains a graph showing the traffic data distribution for private applications for each host (e.g., AWS, GCP, Azure). Hover over a host to view the traffic data percentage and the total bytes of data for that host. Click **View Private App Hosts** to further drill down on the data.
 
 [Image: Executive Insights for Applications]
 
@@ -9505,13 +9583,13 @@ This tab contains incident-related insights with the following sections:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-experience-center-home-page","lastmod":"2026-02-12T09:28Z","nid":"1529129"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-experience-center-home-page","lastmod":"2026-08-21T14:06Z","nid":"1529129"} -->
 ## Viewing the Experience Center Home Page
 
 - Source: https://help.zscaler.com/unified/viewing-experience-center-home-page
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Viewing the Experience Center Home Page
-- Last modified: 2026-02-12T09:28Z
+- Last modified: 2026-08-21T14:06Z
 - Summary: How to view and customize the Experience Center home page within the Zscaler Admin Console.
 
 On the Zscaler Experience Center home page is a customizable start page where you can select from a variety of information cards and customize the view to your own preferences and work requirements.
@@ -9931,13 +10009,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-items-widget-segment","lastmod":"2026-08-07T02:12Z","nid":"1541903"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-items-widget-segment","lastmod":"2026-08-19T10:09Z","nid":"1541903"} -->
 ## Viewing Items in a Widget Segment
 
 - Source: https://help.zscaler.com/unified/viewing-items-widget-segment
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Viewing Items in a Widget Segment
-- Last modified: 2026-08-07T02:12Z
+- Last modified: 2026-08-19T10:09Z
 - Summary: How to view specific items in dashboard widgets.
 
 You can view the individual items associated with a specific widget segment. For example, in a pie chart, you can click a slice to view the items that contribute to that segment.

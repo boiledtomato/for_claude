@@ -1,18 +1,18 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 159
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-account-groups","lastmod":"2026-08-04T11:17Z","nid":"1479491"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-account-groups","lastmod":"2026-08-20T14:32Z","nid":"1479491"} -->
 ## About Amazon Web Services Account Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > About Amazon Web Services Account Groups
-- Last modified: 2026-08-04T11:17Z
+- Last modified: 2026-08-20T14:32Z
 - Summary: Information about Amazon Web Services account groups and their functionality.
 
 Amazon Web Services (AWS) account groups enable Zscaler Cloud Connector to be aware of other accounts it can get the workload tags from. Therefore, the Cloud Connector is not tied to the account where it is deployed.
@@ -50,13 +50,13 @@ On the Groups page (Infrastructure > Connectors > Cloud > Management > Partner I
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-accounts","lastmod":"2026-08-04T11:15Z","nid":"1463456"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-accounts","lastmod":"2026-08-20T14:31Z","nid":"1463456"} -->
 ## About Amazon Web Services Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > About Amazon Web Services Accounts
-- Last modified: 2026-08-04T11:15Z
+- Last modified: 2026-08-20T14:31Z
 - Summary: Information about the AWS Partner Integrations page in the Zscaler Admin Console.
 
 Amazon Web Services (AWS) partner integrations enable you to add AWS accounts by allowing the Zscaler service to fetch metadata from those accounts. An AWS account has credentials that provide access to a single AWS account. Adding an AWS account allows you to use user-defined tags in Zscaler security policies.
@@ -100,13 +100,13 @@ On the Accounts page (Infrastructure > Connectors > Cloud > Management > Partner
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways","lastmod":"2026-08-03T13:54Z","nid":"1516706"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways","lastmod":"2026-08-21T13:57Z","nid":"1516706"} -->
 ## About Amazon Web Services Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > About Amazon Web Services Zero Trust Gateways
-- Last modified: 2026-08-03T13:54Z
+- Last modified: 2026-08-21T13:57Z
 - Summary: Information about the Amazon Web Services (AWS) Zero Trust Gateway page in the Zscaler Admin Console.
 
 Amazon Web Services (AWS) Zero Trust Gateways are a Zscaler cloud native service offering in public clouds.
@@ -149,13 +149,13 @@ On the AWS Gateway page (Infrastructure > Connectors > Cloud > Zero Trust Gatewa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-api-key-management","lastmod":"2026-04-22T21:06Z","nid":"1420801"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-api-key-management","lastmod":"2026-08-19T13:42Z","nid":"1420801"} -->
 ## About API Key Management
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-api-key-management
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > API Key Management > About API Key Management
-- Last modified: 2026-04-22T21:06Z
+- Last modified: 2026-08-19T13:42Z
 - Summary: Information on API key management within the Zscaler Admin Console.
 
 Your organization's API key is initially provisioned by Zscaler, enabled, and displayed within the API Key Management page along with the base URL. The base URL and key are required to authenticate via the API and create a session.
@@ -296,13 +296,13 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-branch-configuration-templates","lastmod":"2026-04-23T21:06Z","nid":"1420651"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-branch-configuration-templates","lastmod":"2026-08-19T13:42Z","nid":"1420651"} -->
 ## About Branch Configuration Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-branch-configuration-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > About Branch Configuration Templates
-- Last modified: 2026-04-23T21:06Z
+- Last modified: 2026-08-19T13:42Z
 - Summary: Information on the Branch Configuration Template page in the Zscaler Admin Console.
 
 [Watch a video about Branch Configuration Templates (shows legacy UI).](https://fast.wistia.net/embed/iframe/fip1hlj1kl)
@@ -442,13 +442,13 @@ A Cloud NSS feed behaves differently according to HTTP/S response status codes f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-provisioning-templates","lastmod":"2026-08-03T08:50Z","nid":"1420426"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-provisioning-templates","lastmod":"2026-08-19T13:42Z","nid":"1420426"} -->
 ## About Cloud Provisioning Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-cloud-provisioning-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > About Cloud Provisioning Templates
-- Last modified: 2026-08-03T08:50Z
+- Last modified: 2026-08-19T13:42Z
 - Summary: Information on the Cloud Provisioning Template page in the Zscaler Admin Console.
 
 [Watch a video about Cloud Provisioning Templates (shows legacy UI).](https://fast.wistia.net/embed/iframe/577qniv2zj)
@@ -2034,13 +2034,13 @@ To enable this feature, contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account","lastmod":"2026-08-04T11:15Z","nid":"1464091"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account","lastmod":"2026-08-20T14:31Z","nid":"1464091"} -->
 ## Adding an Amazon Web Services Account
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Adding an Amazon Web Services Account
-- Last modified: 2026-08-04T11:15Z
+- Last modified: 2026-08-20T14:31Z
 - Summary: How to add an Amazon Web Services account on the Partner Integrations page of the Zscaler Admin Console.
 
 This article provides information on how to onboard an Amazon Web Services (AWS) account to enable tag discovery services within the Zscaler Admin Console. To learn more, see [About Amazon Web Services Accounts](https://help.zscaler.com/cloud-branch-connector/about-partner-integrations).
@@ -2084,13 +2084,13 @@ After the CloudFormation template is executed, your account is onboarded into th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-08-04T11:16Z","nid":"1479496"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-08-20T14:32Z","nid":"1479496"} -->
 ## Adding an Amazon Web Services Account Group
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account-group
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Adding an Amazon Web Services Account Group
-- Last modified: 2026-08-04T11:16Z
+- Last modified: 2026-08-20T14:32Z
 - Summary: How to add an Amazon Web Services account group on the Partner Integrations Groups page of the Zscaler Admin Console.
 
 This article provides information on how to add an Amazon Web Services (AWS) account group in the Zscaler Admin Console. To learn more, see [About Amazon Web Services Account Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups).
@@ -2121,13 +2121,13 @@ To add an AWS account group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway","lastmod":"2026-08-03T14:02Z","nid":"1516711"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway","lastmod":"2026-08-21T13:50Z","nid":"1516711"} -->
 ## Adding an Amazon Web Services Zero Trust Gateway
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Adding an Amazon Web Services Zero Trust Gateway
-- Last modified: 2026-08-03T14:02Z
+- Last modified: 2026-08-21T13:50Z
 - Summary: Information on how to add an Amazon Web Services (AWS) Zero Trust Gateway on the AWS page of the Zscaler Admin Console.
 
 This article provides information on adding an Amazon Web Services (AWS) Zero Trust Gateway in the Zscaler Admin Console. To learn more, see [About Amazon Web Services Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways).
@@ -2804,13 +2804,13 @@ To download the SSL certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-ad-fs-3.0","lastmod":"2026-08-04T10:57Z","nid":"1420896"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-ad-fs-3.0","lastmod":"2026-08-18T21:06Z","nid":"1420896"} -->
 ## Admin SAML Configuration Guide for AD FS 3.0
 
 - Source: https://help.zscaler.com/cloud-branch-connector/admin-saml-configuration-guide-ad-fs-3.0
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Admin SAML Configuration Guide for AD FS 3.0
-- Last modified: 2026-08-04T10:57Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: How to configure AD FS 3.0 as the identity provider for Zscaler Cloud & Branch Connector and use SAML single sign-on for administrators.
 
 This guide demonstrates how to configure a Windows Server 2012 R2 running Active Directory Federation Services (AD FS) 3.0 as the identity provider (IdP) for the Zscaler service and use [SAML single sign-on (SSO) for your organization's admins](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management). To learn more about the steps in the Windows Server 2012 R2, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/windows-server/identity/active-directory-federation-services).
@@ -2930,13 +2930,13 @@ where `<AD FS Server>` is the exact AD FS server name. For example, if your serv
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-azure-active-directory","lastmod":"2026-08-04T11:01Z","nid":"1420901"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-azure-active-directory","lastmod":"2026-08-18T21:06Z","nid":"1420901"} -->
 ## Admin SAML Configuration Guide for Azure Active Directory
 
 - Source: https://help.zscaler.com/cloud-branch-connector/admin-saml-configuration-guide-azure-active-directory
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Admin SAML Configuration Guide for Azure Active Directory
-- Last modified: 2026-08-04T11:01Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: Step-by-step configuration guide for Azure Active Directory SAML 2.0 with Zscaler Cloud & Branch Connector.
 
 This guide demonstrates how to configure Microsoft Azure Active Directory (Azure AD) as the identity provider (IdP) for Zscaler Cloud & Branch Connector and use [SAML single-sign-on (SSO) for your organization's admins](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management). To learn more about how to configure SAML within the Azure portal, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal).
@@ -3068,13 +3068,13 @@ If you have disabled application visibility, demonstrated in Enable IdP-Initiate
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-okta","lastmod":"2026-08-04T10:56Z","nid":"1420891"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-okta","lastmod":"2026-08-18T21:06Z","nid":"1420891"} -->
 ## Admin SAML Configuration Guide for Okta
 
 - Source: https://help.zscaler.com/cloud-branch-connector/admin-saml-configuration-guide-okta
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Admin SAML Configuration Guide for Okta
-- Last modified: 2026-08-04T10:56Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: How to configure Okta as the identity provider for Zscaler Cloud & Branch Connector and use SAML single sign-on for administrators.
 
 This guide demonstrates how to configure Okta as the identity provider for Zscaler Cloud & Branch Connector and use [SAML single sign-on (SSO) for admins](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management). To learn more about the steps in the Okta portal, refer to the [Okta documentation](https://help.okta.com/).
@@ -3176,13 +3176,13 @@ To test the SAML admin SSO, you can initiate the SAML connection from the Zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-details","lastmod":"2026-08-04T11:17Z","nid":"1529425"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-details","lastmod":"2026-08-20T14:31Z","nid":"1529425"} -->
 ## Analyzing Amazon Web Services Account Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-account-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Analyzing Amazon Web Services Account Details
-- Last modified: 2026-08-04T11:17Z
+- Last modified: 2026-08-20T14:31Z
 - Summary: Information on the Amazon Web Services (AWS) account details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) account details page provides general and management information for a selected AWS account. You can access the AWS account details page by going to the Partner Integrations page and clicking the name of an account on the [AWS Accounts](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts) page.
@@ -3258,13 +3258,13 @@ Supported regions for AWS include:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-group-details","lastmod":"2026-08-04T11:16Z","nid":"1529426"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-group-details","lastmod":"2026-08-20T14:32Z","nid":"1529426"} -->
 ## Analyzing Amazon Web Services Account Group Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-account-group-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Analyzing Amazon Web Services Account Group Details
-- Last modified: 2026-08-04T11:16Z
+- Last modified: 2026-08-20T14:32Z
 - Summary: Information on the Amazon Web Services (AWS) account group details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) account group details page provides general and management information for a selected AWS account group. You can access the AWS account group details page by clicking the name of an account group on the [AWS Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups) page.
@@ -3299,13 +3299,13 @@ On the AWS account group details page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-zero-trust-gateway-details","lastmod":"2026-08-03T14:01Z","nid":"1516716"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-zero-trust-gateway-details","lastmod":"2026-08-21T14:45Z","nid":"1516716"} -->
 ## Analyzing Amazon Web Services Zero Trust Gateway Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-zero-trust-gateway-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Analyzing Amazon Web Services Zero Trust Gateway Details
-- Last modified: 2026-08-03T14:01Z
+- Last modified: 2026-08-21T14:45Z
 - Summary: Information on the Amazon Web Services (AWS) Zero Trust Gateway details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) gateway details page provides management and operational information about the selected zero trust gateway. You can access the AWS gateway details page by selecting a gateway on the [AWS Gateway](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways) page.
@@ -4343,13 +4343,13 @@ You can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-08-14T10:57Z","nid":"1516906"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-08-17T14:27Z","nid":"1516906"} -->
 ## Analyzing Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Analyzing Zero Trust Gateways
-- Last modified: 2026-08-14T10:57Z
+- Last modified: 2026-08-17T14:27Z
 - Summary: Information on the Zero Trust Gateway page in the Zscaler Admin Console.
 
 The Zero Trust Gateway page provides information on the name, location, entitlement status, and health status of your Zero Trust Gateway. You can use the **Refresh**icon ([Image: Refresh Icon on the Traffic Monitoring Page in the Zscaler Cloud & Branch Connector Admin Portal]) to refresh the dashboard to view the most recent information.
@@ -4447,13 +4447,13 @@ To configure advanced settings:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-branch-connector-configuration-template","lastmod":"2026-04-23T21:06Z","nid":"1420656"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-branch-connector-configuration-template","lastmod":"2026-08-19T13:42Z","nid":"1420656"} -->
 ## Configuring a Branch Connector Configuration Template
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-branch-connector-configuration-template
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > Configuring a Branch Connector Configuration Template
-- Last modified: 2026-04-23T21:06Z
+- Last modified: 2026-08-19T13:42Z
 - Summary: How to configure a branch configuration template in the Zscaler Admin Console.
 
 The Branch Connector Configuration Template provides configuration information for virtual and physical branch devices. The configuration URL is required for deploying virtual and physical branch devices. For virtual branch devices, the administrator provides the configuration URL to the virtual device. For physical branch devices, you retrieve the configuration URL using the Zero Touch Provisioning process.
@@ -4947,13 +4947,13 @@ To learn more about DHCP options, refer to the [IANA documentation](https://www.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-cloud-provisioning-template","lastmod":"2026-08-03T09:33Z","nid":"1420466"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-cloud-provisioning-template","lastmod":"2026-08-19T13:42Z","nid":"1420466"} -->
 ## Configuring a Cloud Provisioning Template
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-cloud-provisioning-template
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > Configuring a Cloud Provisioning Template
-- Last modified: 2026-08-03T09:33Z
+- Last modified: 2026-08-19T13:42Z
 - Summary: How to configure a cloud provisioning template in the Zscaler Admin Console.
 
 [Watch a video about Cloud Provisioning Templates (shows legacy UI).](https://fast.wistia.net/embed/iframe/577qniv2zj)
@@ -6230,13 +6230,13 @@ The partner configuration authorization is created.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services","lastmod":"2026-08-04T11:16Z","nid":"1470596"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services","lastmod":"2026-08-20T14:32Z","nid":"1470596"} -->
 ## Configuring Workload Discovery for Workloads in Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Configuring Workload Discovery for Workloads in Amazon Web Services
-- Last modified: 2026-08-04T11:16Z
+- Last modified: 2026-08-20T14:32Z
 - Summary: Information on how to configure workload discovery for workloads in Amazon Web Services (AWS).
 
 The workload discovery service is a Zscaler-managed service that discovers workloads in your Amazon Web Services (AWS) account. The service also fetches associated metadata such as user-defined tags and cloud service provider-generated attributes. These user-defined tags and cloud service provider-generated attributes are used in security policies.
@@ -12275,13 +12275,13 @@ To edit a Zero Trust Branch Device:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-gateways","lastmod":"2026-08-06T21:06Z","nid":"1529794"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-gateways","lastmod":"2026-08-21T12:30Z","nid":"1529794"} -->
 ## Editing Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/editing-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Editing Zero Trust Gateways
-- Last modified: 2026-08-06T21:06Z
+- Last modified: 2026-08-21T12:30Z
 - Summary: How to modify the Zero Trust Gateway details from the Cloud Connector Groups page in the Zscaler Admin Console.
 
 Modifying Zscaler Zero Trust Gateway groups or viewing individual Zero Trust Gateways are some of the tasks you can complete after deployment.
@@ -12785,13 +12785,13 @@ In the cloud provisioning template, you can select Stable, Latest, or Beta as yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/managing-organization-api-keys","lastmod":"2026-04-23T21:06Z","nid":"1420826"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/managing-organization-api-keys","lastmod":"2026-08-19T13:42Z","nid":"1420826"} -->
 ## Managing Organization API Keys
 
 - Source: https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > API Key Management > Managing Organization API Keys
-- Last modified: 2026-04-23T21:06Z
+- Last modified: 2026-08-19T13:42Z
 - Summary: How to replace, edit, regenerate, and delete your organization's API key within the Zscaler Admin Console.
 
 After your API subscription is enabled, your organization's cloud service API key is initially provisioned by Zscaler, enabled, and displayed on the API Key Management page along with the base URL.
@@ -13713,13 +13713,13 @@ When the Zscaler service sends logs to the NSS, it hex encodes all nonprintable 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/registering-endpoint-amazon-web-services","lastmod":"2026-08-03T14:22Z","nid":"1519146"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/registering-endpoint-amazon-web-services","lastmod":"2026-08-21T14:51Z","nid":"1519146"} -->
 ## Registering an Endpoint in Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/registering-endpoint-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Registering an Endpoint in Amazon Web Services
-- Last modified: 2026-08-03T14:22Z
+- Last modified: 2026-08-21T14:51Z
 - Summary: Information on how to register an endpoint in Amazon Web Services (AWS).
 
 Zero Trust Gateways allow you to register an endpoint in Amazon Web Services (AWS). Registering your endpoint with the Zscaler service allows you to route and secure your traffic to the Zero Trust Exchange (ZTE).
@@ -13855,13 +13855,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-08-03T14:25Z","nid":"1534301"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-08-19T08:00Z","nid":"1534301"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/release-upgrade-summary-2026
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-03T14:25Z
+- Last modified: 2026-08-19T08:00Z
 - Summary: Zscaler Cloud & Branch Connector Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Cloud & Branch Connector. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -14556,13 +14556,13 @@ Gather the following information to respond to Terraform deployment wizard promp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-08-14T11:06Z","nid":"1538721"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-08-17T08:46Z","nid":"1538721"} -->
 ## Supported Regions for Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/supported-regions-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Supported Regions for Zero Trust Gateways
-- Last modified: 2026-08-14T11:06Z
+- Last modified: 2026-08-17T08:46Z
 - Summary: Information about the supported regions for Zscaler Zero Trust Gateways in the Zscaler Admin Console.
 
 Zscaler Zero Trust Gateways are supported in the following regions:

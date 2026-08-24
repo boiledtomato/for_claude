@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 204
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 207
 
 ---
 
@@ -3512,46 +3512,6 @@ On the Integrations page (Administration > External Integrations), you can view 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-investigation","lastmod":"2026-06-05T21:06Z","nid":"1540792"} -->
-## About Investigation
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/about-investigation
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > About Investigation
-- Last modified: 2026-06-05T21:06Z
-- Summary: Information about the investigation feature in AI Security.
-
-Your cloud resources containing data might be located in different regions. Depending on the number of cloud accounts you have onboarded, AI Security offers insights by identifying sensitive data, vulnerabilities, or any other risks in your resources.
-
-You might want to obtain certain information related to the security posture of your cloud resources without having to create alerts or filter information on the dashboard. For example, you want to look at all S3 buckets that were scanned in the past week and check what type of sensitive data is stored in these S3 buckets. You can leverage AI Security's Investigation feature to effectively parse such information, and based on the result, save the investigation or create a custom security policy.
-
-The Investigation feature provides the following benefits and enables you to:
-
-- Run queries on cloud resources and gain more insight into the security posture of your data.
-- Customize queries, run them multiple times, inspect results, and then discard or save the queries, either as investigation queries or custom security policies.
-
-## About the Investigation Page
-
-On the Investigation page (AI Infrastructure > Investigation), you can do the following:
-
-1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific information.
-2. [Add a new investigation](https://help.zscaler.com/ai-asset-mgmt/creating-new-investigation).
-3. View the investigation queries that you've created. For each investigation, you can see:
-  - **Cloud**: The name of the cloud service provider (AWS, Azure, or GCP).
-  - **Query**: The query string.
-  - **Resource Type**: The type of resource on which the query is run.
-4. View the list of saved investigation queries.
-5. Search for a query in the searchable columns.
-6. [Show or hide columns](https://help.zscaler.com/unified/using-tables).
-7. Click the **Actions** icon to run, save, or [edit](https://help.zscaler.com/ai-asset-mgmt/editing-or-deleting-investigation) a query. When you run a query, the investigation results are displayed. See image. Click the resource name to view the resource details.
-
-[Image: Create a new investigation and view the previously created queries]
-
-[Image: Investigation query results for an EC2 instance]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-issues","lastmod":"2026-06-04T08:20Z","nid":"1540786"} -->
 ## About Issues View
 
@@ -5934,86 +5894,6 @@ If a full scan is already initiated or completed, the bucket or folder is exclud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-aws-databricks","lastmod":"2026-06-05T21:06Z","nid":"1540174"} -->
-## Configuring Scan Rule for AWS Databricks
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-aws-databricks
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Databricks
-- Last modified: 2026-06-05T21:06Z
-- Summary: How to configure the scan rule for AWS Databricks workspaces in the AI Security Admin Portal.
-
-You can configure the scan rule to scan AWS Databricks workspace or accounts. AI Security scans these resources for any sensitive data and vulnerabilities and displays the scan results.
-
-## Prerequisites
-
-Before configuring the scan rule, you need to configure the Databricks workspace or accounts. To learn more, contact Zscaler Support.
-
-## Configuring Scan Rule
-
-To configure a scan rule for Databricks workspace or accounts, complete the following steps in the AI Security Admin Portal:
-
-- 1. Provide the general information.
-- 2. Select the cloud and resource type.
-- 3. Select the resources that must be scanned.
-- 4. Select the scan type.
-- 5. Set up the scan schedule.
-- 6. Select the scan scope.
-- 7. Review and complete the configuration.
-
-Enable the scan rule on the [Scan Settings](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings) page to initiate scheduled or on-demand scans.
-
-1. Go to **Administration** > **Scan Settings**.
-2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
-3. Click **Add Scan Rule**. See image. The **General Information** page appears.
-4. On the **General Information**page: See image.
-  1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
-  2. **Scan Rule Description (Optional)**: Enter a description of the scan rule (maximum 500 characters).
-5. Click **Next**.
-
-1. On the **Select Cloud and Resource Type** page:
-  - **Cloud Type**: Select **AWS**.
-  - **Resource Category**: Select **Database**.
-  - **Resource Type**: Select **Databricks**.
-2. Click **Next**.
-
-1. On the **Select Resources to Scan** page, choose one of the following options: See image.
-  - **Scan All Resources**: Scan all the resources across all the registered workspace or accounts.
-  - **Scan Specific Resources**: Select the checkbox for specific resources that must be scanned.
-2. Click **Next**.
-
-1. On the **Scan Type** page, select **Data Sampling Scan** to scan a sample of recent data in the workspace or accounts. AI Security cannot detect files that are deleted from the Databricks workspace or accounts. See image.
-2. Click **Next**.
-
-1. On the **Scan Schedule** page: See image. Select the local timezone for the scan schedule. The scan schedule is displayed in the local timezone.
-  - **On-Demand Scan** (Default): The scan runs only when it is initiated manually by the user. **Daily**: Scan the data daily at the specified time (e.g., 11:59 PM). **Weekly**: Scan the data once a week. Select the day from the drop-down menu and specify the time (e.g., Tuesday at 11:59 PM). **Monthly**: Scan the data once a month. Select the day of the month from the drop-down menu and specify the time (e.g., the 24th at 11:59 PM).
-2. Click **Next**.
-
-1. On the **Scan Scope** page, choose a scan scope from the drop-down menu. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/ai-asset-mgmt/configuring-scan-scope). See image.
-2. Click **Next**.
-
-[Image: The scan type selection page with Data Sampling option selected.]
-
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
-
-1. Review the scan settings. Click the **Edit** icon to change any values, if needed. See image.
-2. Click **Finish**.
-
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
-
-[Image: The Scan Settings page with an annotation around the Add New button.]
-
-[Image: The Select Resources to Scan page with selected Databricks workspaces.]
-
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
-
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
-
-[Image: General Information page to set the scan rule name and an optional description field.]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-aws-ecr-repositories","lastmod":"2026-06-05T21:06Z","nid":"1540273"} -->
 ## Configuring Scan Rule for AWS ECR Repositories
 
@@ -6284,86 +6164,6 @@ If a full scan is already initiated or completed, the DynamoDB tables are exclud
 2. Click **Finish**.
 
 [Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-aws-unmanaged-databases","lastmod":"2026-06-05T21:06Z","nid":"1540277"} -->
-## Configuring Scan Rule for AWS Unmanaged Databases
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-aws-unmanaged-databases
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Unmanaged Databases
-- Last modified: 2026-06-05T21:06Z
-- Summary: How to configure the scan rule for AWS unmanaged databases in the AI Security Admin Portal.
-
-You can configure the scan rule to scan AWS unmanaged database servers. AI Security scans the databases for any sensitive data and vulnerabilities.
-
-You can configure the scan rule after onboarding the AWS accounts. To learn more, see [About Cloud Accounts](https://help.zscaler.com/ai-asset-mgmt/about-cloud-accounts).
-
-To configure a scan rule for AWS unmanaged databases, complete the following steps in the AI Security Admin Portal:
-
-- 1. Provide the general information.
-- 2. Select the cloud and resource type.
-- 3. Select the resources that must be scanned.
-- 4. Select the scan type.
-- 5. Set up the scan schedule.
-- 6. Select the scan scope.
-- 7. Review and complete the configuration.
-
-1. Go to **Administration** > **Scan Settings**.
-2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
-3. Click **Add Scan Rule**. See image. The **General Information** page appears.
-4. On the **General Information**page: See image.
-  1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
-  2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
-5. Click **Next**.
-
-1. On the **Select Cloud Type and Resource Type** page:
-  - For **Cloud Type**: Select **AWS**.
-  - For **Resource Category**: Select **Database**.
-  - For **Resource Type**: Select **Unmanaged Database**.
-2. Click **Next**.
-
-1. On the **Select the Resources to Scan** page, choose one of the following options:
-  - **Scan All Resources**: Scan all the supported database resources across all onboarded accounts. See image.
-  - **Scan Specific Resources**: Select the checkbox for the specific resources that must be scanned. See image.
-2. Click **Next**.
-
-1. On the **Scan Type** page: AI Security cannot detect files that are deleted from the unmanaged database server. See image.
-  - **Data Sampling Scan**: Scan a sample of recent data in the database.
-2. Click **Next**.
-
-1. On the**Scan Schedule** page, select the scan frequency: See image.
-  - **On-Demand Scan** (Default): The scan runs only when it is initiated manually by the user.
-  - **Daily**: Scan the data daily at the specified time (e.g., 11:59 PM).
-  - **Weekly**: Scan the data once a week. Select the day from the drop-down menu and specify the time (e.g., Tuesday at 11:59 PM).
-  - **Monthly**: Scan the data once a month. Select the day of the month from the drop-down menu and specify the time (e.g., the 24th at 11:59 PM).
-2. Click **Next**.
-
-1. On the**Scan Scope**page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/ai-asset-mgmt/configuring-scan-scope). See image.
-2. Click **Next**.
-
-[Image: The Scan Type page with the Data Sampling Scan selected.]
-
-[Image: Select Scan Scope]
-
-1. Review the scan rule. Click the **Edit** icon to change any values, if needed. See image.
-2. Click **Finish**.
-
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
-
-[Image: The Scan Settings page with an annotation around the Add New button.]
-
-[Image: The Select Resources to Scan page with selected unmanaged database servers.]
-
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
-
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
-
-[Image: General Information page to set the scan rule name and an optional description field.]
-
-[Image: Select Resources to Scan page with Scan All Accounts option is selected.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6966,86 +6766,6 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-azure-unmanaged-databases","lastmod":"2026-06-05T21:06Z","nid":"1540306"} -->
-## Configuring Scan Rule for Azure Unmanaged Databases
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-azure-unmanaged-databases
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure Unmanaged Databases
-- Last modified: 2026-06-05T21:06Z
-- Summary: How to configure the scan rule for Azure unmanaged databases in the AI Security Admin Portal.
-
-You can configure the scan rule to scan Azure unmanaged database servers. AI Security scans the databases for any sensitive data and vulnerabilities.
-
-You can configure the scan rule after onboarding the Azure accounts. To learn more, see [About Cloud Accounts](https://help.zscaler.com/ai-asset-mgmt/about-cloud-accounts).
-
-To configure a scan rule for Azure unmanaged databases, complete the following steps in the AI Security Admin Portal:
-
-- 1. Provide the general information.
-- 2. Select the cloud and resource type.
-- 3. Select the resources that must be scanned.
-- 4. Select the scan type.
-- 5. Set up the scan schedule.
-- 6. Select the scan scope.
-- 7. Review and complete the configuration.
-
-1. Go to **Administration** > **Scan Settings**.
-2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
-3. Click **Add Scan Rule**. See image. The **General Information** page appears.
-4. On the **General Information**page: See image.
-  1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
-  2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
-5. Click **Next**.
-
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
-
-[Image: General Information page to set the scan rule name and an optional description field.]
-
-1. On the **Select Cloud and Resource Type** page:
-  - For **Cloud Type**, select **Azure**.
-  - For **Resource Category**, select **Database**.
-  - For **Resource Type**, select **Unmanaged Database**.
-2. Click **Next**.
-
-1. On the **Select Resources to Scan**page, choose one of the following options:
-  - **Scan All Resources**: Scan all the supported database resources across all onboarded accounts. See image.
-  - **Scan Specific Resources**: Select the checkbox for the specific resources that must be scanned. See image.
-2. Click **Next**.
-
-[Image: Select Resources to Scan page with Scan All Accounts option is selected.]
-
-1. On the **Scan Type** page: AI Security cannot detect files that are deleted from the unmanaged database server. See image.
-  - **Data Sampling Scan**: Scan a sample of recent data in the database.
-2. Click **Next**.
-
-1. On the **Scan Schedule** page, select the scan frequency: See image.
-  - **On-Demand Scan** (Default): The scan runs only when it is initiated manually by the user.
-  - **Daily**: Scan the data daily at the specified time (e.g., 11:59 PM).
-  - **Weekly**: Scan the data once a week. Select the day from the drop-down menu and specify the time (e.g., Tuesday at 11:59 PM).
-  - **Monthly**: Scan the data once a month. Select the day of the month from the drop-down menu and specify the time (e.g., the 24th at 11:59 PM).
-2. Click **Next**.
-
-1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/ai-asset-mgmt/configuring-scan-scope). See image.
-2. Click **Next**.
-
-[Image: The scan type selection page with Data Sampling option selected.]
-
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
-
-1. Review the scan rule. Click the **Edit** icon to change any values, if needed. See image.
-2. Click **Finish**.
-
-[Image: The Scan Settings page with an annotation around the Add New button.]
-
-[Image: The Select Resources to Scan page with selected unmanaged database servers.]
-
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
-
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-azure-virtual-machines","lastmod":"2026-06-05T21:06Z","nid":"1540304"} -->
 ## Configuring Scan Rule for Azure Virtual Machines
 
@@ -7554,164 +7274,6 @@ The Has Data predicate can be used to check if the resource contains sensitive d
 [Image: Query result]
 
 [Image: Add the remediation steps]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/creating-new-investigation","lastmod":"2026-06-05T21:06Z","nid":"1540794"} -->
-## Creating a New Investigation
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/creating-new-investigation
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > Creating a New Investigation
-- Last modified: 2026-06-05T21:06Z
-- Summary: How to create a new investigation in the AI Security Admin Portal.
-
-You can choose to investigate a resource when required. For example, you might want to investigate publicly accessible virtual machines that have admin permissions or EC2 instances that contain sensitive data. To learn more, see [About Investigation](https://help.zscaler.com/ai-asset-mgmt/about-investigation).
-
-To create a new investigation:
-
-1. Go to **AI Infrastructure**>**Investigation**.
-2. On the **Investigation** page, click **New Investigation**. See image.
-3. On the**New Investigation** page, select the cloud type (AWS, Azure, or GCP).
-4. Build the investigation query by adding the required predicates.
-  - View the list of predicates and operators
-5. Click **Run Query** to see the results. See image.
-  - Click the **Resource Name** to view additional details in the drawer. See image.
-  - Click **Save as Policy** if you want to convert this query into a custom policy. You are directed to the **Create Policy** page. Add additional predicates, as required, and save the policy. To learn more, see [Creating Custom Policies](https://help.zscaler.com/ai-asset-mgmt/creating-custom-policies). See image.
-  - Click **Export** to export the data and download the report as an Excel file. See image.
-6. Click **Save Investigation**.
-7. In the **Save Investigation** window, enter a name for the investigation. See image.
-8. Click **Save**. The investigation is displayed on the **Saved** tab. See image.
-
-Primary resources are the main data stores that AI Security scans for sensitive data. You can build investigation queries and custom policies to identify what type of secondary resources and entities (users, services, roles, databases, virtual machines, etc.) have access to the primary resource and how they are associated with the primary resource. You can also query if there are vulnerabilities in the primary and secondary resources and evaluate their security posture. The investigation results enable you to evaluate and remediate the issues and ensure the resources and sensitive data are secure.
-
-AI Security offers predicates and operators in the following categories to build highly contextual queries:
-
-- Property
-- Access
-- Relationship
-- Entitlement
-- Data
-- Vulnerability
-- Posture
-
-- The combination of predicates and operators is specific to each primary resource.
-- You can select multiple values when using the Like (%), Not Like !(%), iLike (i%), and Not iLike !(i%) operators.
-
-See image.
-
-You can use various attributes to identify what type of entities are associated with the primary resource. You can use a combination of operators and conditions to build the query.
-
-| Resource Property Predicates | Description | Operators |
-| --- | --- | --- |
-| Resource ID | Returns the resource ID of the primary resource. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| Resource Name | The name of the resource, as defined by the cloud service provider (CSP). | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-| Resource Property | Search the resource metadata (JSON file) for the attributes mentioned. | = : IsTrue; False; ≠ : Is not ⊆ : Included In True; False; Doesn't Exist; NullYou can select multiple values. For example, ⊆ (Included In) [Value 1] OR [Value 2] OR [Doesn't Exist].; ⊈ : Not Included In; <= : Less or equal; >= : Greater or equal; < : Less than; > : Greater than; = : On date; \|… : After date; …\| : Before date; \|...\| : Between; ∋ : Contains; ∌ : Doesn't Contain; [≠] : Is not (No match for all array records.); [⊈] : Not included in (No match for all array records.); ∅ : Null; O : Not Null; × : Doesn't exist; (%) : Like; !(%) : Not Like; [!(%)] : Not Like (No match for all array records.); i% : iLike; !(i%) : Not iLike (Applicable only for Azure resources.); And: Use this operator to select the object's multiple attributes when the resource metadata property is part of an array of multiple objects (e.g., In AWS, find Resources Where Primary Resource Type == "EC2 Instance", Resource Property "EC2 Instance".Instance.BlockDeviceMappings[*] .Ebs.Status == Enabled And .Ebs.VolumeID == ID123456789).; List: Select a set of values (e.g., Regions (List) includes a list of regions that can be queried for sensitive data.) |
-| Tags | The tags associated with the resource. You can select multiple keys. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Region | The region where the resource is located. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; ∌ : Doesn't Contain; !(%) : Not Like |
-| Account | The account in which the resource is stored. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| MFA required for login | Whether MFA is required for login. | True; False |
-| Data Store | The main data store type. | **=** : Is |
-
-Access predicates define the network access levels for the resource.
-
-| Access Predicates | Description | Operators |
-| --- | --- | --- |
-| Publicly Accessible | Returns "true" if the resource can be accessed from the internet. | True; False |
-| Public Exposure Details | Returns a JSON object that contains the details of the public exposure. For example, in case of a network level exposure, the object contains the exposed ports and IP ranges. | Enter key and value |
-
-Use the relationship predicates to identify the secondary resources that are associated with or can access the primary resource, check the security posture of the primary resource, whether the primary resource has vulnerabilities, malware, etc.
-
-| Relationship Predicates | Description | Additional Predicates | Operators/Conditions/Resource Types |
-| --- | --- | --- | --- |
-| Has Package | The package installed in the resource. | Package Name; Package Version |  |
-| Has Data | Check the type of the detected data. | You can use the following predicates to identify the specific data types: Is Sensitive: Returns "true" if the resource contains sensitive data.; DLP Engine: Describes the DLP engines.; Dictionary: Describes the dictionaries.; Document Type: Select the required document type.; Document Category: Describes the document category.; Sensitive Data Triggers: Enter the number of DLP trigger matches that the resource permits.; Sensitive Data Matches: Enter the number of sensitive files/tables that the resource permits.; Sensitive Data Volume: Enter the permitted file size value of the files containing sensitive information (in KB).; Last Completed Scan: Returns the time stamp when the resource was last scanned successfully. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal; = On date; \|... Before date; ...\| After date; \|...\| Between; < Less than; > More than |
-| Has Vulnerability | Check for the specific vulnerability details. | CVE ID: Returns the CVE ID as defined in the [National Vulnerability Database (NVD)](https://nvd.nist.gov/). You can select a predefined list of vulnerabilities, allowing you to query multiple values at the same time.; CVSS Score: Returns the numeric open industry standard for assessing the severity of the vulnerability.; CVE Severity: Returns the CVE severity as defined in the NVD.; Age of CVE: Returns the age of the vulnerability discovery as defined in the NVD.; Package Name: Search for a specific package name that is affected by a vulnerability.; Package Version: Search for a specific package version that is affected by a vulnerability.; Fix Available: Returns "true" if a fix is available as defined in the NVD. |  |
-| Has Access to | The secondary resources that can access the primary resource. You can select multiple resource types. |  |  |
-| Associated with | The relationship between this resource and another associated resource. You can select multiple resource types. |  |  |
-| Has Password | Whether the resource is password protected or not. |  |  |
-| Can be accessed by | IAM entities can be a service, user, or a role that can access the primary resource. | You can use the following additional predicates and operators, allowing you to build the query with more granularity: Entity ID: Enter the entity ID.; Account: Select the account that is associated with the entity.; Region: Select the region where the account is located.; Tags: Select the tags associated with the entity.; Action over Parent Resource: Define the actions that the accessing resource can apply to the parent resource.; Access Level over Parent Resource: Define the access level (Full Access, Edit, Read) that the accessing resource can apply to the parent resource.; Has Access To: Relationship to another resource that can be accessed by the current resource.; Via Role: The entity accesses the primary resource via a role that is assigned to another entity.The following additional predicates are available only for GCP resources: Has Service Account Keys: The service account keys associated with the resource. The following sub-predicates are available:Expiry: The date when the service account key expires.; Created On: The date when the service account key was created.; Type: Classification of key types, whether they are user-managed or system-managed.This predicate is not available for the unmanaged Azure Microsoft SQL server and unmanaged Azure PostgreSQL server. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Has Entitlement | Relationship to all entitlements granted to the resource. | When you select this predicate, the following additional conditions are available: Access Level: Check the access level (Full Access, Read, Edit) of the entity.; Allowed Action: Define the action that the entitlement permits.; Over Resource: The primary resource has entitlement over another resource. | This predicate is shown only for the following resource types: **AWS** EC2 Instance; Lambda Function; IAM User; IAM External User; IAM Unmanaged User; Organizations Account; External Account; IAM Role; IAM External Role; IAM Federated User**Azure** Virtual Machine; Azure App Service; User; Service Principals; Applications (App Registrations); Managed Identities (User Assigned or System Assigned); IAM Roles**GCP** Virtual Machine; App Engine; Users; Service Accounts; IAM Roles |
-| Has Access Keys | Whether the resource has access keys and whether it is rotated or not. |  |  |
-| Has Malware | Whether the resource contains malware. Malware is detected in AWS S3 buckets, Azure virtual machines and storage accounts, and GCP storage buckets. | When you select this predicate, the following predicates are available: Is Malware: Check if the resource contains malware.; Malware Category: Check if the resource contains malware of a [specific category](https://threatlibrary.zscaler.com/).; Malware Name: Check if the resource contains malware with a specific name.; Detection Accuracy Level: Check the accuracy level to determine if this is malware. | = : Is; ⊆ : Included In; (%) : Like |
-| Has Models | Whether the AI deployment instance or resource contains the AI model or not. This predicate is available only for AI-related resource types, such as AWS Bedrock, Azure AI Foundry, and vertex AI resources. | Model Name: Search for specific models either in AI deployment instances or resources.; LLM Safety Risk: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; LLM Risk Score: Check the risk score calculated for the AI model.; Model Origin: Search for the organization that developed the AI model.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Status: Check the approval state of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; LLM Risk Assessment Results: Check the risks associated with the LLM deployment. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Has AI Package | Whether the resource contains AI/ML package or not. | Package Name: Search for the name of the AI package.; Package Publisher URL: Search for link to the package homepage where the package is published.; Package Type: Search for the type of AI package.; Package Language: Search for the language of the AI package.; Package Version: Search for the version of the AI package.; Package Has Vulnerability: Check for vulnerability in the AI package.; Package Status: Check for the approval status of the AI package. The following sub-predicates are available:Sanctioned: The AI package is approved for use.; Unsanctioned: The AI package is not approved for use.; Pending: The AI package is under review awaiting approval.; Package Last Updated: Check the date and time the AI package was last modified.; Package License Type: Check the software license terms (e.g., MIT, Apache-2.0) governing the AI package.; Package Access Type: Check the access level (e.g., public) of the AI package.; Package Supply Chain Risk Level: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI package.; Package Risk Score: Check the risk score calculated for the AI package.; Package Risk Assessment Results: Check the risks associated with deploying the AI package. | < Less than; > More than; = : Is; (%) : Like; i% : iLike |
-| Has AI Model | Whether the resource contains the AI model or not. | Model Name: Search for the name of the AI model.; Model Publisher URL: Search for a link to the homepage where the AI model is published.; Model Platform: Search for the AI model platform (e.g., Ollama, Hugging Face); Model Path: Search for the file system path where the AI model is detected.; Multi-Modal: Returns true if the AI model is multi-modal and returns false if not.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Vendor: Search for the AI model vendor (e.g., Google, Meta).; Number of Downloads: Check the number of times the model was downloaded.; Model Status: Check the approval status of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; Model Last Updated: Check the date and time the AI model was last modified.; Open Source ML Risk Score: Check the risk score calculated for the AI model.; Open Source ML Risk Severity: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; Risk Factors Properties: Check the risks associated with deploying the AI model. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-
-Use the entitlement predicates to identify the secondary resource's access level and the type of actions it can perform on the primary resource.
-
-| Entitlement Predicates | Description | Additional Predicates | Operators |
-| --- | --- | --- | --- |
-| Has Access to | Access to all entitlements granted to the resource. | Access Level: Full Access, Read, or Edit.; Allowed Action: Define the action that the entitlement permits. | = : Is; ≠ : Is not; ⊆ : Included In; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-
-Use the vulnerability predicate to check if the resource contains vulnerabilities.
-
-| Vulnerability Predicate | Description | Operator |
-| --- | --- | --- |
-| Is Vulnerable | Check if the resource contains packages with vulnerabilities. | True; False |
-
-Use the posture predicates to check if security policies are enabled or disabled for resources.
-
-- AWS
-- Azure
-- GCP
-- Snowflake
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | AWS Managed Keys; Customer Managed Keys; Encrypted; Not Encrypted; Platform Managed Keys |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Data Logs; Flow Logs; Management Logs; Enabled; Disabled; Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Guardrails | Check if Guardrails is enabled or not for an AWS Bedrock Agent. |  | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Platform Managed Keys; Customer Managed Keys; Platform and Customer Managed Keys (managed disk only); Encrypted; Not Encrypted |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Enabled; DisabledUnmanaged PostgreSQL Server: Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Exposed to AI service | Returns "true" if the resource is exposed to an AI service, such as Azure AI Foundry. | **=** : Is | true; false |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Customer Managed Keys; Platform Managed Keys |
-| Logging | The date the resource was created in the cloud environment. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | All logs; Data Access Admin Read; Data Access Read; Data Access WriteGCP Cloud SQL Instance: Enabled; DisabledGCP Compute Instance: All logs; Data Access Admin Read; Data Access Read; Data Access Write; Ops Agent Logs |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Backup | The data backup policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Is Dormant | Check if the user has logged in over the last 90 days. |  | true; false |
-| Stale Access Keys | Check if the access keys have been rotated in the last 90 days. | = : Is | true; false |
-
-The Has Data predicate can be used to check if the resource contains sensitive data, document types, document categories, and identify the DLP engines and dictionaries that match the content in the resource, check for the volume of sensitive data, and more.
-
-| Predicate | Description | Operators |
-| --- | --- | --- |
-| Is Sensitive | Check if the resource contains sensitive data or not. | **=** : Is |
-| Dictionary | Dictionaries matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| DLP Engine | DLP engines matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Type | The document type matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Category | The document category matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Sensitive Data Triggers | The number of DLP trigger matches. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Matches | The number of matched sensitive data or tables. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Volume | The volume of sensitive data found in the data store and the size (in KB) of the file containing sensitive data. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Last Completed Scan | The date when the data store was last scanned successfully. | Select a date from the calendar |
-
-[Image: Add a new investigation]
-
-[Image: Provide a name for the investigation]
-
-[Image: View the resource details]
-
-[Image: View the saved investigations]
-
-[Image: Save the query as a policy]
-
-[Image: Export the data]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8501,13 +8063,13 @@ To disable the sensitivity setting:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/downloading-reports","lastmod":"2026-07-10T07:24Z","nid":"1541616"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/downloading-reports","lastmod":"2026-08-23T07:06Z","nid":"1541616"} -->
 ## Downloading Reports
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/downloading-reports
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Monitoring & Investigation > Report Management > Downloading Reports
-- Last modified: 2026-07-10T07:24Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information on viewing and downloading reports in the Zscaler Admin Console.
 
 You can download reports and assess AI Security's performance in proactively monitoring and detecting sensitive data in your cloud resources.
@@ -8526,66 +8088,6 @@ To download the reports:
 3. Click the **Download** icon for the required report and save the file on your local system.
 
 [Image: Report Management page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/editing-or-deleting-investigation","lastmod":"2026-06-03T21:06Z","nid":"1540834"} -->
-## Editing or Deleting an Investigation
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/editing-or-deleting-investigation
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > Editing or Deleting an Investigation
-- Last modified: 2026-06-03T21:06Z
-- Summary: How to edit or delete and investigations in the AI Security Admin Portal.
-
-You can edit an existing or a saved query. But you can delete only saved investigation queries.
-
-## Editing an Investigation
-
-To edit an investigation query:
-
-1. Go to **AI Infrastructure**> **Investigation**.
-2. You can edit the investigation by using any of these options:
-  - On the **History** tab:
-    - Click the **Query** to view the drawer, then click the **Edit** icon in the top-right corner. See image.
-    - Click the **Actions** icon () and select **Open in Editor**. See image.
-  - On the **Saved** tab:
-    - Click the **Actions**icon () and select **Edit Query**. See image.
-3. Edit the query by adding or removing predicates, as required.
-4. Click **Run Query** to view the results. See image.
-5. Click **Save Investigation** to save the query.
-6. Enter a name for the query. See image.
-7. Click **Save**.
-
-## Deleting an Investigation
-
-You can delete only those investigations that you've saved.
-
-To delete an investigation:
-
-1. Go to **Logs**>**Insights**> **Investigation**.
-2. On the **Investigation** page, select the**Saved** tab. See image.
-3. You can do the following:
-  - Click the **Actions**icon () and select **Delete**. See image.
-  - Click the **Name** or **Query** to view the drawer, then click the **Delete** icon. See image.
-4. Read the confirmation message, then click **Delete**. See image. The query is deleted.
-
-[Image: Open the query in the editor]
-
-[Image: Click the Edit icon to modify the query]
-
-[Image: Edit a saved query]
-
-[Image: Save the investigation]
-
-[Image: View the saved investigations]
-
-[Image: Delete a query]
-
-[Image: Select the Delete option]
-
-[Image: Delete an investigation query]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10343,13 +9845,13 @@ AI Security supports the vulnerability scanning of Azure accounts located in the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-aws-organization","lastmod":"2026-07-28T23:52Z","nid":"1539734"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-aws-organization","lastmod":"2026-08-20T04:54Z","nid":"1539734"} -->
 ## Onboarding an AWS Organization
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Onboarding an AWS Organization
-- Last modified: 2026-07-28T23:52Z
+- Last modified: 2026-08-20T04:54Z
 - Summary: Information on how to onboard an AWS organization in the AI Security Admin Portal.
 
 You can onboard an AWS organization and its associated accounts. AI Security monitors and [scans](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings) the [data stores](https://help.zscaler.com/ai-asset-mgmt/supported-data-stores-file-types-and-regions) (e.g., S3, EC2 instances, RDS instances and clusters) in the onboarded accounts to identify sensitive data and vulnerabilities.
@@ -11263,142 +10765,13 @@ To onboard an AWS account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/query-builder-policies-and-investigation","lastmod":"2026-06-05T21:06Z","nid":"1540793"} -->
-## Query Builder for Policies and Investigation
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/query-builder-policies-and-investigation
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > Query Builder for Policies and Investigation
-- Last modified: 2026-06-05T21:06Z
-- Summary: Information about queries for creating investigations and custom policies in the AI Security Admin Portal.
-
-Primary resources are the main data stores that AI Security scans for sensitive data. You can build investigation queries and custom policies to identify what type of secondary resources and entities (users, services, roles, databases, virtual machines, etc.) have access to the primary resource and how they are associated with the primary resource. You can also query if there are vulnerabilities in the primary and secondary resources and evaluate their security posture. The investigation results enable you to evaluate and remediate the issues and ensure the resources and sensitive data are secure.
-
-AI Security offers predicates and operators in the following categories to build highly contextual queries:
-
-- Property
-- Access
-- Relationship
-- Entitlement
-- Data
-- Vulnerability
-- Posture
-
-- The combination of predicates and operators is specific to each primary resource.
-- You can select multiple values when using the Like (%), Not Like !(%), iLike (i%), and Not iLike !(i%) operators.
-
-See image.
-
-You can use various attributes to identify what type of entities are associated with the primary resource. You can use a combination of operators and conditions to build the query.
-
-| Resource Property Predicates | Description | Operators |
-| --- | --- | --- |
-| Resource ID | Returns the resource ID of the primary resource. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| Resource Name | The name of the resource, as defined by the cloud service provider (CSP). | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-| Resource Property | Search the resource metadata (JSON file) for the attributes mentioned. | = : IsTrue; False; ≠ : Is not ⊆ : Included In True; False; Doesn't Exist; NullYou can select multiple values. For example, ⊆ (Included In) [Value 1] OR [Value 2] OR [Doesn't Exist].; ⊈ : Not Included In; <= : Less or equal; >= : Greater or equal; < : Less than; > : Greater than; = : On date; \|… : After date; …\| : Before date; \|...\| : Between; ∋ : Contains; ∌ : Doesn't Contain; [≠] : Is not (No match for all array records.); [⊈] : Not included in (No match for all array records.); ∅ : Null; O : Not Null; × : Doesn't exist; (%) : Like; !(%) : Not Like; [!(%)] : Not Like (No match for all array records.); i% : iLike; !(i%) : Not iLike (Applicable only for Azure resources.); And: Use this operator to select the object's multiple attributes when the resource metadata property is part of an array of multiple objects (e.g., In AWS, find Resources Where Primary Resource Type == "EC2 Instance", Resource Property "EC2 Instance".Instance.BlockDeviceMappings[*] .Ebs.Status == Enabled And .Ebs.VolumeID == ID123456789).; List: Select a set of values (e.g., Regions (List) includes a list of regions that can be queried for sensitive data.) |
-| Tags | The tags associated with the resource. You can select multiple keys. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Region | The region where the resource is located. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; ∌ : Doesn't Contain; !(%) : Not Like |
-| Account | The account in which the resource is stored. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| MFA required for login | Whether MFA is required for login. | True; False |
-| Data Store | The main data store type. | **=** : Is |
-
-Access predicates define the network access levels for the resource.
-
-| Access Predicates | Description | Operators |
-| --- | --- | --- |
-| Publicly Accessible | Returns "true" if the resource can be accessed from the internet. | True; False |
-| Public Exposure Details | Returns a JSON object that contains the details of the public exposure. For example, in case of a network level exposure, the object contains the exposed ports and IP ranges. | Enter key and value |
-
-Use the relationship predicates to identify the secondary resources that are associated with or can access the primary resource, check the security posture of the primary resource, whether the primary resource has vulnerabilities, malware, etc.
-
-| Relationship Predicates | Description | Additional Predicates | Operators/Conditions/Resource Types |
-| --- | --- | --- | --- |
-| Has Package | The package installed in the resource. | Package Name; Package Version |  |
-| Has Data | Check the type of the detected data. | You can use the following predicates to identify the specific data types: Is Sensitive: Returns "true" if the resource contains sensitive data.; DLP Engine: Describes the DLP engines.; Dictionary: Describes the dictionaries.; Document Type: Select the required document type.; Document Category: Describes the document category.; Sensitive Data Triggers: Enter the number of DLP trigger matches that the resource permits.; Sensitive Data Matches: Enter the number of sensitive files/tables that the resource permits.; Sensitive Data Volume: Enter the permitted file size value of the files containing sensitive information (in KB).; Last Completed Scan: Returns the time stamp when the resource was last scanned successfully. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal; = On date; \|... Before date; ...\| After date; \|...\| Between; < Less than; > More than |
-| Has Vulnerability | Check for the specific vulnerability details. | CVE ID: Returns the CVE ID as defined in the [National Vulnerability Database (NVD)](https://nvd.nist.gov/). You can select a predefined list of vulnerabilities, allowing you to query multiple values at the same time.; CVSS Score: Returns the numeric open industry standard for assessing the severity of the vulnerability.; CVE Severity: Returns the CVE severity as defined in the NVD.; Age of CVE: Returns the age of the vulnerability discovery as defined in the NVD.; Package Name: Search for a specific package name that is affected by a vulnerability.; Package Version: Search for a specific package version that is affected by a vulnerability.; Fix Available: Returns "true" if a fix is available as defined in the NVD. |  |
-| Has Access to | The secondary resources that can access the primary resource. You can select multiple resource types. |  |  |
-| Associated with | The relationship between this resource and another associated resource. You can select multiple resource types. |  |  |
-| Has Password | Whether the resource is password protected or not. |  |  |
-| Can be accessed by | IAM entities can be a service, user, or a role that can access the primary resource. | You can use the following additional predicates and operators, allowing you to build the query with more granularity: Entity ID: Enter the entity ID.; Account: Select the account that is associated with the entity.; Region: Select the region where the account is located.; Tags: Select the tags associated with the entity.; Action over Parent Resource: Define the actions that the accessing resource can apply to the parent resource.; Access Level over Parent Resource: Define the access level (Full Access, Edit, Read) that the accessing resource can apply to the parent resource.; Has Access To: Relationship to another resource that can be accessed by the current resource.; Via Role: The entity accesses the primary resource via a role that is assigned to another entity.The following additional predicates are available only for GCP resources: Has Service Account Keys: The service account keys associated with the resource. The following sub-predicates are available:Expiry: The date when the service account key expires.; Created On: The date when the service account key was created.; Type: Classification of key types, whether they are user-managed or system-managed.This predicate is not available for the unmanaged Azure Microsoft SQL server and unmanaged Azure PostgreSQL server. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Has Entitlement | Relationship to all entitlements granted to the resource. | When you select this predicate, the following additional conditions are available: Access Level: Check the access level (Full Access, Read, Edit) of the entity.; Allowed Action: Define the action that the entitlement permits.; Over Resource: The primary resource has entitlement over another resource. | This predicate is shown only for the following resource types: **AWS** EC2 Instance; Lambda Function; IAM User; IAM External User; IAM Unmanaged User; Organizations Account; External Account; IAM Role; IAM External Role; IAM Federated User**Azure** Virtual Machine; Azure App Service; User; Service Principals; Applications (App Registrations); Managed Identities (User Assigned or System Assigned); IAM Roles**GCP** Virtual Machine; App Engine; Users; Service Accounts; IAM Roles |
-| Has Access Keys | Whether the resource has access keys and whether it is rotated or not. |  |  |
-| Has Malware | Whether the resource contains malware. Malware is detected in AWS S3 buckets, Azure virtual machines and storage accounts, and GCP storage buckets. | When you select this predicate, the following predicates are available: Is Malware: Check if the resource contains malware.; Malware Category: Check if the resource contains malware of a [specific category](https://threatlibrary.zscaler.com/).; Malware Name: Check if the resource contains malware with a specific name.; Detection Accuracy Level: Check the accuracy level to determine if this is malware. | = : Is; ⊆ : Included In; (%) : Like |
-| Has Models | Whether the AI deployment instance or resource contains the AI model or not. This predicate is available only for AI-related resource types, such as AWS Bedrock, Azure AI Foundry, and vertex AI resources. | Model Name: Search for specific models either in AI deployment instances or resources.; LLM Safety Risk: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; LLM Risk Score: Check the risk score calculated for the AI model.; Model Origin: Search for the organization that developed the AI model.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Status: Check the approval state of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; LLM Risk Assessment Results: Check the risks associated with the LLM deployment. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Has AI Package | Whether the resource contains AI/ML package or not. | Package Name: Search for the name of the AI package.; Package Publisher URL: Search for link to the package homepage where the package is published.; Package Type: Search for the type of AI package.; Package Language: Search for the language of the AI package.; Package Version: Search for the version of the AI package.; Package Has Vulnerability: Check for vulnerability in the AI package.; Package Status: Check for the approval status of the AI package. The following sub-predicates are available:Sanctioned: The AI package is approved for use.; Unsanctioned: The AI package is not approved for use.; Pending: The AI package is under review awaiting approval.; Package Last Updated: Check the date and time the AI package was last modified.; Package License Type: Check the software license terms (e.g., MIT, Apache-2.0) governing the AI package.; Package Access Type: Check the access level (e.g., public) of the AI package.; Package Supply Chain Risk Level: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI package.; Package Risk Score: Check the risk score calculated for the AI package.; Package Risk Assessment Results: Check the risks associated with deploying the AI package. | < Less than; > More than; = : Is; (%) : Like; i% : iLike |
-| Has AI Model | Whether the resource contains the AI model or not. | Model Name: Search for the name of the AI model.; Model Publisher URL: Search for a link to the homepage where the AI model is published.; Model Platform: Search for the AI model platform (e.g., Ollama, Hugging Face); Model Path: Search for the file system path where the AI model is detected.; Multi-Modal: Returns true if the AI model is multi-modal and returns false if not.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Vendor: Search for the AI model vendor (e.g., Google, Meta).; Number of Downloads: Check the number of times the model was downloaded.; Model Status: Check the approval status of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; Model Last Updated: Check the date and time the AI model was last modified.; Open Source ML Risk Score: Check the risk score calculated for the AI model.; Open Source ML Risk Severity: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; Risk Factors Properties: Check the risks associated with deploying the AI model. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-
-Use the entitlement predicates to identify the secondary resource's access level and the type of actions it can perform on the primary resource.
-
-| Entitlement Predicates | Description | Additional Predicates | Operators |
-| --- | --- | --- | --- |
-| Has Access to | Access to all entitlements granted to the resource. | Access Level: Full Access, Read, or Edit.; Allowed Action: Define the action that the entitlement permits. | = : Is; ≠ : Is not; ⊆ : Included In; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-
-Use the vulnerability predicate to check if the resource contains vulnerabilities.
-
-| Vulnerability Predicate | Description | Operator |
-| --- | --- | --- |
-| Is Vulnerable | Check if the resource contains packages with vulnerabilities. | True; False |
-
-Use the posture predicates to check if security policies are enabled or disabled for resources.
-
-- AWS
-- Azure
-- GCP
-- Snowflake
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | AWS Managed Keys; Customer Managed Keys; Encrypted; Not Encrypted; Platform Managed Keys |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Data Logs; Flow Logs; Management Logs; Enabled; Disabled; Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Guardrails | Check if Guardrails is enabled or not for an AWS Bedrock Agent. |  | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Platform Managed Keys; Customer Managed Keys; Platform and Customer Managed Keys (managed disk only); Encrypted; Not Encrypted |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Enabled; DisabledUnmanaged PostgreSQL Server: Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Exposed to AI service | Returns "true" if the resource is exposed to an AI service, such as Azure AI Foundry. | **=** : Is | true; false |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Customer Managed Keys; Platform Managed Keys |
-| Logging | The date the resource was created in the cloud environment. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | All logs; Data Access Admin Read; Data Access Read; Data Access WriteGCP Cloud SQL Instance: Enabled; DisabledGCP Compute Instance: All logs; Data Access Admin Read; Data Access Read; Data Access Write; Ops Agent Logs |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Backup | The data backup policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Is Dormant | Check if the user has logged in over the last 90 days. |  | true; false |
-| Stale Access Keys | Check if the access keys have been rotated in the last 90 days. | = : Is | true; false |
-
-The Has Data predicate can be used to check if the resource contains sensitive data, document types, document categories, and identify the DLP engines and dictionaries that match the content in the resource, check for the volume of sensitive data, and more.
-
-| Predicate | Description | Operators |
-| --- | --- | --- |
-| Is Sensitive | Check if the resource contains sensitive data or not. | **=** : Is |
-| Dictionary | Dictionaries matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| DLP Engine | DLP engines matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Type | The document type matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Category | The document category matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Sensitive Data Triggers | The number of DLP trigger matches. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Matches | The number of matched sensitive data or tables. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Volume | The volume of sensitive data found in the data store and the size (in KB) of the file containing sensitive data. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Last Completed Scan | The date when the data store was last scanned successfully. | Select a date from the calendar |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-08-11T09:15Z","nid":"1539122"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-08-19T10:55Z","nid":"1539122"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-11T09:15Z
+- Last modified: 2026-08-19T10:55Z
 - Summary: AI Asset Management Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for AI Asset Management.
@@ -11533,97 +10906,6 @@ To run an On-Demand scan, complete the following steps in the AI Security Admin 
 [Image: Scan rule page with an annotation for On-Demand Scan action.]
 
 [Image: Confirmation window to confirm the on-demand scan.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/selecting-aws-orchestrator-and-monitoring-scope","lastmod":"2026-07-22T23:50Z","nid":"1539925"} -->
-## Selecting the AWS Orchestrator and Monitoring Scope
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/selecting-aws-orchestrator-and-monitoring-scope
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Selecting the AWS Orchestrator and Monitoring Scope
-- Last modified: 2026-07-22T23:50Z
-- Summary: Information about how to select the network configuration, AWS orchestrator account, and AWS target accounts that must be monitored.
-
-After deploying the [tree discovery](https://help.zscaler.com/ai-asset-mgmt/deploying-aws-tree-discovery-template) template for the [onboarding process](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization), select the network configuration, orchestrator, and monitoring scope in the AI Security Admin Portal.
-
-Under the **Orchestrator & Monitoring Scope** section:
-
-- 1. Select the network configuration.
-- 2. Configure the orchestrator.
-- 3. Set a monitoring scope.
-
-To modify the configured accounts, click **Reset.**
-
-When you have configured the network and scopes successfully, you are directed to the Additional Configuration section.
-
-In the **Additional Configuration**section, you can configure custom tags, evidence storage, and data events. Click **Skip This Step** to configure the additional details after completing the onboarding process and go to the [Grant Permissions section](https://help.zscaler.com/ai-asset-mgmt/deploying-orchestrator-and-monitoring-scope-templates).
-
-- Custom Tags
-- Evidence Storage
-
-After the configuration is completed, you are directed to the [Grant Permissions](https://help.zscaler.com/ai-asset-mgmt/deploying-orchestrator-and-monitoring-scope-templates) section to deploy the orchestrator and monitoring scope templates.
-
-You can choose any of the following network configurations:
-
-- **Zscaler**: Use Zscaler resources to deploy the orchestrator and monitoring scope.
-- **Custom**: Use your organization's resources to deploy the orchestrator and monitoring scope.
-
-By default, the custom configuration is selected. Changing the network configuration resets the existing configurations.
-
-To configure the orchestrator, click **Configure Orchestrator**.
-
-The orchestrator configuration depends on the network configuration you chose earlier.
-
-- If you selected the Zscaler network configuration
-- If you selected the custom network configuration
-
-1. On the **Configure an Orchestrator Account** page, select an account and the primary region where you want to deploy the orchestrator template and click **Next**. You need to specify this primary region while creating the StackSets.
-2. On the **Select which services to monitor** page, select the services that AI Security must monitor. By default, all the services are selected. AI Security permissions are restricted to monitor and scan the data only in the selected services. The Unmanaged Database service is disabled for Zscaler network configuration.; AI Security automatically excludes Amazon S3 buckets used for storing logs.
-3. On the **Configure Regions** **for monitoring and scanner's configuration**page, select the regions that AI Security must monitor. AI Security creates and deploys resources required for scanning only in the selected regions. You need to specify these regions while deploying the orchestrator template.
-4. Click **Done**.
-
-1. On the **Configure an Orchestrator Account** page, select an account and the primary region where you want to deploy the orchestrator template, and then provide the following details for that selected region: You need to specify this primary region while creating StackSets.
-  1. **Subnet ARN**: Enter the private subnet ARN for the orchestrator instance.
-  2. **Security Group ID**: Enter the secruity group ID for the orchestrator instance.
-2. Click **Next**.
-3. On the **Select which services to monitor** page, select the services that AI Security must monitor. By default, all the services are selected. AI Security permissions are restricted to monitor and scan the data only in the selected services. AI Security automatically excludes Amazon S3 buckets used for storing logs.
-4. On the **Configure regions for monitoring and scanner configuration** page, select the regions that AI Security must monitor, and enter the following for each selected region: You need to specify these regions while deploying the orchestrator template.
-  1. **Subnet ARN**: Enter the subnet where the scanner instances must be launched.
-  2. **Security Group ID**: Enter the ID of the security group that controls network traffic to and from the scanner instances.
-  3. **DB Subnet Group ARN**: Enter the ARN of the database subnet group. This is required for AI Security to scan the RDS databases.
-5. Click **Done**.
-
-1. Click **Set Monitoring Scope**.
-2. On the **Configure Monitoring Scope** page, select the target accounts that AI Security must monitor, then click **Next**. If you want all the accounts in an organizational unit (OU) to be scanned, select the OU. An OU is a logical group of accounts that perform similar or related functions. To learn more about OUs, refer to the [AWS documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html). Select **Autodetection** at the OU level if you want AI Security to automatically include and scan new accounts that are added to the OU in the future. This eliminates the need to manually onboard the new accounts. You must activate automatic deployment in AWS to automatically deploy stack instances for newly added accounts in the future.
-3. On the **Assign Business Units** page, assign a business unit to the OU. All the accounts in the OU are mapped to the selected business unit. The default business unit is assigned to the OU. You can change the business units for the OU if required, after completing the onboarding process.
-4. Click **Done.**
-
-AI Security discovers files and tables containing sensitive data and generates evidence data to investigate and validate the findings. You can choose an existing S3 bucket or configure a new one to store these evidence snippets.
-
-1. Click **Add Evidence Storage**.
-2. On the **Evidence Configuratio**n, select one of the following: When configured, the S3 bucket cannot be modified. You can only enable or disable the evidence configuration.
-  - Custom S3 bucket
-  - Zscaler Managed S3 bucket
-3. Click **Done**.
-
-Custom tags are attached to the resources created by AI Security that enable you to distinguish resources in the organization.
-
-To add custom tags:
-
-1. Click **Add Custom Tags**.
-2. On the **Add Custom Tags** page, enter a key and value pair for the tag. Ensure to follow the guidelines while entering key-value pairs for custom tags.
-3. Click **Add More**, and enter key-value pairs to add more tags.
-4. Click **Done**.
-
-You can use an existing S3 bucket to configure evidence data. AI Security uploads the classified data into the specified S3 bucket.
-
-- **S3 Bucket Name**: The name of the S3 bucket name.
-- **S3 Bucket Account ID**: The 12-digit account ID.
-- **KMS Key ARN**: The KMS key ARN. This key is used to encrypt the evidence data in the S3 bucket.
-
-AI Security creates an S3 bucket in the orchestrator account to upload the classified data.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12454,34 +11736,6 @@ To validate all accounts in the organization:
 2. Select the cloud account.
 3. Click **Manage**, and then select **On Demand Validation** from the drop-down menu.
 4. In the **On Demand Validation** window, click **Confirm**.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-investigation-results","lastmod":"2026-06-05T21:06Z","nid":"1540833"} -->
-## Viewing the Investigation Results
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-investigation-results
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > Viewing the Investigation Results
-- Last modified: 2026-06-05T21:06Z
-- Summary: Information about the investigation queries created in the AI Security Admin Portal.
-
-The investigation queries you create are displayed on the [Investigation page](https://help.zscaler.com/ai-asset-mgmt/about-investigation). You can run the investigation query and view the investigation results.
-
-To view the investigation results:
-
-1. Go to **AI Infrastructure**>**Investigation**.
-2. On the **Investigation** page, you can do the following: The investigation results are displayed. See image. Resources with the highest level of severity are displayed in hierarchical order. When you sort the data in the **Risk** or **Resource Name** column, resources with the highest risk are displayed first, followed by the ones with lower risk. Click the **Resource Name** to view the resource details.
-  - By default, the **History** tab displays all the queries that you've created. Click the **Actions** icon () for any query, then select **Run Query**. See image.
-  - Select the **Saved** tab to view the saved queries. Click the **Actions** icon () for any query, then select **Run Query**. See image.
-  - On the **Saved** tab, click the**Investigation Name** or **Query** to view the drawer. Click the **Run Query** icon at the top right corner. See image.
-
-[Image: Run a saved query]
-
-[Image: Click the Run Query icon]
-
-[Image: Run the query]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15825,4 +15079,771 @@ The following sections outline the key steps in EASM's asset discovery and monit
 4. **Automated Monitoring**: After the discovery process is complete, EASM continues to monitor the organization's external attack surface through periodic scans. This ensures that any new risks are detected promptly and that any changes to existing assets are tracked.
 
 To learn how to set up asset discovery in EASM, see [Step-by-Step Configuration Guide for EASM](https://help.zscaler.com/easm/step-step-configuration-guide-easm).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-dashboards","lastmod":"2025-01-28T00:36Z","nid":"1503521"} -->
+## Understanding Dashboards
+
+- Source: https://help.zscaler.com/easm/understanding-dashboards
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Dashboards & Analytics > Understanding Dashboards
+- Last modified: 2025-01-28T00:36Z
+- Summary: Information on dashboards in Zscaler External Attack Surface Management (EASM), their features, and how they help in monitoring digital assets and assessing risk insights.
+
+Dashboards are essential tools for presenting key information from related data sources in a format that is easy to interpret, using various data visualization elements, such as graphs, tables, and charts. Zscaler EASM provides two dynamic and interactive dashboards, namely Assets Overview and Insights Overview. The Assets Overview dashboard provides a summary of the approved asset inventory that constitutes your organization's external attack surface, while the Insights Overview dashboard provides information on the vulnerabilities and risks associated with those assets. These dashboards are designed to aggregate and display key metrics related to assets and risk insights, helping you quickly identify areas of concern. By offering a near real-time view of your organization's evolving attack surface, these dashboards enable you to prioritize and address business-critical vulnerabilities, ensuring the protection of your internet-exposed asset infrastructure from potential threats.
+
+The Assets Overview and Insights Overview dashboards serve as valuable starting points for identifying and understanding the threat landscape of your digital assets. Each dashboard features a collection of widgets specifically designed to present key metrics relating to assets or risk findings. These dashboards are highly interactive, allowing you to perform various actions within each widget, such as adjusting time frames, hovering over data points to view detailed information, and clicking on specific data points to access a filtered view of relevant entities on a different page in EASM. After identifying the most critical threats in your infrastructure using the information presented on the dashboard, you can drill down on the assets or risk findings for further analysis.
+
+The following sections provide a detailed breakdown of each dashboard.
+
+## Insights Overview Dashboard
+
+The Insights Overview dashboard provides a comprehensive summary of risk findings within your organization's digital attack surface, using clear graphical representations to highlight critical risk metrics. These findings include undetected vulnerabilities, misconfigurations, and compliance violations across your internet-exposed digital assets, which have been discovered and inventoried by EASM.
+
+The dashboard presents key metrics across various parameters, such as risk trends, distribution of findings by risk levels and predefined categories, and the top locations with the highest concentration of risks. Additionally, it summarizes critical findings in specific areas, such as exposed sensitive services, VPN appliances, and risks associated with SSL/TLS certificate expiration and domain registration expiration. Specific examples of risk findings include Common Vulnerabilities and Exposures (CVEs), SSL/TLS misconfigurations or outdated versions, expired digital certificates, domain registration expiration, insecure HTTP headers, exposed VPN appliances, and sensitive services such as RDP, SSH, VNC, Telnet, and SNMP.
+
+The dashboard also monitors lookalike domains—fraudulent domains created by bad actors to resemble legitimate domain names associated with your organization, which are often used to deceive users into downloading malware, divulging sensitive information, and perpetrating other forms of cyberattacks.
+
+Each of these key metrics is displayed within an interactive widget on the dashboard, allowing you to drill down into specific data points for further analysis. You can easily switch between different EASM organizations by selecting the desired organization within the user interface, enabling you to effectively monitor and address the most critical threats to your infrastructure.
+
+See image.
+
+To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard).
+
+## Assets Overview Dashboard
+
+The Assets Overview dashboard provides a comprehensive summary of your organization's internet-facing digital assets, which have been verified as part of your digital infrastructure. This dashboard offers visibility into your external attack surface, presenting key metrics related to the risks and vulnerabilities associated with these assets. EASM uses advanced scanning techniques and intelligence-gathering tools to identify and analyze exposed assets across the internet, including unknown or forgotten assets. When discovered, these assets are inventoried, classified, and monitored through periodic scans. The latest data is then presented on the Assets Overview dashboard using graphical representations.
+
+This dashboard allows you to quickly assess the security posture of your asset infrastructure, providing real-time updates on vulnerabilities, misconfigurations, and compliance violations. By offering a high-level view of your organization's external attack surface, the dashboard enables timely identification of business-critical assets and the remediation of vulnerabilities, helping to prevent potential exploits.
+
+See image.
+
+To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
+
+[Image: Insights Overview dashboard that provides a summary of risks and vulnerabilities discovered in the digital attack surface]
+
+[Image: Assets Overview dashboard that provides a summary of most concerning assets discovered in the digital attack surface]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-finding-details","lastmod":"2025-12-16T03:22Z","nid":"1503596"} -->
+## Understanding Finding Details
+
+- Source: https://help.zscaler.com/easm/understanding-finding-details
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Findings > Understanding Finding Details
+- Last modified: 2025-12-16T03:22Z
+- Summary: Information on understanding and analyzing finding details in Zscaler External Attack Surface Management (EASM), including risk assessment, impacted assets, and remediation insights.
+
+EASM investigates the security risks (or findings) that are uncovered in your organization's digital attack surface and catalogs them on the [Findings page](https://help.zscaler.com/easm/about-findings) (Insights > Findings). This page features a highly customizable, tabulated list of findings, allowing you to click each record to access detailed information about the finding and perform specific actions on a per-finding basis. The details provided for each finding are crucial for assessing the severity of risks, prioritizing them, and planning mitigation strategies. Additionally, each finding is also mapped to the assets affected by the finding in a many-to-many relationship (i.e., one finding can impact multiple assets and vice-versa).
+
+The finding details are presented in two distinct views, offering users the flexibility to drill down on the finding details as required. When you click a row in the findings table, a quick view of essential information about the finding opens in a right-side drawer (referred to as "Finding Details drawer" henceforth). This drawer features a tabbed interface for finding details, impacted assets, status change history, and Jira tickets. To view more detailed finding information, from the Finding Details drawer, you can access a full-page view of comprehensive details about the finding (referred to as "Finding Details page" henceforth). To do this, you need to click the View More Details button on the Finding Details tab of the Finding Details drawer.
+
+See image.
+
+The Finding Details page provides extensive information about the finding and also mirrors the tabbed interface for finding details, impacted assets, and tickets as seen in the Finding Details drawer. The Finding Details drawer is essentially a limited version of the Finding Details page and allows you to easily switch between different findings to view their details from the list view. On the other hand, the Finding Details page is more useful when analyzing a specific finding, and you need to access the complete data available for the finding. When you are on the Finding Details page, you can go back to the findings list view to access details of other findings.
+
+See image.
+
+The next sections cover all the finding details that are available, following the presentation layout and the comprehensive information tracked on the Finding Details page. On the Finding Details page (Insights > [Finding] > Finding Details > View More Details), the finding name is displayed at the top along with the finding's overview, details, and impacted assets.
+
+Some of the following documented fields are only available on the Finding Details page and are not present in the Finding Details drawer. Additionally, the organization of the content differs between the two views.
+
+## Finding Overview
+
+This section contains high-level information about the finding to help users get a baseline of the finding at a glance. This section includes:
+
+- **Category/Type**: The classification of the finding as **Exposure**, **Vulnerability**, or **Misconfiguration**, which provides context about the finding instantly. Each category of findings is uniquely processed and has slightly varying information presented for the findings within that category based on relevance. For example, the NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are all most relevant to vulnerability findings rather than exposures or misconfigurations.
+- **Risk Level**: The risk level quantifies the amount of risk associated with a finding, and it is derived from the risk score computed for the finding. The risk level ranges from **Low**, **Medium**, **High**, and **Critical**. Risk levels help you with instant information about prioritizing business-critical findings. For example, a critical or high risk level indicates that the finding poses significant risk without mitigation controls, whereas a low risk level might indicate an acceptable risk. A medium risk level might indicate that the issue needs to be resolved to improve your security defenses but might have a lower priority compared to serious risks.
+- **Impacted Asset**: The asset impacted by the risk finding. Assets and findings can have many-to-many relationships (i.e., one finding can impact multiple assets and an asset can have multiple findings), and the complete list of assets impacted by the finding is listed under the **Other Impacted Assets** tab along with the count of assets displayed in the tab name.
+- **First Seen**: The timestamp of when the finding was first detected during scanning, adding more context to understanding the interaction with the finding.
+- **Last Seen**: The timestamp when the finding was last detected during scanning, adding more context to understanding the interaction with the finding.
+- **Finding Age**: The number of days elapsed since the first encounter with the finding until it was last seen, indicating how long the finding has been present in your asset infrastructure.
+- **Status**: Indicates the current stage in which the finding is present from discovery to closure. You can modify the status of the finding using the drop-down menu. List of Available Statuses
+
+See image.
+
+## Finding Details
+
+On the Details tab, you can find crucial information about the finding that provides more context about the finding to help you understand and analyze the finding more in depth. This section includes:
+
+- **Finding Risk Score**: A risk score computed for the finding based on multiple vectors such as threat severity, likelihood, and impact using a combination of open source intelligence (OSINT) on vulnerability risk computation and Zscaler's proprietary risk computation techniques. The risk score is a numerical value ranging from 1 to 100. The risk score is shown in a half donut chart with the risk score and risk level presented at the center and an indicator used to point towards the color-coded risk score meter in the donut chart.
+- **Scan Type**: The scanning service that was used to uncover the risk. The available scan types are **Web**, **Network**, **Certificate**, and **DNS** scans. For example, domain expiration is likely to be detected in a DNS scan, SSL/TLS outdated version might be detected in a web scan, and a CVE vulnerability might be detected in a web, DNS, or network scan.
+- **NVD CVSS Severity**: The Common Vulnerability Scoring System (CVSS) score that indicates the qualitative measure of severity of a vulnerability using a numerical value ranging from 1 to 10, if applicable.
+- **CISA KEV Likelihood**: Indicates whether a vulnerability is listed in the [Known Exploited Vulnerabilities (KEV) catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) using a Boolean value, if applicable.
+- **EPSS Likelihood**: The Exploit Prediction Scoring System (EPSS) likelihood indicates the probability that a vulnerability can be exploited in the wild, if applicable. The value is represented in a percentage.
+- **Description**: A detailed description of the finding gathered from an open-source intelligence, such as [National Vulnerability Database (NVD)](https://nvd.nist.gov/), and Zscaler's research team.
+- **[Scan Output]**: This section contains the complete output of the scan that was used to identify the finding. This section is labeled differently for assets depending on their type and the corresponding scan performed (e.g., HTTP Response, Nmap Response, and Certificate Response).
+- **Matched Evidence**: This section contains specific portions of the scan results that attest to the finding. This information provides attestation of detected findings and enables organizations to self-validate their findings using the investigative trail provided.
+
+See image.
+
+Specific finding details, such as NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are only applicable to vulnerability findings which group Common Vulnerabilities and Exposures (CVE). CVE is a list of publicly disclosed vulnerabilities maintained by MITRE.
+
+## Impacted Assets
+
+On the **Other Impacted Assets** tab, you can access the list of all assets that are impacted by the risk, excluding the asset that's already displayed in the Overview section. This section provides visibility into how widely the risk is spread within your asset infrastructure by aggregating the risk impact. The assets are tabulated, and the following information is available for each asset.
+
+Available Fields
+
+The number of assets that are impacted by the risk is included in the tab name. You can use the **Settings** icon to select the columns that must be shown or hidden from the asset table. In addition, you can sort the list by specific table columns using the **Sort** icon that appears in the column header.
+
+See image.
+
+## Tickets
+
+This tab is available if [Jira integration is enabled](https://help.zscaler.com/easm/configuring-jira-integration) for the organization with the finding is associated. On this tab, you can create and view Jira tickets for this finding. When creating the tickets, you can fill out a set of predefined Jira fields, such as Project, Issue Type, Component, Priority, and Assignee.
+
+Jira ticket creation in EASM and ticket synchronization between Jira and EASM requires an active connection established between your Jira instance and EASM organization through a valid personal access token retrieved from Jira.
+
+To add a new ticket, click **Create**, provide the required information, and submit the details. To learn more, see [Creating Jira Tickets for Findings](https://help.zscaler.com/easm/creating-jira-tickets-findings). After the ticket is created, the record is added to Jira along with data fetched from EASM such as the finding details and any attachment files. The Jira ticket ID and status are reflected in EASM immediately along with other information submitted. The ticket record details automatically synchronize between Jira and EASM.
+
+See image.
+
+- **Not Verified**: All the risk findings identified by EASM in your organization's attack surface are tagged with the label, Not Verified.
+- **Verified**: Risk findings are investigated manually and are verified to be present (e.g., verifying an open port flagged on a host).
+- **Risk Accepted**: Represents risk findings that are deemed acceptable. For example, a jump server with port 22 open and exposed to the internet might be for intended use.
+- **Resolved**: Risk findings for which remediation steps are taken or are planned can be marked as resolved. With the previous example, if the server is planned to be moved behind Zscaler Private Access (ZPA) as a resolution, then it could be marked as resolved. However, if the finding is discovered again in a subsequent scan, then it is marked as Not Verified.
+- **Disputed**: If the manual verification of the finding turns out different from the risk finding, the finding can be moved to the Disputed status, indicating that it might be a false positive.
+
+See image.
+
+The Insights Overview dashboard presents data on findings that are in Not Verified and Verified statuses to highlight risks that need to be addressed to eliminate threats and penetration by bad actors into your network. Findings that are in Risk Accepted, Resolved, or Disputed statuses are not presented in the dashboard, as these risks are considered as not requiring any further actions from your security team. However, risks in these statuses can be moved to Not Verified or Verified if they require further examination. To learn more, see [Modifying Finding Status](https://help.zscaler.com/easm/modifying-finding-status).
+
+- **Name**: The name of the asset.
+- **Risk Level**: The risk level assigned to the asset.
+- **Scan Type**: The type of scan through which the asset was discovered, such as Web, DNS, or Network type scans.
+- **Status**: The [status](https://help.zscaler.com/easm/changing-asset-status) of the asset from Approved, Candidate, or Archived.
+- **First Seen**: The timestamp when the finding was first detected in the asset.
+- **Last Seen**: The timestamp when the finding was last observed in the asset.
+
+You can access detailed information about each asset from the Assets page. To learn more, see [Understanding Asset Details](https://help.zscaler.com/easm/understanding-asset-details).
+
+[Image: Accessing finding details page from list view in EASM]
+
+[Image: Navigating to findings list view from details page in the EASM Admin Portal]
+
+[Image: Finding overview section in EASM showing basic information about the finding]
+
+[Image: Finding status drop-down menu in the finding details page in EASM Admin Portal]
+
+[Image: Finding details tab in EASM Admin Portal showing key information about the finding]
+
+[Image: List of assets impacted by a finding shown in the EASM Admin Portal]
+
+[Image: Creating and linking Jira ticket with EASM finding from the EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-lookalike-domain-details","lastmod":"2024-11-29T06:06Z","nid":"1508146"} -->
+## Understanding Lookalike Domain Details
+
+- Source: https://help.zscaler.com/easm/understanding-lookalike-domain-details
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Understanding Lookalike Domain Details
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on lookalike or phishing domains along with their details populated in EASM which can be analyzed for enforcing threat mitigation controls.
+
+The lookalike domains that are detected for your seed domains are investigated and cataloged on the [Lookalike Domains page](https://help.zscaler.com/easm/about-lookalike-domains) (Insights > Lookalike Domains). This page provides a customizable, tabulated list where you can click each domain entry to access more detailed information and take specific actions. The lookalike domain details consist of contextual information, helping you understand key aspects, such as the original domain forged by the lookalike domain, domain registration details, risk category and risk score, deception tactics used in the domain name, domain detection timeline, and status.
+
+To view comprehensive information about a lookalike domain, click on an entry in the table. A right-side drawer referred to as the Lookalike Domain Details drawer opens. In this drawer, you can access the following information about the lookalike domain:
+
+- **Original Domain**: The legitimate domain mimicked by the lookalike domain.
+- **Lookalike Domain Annotation**: A label for the lookalike domain.
+- **Risk Category**: The risk categorization of the lookalike domain. Available Risk Categories
+- **Risk Score**: A risk score assigned for the lookalike domain.
+- **Deception Method**: The deception tactic used in the lookalike domain name to impersonate a legitimate domain. Examples of deception techniques include the use of homograph (i.e., by exploiting similar-looking characters or homoglyphs), substituting letters with numbers, hyphenation, intentional typos, adding, removing, or transposing letters, etc.
+- **Lookalike Domain Registrar**: The internet company that was used to register the domain, if available. Popular registrars include GoDaddy, Namecheap, Bluehost, Domain.com, etc.
+- **Lookalike Domain Registered**: Indicates whether the domain is registered with a registrar or not.
+- **Lookalike Registrant Organization**: An individual or entity that owns the registered domain, if available.
+- **Lookalike Registration Expiration**: The domain registration expiration date, if available.
+- **First Seen**: The timestamp when the lookalike domain was first identified in a scan.
+- **Last Seen**: The timestamp when the lookalike domain was last observed in a scan.
+- **Status**: The status assigned to the lookalike domain entry from Not Verified, Verified, Risk Accepted, Resolved, and Disputed. You can modify the status using the drop-down menu as needed. Available Statuses
+- **Description**: A description of the lookalike domain, why it is suspicious, and the deception tactics used.
+
+See image.
+
+- **Verified Phishing**: Indicates that the domain is verified to be a phishing site by Zscaler's web risk analyzer service.
+- **Registered Lookalike**: Indicates that the domain is registered through an internet company that provides domain registration services (i.e., registrar).
+- **Preventative Lookalike**: Indicates that the domain is not registered with a registrar.
+
+- **Not Verified**: All lookalike domains initially detected by EASM for your legitimate seed domains are automatically tagged with the label "Not Verified".
+- **Verified**: Lookalike domains are manually investigated and verified for risks. An example could be a high-risk domain that is verified to be a phishing site.
+- **Risk Accepted**: Represents that the risk is deemed acceptable. An example could be a domain that is not registered yet and can be put on the watch list.
+- **Resolved**: Lookalike domains for which remediation steps are taken or are planned can be marked as resolved. For example, if a fake domain is taken offline or suspended by the registrar after reporting and the threat is eliminated, it can be marked as resolved. However, if the lookalike domain is discovered again in a subsequent scan, then it is marked as "Not Verified".
+- **Disputed**: If the manual verification of a lookalike domain turns out differently from the original detection, the lookalike domain can be moved to the Disputed status, indicating that it might be a false positive.
+
+See image.
+
+[Image: Lookalike domain details page showing key information in the EASM Admin Portal]
+
+[Image: Lookalike domain status change in the EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/what-zscaler-easm","lastmod":"2025-01-06T23:56Z","nid":"1503636"} -->
+## What Is Zscaler EASM?
+
+- Source: https://help.zscaler.com/easm/what-zscaler-easm
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Getting Started > What Is Zscaler EASM?
+- Last modified: 2025-01-06T23:56Z
+- Summary: Information on Zscaler External Attack Surface Management (EASM), its features, benefits, and use cases for securing internet-facing assets.
+
+In today's digital landscape, organizations face an ever-expanding attack surface due to rapid cloud adoption, the proliferation of shadow IT, and the continuous evolution of cyber threats. Zscaler External Attack Surface Management (EASM) addresses these challenges to help organizations gain visibility into and protect their internet-facing digital assets.
+
+External Attack Surface Management refers to the continuous discovery, inventory, classification, and monitoring of an organization's digital assets that are exposed to the internet. These assets include domains, IP addresses, subdomains, SSL/TLS certificates, and more. EASM tools are crucial because they provide a real-time view of the external attack surface, helping organizations identify and mitigate vulnerabilities before they can be exploited by malicious actors.
+
+Zscaler EASM distinguishes itself by integrating advanced scanning techniques and intelligence gathering with Zscaler's Zero Trust Exchange (ZTE) platform. This integration allows the tool to not only identify exposed assets but also prioritize vulnerabilities based on the likelihood of exploitation and the potential impact on the organization.
+
+## Key Features and Benefits
+
+The key features and benefits offered by EASM for managing and securing your external attack surface are as follows:
+
+- **Comprehensive Asset Discovery**: EASM uses both passive and active scanning methods to continuously discover and inventory all internet-facing assets. This includes not only known assets but also forgotten or unknown assets in your digital infrastructure that might have been overlooked.
+- **Risk-Based Prioritization**: Unlike traditional vulnerability management tools that focus solely on severity, EASM employs a risk-based approach. It considers factors such as exploit likelihood, derived from sources like the CISA KEV catalog, to prioritize remediation efforts.
+- **Real-Time Monitoring**: EASM continuously monitors the discovered assets for changes or new vulnerabilities, providing real-time alerts to security teams. This proactive approach ensures that organizations can respond swiftly to emerging threats.
+- **Actionable Insights**: EASM not only identifies vulnerabilities but also provides detailed remediation guidance. This includes suggestions for mitigating risks associated with misconfigurations, outdated software, and other security issues.
+
+## EASM Use Cases
+
+The following use cases highlight how EASM empowers organizations in different scenarios to enhance their security posture:
+
+- **Security Posture Management**: By providing a complete view of the external attack surface, EASM helps organizations manage their security posture effectively, ensuring that all internet-facing assets are secure and compliant.
+- **M&A Diligence**: During mergers and acquisitions, EASM can be used to assess the security posture of the target company's digital footprint, identifying any potential risks that need to be addressed.
+- **Continuous Compliance Monitoring**: EASM supports compliance efforts by continuously monitoring and reporting on the organization's external assets, helping to meet regulatory requirements.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-alerts","lastmod":"2026-07-12T07:06Z","nid":"1538787"} -->
+## About Alerts
+
+- Source: https://help.zscaler.com/identity-protection/about-alerts
+- Product: Identity Protection
+- Path: Identity Protection Help > Alerts > About Alerts
+- Last modified: 2026-07-12T07:06Z
+- Summary: Information on how the Alerts page in Identity Protection helps you monitor alert activity.
+
+Alerts are triggered to notify you about anomalous activities related to identities. Alerts provide details about the detected activity, associated user or entity, and the risk level. Alerts for similar kinds of anomalous activities are correlated and grouped into incidents to help security teams investigate potential threats and remediate issues. Alerts aggregate data from different sources such as [ITDR Change Detection AD](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [ITDR Change Detection Entra](https://help.zscaler.com/itdr/about-entra-id-change-detection).
+
+Alerts provide the following benefits and enable you to:
+
+- Review alerts aggregated from different sources to get in-depth insights about identity-related threats across your organization.
+- Review the alert details and remediate the issues.
+
+## About the Alerts Page
+
+On the Alerts page (Identities > Alerts), you can do the following:
+
+1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
+2. Search for an alert.
+3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
+4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the alert information.
+5. See the number of alerts triggered for each integrated product.
+6. View the distribution of alerts across different severity score ranges, and identify the overall risk level to prioritize high severity alerts and remediate the issue.
+7. View the number of alerts detected, the number of incidents created by grouping the alerts, and the number of active incidents. This overview depicts the alert volume versus the actual investigated incidents.
+8. Select alerts from the list, and click **Update**to change the following settings:
+  - **Severity**: Select the severity level for the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
+  - **Status**: Select the status for the alert (**Remediated**, **Acknowledged**, **Confirmed**, or **Discovered**).
+  - **Title**: Enter the title for the alert.
+  - **Verdict**: Select the verdict for the alert (**Accepted**, **Executed**, **Partial**, **Proposed**, **Scheduled**, **Success**, **Under Review**, or **Recommendation Status Unspecified**).
+9. Select alerts from the list, and click **Create Incident**to create an incident based on the selected alerts.
+10. Group the alerts by category (e.g., alert first seen, alert last seen, alert tags).
+11. Refresh the alerts table to reflect the most current information.
+12. Export the list of alerts and their associated details as a CSV file.
+13. Modify the columns displayed in the table.
+14. Click an alert to view its details. For each alert, you can see:
+  - **ID**: The unique identifier of the alert.
+  - **Severity**: The severity level of the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
+  - **Severity Score**: The severity score of the alert.
+  - **Title**: The title of the alert.
+  - **Created**: The date the alert was created.
+  - **Sources**: The source of the alert (e.g., alerts triggered by Zscaler have the Zscaler logo).
+  - **Tactic**: The MITRE ATT&CK tactic for which the alert is triggered.
+  - **Technique**: The MITRE ATT&CK technique for which the alert is triggered.
+
+[Image: The Alerts page in the Identities app]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-identity-findings","lastmod":"2026-05-17T07:06Z","nid":"1538792"} -->
+## About Identity Findings
+
+- Source: https://help.zscaler.com/identity-protection/about-identity-findings
+- Product: Identity Protection
+- Path: Identity Protection Help > Identity Findings > About Identity Findings
+- Last modified: 2026-05-17T07:06Z
+- Summary: Information about identity findings in Identity Protection.
+
+Identity Findings provide visibility into identity-related security issues detected across connected identity providers and directories. These findings highlight misconfigurations, insecure authentication methods, exposed credentials, and other identity risks that attackers could exploit. Security teams can review the security risks and prioritize remediation based on severity.
+
+Identity Findings provides the following benefits and enables you to:
+
+- Identify identity-related security risks such as exposed credentials, insecure authentication methods, and misconfigured settings.
+- Prioritize remediation based on severity.
+- Monitor identity security posture over time using severity trends and distribution insights.
+- Investigate affected identity entities such as users, groups, or applications associated with each finding.
+- Understand potential attack paths through mapped adversary tactics and techniques associated with identity risks.
+
+## About the Identity Findings Page
+
+On the Identity Findings page (Identities > Identity Findings), you can do the following:
+
+1. [Filter identity findings based on different parameters](https://help.zscaler.com/identity-protection/using-filters) (e.g., **Title**, **Tenant Name**, and **MITRE ATT&CK ID**).
+2. Search for an identity finding based on keywords.
+3. View the summary of identity findings in the following widgets:
+  - **Identity Findings Severity Over Time**: Displays the trend of identity findings across severity levels (**Critical**, **High**, **Medium**, or **Low**) over a period of time.
+  - **Identity Findings Severity**: Displays the distribution of identity findings by severity level (**Critical**, **High**, **Medium**, or **Low**).
+4. View the list of identity findings across tenants of identity providers and directories. For each finding, you can see:
+  - **ID:**The unique identifier for the identity finding.
+  - **Severity Score**: The risk level of the finding based on the severity score.
+  - **Title**: The title of the finding.
+  - **Tenant**: The tenant where the finding was detected.
+  - **Affected Entities**: The count and type of the impacted entities.
+  - **Vulnerability Exploit Ease**: How easily an attacker can exploit the vulnerability based on required skills, conditions, and available tools.
+  - **Techniques**: The relevant MITRE techniques associated with the risk.
+  - **Last Seen**: When the finding was first and most recently detected.
+  - **Vulnerability Remediate Ease**: How easily the vulnerability can be fixed based on required effort, changes, and potential impact on systems and operations.
+5. Group the list of identity findings based on specific parameters (e.g., **Identity Finding ID**, **Identity Finding First Seen**, **Identity Finding Last Seen**).
+6. Refresh the data in the identity findings list.
+7. Export the identity findings list as a CSV file.
+8. Customize the identity findings list by including or excluding specific columns.
+9. [View detailed information for each identity finding](https://help.zscaler.com/identity-protection/viewing-identity-finding-details).
+10. Display a different page of the identity findings list.
+
+[Image: About the Identity Findings page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-tenants","lastmod":"2026-05-17T07:06Z","nid":"1538950"} -->
+## About Tenants
+
+- Source: https://help.zscaler.com/identity-protection/about-tenants
+- Product: Identity Protection
+- Path: Identity Protection Help > Tenants > About Tenants
+- Last modified: 2026-05-17T07:06Z
+- Summary: Information on how the Tenants page helps you monitor a tenant's activity in Identity Protection.
+
+You can view a consolidated list of tenant accounts and their identities on the Tenants page. You can also review the [identity findings](https://help.zscaler.com/identity-protection/about-identity-findings) for each tenant and the total number of critical or high-severity findings so that you can take the necessary action. Only tenants in an active state are displayed on the Tenants page.
+
+Managing tenants provides the following benefits and enables you to:
+
+- Identify high-risk tenants and impacted identities.
+- View tenant details and identity findings for each tenant.
+
+## About the Tenants Page
+
+On the Tenants page (Identities > Tenants), you can do the following:
+
+1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
+2. Search for a tenant.
+3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
+4. Apply [filters](https://help.zscaler.com/identity-protection/using-filters) to view specific information.
+5. View the number of tenants grouped by severity level (**Critical**, **High**, **Medium**, and **Low**).
+6. View total identity findings across all tenants.
+7. View total active identity providers (IdP) with identity findings.
+8. Group tenants by category such as tenant first seen, tenant last seen, tenant tags, etc.
+9. Refresh the tenant table to reflect the most current information.
+10. Export the list of tenants and their associated details as a CSV file.
+11. Modify the columns displayed in the table.
+12. View the list of tenants. Click a tenant to [view detailed information](https://help.zscaler.com/identity-protection/viewing-tenant-details). For each tenant in the list, you can see:
+  - **ID**: The unique identifier of the tenant.
+  - **Name**: The name of the tenant.
+  - **Severity Score**: The severity score of the tenant.
+  - **Total Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the tenant.
+  - **Sources**: The source of the identity finding (e.g., **ITDR Change Detection AD**, **ITDR Domains AD**, etc.).
+  - **Last Seen**: The date of the most recent activity.
+  - **State**: The state of the tenant's account (**Active**or **Inactive**).
+  - **Identity Provider**: The IdP configured for the tenant (e.g., **AD**, **Entra ID**, etc.).
+  - **Next Scan**: The date and time of the next scan for a data sync.
+
+[Image: Tenants page in the Identities app.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-users","lastmod":"2026-05-17T07:06Z","nid":"1538887"} -->
+## About Users
+
+- Source: https://help.zscaler.com/identity-protection/about-users
+- Product: Identity Protection
+- Path: Identity Protection Help > Users > About Users
+- Last modified: 2026-05-17T07:06Z
+- Summary: Information on how the Users page in Identity Protection helps you monitor a user's activity.
+
+You can view a consolidated list of user accounts and their identity types on the Users page. You can also review the identity findings for each user and the total number of critical or high-severity findings so that you can take the necessary action. Only identities in an active state are displayed on the Users page.
+
+Managing users provide the following benefits and enable you to:
+
+- Aggregate users from different sources for a centralized view.
+- View user details and identity findings for each user.
+- Monitor internal and external users.
+
+## About the Users Page
+
+On the Users page (Identities > Users), you can do the following:
+
+1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
+2. Search for a user.
+3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
+4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the user information.
+5. View the distribution of identities based on the type (**User**, **Service Principa**l, or **Special Identities**).
+6. View the distribution of users based on the type (**Internal**or **External**).
+7. Group users by category such as user first seen, user last seen, user tags, etc.
+8. Refresh the user table to reflect the most current information.
+9. Export the list of users and their associated details as a CSV file.
+10. Modify the columns displayed in the table.
+11. View the list of users. Click a user to [view detailed information](https://help.zscaler.com/identity-protection/viewing-users-details). For each user in the list, you can see:
+  - **ID**: The unique identifier of the user.
+  - **Name**: The name of the user.
+  - **Is Admin**: The user's admin role status. If the user is an admin, this field shows `true`.
+  - **Total Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the user.
+  - **Sources**: The source of the user (e.g., **Active Directory**, **Microsoft Entra ID**, etc.).
+  - **Identity Type**: The type of identity (**User**, **Service Principa**l, or **Special Identities**).
+  - **Last Activity Date**: The date of most recent activity.
+  - **State**: The state of the user's account (**Active**or **Inactive**).
+  - **Type**: The type of user (**Internal**or **External**).
+
+[Image: Users page in the Identities app.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/configuring-entity-drawers-identities","lastmod":"2026-05-17T07:06Z","nid":"1539050"} -->
+## Configuring Entity Drawers
+
+- Source: https://help.zscaler.com/identity-protection/configuring-entity-drawers-identities
+- Product: Identity Protection
+- Path: Identity Protection Help > Settings > Configuring Entity Drawers
+- Last modified: 2026-05-17T07:06Z
+- Summary: How to configure entity drawers in Identity Protection.
+
+Identity Protection provides a default UI configuration for displaying the main entity drawers (users, tenants, and identity findings). You can customize the UI fields and organize the information layout within the entity drawer to meet your organization's specific needs.
+
+To configure a drawer:
+
+1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**> **UI Config**. See image.
+2. From the **Entity**drop-down menu, select the entity drawer you want to configure (**User**, **Tenant**, or **Identity Finding**). The available fields vary depending on the selected entity.
+3. (Optional) Select the **Severity** checkbox to display the severity level in the top panel of the entity drawer. See image.
+4. (Optional) Select the **Status Timeline** checkbox to display the status timeline in the top panel of the entity drawer.
+5. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+## Creating Types
+
+You can create a new type for the different entities.
+
+To create a new type:
+
+1. From the **Entity**drop-down menu, select the entity you want to configure (e.g., **User**).
+2. From the **Type**drop-down menu, select the type of entity, and use it as a template to create a new type. The original types are not affected.
+3. Configure the fields and settings as needed.
+4. Click **Save as New Type**.
+5. Enter a name for the new type.
+6. Click **Apply**. The new type is added to the **Type** drop-down menu.
+
+## Creating and Managing Tabs
+
+For each entity drawer, you can manage system tabs and also create and configure custom tabs. Each tab corresponds to a configurable element in the entity drawer. You can perform the following actions when customizing an entity drawer:
+
+- Add Tabs
+- Rearrange Tabs
+- Delete Tabs
+- Restore System Tabs
+
+[Image: Configuring UI entity drawers in the Identities app]
+
+[Image: Severity score in Identity Finding drawer]
+
+To rearrange the order of tabs:
+
+1. Hover over the grid icon to drag the tab to the desired position. See image.
+2. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+[Image: Hover and rearrange tabs]
+
+To add tabs to an entity drawer:
+
+1. Click **Add Tab**. See image.
+2. Click **Add Custom Tab**. See image. A dialog window appears.
+3. In the dialog window: See image.
+  1. **Tab Name**: Enter a name for the tab.
+  2. **Tab main projection**: Select the entity from the drop-down menu that the tab should display data from.
+  3. **Should show the tab by field**: (Optional) Select a field to set the tab visibility. This tab only appears when the selected field is populated.
+  4. **Type**: Select the tab type.
+    - **Fields**: Data is displayed as a list of fields.
+    - **2 Columns**: Data is displayed in two columns.
+    - **Table**: Data is displayed in a table.
+    - **Text**: Data is displayed as plain text.
+4. Click **Apply**.
+5. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+To delete a tab, hover over the tab and click the **Delete**icon.
+
+See image.
+
+You can restore system tabs that were deleted.
+
+1. Click **Add Tab**. See image. A list of deleted system tabs appears.
+2. Select the deleted tab from the list.
+3. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+[Image: UI Configuration page with an option to add a new tab]
+
+[Image: Adding a custom tab]
+
+[Image: Adding a new tab]
+
+[Image: Deleting a tab from an entity drawer]
+
+[Image: UI Configuration page with an option to add a new tab]
+
+## Customizing Fields in Tabs
+
+You can customize the presentation of information within each tab and add new fields to a tab.
+
+The following table lists the differences between configuring system tabs and custom tabs.
+
+| **Tab Type** | **Available Configurations** |
+| --- | --- |
+| System Tabs | Rearrange tabs by dragging them to a new position.; Add new fields.; Delete tabs.; Restore deleted tabs.; For the Details tab, you can specify whether fields appear on the left or right columns.; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
+| Custom Tabs | Edit tabs, sections, and fields.; Rearrange tabs by dragging them to a new position.; Add new fields.; Delete tabs (cannot be restored later).; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
+
+When customizing fields, you can perform the following actions:
+
+- Add Custom Fields
+- Rearrange Fields
+- Delete Fields
+- Edit Custom Fields
+
+After completing the configuration of the UI settings, click **Save**.
+
+To rearrange the order of fields on the tab or section, hover over the grid icon to drag the field to the desired position.
+
+See image.
+
+To delete a field, click the **Delete**icon.
+
+See image.
+
+You can add a new field to a system tab or to a custom tab.
+
+To add a new custom field:
+
+1. Click **Add Field**. See image. A dialog window appears.
+2. In the dialog window: See image.
+  1. **Display Name**: Enter a name for the field.
+  2. **Field Name**: Select a field from the drop-down menu.
+  3. **Link Field**: (Optional) Select a field from the drop-down menu. If a field contains a valid URL, the hyperlink is populated within the field on the ticket or asset. The **Field Name**text is displayed as a clickable hyperlink.
+  4. (Optional) Select the **Display When Empty**checkbox to display the field even if no value is present for the field.
+3. Click **Apply**.
+
+To edit a custom field:
+
+1. Hover over the tile of the field you want to edit.
+2. Click the **Edit**icon. See image.
+3. Make the necessary changes, and click **Apply**.
+
+You cannot edit a system tab, including the name, type, and default fields. These can only be rearranged or deleted.
+
+[Image: Moving a field within a tab]
+
+[Image: Delete option in a tab]
+
+[Image: Adding a field to a tab]
+
+[Image: Adding a new field in a tab]
+
+[Image: Editing a field in a tab]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/managing-itdr-configurations","lastmod":"2026-05-01T07:06Z","nid":"1538791"} -->
+## Managing ITDR Configurations
+
+- Source: https://help.zscaler.com/identity-protection/managing-itdr-configurations
+- Product: Identity Protection
+- Path: Identity Protection Help > Settings > Managing ITDR Configurations
+- Last modified: 2026-05-01T07:06Z
+- Summary: How to manage ITDR Configurations from the Zscaler Security Operations (SecOps) platform.
+
+You can access the ITDR settings for Identity Protection within the Zscaler Security Operations (SecOps) platform (Identities > ITDR Config). While the ITDR Config page is available on the SecOps platform, the detailed configuration is managed in the legacy Zscaler ITDR Admin Portal.
+
+The ITDR Config page is organized into the following sections:
+
+- ITDR Manage
+- ITDR Settings
+- Endpoint Settings
+- Server Agent Settings
+
+Configure identity scans and policies for posture, change detection, credential exposure, and identity threats across AD, Entra ID, and Okta.
+
+- **Active Directory (AD) Posture Scan**: You can configure AD posture scans by choosing attributes, selecting domain controllers, defining scan timeouts, and running scans on demand. To learn more, see [About Active Directory Posture Scan](https://help.zscaler.com/itdr/about-active-directory-posture-scan).
+- **Active Directory Privileged Account Tracking**: Track high-risk AD accounts by defining which privileged users to monitor for misuse and threats. This enables monitoring of sensitive accounts to detect suspicious activity or privilege abuse. To learn more, see [About Active Directory Privileged Account Tracking](https://help.zscaler.com/itdr/about-active-directory-privileged-account-tracking).
+- **Endpoint Credential Exposure Scan**: Scan endpoints for exposed credentials and secrets to uncover theft and privilege-escalation risks. This feature strengthens detection of credential harvesting from user systems. To learn more, see [About Endpoint Credential Exposure Scan](https://help.zscaler.com/itdr/about-endpoint-credential-exposure-scan).
+- **Entra ID Posture Scan**: Connect Entra ID tenants, deploy scanners, and run posture checks on identities and configurations. This provides visibility into misconfigurations and risky identity settings within Entra ID environments. To learn more, see [About Entra ID Posture Scan](https://help.zscaler.com/itdr/about-entra-id-posture-scan).
+- **Threat Detection Policies**: Configure and tune threat detection policies to monitor identity attacks, define detection scope, evaluate findings, and protect Active Directory. These policies determine how identity threats are identified and evaluated across the environment. To learn more, see [About Threat Detection Policies](https://help.zscaler.com/itdr/about-threat-detection-policies).
+- **Okta**: Integrate with Okta to enrich the identity metadata, identify real-time changes to an Okta identity, and perform actions on an Okta identity like activate user, suspend user, clear user sessions, etc. To learn more, see [Integrating with Okta](https://help.zscaler.com/itdr/integrating-itdr-okta).
+- **Active Directory Change Detection**: Configure and manage AD change detection policies to monitor critical directory changes and trigger security alerts. This helps track risky modifications in AD objects and configurations. To learn more, see [About Active Directory Change Detection Policies](https://help.zscaler.com/itdr/about-active-directory-change-detection-policies).
+- **Entra Change Detection**: Configure Entra ID change detection policies to track critical directory changes, apply custom rules, and trigger alerts on risky activities. This provides real-time visibility into high-impact changes within Entra ID. To learn more, see [About Entra ID Change Detection Policies](https://help.zscaler.com/itdr/about-entra-id-change-detection-policies).
+
+You can use the ITDR Settings section to configure safelists for AD and Entra ID issues and objects. Safelists allow you to exclude known, trusted, or accepted issues and objects from being accounted for risk scores and reduce alert noise.
+
+- **Active Directory Issue Safelist:** Exclude known, accepted AD issues from posture scans and alerts. To learn more, see [About the Active Directory Issue Safelist](https://help.zscaler.com/itdr/about-active-directory-issue-safelist).
+- **Active Directory Object Safelist**: Exclude trusted AD objects from identity issues, alerts, and posture findings. To learn more, see [About the Active Directory Object Safelist](https://help.zscaler.com/itdr/about-active-directory-object-safelist).
+- **Active Directory Change Detection Issue Safelist**: Add, view, and manage safelisted change-detection issues to suppress expected alerts and focus on real identity risks. To learn more, see [Adding a Change Detection Issue to the Safelist](https://help.zscaler.com/itdr/adding-change-detection-issue-safelist).
+- **Active Directory Change Detection Object Safelist**: Exclude specific AD objects from change detection issues to reduce alert noise. To learn more, see [About the AD Change Detection Object Safelist](https://help.zscaler.com/itdr/about-ad-change-detection-object-safelist).
+- **Entra ID Issue Safelist**: Suppress known Entra ID findings so change detection focuses on relevant identity risks. To learn more, see [About the Entra ID Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-issue-safelist).
+- **Entra ID Object Safelist**: Exclude known safe Entra ID objects from detection to reduce false positives. To learn more, see [About the Entra ID Object Safelist](https://help.zscaler.com/itdr/about-entra-id-object-safelist).
+- **Entra ID Change Detection Issue Safelist:** Suppress alerts for known Entra ID change-detection issues while maintaining visibility into real threats. To learn more, see [About the Entra ID Change Detection Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-issue-safelist).
+- **Entra ID Change Detection Object Safelist**: Exclude trusted objects from Entra ID change detection so expected changes do not trigger issues. To learn more, see [About the Entra ID Change Detection Object Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-object-safelist).
+
+You can use the Endpoint Settings section to configure and control endpoint agents, monitor user systems, run targeted scans, and detect identity threats.
+
+- Agents: Monitor and manage all endpoint agents. You can view device details, check policy status, review logs, and take action directly when needed.
+- Agent Configuration: Customize how agents behave by renaming services, adding descriptions, automatically cleaning up duplicates. This improves manageability of deployed agents.
+- Agent Update Groups: Control agent updates by, grouping endpoints, rolling out updates in phases, tracking update progress, and exporting update details. This allows controlled and phased deployment of endpoint agent updates.
+
+To learn more, see [About Endpoint Settings](https://help.zscaler.com/itdr/about-endpoint-settings).
+
+You can use the Server Agent Settings section to configure and control server agents, manage domain settings, monitor authentication activity, and detect identity threats.
+
+- **Domains**: Manage domains and controllers to track domain health, monitor logons, identify weak or compromised passwords. This provides centralized visibility into domain-level identity security.
+- **Agents**: Monitor and manage server agents. You can view system's status, review policies and logs, take action directly when needed.
+- **Agent Update Groups**: Control server agent updates by grouping servers, managing phased rollouts, monitoring update status, etc.
+- **Configuration**: Configure server agents to detect weak passwords, set custom keywords, simulate attacks, strengthen password security locally. This enhances detection capabilities within domain infrastructure.
+
+To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/about-server-agent-settings).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/managing-saved-views","lastmod":"2026-05-17T07:06Z","nid":"1538788"} -->
+## Managing Saved Views
+
+- Source: https://help.zscaler.com/identity-protection/managing-saved-views
+- Product: Identity Protection
+- Path: Identity Protection Help > Getting Started > Admin Portal > Managing Saved Views
+- Last modified: 2026-05-17T07:06Z
+- Summary: How to create and manage saved views in Identity Protection.
+
+Saved views are configurable, reusable views that apply filters, grouping, sorting, and field selections to data in Identity Protection. They improve data exploration and analysis by allowing users to return to specific data configurations without reapplying settings each time.
+
+See image.
+
+You can perform the following actions to manage saved views:
+
+- Default View
+- Favorite Views
+- Create a New View
+- Edit Views
+- Delete Views
+
+Your default view determines what you first see when opening a particular page. You can customize the default view at two levels:
+
+- **My Default View**: In the saved views drop-down menu, click the **Set My Default View** icon next to the view name. This sets the selected view as the default for your account only. See image.
+- **Account Default View**: In the saved views drop-down menu, click the **Set as Account Default View** icon next to the view name. This sets the selected view as the default for all users in the account. See image.
+
+[Image: Set My Default View icon]
+
+[Image: Set as Account Default View icon]
+
+To access frequently used views, you can add views to the favorites list.
+
+To add a view to the favorites list, click the **Add to Favorite** icon next to the view name.
+
+See image.
+
+[Image: Add to Favorite icon]
+
+To create a new saved view:
+
+1. Apply filters, sorting, and other settings to the table.
+2. Click **Save As View**. See image.
+3. In the dialog window: See image.
+  - **View Name**: Enter a name for the view.
+  - **View Permissions**: Set to either **Public** (i.e., visible to all users in the account) or **Private** (i.e., visible only to you).
+  - **Set as Account Default View**: Select the checkbox to set this view as the default view for all users in the account.
+4. Click **Save**.
+
+[Image: Click Save As View to save the configured view.]
+
+[Image: Save as new view window]
+
+You can edit custom views that you created to update the view's settings.
+
+You cannot edit the system views and views that are created by other users.
+
+To edit a custom saved view:
+
+1. Select the view from the saved views drop-down menu.
+2. Hover over the view, and click the **Edit**icon. See image. The **Edit Current View** window appears.
+3. In the**Edit Current View** window, apply your changes. See image.
+4. Click **Save**.
+
+You can delete custom views that you created to remove them from the available saved views.
+
+You cannot delete the system views and views that are created by other users.
+
+To delete a custom saved view:
+
+1. Select the view from the saved views drop-down menu.
+2. Hover over the view, and click the **Delete**icon. See image.
+
+The view is deleted immediately.
+
+[Image: Click Edit icon to edit the saved view.]
+
+[Image: Edit Current View window]
+
+[Image: Delete saved view]
+
+[Image: Saved views list on Users page.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/understanding-identity-protection-architecture","lastmod":"2026-07-01T21:06Z","nid":"1539481"} -->
+## Understanding Identity Protection Architecture
+
+- Source: https://help.zscaler.com/identity-protection/understanding-identity-protection-architecture
+- Product: Identity Protection
+- Path: Identity Protection Help > Getting Started > Understanding Identity Protection Architecture
+- Last modified: 2026-07-01T21:06Z
+- Summary: Information about the Identity Protection architecture.
+
+Identity Protection is an effective identity threat detection and response solution (ITDR) integrated with the Zscaler Security Operations (SecOps) platform. Identity Protection protects users with continuous visibility into identity misconfigurations, risky permissions, and exposed credentials. It detects and stops identity-based attacks such as credential theft, multi-factor authentication bypass, privilege escalation, etc
+
+The Identity Protection architecture includes the following key components:
+
+[Image: Identity Protection Architecture]
+
+- **Identities App**: Built into the SecOps platform and serves as the central point of management and analysis for the Identity Protection service. To learn more, see [What Is Identity Protection?](https://help.zscaler.com/identity-protection/what-identity-protection)
+- **ITDR Connector**: The data connector that serves as the source stream from the ITDR solution to the data fabric.
+- **Data Fabric Cluster**: The entire data fabric cluster responsible for processing raw data from various sources.
+- **Zscaler Zero Trust Exchange (ZTE)**: Identity Protection leverages the ZTE platform to mitigate risk with access policy controls that block compromised users when an identity attack is detected. Integration with Internet & SaaS (ZIA) and Private Access (ZPA) provides better visibility, enrichment, and containment capabilities.
+- **Identity Posture Scan**: Identity Protection provides the ability to assess identity infrastructures, such as Active Directory (AD), Entra ID, Okta, etc. to obtain a comprehensive view of your identity posture, risky identities, misconfigurations, and vulnerabilities. A MITRE ATT&CK mapping helps you locate blind spots, prioritize where to focus, and remediate risks.
+  - **AD Posture Scan**: You can configure an AD scan by specifying the AD domain you want to assess. For assessing the AD domain, Zscaler Client Connector must be installed on a domain-joined Windows machine. Identity Protection audits an AD domain by running LDAP queries to build a map of schema, users, computers, OUs, and other objects in your identity store. It then runs checks against these objects to find misconfigurations and vulnerabilities that exist in your AD domains. After the assessment is complete, the results are available in the Identities app. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) and [About Active Directory Posture Scan](https://help.zscaler.com/itdr/about-active-directory-posture).
+  - **Entra ID Posture Scan**: You can connect your organization's Entra ID tenants with Identity Protection to assess the posture of your Entra ID. The posture checks for Entra ID include identifying misconfigurations and potential risks across Entra ID users, service principals, and roles. Identity Protection uses a deployment script to set up all necessary resources such as resource group, app, storage account, service principal, etc. in the Entra ID tenant. Diagnostic settings are also enabled by the deployment script to enable change detection using logs. The audit logs are analyzed, and the results are available in the Identities app. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) and [About Entra ID Posture Scan](https://help.zscaler.com/itdr/about-entra-id-posture-scan).
+  - **Okta Integration**: Identity Protection integrates with Okta to enrich the identity metadata, identify real-time changes on an Okta identity, and perform actions on an Okta identity like activate user, suspend user, clear user sessions, etc. To learn more, see [Integrating ITDR with Okta](https://help.zscaler.com/itdr/integrating-itdr-okta).
+- **Identity Change Detection**: After you have visibility of your identity attack surface, you can build identity hygiene. Identity Protection provides real-time monitoring of critical changes in your AD domains and Entra ID tenants that introduce new risks and open pathways for attackers to escalate privileges and move laterally. In addition to real-time alerting, you also get remediation guidance in the form of video tutorials, commands, and scripts that can be used to resolve issues. To learn more, see [About Active Directory Change Detection](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [About Entra ID Change Detection](https://help.zscaler.com/itdr/about-entra-id-change-detection).
+- **Credential Exposure Scan**: Identity Protection scans endpoints to check for risky identity material, such as usernames, passwords, API keys, SSH keys, certificate files, and other credentials stored locally on endpoints. In post-compromise scenarios, the presence of such credentials on an endpoint is a critical source of risk and enables adversaries to escalate privileges and access sensitive data and applications. The exploitation of these local credentials has been observed in several publicly reported breaches. Visibility into these credentials presents an opportunity to clean them up and enforce policies for securely storing them, thereby reducing the post-compromise attack surface available to an adversary. To learn more, see [About Endpoint Credential Exposure Scan](https://help.zscaler.com/itdr/about-endpoint-credential-exposure-scan).
+- **Identity Threat Detection**: Identity Protection has a threat detection capability that alerts security teams and threat hunters of malicious activities directed toward potentially malicious misuse and theft of identities. Identity threat detection is enabled as an endpoint policy on designated machines with Zscaler Client Connector installed. Security teams can enable detectors (DCSync, DCShadow, Kerberoasting, etc.) via policies on designated endpoints. If a pattern is noticed, Zscaler Client Connector sends signals to Identity Protection indicating that a threat has been detected. Identity Protection enriches the threat signal with information relevant to the security team to perform an investigation. The security team can configure orchestration capabilities to perform automated actions. To learn more, see [About Threat Detection Policies](https://help.zscaler.com/itdr/about-threat-detection-policies).
 <!-- /ZS-ARTICLE -->

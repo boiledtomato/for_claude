@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 92
 
 ---
@@ -964,13 +964,13 @@ As designed, Offerings may produce Outputs that reveal latent security vulnerabi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-07-02T10:27Z","nid":"1269771"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-08-17T11:27Z","nid":"1269771"} -->
 ## Supported Versions
 
 - Source: https://help.zscaler.com/product-usage-terms/supported-versions
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > Software Policy & Support > Supported Versions
-- Last modified: 2026-07-02T10:27Z
+- Last modified: 2026-08-17T11:27Z
 - Summary: Matrix of the supported endpoint application versions for Zscaler.
 
 ## Zscaler Client Connector Supported Versions
@@ -992,12 +992,12 @@ Zscaler limits the enrollment of devices or the transmission to the Zscaler clou
 
 These versions of Zscaler Client Connector for Windows are supported by Zscaler, and the following table indicates the Windows versions compatible with each supported version of Zscaler Client Connector.
 
-| Compatible OS | Supported Zscaler Client Connector Versions | Notes |  |  |
-| --- | --- | --- | --- | --- |
-| OS Version | [4.7 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.7) | [4.8](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.8) | [4.9](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=4.9) |  |
-| Windows 10 | [Image: Supported] | [Image: Supported] | [Image: Supported] | Windows 10 is supported by Zscaler for a limited time. To learn more, see [End-of-Support for Windows 10](https://trust.zscaler.com/zscaler.net/posts/24961). |
-| Windows 11 | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
-| Amazon Workspaces | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| Compatible OS | Supported Zscaler Client Connector Versions | Notes |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| OS Version | [4.7 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.7) | [4.8](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.8) | [4.9](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=4.9) | [4.10](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=4.10) |  |
+| Windows 10 | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | Windows 10 is supported by Zscaler for a limited time. To learn more, see [End-of-Support for Windows 10](https://trust.zscaler.com/zscaler.net/posts/24961). |
+| Windows 11 | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| Amazon Workspaces | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 
 These versions of Zscaler Client Connector for macOS are supported by Zscaler, and the following table indicates the macOS versions compatible with each supported version of Zscaler Client Connector.
 
@@ -2456,13 +2456,13 @@ At this point, you can compile the issue summary with the data and open a suppor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-filetype-control-policy-support-troubleshooting-runbook","lastmod":"2026-07-22T15:30Z","nid":"1533832"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-filetype-control-policy-support-troubleshooting-runbook","lastmod":"2026-08-17T07:06Z","nid":"1533832"} -->
 ## Internet & SaaS File Type Control Policy Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-filetype-control-policy-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS File Type Control Policy Support Troubleshooting Runbook
-- Last modified: 2026-07-22T15:30Z
+- Last modified: 2026-08-17T07:06Z
 - Summary: The Internet & SaaS File Type Control Policy Support Troubleshooting Runbook provides step-by-step troubleshooting instructions for resolving common File Type Control issues encountered in Internet & SaaS.
 
 The Internet & SaaS File Type Control Policy Support Troubleshooting Runbook provides step-by-step troubleshooting instructions for resolving common File Type Control issues encountered in Internet & SaaS.
@@ -12685,13 +12685,13 @@ To learn more, see [Viewing & Managing Incident Details](https://help.zscaler.co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-admin-assignments","lastmod":"2026-06-26T07:11Z","nid":"1418066"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-admin-assignments","lastmod":"2026-08-23T07:06Z","nid":"1418066"} -->
 ## Managing Admin Assignments
 
 - Source: https://help.zscaler.com/workflow-automation/managing-admin-assignments
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Admin Assignments
-- Last modified: 2026-06-26T07:11Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to manage admin assignments in Workflow Automation.
 
 You provision admins in the Zscaler Admin Console with either full or restricted workflow access permission to Workflow Automation. An admin with full workflow access can access certain incident groups or all incident groups based on their assignment. An admin with restricted workflow access is restricted to certain incident groups in Workflow Automation. To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles) and [Adding ZIA Admins.](https://help.zscaler.com/zia/adding-zia-admins)

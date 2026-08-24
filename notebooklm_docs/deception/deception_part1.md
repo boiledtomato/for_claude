@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 297
 
 ---
@@ -1379,13 +1379,13 @@ On the Policies page (Deceive > Landmine > Policies), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-private-access-app-connectors-deception","lastmod":"2026-08-03T00:19Z","nid":"1540629"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-private-access-app-connectors-deception","lastmod":"2026-08-17T21:06Z","nid":"1540629"} -->
 ## About Private Access App Connectors in Deception
 
 - Source: https://help.zscaler.com/deception/about-private-access-app-connectors-deception
 - Product: Deception
 - Path: Deception Help > Settings > Topology > ZPA App Connectors > About Private Access App Connectors in Deception
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-08-17T21:06Z
 - Summary: Information about the Private Access App Connectors dashboard in the Zscaler Deception Admin Portal.
 
 Private Access (ZPA) App Connectors are hosted by Zscaler and are used to connect to your Zero Trust Exchange (ZTE) environment. In the Zscaler Deception Admin Portal, App Connectors are configured when creating [Zero Trust Network decoys](https://help.zscaler.com/deception/creating-zero-trust-network-decoy). To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors).
@@ -2073,13 +2073,13 @@ On the Vulnerable Application Datasets (CVE Datasets) page (Miragemaker > Vulner
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/accessing-and-navigating-zscaler-deception-admin-portal","lastmod":"2026-08-14T08:21Z","nid":"1540337"} -->
+<!-- ZS-ARTICLE {"url":"/deception/accessing-and-navigating-zscaler-deception-admin-portal","lastmod":"2026-08-17T07:55Z","nid":"1540337"} -->
 ## Accessing and Navigating the Deception Admin Portal
 
 - Source: https://help.zscaler.com/deception/accessing-and-navigating-zscaler-deception-admin-portal
 - Product: Deception
 - Path: Deception Help > Getting Started > Admin Portal > Accessing and Navigating the Deception Admin Portal
-- Last modified: 2026-08-14T08:21Z
+- Last modified: 2026-08-17T07:55Z
 - Summary: Information on the Deception Admin Portal including how you can sign in to and navigate the portal.
 
 This article covers the following topics:
@@ -2112,7 +2112,7 @@ To sign in to the Deception Admin Portal:
 
 If you're subscribed to Authentication Service:
 
-1. The Authentication Service landing page.
+1. Log in to the Authentication Service landing page.
 2. Click the **Deception** tile to access the Deception Admin Portal.
 
 If Authentication Service is enabled, no other sign-in methods are allowed.
@@ -2193,15 +2193,15 @@ On the Orchestrate page, you can perform the following actions:
 
 To learn more, see [About Orchestrate](https://help.zscaler.com/deception/v4_27/about-orchestrate).
 
-On the Miragemaker page you can configure built-in decoys and customize them to match your requirements. Miragemaker makes realistic-looking decoys scalable and provides built-in decoy datasets for a variety of use cases to launch deception campaigns rapidly. You can add or edit datasets for the decoys to serve as application content. This includes uploaded or dynamically generated files, web application interfaces, interactive web applications, interactive SCADA and IoT templates, custom text or binary protocols, etc. You can also load high-interaction containers.
+On the Miragemaker page, you can configure built-in decoys and customize them to match your requirements. Miragemaker makes realistic-looking decoys scalable and provides built-in decoy datasets for a variety of use cases to launch deception campaigns rapidly. You can add or edit datasets for the decoys to serve as application content. This includes uploaded or dynamically generated files, web application interfaces, interactive web applications, interactive SCADA and IoT templates, custom text or binary protocols, etc. You can also load high-interaction containers.
 
 To learn more, see [Understanding the Miragemaker Module](https://help.zscaler.com/deception/understanding-miragemaker-module).
 
-On the Deceive page you can add, configure, and manage decoys to detect threats. You can deploy decoys across the public-facing perimeter, endpoints, network, cloud, and Active Directory (AD) to detect threats. You can also launch your first deception campaign with ready-to-use decoys and focus on detecting threats instead of configuring a new solution.
+On the Deceive page, you can add, configure, and manage decoys to detect threats. You can deploy decoys across the public-facing perimeter, endpoints, network, cloud, and Active Directory (AD) to detect threats. You can also launch your first deception campaign with ready-to-use decoys and focus on detecting threats instead of configuring a new solution.
 
 To learn more, see [About Deceive](https://help.zscaler.com/deception/v4_27/about-deceive).
 
-On the Settings page you can configure the prerequisites required for Deception, such as configuring a Decoy Connector, virtual local area networks (VLANs), or subnets. In addition, you can configure users and roles and view information regarding license consumption and audit trails.
+On the Settings page, you can configure the prerequisites required for Deception, such as configuring a Decoy Connector, virtual local area networks (VLANs), or subnets. In addition, you can configure users and roles and view information regarding license consumption and audit trails.
 
 To learn more, see [About Settings](https://help.zscaler.com/deception/v4_27/about-settings).
 
@@ -5754,13 +5754,13 @@ After you configure a Service Connector, you can integrate the Deception with a 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-services-network-decoy","lastmod":"2026-08-03T00:19Z","nid":"1540353"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-services-network-decoy","lastmod":"2026-08-17T21:06Z","nid":"1540353"} -->
 ## Configuring Services on a Network Decoy
 
 - Source: https://help.zscaler.com/deception/configuring-services-network-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Configuring Services on a Network Decoy
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-08-17T21:06Z
 - Summary: How to configure services on a network decoy in the Zscaler Deception Admin Portal.
 
 Services are interactive components that simulate the functionality of legitimate systems, such as web pages, Gen AI applications, etc. Configuring services on a network decoy makes it look like a genuine resource to attackers. It lures the attackers to interact with the decoy and enables threat detection. This article describes how to customize services such as Generative AI (Gen AI), Web, SSH, Telnet, SCADA/IoT, and FTP on a network decoy.
@@ -10969,13 +10969,13 @@ After the Decoy Connector management network is configured, you must [add the De
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-07-26T22:06Z","nid":"1540481"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-08-21T07:09Z","nid":"1540481"} -->
 ## Deploying Endpoint Deception with Zscaler Client Connector for Windows
 
 - Source: https://help.zscaler.com/deception/deploying-endpoint-deception-zscaler-client-connector-windows
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Deploying Endpoint Deception with Zscaler Client Connector for Windows
-- Last modified: 2026-07-26T22:06Z
+- Last modified: 2026-08-21T07:09Z
 - Summary: How to deploy endpoint deception with Zscaler Client Connector for Windows.
 
 If your organization is provisioned for Zscaler Internet Access (ZIA), you can deploy endpoint deception capabilities on Microsoft Windows machines using Zscaler Client Connector.
@@ -10996,6 +10996,7 @@ Before deploying endpoint deception with Zscaler Client Connector, ensure that y
 - Outbound HTTPS access from either or both of your proxy and firewall in your local environment to: To learn more, see the [Zscaler Client Connector Config page](https://config.zscaler.com/zscaler.net/zscaler-app). If you are running endpoint deception using a [landmine agent](https://help.zscaler.com/deception/about-landmine-agent-agentless) and want to migrate to Zscaler Client Connector, you can automatically migrate during the Zscaler Client Connector upgrade process. During the upgrade, important information such as lures applied and decoys deployed are automatically copied to the new installation location, and the standalone landmine agent is uninstalled.
   - Deception Admin Portal on port 443, i.e., <your_subdomain>.illusionblack.com on port 443
   - dwv281inkfqg3.cloudfront.net on port 443
+  - zcc.ecdn.zscaler.com
 
 ## Deploying Endpoint Deception with Zscaler Client Connector
 
@@ -15814,13 +15815,13 @@ The illusionblack.com cloud represents all clouds, and updates to specific cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-08-09T22:51Z","nid":"1540673"} -->
+<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-08-19T08:30Z","nid":"1540673"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/deception/release-upgrade-summary-2026
 - Product: Deception
 - Path: Deception Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-09T22:51Z
+- Last modified: 2026-08-19T08:30Z
 - Summary: Zscaler Deception release summary for updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Deception.
@@ -18046,13 +18047,13 @@ The following diagram illustrates the interactions between various components in
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-event-notification-templates","lastmod":"2026-08-03T00:19Z","nid":"1542040"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-event-notification-templates","lastmod":"2026-08-17T21:06Z","nid":"1542040"} -->
 ## Understanding Event Notification Templates
 
 - Source: https://help.zscaler.com/deception/understanding-event-notification-templates
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Event Templates > Understanding Event Notification Templates
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-08-17T21:06Z
 - Summary: Information about event notification templates.
 
 Zscaler Deception allows you to send event notifications as emails when a threat is detected. You can enable notifications and customize the notification subject and the event fields included in the email body to provide the information most relevant to your organization.

@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 137
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 136
 
 ---
 
@@ -321,178 +321,6 @@ If the client browser is using secure DNS or DoH, add a firewall filtering rule 
 [Image: Custom URL category for Zscaler EUN web page IP address and domain name]
 
 [Image: Zscaler Client Connector App Profile configuration to bypass traffic destined for EUN web server]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/doc-65712-understanding-geolocalization-ip","lastmod":"2026-08-13T09:37Z","nid":"1542800"} -->
-## DOC 65712 Understanding Geolocalization IP
-
-- Source: https://help.zscaler.com/zia/doc-65712-understanding-geolocalization-ip
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > DOC 65712 Understanding Geolocalization IP
-- Last modified: 2026-08-13T09:37Z
-- Summary: Information on using the Zscaler Geolocalization IP in the Forwarding Control policy.
-
-For users in a country not serviced by Zscaler Point-of-Presence (PoP), the Geolocalization IP (GeoIP) feature can be used to access local content or destinations that restrict access based on the source IP address. However, you must consult with your compliance or legal team to ensure the configuration complies with applicable local laws.
-
-Organizations that are located across the globe often access destinations (local government websites or other restricted entities) that allow access only if the source IP address of the traffic is local to the country from where the traffic originates. When the users access these destinations through Zscaler, the client's source IP address reaching the destination is replaced with a Zscaler IP address. This leads to traffic being blocked if the Zscaler IP address is not native to the country.
-
-When Zscaler does not host a data center in a country and a user from that country accesses a local destination with source IP address-based access restrictions, the traffic is routed to the geographically closest Zscaler data center outside the country. As the egress source IP address is not local to the country from where the traffic originates, the user is either denied access to the destination or the results displayed are not localized to the user's location.
-
-To avoid bypassing security checks when traffic is routed to Zscaler data centers outside the country, Zscaler offers a cloud-based service that allows organizations to forward their traffic via the egress source IP address (GeoIP address) mapped to the country from where the traffic originates for countries that Zscaler does not host a data center in. This ensures that the user is able to access specific destinations which have source IP address-based restrictions, and localized content is displayed if the destination renders content based on the country of the originating request.
-
-The following steps are the primary process of using a GeoIP address to forward traffic:
-
-1. If not already available on your Internet & SaaS (ZIA) tenant, [contact Zscaler Support](https://help.zscaler.com/contact-support) to enable GeoIP for your Internet & SaaS tenant.
-2. After the feature is enabled, Zscaler enables GeoIP as a traffic forwarding method in the Zscaler Admin Console.
-3. Configure GeoIP forwarding policies and specify all the criteria to be met before forwarding the traffic. The criteria include location, users, network service, applications, source IPs, destination, etc. If you choose no criteria, all the traffic egresses with GeoIP addresses based on the source country.
-4. The forwarding gateway configuration is not required. Zscaler automatically forwards the traffic with a source IP address mapped to the country from where the traffic originates.
-
-The GeoIP feature leverages forwarding policies to steer traffic processed by Internet & SaaS to the destination servers, ensuring that the traffic is secure and that the egress source IP address is mapped to the source country. The Zscaler service determines the country that the user is in based on the user's source IP. You can configure granular policies in the Zscaler Admin Console to forward traffic using the GeoIP addresses to destinations that require an IP address native to the country of traffic's origin for access. To learn more about forwarding traffic via GeoIP, see [Configuring Forwarding Control Policy](https://help.zscaler.com/zia/configuring-forwarding-control-policy).
-
-For example, a GeoIP forwarding rule is applied to the traffic of a user located in Czechia, so the traffic is forwarded towards the destination with a Czechian source IP address. If the user moves to Serbia, then the traffic is forwarded to the destination with a Serbian local source IP address. The Zscaler service recognizes that the user is in Czechia or Serbia based on their source IP address. If the user is in a country which hosts a Zscaler data center, the traffic is serviced by the local data center and egresses with a country-local source IP address, and the GeoIP rule does not apply.
-
-When the GeoIP forwarding rule is triggered, Zscaler egresses the traffic with a local source IP address. In some cases, destination websites might not honor the source IP for country mapping to determine the location of the user and provide access. In such scenarios, you could deploy [App Connectors](https://help.zscaler.com/zpa/about-connectors) in the region for [Source IP Anchoring](https://help.zscaler.com/zia/understanding-source-ip-anchoring) with local IP addresses or deploy the Virtual Service Edges for Internet & SaaS or Private Service Edges for Internet & SaaS in the region for local IP addresses.
-
-## Supported Countries
-
-The following table lists the currently supported countries for the GeoIP feature:
-
-This table includes pagination. Use the Search function in the table to find your desired country.
-
-For the most accurate and up-to-date list of countries supported with the Geo IP feature, refer to the [Zscaler Geofeed list](https://config.zscaler.com/downloads/geofeed.csv).
-
-| Country Name | Region |
-| --- | --- |
-| Albania | Europe |
-| Algeria | Africa |
-| American Samoa | Americas |
-| Armenia | Middle East |
-| Aruba | Africa |
-| Azerbaijan | Europe |
-| Bahamas | Americas |
-| Bahrain | Middle East |
-| Bangladesh | APJ |
-| Belarus | Europe |
-| Benin | Africa |
-| Bolivia | Americas |
-| Bosnia and Herzegovina | Europe |
-| Bulgaria | Europe |
-| Burkina Faso | Africa |
-| Cambodia | APJ |
-| Cameroon | Africa |
-| Costa Rica | Americas |
-| Croatia | Europe |
-| Cyprus | Europe |
-| Czechia | Europe |
-| Djibouti | Africa |
-| Dominican Republic | Americas |
-| Ecuador | Americas |
-| Egypt | Africa |
-| El Salvador | Americas |
-| Equatorial Guinea | Africa |
-| Estonia | Europe |
-| Ethiopia | Africa |
-| Fiji | APJ |
-| French Guiana | Americas |
-| French Polynesia | Oceania |
-| Gabon | Africa |
-| Georgia | Europe |
-| Ghana | Africa |
-| Greece | Europe |
-| Guadeloupe | Americas |
-| Guam | APJ |
-| Guatemala | Americas |
-| Guinea | Africa |
-| Honduras | Americas |
-| Hungary | Europe |
-| Indonesia | APJ |
-| Ireland | Europe |
-| Jamaica | Americas |
-| Jersey | Europe |
-| Jordan | Middle East |
-| Kazakhstan | APJ |
-| Kenya | Africa |
-| Kuwait | Middle East |
-| Kyrgyzstan | Middle East |
-| Laayoune | Africa |
-| Latvia | Europe |
-| Lebanon | Middle East |
-| Liberia | Africa |
-| Libya | Africa |
-| Lithuania | Europe |
-| Luxembourg | Europe |
-| Madagascar | Africa |
-| Malawi | Africa |
-| Maldives | Africa |
-| Mali | Africa |
-| Malta | Europe |
-| Mauritania | Africa |
-| Mauritius | APJ |
-| Moldova | Europe |
-| Monaco | Europe |
-| Mongolia | APJ |
-| Montenegro | Africa |
-| Morocco | Africa |
-| Mozambique | Africa |
-| Myanmar | APJ |
-| Namibia | Africa |
-| Nepal | APJ |
-| New Caledonia | APJ |
-| Nicaragua | Americas |
-| Niger | Africa |
-| Oman | Middle East |
-| Pakistan | APJ |
-| Panama | Americas |
-| Papua New Guinea | Africa |
-| Paraguay | Americas |
-| Peru | Americas |
-| Philippines | APJ |
-| Puerto Rico | Americas |
-| Qatar | Middle East |
-| Republic of Côte d'Ivoire | Africa |
-| Romania | Europe |
-| Russia | Europe |
-| Rwanda | Africa |
-| Saint Martin | Americas |
-| Samoa | APJ |
-| Senegal | Africa |
-| Serbia | Europe |
-| Sierra Leone | Africa |
-| Slovakia | Europe |
-| Slovenia | Europe |
-| Somalia | Africa |
-| South Sudan | Africa |
-| Sri Lanka | APJ |
-| Sudan | Africa |
-| Suriname | Africa |
-| Tajikistan | APJ |
-| Tanzania | Africa |
-| Thailand | APJ |
-| Togo | Africa |
-| Trinidad and Tobago | Americas |
-| Tunisia | Africa |
-| Turkey | Europe |
-| Turkmenistan | APJ |
-| Uganda | Africa |
-| Ukraine | Europe |
-| Uruguay | Americas |
-| Uzbekistan | Europe |
-| Venezuela | Americas |
-| Vietnam | APJ |
-| Yemen | Africa |
-| Zambia | Africa |
-| Zimbabwe | Africa |
-
-## Benefits of GeoIP Address
-
-The following are a few benefits of using a GeoIP address:
-
-- Eliminates the need for organizations to maintain PAC files to bypass the Zscaler service to access certain destinations.
-- Eliminates the need to deploy on-premises infrastructure to provide a local source IP address.
-- Applies uniform Zscaler security policies throughout the organization's traffic irrespective of the user's location.
-- Provides you with the ability to granularly control the egress source IP address based on specified forwarding policy criteria.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6262,13 +6090,13 @@ To install the LB:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/installing-private-service-edge-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1401246"} -->
+<!-- ZS-ARTICLE {"url":"/zia/installing-private-service-edge-internet-saas","lastmod":"2026-08-18T16:26Z","nid":"1401246"} -->
 ## Installing Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/installing-private-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Installing Private Service Edge for Internet & SaaS
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-08-18T16:26Z
 - Summary: Instructions for properly installing Private Service Edge for Internet & SaaS (ZIA) within your organization.
 
 Upon receipt of the hardware, install your pair of Private Service Edges for Internet & SaaS (ZIA) according to the instructions provided. Both Private Service Edges must be installed in the same location.
@@ -6818,13 +6646,13 @@ Your Lucid organization is now connected. After integration is completed, a succ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-azure-virtual-wan","lastmod":"2026-07-05T23:00Z","nid":"1400936"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-azure-virtual-wan","lastmod":"2026-08-23T07:06Z","nid":"1400936"} -->
 ## Integrating with Microsoft Azure Virtual WAN
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-azure-virtual-wan
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Azure Virtual WAN
-- Last modified: 2026-07-05T23:00Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to integrate the Zscaler service with Microsoft Azure Virtual WAN (VWAN) to discover and configure Azure hubs.
 
 Zscaler's integration leverages Microsoft's Azure Virtual WAN (VWAN) APIs to discover and configure Azure hubs, including querying and configuring Azure VWAN. When the integration is configured, the Zscaler service can sync hub information from Azure. After hub information is synced to Zscaler, outbound IPSec tunnels from any of the hubs to the nearest Zscaler data center can be created using a one-click configuration process. The one-click process automatically configures the Azure hubs, and provisions [Locations](https://help.zscaler.com/zia/about-locations) and [VPN Credentials](https://help.zscaler.com/zia/about-vpn-credentials) for these hubs, within the Zscaler Admin Console.
@@ -7168,13 +6996,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-defender-endpoint","lastmod":"2026-06-29T06:48Z","nid":"1402156"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-defender-endpoint","lastmod":"2026-08-23T07:06Z","nid":"1402156"} -->
 ## Integrating with Microsoft Defender for Endpoint
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-defender-endpoint
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Defender for Endpoint
-- Last modified: 2026-06-29T06:48Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to integrate the Zscaler service with Microsoft Defender for Endpoint for endpoint detection and response visibility.
 
 Zscaler's integration leverages Microsoft Defender for Endpoint APIs to provide endpoint detection and response (EDR) visibility for [Sandbox](https://help.zscaler.com/zia/about-sandbox)-detected malware. When the integration is configured, the Zscaler service calls the Microsoft Defender for Endpoint API and requests information for endpoints that have been exposed to the malicious file. Microsoft Defender for Endpoint uses the new file signature to detect compromised points throughout your organization's network.
@@ -12106,23 +11934,23 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/kerberos-authentication-deployment-guidelines","lastmod":"2025-03-18T09:27Z","nid":"1399561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/kerberos-authentication-deployment-guidelines","lastmod":"2026-08-20T06:49Z","nid":"1399561"} -->
 ## Kerberos Authentication Deployment Guidelines
 
 - Source: https://help.zscaler.com/zia/kerberos-authentication-deployment-guidelines
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Authentication Deployment Guidelines
-- Last modified: 2025-03-18T09:27Z
+- Last modified: 2026-08-20T06:49Z
 - Summary: Guidelines and deployment options for deploying Kerberos authentication.
 
 Before you [deploy Kerberos](https://help.zscaler.com/zia/how-do-i-deploy-kerberos), review the following guidelines:
 
 - To enforce Kerberos authentication, your organization must send its traffic to port 80, 443, or 8800.
-- For known locations, the Zscaler service enforces Kerberos on all explicitly forwarded traffic it receives on port 8800, unless the location does not have authentication enabled. The SSL inspection settings and other settings are inherited from the location. If Kerberos isn't enabled for a location, but you would like some users from that location to use Kerberos, you can send their traffic to port 8800, as well. Ensure that remote users send their traffic to port 8800. The service doesn't perform SSL inspection on this traffic.
+- For known locations, the Zscaler service enforces Kerberos on all explicitly forwarded traffic it receives on port 8800, unless the location does not have authentication enabled. The SSL inspection settings and other settings are inherited from the location. If Kerberos isn't enabled for a location, but you need some users from that location to use Kerberos, you can send their traffic to port 8800. Ensure that remote users send their traffic to port 8800. The service doesn't perform SSL inspection on this traffic.
 - Enabling Kerberos on a location enforces Kerberos authentication on all traffic that is explicitly forwarded to the service from that location and its dedicated proxy ports. Therefore, when Kerberos is enabled on a location, you can forward traffic to port 80 or 443, and the service still enforces Kerberos authentication.
 - Authentication must be enabled on a location that deploys Kerberos authentication for some or all its users.
 
-To learn more, see the [Kerberos requirements](https://help.zscaler.com/zia/about-kerberos-authentication#kerberos-requirements) for tasks you must complete before deploying Kerberos.
+To learn more, see the [Kerberos requirements](https://help.zscaler.com/zia/about-kerberos-authentication#kerberos-requirements) for tasks you are required to complete before deploying Kerberos.
 
 The service only supports Kerberos authentication for traffic that is forwarded to the service in explicit mode. It does not support Kerberos authentication for traffic forwarded to the service in transparent mode (i.e., traffic forwarded through a GRE or IPSec tunnel, and the browser isn't configured to use a PAC file to forward traffic), regardless of the location settings or destination port.
 
@@ -12136,11 +11964,11 @@ You can enable Kerberos for a location, requiring all its users to authenticate 
 
 - Provision all users on the Zscaler service.
 - Configure Kerberos and enable it for the location. See [Deploying Kerberos](https://help.zscaler.com/zia/how-do-i-deploy-kerberos). When you enable Kerberos on a location, the service automatically uses Kerberos to authenticate users from that location.
-- Distribute the default Kerberos PAC file URL to all users in the location. The default Kerberos PAC file forwards traffic to port 8800, the default Kerberos port on ZIA Public Service Edges. Because Kerberos is enabled for the location, there is no need to send the traffic to port 8800. However, if you want to send the traffic to port 80 instead of port 8800, due to firewall constraints, copy the default Kerberos PAC file and replace the variables `${GATEWAY_HOST}:8800` with `${GATEWAY_HOST}:80` and `${SECONDARY_GATEWAY_HOST}:8800` with `${SECONDARY_GATEWAY_HOST}:80`. Or, if your organization subscribes to a dedicated proxy port, specify that port instead. To learn more, see [Using the Default Zscaler Kerberos PAC File](https://help.zscaler.com/zia/how-do-i-use-zscaler-kerberos-default-pac-file).
+- Distribute the default Kerberos PAC file URL to all users in the location. The default Kerberos PAC file forwards traffic to port 8800, the default Kerberos port on Public Service Edges for Internet & SaaS (ZIA). Because Kerberos is enabled for the location, there is no need to send the traffic to port 8800. However, if you want to send the traffic to port 80 instead of port 8800, due to firewall constraints, copy the default Kerberos PAC file and replace the variables `${GATEWAY_HOST}:8800` with `${GATEWAY_HOST}:80` and `${SECONDARY_GATEWAY_HOST}:8800` with `${SECONDARY_GATEWAY_HOST}:80`. Or, if your organization subscribes to a dedicated proxy port, specify that port instead. To learn more, see [Using the Default Zscaler Kerberos PAC File](https://help.zscaler.com/zia/how-do-i-use-zscaler-kerberos-default-pac-file).
 
 ### Using Kerberos for Some Users in a Location
 
-If you want some users in a location to authenticate via Kerberos because the location already has a primary authentication mechanism (e.g, LDAP or SAML), you can distribute the default Kerberos PAC file URL to those users. To deploy Kerberos authentication for specific users, do the following:
+If you want some users in a location to authenticate via Kerberos because the location already has a primary authentication mechanism (e.g., LDAP or SAML), you can distribute the default Kerberos PAC file URL to those users. To deploy Kerberos authentication for specific users, do the following:
 
 - Provision the users who use Kerberos for authentication on the Zscaler service.
 - Configure Kerberos, but don't enable it for the location. To learn more, see [Deploying Kerberos](https://help.zscaler.com/zia/how-do-i-deploy-kerberos).
@@ -12150,10 +11978,10 @@ If you want some users in a location to authenticate via Kerberos because the lo
 
 To use Kerberos authentication for remote users, ensure the remote users have the following requirements:
 
-- Remote users must use DirectAccess to connect to the KDC Proxy. DirectAccess is only supported on Windows 7 Enterprise, Windows 7 Ultimate, and Windows 8 Enterprise editions. Windows 7 Professional and Windows 8 Professional don't support DirectAccess. There are no native clients for OS X and Linux. There are no native clients for OS X and Linux. Remote user access without DirectAcess might work for other VPN solutions.
+- Remote users must use DirectAccess to connect to the KDC Proxy. DirectAccess is only supported on Windows 7 Enterprise, Windows 7 Ultimate, and Windows 8 Enterprise editions. Windows 7 Professional and Windows 8 Professional don't support DirectAccess. There are no native clients for OS X and Linux. Remote user access without DirectAccess might work for other VPN solutions.
 - Edit the default Kerberos PAC file and distribute its URL to the remote users. Copy the default Kerberos PAC file and add a bypass for the KDC Proxy hostname. Retain the default destination port, port 8800, to ensure that remote user traffic is sent to that port on the ZIA Public Service Edge. If you want to send remote user traffic to a dedicated proxy port to enable the service to apply customized SSL settings:
-  - In the PAC file, specify the dedicated proxy port as the destination port.
-  - Ensure that Kerberos is enabled on the location associated with the dedicated proxy port.
+  - Specify the dedicated proxy port as the destination port, in the PAC file.
+  - Ensure that Kerberos is enabled at the location associated with the dedicated proxy port.
 <!-- /ZS-ARTICLE -->
 
 ---

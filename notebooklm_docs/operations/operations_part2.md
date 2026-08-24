@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 60
 
 ---
@@ -2904,13 +2904,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-08-14T10:16Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-08-20T08:12Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-14T10:16Z
+- Last modified: 2026-08-20T08:12Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -4300,13 +4300,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-08-16T07:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-08-23T07:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
@@ -4315,7 +4315,7 @@ You can access theIncident Details drawer from the [Incidents](https://help.zsca
 
 ## Viewing Incident Details
 
-You can view details about the incident in the following tabs:
+You can view details about the incident on the following tabs:
 
 - Overview
 - Violation Details
@@ -4324,7 +4324,7 @@ You can view details about the incident in the following tabs:
 
 See image.
 
-In the Overview tab, you can see:
+On the Overview tab, you can see:
 
 - Duplicate Incidents
 - Overview
@@ -4413,7 +4413,7 @@ In the Notessection, you can enter additional notes or information about the pro
 
 See image.
 
-In the Violation Details tab, you can see:
+On the Violation Details tab, you can see:
 
 - Originating User
 - Policy
@@ -4473,14 +4473,26 @@ In the Policy section, you can see:
   - **Filename** tab, **Dictionaries with Match Count**:The DLP dictionaries that are assigned to the DLP rules that triggered the incident because of the file name of the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
 - **Other Matched Rules**: Expand this field to display the rules that the incident violated, in addition to the primary DLP rules that triggered the incident. See image.
 
-- **Triggered Engines and Dictionaries**. Expand this heading to view the following fields:
-  - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident.
-  - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
-- **Non-Triggered Engines and Dictionaries**: Expand this heading to view the following fields:
-  - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident.
-  - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
-
-See image.
+- **Triggered Engines and Dictionaries**. Expand this heading to view the following policy fields:
+  - **Email Subject** tab: See image.
+    - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident because of the content in the email subject line.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Email Body** tab: See image.
+    - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident because of the content in the email body.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Email Attachments**tab: A subtab appears for each attachment that caused a violation. Click each attachment subtab to see: See image.
+    - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident because of the email attachment.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+- **Non-Triggered Engines and Dictionaries**: Expand this heading to view the following policy fields:
+  - **Email Subject** tab: See image.
+    - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident because of the content in the email subject line.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Email Body** tab: See image.
+    - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident because of the content in the email body.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Email Attachments** tab: A subtab appears for each attachment that caused a violation. Click each attachment subtab to see: See image.
+    - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident because of the email attachment.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
 
 - **Rules**: The DLP rules that the end user violated (e.g., Block-HIPAA).
 - **Triggered Engines and Dictionaries**. Expand this heading to view the following fields:
@@ -4603,7 +4615,7 @@ The Other Recipients section displays the recipients associated with the inciden
 
 See image.
 
-In the Violation Content tab, you can see:
+On the Violation Content tab, you can see:
 
 - Generate Presigned Link
 - View Trigger Data
@@ -4626,11 +4638,18 @@ This field is available only if the **Hide Trigger Data - Admin** field is not s
 In the View Trigger Data section, you can see:
 
 - Inline Source DLP Type
-- Email, Endpoint, and SaaS Security Source DLP Types
+- Email Source DLP Type
+- Endpoint and SaaS Security Source DLP Types
 
 Expand the heading to display the data that triggered the incident. A File Content tab, a File Metadata tab, and a Filename tab appear. Click the different tabs to see the trigger data for those different types of violations triggered by the DLP dictionaries. The prefix and suffix for the trigger data are displayed along with the trigger data itself. The actual trigger data portion is highlighted. You can view the DLP dictionaries associated with the incident and the exact data that violated the DLP policies.
 
 The following images are examples of the File Content tab, the File Metadata tab, and the Filename tab.
+
+See image.
+
+Expand the heading to display the data that triggered the incident. An Email Subject tab, an Email Body tab, and an Email Attachments tab appear. If an incident has multiple attachments and one or more of those attachments caused a violation, then subtabs appear under the Email Attachments tab, one for each attachment that caused a violation. Click the different tabs and subtabs to see the trigger data for those different types of violations triggered by the DLP dictionaries. The prefix and suffix for the trigger data are displayed along with the trigger data itself. The actual trigger data portion is highlighted. You can view the DLP dictionaries associated with the incident and the exact data that violated the DLP policies.
+
+The following images are examples of the Email Subject tab, the Email Body tab, and the Email Attachments tab.
 
 See image.
 
@@ -4968,7 +4987,17 @@ To release the email to its recipients:
 
 [Image: Viewing the other rules that matched the Inline incident in the Other Matched Rules field in the Policy section]
 
-[Image: Viewing the Policy section for an incident with a source DLP type of Email]
+[Image: Viewing the Email Subject tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Body tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Attachments tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays subtabs for each attachment that caused a violation. Each attachment subtab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Subject tab in the Policy section for the non-triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Body tab in the Policy section for the non-triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Attachments tab in the Policy section for the non-triggered engines and dictionaries associated to the incident. This tab displays subtabs for each attachment that caused a violation. Each attachment subtab displays the Engines field and the Dictionaries with Match Count field.]
 
 [Image: Viewing the Policy section for an incident with a source DLP type of Endpoint]
 
@@ -4997,6 +5026,12 @@ To release the email to its recipients:
 [Image: Viewing the trigger data for an incident of Source DLP type Inline in the File Metadata tab of the View Trigger Data field]
 
 [Image: Viewing the trigger data for an incident of Source DLP type Inline in the Filename tab of the View Trigger Data field]
+
+[Image: Viewing the trigger data for an incident of Source DLP type Email in the Email Subject tab of the View Trigger Data field]
+
+[Image: Viewing the trigger data for an incident of Source DLP type Email in the Email Body tab of the View Trigger Data field]
+
+[Image: Viewing the trigger data for an incident of Source DLP type Email in the File Attachments tab of the View Trigger Data field. This tab displays subtabs for each attachment that caused a violation. Each attachment subtab displays the trigger data for that attachment.]
 
 [Image: Viewing the trigger data in the View Trigger Data field on the Violation Content tab for an incident of Source DLP type Email]
 

@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 123
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 124
 
 ---
 
@@ -6055,13 +6055,13 @@ For convenience, Zscaler recommends creating the admin role first because you'll
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/permissions-onboarding-saas-apps-SSPM","lastmod":"2026-07-20T05:00Z","nid":"1532890"} -->
+<!-- ZS-ARTICLE {"url":"/zia/permissions-onboarding-saas-apps-SSPM","lastmod":"2026-08-18T01:56Z","nid":"1532890"} -->
 ## Permissions for Onboarding SaaS Apps for SSPM
 
 - Source: https://help.zscaler.com/zia/permissions-onboarding-saas-apps-SSPM
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Permissions for Onboarding SaaS Apps for SSPM
-- Last modified: 2026-07-20T05:00Z
+- Last modified: 2026-08-18T01:56Z
 - Summary: Information on the read-only permissions for SaaS apps.
 
 You can onboard Software as a Service (SaaS) applications for the SaaS Security Posture Management (SSPM) scan with read-only permissions. SSPM typically requires read-only access to perform posture assessments.
@@ -6079,128 +6079,128 @@ The following tables list the permissions required for SaaS apps:
 **Prerequisite**
 A user with Global Administrator privileges is required to onboard Microsoft 365 for SSPM.
 
-| API | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Graph Security API | SecurityEvents.Read.All | Application (Admin) | Yes | Yes | Yes | No | To read security events to display and correlate  security-related events |
-| Graph Intune API | DeviceManagementConfiguration. Read.All | Application (Admin) | Yes | No | Yes | No | To assess policy for device configuration and display it as a part of the configuration audit |
-| Graph API | Organization.Read.All | Application (Admin) | Yes | Yes | Yes | No | To read, leverage, and display organizational information |
-| Graph API | UserAuthenticationMethod.Read.All | Application (Admin) | Yes | No | Yes | No | To read user authentication methods to display in reports |
-| Graph API | OrgContact. Read.All | Application (Admin) | Yes | Yes | Yes | No | To fetch information on all contacts in the organization to see all possible users, even if not a company user |
-| Graph API | Group. Read.All | Application (Admin) | Yes | Yes | Yes | Yes | To enumerate groups for SSPM |
-| Graph API (Exchange RBAC) | RoleManage ment.Read.Exchange | Application (Admin) | Yes | No | Yes | No | To read Exchange RBAC and leverage and display information in the configuration audit |
-| Graph API | Directory. Read.All | Application (Admin) | Yes | Yes | Yes | No | To read directory data and leverage in reports and investigations |
-| Graph API | User.Read.All | Application (Admin) | Yes | Yes | Yes | No | To read all user profiles and leverage information in user-related investigations |
-| Graph API | AuditLog. Read.All | Application (Admin) | Yes | No | Yes | No | To read all audit logs to see usage and other events and use them for correlation and display in reports |
-| Graph API | Policy. Read.All | Application (Admin) | Yes | No | Yes | No | To read all policies in the organization to correlate and display in reports |
-| Graph API | Application. Read.All | Application (Admin) | Yes | Yes | Yes | Yes | To read all applications in Entra ID to enable application-specific investigations |
-| Graph Intune API | DeviceManagementApps. Read.All | Application (Admin) | Yes | No | Yes | No | To assess policy for Intune apps and display it as a part of investigations |
-| Graph API | Reports.Read.All | Application (Admin) | Yes | No | Yes | No | To read usage reports and correlate with app usage |
-| Exchange Online API | Exchange.ManageAsApp | Application (Admin) | No | No | Yes | Yes | To access all config options in Exchange and provide management |
-| SharePoint Online API | Sites.ReadWrite.All | Application (Admin) | No | No | Yes | Yes | To scan and remediate SharePoint/ OneDrive SSPM |
-| SharePoint Online API | Sites.FullControl.All | Application (Admin) | No | No | Yes | Yes | To enable product functionality via powershell usage to access additional attributes not available via API |
+| Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
+| --- | --- | --- | --- | --- | --- | --- |
+| SecurityEvents.Read.All | Application (Admin) | Yes | Yes | Yes | No | To read security events to display and correlate  security-related events |
+| DeviceManagementConfiguration. Read.All | Application (Admin) | Yes | No | Yes | No | To assess policy for device configuration and display it as a part of the configuration audit |
+| Organization.Read.All | Application (Admin) | Yes | Yes | Yes | No | To read, leverage, and display organizational information |
+| UserAuthenticationMethod.Read.All | Application (Admin) | Yes | No | Yes | No | To read user authentication methods to display in reports |
+| OrgContact. Read.All | Application (Admin) | Yes | Yes | Yes | No | To fetch information on all contacts in the organization to see all possible users, even if not a company user |
+| Group. Read.All | Application (Admin) | Yes | Yes | Yes | Yes | To enumerate groups for SSPM |
+| RoleManage ment.Read.Exchange | Application (Admin) | Yes | No | Yes | No | To read Exchange RBAC and leverage and display information in the configuration audit |
+| Directory. Read.All | Application (Admin) | Yes | Yes | Yes | No | To read directory data and leverage in reports and investigations |
+| User.Read.All | Application (Admin) | Yes | Yes | Yes | No | To read all user profiles and leverage information in user-related investigations |
+| AuditLog. Read.All | Application (Admin) | Yes | No | Yes | No | To read all audit logs to see usage and other events and use them for correlation and display in reports |
+| Policy. Read.All | Application (Admin) | Yes | No | Yes | No | To read all policies in the organization to correlate and display in reports |
+| Application. Read.All | Application (Admin) | Yes | Yes | Yes | Yes | To read all applications in Entra ID to enable application-specific investigations |
+| DeviceManagementApps. Read.All | Application (Admin) | Yes | No | Yes | No | To assess policy for Intune apps and display it as a part of investigations |
+| Reports.Read.All | Application (Admin) | Yes | No | Yes | No | To read usage reports and correlate with app usage |
+| Exchange.ManageAsApp | Application (Admin) | No | No | Yes | Yes | To access all config options in Exchange and provide management |
+| Sites.ReadWrite.All | Application (Admin) | No | No | Yes | Yes | To scan and remediate SharePoint/ OneDrive SSPM |
+| Sites.FullControl.All | Application (Admin) | No | No | Yes | Yes | To enable product functionality via powershell usage to access additional attributes not available via API |
 
 The following permissions are required for Microsoft Viva Engage:
 
-| Microsoft API | Microsoft Permissions | Associated Zscaler Actions |
-| --- | --- | --- |
-| Microsoft Graph | Community.Read.All | Scanning |
+| Microsoft Permissions | Associated Zscaler Actions |
+| --- | --- |
+| Community.Read.All | Scanning |
 
 **Prerequisite**
 A user with Super Administrator privileges is required to onboard Google Workspace for SSPM.
 
-| API | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| https://admin.googleapis.com/admin/directory/v1/users https://admin.googleapis.com/admin/directory/v1/users/{userKey} | https://www.googleapis.com/auth/admin.directory. user | Super Admin | https://www.googleapis.com/auth/admin.directory.user.readonly | Yes (Read-Only equivalent when choosing read-only mode) | Yes | No | To fetch individual user information and their metadata |
-| Unused - Legacy scope | https://www.googleapis.com/auth/drive | Super Admin | N/A | Yes (when choosing write scopes) | No | No | To fetch drive information. (Unsupported policy) |
-| https://admin.googleapis.com/admin/reports/v1/activity/users/{userKey or all}/applications/{applicationName} | https://www.googleapis.com/auth/admin.reports.audit.readonly | Super Admin | Yes | Yes | Yes | No | To fetch information from auditing to get security key data at a per-user level |
-| https://admin.googleapis.com/admin/reports/v1/usage/dates/{date} | https://www.googleapis.com/auth/admin.reports.usage.readonly | Super Admin | Yes | Yes | Yes | No | To fetch customerUsageMetricsapi |
-| GET https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/autoForwarding, GET https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/imap, GET https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/pop | https://mail.google.com/ | Super Admin | https://www.googleapis.com/auth/gmail.readonly | Yes | N/A | Yes | To fetch Gmail auto-forward, IMAP, and POP policies |
-| To be used for upcoming posture controls | https://www.googleapis.com/auth/admin.directory.group.readonly | Super Admin | Yes, but unused | Yes | No | No | To fetch group information org wide |
-| To be used for upcoming posture controls | https://www.googleapis.com/auth/admin.directory.orgunit.readonly | Super Admin | Yes, but unused | Yes | No | No | To fetch org unit information org wide |
+| Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
+| --- | --- | --- | --- | --- | --- | --- |
+| https://www.googleapis.com/auth/admin.directory. user | Super Admin | https://www.googleapis.com/auth/admin.directory.user.readonly | Yes (Read-Only equivalent when choosing read-only mode) | Yes | No | To fetch individual user information and their metadata |
+| https://www.googleapis.com/auth/drive | Super Admin | N/A | Yes (when choosing write scopes) | No | No | To fetch drive information. (Unsupported policy) |
+| https://www.googleapis.com/auth/admin.reports.audit.readonly | Super Admin | Yes | Yes | Yes | No | To fetch information from auditing to get security key data at a per-user level |
+| https://www.googleapis.com/auth/admin.reports.usage.readonly | Super Admin | Yes | Yes | Yes | No | To fetch customerUsageMetricsapi |
+| https://mail.google.com/ | Super Admin | https://www.googleapis.com/auth/gmail.readonly | Yes | N/A | Yes | To fetch Gmail auto-forward, IMAP, and POP policies |
+| https://www.googleapis.com/auth/admin.directory.group.readonly | Super Admin | Yes, but unused | Yes | No | No | To fetch group information org wide |
+| https://www.googleapis.com/auth/admin.directory.orgunit.readonly | Super Admin | Yes, but unused | Yes | No | No | To fetch org unit information org wide |
 
 **Prerequisite**
 A user with an Administrator role is required to create the Organization API Key for Jira/Confluence for SSPM scans.
 
-| API | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| GET /admin/v1/orgs/{orgId}/domains | Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To perform SSPM scans of org domains |
-| GET /admin/v1/orgs/{orgId}/policies | Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To perform SSPM scans of org policies |
-| POST /admin/v1/orgs/{orgId}/policies | Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To perform SSPM remediation of org policies |
-| PUT /admin/v1/orgs/{orgId}/policies/{policyId} | Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To perform SSPM remediation of org policies |
-| GET admin/v1/orgs/{orgId}/users | Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To fetch organization users for SSPM user enumeration and access control analysis |
+| Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
+| --- | --- | --- | --- | --- | --- | --- |
+| Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To perform SSPM scans of org domains |
+| Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To perform SSPM scans of org policies |
+| Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To perform SSPM remediation of org policies |
+| Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To perform SSPM remediation of org policies |
+| Not valid for SSPM, since the Organization API Key with FULL scope is required. | Admin | N/A | Yes | Yes | N/A | To fetch organization users for SSPM user enumeration and access control analysis |
 
 **Prerequisite**
 A user with Super Administrator privileges is required to onboard Okta for SSPM.
 
-| API | Scope Requested | Onboarding User Role | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
-| --- | --- | --- | --- | --- | --- | --- |
-| GET /api/v1/policies | okta.policies. read | Super Admin | N/A | Yes | N/A | To read information about policies in the organization |
-| GET /api/v1/policies/{policyId}/rules | okta.policies. read | Super Admin | N/A | Yes | N/A | To read information about policies in the organization |
-| GET /api/v1/zones | okta.zones.read | Super Admin | N/A | Yes | N/A | To read information about network zones in the organization |
-| GET /api/v1/roles/{roleTypeOrRoleId}/subscriptions | okta.roles.read | Super Admin | N/A | Yes | N/A | To read role assignments in the organization |
-| GET /api/v1/iam/assignees/users | okta.roles.read | Super Admin | N/A | Yes | N/A | To read role assignments in the organization |
-| GET /api/v1/trustedOrigins | okta.trustedOrigins.read | Super Admin | N/A | Yes | N/A | To read all trusted origins in the organization |
-| GET /api/v1/users | okta.users.read | Super Admin | Yes | Yes | N/A | To read user profiles in the organization |
-| GET /api/v1/users/{userId}/roles | okta.users.read | Super Admin | N/A | Yes | N/A | To read user profiles in the organization |
-| GET /api/v1/threats/configuration | okta.threats. read | Super Admin | N/A | Yes | N/A | To read all threat insights configurations in the organization |
-| GET /api/v1/domains | okta.domains. read | Super Admin | N/A | Yes | N/A | To read information about custom domains |
-| GET /api/v1/apps | okta.apps.read | Super Admin | N/A | Yes | N/A | To get the list of all integrated apps |
-| /api/v1/threats/configuration | okta.threats. manage | Super Admin | N/A | No | Yes | To manage all threat insights configurations in the organization |
-| /api/v1/policies | okta.policies. manage | Super Admin | N/A | No | Yes | To manage policies in the organization |
-| /api/v1/roles/SUPER_ADMIN/subscriptions | okta.roles. manage | Super Admin | N/A | No | Yes | To manage role assignments in the organization |
+| Scope Requested | Onboarding User Role | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
+| --- | --- | --- | --- | --- | --- |
+| okta.policies. read | Super Admin | N/A | Yes | N/A | To read information about policies in the organization |
+| okta.policies. read | Super Admin | N/A | Yes | N/A | To read information about policies in the organization |
+| okta.zones.read | Super Admin | N/A | Yes | N/A | To read information about network zones in the organization |
+| okta.roles.read | Super Admin | N/A | Yes | N/A | To read role assignments in the organization |
+| okta.roles.read | Super Admin | N/A | Yes | N/A | To read role assignments in the organization |
+| okta.trustedOrigins.read | Super Admin | N/A | Yes | N/A | To read all trusted origins in the organization |
+| okta.users.read | Super Admin | Yes | Yes | N/A | To read user profiles in the organization |
+| okta.users.read | Super Admin | N/A | Yes | N/A | To read user profiles in the organization |
+| okta.threats. read | Super Admin | N/A | Yes | N/A | To read all threat insights configurations in the organization |
+| okta.domains. read | Super Admin | N/A | Yes | N/A | To read information about custom domains |
+| okta.apps.read | Super Admin | N/A | Yes | N/A | To get the list of all integrated apps |
+| okta.threats. manage | Super Admin | N/A | No | Yes | To manage all threat insights configurations in the organization |
+| okta.policies. manage | Super Admin | N/A | No | Yes | To manage policies in the organization |
+| okta.roles. manage | Super Admin | N/A | No | Yes | To manage role assignments in the organization |
 
 **Prerequisite**
 A user with Administrator privileges is required to onboard Trello for SSPM.
 
-| API | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| https://api.trello.com/1/members/me | account | Admin | Yes | Yes | No | N/A | To get a member |
-| https://api.trello.com/1/organizations/{orgId}/prefs https://api.trello.com/1/organizations/{orgId}/prefs?token={token}&key={key} | read write | Admin | No | No | No | N/A | To fetch metadata |
-| https://api.trello.com/1/members/me/organizations | read | Admin | Yes | No | Yes | N/A | To get a member's workspaces |
+| Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
+| --- | --- | --- | --- | --- | --- | --- |
+| account | Admin | Yes | Yes | No | N/A | To get a member |
+| read write | Admin | No | No | No | N/A | To fetch metadata |
+| read | Admin | Yes | No | Yes | N/A | To get a member's workspaces |
 
 **Prerequisite**
 The user must be an Authenticated User, Repository Owner, or Organization Owner to onboard GitHub for SSPM.
 
-| API | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| https://api.github.com/users/org | read:org/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | Yes | Yes | Yes | To fetch the list of organizations |
-| https://api.github.com/orgs<orgName>/repos | repo | The authenticated user must have write, maintain, or admin privileges. | No | Yes | Yes | Yes (write) | To fetch the list of repositories |
-| GET /users/{username} | None for public data, user:email (to read email) | The authenticated user must have write, maintain, or admin privileges. | No | No | No | No | To fetch the user email for reporting |
-| https://api.github.com/repos/testbasicsanity/testbasic1/collaborators | read:org/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | Yes | Yes | To fetch the list of collaborators |
-| https://api.github.com/repos/testbasicsanity/testbasic1/collaborators/branches | read/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | Yes | Yes | To fetch the list of branches to scan |
-| https://api.github.com/repos/testbasicsanity/testbasic1/collaborators/commits | read/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | No | No | To fetch the collaborators list for a commit |
-| https://api.github.com/repos/testbasicsanity/testbasic1/contents | repo | The authenticated user must have write, maintain, or admin privileges. | No | No | Yes (for security.md files) | No | To fetch file metadata |
-| https://api.github.com/users/org/<orgName>/hooks | admin:org_ hook | The authenticated user must have admin permissions for orgs. | No | No | No | No | To create webhooks |
-| /repos/{owner}/{repo}/interaction-limits | read/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | Yes | Yes | To evaluate and fetch metadata for the SSPM policy "Enable Interaction Limits for Public Repositories" |
-| /repos/{owner}/{repo}/forks | read/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | Yes | Yes | To evaluate and fetch metadata for the SSPM Policy |
+| Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
+| --- | --- | --- | --- | --- | --- | --- |
+| read:org/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | Yes | Yes | Yes | To fetch the list of organizations |
+| repo | The authenticated user must have write, maintain, or admin privileges. | No | Yes | Yes | Yes (write) | To fetch the list of repositories |
+| None for public data, user:email (to read email) | The authenticated user must have write, maintain, or admin privileges. | No | No | No | No | To fetch the user email for reporting |
+| read:org/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | Yes | Yes | To fetch the list of collaborators |
+| read/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | Yes | Yes | To fetch the list of branches to scan |
+| read/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | No | No | To fetch the collaborators list for a commit |
+| repo | The authenticated user must have write, maintain, or admin privileges. | No | No | Yes (for security.md files) | No | To fetch file metadata |
+| admin:org_ hook | The authenticated user must have admin permissions for orgs. | No | No | No | No | To create webhooks |
+| read/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | Yes | Yes | To evaluate and fetch metadata for the SSPM policy "Enable Interaction Limits for Public Repositories" |
+| read/repo | The authenticated user must have write, maintain, or admin privileges. | Yes | No | Yes | Yes | To evaluate and fetch metadata for the SSPM Policy |
 
 **Prerequisite**
 An Organization Admin with Full Admin, Compliance Officer, and Webex Site Admin roles is required to onboard Webex Teams for SSPM.
 
-| API | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| GET v1/events?cursor=1&from={from}&max=1&resource=files&type=read&to={to} GET v1/events | spark-compliance:events_read | Authenticated User or Admin | Yes | Yes | No | No | To fetch file access events for onboarding and scanning |
-| GET v1/rooms?max=2 GET v1/rooms/{roomId} | spark-compliance:rooms_read spark:all spark:kms | Authenticated User or Admin | No | Yes | No | No | To fetch Webex rooms list for onboarding and scanning |
-| GET v1/reports | analytics:read_all | Authenticated User or Admin | Yes | Yes | No | No | Required for Webex inline DLP |
-| GET v1/organizations | spark-admin:organizations_read | Authenticated User or Admin | Yes | Yes | Yes | No | To fetch organization details for scanning and SSPM |
-| GET v1/people/me GET v1/people?max={max}&orgId={orgId} | spark-admin:people_read spark-admin:people_write | Authenticated User or Admin | No | Yes | Yes | No | To fetch current user profile for authentication validation |
-| GET v1/messages GET v1/messages/{messageId} POST v1/messages?toPersonEmail={email} POST v1/messages?roomId={roomId} POST v1/messages PUT v1/messages/{messageId} DELETE v1/messages/{messageId} | spark-compliance:messages_read spark-compliance:messages_write | Authenticated User or Admin | No | No | No | No | To retrieve message for scanning To create, update, or delete messages for remediation |
-| GET v1/memberships GET v1/memberships?roomId={roomId}&max=16 | spark-compliance:teams_read spark-compliance:team_memberships_read spark-compliance:memberships_ read | Authenticated User or Admin | No | No | No | No | To fetch room memberships |
-| POST v1/memberships?roomId={roomId} | spark-compliance:team_memberships_write | Authenticated User or Admin | No | No | No | No | To add users to rooms for remediation |
-| POST v1/rooms | spark-compliance:rooms_write | Authenticated User or Admin | No | No | No | No | To create rooms for remediation |
-| GET v1/teams/{teamId} | spark-compliance:teams_read, spark-compliance:team_memberships_read, spark-compliance:team_memberships_write | Authenticated User or Admin | No | No | No | No | To fetch team details |
-| GET v1/people/{personId} GET v1/people?orgId={orgId} | spark-admin:people_read, spark-admin:people_write | Authenticated User or Admin | No | No | No | No | To fetch user profile details |
-| GET v1/meetingPreferences/sites GET v1/meetingPreferences | meeting:preferences_read meeting:admin_preferences_read | Authenticated User or Admin | Yes | No | Yes | Yes | To retrieve meeting site preferences for scanning and SSPM |
-| GET v1/contents/{contentId} | spark:all | Authenticated User or Admin | Yes | No | No | No | To download content for remediation |
-| GET v1/admin/meeting/config/commonSettings | meeting:admin_config_read | Authenticated User or Admin | Yes | No | Yes | No | To retrieve admin meeting configuration for SSPM |
-| PATCH v1/admin/meeting/config/commonSettings | meeting:admin_config_ write | Authenticated User or Admin | No | No | No | Yes | To update admin meeting settings for SSPM remediation |
-| PUT v1/meetingPreferences | meeting:preferences_write | Authenticated User or Admin | No | No | No | Yes | To update user meeting preferences for SSPM remediation |
-| PUT v1/meetingPreferences/personalMeetingRoom | meeting:admin_preferences_write | Authenticated User or Admin | Yes | No | No | Yes | To update meeting room settings for SSPM remediation |
-| PUT v1/meetingPreferences/schedulingOptions | meeting:preferences_write | Authenticated User or Admin | No | No | No | Yes | To update meeting scheduling options for SSPM remediation |
-| GET v1/adminAudit/events | audit:events_ read | Authenticated User or Admin | Yes | No | No | No | To retrieve admin audit events for reporting |
-| POST v1/webhooks | meeting:admin_participants_read meeting:admin_recordings_read meeting:admin_schedule_read meeting:admin_transcripts_read spark-compliance:meetings_read | Organization/Admin/Compliance Officer Level Scopes | No | No | No | No | Required for webhooks |
-| PUT v1/webhooks/{webhookId} | meeting:admin_participants_read meeting:admin_recordings_read meeting:admin_schedule_read meeting:admin_transcripts_read spark-compliance:meetings_read | Organization/Admin/Compliance Officer Level Scopes | No | No | No | No | Required for webhooks |
-| DELETE v1/webhooks | meeting:admin_participants_read meeting:admin_recordings_read meeting:admin_schedule_read meeting:admin_transcripts_read spark-compliance:meetings_read | Organization/Admin/Compliance Officer Level Scopes | No | No | No | No | Required for webhooks |
+| Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
+| --- | --- | --- | --- | --- | --- | --- |
+| spark-compliance:events_read | Authenticated User or Admin | Yes | Yes | No | No | To fetch file access events for onboarding and scanning |
+| spark-compliance:rooms_read spark:all spark:kms | Authenticated User or Admin | No | Yes | No | No | To fetch Webex rooms list for onboarding and scanning |
+| analytics:read_all | Authenticated User or Admin | Yes | Yes | No | No | Required for Webex inline DLP |
+| spark-admin:organizations_read | Authenticated User or Admin | Yes | Yes | Yes | No | To fetch organization details for scanning and SSPM |
+| spark-admin:people_read spark-admin:people_write | Authenticated User or Admin | No | Yes | Yes | No | To fetch current user profile for authentication validation |
+| spark-compliance:messages_read spark-compliance:messages_write | Authenticated User or Admin | No | No | No | No | To retrieve message for scanning To create, update, or delete messages for remediation |
+| spark-compliance:teams_read spark-compliance:team_memberships_read spark-compliance:memberships_ read | Authenticated User or Admin | No | No | No | No | To fetch room memberships |
+| spark-compliance:team_memberships_write | Authenticated User or Admin | No | No | No | No | To add users to rooms for remediation |
+| spark-compliance:rooms_write | Authenticated User or Admin | No | No | No | No | To create rooms for remediation |
+| spark-compliance:teams_read, spark-compliance:team_memberships_read, spark-compliance:team_memberships_write | Authenticated User or Admin | No | No | No | No | To fetch team details |
+| spark-admin:people_read, spark-admin:people_write | Authenticated User or Admin | No | No | No | No | To fetch user profile details |
+| meeting:preferences_read meeting:admin_preferences_read | Authenticated User or Admin | Yes | No | Yes | Yes | To retrieve meeting site preferences for scanning and SSPM |
+| spark:all | Authenticated User or Admin | Yes | No | No | No | To download content for remediation |
+| meeting:admin_config_read | Authenticated User or Admin | Yes | No | Yes | No | To retrieve admin meeting configuration for SSPM |
+| meeting:admin_config_ write | Authenticated User or Admin | No | No | No | Yes | To update admin meeting settings for SSPM remediation |
+| meeting:preferences_write | Authenticated User or Admin | No | No | No | Yes | To update user meeting preferences for SSPM remediation |
+| meeting:admin_preferences_write | Authenticated User or Admin | Yes | No | No | Yes | To update meeting room settings for SSPM remediation |
+| meeting:preferences_write | Authenticated User or Admin | No | No | No | Yes | To update meeting scheduling options for SSPM remediation |
+| audit:events_ read | Authenticated User or Admin | Yes | No | No | No | To retrieve admin audit events for reporting |
+| meeting:admin_participants_read meeting:admin_recordings_read meeting:admin_schedule_read meeting:admin_transcripts_read spark-compliance:meetings_read | Organization/Admin/Compliance Officer Level Scopes | No | No | No | No | Required for webhooks |
+| meeting:admin_participants_read meeting:admin_recordings_read meeting:admin_schedule_read meeting:admin_transcripts_read spark-compliance:meetings_read | Organization/Admin/Compliance Officer Level Scopes | No | No | No | No | Required for webhooks |
+| meeting:admin_participants_read meeting:admin_recordings_read meeting:admin_schedule_read meeting:admin_transcripts_read spark-compliance:meetings_read | Organization/Admin/Compliance Officer Level Scopes | No | No | No | No | Required for webhooks |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6344,13 +6344,13 @@ This article provides an explanation of the policy actions that are seen in Insi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/pre-vetting-apps","lastmod":"2025-10-17T05:07Z","nid":"1450406"} -->
+<!-- ZS-ARTICLE {"url":"/zia/pre-vetting-apps","lastmod":"2026-08-20T02:28Z","nid":"1450406"} -->
 ## Pre-Vetting Apps
 
 - Source: https://help.zscaler.com/zia/pre-vetting-apps
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Using 3rd-Party App Governance > Pre-Vetting Apps
-- Last modified: 2025-10-17T05:07Z
+- Last modified: 2026-08-20T02:28Z
 - Summary: How to add apps from the 3rd-Party App Governance App Catalog to your inventory and submit apps for sandboxing.
 
 Depending on your organization's policy, users might request approval for apps, third-party integrations, and browser extensions before installing them.
@@ -6734,22 +6734,22 @@ To learn more about how to configure this rule, see [Configuring IPS Control Pol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/recommended-malware-protection-policy","lastmod":"2026-07-16T21:06Z","nid":"1398806"} -->
+<!-- ZS-ARTICLE {"url":"/zia/recommended-malware-protection-policy","lastmod":"2026-08-17T14:32Z","nid":"1398806"} -->
 ## Recommended Malware Protection Policy
 
 - Source: https://help.zscaler.com/zia/recommended-malware-protection-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Malware Protection > Recommended Malware Protection Policy
-- Last modified: 2026-07-16T21:06Z
+- Last modified: 2026-08-17T14:32Z
 - Summary: View the Zscaler-recommended configuration for the Malware Protection policy.
 
 Zscaler recommends that you configure the following [Malware Protection policy](https://help.zscaler.com/zia/configuring-malware-protection-policy):
 
-- Disable **Inspect Inbound Traffic**.
-- Disable **Inspect Outbound Traffic**.
-- Disable **Inspect HTTP**.
-- Disable **Inspect FTP over HTTP**.
-- Disable **Inspect FTP**.
+- Enable **Inspect Inbound Traffic**.
+- Enable **Inspect Outbound Traffic**.
+- Enable **Inspect HTTP**.
+- Enable **Inspect FTP over HTTP**.
+- Enable **Inspect FTP**.
 - Block **Unwanted Applications**.
 - Block **Trojans**.
 - Block **Worms**.
@@ -7229,13 +7229,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-08-14T11:27Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-08-21T12:59Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-14T11:27Z
+- Last modified: 2026-08-21T12:59Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -7358,13 +7358,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/retrieving-mip-labels-microsoft-zscaler","lastmod":"2026-07-01T11:25Z","nid":"1402396"} -->
+<!-- ZS-ARTICLE {"url":"/zia/retrieving-mip-labels-microsoft-zscaler","lastmod":"2026-08-20T03:01Z","nid":"1402396"} -->
 ## Retrieving MIP Labels from Microsoft to the MIP Account
 
 - Source: https://help.zscaler.com/zia/retrieving-mip-labels-microsoft-zscaler
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Retrieving MIP Labels from Microsoft to the MIP Account
-- Last modified: 2026-07-01T11:25Z
+- Last modified: 2026-08-20T03:01Z
 - Summary: How to retrieve MIP labels from Microsoft to the MIP account.
 
 After you create an MIP account in the Zscaler Admin Console and it is validated successfully, you need to change the Label Retrieval field for the MIP account in the Zscaler Admin Console to Activate for the service to scan and retrieve the published MIP labels from Microsoft. The MIP labels need to be published in Microsoft before the service can retrieve them. The first scan and retrieval of the MIP labels takes a few minutes. After that, the scan and retrieval of the MIP labels occurs automatically every 12 hours. To learn more about creating and publishing MIP labels in Microsoft, refer to the [Microsoft Documentation](https://docs.microsoft.com/en-us/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide).
@@ -7374,7 +7374,7 @@ After the MIP labels are added to the Zscaler Admin Console, you can use them wi
 To retrieve MIP labels from Microsoft to the MIP account:
 
 1. Go to **Policies** > **Data Protection** > **Common Resources** > **MIP Labels**.
-2. In the **Microsoft Information Protection (MIP) Labels** tab, locate the MIP account for which you want to retrieve the MIP labels from Microsoft.
+2. On the **Microsoft Information Protection (MIP) Labels** tab, locate the MIP account for which you want to retrieve the MIP labels from Microsoft.
 3. Click **Edit** next to the MIP account.
 
 The **Edit MIP Account** window appears.
@@ -11571,13 +11571,13 @@ To learn more, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-outbound-email-dlp","lastmod":"2026-07-07T14:49Z","nid":"1492661"} -->
+<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-outbound-email-dlp","lastmod":"2026-08-21T07:08Z","nid":"1492661"} -->
 ## Step-by-Step Configuration Guide for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Step-by-Step Configuration Guide for Zscaler Outbound Email DLP
-- Last modified: 2026-07-07T14:49Z
+- Last modified: 2026-08-21T07:08Z
 - Summary: A high-level overview of how to use Zscaler Outbound Email Data Loss Prevention (DLP) to prevent data loss in outbound email sent to external domains.
 
 This guide takes you through the configuration steps you need to complete to begin using the Zscaler Outbound Email Data Loss Prevention (DLP) for your organization. Because Zscaler Outbound Email DLP uses Zscaler DLP tools to monitor and prevent the leakage of sensitive data in outbound email content sent to external domains, Zscaler recommends reading the following articles before you begin configuring your outbound email policy:
@@ -11613,7 +11613,7 @@ Adding an email tenant is the first step in setting up an outbound email policy.
 
 To learn more, see [Adding Email Tenants](https://help.zscaler.com/zia/adding-email-tenants).
 
-To allow the Zscaler service to process and take action on email content, you must configure your Gmail or Exchange server with connectors and rules with optional custom headers.
+To allow the Zscaler service to process and take action on email content, you must configure your secure email gateway (SEG), Gmail, or Exchange server with connectors and rules with optional custom headers.
 
 To learn more, see [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp) and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
 
@@ -11628,6 +11628,8 @@ Based on how your rules are configured, the Zscaler service adds headers to emai
 To learn more, see [Configuring Outbound Email Policy Rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
 
 If you configured an Incident Receiver as part of your outbound email policy rules, you can integrate it with Workflow Automation to capture and remediate incidents generated by policy violations. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
+
+Workflow Automation is not supported for SEG tenants.
 
 You can configure Nanolog Streaming Service (NSS) feeds to specify the data from the Zscaler Outbound Email DLP Policy logs that the NSS sends to your security information and event management (SIEM) system. To learn more, see [Adding NSS Feeds for Email DLP Logs](https://help.zscaler.com/zia/adding-nss-feeds-email-dlp-logs).
 
@@ -11844,13 +11846,13 @@ These workloads are typically Windows Servers, such as Windows Server 2008R2, an
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/synchronizing-user-data-active-directory-openldap","lastmod":"2026-07-28T10:03Z","nid":"1399611"} -->
+<!-- ZS-ARTICLE {"url":"/zia/synchronizing-user-data-active-directory-openldap","lastmod":"2026-08-18T16:42Z","nid":"1399611"} -->
 ## Synchronizing User Data with an Active Directory or OpenLDAP
 
 - Source: https://help.zscaler.com/zia/synchronizing-user-data-active-directory-openldap
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Active Directory & LDAP > Synchronizing User Data with an Active Directory or OpenLDAP
-- Last modified: 2026-07-28T10:03Z
+- Last modified: 2026-08-18T16:42Z
 - Summary: How to configure the Zscaler service to synchronize user data with an Active Directory or OpenLDAP.
 
 This article illustrates how to configure the Zscaler service to synchronize user information with a directory server, either Active Directory (AD) or OpenLDAP.
@@ -11914,7 +11916,7 @@ See image.
 
 1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
 
-[Image: The Enforce Authentication switch in the Edit Location window.]
+[Image: The Enforce Authentication switch in the Edit Location window]
 
 1. Go to **Infrastructure**> **Locations > Legacy Locations**.
 2. Click the **Edit** icon for the location you are enabling digest authentication for.
@@ -11926,7 +11928,7 @@ See image.
 
 You can also exempt URL categories, URLs, or cloud apps from digest authentication. To learn more, see [About Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#digest-auth).
 
-[Image: The Enable Digest Authentication switch in the Edit Location window.]
+[Image: The Enable Digest Authentication switch in the Edit Location window]
 
 The default authentication method for synchronized users is LDAP Bind. If you want to use another method, you can configure one of the following:
 
@@ -11952,7 +11954,7 @@ Follow the Authentication Wizard:
 - Authentication Parameters
 - Review
 
-[Image: The View Setup Log window in the Authentication Wizard.]
+[Image: The View Setup Log window in the Authentication Wizard]
 
 Define the authentication agent and settings for the directory server. The Zscaler service can synchronize data for up to two sets of users. For example, it can synchronize data from two directory servers (e.g., one in Europe and another one in the US) if they have different user, group, and department information. Configure the service to synchronize from a secondary directory server only if it doesn't have duplicate user or group information. Don't set up a secondary server for redundancy.
 
@@ -11990,7 +11992,7 @@ See image.
 
 [Image: The Primary Directory Server step in the Authentication Wizard]
 
-When a client, such as the Zscaler service, connects to a directory server, the server performs a BIND operation where it authenticates the client. If the operation is successful, the client is allowed to access the server. The directory server can require the client to enter a Distinguished Name (DN) and password, or it can allow the client to perform the query anonymously, without requiring credentials. In this step, specify whether the directory server allows anonymous access. If it doesn't, enter the DN and password required to access the server.
+When a client, such as the Zscaler service, connects to a directory server, the server performs a Bind operation where it authenticates the client. If the operation is successful, the client is allowed to access the server. The directory server can require the client to enter a Distinguished Name (DN) and password, or it can allow the client to perform the query anonymously, without requiring credentials. In this step, specify whether the directory server allows anonymous access. If it doesn't, enter the DN and password required to access the server.
 
 Define the following ​​​​​**Authentication** settings for the directory server, and click **Next**:
 
@@ -12016,7 +12018,7 @@ Define the following **Detected Settings**, and click **Next**:
 
 See image.
 
-[Image: The Detected Settings step in the Authentication Wizard.]
+[Image: The Detected Settings step in the Authentication Wizard]
 
 Specify which attributes represent the required user information. You can define filters to narrow down the results. Zscaler strongly recommends that you use an LDAP browser, such as Apache Studio Directory or Softerra, to view several actual users and confirm which attributes are being used to identify the user name, email address, department, and group information. If you are synchronizing information from an LDAP server and your organization uses custom LDAP attributes, consult your LDAP administrator to determine which attributes to use.
 
@@ -12072,7 +12074,7 @@ Following is an example of a filter that imports all groups that begin with `Zsc
 (&(objectClass=group)(cn=zscaler*))
 ```
 
-Replace <Group Name>,<Group Name 1>, and <Group Name 2> with the actual group name in the directory server. The asterisk (*) is required, so the filter automatically completes the Common Name (cn) value. The pipe (**|**) character means that at least one criteria must match. The ampersand (&) means that all criteria must be true.
+Replace <Group Name>,<Group Name 1>, and <Group Name 2> with the actual group name in the directory server. The asterisk (*) is required, so the filter automatically completes the Common Name (cn) value. The pipe character (**|**) means that at least one criteria must match. The ampersand (&) means that all criteria must be true.
 
 - **User Search Filter**: Use this filter to narrow down the user objects that the Zscaler service returns after synchronization. You can enter or choose a filter string to locate specific users, such as users who belong to a specific group. For example, choose **objectClass=person** to narrow down the data to persons and not computers. Zscaler recommends you use an LDAP browser to query filters prior to synchronizing user data with the directory server.
 - **Group Name**: Enter or choose the attribute that represents group names (e.g., `cn`).
@@ -12091,9 +12093,9 @@ See image for Active Directory.
 
 See image for OpenLDAP.
 
-[Image: The Lookup & Attributes step in the Authentication Wizard for if you're configuring an Active Directory.]
+[Image: The Lookup & Attributes step in the Authentication Wizard for if you're configuring an Active Directory]
 
-[Image: The Lookup & Attributes step in the Authentication Wizard for if you're configuring an OpenLDAP server.]
+[Image: The Lookup & Attributes step in the Authentication Wizard for if you're configuring an OpenLDAP server]
 
 This step appears only if you enabled **Secondary Configuration** in [Primary Directory Server](https://help.zscaler.com/zia/synchronizing-user-data-active-directory-openldap#primary-directory). If you're only configuring one directory server, skip this step.
 
@@ -12122,7 +12124,7 @@ See image.
   - [Detected Settings](https://help.zscaler.com/zia/synchronizing-user-data-active-directory-openldap#detected-settings)
   - [Lookup & Attributes](https://help.zscaler.com/zia/synchronizing-user-data-active-directory-openldap#lookup-attributes)
 
-[Image: The Secondary Directory Server step in the Authentication Wizard.]
+[Image: The Secondary Directory Server step in the Authentication Wizard]
 
 In **Synchronization**, click **Start Synchronization** to start synchronizing the Zscaler service with the directory server.
 
@@ -12132,9 +12134,9 @@ The wizard displays the synchronization status and results. After synchronizatio
 
 See image.
 
-[Image: The Start Synchronization button in the Authentication Wizard.]
+[Image: The Start Synchronization button in the Authentication Wizard]
 
-[Image: The number of Add Groups under Synchronization Results in the Authentication Wizard.]
+[Image: The number of Add Groups under Synchronization Results in the Authentication Wizard]
 
 To define the **Authentication Parameters**:
 
@@ -12158,9 +12160,9 @@ See image.
 
 1. Click **Next**.
 
-[Image: The Primary Authentication Parameters section in the Authentication Wizard.]
+[Image: The Primary Authentication Parameters section in the Authentication Wizard]
 
-[Image: The Secondary Authentication Parameters section in the Authentication Wizard.]
+[Image: The Secondary Authentication Parameters section in the Authentication Wizard]
 
 In **Review**, click **Finish** to save the configuration and synchronized data, or exit the window to discard changes.
 
@@ -12168,7 +12170,7 @@ If you click **Finish**, the existing user authentication configuration is overw
 
 See image.
 
-[Image: Screenshot of the Review step in the Authentication Wizard.]
+[Image: Screenshot of the Review step in the Authentication Wizard]
 
 1. In the **Edit Active Directory** window, in the **Global Configuration** section:
 
@@ -12191,7 +12193,7 @@ If you enabled **Enable Second Directory**, you see two directory tabs: **Direct
 
 - **Directory Name**: Enter a name for the directory server.
 - **Server Address**: Enter the IP address of the directory server. You also can enter an FQDN that points to the IP addresses of multiple directory servers to provide fault tolerance and resiliency against server failures. If you enter an FQDN and the DNS resolution returns multiple IP addresses, the Zscaler service automatically ignores the servers that are inactive or unavailable and synchronizes with the server that is active or available.
-- **Secure Access**: Enable SSL/TLS inspection for the LDAP communications. Ensure that you installed an SSL/TLS certificate on your directory server.
+- **Secure Access**: Enable SSL/TLS Inspection for the LDAP communications. Ensure that you installed an SSL/TLS certificate on your directory server.
 
 Zscaler strongly recommends enabling this option to secure LDAP communications between the Zscaler service and your directory server.
 
@@ -12269,7 +12271,7 @@ Following is an example of a filter that imports all groups that begin with `Zsc
 (&(objectClass=group)(cn=zscaler*))
 ```
 
-Replace <Group Name>,<Group Name 1>, and <Group Name 2> with the actual group name in the directory server. The asterisk (*) is required, so the filter automatically completes the Common Name (cn) value. The pipe (**|**) character means that at least one criteria must match. The ampersand (&) means that all criteria must be true.
+Replace <Group Name>,<Group Name 1>, and <Group Name 2> with the actual group name in the directory server. The asterisk (*) is required, so the filter automatically completes the Common Name (cn) value. The pipe character (**|**) means that at least one criteria must match. The ampersand (&) means that all criteria must be true.
 
 - **User Search Filter**: Use this filter to narrow down the user objects that the Zscaler service returns after synchronization. You can enter a filter string to locate specific users, such as users who belong to a specific group. For example, enter `objectClass=person` to narrow down the data to persons and not computers. Zscaler recommends you use an LDAP browser to query filters prior to synchronizing user data with the directory server.
 - **Advanced Search Filter**: Enable this if you want to use a separate search filter for the authentication process (e.g., a search filter that searches using non-email format attributes). If disabled, the Zscaler service uses the **User Search Filter** for synchronizing and authenticating users.
@@ -12283,7 +12285,7 @@ See image.
 
 1. Click **Save**.
 
-[Image: The Edit Active Directory window shows fields for global configuration and directory details.]
+[Image: The Edit Active Directory window shows fields for global configuration and directory details]
 
 1. In the **Edit LDAP** window, in the **Global Configuration** section:
 
@@ -12306,7 +12308,7 @@ If you enabled **Enable Second Directory**, you see two directory tabs: **Direct
 
 - **Directory Name**: Enter a name for the directory server.
 - **Server Address**: Enter the IP address of the directory server. You also can enter an FQDN that points to the IP addresses of multiple directory servers to provide fault tolerance and resiliency against server failures. If you enter an FQDN and the DNS resolution returns multiple IP addresses, the Zscaler service automatically ignores the servers that are inactive or unavailable and synchronizes with the server that is active or available.
-- **Secure Access**: Enable SSL/TLS inspection for the LDAP communications. Ensure that you installed an SSL/TLS certificate on your directory server.
+- **Secure Access**: Enable SSL/TLS Inspection for the LDAP communications. Ensure that you installed an SSL/TLS certificate on your directory server.
 
 Zscaler strongly recommends enabling this option to secure LDAP communications between the Zscaler service and your directory server.
 
@@ -12380,7 +12382,7 @@ Following is an example of a filter that imports all groups that begin with `Zsc
 (&(objectClass=group)(cn=zscaler*))
 ```
 
-Replace <Group Name>,<Group Name 1>, and <Group Name 2> with the actual group name in the directory server. The asterisk (*) is required, so the filter automatically completes the Common Name (cn) value. The pipe (**|**) character means that at least one criteria must match. The ampersand (&) means that all criteria must be true.
+Replace <Group Name>,<Group Name 1>, and <Group Name 2> with the actual group name in the directory server. The asterisk (*) is required, so the filter automatically completes the Common Name (cn) value. The pipe character (**|**) means that at least one criteria must match. The ampersand (&) means that all criteria must be true.
 
 - **User Search Filter**: Use this filter to narrow down the user objects that the Zscaler service returns after synchronization. You can enter a filter string to locate specific users, such as users who belong to a specific group. For example, enter `objectClass=person` to narrow down the data to persons and not computers. Zscaler recommends you use an LDAP browser to query filters prior to synchronizing user data with the directory server.
 - **Advanced Search Filter**: Enable this if you want to use a separate search filter for the authentication process (e.g., a search filter that searches using non-email format attributes). If disabled, the Zscaler service uses the **User Search Filter** for synchronizing and authenticating users.
@@ -12394,7 +12396,7 @@ See image.
 
 1. Click **Save**.
 
-[Image: The Edit LDAP window shows fields for global configuration and directory details.]
+[Image: The Edit LDAP window shows fields for global configuration and directory details]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12955,13 +12957,13 @@ The following are some potential causes and solutions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-virtual-service-edges-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1401261"} -->
+<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-virtual-service-edges-internet-saas","lastmod":"2026-08-17T14:11Z","nid":"1401261"} -->
 ## Troubleshooting Virtual Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/troubleshooting-virtual-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Troubleshooting Virtual Service Edges for Internet & SaaS
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-08-17T14:11Z
 - Summary: Provides console commands to troubleshoot configured Virtual Service Edge for Internet & SaaS (ZIA) VMs.
 
 You can use the following commands within the virtual machine (VM) console to configure and troubleshoot Virtual Service Edges. By default, root login is not permitted, so admins must use the sudo utility to run a command with higher privileges.
@@ -13410,13 +13412,13 @@ The following table outlines how admin scope impacts the ability to access Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-advanced-dlp-private-service-edge-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1529876"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-advanced-dlp-private-service-edge-internet-saas","lastmod":"2026-08-18T16:55Z","nid":"1529876"} -->
 ## Understanding Advanced DLP Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-advanced-dlp-private-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Understanding Advanced DLP Private Service Edge for Internet & SaaS
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-08-18T16:55Z
 - Summary: Information on the prerequisites and deployment methods for properly configuring and installing Advanced Data Loss Prevention (DLP) – Private Service Edge for Internet & SaaS (ZIA) on the Zscaler cloud.
 
 Zscaler can extend its patented Advanced Data Loss Prevention (DLP) architecture to an organization's premises by providing Advanced DLP Private Service Edge for Internet & SaaS (ZIA) devices. While using the same hardware as a normal [Public Service Edge for Internet & SaaS](https://help.zscaler.com/zia/about-zscaler-enforcement-nodes), the Advanced DLP Private Service Edge is a complementary-dedicated hardware role within the Zscaler cloud that can be deployed to provide on-premises support for Private Service Edge customers who also require Advanced DLP product features, such as [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Data Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match). It communicates with other nodes in the Zscaler cloud, such as the Zscaler Central Authority (CA) and DLP Configuration nodes for EDM and IDM policy updates, and can generate and transmit [ICAP traffic](https://help.zscaler.com/zia/about-icap-receivers-dlp), as well. To learn more about Private Service Edges without Advanced DLP, see [Understanding Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas).
@@ -16167,13 +16169,13 @@ The following are a few benefits of using a GeoIP address:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-global-public-service-edges-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1400866"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-global-public-service-edges-internet-saas","lastmod":"2026-08-18T15:46Z","nid":"1400866"} -->
 ## Understanding Global Public Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-global-public-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Public Service Edge > Understanding Global Public Service Edges for Internet & SaaS
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-08-18T15:46Z
 - Summary: Information on Global Public Service Edges for Internet & SaaS (ZIA).
 
 Zscaler has configured several Global, or Ghost, Public Service Edges for Internet & SaaS (ZIA) across its clouds. These Public Service Edges addresses do not listen for traffic but are dummy addresses that every Public Service Edges knows about. They can be useful when working in no default route environments. To learn more, see [Implementing Zscaler in No Default Route Environments](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments).
@@ -16563,4 +16565,248 @@ Dead Peer Detection (DPD) is a more scalable method used to detect if an IKE pee
 Zscaler does not consider the ongoing flow of traffic between two peers as proof of the liveliness of a peer.
 
 The DPD behavior is the same for the IKEv1 and the IKEv2 protocols. DPD is integrated into IKEv2 but is an optional extension to IKEv1.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ipv6-support","lastmod":"2026-07-28T14:09Z","nid":"1404786"} -->
+## Understanding IPv6 Support
+
+- Source: https://help.zscaler.com/zia/understanding-ipv6-support
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPv6 > Understanding IPv6 Support
+- Last modified: 2026-07-28T14:09Z
+- Summary: Information on how to configure the Zscaler Admin Console to support security policies for IPv6 traffic.
+
+IPv6 support is in limited availability. To learn more, contact Zscaler Support.
+
+As Internet Protocol version 6 (IPv6) gradually replaces its predecessor Internet Protocol version 4 (IPv4), enterprises and service providers are migrating their internal networks to IPv6 to overcome IPv4 exhaustion and other IPv4 shortcomings, such as performance, scalability, security, and more. Mobile internet access has accelerated the depletion of IPv4 address space, leading service providers to deploy IPv6-only addresses to mobile devices.
+
+IPv6 support is extended by Zscaler based on the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) and also whether the client device is inside a [location](https://help.zscaler.com/zia/about-locations).
+
+- **For clients inside a location:** Forward IPv6 traffic inside an IPv4 tunnel to Service Edges for Internet & SaaS (ZIA) using a [GRE tunnel](https://help.zscaler.com/zia/about-generic-routing-encapsulation-gre) or [IPSec tunnel](https://help.zscaler.com/zia/about-ipsec-vpns). Both web and non-web traffic can be forwarded using these tunneling methods.
+- **For clients outside a location (web requests only):**
+  - Forward web traffic from IPv6 clients to Service Edges using [PAC files](https://help.zscaler.com/zia/about-pac-file) via a self-hosted or ISP-provided NAT64 gateway.
+  - Forward web traffic from IPv6 clients to Service Edges directly using [Zscaler Client Connector](https://help.zscaler.com/client-connector/what-is-zscaler-client-connector) Z-Tunnel 1.0.
+- **For clients outside a location (web and non-web requests)**: Forward all traffic from IPv6 clients to Service Edges directly using Zscaler Client Connector Z-Tunnel 2.0.
+
+To forward IPv6 traffic directly to the destination via Zscaler Client Connector Z-Tunnel 1.0 and Z-Tunnel 2.0, ensure that you have enabled the [Enable IPv6 Resolution for Zscaler Domains](https://help.zscaler.com/zscaler-client-connector/about-platform-settings) field in the Zscaler Admin Console. Otherwise, an ISP-provided NAT64 gateway is required for using Zscaler Client Connector. To learn more, see the prerequisites section of this article.
+
+Zscaler highly recommends using Zscaler Client Connector as your preferred forwarding method for IPv6 traffic whenever feasible.
+
+## Recommendations
+
+The following recommendations are best practices for forwarding IPv6 traffic:
+
+- When forwarding your organization's Z-Tunnel 1.0 and Z-Tunnel 2.0 IPv6 traffic to Zscaler's data centers without an intermediate NAT64 service, you must ensure that the traffic is forwarded only to IPv6-enabled data centers. If you use an intermediate NAT64 service to forward traffic to Zscaler, check if a Zscaler data center is IPv6-enabled. Go to the [Zscaler config page](https://config.zscaler.com/) and verify that the data center has an IPv6 virtual IP address associated with it.
+  - IPv6-enabled Zscaler data centers
+- When using Zscaler Client Connector without an intermediate NAT64 service, you must forward your users' IPv6 traffic only to data centers in the IPv6-enabled subcloud managed by Zscaler. To learn how to do this, see [Configuring IPv6 Settings](https://help.zscaler.com/zia/configuring-ipv6-settings#client-connector).
+- Zscaler's My IP Address service is [ipv6.zscaler.com](https://ipv6.zscaler.com/).
+
+The following list provides the IPv6-enabled Zscaler data centers:
+
+- Americas:
+  - Atlanta II and III
+  - Boston I
+  - Chicago I and II
+  - Dallas I and II
+  - Denver III
+  - Los Angeles I and II
+  - New York III and IV
+  - San Francisco IV
+  - Sao Paulo
+  - Seattle I
+  - Vancouver I
+  - Washington DC I
+  - Nuevo Laredo I
+- APAC:
+  - Auckland II
+  - Chennai II
+  - Hyderabad I
+  - Melbourne II
+  - New Delhi I
+  - Osaka I
+  - Sydney III
+  - Tokyo IV and V
+- EMEA:
+  - Amsterdam II
+  - Dusseldorf I
+  - Frankfurt IV
+  - London III and V
+  - Munich I
+
+## Prerequisites
+
+To configure IPv6, the following prerequisites must be met:
+
+- This feature requires Zscaler Client Connector version 4.8 or later for Windows and Zscaler Client Connector version 4.7 or later for macOS.
+- Allowlist the IPv6 addresses for the Zscaler infrastructure for your on-premises firewalls. For information specific to Zscaler's data centers, see [Cloud Enforcement Node Ranges](https://config.zscaler.com/zscaler.net/cenr).
+- Ensure **Enable IPv6 Resolution for Zscaler Domains** is enabled on the **Platform Settings** page of the Zscaler Admin Console. Then select **Packet Filter Based** for **Tunnel Driver Type** when configuring forward profiles. To learn more, see [Enabling IPv6 Resolution for Zscaler Domains](https://help.zscaler.com/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains), [About Platform Settings](https://help.zscaler.com/client-connector/about-platform-settings), and [Configuring Forwarding Profiles for Zscaler Client Connector](https://help.zscaler.com/client-connector/configuring-forwarding-profiles-zscaler-client-connector#windows-driver-selection).
+- Allow IPv6 traffic to pass through on-premises firewalls to the following domains: The <cloudname> is the name of your Zscaler cloud. To learn more, see[config.zscaler.com](https://config.zscaler.com/zscaler.net/cenr).
+  - gateway6.<cloudname>.net
+  - secondary.gateway6.<cloudname>.net
+  - pac6.<cloudname>.net
+  - login6.<cloudname>.net
+  - logout6.<cloudname>.net
+  - speedtest6.zscaler.com
+  - any6.broker.<cloudname>.net
+  - mobile6.<cloudname>.net
+- Configure your SAML identity provider (IdP) **Reply URL (Assertion Consumer Service URL)**field for the following IPv6 authentication hosts: To learn more, see [SAML & SCIM Configuration Guide for Microsoft Entra ID](https://help.zscaler.com/zia/saml-scim-configuration-guide-microsoft-entra-id).
+  - https://login6.<cloudname>.net/sfc_sso
+  - https://logout6.<cloudname>.net/sfc_sso (if applicable)
+- Disable **Drop IPv6 Packets**for the [forwarding profile](https://help.zscaler.com/client-connector/about-forwarding-profiles) to prevent Zscaler Client Connector from dropping IPv6 addresses.
+
+## Explaining IPv6 Traffic Configuration
+
+The following sections explain how IPv6 traffic is forwarded and processed by the Zscaler service, the configuration workflow, and logging:
+
+- Forwarding IPv6 Traffic from Clients Inside a Location
+- Forwarding IPv6 Traffic from Clients Outside a Location
+- Processing of IPv6 Traffic
+- IPv6 Configuration Workflow
+- Logging for IPv6 Traffic
+
+You can forward your organization's IPv6 traffic from a location to the Zscaler service and enforce security policies on IPv6 traffic. Although Zscaler's cloud infrastructure can handle IPv6 traffic, the outer packets arriving in a tunnel at the Service Edges must be IPv4 packets. Therefore, to apply policies on your organization’s IPv6 traffic, the Zscaler service requires you to forward the IPv6 traffic inside IPv4 tunnels to the Service Edges. You can establish an IPv4 tunnel between your organization’s network from a specific location and the Service Edges using one of the following traffic forwarding methods:
+
+- [Generic Routing Encapsulation (GRE) Tunnel](https://help.zscaler.com/zia/about-generic-routing-encapsulation-gre)
+- [IPSec Tunnel](https://help.zscaler.com/zia/about-ipsec-vpns)
+
+In addition to enforcing security policies on IPv6 traffic, the Zscaler service also provides customized DNS64/NAT64 mechanisms to establish connections between IPv6 clients and IPv4 destinations (IPv4-only or dual-stack destinations).
+
+With this IPv6 support for clients inside a location, the Zscaler service supports the following use cases:
+
+- IPv6 Client Accessing an IPv4-Only/Dual-Stack Destination
+- IPv6 Client Accessing an IPv6-Only Destination
+- IPv4 Client Accessing an IPv6-Only Destination
+
+The IPv6 traffic from a client inside a location with IPv4 internet access is forwarded to the Service Edge inside an IPv4 tunnel. The Zscaler service establishes an IPv4 connection with an IPv4-only/dual-stack destination using the DNS64/NAT64 mechanism.
+
+[Image: Flow of IPv6 traffic from organization's location to IPv4 destinations through GRE/IPSec Tunnel]
+
+The IPv6 traffic from a client inside a location with IPv4 internet access is forwarded to Service Edge inside an IPv4 tunnel. The Zscaler service establishes an IPv6 connection with the destination.
+
+[Image: Flow of IPv6 traffic from organization's location to IPv6 destinations through GRE/IPSec Tunnel]
+
+The Zscaler service establishes an IPv6 connection with the destination.
+
+Clients from unknown locations (remote users) can use Zscaler Client Connector or PAC files to forward their traffic to Service Edges. To forward IPv6 traffic from unknown locations:
+
+- PAC file users must use a self-hosted or ISP-provided NAT64 gateway to forward IPv6 traffic to Service Edges.
+- Zscaler Client Connector users must enable the [Enable IPv6 Resolution for Zscaler Domains](https://help.zscaler.com/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains)field in the Zscaler Admin Console. Otherwise, a NAT64/DNS64 service is needed.
+
+With this IPv6 support for clients outside a location, the Zscaler service supports the following use cases:
+
+- IPv6 Client Accessing an IPv4-Only/Dual-Stack Destination
+- IPv6 Client Accessing an IPv6-Only Destination
+
+The IPv6 traffic from a client outside a location is forwarded to the Service Edge using Zscaler Client Connector or PAC file to an IPv4-Only/Dual-Stack destination.
+
+- **PAC Files**: The Zscaler service establishes an IPv4 connection with the destination using the regular DNS resolution for PAC files web traffic. See image.
+- **Z-Tunnel 1.0**: The Zscaler service establishes an IPv4 connection with the destination using the regular DNS resolution for Z-Tunnel 1.0 web traffic. See image.
+- **Z-Tunnel 2.0**: The Zscaler service establishes an IPv4 connection with the destination using the DNS64/NAT64 mechanism for Z-Tunnel 2.0 web traffic. For non-web traffic, an IPv4 connection is established if the destination IPv6 contains a NAT64 prefix recognized by Zscaler. Otherwise, an IPv6 connection is established. See image.
+
+To forward IPv6 traffic via Z-Tunnel 1.0 and Z-Tunnel 2.0 to the Zscaler service, you must enable the **Enable IPv6 Resolution for Zscaler Domains** field in the Zscaler Admin Console. Otherwise, an ISP-provided NAT64 gateway is required.
+
+[Image: Flow of IPv6 traffic from remote location to IPv4 destinations through PAC files]
+
+[Image: Flow of IPv6 traffic from remote location to IPv4 destinations through Z-Tunnel 1.0]
+
+[Image: Flow of IPv6 traffic from remote location to IPv4 destinations through Z-Tunnel 2.0]
+
+The IPv6 traffic from a client outside a location is forwarded to the Service Edge using Zscaler Client Connector or PAC file to an IPv6-Only destination.
+
+- **PAC Files**: The Zscaler service establishes an IPv6 connection with the destination using the DNS64/NAT64 mechanism for PAC files web traffic. See image.
+- **Z-Tunnel 1.0**: The Zscaler service establishes an IPv6 connection with the destination directly for Z-Tunnel 1.0 web traffic. See image.
+- **Z-Tunnel 2.0**: The Zscaler service establishes an IPv6 connection with the destination directly for Z-Tunnel 2.0 web and non-web traffic. See image.
+
+To forward IPv6 traffic via Z-Tunnel 1.0 and Z-Tunnel 2.0 to the Zscaler service, you must enable the **Enable IPv6 Resolution for Zscaler Domains** field in the Zscaler Admin Console. Otherwise, an ISP-provided NAT64 gateway is required.
+
+[Image: Flow of IPv6 traffic from remote location to IPv6 destinations through PAC files]
+
+[Image: Flow of IPv6 traffic from remote location to IPv6 destinations through Z-Tunnel 1.0]
+
+[Image: Flow of IPv6 traffic from remote location to IPv6 destinations through Z-Tunnel 2.0]
+
+The Zscaler service prefers an IPv4 connection whenever possible, and an IPv6 connection is established for IPv6-only destinations. The preference for IPv4 connections (via NAT64) has the following advantages:
+
+- Better utilization of existing IPv4 infrastructure
+- Applying rich-security policies on IPv6 traffic
+- Accessing IPv4 services from the IPv6 network
+
+The following sections explain how the traffic forwarded from IPv6 clients using different proxy modes is handled by the Zscaler service:
+
+- Processing of Explicit Proxy-Traffic from IPv6 Clients
+- Processing of Transparent Proxy-Traffic from IPv6 Clients
+
+When web traffic from IPv6 clients arrives at a Service Edge in [explicit proxy mode](https://help.zscaler.com/zia/what-proxy-mode) via Zscaler Client Connector over Z-Tunnel 1.0 or using PAC files, the Zscaler service establishes an IPv4 or IPv6 connection to the destination based on how the server can be reached, as described in the following bullet points:
+
+- If the destination is reachable only via IPv4, then the Zscaler service establishes an IPv4 connection.
+- If the destination is reachable via IPv4 or IPv6, then the Zscaler service establishes an IPv4 connection.
+- If the destination is reachable only via IPv6, then the Zscaler service establishes an IPv6 connection.
+
+When traffic from IPv6 clients arrives at a Service Edge in [transparent proxy mode](https://help.zscaler.com/zia/what-proxy-mode) using an IPv4 tunnel (GRE or IPSec) or via Zscaler Client Connector (Z-Tunnel 2.0 only), the Zscaler service establishes an IPv4 or IPv6 connection to the destination based on how the server can be reached, as described in the following bullet points:
+
+- If the destination IPv6 address has a prefix match with [NAT64 prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) supported by the organization, then the IPv4 address is extracted from the destination IPv6 address and an IPv4 connection is established.
+- If the destination IPv6 address is a regular IPv6 address, an IPv6 connection is established.
+
+For establishing an IPv4 connection with the destination, the Zscaler service employs the NAT64/DNS64 mechanism to translate IPv6 packets of the inbound traffic to IPv4 packets. This translation depends on the following parameters:
+
+- Type of traffic (DNS queries or non-DNS traffic)
+- The prefix used in the inbound IPv6 packets
+- DNS64/NAT64 prefix configurations in the Zscaler Admin Console
+
+For DNS queries, the Zscaler service tries to resolve the domain name for an A record. If an A record is not available, an AAAA record is synthesized using DNS64 and an IPv4 connection is established using NAT64. If an A record is not available, an AAAA record is used to establish an IPv6 connection.
+
+- DNS Responses for IPv4 and IPv6 Client Configurations
+
+The Zscaler service uses the well-known prefix and its default NAT64 and DNS64 prefixes for the DNS64/NAT64 mechanism and organizations do *not* require any additional configuration. However, organizations can configure their network-specific NAT64/DNS64 prefixes in the Zscaler Admin Console. To learn more, see [About NAT64 Prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) and [About the DNS64 Prefix](https://help.zscaler.com/zia/about-dns64-prefix).
+
+This table shows the expected types of DNS responses with different client configurations:
+
+| **Client** | **Destination** | **DNS A Response** | **DNS AAAA Response** |
+| --- | --- | --- | --- |
+| IPv4 + IPv6 | IPv4 + IPv6 | Yes | Empty |
+| IPv4 + IPv6 | IPv4 | Yes | Empty |
+| IPv4 + IPv6 | IPv6 | Empty | Native IPv6 |
+| IPv6 | IPv4 + IPv6 | IPv4 | Native IPv6 |
+| IPv6 | IPv4 | IPv4 | DNS64 |
+| IPv6 | IPv6 | Empty | Native IPv6 |
+| IPv6 (CGNAT) | IPv4 + IPv6 | IPv4 | DNS64 |
+| IPv6 (CGNAT) | IPv4 | IPv4 | DNS64 |
+| IPv6 (CGNAT) | IPv6 | Empty | Native IPv6 |
+
+To enable IPv6 support for your organization and obtain access to IPv6 configurations and settings, contact Zscaler Support.
+
+To allow the Zscaler service to handle your organization’s IPv6 traffic, you need to enable IPv6 support for your organization under Infrastructure > Internet & SaaS > Traffic Forwarding > IPv6 Configurations. Enabling IPv6 support for your organization allows you to route your users’ IPv6 traffic to the Zscaler cloud using one of the supported forwarding methods.
+
+- **GRE/IPSec**: To allow and process IPv6 traffic that is tunneled using GRE or IPSec within an outer IPv4 tunnel, you need to enable IPv6 support for the locations from where the traffic originates. If IPv6 support is not enabled for a location, the IPv6 traffic arriving at the location is dropped. To learn more, see [Configuring Locations](https://help.zscaler.com/zia/configuring-locations).
+- **Zscaler Client Connector**: If you are using Zscaler Client Connector set up with Z-Tunnel 1.0 and Z-Tunnel 2.0 to forward your IPv6 traffic, you need to configure the Zscaler Client Connector application appropriately. To learn more, see the [Zscaler Client Connector documentation](https://help.zscaler.com/client-connector).
+
+After enabling IPv6 support, you can optionally configure your network-specific NAT64 and DNS64 prefixes under Infrastructure > Internet & SaaS > Traffic Forwarding > IPv6 Configurations. To learn more, see [Configuring IPv6 Settings](https://help.zscaler.com/zia/configuring-ipv6-settings).
+
+The Zscaler service allows you to configure and enforce limited policies on IPv6 server-bound connections. You can configure these policies in the following ways:
+
+- Using Locations or Location Groups
+- Using URL Categories
+- Using IP Address Groups
+
+You can configure policies based on [Locations](https://help.zscaler.com/zia/about-locations) or [Location Groups](https://help.zscaler.com/zia/about-location-groups) criteria to be enforced on all IPv6 traffic that originates from those locations. When a sublocation is added to a location with the IPv6 option enabled, the Zscaler service automatically creates a new **Other6** sublocation that identifies all the IPv6 addresses in that location. Using**Other6** as the location criteria, you can define policies for all the IPv6 traffic that originates from that location. To learn more, see [Understanding Sublocations](https://help.zscaler.com/zia/understanding-sublocations).
+
+The Locations and Location Groups criteria are supported in various web and firewall policies.
+
+You can configure policies based on URL Categories to be enforced on traffic bound to specific IPv6 sites or destinations. The Zscaler service allows you to add individual domains or IP addresses to URL categories, which can then be used in policies to control the traffic bound to those IPv6 destinations. To learn more, see [Configuring Custom URL Categories](https://help.zscaler.com/zia/adding-custom-url-categories).
+
+The URL Categories criterion is supported in various web and firewall policies.
+
+You can configure policies based on Source or Destination IP Address Groups to be enforced on traffic originating from or destined to any IPv6 device. The Zscaler service provides predefined source and destination IPv6 address groups, All IPv6, which encompasses all IPv6 source or destination addresses. Using All IPv6 as the source or destination group criteria, you can define policies for all traffic originating from or destined to an IPv6 device. To learn more, see About [Source](https://help.zscaler.com/zia/about-source-ip-groups) or [Destination IP Address Groups](https://help.zscaler.com/zia/about-destination-groups).
+
+The Source and Destination IPv6 Address Groups criteria are supported in various web and firewall policies.
+
+The Zscaler service records and displays logs for your IPv6 traffic on the respective Insights Logs page:
+
+- Web Insights Logs: [Filters](https://help.zscaler.com/zia/web-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/web-insights-logs-columns)
+- Firewall Insights Logs: [Filters](https://help.zscaler.com/zia/firewall-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/firewall-insights-logs-columns)
+- DNS Insights Logs: [Filters](https://help.zscaler.com/zia/dns-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/dns-insights-logs-columns)
+
+In addition, the [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/about-nanolog-streaming-service) allows you to stream your logs in real time from the [Zscaler Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture) to your security information and event management (SIEM) system. To learn more, see [About NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds).
 <!-- /ZS-ARTICLE -->

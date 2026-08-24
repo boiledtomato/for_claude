@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 179
 
 ---
@@ -514,13 +514,13 @@ On the Advanced Threat Protection Policy page (Policies > Cybersecurity > Intern
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-alert-history","lastmod":"2026-07-09T03:03Z","nid":"1415171"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-alert-history","lastmod":"2026-08-20T05:46Z","nid":"1415171"} -->
 ## About Alert History
 
 - Source: https://help.zscaler.com/zia/about-alert-history
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Alert History
-- Last modified: 2026-07-09T03:03Z
+- Last modified: 2026-08-20T05:46Z
 - Summary: Information about all the disabled or ended alerts under the Security Alerts page in the Zscaler Admin Console.
 
 The Alert History page displays the list of all the alerts with their evaluation status as ended. The page also displays alerts up to a period of 14 days from the time that the status was changed to Ended.
@@ -646,13 +646,13 @@ On the Details page (Administration > Alerts > Security & UEBA Alerts > Alerts >
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-alert-rules","lastmod":"2026-07-14T21:06Z","nid":"1415191"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-alert-rules","lastmod":"2026-08-20T05:45Z","nid":"1415191"} -->
 ## About Alert Rules
 
 - Source: https://help.zscaler.com/zia/about-alert-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Alert Rules
-- Last modified: 2026-07-14T21:06Z
+- Last modified: 2026-08-20T05:45Z
 - Summary: Information about the overview of the alert rules page in the Zscaler Admin Console.
 
 The Alert Rules page provides a graphical representation of the top 5 security and UEBA alerts by the rule type and the number of rules that have been enabled or disabled.
@@ -674,12 +674,13 @@ On the Alert Rules page (Administration > Alerts > Security & UEBA Alerts > Aler
 4. Select the time period to display the top 5 alerts.
 5. View the total number of enabled or disabled alert rules.
 6. [Add a new alert rule](https://help.zscaler.com/zia/configuring-alert-rule).
-7. [Edit an existing alert rule](https://help.zscaler.com/zia/configuring-alert-rule).
-8. Delete an existing alert rule.
-9. [Go to the Alerts page.](https://help.zscaler.com/zia/about-security-ueba-alerts)
-10. [Go to the Webhooks page.](https://help.zscaler.com/zia/about-webhooks)
+7. View the alert rules table. The table displays the list of alert name, alert class, event type, if the alert rule applies to an organization or location, the recipient, if the alert rule is enabled or disabled, and the alert type. You can also [modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+8. [Edit an existing alert rule](https://help.zscaler.com/zia/configuring-alert-rule).
+9. Delete an existing alert rule.
+10. [Go to the Alerts page](https://help.zscaler.com/zia/about-security-ueba-alerts).
+11. [Go to the Webhooks page](https://help.zscaler.com/zia/about-webhooks).
 
-[Image: The Alert Rule window helps to configure and edit various rules for different events.]
+[Image: The Alert Rule window helps to configure and edit various rules for different events]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2020,13 +2021,13 @@ On the Authentication Profiles page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-08-16T07:06Z","nid":"1398956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-08-23T07:06Z","nid":"1398956"} -->
 ## About Backup and Restore
 
 - Source: https://help.zscaler.com/zia/about-backup-and-restore
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > About Backup and Restore
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information about backing up and restoring policies, and configuration settings, within the Zscaler service.
 
 [Watch a video on backups and restore points](https://fast.wistia.net/embed/iframe/vohznch7uo) (shows legacy UI)
@@ -2163,13 +2164,13 @@ On the Bandwidth Classes page (Infrastructure > Internet & SaaS > Network Polici
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-bandwidth-control","lastmod":"2026-07-02T20:35Z","nid":"1398776"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-bandwidth-control","lastmod":"2026-08-21T08:20Z","nid":"1398776"} -->
 ## About Bandwidth Control
 
 - Source: https://help.zscaler.com/zia/about-bandwidth-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > About Bandwidth Control
-- Last modified: 2026-07-02T20:35Z
+- Last modified: 2026-08-21T08:20Z
 - Summary: Information on bandwidth control and the Bandwidth Control page on the Zscaler Admin Console.
 
 [Watch a video about Bandwidth Control including configuring the Bandwidth Control Policy](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
@@ -2191,7 +2192,7 @@ You can go to the Bandwidth Control [dashboard](https://help.zscaler.com/zia/abo
 
 ## About the Bandwidth Control Page
 
-On the Bandwidth Control page (Infrastructure > Internet & SaaS > Network Policies > Bandwidth Control), you can:
+On the Bandwidth Control page (Infrastructure > Internet & SaaS > Network Policies > Rules), you can:
 
 1. [Configure a Bandwidth Control policy rule](https://help.zscaler.com/zia/configuring-bandwidth-control-policy).
 2. View the recommended policy for Bandwidth Control.
@@ -2215,7 +2216,7 @@ You can expand or collapse all the rule labels using the **Expand All** or **Col
   - **Rule Order:** The rule order number. Bandwidth Control rules are evaluated in ascending numerical order and the default rule is evaluated last. You can sort this column.
   - **Admin Rank:**The assigned [admin rank](https://help.zscaler.com/unified/about-admin-rank) for the rule. This is only visible if you have enabled admin ranking in the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings). You can sort this column.
   - **Rule Name:** The name of the rule. You can sort this column.
-  - **Criteria:** The criteria of the rule (e.g., Bandwidth Classes, Protocols, etc.)
+  - **Criteria:** The criteria of the rule (e.g., Bandwidth Classes, Protocols, etc.).
   - **Action:** Displays the configured Bandwidth Control actions of the rule.
   - **Label and Description**: The label and description of the policy rule, if available.
 3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
@@ -2246,6 +2247,8 @@ The Zscaler service rebalances the bandwidth in real time and buffers packets fo
 - DNS over HTTPS
 - Tunnel SSL
 
+HTTP/2 connections are bandwidth controlled at the HTTP/2 stream level within a single TCP connection. No changes to your Bandwidth Control rules are required.
+
 First, you specify the maximum upload and download bandwidth limits for each location in your organization. About 5–7% of TCP traffic is overhead, such as packet headers. The Zscaler service does not include these in its bandwidth calculations. It only includes the application traffic.
 
 Next, you [define your bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes), specifying the URL categories and cloud applications to which the bandwidth class applies. You must configure the bandwidth classes before you can reference them in Bandwidth Control policy rules. To configure bandwidth classes, edit the predefined bandwidth classes or add new bandwidth classes by grouping URL categories, cloud applications, or custom domain lists. You can then reference those bandwidth classes in your Bandwidth Control policy, a set of prioritized rules that tell the service how to allocate the bandwidth when contention occurs. Bandwidth is allocated based on the rule order. Therefore, bandwidth classes such as business-critical applications, O365, etc. that require priority Bandwidth Control should be placed at the top of the rule sets. Each rule defines a maximum and minimum bandwidth for the bandwidth classes in the rule along with other parameters, like location and time of day.
@@ -2266,7 +2269,7 @@ The following are the best practices for setting up the Bandwidth Control policy
 
 Only 70–80% of the overall bandwidth per location is the ideal setting for upload and download limits.
 
-The following are the best practices for setting up the bandwidth control policy for sublocations:
+The following are the best practices for setting up the Bandwidth Control policy for sublocations:
 
 - If Bandwidth Control is disabled on the main location but enabled on a sublocation, then an admin has to manually enter the upload and download limits for the sublocation.
 - Whenever the main location has Bandwidth Control enabled after a sublocation does, it needs to have upload and download limits added. The value of upload and download limits added to the main location must be greater than or equal to the total value of limits used for all the sublocations. For example, say you first enable Bandwidth Control on the sublocation *San Jose* and set it to have a download limit of 15 Mbps and an upload limit of 80 Mbps. If you then enable Bandwidth Control on the main location, *California*, and San Jose is its only sublocation, then California's download and upload limits should be at least 15 Mbps and 80 Mbps respectively.
@@ -2703,18 +2706,24 @@ On the Cloud Application page (Policies > Access Control > Internet & SaaS > Ris
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-application-tags","lastmod":"2026-07-01T12:21Z","nid":"1452271"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-application-tags","lastmod":"2026-08-20T03:19Z","nid":"1452271"} -->
 ## About Cloud Application Tags
 
 - Source: https://help.zscaler.com/zia/about-cloud-application-tags
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Cloud Application Tags
-- Last modified: 2026-07-01T12:21Z
+- Last modified: 2026-08-20T03:19Z
 - Summary: Information about cloud application tags.
 
 Zscaler's cloud application tag allows you to logically group cloud applications based on your organization's requirements. This provides access control for specific cloud applications belonging to custom and/or predefined categories.
 
-This feature consists of three parts: creating a cloud application tag, associating the tag with the cloud application, and creating risk profiles with this tag. To learn more about associating a tag with a cloud application, see [About Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications) and [About the Application Information](https://help.zscaler.com/zia/about-application-information).
+This feature consists of three parts:
+
+- Creating a cloud application tag.
+- Associating the tag with the cloud application.
+- Creating risk profiles with this tag.
+
+To learn more about associating a tag with a cloud application, see [About Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications) and [About the Application Information](https://help.zscaler.com/zia/about-application-information).
 
 Cloud application tags provide the following benefits and enable you to:
 
@@ -2729,10 +2738,8 @@ On the Cloud Application Tags page (Policies > Access Control > Internet & SaaS 
 1. [Add a cloud application tag](https://help.zscaler.com/zia/adding-cloud-application-tag).
 2. Search for a cloud application tag.
 3. [Edit or delete a cloud application tag](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-4. Click the Microsoft Information Protection (MIP) Labels tab to add an MIP account. To learn more, see [About Microsoft Information Protection Labels](https://help.zscaler.com/zia/about-microsoft-information-protection-labels).
-5. Click the Email Labels tab to add an email label. To learn more, see [About Email Labels](https://help.zscaler.com/zia/about-email-labels).
 
-[Image: ZIA Cloud Application Tags page] [Image: Microsoft Information Protection (MIP) Labels] [Image: Email Labels page]
+[Image: Cloud Application Tags page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5391,39 +5398,37 @@ On the DLP Engines page (Policies > Data Protection > Common Resources > Diction
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-notification-templates","lastmod":"2026-07-01T13:15Z","nid":"1400021"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-notification-templates","lastmod":"2026-08-21T06:09Z","nid":"1400021"} -->
 ## About DLP Notification Templates
 
 - Source: https://help.zscaler.com/zia/about-dlp-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > About DLP Notification Templates
-- Last modified: 2026-07-01T13:15Z
+- Last modified: 2026-08-21T06:09Z
 - Summary: Information on Data Loss Prevention (DLP) notification templates. These are sent to your organization’s auditors when a DLP policy triggers in the Zscaler service.
 
 [Watch a video about Adding DLP Notification Templates](https://fast.wistia.net/embed/iframe/buqs745qjx) (shows legacy UI).
 
-You can create templates for the email notifications that are sent to your organization's auditors when an inline web or a SaaS Security API DLP policy is triggered. When configuring DLP policy rules, you can reference one of the templates you configure here. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection), [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection), and [Configuring the SaaS Security API DLP Policy](https://help.zscaler.com/zia/configuring-saas-security-api-dlp-policy).
+You can create templates for the email notifications that are sent to your organization's auditors when an inline web or a SaaS Security API DLP policy is triggered. When configuring DLP policy rules, you can reference one of the templates you configure here. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection), [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection), and [Configuring the SaaS Security API DLP Policy](https://help.zscaler.com/zia/about-saas-security-scan-configuration).
 
 DLP notification templates provide the following benefits and allow you to:
 
 - Specify the information contained in the email notifications that go to your organization's auditors when an inline web or SaaS Security API DLP policy is triggered.
 - Associate the notification templates with DLP policy rules.
 
-The notification template macros for the [inline web DLP](https://help.zscaler.com/zia/configuring-dlp-notification-templates#web-dlp) and [SaaS Security API DLP](https://help.zscaler.com/zia/configuring-dlp-notification-templates#casb-dlp) are different.
+The notification template macros for the [inline web DLP](https://help.zscaler.com/zia/configuring-euns-inline-web-dlp) and [SaaS Security API DLP](https://help.zscaler.com/zia/about-saas-security-scan-configuration) are different.
 
 ## About the DLP Notification Templates Page
 
 On the DLP Notification Templates page (Policies > Data Protection > Common Resources > Notification Templates), you can do the following:
 
-1. [Add a DLP notification template](https://help.zscaler.com/zia/how-do-i-configure-dlp-notifications).
+1. [Add a DLP notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates).
 2. Search for a DLP notification template.
 3. View a list of all DLP notification templates that were configured for your organization. For DLP notification templates, you can see:
   - **Name**: The name of the DLP notification template. You can sort this column.
   - **Subject**: The subject text, including any macros, that is used for the DLP notification.
 4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit](https://help.zscaler.com/zia/configuring-dlp-notification-templates) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a DLP notification template.
-6. View the [Quarantine Tombstone File Templates](https://help.zscaler.com/zia/about-quarantine-tombstone-file-templates) page.
-7. View the [User Confirmation Notification Templates](https://help.zscaler.com/zia/about-user-confirmation-notification-templates) page.
+5. [Edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a DLP notification template.
 
 [Image: DLP Notification Templates page]
 <!-- /ZS-ARTICLE -->
@@ -5760,13 +5765,13 @@ On the EDNS Client Subnet Prefix Objects page (Policies > Access Control > Firew
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-08-16T07:06Z","nid":"1444161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-08-23T07:06Z","nid":"1444161"} -->
 ## About Email Labels
 
 - Source: https://help.zscaler.com/zia/about-email-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information on how to create email labels for Gmail and Microsoft Exchange clients.
 
 Email labels provide the option of adding response actions to Gmail and Microsoft Exchange clients based on the email content. Applying email labels creates categories in the users' email accounts automatically. These labels serve as indications to the users about the type of email content and the level of sensitivity.
@@ -7106,13 +7111,13 @@ On the Identity Proxy Settings page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-08-16T07:06Z","nid":"1400641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-08-23T07:06Z","nid":"1400641"} -->
 ## About the Index Tool
 
 - Source: https://help.zscaler.com/zia/about-index-tool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information on Index Tool Configurations and the Index Tool virtual machine (VM), which are used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 The Index Tool allows you to configure index templates that can be applied when creating custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
@@ -8011,38 +8016,34 @@ Click **Clear** to remove all rule label selection.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-kerberos-authentication","lastmod":"2024-07-08T23:18Z","nid":"1399556"} -->
-## About Kerberos Authentication
+<!-- ZS-ARTICLE {"url":"/zia/about-kerberos-authentication","lastmod":"2026-08-20T06:35Z","nid":"1399556"} -->
+## Understanding Kerberos Authentication
 
 - Source: https://help.zscaler.com/zia/about-kerberos-authentication
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > About Kerberos Authentication
-- Last modified: 2024-07-08T23:18Z
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Understanding Kerberos Authentication
+- Last modified: 2026-08-20T06:35Z
 - Summary: Information on using Kerberos authentication, an industry standard secure protocol, and how it works with the Zscaler service.
-
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
-
-?xml version='1.0' encoding='UTF-8'?
 
 Zscaler supports authentication using Kerberos, an industry standard secure protocol. Unlike the other supported authentication mechanisms, Kerberos doesn't use cookies for authentication. It is a ticket-based authentication protocol that is widely used to authenticate users to network services. To learn more about the Kerberos protocol, see [RFC 4120 The Kerberos Network Authentication Service (V5)](https://tools.ietf.org/html/rfc4120).
 
 ## How Kerberos Authentication Works With Zscaler
 
-The Zscaler service uses Kerberos cross-realm authentication, enabling clients from your organization’s domain to authenticate themselves to the ZIA Public Service Edges in the Zscaler domain. Your organization and the Zscaler domain establish a one-way trust relationship based on a shared password, eliminating the need to upload and manage keytab files or to join the ZIA Public Service Edges to your domain.
+The Zscaler service uses Kerberos cross-realm authentication, enabling clients from your organization’s domain to authenticate themselves to the Public Service Edges for Internet & SaaS (ZIA) in the Zscaler domain. Your organization and the Zscaler domain establish a one-way trust relationship based on a shared password, eliminating the need to upload and manage keytab files or to join the Public Service Edges to your domain.
 
 The following diagram shows a simplified view of the authentication process after the trust relationship is established. Review the following:
 
 - In the organization's domain, the Kerberos Key Distribution Center (KDC) is integrated in the domain controller on the Windows server.
 - In the Zscaler domain, the Central Authority (CA) hosts the KDC.
 - The user is logged in to the corporate domain.
-- The user's browser used the default Kerberos PAC file to identify the primary ZIA Public Service Edge.
+- The user's browser uses the default Kerberos PAC file to identify the primary Public Service Edge.
 
 [Image: About Kerberos Diagram]
 
-1. The user's browser sends the request to the ZIA Public Service Edge. (HTTPS requests are also sent as HTTP CONNECT method requests to the ZIA Public Service Edge.) If the ZIA Public Service Edge doesn't find a Zscaler cookie for the domain in the HTTP request, it issues a 407 Negotiate challenge.
+1. The user's browser sends the request to the Public Service Edge. (HTTPS requests are also sent as HTTP CONNECT method requests to the Public Service Edge.) If the Public Service Edge doesn't find a Zscaler cookie for the domain in the HTTP request, it issues a 407 Negotiate challenge.
 2. Because the user has already logged into the domain, the user has a session ticket for the domain controller. Using this session ticket, the client sends the domain controller an authentication request for the Zscaler service. The domain controller issues a cross-realm ticket. See image.
-3. The client sends the cross-realm ticket to Zscaler KDC, which issues a ticket for the ZIA Public Service Edge.
-4. The client sends the HTTP request with the proxy authorization header and ticket, which contains the client information. The ZIA Public Service Edge decrypts the ticket, and after verifying the username, sends the request to the website.
+3. The client sends the cross-realm ticket to Zscaler KDC, which issues a ticket for the Public Service Edge.
+4. The client sends the HTTP request with the proxy authorization header and ticket, which contains the client information. The Public Service Edge decrypts the ticket, and after verifying the username, sends the request to the website.
 
 As shown in the diagram, users authenticate themselves only once when they log in to the corporate domain. They don't need to log in separately to the Zscaler service. Additionally, the Zscaler service is able to identify users through the proxy authorization header. This allows the service to then apply user, group, and department policies on FTP and HTTPS transactions without decrypting them.
 
@@ -8062,14 +8063,14 @@ Using Kerberos to authenticate users provides the following benefits:
 - It enables the Zscaler service to authenticate users when they use applications that do not support cookies, such as Office 365 and Windows Metro apps.
 - It enables transparent Single Sign-On (SSO) authentication for users. Users authenticate themselves once, when they log in to their corporate domain. They do not need to explicitly authenticate to the Zscaler service, because authentication occurs transparently with Kerberos.
 - The service can enforce granular user, group, and department policies on proxied FTP transactions as well as HTTPS transactions, without having to decrypt the HTTPS transactions.
-- Your organization doesn't need to configure its firewall to allow incoming connections from ZIA Public Service Edges.
+- Your organization doesn't need to configure its firewall to allow incoming connections from Public Service Edges.
 - Kerberos is a secure, open standard protocol that most operating systems support, including Windows 7, Windows 8, OS X, Linux, and FreeBSD. Additionally, most browsers support Kerberos authentication, including Internet Explorer, Firefox, and Safari.
 
 The Zscaler Kerberos implementation provides the following features:
 
-- It is simple to configure and manage. Your organization and the Zscaler service establish a one-way trust that is based on a shared password, eliminating the need to upload and manage keytab files or to join the ZIA Public Service Edges to your domain.
+- It is simple to configure and manage. Your organization and the Zscaler service establish a one-way trust that is based on a shared password, eliminating the need to upload and manage keytab files or to join the Public Service Edges to your domain.
 - It offers various deployment options. Your organization can use Kerberos as its sole authentication method or combine it with another method, such as SAML or LDAP. To learn more, see [Kerberos Deployment Guidelines](https://help.zscaler.com/zia/kerberos-deployment-guidelines#Kerberos-Deployment-Options).
-- It can be used to authenticate road warriors as well. DirectAccess is required (To learn more, see [Kerberos Deployment Guidelines](https://help.zscaler.com/zia/kerberos-deployment-guidelines#Kerberos-Deployment-Options)).
+- It can be used to authenticate road warriors as well. DirectAccess is required (to learn more, see [Kerberos Deployment Guidelines](https://help.zscaler.com/zia/kerberos-deployment-guidelines#Kerberos-Deployment-Options)).
 
 The Zscaler service doesn't support Kerberos on Windows XP, Apple iOS, or Android devices.
 
@@ -8080,8 +8081,8 @@ To use Kerberos as an authentication mechanism, your organization must do the fo
 
 The service supports Kerberos authentication only for traffic forwarded in explicit mode. It doesn't support Kerberos for traffic forwarded in transparent mode, which is traffic forwarded through a [GRE](https://help.zscaler.com/zia/configuring-gre-tunnels) or [IPSec](https://help.zscaler.com/zia/how-do-i-configure-ipsec-vpn-tunnels) tunnel and the browser isn't configured to use a PAC file to forward traffic. To learn more, see [Using the Default Zscaler Kerberos PAC File](https://help.zscaler.com/zia/using-default-zscaler-kerberos-pac-file).
 
-- Ensure that the DNS server on site can resolve the Zscaler service host names (Zscaler PAC servers; Central Authority, which hosts the Zscaler Key Distribution Center (KDC); and ZIA Public Service Edges). If this isn't possible from the location, then your organization must conditionally forward Zscaler cloud domain resolution to the Zscaler DNS servers.
-- Ensure that your firewall allows connections to port 88/8800 in order to allow Kerberos authentication to work.
+- Ensure that the DNS server on site can resolve the Zscaler service host names (Zscaler PAC servers; Central Authority, which hosts the Zscaler Key Distribution Center (KDC); and Public Service Edges). If this isn't possible from the location, then your organization must conditionally forward Zscaler cloud domain resolution to the Zscaler DNS servers.
+- Ensure that your firewall allows connections to port 88/8800 to enable Kerberos authentication.
 - Ensure that the domain suffix of either the client or server, in the Kerberos ticket obtained from your organization's domain controller, is a registered domain in the Zscaler account. In the example below, the domain suffix is SAFEMARCH.COM. To see the Kerberos tickets, open Windows PowerShell and run the command klist. See image.
 
 Additionally, the following are required in a Windows environment:
@@ -8372,13 +8373,13 @@ The following limitations apply for remediation actions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-microsoft-information-protection-labels","lastmod":"2026-07-01T11:18Z","nid":"1402386"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-microsoft-information-protection-labels","lastmod":"2026-08-21T05:44Z","nid":"1402386"} -->
 ## About Microsoft Information Protection Labels
 
 - Source: https://help.zscaler.com/zia/about-microsoft-information-protection-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Microsoft Information Protection Labels
-- Last modified: 2026-07-01T11:18Z
+- Last modified: 2026-08-21T05:44Z
 - Summary: Information about Microsoft Information Protection (MIP) Labels.
 
 Microsoft Information Protection (MIP) provides sensitivity labels, which you can use to identify and protect files with sensitive content. These MIP labels are maintained by Microsoft and, through the addition of an MIP account in the Zscaler Admin Console, these labels can be retrieved from Microsoft so that they can be used when defining a Data Loss Prevention (DLP) in the Zscaler Admin Console.
@@ -8414,10 +8415,8 @@ To view the current state, you need to explicitly refresh the page. To refresh t
 
 1. Expand an **Account Name** to view the MIP labels associated with the account.
 2. Download the list of labels associated with the MIP account to a comma-separated value Microsoft Excel spreadsheet.
-3. [Edit a MIP account](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+3. [Edit an MIP account](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 4. Delete an MIP account.
-5. Go to the [Email Labels](https://help.zscaler.com/zia/about-email-labels) page (Policies > Common Configuration > Out-of-band CASB > Email Labels) to view, modify, or add email labels.
-6. Go to the [Cloud Application Tags](https://help.zscaler.com/zia/about-cloud-application-tags) page (Policies > Access Control > Internet & SaaS > Application Tags) to view, modify, or add cloud application tags.
 
 [Image: Microsoft Information Protection (MIP) Labels page]
 <!-- /ZS-ARTICLE -->
@@ -8974,13 +8973,13 @@ On the OAuth 2.0 Authorization Servers page (Administration > API Configuration>
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-ongoing-alerts","lastmod":"2026-07-09T02:37Z","nid":"1415176"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-ongoing-alerts","lastmod":"2026-08-20T05:46Z","nid":"1415176"} -->
 ## About Ongoing Alerts
 
 - Source: https://help.zscaler.com/zia/about-ongoing-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Ongoing Alerts
-- Last modified: 2026-07-09T02:37Z
+- Last modified: 2026-08-20T05:46Z
 - Summary: Information about a graphical and detailed view of all the configured alerts and event types.
 
 The Ongoing Alerts page displays the information about all the ongoing alerts in a graphical and detailed view. It provides high-level details of what is happening within your organization during a given time period to quickly take action and prioritize investigation. The page also helps you check the responses based on the type of detectable threats within the organization and the scope of impact.
@@ -9335,16 +9334,16 @@ On the Zscaler Private Access (Infrastructure > Internet & SaaS > Network Polici
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-quarantine-tombstone-file-templates","lastmod":"2026-07-01T12:46Z","nid":"1452706"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-quarantine-tombstone-file-templates","lastmod":"2026-08-21T06:00Z","nid":"1452706"} -->
 ## About Quarantine Tombstone File Templates
 
 - Source: https://help.zscaler.com/zia/about-quarantine-tombstone-file-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > About Quarantine Tombstone File Templates
-- Last modified: 2026-07-01T12:46Z
-- Summary: About quarantine notification template options within the ZIA Admin Portal.
+- Last modified: 2026-08-21T06:00Z
+- Summary: About quarantine notification template options within the Zscaler Admin Console.
 
-When a file is quarantined, a tombstone file is created to give the user an idea of why this happened. You are able to customize tombstone file templates and can reference one of them when configuring the malware and DLP detection policy rules. To learn more, see [Configuring the Data at Rest Scanning Malware Detection Policy](https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy-exceptions).
+When a file is quarantined, a tombstone file is created to give the user an idea of why this happened. You are able to customize tombstone file templates and can reference one of them when configuring the malware and DLP detection policy rules. To learn more, see [Configuring the Data at Rest Scanning Malware Detection Policy](https://help.zscaler.com/zia/configuring-data-rest-scanning-malware-detection-policy).
 
 The tombstone file templates provide the following benefits and enable you to:
 
@@ -9356,13 +9355,13 @@ The tombstone file templates provide the following benefits and enable you to:
 On the Quarantine Notification Templates page (Policies > Common Configuration > Out-of-Band CASB > Tombstone Template) you can do the following:
 
 1. Go to the Notification Templates page.
-2. [Add a Tombstone File Template](https://help.zscaler.com/zia/configuring-quarantine-tombstone-notification-templates).
-3. View a list of all tombstone file templates that were configured for your organization. For tombstone file templates, you can see:
+2. [Add a tombstone file template](https://help.zscaler.com/zia/configuring-quarantine-tombstone-notification-templates).
+3. Search for a tombstone file template.
+4. View a list of all tombstone file templates that were configured for your organization. For tombstone file templates, you can see:
   - **Name**: The name of the tombstone file template. You can sort this column.
   - **Description**: The text that is included in the tombstone file.
-4. Search for a tombstone file template.
 5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit](https://help.zscaler.com/zia/configuring-quarantine-tombstone-notification-templates) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a tombstone file template.
+6. [Edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a tombstone file template.
 
 [Image: Tombstone File Template from Notification Templates page]
 <!-- /ZS-ARTICLE -->
@@ -12830,13 +12829,13 @@ A super admin can view and edit all scheduled reports. Other administrators can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-security-ueba-alerts","lastmod":"2026-07-21T21:06Z","nid":"1403106"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-security-ueba-alerts","lastmod":"2026-08-20T05:46Z","nid":"1403106"} -->
 ## About Security & UEBA Alerts
 
 - Source: https://help.zscaler.com/zia/about-security-ueba-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Security & UEBA Alerts
-- Last modified: 2026-07-21T21:06Z
+- Last modified: 2026-08-20T05:46Z
 - Summary: Information on the Security & UEBA Alerts page in the Zscaler Admin Console.
 
 [Watch a video about Security & UEBA Alerts including configuration](https://fast.wistia.net/embed/iframe/xg2ozazz6z) (shows legacy UI).
@@ -14678,16 +14677,16 @@ On the Watermarking page (Policies > Data Protection > Policy > Rights Managemen
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-webhooks","lastmod":"2026-07-14T21:06Z","nid":"1403111"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-webhooks","lastmod":"2026-08-20T05:44Z","nid":"1403111"} -->
 ## About Webhooks
 
 - Source: https://help.zscaler.com/zia/about-webhooks
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Webhooks
-- Last modified: 2026-07-14T21:06Z
+- Last modified: 2026-08-20T05:44Z
 - Summary: Information about Webhook in the Zscaler Admin Console.
 
-Webhook configuration in the Zscaler Admin Console allows you to deliver alerts for the configured events in the alert rule to third-party applications (e.g., ServiceNow, Splunk, etc.) for incident management.
+Webhook configuration in the Zscaler Admin Console allows you to deliver alerts for the configured events in the alert rule to third-party applications (e.g., ServiceNow, Splunk) for incident management.
 
 The webhook configuration provides the following benefits and enables you to:
 
@@ -14696,19 +14695,19 @@ The webhook configuration provides the following benefits and enables you to:
 
 ## About Webhooks Page
 
-On the Webhooks page (Administration > Alerts > Security & UEBA Alerts > Alerts > Webhooks), you can do the following:
+On the Webhooks page (Administration > Alerts > Security & UEBA Alerts > Webhooks), you can do the following:
 
 1. [Add a webhook](https://help.zscaler.com/zia/adding-webhook).
 2. Search for a configured webhook.
 3. View a list of all the configured webhooks. For each webhook, you can see the following:
   - **Name**: The name of the webhook that is displayed when configuring the alert rule. You can sort this column.
   - **Status**: The status of the webhook (Enabled or Disabled).
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 5. [Edit or delete a webhook](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-6. [Go to the Alerts page.](https://help.zscaler.com/zia/about-security-ueba-alerts)
-7. [Go to the Alert Rules page.](https://help.zscaler.com/zia/about-alert-rules)
+6. [Go to the Alerts page](https://help.zscaler.com/zia/about-security-ueba-alerts).
+7. [Go to the Alert Rules page](https://help.zscaler.com/zia/about-alert-rules).
 
-[Image: Add webhook to receive notification when an alert is triggered.]
+[Image: Add webhook to receive notification when an alert is triggered]
 <!-- /ZS-ARTICLE -->
 
 ---

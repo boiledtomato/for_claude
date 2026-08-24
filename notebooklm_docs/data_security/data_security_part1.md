@@ -1,8 +1,8 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 182
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 181
 
 ---
 
@@ -1578,13 +1578,13 @@ On the Data Inventory page (Analytics > Data Security > DSPM > Data Inventory), 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-third-party-integrations","lastmod":"2026-08-04T02:57Z","nid":"1474786"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-third-party-integrations","lastmod":"2026-08-18T21:06Z","nid":"1474786"} -->
 ## About Third-Party Integrations
 
 - Source: https://help.zscaler.com/dspm/about-third-party-integrations
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > About Third-Party Integrations
-- Last modified: 2026-08-04T02:57Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: Information about integrating DSPM with third-party cloud storage services, ITSM, and ChatOps tools.
 
 Security information and event management (SIEM) is a solution to detect and address security threats and vulnerabilities. Data from security systems, network devices, servers, domain controllers, etc., is aggregated and analyzed to identify threats or anomalies, enabling security teams to investigate and address these issues.
@@ -10066,13 +10066,13 @@ The Snowflake account is deleted from the Zscaler Admin Console.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-third-party-integrations","lastmod":"2026-08-04T02:57Z","nid":"1487821"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-third-party-integrations","lastmod":"2026-08-18T21:06Z","nid":"1487821"} -->
 ## Editing or Deleting Third-Party Integrations
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-third-party-integrations
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Editing or Deleting Third-Party Integrations
-- Last modified: 2026-08-04T02:57Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: How to edit or delete third-party integrations in the Zscaler Admin Console.
 
 You can edit or delete any cloud storage, ITSM, or ChatOps integration as required.
@@ -10840,13 +10840,13 @@ After the initialization completes, the scanner VM registers with the DSPM tenan
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-s3","lastmod":"2026-08-04T02:56Z","nid":"1487531"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-s3","lastmod":"2026-08-18T21:06Z","nid":"1487531"} -->
 ## Integrating with Amazon S3
 
 - Source: https://help.zscaler.com/dspm/integrating-amazon-s3
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating with Amazon S3
-- Last modified: 2026-08-04T02:56Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: How to integrate DSPM with Amazon S3 to send alert details to the cloud storage service.
 
 You can integrate DSPM with Amazon Simple Storage Service (Amazon S3). This integration enables DSPM to send the alert data logs of your cloud resources to the Amazon S3 buckets for storage.
@@ -10897,13 +10897,13 @@ You can see the integration details on the **Integrations** page. The initial st
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-security-lake","lastmod":"2026-08-04T02:55Z","nid":"1487541"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-security-lake","lastmod":"2026-08-18T21:06Z","nid":"1487541"} -->
 ## Integrating with Amazon Security Lake
 
 - Source: https://help.zscaler.com/dspm/integrating-amazon-security-lake
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating with Amazon Security Lake
-- Last modified: 2026-08-04T02:55Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: How to integrate DSPM with Amazon Security Lake and send alert details.
 
 You can integrate DSPM with the Amazon Security Lake service to export and store the alert data in a dedicated Amazon Simple Storage Service (S3) bucket that is pre-configured as part of the Amazon Security Lake setup.
@@ -11061,13 +11061,13 @@ Make sure you have the following information for setting up the DSPM integration
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-azure-blob-storage","lastmod":"2026-08-04T02:55Z","nid":"1487536"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-azure-blob-storage","lastmod":"2026-08-18T21:06Z","nid":"1487536"} -->
 ## Integrating with Azure Blob Storage
 
 - Source: https://help.zscaler.com/dspm/integrating-azure-blob-storage
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating with Azure Blob Storage
-- Last modified: 2026-08-04T02:55Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: How to integrate DSPM with Azure Blob Storage and send alert details.
 
 You can integrate DSPM with your Azure Blob Storage. This integration enables DSPM to send the alert data logs of your cloud resources to the Azure Blob Storage containers for storage and data analysis by third-party SIEM or ITSM tools.
@@ -11112,13 +11112,13 @@ You can see the integration details on the **Integrations** page. The initial st
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-cloud-storage-services","lastmod":"2026-08-04T02:56Z","nid":"1487561"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-cloud-storage-services","lastmod":"2026-08-18T21:06Z","nid":"1487561"} -->
 ## Integrating DSPM with Cloud Storage Services
 
 - Source: https://help.zscaler.com/dspm/integrating-dspm-cloud-storage-services
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating DSPM with Cloud Storage Services
-- Last modified: 2026-08-04T02:56Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: Information on integrating DSPM with various cloud storage services.
 
 Cloud Storage is a service that allows you to store and organize data. You can granularly control access to this data and use it for data analysis, auditing, threat detection, etc., based on your organization's security and compliance requirements.
@@ -11136,13 +11136,13 @@ You can integrate DSPM with the following cloud storage services:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-itsm-tools","lastmod":"2026-08-04T02:54Z","nid":"1487571"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-itsm-tools","lastmod":"2026-08-18T21:06Z","nid":"1487571"} -->
 ## Integrating DSPM with ITSM Tools
 
 - Source: https://help.zscaler.com/dspm/integrating-dspm-itsm-tools
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ITSM Tools > Integrating DSPM with ITSM Tools
-- Last modified: 2026-08-04T02:54Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: Information on integrating DSPM with various ITSM tools.
 
 Security information and event management (SIEM) is a software solution that collects security data like alert details from security systems, aggregates, and applies analytics to that data to discover trends, detect threats, and enable organizations to investigate and take the necessary action.
@@ -11157,13 +11157,13 @@ DSPM supports connection with the following ITSM tools:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-jira","lastmod":"2026-08-04T02:54Z","nid":"1487566"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-jira","lastmod":"2026-08-18T21:06Z","nid":"1487566"} -->
 ## Integrating with Jira
 
 - Source: https://help.zscaler.com/dspm/integrating-jira
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ITSM Tools > Integrating with Jira
-- Last modified: 2026-08-04T02:54Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: How to integrate DSPM with Jira and send alert notifications.
 
 DSPM leverages Jira APIs to automatically create tickets when sensitive data or any misconfigurations are detected in your cloud resources. You can integrate DSPM with Jira to leverage the alert data logs from the cloud storage services and create incidents for further evaluation.
@@ -11248,13 +11248,13 @@ The integration is added, and the details are displayed on the **Integrations** 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-servicenow","lastmod":"2026-08-04T02:54Z","nid":"1487556"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-servicenow","lastmod":"2026-08-18T21:06Z","nid":"1487556"} -->
 ## Integrating with ServiceNow
 
 - Source: https://help.zscaler.com/dspm/integrating-servicenow
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ITSM Tools > Integrating with ServiceNow
-- Last modified: 2026-08-04T02:54Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: How to integrate DSPM with ServiceNow and send alert notifications.
 
 DSPM leverages ServiceNow APIs to automatically create tickets when sensitive data or a misconfiguration is detected in the cloud resources. You can integrate DSPM with ServiceNow to create incidents on ServiceNow whenever a security policy violation occurs on the selected cloud resources.
@@ -11293,13 +11293,13 @@ The integration details are displayed on the **Integrations** page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-slack","lastmod":"2026-08-04T02:53Z","nid":"1487526"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-slack","lastmod":"2026-08-18T21:06Z","nid":"1487526"} -->
 ## Integrating with Slack
 
 - Source: https://help.zscaler.com/dspm/integrating-slack
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ChatOps Tools > Integrating with Slack
-- Last modified: 2026-08-04T02:53Z
+- Last modified: 2026-08-18T21:06Z
 - Summary: How to integrate DSPM with Slack.
 
 You can integrate DSPM with Slack, a tool for centralized communication and collaboration. DSPM detects sensitive data or misconfigurations in the cloud resources and generates alerts. These alert notifications are sent to the configured Slack channels so you can investigate and address the issues on a common platform and streamline the mitigation directly into your developer tool.
@@ -14786,13 +14786,13 @@ This article provides a summary of all new features and enhancements for DSPM. T
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/release-upgrade-summary-2026","lastmod":"2026-08-12T21:38Z","nid":"1534312"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/release-upgrade-summary-2026","lastmod":"2026-08-19T21:56Z","nid":"1534312"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/dspm/release-upgrade-summary-2026
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-12T21:38Z
+- Last modified: 2026-08-19T21:56Z
 - Summary: DSPM Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for DSPM. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -14856,13 +14856,13 @@ The following error messages are displayed in the CLI app if there are issues wh
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/resolving-configuration-issues-microsoft-azure","lastmod":"2026-08-12T21:42Z","nid":"1504231"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/resolving-configuration-issues-microsoft-azure","lastmod":"2026-08-20T22:45Z","nid":"1504231"} -->
 ## Resolving Configuration Issues for Microsoft Azure
 
 - Source: https://help.zscaler.com/dspm/resolving-configuration-issues-microsoft-azure
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Entra Tenant > Resolving Configuration Issues for Microsoft Azure
-- Last modified: 2026-08-12T21:42Z
+- Last modified: 2026-08-20T22:45Z
 - Summary: Information on the issues encountered while onboarding and troubleshooting for Microsoft Azure.
 
 You might encounter any of the following error messages while onboarding:
@@ -14909,6 +14909,8 @@ You might encounter any of the following error messages while onboarding:
 | In the CLI app: ``Error: Resource type mismatch \|\| This statement declares a move from null_resource.management_reader to terraform_data.management_reader, which is a resource of a different type.`` | Upgrade Terraform to the latest version. |
 | In the CLI app: ``Error: Could not create service principal \| with azuread_service_principal, \| on azure_tf_basic.tf line 232, in resource "azuread_service_principal" "service_principal": \| 232: resource "azuread_service_principal" "service_principal" { \| Post "https://graph.microsoft.com/v1.0/servicePrincipals": HTTP response was nil; connection may have been reset.`` | Rerun the template. |
 | In the CLI app: `│ Error: creating Disk Encryption Set (Subscription: "e4c726c0-395e-4c36-9a98-bbabc0f69c46" │ Resource Group Name: "z-dspm-6baa90f1-3dee-4e9a-ab5e-0217b34514ef-worker-plane-rg" │ Disk Encryption Set Name: "z-dspm-6baa90f1-worker-encset-eastus2"): performing CreateOrUpdate: unexpected status 400 (400 Bad Request) with error: KeyVaultAccessForbidden: Unable to access key vault resource 'https://z-dspm-eaus26baa90f1zsc.vault.azure.net/keys/worker-plane-cmk/eb7171311c1444fbbbf2fcfc49de0c54' to enable encryption at rest. Please grant get, wrap and unwrap key permissions to user-assigned identity '/subscriptions/e4c726c0-395e-4c36-9a98-bbabc0f69c46/resourceGroups/z-dspm-6baa90f1-3dee-4e9a-ab5e-0217b34514ef-auth-plane-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/z-dspm-6baa90f1-3dee-4e9a-ab5e-0217b34514ef-encryption-managed-identity'. Please visit https://aka.ms/keyvaultaccessssecmk for more information. │ │ with module.worker_plane["eastus2"].azurerm_disk_encryption_set.worker_plane, │ on modules/worker-plane/worker_plane.tf line 142, in resource "azurerm_disk_encryption_set" "worker_plane": │ 142: resource "azurerm_disk_encryption_set" "worker_plane" {` | Rerun the template. |
+| In the CLI app: `Error: local-exec provisioner error │ │ with module.evidence.module.evidence_encryption_key[0].null_resource.kv_public[0], │ on modules/sub-modules/encryption-key/key.tf line 3, in resource "null_resource" "kv_public": │ 3: provisioner "local-exec" { │ │ Error running command 'az keyvault update --name z-ebb21-96e29-secrets --public-network-access Enabled --default-action Allow --subscription │ 96e29120-71f5-467f-bf17-6b2fe8ab5121': exit status 1. Output: ERROR: (ConflictError) A conflict occurred that prevented the operation from completing. The operation │ failed because the Key Vault '' changed from the point the operation began. This can happen if parallel operations are being performed on the Key Vault. To prevent │ this error, serialize the operations so that only one operation is performed on the Key Vault at a time. Follow this link for more information: │ https://go.microsoft.com/fwlink/?linkid=2147741 │ Code: ConflictError │ Message: A conflict occurred that prevented the operation from completing. The operation failed because the Key Vault '' changed from the point the operation began. │ This can happen if parallel operations are being performed on the Key Vault. To prevent this error, serialize the operations so that only one operation is performed │ on the Key Vault at a time. Follow this link for more information: https://go.microsoft.com/fwlink/?linkid=2147741` | Run `terraform apply -auto-approve -parallelism=1` |
+| In the CLI app: `╷ │ Error: listing role definitions: could not find role `r-b-stagetwenty-10aug-put-evidence` │ │ with azurerm_role_assignment.put_evidence_role_assignment, │ on main.tf line 126, in resource "azurerm_role_assignment" "put_evidence_role_assignment": │ 126: resource "azurerm_role_assignment" "put_evidence_role_assignment" { │ ╵ ╷ │ Error: listing role definitions: could not find role `r-b-stagetwenty-10aug-get-evidence` │ │ with azurerm_role_assignment.get_evidence_role_assignment, │ on main.tf line 139, in resource "azurerm_role_assignment" "get_evidence_role_assignment": │ 139: resource "azurerm_role_assignment" "get_evidence_role_assignment" { │` | Rerun the template. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -17808,261 +17810,4 @@ View the Azure services that can access the resource.
 [Image: The list of Azure services that can access the primary resource.]
 
 [Image: Public exposure graph shows the misconfigured entity that caused the resource to be publicly exposed.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-databases","lastmod":"2026-08-13T00:41Z","nid":"1532158"} -->
-## Viewing the Graph for Databases
-
-- Source: https://help.zscaler.com/dspm/viewing-graph-databases
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Databases
-- Last modified: 2026-08-13T00:41Z
-- Summary: Graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result.
-
-The graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result. The graph provides in-depth details of the databases containing sensitive data, the DLP engines and dictionaries that match the sensitive data, whether data is publicly exposed to the internet, including the public exposure path, and the list of entities that can access the databases. These details are helpful to quickly evaluate and remediate the issues, protect the sensitive data, and maintain a strong security posture.
-
-You can view graphs for the following databases:
-
-- Managed Database
-- Unmanaged Database
-- Snowflake
-- On-Premises File Servers
-- Databricks
-- Unmanaged AWS and Azure MongoDB Servers
-- On-Premises MongoDB Servers
-
-To view the graph for a database:
-
-1. Go to **Analytics**> **Data Security** > **DSPM**> **Resource Inventory**.
-2. Click any resource name to view the resource's details page. See image.
-3. In the resource's details page, select the **Risk Explorer** tab. The following information is displayed:
-  - On-Premises Database
-  - Unmanaged Database
-  - Snowflake Database
-
-[Image: View all the resource details]
-
-The following graph is for an on-premises database:
-
-[Image: Shows the risk explorer graph for an on-premises database]
-
-Click the nodes to view additional details of each entity:
-
-- 1. Primary Resource
-- 2. Database with Sensitive Data
-- 3. Table with Sensitive Data
-- 4. Sensitive Records
-- 5. Databases
-- 6. Database Principals
-- 7. Admin Principals
-- 8. Server Principals
-
-View the following details of the primary resource:
-
-- **Resource Category**: The type of data store.
-- **Resource Type**: The type of resource.
-- **Data Center ID**: The unique identifier of the data center.
-- **Data Center Name**: The name of the data center.
-- **Region**: The region where the resource is located.
-- **Last Scan Status**: The status (e.g., completed) of the last scan.
-- **Last Completed Scan**: The date and time when the last scan was completed.
-- **Data Scanned**: The amount of data scanned.
-- **Triggers**: The number of alerts raised for this resource.
-- **Matched Tables**: The number of tables that match the DLP engines.
-- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match sensitive records.
-- **DLP Dictionaries**: The [DLP dictionaries](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) associated with DLP engines.
-- **ID**: The unique identifier of the resource.
-- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
-- **Metadata**: Click to view the metadata for the resource.
-
-[Image: Shows the details related to the primary resource]
-
-View the details of the database that contains sensitive data.
-
-[Image: Shows the details of database with sensitive data]
-
-View the details of the table within the impacted database that contains sensitive data.
-
-[Image: Shows the details of the table within the database that contains sensitive data]
-
-View the details of sensitive records.
-
-[Image: Shows details of sensitive records]
-
-View all the databases, including those that do not contain any sensitive data and the ones that are not scanned.
-
-[Image: Shows the databases associated with the resource]
-
-- View the list of all database principals that can access the resource. [Image: Shows details of database principals that can access the resource]
-
-- Click the **Entity Name** to view additional details. See image.
-- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
-
-[Image: Shows details of on-prem database principals]
-
-[Image: Shows access path graph for a database principal]
-
-- View the list of all admin principals that can access the resource. [Image: Shows details of admin principals that access the resource]
-
-- Click the **Entity Name** to view additional details. See image.
-- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
-
-[Image: Shows details of the admin principals]
-
-[Image: Shows access path of the admin principal]
-
-- View the list of all server principals that can access the resource. [Image: Shows details of server principals that can access the resource]
-
-- Click the **Entity Name** to view additional details. See image.
-- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
-
-[Image: Shows details of server principals]
-
-[Image: Shows the access path details of server principal]
-
-The following graph is for an unmanaged database:
-
-[Image: Shows the Risk Explorer graph for an unmanaged database.]
-
-Click the nodes to view additional details of each entity:
-
-- 1. Primary Resource
-- 2. Resource with Sensitive Data
-- 3. Sensitive Records
-- 4. Resource
-- 5. Admin Principals
-- 6. Server Principals
-- 7. Database Principals
-
-- **Data Store Type**: The type of data store.
-- **Resource Type**: The type of resource.
-- **Subscription ID**: The unique identifier of the subscription in which the resource is stored.
-- **Subscription Name**: The name of the subscription in which the resource is stored.
-- **Tenant ID**: The unique identifier of the tenant to which the subscription belongs.
-- **Region**: The region where the resource is located.
-- **Last Completed Scan**: The date and time when the resource was last scanned.
-- **Data Scanned**: The amount of data scanned.
-- **Triggers**: The number of sensitive records in the resource.
-- **Matched Tables**: The number of tables that matched the DLP engines.
-- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match sensitive records.
-- **DLP Dictionaries**: The [DLP dictionaries](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) associated with DLP engines.
-- **ID**: Copy the tenant ID to identify the resource.
-- **Tags**: The tags associated with the resource.
-- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
-- **Metadata**: Click to view the metadata for the resource.
-
-[Image: Shows the details of the primary resource]
-
-View the details of the database that contains sensitive data.
-
-[Image: Shows the database that contains sensitive data]
-
-View the details of sensitive records.
-
-[Image: Shows details of sensitive records]
-
-View all the associated resources, including those that do not contain any sensitive data and the ones that are not scanned. In this scenario, the Azure PostgresSQL server has two databases that contain sensitive data.
-
-[Image: Shows the details of the associated resources]
-
-- View the list of admin principals that can access the resource. [Image: Shows the details of all the admins that can access the resource]
-- Click the **Entity Name** to view additional details. See image.
-- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
-
-[Image: Shows details of unmanaged database admin principals]
-
-[Image: Shows access path of admin principals for an unmanaged database]
-
-- View the list of all server principals that can access the resource. [Image: Shows the details of all the entities that can access server resources]
-- Click the **Entity Name** to view additional details. See image.
-- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
-
-[Image: Shows details of unmanaged database server principals]
-
-[Image: Shows access path of server principals]
-
-- View the list of all database principals that can access the resource. [Image: Shows details of database principals]
-- Click the **Entity Name** to view additional details. See image.
-- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
-
-[Image: Shows details of database principals]
-
-[Image: Shows access path of database principals]
-
-The following graph is for a Snowflake database:
-
-[Image: Shows the risk explorer graph for Snowflake]
-
-Click the nodes to view additional details of each entity:
-
-- 1. Primary Resource
-- 2. Resource with Sensitive Data
-- 3. Sensitive Records
-- 4. Tables
-- 5. Users
-- 6. Services
-- 7. Admin Principals
-- 8. Public Internet
-
-- **Resource Category**: The type of datastore.
-- **Resource Type**: The type of resource.
-- **Account ID**: The unique identifier of the account in which the resource is located.
-- **Account Name**: The name of the account in which the resource is located.
-- **Organization ID**: The unique identifier of the organization to which the account belongs.
-- **Region**: The region where the organization is located.
-- **Latest Scan Status**: The status of the most recent scan.
-- **Last Completed Scan**: The date and time when the resource was last scanned.
-- **Data Scanned**: The amount of data scanned.
-- **Triggers**: The number of alerts raised for this resource.
-- **Matched Tables**: The number of tables that matched the DLP engines.
-- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match sensitive records.
-- **DLP Dictionaries**: The [DLP dictionaries](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) associated with DLP engines.
-- **ID**: Copy the tenant ID to identify this resource in the tenant.
-- **Tags**: The tags associated with the resource.
-- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
-- **Metadata**: Click to view the metadata for the resource.
-
-[Image: Shows the details of the primary resource]
-
-View the details of the tables that contain sensitive data.
-
-[Image: Shows details of tables that contain sensitive data]
-
-- View the details of sensitive records.[Image: Shows the details of sensitive records]
-- Click **View Sensitive Data** to view the sensitive data discovered by the scan. See image.
-
-View all the associated resources, including those that do not contain any sensitive data and the ones that are not scanned.
-
-[Image: Shows details of all the associated resources]
-
-- View the list of all the services that can access the Snowflake database. [Image: Shows the details of services that can access the Snowflake database]
-- Click **Entity Name** to view additional details. See image.
-- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
-
-- View the list of all admin entities that can access the Snowflake database. [Image: Shows the details of all the admins that can access the Snowflake database]
-- Click the **Entity Name** to view additional details. See image.
-- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
-
-- View the list of all the users who can access the Snowflake database. [Image: Shows the details of users that can access the Snowflake database]
-- Click the **Entity Name** to view additional details. See image.
-- Click **Show Access Path** to view another graph that displays the entities and their assigned permissions that allow access to the database. See image.
-
-- View the details of public internet.[Image: Snowflake database exposure screen showing Public Internet access and exposure]
-- **View Metadata**: Click to view metadata for the network or user policy that defines how the database is accessed over the internet.
-
-[Image: Shows detail about Snowflake user]
-
-[Image: Shows the access path graph for Snowflake user]
-
-[Image: Shows the details of Snowflake service]
-
-[Image: Shows the access path for a Snowflake service]
-
-[Image: Shows details of Snowflake admin principal]
-
-[Image: Shows the access path graph of Snowflake admin principal]
-
-[Image: Shows the sensitive information]
 <!-- /ZS-ARTICLE -->

@@ -1,8 +1,8 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 130
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 131
 
 ---
 
@@ -49,13 +49,13 @@ On the Admin Groups page (Administrator > Administrator Management > Administrat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-administrators","lastmod":"2026-08-07T11:13Z","nid":"1374826"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-administrators","lastmod":"2026-08-21T21:06Z","nid":"1374826"} -->
 ## About Administrators
 
 - Source: https://help.zscaler.com/zdx/about-administrators
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > About Administrators
-- Last modified: 2026-08-07T11:13Z
+- Last modified: 2026-08-21T21:06Z
 - Summary: Provide overview information for the Administrators page for ZDX admins.
 
 [Watch a video about Administrators in ZDX](https://fast.wistia.net/embed/iframe/eidy76se80) (shows legacy UI).
@@ -2203,13 +2203,13 @@ Click **Next**.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/administrator-management-settings","lastmod":"2026-08-07T09:42Z","nid":"1456556"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/administrator-management-settings","lastmod":"2026-08-21T21:06Z","nid":"1456556"} -->
 ## Administrator Management Settings
 
 - Source: https://help.zscaler.com/zdx/administrator-management-settings
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Administrator Management Settings
-- Last modified: 2026-08-07T09:42Z
+- Last modified: 2026-08-21T21:06Z
 - Summary: Information on password management for administrators in ZDX.
 
 To access the Administrator Management page, go to **Administration** > **Admin Management** > **Role Based Access Control** > **Administrators** > **Administrator Management**. You can configure restricted access, password expiration, and SAML authentication for admins.
@@ -4467,13 +4467,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-08-06T13:56Z","nid":"1391316"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-08-20T21:06Z","nid":"1391316"} -->
 ## Evaluating User Details
 
 - Source: https://help.zscaler.com/zdx/evaluating-user-details
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Users > Evaluating User Details
-- Last modified: 2026-08-06T13:56Z
+- Last modified: 2026-08-20T21:06Z
 - Summary: Information about the user details page, accessed from the Users Dashboard.
 
 To better understand the digital experience for a user, view the user details page for user and device metrics.
@@ -4876,13 +4876,13 @@ To view an admin group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-collections","lastmod":"2026-06-26T11:04Z","nid":"1535219"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-collections","lastmod":"2026-08-23T07:06Z","nid":"1535219"} -->
 ## Managing Collections
 
 - Source: https://help.zscaler.com/zdx/managing-collections
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Managing Collections
-- Last modified: 2026-06-26T11:04Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information on managing collections in the Zscaler Admin Console.
 
 ZDX allows you to manage your collections to easily organize your applications and probes.
@@ -5114,13 +5114,13 @@ On the Labels page (Policies > Digital Experience Monitoring > Labels):
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-06-03T12:54Z","nid":"1526076"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-08-20T16:13Z","nid":"1526076"} -->
 ## Managing Scripts
 
 - Source: https://help.zscaler.com/zdx/managing-scripts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Managing Scripts
-- Last modified: 2026-06-03T12:54Z
+- Last modified: 2026-08-20T16:13Z
 - Summary: Configuration steps on remote scripts for remediation.
 
 Scripts are a great way to automate PowerShell scripts for specific device tasks. Zscaler provides predefined scripts to help you get started.
@@ -5150,6 +5150,7 @@ Predefined scripts are found on the Scripts Templates page (Policies > Digital E
 - **Name**: The name of the predefined script.
 - **Description**: The description of the predefined script.
 - **Operating System**: The supported operating system.
+- **Scripts In Use**: Displays the number of scripts currently using the predefined script.
 - **Last Updated**: The timestamp of when the predefined script was released.
 
 You can view, search, or import the predefined scripts.
@@ -5215,7 +5216,7 @@ View the job's progress on the [Device Remediation](https://help.zscaler.com/zdx
 
 [Image: Add script parameters]
 
-[Image: Create an end-user notification prior to running the script]
+[Image: Create an end user notification prior to running the script]
 
 [Image: Enter Remediation job fields]
 
@@ -8066,13 +8067,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-08-11T13:52Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-08-21T15:28Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-11T13:52Z
+- Last modified: 2026-08-21T15:28Z
 - Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -10413,13 +10414,13 @@ If all three metrics for latency, jitter, and packet loss are unavailable, the Z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-probing-criteria-logic","lastmod":"2026-06-26T11:08Z","nid":"1486366"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-probing-criteria-logic","lastmod":"2026-08-23T07:06Z","nid":"1486366"} -->
 ## Understanding Probing Criteria Logic
 
 - Source: https://help.zscaler.com/zdx/understanding-probing-criteria-logic
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Probes > Understanding Probing Criteria Logic
-- Last modified: 2026-06-26T11:08Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Provides supplemental details on the logic when configuring a probe for an application.
 
 When you configure a probe for an application, the inclusion and exclusion configuration fields use different logic based on what you select. You can create a combination of the inclusion and exclusion criteria to be specific towards your probing data needs.
@@ -11278,13 +11279,13 @@ The protocol used is visible in the Cloud Path section on the user details page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-and-managing-device-remediation","lastmod":"2026-06-23T14:40Z","nid":"1528756"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-and-managing-device-remediation","lastmod":"2026-08-20T16:48Z","nid":"1528756"} -->
 ## Viewing and Managing Device Remediation
 
 - Source: https://help.zscaler.com/zdx/viewing-and-managing-device-remediation
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Viewing and Managing Device Remediation
-- Last modified: 2026-06-23T14:40Z
+- Last modified: 2026-08-20T16:48Z
 - Summary: Information about viewing and managing Device Remediation.
 
 Device Remediation runs a script on selected devices as a job, and you can schedule the job as needed. Scripts are useful for remediating software issues by running PowerShell scripts on the selected devices. The Device Remediation page gathers parameter support and script output to categorize each job into the In Progress, Completed, or Scheduled tables for easy visibility and management. If a script fails, you can re-run the job or edit the script as required to run the job again.
@@ -11312,9 +11313,11 @@ There are 3 Device Remediation tables based on the status of the job: In Progres
 For each table on the Device Remediation page (Analytics > Digital Experience > Remediation > Device Remediation), you can:
 
 - View the In Progress, Completed, or Scheduled tables based on the job's progress.
-- Go to the [Scripts page](https://help.zscaler.com/zdx/about-scripts) to view a collection of configured or predefined scripts.
+- Click **View Scripts** to view a collection of configured or predefined scripts on the [Scripts page](https://help.zscaler.com/zdx/about-scripts).
 - Start a new job.
 - Search for jobs in the respective table.
+- Modify the columns displayed in the table.
+- Navigate through pages of jobs.
 
 ### Job Status
 
@@ -11332,51 +11335,52 @@ Each job has a status at any point of time and can be one of the following:
 The In Progress table provides the following:
 
 1. A list of jobs that are in progress to view the following information:
-  - **Name**: The name of the job.
+  - **Name**: The name of the job. Click the **Name** to view job details.
   - **Progress**: A progression bar to display the percentage of job completion.
   - **Script**: The name of the script.
   - **Devices**: The number of devices selected for the job.
   - **Created By**: The user that started the job.
   - **Started On**: The timestamp of when the job started.
-2. Modify the columns displayed in the table.
+  - **Actions**: The available actions for the job.
+2. View the job details.
 3. Stop the job.
 
-[Image: View the remote script runs that are in progress]
+[Image: View the jobs that are in progress]
 
 ### Completed Table
 
 The Completed table provides the following:
 
 1. A list of jobs that are completed to view the following information:
-  - **Name**: The name of the job. The status of the job is displayed if the script run has **Expired**or **Aborted**,
+  - **Name**: The name of the job. The status of the job is displayed if the script run has **Expired**or **Aborted**. Click the **Name** to view job details.
   - **Success Rate**: A percentage display bar to indicate how many of the jobs were completed over the number of selected devices.
   - **Script**: The name of the script.
   - **Devices**: The number of devices selected for the job.
   - **Created By**: The user that started the job.
   - **Started On**: The timestamp of when the job started.
   - **Ended On**: The timestamp of when the job ended.
-2. Modify the columns displayed in the table.
-3. View the job details where you can view the impacted devices, select and export a list of the impacted devices, or view the script output. See image.
-4. Rerun the job.
-5. Delete the job.
+  - **Actions**: The available actions for the job.
+2. View the job details where you can view the impacted devices, select and export a list of the impacted devices, or view the script output. See image.
+3. Rerun the job.
+4. Delete the job.
 
-[Image: View a list of completed remote script runs]
+[Image: View a list of completed jobs]
 
 ### Scheduled Table
 
 The Scheduled table provides the following:
 
 1. A list of jobs that are completed to view the following information:
-  - **Name**: The name of the job. Click the name to edit the job.
+  - **Name**: The name of the job. Click the **Name** to view job details.
   - **Script**: The name of the script.
   - **Devices**: The number of devices selected for the job.
   - **Created By**: The user that started the job.
   - **Scheduled for**: The timestamp of when the job is scheduled to start.
-2. Modify the columns displayed in the table.
-3. Edit the job.
-4. Delete the job.
+  - **Actions**: The available actions for the job.
+2. Edit the job.
+3. Delete the job.
 
-[Image: View the scheduled remote script runs]
+[Image: View the scheduled jobs]
 
 ### Job Details
 
@@ -11385,7 +11389,7 @@ You can view a job's granular details by clicking a row on any of the tables. Ea
 - Under **Job Details**:
   - **Success Rate**: The percentage bar to indicate how many times the job was completed.
   - **Success**: The number of devices that have completed the job.
-  - **Failed**: The number of devices that have failed to run the script. If the job is aborted, then ZDX tries its best effort to stop the script.
+  - **Failed**: The number of devices that have failed to run the script. If the job is aborted, then Zscaler Digital Experience (ZDX) tries its best effort to stop the script.
   - **Script**: The name of the script.
   - **Operating System**: The operating system the script is for.
   - **Devices**: The number of selected devices.
@@ -11399,7 +11403,7 @@ You can view a job's granular details by clicking a row on any of the tables. Ea
   - **Execution Status**: The status of the job.
   - **Error Message**: A descriptive error message as to why the job failed.
   - **Result**: The result of the job.
-  - **Script Output**: The script output when the job is completed successfully. You can click the **Script** icon ([Image: Click the Script icon to view the Script Output]) to view the entire script output or request logs.
+  - **Script Output**: The script output when the job is completed successfully. You can click the **View** icon to view the entire script output or request logs.
   - **Last Updated On**: The timestamp of when the script was last updated to run on the device.
 
 If the job failed to run the script on a device, you can view where the remote script did not run on inactive or unavailable devices by clicking **View Devices Where Script Did Not Run**. Click **Rerun Job** to run the job as a new job with prefilled criteria.
@@ -11415,19 +11419,20 @@ Consider the following when configuring scripts:
 - When the user accepts a job and the script does not run due to an expired certificate or an invalid certificate, then you must upload the script again with a valid script certificate. To learn more, see [Preparing Custom Script Signing](https://help.zscaler.com/zdx/preparing-custom-script-signing).
 
 1. Click **Start New Job**.
-2. Under **Select Script**:
+2. Enter a **Name** for the job.
+3. Under **Select Script**:
   1. **Script**: Search and select which script you want to run for the job. You can also [create a script](https://help.zscaler.com/zdx/managing-remote-scripts#add).
   2. **Script Details**: If you configured [script parameters or an end user notification](https://help.zscaler.com/zdx/managing-remote-scripts#fields), then you can modify the script parameters and preview the end user notification.
   3. **Script Run Settings**: Enter the number of seconds the script runs for the job.
-3. Under **Select Devices**, click **Add** to open the **Select Devices** drawer. You cannot select a device if it does not meet the version compatibility or OS. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility). See image.
-  1. **Criteria**: Select **Devices**, **Users**, **User Groups**, **Location**, **Location Groups**, or **Departments**.
-  2. **Search**: You can search for the name of the selected criteria. Click the **Remove** icon to reset your search.
-  3. Click **Done** to save your selection.
-4. Under **Job Details**: See image.
-  1. **Name**: Enter the name of the job.
-  2. **Wait for devices to be online for a maximum of**: Enter the number of minutes or days a script must wait to run on a device.
-  3. **Schedule Job for later**: Enable to select a date for when to run the script.
-5. Click **Start**.
+4. Under **Select Devices**, click **Add** to open the **Select Devices** drawer. You cannot select a device if it does not meet the version compatibility or OS. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility). See image.
+  1. **Criteria**: Select **Devices**, **Users**, **User Groups**, **Locations**, **Location Groups**, or **Departments**.
+  2. **Display selected only**: Enable to display only the selected items.
+  3. **Search**: You can search for the name of the selected criteria. Click the **Remove** icon to reset your search.
+  4. Click **Done** to save your selection.
+5. Under **Job Details**: See image.
+  1. **Wait for devices to be online for a maximum of**: Enter the number of minutes, hours, or days a script must wait to run on a device.
+  2. **Schedule Job for later**: Enable to select a date on which to run the script.
+6. Click **Start**.
 
 You can edit a job on the page if it's **Scheduled**.
 
@@ -11765,6 +11770,79 @@ If you have View Only permission for Diagnostics details, you cannot use the Exp
 [Image: Viewing Deep Tracing session results]
 
 [Image: Export PDF functionality for Deep Tracing]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-hardware-overview-and-hardware-inventory","lastmod":"2026-08-18T08:24Z","nid":"1396666"} -->
+## Viewing Hardware Overview and Hardware Inventory
+
+- Source: https://help.zscaler.com/zdx/viewing-hardware-overview-and-hardware-inventory
+- Product: Digital Experience Monitoring (ZDX)
+- Path: Digital Experience Monitoring (ZDX) Help > Analytics > Inventory > Viewing Hardware Overview and Hardware Inventory
+- Last modified: 2026-08-18T08:24Z
+- Summary: Information about viewing the current status, updates, and history of user hardware or devices.
+
+Hardware Overview and Hardware Inventory allow you to view current information about your organization's devices and their hardware information based on their associated users.
+
+## Prerequisites
+
+To view Hardware Overview and Hardware Inventory data, ensure:
+
+- The devices have the following: To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
+  - The minimum required versions of Zscaler Client Connector and ZDX Module.
+  - The supported OS.
+- Your ZDX subscription level supports Hardware Inventory. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
+- Your ZDX role has the proper permission level. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
+
+## Viewing Hardware Overview
+
+You can access **Hardware Overview** page by going to **Analytics** > **Digital Experience**> **Devices** > **Hardware Overview**.
+
+On the **Hardware Overview** page, you can:
+
+1. Use the filters in the Hardware Overview to narrow your scope of inventory information:
+  - **Vendors**: Supported hardware vendors.
+  - **Models**: The device model name.
+  - **Zscaler Locations**: The list of locations where a user accessed a device, as defined in Internet & SaaS. To learn more, see [About Locations](https://help.zscaler.com/zia/about-locations).
+  - **Geolocations**: The geographic areas where users access their devices.
+2. View the minimum required [Zscaler Client Connector and ZDX Module versions](https://help.zscaler.com/zdx/supported-versions-feature-compatibility) for supported operating systems.
+3. View the current device count and the total active users from the last 14 days until the start of the UTC day. The percentage on each card indicates how the count has increased or decreased over the past 24 hours.
+4. Hover over the bar charts to view memory distribution and OS distribution:
+  - **Memory Distribution**: Amount of memory installed and allotted per device.
+  - **OS Distribution**: Number of devices per OS.
+5. The **Hardware Inventory** tiles are color-coded according to device, with the size of each tile visually indicating the number of device models relative to other models. Hover over a **Hardware Inventory** tile to view the total number of users of that device model. If you click a tile, the Hardware Overview is displayed with all models associated with the device and with device users automatically filtered and applied per model.
+
+[Image: View user device and hardware information in the Hardware Overview page]
+
+## Viewing Hardware Inventory
+
+The **Hardware Inventory** page provides a current snapshot of your users' devices. You can access the **Hardware Inventory** page by going to **Analytics** > **Digital Experience**> **Devices** > **Hardware Inventory**.
+
+On the **Hardware Inventory**page, you can:
+
+1. Use the filters at the top of the page to narrow your search for a specific device and its associated user. These are the same filters in the **Hardware Overview** page.
+2. View the minimum required [ZDX Module and Zscaler Client Connector versions](https://help.zscaler.com/zdx/supported-versions-feature-compatibility) for supported operating systems.
+3. View the current device count and the total active users from the last 14 days until the start of the UTC day. The percentage on each card indicates how the count has increased or decreased over the past 24 hours.
+4. Hover over the bar charts to view memory distribution and OS distribution:
+  - **Memory Distribution**: Amount of memory installed and allotted per device.
+  - **OS Distribution**: Number of devices per OS.
+5. Capture all device and hardware information within the table in CSV format, click **Export**, and then click the **Download**icon. The download process captures all currently known devices.
+6. Configure which columns to display in the table.
+7. View a table with the following information for each listed device:
+  - **Name**: The vendor device name, with model and OS.
+  - **User**: The device user.
+  - **OS**: The OS running on the device.
+  - **Vendor**: The name of the device provider.
+  - **Hardware Model**: The specific model name of the device.
+  - **CPU**: The processor model.
+  - **Memory (RAM)**: The amount of memory installed on the device.
+8. Click a device name to view more [device details](https://help.zscaler.com/zdx/evaluating-user-details#userdevices) about a specific device.
+9. Click a user name to view [user details](https://help.zscaler.com/zdx/evaluating-user-details) about the user associated with the device.
+10. View the total number of devices and select how many items to display on each page.
+11. Navigate through the table pages.
+
+[Image: View the Hardware Inventory page to view more details about user devices and hardware information]
 <!-- /ZS-ARTICLE -->
 
 ---

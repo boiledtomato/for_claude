@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 99
 
 ---
@@ -7150,13 +7150,13 @@ Retrieves the notification enablement status for user confirmation notification
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/endpoint-data-loss-prevention-dlp-policy","lastmod":"2026-07-09T07:22Z","nid":"1541608"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/endpoint-data-loss-prevention-dlp-policy","lastmod":"2026-08-23T07:06Z","nid":"1541608"} -->
 ## Endpoint Data Loss Prevention (DLP) Policy
 
 - Source: https://help.zscaler.com/legacy-apis/endpoint-data-loss-prevention-dlp-policy
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Endpoint Data Loss Prevention (DLP) Policy
-- Last modified: 2026-07-09T07:22Z
+- Last modified: 2026-08-23T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 

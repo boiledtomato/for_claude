@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-08-24 01:16 UTC
 Articles in this file: 150
 
 ---
@@ -86,13 +86,13 @@ Retrieves all organizations configured for a tenant in the EASM Admin Portal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/outbound-email-dlp-policy","lastmod":"2026-07-07T00:15Z","nid":"1541555"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/outbound-email-dlp-policy","lastmod":"2026-08-23T07:06Z","nid":"1541555"} -->
 ## Outbound Email DLP Policy
 
 - Source: https://help.zscaler.com/legacy-apis/outbound-email-dlp-policy
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Outbound Email DLP Policy
-- Last modified: 2026-07-07T00:15Z
+- Last modified: 2026-08-23T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -12680,13 +12680,13 @@ Adds a URL to or removes a URL from the denylist. To add a URL to the denylist, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/security-ueba-alerts","lastmod":"2026-07-20T07:06Z","nid":"1541301"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/security-ueba-alerts","lastmod":"2026-08-21T03:43Z","nid":"1541301"} -->
 ## Security & UEBA Alerts
 
 - Source: https://help.zscaler.com/legacy-apis/security-ueba-alerts
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Security & UEBA Alerts
-- Last modified: 2026-07-20T07:06Z
+- Last modified: 2026-08-21T03:43Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -17324,13 +17324,13 @@ The following table provides the typical assignment and values for each weight. 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-authentication-service-apis","lastmod":"2026-06-26T08:12Z","nid":"1529189"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-authentication-service-apis","lastmod":"2026-08-23T07:06Z","nid":"1529189"} -->
 ## Understanding Authentication Service APIs
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-authentication-service-apis
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Authentication Service API > Understanding Authentication Service APIs
-- Last modified: 2026-06-26T08:12Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Introductory information about the Authentication Service API, which gives programmatic access to various Authentication Service features.
 
 Authentication Service APIs give you programmatic access for managing identity and authentication-related features. The APIs allow you to integrate with Authentication Service for seamless identity lifecycle management and API client management.
@@ -17603,13 +17603,13 @@ Rate Limit headers in the response provide information about the current status 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-rate-limits","lastmod":"2026-07-20T20:29Z","nid":"1447231"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-rate-limits","lastmod":"2026-08-21T07:06Z","nid":"1447231"} -->
 ## Understanding Rate Limits
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-rate-limits
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Cloud & Branch Connector API > API Developer & Reference Guide > Understanding Rate Limits
-- Last modified: 2026-07-20T20:29Z
+- Last modified: 2026-08-21T07:06Z
 - Summary: Information on rate limits for Zscaler Cloud & Branch Connector API
 
 Rate limits throttle the number of API calls you can make for POST, GET, PUT, and DELETE operations. Every endpoint and operation has two rate limit types:
@@ -18438,13 +18438,13 @@ To learn more, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zpa-api","lastmod":"2026-08-04T14:25Z","nid":"1484766"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zpa-api","lastmod":"2026-08-21T07:06Z","nid":"1484766"} -->
 ## Understanding the ZPA API
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-zpa-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > Understanding the ZPA API
-- Last modified: 2026-08-04T14:25Z
+- Last modified: 2026-08-21T07:06Z
 - Summary: Introductory information about the Zscaler Private Access (ZPA) API, which gives programmatic access to various ZPA features.
 
 The Zscaler Private Access (ZPA) API gives you programmatic access to manage the following ZPA features:
@@ -19403,13 +19403,13 @@ Adds a URL to or removes a URL from the [cookie authentication](https://help.zsc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/user-management","lastmod":"2026-01-06T23:49Z","nid":"1402506"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/user-management","lastmod":"2026-08-21T03:26Z","nid":"1402506"} -->
 ## User Management
 
 - Source: https://help.zscaler.com/legacy-apis/user-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > User Management
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-08-21T03:26Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -19567,6 +19567,7 @@ Retrieves a list of groups. The search parameters find matching values in the `n
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `search` | query | no | object | The search string used to match against a group's name or comments attributes |
+| `adminScopeSupport` | query | no | object | A Boolean value that indicates whether the group is part of the admin scope. When you set the value to **true**, the group is included in the admin scope. |
 | `definedBy` | query | no | object | The string value defined by the group name or other applicable attributes |
 | `page` | query | no | object | Specifies the page offset |
 | `pageSize` | query | no | object | Specifies the page size |
@@ -19613,6 +19614,7 @@ Retrieves a list of group names. The search parameters find matching values in t
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `search` | query | no | object | The search string used to match against a group's name or comments attributes |
+| `adminScopeSupport` | query | no | object | A Boolean value that indicates whether the group is part of the admin scope. When you set the value to **true**, the group is included in the admin scope. |
 | `definedBy` | query | no | object | The string value defined by the group name |
 | `page` | query | no | object | Specifies the page offset |
 | `pageSize` | query | no | object | Specifies the page size |

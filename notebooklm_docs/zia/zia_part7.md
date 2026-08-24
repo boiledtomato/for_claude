@@ -1,252 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 85
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-ipv6-support","lastmod":"2026-07-28T14:09Z","nid":"1404786"} -->
-## Understanding IPv6 Support
-
-- Source: https://help.zscaler.com/zia/understanding-ipv6-support
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPv6 > Understanding IPv6 Support
-- Last modified: 2026-07-28T14:09Z
-- Summary: Information on how to configure the Zscaler Admin Console to support security policies for IPv6 traffic.
-
-IPv6 support is in limited availability. To learn more, contact Zscaler Support.
-
-As Internet Protocol version 6 (IPv6) gradually replaces its predecessor Internet Protocol version 4 (IPv4), enterprises and service providers are migrating their internal networks to IPv6 to overcome IPv4 exhaustion and other IPv4 shortcomings, such as performance, scalability, security, and more. Mobile internet access has accelerated the depletion of IPv4 address space, leading service providers to deploy IPv6-only addresses to mobile devices.
-
-IPv6 support is extended by Zscaler based on the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) and also whether the client device is inside a [location](https://help.zscaler.com/zia/about-locations).
-
-- **For clients inside a location:** Forward IPv6 traffic inside an IPv4 tunnel to Service Edges for Internet & SaaS (ZIA) using a [GRE tunnel](https://help.zscaler.com/zia/about-generic-routing-encapsulation-gre) or [IPSec tunnel](https://help.zscaler.com/zia/about-ipsec-vpns). Both web and non-web traffic can be forwarded using these tunneling methods.
-- **For clients outside a location (web requests only):**
-  - Forward web traffic from IPv6 clients to Service Edges using [PAC files](https://help.zscaler.com/zia/about-pac-file) via a self-hosted or ISP-provided NAT64 gateway.
-  - Forward web traffic from IPv6 clients to Service Edges directly using [Zscaler Client Connector](https://help.zscaler.com/client-connector/what-is-zscaler-client-connector) Z-Tunnel 1.0.
-- **For clients outside a location (web and non-web requests)**: Forward all traffic from IPv6 clients to Service Edges directly using Zscaler Client Connector Z-Tunnel 2.0.
-
-To forward IPv6 traffic directly to the destination via Zscaler Client Connector Z-Tunnel 1.0 and Z-Tunnel 2.0, ensure that you have enabled the [Enable IPv6 Resolution for Zscaler Domains](https://help.zscaler.com/zscaler-client-connector/about-platform-settings) field in the Zscaler Admin Console. Otherwise, an ISP-provided NAT64 gateway is required for using Zscaler Client Connector. To learn more, see the prerequisites section of this article.
-
-Zscaler highly recommends using Zscaler Client Connector as your preferred forwarding method for IPv6 traffic whenever feasible.
-
-## Recommendations
-
-The following recommendations are best practices for forwarding IPv6 traffic:
-
-- When forwarding your organization's Z-Tunnel 1.0 and Z-Tunnel 2.0 IPv6 traffic to Zscaler's data centers without an intermediate NAT64 service, you must ensure that the traffic is forwarded only to IPv6-enabled data centers. If you use an intermediate NAT64 service to forward traffic to Zscaler, check if a Zscaler data center is IPv6-enabled. Go to the [Zscaler config page](https://config.zscaler.com/) and verify that the data center has an IPv6 virtual IP address associated with it.
-  - IPv6-enabled Zscaler data centers
-- When using Zscaler Client Connector without an intermediate NAT64 service, you must forward your users' IPv6 traffic only to data centers in the IPv6-enabled subcloud managed by Zscaler. To learn how to do this, see [Configuring IPv6 Settings](https://help.zscaler.com/zia/configuring-ipv6-settings#client-connector).
-- Zscaler's My IP Address service is [ipv6.zscaler.com](https://ipv6.zscaler.com/).
-
-The following list provides the IPv6-enabled Zscaler data centers:
-
-- Americas:
-  - Atlanta II and III
-  - Boston I
-  - Chicago I and II
-  - Dallas I and II
-  - Denver III
-  - Los Angeles I and II
-  - New York III and IV
-  - San Francisco IV
-  - Sao Paulo
-  - Seattle I
-  - Vancouver I
-  - Washington DC I
-  - Nuevo Laredo I
-- APAC:
-  - Auckland II
-  - Chennai II
-  - Hyderabad I
-  - Melbourne II
-  - New Delhi I
-  - Osaka I
-  - Sydney III
-  - Tokyo IV and V
-- EMEA:
-  - Amsterdam II
-  - Dusseldorf I
-  - Frankfurt IV
-  - London III and V
-  - Munich I
-
-## Prerequisites
-
-To configure IPv6, the following prerequisites must be met:
-
-- This feature requires Zscaler Client Connector version 4.8 or later for Windows and Zscaler Client Connector version 4.7 or later for macOS.
-- Allowlist the IPv6 addresses for the Zscaler infrastructure for your on-premises firewalls. For information specific to Zscaler's data centers, see [Cloud Enforcement Node Ranges](https://config.zscaler.com/zscaler.net/cenr).
-- Ensure **Enable IPv6 Resolution for Zscaler Domains** is enabled on the **Platform Settings** page of the Zscaler Admin Console. Then select **Packet Filter Based** for **Tunnel Driver Type** when configuring forward profiles. To learn more, see [Enabling IPv6 Resolution for Zscaler Domains](https://help.zscaler.com/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains), [About Platform Settings](https://help.zscaler.com/client-connector/about-platform-settings), and [Configuring Forwarding Profiles for Zscaler Client Connector](https://help.zscaler.com/client-connector/configuring-forwarding-profiles-zscaler-client-connector#windows-driver-selection).
-- Allow IPv6 traffic to pass through on-premises firewalls to the following domains: The <cloudname> is the name of your Zscaler cloud. To learn more, see[config.zscaler.com](https://config.zscaler.com/zscaler.net/cenr).
-  - gateway6.<cloudname>.net
-  - secondary.gateway6.<cloudname>.net
-  - pac6.<cloudname>.net
-  - login6.<cloudname>.net
-  - logout6.<cloudname>.net
-  - speedtest6.zscaler.com
-  - any6.broker.<cloudname>.net
-  - mobile6.<cloudname>.net
-- Configure your SAML identity provider (IdP) **Reply URL (Assertion Consumer Service URL)**field for the following IPv6 authentication hosts: To learn more, see [SAML & SCIM Configuration Guide for Microsoft Entra ID](https://help.zscaler.com/zia/saml-scim-configuration-guide-microsoft-entra-id).
-  - https://login6.<cloudname>.net/sfc_sso
-  - https://logout6.<cloudname>.net/sfc_sso (if applicable)
-- Disable **Drop IPv6 Packets**for the [forwarding profile](https://help.zscaler.com/client-connector/about-forwarding-profiles) to prevent Zscaler Client Connector from dropping IPv6 addresses.
-
-## Explaining IPv6 Traffic Configuration
-
-The following sections explain how IPv6 traffic is forwarded and processed by the Zscaler service, the configuration workflow, and logging:
-
-- Forwarding IPv6 Traffic from Clients Inside a Location
-- Forwarding IPv6 Traffic from Clients Outside a Location
-- Processing of IPv6 Traffic
-- IPv6 Configuration Workflow
-- Logging for IPv6 Traffic
-
-You can forward your organization's IPv6 traffic from a location to the Zscaler service and enforce security policies on IPv6 traffic. Although Zscaler's cloud infrastructure can handle IPv6 traffic, the outer packets arriving in a tunnel at the Service Edges must be IPv4 packets. Therefore, to apply policies on your organization’s IPv6 traffic, the Zscaler service requires you to forward the IPv6 traffic inside IPv4 tunnels to the Service Edges. You can establish an IPv4 tunnel between your organization’s network from a specific location and the Service Edges using one of the following traffic forwarding methods:
-
-- [Generic Routing Encapsulation (GRE) Tunnel](https://help.zscaler.com/zia/about-generic-routing-encapsulation-gre)
-- [IPSec Tunnel](https://help.zscaler.com/zia/about-ipsec-vpns)
-
-In addition to enforcing security policies on IPv6 traffic, the Zscaler service also provides customized DNS64/NAT64 mechanisms to establish connections between IPv6 clients and IPv4 destinations (IPv4-only or dual-stack destinations).
-
-With this IPv6 support for clients inside a location, the Zscaler service supports the following use cases:
-
-- IPv6 Client Accessing an IPv4-Only/Dual-Stack Destination
-- IPv6 Client Accessing an IPv6-Only Destination
-- IPv4 Client Accessing an IPv6-Only Destination
-
-The IPv6 traffic from a client inside a location with IPv4 internet access is forwarded to the Service Edge inside an IPv4 tunnel. The Zscaler service establishes an IPv4 connection with an IPv4-only/dual-stack destination using the DNS64/NAT64 mechanism.
-
-[Image: Flow of IPv6 traffic from organization's location to IPv4 destinations through GRE/IPSec Tunnel]
-
-The IPv6 traffic from a client inside a location with IPv4 internet access is forwarded to Service Edge inside an IPv4 tunnel. The Zscaler service establishes an IPv6 connection with the destination.
-
-[Image: Flow of IPv6 traffic from organization's location to IPv6 destinations through GRE/IPSec Tunnel]
-
-The Zscaler service establishes an IPv6 connection with the destination.
-
-Clients from unknown locations (remote users) can use Zscaler Client Connector or PAC files to forward their traffic to Service Edges. To forward IPv6 traffic from unknown locations:
-
-- PAC file users must use a self-hosted or ISP-provided NAT64 gateway to forward IPv6 traffic to Service Edges.
-- Zscaler Client Connector users must enable the [Enable IPv6 Resolution for Zscaler Domains](https://help.zscaler.com/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains)field in the Zscaler Admin Console. Otherwise, a NAT64/DNS64 service is needed.
-
-With this IPv6 support for clients outside a location, the Zscaler service supports the following use cases:
-
-- IPv6 Client Accessing an IPv4-Only/Dual-Stack Destination
-- IPv6 Client Accessing an IPv6-Only Destination
-
-The IPv6 traffic from a client outside a location is forwarded to the Service Edge using Zscaler Client Connector or PAC file to an IPv4-Only/Dual-Stack destination.
-
-- **PAC Files**: The Zscaler service establishes an IPv4 connection with the destination using the regular DNS resolution for PAC files web traffic. See image.
-- **Z-Tunnel 1.0**: The Zscaler service establishes an IPv4 connection with the destination using the regular DNS resolution for Z-Tunnel 1.0 web traffic. See image.
-- **Z-Tunnel 2.0**: The Zscaler service establishes an IPv4 connection with the destination using the DNS64/NAT64 mechanism for Z-Tunnel 2.0 web traffic. For non-web traffic, an IPv4 connection is established if the destination IPv6 contains a NAT64 prefix recognized by Zscaler. Otherwise, an IPv6 connection is established. See image.
-
-To forward IPv6 traffic via Z-Tunnel 1.0 and Z-Tunnel 2.0 to the Zscaler service, you must enable the **Enable IPv6 Resolution for Zscaler Domains** field in the Zscaler Admin Console. Otherwise, an ISP-provided NAT64 gateway is required.
-
-[Image: Flow of IPv6 traffic from remote location to IPv4 destinations through PAC files]
-
-[Image: Flow of IPv6 traffic from remote location to IPv4 destinations through Z-Tunnel 1.0]
-
-[Image: Flow of IPv6 traffic from remote location to IPv4 destinations through Z-Tunnel 2.0]
-
-The IPv6 traffic from a client outside a location is forwarded to the Service Edge using Zscaler Client Connector or PAC file to an IPv6-Only destination.
-
-- **PAC Files**: The Zscaler service establishes an IPv6 connection with the destination using the DNS64/NAT64 mechanism for PAC files web traffic. See image.
-- **Z-Tunnel 1.0**: The Zscaler service establishes an IPv6 connection with the destination directly for Z-Tunnel 1.0 web traffic. See image.
-- **Z-Tunnel 2.0**: The Zscaler service establishes an IPv6 connection with the destination directly for Z-Tunnel 2.0 web and non-web traffic. See image.
-
-To forward IPv6 traffic via Z-Tunnel 1.0 and Z-Tunnel 2.0 to the Zscaler service, you must enable the **Enable IPv6 Resolution for Zscaler Domains** field in the Zscaler Admin Console. Otherwise, an ISP-provided NAT64 gateway is required.
-
-[Image: Flow of IPv6 traffic from remote location to IPv6 destinations through PAC files]
-
-[Image: Flow of IPv6 traffic from remote location to IPv6 destinations through Z-Tunnel 1.0]
-
-[Image: Flow of IPv6 traffic from remote location to IPv6 destinations through Z-Tunnel 2.0]
-
-The Zscaler service prefers an IPv4 connection whenever possible, and an IPv6 connection is established for IPv6-only destinations. The preference for IPv4 connections (via NAT64) has the following advantages:
-
-- Better utilization of existing IPv4 infrastructure
-- Applying rich-security policies on IPv6 traffic
-- Accessing IPv4 services from the IPv6 network
-
-The following sections explain how the traffic forwarded from IPv6 clients using different proxy modes is handled by the Zscaler service:
-
-- Processing of Explicit Proxy-Traffic from IPv6 Clients
-- Processing of Transparent Proxy-Traffic from IPv6 Clients
-
-When web traffic from IPv6 clients arrives at a Service Edge in [explicit proxy mode](https://help.zscaler.com/zia/what-proxy-mode) via Zscaler Client Connector over Z-Tunnel 1.0 or using PAC files, the Zscaler service establishes an IPv4 or IPv6 connection to the destination based on how the server can be reached, as described in the following bullet points:
-
-- If the destination is reachable only via IPv4, then the Zscaler service establishes an IPv4 connection.
-- If the destination is reachable via IPv4 or IPv6, then the Zscaler service establishes an IPv4 connection.
-- If the destination is reachable only via IPv6, then the Zscaler service establishes an IPv6 connection.
-
-When traffic from IPv6 clients arrives at a Service Edge in [transparent proxy mode](https://help.zscaler.com/zia/what-proxy-mode) using an IPv4 tunnel (GRE or IPSec) or via Zscaler Client Connector (Z-Tunnel 2.0 only), the Zscaler service establishes an IPv4 or IPv6 connection to the destination based on how the server can be reached, as described in the following bullet points:
-
-- If the destination IPv6 address has a prefix match with [NAT64 prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) supported by the organization, then the IPv4 address is extracted from the destination IPv6 address and an IPv4 connection is established.
-- If the destination IPv6 address is a regular IPv6 address, an IPv6 connection is established.
-
-For establishing an IPv4 connection with the destination, the Zscaler service employs the NAT64/DNS64 mechanism to translate IPv6 packets of the inbound traffic to IPv4 packets. This translation depends on the following parameters:
-
-- Type of traffic (DNS queries or non-DNS traffic)
-- The prefix used in the inbound IPv6 packets
-- DNS64/NAT64 prefix configurations in the Zscaler Admin Console
-
-For DNS queries, the Zscaler service tries to resolve the domain name for an A record. If an A record is not available, an AAAA record is synthesized using DNS64 and an IPv4 connection is established using NAT64. If an A record is not available, an AAAA record is used to establish an IPv6 connection.
-
-- DNS Responses for IPv4 and IPv6 Client Configurations
-
-The Zscaler service uses the well-known prefix and its default NAT64 and DNS64 prefixes for the DNS64/NAT64 mechanism and organizations do *not* require any additional configuration. However, organizations can configure their network-specific NAT64/DNS64 prefixes in the Zscaler Admin Console. To learn more, see [About NAT64 Prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) and [About the DNS64 Prefix](https://help.zscaler.com/zia/about-dns64-prefix).
-
-This table shows the expected types of DNS responses with different client configurations:
-
-| **Client** | **Destination** | **DNS A Response** | **DNS AAAA Response** |
-| --- | --- | --- | --- |
-| IPv4 + IPv6 | IPv4 + IPv6 | Yes | Empty |
-| IPv4 + IPv6 | IPv4 | Yes | Empty |
-| IPv4 + IPv6 | IPv6 | Empty | Native IPv6 |
-| IPv6 | IPv4 + IPv6 | IPv4 | Native IPv6 |
-| IPv6 | IPv4 | IPv4 | DNS64 |
-| IPv6 | IPv6 | Empty | Native IPv6 |
-| IPv6 (CGNAT) | IPv4 + IPv6 | IPv4 | DNS64 |
-| IPv6 (CGNAT) | IPv4 | IPv4 | DNS64 |
-| IPv6 (CGNAT) | IPv6 | Empty | Native IPv6 |
-
-To enable IPv6 support for your organization and obtain access to IPv6 configurations and settings, contact Zscaler Support.
-
-To allow the Zscaler service to handle your organization’s IPv6 traffic, you need to enable IPv6 support for your organization under Infrastructure > Internet & SaaS > Traffic Forwarding > IPv6 Configurations. Enabling IPv6 support for your organization allows you to route your users’ IPv6 traffic to the Zscaler cloud using one of the supported forwarding methods.
-
-- **GRE/IPSec**: To allow and process IPv6 traffic that is tunneled using GRE or IPSec within an outer IPv4 tunnel, you need to enable IPv6 support for the locations from where the traffic originates. If IPv6 support is not enabled for a location, the IPv6 traffic arriving at the location is dropped. To learn more, see [Configuring Locations](https://help.zscaler.com/zia/configuring-locations).
-- **Zscaler Client Connector**: If you are using Zscaler Client Connector set up with Z-Tunnel 1.0 and Z-Tunnel 2.0 to forward your IPv6 traffic, you need to configure the Zscaler Client Connector application appropriately. To learn more, see the [Zscaler Client Connector documentation](https://help.zscaler.com/client-connector).
-
-After enabling IPv6 support, you can optionally configure your network-specific NAT64 and DNS64 prefixes under Infrastructure > Internet & SaaS > Traffic Forwarding > IPv6 Configurations. To learn more, see [Configuring IPv6 Settings](https://help.zscaler.com/zia/configuring-ipv6-settings).
-
-The Zscaler service allows you to configure and enforce limited policies on IPv6 server-bound connections. You can configure these policies in the following ways:
-
-- Using Locations or Location Groups
-- Using URL Categories
-- Using IP Address Groups
-
-You can configure policies based on [Locations](https://help.zscaler.com/zia/about-locations) or [Location Groups](https://help.zscaler.com/zia/about-location-groups) criteria to be enforced on all IPv6 traffic that originates from those locations. When a sublocation is added to a location with the IPv6 option enabled, the Zscaler service automatically creates a new **Other6** sublocation that identifies all the IPv6 addresses in that location. Using**Other6** as the location criteria, you can define policies for all the IPv6 traffic that originates from that location. To learn more, see [Understanding Sublocations](https://help.zscaler.com/zia/understanding-sublocations).
-
-The Locations and Location Groups criteria are supported in various web and firewall policies.
-
-You can configure policies based on URL Categories to be enforced on traffic bound to specific IPv6 sites or destinations. The Zscaler service allows you to add individual domains or IP addresses to URL categories, which can then be used in policies to control the traffic bound to those IPv6 destinations. To learn more, see [Configuring Custom URL Categories](https://help.zscaler.com/zia/adding-custom-url-categories).
-
-The URL Categories criterion is supported in various web and firewall policies.
-
-You can configure policies based on Source or Destination IP Address Groups to be enforced on traffic originating from or destined to any IPv6 device. The Zscaler service provides predefined source and destination IPv6 address groups, All IPv6, which encompasses all IPv6 source or destination addresses. Using All IPv6 as the source or destination group criteria, you can define policies for all traffic originating from or destined to an IPv6 device. To learn more, see About [Source](https://help.zscaler.com/zia/about-source-ip-groups) or [Destination IP Address Groups](https://help.zscaler.com/zia/about-destination-groups).
-
-The Source and Destination IPv6 Address Groups criteria are supported in various web and firewall policies.
-
-The Zscaler service records and displays logs for your IPv6 traffic on the respective Insights Logs page:
-
-- Web Insights Logs: [Filters](https://help.zscaler.com/zia/web-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/web-insights-logs-columns)
-- Firewall Insights Logs: [Filters](https://help.zscaler.com/zia/firewall-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/firewall-insights-logs-columns)
-- DNS Insights Logs: [Filters](https://help.zscaler.com/zia/dns-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/dns-insights-logs-columns)
-
-In addition, the [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/about-nanolog-streaming-service) allows you to stream your logs in real time from the [Zscaler Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture) to your security information and event management (SIEM) system. To learn more, see [About NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds).
-<!-- /ZS-ARTICLE -->
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 84
 
 ---
 
@@ -281,13 +37,13 @@ The following diagram provides an overview of the JWT authentication flow with Z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-ldap-user-synchronization","lastmod":"2026-07-17T16:26Z","nid":"1399606"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ldap-user-synchronization","lastmod":"2026-08-20T11:38Z","nid":"1399606"} -->
 ## Understanding LDAP User Synchronization
 
 - Source: https://help.zscaler.com/zia/understanding-ldap-user-synchronization
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Active Directory & LDAP > Understanding LDAP User Synchronization
-- Last modified: 2026-07-17T16:26Z
+- Last modified: 2026-08-20T11:38Z
 - Summary: Information on what happens when you use the Zscaler service to synchronize users from an Active Directory server.
 
 When you configure the Zscaler service to synchronize user information from the directory server to the Zscaler database, it uses Lightweight Directory Access Protocol (LDAP) to synchronize user, group, and department information. To learn more about LDAP, refer to [RFC 2251 Lightweight Directory Access Protocol (v3)](https://tools.ietf.org/html/rfc2251). The Zscaler service performs an LDAP search based on the configured customer's directory parameters and imports users who have a user or email attribute and who are part of the domain that is configured for the account.
@@ -708,20 +464,20 @@ To learn more about the requirements and steps to deploy the NSS Collector via t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-outbound-email-policy-enforcement","lastmod":"2026-07-07T14:50Z","nid":"1492686"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-outbound-email-policy-enforcement","lastmod":"2026-08-21T08:34Z","nid":"1492686"} -->
 ## Understanding Outbound Email Policy Enforcement
 
 - Source: https://help.zscaler.com/zia/understanding-outbound-email-policy-enforcement
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Understanding Outbound Email Policy Enforcement
-- Last modified: 2026-07-07T14:50Z
+- Last modified: 2026-08-21T08:34Z
 - Summary: Information on how the Zscaler service uses rules to inspect and enforce policies on sensitive data contained in outbound email traffic.
 
 Zscaler Outbound Email Data Loss Prevention (DLP) lets you monitor and act on sensitive data in outbound email sent to external domains. You can use Zscaler custom and predefined DLP engines to detect sensitive data and to specify DLP actions (i.e., Allow, Block, and Custom Header Insertion) when an email triggers an outbound email policy rule. If you don't use Zscaler DLP engines, the service functions instead as a filter, only flagging content based on specific criteria.
 
 At a high level, the Zscaler Outbound Email Policy monitors activity and enforces policy in the following ways:
 
-- Gmail and Microsoft Exchange use Simple Mail Transfer Protocol (SMTP) to send mail to and receive mail from the Zscaler smart host.
+- Secure email gateways (SEG), Gmail, and Microsoft Exchange use Simple Mail Transfer Protocol (SMTP) to send mail to and receive mail from the Zscaler smart host.
 - The Zscaler service evaulates all outbound email policy rules on a per-recipient basis. If multiple rules match for a recipient, the Zscaler service applies the rule with most restrictive action.
 - If multiple rules with the same restrictive action match for a recipient, then the Zscaler service matches the rule with most restrictive action and the highest rule order.
 - Before executing the matching rule, however, the Zscaler service checks whether the matching rule contains any exception rules. When evaluating exception rules, the Zscaler service uses rule order and stops evaluating rules at the first match. A matching exception rule takes the place of the parent rule.
@@ -1195,14 +951,14 @@ To learn more about how to view and analyze the Post-Quantum Visibility Report, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-08-16T07:06Z","nid":"1447026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-08-23T07:06Z","nid":"1447026"} -->
 ## Understanding Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding Predefined DLP Dictionaries
-- Last modified: 2026-08-16T07:06Z
-- Summary: Information about the predefined DLP dictionaries in the ZIA Admin Portal.
+- Last modified: 2026-08-23T07:06Z
+- Summary: Information about the predefined DLP dictionaries in the Zscaler Admin Console.
 
 Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint DLP. To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
 
@@ -1222,10 +978,15 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - Court Document
 - Credentials and Secrets
 - Credit Cards
+- Credit Card Image
 - Diseases Information
 - Driver’s License (United States)
 - Drugs Information
 - Enhanced Driver's License (United States)
+- Enhanced Credentials and Secrets
+- Enhanced International Bank Account Number - Europe (IBAN)
+- Enhanced Passport Number (Asia)
+- Enhanced Passport Number (European Union)
 - Financial Statements
 - First Names (Japan)
 - Fiscal Code (Italy)
@@ -1606,6 +1367,18 @@ If a violation is enough to trigger a DLP policy and you have configured a [DLP 
 
 See image.
 
+This dictionary detects images of credit cards for file types such as JPEG and PNG. To detect sensitive content, this dictionary requires at least 1 KB to 8 MB from a supported file type.
+
+This DLP identifier does not use a checksum because it classifies content based on image categories rather than numerical patterns.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. To learn more, see [Configuring the Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria |
+| --- | --- |
+| **Low** | This dictionary counts an instance as a violation if the ML match score is 50 or more. |
+| **Medium** | This dictionary counts an instance as a violation if the ML match score is 70 or more. |
+| **High** | This dictionary counts an instance as a violation if the ML match score is 90 or more. |
+
 This dictionary uses phrase matching to detect content related to diseases information. It does not use a checksum.
 
 You can specify an Action to configure how the dictionary evaluates matching disease names:
@@ -1653,6 +1426,120 @@ The following table lists the confidence score threshold criteria for this dicti
 | **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The driver's license number is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *Drivers License, Drivers License Number, DL#*,and *State*name(i.e., *Alabama, Alaska*, etc.)for the corresponding sub-dictionary*.* | For an engine that uses the Alabama and Alaska sub-dictionaries with High Confidence Score: 1234567 does not trigger either sub-dictionary; Driver's License 1234567 triggers both sub-dictionaries; Driver's License 12345678 triggers the Alabama sub-dictionary only; Alabama 1234567 triggers the Alabama sub-dictionary only; Alaska 1234567 triggers the Alaska sub-dictionary only |
 
 [Image: The Selection Options for the Alabama Driver's License DLP Sub-dictionary]
+
+This dictionary allows you to select one or more credentials and secrets dictionaries (e.g., tokens, keys, passwords) for the following:
+
+- Amazon MWS Auth Token
+- Git Token
+- GitHub Token
+- Google API Key
+- Google OAuth Access Token
+- Google OAuth ID
+- JWT Token
+- PayPal Braintree Access Token
+- Picatic API Key
+- Private Key
+- SendGrid API Key
+- Slack Access Token
+- Slack Webhook
+- Square Access Token
+- Square OAuth Secret
+- Stripe API Key
+
+Additionally, you can set the Confidence Score Threshold, Proximity Length, and Custom High Confidence Phrases for each item's sub-dictionary.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | This Dictionary counts an instance as a violation if the selected category Token subdictionary is matched. | For dictionaries or sub-dictionaries with a Medium Confidence Score, custom phrases that trigger the subdictionaries include: GitHub token: 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; Google OAuth Access token: ya29.zyxwvutsrqpnmolkjihgfedcbad; Google API key: AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The selected category Token sub-dictionary is matched with a Custom Phrase. For example, the custom phrase, "access_id" and the access token "ya29.zyxwvutsrqpnmolkjihgfedcbad" trigger the sub-dictionary for Google OAuth. | For a dictionary that uses the custom phrase: "access_id" for sub-dictionaries with a High Confidence Score, the following entries trigger the sub-dictionaries: GitHub token: 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; Google OAuth Access token: ya29.zyxwvutsrqpnmolkjihgfedcbad; Google API key: AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao |
+
+This dictionary allows you to select IBAN dictionaries for one or more of the following countries:
+
+- Andorra (AD)
+- Austria (AT)
+- Bosnia (BA)
+- Belgium (BE)
+- Bulgaria (BG)
+- Switzerland (CH)
+- Cyprus (CY)
+- Czechia (CZ)
+- Germany (DE)
+- Denmark (DK)
+- Estonia (EE)
+- Spain (ES)
+- Finland (FI)
+- Faroe Islands (FO)
+- France (FR)
+- United Kingdom (GB)
+- Gibraltar (GI)
+- Greenland (GL)
+- Greece (GR)
+- Croatia (HR)
+- Hungary (HU)
+- Ireland (IE)
+- Israel (IL)
+- Iceland (IS)
+- Italy (IT)
+- Liechtenstein (LI)
+- Lithuania (LT)
+- Luxembourg (LU)
+- Latvia (LV)
+- Monaco (MC)
+- Montenegro (ME)
+- Malta (MT)
+- Netherlands (NL)
+- North Macedonia (MK)
+- Norway (NO)
+- Poland (PL)
+- Portugal (PT)
+- Romania (RO)
+- Serbia (RS)
+- Sweden (SE)
+- Slovenia (SI)
+- Slovakia (SK)
+- San Marino (SM)
+- Tunisia (TN)
+- Turkey (TR)
+
+Additionally, you can set the Confidence Score Threshold, Proximity Length, and Custom High Confidence Phrases for each country's sub-dictionary.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | This dictionary counts an instance as a violation if any of the selected IBAN numbers are matched. | For a dictionary that uses the Andorra and Austria sub-dictionaries a with Medium Confidence Score: AD1400080001001234567890 triggers Andorra; AT483200000012345864 triggers Austria |
+| **High** | The requirements of Medium Confidence are met.; The credential or secret is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *IBAN*, *IBAN code*, *IBAN#, International Bank Account Numbers*, *IBAN number*, and EU *country name*(e.g., *Andorra*, *Austria*) for the corresponding sub-dictionary*.* | For a dictionary that uses the Andorra and Austria sub-dictionaries with a High Confidence Score: AD1400080001001234567890 does not trigger any sub-dictionary; IBAN AD1400080001001234567890 triggers Andorra; IBAN AT483200000012345864 triggers Austria; Andorra AD1400080001001234567890 triggers Andorra; Austria AT483200000012345864 triggers Austria |
+
+This dictionary allows you to select passport number dictionaries for one or more of the following countries:
+
+- China (CN)
+- Japan (JP)
+- South Korea (KR)
+- Malaysia (MY)
+- Philippines (PH)
+- Singapore (SG)
+- Taiwan (TW)
+- Turkey (TR)
+
+Additionally, you can set the Confidence Score Threshold, Proximity Length, and Custom High Confidence Phrases for each country's sub-dictionary.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | This dictionary counts an instance as a violation if the selected Asian country's passport number is matched. | For a dictionary that uses the China and Japan sub-dictionaries with a Medium Confidence Score: g12345678 triggers China; aa1234567 triggers Japan |
+| **High** | The requirements of Medium Confidence are met.; The requirements of Medium Confidence are met and the passport number is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *Passport, Passport number, passport#*, and asian *country* name (e.g., *China*, *Japan*).; The passport number is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, XXfor the corresponding sub-dictionary*.* | For a dictionary that uses the China and Japan sub-dictionaries with a High Confidence Score: g12345678 does not trigger either sub-dictionary; Passport g12345678 triggers China; Passport aa1234567 triggers Japan; China g12345678 triggers China; Japan aa1234567 triggers Japan |
+
+This dictionary allows you to select passport number dictionaries for one or more European Union countries.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | This dictionary counts an instance as a violation if the selected European country's passport number is matched. | For a dictionary that uses the Austria and Belgium sub-dictionaries with a Medium Confidence Score: A1234567 triggers Austria; AB123456 triggers Belgium |
+| **High** | The requirements of Medium Confidence are met.; The requirements of Medium Confidence are met and the passport number is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *Passport, Passport number, passport#*, and *EU country* name (e.g., *Austria*, *Belgium*). | For a dictionary that uses the Austria and Belgium sub-dictionaries with a High Confidence Score: A1234567 does not trigger either sub-dictionary; Passport A1234567 triggers Austria; Passport AB123456 triggers Belgium; Austria A1234567 triggers Austria; Belgium AB123456 triggers Belgium |
 
 This dictionary detects content related to financial statements. It detects a financial document based on machine learning which clusters keywords that typically occur in financial documents. Examples of keywords are *Accounts Payable*, *Common Stock*, *Current Liabilities*, and so on.
 
@@ -3137,13 +3024,13 @@ To learn more about the attributes of Firewall Filtering rules, see [Configuring
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-private-service-edge-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1401236"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-private-service-edge-internet-saas","lastmod":"2026-08-18T16:20Z","nid":"1401236"} -->
 ## Understanding Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Understanding Private Service Edge for Internet & SaaS
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-08-18T16:20Z
 - Summary: Information on the prerequisites and deployment methods for properly configuring and installing Private Service Edge for Internet & SaaS (ZIA) on the Zscaler cloud.
 
 [Watch a video about Private Service Edges](https://fast.wistia.net/embed/iframe/xa3h5zhhg8) (shows legacy UI).
@@ -3429,13 +3316,13 @@ The Service Edge identifies the destination host in one of the following ways:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-public-service-edges-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1401041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-public-service-edges-internet-saas","lastmod":"2026-08-17T16:55Z","nid":"1401041"} -->
 ## Understanding Public Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-public-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Public Service Edge > Understanding Public Service Edges for Internet & SaaS
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-08-17T16:55Z
 - Summary: Information on Public Service Edges for Internet & SaaS, an integral part of the Zscaler cloud.
 
 A key component of the Zscaler cloud, Public Service Edges for Internet & SaaS (ZIA) are full-featured secure internet gateways that provide integrated internet security. They inspect all web traffic bidirectionally for malware and enforce security, compliance, and firewall policies. Each Public Service Edge has two main modules for inspecting traffic and applying policies: a web module and a firewall module. To learn more about how Public Service Edges apply policy, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
@@ -5826,13 +5713,13 @@ To view the list of supported SSPM policies for each tenant and to manage the st
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-crowdstrike-endpoint-hits-report","lastmod":"2026-06-29T06:45Z","nid":"1401301"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-crowdstrike-endpoint-hits-report","lastmod":"2026-08-23T07:06Z","nid":"1401301"} -->
 ## Viewing the CrowdStrike Endpoint Hits Report
 
 - Source: https://help.zscaler.com/zia/viewing-crowdstrike-endpoint-hits-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Viewing the CrowdStrike Endpoint Hits Report
-- Last modified: 2026-06-29T06:45Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: How to view the CrowdStrike Endpoints Hits report in the Zscaler Admin Console.
 
 If you [integrated with CrowdStrike](https://help.zscaler.com/zia/configuring-crowdstrike-integration), you can view information on endpoints that have been exposed to a potentially malicious file. After the Sandbox analyzes a file, you can click the **MD5** hash and choose **View CrowdStrike Endpoint Hits**. The CrowdStrike Endpoint Hits report provides visibility into all the endpoints installed and detected with CrowdStrike Falcon. The CrowdStrike integration leverages the CrowdStrike Falcon endpoint detection and response (EDR) capabilities and allows you to quarantine endpoints detected with the indicator of compromise (IOC). This IOC enrichment is important for:
@@ -11010,13 +10897,13 @@ Organizations can easily connect their traffic to Internet & SaaS using several 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/what-zscaler-outbound-email-dlp","lastmod":"2025-09-19T07:06Z","nid":"1492656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/what-zscaler-outbound-email-dlp","lastmod":"2026-08-21T07:20Z","nid":"1492656"} -->
 ## What Is Zscaler Outbound Email DLP?
 
 - Source: https://help.zscaler.com/zia/what-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > What Is Zscaler Outbound Email DLP?
-- Last modified: 2025-09-19T07:06Z
+- Last modified: 2026-08-21T07:20Z
 - Summary: A high-level overview of what Zscaler Outbound Email Data Loss Prevention (DLP) is and how it uses outbound email policy to prevent the exfiltration of sensitive data in email content.
 
 Zscaler Outbound Email Data Loss Prevention (DLP) stops the exfiltration of sensitive data by enforcing policy rules on outbound email content sent to external domains, including content in subject lines, body text, and attachments. Using connectors and rules, your email server sends email to, and receives email from, the Zscaler smart host. The Zscaler smart host receives the email and sends it to the Zscaler DLP service for inspection. The Zscaler DLP service then inspects the email content for sensitive data, adding headers that define DLP actions to emails that trigger outbound email policy. When your email server receives inspected email from the Zscaler smart host, it uses those headers to determine enforcement actions.
@@ -11028,7 +10915,7 @@ To learn more about how the Zscaler service enforces outbound email policy rules
 The following diagram shows a high-level overview of how Zscaler Outbound Email DLP enforces outbound email policy:
 
 1. A user sends an email containing sensitive information to an external domain.
-2. The rules configured on your email server instruct Gmail or Microsoft Exchange to send the email to the Zscaler smart host via Simple Mail Transfer Protocol (SMTP) for DLP inspection.
+2. The rules configured on your email server instruct Gmail, Microsoft Exchange, or your secure email gateway (SEG) to send the email to the Zscaler smart host via Simple Mail Transfer Protocol (SMTP) for DLP inspection.
 3. The Zscaler DLP service performs DLP inspection and inserts email headers based on the verdict of the policy evaluation.
 4. Inspected email is sent back to your email server.
 5. Your email server enforces the DLP action based on the mail flow/transport rules and inserted headers in the email.

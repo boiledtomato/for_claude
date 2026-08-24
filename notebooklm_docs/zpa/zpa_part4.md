@@ -1,8 +1,761 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 26
+Generated: 2026-08-24 01:16 UTC
+Articles in this file: 37
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-appprotection-dashboard","lastmod":"2026-06-29T10:11Z","nid":"1484966"} -->
+## Viewing the AppProtection Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-appprotection-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the AppProtection Dashboard
+- Last modified: 2026-06-29T10:11Z
+- Summary: Information on the AppProtection dashboard and widgets accessible within the Zscaler Admin Console.
+
+The AppProtection dashboard provides information about the AppProtection policy activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > AppProtection.
+
+See image.
+
+[Image: Viewing the AppProtection dashboard in the Zscaler Admin Console]
+
+## Dashboard Tools
+
+The AppProtection dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View AppProtection data over a period between **1 Hour** to **14 Days**, or you can select **Custom Range**. If you use a **Custom Range**, the start date must be within the last 14 days. The end date automatically sets to the system's current time. By default, the dashboard displays information for events that occurred in the last hour. This filter applies to all widgets on the dashboard.
+
+Log information in the dashboard is limited to 14 days. For longer access to the logs, use the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming).
+
+- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
+- **Chart Selection**: Select the charts you want to display or hide on the dashboard. A minimum of 4 charts and a maximum of 8 charts can be selected.
+
+See image.
+
+[Image: AppProtection Dashboard Tools]
+
+## Widgets
+
+The AppProtection dashboard provides the following widgets:
+
+- Violations by Control Category
+- Profile Violations by Application
+- Violations by Control Severity
+- Transaction Distribution
+- Top User Agents with Profile Violations
+- Top Users with Profile Violations
+- Top Control Violations
+- Top Profile Violations
+
+The widget displays security violations within the selected time frame and categorizes them by the ThreatLabZ, WebSocket, and OWASP predefined top 10 control categories. The control categories are based on the ThreatLabZ Predefined Controls, WebSocket Predefined Controls, OWASP Predefined Controls, WebSocket Custom Controls, and HTTP Custom Controls, and are found in AppProtection Controls (**Policies**> **Cyber Security**> **Inline Security** > **Protection Controls**).
+
+[Image: Violations by control category widget]
+
+- Hover over a section of the chart to view its control category.
+- Click on a section of the chart and then click **View Logs** to be directed to log information matching the control category in[AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays profile violations within the selected time frame and categorizes them by application.
+
+[Image: Profile violations by applications widget]
+
+- Click on the upper navigation tabs to switch between a chart of profile violations by applications or application segments.
+- Hover over a section of the chart to view the name of the application or application segment.
+- Click on a section of the chart and then click**View Logs** to be directed to log information matching that application or application segment in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays security violations within the selected time frame and categorizes them by severity rating (i.e., Critical, High, Medium, Low).
+
+[Image: Profile violations by control severity widget]
+
+- Hover over a section of the chart to view the severity rating.
+- Click on a section of the chart and then click **View Logs** to be directed to log information matching that severity rating in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays the transaction distribution of traffic with no violations and traffic with violations across an organization within the selected time frame.
+
+[Image: Transaction Distribution widget]
+
+- Hover over a section of the chart to view the violation type by No Violations or by Security Profile Violations.
+- Click on a section of the chart and then click **View Logs** to be directed to log information matching that violation status in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays the top 10 profile violations within the selected time frame and lists them by user agent.
+
+[Image: Top user agents by profile violations widget]
+
+- Hover over a user agent to view the following:
+  - **Name**: The details about the user agent such as browser, machine, and software version.
+  - **Number of Top User Agents by Profile Violation(s)**: The number of profile violations for the selected user agent and the percentage of violations held by that user agent within the top users category.
+- Click on a user agent and then click **View Logs** to be directed to log information matching that user agent in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays the top 10 profile violations within the selected time frame and lists them by user.
+
+[Image: Top users by profile violations widget]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users by Profile Violation(s)**: The top users with their number of profile violations and the percentage of violations held by that user within the top users category.
+- Click on a user and then click **View Logs** to be directed to log information matching that user in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+This widget displays the top 10 control violations within the selected time frame and categorizes them by name. The top control violations are categorized by control number and name, in the ControlNumber:ControlName format.
+
+[Image: Top control violations widget]
+
+- Hover over a section of the chart to view the name of the control violation.
+- Click on a section of the chart and then click **View Logs** to be directed to log information matching that control violation in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays the top 10 profile violations within the selected time frame and lists them by name.
+
+[Image: Top profile violations widget]
+
+- Hover over a profile violation to view the following:
+  - **Name**: The profile violation name.
+  - **Number of Top Profile Violation(s)**: The number of profile violations for the selected violation and the percentage of violations held within the top profile violations category.
+- Click on a profile violation and then click **View Logs** to be directed to log information matching that profile violation in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-bgp-peers-dashboard","lastmod":"2026-06-30T07:06Z","nid":"1534094"} -->
+## Viewing the BGP Peers Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-bgp-peers-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the BGP Peers Dashboard
+- Last modified: 2026-06-30T07:06Z
+- Summary: Information about the BGP Peers dashboard in the Zscaler Admin Console.
+
+The BGP Peers dashboard provides information about the Border Gateway Protocol (BGP) peers for your organization. To view the dashboard in the Zscaler Admin Console, go to Infrastructure > Private Access > Component > VPN BGP Peers.
+
+## Dashboard Tools
+
+The BGP Peers dashboard displays the following information and functionality:
+
+- **Time Period Filter**: View BGP peers data over a period between 1 hour to 14 days, or you can select **Custom Range**. If you use a custom range, the start and end dates must be within the last 14 days. The end date can be configured to the selected time in hours and minutes. This filter applies to all widgets on the dashboard. By default, the dashboard displays information about events that occurred in the last hour.
+- **Refresh icon**: Refresh the dashboard to adjust the time period filter to reflect the most current information.
+- **Hide Filters** or **Show Filters**: Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to display the filters.
+- **VPN Service Edges**: Filter the information that appears in the table for a specific VPN Service Edge. By default, the first option is applied.
+
+## VPN Service Edge Information
+
+This section shows the following information about the VPN Service Edge:
+
+- **Name**: The name of the VPN Service Edge.
+- **Router ID**: The router ID of the VPN Service Edge.
+- **Local AS Number**: The autonomous system number (ASN) assigned to the VPN Service Edge.
+- **BGP Service Status**: The service status of the BGP:
+  - **Active**: The BGP service is running.
+  - **Inactive**: The BGP service is not running.
+  - **Failed**: The BGP service failed or crashed.
+
+## Network Connectors Table
+
+The table shows the following information for each Network Connector associated with the VPN Service Edge:
+
+- **Name**: The name of the Network Connector.
+- **Router ID**: The route ID assigned to the Network Connector.
+- **Peer AS Number**: The ASN assigned to the Network Connector.
+- **BGP Session Status**: The status of the BGP for the Network Connector:
+  - **Idle**: The initial state of the BGP before it initiates a connection or listens for a connection request from a neighboring BGP.
+  - **Connect**: The BGP has successfully connected to a neighboring BGP peer.
+  - **Active**: The BGP is actively trying to reopen the TCP connection to the peer after an earlier failure. If successful, it moves to the **OpenSent** status. If the attempt fails, the status moves back to **Connect**.
+  - **OpenSent**: Open messages are exchanged between BGP peers. The router sends its BGP parameters to its peer that include ASN, BGP identifier, hold time, etc. If the parameters match and are accepted, BGP transitions to the **OpenConfirm** status.
+  - **OpenConfirm**: The BGP has received a valid open message and is waiting for a keepalive message from the neighboring BGP.
+  - **Established**: The BGP session is fully established, and peers can exchange updates about routes. Routes are advertised and learned. This is the operational state of a successful BGP session.
+- **Prefixes Sent**: The number of network prefixes sent to BGP peers informing them on how to reach them.
+- **Prefixes Received**: The number of network prefixes received by a router. The prefix information is used for making traffic forwarding decisions to reach destination networks.
+- **Session Uptime (Seconds)**: The duration for which the Network Connector remained active and functional.
+- **Settings icon**: [Modify the columns](https://help.zscaler.com/unified/using-tables)displayed in the table.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-browser-protection-dashboard","lastmod":"2026-06-29T10:12Z","nid":"1485611"} -->
+## Viewing the Browser Protection Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-browser-protection-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the Browser Protection Dashboard
+- Last modified: 2026-06-29T10:12Z
+- Summary: Information on the Browser Protection dashboard and widgets accessible within the Zscaler Admin Console.
+
+The Browser Protection dashboard provides information about browser sessions in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > Browser Protection.
+
+See image.
+
+[Image: About the Browser Protection Dashboard tools]
+
+## Dashboard Tools
+
+The Browser Protection dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View Browser Protection data over a period between 1 Hour to 14 Days, or you can select **Custom Range**to specify a custom start and end date. If you use **Custom Range**, the start date must be within the last 14 days. The end date automatically sets to the system's current time. By default, the dashboard displays information for events that occurred in the last hour. This filter applies to all widgets on the dashboard.
+
+Log information in the dashboard is limited to 14 days. For longer access to the logs, use the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming).
+
+- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
+
+## Widgets
+
+The Browser Protection dashboard provides the following widgets:
+
+- Browser Based Access Users
+- Unique Fingerprints for Monitored Users
+- Monitored vs. Unmonitored Requests
+- Monitored Users Details
+
+The widget displays real-time users that are affiliated with browser-based access. The categories are Monitored and Unmonitored, representing the monitored and unmonitored users and shows them based on their percentages within the selected time frame.
+
+[Image: Browser Based Access Users widget]
+
+The widget displays the browser sessions that have the fingerprint option enabled for monitored users. The unique fingerprints for monitored users are grouped by low and high frequency percentages within the selected time frame by the number of monitored users. If frequent changes exist on a fingerprint, there is a high possibility of malicious activity. This widget allows you to keep a closer eye on monitored users' activity.
+
+[Image: Unique Fingerprints for Monitored Users widget]
+
+The widget displays the amount of browser session requests from monitored and unmonitored users. The categories are Monitored and Unmonitored, representing the monitored and unmonitored users based on their percentages within the selected time frame.
+
+[Image: Monitored vs Unmonitored Requests widget]
+
+The Monitored Users Details table provides information on monitored users within the specified time frame. You can filter the information that appears in the table. By default, no filters are applied.
+
+The table covers:
+
+- **Email**: The email address of the monitored user.
+- **Number of Unique Fingerprints**: The number of browser sessions with **Fingerprint** enabled that the monitored user has accessed.
+- **Actions**: Click the **Diagnostics** icon [Image: Clientless Access Diagnostics icon in the Monitored Users Details table on the Browser Protection Dashboard page] to go to the [Clientless Access Diagnostics](https://help.zscaler.com/zpa/accessing-clientless-access-diagnostics) page.
+
+[Image: Monitored Users Details widget]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-configuration-graphs","lastmod":"2026-06-01T13:23Z","nid":"1516601"} -->
+## Viewing Configuration Graphs
+
+- Source: https://help.zscaler.com/zpa/viewing-configuration-graphs
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Private Access Software Components > Viewing Configuration Graphs
+- Last modified: 2026-06-01T13:23Z
+- Summary: Information on how to view the configuration graphs in the Zscaler Admin Console.
+
+Configuration graphs are graphical representations of how configuration objects are connected to each other (e.g., how an application segment is connected to a server group and server groups). They are helpful in determining when and where you might need to fix configuration requisites to get them working together again.
+
+A configuration graph consists of a segment group, application segment, server group, App Connector group, and App Connector. If you find an **Incomplete Configuration** icon ([Image: Caution icon]) next to one of them, you can click the **Configuration Graph** icon ([Image: Configuration Graph icon]) to access the graph and edit each connected object as required.
+
+Configuration graphs can be accessed from the following pages:
+
+- [App Connectors](https://help.zscaler.com/zpa/about-connectors)
+- [App Connector Groups](https://help.zscaler.com/zpa/about-connector-groups)
+- [Defined Application Segments](https://help.zscaler.com/zpa/about-applications)
+- [Segment Groups](https://help.zscaler.com/zpa/about-segment-groups)
+- [Server Groups](https://help.zscaler.com/zpa/about-server-groups)
+
+In the following example, the configuration graph was accessed from the App Connectors page.
+
+[Image: Viewing the Configuration Graph]
+
+## Hiding Connections
+
+You can hide connections by clicking the arrow icon.
+
+[Image: Hiding connections in a configuration graph]
+
+## Editing Configuration Objects
+
+You can edit any configuration objects to ensure they meet the configuration requirements.
+
+[Image: Edit Configuration Objects]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-extranet-dashboard","lastmod":"2026-06-29T10:03Z","nid":"1510081"} -->
+## Viewing the Extranet Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-extranet-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Extranet Dashboard
+- Last modified: 2026-06-29T10:03Z
+- Summary: Information about the Extranet Dashboard and widgets available within the Zscaler Admin Console.
+
+The Extranet dashboard uses information gathered from Internet & SaaS (ZIA) to display extranet resources and locations with the lowest health score for overall performance and reliability in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Extranet.
+
+The health score represents the health of an IPSec connection between the extranet resource's (partner) data center and the Zscaler cloud. It is a cumulative score of all the components and functions for that connection. You can have multiple connections between an extranet resource and the Zscaler cloud. Each extranet resource can have multiple locations, and each location can have multiple tunnels to the Zscaler cloud.
+
+To learn more, see [About Extranet](https://help.zscaler.com/zia/about-extranet).
+
+[Image: Extranet dashboard and widgets]
+
+## Dashboard Tools
+
+The Extranet dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View Source IP Anchoring data over a period between **30 Minutes** to **14 Days**, or you can select **Custom Range**. This filter applies to all widgets on the dashboard. By default, the dashboard displays information about events that occurred in the last hour.
+- **Refresh icon**: Refresh the dashboard to reflect the most current information.
+
+## Widgets
+
+The Extranet dashboard provides the following widgets:
+
+- Health Score for Extranet Resources
+- Health Score for Extranet Locations
+- Health Score for Tunnels
+
+This score is the minimum of all the tunnels between the extranet resource and the Zscaler cloud via all possible locations. The score for both the VPN and IPSec tunnel ranges from 0 (unhealthy) to 100 (optimal health) for a maximum possible combined score of 200. The 5 lowest health scores appear in this widget.
+
+- Hover over a value to view the individual VPN and tunnel scores for that resource.
+- Click **View Analytics** to open the Diagnostics page with a filter for the extranet resource applied to the table.
+
+This score is the minimum of all the tunnels from the location to the extranet resource. The score for both the VPN and IPSec tunnel ranges from 0 (unhealthy) to 100 (optimal health) for a maximum possible combined score of 200. The 5 lowest health scores appear in this widget.
+
+[Image: Extranet Location Health Score Widget]
+
+- Hover over a value to view the individual VPN and tunnel scores for that location.
+- Click **View Analytics** to open the Diagnostics page with a filter for the extranet location applied to the table.
+
+This widget displays the IPSec tunnels connected to extranet resources with the lowest health scores. The score for the IPSec tunnel ranges from 0 (unhealthy) to 100 (optimal health). The 5 lowest health scores appear in this widget.
+
+[Image: Tunnel Health Score Widget]
+
+- Hover over a value to view the tunnel score for that location.
+- Click **View Analytics** to open the Diagnostics page with a filter for the extranet location applied to the table.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-flow-dashboard","lastmod":"2025-08-22T11:44Z","nid":"1498176"} -->
+## Viewing the Flow Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-flow-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Flow Dashboard
+- Last modified: 2025-08-22T11:44Z
+- Summary: How to view the Flow Dashboard for Microsegmentation in the ZPA Admin Portal.
+
+The Flow dashboard provides information about agent flows and connections in your organization. You can see a maximum of 10 top metrics for each category.
+
+To view the Flow dashboard, go to **Microsegmentation**> **Dashboard**> **Flow**.
+
+[Image: A view of the Flow dashboard.]
+
+## Dashboard Tools
+
+The Flow dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View flow data from 1 Hour to 14 Days.
+- **Refresh icon**: Refresh the dashboard to reflect the most current information.
+- **Top Permitted Talkers**: The allowed resources and IP addresses sending out the number of flows in the network (Source IP and Protocol). These resources send the most outbound flows and initiate the connection to a given protocol.
+- **Top Blocked Talkers**: The blocked resources and IP addresses sending out the number of flows in the network (Source IP and Protocol). These resources send the most outbound flows and initiate the connection to a given protocol.
+- **Top Permitted Listeners**: The allowed resources and port combinations receiving the number of flows in the network (IP, Protocol, and Listening Port).
+- **Top Blocked Listeners**: The blocked resources and port combinations receiving the number of flows in the network (IP, Protocol, and Listening Port).
+- **Top Permitted Agent-to-Agent Flows**: The flows between multiple agents.
+- **Top Permitted Flows Between Agent and Non-Agent**: The flows between agents and resources not connected to any agents.
+- **Source Information**: Hover over one of the port data lines to display its Resource Name, Resource ID, IP Address, Protocol, and Count.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-health-dashboard","lastmod":"2026-06-29T10:06Z","nid":"1483736"} -->
+## Viewing the Health Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-health-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Health Dashboard
+- Last modified: 2026-06-29T10:06Z
+- Summary: Information on the Health dashboard and widgets, accessible within the Zscaler Admin Console.
+
+The Health dashboard provides widgets that display the health of your organization's application segments, App Connectors, and Private Service Edges for Private Access. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Health.
+
+See image.
+
+## Dashboard Tools
+
+The Health dashboard displays the following information and functionality:
+
+- **Search**: Search the dashboard for a specific application, App Connector, or Private Service Edge.
+- **Refresh**: Refresh the dashboard to reflect the most current information for all widgets.
+
+See image.
+
+## Widgets
+
+The Health dashboard provides the following widgets:
+
+- Applications
+- App Connectors
+- Private Service Edges
+
+Application health is checked and reported by the App Connectors your organization has deployed. This widget displays the health status of your applications depending on the Health Reporting setting you've configured for them. To learn more, see [Understanding Health Reporting](https://help.zscaler.com/zpa/understanding-health-reporting).
+
+- Possible Application Health States
+- Widget Filters
+- Viewing Application Details
+
+The widget displays the following health states for applications defined within application segments:
+
+- **Up**: The applications are up and functioning as expected.
+
+[Image: Application health is up]
+
+- **Down**: The applications are down and not accessible to users. This is most likely because a server that hosts the application is down or unhealthy.
+
+[Image: Application health is down]
+
+- **Unhealthy**: The applications are unhealthy but still accessible to users. An application can have multiple servers that host it, and at least one of those servers is unhealthy or down. But because there's at least one server for the application that is up, users can access the application.
+
+[Image: Application is unhealthy]
+
+- **Unknown**: The application health is unknown. This status is shown only for applications associated with application segments configured with [Health Reporting set to On Access](https://help.zscaler.com/zpa/configuring-defined-application-segments#define-cmnconfig). It indicates that Private Access has stopped reporting the health of this application because it has been more than 30 minutes since a user accessed it. Private Access reports the health status as soon as a user accesses the application again.
+
+[Image: Application health is unknown]
+
+If an application has not been accessed by a user or if an application segment was configured with [Health Reporting set to On Access](https://help.zscaler.com/zpa/configuring-defined-application-segments#define-cmnconfig), then no state is displayed. Additionally, if an application has Client Hostname Validation enabled to facilitate client-to-client remote assistance, then the application is not shown on the Health Dashboard. To learn more, see [Validating a Client Hostname](https://help.zscaler.com/zpa/validating-client-hostname).
+
+You can view or hide applications based on their health status with the **Health Status Filters**. You must select at least one filter option.
+
+[Image: Application filters]
+
+If there are more than 2,000 applications listed, the filters are not displayed.
+
+For each application, you can view more information about the application in a variety of ways.
+
+- Hover over the application icon to view the following details:
+  - **Name**: The name of the application.
+  - **Port**: The portused by the application.
+  - **Protocol Type**: The protocol typeused by the application.
+  - **Last Updated**: The timestamp showing the last time the App Connector reported the application's health status.
+
+[Image: Viewing the application details]
+
+- Hover over the application icon and click on the graph icon at the top-right. The graphical view that appears visually depicts the servers that host that application and the App Connectors that provide access to those servers. If an application is down or unhealthy, the graphical view enables you to pinpoint the problem.
+
+[Image: Graphical view of Private Access objects from the Health Dashboard]
+
+- Click on an application to see servers that host that application. You can then drill down further by clicking the arrow for a server to see the App Connectors that provide access to that server.
+
+[Image: Connected Applications to App Connectors on the Health Dashboard]
+
+App Connector health is checked and reported by the Private Access cloud.
+
+- Possible App Connector Health States
+- Widget Filters
+- Viewing App Connector Details
+
+The widget displays the following health states for App Connectors:
+
+- **Up**: The App Connector is up and functioning as expected.
+
+[Image: App Connector health status as up]
+
+For App Connectors that are disabled but not yet processed as Down, a Disabled label appears under the App Connector.
+
+See image.
+
+- **Down**: The App Connector is down and not functional.
+
+[Image: App Connector health status as down]
+
+[Image: Disabled App Connector in the Health Dashboard]
+
+You can view or hide App Connectors based on their health status with the **Health Status Filters**. You must select at least one filter option.
+
+If there are more than 2,000 App Connectors listed, the filters are not displayed.
+
+[Image: App Connector filters]
+
+For each App Connector, you can view more information about it by hovering over the App Connector icon to view the following details:
+
+- **Name**: The name of the App Connector.
+- **Last Updated**: The timestamp showing the last time the Private Access cloud checked the health status.
+- **Public IP**: The public IP address of the App Connector.
+- **Private IP**: The private IP address of the App Connector.
+- **Version**:The software versionnumber of the App Connector.
+- **CPU Utilization**: The CPU usage of the App Connector.
+- **Memory Utilization**: The memory usage of the App Connector.
+- **Up Time**:How long the App Connector has been enrolled and running.
+- **Active Apps:** The number of applications currently active for this App Connector.
+
+[Image: App Connector details]
+
+Private Service Edge health is checked and reported by the Private Access cloud.
+
+- Possible Private Service Edge Health States
+- Widget Filters
+- Viewing Private Service Edge Details
+
+The widget displays the following health states for Private Service Edges:
+
+- **Up**: The Private Service Edge is up and functioning as expected.
+
+[Image: Private Service Edge health status is up]
+
+For Private Service Edges that have been stopped but not yet processed as Down, a Disconnected label appears under the Private Service Edge.
+
+- **Down**: The Private Service Edge is down and not functional.
+
+[Image: Private Service Edge health status is down]
+
+You can view or hide Private Service Edges based on their health status with the **Health Status Filters**. You must select at least one filter option.
+
+If there are more than 2,000 Private Service Edges listed, the filters are not displayed.
+
+[Image: Health Status Filters for Private Service Edges]
+
+For each Private Service Edge, you can view more information about it by hovering over the Private Service Edge icon to view the following details:
+
+- **Name**: The name of the Private Service Edge.
+- **Last Updated**: The timestamp showing the last time the Private Access cloud checked the health status.
+- **Public IP**: The public IP address of the Private Service Edge.
+- **Private IP**: The private IP address of the Private Service Edge.
+- **CPU Utilization**: The CPU usage of the Private Service Edge.
+- **Memory Utilization**: The memory usage of the Private Service Edge.
+- **Up Time**: How long the Private Service Edge has been enrolled and running.
+
+[Image: Private Service Edge details on the Health dashboard]
+
+[Image: The Health dashboard within the Zscaler Admin Console]
+
+[Image: Health dashboard tools]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-network-connectors-dashboard","lastmod":"2026-06-29T07:06Z","nid":"1525456"} -->
+## Viewing the Network Connectors Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-network-connectors-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the Network Connectors Dashboard
+- Last modified: 2026-06-29T07:06Z
+- Summary: Information about the Network Connectors dashboard and widgets available in the Zscaler Admin Console.
+
+The Network Connectors Dashboard provides information about the Network Connectors for your organization. To view the dashboard in the Zscaler Admin Console, go to Infrastructure > Private Access > Component > Network Connectors Dashboard.
+
+[Image: View of the Network Connectors dashboard in the Zscaler Admin Console]
+
+## Dashboard Tools
+
+The Network Connectors Dashboard displays the following information and functionality:
+
+- **Time Period Filter**: View Network Connector data over a period between 1 hour to 14 days, or you can select **Custom Range**. If you use a custom range, the start and end dates must be within the last 14 days. The end date can be configured to the selected time in hours and minutes. This filter applies to all widgets on the dashboard. By default, the dashboard displays information about events that occurred in the last hour. Due to how data is aggregated for different time period filters, the same point in time in an Activity Monitor widget might show slightly different values depending on the selected time. For example, the data with the 1-hour time period filter at 3:00 PM might not match the data with the 14 Days time period filter for the same date at 3:00 PM.
+- **Refresh icon**: Refresh the dashboard to adjust the time period filter to reflect the most current information.
+
+## Top Network Connectors Widgets
+
+The Top Network Connectors widgets provide an overview of the peak or top metrics for the relevant Network Connectors in the selected time range.
+
+Four widgets are selected automatically when you access the dashboard. At least 4 widgets must be selected for the widgets to display, and no more than 8 widgets are available to view at one time.
+
+View the widgets.
+
+## Activity Monitor Widgets
+
+The Activity Monitor widgets provide trend information about selected Network Connectors in the selected time range. If no Network Connectors are selected, the top Network Connectors from the Minimum Available Disk Space widget are selected by default.
+
+Four widgets are selected automatically when you access the dashboard. At least 4 widgets must be selected for the widgets to display, and no more than 6 widgets are available to view at one time.
+
+View the widgets.
+
+Widgets might show solid lines or dashed lines. Solid lines represent actual data for the time period. Dashed lines indicate the expected trajectory of the data, but it isn't actual data. You can select a point on the lines in a widget to see the exact date, time, and relevant numbers for the Network Connectors as related to the particular widget.
+
+See image.
+
+A plus icon (+) appears as you move over the widgets. Use this icon to select the time period to zoom in for greater detail. A blue box shows the chosen portion of the widget, and the widget shows this selected smaller time period.
+
+See image.
+
+Click **Zoom Out** to view the original widget.
+
+See image.
+
+For each widget, you can deselect the listed Network Connectors to change what items are tracked within the widget. You can also search within the widget to reduce the listed Network Connectors that appear on the widget. To search, enter part or all of a Network Connector name, or use the following search query options with >, <, or = operators:
+
+- **name**: The name of the Network Connector (e.g., `name = MyConnector`).
+- **value**: A numerical value specific to the widget (e.g., `value < 40`).
+
+See image.
+
+### Filtering Network Connectors
+
+You can filter the Activity Monitor widgets and the Network Connector Details table by selecting the Network Connectors you want to review. The filters available are **Network Connectors** and **Network Connector Groups**.
+
+See image.
+
+When filtering, if you select a Network Connector group, the Network Connector associated with the Network Connector group is also shown.
+
+The filters between Network Connectors and Network Connector groups use the OR operator, instead of AND, to help compare Network Connectors in Network Connector groups.
+
+There is a limit of 25 Network Connectors you can select at one time. If you select Network Connectors and then select Network Connector groups in a way that exceeds the limit, you see an error message and need to adjust your selection.
+
+See image.
+
+If no Network Connectors are selected, the top Network Connectors from the Minimum Available Disk Space widgets are selected by default.
+
+## Network Connector Details
+
+The Network Connector Details table provides information about the Network Connectors selected in the Activity Monitor section. If no Network Connectors are selected, the top Network Connectors from the Minimum Available Disk Space widget are selected by default.
+
+The table includes:
+
+- **Network Connectors**: The name of the Network Connector.
+- **Network Connector Group**: The name of the group the Network Connector is included in.
+- **Location**: The city and country that the Network Connector is connecting from.
+- **Actions**: Click the **Edit**icon to edit the Network Connector.
+
+[Image: Actions for the VPN Connector Details table]
+
+- **Minimum Available Disk Space**: Displays up to the top 10 Network Connectors that have the least disk space available in the selected time frame. This is not the average disk space used over the time frame.
+- **Peak CPU Utilization**: Displays up to the top 10 Network Connectors using the most CPU in the selected time frame. This is not the average CPU used over the time frame.
+- **Peak Memory Utilization**: Displays up to the top 10 Network Connectors using the most memory in the selected time frame. This is not the average memory used over the time frame.
+- **Peak TCP Port Utilization**: Displays up to the top 10 Network Connectors using the most TCP ports for IPv4 in the selected time frame. This is not the average TCP ports used over the time frame.
+- **Peak UDP Port Utilization**: Displays up to the top 10 Network Connectors using the most UDP ports for IPv4 in the selected time frame. This is not the average UDP ports used over the time frame.
+- **Peak System File Descriptor Utilization**: Displays up to the top 10 Network Connectors using the most system file descriptors in the selected time frame. This is not the average file descriptors used over the time frame.
+- **Peak Network Connector Throughput**: Displays up to the top 10 Network Connectors' throughput (in percentage) and bandwidth (in bytes) in the selected time frame.
+
+- **Available Disk Space**: Displays the amount of disk space that is available to a Network Connector at different points during the selected time range.
+- **CPU Utilization**: Displays the amount of CPU used by a Network Connector at different points during the selected time range.
+- **Memory Utilization**: Displays the amount of memory used by a Network Connector at different points during the selected time range.
+- **TCP Port Utilization**: Displays the number of TCP ports for IPv4 used by a Network Connector at different points during the selected time range.
+- **UDP Port Utilization**: Displays the number of UDP ports for IPv4 used by a Network Connector at different points during the selected time range.
+- **System File Descriptor Utilization**: Displays the number of file descriptors used by a Network Connector at different points during the selected time range.
+- **Network Connector Throughput**: Displays the Network Connectors' throughput (in percentage) and bandwidth (in bytes) at different points during the selected time range.
+
+[Image: Select a point or view logs for part of a chart on the Network Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Select a part of a chart on the Network Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Zoom Out of a chart on the Network Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Search and Deselect Network Connectors in Widgets on the Network Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Filter Network Connectors on the Network Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Number of Network Connectors in an Network Connector Group in the Network Connector Group filter on the Network Connector Dashboard in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-overview-dashboard","lastmod":"2025-08-22T11:42Z","nid":"1531939"} -->
+## Viewing the Overview Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-overview-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Overview Dashboard
+- Last modified: 2025-08-22T11:42Z
+- Summary: How to view the Overview Dashboard for Microsegmentation in the ZPA Admin Portal.
+
+The Overview dashboard displays widgets that provide information about the status of agents and resource protection in your organization. To view the Overview dashboard, go to **Microsegmentation**> **Dashboard**> **Overview**.
+
+The dashboard contains the following widgets:
+
+- **ML Resource Group Recommendations**: Shows how many machine learning (ML) recommendations for resource groups have been found, and allows you to review them.
+- **Agent Status**: Shows how many agents are **Connected**, **Disconnected**, or in **Error** state.
+- **Agent Version**: Shows how many agents are using which type of agent version.
+- **Resource Protection Status**: Shows how many resources are **Protected**or **Unprotected**. You can also download a CSV file of this information.
+- **Resource Group Protection Status**: Shows how many resource groups are **Protected**or **Unprotected**. You can also download a CSV file of this information.
+
+[Image: A view of the Agent dashboard chart data.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-policy-usage","lastmod":"2026-04-20T16:13Z","nid":"1530858"} -->
+## Viewing Policy Usage
+
+- Source: https://help.zscaler.com/zpa/viewing-policy-usage
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Policy Usage
+- Last modified: 2026-04-20T16:13Z
+- Summary: Viewing and understanding the usage between the policy rules and users in the Policy Usage Report.
+
+Policy Usage insights provides you with a deeper understanding and details about the distribution of access policy rules used by users. These insights can help you assess and determine unused access policy rules for improvement consideration. The Policy Usage insights provide:
+
+- A distribution of users and their associated access policy rules.
+- Most used access policy rules.
+- Least used access policy rules.
+
+See image.
+
+## Policy Usage Report
+
+The Policy Usage Report contains the following information:
+
+- The number of Access Policy Rules applied to the distribution of users. The distribution of users is calculated based on the number of unique users (must be more than zero users) against each access policy rule. Then the distribution categorizes the users into 1 of 10 percentage bars based on their usage of the access policy rule. Each bar indicates a tenth percentage of access policy rules based on usage. You can click on a bar to view policy usage data based on that user group. The percentage is rounded to the nearest whole number.
+  - **Most Used Access Policy Rules**: Displays the number of most used access policy rules.
+  - **Unused Access Policy Rules**: Displays the number of the least used access policy rules. These include unused access policies.
+- **Current Report Information**: Displays the current report's information. See image.
+- **Launch Tour**: Launches a series of guided steps on how to interact with the Policy Usage page.
+- **Run Report**: Generate the report to include data from the selected time range. The report automatically expires after 90 days. You cannot run the report if there is no more data to add when the report was recently updated. Run Report is disabled for 72 hours before and after 12:00 AM on the first Saturday of every month due to scheduled automatic reports. You cannot manually generate a report during this time. Additionally, customers with the Segmentation Add-On feature can generate one report per day, and customers without the feature can generate one report every 90 days. See image.
+
+See image.
+
+## Policy Usage Chart and Table
+
+The Policy Usage chart and table provides the following information:
+
+- **Policy Usage Bar Chart**: Displays the distribution of policy usage from access policy rules. Select a bar to specify the access policy rules. The default is set to Unused Access Policy Rules. See image.
+- **Access Policy Rule Filter**: Select specific access policy rules for display. See image.
+- **View Access Policy**: Allows you to access the [Access Policy](https://help.zscaler.com/zpa/about-access-policy) page to manage the access policies.
+- **Access Policy Rules Table**: Displays the following information for each access policy:
+  - **Access Policy Rule**: The name of the access policy rule.
+  - **Unique Users**: The number of unique users impacted by the access policy rule.
+  - **Transactions**: The number of Private Access (ZPA) transactions going through the access policy.
+  - **Actions**: The available actions for the access policy rule.
+    - **Edit**: Edit the access policy rule in the **Edit Access Policy** window. To learn more, see [Editing Access Policies](https://help.zscaler.com/zpa/editing-access-policies).
+    - **Policy Hit and User Details**: View the access policy rule's policy usage details. To learn more, see [Viewing Policy Usage Details](https://help.zscaler.com/zpa/viewing-policy-usage-details).
+
+See image.
+
+[Image: Current Report Information]
+
+[Image: Policy Usage Report Information]
+
+[Image: Run a Report]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-policy-usage-details","lastmod":"2025-09-26T07:06Z","nid":"1530857"} -->
+## Viewing Policy Usage Details
+
+- Source: https://help.zscaler.com/zpa/viewing-policy-usage-details
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Policy Usage Details
+- Last modified: 2025-09-26T07:06Z
+- Summary: Police Usage details include granular information for a specific access policy rule from the Policy Usage page.
+
+Policy usage details are accessible from the following pages:
+
+- [Access Policy](https://help.zscaler.com/zpa/about-access-policy)
+- [Defined Application Segments](https://help.zscaler.com/zpa/about-applications)
+- [Policy Usage](https://help.zscaler.com/zpa/viewing-policy-usage)
+
+When you click the **Graph** icon (), you can view the following policy usage details:
+
+- **Time Range**: Select to filter details based on a time range.
+- **Refresh**: Click the **Refresh** icon to include the most recent updates. The report automatically refreshes every 30 days.
+- Depending on what view you have selected, you see the following widgets: When you click **View Logs** on a widget, you are taken to the Diagnostics page. To learn more, see [Accessing User Activity Diagnostics](https://help.zscaler.com/zpa/accessing-user-activity-diagnostics).
+  - **Users** view(default):
+    - **Users Over Time**: Displays the number of users over time for the policy.
+    - **Top Application Segments**: Displays the most impacted application segments. You can hover over and then select an application to switch the view between application segments and applications. To switch back, select the application segment name.
+    - **Top Applications**: Displays the most impacted applications across users. You can hover over and then select ports to switch the view between applications and ports. To switch back, select the application name.
+    - **Top Ports**: Displays the most used ports.
+    - **Top Client Types**: Displays the most impacted client types for the policy.
+  - **Transactions** view:
+    - **Transactions Over Time**: Displays the number of transactions for the policy.
+    - **Top Application Segments**: Displays the most impacted application segments. You can hover over and then select an application to switch the view between application segments and applications. To switch back, select the application segment name.
+    - **Top Applications**: Displays the most impacted applications across users. You can hover over and then select a port to switch the view between applications and ports. To switch back, select the application name.
+    - **Top Ports**: Displays the most used ports.
+    - **Top Users**: Displays the users creating the most transactions for the policy.
+    - **Top Client Types**: Displays the most impacted client types for the policy.
+
+See image.
+
+No data is shown if the access policy has not seen usage within the time range (e.g., unused access policy).
+
+See image.
+
+[Image: No Data Available]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -1155,13 +1908,13 @@ Zero trust has become a popular model for secure user access to applications and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-08-06T07:23Z","nid":"1485956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-08-20T15:05Z","nid":"1485956"} -->
 ## App Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Software by Platform
-- Last modified: 2026-08-06T07:23Z
+- Last modified: 2026-08-20T15:05Z
 - Summary: The current App Connector software downloads by platform.
 
 App Connectors are supported on [many different platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms). Each supported platform has an App Connector image you can use to deploy App Connectors on that platform. To learn more, see [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -1182,7 +1935,7 @@ The following platforms support App Connector software packages. Where applicabl
 | [Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes) | To learn more, see the [App Connector Deployment Guide for Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes). |
 | [OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#deploy) | A Helm Chart must be installed in order to deploy an App Connector on OpenShift. To learn more, see the [App Connector Deployment Guide for OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#get-helm-chart). |
 | Linux Operating Systems |  |
-| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.55.1-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.55.1-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
+| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.56.5-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.56.5-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1443,13 +2196,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2025","lastmod":"2026-07-22T14:18Z","nid":"1516231"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2025","lastmod":"2026-08-19T14:50Z","nid":"1516231"} -->
 ## ZPA Private Service Edge Release Summary (2025)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2025
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2025)
-- Last modified: 2026-07-22T14:18Z
+- Last modified: 2026-08-19T14:50Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2025.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.
@@ -1457,13 +2210,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-08-06T08:30Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-08-20T15:25Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-08-06T08:30Z
+- Last modified: 2026-08-20T15:25Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.
