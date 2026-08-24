@@ -11,8 +11,8 @@
   },
   "community_branch_part1.md": {
    "rel": "branch/community_branch_part1.md",
-   "sha256": "bf6d1dcc12da3e7ee780d77fb2a508fcc64622844192176c26ab16a292381694",
-   "source_id": "84bc84a5-8cca-4608-9b47-e5dac52e434b"
+   "sha256": "6b78549d48e776b204dda652d157e881336b342aa0d935a85934240d9c1ad59e",
+   "source_id": "fdc407e6-7af6-4dec-a989-be5dfdcb815d"
   },
   "community_data_security_part1.md": {
    "rel": "data_security/community_data_security_part1.md",
@@ -24,15 +24,10 @@
    "sha256": "7c33e1b893548abed2a56ac9fd80ec96a3671b1e5bd1d3c345962731fc960abb",
    "source_id": "beedc716-f39e-4593-9e60-f9c7f3bdb013"
   },
-  "community_other_part1.md": {
-   "rel": "other/community_other_part1.md",
-   "sha256": "c44fa6600aa2e755090009841ce53e7bf04acc486b60e70f577d5acf5daf5e75",
-   "source_id": "ebfb5f54-ebe2-4669-9ec5-920adcbd3f3d"
-  },
   "community_platform_part1.md": {
    "rel": "platform/community_platform_part1.md",
-   "sha256": "69608ed1f3861ed0882569ac1caff092299a3e44ff44d7c84610e235b06f912f",
-   "source_id": "8855ebcb-a4c9-49ae-a6d5-a53ca97203b5"
+   "sha256": "4429b3c5e2cf00c0269994be29ae752ab190bc9e734891ca25c9e11fa62b70fe",
+   "source_id": "42491776-1d4e-421f-8262-93fae44c69d8"
   },
   "community_zcc_part1.md": {
    "rel": "zcc/community_zcc_part1.md",
@@ -51,9 +46,9 @@
   },
   "community_zpa_part1.md": {
    "rel": "zpa/community_zpa_part1.md",
-   "sha256": "564c9aa3bbb5eb147776d6ad3408e90f81e28be3b951dda05139682f612074c9",
-   "source_id": "818305b9-8a4e-4e10-954a-0523af640aa9"
+   "sha256": "83e9d46f6895553a48d90d682ce39ac463c76e2211bccea729b65c6450d054a1",
+   "source_id": "ea51b554-a6ff-4681-b3ea-a46ba22632a7"
   }
  },
- "synced_at": "2026-08-17T02:19:24Z"
+ "synced_at": "2026-08-24T02:23:55Z"
 }
