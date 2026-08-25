@@ -43,6 +43,7 @@ for_claude/
 │   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
 │   └── workflows/
+│       ├── android-build.yml         # Debug APK build + rolling pre-release
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy
 │       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
 │       └── community-weekly.yml      # Weekly community.zscaler.com doc refresh
@@ -385,7 +386,13 @@ a favourites dock), a card-based console screen with drag-and-drop reordering, a
 widget picker. Work profile apps appear in the same grid with badged icons.
 
 - Build: `cd android-app && ./gradlew assembleDebug` (needs an Android SDK with
-  compileSdk 36; `local.properties` is git-ignored)
+  compileSdk 36; `local.properties` is git-ignored). The Gradle wrapper is committed
+- `android-build.yml` builds the debug APK on every push touching `android-app/` and
+  replaces the asset on the rolling `android-debug-latest` pre-release, so the download
+  URL never changes — that is how the APK reaches a phone without a PC
+- `keystore/debug.keystore` is committed on purpose: without a fixed debug key every
+  build environment produces a differently-signed APK that cannot be installed over the
+  previous one. Never use it for a release build
 - Debug builds carry `applicationIdSuffix ".debug"` so they coexist with the device's
   real launcher — **do not set a debug build as the default home until it is verified**
 - Console values come from `DashboardDataSource` and are dummy data

@@ -19,8 +19,21 @@ android {
         versionName = "0.1.0"
     }
 
+    signingConfigs {
+        getByName("debug") {
+            // 固定のデバッグ鍵をリポジトリに置く。ビルド環境ごとに鍵が変わると
+            // 「アプリが既にインストールされています」で上書き更新できなくなるため。
+            // パスワードは Android 標準のデバッグ鍵と同じ既知の値。**release には絶対に使わない**
+            storeFile = file("../keystore/debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         debug {
+            signingConfig = signingConfigs.getByName("debug")
             // 既定ホームを壊さずリリース版・標準ランチャーと共存させる
             applicationIdSuffix = ".debug"
             resValue("string", "app_name", "ZLauncher (debug)")

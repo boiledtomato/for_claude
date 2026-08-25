@@ -119,20 +119,43 @@ AOSP の Launcher3 も同じ挙動。回避策として「インストール日�
 | ウィジェット ID は中断時も必ず `deleteAppWidgetId` で返す | `WidgetPickerScreen` |
 | `LauncherApps` の呼び出しはすべて例外を握って空に落とす | `LauncherAppsDataSource` |
 
+## インストール（ビルド不要）
+
+`.github/workflows/android-build.yml` が `android-app/` への push ごとにデバッグ APK を
+ビルドし、Release **`android-debug-latest`** の資材を差し替える。タグは据え置きなので
+**ダウンロード URL は常に同じ**：
+
+- ページ: https://github.com/boiledtomato/for_claude/releases/tag/android-debug-latest
+- 直リンク: https://github.com/boiledtomato/for_claude/releases/download/android-debug-latest/zlauncher-debug.apk
+
+リポジトリが public なので、Android 端末のブラウザでそのまま開いてインストールできる
+（GitHub へのログイン不要）。PC から入れる場合は `adb install -r zlauncher-debug.apk`。
+
 ## ビルド
 
 ```bash
 # Android SDK が必要（compileSdk 36 / build-tools 36.0.0）
 echo "sdk.dir=/path/to/Android/sdk" > local.properties
-./gradlew assembleDebug     # または: gradle assembleDebug
+./gradlew assembleDebug
 ```
 
-Gradle wrapper の jar はコミットしていないため、初回は Android Studio で開くか
-`gradle wrapper` を一度実行する。
+Gradle wrapper をコミットしてあるので、Gradle 本体のインストールは不要
+（Ubuntu の `apt install gradle` は 4.x 系と古く、AGP 8.11 では使えない）。
 
 依存バージョンは `gradle/libs.versions.toml` の 1 箇所にまとめてある
 （AGP 8.11 / Kotlin 2.1.21 / Compose BOM 2025.06.00 の組み合わせで
 `assembleDebug` と `lintDebug` の通過を確認済み）。
+
+## デバッグ署名鍵をコミットしている理由
+
+`keystore/debug.keystore` はリポジトリに含めてある。デバッグ鍵はビルド環境ごとに
+自動生成されるため、そのままだと CI と手元とで署名が変わり、上書き更新が
+「アプリが既にインストールされています」で失敗する。固定鍵にすることで、どこで
+ビルドした APK でも上書きインストールできる。
+
+パスワードは Android 標準のデバッグ鍵と同じ既知の値（`android` /
+`androiddebugkey`）。**release ビルドには絶対に使わないこと**。公開したい場合は
+別途リリース鍵を作り、GitHub Secrets 経由で渡す。
 
 ## 検証時の注意
 
