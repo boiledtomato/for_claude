@@ -26,6 +26,8 @@ data class LauncherState(
     val categories: List<AppCategory> = emptyList(),
     /** レール上部にピン留めするアプリ。最大 [MAX_PINNED] 件 */
     val pinnedApps: List<String> = emptyList(),
+    /** アイコンをテーマ色に寄せる（モノクロレイヤーを持つアプリのみ、Android 13 以降） */
+    val themedIcons: Boolean = false,
 ) {
     companion object {
         const val CURRENT_VERSION = 1

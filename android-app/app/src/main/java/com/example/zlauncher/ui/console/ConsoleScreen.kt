@@ -136,13 +136,15 @@ fun ConsoleScreen(
     }
 
     if (showCreateDialog) {
-        CategoryEditDialog(
-            title = "カテゴリーを作成",
-            initialName = "",
-            initialColorIndex = categories.size % ZColors.CategoryColors.size,
+        CategoryCreateDialog(
+            existingNames = categories.map { it.category.name }.toSet(),
+            defaultColorIndex = categories.size % ZColors.CategoryColors.size,
             onDismiss = { showCreateDialog = false },
-            onConfirm = { name, color ->
-                viewModel.createCategory(name, color)
+            onConfirm = { presets, customName, customColor ->
+                if (presets.isNotEmpty()) {
+                    viewModel.createFromPresets(presets.map { it.name to it.colorIndex })
+                }
+                if (customName.isNotBlank()) viewModel.createCategory(customName, customColor)
                 showCreateDialog = false
             },
         )

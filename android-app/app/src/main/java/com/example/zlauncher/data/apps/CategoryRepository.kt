@@ -60,6 +60,17 @@ class CategoryRepository @Inject constructor(
         )
     }
 
+    /** プリセットからまとめて作る。既にある名前は飛ばす */
+    suspend fun createAll(presets: List<Pair<String, Int>>): Unit = preferences.update { state ->
+        val existing = state.categories.map { it.name }.toSet()
+        val added = presets
+            .filterNot { it.first in existing }
+            .map { (name, color) ->
+                AppCategory(id = UUID.randomUUID().toString(), name = name, colorIndex = color)
+            }
+        if (added.isEmpty()) state else state.copy(categories = state.categories + added)
+    }
+
     suspend fun rename(id: String, name: String) = preferences.update { state ->
         val trimmed = name.trim()
         if (trimmed.isEmpty()) return@update state

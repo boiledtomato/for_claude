@@ -38,6 +38,14 @@ class HomeViewModel @Inject constructor(
     private val launcherApps: LauncherAppsDataSource,
 ) : ViewModel() {
 
+    private var themedIcons = false
+
+    init {
+        viewModelScope.launch {
+            preferences.state.collect { themedIcons = it.themedIcons }
+        }
+    }
+
     private val _query = MutableStateFlow("")
     val query: StateFlow<String> = _query.asStateFlow()
 
@@ -93,7 +101,7 @@ class HomeViewModel @Inject constructor(
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), HomeUiState())
 
     /** アイコンは一覧描画のあとから解決する。キャッシュ済みなら即返る */
-    suspend fun icon(entry: AppEntry): ImageBitmap? = iconLoader.load(entry)
+    suspend fun icon(entry: AppEntry): ImageBitmap? = iconLoader.load(entry, themedIcons)
 
     fun setQuery(value: String) {
         _query.value = value

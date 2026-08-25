@@ -396,7 +396,7 @@ Work profile apps appear in the same grid with badged icons.
   previous one. Never use it for a release build
 - Debug builds carry `applicationIdSuffix ".debug"` so they coexist with the device's
   real launcher — **do not set a debug build as the default home until it is verified**
-- Console cards read real device metrics (`DeviceMetricsRepository`, polled every 2s while the console is open); the only permission used is `ACCESS_NETWORK_STATE`
+- Console cards read real device metrics (`DeviceMetricsRepository`, polled every 1s while the console is open, single sampling coroutine via `stateIn`); the only permission used is `ACCESS_NETWORK_STATE`
 - See `android-app/README.md` for the placement model, the Japanese app-name sorting
   limitation, and the launcher-specific manifest flags
 

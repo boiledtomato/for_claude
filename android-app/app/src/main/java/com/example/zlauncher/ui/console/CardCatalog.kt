@@ -3,6 +3,13 @@ package com.example.zlauncher.ui.console
 import androidx.compose.runtime.Composable
 import com.example.zlauncher.domain.model.CardIds
 import com.example.zlauncher.ui.console.card.AppsCard
+import com.example.zlauncher.ui.console.card.BatteryTrendCard
+import com.example.zlauncher.ui.console.card.ClockCard
+import com.example.zlauncher.ui.console.card.DeviceInfoCard
+import com.example.zlauncher.ui.console.card.HealthCheckCard
+import com.example.zlauncher.ui.console.card.SoundLightCard
+import com.example.zlauncher.ui.console.card.TrafficCard
+import com.example.zlauncher.ui.console.card.TrafficTotalCard
 import com.example.zlauncher.ui.console.card.BatteryCard
 import com.example.zlauncher.ui.console.card.CardContext
 import com.example.zlauncher.ui.console.card.MemoryCard
@@ -23,6 +30,13 @@ data class CardDefinition(
  */
 object CardCatalog {
     private val definitions: List<CardDefinition> = listOf(
+        CardDefinition(CardIds.HEALTH, "ヘルスチェック") { HealthCheckCard(it) },
+        CardDefinition(CardIds.TRAFFIC, "トラフィック") { TrafficCard(it) },
+        CardDefinition(CardIds.TRAFFIC_TOTAL, "通信量（起動から）") { TrafficTotalCard(it) },
+        CardDefinition(CardIds.BATTERY_TREND, "バッテリー推移") { BatteryTrendCard(it) },
+        CardDefinition(CardIds.CLOCK, "時刻") { ClockCard(it) },
+        CardDefinition(CardIds.SOUND_LIGHT, "音量と明るさ") { SoundLightCard(it) },
+        CardDefinition(CardIds.DEVICE_INFO, "端末") { DeviceInfoCard(it) },
         CardDefinition(CardIds.BATTERY, "バッテリー") { BatteryCard(it) },
         CardDefinition(CardIds.STORAGE, "ストレージ") { StorageCard(it) },
         CardDefinition(CardIds.MEMORY, "メモリ") { MemoryCard(it) },

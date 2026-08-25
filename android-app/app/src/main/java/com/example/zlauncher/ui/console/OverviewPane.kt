@@ -57,6 +57,7 @@ fun OverviewPane(
 ) {
     val layout by viewModel.layout.collectAsStateWithLifecycle()
     val sortOrder by viewModel.sortOrder.collectAsStateWithLifecycle()
+    val themedIcons by viewModel.themedIconsEnabled.collectAsStateWithLifecycle()
     val isEditing = viewModel.isEditing
     val context = LocalContext.current
 
@@ -91,6 +92,7 @@ fun OverviewPane(
                     isEditing = true,
                     cardContext = cardContext,
                     sortOrder = sortOrder,
+                    themedIcons = themedIcons,
                     viewModel = viewModel,
                     onAddWidget = onAddWidget,
                 )
@@ -104,6 +106,7 @@ fun OverviewPane(
                 isEditing = false,
                 cardContext = cardContext,
                 sortOrder = sortOrder,
+                themedIcons = themedIcons,
                 viewModel = viewModel,
                 onAddWidget = onAddWidget,
             )
@@ -120,6 +123,7 @@ private fun CardGrid(
     isEditing: Boolean,
     cardContext: CardContext,
     sortOrder: AppSortOrder,
+    themedIcons: Boolean,
     viewModel: ConsoleViewModel,
     onAddWidget: () -> Unit,
 ) {
@@ -182,6 +186,8 @@ private fun CardGrid(
             Column {
                 Spacer(Modifier.height(4.dp))
                 SortOrderRow(current = sortOrder, onSelect = viewModel::setSortOrder)
+                Spacer(Modifier.height(8.dp))
+                IconStyleRow(themed = themedIcons, onSelect = viewModel::setThemedIcons)
                 Spacer(Modifier.height(8.dp))
                 SettingsRow(label = "ウィジェットを追加", onClick = onAddWidget)
                 Spacer(Modifier.height(8.dp))
@@ -323,6 +329,35 @@ private fun SortOrderRow(current: AppSortOrder, onSelect: (AppSortOrder) -> Unit
         Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             Chip("名前順", current == AppSortOrder.LABEL) { onSelect(AppSortOrder.LABEL) }
             Chip("インストール日時順", current == AppSortOrder.INSTALL_TIME) { onSelect(AppSortOrder.INSTALL_TIME) }
+        }
+    }
+}
+
+/**
+ * アイコンの見た目。テーマ調はモノクロレイヤーを持つアプリ（Android 13 以降）にだけ効く。
+ * 対応していないアプリは通常のアイコンのまま出す。
+ */
+@Composable
+private fun IconStyleRow(themed: Boolean, onSelect: (Boolean) -> Unit) {
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(10.dp))
+            .background(ZColors.SurfaceLow)
+            .border(1.dp, ZColors.Outline, RoundedCornerShape(10.dp))
+            .padding(horizontal = 12.dp, vertical = 11.dp),
+    ) {
+        Text("アイコンの見た目", style = ZType.Body, color = ZColors.TextPrimary)
+        Spacer(Modifier.height(4.dp))
+        Text(
+            "テーマ調はモノクロ対応アプリのみ（Android 13 以降）",
+            style = ZType.Sub,
+            color = ZColors.TextDim,
+        )
+        Spacer(Modifier.height(9.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            Chip("標準", !themed) { onSelect(false) }
+            Chip("テーマ調", themed) { onSelect(true) }
         }
     }
 }

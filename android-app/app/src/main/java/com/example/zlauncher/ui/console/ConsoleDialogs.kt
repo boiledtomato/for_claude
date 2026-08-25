@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +16,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,6 +26,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.toMutableStateList
@@ -38,10 +43,160 @@ import androidx.compose.ui.window.DialogProperties
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.domain.model.AppEntry
+import com.example.zlauncher.domain.model.PRESET_CATEGORIES
+import com.example.zlauncher.domain.model.PresetCategory
 import com.example.zlauncher.ui.home.component.AppIconTile
 import com.example.zlauncher.ui.home.component.rememberAppIcon
 
-/** カテゴリーの新規作成・名前と色の変更 */
+/**
+ * カテゴリーの追加。プリセット（Zscaler の URL カテゴリーの切り口）からまとめて選べるほか、
+ * 自分で名前と色を決めて作ることもできる。
+ */
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun CategoryCreateDialog(
+    existingNames: Set<String>,
+    defaultColorIndex: Int,
+    onDismiss: () -> Unit,
+    onConfirm: (presets: List<PresetCategory>, customName: String, customColorIndex: Int) -> Unit,
+) {
+    val selected = remember { mutableStateListOf<String>() }
+    var customName by remember { mutableStateOf("") }
+    var customColor by remember { mutableStateOf(defaultColorIndex) }
+
+    Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+                .clip(RoundedCornerShape(18.dp))
+                .background(ZColors.Background)
+                .border(1.dp, ZColors.OutlineStrong, RoundedCornerShape(18.dp))
+                .padding(16.dp),
+        ) {
+            Text("カテゴリーを追加", style = ZType.Title, color = ZColors.TextPrimary)
+            Spacer(Modifier.height(14.dp))
+
+            Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
+                Text("プリセット", style = ZType.Eyebrow, color = ZColors.TextSecondary)
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    "Zscaler の URL カテゴリーの切り口に沿った候補です",
+                    style = ZType.Sub,
+                    color = ZColors.TextDim,
+                )
+                Spacer(Modifier.height(10.dp))
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    PRESET_CATEGORIES.forEach { preset ->
+                        val already = preset.name in existingNames
+                        val isSelected = preset.name in selected
+                        val color = ZColors.CategoryColors[preset.colorIndex % ZColors.CategoryColors.size]
+                        Row(
+                            Modifier
+                                .clip(RoundedCornerShape(999.dp))
+                                .background(
+                                    when {
+                                        already -> ZColors.SurfaceLow
+                                        isSelected -> color.copy(alpha = 0.16f)
+                                        else -> ZColors.Surface
+                                    }
+                                )
+                                .border(
+                                    1.dp,
+                                    if (isSelected) color.copy(alpha = 0.6f) else ZColors.Outline,
+                                    RoundedCornerShape(999.dp),
+                                )
+                                .clickable(enabled = !already) {
+                                    if (isSelected) selected.remove(preset.name) else selected.add(preset.name)
+                                }
+                                .padding(horizontal = 12.dp, vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(7.dp),
+                        ) {
+                            Box(Modifier.size(8.dp).clip(CircleShape).background(if (already) ZColors.StatusNeutral else color))
+                            Text(
+                                text = preset.name,
+                                style = ZType.Body.copy(fontSize = 12.sp),
+                                color = when {
+                                    already -> ZColors.TextDim
+                                    isSelected -> ZColors.TextPrimary
+                                    else -> ZColors.TextSecondary
+                                },
+                            )
+                            if (already) {
+                                Text("追加済", style = ZType.Sub.copy(fontSize = 9.sp), color = ZColors.TextDim)
+                            }
+                        }
+                    }
+                }
+
+                Spacer(Modifier.height(20.dp))
+                Text("自分で作る", style = ZType.Eyebrow, color = ZColors.TextSecondary)
+                Spacer(Modifier.height(10.dp))
+                Box(
+                    Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(ZColors.Surface)
+                        .border(1.dp, ZColors.Outline, RoundedCornerShape(10.dp))
+                        .padding(horizontal = 12.dp, vertical = 11.dp),
+                ) {
+                    if (customName.isEmpty()) {
+                        Text("カテゴリー名", style = ZType.Body, color = ZColors.TextSecondary)
+                    }
+                    BasicTextField(
+                        value = customName,
+                        onValueChange = { customName = it },
+                        singleLine = true,
+                        textStyle = ZType.Body.copy(color = ZColors.TextPrimary),
+                        cursorBrush = SolidColor(ZColors.AccentAlt),
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
+                Spacer(Modifier.height(12.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    ZColors.CategoryColors.forEachIndexed { index, color ->
+                        Box(
+                            Modifier
+                                .size(28.dp)
+                                .clip(CircleShape)
+                                .background(color.copy(alpha = if (index == customColor) 1f else 0.35f))
+                                .border(
+                                    width = if (index == customColor) 2.dp else 1.dp,
+                                    color = if (index == customColor) ZColors.TextPrimary else ZColors.Outline,
+                                    shape = CircleShape,
+                                )
+                                .clickable { customColor = index }
+                        )
+                    }
+                }
+                Spacer(Modifier.height(16.dp))
+            }
+
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = if (selected.isEmpty()) "" else "${selected.size} 件を選択中",
+                    style = ZType.Sub,
+                    color = ZColors.TextSecondary,
+                    modifier = Modifier.weight(1f),
+                )
+                DialogButton("キャンセル", accent = false, onClick = onDismiss)
+                Spacer(Modifier.size(10.dp))
+                DialogButton("追加", accent = true) {
+                    val presets = PRESET_CATEGORIES.filter { it.name in selected }
+                    if (presets.isNotEmpty() || customName.isNotBlank()) {
+                        onConfirm(presets, customName.trim(), customColor)
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** カテゴリーの名前と色の変更 */
 @Composable
 fun CategoryEditDialog(
     title: String,

@@ -123,6 +123,11 @@ class ConsoleViewModel @Inject constructor(
         private set
 
     private var dragging = false
+    private var themedIcons = false
+
+    val themedIconsEnabled: StateFlow<Boolean> = preferences.state
+        .map { it.themedIcons }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     init {
         viewModelScope.launch {
@@ -130,6 +135,17 @@ class ConsoleViewModel @Inject constructor(
                 if (!dragging) _layout.value = stored
             }
         }
+        viewModelScope.launch {
+            preferences.state.collect { themedIcons = it.themedIcons }
+        }
+    }
+
+    fun setThemedIcons(enabled: Boolean) = viewModelScope.launch {
+        preferences.update { it.copy(themedIcons = enabled) }
+    }
+
+    fun createFromPresets(presets: List<Pair<String, Int>>) = viewModelScope.launch {
+        categoryRepository.createAll(presets)
     }
 
     fun setEditMode(editing: Boolean) {
@@ -167,7 +183,7 @@ class ConsoleViewModel @Inject constructor(
 
     // ---- 共通 ---------------------------------------------------------------
 
-    suspend fun icon(entry: AppEntry): ImageBitmap? = iconLoader.load(entry)
+    suspend fun icon(entry: AppEntry): ImageBitmap? = iconLoader.load(entry, themedIcons)
 
     fun launch(entry: AppEntry, sourceBounds: Rect? = null) {
         launcherApps.launch(entry.componentName, entry.user, sourceBounds)
