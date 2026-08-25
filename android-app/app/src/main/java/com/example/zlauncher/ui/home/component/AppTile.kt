@@ -8,6 +8,7 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,6 +34,9 @@ import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.domain.model.AppEntry
 
+/** ラベルは常にこの行数ぶんの高さを占める。行数が揺れるとグリッドの行が揃わない */
+private const val LABEL_LINES = 2
+
 /** アイコンの解決は描画後。ラベルだけ先に出す */
 @Composable
 fun rememberAppIcon(entry: AppEntry, provider: suspend (AppEntry) -> ImageBitmap?) =
@@ -55,6 +59,7 @@ fun AppTile(
 
     Column(
         modifier = modifier
+            .fillMaxWidth()
             .onGloballyPositioned { coordinates ->
                 val rect = coordinates.boundsInWindow()
                 bounds = android.graphics.Rect(
@@ -82,10 +87,11 @@ fun AppTile(
                 text = entry.label,
                 style = ZType.AppLabel,
                 color = ZColors.TextSecondary,
-                maxLines = 1,
+                minLines = LABEL_LINES,
+                maxLines = LABEL_LINES,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 2.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 2.dp),
             )
         }
     }

@@ -95,9 +95,9 @@ fun HomeScreen(
                 columns = GridCells.Fixed(HOME_COLUMNS),
                 state = gridState,
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(start = 12.dp, end = 12.dp, bottom = DOCK_AREA_HEIGHT_DP.dp),
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp),
+                contentPadding = PaddingValues(start = 10.dp, end = 10.dp, bottom = DOCK_AREA_HEIGHT_DP.dp),
+                horizontalArrangement = Arrangement.spacedBy(2.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp),
             ) {
                 // ウィジェットは全幅・縦一列。検索中は結果を押し下げないよう隠す
                 if (!state.isSearching) {
