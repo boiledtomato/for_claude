@@ -1,5 +1,8 @@
 package com.example.zlauncher.ui.home.component
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
@@ -19,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,8 +33,10 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.example.zlauncher.core.designsystem.ZColors
+import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.domain.model.AppEntry
+import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 /**
@@ -47,10 +53,20 @@ fun FavoritesDock(
     onMove: (Int, Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val scope = rememberCoroutineScope()
     var dragIndex by remember { mutableStateOf<Int?>(null) }
+    // 指を離した後、掴んでいた位置から元の位置へバネで戻すあいだだけ立つ。
+    // 即座に 0 に戻すとタイルがパッと飛ぶので、着地が終わるまで枠を保持する。
+    var settlingIndex by remember { mutableStateOf<Int?>(null) }
     var dragDx by remember { mutableFloatStateOf(0f) }
+    val settleDx = remember { Animatable(0f) }
     var slotWidth by remember { mutableFloatStateOf(1f) }
     val shape = RoundedCornerShape(20.dp)
+    val borderColor by animateColorAsState(
+        targetValue = if (dragIndex != null) ZColors.Accent else ZColors.Outline,
+        animationSpec = ZMotion.touch(),
+        label = "dockBorder",
+    )
 
     Row(
         modifier
@@ -58,7 +74,7 @@ fun FavoritesDock(
             .height(80.dp)
             .clip(shape)
             .background(ZColors.Surface)
-            .border(1.dp, if (dragIndex != null) ZColors.Accent else ZColors.Outline, shape)
+            .border(1.dp, borderColor, shape)
             .padding(horizontal = 12.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
@@ -77,8 +93,12 @@ fun FavoritesDock(
                     DockTile(
                         entry = entry,
                         index = slot,
-                        isDragging = dragIndex == slot,
-                        dragDx = if (dragIndex == slot) dragDx else 0f,
+                        lifted = dragIndex == slot,
+                        dragDx = when (slot) {
+                            dragIndex -> dragDx
+                            settlingIndex -> settleDx.value
+                            else -> 0f
+                        },
                         iconProvider = iconProvider,
                         onLaunch = onLaunch,
                         onRemove = onRemove,
@@ -96,7 +116,18 @@ fun FavoritesDock(
                                 }
                             }
                         },
-                        onDragEnd = { dragIndex = null; dragDx = 0f },
+                        onDragEnd = {
+                            val from = dragIndex ?: return@DockTile
+                            val released = dragDx
+                            dragIndex = null
+                            dragDx = 0f
+                            settlingIndex = from
+                            scope.launch {
+                                settleDx.snapTo(released)
+                                settleDx.animateTo(0f, ZMotion.touch())
+                                settlingIndex = null
+                            }
+                        },
                     )
                 }
             }
@@ -120,7 +151,7 @@ private fun EmptyDockSlot() {
 private fun DockTile(
     entry: AppEntry,
     index: Int,
-    isDragging: Boolean,
+    lifted: Boolean,
     dragDx: Float,
     iconProvider: suspend (AppEntry) -> androidx.compose.ui.graphics.ImageBitmap?,
     onLaunch: (AppEntry, android.graphics.Rect?) -> Unit,
@@ -131,13 +162,19 @@ private fun DockTile(
 ) {
     var menuOpen by remember { mutableStateOf(false) }
 
+    val lift by animateFloatAsState(
+        targetValue = if (lifted) ZMotion.LIFT_SCALE else 1f,
+        animationSpec = ZMotion.touch(),
+        label = "dockLift",
+    )
+
     Box(
         Modifier
-            .zIndex(if (isDragging) 1f else 0f)
+            .zIndex(if (dragDx != 0f || lifted) 1f else 0f)
             .graphicsLayer {
                 translationX = dragDx
-                scaleX = if (isDragging) 1.08f else 1f
-                scaleY = if (isDragging) 1.08f else 1f
+                scaleX = lift
+                scaleY = lift
             }
             .pointerInput(entry.key, index) {
                 detectDragGesturesAfterLongPress(
