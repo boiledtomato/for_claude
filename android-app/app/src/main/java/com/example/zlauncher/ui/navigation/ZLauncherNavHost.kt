@@ -1,5 +1,10 @@
 package com.example.zlauncher.ui.navigation
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -7,6 +12,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.ui.console.ConsoleScreen
 import com.example.zlauncher.ui.home.HomeScreen
@@ -34,7 +40,23 @@ fun ZLauncherNavHost(homeKeyPresses: Flow<Unit>, widgetHost: WidgetHostControlle
         }
     }
 
-    NavHost(navController = navController, startDestination = Route.HOME) {
+    // 画面の入れ替わりも滑らせる。切り替わりが瞬間だと位置関係が分からなくなる
+    NavHost(
+        navController = navController,
+        startDestination = Route.HOME,
+        enterTransition = {
+            fadeIn(tween(ZMotion.TRANSITION_MS)) + slideInHorizontally { width -> width / 10 }
+        },
+        exitTransition = {
+            fadeOut(tween(ZMotion.TRANSITION_MS)) + slideOutHorizontally { width -> -width / 24 }
+        },
+        popEnterTransition = {
+            fadeIn(tween(ZMotion.TRANSITION_MS)) + slideInHorizontally { width -> -width / 24 }
+        },
+        popExitTransition = {
+            fadeOut(tween(ZMotion.TRANSITION_MS)) + slideOutHorizontally { width -> width / 10 }
+        },
+    ) {
         composable(Route.HOME) {
             HomeScreen(
                 onOpenConsole = { navController.navigate(Route.DASHBOARD) },

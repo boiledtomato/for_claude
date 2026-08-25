@@ -2,7 +2,6 @@ package com.example.zlauncher.ui.home.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -23,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.springyClick
 
 /** ホームのアプリ検索。アプリ数が増えると、配置よりも検索の方が早く目的に着く */
 @Composable
@@ -46,7 +46,7 @@ fun AppSearchBar(
         Box(Modifier.size(6.dp).clip(RoundedCornerShape(999.dp)).background(ZColors.AccentAlt))
         Box(Modifier.weight(1f)) {
             if (query.isEmpty()) {
-                Text("アプリを検索", style = ZType.Body, color = ZColors.TextSecondary)
+                Text("Search apps", style = ZType.Body, color = ZColors.TextSecondary)
             }
             BasicTextField(
                 value = query,
@@ -65,7 +65,7 @@ fun AppSearchBar(
                 color = ZColors.TextSecondary,
                 modifier = Modifier
                     .clip(RoundedCornerShape(999.dp))
-                    .clickable(onClick = onClear)
+                    .springyClick(onClick = onClear)
                     .padding(horizontal = 4.dp, vertical = 2.dp),
             )
         }

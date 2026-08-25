@@ -2,7 +2,6 @@ package com.example.zlauncher.ui.console
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,6 +21,7 @@ import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -37,8 +37,10 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.core.designsystem.ZColors
+import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.rememberGridReorderState
+import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.core.ui.reorderableItem
 import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CardLayout
@@ -144,18 +146,31 @@ private fun CardGrid(
             val definition = CardCatalog[card.id]
             // 未知の ID（アプリ更新でカードが消えた等）は描画しない
             if (definition != null) {
-                val isDragging = reorderState.draggingIndex == index
+                val isDragging = reorderState.isActive(index)
+                val lifted = reorderState.draggingIndex == index
+                val lift by animateFloatAsState(
+                    targetValue = if (lifted) ZMotion.LIFT_SCALE else 1f,
+                    animationSpec = ZMotion.touch(),
+                    label = "cardLift",
+                )
+                val tilt by animateFloatAsState(
+                    targetValue = if (lifted) -1.2f else 0f,
+                    animationSpec = ZMotion.touch(),
+                    label = "cardTilt",
+                )
                 Column(
                     Modifier
+                        // 並べ替えは編集モードに入らなくても常に効く
+                        .animateItem(placementSpec = ZMotion.placement())
                         .zIndex(if (isDragging) 1f else 0f)
                         .graphicsLayer {
-                            if (isDragging) {
-                                translationX = reorderState.dragOffset.x
-                                translationY = reorderState.dragOffset.y
-                                rotationZ = -1.5f
-                            }
+                            translationX = if (isDragging) reorderState.dragOffset.x else 0f
+                            translationY = if (isDragging) reorderState.dragOffset.y else 0f
+                            scaleX = lift
+                            scaleY = lift
+                            rotationZ = tilt
                         }
-                        .reorderableItem(reorderState, index, enabled = isEditing)
+                        .reorderableItem(reorderState, index)
                 ) {
                     Box {
                         Box(Modifier.alpha(if (isEditing) 0.92f else 1f)) {
@@ -189,13 +204,13 @@ private fun CardGrid(
                 Spacer(Modifier.height(8.dp))
                 IconStyleRow(themed = themedIcons, onSelect = viewModel::setThemedIcons)
                 Spacer(Modifier.height(8.dp))
-                SettingsRow(label = "ウィジェットを追加", onClick = onAddWidget)
+                SettingsRow(label = "Add widget", onClick = onAddWidget)
                 Spacer(Modifier.height(8.dp))
                 SettingsRow(
                     label = if (DefaultLauncher.isDefault(context)) {
-                        "ホームアプリ設定を開く"
+                        "Open home app settings"
                     } else {
-                        "このアプリを既定のホームにする"
+                        "Set as default home"
                     },
                     onClick = {
                         runCatching { context.startActivity(DefaultLauncher.requestIntent(context)) }
@@ -203,7 +218,7 @@ private fun CardGrid(
                 )
                 if (isEditing) {
                     Spacer(Modifier.height(8.dp))
-                    SettingsRow(label = "カード配置を既定に戻す", onClick = viewModel::resetLayout)
+                    SettingsRow(label = "Reset card layout", onClick = viewModel::resetLayout)
                 }
             }
         }
@@ -223,7 +238,7 @@ private fun EditHint() {
             .padding(horizontal = 11.dp, vertical = 8.dp),
     ) {
         Text(
-            "長押しでドラッグして並べ替え・− で非表示",
+            "Drag any card to reorder · − hides it · chips resize it",
             style = ZType.Sub.copy(fontSize = 11.sp),
             color = ZColors.TextSecondary,
         )
@@ -246,7 +261,7 @@ private fun ChromeButton(label: String, onClick: () -> Unit) {
             .clip(RoundedCornerShape(7.dp))
             .background(ZColors.SurfaceHigh)
             .border(1.dp, ZColors.Outline, RoundedCornerShape(7.dp))
-            .clickable(onClick = onClick),
+            .springyClick(onClick = onClick),
         contentAlignment = Alignment.Center,
     ) {
         Text(label, style = ZType.Body.copy(fontSize = 13.sp), color = ZColors.TextSecondary)
@@ -256,8 +271,8 @@ private fun ChromeButton(label: String, onClick: () -> Unit) {
 @Composable
 private fun SpanChips(card: CardLayout, onSelect: (CardSpan) -> Unit) {
     Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-        Chip("1/2 幅", card.span == CardSpan.HALF) { onSelect(CardSpan.HALF) }
-        Chip("全幅", card.span == CardSpan.FULL) { onSelect(CardSpan.FULL) }
+        Chip("Half", card.span == CardSpan.HALF) { onSelect(CardSpan.HALF) }
+        Chip("Full", card.span == CardSpan.FULL) { onSelect(CardSpan.FULL) }
     }
 }
 
@@ -272,7 +287,7 @@ private fun Chip(label: String, selected: Boolean, onClick: () -> Unit) {
                 if (selected) ZColors.Accent.copy(alpha = 0.5f) else ZColors.StatusNeutral,
                 RoundedCornerShape(999.dp),
             )
-            .clickable(onClick = onClick)
+            .springyClick(onClick = onClick)
             .padding(horizontal = 10.dp, vertical = 4.dp),
     ) {
         Text(
@@ -286,7 +301,7 @@ private fun Chip(label: String, selected: Boolean, onClick: () -> Unit) {
 @Composable
 private fun HiddenCardsSection(hidden: List<CardLayout>, onShow: (String) -> Unit) {
     Column(Modifier.fillMaxWidth().padding(top = 10.dp)) {
-        Text("非表示のカード", style = ZType.Eyebrow, color = ZColors.TextSecondary)
+        Text("Hidden cards", style = ZType.Eyebrow, color = ZColors.TextSecondary)
         Spacer(Modifier.height(9.dp))
         hidden.forEach { card ->
             val definition = CardCatalog[card.id] ?: return@forEach
@@ -297,7 +312,7 @@ private fun HiddenCardsSection(hidden: List<CardLayout>, onShow: (String) -> Uni
                     .clip(RoundedCornerShape(10.dp))
                     .background(ZColors.SurfaceLow)
                     .border(1.dp, ZColors.Outline, RoundedCornerShape(10.dp))
-                    .clickable { onShow(card.id) }
+                    .springyClick { onShow(card.id) }
                     .padding(horizontal = 12.dp, vertical = 9.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
@@ -324,11 +339,11 @@ private fun SortOrderRow(current: AppSortOrder, onSelect: (AppSortOrder) -> Unit
             .border(1.dp, ZColors.Outline, RoundedCornerShape(10.dp))
             .padding(horizontal = 12.dp, vertical = 11.dp),
     ) {
-        Text("アプリの並び順", style = ZType.Body, color = ZColors.TextPrimary)
+        Text("App order", style = ZType.Body, color = ZColors.TextPrimary)
         Spacer(Modifier.height(9.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            Chip("名前順", current == AppSortOrder.LABEL) { onSelect(AppSortOrder.LABEL) }
-            Chip("インストール日時順", current == AppSortOrder.INSTALL_TIME) { onSelect(AppSortOrder.INSTALL_TIME) }
+            Chip("Name", current == AppSortOrder.LABEL) { onSelect(AppSortOrder.LABEL) }
+            Chip("Install date", current == AppSortOrder.INSTALL_TIME) { onSelect(AppSortOrder.INSTALL_TIME) }
         }
     }
 }
@@ -347,17 +362,17 @@ private fun IconStyleRow(themed: Boolean, onSelect: (Boolean) -> Unit) {
             .border(1.dp, ZColors.Outline, RoundedCornerShape(10.dp))
             .padding(horizontal = 12.dp, vertical = 11.dp),
     ) {
-        Text("アイコンの見た目", style = ZType.Body, color = ZColors.TextPrimary)
+        Text("Icon style", style = ZType.Body, color = ZColors.TextPrimary)
         Spacer(Modifier.height(4.dp))
         Text(
-            "テーマ調はモノクロ対応アプリのみ（Android 13 以降）",
+            "Themed affects apps with a monochrome layer (Android 13+)",
             style = ZType.Sub,
             color = ZColors.TextDim,
         )
         Spacer(Modifier.height(9.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            Chip("標準", !themed) { onSelect(false) }
-            Chip("テーマ調", themed) { onSelect(true) }
+            Chip("Default", !themed) { onSelect(false) }
+            Chip("Themed", themed) { onSelect(true) }
         }
     }
 }
@@ -370,7 +385,7 @@ private fun SettingsRow(label: String, onClick: () -> Unit) {
             .clip(RoundedCornerShape(10.dp))
             .background(ZColors.SurfaceLow)
             .border(1.dp, ZColors.Outline, RoundedCornerShape(10.dp))
-            .clickable(onClick = onClick)
+            .springyClick(onClick = onClick)
             .padding(horizontal = 12.dp, vertical = 11.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {

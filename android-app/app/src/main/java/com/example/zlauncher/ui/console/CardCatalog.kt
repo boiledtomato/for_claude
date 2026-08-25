@@ -30,20 +30,20 @@ data class CardDefinition(
  */
 object CardCatalog {
     private val definitions: List<CardDefinition> = listOf(
-        CardDefinition(CardIds.HEALTH, "ヘルスチェック") { HealthCheckCard(it) },
-        CardDefinition(CardIds.TRAFFIC, "トラフィック") { TrafficCard(it) },
-        CardDefinition(CardIds.TRAFFIC_TOTAL, "通信量（起動から）") { TrafficTotalCard(it) },
-        CardDefinition(CardIds.BATTERY_TREND, "バッテリー推移") { BatteryTrendCard(it) },
-        CardDefinition(CardIds.CLOCK, "時刻") { ClockCard(it) },
-        CardDefinition(CardIds.SOUND_LIGHT, "音量と明るさ") { SoundLightCard(it) },
-        CardDefinition(CardIds.DEVICE_INFO, "端末") { DeviceInfoCard(it) },
-        CardDefinition(CardIds.BATTERY, "バッテリー") { BatteryCard(it) },
-        CardDefinition(CardIds.STORAGE, "ストレージ") { StorageCard(it) },
-        CardDefinition(CardIds.MEMORY, "メモリ") { MemoryCard(it) },
-        CardDefinition(CardIds.NETWORK, "ネットワーク") { NetworkCard(it) },
-        CardDefinition(CardIds.UPTIME, "連続稼働") { UptimeCard(it) },
-        CardDefinition(CardIds.APPS, "アプリ") { AppsCard(it) },
-        CardDefinition(CardIds.RECENT_APPS, "最近追加したアプリ") { RecentAppsCard(it) },
+        CardDefinition(CardIds.HEALTH, "Health check") { HealthCheckCard(it) },
+        CardDefinition(CardIds.TRAFFIC, "Traffic") { TrafficCard(it) },
+        CardDefinition(CardIds.TRAFFIC_TOTAL, "Data since boot") { TrafficTotalCard(it) },
+        CardDefinition(CardIds.BATTERY_TREND, "Battery trend") { BatteryTrendCard(it) },
+        CardDefinition(CardIds.CLOCK, "Clock") { ClockCard(it) },
+        CardDefinition(CardIds.SOUND_LIGHT, "Sound & brightness") { SoundLightCard(it) },
+        CardDefinition(CardIds.DEVICE_INFO, "Device") { DeviceInfoCard(it) },
+        CardDefinition(CardIds.BATTERY, "Battery") { BatteryCard(it) },
+        CardDefinition(CardIds.STORAGE, "Storage") { StorageCard(it) },
+        CardDefinition(CardIds.MEMORY, "Memory") { MemoryCard(it) },
+        CardDefinition(CardIds.NETWORK, "Network") { NetworkCard(it) },
+        CardDefinition(CardIds.UPTIME, "Uptime") { UptimeCard(it) },
+        CardDefinition(CardIds.APPS, "Apps") { AppsCard(it) },
+        CardDefinition(CardIds.RECENT_APPS, "Recently added") { RecentAppsCard(it) },
     )
 
     private val byId = definitions.associateBy { it.id }

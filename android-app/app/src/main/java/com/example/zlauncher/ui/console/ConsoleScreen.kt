@@ -1,6 +1,13 @@
 package com.example.zlauncher.ui.console
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -8,7 +15,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -50,7 +56,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.core.designsystem.ZColors
+import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.ui.home.component.AppIconTile
@@ -102,11 +110,11 @@ fun ConsoleScreen(
                 .padding(WindowInsets.safeDrawing.asPaddingValues()),
         ) {
             ConsoleTopBar(
-                title = selectedCategory?.category?.name ?: "概要",
+                title = selectedCategory?.category?.name ?: "Overview",
                 subtitle = if (selectedCategory != null) {
-                    "${selectedCategory.apps.size} 個のアプリ"
+                    "${selectedCategory.apps.size} apps"
                 } else {
-                    "ライブ · ${formatClock(snapshot.metrics.sampledAtMillis)} 更新"
+                    "Live · updated ${formatClock(snapshot.metrics.sampledAtMillis)}"
                 },
                 live = selectedCategory == null && snapshot.loaded,
                 isEditing = viewModel.isEditing,
@@ -115,22 +123,33 @@ fun ConsoleScreen(
                 onToggleEdit = { viewModel.setEditMode(!viewModel.isEditing) },
             )
 
-            if (selectedCategory != null) {
-                CategoryPane(
-                    category = selectedCategory,
-                    iconProvider = viewModel::icon,
-                    onLaunch = { entry -> viewModel.launch(entry) },
-                    onRemoveApp = { pkg -> viewModel.removeAppFromCategory(selectedCategory.id, pkg) },
-                    onPickApps = { pickingAppsFor = selectedCategory },
-                    onEditCategory = { editingCategory = selectedCategory },
-                    onDeleteCategory = { viewModel.deleteCategory(selectedCategory.id) },
-                )
-            } else {
-                OverviewPane(
-                    viewModel = viewModel,
-                    snapshot = snapshot,
-                    onAddWidget = onAddWidget,
-                )
+            // ペインの切り替えも滑らせる。瞬間的に差し替えると場所を見失う
+            AnimatedContent(
+                targetState = selectedCategory?.id,
+                transitionSpec = {
+                    (fadeIn(tween(ZMotion.TRANSITION_MS)) + slideInVertically { it / 18 })
+                        .togetherWith(fadeOut(tween(160)))
+                },
+                label = "pane",
+            ) { categoryId ->
+                val pane = categoryId?.let { id -> categories.firstOrNull { it.id == id } }
+                if (pane != null) {
+                    CategoryPane(
+                        category = pane,
+                        iconProvider = viewModel::icon,
+                        onLaunch = { entry -> viewModel.launch(entry) },
+                        onRemoveApp = { pkg -> viewModel.removeAppFromCategory(pane.id, pkg) },
+                        onPickApps = { pickingAppsFor = pane },
+                        onEditCategory = { editingCategory = pane },
+                        onDeleteCategory = { viewModel.deleteCategory(pane.id) },
+                    )
+                } else {
+                    OverviewPane(
+                        viewModel = viewModel,
+                        snapshot = snapshot,
+                        onAddWidget = onAddWidget,
+                    )
+                }
             }
         }
     }
@@ -152,7 +171,7 @@ fun ConsoleScreen(
 
     editingCategory?.let { target ->
         CategoryEditDialog(
-            title = "カテゴリーを編集",
+            title = "Edit category",
             initialName = target.category.name,
             initialColorIndex = target.category.colorIndex,
             onDismiss = { editingCategory = null },
@@ -166,7 +185,7 @@ fun ConsoleScreen(
 
     pickingAppsFor?.let { target ->
         AppPickerDialog(
-            title = "「${target.category.name}」に入れるアプリ",
+            title = "Apps in “${target.category.name}”",
             apps = allApps,
             initiallySelected = target.category.packages.toSet(),
             multiSelect = true,
@@ -181,7 +200,7 @@ fun ConsoleScreen(
 
     pinningSlot?.let { slot ->
         AppPickerDialog(
-            title = "ピン留めするアプリ（${slot + 1} 枠目）",
+            title = "Pin app (slot ${slot + 1})",
             apps = allApps,
             initiallySelected = pinned.getOrNull(slot)?.let { setOf(it.packageName) } ?: emptySet(),
             multiSelect = false,
@@ -217,7 +236,7 @@ private fun ConsoleRail(
             .padding(vertical = 10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text("よく使う", style = ZType.Sub.copy(fontSize = 9.sp), color = ZColors.TextDim)
+        Text("Pinned", style = ZType.Sub.copy(fontSize = 9.sp), color = ZColors.TextDim)
         Spacer(Modifier.height(8.dp))
         repeat(pinnedSlots) { slot ->
             PinSlot(
@@ -238,7 +257,7 @@ private fun ConsoleRail(
         )
 
         RailItem(
-            label = "概要",
+            label = "Overview",
             selected = selected is ConsolePane.Overview,
             indicator = { RailSquare(ZColors.AccentAlt) },
             onClick = { onSelect(ConsolePane.Overview) },
@@ -255,7 +274,7 @@ private fun ConsoleRail(
         }
 
         RailItem(
-            label = "追加",
+            label = "Add",
             selected = false,
             indicator = { Text("＋", style = ZType.Title.copy(fontSize = 18.sp), color = ZColors.TextSecondary) },
             onClick = onAddCategory,
@@ -278,7 +297,7 @@ private fun PinSlot(
                 .clip(RoundedCornerShape(13.dp))
                 .background(ZColors.Accent.copy(alpha = 0.06f))
                 .border(1.dp, ZColors.Accent.copy(alpha = 0.35f), RoundedCornerShape(13.dp))
-                .clickable(onClick = onEdit),
+                .springyClick(onClick = onEdit),
             contentAlignment = Alignment.Center,
         ) {
             Text("＋", style = ZType.Body, color = ZColors.AccentSoft)
@@ -311,25 +330,33 @@ private fun RailItem(
     indicator: @Composable () -> Unit,
     onClick: () -> Unit,
 ) {
+    val background by animateColorAsState(
+        targetValue = if (selected) ZColors.SurfaceHigh else Color.Transparent,
+        animationSpec = ZMotion.value(),
+        label = "railBackground",
+    )
+    val indicatorHeight by animateDpAsState(
+        targetValue = if (selected) 26.dp else 0.dp,
+        animationSpec = ZMotion.touch(),
+        label = "railIndicator",
+    )
     Box(
         Modifier
             .fillMaxWidth()
             .padding(horizontal = 6.dp, vertical = 3.dp)
             .clip(RoundedCornerShape(12.dp))
-            .background(if (selected) ZColors.SurfaceHigh else Color.Transparent)
-            .clickable(onClick = onClick)
+            .background(background)
+            .springyClick(onClick = onClick)
             .padding(vertical = 10.dp),
     ) {
-        if (selected) {
-            Box(
-                Modifier
-                    .align(Alignment.CenterStart)
-                    .width(3.dp)
-                    .height(26.dp)
-                    .clip(RoundedCornerShape(2.dp))
-                    .background(ZColors.Accent)
-            )
-        }
+        Box(
+            Modifier
+                .align(Alignment.CenterStart)
+                .width(3.dp)
+                .height(indicatorHeight)
+                .clip(RoundedCornerShape(2.dp))
+                .background(ZColors.Accent)
+        )
         Column(
             Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -375,7 +402,7 @@ private fun ConsoleTopBar(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Box(
-            Modifier.size(32.dp).clip(RoundedCornerShape(8.dp)).clickable(onClick = onBack),
+            Modifier.size(32.dp).clip(RoundedCornerShape(8.dp)).springyClick(onClick = onBack),
             contentAlignment = Alignment.Center,
         ) {
             Text("‹", style = ZType.Title.copy(fontSize = 22.sp), color = ZColors.TextSecondary)
@@ -397,11 +424,11 @@ private fun ConsoleTopBar(
                         if (isEditing) ZColors.Accent.copy(alpha = 0.45f) else ZColors.Outline,
                         RoundedCornerShape(999.dp),
                     )
-                    .clickable(onClick = onToggleEdit)
+                    .springyClick(onClick = onToggleEdit)
                     .padding(horizontal = 14.dp, vertical = 7.dp),
             ) {
                 Text(
-                    text = if (isEditing) "完了" else "編集",
+                    text = if (isEditing) "Done" else "Layout",
                     style = ZType.Body,
                     color = if (isEditing) ZColors.AccentSoft else ZColors.TextSecondary,
                 )

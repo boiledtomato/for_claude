@@ -39,6 +39,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.springyClick
 
 private data class PendingWidget(val appWidgetId: Int, val item: WidgetPickerViewModel.ProviderItem)
 
@@ -135,15 +136,15 @@ fun WidgetPickerScreen(
             horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             Box(
-                Modifier.size(32.dp).clip(RoundedCornerShape(8.dp)).clickable(onClick = onDone),
+                Modifier.size(32.dp).clip(RoundedCornerShape(8.dp)).springyClick(onClick = onDone),
                 contentAlignment = Alignment.Center,
             ) {
                 Text("‹", style = ZType.Title.copy(fontSize = 22.sp), color = ZColors.TextSecondary)
             }
             Column(Modifier.weight(1f)) {
-                Text("ウィジェットを追加", style = ZType.Title, color = ZColors.TextPrimary)
+                Text("Add widget", style = ZType.Title, color = ZColors.TextPrimary)
                 Text(
-                    text = if (loading) "読み込み中" else "${providers.size} 件",
+                    text = if (loading) "Loading" else "${providers.size} available",
                     style = ZType.Sub,
                     color = ZColors.TextSecondary,
                 )
@@ -171,7 +172,7 @@ private fun ProviderRow(item: WidgetPickerViewModel.ProviderItem, onClick: () ->
             .clip(shape)
             .background(ZColors.Surface)
             .border(1.dp, ZColors.Outline, shape)
-            .clickable(onClick = onClick)
+            .springyClick(onClick = onClick)
             .padding(horizontal = 12.dp, vertical = 11.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -190,7 +191,7 @@ private fun ProviderRow(item: WidgetPickerViewModel.ProviderItem, onClick: () ->
             Text(item.sizeLabel, style = ZType.Sub, color = ZColors.TextSecondary)
         }
         if (item.configure != null) {
-            Text("設定あり", style = ZType.Sub, color = ZColors.TextDim)
+            Text("Configurable", style = ZType.Sub, color = ZColors.TextDim)
         }
     }
 }

@@ -21,15 +21,15 @@ fun formatBytes(bytes: Long): Pair<String, String> {
     return text to units[index]
 }
 
-/** 稼働時間などの表示。"3日 5時間" / "5時間 12分" / "12分" */
+/** 稼働時間などの表示。"3d 5h" / "5h 12m" / "12m" */
 fun formatDuration(millis: Long): String {
     val totalMinutes = millis / 60_000
     val days = totalMinutes / (60 * 24)
     val hours = (totalMinutes / 60) % 24
     val minutes = totalMinutes % 60
     return when {
-        days > 0 -> "${days}日 ${hours}時間"
-        hours > 0 -> "${hours}時間 ${minutes}分"
-        else -> "${minutes}分"
+        days > 0 -> "${days}d ${hours}h"
+        hours > 0 -> "${hours}h ${minutes}m"
+        else -> "${minutes}m"
     }
 }

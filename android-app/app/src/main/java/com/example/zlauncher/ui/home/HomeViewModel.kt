@@ -71,16 +71,16 @@ class HomeViewModel @Inject constructor(
             // ダミーではなく実際の状態を出す
             statusChips = listOf(
                 HomeStatusChip(
-                    label = if (metrics.vpnActive) "VPN 接続中" else "VPN 未接続",
+                    label = if (metrics.vpnActive) "VPN on" else "VPN off",
                     status = if (metrics.vpnActive) CardStatus.GREEN else CardStatus.NEUTRAL,
                 ),
                 HomeStatusChip(
                     label = when (metrics.network) {
                         NetworkKind.WIFI -> "Wi-Fi"
-                        NetworkKind.CELLULAR -> "モバイル通信"
-                        NetworkKind.ETHERNET -> "有線"
-                        NetworkKind.OTHER -> "接続中"
-                        NetworkKind.NONE -> "オフライン"
+                        NetworkKind.CELLULAR -> "Mobile"
+                        NetworkKind.ETHERNET -> "Ethernet"
+                        NetworkKind.OTHER -> "Connected"
+                        NetworkKind.NONE -> "Offline"
                     },
                     status = when {
                         metrics.network == NetworkKind.NONE -> CardStatus.RED

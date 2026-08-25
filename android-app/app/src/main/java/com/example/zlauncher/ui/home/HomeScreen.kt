@@ -46,7 +46,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.core.designsystem.LocalStatusColors
 import com.example.zlauncher.core.designsystem.ZColors
+import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.ui.home.component.AppSearchBar
@@ -118,7 +120,7 @@ fun HomeScreen(
                 if (state.isEmptyResult) {
                     item(span = { GridItemSpan(HOME_COLUMNS) }) {
                         Text(
-                            text = "「${state.query}」に一致するアプリはありません",
+                            text = "No apps match “${state.query}”",
                             style = ZType.Body,
                             color = ZColors.TextSecondary,
                             modifier = Modifier.padding(horizontal = 8.dp, vertical = 24.dp),
@@ -127,7 +129,9 @@ fun HomeScreen(
                 }
 
                 items(state.apps, key = { it.key }) { entry ->
+                    // 検索や並び順の変更で位置が変わるときに滑らせる
                     HomeAppItem(
+                        modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
                         entry = entry,
                         isFavorite = state.isFavorite(entry),
                         canFavorite = !entry.isWorkProfile,
@@ -180,6 +184,7 @@ fun HomeScreen(
 
 @Composable
 private fun HomeAppItem(
+    modifier: Modifier = Modifier,
     entry: AppEntry,
     isFavorite: Boolean,
     canFavorite: Boolean,
@@ -193,7 +198,7 @@ private fun HomeAppItem(
     var menuOpen by remember { mutableStateOf(false) }
     var bounds by remember { mutableStateOf<android.graphics.Rect?>(null) }
 
-    Box {
+    Box(modifier) {
         AppTile(
             entry = entry,
             iconProvider = iconProvider,
@@ -210,7 +215,7 @@ private fun HomeAppItem(
                 Unit
             } else if (isFavorite) {
                 DropdownMenuItem(
-                    text = { Text("ドックから外す", style = ZType.Body, color = ZColors.TextPrimary) },
+                    text = { Text("Remove from dock", style = ZType.Body, color = ZColors.TextPrimary) },
                     onClick = { menuOpen = false; onRemoveFavorite(entry) },
                 )
             } else {
@@ -218,7 +223,7 @@ private fun HomeAppItem(
                     enabled = !favoritesFull,
                     text = {
                         Text(
-                            text = if (favoritesFull) "ドックが満杯です" else "ドックに追加",
+                            text = if (favoritesFull) "Dock is full" else "Add to dock",
                             style = ZType.Body,
                             color = if (favoritesFull) ZColors.TextDim else ZColors.AccentSoft,
                         )
@@ -227,7 +232,7 @@ private fun HomeAppItem(
                 )
             }
             DropdownMenuItem(
-                text = { Text("アプリ情報", style = ZType.Body, color = ZColors.TextPrimary) },
+                text = { Text("App info", style = ZType.Body, color = ZColors.TextPrimary) },
                 onClick = { menuOpen = false; onAppInfo(entry, bounds) },
             )
         }
@@ -278,16 +283,16 @@ private fun ConsoleHandle(onClick: () -> Unit) {
             .clip(RoundedCornerShape(999.dp))
             .background(ZColors.Surface)
             .border(1.dp, ZColors.Outline, RoundedCornerShape(999.dp))
-            .clickable(onClick = onClick)
+            .springyClick(onClick = onClick)
             .padding(horizontal = 15.dp, vertical = 9.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Box(Modifier.size(8.dp).background(ZColors.AccentAlt, CircleShape))
-        Text(text = "コンソール", style = ZType.Body, color = ZColors.TextPrimary)
+        Text(text = "Console", style = ZType.Body, color = ZColors.TextPrimary)
     }
 }
 
 private fun formatTime(): String = SimpleDateFormat("H:mm", Locale.getDefault()).format(Date())
 
-private fun formatDate(): String = SimpleDateFormat("M月d日(E)", Locale.getDefault()).format(Date())
+private fun formatDate(): String = SimpleDateFormat("EEE, MMM d", Locale.ENGLISH).format(Date())

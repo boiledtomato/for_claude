@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.zlauncher.core.designsystem.LocalStatusColors
 import com.example.zlauncher.core.designsystem.ZColors
+import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.designsystem.component.DashboardCardScaffold
 import com.example.zlauncher.core.designsystem.component.MetricValue
@@ -55,19 +56,19 @@ fun TrafficCard(context: CardContext) {
     val active = metrics.rxBytesPerSec > 0 || metrics.txBytesPerSec > 0
 
     DashboardCardScaffold(
-        title = "トラフィック",
+        title = "Traffic",
         status = if (active) CardStatus.GREEN else CardStatus.NEUTRAL,
-        statusLabel = if (active) "通信中" else "待機",
+        statusLabel = if (active) "Active" else "Idle",
         leadingDot = true,
     ) {
         Spacer(Modifier.height(10.dp))
         Row(verticalAlignment = Alignment.Bottom) {
             Column(Modifier.weight(1f)) {
-                Text("下り", style = ZType.Sub, color = ZColors.TextSecondary)
+                Text("Down", style = ZType.Sub, color = ZColors.TextSecondary)
                 MetricValue(value = down, unit = "$downUnit/s", fontSize = 26.sp, color = ZColors.AccentAlt)
             }
             Column(Modifier.weight(1f)) {
-                Text("上り", style = ZType.Sub, color = ZColors.TextSecondary)
+                Text("Up", style = ZType.Sub, color = ZColors.TextSecondary)
                 MetricValue(value = up, unit = "$upUnit/s", fontSize = 26.sp, color = ZColors.Accent)
             }
         }
@@ -76,7 +77,7 @@ fun TrafficCard(context: CardContext) {
         Spacer(Modifier.height(4.dp))
         Sparkline(values = metrics.txHistory, color = ZColors.Accent, height = 20.dp)
         Spacer(Modifier.height(8.dp))
-        Text("直近 ${metrics.rxHistory.size} 秒", style = ZType.Sub, color = ZColors.TextSecondary)
+        Text("Last ${metrics.rxHistory.size}s", style = ZType.Sub, color = ZColors.TextSecondary)
     }
 }
 
@@ -89,15 +90,15 @@ fun TrafficTotalCard(context: CardContext) {
     val mobile = (metrics.mobileRxBytes + metrics.mobileTxBytes).toFloat()
     val wifi = (metrics.wifiRxBytes + metrics.wifiTxBytes).toFloat()
 
-    DashboardCardScaffold(title = "通信量（起動から）", status = CardStatus.NEUTRAL, leadingDot = true) {
+    DashboardCardScaffold(title = "Data since boot", status = CardStatus.NEUTRAL, leadingDot = true) {
         Spacer(Modifier.height(10.dp))
         Row {
             Column(Modifier.weight(1f)) {
-                Text("受信", style = ZType.Sub, color = ZColors.TextSecondary)
+                Text("Received", style = ZType.Sub, color = ZColors.TextSecondary)
                 MetricValue(value = rx, unit = rxUnit, fontSize = 22.sp)
             }
             Column(Modifier.weight(1f)) {
-                Text("送信", style = ZType.Sub, color = ZColors.TextSecondary)
+                Text("Sent", style = ZType.Sub, color = ZColors.TextSecondary)
                 MetricValue(value = tx, unit = txUnit, fontSize = 22.sp)
             }
         }
@@ -110,8 +111,8 @@ fun TrafficTotalCard(context: CardContext) {
         )
         Spacer(Modifier.height(10.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            LegendItem(ZColors.AccentAlt, "Wi-Fi ほか")
-            LegendItem(ZColors.Accent, "モバイル")
+            LegendItem(ZColors.AccentAlt, "Wi-Fi & other")
+            LegendItem(ZColors.Accent, "Mobile")
         }
     }
 }
@@ -127,28 +128,28 @@ fun HealthCheckCard(context: CardContext) {
     val metrics = context.snapshot.metrics
     val checks = listOf(
         HealthCheck(
-            label = "ネットワーク疎通",
-            value = if (metrics.online) "正常" else "未接続",
+            label = "Network reachability",
+            value = if (metrics.online) "OK" else "Not connected",
             status = if (metrics.online) CardStatus.GREEN else CardStatus.RED,
         ),
         HealthCheck(
-            label = "VPN トンネル",
-            value = if (metrics.vpnActive) "接続済" else "未接続",
+            label = "VPN tunnel",
+            value = if (metrics.vpnActive) "Connected" else "Not connected",
             status = if (metrics.vpnActive) CardStatus.GREEN else CardStatus.NEUTRAL,
         ),
         HealthCheck(
-            label = "ストレージ余裕",
-            value = if (metrics.storageUsedRatio < 0.9f) "十分" else "残り僅か",
+            label = "Storage headroom",
+            value = if (metrics.storageUsedRatio < 0.9f) "Sufficient" else "Low",
             status = if (metrics.storageUsedRatio < 0.9f) CardStatus.GREEN else CardStatus.AMBER,
         ),
         HealthCheck(
-            label = "メモリ余裕",
-            value = if (metrics.memoryUsedRatio < 0.9f) "十分" else "逼迫",
+            label = "Memory headroom",
+            value = if (metrics.memoryUsedRatio < 0.9f) "Sufficient" else "Tight",
             status = if (metrics.memoryUsedRatio < 0.9f) CardStatus.GREEN else CardStatus.AMBER,
         ),
         HealthCheck(
-            label = "バッテリー",
-            value = if (metrics.batteryCharging || metrics.batteryPercent >= 20) "問題なし" else "残量低下",
+            label = "Battery",
+            value = if (metrics.batteryCharging || metrics.batteryPercent >= 20) "Healthy" else "Low battery",
             status = if (metrics.batteryCharging || metrics.batteryPercent >= 20) CardStatus.GREEN else CardStatus.RED,
         ),
     )
@@ -170,9 +171,9 @@ fun HealthCheckCard(context: CardContext) {
     val running = sweep.value < 1f
 
     DashboardCardScaffold(
-        title = "ヘルスチェック",
+        title = "Health check",
         status = if (running) CardStatus.NEUTRAL else worst,
-        statusLabel = if (running) "点検中" else "$healthy/${checks.size} 正常",
+        statusLabel = if (running) "Checking" else "$healthy/${checks.size} OK",
         onClick = { runId++ },
     ) {
         Spacer(Modifier.height(10.dp))
@@ -217,7 +218,7 @@ fun HealthCheckCard(context: CardContext) {
         }
         Spacer(Modifier.height(6.dp))
         Text(
-            text = if (running) "点検しています…" else "タップで再点検",
+            text = if (running) "Running checks…" else "Tap to re-run",
             style = ZType.Sub,
             color = ZColors.TextDim,
         )
@@ -234,7 +235,7 @@ fun BatteryTrendCard(context: CardContext) {
         metrics.batteryPercent >= 20 -> CardStatus.NEUTRAL
         else -> CardStatus.RED
     }
-    DashboardCardScaffold(title = "バッテリー推移", status = status, leadingDot = true) {
+    DashboardCardScaffold(title = "Battery trend", status = status, leadingDot = true) {
         Spacer(Modifier.height(10.dp))
         MetricValue(value = metrics.batteryPercent.toString(), unit = "%", fontSize = 26.sp)
         Spacer(Modifier.height(8.dp))
@@ -245,7 +246,7 @@ fun BatteryTrendCard(context: CardContext) {
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            text = if (metrics.batteryCharging) "充電中" else "放電中",
+            text = if (metrics.batteryCharging) "Charging" else "Discharging",
             style = ZType.Sub,
             color = ZColors.TextSecondary,
         )
@@ -259,15 +260,15 @@ fun ClockCard(context: CardContext) {
         SimpleDateFormat("H:mm:ss", Locale.getDefault()).format(Date())
     }
     val date = remember(context.snapshot.metrics.sampledAtMillis / 3_600_000) {
-        SimpleDateFormat("M月d日(E)", Locale.getDefault()).format(Date())
+        SimpleDateFormat("EEE, MMM d", Locale.ENGLISH).format(Date())
     }
-    DashboardCardScaffold(title = "時刻", status = CardStatus.NEUTRAL) {
+    DashboardCardScaffold(title = "Clock", status = CardStatus.NEUTRAL) {
         Spacer(Modifier.height(10.dp))
         Text(text = time, style = ZType.Metric.copy(fontSize = 30.sp), color = ZColors.TextPrimary)
         Spacer(Modifier.height(8.dp))
         Text(date, style = ZType.Sub, color = ZColors.TextSecondary)
         Spacer(Modifier.height(6.dp))
-        Text("稼働 ${formatDuration(context.snapshot.metrics.uptimeMillis)}", style = ZType.Sub, color = ZColors.TextDim)
+        Text("Up ${formatDuration(context.snapshot.metrics.uptimeMillis)}", style = ZType.Sub, color = ZColors.TextDim)
     }
 }
 
@@ -275,13 +276,13 @@ fun ClockCard(context: CardContext) {
 @Composable
 fun SoundLightCard(context: CardContext) {
     val metrics = context.snapshot.metrics
-    DashboardCardScaffold(title = "音量と明るさ", status = CardStatus.NEUTRAL) {
+    DashboardCardScaffold(title = "Sound & brightness", status = CardStatus.NEUTRAL) {
         Spacer(Modifier.height(12.dp))
-        LevelRow("メディア", metrics.mediaVolumePercent, ZColors.AccentAlt)
+        LevelRow("Media", metrics.mediaVolumePercent, ZColors.AccentAlt)
         Spacer(Modifier.height(10.dp))
-        LevelRow("着信", metrics.ringVolumePercent, ZColors.Accent)
+        LevelRow("Ring", metrics.ringVolumePercent, ZColors.Accent)
         Spacer(Modifier.height(10.dp))
-        LevelRow("画面の明るさ", metrics.brightnessPercent, ZColors.Violet)
+        LevelRow("Brightness", metrics.brightnessPercent, ZColors.Violet)
     }
 }
 
@@ -289,20 +290,20 @@ fun SoundLightCard(context: CardContext) {
 @Composable
 fun DeviceInfoCard(context: CardContext) {
     val info = context.snapshot.metrics.info
-    DashboardCardScaffold(title = "端末", status = CardStatus.NEUTRAL) {
+    DashboardCardScaffold(title = "Device", status = CardStatus.NEUTRAL) {
         Spacer(Modifier.height(12.dp))
         Column(verticalArrangement = Arrangement.spacedBy(9.dp)) {
-            InfoRow("モデル", info.model.ifBlank { "—" })
+            InfoRow("Model", info.model.ifBlank { "—" })
             InfoRow("Android", if (info.sdkInt > 0) "${info.androidVersion} (API ${info.sdkInt})" else "—")
-            InfoRow("画面", if (info.screenWidthPx > 0) "${info.screenWidthPx} × ${info.screenHeightPx} / ${info.densityDpi} dpi" else "—")
-            InfoRow("CPU コア", if (info.cpuCores > 0) "${info.cpuCores}" else "—")
+            InfoRow("Display", if (info.screenWidthPx > 0) "${info.screenWidthPx} × ${info.screenHeightPx} / ${info.densityDpi} dpi" else "—")
+            InfoRow("CPU cores", if (info.cpuCores > 0) "${info.cpuCores}" else "—")
         }
     }
 }
 
 @Composable
 private fun LevelRow(label: String, percent: Int, color: Color) {
-    val animated by animateFloatAsState(percent / 100f, tween(500), label = label)
+    val animated by animateFloatAsState(percent / 100f, ZMotion.value(), label = label)
     Column {
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             Text(

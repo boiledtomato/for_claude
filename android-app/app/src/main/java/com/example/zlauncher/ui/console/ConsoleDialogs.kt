@@ -2,7 +2,6 @@ package com.example.zlauncher.ui.console
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -42,6 +41,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.domain.model.PRESET_CATEGORIES
 import com.example.zlauncher.domain.model.PresetCategory
@@ -74,14 +74,14 @@ fun CategoryCreateDialog(
                 .border(1.dp, ZColors.OutlineStrong, RoundedCornerShape(18.dp))
                 .padding(16.dp),
         ) {
-            Text("カテゴリーを追加", style = ZType.Title, color = ZColors.TextPrimary)
+            Text("Add category", style = ZType.Title, color = ZColors.TextPrimary)
             Spacer(Modifier.height(14.dp))
 
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
-                Text("プリセット", style = ZType.Eyebrow, color = ZColors.TextSecondary)
+                Text("Presets", style = ZType.Eyebrow, color = ZColors.TextSecondary)
                 Spacer(Modifier.height(4.dp))
                 Text(
-                    "Zscaler の URL カテゴリーの切り口に沿った候補です",
+                    "Based on Zscaler's predefined URL categories",
                     style = ZType.Sub,
                     color = ZColors.TextDim,
                 )
@@ -109,7 +109,7 @@ fun CategoryCreateDialog(
                                     if (isSelected) color.copy(alpha = 0.6f) else ZColors.Outline,
                                     RoundedCornerShape(999.dp),
                                 )
-                                .clickable(enabled = !already) {
+                                .springyClick(enabled = !already) {
                                     if (isSelected) selected.remove(preset.name) else selected.add(preset.name)
                                 }
                                 .padding(horizontal = 12.dp, vertical = 8.dp),
@@ -127,14 +127,14 @@ fun CategoryCreateDialog(
                                 },
                             )
                             if (already) {
-                                Text("追加済", style = ZType.Sub.copy(fontSize = 9.sp), color = ZColors.TextDim)
+                                Text("Added", style = ZType.Sub.copy(fontSize = 9.sp), color = ZColors.TextDim)
                             }
                         }
                     }
                 }
 
                 Spacer(Modifier.height(20.dp))
-                Text("自分で作る", style = ZType.Eyebrow, color = ZColors.TextSecondary)
+                Text("Custom", style = ZType.Eyebrow, color = ZColors.TextSecondary)
                 Spacer(Modifier.height(10.dp))
                 Box(
                     Modifier
@@ -145,7 +145,7 @@ fun CategoryCreateDialog(
                         .padding(horizontal = 12.dp, vertical = 11.dp),
                 ) {
                     if (customName.isEmpty()) {
-                        Text("カテゴリー名", style = ZType.Body, color = ZColors.TextSecondary)
+                        Text("Category name", style = ZType.Body, color = ZColors.TextSecondary)
                     }
                     BasicTextField(
                         value = customName,
@@ -169,7 +169,7 @@ fun CategoryCreateDialog(
                                     color = if (index == customColor) ZColors.TextPrimary else ZColors.Outline,
                                     shape = CircleShape,
                                 )
-                                .clickable { customColor = index }
+                                .springyClick { customColor = index }
                         )
                     }
                 }
@@ -178,14 +178,14 @@ fun CategoryCreateDialog(
 
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = if (selected.isEmpty()) "" else "${selected.size} 件を選択中",
+                    text = if (selected.isEmpty()) "" else "${selected.size} selected",
                     style = ZType.Sub,
                     color = ZColors.TextSecondary,
                     modifier = Modifier.weight(1f),
                 )
-                DialogButton("キャンセル", accent = false, onClick = onDismiss)
+                DialogButton("Cancel", accent = false, onClick = onDismiss)
                 Spacer(Modifier.size(10.dp))
-                DialogButton("追加", accent = true) {
+                DialogButton("Add", accent = true) {
                     val presets = PRESET_CATEGORIES.filter { it.name in selected }
                     if (presets.isNotEmpty() || customName.isNotBlank()) {
                         onConfirm(presets, customName.trim(), customColor)
@@ -227,7 +227,7 @@ fun CategoryEditDialog(
                     .padding(horizontal = 12.dp, vertical = 11.dp),
             ) {
                 if (name.isEmpty()) {
-                    Text("カテゴリー名", style = ZType.Body, color = ZColors.TextSecondary)
+                    Text("Category name", style = ZType.Body, color = ZColors.TextSecondary)
                 }
                 BasicTextField(
                     value = name,
@@ -239,7 +239,7 @@ fun CategoryEditDialog(
                 )
             }
             Spacer(Modifier.height(16.dp))
-            Text("色", style = ZType.Eyebrow, color = ZColors.TextSecondary)
+            Text("Color", style = ZType.Eyebrow, color = ZColors.TextSecondary)
             Spacer(Modifier.height(10.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 ZColors.CategoryColors.forEachIndexed { index, color ->
@@ -253,15 +253,15 @@ fun CategoryEditDialog(
                                 color = if (index == colorIndex) ZColors.TextPrimary else ZColors.Outline,
                                 shape = CircleShape,
                             )
-                            .clickable { colorIndex = index }
+                            .springyClick { colorIndex = index }
                     )
                 }
             }
             Spacer(Modifier.height(20.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                DialogButton("キャンセル", accent = false, onClick = onDismiss)
+                DialogButton("Cancel", accent = false, onClick = onDismiss)
                 Spacer(Modifier.size(10.dp))
-                DialogButton("保存", accent = true) {
+                DialogButton("Save", accent = true) {
                     if (name.isNotBlank()) onConfirm(name.trim(), colorIndex)
                 }
             }
@@ -307,7 +307,7 @@ fun AppPickerDialog(
                     .padding(horizontal = 12.dp, vertical = 10.dp),
             ) {
                 if (query.isEmpty()) {
-                    Text("アプリを検索", style = ZType.Body, color = ZColors.TextSecondary)
+                    Text("Search apps", style = ZType.Body, color = ZColors.TextSecondary)
                 }
                 BasicTextField(
                     value = query,
@@ -333,7 +333,7 @@ fun AppPickerDialog(
                                 if (isSelected) ZColors.Accent.copy(alpha = 0.45f) else ZColors.Outline,
                                 RoundedCornerShape(10.dp),
                             )
-                            .clickable {
+                            .springyClick {
                                 if (isSelected) {
                                     selected.remove(entry.packageName)
                                 } else {
@@ -355,7 +355,7 @@ fun AppPickerDialog(
                             overflow = TextOverflow.Ellipsis,
                         )
                         Text(
-                            text = if (isSelected) "選択中" else "",
+                            text = if (isSelected) "Selected" else "",
                             style = ZType.Sub,
                             color = ZColors.AccentSoft,
                         )
@@ -365,14 +365,14 @@ fun AppPickerDialog(
             Spacer(Modifier.height(12.dp))
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = if (multiSelect) "${selected.size} 個を選択中" else "",
+                    text = if (multiSelect) "${selected.size} selected" else "",
                     style = ZType.Sub,
                     color = ZColors.TextSecondary,
                     modifier = Modifier.weight(1f),
                 )
-                DialogButton("キャンセル", accent = false, onClick = onDismiss)
+                DialogButton("Cancel", accent = false, onClick = onDismiss)
                 Spacer(Modifier.size(10.dp))
-                DialogButton("決定", accent = true) { onConfirm(selected.toList()) }
+                DialogButton("Done", accent = true) { onConfirm(selected.toList()) }
             }
         }
     }
@@ -389,7 +389,7 @@ private fun DialogButton(label: String, accent: Boolean, onClick: () -> Unit) {
                 if (accent) ZColors.Accent.copy(alpha = 0.5f) else ZColors.Outline,
                 RoundedCornerShape(999.dp),
             )
-            .clickable(onClick = onClick)
+            .springyClick(onClick = onClick)
             .padding(horizontal = 16.dp, vertical = 9.dp),
     ) {
         Text(

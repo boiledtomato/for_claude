@@ -50,7 +50,7 @@ class CategoryRepository @Inject constructor(
     val pinnedSlots: Int get() = LauncherState.MAX_PINNED
 
     suspend fun create(name: String, colorIndex: Int): Unit = preferences.update { state ->
-        val trimmed = name.trim().ifBlank { "新しいカテゴリー" }
+        val trimmed = name.trim().ifBlank { "New category" }
         state.copy(
             categories = state.categories + AppCategory(
                 id = UUID.randomUUID().toString(),

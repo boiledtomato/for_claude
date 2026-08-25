@@ -161,7 +161,7 @@ private fun DockTile(
         )
         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
             DropdownMenuItem(
-                text = { Text("ドックから外す", style = ZType.Body, color = ZColors.TextPrimary) },
+                text = { Text("Remove from dock", style = ZType.Body, color = ZColors.TextPrimary) },
                 onClick = {
                     menuOpen = false
                     onRemove(entry)

@@ -2,7 +2,6 @@ package com.example.zlauncher.ui.home.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.domain.model.WidgetPlacement
 
@@ -56,18 +56,18 @@ fun HomeWidgetItem(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
-                text = info?.loadLabel(context.packageManager) ?: "利用できないウィジェット",
+                text = info?.loadLabel(context.packageManager) ?: "Unavailable widget",
                 style = ZType.Eyebrow,
                 color = ZColors.TextSecondary,
                 modifier = Modifier.weight(1f),
             )
             Text(
-                text = "削除",
+                text = "Remove",
                 style = ZType.Sub,
                 color = ZColors.TextSecondary,
                 modifier = Modifier
                     .clip(RoundedCornerShape(999.dp))
-                    .clickable(onClick = onRemove)
+                    .springyClick(onClick = onRemove)
                     .padding(horizontal = 8.dp, vertical = 4.dp),
             )
         }
@@ -85,7 +85,7 @@ fun HomeWidgetItem(
                 contentAlignment = Alignment.CenterStart,
             ) {
                 Text(
-                    "提供元のアプリが見つかりません",
+                    "Provider app not found",
                     style = ZType.Body,
                     color = ZColors.TextDim,
                 )

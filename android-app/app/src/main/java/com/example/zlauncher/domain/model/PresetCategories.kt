@@ -1,31 +1,37 @@
 package com.example.zlauncher.domain.model
 
 /**
- * プリセットのカテゴリー。Zscaler の URL カテゴリー（スーパーカテゴリー）の切り口に沿って、
- * アプリの分類として意味が通るものだけを日本語名で並べたもの。
- * ユーザー定義のカテゴリーと同じ [AppCategory] になるので、作ったあとは自由に編集・削除できる。
+ * プリセットのカテゴリー。Zscaler の predefined URL categories の英語名をそのまま借りている。
+ * URL フィルタリング用の分類なので、アプリの分類として意味の通るものだけを並べた
+ * （Adult Material のようなブロック目的の分類は入れない）。
+ *
+ * 作られるものはユーザー定義と同じ [AppCategory] なので、追加後は名前も色も中身も変えられる。
  */
 data class PresetCategory(val name: String, val colorIndex: Int)
 
 val PRESET_CATEGORIES: List<PresetCategory> = listOf(
-    PresetCategory("ビジネス・経済", 0),
-    PresetCategory("情報技術", 1),
-    PresetCategory("ニュース・メディア", 2),
-    PresetCategory("コミュニケーション", 3),
-    PresetCategory("ソーシャル", 4),
-    PresetCategory("ショッピング", 5),
-    PresetCategory("金融", 0),
-    PresetCategory("旅行", 1),
-    PresetCategory("交通・車両", 2),
-    PresetCategory("教育・辞典", 3),
-    PresetCategory("健康・医療", 4),
-    PresetCategory("エンタメ", 5),
-    PresetCategory("ゲーム", 0),
-    PresetCategory("音楽・動画", 1),
-    PresetCategory("スポーツ", 2),
-    PresetCategory("行政・公共", 3),
-    PresetCategory("生活・社会", 4),
-    PresetCategory("飲食", 5),
-    PresetCategory("求人・キャリア", 0),
-    PresetCategory("セキュリティ", 1),
+    PresetCategory("Business and Economy", 0),
+    PresetCategory("Information Technology", 1),
+    PresetCategory("Internet Communication", 2),
+    PresetCategory("Social Networking", 3),
+    PresetCategory("News and Media", 4),
+    PresetCategory("Streaming Media", 5),
+    PresetCategory("Entertainment and Recreation", 0),
+    PresetCategory("Games", 1),
+    PresetCategory("Sports", 2),
+    PresetCategory("Shopping and Auctions", 3),
+    PresetCategory("Finance", 4),
+    PresetCategory("Travel", 5),
+    PresetCategory("Vehicles", 0),
+    PresetCategory("Education", 1),
+    PresetCategory("Reference", 2),
+    PresetCategory("Health", 3),
+    PresetCategory("Government and Politics", 4),
+    PresetCategory("Society and Lifestyle", 5),
+    PresetCategory("Restaurants and Dining", 0),
+    PresetCategory("Real Estate", 1),
+    PresetCategory("Job Search", 2),
+    PresetCategory("Professional Services", 3),
+    PresetCategory("Legal", 4),
+    PresetCategory("Religion", 5),
 )

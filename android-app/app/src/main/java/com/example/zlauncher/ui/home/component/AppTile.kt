@@ -1,10 +1,8 @@
 package com.example.zlauncher.ui.home.component
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.zlauncher.core.designsystem.ZColors
+import com.example.zlauncher.core.ui.springyCombinedClick
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.domain.model.AppEntry
 
@@ -42,7 +41,6 @@ private const val LABEL_LINES = 2
 fun rememberAppIcon(entry: AppEntry, provider: suspend (AppEntry) -> ImageBitmap?) =
     produceState<ImageBitmap?>(initialValue = null, entry.key) { value = provider(entry) }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AppTile(
     entry: AppEntry,
@@ -70,7 +68,7 @@ fun AppTile(
                 )
             }
             .clip(RoundedCornerShape(16.dp))
-            .combinedClickable(
+            .springyCombinedClick(
                 onClick = { onClick(bounds) },
                 onLongClick = {
                     haptics.performHapticFeedback(HapticFeedbackType.LongPress)

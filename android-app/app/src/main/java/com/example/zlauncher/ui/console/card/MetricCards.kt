@@ -4,7 +4,6 @@ import android.content.Intent
 import android.provider.Settings
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,7 +23,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.zlauncher.core.designsystem.LocalStatusColors
 import com.example.zlauncher.core.designsystem.ZColors
+import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.core.designsystem.component.DashboardCardScaffold
 import com.example.zlauncher.core.designsystem.component.MetricValue
 import com.example.zlauncher.core.designsystem.component.ProgressRing
@@ -64,13 +65,13 @@ fun BatteryCard(context: CardContext) {
     }
     val progress by animateFloatAsState(
         targetValue = metrics.batteryPercent / 100f,
-        animationSpec = tween(700),
+        animationSpec = ZMotion.value(),
         label = "battery",
     )
     DashboardCardScaffold(
-        title = "バッテリー",
+        title = "Battery",
         status = status,
-        statusLabel = if (metrics.batteryCharging) "充電中" else null,
+        statusLabel = if (metrics.batteryCharging) "Charging" else null,
         onClick = { context.onOpenSettings(Intent.ACTION_POWER_USAGE_SUMMARY) },
     ) {
         Spacer(Modifier.height(12.dp))
@@ -88,11 +89,11 @@ fun BatteryCard(context: CardContext) {
             }
             Spacer(Modifier.width(16.dp))
             Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(9.dp)) {
-                DetailRow("状態", if (metrics.batteryCharging) "充電中" else "放電中", status)
-                DetailRow("残量", "${metrics.batteryPercent} %", status)
+                DetailRow("Status", if (metrics.batteryCharging) "Charging" else "Discharging", status)
+                DetailRow("Level", "${metrics.batteryPercent} %", status)
                 DetailRow(
-                    label = "温度",
-                    value = String.format(java.util.Locale.US, "%.1f ℃", metrics.batteryTemperatureC),
+                    label = "Temperature",
+                    value = String.format(java.util.Locale.US, "%.1f °C", metrics.batteryTemperatureC),
                     status = if (metrics.batteryTemperatureC >= 45f) CardStatus.AMBER else CardStatus.GREEN,
                 )
             }
@@ -106,10 +107,10 @@ fun StorageCard(context: CardContext) {
     val status = thresholdStatus(metrics.storageUsedRatio)
     val (used, usedUnit) = formatBytes(metrics.storageUsedBytes)
     val (free, freeUnit) = formatBytes(metrics.storageFreeBytes)
-    val ratio by animateFloatAsState(metrics.storageUsedRatio, tween(700), label = "storage")
+    val ratio by animateFloatAsState(metrics.storageUsedRatio, ZMotion.value(), label = "storage")
 
     DashboardCardScaffold(
-        title = "ストレージ",
+        title = "Storage",
         status = status,
         leadingDot = true,
         onClick = { context.onOpenSettings(Settings.ACTION_INTERNAL_STORAGE_SETTINGS) },
@@ -124,7 +125,7 @@ fun StorageCard(context: CardContext) {
             )
         )
         Spacer(Modifier.height(9.dp))
-        Text("空き $free $freeUnit", style = ZType.Sub, color = ZColors.TextSecondary)
+        Text("Free $free $freeUnit", style = ZType.Sub, color = ZColors.TextSecondary)
     }
 }
 
@@ -134,9 +135,9 @@ fun MemoryCard(context: CardContext) {
     val status = thresholdStatus(metrics.memoryUsedRatio)
     val (used, usedUnit) = formatBytes(metrics.memoryUsedBytes)
     val (total, totalUnit) = formatBytes(metrics.memoryTotalBytes)
-    val ratio by animateFloatAsState(metrics.memoryUsedRatio, tween(700), label = "memory")
+    val ratio by animateFloatAsState(metrics.memoryUsedRatio, ZMotion.value(), label = "memory")
 
-    DashboardCardScaffold(title = "メモリ", status = status, leadingDot = true) {
+    DashboardCardScaffold(title = "Memory", status = status, leadingDot = true) {
         Spacer(Modifier.height(10.dp))
         MetricValue(value = used, unit = usedUnit, color = LocalStatusColors.current.colorFor(status))
         Spacer(Modifier.height(10.dp))
@@ -147,7 +148,7 @@ fun MemoryCard(context: CardContext) {
             )
         )
         Spacer(Modifier.height(9.dp))
-        Text("全体 $total $totalUnit", style = ZType.Sub, color = ZColors.TextSecondary)
+        Text("Total $total $totalUnit", style = ZType.Sub, color = ZColors.TextSecondary)
     }
 }
 
@@ -161,27 +162,27 @@ fun NetworkCard(context: CardContext) {
     }
     val kindLabel = when (metrics.network) {
         NetworkKind.WIFI -> "Wi-Fi"
-        NetworkKind.CELLULAR -> "モバイル通信"
-        NetworkKind.ETHERNET -> "有線"
-        NetworkKind.OTHER -> "その他"
-        NetworkKind.NONE -> "未接続"
+        NetworkKind.CELLULAR -> "Mobile"
+        NetworkKind.ETHERNET -> "Ethernet"
+        NetworkKind.OTHER -> "Other"
+        NetworkKind.NONE -> "Not connected"
     }
     DashboardCardScaffold(
-        title = "ネットワーク",
+        title = "Network",
         status = status,
-        statusLabel = if (metrics.online) "オンライン" else "要確認",
+        statusLabel = if (metrics.online) "Online" else "Check",
         onClick = { context.onOpenSettings(Settings.ACTION_WIRELESS_SETTINGS) },
     ) {
         Spacer(Modifier.height(12.dp))
         Column(verticalArrangement = Arrangement.spacedBy(9.dp)) {
-            DetailRow("接続", kindLabel, status)
+            DetailRow("Connection", kindLabel, status)
             DetailRow(
                 label = "VPN",
-                value = if (metrics.vpnActive) "接続済" else "未接続",
+                value = if (metrics.vpnActive) "Connected" else "Not connected",
                 status = if (metrics.vpnActive) CardStatus.GREEN else CardStatus.NEUTRAL,
             )
             DetailRow(
-                label = "推定下り",
+                label = "Est. downlink",
                 value = if (metrics.downstreamKbps > 0) "${metrics.downstreamKbps / 1000} Mbps" else "—",
                 status = CardStatus.NEUTRAL,
             )
@@ -191,7 +192,7 @@ fun NetworkCard(context: CardContext) {
 
 @Composable
 fun UptimeCard(context: CardContext) {
-    DashboardCardScaffold(title = "連続稼働", status = CardStatus.NEUTRAL, leadingDot = true) {
+    DashboardCardScaffold(title = "Uptime", status = CardStatus.NEUTRAL, leadingDot = true) {
         Spacer(Modifier.height(10.dp))
         Text(
             text = formatDuration(context.snapshot.metrics.uptimeMillis),
@@ -199,26 +200,26 @@ fun UptimeCard(context: CardContext) {
             color = ZColors.TextPrimary,
         )
         Spacer(Modifier.height(10.dp))
-        Text("最終起動からの経過", style = ZType.Sub, color = ZColors.TextSecondary)
+        Text("Since last boot", style = ZType.Sub, color = ZColors.TextSecondary)
     }
 }
 
 @Composable
 fun AppsCard(context: CardContext) {
     DashboardCardScaffold(
-        title = "アプリ",
+        title = "Apps",
         status = CardStatus.NEUTRAL,
         leadingDot = true,
         onClick = { context.onOpenSettings(Settings.ACTION_APPLICATION_SETTINGS) },
     ) {
         Spacer(Modifier.height(10.dp))
-        MetricValue(value = context.snapshot.appCount.toString(), unit = "個")
+        MetricValue(value = context.snapshot.appCount.toString(), unit = "apps")
         Spacer(Modifier.height(10.dp))
         Text(
             text = if (context.snapshot.workAppCount > 0) {
-                "仕事用 ${context.snapshot.workAppCount} 個を含む"
+                "Includes ${context.snapshot.workAppCount} work apps"
             } else {
-                "起動可能なアプリ"
+                "Launchable apps"
             },
             style = ZType.Sub,
             color = ZColors.TextSecondary,
@@ -228,10 +229,10 @@ fun AppsCard(context: CardContext) {
 
 @Composable
 fun RecentAppsCard(context: CardContext) {
-    DashboardCardScaffold(title = "最近追加したアプリ", status = CardStatus.NEUTRAL) {
+    DashboardCardScaffold(title = "Recently added", status = CardStatus.NEUTRAL) {
         Spacer(Modifier.height(8.dp))
         if (context.snapshot.recentApps.isEmpty()) {
-            Text("読み込み中", style = ZType.Sub, color = ZColors.TextSecondary)
+            Text("Loading", style = ZType.Sub, color = ZColors.TextSecondary)
             return@DashboardCardScaffold
         }
         context.snapshot.recentApps.forEach { entry ->
@@ -239,7 +240,7 @@ fun RecentAppsCard(context: CardContext) {
             Row(
                 Modifier
                     .fillMaxWidth()
-                    .clickable { context.onLaunchApp(entry) }
+                    .springyClick { context.onLaunchApp(entry) }
                     .padding(vertical = 6.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
@@ -253,7 +254,7 @@ fun RecentAppsCard(context: CardContext) {
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
-                Text("起動", style = ZType.Sub, color = ZColors.AccentSoft)
+                Text("Open", style = ZType.Sub, color = ZColors.AccentSoft)
             }
         }
     }

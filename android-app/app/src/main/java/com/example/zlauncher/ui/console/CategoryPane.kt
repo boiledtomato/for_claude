@@ -3,8 +3,6 @@ package com.example.zlauncher.ui.console
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,7 +37,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.zlauncher.core.designsystem.ZColors
+import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.springyClick
+import com.example.zlauncher.core.ui.springyCombinedClick
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.ui.home.component.AppIconTile
@@ -73,21 +74,21 @@ fun CategoryPane(
         ) {
             Box(Modifier.size(10.dp).clip(CircleShape).background(color))
             Text(
-                text = "${category.apps.size} 個",
+                text = "${category.apps.size} apps",
                 style = ZType.Sub,
                 color = ZColors.TextSecondary,
                 modifier = Modifier.weight(1f),
             )
-            ActionChip("アプリを選択", accent = true, onClick = onPickApps)
+            ActionChip("Select apps", accent = true, onClick = onPickApps)
             Box {
                 ActionChip("⋯", accent = false, onClick = { menuOpen = true })
                 DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
                     DropdownMenuItem(
-                        text = { Text("名前と色を変更", style = ZType.Body, color = ZColors.TextPrimary) },
+                        text = { Text("Rename & recolor", style = ZType.Body, color = ZColors.TextPrimary) },
                         onClick = { menuOpen = false; onEditCategory() },
                     )
                     DropdownMenuItem(
-                        text = { Text("カテゴリーを削除", style = ZType.Body, color = ZColors.StatusRed) },
+                        text = { Text("Delete category", style = ZType.Body, color = ZColors.StatusRed) },
                         onClick = { menuOpen = false; onDeleteCategory() },
                     )
                 }
@@ -108,6 +109,7 @@ fun CategoryPane(
         ) {
             items(category.apps, key = { it.key }) { entry ->
                 CategoryAppTile(
+                    modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
                     entry = entry,
                     iconProvider = iconProvider,
                     onLaunch = { onLaunch(entry) },
@@ -124,6 +126,7 @@ fun CategoryPane(
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun CategoryAppTile(
+    modifier: Modifier = Modifier,
     entry: AppEntry,
     iconProvider: suspend (AppEntry) -> ImageBitmap?,
     onLaunch: () -> Unit,
@@ -132,12 +135,12 @@ private fun CategoryAppTile(
     val icon by rememberAppIcon(entry, iconProvider)
     var menuOpen by remember { mutableStateOf(false) }
 
-    Box {
+    Box(modifier) {
         Column(
             Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp))
-                .combinedClickable(onClick = onLaunch, onLongClick = { menuOpen = true })
+                .springyCombinedClick(onClick = onLaunch, onLongClick = { menuOpen = true })
                 .padding(vertical = 4.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -156,7 +159,7 @@ private fun CategoryAppTile(
         }
         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
             DropdownMenuItem(
-                text = { Text("カテゴリーから外す", style = ZType.Body, color = ZColors.TextPrimary) },
+                text = { Text("Remove from category", style = ZType.Body, color = ZColors.TextPrimary) },
                 onClick = { menuOpen = false; onRemove() },
             )
         }
@@ -170,9 +173,9 @@ private fun EmptyCategory(onPickApps: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(Modifier.height(40.dp))
-        Text("まだアプリがありません", style = ZType.Body, color = ZColors.TextSecondary)
+        Text("No apps yet", style = ZType.Body, color = ZColors.TextSecondary)
         Spacer(Modifier.height(14.dp))
-        ActionChip("アプリを選択", accent = true, onClick = onPickApps)
+        ActionChip("Select apps", accent = true, onClick = onPickApps)
     }
 }
 
@@ -187,7 +190,7 @@ private fun ActionChip(label: String, accent: Boolean, onClick: () -> Unit) {
                 if (accent) ZColors.Accent.copy(alpha = 0.45f) else ZColors.Outline,
                 RoundedCornerShape(999.dp),
             )
-            .clickable(onClick = onClick)
+            .springyClick(onClick = onClick)
             .padding(horizontal = 13.dp, vertical = 7.dp),
     ) {
         Text(
