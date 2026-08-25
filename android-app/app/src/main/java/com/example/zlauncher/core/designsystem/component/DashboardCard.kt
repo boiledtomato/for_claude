@@ -2,6 +2,7 @@ package com.example.zlauncher.core.designsystem.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,6 +37,7 @@ fun DashboardCardScaffold(
     statusLabel: String? = null,
     leadingDot: Boolean = false,
     highlighted: Boolean = false,
+    onClick: (() -> Unit)? = null,
     trailing: (@Composable () -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
@@ -48,6 +50,7 @@ fun DashboardCardScaffold(
             .clip(shape)
             .background(if (highlighted) ZColors.SurfaceHigh else ZColors.Surface)
             .border(1.dp, if (highlighted) ZColors.Accent else ZColors.Outline, shape)
+            .let { if (onClick != null) it.clickable(onClick = onClick) else it }
     ) {
         if (edge != null) {
             Box(Modifier.width(2.dp).fillMaxHeight().background(edge))

@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.zlauncher.data.widgets.WidgetHostController
-import com.example.zlauncher.ui.dashboard.DashboardScreen
+import com.example.zlauncher.ui.console.ConsoleScreen
 import com.example.zlauncher.ui.home.HomeScreen
 import com.example.zlauncher.ui.widgets.WidgetPickerScreen
 import kotlinx.coroutines.flow.Flow
@@ -43,7 +43,7 @@ fun ZLauncherNavHost(homeKeyPresses: Flow<Unit>, widgetHost: WidgetHostControlle
             )
         }
         composable(Route.DASHBOARD) {
-            DashboardScreen(
+            ConsoleScreen(
                 onBack = { navController.popBackStack() },
                 onAddWidget = { navController.navigate(Route.WIDGETS) },
             )

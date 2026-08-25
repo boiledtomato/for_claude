@@ -1,5 +1,6 @@
 package com.example.zlauncher.data.prefs
 
+import com.example.zlauncher.domain.model.AppCategory
 import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CardLayout
 import com.example.zlauncher.domain.model.DEFAULT_CARD_LAYOUT
@@ -21,10 +22,15 @@ data class LauncherState(
     val cards: List<CardLayout> = DEFAULT_CARD_LAYOUT,
     /** ホーム上部に並べるウィジェット。既定値があるので旧バージョンの JSON もそのまま読める */
     val widgets: List<WidgetPlacement> = emptyList(),
+    /** コンソール左レールのカテゴリー（ユーザーが作る） */
+    val categories: List<AppCategory> = emptyList(),
+    /** レール上部にピン留めするアプリ。最大 [MAX_PINNED] 件 */
+    val pinnedApps: List<String> = emptyList(),
 ) {
     companion object {
         const val CURRENT_VERSION = 1
         const val MAX_FAVORITES = 4
+        const val MAX_PINNED = 2
     }
 }
 

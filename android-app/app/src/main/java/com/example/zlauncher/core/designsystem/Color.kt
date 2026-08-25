@@ -23,4 +23,8 @@ object ZColors {
     val StatusAmber = Color(0xFFFBBF24)
     val StatusRed = Color(0xFFF87171)
     val StatusNeutral = Color(0xFF2A3550)
+    val Violet = Color(0xFF8B93F8)
+
+    /** カテゴリーの識別色。ステータス色とは役割が違うので別リストにする */
+    val CategoryColors = listOf(Accent, AccentAlt, StatusGreen, StatusAmber, Violet, StatusRed)
 }

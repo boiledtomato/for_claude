@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- コンソールの回線種別・VPN 状態の表示に使う。通常権限なので実行時確認は不要 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <!--
       起動可能アプリの可視性。Android 11 以降はこれが無いと一覧が空になる。
       QUERY_ALL_PACKAGES は使わない（Play のポリシー宣言が不要な範囲で足りる）。

@@ -9,7 +9,8 @@ import com.example.zlauncher.data.apps.AppSorter
 import com.example.zlauncher.data.apps.FavoritesRepository
 import com.example.zlauncher.data.apps.InstalledAppRepository
 import com.example.zlauncher.data.apps.LauncherAppsDataSource
-import com.example.zlauncher.data.dashboard.DashboardDataSource
+import com.example.zlauncher.data.device.DeviceMetricsRepository
+import com.example.zlauncher.data.device.NetworkKind
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.data.widgets.WidgetRepository
 import com.example.zlauncher.domain.model.AppEntry
@@ -29,7 +30,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     installedApps: InstalledAppRepository,
-    dashboardDataSource: DashboardDataSource,
+    metricsRepository: DeviceMetricsRepository,
     private val iconLoader: AppIconLoader,
     private val favoritesRepository: FavoritesRepository,
     private val widgetRepository: WidgetRepository,
@@ -47,9 +48,9 @@ class HomeViewModel @Inject constructor(
         installedApps.apps,
         favoritesRepository.favorites,
         preferences.state,
-        dashboardDataSource.snapshot(),
+        metricsRepository.metrics,
         _query,
-    ) { apps, favorites, state, snapshot, query ->
+    ) { apps, favorites, state, metrics, query ->
         val sorted = AppSorter.sort(apps, state.sortOrder)
         HomeUiState(
             loading = false,
@@ -59,10 +60,34 @@ class HomeViewModel @Inject constructor(
             favorites = favorites,
             sortOrder = state.sortOrder,
             favoriteSlots = favoritesRepository.maxSlots,
+            // ダミーではなく実際の状態を出す
             statusChips = listOf(
-                HomeStatusChip("保護中", snapshot.securityStatus),
-                HomeStatusChip("トンネル 接続済", CardStatus.GREEN),
-                HomeStatusChip("${snapshot.latencyMs} ms", CardStatus.AMBER),
+                HomeStatusChip(
+                    label = if (metrics.vpnActive) "VPN 接続中" else "VPN 未接続",
+                    status = if (metrics.vpnActive) CardStatus.GREEN else CardStatus.NEUTRAL,
+                ),
+                HomeStatusChip(
+                    label = when (metrics.network) {
+                        NetworkKind.WIFI -> "Wi-Fi"
+                        NetworkKind.CELLULAR -> "モバイル通信"
+                        NetworkKind.ETHERNET -> "有線"
+                        NetworkKind.OTHER -> "接続中"
+                        NetworkKind.NONE -> "オフライン"
+                    },
+                    status = when {
+                        metrics.network == NetworkKind.NONE -> CardStatus.RED
+                        !metrics.networkValidated -> CardStatus.AMBER
+                        else -> CardStatus.GREEN
+                    },
+                ),
+                HomeStatusChip(
+                    label = "${metrics.batteryPercent}%",
+                    status = when {
+                        metrics.batteryCharging || metrics.batteryPercent >= 50 -> CardStatus.GREEN
+                        metrics.batteryPercent >= 20 -> CardStatus.AMBER
+                        else -> CardStatus.RED
+                    },
+                ),
             ),
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), HomeUiState())

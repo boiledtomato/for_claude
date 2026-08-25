@@ -382,8 +382,9 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 An independent Gradle project — it shares nothing with the Python/HTML pipeline and is
 not deployed by any workflow. Kotlin + Jetpack Compose home launcher (`HOME` intent
 filter) with three screens: a home screen (widgets, app search, an auto-sorted app grid,
-a favourites dock), a card-based console screen with drag-and-drop reordering, and a
-widget picker. Work profile apps appear in the same grid with badged icons.
+a favourites dock), a console screen (left rail with pinned apps and user-created
+categories; panes for live device metrics or a category's apps), and a widget picker.
+Work profile apps appear in the same grid with badged icons.
 
 - Build: `cd android-app && ./gradlew assembleDebug` (needs an Android SDK with
   compileSdk 36; `local.properties` is git-ignored). The Gradle wrapper is committed
@@ -395,7 +396,7 @@ widget picker. Work profile apps appear in the same grid with badged icons.
   previous one. Never use it for a release build
 - Debug builds carry `applicationIdSuffix ".debug"` so they coexist with the device's
   real launcher — **do not set a debug build as the default home until it is verified**
-- Console values come from `DashboardDataSource` and are dummy data
+- Console cards read real device metrics (`DeviceMetricsRepository`, polled every 2s while the console is open); the only permission used is `ACCESS_NETWORK_STATE`
 - See `android-app/README.md` for the placement model, the Japanese app-name sorting
   limitation, and the launcher-specific manifest flags
 
