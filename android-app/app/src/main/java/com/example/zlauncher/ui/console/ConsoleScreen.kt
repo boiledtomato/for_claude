@@ -61,6 +61,7 @@ import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.domain.model.AppEntry
+import com.example.zlauncher.ui.insights.InsightsPane
 import com.example.zlauncher.ui.home.component.AppIconTile
 import com.example.zlauncher.ui.home.component.rememberAppIcon
 import java.text.SimpleDateFormat
@@ -110,41 +111,55 @@ fun ConsoleScreen(
                 .padding(WindowInsets.safeDrawing.asPaddingValues()),
         ) {
             ConsoleTopBar(
-                title = selectedCategory?.category?.name ?: "Overview",
-                subtitle = if (selectedCategory != null) {
-                    "${selectedCategory.apps.size} apps"
-                } else {
-                    "Live · updated ${formatClock(snapshot.metrics.sampledAtMillis)}"
+                title = when {
+                    selected is ConsolePane.Insights -> "Web Insights"
+                    selectedCategory != null -> selectedCategory.category.name
+                    else -> "Overview"
                 },
-                live = selectedCategory == null && snapshot.loaded,
+                subtitle = when {
+                    selected is ConsolePane.Insights -> "Per-category traffic log"
+                    selectedCategory != null -> "${selectedCategory.apps.size} apps"
+                    else -> "Live · updated ${formatClock(snapshot.metrics.sampledAtMillis)}"
+                },
+                live = selected is ConsolePane.Overview && snapshot.loaded,
                 isEditing = viewModel.isEditing,
-                showEdit = selectedCategory == null,
+                showEdit = selected is ConsolePane.Overview,
                 onBack = onBack,
                 onToggleEdit = { viewModel.setEditMode(!viewModel.isEditing) },
             )
 
             // ペインの切り替えも滑らせる。瞬間的に差し替えると場所を見失う
             AnimatedContent(
-                targetState = selectedCategory?.id,
+                targetState = selected,
                 transitionSpec = {
                     (fadeIn(tween(ZMotion.TRANSITION_MS)) + slideInVertically { it / 18 })
                         .togetherWith(fadeOut(tween(160)))
                 },
                 label = "pane",
-            ) { categoryId ->
-                val pane = categoryId?.let { id -> categories.firstOrNull { it.id == id } }
-                if (pane != null) {
-                    CategoryPane(
-                        category = pane,
-                        iconProvider = viewModel::icon,
-                        onLaunch = { entry -> viewModel.launch(entry) },
-                        onRemoveApp = { pkg -> viewModel.removeAppFromCategory(pane.id, pkg) },
-                        onPickApps = { pickingAppsFor = pane },
-                        onEditCategory = { editingCategory = pane },
-                        onDeleteCategory = { viewModel.deleteCategory(pane.id) },
-                    )
-                } else {
-                    OverviewPane(
+            ) { target ->
+                when (target) {
+                    is ConsolePane.Insights -> InsightsPane(initialCategoryId = target.categoryId)
+
+                    is ConsolePane.Category -> {
+                        val pane = categories.firstOrNull { it.id == target.id }
+                        if (pane == null) {
+                            // 表示中のカテゴリーが消えた瞬間。次の再構成で Overview に戻る
+                            Box(Modifier.fillMaxSize())
+                        } else {
+                            CategoryPane(
+                                category = pane,
+                                iconProvider = viewModel::icon,
+                                onLaunch = { entry -> viewModel.launch(entry) },
+                                onRemoveApp = { pkg -> viewModel.removeAppFromCategory(pane.id, pkg) },
+                                onPickApps = { pickingAppsFor = pane },
+                                onEditCategory = { editingCategory = pane },
+                                onDeleteCategory = { viewModel.deleteCategory(pane.id) },
+                                onOpenInsights = { viewModel.select(ConsolePane.Insights(pane.id)) },
+                            )
+                        }
+                    }
+
+                    ConsolePane.Overview -> OverviewPane(
                         viewModel = viewModel,
                         snapshot = snapshot,
                         onAddWidget = onAddWidget,
@@ -263,6 +278,13 @@ private fun ConsoleRail(
             onClick = { onSelect(ConsolePane.Overview) },
         )
 
+        RailItem(
+            label = "Insights",
+            selected = selected is ConsolePane.Insights,
+            indicator = { RailBars(ZColors.AccentSoft) },
+            onClick = { onSelect(ConsolePane.Insights()) },
+        )
+
         categories.forEach { category ->
             val color = ZColors.CategoryColors[category.category.colorIndex % ZColors.CategoryColors.size]
             RailItem(
@@ -371,6 +393,26 @@ private fun RailItem(
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp),
+            )
+        }
+    }
+}
+
+/** Insights の目印。棒グラフを 3 本立てただけの図形 */
+@Composable
+private fun RailBars(color: Color) {
+    Row(
+        Modifier.size(14.dp),
+        verticalAlignment = Alignment.Bottom,
+        horizontalArrangement = Arrangement.spacedBy(2.dp),
+    ) {
+        listOf(0.45f, 1f, 0.7f).forEach { fraction ->
+            Box(
+                Modifier
+                    .width(3.dp)
+                    .fillMaxHeight(fraction)
+                    .clip(RoundedCornerShape(1.dp))
+                    .background(color)
             )
         }
     }

@@ -7,6 +7,9 @@ import com.example.zlauncher.domain.model.AppEntry
 sealed interface ConsolePane {
     data object Overview : ConsolePane
     data class Category(val id: String) : ConsolePane
+
+    /** Web Insights。カテゴリーから開いたときは、そのカテゴリーで絞った状態で入る */
+    data class Insights(val categoryId: String? = null) : ConsolePane
 }
 
 /** カードが描画に使う値。実データはすべてここに集約する */

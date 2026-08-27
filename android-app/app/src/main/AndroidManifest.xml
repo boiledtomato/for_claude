@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- コンソールの回線種別・VPN 状態の表示に使う。通常権限なので実行時確認は不要 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+      Web Insights のアプリ別通信量に使う。signature|appop なので実行時ダイアログでは出せず、
+      ここで宣言したうえでユーザーが設定 →「使用状況へのアクセス」で許可する。
+      未許可でもアプリは通常どおり動き、Insights ペインだけが空になる。
+    -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
 
     <!--
       起動可能アプリの可視性。Android 11 以降はこれが無いと一覧が空になる。
@@ -49,5 +59,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- ログ CSV の書き出し先。cacheDir だけを、一時的な read 権限で渡す -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.insights"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/insights_paths" />
+        </provider>
     </application>
 </manifest>

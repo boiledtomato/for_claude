@@ -59,6 +59,7 @@ fun CategoryPane(
     onPickApps: () -> Unit,
     onEditCategory: () -> Unit,
     onDeleteCategory: () -> Unit,
+    onOpenInsights: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val color = ZColors.CategoryColors[category.category.colorIndex % ZColors.CategoryColors.size]
@@ -79,6 +80,7 @@ fun CategoryPane(
                 color = ZColors.TextSecondary,
                 modifier = Modifier.weight(1f),
             )
+            ActionChip("Insights", accent = false, onClick = onOpenInsights)
             ActionChip("Select apps", accent = true, onClick = onPickApps)
             Box {
                 ActionChip("⋯", accent = false, onClick = { menuOpen = true })

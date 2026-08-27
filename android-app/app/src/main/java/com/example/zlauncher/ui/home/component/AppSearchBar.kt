@@ -24,13 +24,17 @@ import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.springyClick
 
-/** ホームのアプリ検索。アプリ数が増えると、配置よりも検索の方が早く目的に着く */
+/**
+ * ホームのアプリ検索。アプリ数が増えると、配置よりも検索の方が早く目的に着く。
+ * Web Insights のログ検索も見た目を揃えたいので、プレースホルダだけ差し替えて使い回す。
+ */
 @Composable
 fun AppSearchBar(
     query: String,
     onQueryChange: (String) -> Unit,
     onClear: () -> Unit,
     modifier: Modifier = Modifier,
+    placeholder: String = "Search apps",
 ) {
     val shape = RoundedCornerShape(10.dp)
     Row(
@@ -46,7 +50,7 @@ fun AppSearchBar(
         Box(Modifier.size(6.dp).clip(RoundedCornerShape(999.dp)).background(ZColors.AccentAlt))
         Box(Modifier.weight(1f)) {
             if (query.isEmpty()) {
-                Text("Search apps", style = ZType.Body, color = ZColors.TextSecondary)
+                Text(placeholder, style = ZType.Body, color = ZColors.TextSecondary)
             }
             BasicTextField(
                 value = query,

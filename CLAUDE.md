@@ -397,6 +397,7 @@ Work profile apps appear in the same grid with badged icons.
 - Debug builds carry `applicationIdSuffix ".debug"` so they coexist with the device's
   real launcher — **do not set a debug build as the default home until it is verified**
 - Console cards read real device metrics (`DeviceMetricsRepository`, polled every 1s while the console is open, single sampling coroutine via `stateIn`); the only permission used is `ACCESS_NETWORK_STATE`
+- The console's Insights pane is **Web Insights**: per-category traffic logs over 1H/24H/7D from `NetworkStatsManager` (`data/insights/`), searchable, filterable by time bucket and category, exportable as CSV via FileProvider. It needs usage access (`PACKAGE_USAGE_STATS`, signature|appop — granted in Settings, never by a runtime dialog); everything else works without it. URLs/hostnames are not obtainable without running a VPN service and are deliberately out of scope
 - UI strings are English throughout; console rail categories seed from `PRESET_CATEGORIES` (Zscaler predefined URL category names). Console cards are drag-reorderable at all times — the Layout button only reveals hide/resize chrome. All motion timings live in `core/designsystem/Motion.kt` (`ZMotion`) and every tappable uses `springyClick`
 - See `android-app/README.md` for the placement model, the Japanese app-name sorting
   limitation, and the launcher-specific manifest flags
