@@ -11,6 +11,8 @@ import com.example.zlauncher.domain.model.AppRollup
 import com.example.zlauncher.domain.model.CategoryRollup
 import com.example.zlauncher.domain.model.InsightLogEntry
 import com.example.zlauncher.domain.model.InsightRange
+import com.example.zlauncher.domain.model.InsightTransport
+import com.example.zlauncher.domain.model.NO_COLOR_INDEX
 import com.example.zlauncher.domain.model.UNCATEGORIZED_ID
 import com.example.zlauncher.domain.model.UNCATEGORIZED_NAME
 import com.example.zlauncher.domain.model.WebInsightsReport
@@ -89,7 +91,7 @@ class InsightsRepository @Inject constructor(
             bucketStarts = bucketStarts,
             entries = entries,
             categories = rollUpCategories(entries, categories, bucketIndex, bucketStarts.size),
-            apps = rollUpApps(entries),
+            apps = rollUpApps(entries, bucketIndex, bucketStarts.size),
         )
     }
 
@@ -115,6 +117,8 @@ class InsightsRepository @Inject constructor(
                 colorIndex = rows.first().colorIndex,
                 rxBytes = rows.sumOf { it.rxBytes },
                 txBytes = rows.sumOf { it.txBytes },
+                wifiBytes = rows.filter { it.transport == InsightTransport.WIFI }.sumOf { it.totalBytes },
+                mobileBytes = rows.filter { it.transport == InsightTransport.MOBILE }.sumOf { it.totalBytes },
                 appCount = rows.map { it.packageName }.distinct().size,
                 series = series.toList(),
             )
@@ -128,6 +132,8 @@ class InsightsRepository @Inject constructor(
                     colorIndex = category.colorIndex,
                     rxBytes = 0,
                     txBytes = 0,
+                    wifiBytes = 0,
+                    mobileBytes = 0,
                     appCount = 0,
                     series = List(bucketCount) { 0L },
                 )
@@ -142,17 +148,29 @@ class InsightsRepository @Inject constructor(
         )
     }
 
-    private fun rollUpApps(entries: List<InsightLogEntry>): List<AppRollup> =
-        entries.groupBy { it.packageName }
-            .map { (packageName, rows) ->
+    /** キーはパッケージ名。名前しか分からない UID（Tethering など）はラベルで束ねる */
+    private fun rollUpApps(
+        entries: List<InsightLogEntry>,
+        bucketIndex: Map<Long, Int>,
+        bucketCount: Int,
+    ): List<AppRollup> =
+        entries.groupBy { it.packageName.ifEmpty { it.label } }
+            .map { (_, rows) ->
+                val series = LongArray(bucketCount)
+                rows.forEach { row ->
+                    bucketIndex[row.startMillis]?.let { index -> series[index] += row.totalBytes }
+                }
                 AppRollup(
-                    packageName = packageName,
+                    packageName = rows.first().packageName,
                     label = rows.first().label,
                     categoryId = rows.first().categoryId,
                     categoryName = rows.first().categoryName,
                     colorIndex = rows.first().colorIndex,
                     rxBytes = rows.sumOf { it.rxBytes },
                     txBytes = rows.sumOf { it.txBytes },
+                    wifiBytes = rows.filter { it.transport == InsightTransport.WIFI }.sumOf { it.totalBytes },
+                    mobileBytes = rows.filter { it.transport == InsightTransport.MOBILE }.sumOf { it.totalBytes },
+                    series = series.toList(),
                 )
             }
             .sortedByDescending { it.totalBytes }
@@ -232,6 +250,6 @@ private class UidResolver(
 
     private companion object {
         /** ZColors.CategoryColors の範囲外を指して、無彩色で描かせる */
-        const val UNCATEGORIZED_COLOR_INDEX = -1
+        const val UNCATEGORIZED_COLOR_INDEX = NO_COLOR_INDEX
     }
 }

@@ -52,6 +52,16 @@ enum class InsightTransport(val label: String) {
 const val UNCATEGORIZED_ID = "__uncategorized__"
 const val UNCATEGORIZED_NAME = "Uncategorized"
 
+/** 積み上げの「その他」。実カテゴリーではないので id を分けておく */
+const val OTHER_ID = "__other__"
+
+/** 色を持たないことを示す番兵。未分類と「その他」で使う */
+const val NO_COLOR_INDEX = -1
+const val OTHER_COLOR_INDEX = -2
+
+/** 積み上げグラフで色を割り当てる上限。これを超えた分は Other にまとめる */
+const val CHART_SERIES_LIMIT = 5
+
 /** ログ 1 行 = 1 バケット × 1 アプリ（UID） × 1 回線種別 */
 data class InsightLogEntry(
     val startMillis: Long,
@@ -75,13 +85,15 @@ data class CategoryRollup(
     val colorIndex: Int,
     val rxBytes: Long,
     val txBytes: Long,
+    val wifiBytes: Long,
+    val mobileBytes: Long,
     val appCount: Int,
     val series: List<Long>,
 ) {
     val totalBytes: Long get() = rxBytes + txBytes
 }
 
-/** アプリ単位の集計 */
+/** アプリ単位の集計。ドリルダウンで自分の時系列を出すので [series] を持つ */
 data class AppRollup(
     val packageName: String,
     val label: String,
@@ -90,8 +102,14 @@ data class AppRollup(
     val colorIndex: Int,
     val rxBytes: Long,
     val txBytes: Long,
+    val wifiBytes: Long,
+    val mobileBytes: Long,
+    val series: List<Long>,
 ) {
     val totalBytes: Long get() = rxBytes + txBytes
+
+    /** 一覧の識別子。Tethering のようにパッケージ名を持たない行はラベルで代用する */
+    val key: String get() = packageName.ifEmpty { label }
 }
 
 /**
@@ -119,6 +137,34 @@ data class WebInsightsReport(
         get() = List(bucketStarts.size) { index ->
             categories.sumOf { it.series.getOrElse(index) { 0L } }
         }
+
+    /**
+     * 積み上げグラフに出す系列。上位 [CHART_SERIES_LIMIT] 件だけを色付きで出し、
+     * 残りは 1 本の「Other」にまとめる。
+     *
+     * 色を足して回すことはしない。7 色目以降は必ずどれかと見分けがつかなくなり、
+     * 「色が違う＝別のカテゴリー」という読み方そのものが壊れるため。
+     */
+    fun chartSeries(): List<CategoryRollup> {
+        val active = categories.filter { it.totalBytes > 0 }
+        if (active.size <= CHART_SERIES_LIMIT) return active
+        val head = active.take(CHART_SERIES_LIMIT)
+        val tail = active.drop(CHART_SERIES_LIMIT)
+        val merged = CategoryRollup(
+            id = OTHER_ID,
+            name = "Other (${tail.size})",
+            colorIndex = OTHER_COLOR_INDEX,
+            rxBytes = tail.sumOf { it.rxBytes },
+            txBytes = tail.sumOf { it.txBytes },
+            wifiBytes = tail.sumOf { it.wifiBytes },
+            mobileBytes = tail.sumOf { it.mobileBytes },
+            appCount = tail.sumOf { it.appCount },
+            series = List(bucketStarts.size) { index ->
+                tail.sumOf { it.series.getOrElse(index) { 0L } }
+            },
+        )
+        return head + merged
+    }
 
     companion object {
         fun empty(range: InsightRange, available: Boolean) = WebInsightsReport(

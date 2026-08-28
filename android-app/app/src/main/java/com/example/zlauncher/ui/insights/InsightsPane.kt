@@ -1,15 +1,17 @@
 package com.example.zlauncher.ui.insights
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +20,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -55,6 +56,7 @@ import com.example.zlauncher.core.designsystem.component.MetricValue
 import com.example.zlauncher.core.ui.formatBytes
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.insights.UsageAccess
+import com.example.zlauncher.domain.model.AppRollup
 import com.example.zlauncher.domain.model.CategoryRollup
 import com.example.zlauncher.domain.model.InsightLogEntry
 import com.example.zlauncher.domain.model.InsightRange
@@ -70,6 +72,10 @@ import java.util.Locale
  *
  * 端末から取れるのは UID 単位のバイト数までで、URL やホスト名は取れない。
  * したがって「どのカテゴリーのアプリが、いつ、どれだけ流したか」までを見せる。
+ *
+ * 同じデータを 3 段階で見る:
+ * Chart（カテゴリー別の積み上げ）→ Apps（アプリ別の順位）→ Log（生の行）。
+ * どの段でもカテゴリー・時間帯・検索の絞り込みは共通で効く。
  */
 @Composable
 fun InsightsPane(
@@ -104,71 +110,119 @@ fun InsightsPane(
         InsightsToolbar(
             range = viewModel.range,
             loading = viewModel.loading,
+            canExport = viewModel.canExport,
             onRange = viewModel::selectRange,
             onRefresh = { viewModel.refresh(force = true) },
             onExport = viewModel::export,
         )
 
-        ExportNotice(
-            visible = viewModel.exportFailed,
-            onDismiss = viewModel::clearExportError,
+        Notice(
+            message = viewModel.exportMessage,
+            onDismiss = viewModel::clearExportMessage,
         )
 
         if (!viewModel.report.available) {
             UsageAccessCard(
-                onGrant = {
-                    runCatching { context.startActivity(UsageAccess.settingsIntent()) }
-                },
+                onGrant = { runCatching { context.startActivity(UsageAccess.settingsIntent()) } },
             )
             return@Column
         }
 
-        InsightsBody(viewModel = viewModel)
+        ViewSwitcher(current = viewModel.view, onSelect = viewModel::selectView)
+
+        AnimatedContent(
+            targetState = viewModel.view,
+            transitionSpec = {
+                (fadeIn(tween(ZMotion.TRANSITION_MS)) + slideInVertically { it / 24 })
+                    .togetherWith(fadeOut(tween(160)))
+            },
+            label = "insightsView",
+        ) { view ->
+            when (view) {
+                InsightView.CHART -> ChartView(viewModel)
+                InsightView.APPS -> AppsView(viewModel)
+                InsightView.LOG -> LogView(viewModel)
+            }
+        }
+    }
+
+    viewModel.detail?.let { open ->
+        DetailOverlay(viewModel = viewModel, detail = open, onClose = viewModel::closeDetail)
     }
 }
 
+// ---- Chart ------------------------------------------------------------------
+
 @Composable
-private fun InsightsBody(viewModel: InsightsViewModel) {
+private fun ChartView(viewModel: InsightsViewModel) {
     val report = viewModel.report
-    val entries = viewModel.visibleEntries
-    val peak = remember(report) { report.series.maxOrNull() ?: 0L }
+    val series = remember(report) { report.chartSeries() }
 
     LazyColumn(
         Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(start = 12.dp, end = 16.dp, bottom = 28.dp),
+        contentPadding = PaddingValues(start = 12.dp, end = 16.dp, top = 4.dp, bottom = 28.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         item(key = "summary") { SummaryCard(report) }
 
         item(key = "timeline") {
-            TimelineCard(
+            DashboardCardScaffold(
+                title = "TRAFFIC BY CATEGORY",
+                modifier = Modifier.fillMaxWidth(),
+                trailing = { Text(report.range.bucketLabel, style = ZType.Sub, color = ZColors.TextDim) },
+            ) {
+                ChartSpacer(10.dp)
+                if (series.isEmpty()) {
+                    ChartEmpty("No traffic recorded in this window.")
+                } else {
+                    StackedTimeline(
+                        bucketStarts = report.bucketStarts,
+                        series = series,
+                        selected = viewModel.bucketFilter,
+                        onSelect = viewModel::toggleBucketFilter,
+                    )
+                    ChartSpacer(6.dp)
+                    AxisRow(report)
+                    ChartSpacer(12.dp)
+                    // 2 系列以上あるので凡例は必ず出す。実数も並べて色だけに頼らせない
+                    ChartLegend(series = series, onClick = { viewModel.openCategoryDetail(it.id) })
+                }
+            }
+        }
+
+        item(key = "selected-bucket") {
+            SelectedBucketCard(
                 report = report,
-                peak = peak,
-                selected = viewModel.bucketFilter,
-                onSelect = viewModel::toggleBucketFilter,
-            )
-        }
-
-        item(key = "search") {
-            AppSearchBar(
-                query = viewModel.query,
-                onQueryChange = viewModel::updateQuery,
-                onClear = { viewModel.updateQuery("") },
-                placeholder = "Search log by app or category",
-            )
-        }
-
-        item(key = "filters") {
-            ActiveFilters(
-                categoryName = report.categories.firstOrNull { it.id == viewModel.categoryFilter }?.name,
                 bucketStart = viewModel.bucketFilter,
-                range = report.range,
-                onClear = viewModel::clearFilters,
+                onClear = { viewModel.toggleBucketFilter(viewModel.bucketFilter) },
             )
+        }
+
+        item(key = "transport") {
+            DashboardCardScaffold(title = "BY CONNECTION", modifier = Modifier.fillMaxWidth()) {
+                ChartSpacer(10.dp)
+                SplitBar(
+                    leftLabel = "Wi-Fi",
+                    leftBytes = report.categories.sumOf { it.wifiBytes },
+                    leftColor = ZColors.CategoryChartColors[1],
+                    rightLabel = "Mobile",
+                    rightBytes = report.categories.sumOf { it.mobileBytes },
+                    rightColor = ZColors.CategoryChartColors[3],
+                )
+                ChartSpacer(12.dp)
+                SplitBar(
+                    leftLabel = "Down",
+                    leftBytes = report.totalRx,
+                    leftColor = ZColors.CategoryChartColors[0],
+                    rightLabel = "Up",
+                    rightBytes = report.totalTx,
+                    rightColor = ZColors.CategoryChartColors[4],
+                )
+            }
         }
 
         item(key = "categories-header") {
-            SectionHeader("Categories", "${report.categories.size}")
+            SectionHeader("All categories", "${report.categories.size}")
         }
 
         items(report.categories, key = { "cat-${it.id}" }) { rollup ->
@@ -178,8 +232,181 @@ private fun InsightsBody(viewModel: InsightsViewModel) {
                 selected = viewModel.categoryFilter == rollup.id,
                 modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
                 onClick = { viewModel.toggleCategoryFilter(rollup.id) },
+                onOpen = { viewModel.openCategoryDetail(rollup.id) },
             )
         }
+    }
+}
+
+/** 時間軸の目盛り。両端と中央だけ。全部の棒に時刻を振ると読めなくなる */
+@Composable
+private fun AxisRow(report: WebInsightsReport) {
+    val first = report.bucketStarts.firstOrNull()
+    val middle = report.bucketStarts.getOrNull(report.bucketStarts.size / 2)
+    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+        listOfNotNull(first, middle, report.generatedAtMillis.takeIf { it > 0 }).forEach { millis ->
+            Text(formatBucket(millis, report.range), style = ZType.Sub, color = ZColors.TextDim)
+        }
+    }
+}
+
+/** 選んだ時間帯の内訳。触って選ぶ画面なので、ホバーの代わりにこの読み取り欄を出す */
+@Composable
+private fun SelectedBucketCard(report: WebInsightsReport, bucketStart: Long?, onClear: () -> Unit) {
+    AnimatedVisibility(visible = bucketStart != null, enter = fadeIn(), exit = fadeOut()) {
+        val start = bucketStart ?: return@AnimatedVisibility
+        val index = report.bucketStarts.indexOf(start)
+        val rows = report.categories
+            .map { it to it.series.getOrElse(index) { 0L } }
+            .filter { it.second > 0 }
+            .sortedByDescending { it.second }
+        val total = rows.sumOf { it.second }
+        val (value, unit) = formatBytes(total)
+
+        DashboardCardScaffold(
+            title = "SELECTED · ${formatBucket(start, report.range)} +${report.range.bucketLabel}",
+            modifier = Modifier.fillMaxWidth(),
+            highlighted = true,
+            trailing = {
+                Text(
+                    "Clear",
+                    style = ZType.Sub,
+                    color = ZColors.AccentSoft,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(999.dp))
+                        .springyClick(onClick = onClear)
+                        .padding(horizontal = 6.dp, vertical = 3.dp),
+                )
+            },
+        ) {
+            ChartSpacer(6.dp)
+            MetricValue(value, unit, fontSize = 22.sp)
+            ChartSpacer(8.dp)
+            if (rows.isEmpty()) {
+                Text("No traffic in this window.", style = ZType.Body, color = ZColors.TextSecondary)
+            } else {
+                rows.take(4).forEach { (rollup, bytes) ->
+                    val (rowValue, rowUnit) = formatBytes(bytes)
+                    Row(
+                        Modifier.fillMaxWidth().padding(vertical = 3.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(7.dp),
+                    ) {
+                        Box(
+                            Modifier.size(8.dp).clip(RoundedCornerShape(2.dp))
+                                .background(chartColor(rollup.colorIndex))
+                        )
+                        Text(
+                            rollup.name,
+                            style = ZType.Body,
+                            color = ZColors.TextSecondary,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f),
+                        )
+                        Text("$rowValue $rowUnit", style = ZType.UnitText, color = ZColors.TextPrimary)
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ---- Apps -------------------------------------------------------------------
+
+@Composable
+private fun AppsView(viewModel: InsightsViewModel) {
+    val apps = viewModel.filteredApps
+    val peak = apps.firstOrNull()?.totalBytes ?: 0L
+
+    LazyColumn(
+        Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(start = 12.dp, end = 16.dp, top = 4.dp, bottom = 28.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        item(key = "search") { SearchRow(viewModel) }
+        item(key = "filters") { FilterRow(viewModel) }
+        item(key = "header") { SectionHeader("Apps by traffic", "${apps.size}") }
+
+        if (apps.isEmpty()) {
+            item(key = "empty") {
+                Text(
+                    "No apps match the current filter.",
+                    style = ZType.Body,
+                    color = ZColors.TextSecondary,
+                    modifier = Modifier.padding(vertical = 12.dp),
+                )
+            }
+        }
+
+        items(apps, key = { "app-${it.key}" }) { app ->
+            AppRow(
+                app = app,
+                peak = peak,
+                modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
+                onClick = { viewModel.openAppDetail(app.key) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun AppRow(app: AppRollup, peak: Long, modifier: Modifier = Modifier, onClick: () -> Unit) {
+    val color = chartColor(app.colorIndex)
+    val (value, unit) = formatBytes(app.totalBytes)
+
+    Column(
+        modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(10.dp))
+            .background(ZColors.Surface)
+            .border(1.dp, ZColors.Outline, RoundedCornerShape(10.dp))
+            .springyClick(onClick = onClick)
+            .padding(horizontal = 11.dp, vertical = 9.dp),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Box(Modifier.size(8.dp).clip(RoundedCornerShape(2.dp)).background(color))
+            Column(Modifier.weight(1f)) {
+                Text(
+                    app.label,
+                    style = ZType.Body,
+                    color = ZColors.TextPrimary,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    app.categoryName,
+                    style = ZType.Sub,
+                    color = ZColors.TextSecondary,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+            MiniSeries(series = app.series, color = color)
+            Text("$value $unit", style = ZType.UnitText, color = ZColors.TextPrimary)
+        }
+        ChartSpacer(7.dp)
+        ShareBar(
+            fraction = if (peak <= 0) 0f else app.totalBytes.toFloat() / peak.toFloat(),
+            color = color,
+        )
+    }
+}
+
+// ---- Log --------------------------------------------------------------------
+
+@Composable
+private fun LogView(viewModel: InsightsViewModel) {
+    val report = viewModel.report
+    val entries = viewModel.visibleEntries
+
+    LazyColumn(
+        Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(start = 12.dp, end = 16.dp, top = 4.dp, bottom = 28.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        item(key = "search") { SearchRow(viewModel) }
+        item(key = "filters") { FilterRow(viewModel) }
 
         item(key = "log-header") {
             SectionHeader(
@@ -224,12 +451,275 @@ private fun InsightsBody(viewModel: InsightsViewModel) {
     }
 }
 
-// ---- ツールバー -------------------------------------------------------------
+@Composable
+private fun LogRow(entry: InsightLogEntry, modifier: Modifier = Modifier) {
+    val color = chartColor(entry.colorIndex)
+    val (rx, rxUnit) = formatBytes(entry.rxBytes)
+    val (tx, txUnit) = formatBytes(entry.txBytes)
+
+    Row(
+        modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(9.dp))
+            .background(ZColors.SurfaceLow)
+            .border(1.dp, ZColors.Outline, RoundedCornerShape(9.dp))
+            .padding(horizontal = 10.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(9.dp),
+    ) {
+        Box(Modifier.width(3.dp).height(28.dp).clip(RoundedCornerShape(2.dp)).background(color))
+        Column(Modifier.weight(1f)) {
+            Text(
+                text = entry.label,
+                style = ZType.Body,
+                color = ZColors.TextPrimary,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                text = "${formatLogTime(entry.startMillis)} · ${entry.categoryName} · ${entry.transport.label}",
+                style = ZType.Sub,
+                color = ZColors.TextSecondary,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
+        Column(horizontalAlignment = Alignment.End) {
+            Text("↓ $rx $rxUnit", style = ZType.UnitText.copy(fontSize = 11.sp), color = ZColors.TextPrimary)
+            Text("↑ $tx $txUnit", style = ZType.UnitText.copy(fontSize = 11.sp), color = ZColors.TextSecondary)
+        }
+    }
+}
+
+// ---- ドリルダウン ------------------------------------------------------------
+
+/**
+ * カテゴリー / アプリの詳細。一覧の上に重ねて出す。
+ * 画面を切り替えてしまうと、どこから来たのか分からなくなるため。
+ */
+@Composable
+private fun DetailOverlay(viewModel: InsightsViewModel, detail: InsightDetail, onClose: () -> Unit) {
+    val report = viewModel.report
+    val title: String
+    val subtitle: String
+    val colorIndex: Int
+    val series: List<Long>
+    val rx: Long
+    val tx: Long
+    val wifi: Long
+    val mobile: Long
+    val members: List<Pair<String, Long>>
+
+    when (detail) {
+        is InsightDetail.Category -> {
+            val rollup = report.categories.firstOrNull { it.id == detail.id } ?: return
+            title = rollup.name
+            subtitle = "${rollup.appCount} apps · ${report.range.label}"
+            colorIndex = rollup.colorIndex
+            series = rollup.series
+            rx = rollup.rxBytes
+            tx = rollup.txBytes
+            wifi = rollup.wifiBytes
+            mobile = rollup.mobileBytes
+            members = report.apps
+                .filter { it.categoryId == rollup.id }
+                .take(8)
+                .map { it.label to it.totalBytes }
+        }
+
+        is InsightDetail.App -> {
+            val app = report.apps.firstOrNull { it.key == detail.key } ?: return
+            title = app.label
+            subtitle = "${app.categoryName} · ${report.range.label}"
+            colorIndex = app.colorIndex
+            series = app.series
+            rx = app.rxBytes
+            tx = app.txBytes
+            wifi = app.wifiBytes
+            mobile = app.mobileBytes
+            members = emptyList()
+        }
+    }
+
+    val color = chartColor(colorIndex)
+    val peak = members.maxOfOrNull { it.second } ?: 0L
+    val (total, totalUnit) = formatBytes(rx + tx)
+
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(ZColors.Background.copy(alpha = 0.82f))
+            .springyClick(onClick = onClose),
+        contentAlignment = Alignment.Center,
+    ) {
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 18.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .background(ZColors.Surface)
+                .border(1.dp, ZColors.OutlineStrong, RoundedCornerShape(16.dp))
+                .padding(16.dp),
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(9.dp)) {
+                Box(Modifier.size(10.dp).clip(CircleShape).background(identityColor(colorIndex)))
+                Column(Modifier.weight(1f)) {
+                    Text(title, style = ZType.Title, color = ZColors.TextPrimary, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    Text(subtitle, style = ZType.Sub, color = ZColors.TextSecondary)
+                }
+                Text(
+                    "✕",
+                    style = ZType.Body,
+                    color = ZColors.TextSecondary,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(999.dp))
+                        .springyClick(onClick = onClose)
+                        .padding(horizontal = 8.dp, vertical = 4.dp),
+                )
+            }
+
+            ChartSpacer(14.dp)
+            MetricValue(total, totalUnit, fontSize = 26.sp)
+
+            ChartSpacer(14.dp)
+            if (series.any { it > 0 }) {
+                StackedTimeline(
+                    bucketStarts = report.bucketStarts,
+                    series = listOf(
+                        CategoryRollup(
+                            id = "detail",
+                            name = title,
+                            colorIndex = colorIndex,
+                            rxBytes = rx,
+                            txBytes = tx,
+                            wifiBytes = wifi,
+                            mobileBytes = mobile,
+                            appCount = 1,
+                            series = series,
+                        )
+                    ),
+                    selected = null,
+                    onSelect = {},
+                    height = 64.dp,
+                )
+            } else {
+                ChartEmpty("No traffic in this window.")
+            }
+
+            ChartSpacer(14.dp)
+            SplitBar(
+                leftLabel = "Down",
+                leftBytes = rx,
+                leftColor = ZColors.CategoryChartColors[0],
+                rightLabel = "Up",
+                rightBytes = tx,
+                rightColor = ZColors.CategoryChartColors[4],
+            )
+            ChartSpacer(12.dp)
+            SplitBar(
+                leftLabel = "Wi-Fi",
+                leftBytes = wifi,
+                leftColor = ZColors.CategoryChartColors[1],
+                rightLabel = "Mobile",
+                rightBytes = mobile,
+                rightColor = ZColors.CategoryChartColors[3],
+            )
+
+            if (members.isNotEmpty()) {
+                ChartSpacer(16.dp)
+                Text("Top apps", style = ZType.Eyebrow, color = ZColors.TextSecondary)
+                ChartSpacer(8.dp)
+                members.forEach { (label, bytes) ->
+                    val (value, unit) = formatBytes(bytes)
+                    Column(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(
+                                label,
+                                style = ZType.Body,
+                                color = ZColors.TextSecondary,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                                modifier = Modifier.weight(1f),
+                            )
+                            Text("$value $unit", style = ZType.UnitText, color = ZColors.TextPrimary)
+                        }
+                        ChartSpacer(5.dp)
+                        ShareBar(
+                            fraction = if (peak <= 0) 0f else bytes.toFloat() / peak.toFloat(),
+                            color = color,
+                            height = 3.dp,
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ---- 共通の部品 --------------------------------------------------------------
+
+@Composable
+private fun ViewSwitcher(current: InsightView, onSelect: (InsightView) -> Unit) {
+    Row(
+        Modifier.fillMaxWidth().padding(start = 12.dp, end = 16.dp, bottom = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        InsightView.entries.forEach { option ->
+            Chip(label = option.label, selected = option == current, onClick = { onSelect(option) })
+        }
+    }
+}
+
+@Composable
+private fun SearchRow(viewModel: InsightsViewModel) {
+    AppSearchBar(
+        query = viewModel.query,
+        onQueryChange = viewModel::updateQuery,
+        onClear = { viewModel.updateQuery("") },
+        placeholder = "Search by app or category",
+    )
+}
+
+@Composable
+private fun FilterRow(viewModel: InsightsViewModel) {
+    val report = viewModel.report
+    val categoryName = report.categories.firstOrNull { it.id == viewModel.categoryFilter }?.name
+    val bucketStart = viewModel.bucketFilter
+    val active = categoryName != null || bucketStart != null
+
+    AnimatedVisibility(visible = active, enter = fadeIn(), exit = fadeOut()) {
+        Row(
+            Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            categoryName?.let { Chip(label = it, selected = true, onClick = viewModel::clearFilters) }
+            bucketStart?.let {
+                Chip(
+                    label = "${formatBucket(it, report.range)} +${report.range.bucketLabel}",
+                    selected = true,
+                    onClick = viewModel::clearFilters,
+                )
+            }
+            Spacer(Modifier.weight(1f))
+            Text(
+                "Clear",
+                style = ZType.Sub,
+                color = ZColors.AccentSoft,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(999.dp))
+                    .springyClick(onClick = viewModel::clearFilters)
+                    .padding(horizontal = 6.dp, vertical = 4.dp),
+            )
+        }
+    }
+}
 
 @Composable
 private fun InsightsToolbar(
     range: InsightRange,
     loading: Boolean,
+    canExport: Boolean,
     onRange: (InsightRange) -> Unit,
     onRefresh: () -> Unit,
     onExport: () -> Unit,
@@ -240,49 +730,14 @@ private fun InsightsToolbar(
         horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         InsightRange.entries.forEach { option ->
-            Chip(
-                label = option.label,
-                selected = option == range,
-                onClick = { onRange(option) },
-            )
+            Chip(label = option.label, selected = option == range, onClick = { onRange(option) })
         }
         Spacer(Modifier.weight(1f))
-        AnimatedVisibility(visible = loading, enter = fadeIn(), exit = fadeOut()) {
-            ScanPulse()
-        }
+        AnimatedVisibility(visible = loading, enter = fadeIn(), exit = fadeOut()) { ScanPulse() }
         Chip(label = "⟳", selected = false, onClick = onRefresh)
-        Chip(label = "Export", selected = false, onClick = onExport)
-    }
-}
-
-/**
- * CSV の書き出しに失敗したときの通知。空の絞り込みで押した場合もここに出る。
- * Snackbar を出すために Scaffold を足すより、ペイン内に 1 行置くほうが素直。
- */
-@Composable
-private fun ExportNotice(visible: Boolean, onDismiss: () -> Unit) {
-    AnimatedVisibility(visible = visible, enter = fadeIn(), exit = fadeOut()) {
-        Row(
-            Modifier.fillMaxWidth().padding(start = 12.dp, end = 16.dp, bottom = 8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Box(Modifier.size(6.dp).clip(CircleShape).background(ZColors.StatusAmber))
-            Text(
-                text = "Nothing to export for the current filter.",
-                style = ZType.Sub,
-                color = ZColors.TextSecondary,
-                modifier = Modifier.weight(1f),
-            )
-            Text(
-                "Dismiss",
-                style = ZType.Sub,
-                color = ZColors.AccentSoft,
-                modifier = Modifier
-                    .clip(RoundedCornerShape(999.dp))
-                    .springyClick(onClick = onDismiss)
-                    .padding(horizontal = 6.dp, vertical = 4.dp),
-            )
+        // 出せるものが無いときは置かない。押せるのに必ず失敗するボタンを残さない
+        AnimatedVisibility(visible = canExport, enter = fadeIn(), exit = fadeOut()) {
+            Chip(label = "Export", selected = false, onClick = onExport)
         }
     }
 }
@@ -304,6 +759,34 @@ private fun ScanPulse() {
     ) {
         Box(Modifier.size(6.dp).alpha(alpha).clip(CircleShape).background(ZColors.AccentAlt))
         Text("Reading", style = ZType.Sub, color = ZColors.TextDim)
+    }
+}
+
+@Composable
+private fun Notice(message: String?, onDismiss: () -> Unit) {
+    AnimatedVisibility(visible = message != null, enter = fadeIn(), exit = fadeOut()) {
+        Row(
+            Modifier.fillMaxWidth().padding(start = 12.dp, end = 16.dp, bottom = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Box(Modifier.size(6.dp).clip(CircleShape).background(ZColors.StatusAmber))
+            Text(
+                text = message.orEmpty(),
+                style = ZType.Sub,
+                color = ZColors.TextSecondary,
+                modifier = Modifier.weight(1f),
+            )
+            Text(
+                "Dismiss",
+                style = ZType.Sub,
+                color = ZColors.AccentSoft,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(999.dp))
+                    .springyClick(onClick = onDismiss)
+                    .padding(horizontal = 6.dp, vertical = 4.dp),
+            )
+        }
     }
 }
 
@@ -335,8 +818,6 @@ private fun Chip(label: String, selected: Boolean, onClick: () -> Unit) {
     }
 }
 
-// ---- カード -----------------------------------------------------------------
-
 @Composable
 private fun SummaryCard(report: WebInsightsReport) {
     val (downValue, downUnit) = formatBytes(report.totalRx)
@@ -352,151 +833,24 @@ private fun SummaryCard(report: WebInsightsReport) {
             )
         },
     ) {
-        Spacer(Modifier.height(6.dp))
+        ChartSpacer(6.dp)
         Row(horizontalArrangement = Arrangement.spacedBy(22.dp)) {
             Column {
                 Text("↓ Down", style = ZType.Sub, color = ZColors.TextSecondary)
-                MetricValue(downValue, downUnit, fontSize = 24.sp, color = ZColors.AccentAlt)
+                MetricValue(downValue, downUnit, fontSize = 24.sp)
             }
             Column {
                 Text("↑ Up", style = ZType.Sub, color = ZColors.TextSecondary)
-                MetricValue(upValue, upUnit, fontSize = 24.sp, color = ZColors.AccentSoft)
+                MetricValue(upValue, upUnit, fontSize = 24.sp)
             }
         }
-        Spacer(Modifier.height(8.dp))
+        ChartSpacer(8.dp)
         Text(
             text = "${report.bucketStarts.size} buckets of ${report.range.bucketLabel} · " +
                 "${report.apps.size} apps · ${report.entries.size} rows",
             style = ZType.Sub,
             color = ZColors.TextDim,
         )
-    }
-}
-
-@Composable
-private fun TimelineCard(
-    report: WebInsightsReport,
-    peak: Long,
-    selected: Long?,
-    onSelect: (Long) -> Unit,
-) {
-    val series = report.series
-    DashboardCardScaffold(
-        title = "TIMELINE",
-        modifier = Modifier.fillMaxWidth(),
-        trailing = {
-            Text(
-                text = report.bucketStarts.firstOrNull()?.let { start ->
-                    "${formatBucket(start, report.range)} → ${formatBucket(report.generatedAtMillis, report.range)}"
-                } ?: "—",
-                style = ZType.Sub,
-                color = ZColors.TextDim,
-            )
-        },
-    ) {
-        Spacer(Modifier.height(10.dp))
-        if (series.isEmpty()) {
-            Text("No data in this window.", style = ZType.Body, color = ZColors.TextSecondary)
-            return@DashboardCardScaffold
-        }
-        Row(
-            Modifier.fillMaxWidth().height(72.dp),
-            horizontalArrangement = Arrangement.spacedBy(2.dp),
-            verticalAlignment = Alignment.Bottom,
-        ) {
-            report.bucketStarts.forEachIndexed { index, start ->
-                val value = series.getOrElse(index) { 0L }
-                TimelineBar(
-                    modifier = Modifier.weight(1f),
-                    fraction = if (peak <= 0) 0f else value.toFloat() / peak.toFloat(),
-                    selected = selected == start,
-                    dimmed = selected != null && selected != start,
-                    onClick = { onSelect(start) },
-                )
-            }
-        }
-        Spacer(Modifier.height(6.dp))
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(
-                text = report.bucketStarts.firstOrNull()?.let { formatBucket(it, report.range) } ?: "",
-                style = ZType.Sub,
-                color = ZColors.TextDim,
-            )
-            val (peakValue, peakUnit) = formatBytes(peak)
-            Text("peak $peakValue $peakUnit", style = ZType.Sub, color = ZColors.TextDim)
-        }
-    }
-}
-
-@Composable
-private fun TimelineBar(
-    modifier: Modifier,
-    fraction: Float,
-    selected: Boolean,
-    dimmed: Boolean,
-    onClick: () -> Unit,
-) {
-    // 値が 0 でも掴めるように最低高さを残す
-    val target = (fraction.coerceIn(0f, 1f) * 0.94f + 0.06f)
-    val height by animateFloatAsState(target, ZMotion.value(), label = "barHeight")
-    val color by animateColorAsState(
-        targetValue = when {
-            selected -> ZColors.AccentAlt
-            dimmed -> ZColors.Outline
-            else -> ZColors.Accent
-        },
-        animationSpec = ZMotion.value(),
-        label = "barColor",
-    )
-    Box(
-        modifier
-            .fillMaxHeight()
-            .springyClick(onClick = onClick),
-        contentAlignment = Alignment.BottomCenter,
-    ) {
-        Box(
-            Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(height)
-                .clip(RoundedCornerShape(topStart = 2.dp, topEnd = 2.dp))
-                .background(color)
-        )
-    }
-}
-
-@Composable
-private fun ActiveFilters(
-    categoryName: String?,
-    bucketStart: Long?,
-    range: InsightRange,
-    onClear: () -> Unit,
-) {
-    val active = categoryName != null || bucketStart != null
-    AnimatedVisibility(visible = active, enter = fadeIn(), exit = fadeOut()) {
-        Row(
-            Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(6.dp),
-        ) {
-            categoryName?.let { Chip(label = it, selected = true, onClick = onClear) }
-            bucketStart?.let {
-                Chip(
-                    label = "${formatBucket(it, range)} +${range.bucketLabel}",
-                    selected = true,
-                    onClick = onClear,
-                )
-            }
-            Spacer(Modifier.weight(1f))
-            Text(
-                "Clear",
-                style = ZType.Sub,
-                color = ZColors.AccentSoft,
-                modifier = Modifier
-                    .clip(RoundedCornerShape(999.dp))
-                    .springyClick(onClick = onClear)
-                    .padding(horizontal = 6.dp, vertical = 4.dp),
-            )
-        }
     }
 }
 
@@ -518,28 +872,30 @@ private fun CategoryRow(
     selected: Boolean,
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
+    onOpen: () -> Unit,
 ) {
-    val color = categoryColor(rollup.colorIndex)
-    val share = if (shareOf <= 0) 0f else rollup.totalBytes.toFloat() / shareOf.toFloat()
-    val width by animateFloatAsState(share.coerceIn(0f, 1f), ZMotion.value(), label = "share")
+    val fill = chartColor(rollup.colorIndex)
+    val dot = identityColor(rollup.colorIndex)
     val background by animateColorAsState(
         targetValue = if (selected) ZColors.SurfaceHigh else ZColors.Surface,
         animationSpec = ZMotion.value(),
         label = "categoryBackground",
     )
     val (value, unit) = formatBytes(rollup.totalBytes)
+    val (rx, rxUnit) = formatBytes(rollup.rxBytes)
+    val (tx, txUnit) = formatBytes(rollup.txBytes)
 
     Column(
         modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(10.dp))
             .background(background)
-            .border(1.dp, if (selected) color.copy(alpha = 0.5f) else ZColors.Outline, RoundedCornerShape(10.dp))
+            .border(1.dp, if (selected) dot.copy(alpha = 0.5f) else ZColors.Outline, RoundedCornerShape(10.dp))
             .springyClick(onClick = onClick)
             .padding(horizontal = 11.dp, vertical = 9.dp),
     ) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Box(Modifier.size(8.dp).clip(CircleShape).background(color))
+            Box(Modifier.size(8.dp).clip(CircleShape).background(dot))
             Text(
                 text = rollup.name,
                 style = ZType.Body,
@@ -550,69 +906,25 @@ private fun CategoryRow(
             )
             Text("$value $unit", style = ZType.UnitText, color = ZColors.TextPrimary)
         }
-        Spacer(Modifier.height(7.dp))
-        Box(
-            Modifier
-                .fillMaxWidth()
-                .height(4.dp)
-                .clip(RoundedCornerShape(999.dp))
-                .background(ZColors.StatusNeutral),
-        ) {
-            Box(
-                Modifier
-                    .fillMaxWidth(width)
-                    .fillMaxHeight()
-                    .clip(RoundedCornerShape(999.dp))
-                    .background(color)
-            )
-        }
-        Spacer(Modifier.height(6.dp))
-        val (rx, rxUnit) = formatBytes(rollup.rxBytes)
-        val (tx, txUnit) = formatBytes(rollup.txBytes)
-        Text(
-            text = "${rollup.appCount} apps · ↓ $rx $rxUnit · ↑ $tx $txUnit",
-            style = ZType.Sub,
-            color = ZColors.TextSecondary,
-        )
-    }
-}
-
-@Composable
-private fun LogRow(entry: InsightLogEntry, modifier: Modifier = Modifier) {
-    val color = categoryColor(entry.colorIndex)
-    val (rx, rxUnit) = formatBytes(entry.rxBytes)
-    val (tx, txUnit) = formatBytes(entry.txBytes)
-
-    Row(
-        modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(9.dp))
-            .background(ZColors.SurfaceLow)
-            .border(1.dp, ZColors.Outline, RoundedCornerShape(9.dp))
-            .padding(horizontal = 10.dp, vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(9.dp),
-    ) {
-        Box(Modifier.width(2.dp).height(28.dp).clip(RoundedCornerShape(2.dp)).background(color))
-        Column(Modifier.weight(1f)) {
+        ChartSpacer(7.dp)
+        ShareBar(fraction = if (shareOf <= 0) 0f else rollup.totalBytes.toFloat() / shareOf.toFloat(), color = fill)
+        ChartSpacer(6.dp)
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
-                text = entry.label,
-                style = ZType.Body,
-                color = ZColors.TextPrimary,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Text(
-                text = "${formatLogTime(entry.startMillis)} · ${entry.categoryName} · ${entry.transport.badge}",
+                text = "${rollup.appCount} apps · ↓ $rx $rxUnit · ↑ $tx $txUnit",
                 style = ZType.Sub,
                 color = ZColors.TextSecondary,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.weight(1f),
             )
-        }
-        Column(horizontalAlignment = Alignment.End) {
-            Text("↓ $rx $rxUnit", style = ZType.UnitText.copy(fontSize = 11.sp), color = ZColors.AccentAlt)
-            Text("↑ $tx $txUnit", style = ZType.UnitText.copy(fontSize = 11.sp), color = ZColors.TextSecondary)
+            Text(
+                "Details",
+                style = ZType.Sub,
+                color = ZColors.AccentSoft,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(999.dp))
+                    .springyClick(onClick = onOpen)
+                    .padding(horizontal = 7.dp, vertical = 3.dp),
+            )
         }
     }
 }
@@ -620,11 +932,8 @@ private fun LogRow(entry: InsightLogEntry, modifier: Modifier = Modifier) {
 @Composable
 private fun UsageAccessCard(onGrant: () -> Unit) {
     Column(Modifier.fillMaxSize().padding(start = 12.dp, end = 16.dp)) {
-        DashboardCardScaffold(
-            title = "USAGE ACCESS REQUIRED",
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Spacer(Modifier.height(8.dp))
+        DashboardCardScaffold(title = "USAGE ACCESS REQUIRED", modifier = Modifier.fillMaxWidth()) {
+            ChartSpacer(8.dp)
             Text(
                 text = "Android only reports per-app data usage to apps that hold usage access. " +
                     "It cannot be requested with a normal permission dialog — grant it in Settings, " +
@@ -632,9 +941,9 @@ private fun UsageAccessCard(onGrant: () -> Unit) {
                 style = ZType.Body,
                 color = ZColors.TextSecondary,
             )
-            Spacer(Modifier.height(12.dp))
+            ChartSpacer(12.dp)
             Chip(label = "Open usage access settings", selected = true, onClick = onGrant)
-            Spacer(Modifier.height(10.dp))
+            ChartSpacer(10.dp)
             Text(
                 text = "Without it the console still shows device-wide totals on the Overview pane.",
                 style = ZType.Sub,
@@ -646,11 +955,7 @@ private fun UsageAccessCard(onGrant: () -> Unit) {
 
 // ---- 表示ヘルパ -------------------------------------------------------------
 
-/** 未分類は色を持たないので、カテゴリー色の範囲外インデックスを無彩色に落とす */
-private fun categoryColor(index: Int): Color =
-    if (index < 0) ZColors.TextDim else ZColors.CategoryColors[index % ZColors.CategoryColors.size]
-
-private val InsightTransport.badge: String
+private val InsightTransport.label: String
     get() = when (this) {
         InsightTransport.WIFI -> "Wi-Fi"
         InsightTransport.MOBILE -> "Mobile"
