@@ -86,12 +86,22 @@ fun ConsoleScreen(
     var showCreateDialog by remember { mutableStateOf(false) }
     var showCatalogDiff by remember { mutableStateOf(false) }
     val pendingDiff by viewModel.pendingCatalogDiff.collectAsStateWithLifecycle()
+    val emptyCategories by viewModel.emptyCategories.collectAsStateWithLifecycle()
 
     // カタログは初回だけ読む。ダイアログを開いた瞬間に空、という状態を作らない
     LaunchedEffect(Unit) { viewModel.loadCatalog() }
     var editingCategory by remember { mutableStateOf<CategoryWithApps?>(null) }
     var pickingAppsFor by remember { mutableStateOf<CategoryWithApps?>(null) }
     var pinningSlot by remember { mutableStateOf<Int?>(null) }
+
+    // 作成直後のアプリ選択。カテゴリーが Flow に現れてから開く
+    LaunchedEffect(viewModel.pendingAppPrompt, categories) {
+        val id = viewModel.pendingAppPrompt ?: return@LaunchedEffect
+        categories.firstOrNull { it.id == id }?.let { target ->
+            pickingAppsFor = target
+            viewModel.consumeAppPrompt()
+        }
+    }
 
     val selected = viewModel.pane
     val selectedCategory = (selected as? ConsolePane.Category)?.let { pane ->
@@ -141,6 +151,18 @@ fun ConsoleScreen(
                 CatalogUpdateBanner(
                     diff = diff,
                     onReview = { showCatalogDiff = true },
+                    modifier = Modifier.padding(start = 12.dp, end = 16.dp, bottom = 10.dp),
+                )
+            }
+
+            // 空のまま置き去りにされたカテゴリーを拾う導線。作成直後の選択を閉じた場合もここに出る
+            // 今その空カテゴリーを見ているなら、ペイン側に同じ案内が出ているので帯は出さない
+            val onlyShowingIt = emptyCategories.size == 1 &&
+                (selected as? ConsolePane.Category)?.id == emptyCategories.first().id
+            if (emptyCategories.isNotEmpty() && pickingAppsFor == null && !onlyShowingIt) {
+                EmptyCategoriesBanner(
+                    categories = emptyCategories,
+                    onFill = { viewModel.promptForApps(emptyCategories.first().id) },
                     modifier = Modifier.padding(start = 12.dp, end = 16.dp, bottom = 10.dp),
                 )
             }
@@ -323,10 +345,22 @@ private fun ConsoleRail(
 
         categories.forEach { category ->
             val color = ZColors.CategoryColors[category.category.colorIndex % ZColors.CategoryColors.size]
+            val empty = category.apps.isEmpty()
             RailItem(
                 label = category.category.name,
                 selected = (selected as? ConsolePane.Category)?.id == category.id,
-                indicator = { Box(Modifier.size(14.dp).clip(CircleShape).background(color)) },
+                indicator = {
+                    // 空は塗らずに輪郭だけ。中身の有無をレール上で見分けられるようにする
+                    Box(
+                        Modifier
+                            .size(14.dp)
+                            .clip(CircleShape)
+                            .then(
+                                if (empty) Modifier.border(2.dp, color.copy(alpha = 0.55f), CircleShape)
+                                else Modifier.background(color)
+                            )
+                    )
+                },
                 onClick = { onSelect(ConsolePane.Category(category.id)) },
             )
         }
@@ -512,6 +546,55 @@ private fun ConsoleTopBar(
                 )
             }
         }
+    }
+}
+
+/**
+ * 中身の無いカテゴリーを知らせる帯。
+ *
+ * 作成直後には選択ダイアログを開いているが、そこで閉じられると空のまま残る。
+ * レールに名前だけが並んで「作ったのに何も入っていない」状態に気付けないので、
+ * 上部から辿れるようにしておく。
+ */
+@Composable
+private fun EmptyCategoriesBanner(
+    categories: List<CategoryWithApps>,
+    onFill: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(10.dp))
+            .background(ZColors.StatusAmber.copy(alpha = 0.10f))
+            .border(1.dp, ZColors.StatusAmber.copy(alpha = 0.35f), RoundedCornerShape(10.dp))
+            .springyClick(onClick = onFill)
+            .padding(horizontal = 11.dp, vertical = 10.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(9.dp),
+    ) {
+        Box(Modifier.size(7.dp).clip(CircleShape).background(ZColors.StatusAmber))
+        Column(Modifier.weight(1f)) {
+            Text(
+                text = if (categories.size == 1) {
+                    "“${categories.first().category.name}” has no apps yet"
+                } else {
+                    "${categories.size} categories have no apps yet"
+                },
+                style = ZType.Body,
+                color = ZColors.TextPrimary,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                "A category only shows up in Insights once it contains apps",
+                style = ZType.Sub,
+                color = ZColors.TextSecondary,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
+        Text("Select apps", style = ZType.Sub.copy(fontSize = 11.sp), color = ZColors.AccentSoft)
     }
 }
 

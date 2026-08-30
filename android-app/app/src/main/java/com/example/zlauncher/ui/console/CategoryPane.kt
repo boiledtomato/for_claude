@@ -168,15 +168,29 @@ private fun CategoryAppTile(
     }
 }
 
+/**
+ * 中身が無いときの案内。
+ *
+ * 「空です」とだけ出しても次に何をすればいいか分からないので、
+ * 埋めないと何が起きないのか（Insights に出てこない）まで書く。
+ */
 @Composable
 private fun EmptyCategory(onPickApps: () -> Unit) {
     Column(
-        Modifier.fillMaxSize().padding(horizontal = 16.dp),
+        Modifier.fillMaxSize().padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(Modifier.height(40.dp))
-        Text("No apps yet", style = ZType.Body, color = ZColors.TextSecondary)
-        Spacer(Modifier.height(14.dp))
+        Text("No apps in this category yet", style = ZType.Body, color = ZColors.TextPrimary)
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = "Pick the apps that belong here. Until then this category stays empty " +
+                "and contributes nothing to Web Insights.",
+            style = ZType.Sub,
+            color = ZColors.TextSecondary,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(Modifier.height(16.dp))
         ActionChip("Select apps", accent = true, onClick = onPickApps)
     }
 }

@@ -93,9 +93,35 @@ class ConsoleViewModel @Inject constructor(
         if (target !is ConsolePane.Overview) isEditing = false
     }
 
+    /**
+     * 作ったあと、そのカテゴリーへ移動してアプリ選択を促す。
+     *
+     * 以前はここで作って終わりだった。レールに名前だけが増え、中身の無いカテゴリーが
+     * そのまま残ってしまう（作った本人も気付かない）ので、続けて選ばせるところまでを 1 続きにする。
+     */
     fun createCategory(name: String, colorIndex: Int) = viewModelScope.launch {
-        categoryRepository.create(name, colorIndex)
+        val id = categoryRepository.create(name, colorIndex)
+        promptForApps(id)
     }
+
+    /** 作成直後にアプリ選択を開きたいカテゴリー。画面側が拾ったら [consumeAppPrompt] で戻す */
+    var pendingAppPrompt by mutableStateOf<String?>(null)
+        private set
+
+    fun consumeAppPrompt() {
+        pendingAppPrompt = null
+    }
+
+    fun promptForApps(id: String) {
+        pane = ConsolePane.Category(id)
+        isEditing = false
+        pendingAppPrompt = id
+    }
+
+    /** 中身が空のカテゴリー。帯とレールの印に使う */
+    val emptyCategories: StateFlow<List<CategoryWithApps>> = categoryRepository.categories
+        .map { list -> list.filter { it.apps.isEmpty() } }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     fun renameCategory(id: String, name: String) = viewModelScope.launch {
         categoryRepository.rename(id, name)
@@ -153,7 +179,10 @@ class ConsoleViewModel @Inject constructor(
     }
 
     fun createFromCatalog(entries: List<UrlCategoryEntry>) = viewModelScope.launch {
-        categoryRepository.createFromCatalog(entries)
+        val ids = categoryRepository.createFromCatalog(entries)
+        // 複数まとめて作った場合は最初の 1 つだけ開く。人数分ダイアログを重ねても片付かない。
+        // 残りは空カテゴリーの帯とレールの印から辿れる
+        ids.firstOrNull()?.let { promptForApps(it) }
     }
 
     fun setEditMode(editing: Boolean) {

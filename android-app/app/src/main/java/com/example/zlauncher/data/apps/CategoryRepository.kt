@@ -8,6 +8,7 @@ import com.example.zlauncher.domain.model.CATEGORY_COLOR_COUNT
 import com.example.zlauncher.domain.model.UrlCategoryEntry
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -51,15 +52,15 @@ class CategoryRepository @Inject constructor(
 
     val pinnedSlots: Int get() = LauncherState.MAX_PINNED
 
-    suspend fun create(name: String, colorIndex: Int): Unit = preferences.update { state ->
-        val trimmed = name.trim().ifBlank { "New category" }
-        state.copy(
-            categories = state.categories + AppCategory(
-                id = UUID.randomUUID().toString(),
-                name = trimmed,
-                colorIndex = colorIndex,
-            )
+    /** 作った id を返す。呼び出し側がそのままアプリ選択へ送れるようにするため */
+    suspend fun create(name: String, colorIndex: Int): String {
+        val category = AppCategory(
+            id = UUID.randomUUID().toString(),
+            name = name.trim().ifBlank { "New category" },
+            colorIndex = colorIndex,
         )
+        preferences.update { it.copy(categories = it.categories + category) }
+        return category.id
     }
 
     /**
@@ -68,7 +69,9 @@ class CategoryRepository @Inject constructor(
      * [AppCategory.catalogKey] を残すのが肝。カタログが改訂されて名前が変わったとき、
      * どのカテゴリーを差し替えればいいかをこれで辿る。
      */
-    suspend fun createFromCatalog(entries: List<UrlCategoryEntry>): Unit = preferences.update { state ->
+    suspend fun createFromCatalog(entries: List<UrlCategoryEntry>): List<String> {
+        // 追加分は update の外で組み立てる。中で作ると id を呼び出し側へ返せない
+        val state = preferences.state.first()
         val existingKeys = state.categories.mapNotNull { it.catalogKey }.toSet()
         val existingNames = state.categories.map { it.name }.toSet()
         var color = state.categories.size
@@ -82,7 +85,9 @@ class CategoryRepository @Inject constructor(
                     catalogKey = entry.key,
                 )
             }
-        if (added.isEmpty()) state else state.copy(categories = state.categories + added)
+        if (added.isEmpty()) return emptyList()
+        preferences.update { it.copy(categories = it.categories + added) }
+        return added.map { it.id }
     }
 
     suspend fun rename(id: String, name: String) = preferences.update { state ->
