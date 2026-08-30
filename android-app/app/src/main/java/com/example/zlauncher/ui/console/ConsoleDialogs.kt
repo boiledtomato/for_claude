@@ -42,6 +42,8 @@ import androidx.compose.ui.window.DialogProperties
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.springyClick
+import com.example.zlauncher.data.apps.AppSuggestion
+import com.example.zlauncher.data.apps.SuggestionConfidence
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.ui.home.component.AppIconTile
 import com.example.zlauncher.ui.home.component.rememberAppIcon
@@ -129,9 +131,12 @@ fun AppPickerDialog(
     iconProvider: suspend (AppEntry) -> ImageBitmap?,
     onDismiss: () -> Unit,
     onConfirm: (List<String>) -> Unit,
+    /** 自動判別の結果。空なら提案の行そのものを出さない */
+    suggestions: List<AppSuggestion> = emptyList(),
 ) {
     val selected = remember { initiallySelected.toMutableStateList() }
     var query by remember { mutableStateOf("") }
+    val reasons = remember(suggestions) { suggestions.associate { it.entry.packageName to it } }
     val filtered = remember(apps, query) {
         if (query.isBlank()) apps else apps.filter { it.label.contains(query, ignoreCase = true) }
     }
@@ -168,9 +173,29 @@ fun AppPickerDialog(
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
+            if (multiSelect && suggestions.isNotEmpty()) {
+                Spacer(Modifier.height(10.dp))
+                SuggestionRow(
+                    suggestions = suggestions,
+                    // まだ入れていない提案が残っているかどうかで文言と動作を変える
+                    unselected = suggestions.count { it.entry.packageName !in selected },
+                    onSelectAll = {
+                        suggestions.forEach { suggestion ->
+                            if (suggestion.entry.packageName !in selected) {
+                                selected.add(suggestion.entry.packageName)
+                            }
+                        }
+                    },
+                    onClearAll = {
+                        suggestions.forEach { selected.remove(it.entry.packageName) }
+                    },
+                )
+            }
+
             Spacer(Modifier.height(10.dp))
             LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 items(filtered, key = { it.key }) { entry ->
+                    val suggestion = reasons[entry.packageName]
                     val icon by rememberAppIcon(entry, iconProvider)
                     val isSelected = entry.packageName in selected
                     Row(
@@ -196,14 +221,28 @@ fun AppPickerDialog(
                         horizontalArrangement = Arrangement.spacedBy(10.dp),
                     ) {
                         AppIconTile(icon = icon, size = 36.dp, background = ZColors.SurfaceHigh)
-                        Text(
-                            text = entry.label,
-                            style = ZType.Body,
-                            color = ZColors.TextPrimary,
-                            modifier = Modifier.weight(1f),
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
+                        Column(Modifier.weight(1f)) {
+                            Text(
+                                text = entry.label,
+                                style = ZType.Body,
+                                color = ZColors.TextPrimary,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                            )
+                            suggestion?.let {
+                                Text(
+                                    text = "Suggested · ${it.reason}",
+                                    style = ZType.Sub,
+                                    color = if (it.confidence == SuggestionConfidence.HIGH) {
+                                        ZColors.AccentSoft
+                                    } else {
+                                        ZColors.TextDim
+                                    },
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis,
+                                )
+                            }
+                        }
                         Text(
                             text = if (isSelected) "Selected" else "",
                             style = ZType.Sub,
@@ -225,6 +264,57 @@ fun AppPickerDialog(
                 DialogButton("Done", accent = true) { onConfirm(selected.toList()) }
             }
         }
+    }
+}
+
+/**
+ * 自動判別の結果をまとめて入れる／外す帯。
+ *
+ * 押すまで何も起きない。推定は必ず外すので、勝手に確定させず「まとめて選ぶ」までに留める。
+ */
+@Composable
+private fun SuggestionRow(
+    suggestions: List<AppSuggestion>,
+    unselected: Int,
+    onSelectAll: () -> Unit,
+    onClearAll: () -> Unit,
+) {
+    val high = suggestions.count { it.confidence == SuggestionConfidence.HIGH }
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(10.dp))
+            .background(ZColors.Accent.copy(alpha = 0.10f))
+            .border(1.dp, ZColors.Accent.copy(alpha = 0.35f), RoundedCornerShape(10.dp))
+            .padding(horizontal = 11.dp, vertical = 10.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        Column(Modifier.weight(1f)) {
+            Text(
+                "${suggestions.size} apps look like they belong here",
+                style = ZType.Body,
+                color = ZColors.TextPrimary,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                text = "$high confident · a guess, so check before adding",
+                style = ZType.Sub,
+                color = ZColors.TextSecondary,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
+        Text(
+            text = if (unselected > 0) "Select all" else "Clear",
+            style = ZType.Sub.copy(fontSize = 11.sp),
+            color = ZColors.AccentSoft,
+            modifier = Modifier
+                .clip(RoundedCornerShape(999.dp))
+                .springyClick(onClick = if (unselected > 0) onSelectAll else onClearAll)
+                .padding(horizontal = 8.dp, vertical = 5.dp),
+        )
     }
 }
 

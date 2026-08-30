@@ -60,7 +60,7 @@ const val NO_COLOR_INDEX = -1
 const val OTHER_COLOR_INDEX = -2
 
 /** 積み上げグラフで色を割り当てる上限。これを超えた分は Other にまとめる */
-const val CHART_SERIES_LIMIT = 5
+const val CHART_SERIES_LIMIT = 4
 
 /** ログ 1 行 = 1 バケット × 1 アプリ（UID） × 1 回線種別 */
 data class InsightLogEntry(

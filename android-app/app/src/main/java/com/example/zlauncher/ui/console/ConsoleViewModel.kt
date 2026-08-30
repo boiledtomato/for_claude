@@ -8,7 +8,9 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.zlauncher.data.apps.AppIconLoader
+import com.example.zlauncher.data.apps.AppClassifier
 import com.example.zlauncher.data.apps.AppSorter
+import com.example.zlauncher.data.apps.AppSuggestion
 import com.example.zlauncher.data.apps.CategoryRepository
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.data.apps.InstalledAppRepository
@@ -45,6 +47,7 @@ class ConsoleViewModel @Inject constructor(
     private val iconLoader: AppIconLoader,
     private val launcherApps: LauncherAppsDataSource,
     private val catalogRepository: UrlCategoryRepository,
+    private val classifier: AppClassifier,
     private val catalogUpdater: CatalogUpdater,
     installedApps: InstalledAppRepository,
     metricsRepository: DeviceMetricsRepository,
@@ -107,6 +110,24 @@ class ConsoleViewModel @Inject constructor(
     /** 作成直後にアプリ選択を開きたいカテゴリー。画面側が拾ったら [consumeAppPrompt] で戻す */
     var pendingAppPrompt by mutableStateOf<String?>(null)
         private set
+
+    /**
+     * そのカテゴリーに合いそうなアプリ。
+     *
+     * 推定なので勝手には入れない。選択ダイアログに候補として出し、採るかどうかは人が決める。
+     * カタログ由来のカテゴリーなら説明文も手掛かりに使う。
+     */
+    fun suggestionsFor(category: CategoryWithApps): List<AppSuggestion> {
+        val entry = category.category.catalogKey?.let { key ->
+            catalogGroups.asSequence().flatMap { it.entries }.firstOrNull { it.key == key }
+        }
+        return classifier.suggest(
+            categoryName = category.category.name,
+            description = entry?.description.orEmpty(),
+            apps = allApps.value,
+            exclude = category.category.packages.toSet(),
+        )
+    }
 
     fun consumeAppPrompt() {
         pendingAppPrompt = null

@@ -26,4 +26,4 @@ data class AppCategory(
 )
 
 /** レールでカテゴリーを見分けるための色。ステータス色とは別物として扱う */
-const val CATEGORY_COLOR_COUNT = 6
+const val CATEGORY_COLOR_COUNT = 15

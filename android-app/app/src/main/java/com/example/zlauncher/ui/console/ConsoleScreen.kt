@@ -257,6 +257,8 @@ fun ConsoleScreen(
     }
 
     pickingAppsFor?.let { target ->
+        // 開いた時点の一覧に対して 1 度だけ推定する。毎フレーム引き直さない
+        val suggestions = remember(target.id, allApps) { viewModel.suggestionsFor(target) }
         AppPickerDialog(
             title = "Apps in “${target.category.name}”",
             apps = allApps,
@@ -268,6 +270,7 @@ fun ConsoleScreen(
                 viewModel.setCategoryApps(target.id, packages)
                 pickingAppsFor = null
             },
+            suggestions = suggestions,
         )
     }
 

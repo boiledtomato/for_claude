@@ -41,6 +41,16 @@ class UrlCategoryCsvTest {
     }
 
     @Test
+    fun `drops the SSL-inspection-only Microsoft Office 365 categories`() {
+        val entries = UrlCategoryCsv.parse(csv)
+        assertFalse(
+            "Microsoft Office 365 is SSL-inspection-only and is not a browsing category",
+            entries.any { it.superCategory.equals("Microsoft Office 365", ignoreCase = true) },
+        )
+        assertFalse(entries.any { it.category.startsWith("MS O365") })
+    }
+
+    @Test
     fun `drops the note rows that carry no category`() {
         val entries = UrlCategoryCsv.parse(csv)
         assertFalse(

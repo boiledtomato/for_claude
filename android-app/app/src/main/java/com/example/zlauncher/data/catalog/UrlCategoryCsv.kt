@@ -26,6 +26,15 @@ object UrlCategoryCsv {
     private const val ATP_SUPER_CATEGORY = "Advanced Security"
     private const val ATP_CLASS = "Advanced Security Risk"
 
+    /**
+     * SSL Inspection ポリシー専用のカテゴリー。
+     *
+     * ATP と同じ理由で落とす。CSV 自身が「Microsoft Office 365 大項目のカテゴリーは
+     * SSL Inspection ポリシーにのみ適用される」と注記しているとおり、閲覧内容の分類ではなく
+     * 検査対象の指定であり、ランチャーのフォルダとしては意味を成さない。
+     */
+    private const val SSL_INSPECTION_SUPER_CATEGORY = "Microsoft Office 365"
+
     fun parse(text: String): List<UrlCategoryEntry> {
         val rows = splitRows(text.removePrefix(BOM))
         if (rows.isEmpty()) return emptyList()
@@ -52,6 +61,7 @@ object UrlCategoryCsv {
             val className = cell(classIndex)
             if (superCategory.equals(ATP_SUPER_CATEGORY, ignoreCase = true)) return@mapNotNull null
             if (className.equals(ATP_CLASS, ignoreCase = true)) return@mapNotNull null
+            if (superCategory.equals(SSL_INSPECTION_SUPER_CATEGORY, ignoreCase = true)) return@mapNotNull null
 
             UrlCategoryEntry(
                 superCategory = superCategory,
