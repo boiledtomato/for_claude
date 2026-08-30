@@ -15,6 +15,14 @@ data class AppCategory(
     /** [CATEGORY_COLORS] のインデックス */
     val colorIndex: Int = 0,
     val packages: List<String> = emptyList(),
+    /**
+     * Zscaler のカタログから作った場合、その項目の鍵（"大項目/小項目"）。
+     * 自分で名前を決めて作ったカテゴリーでは null。
+     *
+     * カタログが改訂されて名前が変わったとき、どのカテゴリーを差し替えればいいかを
+     * これで辿る。名前だけで突き合わせると、ユーザーが改名した瞬間に追えなくなる。
+     */
+    val catalogKey: String? = null,
 )
 
 /** レールでカテゴリーを見分けるための色。ステータス色とは別物として扱う */

@@ -13,6 +13,9 @@ import com.example.zlauncher.data.apps.CategoryRepository
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.data.apps.InstalledAppRepository
 import com.example.zlauncher.data.apps.LauncherAppsDataSource
+import com.example.zlauncher.data.catalog.CatalogUpdateResult
+import com.example.zlauncher.data.catalog.CatalogUpdater
+import com.example.zlauncher.data.catalog.UrlCategoryRepository
 import com.example.zlauncher.data.dashboard.DashboardLayoutRepository
 import com.example.zlauncher.data.device.DeviceMetricsRepository
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
@@ -20,6 +23,9 @@ import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CardLayout
 import com.example.zlauncher.domain.model.CardSpan
+import com.example.zlauncher.domain.model.CatalogDiff
+import com.example.zlauncher.domain.model.UrlCategoryEntry
+import com.example.zlauncher.domain.model.UrlCategoryGroup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -38,6 +44,8 @@ class ConsoleViewModel @Inject constructor(
     private val preferences: LauncherPreferencesRepository,
     private val iconLoader: AppIconLoader,
     private val launcherApps: LauncherAppsDataSource,
+    private val catalogRepository: UrlCategoryRepository,
+    private val catalogUpdater: CatalogUpdater,
     installedApps: InstalledAppRepository,
     metricsRepository: DeviceMetricsRepository,
 ) : ViewModel() {
@@ -144,8 +152,8 @@ class ConsoleViewModel @Inject constructor(
         preferences.update { it.copy(themedIcons = enabled) }
     }
 
-    fun createFromPresets(presets: List<Pair<String, Int>>) = viewModelScope.launch {
-        categoryRepository.createAll(presets)
+    fun createFromCatalog(entries: List<UrlCategoryEntry>) = viewModelScope.launch {
+        categoryRepository.createFromCatalog(entries)
     }
 
     fun setEditMode(editing: Boolean) {
@@ -179,6 +187,64 @@ class ConsoleViewModel @Inject constructor(
 
     fun setSortOrder(order: AppSortOrder) = viewModelScope.launch {
         preferences.update { it.copy(sortOrder = order) }
+    }
+
+    // ---- URL カテゴリーカタログ ---------------------------------------------
+
+    /** 大項目ごとにまとめた小項目。ダイアログの折りたたみがこれを描く */
+    var catalogGroups by mutableStateOf<List<UrlCategoryGroup>>(emptyList())
+        private set
+
+    /** 採用中の CSV のファイル名。改訂日が入っているのでそのまま版として見せる */
+    var catalogRevision by mutableStateOf("")
+        private set
+
+    var checkingCatalog by mutableStateOf(false)
+        private set
+
+    /** 手動更新の結果を 1 行で出す */
+    var catalogMessage by mutableStateOf<String?>(null)
+        private set
+
+    val pendingCatalogDiff: StateFlow<CatalogDiff?> = preferences.state
+        .map { it.pendingCatalogDiff }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    /** 差分を当てたときに名前が変わるカテゴリーの数。適用前に見せる */
+    fun affectedByDiff(diff: CatalogDiff): Int {
+        val renamedKeys = diff.renamed.map { it.from.key }.toSet()
+        return categories.value.count { it.category.catalogKey in renamedKeys }
+    }
+
+    fun loadCatalog() = viewModelScope.launch {
+        val catalog = catalogRepository.ensureLoaded()
+        catalogGroups = catalog.groups()
+        catalogRevision = catalog.revision
+    }
+
+    /** 3 か月を待たずに今すぐ確認する導線。設定から呼ぶ */
+    fun checkCatalogNow() = viewModelScope.launch {
+        if (checkingCatalog) return@launch
+        checkingCatalog = true
+        catalogMessage = when (val result = catalogUpdater.update()) {
+            is CatalogUpdateResult.Updated ->
+                "${result.diff.changeCount} change(s) found in ${result.diff.toRevision}."
+            is CatalogUpdateResult.UpToDate -> "Already current (${result.revision})."
+            is CatalogUpdateResult.Failed -> result.reason
+        }
+        loadCatalog().join()
+        checkingCatalog = false
+    }
+
+    fun applyCatalogDiff() = viewModelScope.launch {
+        catalogUpdater.applyPendingDiff()
+        loadCatalog()
+    }
+
+    fun ignoreCatalogDiff() = viewModelScope.launch { catalogUpdater.dismissPendingDiff() }
+
+    fun clearCatalogMessage() {
+        catalogMessage = null
     }
 
     // ---- 共通 ---------------------------------------------------------------

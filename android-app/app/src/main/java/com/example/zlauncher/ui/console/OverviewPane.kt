@@ -206,6 +206,38 @@ private fun CardGrid(
                 Spacer(Modifier.height(8.dp))
                 SettingsRow(label = "Add widget", onClick = onAddWidget)
                 Spacer(Modifier.height(8.dp))
+                // 自動更新は 3 か月周期なので、待たずに確かめたいときの導線を置く
+                SettingsRow(
+                    label = if (viewModel.checkingCatalog) {
+                        "Checking URL categories…"
+                    } else {
+                        "Check URL category updates"
+                    },
+                    onClick = viewModel::checkCatalogNow,
+                )
+                viewModel.catalogMessage?.let { message ->
+                    Spacer(Modifier.height(6.dp))
+                    Row(
+                        Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(ZColors.SurfaceLow)
+                            .springyClick(onClick = viewModel::clearCatalogMessage)
+                            .padding(horizontal = 11.dp, vertical = 9.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        Text(message, style = ZType.Sub, color = ZColors.TextSecondary, modifier = Modifier.weight(1f))
+                        Text("Dismiss", style = ZType.Sub, color = ZColors.AccentSoft)
+                    }
+                }
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = "Catalog: ${viewModel.catalogRevision.ifBlank { "bundled" }} · refreshed every 90 days",
+                    style = ZType.Sub,
+                    color = ZColors.TextDim,
+                )
+                Spacer(Modifier.height(8.dp))
                 SettingsRow(
                     label = if (DefaultLauncher.isDefault(context)) {
                         "Open home app settings"

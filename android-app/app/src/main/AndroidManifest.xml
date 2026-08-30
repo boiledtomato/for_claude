@@ -5,6 +5,12 @@
     <!-- コンソールの回線種別・VPN 状態の表示に使う。通常権限なので実行時確認は不要 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- URL カテゴリー一覧（Zscaler ヘルプの CSV）を 3 か月ごとに取り直すためだけに使う -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- カタログに変更があったときの通知。Android 13 以降は実行時の許可も要る -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <!--
       Web Insights のアプリ別通信量に使う。signature|appop なので実行時ダイアログでは出せず、
       ここで宣言したうえでユーザーが設定 →「使用状況へのアクセス」で許可する。
@@ -59,6 +65,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--
+          WorkManager の自動初期化を止める。Hilt のファクトリを Application 側から渡すため。
+          残したままだと Worker への注入ができず、生成時に落ちる。
+        -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
 
         <!-- ログ CSV の書き出し先。cacheDir だけを、一時的な read 権限で渡す -->
         <provider

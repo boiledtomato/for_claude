@@ -37,6 +37,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -83,6 +84,11 @@ fun ConsoleScreen(
     val allApps by viewModel.allApps.collectAsStateWithLifecycle()
 
     var showCreateDialog by remember { mutableStateOf(false) }
+    var showCatalogDiff by remember { mutableStateOf(false) }
+    val pendingDiff by viewModel.pendingCatalogDiff.collectAsStateWithLifecycle()
+
+    // カタログは初回だけ読む。ダイアログを開いた瞬間に空、という状態を作らない
+    LaunchedEffect(Unit) { viewModel.loadCatalog() }
     var editingCategory by remember { mutableStateOf<CategoryWithApps?>(null) }
     var pickingAppsFor by remember { mutableStateOf<CategoryWithApps?>(null) }
     var pinningSlot by remember { mutableStateOf<Int?>(null) }
@@ -102,7 +108,10 @@ fun ConsoleScreen(
             onSelect = viewModel::select,
             onLaunchPinned = { viewModel.launch(it) },
             onEditPin = { slot -> pinningSlot = slot },
-            onAddCategory = { showCreateDialog = true },
+            onAddCategory = {
+                viewModel.loadCatalog()
+                showCreateDialog = true
+            },
         )
 
         Column(
@@ -127,6 +136,14 @@ fun ConsoleScreen(
                 onBack = onBack,
                 onToggleEdit = { viewModel.setEditMode(!viewModel.isEditing) },
             )
+
+            pendingDiff?.let { diff ->
+                CatalogUpdateBanner(
+                    diff = diff,
+                    onReview = { showCatalogDiff = true },
+                    modifier = Modifier.padding(start = 12.dp, end = 16.dp, bottom = 10.dp),
+                )
+            }
 
             // ペインの切り替えも滑らせる。瞬間的に差し替えると場所を見失う
             AnimatedContent(
@@ -170,18 +187,37 @@ fun ConsoleScreen(
     }
 
     if (showCreateDialog) {
-        CategoryCreateDialog(
+        CategoryCatalogDialog(
+            groups = viewModel.catalogGroups,
+            existingKeys = categories.mapNotNull { it.category.catalogKey }.toSet(),
             existingNames = categories.map { it.category.name }.toSet(),
             defaultColorIndex = categories.size % ZColors.CategoryColors.size,
+            revisionLabel = viewModel.catalogRevision.ifBlank { "bundled" },
             onDismiss = { showCreateDialog = false },
-            onConfirm = { presets, customName, customColor ->
-                if (presets.isNotEmpty()) {
-                    viewModel.createFromPresets(presets.map { it.name to it.colorIndex })
-                }
+            onConfirm = { entries, customName, customColor ->
+                if (entries.isNotEmpty()) viewModel.createFromCatalog(entries)
                 if (customName.isNotBlank()) viewModel.createCategory(customName, customColor)
                 showCreateDialog = false
             },
         )
+    }
+
+    if (showCatalogDiff) {
+        pendingDiff?.let { diff ->
+            CatalogUpdateDialog(
+                diff = diff,
+                affectedCategoryCount = viewModel.affectedByDiff(diff),
+                onDismiss = { showCatalogDiff = false },
+                onApply = {
+                    viewModel.applyCatalogDiff()
+                    showCatalogDiff = false
+                },
+                onIgnore = {
+                    viewModel.ignoreCatalogDiff()
+                    showCatalogDiff = false
+                },
+            )
+        }
     }
 
     editingCategory?.let { target ->

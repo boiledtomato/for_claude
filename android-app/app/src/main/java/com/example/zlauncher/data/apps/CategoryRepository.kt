@@ -4,6 +4,8 @@ import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.data.prefs.LauncherState
 import com.example.zlauncher.domain.model.AppCategory
 import com.example.zlauncher.domain.model.AppEntry
+import com.example.zlauncher.domain.model.CATEGORY_COLOR_COUNT
+import com.example.zlauncher.domain.model.UrlCategoryEntry
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import java.util.UUID
@@ -60,13 +62,25 @@ class CategoryRepository @Inject constructor(
         )
     }
 
-    /** プリセットからまとめて作る。既にある名前は飛ばす */
-    suspend fun createAll(presets: List<Pair<String, Int>>): Unit = preferences.update { state ->
-        val existing = state.categories.map { it.name }.toSet()
-        val added = presets
-            .filterNot { it.first in existing }
-            .map { (name, color) ->
-                AppCategory(id = UUID.randomUUID().toString(), name = name, colorIndex = color)
+    /**
+     * カタログの小項目からまとめて作る。既にある鍵・名前は飛ばす。
+     *
+     * [AppCategory.catalogKey] を残すのが肝。カタログが改訂されて名前が変わったとき、
+     * どのカテゴリーを差し替えればいいかをこれで辿る。
+     */
+    suspend fun createFromCatalog(entries: List<UrlCategoryEntry>): Unit = preferences.update { state ->
+        val existingKeys = state.categories.mapNotNull { it.catalogKey }.toSet()
+        val existingNames = state.categories.map { it.name }.toSet()
+        var color = state.categories.size
+        val added = entries
+            .filterNot { it.key in existingKeys || it.category in existingNames }
+            .map { entry ->
+                AppCategory(
+                    id = UUID.randomUUID().toString(),
+                    name = entry.category,
+                    colorIndex = color++ % CATEGORY_COLOR_COUNT,
+                    catalogKey = entry.key,
+                )
             }
         if (added.isEmpty()) state else state.copy(categories = state.categories + added)
     }
