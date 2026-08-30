@@ -26,7 +26,7 @@ import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CardLayout
 import com.example.zlauncher.domain.model.CardSpan
 import com.example.zlauncher.domain.model.CatalogDiff
-import com.example.zlauncher.domain.model.UrlCategoryEntry
+import com.example.zlauncher.domain.model.CatalogPick
 import com.example.zlauncher.domain.model.UrlCategoryGroup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -80,6 +80,13 @@ class ConsoleViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val pinnedSlots: Int get() = categoryRepository.pinnedSlots
+
+    val pinnedExpanded: StateFlow<Boolean> = categoryRepository.pinnedExpanded
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
+
+    fun togglePinned() = viewModelScope.launch {
+        categoryRepository.setPinnedExpanded(!pinnedExpanded.value)
+    }
 
     val allApps: StateFlow<List<AppEntry>> = combine(
         installedApps.apps,
@@ -199,8 +206,8 @@ class ConsoleViewModel @Inject constructor(
         preferences.update { it.copy(themedIcons = enabled) }
     }
 
-    fun createFromCatalog(entries: List<UrlCategoryEntry>) = viewModelScope.launch {
-        val ids = categoryRepository.createFromCatalog(entries)
+    fun createFromCatalog(picks: List<CatalogPick>) = viewModelScope.launch {
+        val ids = categoryRepository.createFromCatalog(picks)
         // 複数まとめて作った場合は最初の 1 つだけ開く。人数分ダイアログを重ねても片付かない。
         // 残りは空カテゴリーの帯とレールの印から辿れる
         ids.firstOrNull()?.let { promptForApps(it) }

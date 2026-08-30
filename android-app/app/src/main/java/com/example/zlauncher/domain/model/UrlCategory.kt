@@ -29,6 +29,17 @@ data class UrlCategoryEntry(
     val key: String get() = "$superCategory/$category"
 }
 
+/**
+ * 追加ダイアログで選んだ 1 件。**色は選んだ時点で決める。**
+ *
+ * 以前は作成後に自動で割り当てていたが、15 スロットあると「どれが何色になったか」は
+ * 作ってレールを見るまで分からず、直すには 1 つずつ編集を開く必要があった。
+ */
+data class CatalogPick(
+    val entry: UrlCategoryEntry,
+    val colorIndex: Int,
+)
+
 /** 大項目 1 つと、その下の小項目 */
 data class UrlCategoryGroup(
     val superCategory: String,

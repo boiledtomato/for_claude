@@ -27,6 +27,13 @@ data class LauncherState(
     val categories: List<AppCategory> = emptyList(),
     /** レール上部にピン留めするアプリ。最大 [MAX_PINNED] 件 */
     val pinnedApps: List<String> = emptyList(),
+    /**
+     * レール上部のピン留めを開いているか。
+     *
+     * 枠が 4 つになるとレールの上半分をピンが占め、カテゴリーが押し出される。
+     * 畳めるようにして、使わないときは場所を返せるようにする。
+     */
+    val pinnedExpanded: Boolean = true,
     /** アイコンをテーマ色に寄せる（モノクロレイヤーを持つアプリのみ、Android 13 以降） */
     val themedIcons: Boolean = false,
     /** 取り込み済み URL カテゴリー CSV のファイル名。空なら同梱版のまま */
@@ -41,7 +48,7 @@ data class LauncherState(
     companion object {
         const val CURRENT_VERSION = 1
         const val MAX_FAVORITES = 4
-        const val MAX_PINNED = 2
+        const val MAX_PINNED = 4
     }
 }
 

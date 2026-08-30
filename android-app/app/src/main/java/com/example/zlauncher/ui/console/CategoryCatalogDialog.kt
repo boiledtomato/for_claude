@@ -10,6 +10,8 @@ import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -46,6 +48,7 @@ import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.springyClick
+import com.example.zlauncher.domain.model.CatalogPick
 import com.example.zlauncher.domain.model.UrlCategoryEntry
 import com.example.zlauncher.domain.model.UrlCategoryGroup
 
@@ -66,10 +69,12 @@ fun CategoryCatalogDialog(
     defaultColorIndex: Int,
     revisionLabel: String,
     onDismiss: () -> Unit,
-    onConfirm: (entries: List<UrlCategoryEntry>, customName: String, customColorIndex: Int) -> Unit,
+    onConfirm: (picks: List<CatalogPick>, customName: String, customColorIndex: Int) -> Unit,
 ) {
-    val selected = remember { mutableStateListOf<UrlCategoryEntry>() }
+    val selected = remember { mutableStateListOf<CatalogPick>() }
     val expanded = remember { mutableStateListOf<String>() }
+    // 色を開いている行。1 行ずつしか開かない（全部開くと選択一覧が縦に伸びきる）
+    var colorEditing by remember { mutableStateOf<String?>(null) }
     var query by remember { mutableStateOf("") }
     var customName by remember { mutableStateOf("") }
     var customColor by remember { mutableIntStateOf(defaultColorIndex) }
@@ -137,20 +142,58 @@ fun CategoryCatalogDialog(
                             else expanded.add(group.superCategory)
                         },
                         onToggleEntry = { entry ->
-                            val hit = selected.firstOrNull { it.key == entry.key }
-                            if (hit != null) selected.remove(hit) else selected.add(entry)
+                            val hit = selected.firstOrNull { it.entry.key == entry.key }
+                            if (hit != null) {
+                                selected.remove(hit)
+                            } else {
+                                // 既定は空いている色から順に。同じ色が並ばないようにする
+                                selected.add(CatalogPick(entry, nextColor(defaultColorIndex, selected)))
+                            }
                         },
                         modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
                     )
                 }
 
-                if (visible.isEmpty()) {
+                if (visible.isEmpty() && selected.isEmpty()) {
                     item(key = "no-match") {
                         Text(
                             "No category matches “$query”.",
                             style = ZType.Body,
                             color = ZColors.TextSecondary,
                             modifier = Modifier.padding(vertical = 16.dp),
+                        )
+                    }
+                }
+
+                if (selected.isNotEmpty()) {
+                    item(key = "selected-header") {
+                        Spacer(Modifier.height(14.dp))
+                        Text("Selected", style = ZType.Eyebrow, color = ZColors.TextSecondary)
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            "Tap a swatch to change the colour before adding",
+                            style = ZType.Sub,
+                            color = ZColors.TextDim,
+                        )
+                        Spacer(Modifier.height(8.dp))
+                    }
+                    items(selected.toList(), key = { "picked-${it.entry.key}" }) { pick ->
+                        PickedRow(
+                            pick = pick,
+                            expanded = colorEditing == pick.entry.key,
+                            onToggleColors = {
+                                colorEditing = if (colorEditing == pick.entry.key) null else pick.entry.key
+                            },
+                            onColor = { index ->
+                                val at = selected.indexOfFirst { it.entry.key == pick.entry.key }
+                                if (at >= 0) selected[at] = pick.copy(colorIndex = index)
+                                colorEditing = null
+                            },
+                            onRemove = {
+                                selected.removeAll { it.entry.key == pick.entry.key }
+                                if (colorEditing == pick.entry.key) colorEditing = null
+                            },
+                            modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
                         )
                     }
                 }
@@ -211,17 +254,97 @@ fun CategoryCatalogDialog(
     }
 }
 
+/**
+ * 選択済み 1 件。色をここで決められる。
+ *
+ * 追加してからレールで直すのではなく、追加する前に決めさせる。15 色あると
+ * 「どれが何色になったか」は作ってみるまで分からないので。
+ */
+@Composable
+private fun PickedRow(
+    pick: CatalogPick,
+    expanded: Boolean,
+    onToggleColors: () -> Unit,
+    onColor: (Int) -> Unit,
+    onRemove: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val color = ZColors.CategoryColors[pick.colorIndex % ZColors.CategoryColors.size]
+    Column(
+        modifier
+            .fillMaxWidth()
+            .padding(bottom = 6.dp)
+            .clip(RoundedCornerShape(10.dp))
+            .background(ZColors.Surface)
+            .border(1.dp, ZColors.Outline, RoundedCornerShape(10.dp))
+            .padding(horizontal = 10.dp, vertical = 9.dp),
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(9.dp),
+        ) {
+            Box(
+                Modifier
+                    .size(22.dp)
+                    .clip(CircleShape)
+                    .background(color)
+                    .border(
+                        2.dp,
+                        if (expanded) ZColors.TextPrimary else ZColors.OutlineStrong,
+                        CircleShape,
+                    )
+                    .springyClick(onClick = onToggleColors)
+            )
+            Column(Modifier.weight(1f)) {
+                Text(
+                    pick.entry.category,
+                    style = ZType.Body,
+                    color = ZColors.TextPrimary,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    pick.entry.superCategory,
+                    style = ZType.Sub,
+                    color = ZColors.TextDim,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+            Text(
+                "✕",
+                style = ZType.Body,
+                color = ZColors.TextSecondary,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(999.dp))
+                    .springyClick(onClick = onRemove)
+                    .padding(horizontal = 7.dp, vertical = 3.dp),
+            )
+        }
+        AnimatedVisibility(
+            visible = expanded,
+            enter = fadeIn() + expandVertically(),
+            exit = fadeOut() + shrinkVertically(),
+        ) {
+            Column {
+                Spacer(Modifier.height(10.dp))
+                ColorPicker(selected = pick.colorIndex, onSelect = onColor)
+            }
+        }
+    }
+}
+
 @Composable
 private fun SuperCategorySection(
     group: UrlCategoryGroup,
     expanded: Boolean,
-    selected: List<UrlCategoryEntry>,
+    selected: List<CatalogPick>,
     existingKeys: Set<String>,
     onToggleExpand: () -> Unit,
     onToggleEntry: (UrlCategoryEntry) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val selectedCount = group.entries.count { entry -> selected.any { it.key == entry.key } }
+    val selectedCount = group.entries.count { entry -> selected.any { it.entry.key == entry.key } }
     val addedCount = group.entries.count { it.key in existingKeys }
     val rotation by animateFloatAsState(
         targetValue = if (expanded) 90f else 0f,
@@ -285,7 +408,7 @@ private fun SuperCategorySection(
                 group.entries.forEach { entry ->
                     SubCategoryRow(
                         entry = entry,
-                        selected = selected.any { it.key == entry.key },
+                        selected = selected.any { it.entry.key == entry.key },
                         already = entry.key in existingKeys,
                         onClick = { onToggleEntry(entry) },
                     )
@@ -404,9 +527,14 @@ private fun TextInput(value: String, placeholder: String, onValueChange: (String
     }
 }
 
+/** 15 色。横一列には収まらないので折り返す */
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ColorPicker(selected: Int, onSelect: (Int) -> Unit) {
-    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(9.dp),
+        verticalArrangement = Arrangement.spacedBy(9.dp),
+    ) {
         ZColors.CategoryColors.forEachIndexed { index, color ->
             Box(
                 Modifier
@@ -422,6 +550,17 @@ private fun ColorPicker(selected: Int, onSelect: (Int) -> Unit) {
             )
         }
     }
+}
+
+/** まだ使っていない色から順に配る。同じ色が並ぶのを避ける */
+private fun nextColor(start: Int, picked: List<CatalogPick>): Int {
+    val used = picked.map { it.colorIndex }.toSet()
+    val total = ZColors.CategoryColors.size
+    repeat(total) { offset ->
+        val candidate = (start + picked.size + offset) % total
+        if (candidate !in used) return candidate
+    }
+    return (start + picked.size) % total
 }
 
 @Composable

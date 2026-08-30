@@ -5,10 +5,11 @@ import com.example.zlauncher.data.prefs.LauncherState
 import com.example.zlauncher.domain.model.AppCategory
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.domain.model.CATEGORY_COLOR_COUNT
-import com.example.zlauncher.domain.model.UrlCategoryEntry
+import com.example.zlauncher.domain.model.CatalogPick
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -52,6 +53,12 @@ class CategoryRepository @Inject constructor(
 
     val pinnedSlots: Int get() = LauncherState.MAX_PINNED
 
+    val pinnedExpanded: Flow<Boolean> = preferences.state.map { it.pinnedExpanded }
+
+    suspend fun setPinnedExpanded(expanded: Boolean) = preferences.update {
+        it.copy(pinnedExpanded = expanded)
+    }
+
     /** 作った id を返す。呼び出し側がそのままアプリ選択へ送れるようにするため */
     suspend fun create(name: String, colorIndex: Int): String {
         val category = AppCategory(
@@ -69,20 +76,19 @@ class CategoryRepository @Inject constructor(
      * [AppCategory.catalogKey] を残すのが肝。カタログが改訂されて名前が変わったとき、
      * どのカテゴリーを差し替えればいいかをこれで辿る。
      */
-    suspend fun createFromCatalog(entries: List<UrlCategoryEntry>): List<String> {
+    suspend fun createFromCatalog(picks: List<CatalogPick>): List<String> {
         // 追加分は update の外で組み立てる。中で作ると id を呼び出し側へ返せない
         val state = preferences.state.first()
         val existingKeys = state.categories.mapNotNull { it.catalogKey }.toSet()
         val existingNames = state.categories.map { it.name }.toSet()
-        var color = state.categories.size
-        val added = entries
-            .filterNot { it.key in existingKeys || it.category in existingNames }
-            .map { entry ->
+        val added = picks
+            .filterNot { it.entry.key in existingKeys || it.entry.category in existingNames }
+            .map { pick ->
                 AppCategory(
                     id = UUID.randomUUID().toString(),
-                    name = entry.category,
-                    colorIndex = color++ % CATEGORY_COLOR_COUNT,
-                    catalogKey = entry.key,
+                    name = pick.entry.category,
+                    colorIndex = pick.colorIndex % CATEGORY_COLOR_COUNT,
+                    catalogKey = pick.entry.key,
                 )
             }
         if (added.isEmpty()) return emptyList()

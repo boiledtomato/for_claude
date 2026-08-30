@@ -1,14 +1,18 @@
 package com.example.zlauncher.ui.console
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.fadeIn
+import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
@@ -46,6 +50,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
@@ -87,6 +92,7 @@ fun ConsoleScreen(
     var showCatalogDiff by remember { mutableStateOf(false) }
     val pendingDiff by viewModel.pendingCatalogDiff.collectAsStateWithLifecycle()
     val emptyCategories by viewModel.emptyCategories.collectAsStateWithLifecycle()
+    val pinnedExpanded by viewModel.pinnedExpanded.collectAsStateWithLifecycle()
 
     // カタログは初回だけ読む。ダイアログを開いた瞬間に空、という状態を作らない
     LaunchedEffect(Unit) { viewModel.loadCatalog() }
@@ -112,6 +118,8 @@ fun ConsoleScreen(
         ConsoleRail(
             pinned = pinned,
             pinnedSlots = viewModel.pinnedSlots,
+            pinnedExpanded = pinnedExpanded,
+            onTogglePinned = viewModel::togglePinned,
             categories = categories,
             selected = selected,
             iconProvider = viewModel::icon,
@@ -216,8 +224,8 @@ fun ConsoleScreen(
             defaultColorIndex = categories.size % ZColors.CategoryColors.size,
             revisionLabel = viewModel.catalogRevision.ifBlank { "bundled" },
             onDismiss = { showCreateDialog = false },
-            onConfirm = { entries, customName, customColor ->
-                if (entries.isNotEmpty()) viewModel.createFromCatalog(entries)
+            onConfirm = { picks, customName, customColor ->
+                if (picks.isNotEmpty()) viewModel.createFromCatalog(picks)
                 if (customName.isNotBlank()) viewModel.createCategory(customName, customColor)
                 showCreateDialog = false
             },
@@ -294,6 +302,8 @@ fun ConsoleScreen(
 private fun ConsoleRail(
     pinned: List<AppEntry>,
     pinnedSlots: Int,
+    pinnedExpanded: Boolean,
+    onTogglePinned: () -> Unit,
     categories: List<CategoryWithApps>,
     selected: ConsolePane,
     iconProvider: suspend (AppEntry) -> ImageBitmap?,
@@ -312,16 +322,30 @@ private fun ConsoleRail(
             .padding(vertical = 10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text("Pinned", style = ZType.Sub.copy(fontSize = 9.sp), color = ZColors.TextDim)
-        Spacer(Modifier.height(8.dp))
-        repeat(pinnedSlots) { slot ->
-            PinSlot(
-                entry = pinned.getOrNull(slot),
-                iconProvider = iconProvider,
-                onLaunch = onLaunchPinned,
-                onEdit = { onEditPin(slot) },
-            )
-            Spacer(Modifier.height(8.dp))
+        // 枠が 4 つあるとレールの上半分をピンが占める。畳んで場所を返せるようにする
+        PinnedHeader(
+            expanded = pinnedExpanded,
+            filled = pinned.size,
+            slots = pinnedSlots,
+            onClick = onTogglePinned,
+        )
+        AnimatedVisibility(
+            visible = pinnedExpanded,
+            enter = fadeIn() + expandVertically(),
+            exit = fadeOut() + shrinkVertically(),
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Spacer(Modifier.height(8.dp))
+                repeat(pinnedSlots) { slot ->
+                    PinSlot(
+                        entry = pinned.getOrNull(slot),
+                        iconProvider = iconProvider,
+                        onLaunch = onLaunchPinned,
+                        onEdit = { onEditPin(slot) },
+                    )
+                    Spacer(Modifier.height(8.dp))
+                }
+            }
         }
 
         Box(
@@ -373,6 +397,50 @@ private fun ConsoleRail(
             selected = false,
             indicator = { Text("＋", style = ZType.Title.copy(fontSize = 18.sp), color = ZColors.TextSecondary) },
             onClick = onAddCategory,
+        )
+    }
+}
+
+/**
+ * ピン留めの見出し。タブとして押すと開閉する。
+ *
+ * 畳んでいるときも「何個入っているか」は出す。畳んだ結果ピンの存在ごと忘れる、
+ * という状態を作らないため。
+ */
+@Composable
+private fun PinnedHeader(expanded: Boolean, filled: Int, slots: Int, onClick: () -> Unit) {
+    val rotation by animateFloatAsState(
+        targetValue = if (expanded) 90f else 0f,
+        animationSpec = ZMotion.touch(),
+        label = "pinnedChevron",
+    )
+    val background by animateColorAsState(
+        targetValue = if (expanded) Color.Transparent else ZColors.Surface,
+        animationSpec = ZMotion.value(),
+        label = "pinnedHeader",
+    )
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 6.dp)
+            .clip(RoundedCornerShape(10.dp))
+            .background(background)
+            .springyClick(onClick = onClick)
+            .padding(vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center,
+    ) {
+        Text(
+            "›",
+            style = ZType.Sub.copy(fontSize = 11.sp),
+            color = ZColors.TextDim,
+            modifier = Modifier.rotate(rotation),
+        )
+        Spacer(Modifier.width(4.dp))
+        Text(
+            text = if (expanded) "Pinned" else "Pinned $filled/$slots",
+            style = ZType.Sub.copy(fontSize = 9.sp),
+            color = ZColors.TextDim,
         )
     }
 }
