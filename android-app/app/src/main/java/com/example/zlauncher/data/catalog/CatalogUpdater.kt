@@ -46,7 +46,7 @@ class CatalogUpdater @Inject constructor(
             val article = fetch(ARTICLE_URL) ?: return@withContext CatalogUpdateResult.Failed(
                 "Could not reach the Zscaler help article."
             )
-            val path = CSV_LINK.find(article)?.value
+            val path = CatalogArticle.csvPath(article)
                 ?: return@withContext CatalogUpdateResult.Failed(
                     "The help article no longer links a CSV."
                 )
@@ -195,9 +195,6 @@ class CatalogUpdater @Inject constructor(
         /** 記事本文を返す JSON API。SPA の HTML には本文が入っていないのでこちらを使う */
         const val ARTICLE_URL =
             "$HELP_ORIGIN/zapi/fetch-data?url_alias=/zia/about-url-categories&view_type=full&_format=json"
-
-        /** 本文に埋まっている CSV への相対リンク */
-        val CSV_LINK = Regex("""/downloads/[^"'\\ ]+\.csv""")
 
         const val TIMEOUT_MS = 20_000
     }

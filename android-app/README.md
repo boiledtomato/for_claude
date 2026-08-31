@@ -282,6 +282,12 @@ Zscaler の Web Insights と違い、端末の中からは **URL もホスト名
 記事本文を `zapi/fetch-data` の JSON で取り、その中の `.csv` リンクを拾ってから落とす。
 ヘルプは React の SPA なので HTML を読んでも本文は入っておらず、この API 以外に道は無い。
 
+リンクの取り出しは `CatalogArticle.csvPath()`。**応答は JSON なので `/` は `\/`、`"` は
+`\u0022` にエスケープされて届く**（`href=\u0022\/downloads\/…csv\u0022`）。素の
+`/downloads/…` を探すと必ず外れ、実機では「The help article no longer links a CSV」に
+なるだけで原因が分からない。先にエスケープを戻してから当てること。`CatalogArticleTest`
+が実応答と同じ並びで固定している。
+
 差分は `added` / `removed` / `renamed` / `moved` に分けて出す。ただし
 **CSV に安定した ID 列が無い**（2023 年版にあった Cloud API の enum 値は現行版で消えている）。
 そのため改名は「消えた」と「増えた」の対応付けからの**推測**でしかなく、同じ大項目で
