@@ -34,6 +34,14 @@ data class LauncherState(
      * 畳めるようにして、使わないときは場所を返せるようにする。
      */
     val pinnedExpanded: Boolean = true,
+    /**
+     * レールのカテゴリー欄を開いているか。
+     *
+     * ピンと同じくタブとして畳める。Overview / Insights とカテゴリーの境目を
+     * 見出しで区切っておかないと、レールが「名前が縦に並んだだけの列」になって、
+     * どこからが自分の作ったカテゴリーなのか分からなくなる。
+     */
+    val categoriesExpanded: Boolean = true,
     /** アイコンをテーマ色に寄せる（モノクロレイヤーを持つアプリのみ、Android 13 以降） */
     val themedIcons: Boolean = false,
     /** 取り込み済み URL カテゴリー CSV のファイル名。空なら同梱版のまま */

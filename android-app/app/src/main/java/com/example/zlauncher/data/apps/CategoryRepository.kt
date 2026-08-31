@@ -59,6 +59,12 @@ class CategoryRepository @Inject constructor(
         it.copy(pinnedExpanded = expanded)
     }
 
+    val categoriesExpanded: Flow<Boolean> = preferences.state.map { it.categoriesExpanded }
+
+    suspend fun setCategoriesExpanded(expanded: Boolean) = preferences.update {
+        it.copy(categoriesExpanded = expanded)
+    }
+
     /** 作った id を返す。呼び出し側がそのままアプリ選択へ送れるようにするため */
     suspend fun create(name: String, colorIndex: Int): String {
         val category = AppCategory(

@@ -2,24 +2,26 @@ package com.example.zlauncher.ui.console
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.expandVertically
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.shrinkVertically
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.togetherWith
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -43,8 +45,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -53,12 +59,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.core.designsystem.ZColors
@@ -67,12 +77,13 @@ import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.domain.model.AppEntry
-import com.example.zlauncher.ui.insights.InsightsPane
 import com.example.zlauncher.ui.home.component.AppIconTile
 import com.example.zlauncher.ui.home.component.rememberAppIcon
+import com.example.zlauncher.ui.insights.InsightsPane
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import kotlinx.coroutines.launch
 
 private val RAIL_WIDTH = 84.dp
 
@@ -93,11 +104,14 @@ fun ConsoleScreen(
     val pendingDiff by viewModel.pendingCatalogDiff.collectAsStateWithLifecycle()
     val emptyCategories by viewModel.emptyCategories.collectAsStateWithLifecycle()
     val pinnedExpanded by viewModel.pinnedExpanded.collectAsStateWithLifecycle()
+    val categoriesExpanded by viewModel.categoriesExpanded.collectAsStateWithLifecycle()
 
     // カタログは初回だけ読む。ダイアログを開いた瞬間に空、という状態を作らない
     LaunchedEffect(Unit) { viewModel.loadCatalog() }
     var editingCategory by remember { mutableStateOf<CategoryWithApps?>(null) }
     var pickingAppsFor by remember { mutableStateOf<CategoryWithApps?>(null) }
+    // 開いているアプリ選択が「作りたてのカテゴリー」のものか。閉じたときの意味が変わる
+    var pickingIsNew by remember { mutableStateOf(false) }
     var pinningSlot by remember { mutableStateOf<Int?>(null) }
 
     // 作成直後のアプリ選択。カテゴリーが Flow に現れてから開く
@@ -105,6 +119,7 @@ fun ConsoleScreen(
         val id = viewModel.pendingAppPrompt ?: return@LaunchedEffect
         categories.firstOrNull { it.id == id }?.let { target ->
             pickingAppsFor = target
+            pickingIsNew = viewModel.promptIsNewCategory
             viewModel.consumeAppPrompt()
         }
     }
@@ -121,6 +136,8 @@ fun ConsoleScreen(
             pinnedExpanded = pinnedExpanded,
             onTogglePinned = viewModel::togglePinned,
             categories = categories,
+            categoriesExpanded = categoriesExpanded,
+            onToggleCategories = viewModel::toggleCategories,
             selected = selected,
             iconProvider = viewModel::icon,
             onSelect = viewModel::select,
@@ -130,6 +147,7 @@ fun ConsoleScreen(
                 viewModel.loadCatalog()
                 showCreateDialog = true
             },
+            onMoveCategory = viewModel::moveCategory,
         )
 
         Column(
@@ -198,7 +216,7 @@ fun ConsoleScreen(
                                 iconProvider = viewModel::icon,
                                 onLaunch = { entry -> viewModel.launch(entry) },
                                 onRemoveApp = { pkg -> viewModel.removeAppFromCategory(pane.id, pkg) },
-                                onPickApps = { pickingAppsFor = pane },
+                                onPickApps = { pickingAppsFor = pane; pickingIsNew = false },
                                 onEditCategory = { editingCategory = pane },
                                 onDeleteCategory = { viewModel.deleteCategory(pane.id) },
                                 onOpenInsights = { viewModel.select(ConsolePane.Insights(pane.id)) },
@@ -268,15 +286,23 @@ fun ConsoleScreen(
         // 開いた時点の一覧に対して 1 度だけ推定する。毎フレーム引き直さない
         val suggestions = remember(target.id, allApps) { viewModel.suggestionsFor(target) }
         AppPickerDialog(
-            title = "Apps in “${target.category.name}”",
+            title = if (pickingIsNew) "New category “${target.category.name}”" else "Apps in “${target.category.name}”",
             apps = allApps,
             initiallySelected = target.category.packages.toSet(),
             multiSelect = true,
             iconProvider = viewModel::icon,
-            onDismiss = { pickingAppsFor = null },
+            // 作りたてなら閉じる = 作成の取り止め。空のカテゴリーだけを残して終わらない
+            dismissLabel = if (pickingIsNew) "Discard" else "Cancel",
+            dismissNote = if (pickingIsNew) "Discard removes the category you just added" else null,
+            onDismiss = {
+                if (pickingIsNew) viewModel.discardNewCategory(target.id)
+                pickingAppsFor = null
+                pickingIsNew = false
+            },
             onConfirm = { packages ->
                 viewModel.setCategoryApps(target.id, packages)
                 pickingAppsFor = null
+                pickingIsNew = false
             },
             suggestions = suggestions,
         )
@@ -305,12 +331,15 @@ private fun ConsoleRail(
     pinnedExpanded: Boolean,
     onTogglePinned: () -> Unit,
     categories: List<CategoryWithApps>,
+    categoriesExpanded: Boolean,
+    onToggleCategories: () -> Unit,
     selected: ConsolePane,
     iconProvider: suspend (AppEntry) -> ImageBitmap?,
     onSelect: (ConsolePane) -> Unit,
     onLaunchPinned: (AppEntry) -> Unit,
     onEditPin: (Int) -> Unit,
     onAddCategory: () -> Unit,
+    onMoveCategory: (Int, Int) -> Unit,
 ) {
     Column(
         Modifier
@@ -323,10 +352,10 @@ private fun ConsoleRail(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         // 枠が 4 つあるとレールの上半分をピンが占める。畳んで場所を返せるようにする
-        PinnedHeader(
+        RailSectionHeader(
+            label = "Pinned",
+            collapsedLabel = "Pinned ${pinned.size}/$pinnedSlots",
             expanded = pinnedExpanded,
-            filled = pinned.size,
-            slots = pinnedSlots,
             onClick = onTogglePinned,
         )
         AnimatedVisibility(
@@ -348,13 +377,7 @@ private fun ConsoleRail(
             }
         }
 
-        Box(
-            Modifier
-                .padding(vertical = 8.dp)
-                .width(36.dp)
-                .height(1.dp)
-                .background(ZColors.Outline)
-        )
+        RailDivider()
 
         RailItem(
             label = "Overview",
@@ -370,9 +393,140 @@ private fun ConsoleRail(
             onClick = { onSelect(ConsolePane.Insights()) },
         )
 
-        categories.forEach { category ->
-            val color = ZColors.CategoryColors[category.category.colorIndex % ZColors.CategoryColors.size]
-            val empty = category.apps.isEmpty()
+        // Overview / Insights は据え置きの機能、以下は自分で作った URL カテゴリー。
+        // 同じ見た目で続けると境目が消えるので、ピン留めと同じ区切り線と見出しを挟む
+        RailDivider()
+
+        RailSectionHeader(
+            // 84dp のレールに収まる長さで。自作の自由入力カテゴリーもここに並ぶので
+            // "URL categories" ではなく総称にしてある
+            label = "Categories",
+            collapsedLabel = "Categories ${categories.size}",
+            expanded = categoriesExpanded,
+            onClick = onToggleCategories,
+        )
+
+        AnimatedVisibility(
+            visible = categoriesExpanded,
+            enter = fadeIn() + expandVertically(),
+            exit = fadeOut() + shrinkVertically(),
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                CategoryRailItems(
+                    categories = categories,
+                    selected = selected,
+                    onSelect = onSelect,
+                    onMove = onMoveCategory,
+                )
+
+                RailItem(
+                    label = "Add",
+                    selected = false,
+                    indicator = {
+                        Text("＋", style = ZType.Title.copy(fontSize = 18.sp), color = ZColors.TextSecondary)
+                    },
+                    onClick = onAddCategory,
+                )
+            }
+        }
+    }
+}
+
+/**
+ * カテゴリーの並び。長押しで持ち上げて上下に入れ替えられる。
+ *
+ * **並べ替えは指を離してから確定する。** 途中で確定させると行と要素の対応が変わり、
+ * その行の pointerInput が作り直されて、動かしている最中に指が外れる。
+ * 動いている間に見えているのは [RailReorder.shift] が計算する見た目のずれだけ。
+ */
+@Composable
+private fun CategoryRailItems(
+    categories: List<CategoryWithApps>,
+    selected: ConsolePane,
+    onSelect: (ConsolePane) -> Unit,
+    onMove: (Int, Int) -> Unit,
+) {
+    val haptics = LocalHapticFeedback.current
+    val scope = rememberCoroutineScope()
+    // 行の高さは名前が 2 行に折り返すかで変わるので実測しておく。
+    // 件数が変われば作り直す（合成中に書き換えると読み書きの順で挙動が変わる）
+    val heights = remember(categories.size) {
+        mutableStateListOf<Float>().apply { repeat(categories.size) { add(0f) } }
+    }
+    var dragStart by remember { mutableIntStateOf(-1) }
+    var dragDy by remember { mutableFloatStateOf(0f) }
+    // 指を離した後、残りのずれを吸収するあいだだけ立つ。即座に 0 にすると行が飛ぶ
+    var settlingIndex by remember { mutableIntStateOf(-1) }
+    val settleDy = remember { Animatable(0f) }
+
+    val target = if (dragStart >= 0) RailReorder.drop(dragStart, dragDy, heights).index else -1
+
+    categories.forEachIndexed { index, category ->
+        val color = ZColors.CategoryColors[category.category.colorIndex % ZColors.CategoryColors.size]
+        val empty = category.apps.isEmpty()
+        val lifted = dragStart == index
+        val shift = if (dragStart >= 0) RailReorder.shift(index, dragStart, target, heights) else 0f
+        val shifted by animateFloatAsState(
+            targetValue = shift,
+            animationSpec = ZMotion.touch(),
+            label = "railShift",
+        )
+        val offset = when {
+            lifted -> dragDy
+            index == settlingIndex -> settleDy.value
+            else -> shifted
+        }
+        val lift by animateFloatAsState(
+            targetValue = if (lifted) ZMotion.LIFT_SCALE else 1f,
+            animationSpec = ZMotion.touch(),
+            label = "railLift",
+        )
+        Box(
+            Modifier
+                .onSizeChanged { size ->
+                    if (size.height > 0 && index < heights.size) heights[index] = size.height.toFloat()
+                }
+                .zIndex(if (lifted || offset != 0f) 1f else 0f)
+                .graphicsLayer {
+                    translationY = offset
+                    scaleX = lift
+                    scaleY = lift
+                }
+                .pointerInput(category.id, categories.size) {
+                    if (categories.size < 2) return@pointerInput
+                    detectDragGesturesAfterLongPress(
+                        onDragStart = {
+                            haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+                            dragStart = index
+                            dragDy = 0f
+                        },
+                        onDrag = { change, delta ->
+                            change.consume()
+                            if (dragStart >= 0) dragDy += delta.y
+                        },
+                        onDragEnd = {
+                            val from = dragStart
+                            if (from < 0) return@detectDragGesturesAfterLongPress
+                            val drop = RailReorder.drop(from, dragDy, heights)
+                            // 確定で行はこのぶん動く。残りだけ戻せば指を離した位置から続く
+                            val residual = dragDy - drop.consumed
+                            dragStart = -1
+                            dragDy = 0f
+                            if (drop.index != from) onMove(from, drop.index)
+                            settlingIndex = drop.index
+                            scope.launch {
+                                settleDy.snapTo(residual)
+                                settleDy.animateTo(0f, ZMotion.touch())
+                                settlingIndex = -1
+                            }
+                        },
+                        onDragCancel = {
+                            dragStart = -1
+                            dragDy = 0f
+                        },
+                    )
+                },
+        ) {
             RailItem(
                 label = category.category.name,
                 selected = (selected as? ConsolePane.Category)?.id == category.id,
@@ -391,33 +545,42 @@ private fun ConsoleRail(
                 onClick = { onSelect(ConsolePane.Category(category.id)) },
             )
         }
-
-        RailItem(
-            label = "Add",
-            selected = false,
-            indicator = { Text("＋", style = ZType.Title.copy(fontSize = 18.sp), color = ZColors.TextSecondary) },
-            onClick = onAddCategory,
-        )
     }
 }
 
+@Composable
+private fun RailDivider() {
+    Box(
+        Modifier
+            .padding(vertical = 8.dp)
+            .width(36.dp)
+            .height(1.dp)
+            .background(ZColors.Outline)
+    )
+}
+
 /**
- * ピン留めの見出し。タブとして押すと開閉する。
+ * レールの見出し。タブとして押すと下の中身を開閉する。
  *
- * 畳んでいるときも「何個入っているか」は出す。畳んだ結果ピンの存在ごと忘れる、
+ * 畳んでいるときも件数は出す。畳んだ結果、そこに何かあること自体を忘れる、
  * という状態を作らないため。
  */
 @Composable
-private fun PinnedHeader(expanded: Boolean, filled: Int, slots: Int, onClick: () -> Unit) {
+private fun RailSectionHeader(
+    label: String,
+    collapsedLabel: String,
+    expanded: Boolean,
+    onClick: () -> Unit,
+) {
     val rotation by animateFloatAsState(
         targetValue = if (expanded) 90f else 0f,
         animationSpec = ZMotion.touch(),
-        label = "pinnedChevron",
+        label = "railChevron",
     )
     val background by animateColorAsState(
         targetValue = if (expanded) Color.Transparent else ZColors.Surface,
         animationSpec = ZMotion.value(),
-        label = "pinnedHeader",
+        label = "railHeader",
     )
     Row(
         Modifier
@@ -438,9 +601,11 @@ private fun PinnedHeader(expanded: Boolean, filled: Int, slots: Int, onClick: ()
         )
         Spacer(Modifier.width(4.dp))
         Text(
-            text = if (expanded) "Pinned" else "Pinned $filled/$slots",
+            text = if (expanded) label else collapsedLabel,
             style = ZType.Sub.copy(fontSize = 9.sp),
             color = ZColors.TextDim,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
         )
     }
 }

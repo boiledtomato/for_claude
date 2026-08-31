@@ -133,6 +133,13 @@ fun AppPickerDialog(
     onConfirm: (List<String>) -> Unit,
     /** 自動判別の結果。空なら提案の行そのものを出さない */
     suggestions: List<AppSuggestion> = emptyList(),
+    /**
+     * 閉じるボタンの文言。作りたてのカテゴリーでは「閉じる」ではなく
+     * 「作成をやめる」なので、押す前にそれが分かる言葉にしておく。
+     */
+    dismissLabel: String = "Cancel",
+    /** 閉じたときに何が起きるかの一言。作成の取り消しなど、後戻りしにくい動作にだけ添える */
+    dismissNote: String? = null,
 ) {
     val selected = remember { initiallySelected.toMutableStateList() }
     var query by remember { mutableStateOf("") }
@@ -141,7 +148,15 @@ fun AppPickerDialog(
         if (query.isBlank()) apps else apps.filter { it.label.contains(query, ignoreCase = true) }
     }
 
-    Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+    Dialog(
+        onDismissRequest = onDismiss,
+        properties = DialogProperties(
+            usePlatformDefaultWidth = false,
+            // 閉じると何かが消える場合は、枠外の取りこぼしタップで閉じない。
+            // ボタンか戻るキーを踏ませる
+            dismissOnClickOutside = dismissNote == null,
+        ),
+    ) {
         Column(
             Modifier
                 .fillMaxSize()
@@ -253,13 +268,17 @@ fun AppPickerDialog(
             }
             Spacer(Modifier.height(12.dp))
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = if (multiSelect) "${selected.size} selected" else "",
-                    style = ZType.Sub,
-                    color = ZColors.TextSecondary,
-                    modifier = Modifier.weight(1f),
-                )
-                DialogButton("Cancel", accent = false, onClick = onDismiss)
+                Column(Modifier.weight(1f)) {
+                    Text(
+                        text = if (multiSelect) "${selected.size} selected" else "",
+                        style = ZType.Sub,
+                        color = ZColors.TextSecondary,
+                    )
+                    dismissNote?.let {
+                        Text(it, style = ZType.Sub, color = ZColors.TextDim, maxLines = 2)
+                    }
+                }
+                DialogButton(dismissLabel, accent = false, onClick = onDismiss)
                 Spacer(Modifier.size(10.dp))
                 DialogButton("Done", accent = true) { onConfirm(selected.toList()) }
             }

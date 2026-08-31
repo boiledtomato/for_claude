@@ -88,6 +88,18 @@ class ConsoleViewModel @Inject constructor(
         categoryRepository.setPinnedExpanded(!pinnedExpanded.value)
     }
 
+    val categoriesExpanded: StateFlow<Boolean> = categoryRepository.categoriesExpanded
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
+
+    fun toggleCategories() = viewModelScope.launch {
+        categoryRepository.setCategoriesExpanded(!categoriesExpanded.value)
+    }
+
+    /** レール上の並べ替え。添字は [categories] の並びで、そのまま保存順と一致する */
+    fun moveCategory(from: Int, to: Int) = viewModelScope.launch {
+        categoryRepository.move(from, to)
+    }
+
     val allApps: StateFlow<List<AppEntry>> = combine(
         installedApps.apps,
         preferences.state,
@@ -111,7 +123,7 @@ class ConsoleViewModel @Inject constructor(
      */
     fun createCategory(name: String, colorIndex: Int) = viewModelScope.launch {
         val id = categoryRepository.create(name, colorIndex)
-        promptForApps(id)
+        promptForApps(id, justCreated = true)
     }
 
     /** 作成直後にアプリ選択を開きたいカテゴリー。画面側が拾ったら [consumeAppPrompt] で戻す */
@@ -140,10 +152,35 @@ class ConsoleViewModel @Inject constructor(
         pendingAppPrompt = null
     }
 
-    fun promptForApps(id: String) {
+    /**
+     * 作りたてかどうか。画面側はこれを見て、アプリ選択を閉じたときの意味を変える。
+     *
+     * 作りたてを閉じる = 作成そのものを取り止め（[discardNewCategory]）。
+     * 空カテゴリーの帯から開いたものを閉じる = ただ選ばなかっただけで、消してはいけない。
+     */
+    var promptIsNewCategory by mutableStateOf(false)
+        private set
+
+    fun promptForApps(id: String, justCreated: Boolean = false) {
         pane = ConsolePane.Category(id)
         isEditing = false
         pendingAppPrompt = id
+        promptIsNewCategory = justCreated
+        // 畳んだまま作ると、増えたはずのカテゴリーがどこにも見えない
+        if (justCreated) viewModelScope.launch { categoryRepository.setCategoriesExpanded(true) }
+    }
+
+    /**
+     * 作成の取り消し。作りたてのアプリ選択を「Discard」で閉じたときだけ呼ぶ。
+     *
+     * 中身が入っていたら消さない。Done で確定したあとに開き直した場合や、
+     * 別経路で追加された直後などに、選んだ内容ごと消してしまわないための保険。
+     */
+    fun discardNewCategory(id: String) = viewModelScope.launch {
+        val target = categories.value.firstOrNull { it.id == id } ?: return@launch
+        if (target.category.packages.isNotEmpty()) return@launch
+        categoryRepository.delete(id)
+        if ((pane as? ConsolePane.Category)?.id == id) pane = ConsolePane.Overview
     }
 
     /** 中身が空のカテゴリー。帯とレールの印に使う */
@@ -210,7 +247,7 @@ class ConsoleViewModel @Inject constructor(
         val ids = categoryRepository.createFromCatalog(picks)
         // 複数まとめて作った場合は最初の 1 つだけ開く。人数分ダイアログを重ねても片付かない。
         // 残りは空カテゴリーの帯とレールの印から辿れる
-        ids.firstOrNull()?.let { promptForApps(it) }
+        ids.firstOrNull()?.let { promptForApps(it, justCreated = true) }
     }
 
     fun setEditMode(editing: Boolean) {
