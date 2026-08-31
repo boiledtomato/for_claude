@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-17 02:18 UTC
-Posts in this file: 728
+Generated: 2026-08-31 06:38 UTC
+Posts in this file: 730
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -17061,4 +17061,38 @@ Regards
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>I’m looking for some help to resolve Microsoft URLs with Dedicated IP in combination with Microsoft's ip whitelisting function, called Conditional Access.</p><p><br></p><p>Just like Identity Proxy, you can NOT use Identity Proxy for Microsoft services IF your IDP is Entra. It’s the classic problem of trying to white list logging in, before you are authenticated.</p><p><br></p><p>Same problem with Dedicated IP. After we enter some Microsoft service URLs in the dedicated IP mechanism (in this case the Storage Browser service), it doesn’t work because we can’t authenticate first. We also our Zscaler dedicated IP entered into their Microsoft Conditional Access policy. We tested with one user by entering that user's outgoing Zscaler IP (from ip.zscaler.com) into the Microsoft Conditional Access policy, and it worked. So the theory of what's blocking is confirmed.</p><p><br></p><p>What this tells us is the Login Services are not getting through. The obvious solution is the start entering Login service URLs to the Dedicated IP ruleset, but I’ve tried this in the past and had conflicting results as the login URLs are a moving target.</p><p><br></p><p>So, my question is has somebody figured out a consistent approach to this? Thank you.</p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy","lastmod":"2026-08-26T15:43:56.000Z","id":"0D5PJ000011GFN30AO"} -->
+## file type control policy
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy
+- Type: Q&A
+- Posted: 2026-08-24T11:03:35.000Z
+- Last activity: 2026-08-26T15:43:56.000Z
+- Answers: 2
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>despite configuring the file type control policy for blocking the executables download , for zoom sometimes the policy is working sometimes not though the code is 200 only </p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011KHv00AG/tenant-restriction-for-chatgpt","lastmod":"2026-08-25T19:57:55.000Z","id":"0D5PJ000011KHv00AG"} -->
+## Tenant restriction for Chatgpt
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011KHv00AG/tenant-restriction-for-chatgpt
+- Type: Q&A
+- Posted: 2026-08-25T09:21:52.000Z
+- Last activity: 2026-08-25T19:57:55.000Z
+- Answers: 4
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>We have configured Tenant Restriction for ChatGPT and would like to validate the expected behavior.</p><p>Our requirement is:</p><ul><li>Users with a ChatGPT subscription should be able to access and use ChatGPT with their authenticated accounts.</li><li>Users without a subscription should be able to access ChatGPT without logging in.</li></ul><p>Currently, subscribed users can access and use ChatGPT as expected. However, when unsubscribed users attempt to enter a prompt in ChatGPT, they are prompted to log in before proceeding.</p><p><br></p><p>We want to achieve above scenarios. Please help me with a solution.</p>
 <!-- /ZS-POST -->

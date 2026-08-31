@@ -1,6 +1,6 @@
 {
  "fetch_mode": "api",
- "generated_at": "2026-08-24T02:21:18Z",
+ "generated_at": "2026-08-31T06:38:40Z",
  "posts": {
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
    "category": "zcc",
@@ -18092,8 +18092,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000qixuf0AA/branch-connector": {
    "category": "branch",
-   "hash": "d8899c45aca93637",
-   "lastmod": "2026-03-11T07:17:46.000Z",
+   "hash": "191a53821ab7ad90",
+   "lastmod": "2026-08-27T19:29:49.000Z",
    "title": "Branch Connector",
    "type": "question"
   },
@@ -18585,6 +18585,20 @@
    "hash": "3f04a45f07283880",
    "lastmod": "2026-08-18T12:57:22.000Z",
    "title": "ZSCALER directly removed via script in MAC machine",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy": {
+   "category": "zia",
+   "hash": "76c1be4afe2c448f",
+   "lastmod": "2026-08-26T15:43:56.000Z",
+   "title": "file type control policy",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011KHv00AG/tenant-restriction-for-chatgpt": {
+   "category": "zia",
+   "hash": "13dd6979fdbee0d7",
+   "lastmod": "2026-08-25T19:57:55.000Z",
+   "title": "Tenant restriction for Chatgpt",
    "type": "question"
   }
  },
@@ -19743,6 +19757,7 @@
   "https://community.zscaler.com/s/Guides/aSoPJ0000006aaH0AQ/zpa-credential-management-certificate-credential-agent-setup": "2026-08-12T16:23:07.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006alZ0AQ/how-to-renew-microsoft-entra-id-zpa-certificate-before-it-expires": "2026-08-07T07:02:27.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006bWL0AY/how-to-configure-a-custom-watermark-message-in-cloud-browser-isolation": "2026-08-11T17:02:28.000Z",
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006eSb0AI/redeploying-virtual-branch-connector": "2026-08-30T17:28:10.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evml4CAA/new-community-signups-welcome-picturespictures": "2023-07-06T12:57:39.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmvxCAA/guide-deploy-zscaler-client-connector-with-intune-ios-android": "2023-07-06T13:02:32.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmwrCAA/guide-integrate-zscaler-with-azure-sentinel": "2023-07-06T13:03:45.000Z",

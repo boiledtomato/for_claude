@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — Branch / Cloud Connector / SD-WAN (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-24 02:21 UTC
+Generated: 2026-08-31 06:38 UTC
 Posts in this file: 36
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -1015,13 +1015,13 @@ Hello everyone, please find the attached solution guide describing the various w
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000qixuf0AA/branch-connector","lastmod":"2026-03-11T07:17:46.000Z","id":"0D5PJ00000qixuf0AA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000qixuf0AA/branch-connector","lastmod":"2026-08-27T19:29:49.000Z","id":"0D5PJ00000qixuf0AA"} -->
 ## Branch Connector
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000qixuf0AA/branch-connector
 - Type: Q&A
 - Posted: 2026-03-11T07:17:46.000Z
-- Last activity: 2026-03-11T07:17:46.000Z
+- Last activity: 2026-08-27T19:29:49.000Z
 - Answers: 0
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
