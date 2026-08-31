@@ -1,7 +1,7 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 77
 
 ---
@@ -1327,13 +1327,13 @@ If the Competition detector isn't triggering correctly, run through the followin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/best-practices-runbook-topicoff-topic-detectors","lastmod":"2026-07-24T11:51Z","nid":"1541798"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/best-practices-runbook-topicoff-topic-detectors","lastmod":"2026-08-25T13:56Z","nid":"1541798"} -->
 ## Best Practices Runbook: Topic/Off Topic Detectors
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/best-practices-runbook-topicoff-topic-detectors
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Best Practices > Best Practices Runbook: Topic/Off Topic Detectors
-- Last modified: 2026-07-24T11:51Z
+- Last modified: 2026-08-25T13:56Z
 - Summary: Learn the best practices for configuring the Topic and Off Topic prompt/response detectors for AI Guard as well as explanations on how it works, example customer scenarios, and troubleshooting.
 
 AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal.
@@ -1424,7 +1424,7 @@ After creating a policy and confirming it works as expected, the next step is to
 
 The **threshold** is a number between 0.0 and 1.0 that controls how confident the model must be before it calls a prompt a match. Similar to a volume knob; turning it up will trigger only very obvious mentions. Turn it down and more borderline cases trigger.
 
-The default is **0.75**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labelled prompts covering both real competitor mentions and tricky false-positive cases (city block, writer's block, out of stock, Times Square, Peter Pan, etc.).
+The default is **0.7**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labelled prompts covering both real competitor mentions and tricky false-positive cases (city block, writer's block, out of stock, Times Square, Peter Pan, etc.).
 
 Zscaler strongly recommends that you leave the threshold at **0.7**. We built and validated the detector around this default.
 
@@ -1641,13 +1641,13 @@ To configure a broker target, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/configuring-connection","lastmod":"2026-08-17T20:48Z","nid":"1540061"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/configuring-connection","lastmod":"2026-08-29T13:06Z","nid":"1540061"} -->
 ## Configuring a Connection
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/configuring-connection
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Configuring a Connection
-- Last modified: 2026-08-17T20:48Z
+- Last modified: 2026-08-29T13:06Z
 - Summary: Information about selecting connection types for connecting an AI application to AI Security Admin Portal.
 
 After you select the appropriate connection type on the [**Connect AI App**](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app) page, enter the required details in the **Configure your connection**tab. This tab is specific to the selected connection type.
@@ -1664,7 +1664,7 @@ REST API connection between your AI app and the AI Security.
 
 - [REST API](https://help.zscaler.com/secure-ai-apps-infra/rest-api)
 - [Proxy SDK](https://help.zscaler.com/secure-ai-apps-infra/proxy-sdk)
-- [OpenAI Compatible API](https://help.zscaler.com/secure-ai-apps-infra/openai-rest-api)
+- [OpenAI REST API](https://help.zscaler.com/secure-ai-apps-infra/openai-rest-api)
 
 Test runs are executed on chatbots that are accessible through external platforms (e.g., Slack, WhatsApp, Glean). Probe uses the platform’s APIs to interact with the chatbots.
 
@@ -3124,13 +3124,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-08-19T08:40Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-08-28T10:21Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-19T08:40Z
+- Last modified: 2026-08-28T10:21Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -4762,13 +4762,13 @@ If the Competition detector isn't triggering correctly, run through the followin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-topicoff-topic-detectors-1","lastmod":"2026-07-28T11:53Z","nid":"1541879"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-topicoff-topic-detectors-1","lastmod":"2026-08-24T08:57Z","nid":"1541879"} -->
 ## Best Practices Runbook: Topic/Off Topic Detectors
 
 - Source: https://help.zscaler.com/secure-ai-users/best-practices-runbook-topicoff-topic-detectors-1
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Best Practices > Best Practices Runbook: Topic/Off Topic Detectors
-- Last modified: 2026-07-28T11:53Z
+- Last modified: 2026-08-24T08:57Z
 - Summary: Learn the best practices for configuring the Topic and Off Topic prompt/response detectors for AI Guard as well as explanations on how it works, example customer scenarios, and troubleshooting.
 
 AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal.
@@ -4859,7 +4859,7 @@ After creating a policy and confirming it works as expected, the next step is to
 
 The **threshold** is a number between 0.0 and 1.0 that controls how confident the model must be before it calls a prompt a match. Similar to a volume knob; turning it up will trigger only very obvious mentions. Turn it down and more borderline cases trigger.
 
-The default is **0.75**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labeled prompts covering both real competitor mentions and tricky false-positive cases (city block, writer's block, out of stock, Times Square, Peter Pan, etc.).
+The default is **0.7**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labeled prompts covering both real competitor mentions and tricky false-positive cases (city block, writer's block, out of stock, Times Square, Peter Pan, etc.).
 
 Zscaler strongly recommends that you leave the threshold at **0.7**. We built and validated the detector around this default.
 
@@ -5031,13 +5031,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-08-17T12:18Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-08-27T07:55Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-08-17T12:18Z
+- Last modified: 2026-08-27T07:55Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -5071,7 +5071,7 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   | Grok (xAI) | Web Browsers | `*.grok.com` |
   | Lovable | Web Browsers | `api.lovable.dev` |
   | MaxAI | Web Browsers | `*.api.maxai.me` |
-  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot in Word (Desktop App and Web Browser); Copilot in Outlook (Web Browser) | `*.substrate.office.com` `*.substrate.svc.cloud.microsoft` `*.copilot.microsoft.com` `*.api.business.githubcopilot.com` `*.api.enterprise.githubcopilot.com` `*.api.individual.githubcopilot.com` |
+  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot.com (Web Browser); Copilot in Word (Desktop App and Web Browser); Copilot in Excel; Copilot in Outlook (Web Browser) | `substrate.office.com` `substrate.svc.cloud.microsoft` `copilot.microsoft.com` `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` `augloop.office.com` www.`copilot.com` |
   | Mistral AI | Mistral Vibe (formerly Le Chat) backend | `*.mistral.ai` |
   | Napkin AI | Web Browsers | `*.app.napkin.ai` |
   | NotebookLM | Web Browsers | `*.notebooklm.google.com` |
@@ -6009,13 +6009,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-08-12T10:08Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-08-28T11:01Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-12T10:08Z
+- Last modified: 2026-08-28T11:01Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.

@@ -1,8 +1,72 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
-Articles in this file: 136
+Generated: 2026-08-31 03:58 UTC
+Articles in this file: 147
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-07-30T11:20Z","nid":"1541704"} -->
+## Configuring Entity Unification
+
+- Source: https://help.zscaler.com/unified/configuring-entity-unification
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Entity Unification
+- Last modified: 2026-07-30T11:20Z
+- Summary: How to configure entity unification rules to merge duplicate records.
+
+Ingesting data from multiple sources often leads to duplicate records that represent the same real-world entity. As part of the broader data unification process, entity unification focuses on data normalization by identifying and merging these duplicates to establish a single, trusted source of truth. You can create entity unification rules that specify how records are recognized as duplicates and the conditions under which they are merged. This step is especially critical for asset deduplication, and it serves as a foundation for consistent and reliable data across systems. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
+
+## Configuring Entity Unification Rule Sets
+
+An entity's unification rule set is a collection of individual rules designed to cluster duplicate entity records into a single merged entity based on specific conditions according to your organization's business logic. Within an entity unification rule set, you create the individual rules ("if-then" logic statements) that define how the source data should be clustered into a single entity. For example, you can create a rule to merge all Windows assets that share the same asset hostname into a single asset.
+
+For access to entity unification, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-managing-role-permissions) and [Assigning Roles to Users](https://help.zscaler.com/unified/assigning-roles-users).
+See image.
+
+[Image: The Model Management resource with all permissions enabled]
+
+To create a unification rule set:
+
+1. In the SecOps Platform Admin Portal, go to **Configure**> **Data Unification**> **Entities**. See image.
+2. Locate the entity you want to create the unification rule set for, and click **Merge**. See image. The **Merge**page appears.
+3. On the **Merge** page, click **New Rule**. The **Add Merge Rule** drawer opens.
+4. In the **Add Merge Rule** drawer:
+  - **Name**: Enter a name for the rule.
+  - **If**: Define the rule condition that determines which records the rule should apply to. See image.
+    1. Select a field from the drop-down menu on which the condition should be based. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. For example, when creating rules for the **Asset** entity, available fields include **Asset** fields (e.g., **Asset Name**, **Asset ID**), and fields with a relation to the **Asset** entity (e.g., **Application ID**, **Application Name**).
+    2. Select an operator from the drop-down menu. The available operators vary depending on the field type, indicated to the left of the field name.
+    3. Enter the value to which the rule should apply (e.g., `Windows`).
+    4. (Optional) Use **AND**/**OR** logic to define compound rules:
+      - **AND** merges entities only if they meet all conditions in the rule.
+      - **OR** merges entities if they meet any of the conditions in the rule.
+  - **Then**: Select at least one field according to which entities that meet your conditions should be merged. All entities with the same value are merged into a single entity. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. When merging entities based on multiple fields, the fields are evaluated using a logical **AND**relationship. This means that entities are merged only if the values in each of the specified fields match (e.g., the values in the **Asset ID** field must match, and the values in the **Asset Type** field must match for the record to merge). See image.
+  - (Recommended) Select the **Exclude Nulls from Merge** checkbox to avoid merging entities with null values in the defined fields.
+  - Click **Save** to save the rule. Repeat the process to add as many rules as necessary for the entity.
+5. Save the rule set to complete the process in one of the following ways: See image. A rule set that includes at least one conditional merging rule must also include a fallback rule, otherwise the rule set cannot be saved. The fallback rule specifies a single field to use for merging entities without applying any conditions. It ensures a default merging method is always in place, preventing data loss or conflicts.
+  - Click **Save** to save the rule set. Rules will apply the next time data is ingested into your account.
+  - From the **Save** drop-down menu, click **Save & Run** to save the rule set and immediately apply the rules to the data in your account.
+
+Your saved rule sets appear on the Data Unification - Entities page, where you can view, edit, and manage them as needed. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification).
+
+[Image: How to access the entities page]
+
+[Image: Merge button highlighted on entities page]
+
+## When Unification Rules Run
+
+Unification rules run when data related to the entity is ingested, directly processed, or indirectly impacted by a different processed entity. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
+
+## Rule Order in Entity Unification Rule Set
+
+The rules' order of appearance doesn't affect the order of their application. Each data point is evaluated against all rules, even if one rule has already been satisfied.
+
+[Image: Example if conditions in merge rule]
+
+[Image: Example then statements in merge rule]
+
+[Image: Click Save or Save and Run for your ruleset]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -1276,6 +1340,115 @@ Zscaler recommends configuring suppression rules only after ingesting data from 
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/creating-formatting-rules","lastmod":"2026-08-25T10:55Z","nid":"1542133"} -->
+## Creating Formatting Rules
+
+- Source: https://help.zscaler.com/unified/creating-formatting-rules
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Creating Formatting Rules
+- Last modified: 2026-08-25T10:55Z
+- Summary: How to create and apply formatting rules to visually distinguish measurements using color-coded thresholds.
+
+Formatting rules in the Security Operations Platform (SecOps Platform) allow you to apply coloring rules to [measurements and dimensions](https://help.zscaler.com/unified/understanding-measurements-and-dimensions), making data interpretation clear and intuitive. These rules help emphasize key measurements, highlight data based on dimension values, and track trends across dashboards and compliance policies.
+
+## Creating Formatting Rules
+
+To create a formatting rule:
+
+1. In the SecOps Platform Admin Portal, go to **Configure**> **Formatting Rules**. The **Formatting Rules**page appears. See image.
+2. Click **New Rule**. The **Create Formatting Rule**drawer appears. See image.
+3. In the **Create Formatting Rule** drawer:
+  1. **Name**: Enter a name (e.g., `Policy Compliance Threshold`).
+  2. **Type**: Select the rule type:
+    - Numeric Rules
+    - Dimension-Based Rules
+  3. In the **Fallback Formatting Rule Logic** section, select the rule logic when data does not meet the defined conditions:
+    - **Back to Default**: Restores the default color assigned to the rule.
+    - **Customize**: Select a color for values that do not meet the conditions.
+  4. (Optional) Click **Reset to Default** to clear all custom inputs and revert the rule configuration to its original state.
+  5. Click **Save**.
+
+You can apply formatting rules to compliance policies or custom dashboards. To learn more, see [Configuring Asset Compliance Policies](https://help.zscaler.com/aem/configuring-asset-compliance-policies)and [Configuring Custom Dashboards](https://help.zscaler.com/unified/configuring-custom-dashboards).
+
+## Applying Formatting Rules to a Widget
+
+To apply a formatting rule to a widget:
+
+1. In the SecOps Platform Admin Portal, go to **Explore**> **Dashboards**. The **All Dashboards**page appears. See image.
+2. Click the dashboard you want to edit. The selected dashboard appears.
+3. Click the **Edit Dashboard**icon. See image.
+4. Hover over the desired widget, and click the **Edit**icon. See image.
+5. Click the **Style**tab. See image.
+6. Select a formatting rule from the **Formatting Rules**drop-down menu. See image. You can also click **New Rule** to create a new formatting rule.
+7. Click **Save**.
+8. Click **Save**on the dashboard to apply formatting rules to the widget.
+
+## Applying Formatting Rules to a Policy
+
+To apply a formatting rule (numeric rule) to an Asset Exposure Management (AEM) policy:
+
+1. In the SecOps Platform Admin Portal, click **Assets** in the top navigation bar.
+2. In the left-side navigation, click **Policies**. The **Policies**page appears. See image.
+3. Hover over the policy, and click the **Edit**icon. See image. The **Edit Policy**page appears.
+4. In the **Formatting Rule**section, select the relevant formatting rule. See image. You can also click **New Rule** to create a new formatting rule.
+5. Click **Save** to apply the rule to the policy.
+
+Numeric rules allow you to define custom coloring rules for measurements.
+
+1. Define the conditions:
+  1. Select an operator (e.g., **>**, **<**, **=**, **Between**).
+  2. Enter a threshold value for the condition. The **Between**operator requires both a starting and ending value for the numerical range.
+2. Assign a color for the condition (e.g., red for <25%).
+3. (Optional) Click the **Delete** icon to delete a rule. See image.
+4. (Optional) Click **Add**to add a new rule. See image.
+
+See image.
+
+Numeric rules are evaluated in the order they appear (from top to bottom). When there is an overlap between conditions, the color of the top condition takes priority.
+
+Dimension-based rules allow you to define custom coloring rules for dimensions. This is an effective way to visualize good versus bad indicators, such as Severity Levels or risk-based metrics like Asset Criticality.
+
+1. Select a value from the **Dimension** drop-down menu. The dimension values appear. See image. Rules can be configured for the top 25 dimension values.
+2. Assign a color to each dimension value.
+
+See image.
+
+- This rule applies only to pie, bar, and table charts.
+- [Repeated fields](https://help.zscaler.com/unified/using-filters) are not currently supported.
+
+[Image: Formatting Rules Page]
+
+[Image: Create Formatting Rule Drawer]
+
+[Image: Delete icon]
+
+[Image: Add a new rule]
+
+[Image: Create Formatting Rule drawer]
+
+[Image: List of dimension values]
+
+[Image: Create dimension-based rule]
+
+[Image: All Dashboards page]
+
+[Image: Edit the dashboard]
+
+[Image: Edit the widget]
+
+[Image: Style Tab]
+
+[Image: Select a formatting rule from the Formatting Rules drop-down menu]
+
+[Image: Policies page]
+
+[Image: Select the policy to edit]
+
+[Image: Edit the policy]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/creating-managing-content-permissions","lastmod":"2026-08-06T23:53Z","nid":"1541832"} -->
 ## Creating & Managing Content Permissions
 
@@ -1384,6 +1557,176 @@ To delete a permission set:
 [Image: The Profile menu in the SecOps Platform Admin Portal]
 
 [Image: The Content Permissions page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/creating-managing-saved-views","lastmod":"2026-08-25T12:15Z","nid":"1542115"} -->
+## Creating & Managing Saved Views
+
+- Source: https://help.zscaler.com/unified/creating-managing-saved-views
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Creating & Managing Saved Views
+- Last modified: 2026-08-25T12:15Z
+- Summary: How to create and manage saved views for entity pages and system dashboards.
+
+Saved views are configurable, reusable views that apply filters, grouping, sorting, and field selections to data. They improve data exploration and analysis by allowing users to return to specific data configurations without reapplying settings each time.
+
+Saved views are available in the following areas of the Security Operations Platform (SecOps Platform):
+
+- Entity pages
+  - Unified Vulnerability Management (UVM): [Tickets](https://help.zscaler.com/uvm/about-tickets), [Findings](https://help.zscaler.com/uvm/about-findings), [Assets](https://help.zscaler.com/uvm/about-assets-uvm), and [Exceptions](https://help.zscaler.com/uvm/understanding-exception-requests)
+  - Asset Exposure Management (AEM): [Assets](https://help.zscaler.com/aem/about-assets-aem), [Violation Tickets](https://help.zscaler.com/aem/about-violation-tickets), and [Policy Violations](https://help.zscaler.com/aem/about-policy-violations)
+  - SOC Workbench: [Incidents](https://help.zscaler.com/soc-workbench/about-incidents), [Assets](https://help.zscaler.com/soc-workbench/about-assets), [Alerts](https://help.zscaler.com/soc-workbench/about-alerts), and [Users](https://help.zscaler.com/soc-workbench/about-users)
+  - Identity Protection: Users, Tenants, Identity Findings, Alerts
+- System dashboards
+  - UVM: [Overview](https://help.zscaler.com/uvm/viewing-overview-dashboard), [Remediation History](https://help.zscaler.com/uvm/viewing-remediation-history-dashboard), [Risk](https://help.zscaler.com/uvm/viewing-risk-dashboard), Explore Vulnerabilities, and Asset Coverage
+  - AEM: Policy Compliance, Asset Inventory, and [Tool Coverage And Gap](https://help.zscaler.com/aem/viewing-tool-coverage-and-gap-dashboard)
+  - SOC Workbench: [SOC Workbench Dashboard](https://help.zscaler.com/soc-workbench/about-dashboard)
+  - Identity Protection: Critical Findings and Findings Overview
+- When [viewing items in a dashboard widget](https://help.zscaler.com/unified/viewing-items-widget-segment)
+
+Your account is equipped with system-saved views, which are configured to reflect common use cases. You can create additional custom views that reflect your organization's specific workflows, investigation patterns, and reporting needs.
+
+Saved views are located in the drop-down menu above the entity table.
+
+See image.
+
+When managing saved views, you can perform the following actions:
+
+- Reset the Default View
+- Add Favorite Views
+- Create a New View
+- Edit Views
+- Delete Views
+
+Your default view determines what you first see when opening a particular page. For example, the default view of the Tickets page in UVM is Active, which is set to display only active tickets.
+
+You can customize the default view at two levels:
+
+- Personal default view: In the saved views drop-down menu, click the **Set as my default view** icon next to the view name. This sets the selected view as the default for you only. See image.
+- Set the account-wide default view: In the saved views drop-down menu, click the **Set as Account Default View** icon next to the view name. This sets the selected view as the default for all users in the account. See image.
+
+To access frequently used views, you can add views to the favorites list. Favorited views are displayed at the top of the saved views list.
+
+To add a view to the favorites list, click the **Add to Favorite** icon next to the view name.
+
+See image.
+
+You can create a custom view by adjusting filters, displayed fields, grouping, and sorting.
+
+To create a new saved view:
+
+1. Apply filters, sorting, and other settings to the table.
+2. Click **Save as View**at the top-right corner of the page. See image.
+3. In the dialog window: See image.
+  - **View Name**: Enter a name for the view.
+  - **View Permissions**: Set to either **Public** (i.e., visible to all users in the account) or **Private** (i.e., visible only to you).
+  - **Set as Account Default View**: Select the checkbox to set this view as the default view for all users in the account.
+4. Click **Save**.
+
+You can edit custom views that you created to update the view's settings (i.e., the view's name and permissions).
+
+You can't edit system views and views that were created by other users.
+
+To edit a custom saved view:
+
+1. Select the view from the saved views drop-down menu.
+2. Hover over the view and click the **Edit**icon. The **Edit Current View** window appears.
+3. In the**Edit Current View** window, apply your changes.
+4. Click **Save**.
+
+To edit the view's configuration (e.g., filtering, displayed fields, grouping), adjust the view as needed and click **Save View** at the top-right of the page.
+
+You can delete custom views that you created to remove them from the available saved views.
+
+You can't delete system views and views that were created by other users.
+
+To delete a custom saved view:
+
+1. Select the view from the saved views drop-down menu.
+2. Hover over the view and click the **Delete**icon. The view is deleted immediately.
+
+[Image: Saved views drop-down menu]
+
+[Image: Set My Default View icon]
+
+[Image: Set as Account Default View icon]
+
+[Image: Add to Favorite icon]
+
+[Image: Save as View option]
+
+[Image: Save as new view window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/creating-managing-third-party-tickets","lastmod":"2026-08-25T12:18Z","nid":"1542121"} -->
+## Creating & Managing Third-Party Tickets
+
+- Source: https://help.zscaler.com/unified/creating-managing-third-party-tickets
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Creating & Managing Third-Party Tickets
+- Last modified: 2026-08-25T12:18Z
+- Summary: How to create and manage third-party tickets in Security Operations Platform applications.
+
+Third-party outegrations allow organizations to create third-party tickets in external work management systems directly from a ticket in the Security Operations Platform (SecOps Platform) (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets) in Unified Vulnerability Management (UVM), [Violation Tickets](https://help.zscaler.com/aem/about-violation-tickets) in Asset Exposure Management (AEM)) to facilitate a streamlined workflow. After a work management outegration is created and configured, third-party tickets can be dispatched and managed directly from the SecOps Platform tickets to external systems (e.g., [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration), [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration), and other supported outegrations). To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations).
+
+## Creating Third-Party Tickets
+
+To create a third-party ticket:
+
+1. In the SecOps Platform Admin Portal, go to an application's tickets page (e.g., Tickets in UVM).
+2. Click the ticket you want to dispatch to the external system. The ticket drawer opens.
+3. In the ticket drawer, click **Create**<Vendor> **Ticket**. See image.
+
+The SecOps Platform ticket is dispatched to the external system, and is populated according to the mapping configuration you set up for the outegration.
+
+To create multiple third-party tickets:
+
+1. Select the checkboxes of the tickets you want to dispatch.
+2. Click **Create 3rd Party Issue**. See image.
+
+The SecOps Platform tickets are dispatched to the external system, and are populated according to the mapping configuration you set up for the outegration. A separate external ticket is created for each SecOps Platform ticket. To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations).
+
+SecOps Platform tickets cannot be dispatched in bulk to different outegrations (e.g., Jira Bugs and Jira Tasks). Each ticket must be dispatched individually to ensure compatibility with their respective outegration configurations.
+
+If two-way sync from the external system to the SecOps Platform is configured, creating a third-party ticket triggers the sync and updates the SecOps Platform ticket based on the outegration's settings.
+
+## Managing Third-Party Tickets
+
+You can manage the connection between third-party tickets and SecOps Platform tickets, including unlinking or manually linking tickets. To filter your tickets by whether they're linked to third-party tickets, you can add the Ticket External Issue Type field to the filters and select the desired integrations, or add the Empty field to display tickets with no linked third-party tickets. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
+
+### Linking Existing Third-Party Tickets
+
+To link an existing third-party ticket to a SecOps Platform ticket:
+
+1. Click the SecOps Platform ticket you want to link. The ticket drawer opens.
+2. In the ticket drawer, click the **Create <**Outegration**> Ticket** drop-down menu, and select **Manually connect <**Outegration**>**. See image.
+3. Enter the third-party ticket ID. Enter only the third-party ticket ID (e.g., `INC0012345` for a ServiceNow ticket ID), not the ticket's URL or link.
+4. Click **Apply**.
+
+A third-party ticket can only be linked to one SecOps Platform ticket.
+
+If two-way sync from the external system to the SecOps Platform is configured, linking a third-party ticket triggers the sync and updates the SecOps Platform ticket based on the outegration's settings. To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
+
+### Unlinking Third-Party Tickets
+
+To unlink a third-party ticket from the SecOps Platform ticket:
+
+1. Click the SecOps Platform ticket you want to unlink. The ticket drawer opens.
+2. Click the **Create <**Outegration**> Ticket** drop-down menu, and select **Unlink <**Outegration**>**. See image.
+
+After the tickets are unlinked, updates between the third-party ticket and the SecOps Platform ticket no longer sync.
+
+[Image: Create a third-party ticket]
+
+[Image: Select multiple tickets to dispatch to a third party]
+
+[Image: Manually link a SecOps Platform ticket to a third-party ticket]
+
+[Image: Unlink a SecOps Platform ticket from a third-party ticket]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1524,13 +1867,13 @@ The new outegration appears on the Outegrations page and becomes available in th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-reports","lastmod":"2026-08-12T03:05Z","nid":"1541632"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-reports","lastmod":"2026-08-26T21:06Z","nid":"1541632"} -->
 ## Creating Reports
 
 - Source: https://help.zscaler.com/unified/creating-reports
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Reports > Creating Reports
-- Last modified: 2026-08-12T03:05Z
+- Last modified: 2026-08-26T21:06Z
 - Summary: How to create and configure reports in the Security Operations Platform.
 
 Reports provide a structured way to analyze and present data in the Security Operations Platform (SecOps Platform). You can create reports focused on key entities such as users, tenants, identity findings, tickets, and assets, and customize them with relevant parameters, measurements, and dimensions to highlight specific trends or areas of concern. Reports can be processed manually or scheduled for automatic delivery, helping you track progress, support audits, and keep stakeholders informed.
@@ -1651,13 +1994,13 @@ To customize the logo and email:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/customizing-your-account-settings","lastmod":"2026-08-21T14:08Z","nid":"1498541"} -->
+<!-- ZS-ARTICLE {"url":"/unified/customizing-your-account-settings","lastmod":"2026-08-28T13:39Z","nid":"1498541"} -->
 ## Customizing Your Account Settings
 
 - Source: https://help.zscaler.com/unified/customizing-your-account-settings
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Customizing Your Account Settings
-- Last modified: 2026-08-21T14:08Z
+- Last modified: 2026-08-28T13:39Z
 - Summary: How to customize your account settings in the Zscaler Admin Console.
 
 Zscaler automatically creates a profile for each account in the Zscaler Admin Console where you can change your display language, time zone, password, and default Internet & SaaS (ZIA) cloud.
@@ -1674,6 +2017,7 @@ To view and change your account settings:
   - **Sign Out**: Click to sign out of the Zscaler Admin Console.
 2. When you click **Account Settings**, you can see your login ID, your organization's unique identifier, and the Zscaler cloud you are currently using.
 3. Under **Settings**, you can change the following options: See image.
+  - **New Navigation Experience**: A smarter way to navigate the Zscaler Admin Console was introduced for Experience Center. Zscaler recommends trying out the **New** experience. However, you can choose to revert to the **Original** experience at any time.
   - **Language**: In some locations, you can change the user interface to display one of the following languages:
     - English (US)
     - Chinese (Traditional)
@@ -1691,20 +2035,20 @@ To view and change your account settings:
   - **Default Private Access Cloud**: Select the Private Access cloud you want to log in to by default. The drop-down menu is displayed if there is only one cloud that has been provisioned for your organization. When you change clouds, you only see the entitlements granted to you on that cloud. This might affect the menu options available to you within the Zscaler Admin Console.
 4. Click **Save.**
 
-[Image: Account Settings menu]
+[[Image: Account Settings menu]](https://help.zscaler.com/downloads/unified/getting-started-experience-center/experience-center-set-onboarding-access/zscaler-admin-console-access-navigation/customizing-your-account-settings/XC-Account-Settings-Menu-Nav2.png)
 
 [Image: Account Settings page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-data-source-configurations","lastmod":"2026-08-06T09:28Z","nid":"1541606"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-data-source-configurations","lastmod":"2026-08-26T01:32Z","nid":"1541606"} -->
 ## Deploying Data Source Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-data-source-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Deploying Data Source Configurations
-- Last modified: 2026-08-06T09:28Z
+- Last modified: 2026-08-26T01:32Z
 - Summary: Information about deploying data source configuration in the Security Operations Platform.
 
 The Security Operations Platform (SecOps Platform) collects and correlates security data and business context from a wide array of external tools, including vulnerability scanners, asset inventories, and cloud platforms. Connecting these external sources to your account establishes a continuous Extract, Transform, and Load (ETL) pipeline, ensuring raw telemetry is normalized and made available across the applications available in your account.
@@ -1726,7 +2070,7 @@ Before configuring a data source in the SecOps Platform, verify the following pr
 
 - Confirm you have sufficient privileges within the third-party vendor's console to generate authentication credentials (e.g., API tokens, OAuth keys) and define access scopes. Depending on the vendor, this might require full administrative access or specific role-based permissions.
 - Verify that your third-party license permits data export or API access. Ensure the credentials you generate possess the correct read-only permissions for the targeted data streams.
-- Determine if the vendor requires [SecOps Platform public IP addresses](https://help.zscaler.com/uvm/zscaler-secops-public-ip-addresses) to be allowlisted. Review API rate limits that might impact large-scale data extractions.
+- Determine if the vendor requires [SecOps Platform public IP addresses](https://help.zscaler.com/unified/security-operations-platform-public-ip-addresses) to be allowlisted. Review API rate limits that might impact large-scale data extractions.
 - All API keys, secrets, and tokens entered into the SecOps Platform are securely encrypted. Ensure you have a secure method for transferring these credentials from the vendor portal to the SecOps Platform during setup.
 
 ## Standard Deployment Flow
@@ -1746,20 +2090,20 @@ After a data source is successfully deployed, you should monitor source activity
 
 You can monitor source activity by reviewing source run history, validating completed runs, and investigating failed or canceled runs. Run details can help identify issues such as invalid credentials, missing permissions, or other configuration problems. To learn more, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
 
-To reduce the need for manual monitoring, you can enable email notifications for failures related to source runs and ETL processing. To learn more, see [Enabling Email Notifications for Errors](https://help.zscaler.com/uvm/enabling-email-notifications-failures).
+To reduce the need for manual monitoring, you can enable email notifications for failures related to source runs and ETL processing. To learn more, see [Enabling Email Notifications for Errors](https://help.zscaler.com/unified/enabling-email-notifications-failures).
 
-If a source behaves unexpectedly, you can also review audit logs to track changes to data source instances, mappings, and scheduling settings. Audit logs are useful for troubleshooting and confirming when configuration changes were introduced. To learn more, see [Viewing Audit Logs](https://help.zscaler.com/uvm/viewing-audit-logs).
+If a source behaves unexpectedly, you can also review audit logs to track changes to data source instances, mappings, and scheduling settings. Audit logs are useful for troubleshooting and confirming when configuration changes were introduced. To learn more, see [Viewing Audit Logs](https://help.zscaler.com/unified/viewing-audit-logs).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-08-20T21:06Z","nid":"1541895"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-08-30T07:06Z","nid":"1541895"} -->
 ## Deploying Outegration Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-outegration-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Deploying Outegration Configurations
-- Last modified: 2026-08-20T21:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: Information about deploying outegration configuration in the Security Operations Platform.
 
 The Security Operations Platform (SecOps Platform) enables you to send security findings, alerts, remediation tasks, and operational context to a wide array of external tools, including ticketing systems, work management platforms, cloud storage services, streaming platforms, and other third-party systems. Connecting these external destinations to your account establishes outbound workflows that move SecOps Platform data and actions into the systems where security, IT, and engineering teams already work.
@@ -1779,7 +2123,7 @@ Before configuring an outegration in the SecOps Platform, verify the following p
 
 - Confirm you have sufficient privileges within the third-party vendor's console to generate authentication credentials (e.g., API tokens, OAuth keys, or service accounts) and create or manage the destination objects used by the outegration. Depending on the vendor, this might include defining projects, queues, topics, callback URLs, or other destination settings.
 - Verify that your third-party license permits the required API access, record creation, status updates, data export, or action triggers. Ensure the credentials you generate possess the correct scopes and read or write permissions for the intended workflow, including bidirectional synchronization where supported.
-- Determine if the vendor requires [SecOps Platform public IP addresses](https://help.zscaler.com/uvm/zscaler-secops-public-ip-addresses) to be allowlisted, or specific endpoints to be reachable. Review API rate limits, payload limits, and any workflow or event-processing limits that might impact high-volume outegrations.
+- Determine if the vendor requires [SecOps Platform public IP addresses](https://help.zscaler.com/unified/security-operations-platform-public-ip-addresses) to be allowlisted, or specific endpoints to be reachable. Review API rate limits, payload limits, and any workflow or event-processing limits that might impact high-volume outegrations.
 - All API keys, secrets, and tokens entered into the SecOps Platform are securely encrypted. Ensure you have a secure method for transferring these credentials from the vendor portal to the SecOps Platform during setup.
 
 ## Standard Deployment Flow
@@ -1800,9 +2144,9 @@ After an outegration is successfully deployed, you should monitor outegration ac
 
 You can monitor outegration activity by reviewing activity logs and investigating failed or incomplete operations. Activity log details can help identify issues such as invalid credentials, missing permissions, or field mapping problems. If the external system's schema changes, you can also update the outegration configuration and mappings as needed. To learn more, see [Managing Outegrations](https://help.zscaler.com/unified/managing-outegrations).
 
-To reduce the need for manual monitoring, you can enable email notifications for outegration failures. To learn more, see [Enabling Email Notifications for Errors](https://help.zscaler.com/uvm/enabling-email-notifications-failures).
+To reduce the need for manual monitoring, you can enable email notifications for outegration failures. To learn more, see [Enabling Email Notifications for Errors](https://help.zscaler.com/unified/enabling-email-notifications-failures).
 
-If an outegration behaves unexpectedly, you can also review audit logs to track changes to outegration configurations, mappings, and related settings. Audit logs are useful for troubleshooting and confirming when configuration changes were introduced. To learn more, see [Viewing Audit Logs](https://help.zscaler.com/uvm/viewing-audit-logs).
+If an outegration behaves unexpectedly, you can also review audit logs to track changes to outegration configurations, mappings, and related settings. Audit logs are useful for troubleshooting and confirming when configuration changes were introduced. To learn more, see [Viewing Audit Logs](https://help.zscaler.com/unified/viewing-audit-logs).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2049,13 +2393,13 @@ Click the Investigate link available for each section and you're redirected to t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/exploring-source-data-mapping","lastmod":"2026-07-29T03:50Z","nid":"1541965"} -->
+<!-- ZS-ARTICLE {"url":"/unified/exploring-source-data-mapping","lastmod":"2026-08-26T01:27Z","nid":"1541965"} -->
 ## Exploring Source Data in Mapping
 
 - Source: https://help.zscaler.com/unified/exploring-source-data-mapping
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Exploring Source Data in Mapping
-- Last modified: 2026-07-29T03:50Z
+- Last modified: 2026-08-26T01:27Z
 - Summary: How to explore the source fields during data source mapping.
 
 When [mapping a data source](https://help.zscaler.com/unified/mapping-data-sources) in the Security Operations Platform (SecOps Platform), you can explore the ingested source data to better understand its structure, values, and quality. This helps you accurately align vendor-provided fields with the SecOps Platform data model (e.g., choosing fields that are suitable as unique identifiers or keys).
@@ -2072,7 +2416,7 @@ To explore source data:
   - Select the checkbox of a data source from the list, and click**Map Data** on the toolbar.
 3. On the Mapping page that appears, click **Explore Data**. See image. A window opens that displays your ingested data from the most recent successful run.
 
-In the window, you can review real source values and confirm exact field names, including nested paths shown in dot notation, before you map them. You can customize the displayed columns in the window to add, remove, and reorder the displayed fields. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
+In the window, you can review real source values and confirm exact field names, including nested paths shown in dot notation, before you map them. You can customize the displayed columns in the window to add, remove, and reorder the displayed fields. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
 
 ## Viewing Field Statistics
 
@@ -2101,13 +2445,13 @@ After exploring the ingested source data, you can use your insights to map field
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/generating-saml-details","lastmod":"2026-08-10T12:32Z","nid":"1541912"} -->
+<!-- ZS-ARTICLE {"url":"/unified/generating-saml-details","lastmod":"2026-08-28T10:35Z","nid":"1541912"} -->
 ## Generating SAML Details
 
 - Source: https://help.zscaler.com/unified/generating-saml-details
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Generating SAML Details
-- Last modified: 2026-08-10T12:32Z
+- Last modified: 2026-08-28T10:35Z
 - Summary: How to generate SAML details for setting up single sign-on to the Security Operations Platform.
 
 Setting up single sign-on (SSO) account authentication requires generating a SAML Entity ID and Reply URL in the Security Operations Platform (SecOps Platform).
@@ -2137,6 +2481,43 @@ To generate SAML details:
 [Image: The Authenticate section showing the Generate SAML Details link]
 
 [Image: The SAML Details pop-up showing the Entity ID and Reply URL values]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/grouping-data-entity-pages","lastmod":"2026-08-25T10:50Z","nid":"1542110"} -->
+## Grouping Data on Entity Pages
+
+- Source: https://help.zscaler.com/unified/grouping-data-entity-pages
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Grouping Data on Entity Pages
+- Last modified: 2026-08-25T10:50Z
+- Summary: How to group data on entity pages by key attributes.
+
+You can use the grouping feature in applications in the Security Operations Platform (SecOps Platform) to organize the data on entity pages:
+
+- Unified Vulnerability Management (UVM): Tickets, Assets, Findings, and Exceptions
+- Asset Exposure Management (AEM): Assets, Violation Tickets, Policy Violations, and Users
+- SOC Workbench: Incidents, Alerts, Assets, and Users
+- Identity Protection: Users, Identity Findings, Tenants, and Alerts
+
+Grouping your view creates collapsible sections based on the field you select. For example, grouping the UVM Tickets view by Ticket Severity categorizes the tickets into the different severity values (e.g., Info, Low, Medium, High, Critical).
+
+To add grouping to a page:
+
+1. In the SecOps Platform Admin Portal, go to the entity page (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets) in UVM).
+2. Click the **Group By**drop-down menu. See image.
+3. Select the field you want to group the view by (e.g., **Ticket Severity**).
+
+The view is updated by your selected grouping. To remove the grouping, click **Clear Selection**at the bottom of the **Group By**drop-down menu.
+
+See image.
+
+Your grouping preferences can be saved as a set view. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/unified/creating-managing-saved-views).
+
+[Image: The Group By drop-down menu on an entity page]
+
+[Image: Click Clear Selection to remove the grouping]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3852,6 +4233,70 @@ To delete a specific role:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/managing-table-columns","lastmod":"2026-08-25T11:43Z","nid":"1541986"} -->
+## Managing Table Columns
+
+- Source: https://help.zscaler.com/unified/managing-table-columns
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Managing Table Columns
+- Last modified: 2026-08-25T11:43Z
+- Summary: How to adjust the displayed columns in tables across the Security Operations Platform.
+
+You can customize the displayed columns and their sorting settings in tables throughout the Security Operations Platform (SecOps Platform). This article explains how to add and remove the displayed columns, which include measurements (quantitative fields) and dimensions (categorical fields).
+
+The [Tickets](https://help.zscaler.com/uvm/about-tickets) page in Unified Vulnerability Management (UVM) is shown as an example.
+
+## Adding and Removing Columns
+
+To add and remove columns from the table:
+
+1. On an entity page in the SecOps Platform, click the **Settings** icon. The **Manage Table Columns** window appears, displaying columns currently in use on the right, and columns that can be added on the left. See image.
+2. To add a column, click the **+** icon on the field you want to add. See image. To remove a column, click the **X** icon on the field you want to remove. See image.
+3. Click **Apply** to save your changes.
+
+You can also add or remove columns by dragging and dropping them in the window.
+
+- To add a field, drag it to the **IN USE** list.
+- To remove a field, drag it back to the **AVAILABLE** list.
+
+See image.
+
+Use the search box to find specific columns that you want to add or remove.
+
+See image.
+
+## Arranging Columns
+
+To arrange the displayed columns:
+
+1. In the **IN USE** list, drag the columns in the order you want them to appear. See image.
+2. Click **Apply**to save your changes.
+
+To sort a table by a column, click the column header you want to sort by. An arrow icon appears next to the column name, indicating the current sort direction (ascending or descending). Click the column header again to change the sort direction.
+
+## Resetting to Default
+
+To undo the changes and revert to the default display, click **Reset to Default**and then click **Apply**.
+
+See image.
+
+[Image: Managing table columns on the Tickets page]
+
+[Image: Add a column to display]
+
+[Image: Remove a currently displayed column]
+
+[Image: Drag and drop to add or remove columns]
+
+[Image: Search for a field]
+
+[Image: Arrange the order of columns to be displayed]
+
+[Image: Reset columns to their default order]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/managing-user-roles","lastmod":"2026-08-06T23:52Z","nid":"1541835"} -->
 ## Managing User Roles
 
@@ -4012,16 +4457,16 @@ If you have any questions about the End User Statement, send an email to exportc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-08-12T06:09Z","nid":"1541959"} -->
+<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-08-26T01:37Z","nid":"1541959"} -->
 ## Mapping Data Sources
 
 - Source: https://help.zscaler.com/unified/mapping-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Mapping Data Sources
-- Last modified: 2026-08-12T06:09Z
+- Last modified: 2026-08-26T01:37Z
 - Summary: How to map a data source's third-party vendor fields to the Security Operations Platform.
 
-After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Security Operations Platform (SecOps Platform), and ingesting data at least once, you must map the ingested fields to the SecOps Platform data model fields. Mapping is configured per source. After all sources are configured and mapped, the platform can deduplicate and merge records across multiple sources through [data unification](https://help.zscaler.com/unified/what-data-unification), to be used and consumed by the different [SecOps Platform applications](https://help.zscaler.com/uvm/what-zscaler-security-operations) (e.g., UVM, AEM).
+After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Security Operations Platform (SecOps Platform), and ingesting data at least once, you must map the ingested fields to the SecOps Platform data model fields. Mapping is configured per source. After all sources are configured and mapped, the platform can deduplicate and merge records across multiple sources through [data unification](https://help.zscaler.com/unified/what-data-unification), to be used and consumed by the different [SecOps Platform applications](https://help.zscaler.com/unified/what-security-operations-platform) (e.g., UVM, AEM).
 
 If you are mapping a data source for the first time, Zscaler recommends consulting with your Zscaler Account team.
 
@@ -4443,13 +4888,13 @@ Click **View All Iterations** to open the Simulation Results drawer. The drawer 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-08-18T09:31Z","nid":"1492411"} -->
+<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-08-28T00:16Z","nid":"1492411"} -->
 ## Ranges & Limitations
 
 - Source: https://help.zscaler.com/unified/ranges-limitations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Ranges & Limitations
-- Last modified: 2026-08-18T09:31Z
+- Last modified: 2026-08-28T00:16Z
 - Summary: Information about product and feature ranges and limitations.
 
 This article lists the ranges and limitations of rules, policies, fields, and other features. All values are per organization unless noted otherwise.
@@ -5798,13 +6243,13 @@ The service automatically activates an admin's saved changes if the admin:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/searching-zscaler-admin-console","lastmod":"2026-06-08T17:22Z","nid":"1503801"} -->
+<!-- ZS-ARTICLE {"url":"/unified/searching-zscaler-admin-console","lastmod":"2026-08-28T14:03Z","nid":"1503801"} -->
 ## Searching in the Zscaler Admin Console
 
 - Source: https://help.zscaler.com/unified/searching-zscaler-admin-console
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Searching in the Zscaler Admin Console
-- Last modified: 2026-06-08T17:22Z
+- Last modified: 2026-08-28T14:03Z
 - Summary: How to search in the Zscaler Admin Console.
 
 To help you navigate faster, you can search for pages in the Zscaler Admin Console. Search results include Zscaler Admin Console pages (except for items in the Help menu) and do not include:
@@ -5816,11 +6261,15 @@ To help you navigate faster, you can search for pages in the Zscaler Admin Conso
 
 To search the Zscaler Admin Console:
 
-1. Click the **Search**icon in the navigation menu to display the search box, or press `Ctrl`+`K`. See image.
-2. Enter your search text in the search box to display a list of menus that match your search term. See image.
+1. On the top banner, locate the **Search menu** or press `Ctrl`+`K` to set your cursor's focus on the menu. See image.
+2. Type in your search terms. Search provides auto-complete suggestions as you type. See image. It also keeps a history of your recent searches. See image.
 3. Click any search result to navigate to that page.
 
-The search provides auto-complete suggestions as you type, and keeps a history of your recent searches.
+[Image: Search field]
+
+[Image: Search results]
+
+[Image: Recent search results]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5895,13 +6344,13 @@ The following table lists the supported SecOps Platform data sources by vendor, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/security-operations-platform-configurations-outegration","lastmod":"2026-08-09T00:22Z","nid":"1541931"} -->
+<!-- ZS-ARTICLE {"url":"/unified/security-operations-platform-configurations-outegration","lastmod":"2026-08-30T07:06Z","nid":"1541931"} -->
 ## Security Operations Platform Configurations by Outegration
 
 - Source: https://help.zscaler.com/unified/security-operations-platform-configurations-outegration
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Security Operations Platform Configurations by Outegration
-- Last modified: 2026-08-09T00:22Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: The current Security Operations Platform outegrations by vendor.
 
 The Security Operations Platform (SecOps Platform) supports a wide range of third-party outegrations that dispatch tickets, trigger scans, update CMDB records, and export reports to external platforms. Use this article to identify the available outegrations, the category each one belongs to, the actions each one performs, and whether it supports webhook configuration for bidirectional sync. For deployment prerequisites and setup steps, see [Deploying Outegration Configurations](https://help.zscaler.com/unified/deploying-outegration-configurations). To configure a specific outegration, see [Outegration Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides).
@@ -5918,6 +6367,27 @@ The following table lists the supported SecOps Platform outegrations in alphabet
 | ServiceNow | [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration) | Work Management | Dispatches SecOps Platform tickets to a configured ServiceNow table. | [Configuring the ServiceNow Outegration Webhook](https://help.zscaler.com/uvm/configuring-servicenow-outegration-webhook) |
 | ServiceNow | [ServiceNow CMDB](https://help.zscaler.com/uvm/configuring-servicenow-cmdb-outegration) | CMDB | Dispatches asset details from violation tickets to update specified ServiceNow CMDB records. | Not supported |
 | Tenable | [Tenable Vulnerability Management / Security Center](https://help.zscaler.com/uvm/configuring-tenable-outegration) | Scanner | Triggers on-demand vulnerability scans on managed assets to validate remediation after patching. | Not supported |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/security-operations-platform-public-ip-addresses","lastmod":"2026-08-25T11:16Z","nid":"1542057"} -->
+## Security Operations Platform Public IP Addresses
+
+- Source: https://help.zscaler.com/unified/security-operations-platform-public-ip-addresses
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Security Operations Platform Public IP Addresses
+- Last modified: 2026-08-25T11:16Z
+- Summary: A list of public IP addresses used by the Security Operations Platform and its applications for allowlisting when configuring integrations with the platform.
+
+To ensure seamless connectivity and uninterrupted access to essential resources, you can allowlist the public IP addresses used by outgoing traffic from the Security Operations Platform (SecOps Platform) and its applications (e.g., UVM, AEM). These IP addresses serve as the source for all egress traffic originating from the Zscaler tenant.
+
+Add the following IP addresses associated with your instance's region to your firewall's allowlist to ensure uninterrupted access to the required resources.
+
+| **Region** | **IP Addresses** |
+| --- | --- |
+| **US** | 3.137.47.190/32 3.15.110.62/32 3.129.232.141/32 |
+| **EU** | The recommended IP addresses listed in [Zscaler Hub IP Addresses](https://config.zscaler.com/zscalertwo.net/hubs) |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6732,6 +7202,31 @@ Other browsers should be compatible, but are not actively tested.
 The Zscaler Admin Console supports the following browsers on macOS 10 and later:
 
 - Google Chrome (two most recent versions)
+- Mozilla Firefox (two most recent versions)
+
+Older versions of these browsers should be compatible, but are no longer actively tested.
+
+Other browsers should be compatible, but are not actively tested.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/supported-browsers-security-operations-platform-admin-portal","lastmod":"2026-08-25T11:48Z","nid":"1542128"} -->
+## Supported Browsers for the Security Operations Platform Admin Portal
+
+- Source: https://help.zscaler.com/unified/supported-browsers-security-operations-platform-admin-portal
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Supported Browsers for the Security Operations Platform Admin Portal
+- Last modified: 2026-08-25T11:48Z
+- Summary: Information on which browsers are compatible with the Security Operations Platform Admin Portal
+
+Zscaler actively tests browser compatibility with the Security Operations Platform Admin Portal (SecOps Platform Admin Portal).
+
+The SecOps Platform Admin Portal supports the following browsers:
+
+- Apple Safari (two most recent versions)
+- Google Chrome (two most recent versions)
+- Microsoft Edge (two most recent versions)
 - Mozilla Firefox (two most recent versions)
 
 Older versions of these browsers should be compatible, but are no longer actively tested.
@@ -7957,18 +8452,154 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/using-mapping-copilot","lastmod":"2026-08-19T21:06Z","nid":"1541960"} -->
+<!-- ZS-ARTICLE {"url":"/unified/using-filters","lastmod":"2026-08-25T10:49Z","nid":"1541983"} -->
+## Using Filters
+
+- Source: https://help.zscaler.com/unified/using-filters
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Using Filters
+- Last modified: 2026-08-25T10:49Z
+- Summary: How to use filters to adjust the displayed data by the relevant scope.
+
+You can use filters to adjust and refine the data displayed across the Security Operations Platform (SecOps Platform), from dashboards and reports to entity pages (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets), [Assets](https://help.zscaler.com/aem/about-assets-aem)). By applying filters, you can focus on specific information relevant to your current task, such as reviewing vulnerabilities on a particular asset, addressing critical policy violations, or identifying high-priority tickets discovered in the last week. This helps security teams efficiently prioritize their workload and focus on the most critical risks in their environment.
+
+Filters are applied using available fields, including measurements (e.g., counts, averages) and dimensions (e.g., Status or Severity categories). The specific fields available for filtering depend on where you are in the SecOps Platform. For example, dashboards with data from multiple entities support filtering by dimensions but not measurements, while entity pages typically allow filtering by both. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/unified/understanding-measurements-and-dimensions).
+
+## Adding Filters
+
+Different fields have filtering options that vary according to the field type (e.g., Boolean, Text, Number, Date, IP) and whether it can contain multiple values (i.e., repeated fields).
+
+To add a filter:
+
+1. At the top of an entity page in the SecOps Platform Admin Portal, click **Add Filters** (if no filters are active) or **More**(if filters are already applied) to open the list of available fields for filtering on the current page. See image.
+2. Search for and select the field you want to filter by. Selecting a field adds it to the list of filters.
+3. Select the checkbox for the field you want to filter by. The field's filter dialog window appears.
+4. In the field's filter dialog window, set the values you want to filter the field by:
+  - List
+  - Date Selector
+  - Condition
+
+Applying filters adjusts the displayed data to what is included in the filter's scope. This resets when you leave the page. Your applied filters can be saved as a set view. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/unified/creating-managing-saved-views).
+
+## Filtering Repeated Fields
+
+Repeated fields are fields that can store multiple values, such as the Asset or the Ticket Sources field. Filters applied to these fields allow you to focus on your data by including or excluding records based on one or more of the field's values.
+
+### Repeated Fields in List Filters
+
+When filtering repeated fields from the list of the field's values, selecting one or more values returns records containing at least one of the selected values.
+
+See image.
+
+For example, to view assets retrieved from specific sources, such as Qualys Assets and ServiceNow Assets, select these values from the field filter dialog window. This returns assets that include either of these as a source, and not necessarily both. To exclude assets retrieved exclusively from a specific source (e.g., ServiceNow Assets), select all other values except the one you want to exclude. This excludes assets that list ServiceNow Assets as their only source, and includes assets that contain at least one of the selected sources (e.g., Qualys Assets).
+
+Filtering repeated fields using the list of values functions similarly to the `Equals (Any)` operator in conditional filtering, checking the filter against any of the field's values.
+
+### Repeated Fields in Conditional Filters
+
+For more granular filtering, you can configure conditional filters on repeated fields to define specific rules for their values. When configuring conditional filters for these fields, you can specify whether the filter should be checked against any or against all the field's values.
+
+- All Operator
+- Any Operator
+
+The `Is Empty` and `Is Not Empty` operators are Boolean filters and do not have All or Any variations. These operators check whether a repeated field contains any values (i.e., `Is Not Empty`) or has no values at all (i.e., `Is Empty`). Unlike other conditional operators on repeated fields that evaluate individual values within the field, these operators apply to the field as a whole, making the distinction between All and Any unnecessary.
+
+## Managing Filters
+
+Filters can be adjusted, cleared, or reset as needed. When managing filters, you can perform the following actions:
+
+- To clear the values from an applied filter field without removing the field itself, click the field in the filters bar and click **Clear Selection**.
+- To remove a field from the filters bar, open the **More**drop-down menu and deselect the field from the list of active filters.
+- To reset the filters, click **Clear All Filters**. This removes all active filters and displays all available data.
+
+For fields with a set list of values (e.g., **Status**or **Severity**, or Boolean fields), select one or more options in the filter dialog window. For example, select **Opened** or **In Progress**for the **Status**filter to focus on active tickets. Use the search bar to locate values in long lists.
+
+See image.
+
+Multiple selections apply a logical OR (e.g., selecting **Opened** and **In Progress**shows items matching either value). If no values are selected, the filter will show all data for that field.
+
+You can define time ranges or conditions in the date selector window to filter data. For example, you can filter records to display only upcoming deadlines within the next month, or identify entries that lack assigned dates.
+
+See image.
+
+Date filters can be configured using the following methods:
+
+- **Date Range**: Choose a method to filter records based on specific time frames.
+  - **Preconfigured**: Select a preset option on the left to filter records based on common time frames (e.g., **Last 7 Days**, **Next 14 Days**).
+  - **Custom**: Define a range to include only records within specific time frames.
+    - **Fixed Date Range**: Select a fixed start and end date using the calendar display, or manually enter dates in the date field at the bottom left of the filter dialog window.
+    - **Dynamic Date Range**: Define relative time frames that automatically update based on the current date (e.g., **Last 7 Days** or **Next 1 Month**).
+      1. Select a time frame from the drop-down menu:
+        - **Next**: Displays records from today forward (e.g., **Next 1 Month**includes today + 31 days; **Next 1 Day**includes today + 1 day). This time frame is often used for SLA and due-date fields. **Next**is not available for historical data.
+        - **Last**: Displays records from the start of the current time unit (calendar Month, Week, Day) to today (e.g., **Last 1 Month**includes the 1st of the current month to today, including today; **Last 1 Day**includes today).
+        - **Previous**: Displays records from the full previous time unit (calendar Month, Week, Day), not including the current time unit (e.g., **Previous 1 Month**in July includes the entire month of June; **Previous 1 Day**includes yesterday).
+        - **Before**: Displays all records up to and including the selected date (the default selected date is today).
+      2. Enter a value for the time unit.
+      3. Select a time unit (i.e., **Day**, **Week**, **Months**) from the drop-down menu to define how the range is calculated. Weekly filters follow a Monday-to-Sunday format.
+- **Is Empty**: Display records with no date assigned (e.g., records missing SLA deadlines).
+- **Is Not Empty**: Display records with a date assigned.
+
+Use conditional filters to apply rules that filter your data based on field values. Conditional filters are available depending on the field and the view you're filtering in, and are not available for Boolean and Date fields. You can combine multiple conditions using AND or OR to create compound filtering rules for more granular control.
+
+See image.
+
+To apply conditional filters:
+
+1. In the filter dialog window of the field you are filtering by, select **Condition**.
+2. Configure the filter conditions:
+  1. Select an operator (e.g., **Equals**, **>**). Available operators vary depending on the field type (i.e., Text, Number).
+  2. Enter the value that the rule should apply to. Filter conditions are case sensitive.
+  3. (Optional) Use **AND**/**OR**logic to define compound rules:
+    - **AND**includes records only if they meet all conditions in the rule.
+    - **OR**includes records if they meet any conditions in the rule.
+3. Click **Apply**.
+
+The following examples show conditional filters:
+
+- Ticket Severity Score: Filter tickets based on their severity score to focus on high-risk issues. For example, to view tickets with a severity score between 7 and 10, add the Ticket Severity Score field to the filters, and configure the conditional filter `>= 7`.
+- Asset Type: Filter assets by type to focus on related data and streamline your analysis. For example, to exclude Container assets, add the Asset Type to the filters, and configure the conditional filter `Not Equals Container`. This helps you concentrate on non-containerized assets, such as virtual machines or databases, when assessing infrastructure-level risks or vulnerabilities.
+
+The All operator returns or excludes records only if all the values in the field meet the filter condition.
+
+Examples:
+
+- To include assets retrieved exclusively from the sources Qualys Assets and Wiz Assets, use the `Equals (All)` operator (i.e., `Asset Sources Equals (All) Qualys Assets AND Wiz Assets`). This displays assets where all listed sources are Qualys Assets and Wiz Assets, excluding any records with additional sources (e.g., ServiceNow Assets).
+- To exclude all assets retrieved from the ServiceNow Assets source, even if they were retrieved by other sources, use the `Not Equal (All)` operator (i.e., `Asset Sources Not Equal (All) ServiceNow Assets`). This excludes all assets retrieved from ServiceNow Assets, even those retrieved by additional sources (e.g., an asset retrieved by ServiceNow Assets and Qualys Assets is excluded).
+- To exclude assets retrieved from any Zscaler source, even if they were retrieved by other sources, use the `Not Contains (All)` operator (i.e., `Asset Sources Not Contains (All) Zscaler`). This excludes all assets retrieved from the Zscaler Advanced Detections and Zscaler Security Alerts sources, even those retrieved by additional sources (e.g., an asset retrieved by Okta Alerts is excluded).
+
+The Any operator returns or excludes records if at least one (i.e., any) value in the field meets the filter condition.
+
+Examples:
+
+- To view all assets retrieved from ServiceNow Assets, even if they were retrieved by additional sources, use the `Equals (Any)` operator (i.e., `Asset Sources Equals (Any) ServiceNow Assets`). Assets retrieved from ServiceNow Assets are retrieved, including those retrieved by other sources (e.g., an asset retrieved by ServiceNow Assets and Qualys Assets is included).
+- To exclude assets retrieved only from ServiceNow Assets (and no other sources), use the `Not Equal (Any)` operator (i.e., `Asset Sources Not Equal (Any) ServiceNow Assets`). Assets retrieved from ServiceNow Assets but also from other sources are not excluded (e.g., an asset retrieved by ServiceNow Assets and Qualys Assets is not excluded).
+- To exclude assets retrieved from any Zscaler source (and no other sources), use the `Not Contains (Any)` operator (i.e., `Asset Sources Not Contains (Any) Zscaler`). This excludes all assets retrieved from the Zscaler Advanced Detections and Zscaler Security Alerts sources, but includes those retrieved by additional sources (e.g., an asset retrieved by Okta Alerts is not excluded).
+
+[Image: Viewing More filters on the Tickets page]
+
+[Image: Selecting repeated fields for a filter]
+
+[Image: Viewing Status filters on the Tickets page]
+
+[Image: Adding a date selection for filters]
+
+[Image: Adding a condition for a filter]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/using-mapping-copilot","lastmod":"2026-08-26T01:41Z","nid":"1541960"} -->
 ## Using Mapping Copilot
 
 - Source: https://help.zscaler.com/unified/using-mapping-copilot
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Using Mapping Copilot
-- Last modified: 2026-08-19T21:06Z
+- Last modified: 2026-08-26T01:41Z
 - Summary: How to use Mapping Copilot in the Security Operations Platform to assist in mapping data sources to the data model.
 
 Mapping Copilot is an AI-powered assistant within the Security Operations Platform (SecOps Platform). It supports admins by accelerating the data mapping process for data source integrations. This is especially useful when the source schema is unfamiliar, which is common with organization-specific proprietary sources (i.e., [AnySource](https://help.zscaler.com/uvm/connecting-anysource)) and integrations that do not include default mappings. By analyzing file statistics and system guidelines, Mapping Copilot provides intelligent, context-aware recommendations for mapping third-party source data to the SecOps data model, transforming complex data investigations into simple, guided conversations.
 
-Using natural language prompts, you can instruct Mapping Copilot to automate schema alignment, identify target entities (e.g., [Assets](https://help.zscaler.com/uvm/about-assets-uvm), [Findings](https://help.zscaler.com/uvm/about-findings)), and generate mapping logic, including Python scripts. This ensures source data is accurately mapped to the SecOps data model for downstream [unification](https://help.zscaler.com/unified/what-data-unification) and subsequent consumption in SecOps applications workflows and analytics (e.g., the UVM and AEM [applications](https://help.zscaler.com/uvm/what-zscaler-security-operations)). To learn more, see [Mapping Data Sources](https://help.zscaler.com/unified/mapping-data-sources).
+Using natural language prompts, you can instruct Mapping Copilot to automate schema alignment, identify target entities (e.g., [Assets](https://help.zscaler.com/uvm/about-assets-uvm), [Findings](https://help.zscaler.com/uvm/about-findings)), and generate mapping logic, including Python scripts. This ensures source data is accurately mapped to the SecOps data model for downstream [unification](https://help.zscaler.com/unified/what-data-unification) and subsequent consumption in SecOps applications workflows and analytics (e.g., the UVM and AEM [applications](https://help.zscaler.com/unified/what-security-operations-platform)). To learn more, see [Mapping Data Sources](https://help.zscaler.com/unified/mapping-data-sources).
 
 Mapping Copilot analyzes the source data to identify and suggest mapping logic for the SecOps Platform's core data model entities:
 
@@ -7983,7 +8614,7 @@ Before using Mapping Copilot, ensure the following:
 - You have set up a data source and completed at least one successful run within the last 90 days. Mapping Copilot requires the data from a successful run to analyze the data context. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources) and [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
 - Your assigned role must include the Read and Edit permissions under the Platform - Data Source Mapping resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles). See image.
 
-Account admins can remove access to Mapping Copilot by turning off AI capabilities in Account Settings. To learn more, see [Managing AI Capabilities in the Security Operations Platform](https://help.zscaler.com/uvm/managing-ai-capabilities-secops-platform).
+Account admins can remove access to Mapping Copilot by turning off AI capabilities in Account Settings. To learn more, see [Managing AI Capabilities in the Security Operations Platform](https://help.zscaler.com/unified/managing-ai-capabilities-secops-platform).
 
 ## Using Mapping Copilot to Map Sources
 
@@ -8019,7 +8650,7 @@ When you complete the mapping of all data sources for your account, configure da
 
 Mapping Copilot operates within Zscaler services, and data shared with it is not transmitted to external third parties. Some source data and mapping content might include sensitive information, so users should review content before submitting it. By using the assistant, users consent to sharing the information they enter for generating mapping guidance and remain responsible for the data they choose to provide. To learn more about Zscaler's privacy practices and AI data handling, see the [Acceptable Use Policy](https://help.zscaler.com/legal/acceptable-use-policy).
 
-Use of AI-powered features in the SecOps Platform is optional. Availability is controlled via admin opt-in in your account. To learn more, see [Managing AI Capabilities in the Security Operations Platform](https://help.zscaler.com/uvm/managing-ai-capabilities-secops-platform).
+Use of AI-powered features in the SecOps Platform is optional. Availability is controlled via admin opt-in in your account. To learn more, see [Managing AI Capabilities in the Security Operations Platform](https://help.zscaler.com/unified/managing-ai-capabilities-secops-platform).
 
 [Image: Mapping Copilot icon on the Map Qualys Assets connector page]
 
@@ -8817,13 +9448,13 @@ To configure automated audit log export for a user:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practice-details","lastmod":"2026-08-13T23:55Z","nid":"1542705"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practice-details","lastmod":"2026-08-28T21:06Z","nid":"1542705"} -->
 ## Viewing Best Practice Details
 
 - Source: https://help.zscaler.com/unified/viewing-best-practice-details
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Best Practice Details
-- Last modified: 2026-08-13T23:55Z
+- Last modified: 2026-08-28T21:06Z
 - Summary: Information about how to analyze practice details in Health360.
 
 When you click a best practice on the [Best Practices](https://help.zscaler.com/unified/viewing-best-practices-optimal-health) page, you are redirected to the Practice Details page, where you can view the following practice-specific data:
@@ -8965,13 +9596,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-connectors-tunnels-zscaler-client-connector-health","lastmod":"2026-08-15T05:23Z","nid":"1541637"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-connectors-tunnels-zscaler-client-connector-health","lastmod":"2026-08-29T21:06Z","nid":"1541637"} -->
 ## Viewing Connectors, Tunnels, & Zscaler Client Connector Health
 
 - Source: https://help.zscaler.com/unified/viewing-connectors-tunnels-zscaler-client-connector-health
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Connectors, Tunnels, & Zscaler Client Connector Health
-- Last modified: 2026-08-15T05:23Z
+- Last modified: 2026-08-29T21:06Z
 - Summary: Information about Connectors, Tunnels, & Zscaler Client Connector health.
 
 The Connectors Health page evaluates the health of your devices, such as Zscaler connectors, Private Service Edges, Zscaler Client Connector, and tunnels. The main focus of this page is to deliver centralized visibility into the operational states of assets. It streamlines infrastructure management through the following key capabilities:
@@ -9228,13 +9859,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-data-security-dashboard","lastmod":"2026-07-02T07:52Z","nid":"1532636"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-data-security-dashboard","lastmod":"2026-08-29T07:06Z","nid":"1532636"} -->
 ## Viewing the Data Security Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-data-security-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Data Security > Viewing the Data Security Dashboard
-- Last modified: 2026-07-02T07:52Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information on the Data Security dashboard and widgets accessible within the Admin Portal.
 
 The Data Security dashboard provides information about incidents, users, channels, and data-at-rest in your organization that might indicate areas at risk of data loss or leakage.
@@ -9734,13 +10365,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-health360-dashboard","lastmod":"2026-08-13T23:28Z","nid":"1541348"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-health360-dashboard","lastmod":"2026-08-28T21:06Z","nid":"1541348"} -->
 ## Viewing the Health360 Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-health360-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing the Health360 Dashboard
-- Last modified: 2026-08-13T23:28Z
+- Last modified: 2026-08-28T21:06Z
 - Summary: Information about the Health360 dashboard in the Zscaler Admin Console.
 
 The Health360 dashboard serves as a comprehensive overview page, delivering an immediate snapshot of your deployment health across all major categories in your Zscaler ecosystem:
@@ -10610,13 +11241,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-service-health-china-connectivity","lastmod":"2026-08-15T05:29Z","nid":"1541705"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-service-health-china-connectivity","lastmod":"2026-08-29T21:06Z","nid":"1541705"} -->
 ## Viewing Service Health for China Connectivity
 
 - Source: https://help.zscaler.com/unified/viewing-service-health-china-connectivity
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Service Health for China Connectivity
-- Last modified: 2026-08-15T05:29Z
+- Last modified: 2026-08-29T21:06Z
 - Summary: Information about China Connectivity health in Health360.
 
 Health360 Service Health provides a near-real-time overview of your China Premium connectivity, which gives you visibility into the current and historic bandwidth utilization against purchased bandwidth. This Services category provides the following benefits:
@@ -10867,13 +11498,80 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption","lastmod":"2026-08-15T05:34Z","nid":"1541706"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-security-operations-platform-status-board","lastmod":"2026-08-25T14:15Z","nid":"1542058"} -->
+## Viewing the Security Operations Platform Status Board
+
+- Source: https://help.zscaler.com/unified/viewing-zscaler-security-operations-platform-status-board
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Viewing the Security Operations Platform Status Board
+- Last modified: 2026-08-25T14:15Z
+- Summary: How to view information in the Security Operations Platform status board.
+
+To view the Security Operations Platform (SecOps Platform) status board, refer to the [status page](https://avalorstatus.statuspage.io/). The status board presents historic and current incidents in the SecOps Platform.
+
+On the status board, you can perform the following actions:
+
+- Report issues.
+- Subscribe to updates and feeds.
+- View the current status of the SecOps Platform.
+- View incident history and historical uptime.
+
+If you're a SecOps Platform user and you've encountered an issue with the platform or one of its applications, you can report it to the SecOps team.
+
+You can subscribe to incident updates by email, phone, and Slack, and to the status board's Atom and RSS feeds.
+
+To subscribe to updates:
+
+1. Click **Subscribe to Updates**at the top right of the page.
+2. Click the icon of your preferred update method, and follow the onscreen instructions. See image.
+
+The SecOps Platform's current status presents incidents in the last 90 days by region (US, EU, and APAC), and each region is broken down into additional components:
+
+- Platform
+- Data Ingestion
+- Query Engine
+- UVM App
+- Asset Exposure Management App
+- Detections App (only for US)
+- Data Fabric (only for APAC)
+
+The SecOps Platform reports past incidents and historical uptime.
+
+## Incidents
+
+You can view past incident descriptions in 90-day increments.
+
+To view incident history, choose one of the following methods:
+
+- On the status board page, scroll to the bottom of the page and click **Incident History**.
+- Click the **View historical uptime** link, then click the **Incidents** tab.
+
+## Uptime
+
+You can view historical uptime in 90-day increments and by one of the following components:
+
+- Platform
+- Data Ingestion
+- Query Engine
+- UVM App
+- Asset Exposure Management App
+- Detections App (only for US)
+- Data Fabric (only for APAC)
+
+To view uptime history, click the **View historical uptime** link on the status board page.
+
+[Image: Subscribe to Updates Dialog]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption","lastmod":"2026-08-29T21:06Z","nid":"1541706"} -->
 ## Viewing Zscaler Service Adoption
 
 - Source: https://help.zscaler.com/unified/viewing-zscaler-service-adoption
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Zscaler Service Adoption
-- Last modified: 2026-08-15T05:34Z
+- Last modified: 2026-08-29T21:06Z
 - Summary: Information about the Adoption page in Health360.
 
 The Adoption dashboard provides a centralized overview of Zscaler platform adoption maturity. This dashboard functions across three distinct levels of granularity: high-level portfolio summaries engineered for executive leadership, operational matrices segmenting specific solution areas, and granular product drilldowns.
@@ -10895,13 +11593,13 @@ On the Adoption page (Analytics > Health360 > Adoption), you can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption-details","lastmod":"2026-08-14T03:50Z","nid":"1541708"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption-details","lastmod":"2026-08-28T21:06Z","nid":"1541708"} -->
 ## Viewing Zscaler Service Adoption Details
 
 - Source: https://help.zscaler.com/unified/viewing-zscaler-service-adoption-details
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Zscaler Service Adoption Details
-- Last modified: 2026-08-14T03:50Z
+- Last modified: 2026-08-28T21:06Z
 - Summary: Information about the Zscaler service adoption details in Health360.
 
 The adoption details page helps with granular Zscaler service drill-downs showing license utilization data and quantifiable value metrics.
@@ -10974,13 +11672,13 @@ Unification rules run when data related to the entity is ingested, directly proc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/what-health360","lastmod":"2026-08-13T23:17Z","nid":"1541019"} -->
+<!-- ZS-ARTICLE {"url":"/unified/what-health360","lastmod":"2026-08-28T21:06Z","nid":"1541019"} -->
 ## What Is Health360?
 
 - Source: https://help.zscaler.com/unified/what-health360
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > What Is Health360?
-- Last modified: 2026-08-13T23:17Z
+- Last modified: 2026-08-28T21:06Z
 - Summary: Information about Health360.
 
 Zscaler Health360 delivers centralized visibility into the deployment, health, and performance of your Zscaler environment. By providing real-time insights directly within the Zscaler Admin Console, it eliminates the manual analysis often required across multiple product consoles, interfaces, and custom reports. This service helps you easily monitor your active subscriptions, deployment status, configuration quality, and the overall value being delivered.
@@ -11008,13 +11706,48 @@ The following are the key features and benefits of Health360:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/what-zscaler-experience-center","lastmod":"2026-06-02T11:24Z","nid":"1538541"} -->
+<!-- ZS-ARTICLE {"url":"/unified/what-security-operations-platform","lastmod":"2026-08-25T11:04Z","nid":"1542052"} -->
+## What Is the Security Operations Platform?
+
+- Source: https://help.zscaler.com/unified/what-security-operations-platform
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > What Is the Security Operations Platform?
+- Last modified: 2026-08-25T11:04Z
+- Summary: Information on the Security Operations Platform (SecOps Platform).
+
+The Security Operations Platform (SecOps Platform) is a unified approach to security that integrates proactive and reactive measures to enhance an organization's overall security posture. It focuses on bridging the gap between traditional exposure management and threat management, creating a cohesive strategy for identifying, prioritizing, and responding to cyber risks. This comprehensive platform helps accelerate incident response, improve operational efficiency, and simplify compliance efforts.
+
+## Key Features and Benefits
+
+The SecOps Platform provides the following benefits and enables you to:
+
+- Integrate Zscaler services and third-party data for rich context, providing a comprehensive view of your security landscape.
+- Offer automated workflows for remediation and updates.
+- Provide real-time visibility into security posture and metrics.
+
+There are 4 applications in the SecOps Platform:
+
+- Asset Exposure Management (AEM) enables organizations to collect and manage asset data from various sources to track asset inventory and coverage. It allows organizations to understand their attack surface, create policies, and track and remediate policy violations to reduce overall risk.
+- Unified Vulnerability Management (UVM) provides a single place for managing vulnerabilities, simplifying the process of identifying and remediating security risks.
+- [SOC Workbench](https://help.zscaler.com/soc-workbench/what-zscaler-soc-workbench) uses multi-agentic AI to unify and enrich alerts with deep context, powering smart prioritization of risks to help SOC teams cut through alert fatigue and rapidly detect, triage, and respond to the threats that matter most.
+- [Identity Protection](https://help.zscaler.com/identity-protection/what-identity-protection) detects anomalous activities such as compromised credentials, suspicious logins, and sensitive data theft to help organizations move from fragmented visibility to actionable identity security.
+
+The SecOps Platform natively integrates External Attack Surface Management (EASM) capabilities to automatically discover, inventory, and monitor internet-facing assets and detect their associated risk findings. Scanned asset and finding information is automatically merged with the context-rich data and capabilities of AEM and UVM to provide comprehensive asset visibility and enriched security insights. The SecOps Platform also embeds Zscaler's Preemptive Detection and Response (PreDR) strategy by integrating with the [Zscaler Deception](https://help.zscaler.com/deception/what-zscaler-deception) and [Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/what-zscaler-breach-predictor) capabilities, helping organizations shift the SOC from reactive alerting to proactive risk reduction.
+
+## How the SecOps Platform Works
+
+The SecOps Platform operates on a robust data fabric for security that centralizes and transforms disparate security data. Supported by machine learning and AI, the fabric harmonizes, deduplicates, correlates, and enriches information from various sources, including Zscaler telemetry and third-party tools. The clean, contextualized data leads to more accurate and informative security outcomes. These insights power exposure management solutions, such as UVM and AEM, enabling organizations to understand and address asset risk, prioritize vulnerabilities, and effectively quantify overall cyber risk.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/what-zscaler-experience-center","lastmod":"2026-08-27T10:53Z","nid":"1538541"} -->
 ## What Is Zscaler Experience Center?
 
 - Source: https://help.zscaler.com/unified/what-zscaler-experience-center
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > What Is Zscaler Experience Center?
-- Last modified: 2026-06-02T11:24Z
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > What Is Zscaler Experience Center?
+- Last modified: 2026-08-27T10:53Z
 - Summary: Introductory information about the centralized Zscaler Experience Center console.
 
 Zscaler Experience Center is a unified, AI-powered administrative and operations console that consolidates the management, configuration, and monitoring of the Zscaler Zero Trust Exchange (ZTE) platform into a single interface, eliminating the need for separate dashboards and fragmented workflows. It serves as the central hub for managing Zscaler's core security and networking services, including, but not limited to, Internet & SaaS (ZIA), Private Access (ZPA), Zscaler Digital Experience (ZDX), Zscaler Client Connector, etc.

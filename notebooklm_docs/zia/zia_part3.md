@@ -1,53 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 100
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-04-24T03:21Z","nid":"1399311"} -->
-## Adding URLs to the Allowlist
-
-- Source: https://help.zscaler.com/zia/adding-urls-allowlist
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
-- Last modified: 2026-04-24T03:21Z
-- Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
-
-There might be trusted websites of partners or vendors whose webmail or file downloads might otherwise be blocked due to anti-virus, anti-spyware, anti-malware, or URL filtering policies. You can exempt URLs from security scans, URL filtering, or both.
-
-The allowlist applies to [Malware Protection](https://help.zscaler.com/zia/about-malware-protection), [Advanced Threat Protection](https://help.zscaler.com/zia/about-advanced-threat-protection), [Sandbox](https://help.zscaler.com/zia/about-sandbox), and [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policies. To learn more about how security exceptions impact policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/how-does-zscaler-service-enforce-policies).
-
-You can allowlist URLs completely by exempting them from security scans and URL filtering.
-
-## Adding URLs to Allowlist for Security Scans
-
-Adding URLs to the allowlist for security scans allows users to download content from these URLs without inspecting the traffic.
-
-To add URLs to the allowlist for security policies:
-
-1. Go to one of the following pages:
-  - **Policies**> **Cybersecurity**> **Inline Security**> **Malware Protection**.
-  - **Policies**>**Cybersecurity**> **Inline Security**> **Advanced Threat Protection**
-2. Click the **Security Exceptions** tab.
-3. In **Do Not Scan Content from these URLs**, enter the URLs you want to allowlist and click **Add Items**. You can enter multiple entries by pressing `Enter` after each entry. You can add up to 1,024 URLs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-This allowlist also applies to the [Sandbox](https://help.zscaler.com/zia/about-sandbox) policy.
-
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-## Adding URLs to Allowlist for URL Filtering
-
-Adding URLs to the allowlist for URL filtering allows access to the content without being blocked by other URL Filtering policy rules.
-
-To add URLs to allowlist for URL Filtering policy:
-
-1. Add the URLs you want to allowlist to a [custom URL category](https://help.zscaler.com/zia/adding-custom-url-categories).
-2. [Configure a URL Filtering rule](https://help.zscaler.com/zia/configuring-url-filtering-policy) to allow the custom URL category.
-
-Ensure that the rule order of this rule is higher than the URL Filtering rule that blocks these URLs.
-<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -72,6 +27,41 @@ To add a URL to the allowlist or denylist:
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
 [Image: Add URLs you Blocked Malicious URLs list in Advanced Threat Protection]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-users","lastmod":"2024-09-26T15:28Z","nid":"1398816"} -->
+## Adding Users
+
+- Source: https://help.zscaler.com/zia/adding-users
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > Adding Users
+- Last modified: 2024-09-26T15:28Z
+- Summary: How to add user accounts in the ZIA Admin Portal.
+
+[Watch a video about User Management, including how to add a user](https://fast.wistia.net/embed/iframe/65aszz5npz)
+
+Zscaler provides a number of ways to provision users, [groups](https://help.zscaler.com/zia/about-groups), and [departments](https://help.zscaler.com/zia/about-departments) as described in [About Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can also add users when you configure policies. This article describes how to add individual user accounts on the Users page in the ZIA Admin Portal. When adding users, you must specify their groups and departments. You can also add new groups and departments. A user can belong to up to 128 groups. The Zscaler service uses groups when it applies policies and uses departments for reporting purposes.
+
+You can use a [CSV file to add multiple users](https://help.zscaler.com/zia/importing-user-information-csv-file) at once.
+
+To add a user:
+
+1. Go to **Administration**>**User Management**.
+2. Click **Add User**.
+3. The **Add User** window appears.
+4. In the **Add User** window:
+  - **User ID**:Enter a user ID.The user ID consists of a user name and domain name in email format. Enter the user name and if your organization has more than one domain, select the domain name. The username must be in the form of an email address. It does not have to be a valid email address, but it must be unique, and its domain must belong to the organization. The User ID field allows values of alphanumeric characters and certain special characters up to a maximum of 127 characters. This field corresponds to the email field in the API. However, the data validation in the API supports a broader range of characters.
+  - **User Name**: Enter a display name for the user. Typically, the full name of the user. This appears when choosing users for policies. The User Name field allows values containing UTF-8 characters up to a maximum of 127 characters.
+  - **Groups**: Select the groups that the user belongs to. Click the **Add** icon to add a new group.[Groups](https://help.zscaler.com/zia/about-groups) are used in policies. You can control access to apps based on user groups. A company can have up to 140K groups. A user can be associated with maximum 127 groups via API and the ZIA Admin Portal. However, when a user is created or updated via Directory Sync or SCIM, they can be associated with more than 127 groups.
+  - **Department**: Choose the department that the user belongs to. Click the **Add** icon to add a new department.[Departments](https://help.zscaler.com/zia/about-departments) are used in policies and reports. Unlike groups, a user can belong to only one department.
+  - **Status**: Enable or disable the user. Disabling a user with the same user name as an [admin](https://help.zscaler.com/zia/about-administrators) also disables the admin.
+  - **Comments**: Optionally, enter additional notes or information. The content cannot exceed 10,240 characters.
+  - **Password**: Enter the user’s password.If you selected password as the authentication method, it must follow the guidelines that you defined.
+  - **Confirm Password**:Retype the user's password.
+  - **Temporary Authentication Email**: Enter a valid email address for the temporary authentication. This only appears if you selected [One-time Token or One-time Link](https://help.zscaler.com/zia/about-one-time-tokens-or-links) as the temporary authentication method in [Authentication Profile](https://help.zscaler.com/zia/about-authentication-profile#temporary-authentication).
+5. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -325,164 +315,6 @@ Choose to isolate all the traffic that matches the cloud app control rule throug
 [Image: Rule Expiration Section]
 
 [Image: Actions Section]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-zia-admins","lastmod":"2025-03-31T16:51Z","nid":"1399716"} -->
-## Adding ZIA Admins
-
-- Source: https://help.zscaler.com/zia/adding-zia-admins
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding ZIA Admins
-- Last modified: 2025-03-31T16:51Z
-- Summary: How to add administrators in the ZIA Admin Portal.
-
-[Watch a video about Administrators, including how to add new administrators.](https://fast.wistia.net/embed/iframe/gk4kabtv85)
-
-If you're adding or updating an administrator that is in the ZIA and Zscaler Digital Experience (ZDX) Admin Portals, the Zscaler service overrides the following fields in the other portal:
-
-- **Email**
-- **Name**
-- **Scope**
-- **Password**
-- **Comments**
-
-For example, if you're adding a new ZDX admin that already exists in the ZIA Admin Portal, and you use a different password in ZDX, the Zscaler service updates the password for the admin in ZIA. The login ID is the identifier for the admin in both portals, and the service uses it to check if the admin exists in the other portal.
-
-## Prerequisites
-
-Zscaler recommends that you [add roles](https://help.zscaler.com/zia/adding-admin-roles) before adding admins because you need to select a role for each admin that you add. Furthermore, when configuring admins:
-
-- You must have permission to do so, as described in [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
-- You can only add, edit, or delete admin accounts with lower [rank](https://help.zscaler.com/zia/about-admin-rank).
-- Your [scope](https://help.zscaler.com/zia/about-admin-scope) limits the scope that you can assign to other admins.
-
-Admin rank and scope don't apply to SD-WAN partner API clients. To learn more, see [Adding SD-WAN Partner API Clients](https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients).
-
-## Adding Admins
-
-To add an admin:
-
-1. Go to **Administration**> **Administrator Management**.
-2. Click **Add Administrator**. The **Add Administrator** window appears.
-3. In the **Add Administrator** window: See image.
-  - **Login ID**: Enter the login ID the admin uses to log in from your SSO provider portal and select the appropriate domain name. The domain names you provided to Zscaler appear in the drop-down menu.
-  - **Email**: Enter the admin's valid business email address. This email address receives the Executive Insights App download email after the admin account is added, and it's also required to initiate the authentication on the Executive Insights App.
-  - **Name**: Enter a name for the admin.
-  - **Role**: Choose a role to specify the admin's level of access to the ZIA Admin Portal. Roles you've configured appear in the drop-down menu. You can also search for roles or click the **Add**icon to add a new role. See image. For instructions to add a new role, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles). If you’ve enabled [Admin Rank](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the roles you can select.
-  - **Status**: Enable or disable the admin. If you disable the admin, the password is automatically cleared. So, when you re-enable the status of the disabled admin, you must set a new password. If SAML is enabled, then setting a password is optional. You can save your changes only after the admin authentication is complete. You can enable or disable the default admin account, as well. Disabling the admin also disables the corresponding user.
-  - **Scope**: Choose [admin scope](https://help.zscaler.com/zia/about-admin-scope) to specify which areas of the organization the admin can manage in the ZIA Admin Portal. Your assigned scope determines the scopes you can choose from the drop-down menu for this new admin. ZDX only supports **Organization** and **Location** scopes. So, if you have the same admin in ZIA and ZDX, and you change the ZIA admin scope to **Department** or **Location Group**, the [ZDX admin scope](https://help.zscaler.com/zdx/adding-zdx-admins) changes to **Organization**.
-    - **Organization**: The admin can manage everything in the ZIA Admin Portal.
-    - **Department**: Choose which departments the admin can manage in the ZIA Admin Portal. You can select a maximum of 2,048 departments.
-    - **Location**: Choose which locations the admin can manage in the ZIA Admin Portal.
-    - **Location Group**: Choose which location groups the admin can manage in the ZIA Admin Portal.
-  - **Executive Insights App Access**: Enable to allow an admin access to the Executive Insights App. To enable this setting, the admin requires an **Organization** admin scope and an [admin role](https://help.zscaler.com/zia/adding-admin-roles) with **Enable Permissions for Executive Insights App** selected.
-    - **Authorized Mobile Devices**: Displays the admin’s devices that are authorized to use the Executive Insights App. Admins can register up to 5 devices. You can click the **Unauthorize** icon to remove the device. Only one device can be unauthorized at a time. See image. For each device, you can see its name, ID, and registration date. This field is only visible when editing an existing admin with **Executive Insights App Access** enabled. Consider the following when you're updating an admin's email or role:
-      - If you're updating an email address, any devices for the admin are unauthorized and must be registered with a new address.
-      - If you're updating a role to another one with Enable Permissions for Executive Insights App selected, any devices for the admin are unauthorized.
-      - If you're updating a role to one without Enable Permissions for Executive Insights App selected or update an admin's scope to one other than Organization, the admin no longer has access to the app, and any devices are unauthorized.
-  - **Comments**: (Optional) Enter additional notes or information. The comments cannot exceed 10,240 characters.
-  - **Security Updates**:Enable if you want the admin to receive the latest information on vulnerabilities and threats that might affect your organization.
-  - **Service Updates**:Enable if you want the admin to receive new Zscaler service and product enhancements, including new data center notification and cloud release information.
-  - **Product Updates**:Enable if you want the admin to receive communication regarding important changes and updates for the Zscaler service.
-  - **Password Based Login**: Enable to allow the admin to log in to the ZIA Admin Portal directly using a password. You can use this authentication method with [SAML single sign-on](https://help.zscaler.com/zia/configuring-saml-admins).
-    - **Password**: Enter a password for the admin. It can be 10 to 100 characters and must contain at least 1 number, 1 special character, and 1 uppercase letter.
-    - **Confirm Password**: Re-enter the password to confirm.
-4. Click **Save**. If **Executive Insights App Access** is enabled, a **Confirm Sending the Executive Insights App Download Email** window appears.
-5. If the ****Confirm Sending the Executive Insights App Download Email****window appears, click **Send** to send the admin an email with download instructions for the Executive Insights App. You can [resend](https://help.zscaler.com/zia/resending-executive-insights-app-download-instructions) these instructions anytime. See image.
-6. [Activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal). Adding a ZIA admin creates a corresponding [user](https://help.zscaler.com/zia/about-users) with the same user name.
-
-You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal) or [delete](https://help.zscaler.com/zia/deleting-admins) admins at any time.
-
-[Image: The Add icon to add a new admin role.]
-
-[Image: Screenshot of the Unauthorize icon under Authorized Mobile Devices.]
-
-[Image: A configured admin in the Add Administrator window.]
-
-[Image: The Send button in the Confirm Sending the Executive Insights App Download Email window.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-zia-super-admins","lastmod":"2025-01-24T08:24Z","nid":"1399721"} -->
-## Adding ZIA Super Admins
-
-- Source: https://help.zscaler.com/zia/adding-zia-super-admins
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding ZIA Super Admins
-- Last modified: 2025-01-24T08:24Z
-- Summary: How to add super admins in the ZIA Admin Portal.
-
-The super admin [role](https://help.zscaler.com/zia/adding-admin-roles) is a default role Zscaler provides. The super admin role has full access to the ZIA Admin Portal and Executive Insights App. This role is assigned to the default admin, but you can assign this role to other admins as necessary. To learn more about admins and roles, see [About Administrators](https://help.zscaler.com/zia/about-administrators).
-
-To add a super admin:
-
-1. Go to **Administration**> **Administrator Management**.
-2. Click **Add Administrator**.
-
-The **Add Administrator** window appears.
-
-1. In the **Add Administrator** window:
-
-- **Login ID**: Enter the login ID the admin uses to log in from your SSO provider portal, and select the appropriate domain name. The domain names you provided to Zscaler appear in the drop-down menu.
-- **Email**: Enter the admin's valid business email address. This email address will receive the Executive Insights App download email after the admin account is added, and it's also required to initiate the authentication on the Executive Insights App.
-- **Name**: Enter a name for the admin.
-- **Role**: Choose **(0) Super Admin** from the drop-down menu. If you’ve enabled [Admin Rank](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the roles you can select.
-
-See image.
-
-- **Status**: Enable or disable the admin. If you disable the admin, the password is automatically cleared. So, when you re-enable the status of the disabled admin, you must set a new password. If SAML is enabled, then setting a password is optional. You can save your changes only after the admin authentication is complete.
-- **Scope**: Choose an [admin scope](https://help.zscaler.com/zia/about-admin-scope) to specify which areas of the organization the admin can manage in the ZIA Admin Portal. Your assigned scope determines the scopes you can choose from drop-down menu for this new admin.
-  - **Organization**: The admin can manage everything in the ZIA Admin Portal.
-  - **Department**: Choose which departments the admin can manage in the ZIA Admin Portal. You can select a maximum of 2,048 departments.
-  - **Location**: Choose which locations the admin can manage in the ZIA Admin Portal.
-  - **Location Group**: Choose which location groups the admin can manage in the ZIA Admin Portal.
-
-ZDX only supports **Organization** and **Location** scopes. So if you have the same admin in ZIA and ZDX, and you change the ZIA admin scope to **Department** or **Location Group**, the [ZDX admin scope](https://help.zscaler.com/zdx/adding-zdx-admins) will change to **Organization**.
-
-- **Executive Insights App Access**: Enable to allow an admin access to the Executive Insights App. To enable this setting, the admin requires an **Organization** admin scope and an [admin role](https://help.zscaler.com/zia/adding-admin-roles) with **Enable Permissions for Executive Insights App** selected.
-  - **Authorized Mobile Devices**: Displays the admin’s devices that are authorized to use the Executive Insights App. Admins can register up to 5 devices. You can click the **Unauthorize** icon to remove the device. Only one device can be unauthorized at a time.
-
-See image.
-
-For each device, you can see its name, ID, and registration date. This field is only visible when editing an existing admin with **Executive Insights App Access** enabled.
-
-Consider the following when you're updating an admin's email or role:
-
-- If you're updating an email address, any devices for the admin will be unauthorized and must be registered with the new address.
-- If you're updating a role to another one with **Enable Permissions for Executive Insights App** selected, any devices for the admin will be unauthorized.
-- If you're updating a role to one without **Enable Permissions for Executive Insights App** selected or update an admin's scope to one other than **Organization**, the admin no longer will have access to the app, and any devices will be unauthorized.
-- **Comments**: (Optional) Enter additional notes or information. The comments cannot exceed 10,240 characters.
-- **Security Updates**:Enable if you want the admin to receive the latest information on vulnerabilities and threats that may affect your organization.
-- **Service Updates**:Enable if you want the admin to receive new Zscaler service and product enhancements, including new data center notification and cloud release information.
-- **Product Updates**:Enable if you want the admin to receive communication regarding important changes and updates for the Zscaler service.
-- **Password Based Login**: Enable to allow the admin to log in to the ZIA Admin Portal directly using a password. You can use this authentication method with [SAML single sign-on](https://help.zscaler.com/zia/configuring-saml-admins).
-  - **Password**: Enter a password for the admin. It can be 8 to 100 characters and must contain at least one number, one special character, and one uppercase letter.
-  - **Confirm Password**: Re-enter the password to confirm.
-
-See image.
-
-1. Click **Save**.
-
-If **Executive Insights App Access** is enabled, the **Confirm Sending the Executive Insights App Download Email** window appears.
-
-1. If the ****Confirm Sending the Executive Insights App Download Email****window appears, click **Send** to send the admin an email with download instructions for the Executive Insights App. You can [resend](https://help.zscaler.com/zia/resending-executive-insights-app-download-instructions) these instructions anytime.
-
-See image.
-
-1. [Activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
-
-You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal) or [delete](https://help.zscaler.com/zia/deleting-admins) admins at any time.
-
-[Image: The Add icon to add a new admin role.]
-
-[Image: Screenshot of the Unauthorize icon under Authorized Mobile Devices.]
-
-[Image: A configured admin in the Add Administrator window.]
-
-[Image: The Send button in the Confirm Sending the Executive Insights App Download Email window.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1155,13 +987,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/applying-policies-for-authenticated-guest-users","lastmod":"2026-06-01T21:06Z","nid":"1400686"} -->
+<!-- ZS-ARTICLE {"url":"/zia/applying-policies-for-authenticated-guest-users","lastmod":"2026-08-27T23:38Z","nid":"1400686"} -->
 ## Applying Policies for Authenticated Guest Users
 
 - Source: https://help.zscaler.com/zia/applying-policies-for-authenticated-guest-users
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Applying Policies for Authenticated Guest Users
-- Last modified: 2026-06-01T21:06Z
+- Last modified: 2026-08-27T23:38Z
 - Summary: Explains how Zscaler service policies (i.e., URL & Cloud App policies, firewall policies, Data Loss Prevention policies, etc.) are applied to authenticated guest user traffic.
 
 In general, policies are applied to authenticated traffic, regardless of location. If the traffic to the Zscaler service is from an authenticated user, the policies you configure are applied.
@@ -1176,17 +1008,17 @@ If the Guest Inc. user is authenticated, the following occurs:
 - The Guest user cannot use the Guest DPPC port.
 - All Host Corp. bandwidth limitations apply.
 - All Host Corp. SSL/TLS and authentication bypasses apply.
-- If Host Corp. has [SSL/TLS Interception enabled](https://help.zscaler.com/zia/deploying-ssl-inspection) at the location, then Guest user traffic is intercepted and decrypted using the Host Corp. SSL certificate.
+- If Host Corp. has [SSL/TLS Inspection enabled](https://help.zscaler.com/zia/deploying-ssl-inspection) at the location, then Guest user traffic is intercepted and decrypted using the Host Corp. SSL certificate.
 
 However, if Host Corp. has authentication disabled at the location, the Guest user cannot be authenticated. If the Guest Inc. user cannot be authenticated for any reason, the following occurs:
 
-- All the Host Corp's URL, Cloud App, Firewall, DLP, and security policies are applied to that unauthenticated traffic
+- All the Host Corp's URL, Cloud App, Firewall, DLP, and security policies are applied to that unauthenticated traffic.
 - All unauthenticated transactions are logged against Host Corp.
 - If the Guest user has [AUP](https://help.zscaler.com/zia/about-acceptable-use-policy-and-end-user-notifications) configured, it is not displayed because the user is not authenticated.
 - The Guest user cannot use the Guest DPPC port.
 - All Host Corp. bandwidth limitations apply.
 - All Host Corp. SSL and authentication bypasses apply.
-- If Host Corp. has [SSL/TLS Interception enabled](https://help.zscaler.com/zia/deploying-ssl-inspection) at the location, then Guest user traffic is intercepted and decrypted using the Host Corp. SSL certificate.
+- If Host Corp. has [SSL/TLS Inspection enabled](https://help.zscaler.com/zia/deploying-ssl-inspection) at the location, then Guest user traffic is intercepted and decrypted using the Host Corp. SSL certificate.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1675,13 +1507,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-08-23T07:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-08-30T07:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -3366,23 +3198,23 @@ The benefits and limitations of using PAC files to forward traffic to one or mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/best-practices-writing-pac-files","lastmod":"2026-04-30T02:45Z","nid":"1399381"} -->
+<!-- ZS-ARTICLE {"url":"/zia/best-practices-writing-pac-files","lastmod":"2026-08-27T05:09Z","nid":"1399381"} -->
 ## Best Practices for Writing PAC Files
 
 - Source: https://help.zscaler.com/zia/best-practices-writing-pac-files
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Best Practices for Writing PAC Files
-- Last modified: 2026-04-30T02:45Z
+- Last modified: 2026-08-27T05:09Z
 - Summary: Best practices for writing PAC files for Internet & SaaS (ZIA).
 
 If your organization needs to use [custom PAC files](https://help.zscaler.com/zia/writing-pac-file), Zscaler highly recommends that you copy and paste the default PAC file in the Zscaler Admin Console and edit the file accordingly. This article provides best practices for [writing a PAC file](https://help.zscaler.com/zia/writing-pac-file):
 
 - Use a simple text editor, such as Windows Notepad, to create and edit a PAC file. Avoid using Microsoft Office Word; some of its characters and features, such as smart quotes, can affect or break the PAC file.
-- Because .pac files are text and can be downloaded and viewed by anyone, use appropriate file permissions to ensure that they are secure.
+- Because PAC files are text and can be downloaded and viewed by anyone, use appropriate file permissions to ensure that they are secure.
 - Thoroughly review and understand the PAC file before making changes.
 - By default, each PAC file can be up to 256 KB in size. Contact Zscaler Support to increase the PAC file size limit to a maximum of 2 MB. The number of bits required to encode a character changes from character to character, making a precise character count difficult. An error message displays when you try to save a PAC file that is over 256 KB without increasing the limit.
 - The speed of file execution depends on the way arguments are constructed in the PAC file, not on the total length of the file. PAC files execute commands serially. Therefore:
-  - Do not use excessive exclusion functions, as this may cause slowness.
+  - Do not use excessive exclusion functions, as this might cause slowness.
   - Place arguments or exceptions that have a high probability of being executed at the beginning of the file. For example, private IP address lookups should be at the beginning.
   - Numerous logical OR statements can cause slowness when processing PAC files. It is recommended to group each of the 100 OR statements within its IF statements, so they can be parsed in batches.
 - Avoid using complex regular expressions to make a PAC file smaller. This can make it less efficient.
@@ -3390,37 +3222,37 @@ If your organization needs to use [custom PAC files](https://help.zscaler.com/zi
 - Keep the file as small and efficient as possible. Configure SSL exceptions in the Zscaler Admin Console instead of adding them to the PAC file.
 - Validate support for built-in JavaScript functions before using them.
 - Check URL and host parameters before adding them to the PAC file.
-- Use Zscaler-specific variables, such as `${GATEWAY}` and `${SECONDARY_GATEWAY}` instead of Public Service Edge IP addresses or host names to ensure proper failover. (If your organization uses a subcloud, use the variables `${GATEWAY.*organization_name*.zscaler.net}` and `${SECONDARY_GATEWAY.*organization_name*.zscaler.net}`.) The Zscaler-specific variables are applicable only if you host your PAC file on the Zscaler cloud.
+- Use Zscaler-specific variables, such as `${GATEWAY}` and `${SECONDARY_GATEWAY}`, instead of Public Service Edge for Internet & SaaS (ZIA) IP addresses or host names to ensure proper failover. (If your organization uses a subcloud, use the variables `${GATEWAY.*organization_name*.zscaler.net}` and `${SECONDARY_GATEWAY.*organization_name*.zscaler.net}`.) The Zscaler-specific variables are applicable only if you host your PAC file on the Zscaler cloud.
 - If your organization is subscribed to a dedicated port, specify your dedicated port instead of the default port 80.
 - Check simple rule exceptions first.
 - Place high-probability checks near the top.
 - Minimize the use of regular expressions.
 - Use efficient regular expressions, and avoid capturing matches that will not be used. Because`return`is immediate, avoid using `else` with `if`statements.
-- Single-line if() statements do not require begin { and end } brackets.
+- Single-line if() statements do not require begin '{' and end '}' brackets.
 - Carefully consider the use (overuse) of `isResolvable()`, `dnsResolve()`, and `isInNet()` due to potential DNS performance issues.
 - Try and group similar exceptions into a bigger`if` loop. For example, instead of checking against 10 hosts with **xyz.google.com** in a big `OR` statement, convert it into an outer `if` statement that is applied to **if the host has *.google.com** and then test against the 10 hosts.
 - Check for IP addresses in a separate `if` loop.
 - Every opening curly bracket must have a corresponding closing curly bracket, and every opening parenthesis must have a corresponding closing parenthesis. One of the most common mistakes in building PAC files is losing count of opening and closing parentheses and brackets.
 - Avoid using external or global variables and functions.
 - When possible, sort lists of IP addresses, domains, or both to ease future maintenance efforts.
-- When possible, group common return values into a single conditional`if()` checks.
-- Some browsers may execute PAC files in a case-sensitive manner. To ensure that an incorrect case does not break your PAC file, add the following argument at the top of the PAC file (immediately below the opening curly bracket) to convert everything to lower case when the PAC file is executed. `var lhost = host.toLowerCase(); host = lhost;`
+- When possible, group common return values into a single conditional`if()` check.
+- Some browsers might execute PAC files in a case-sensitive manner. To ensure that an incorrect case does not break your PAC file, add the following argument at the top of the PAC file (immediately below the opening curly bracket) to convert everything to lowercase when the PAC file is executed: `var lhost = host.toLowerCase(); host = lhost;`
 - Use indents to improve readability. JavaScript ignores white spaces, tabs, and blank lines in the text file, so do not be afraid to manipulate the layout of your text file. For example, if you put text within curly brackets ({ }), indent the line. You must put the closing curly bracket at the same indent level as the opening curly bracket.
 - Nested between the opening and closing curly brackets are various JavaScript variables, conditional statements, return statements, and comments.
 - Test all conditions and exceptions used in your PAC file prior to deployment. Verify that your JavaScript is error-free. You can use the Google tool (pactester) or any other PAC parser tool to ensure that there are no syntax errors in your PAC file and it works correctly. Additionally, leverage the **Verify PAC File** option in the Zscaler Admin Console. See image.
 
-[Image: Verify button in the Edit PAC File window]
+[Image: Verify PAC File in Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-google-chrome","lastmod":"2025-02-05T20:42Z","nid":"1398981"} -->
+<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-google-chrome","lastmod":"2026-08-28T00:49Z","nid":"1398981"} -->
 ## Capturing HTTP Headers on Google Chrome
 
 - Source: https://help.zscaler.com/zia/capturing-http-headers-google-chrome
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Capturing HTTP Headers on Google Chrome
-- Last modified: 2025-02-05T20:42Z
+- Last modified: 2026-08-28T00:49Z
 - Summary: How to use Chrome's built-in developer tool to capture HTTP headers.
 
 At times, Zscaler Support might ask you to provide HTTP headers when troubleshooting certain issues. The HTTP headers identify the specific URL the browser accessed when you open a web page. Google Chrome has a built-in developer tool that allows you to capture HTTP headers and save them to a file. You can use the Google Chrome embedded HTTP header capture tool on Google Chrome version 54.0.2840.71 m and later. If you are running a different browser version, the steps might be different.
@@ -3436,7 +3268,7 @@ To capture headers in Chrome:
   - Open themenu in the top-right corner and go to**More Tools**> **Developer Tools**. See image.
 2. Click the **Network** tab.
 3. Make sure the record button is red and the **Preserve log**and**Disable Cache** options are checked. See image.
-4. When the test is completed, click on the **Export** icon to download the sanitized HAR file. If you long click on the icon for a few seconds, you are given the option to export the HAR file with sensitive data. See image. For Chrome versions later than 130, right-click on any transaction and select **Save all as HAR with content**.
+4. When the test is completed, click on the **Export HAR (sanitized)** icon to download the sanitized HAR file. To get the option to export the HAR file with sensitive data, do the first three steps of the following section, Exporting HTTP Headers with Sensitive Data. See image.
 5. Click **Save**on the window that appears to download the file.
 6. Selectthe **Console**tab, right-click on the message, and select **Save as**. See image.
 7. Click **Save**on the window that appears to download the file.
@@ -3479,20 +3311,20 @@ Alternatively, you can:
 
 [Image: Click red circle or the circle with the cross to record or clear logs]
 
-[Image: Click and hold the download button to export HAR with sensitive data]
+[Image: Export HAR with sensitive data with the download button]
 
 [Image: Right click an entry and click Copy and then copy all as HAR]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-microsoft-edge","lastmod":"2024-11-19T07:49Z","nid":"1504371"} -->
+<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-microsoft-edge","lastmod":"2026-08-28T04:02Z","nid":"1504371"} -->
 ## Capturing HTTP Headers on Microsoft Edge
 
 - Source: https://help.zscaler.com/zia/capturing-http-headers-microsoft-edge
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Capturing HTTP Headers on Microsoft Edge
-- Last modified: 2024-11-19T07:49Z
+- Last modified: 2026-08-28T04:02Z
 - Summary: Information on Capturing HTTP Headers on Microsoft Edge
 
 At times, Zscaler Support might ask you to provide HTTP headers when troubleshooting certain issues. The HTTP headers identify the specific URL the browser accessed when you open a web page. Microsoft Edge has a built-in developer tool that allows you to capture HTTP headers and save them to a file. You can use the Microsoft Edge embedded HTTP header capture tool on Microsoft Edge version 126. If you are running a different browser version, the steps might be different.
@@ -3506,17 +3338,15 @@ To capture headers in Microsoft Edge:
   - Open the menu in the top-right corner and go to**More Tools**> **Developer Tools**. See image.
 2. Click the **Network** tab.
 3. Make sure the record button is red and the **Preserve log**and **Disable Cache** options are checked. See image.
-4. When the test is completed, right-click on one transaction and select **Save all as HAR with content**. See image.
-5. Click **Save**on the dialog box that appears to download the file.
+4. When the test is completed. When the test is completed, click the **Export HAR (sanitized)** icon. To get the option to export the HAR file with sensitive data, do the first three steps of the following section, Exporting HTTP Headers with Sensitive Data.
+5. Click **Save**on the window that appears to download the file.
 6. Select the **Console**tab, right-click on the message, and select **Save as**. See image.
-7. Click **Save**on the dialog box that appears to download the file.
+7. Click **Save**on the window that appears to download the file.
 8. Send the saved file to Zscaler Support.
 
 [Image: Go to Developer Tools by clicking More tools and then Developer tools]
 
 [Image: Ensure Record, Disable Cache, and Preserve log are selected]
-
-[Image: Save all as HAR with content]
 
 [Image: Click Console and then click on Save as]
 
@@ -3556,14 +3386,14 @@ Alternatively, you can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-mozilla-firefox","lastmod":"2024-08-30T00:24Z","nid":"1398971"} -->
+<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-mozilla-firefox","lastmod":"2026-08-28T01:50Z","nid":"1398971"} -->
 ## Capturing HTTP Headers on Mozilla Firefox
 
 - Source: https://help.zscaler.com/zia/capturing-http-headers-mozilla-firefox
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Capturing HTTP Headers on Mozilla Firefox
-- Last modified: 2024-08-30T00:24Z
-- Summary: How to capture HTTP headers in Mozilla Firefox.
+- Last modified: 2026-08-28T01:50Z
+- Summary: How to capture HTTP headers on Mozilla Firefox.
 
 At times, Zscaler Support might ask you to provide HTTP headers when troubleshooting certain issues. The HTTP headers identify the specific URL the browser accessed when you opened a web page. You can use Mozilla's Inspector tool to capture HTTP headers in Mozilla Firefox version 128. If you are running a different browser version, the steps might be different. To learn more, refer to the [Mozilla documentation](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor/request_details).
 
@@ -3574,28 +3404,34 @@ To capture header in Mozilla Firefox:
 1. Do either of the following: See image.
   - Open the Developer Tools window by pressing `Ctrl+Shift+i`.
   - Open the menu in the top-right corner and go to **More Tools**> **Developer Tools**.
-2. In the **Web Developer Tools** window, select the **Network** tab. See image.
+2. Select the **Network** tab. See image.
 3. In the **Network** tab, select **Disable Cache**and right-click the element you want to inspect.
 4. Select **Save All As HAR**. See image.
-5. Click **Save** on the dialog box to download the file.
+5. Click **Save** on the window to download the file.
 6. Select the**Console**tab and right-click on the message.
 7. Select **Save all Messages to File**. See image.
-8. Click **Save** on the dialog box to download the file.
+8. Click **Save** on the window to download the file.
 9. Send the saved file to Zscaler Support.
+
+[Image: Click to see more options]
+
+[Image: Select Network]
+
+[Image: Save HAR file]
 
 [Image: Console page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-safari","lastmod":"2024-08-30T02:10Z","nid":"1401661"} -->
+<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-safari","lastmod":"2026-08-28T01:56Z","nid":"1401661"} -->
 ## Capturing HTTP Headers on Safari
 
 - Source: https://help.zscaler.com/zia/capturing-http-headers-safari
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Capturing HTTP Headers on Safari
-- Last modified: 2024-08-30T02:10Z
-- Summary: How to use Safari's built-in developer tool to capture HTTP headers.
+- Last modified: 2026-08-28T01:56Z
+- Summary: How to capture HTTP headers on Safari.
 
 At times, Zscaler Support might ask you to provide HTTP headers when troubleshooting certain issues. The HTTP headers identify the specific URL the browser accessed when you open a web page. You can use Safari's Inspector tool to capture HTTP headers in Safari version 17.5. If you are running a different browser version, the steps might be different. To learn more, refer to the [Safari documentation](https://support.apple.com/en-gb/guide/safari-developer/welcome/mac).
 
@@ -3611,6 +3447,16 @@ At times, Zscaler Support might ask you to provide HTTP headers when troubleshoo
 5. In the **Network** tab, right-click the element you want to inspect and select **Export HAR**. In this view, the HTTP headers are also visible in the **Headers** tab on the right pane. See image.
 6. Specify a name and click **Save** in the dialog box that appears to save the file.
 7. Send the saved file to Zscaler Support.
+
+[Image: Select Show Develop menu in menu bar]
+
+[Image: View Develop Menu]
+
+[Image: Select Web Inspector]
+
+[Image: Select Network]
+
+[Image: Export HAR file]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3694,27 +3540,27 @@ The following table shows native applications that use certificate pinning:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/checking-ip-addresses-on-denylist","lastmod":"2026-07-23T21:06Z","nid":"1400221"} -->
+<!-- ZS-ARTICLE {"url":"/zia/checking-ip-addresses-on-denylist","lastmod":"2026-08-28T15:29Z","nid":"1400221"} -->
 ## Checking for IP Addresses on the Denylist
 
 - Source: https://help.zscaler.com/zia/checking-ip-addresses-on-denylist
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Checking for IP Addresses on the Denylist
-- Last modified: 2026-07-23T21:06Z
+- Last modified: 2026-08-28T15:29Z
 - Summary: How to check for IP addresses placed on the denylist within the Zscaler Admin Console.
 
 You can check if the Zscaler service is placing service access from an IP address on the denylist, due to suspicious traffic activity.
 
 To check if the Zscaler service is placing an IP address on the denylist:
 
-1. Go to **Policies > Common Configuration > Resources > Denylist IP** Check to open the **Denylist IP Check** window.
+1. Go to **Policies > Common Configuration > Resources > Denylist IP** **Check**.
 2. Enter the IP address you want to check, and click **Check Denylist**.
 
 The Zscaler service displays the results. If the Zscaler service placed the IP address on the denylist, it displays the IP address with additional comments. If it didn't place the IP address on the denylist, then there are no results.
 
 See image.
 
-[Image: Screenshot of the Denylist Lookup Results section in the Denylist IP Check window]
+[Image: Denylist Lookup Results section in the Denylist IP Check window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4948,13 +4794,13 @@ Zscaler's DLP inspection and prompt capture capabilities are currently limited t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-08-12T04:24Z","nid":"1399146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-08-29T07:06Z","nid":"1399146"} -->
 ## Configuring Advanced Settings
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Configuring Advanced Settings
-- Last modified: 2026-08-12T04:24Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information on how to configure the Advanced Settings page in the Zscaler Admin Console.
 
 On the Advanced Settings page in the Zscaler Admin Console, you can configure settings for a variety of Zscaler service features.
@@ -4971,7 +4817,6 @@ To configure the advanced settings:
   - Basic Authentication Exemption
   - Digest Authentication Exemption
   - JWT Authentication Exemptions
-  - Remove Range Headers
   - Internal IP Logging
   - Windows App Traffic Authentication
   - Policy for Unauthenticated Traffic
@@ -5054,8 +4899,6 @@ The service can exempt specific [URL categories](https://help.zscaler.com/zia/ab
 - **Exempted Applications**: Select the cloud app categories or cloud apps you want to exempt from JWT authentication.
 
 This feature is not enabled by default. To have this feature enabled for your organization, contact your Zscaler Account team.
-
-**URL Categories**: Select the URL categories for which you want to remove range headers.
 
 [Watch a video about Internal IP Logging](https://fast.wistia.net/embed/iframe/8rpe2auusc) (shows legacy UI).
 
@@ -5344,13 +5187,13 @@ Google Hangouts has been deprecated by Google and replaced by Google Chat. To lo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-alert-rule","lastmod":"2026-08-20T05:44Z","nid":"1403286"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-alert-rule","lastmod":"2026-08-27T10:14Z","nid":"1403286"} -->
 ## Configuring an Alert Rule
 
 - Source: https://help.zscaler.com/zia/configuring-alert-rule
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > Configuring an Alert Rule
-- Last modified: 2026-08-20T05:44Z
+- Last modified: 2026-08-27T10:14Z
 - Summary: How to configure and edit an alert rule for different event types under Security & UEBA Alerts in the Zscaler Admin Console.
 
 [Watch a video about Security & UEBA Alerts including configuration](https://fast.wistia.net/embed/iframe/xg2ozazz6z) (shows legacy UI).
@@ -5562,13 +5405,13 @@ To configure an email notification:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-azure-vwan-locations","lastmod":"2026-04-29T02:56Z","nid":"1400941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-azure-vwan-locations","lastmod":"2026-08-24T03:34Z","nid":"1400941"} -->
 ## Configuring Azure Virtual WAN Locations
 
 - Source: https://help.zscaler.com/zia/configuring-azure-vwan-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Azure Virtual WAN Locations
-- Last modified: 2026-04-29T02:56Z
+- Last modified: 2026-08-24T03:34Z
 - Summary: How to sync Microsoft Azure Virtual WAN (VWAN) hubs, as well as set up their tunnel configurations, locations, and VPN credentials information for the Zscaler service.
 
 To configure an Azure Virtual WAN (VWAN) location:
@@ -8064,13 +7907,13 @@ To configure a gateway:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dedicated-proxy-ports","lastmod":"2026-04-26T23:45Z","nid":"1399261"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dedicated-proxy-ports","lastmod":"2026-08-24T03:31Z","nid":"1399261"} -->
 ## Configuring Dedicated Proxy Ports
 
 - Source: https://help.zscaler.com/zia/configuring-dedicated-proxy-ports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Dedicated Proxy Ports
-- Last modified: 2026-04-26T23:45Z
+- Last modified: 2026-08-24T03:31Z
 - Summary: How to enable dedicated proxy ports for the Zscaler service, that can then be associated with a location.
 
 Your organization can subscribe to one or more ports, associate them with a [location](https://help.zscaler.com/zia/how-do-i-add-location), and then forward your remote user traffic to those ports. Forwarding remote users to your subscribed ports enables the Zscaler service to do the following:
@@ -9227,13 +9070,13 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-08-23T07:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-08-30T07:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
 [Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection.](https://fast.wistia.net/embed/iframe/za6nr8ax7t)
@@ -9415,13 +9258,13 @@ To learn how to use external DLP engines to detect data and also forward informa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-08-23T07:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-08-30T07:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
@@ -9959,13 +9802,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-08-23T07:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-08-30T07:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -10127,13 +9970,13 @@ To create a DNS application group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-control-policy","lastmod":"2026-08-11T07:06Z","nid":"1399991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-control-policy","lastmod":"2026-08-27T08:03Z","nid":"1399991"} -->
 ## Configuring the DNS Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-dns-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Configuring the DNS Control Policy
-- Last modified: 2026-08-11T07:06Z
+- Last modified: 2026-08-27T08:03Z
 - Summary: Information on how to create a DNS Control policy rule to control DNS requests and responses in the Zscaler Admin Console.
 
 [Watch a video about Configuring DNS Control Policy.](https://fast.wistia.net/embed/iframe/6e9wlolezd)
@@ -10413,13 +10256,13 @@ Iterative DNS requests from DNS servers should only transit Internet & SaaS (i.e
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dynamic-location-groups","lastmod":"2026-04-27T04:50Z","nid":"1401361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dynamic-location-groups","lastmod":"2026-08-24T03:34Z","nid":"1401361"} -->
 ## Configuring Dynamic Location Groups
 
 - Source: https://help.zscaler.com/zia/configuring-dynamic-location-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Dynamic Location Groups
-- Last modified: 2026-04-27T04:50Z
+- Last modified: 2026-08-24T03:34Z
 - Summary: How to add, edit, and delete dynamic location groups within the Zscaler Admin Console.
 
 This article describes how to create a [dynamic location group](https://help.zscaler.com/zia/about-location-groups) and configure location attributes that locations or sublocation must match to be assigned to the dynamic group. You can add up to 256 groups, inclusive of dynamic and manual location groups. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -11052,13 +10895,13 @@ The Zscaler service sends an email notification regarding the exception to the s
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-cloud-app-control","lastmod":"2026-04-06T10:11Z","nid":"1486501"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-cloud-app-control","lastmod":"2026-08-25T09:10Z","nid":"1486501"} -->
 ## Configuring EUNs for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/configuring-euns-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Cloud App Control
-- Last modified: 2026-04-06T10:11Z
+- Last modified: 2026-08-25T09:10Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by Cloud App Control policy in the Zscaler Admin Console.
 
 You can customize the messages for Zscaler Client Connector-based notifications that are displayed for end users when a [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control) configured for Internet & SaaS (ZIA) is triggered by the end user's activity. For example, you can block your organization users from interacting with and uploading files to AI and ML applications such as ChatGPT and Google Gemini and display a notification informing the user regarding the policy violation.
@@ -11101,13 +10944,13 @@ The default notification additionally provides a **Reset All** option that allow
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-dns-control","lastmod":"2026-04-06T10:12Z","nid":"1532833"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-dns-control","lastmod":"2026-08-27T01:46Z","nid":"1532833"} -->
 ## Configuring EUNs for DNS Control
 
 - Source: https://help.zscaler.com/zia/configuring-euns-dns-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for DNS Control
-- Last modified: 2026-04-06T10:12Z
+- Last modified: 2026-08-27T01:46Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the DNS Control policy in the Zscaler Admin Console.
 
 When network traffic from your users' devices is blocked by the [DNS Control policy](https://help.zscaler.com/zia/configuring-dns-control-policy) or a DNS redirect is performed, the Zscaler service can notify users of the policy action through Zscaler Client Connector installed on users' endpoints. Zscaler provides a ready-to-use, editable notification message by default. Additionally, you can create custom messages and associate distinct notification messages with individual DNS Control rules, depending on your requirements. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
@@ -11150,13 +10993,13 @@ After customizing the notification message, you need to [enable the EUN](https:/
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-endpoint-dlp","lastmod":"2026-04-06T10:10Z","nid":"1486511"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-endpoint-dlp","lastmod":"2026-08-25T09:10Z","nid":"1486511"} -->
 ## Configuring EUNs for Endpoint DLP
 
 - Source: https://help.zscaler.com/zia/configuring-euns-endpoint-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Endpoint DLP
-- Last modified: 2026-04-06T10:10Z
+- Last modified: 2026-08-25T09:10Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by Endpoint DLP policy in the Zscaler Admin Console.
 
 You can customize the messages for Zscaler Client Connector-based notifications that are displayed for end users when a Zscaler [Endpoint Data Loss Prevention (DLP) policy](https://help.zscaler.com/zia/about-endpoint-dlp) configured in Internet & SaaS (ZIA) is triggered by the end user's activity. For example, you can block your organization users from transferring sensitive corporate data from their endpoints to their personal cloud storage accounts or removable storage and display a notification informing the end user of the policy violation. In another scenario, you can allow your users to print documents containing sensitive data using a network printer but with a notification cautioning them about the risks associated.
@@ -11282,13 +11125,13 @@ The default notification additionally provides a **Reset All** option that allow
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-firewall-filtering","lastmod":"2026-04-06T10:11Z","nid":"1532832"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-firewall-filtering","lastmod":"2026-08-27T01:45Z","nid":"1532832"} -->
 ## Configuring EUNs for Firewall Filtering
 
 - Source: https://help.zscaler.com/zia/configuring-euns-firewall-filtering
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Firewall Filtering
-- Last modified: 2026-04-06T10:11Z
+- Last modified: 2026-08-27T01:45Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the Firewall Filtering policy in the Zscaler Admin Console.
 
 When the [Firewall Filtering policy](https://help.zscaler.com/zia/configuring-firewall-filtering-policy) blocks specific non-web traffic from your users' devices, the Zscaler service can notify users of the policy action through Zscaler Client Connector installed on users' endpoints. Zscaler provides a ready-to-use, editable notification message by default. Additionally, you can create custom messages and associate distinct notification messages with individual Firewall Filtering rules, depending on your requirements. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
@@ -11330,13 +11173,13 @@ After customizing the notification message, you need to [enable the EUN](https:/
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-inline-web-dlp","lastmod":"2026-04-06T10:10Z","nid":"1486486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-inline-web-dlp","lastmod":"2026-08-25T09:09Z","nid":"1486486"} -->
 ## Configuring EUNs for Inline Web DLP
 
 - Source: https://help.zscaler.com/zia/configuring-euns-inline-web-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Inline Web DLP
-- Last modified: 2026-04-06T10:10Z
+- Last modified: 2026-08-25T09:09Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by inline web DLP policy in the Zscaler Admin Console.
 
 You can customize the messages for Zscaler Client Connector-based notifications that are displayed for end users when an [inline web DLP policy](https://help.zscaler.com/zia/about-data-loss-prevention) configured for Internet & SaaS (ZIA) is triggered by the end user's activity. For example, you can block users from posting personally identifiable information (PII) on third-party websites and display a notification informing the user regarding the policy violation. In another scenario, you can allow a user to upload a file containing sensitive corporate information to the user's personal storage and display a notification cautioning the user about the risks associated and that the activity is monitored.
@@ -11380,13 +11223,13 @@ The default notification additionally provides a **Reset All** option that allow
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-ips-control","lastmod":"2026-04-06T10:12Z","nid":"1532834"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-ips-control","lastmod":"2026-08-27T01:46Z","nid":"1532834"} -->
 ## Configuring EUNs for IPS Control
 
 - Source: https://help.zscaler.com/zia/configuring-euns-ips-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for IPS Control
-- Last modified: 2026-04-06T10:12Z
+- Last modified: 2026-08-27T01:46Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the IPS Control policy in the Zscaler Admin Console.
 
 When network traffic from your user devices is allowed or blocked by the [IPS Control policy](https://help.zscaler.com/zia/configuring-ips-control-policy), the Zscaler service can notify users of the policy action through Zscaler Client Connector installed on users' endpoints. Zscaler provides a ready-to-use, editable notification message by default. Additionally, you can create custom messages and associate distinct notification messages with individual IPS Control rules, depending on your requirements. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
@@ -11498,13 +11341,13 @@ To assign an extranet to a location:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-file-type-control-policy","lastmod":"2026-07-17T11:30Z","nid":"1398726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-file-type-control-policy","lastmod":"2026-08-23T22:10Z","nid":"1398726"} -->
 ## Configuring the File Type Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-file-type-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > File Type Control > Configuring the File Type Control Policy
-- Last modified: 2026-07-17T11:30Z
+- Last modified: 2026-08-23T22:10Z
 - Summary: How to configure the Zscaler File Type Control policy by adding rules to restrict the upload and download of various types of files.
 
 [Watch a video about File Type Control.](https://fast.wistia.net/embed/iframe/dy3uxxv8k2)
@@ -11542,7 +11385,7 @@ Refer to the following condition categories for details on configuring their ind
     - **HTTP**: Files from HTTP websites.
     - **HTTPS**: Files from HTTP websites encrypted by TLS/SSL.**Native FTP**: Files from native FTP servers. (Requires Firewall subscription.)
   - **Minimum/Maximum File Size**: Enter a number value between 0 and 409,600 (KB) to apply a minimum and a maximum file size limit. Entering no value ignores the criteria in the policy evaluation.
-- **Active Content, Unsannable File, Password-Protected File**:
+- **Active Content, Unscannable File, Password-Protected File**:
   - **Active Content**: Enable the toggle button to apply the rule to files with active content. This criterion is applicable only to Microsoft Word, Microsoft Excel, Microsoft PowerPoint, and PDF file formats. The**File Types** field must be set to one of the supported file formats in order to configure this criterion.
   - **Unscannable Files**: Enable the toggle button to apply the rule only to files that the Zscaler service is unable to scan. This might occur if the file is in an unrecognized file format, excessive size, corrupted, or recursively compressed. After enabling the **Unscannable Files** option, the corresponding file type policy only applies to those files that Zscaler is unable to scan. The policy is not applied to any other file types.
   - **Password-Protected File**: Enable the toggle button to apply the rule only to files with password protection. When enabled, only the file types that are password-protected are available. This criterion is applicable only to 7-Zip, RAR, Zip, Zipx, Password-Protected Microsoft Office Documents, Password-Protected/Encrypted Files, and PDF file types. If the toggle is not enabled, any files that are in the drop-down menu are not explicitly password-protected or encrypted.
@@ -11597,4 +11440,217 @@ See image.
 [Image: Select Criteria to add to File Type Control Policy]
 
 [Image: Add Criteria when configuring a File Type Control Policy]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-firewall-filtering-policy","lastmod":"2026-07-17T10:32Z","nid":"1399876"} -->
+## Configuring the Firewall Filtering Policy
+
+- Source: https://help.zscaler.com/zia/configuring-firewall-filtering-policy
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Control > Firewall Filtering > Configuring the Firewall Filtering Policy
+- Last modified: 2026-07-17T10:32Z
+- Summary: How to configure the Firewall Filtering policy using rule conditions and action to allow or block specific types of traffic.
+
+[Watch a video about Firewall Control, including how to configure the Firewall Filtering policy](https://fast.wistia.net/embed/iframe/aauzes6y9s) (shows legacy UI).
+
+You can add rules to the Firewall Filtering policy to allow or block specific types of traffic from your network to the internet based on the configured rule conditions. The Firewall Filtering policy has a [default rule](https://help.zscaler.com/zia/modifying-default-firewall-filtering-rule), which ensures that any traffic that is not explicitly allowed to or from the internet is blocked. In addition to the default rule, the policy includes a few [predefined, built-in rules](https://help.zscaler.com/zia/about-predefined-firewall-filtering-rules) that can be activated as needed.
+
+You can capture and store the traffic blocked through this policy as PCAP files. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
+
+After configuring the Firewall Filtering policy rules, you must [enable Firewall Control for known locations](https://help.zscaler.com/zia/configuring-locations) to apply the rules to the corresponding location traffic. Additionally, you might consider configuring [NAT Control](https://help.zscaler.com/zia/about-nat-control)and [DNS Control](https://help.zscaler.com/zia/about-dns-control) policy rules and [custom ports](https://help.zscaler.com/zia/configuring-custom-ports). Optionally, you can apply rules to remote user traffic forwarded via Zscaler Client Connector Zscaler Tunnel (Z-Tunnel) 1.0 and PAC files by selecting Enable Firewall for Z-Tunnel 1.0 and PAC Road Warriors in [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings).
+
+## Policy Execution
+
+There is a series of logical operators between the criteria in Firewall Filtering policy rules. The criteria on each tab have their own set of logical operators.
+
+The tabs trigger based on the following relationships:
+
+- **Who, Where, & When**: [ (Users `OR` Groups `OR` Departments) `AND` (Locations `OR` Location Groups) `AND` Time `AND` (Devices `OR` Device Groups) `AND` Device Trust Level `AND` Workload Groups]
+- **Services**: (Network Service Groups `OR` Network Services)
+- **Applications**: [ (Network Application Groups `OR` Network Applications `OR` Application Service Groups) `AND` ZPA Application Segment `AND` (Endpoint Applications `OR` Endpoint Application Tags) `AND` Endpoint Application Risk Level ]
+- **Source IP**: (Source IPv4 Groups `OR` Source IPv6 Groups `OR` IP Addresses `OR` Countries)
+- **Destination IP**: (Destination IPv4 Groups `OR` Destination IPv6 Groups `OR` IP Address/FQDN `OR` Countries `OR` URL Categories)
+
+In addition to the logical operators between criteria, the relationship between tabs is `AND`.
+
+See an example of how a Firewall Filtering policy rule triggers.
+
+## Prerequisites
+
+Before adding rules to the Firewall Filtering policy, ensure that you have configured the resources that the policy references:
+
+- [Users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), [departments](https://help.zscaler.com/zia/about-departments), [locations](https://help.zscaler.com/zia/about-locations), and [sublocations](https://help.zscaler.com/zia/understanding-sublocations) to which the IPS Control policy rules apply.
+- [Location groups](https://help.zscaler.com/zia/about-location-groups)
+- [Time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals)
+- [Workload Groups](https://help.zscaler.com/zia/about-workload-groups)
+- [Network Services](https://help.zscaler.com/zia/about-network-services). You can modify network services to edit services, add custom services, and create groups.
+- [Network Applications](https://help.zscaler.com/zia/about-network-applications). You can create network application groups as needed.
+- [Source](https://help.zscaler.com/zia/configuring-source-ip-groups) and [destination](https://help.zscaler.com/zia/configuring-destination-ip-groups) IP address groups
+- Optionally, [IPv6 configuration](https://help.zscaler.com/zia/understanding-ipv6-support).
+
+## Adding a Firewall Filtering Rule
+
+To add a Firewall Filtering policy rule:
+
+1. Go to **Policies** > **Access Control** > **Firewall**> **Firewall Filtering Policy**.
+2. Click **Add Firewall Filtering Rule**. The **Add Firewall Filtering Rule** window appears.
+3. In the **Add Firewall Filtering Rule** window, enter the rule attributes:
+  - **Rule Order**:A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you've enabled [Admin Rank](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the rule order values you can select.
+  - **Admin Rank**: Choose your admin rank. This option appears if you enable [Admin Ranking](https://help.zscaler.com/zia/about-admin-rank) on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. Enter a value from 0 to 7 (0 is the highest rank). Your assigned admin rank determines the values you can select. You cannot select a rank that is higher than your own. The rule's admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+  - **Rule Name**: A system-generated rule name is automatically populated, and the name can be edited. The name cannot exceed 63 characters.
+  - **Rule Status**:By default, the status is **Disabled**. You need to enable the rule to activate and enforce it on your traffic. Disabled rules can have a rule order assigned. During evaluation, the service skips the disabled rules and moves to the successive ones.
+  - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
+4. On the **Who, Where, & When** tab: Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**. See image.
+  - **Users**: Select the organization users to which this rule applies. You can select up to 32 users. If you do not select specific values, the field is set to **Any**, and this criterion is ignored during policy evaluation. You can search for users. If you've enabled the policy for unauthenticated users under[Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings) and want to apply this rule to unauthenticated traffic, you can do so by making selections accordingly in the **Users**and **Departments**fields. To learn more, see [Configuring Policies for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic).
+  - **Groups**: Select the user groups to which this rule applies. You can select up to 32 groups. If you do not select specific values, the field is set to **Any** by default, and this criterion is ignored during policy evaluation. You can search for groups.
+  - **Departments**: Select the departments to which this rule applies. You can select up to 32 departments. If you do not select specific values, the field is set to **Any**by default, and this criterion is ignored during policy evaluation. You can search for departments. If you've enabled the policy for unauthenticated users under[Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings) and want to apply this rule to unauthenticated traffic, you can do so by making selections accordingly in the **Users**and **Departments**fields. To learn more, see [Configuring Policies for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic).
+  - **Locations**: Select the locations to which this rule applies. You can select up to 32 locations. If you do not select specific values, the field is set to **Any**by default, and this criterion is ignored during policy evaluation. You can search for locations. To apply this rule only to remote user traffic, select **Road Warrior** for **Locations**. Rules configured for locations other than **Road Warrior** also apply to remote user traffic from those locations. Rules configured for the **Road Warrior** location apply to Z-Tunnel 1.0 and PAC only when the **Enable Firewall for Z-Tunnel 1.0 and PAC Road Warriors** option is enabled in [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#firewall-remote-users).
+  - **Location Groups**: Select the [location groups](https://help.zscaler.com/zia/about-location-groups) to which the rule applies. By default, this field is set to **Any**. If you do not select specific location groups, the field remains set to **Any**, and the criterion is ignored during policy evaluation. You can select up to 32 location groups. You can also search for specific location groups to select them.
+  - **Time**: Select the [time interval](https://help.zscaler.com/zia/defining-time-intervals) during which the rule applies. By default, the field is set to **Always**. You can select up to two time intervals. You can also search for a time interval.
+  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) for which you want to apply the rule. Selecting no value ignores the criterion in the policy evaluation.
+  - **Device Groups**: Select the [device group](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. Selecting no value ignores the criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
+  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+  - **Workload Groups**: Select up to 8 [workload groups](https://help.zscaler.com/zia/about-workload-groups) for which you want to apply the rule. You can also search for a workload group. Selecting **None** ignores this criterion during policy evaluation.
+5. On the **Services**tab: See image.
+  - **Network Service Groups:** Select the [network service groups](https://help.zscaler.com/zia/configuring-network-service-groups) to which the rule applies.
+  - **Network Services:**Select the [network services](https://help.zscaler.com/zia/about-network-services) to which the rule applies. By default, this field is set to **Any**. If you do not select specific network services, the field remains set to **Any**, and the criterion is ignored during policy evaluation. The Zscaler Firewall has 50 predefined services, and you can configure up to 832 additional custom services. In standard mode, RTSP applications use RTP and RTCP. This means that if RTSP applications are allowed, then RTP and RTCP connections (which are dynamically created by RTSP) are automatically allowed too. This happens even if there is a Firewall rule to block RTP and RTCP network applications. This does not happen if the RTSP application is in interleaved mode.
+6. On the **Applications** tab: Dynamic policy enforcement based on endpoint applications is currently supported only for Windows endpoints running Zscaler Client Connector version 4.8 or later. See image.
+  - **Network Application Groups:**Select the [application groups](https://help.zscaler.com/zia/configuring-network-application-groups) that you want to control with this rule. The service provides predefined applications that you can group, but not modify.
+  - **Network Applications:**Select the [applications](https://help.zscaler.com/zia/about-network-applications) that you want to control with this rule. By default, this field is set to **Any**. If you do not select specific applications, the field remains set to **Any**, and the criterion is ignored during policy evaluation. The service provides predefined applications, which you can group, but not modify. Network services and application services configured in Zscaler are identified in the first packet, leading to immediate policy action. In contrast, multiple packets are typically required by deep packet inspection to identify network applications before a policy action can take place. Therefore, Zscaler recommends that you rank firewall filtering rules for network applications lower than rules for network services or application services to prevent packets from being allowed unnecessarily from traffic that would otherwise be blocked by rules using first-packet identification. To learn more, see [About Network Applications](https://help.zscaler.com/zia/about-network-applications).
+  - **Application Service Groups**: Select the [application service groups](https://help.zscaler.com/zia/about-application-service-groups) that you want to control with this rule. The service provides predefined and custom application services groups.
+  - **ZPA Application Segment:** Select **Any** to apply the rule to all [Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 Private Access application segments. You can also search for application segments. The list displays only those application segments that have the [Source IP Anchor](https://help.zscaler.com/zia/understanding-source-ip-anchoring) option enabled. If you select the**Inspect App Segments** option from the list, then the configured rule applies to all the Private Access application segments paired to your Internet & SaaS ZIA tenant. This option is only available if **SIPA App Segments** is enabled for your organization.
+  - **Endpoint Applications**: Choose whether the rule should specifically include the selected endpoint applications, or exclude them to cover all other non-specified applications. You can designate up to 100 endpoint applications to govern traffic originating from these selected applications. [Zscaler Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context) leverages telemetry from Zscaler Client Connector to enrich an inventory of frequently targeted applications found on endpoint devices. These endpoint applications and their associated tags are used as policy rule criteria to implement dynamic, risk-based, and application-aware security controls.
+  - **Endpoint Application Tags**: Choose whether the rule should specifically include the selected endpoint application tags, or exclude them to cover all other non-specified application tags. You can select up to 100 tags that [group endpoint applications](https://help.zscaler.com/zia/adding-resource-tags) by category or theme. This applies the policy rule to any traffic coming from applications linked to those tags.
+  - **Endpoint Application Risk Level**: You can apply the rule based on the risk profile of endpoint applications, with options including **High**, **Medium**, **Low**, and **Unknown**.
+7. On the **Source IP** tab: See image.
+  - **Source IPv4 Groups**: Select the [source IPv4 groups](https://help.zscaler.com/zia/about-source-ip-groups) that you want to control with this rule.
+  - **Source IPv6 Groups**: To control source IPv6 addresses with this rule, select the **All IPv6** group, which is the predefined source IPv6 group for all IPv6 addresses. Custom source IPv6 groups are currently not supported. To learn more, see [About Source IP Groups](https://help.zscaler.com/zia/about-source-ip-groups).
+  - **IP Addresses**: Enter addresses (IPv4 only) in any of the following formats: Specifying individual, subnet, or range of IPv6 addresses is currently not supported. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+    - An individual address, such as 192.0.2.1.
+    - A subnet, such as 192.0.2.0/24.
+    - An address range, such as 192.0.2.1 - 192.0.2.5.
+  - **Countries**: To apply the rule to traffic from specific countries, select the traffic's source country. The traffic's country of origin is determined using the geolocation of the client's IP address. When configuring this criterion, you can either use the **Include** option to match the rule on the specified countries or use the **Exclude** option to match the rule on all countries except those that are selected. When using the **Include** option, you can select specific countries or leave the field set to the default value, **Any**, which causes the criterion to be ignored during policy evaluation. However, selecting countries is mandatory when using the **Exclude** option.
+8. On the **Destination IP** tab: See image.
+  - **Destination IPv4 Groups**:Select the [destination IPv4 groups](https://help.zscaler.com/zia/about-destination-ip-groups) that you want to control with this rule.
+  - **Destination IPv6 Groups**: To control destination IPv6 addresses with this rule, select the **All IPv6** Group, which is the default destination IPv6 group for all IPv6 addresses. Custom destination IPv6 groups are currently not supported. To learn more, see [About Destination IP Groups](https://help.zscaler.com/zia/about-destination-ip-groups).
+  - **IP Address or Wildcard FQDN**: Enter addresses (IPv4 only) in any of the following formats: Specifying individual, subnet, or range of IPv6 addresses is currently not supported. You can also add FQDNs for applications with multiple or frequently changing IPv4 addresses. Wildcard FQDNs are also supported with an asterisk (*) as the wildcard character. For guidelines to configure wildcard FQDNs, see [Configuring Destination IP Groups](https://help.zscaler.com/zia/configuring-destination-ip-groups). When the rule is activated, FQDNs are resolved to their corresponding IP addresses and stored by the Zscaler service. To obtain the IP address of a domain, DNS queries are made until no new IP addresses are returned in two consecutive DNS responses. The resolved IP address(es) is then stored for a period of twice the Time to Live (TTL) value in the DNS record. As both FQDN and IP address values are available for a destination, this criterion applies to the web as well as non-web traffic examined by the Zscaler service. The Zscaler service employs an IP address match when evaluating non-web traffic using this criterion, whereas the web traffic evaluation relies on an FQDN match against the hostname in the HTTP/FTP header or Server Name Indication (SNI) for HTTPS. To evaluate wildcard FQDNs against non-web traffic, Zscaler requires the IP address to which the FQDN resolves. Hence, for non-web traffic, the Zscaler service should be aware of the preceding DNS request/response. To ensure this, forward *all* of your DNS traffic to the Zscaler service if you intend to configure wildcard FQDNs in policies. Additionally, a subscription or Internet & SaaS edition with DNS Control is required. This functionality is included in Advanced Firewall and DNS Control and [Internet & SaaS editions](https://www.zscaler.com/pricing-and-plans). To learn how DNS resolution is handled by the Zscaler service, see [Handling DNS Resolution for Various Traffic Forwarding Methods](https://help.zscaler.com/zia/handling-dns-resolution-various-traffic-forwarding-methods). Wildcard FQDN match against web traffic (HTTP and TLS/SNI) can function without meeting these conditions. To add multiple entries, press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If a rule blocks traffic solely based on the destination, removing destination IP addresses or FQDNs from the rule should be done cautiously as that might result in the rule blocking all traffic without requiring any criteria match.
+    - An individual address, such as 192.0.2.1.
+    - A subnet, such as 192.0.2.0/24.
+    - An address range, such as 192.0.2.1 - 192.0.2.5.
+  - **Countries**: Select the countries to apply the rule to the outgoing traffic that matches the specified countries. The country where the destination server is placed is determined using the geolocation of the server's IP address. By default, this field is set to **Any**. If you do not select specific countries, the field remains set to **Any**, and the criterion is ignored during policy evaluation.
+  - **URL Categories**: Select the [URL categories](https://help.zscaler.com/zia/configuring-advanced-settings) for which you want to control traffic. You can also select custom TLD categories from this field. By default, this field is set to **Any**. If you do not select specific URL categories, the field remains set to **Any**, and the criterion is ignored during policy evaluation. You can identify destinations based on the custom URL category of the domain. You can also use a custom URL category based on a specific database address (FQDN) or a wildcard FQDN which allows destinations to be placed on the allowlist or denylist as desired. Zscaler Firewall examines only the host portion of a URL (i.e., domain and subdomain) and ignores the URL path. For example, if a rule is configured to block traffic directed to www.subdomain.example.com/subdirectory/path.html via a URL category, all traffic bound to www.subdomain.example.com is blocked. Unlike the FQDNs specified directly in a rule via the **IP Address or Wildcard FQDN** field, FQDNs specified through a URL category are *not* pre-resolved to an IP address and stored by the Zscaler service. This restricts the URL category’s application to only web traffic, where an FQDN match against the hostname in the HTTP/FTP header or SNI for HTTPS triggers the rule. However, you can add IP addresses to URL categories in order to use this criterion for non-web traffic.
+9. Under **Action**: The **Capture** action requires [Traffic Capture to be enabled](https://help.zscaler.com/zia/configuring-traffic-capture) in Advanced Settings. It appears only when you select **Block** for **Network Traffic**. See image.
+  - **Network Traffic**: Select the action that the Zscaler service takes when packets match the rule:
+    - **Allow**: Allow the packets to pass through the firewall.
+    - **Block/Drop**: Silently block packets that match the rule. When the Block/Drop action is configured to block IP addresses, it might still result in sending packets to the destination server based on web sessions if the traffic is HTTPS and an end user notification (EUN) is served via web security policies. These packets are sent to obtain the server’s signed certificate (i.e., beaconing), which is a legitimate and necessary part of the EUN workflow.
+    - **Block/ICMP**: Drop all packets that match the rule and send the client an ICMP error message of Type 3 (Destination Unreachable) and Code 13 (Communication Administratively Prohibited).
+    - **Block/Reset**: For TCP traffic, the Zscaler service drops all packets that match the rule and sends the client a TCP reset. (A TCP packet with the reset (RST) flag is set to 1 in the TCPheader, indicating that the TCP connection must be instantly stopped.) For non-TCP traffic, the action is the same as Block/Drop.
+  - **Capture**: Enable this option to store the traffic captured during a block action in PCAP files for later analysis.
+  - **Logging**: Choose the logging type to apply: See log support details for Allow and Block rules in Standard vs. Advanced Firewall
+    - **Aggregate**: Groups together individual sessions based on user, rule, network service, network application, and records them periodically. Log aggregation happens approximately every 15 minutes.
+    - **Full**: Logs all sessions matching the rule individually in detail, with some exceptions. To learn more, see the following section.
+10. Under **Notification**: End user notification (EUN) is supported only with Block actions and requires Advanced Firewall. The EUN is supported on Windows devices running Zscaler Client Connector version 4.8 or later over Z-Tunnel 2.0. To learn more, see [Configuring EUNs for Firewall Filtering](https://help.zscaler.com/zia/configuring-euns-firewall-filtering).
+  - **End User Notification**: Enable this option to display a notification to end users through Zscaler Client Connector when they access traffic blocked by this rule.
+  - **Notification Message**: This option appears if the end user notification (EUN) is enabled, and allows you to select the notification message. You can select from default and custom notification messages to display for users.
+11. (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+12. Click **Save** and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
+
+The following example rule demonstrates the logical relationship between the rule criteria. The rule is configured with the following criteria and the Block/Drop action:
+
+- **Who, Where, & When**
+  - Users = John Doe
+  - Groups = Any
+  - Departments = Finance
+  - Locations = San Jose
+  - Location Groups = Any
+  - Time = Always
+  - Device = Left blank
+  - Device Groups = Left blank
+  - Device Trust Level = Left blank
+  - Workload Groups = Left blank
+- **Services & Applications**
+  - Network Service Groups = None
+  - Network Services = Any
+  - Application Service Groups = None
+- **Source IP**
+  - Source IPv4 Groups = Office IPs
+  - Source IPv6 Groups = Left blank
+  - IP Addresses = Left blank
+  - Countries = United States (included)
+- **Destination IP**
+  - Destination IPv4 Groups = None
+  - Destination IPv6 Groups = Left blank
+  - IP Address or Wildcard FQDN = 192.0.2.1 - 192.0.2.5
+  - Countries = Any
+  - Categories = Forbidden Websites (a custom category)
+
+Then, consider the following scenario:
+
+- The Zscaler service receives traffic from a user, John Doe, belonging to the Engineering department and located in San Jose. The **Who, Where, & When** tab triggers since there is an `OR` relationship between Users, Groups, and Departments, and there is a user match, even though there is no department match. The rule bypasses the fields that are set to **Any**,when any one of the fields has set criteria among the `OR` fields within an `AND` bracket.
+- The **Services & Applications** tab triggers since all network services and network applications are included in this rule.
+- The user's traffic originates in the United States, but the source IP address is not part of the Office IPs Source IPv4 Group. However, the **Source IP** tab triggers because of the `OR` relationship between these criteria.
+- The URL that the user attempts to visit belongs to Forbidden Websites, but the IP address of the URL does not fall within the specified range. The **Destination IP** tab triggers because of the `OR` relationship.
+
+The rule triggers for all field values if you set **Any** for all the fields that have an `OR` relation together within an `AND` bracket. Since all the tabs trigger, the policy rule triggers and the user is blocked from the transaction.
+
+In an alternative scenario, if the location of the user changed from San Jose to San Francisco, the **Who, Where, & When** tab would not trigger, causing the whole rule not to trigger.
+
+| Rule Type | Standard Firewall (Aggregate or Full logging option not selectable) | Advanced Firewall (Aggregate and Full logging options selectable) |
+| --- | --- | --- |
+| Allow | Aggregate logging is used for all traffic. Full or detailed logging for Allow rules requires Advanced Firewall or Full Logging license. | **Aggregate Logging**: Applies to all traffic when selected.; **Full Logging**: When selected, detailed logging applies to all traffic except web (HTTP/HTTPS) and FTP/FTPS sessions, which are managed by the secure web gateway. Sessions managed by the secure web gateway are always aggregated in Firewall logs because web transactions are logged in detail in Web logs. |
+| Block | Full or detailed logging is used for all traffic. | **Aggregate Logging**: Applies to all traffic when selected.; **Full Logging**: When selected, detailed logging applies to all traffic. |
+
+[Image: Who, where, and when criteria in firewall filtering rules]
+
+[Image: Network services criteria in firewall filtering rules]
+
+[Image: Source IP criteria in firewall filtering rules]
+
+[Image: Destination IP criteria in firewall filtering rules]
+
+[Image: Firewall filtering rules actions]
+
+[Image: Network applications criteria in firewall filtering rules]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-firewall-policies","lastmod":"2026-04-29T02:50Z","nid":"1399871"} -->
+## Configuring Firewall Policies
+
+- Source: https://help.zscaler.com/zia/configuring-firewall-policies
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Configuring Firewall Policies
+- Last modified: 2026-04-29T02:50Z
+- Summary: How to configure Zscaler Firewall policies, configure resources that policies will reference, define rules for each policy, and enable the firewall per location.
+
+[Watch a video about Firewall Policies](https://fast.wistia.net/embed/iframe/67lc77bxsf) (shows legacy UI)
+
+Configuring firewall policies requires configuring the following policies as applicable: Firewall Filtering, NAT Control, and DNS Control policies. For FTP Control settings within Firewall, see [Understanding FTP Control](https://help.zscaler.com/zia/understanding-ftp-control).
+
+To configure firewall policies:
+
+1. Configure the resources that the policies reference:
+  - Users, Groups, Departments, Locations, and Sublocations for your firewall policies.
+  - Time Intervals.
+  - Network Applications. You can create network application groups as needed.
+  - Network Services. You can modify network services to edit services, add custom services, and create groups.
+  - Source and Destination IPv4 Groups.
+  - [IPv6 Configuration](https://help.zscaler.com/zia/understanding-ipv6-support)
+2. Define the rules for each policy:
+  - [Firewall Filtering Policy](https://help.zscaler.com/zia/configuring-firewall-filtering-policy)
+  - [NAT Control Policy](https://help.zscaler.com/zia/configuring-nat-control-policy)
+  - [DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy)
+3. By default, the Zscaler service *listens to* the following ports: If your organization uses other or additional ports for these types of traffic, you can configure the service to use [custom ports](https://help.zscaler.com/zia/configuring-custom-ports) for these services.
+  - Port 80 for HTTP traffic
+  - Port 443 for HTTPS traffic
+  - Port 53 for DNS traffic
+  - Port 21 for FTP traffic
+  - Port 554 for RTSP traffic
+  - Port 1723 for PPTP traffic
+4. [Enable the firewall per location.](https://help.zscaler.com/zia/enabling-firewall-locations)
+
+Advanced Firewall is required to configure and apply policies based on users, groups, departments, or network applications.
 <!-- /ZS-ARTICLE -->

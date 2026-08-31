@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 214
 
 ---
@@ -521,20 +521,20 @@ If you move a server group to a new Microtenant, you must reassign the load bala
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-appprotection-dynamic-rules","lastmod":"2026-08-06T11:52Z","nid":"1485796"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-appprotection-dynamic-rules","lastmod":"2026-08-27T13:18Z","nid":"1485796"} -->
 ## Configuring AppProtection Dynamic Rules
 
 - Source: https://help.zscaler.com/zpa/configuring-appprotection-dynamic-rules
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > AppProtection for Private Application Traffic Profiles > Configuring AppProtection Dynamic Rules
-- Last modified: 2026-08-06T11:52Z
+- Last modified: 2026-08-27T13:18Z
 - Summary: How to add and configure a new AppProtection dynamic rule in the Zscaler Admin Console.
 
 After you have created [access policies](https://help.zscaler.com/zpa/about-access-policy) and set up an [AppProtection profile](https://help.zscaler.com/zpa/about-appprotection-profiles), you can create dynamic rules to automatically create AppProtection policies to inspect the traffic of your domains.
 
 To add a dynamic rule to an AppProtection profile:
 
-1. Go to **Policies**> **Cybersecurity**>**Inline Security**>**Protection Policies > AppProtection**.
+1. Go to **Policies** > **Cybersecurity**>**Inline Security** >**Protection Policies**>**AppProtection**.
 2. Click **Add Dynamic Rule**.
 
 The **Add AppProtection Dynamic Rule** window appears.
@@ -556,8 +556,8 @@ See image.
 On the **Profile Details** tab, in the **Selected Access Policies** section, the access policies that you selected in the previous step are listed.
 
 1. In the **AppProtection Profile** section, select the **AppProtection Profile Type**:
-  - **Default:**If you use this option and a default AppProtection profile already exists, an error appears.
-  - **Existing:**. If you select this option, you must select an existing AppProtection profile from the drop-down menu.
+  - **Default:**If you select this option and a default AppProtection profile already exists, an error appears.
+  - **Existing:** If you select this option, you must select an existing AppProtection profile from the drop-down menu.
 2. Click **Next**.
 
 See image.
@@ -765,13 +765,13 @@ Choose a specific SCIM group from the drop-down menu to apply the rule action to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-appprotection-profiles","lastmod":"2026-08-06T13:34Z","nid":"1484996"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-appprotection-profiles","lastmod":"2026-08-28T09:16Z","nid":"1484996"} -->
 ## Configuring AppProtection Profiles
 
 - Source: https://help.zscaler.com/zpa/configuring-appprotection-profiles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > AppProtection for Private Application Traffic Profiles > Configuring AppProtection Profiles
-- Last modified: 2026-08-06T13:34Z
+- Last modified: 2026-08-28T09:16Z
 - Summary: How to add and configure a new AppProtection profile in the Zscaler Admin Console.
 
 You can add [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) to use in [AppProtection policies](https://help.zscaler.com/zpa/about-appprotection-policy) in the Zscaler Admin Console. For a complete list of ranges and limits for AppProtection profiles, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#Inspection).
@@ -805,7 +805,7 @@ All AppProtection profiles automatically have some [OWASP predefined controls](h
 
 Rule 920274 blocks traffic containing characters beyond a restricted set. Most browsers and applications can include headers containing characters not included in this character set. This can result in blocking a large number of non-malicious requests.
 
-If you select ThreatLabZ Controls, you can select the **Automatically include new control on publish** checkbox that allows Private Access (ZPA) to automatically add any new ThreatLabZ predefined controls to the AppProtection profile that is published. If the checkbox isn’t selected, the ThreatLabZ predefined controls need to be manually added to the AppProtection profile. If you selected the **Use Recommended Controls** checkbox, only recommended ThreatLabZ controls are automatically added.
+If you select ThreatLabZ Controls, you can select the **Automatically include new control on publish** checkbox that allows Private Access (ZPA) to automatically add any new ThreatLabZ predefined controls to the AppProtection profile that is published. If the checkbox isn't selected, the ThreatLabZ predefined controls need to be manually added to the AppProtection profile. If you selected the **Use Recommended Controls** checkbox, only recommended ThreatLabZ controls are automatically added.
 
 See image.
 
@@ -813,7 +813,7 @@ See image.
 
 See image.
 
-1. (Optional) If you want to create an exception for a predefined control, select the **Add** icon under the exceptions column next to a specific OWASP predefined control to include an exception. The **Add Exceptions** window appears. The control number and control name are displayed. Exceptions allow you to modify predefined controls to bypass requests that trigger false positives. You can choose from the following exceptions:
+1. (Optional) If you want to create an exception for a predefined control, select the **Add** icon under the Control Exceptions column next to a specific OWASP predefined control to include an exception. The **Add Exceptions** window appears. The control number and control name are displayed. Exceptions allow you to modify predefined controls to bypass requests that trigger false positives. You can choose from the following exceptions:
   - In the **Variables** section, select variables from the drop-down menu. Select a variable match to start with, end with, contain, or be equal to the established variable value. Enter the value that you want to set for the variable exception. You can select up to 5 variable-based exceptions.
   - In the **Domains** section, select a domain match to start with, end with, contain, or be equal to the established domain value. Enter the value that you want to set for the domain exception. You can select up to 5 domain-based exceptions.
   - In the **Paths** section, select a path to start with, end with, contain, or be equal to the established path value. Enter the value that you want to set for the path exception. You can select up to 5 path-based exceptions.
@@ -837,11 +837,9 @@ See image.
 
 Custom controls (either HTTP or WebSocket) have a paranoia level of 1.
 
-1. In the **Paranoia Level** section, from the **Predefined Paranoia Level** drop-down menu, select a paranoia level from 1 to 4 with 1 being the highest level of concern and 4 being the least level of concern.
+1. In the **Paranoia Level** section, from the **Predefined Paranoia Level** drop-down menu, select a paranoia level from 1 to 4, with 1 being the highest level of concern and 4 being the least level of concern.
 
 Higher paranoia levels execute checks using a wide net of matches that increases the potential for false positives. Lower paranoia levels execute checks using a precise set of matches resulting in fewer chances of false positives.
-
-See image.
 
 1. In the **Execution Order** section, review the order and control type.
 
@@ -851,13 +849,11 @@ If you selected custom (HTTP or WebSocket) and predefined controls (ThreatLabZ, 
 
 See image.
 
-[Image: Select a paranoia level for predefined controls for an AppProtection Profile in the Zscaler Admin Console]
-
 [Image: In the Add AppProtection Profile window on the Paranoia Level and Execution Order tab, select the checkbox to automatically add new ThreatLabZ predefined controls]
 
 [Image: The Use Recommended Controls checkbox in the Select Controls step of the Add AppProtection Profile window]
 
-You can set up the AppProtection policy to perform no override actionsor various types of override actions. This can be as exact as setting a different action for inspecting transaction traffic on each previously selected ThreatLabZ control, OWASP predefined control, WebSocket control, custom control, and API control.
+You can set up the AppProtection policy to perform no override actions or various types of override actions. This can be as exact as setting a different action for inspecting transaction traffic on each previously selected ThreatLabZ control, OWASP predefined control, WebSocket control, custom control, and API control.
 
 If you select the **Override All Controls** or the **Override Specific Controls** option, consider initially setting the default action to **Allow** for rules with a higher paranoia level. This provides visibility without denying access.
 
@@ -875,14 +871,13 @@ Choose one of the standard override options for all of the API controls, ThreatL
 - **Block**: The user receives a 403 response code.
 - **Redirect**: The user receives a different URL. Enter an alternative URL that the user is redirected to.
 
-Select the override action for the specific API controls, ThreatLabZ controls, OWASP predefined controls, WebSocket controls, Active Directory controls, and/or custom controls where you want to set override actions.
+Select the override action for the specific API controls, ThreatLabZ controls, OWASP predefined controls, WebSocket controls, Active Directory controls, and/or custom controls.
 
-If you subscribe to automatic updates for ThreatLabZ controls, you can only use the **Common** override option.
+If you subscribe to automatic updates for ThreatLabZ controls, you can only use the **Override All Controls** option.
 
-1. Choose one of the override options for each control selected:
-  - **Allow**: The user is allowed to proceed with the current URL.
-  - **Block**: The user receives a 403 response code.
-  - **Redirect**: The user receives a different URL. Enter an alternative URL that the user is redirected to.
+- **Allow**: The user is allowed to proceed with the current URL.
+- **Block**: The user receives a 403 response code.
+- **Redirect**: The user receives a different URL. Enter an alternative URL that the user is redirected to.
 
 Access to an IP-based application fails when it is linked to an AppProtection profile using the 920350 rule and Block action.
 
@@ -2107,13 +2102,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-custom-controls","lastmod":"2026-08-06T14:00Z","nid":"1484986"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-custom-controls","lastmod":"2026-08-27T15:50Z","nid":"1484986"} -->
 ## Configuring Custom Controls
 
 - Source: https://help.zscaler.com/zpa/configuring-custom-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > Custom Controls > Configuring Custom Controls
-- Last modified: 2026-08-06T14:00Z
+- Last modified: 2026-08-27T15:50Z
 - Summary: How to add and configure a new set of custom controls for AppProtection profiles in the Zscaler Admin Console.
 
 You can add custom controls to use as part of your AppProtection profiles in the Zscaler Admin Console. To learn more, see [About AppProtection Profiles](https://help.zscaler.com/zpa/about-appprotection-profiles). For a complete list of ranges and limits for custom controls, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -2134,14 +2129,14 @@ To add a new custom control:
   - **Request**: A message from the client to the server for the request.
   - **Response**: A response from the server to the client for the request.
 3. Choose one or more control parameters for the selected control type. Click **Select All**to choose all parameters, or click **Clear All** to remove all selections.
-  - Request Control Type
+  - **Request Control Type**
     - **Request Header**
     - **Request Uri**
     - **Query String**
     - **Request Cookie**
     - **Request Body**
     - **Request Method**
-  - Response Control Type
+  - **Response Control Type**
     - **Response Header**
     - **Response Body**
 4. **Description**: (Optional) Enter a description.
@@ -2222,7 +2217,7 @@ See image.
 
 [Image: Defining a custom control value in the Add Custom Control window on the Zscaler Admin Console]
 
-1. In the **Severity**section, from drop-down menu, select the severity level for the custom control:
+1. In the **Severity**section, from the **Severity** drop-down menu, select the severity level for the custom control:
   - **Critical**: The greatest level of concern.
   - **High**: The second greatest level of concern.
   - **Medium**: The third greatest level of concern.
@@ -2773,13 +2768,13 @@ In the Discover Credentials drawer, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-emergency-access","lastmod":"2026-07-17T10:12Z","nid":"1485701"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-emergency-access","lastmod":"2026-08-28T11:11Z","nid":"1485701"} -->
 ## Configuring Emergency Access
 
 - Source: https://help.zscaler.com/zpa/configuring-emergency-access
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Authentication > Emergency Access Authentication > Configuring Emergency Access
-- Last modified: 2026-07-17T10:12Z
+- Last modified: 2026-08-28T11:11Z
 - Summary: How to configure emergency access within the Zscaler Admin Console.
 
 This feature and its procedures are in limited availability. Contact Zscaler Support to enable this feature for your organization.
@@ -2790,15 +2785,15 @@ You can provision third-party users (e.g., contractors and vendors) for emergenc
 
 Prior to configuring emergency access, the following prerequisites must be met:
 
-- You must create an [Okta IdP](https://help.zscaler.com/zpa/configuration-example-okta) in the Zscaler Admin Console, and you must create a group within Okta to designate the users for emergency access. The following must also be configured in Okta for the third-party user:
+- If you are an end user that has not migrated to Authentication Service, you must create an [Okta IdP](https://help.zscaler.com/zpa/configuration-example-okta) in the Zscaler Admin Console, and you must create a group within Okta to designate the users for emergency access. The following must also be configured in Okta for the third-party user:
   - Group administrators privileges. To learn more, refer to the [Okta documentation](https://help.okta.com/oie/en-us/Content/Topics/Security/administrators-group-admin.htm).
   - The email authenticator. To learn more, refer to the [Okta documentation](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-email-authenticator.htm).
   - Authentication policies. If the authentication policy utilizes Email One Time Pins (OTPs), then the invited user can authenticate in a manner that does not require a password by providing the OTP that was sent to the registered email address. To learn more, refer to the [Okta documentation](https://help.okta.com/en-us/Content/Topics/Security/policies/policies-home.htm).
-- The IdP provisioned with Okta must have **Use with Arbitrary Domains** enabled. To learn more, see [Configuring an IdP for Single Sign-On](https://help.zscaler.com/zpa/configuring-idp-single-sign).
+- If you are an end user that has migrated to Authentication Service, you must use Authentication Service as an IdP.
 
 Zscaler recommends you are aware of the following when configuring emergency access:
 
-- Users are not stored in Private Access. All users listed on the [Emergency Access Users](https://help.zscaler.com/zpa/about-emergency-access-users) page come directly from Okta via the Okta API.
+- Users are not stored in Private Access. All users listed on the [Emergency Access Users](https://help.zscaler.com/zpa/about-emergency-access-users) page come directly from Okta via the Okta API. If you are using Authentication Service, all users listed on the Emergency Access Users page come directly from Authentication Service.
 - Special characters such as plus symbols (+) appear as blank spaces within the username field on the Okta login page if you are using a login hint. For example, `user+emergency@safemarch.com` appears as `user emergency@safemarch.com`. You might not be able to log in depending on your Okta login rules.
 - Private Access leverages the IdP API Token from Okta to fetch the members of the group designated for emergency access. Zscaler recommends using an IdP API Token with group permissions to limit access to the groups designated for emergency access. If the specified IdP API Token is more permissive, additional users might be displayed on the [Emergency Access Users](https://help.zscaler.com/zpa/about-emergency-access-users) page.
   - All of the users visible on the [Emergency Access Users](https://help.zscaler.com/zpa/about-emergency-access-users) page can be activated, deactivated, or updated, even though they are not part of the user group designated for emergency access.
@@ -2806,24 +2801,42 @@ Zscaler recommends you are aware of the following when configuring emergency acc
 
 ## Configuring Emergency Access
 
-To configure emergency access for Private Access:
+The steps to configure emergency access differ if the end user has migrated to Authentication Service or not.
 
-1. Go to **Administration**> **Identity**> **Private Access** > **Emergency Access**.
-2. On the **Emergency Access** page:
+- For Private Access end users who have migrated to Authentication Service
+- For Private Access end users who have not migrated to Authentication Service
+
+1. The following must be configured in Authentication Service for the third-party user:
+  1. Enable**Arbitrary Guest Domains**. To learn more, see [Adding Guest Domains](https://help.zscaler.com/authentication-service/adding-guest-domains).
+  2. Add a user. To learn more, see [Adding Users](https://help.zscaler.com/authentication-service/adding-users).
+  3. Edit the user that was added, and then verify that the user is assigned to the **Dynamic Group Guest Domains** and the **Zscaler Emergency Access** groups in the drop-down menu. See image.
+  4. Assign the user to the Zscaler Private Access service entitlement. To learn more, see Assigning Entitlements to User and User Groups. You must assign the Zscaler Private Access service entitlement if you are creating an emergency access user using session monitoring or privileged approvals.
+2. Go to **Administration**> **Identity**> **Private Access** > **Emergency Access**.
+3. On the **Emergency Access** page:
 
 - **IdP**: The IdP that has **Use with Arbitrary Domains** enabled. This is a read-only field.
 
-Only Okta IdPs are supported for emergency access. You can sign up for the Okta tenant for Zscaler. To learn more, refer to the [Okta website](https://www.okta.com/zscaler/) and [Configuration Guide for Okta](https://help.zscaler.com/zpa/configuration-guide-okta).
+Only Authentication Service IdPs are supported for emergency access end users who have migrated to Authentication Service. You can sign up for Authentication Service for Zscaler. To learn more, refer to [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
 
-- **IdP API Token**: Enter the Okta API token with the necessary group administrator permissions for the group that will be designated for emergency access, but is not yet created. If the group has already been created, an Okta API token can also be entered with the necessary permissions for managing users under a group to be designated for emergency access. To learn more, refer to the [Okta Developer documentation](https://developer.okta.com/docs/guides/create-an-api-token/main/).
-- **User Group Name**: The name of the user group where the new users are created.
-- **Emergency Authentication Domains**: (Optional) Enter the email address domains to manage or limit the user authentication domains for emergency access when creating privileged approvals, and click **Add Items**. Click **Remove All** to remove all entered domains. If added, only the email address domain configured in the **Emergency Authentication Domains** field can be used when [adding a privileged approval](https://help.zscaler.com/zpa/configuring-privileged-approvals). When no authentication domains are specified, users can be created from any authentication domain that is not an existing primary or secondary authentication domain. When an authentication domain is specified, only the specified authentication domains can be used.
+- **IdP API Token**: Enter the Okta API token with the necessary group administrator permissions for the group that will be designated for emergency access, but is not yet created. If the group has already been created, an Okta API token can also be entered with the necessary permissions for managing users under a group to be designated for emergency access. To learn more, refer to the [Okta Developer documentation](https://developer.okta.com/docs/guides/create-an-api-token/main/). The **IdP API Token** field is hidden if you are subscribed to Authentication Service for users and User Single Sign-On (SSO) is enabled for your tenant. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
+- **User Group Name**: The name of the user group where the new users are created. The **User Group Name** field is disabled if you are subscribed to Authentication Service for users and User Single Sign-On (SSO) is enabled for your tenant. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
+- **Emergency Authentication Domains**: Enter the email address domains to manage or limit the user authentication domains for emergency access when creating privileged approvals, and click **Add Items**. Click **Remove All** to remove all entered domains. If added, only the email address domain configured in the **Emergency Authentication Domains** field can be used when [adding a privileged approval](https://help.zscaler.com/zpa/configuring-privileged-approvals). When no authentication domains are specified, users can be created from any authentication domain that is not an existing primary or secondary authentication domain. When an authentication domain is specified, only the specified authentication domains can be used.
 
-If an existing email address domain is removed from the **Emergency Authentication Domain** field, the privileged approvals created with it continue to be present.
+If an existing email address domain is removed from the **Emergency Authentication Domain** field, the privileged approvals created with it continue to be present. Additionally, the **Emergency Access Authentication Domains** field is hidden if you are subscribed to Authentication Service for users and User Single Sign-On (SSO) is enabled for your tenant. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
 
 See image.
 
 1. Click **Save**.
+
+[Image: Edit User drawer within Authentication Service]
+
+1. Go to **Administration**> **Identity** > **Private Access** > **Emergency Access**.
+2. On the **Emergency Access** page: See image.
+  - **IdP**: The IdP that has **Use with Arbitrary Domains** enabled. This is a read-only field. Only Okta IdPs are supported for emergency access. You can sign up for the Okta tenant for Zscaler. To learn more, refer to the [Okta documentation](https://www.okta.com/zscaler/) and [Configuration Guide for Okta](https://help.zscaler.com/zpa/configuration-guide-okta).
+  - **IdP API Token**: Enter the Okta API token with the necessary group administrator permissions for the group that will be designated for emergency access, but is not yet created. If the group has already been created, an Okta API token can also be entered with the necessary permissions for managing users under a group to be designated for emergency access. To learn more, refer to the [Okta Developer documentation](https://developer.okta.com/docs/guides/create-an-api-token/main/).
+  - **User Group Name**: The name of the user group where the new users are created.
+  - **Emergency Authentication Domains**: (Optional) Enter the email address domains to manage or limit the user authentication domains for emergency access when creating privileged approvals, and click **Add Items**. Click **Remove All** to remove all entered domains. If added, only the email address domain configured in the **Emergency Authentication Domains** field can be used when [adding a privileged approval](https://help.zscaler.com/zpa/configuring-privileged-approvals). When no authentication domains are specified, users can be created from any authentication domain that is not an existing primary or secondary authentication domain. When an authentication domain is specified, only the specified authentication domains can be used. If an existing email address domain is removed from the **Emergency Authentication Domain** field, the privileged approvals created with it continue to be present.
+3. Click **Save**.
 
 When configuring emergency access within a Microtenant:
 
@@ -2835,7 +2848,7 @@ To learn more, see [About Microtenants](https://help.zscaler.com/zpa/about-micro
 
 After emergency access has been configured, the user can additionally do the following:
 
-1. Authenticate via email-based authentication. An email is sent from the IdP to the user so that they can activate their account and authenticate. Email-based authentication is required for the user provisioned in Okta. To learn more about configuring the email authenticator for an Okta user, refer to the [Okta documentation](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-email-authenticator.htm).
+1. Authenticate via email-based authentication. An email is sent from the IdP or Authentication Service to the user so that they can activate their account and authenticate. Email-based authentication is required for the user provisioned in Okta or Authentication Service. To learn more about configuring the email authenticator for an Okta user, refer to the [Okta documentation](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-email-authenticator.htm).
 
 It is the organization's responsibility to implement customization, branding, emails, and replies to email addresses. Zscaler only handles the lifecycle management in the Zscaler Admin Console.
 
@@ -3218,13 +3231,13 @@ Choose a specific SCIM group from the drop-down menu to apply the rule action to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-log-receiver","lastmod":"2026-08-23T07:06Z","nid":"1483946"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-log-receiver","lastmod":"2026-08-25T08:41Z","nid":"1483946"} -->
 ## Configuring a Log Receiver
 
 - Source: https://help.zscaler.com/zpa/configuring-log-receiver
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Configuring a Log Receiver
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-25T08:41Z
 - Summary: How to add log receivers and configure log stream policies for the Private Access (ZPA) Log Streaming Service (LSS).
 
 A log receiver is a storage location that can receive information about App Connectors and users. Your App Connectors must be deployed prior to configuring a log receiver. To learn more, see the [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms).
@@ -3275,6 +3288,7 @@ See image.
     - **KRB Inspection Logs**: Information related to Kerberos inspection log activity in your organization. To learn more, see [Understanding KRB Inspection Log Fields](https://help.zscaler.com/zpa/understanding-krb-inspection-log-fields).
     - **LDAP Inspection Logs**: Information related to LDAP inspection log activity in your organization. To learn more, see [Understanding LDAP Inspection Log Fields](https://help.zscaler.com/zpa/understanding-ldap-inspection-log-fields).
     - **SMB Inspection Logs**: Information related to SMB inspection log activity in your organization. To learn more, see [Understanding SMB Inspection Log Fields](https://help.zscaler.com/zpa/understanding-smb-inspection-log-fields).
+    - **Business Continuity Event Log Fields**: Information related to Business Continuity Event log activity. To learn more, see [Understanding Business Continuity Event Log Fields](https://help.zscaler.com/zpa/understanding-business-continuity-event-log-fields).
   2. **Log Template**: Select an option from the drop-down menu:
     - **CSV**: The template uses a comma-separated values format.
     - **TSV**: The template uses a tab-separated values format.
@@ -3668,13 +3682,13 @@ To add a Network Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-network-segments","lastmod":"2026-07-26T07:06Z","nid":"1529079"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-network-segments","lastmod":"2026-08-24T07:22Z","nid":"1529079"} -->
 ## Configuring Network Segments
 
 - Source: https://help.zscaler.com/zpa/configuring-network-segments
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Configuration > Configuring Network Segments
-- Last modified: 2026-07-26T07:06Z
+- Last modified: 2026-08-24T07:22Z
 - Summary: How to configure and manage Network segments on the Network Segments page.
 
 You can create [Network segments](https://help.zscaler.com/zpa/about-network-segments) in the Zscaler Admin Console. For a complete list of ranges and limits, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -3682,9 +3696,9 @@ You can create [Network segments](https://help.zscaler.com/zpa/about-network-seg
 To add a new Network segment:
 
 1. Go to **Infrastructure**>**Private Access**>**Component**>**Network Segments**.
-2. Click **Add Network Segment**.
+2. Click **Add**.
 
-The**Add Network Segment** drawer appears.
+The**Add** **Network Segment**drawer appears.
 
 1. In the **Add Network Segment** drawer: See image.
   - **Name**: Enter a name for the Network segment.
@@ -3694,25 +3708,25 @@ The**Add Network Segment** drawer appears.
     - **FQDN**: Select to associate an FQDN with this Network segment.
       - **FQDN**: Enter the FQDN to associate with this Network segment.
       - **Primary DNS Server**: Enter the primary DNS server that is used to resolve the configured FQDN.
-      - **Secondary DNS Server**: (Optional) Enter the secondary DNS server that is used to resolve the configured FQDN. Matching DNS requests destined for the default adapter's secondary DNS server are routed by Zscaler Client Connector to the network segment's configured secondary DNS server. See image.
+      - **Secondary DNS Server**: (Optional) Enter the secondary DNS server that is used to resolve the configured FQDN. Matching DNS requests destined for the default adapter's secondary DNS server are routed by Zscaler Client Connector to the Network segment's configured secondary DNS server. See image.
   - **LAN IP Address/Subnet**: Enter the IP address or IP subnet that you want to associate with this Network segment. You can enter multiple IP addresses or IP subnets in a Network segment.
   - **Network Connector Group**: Select the Network Connector group you want to assign the Network segment to.
 2. Click **Save**.
 
-[Image: Create a Network segment on the Network Segment page]
+[Image: Adding a Network segment]
 
-[Image: Example of a primary and secondary DNS server]
+[Image: Matching DNS info when adding a Network segment]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-notifications","lastmod":"2026-08-21T14:24Z","nid":"1485441"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-notifications","lastmod":"2026-08-24T09:07Z","nid":"1485441"} -->
 ## Configuring Notifications
 
 - Source: https://help.zscaler.com/zpa/configuring-notifications
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Notification Management > Configuring Notifications
-- Last modified: 2026-08-21T14:24Z
+- Last modified: 2026-08-24T09:07Z
 - Summary: How to add and configure a new notification within the Zscaler Admin Console.
 
 In the Zscaler Admin Console, you can create notifications.
@@ -3795,7 +3809,7 @@ The following table provides a list of events, as well as the category and compo
 | Last Component Disconnected | Connectivity and Upgrade | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating that all components in a group are disconnected. |
 | Outdated Component Manager Version | Connectivity and Upgrade | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating the Manager software version is outdated for the selected components. |
 | Partner Federation Updated | Partner Federation Configuration | Federation | An event indicating when the status of the partner federation is updated from Active, Pause, or Terminate. |
-| Provisioning Key Utilization Exceeded Limit | Enrollment | App Connectors, Private Cloud Controllers, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key has exceeded the limit for the selected components. |
+| Provisioning Key Utilization Exceeded Limit | Enrollment | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key has exceeded the limit for the selected components. |
 | Restore Completed | Backup Configuration | Backup and Restore | An event indicating when the restore is completed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
 | Restore Failed | Backup Configuration | Backup and Restore | An event indicating when the restore has failed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
 | SCIM Users Successfully Deleted | Enrollment | Zscaler Client Connector | An event indicating when SCIM users are deleted successfully. |
@@ -4618,13 +4632,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-redirection-policies","lastmod":"2026-06-28T07:06Z","nid":"1485831"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-redirection-policies","lastmod":"2026-08-28T09:32Z","nid":"1485831"} -->
 ## Configuring Redirection Policies
 
 - Source: https://help.zscaler.com/zpa/configuring-redirection-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Redirection Policy > Configuring Redirection Policies
-- Last modified: 2026-06-28T07:06Z
+- Last modified: 2026-08-28T09:32Z
 - Summary: The redirection policy allows users to specify Private Service Edges for Private Access (ZPA) groups to redirect users.
 
 You can configure redirection policy rules to prefer Private Service Edges for Private Access (ZPA) based on country code, client type, and SAML and SCIM criteria. You can specify the method used (Default, Preferred, or Always) for selecting Private Service Edges for Private Access groups to redirect to.
@@ -6036,13 +6050,13 @@ To configure an access policy rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-vpn-diagnostics-sessions","lastmod":"2026-07-15T10:36Z","nid":"1530796"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-vpn-diagnostics-sessions","lastmod":"2026-08-29T07:06Z","nid":"1530796"} -->
 ## Configuring VPN Diagnostic Sessions
 
 - Source: https://help.zscaler.com/zpa/configuring-vpn-diagnostics-sessions
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Configuring VPN Diagnostic Sessions
-- Last modified: 2026-07-15T10:36Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: How to add VPN diagnostic sessions on the Support Information page in VPN (for Legacy Apps).
 
 You can add VPN diagnostic sessions that run commands on VPN Service Edges, Network Connectors, and Network Connector groups. You can then filter and view the outputs of these sessions to assist in troubleshooting.
@@ -6261,13 +6275,13 @@ Choose a specific SCIM group name from the drop-down menu to apply the rule acti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-08-23T07:06Z","nid":"1485211"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-08-30T07:06Z","nid":"1485211"} -->
 ## Configuring WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/configuring-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Configuring WebSocket Controls
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: How to add and configure a new set of WebSocket custom controls for AppProtection profiles within the Zscaler Admin Console.
 
 You can add WebSocket Controls to use as part of your [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) in the Zscaler Admin Console. To learn more, see [About WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls).
@@ -6286,7 +6300,7 @@ To add a new WebSocket control:
 1. Click **Save**.
 
 1. **Control Name**: Enter a name for the WebSocket control. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
-2. **Control Type**: Select a **Control Type**:
+2. **Control Type**: Select an option:
 
 - **Request**: Select if you want the WebSocket control to act as a message from the client to the server for the request. Select an option from the **Request Control Type** drop-down menu:
   - **Max Payload Size**: The maximum payload size control parameter.
@@ -6320,7 +6334,7 @@ See image.
 - **Medium**: The third greatest level of concern.
 - **Low**: The least level of concern.
 
-In addition to severity levels, WebSocket custom controls have a paranoia level of 1 as they are used in an[AppProtection profile](https://help.zscaler.com/zpa/configuring-inspection-profiles#paranoia-execution).
+In addition to severity levels, WebSocket custom controls have a paranoia level of 1 as they are used in an[AppProtection profile](https://help.zscaler.com/zpa/configuring-appprotection-profiles).
 
 1. Click **Next**.
 
@@ -7178,16 +7192,16 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-guide-microsoft-azure","lastmod":"2026-06-04T09:35Z","nid":"1483836"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-guide-microsoft-azure","lastmod":"2026-08-24T16:40Z","nid":"1483836"} -->
 ## App Connector Deployment Guide for Microsoft Azure
 
 - Source: https://help.zscaler.com/zpa/connector-deployment-guide-microsoft-azure
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Microsoft Azure
-- Last modified: 2026-06-04T09:35Z
+- Last modified: 2026-08-24T16:40Z
 - Summary: How to deploy an App Connector on Microsoft Azure, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
-This deployment guide provides information on prerequisites, how to deploy an App Connector on Microsoft Azure, and post-deployment verification checks. For general information regarding App Connector deployment for Private Access, see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
+This deployment guide provides information on prerequisites, how to deploy an App Connector on Microsoft Azure, and post-deployment verification checks. For general information regarding App Connector deployment for Private Access (ZPA), see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
 
 To learn more about Private Access for Microsoft Azure, see the [Solution Brief](https://www.zscaler.com/resources/solution-briefs/zpa-for-azure.pdf).
 
@@ -8842,13 +8856,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-prerequisites","lastmod":"2026-06-05T09:49Z","nid":"1484111"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-prerequisites","lastmod":"2026-08-24T09:44Z","nid":"1484111"} -->
 ## App Connector Deployment Prerequisites
 
 - Source: https://help.zscaler.com/zpa/connector-deployment-prerequisites
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Prerequisites
-- Last modified: 2026-06-05T09:49Z
+- Last modified: 2026-08-24T09:44Z
 - Summary: Detailed specifications and sizing information, platform prerequisites, and best practices for App Connectors, including information on various operating system (OS) security features, firewall requirements, and interoperability guidelines that must be addressed prior to App Connector deployment.
 
 Before deploying an App Connector on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
@@ -8988,13 +9002,13 @@ For Private Access integration with ZDX, App Connector firewall requirements mus
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/copying-and-pasting-clipboard","lastmod":"2026-06-25T14:46Z","nid":"1485676"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/copying-and-pasting-clipboard","lastmod":"2026-08-28T13:25Z","nid":"1485676"} -->
 ## Copying and Pasting with Clipboard
 
 - Source: https://help.zscaler.com/zpa/copying-and-pasting-clipboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Consoles > Copying and Pasting with Clipboard
-- Last modified: 2026-06-25T14:46Z
+- Last modified: 2026-08-28T13:25Z
 - Summary: Information on how to use the Clipboard feature within a privileged console for Privileged Remote Access (PRA).
 
 When you click the Clipboard icon ([Image: Clipboard icon within a privileged console] ) within a privileged console, the Clipboard window appears. In this window, you can copy and paste within the privileged console based on the [consoles policies](https://help.zscaler.com/zpa/configuring-privileged-capabilities-policies) that you have set. If you enable the Clipboard Copy option, you can copy functions from Privileged Remote Access (PRA) to your local system. If you enable the Clipboard Paste option, you can paste functions from your local system to PRA. If you have multiple privileged consoles open, copied text is carried over to all of the Clipboard-enabled privileged consoles.
@@ -9620,16 +9634,16 @@ To define a discovered application in the Applications dashboard:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/defining-regular-expression-values","lastmod":"2026-08-06T10:22Z","nid":"1485021"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/defining-regular-expression-values","lastmod":"2026-08-27T16:25Z","nid":"1485021"} -->
 ## Defining Regular Expression Values
 
 - Source: https://help.zscaler.com/zpa/defining-regular-expression-values
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > Custom Controls > Defining Regular Expression Values
-- Last modified: 2026-08-06T10:22Z
+- Last modified: 2026-08-27T16:25Z
 - Summary: Information about supported regex values in the Zscaler Admin Console.
 
-When [configuring custom controls](https://help.zscaler.com/zpa/configuring-custom-controls), some custom controls allow you to define with regular expressions (regex) values. The following tables show characters and limitations.
+When [configuring custom controls](https://help.zscaler.com/zpa/configuring-custom-controls), you can define some of them with regular expressions (regex) values. The following tables show characters and limitations.
 
 - Metacharacters Supported by Zscaler
 - Shorthand Character Classes Supported by Zscaler
@@ -9682,7 +9696,7 @@ The first part can only include:
 
 Shorthand characters can be followed by a special character (e.g., "\b%abc", "\s[%@]abc"). A base token can also have up to two nested shorthand characters (e.g., "\b\sabc", "\b[\s\W]abc").
 
-The base token must end with an expression that is non-alphanumeric (e.g., ";"), or with the end of the regex value. The following are examples of valid and invalid base tokens: The base token must be non-zero length.
+The base token must end with an expression that is non-alphanumeric (e.g., ";"), or with the end of the regex value. The following are examples of valid and invalid base tokens. The base token must be non-zero length.
 
 Example - US phone numbers:
 
@@ -9707,16 +9721,16 @@ Example - US phone number:
   - \d{3}-\d{3}-\d{4} - Delimited with ‘-’.
 - The entire regex value can match just the base token.
 
-Example - California driver’s license number:
+Example - California driver's license number:
 
 - Correct usage: [A-Za-z]\d{7} - Alphabetic characters followed by 7 numeric characters.
 - Regex values only match at the beginning of a token, i.e., at the first alphabetic or numeric character after a non-alphabetic, non-numeric character.
 
-Example - California driver’s license number:
+Example - California driver's license number:
 
 - [A-Za-z]\d{7} - Alphanumeric characters followed by 7 numeric characters.
   - Matches: "A1234567", "-B7654321-"
-  - Doesn’t match: "AA1234567"
+  - Doesn't match: "AA1234567"
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10614,13 +10628,13 @@ If you edit application segments that have Active Directory Inspection enabled, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-appprotection-profiles","lastmod":"2026-08-05T17:09Z","nid":"1485001"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-appprotection-profiles","lastmod":"2026-08-27T12:46Z","nid":"1485001"} -->
 ## Editing AppProtection Profiles
 
 - Source: https://help.zscaler.com/zpa/editing-appprotection-profiles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > AppProtection for Private Application Traffic Profiles > Editing AppProtection Profiles
-- Last modified: 2026-08-05T17:09Z
+- Last modified: 2026-08-27T12:46Z
 - Summary: How to edit an AppProtection profile in the Zscaler Admin Console.
 
 To edit an [AppProtection profile](https://help.zscaler.com/zpa/about-appprotection-profiles):
@@ -10632,7 +10646,7 @@ The **Edit AppProtection Profile** window appears.
 
 [Image: Edit AppProtection Profile window in the Zscaler Admin Console]
 
-1. Modify information as necessary on each tab. To learn more, see [Configuring AppProtection Profiles](https://help.zscaler.com/zpa/configuring-inspection-profiles#details).
+1. Modify information as necessary on each tab. To learn more, see [Configuring AppProtection Profiles](https://help.zscaler.com/zpa/configuring-appprotection-profiles).
 2. Click **Save**.
 <!-- /ZS-ARTICLE -->
 
@@ -12169,13 +12183,13 @@ To replace an expired certificate, you must upload a new one. To learn more, see
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-08-23T07:06Z","nid":"1485206"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-08-30T07:06Z","nid":"1485206"} -->
 ## Editing WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/editing-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Editing WebSocket Controls
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: How to edit a WebSocket custom control within the Zscaler Admin Console.
 
 All [WebSocket custom controls](https://help.zscaler.com/zpa/about-websocket-controls) can be edited, even ones currently in use by an [AppProtection profile](https://help.zscaler.com/zpa/about-inspection-profiles).
@@ -14300,13 +14314,13 @@ To revert the configuration changes in the Zscaler Admin Console for fallback:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/migrating-private-access-end-users-authentication-service","lastmod":"2026-07-01T07:06Z","nid":"1540247"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/migrating-private-access-end-users-authentication-service","lastmod":"2026-08-27T15:45Z","nid":"1540247"} -->
 ## Migrating Private Access End Users to Authentication Service
 
 - Source: https://help.zscaler.com/zpa/migrating-private-access-end-users-authentication-service
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Migrating Private Access End Users to Authentication Service
-- Last modified: 2026-07-01T07:06Z
+- Last modified: 2026-08-27T15:45Z
 - Summary: How to migrate end users from an external identity provider (IdP) to Authentication Service.
 
 End user migration is the process of migrating existing end user authentication workflows and service entitlements from various Zscaler services to Authentication Service to streamline identity management and improve administrative efficiency and security. This article provides guidelines for end user migration from an external identity provider (IdP) to Authentication Service. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
@@ -14330,7 +14344,7 @@ End user migration guidelines are categorized by the following stages of the end
 - Test User Migration
 - Complete Migration
 
-Customers using [Emergency Access](https://help.zscaler.com/zpa/about-emergency-access-users), [Privileged Remote Access (PRA)](https://help.zscaler.com/zpa/understanding-privileged-remote-access), or [Private Access Partner Logins](https://help.zscaler.com/zscaler-client-connector/enabling-zpa-partner-logins) are ineligible for test user migration.
+Customers using [Private Access Partner Logins](https://help.zscaler.com/zscaler-client-connector/enabling-zpa-partner-logins) are ineligible for test user migration.
 
 To learn more about the different migration workflows and the steps for migration, see [Migrating End Users to Authentication Service](https://help.zscaler.com/authentication-service/migrating-end-users-authentication-service) and [Migrating Zscaler Service Admins to Authentication Service](https://help.zscaler.com/authentication-service/migrating-zscaler-service-admins-authentication-service).
 
@@ -16480,13 +16494,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/network-connector-deployment-prerequisites","lastmod":"2026-07-20T14:20Z","nid":"1517026"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-deployment-prerequisites","lastmod":"2026-08-24T09:46Z","nid":"1517026"} -->
 ## Network Connector Deployment Prerequisites
 
 - Source: https://help.zscaler.com/zpa/network-connector-deployment-prerequisites
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Deployment Guides for Supported Platforms > Network Connector Deployment Prerequisites
-- Last modified: 2026-07-20T14:20Z
+- Last modified: 2026-08-24T09:46Z
 - Summary: Detailed specifications and sizing information, platform prerequisites, and best practices for Network Connectors, including information on various OS security features, firewall requirements, and interoperability guidelines that must be addressed prior to Network Connector deployment.
 
 Before deploying a Network Connector on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
@@ -16553,7 +16567,7 @@ All Zscaler data centers containing Public Service Edges must be allowed. A part
 
 Because the service enforces TLS certificate pinning for both client and server certificates, all forms of inline or man-in-the-middle TLS interception or inspection must be disabled. Network Connectors do not function if the TLS certificates presented by the Public Service Edges or Private Service Edges do not cryptographically verify against Zscaler-trusted public keys.
 
-By design, certificate verification is not configurable to maintain the integrity of the service. So ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the Network Connector. This is necessary for allowing the Network Connector to resolve and reach Public Service Edges or Private Service Edges. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud).  If you are using OAuth 2.0, ensure that the OAuth server FQDN`zpa-oauth.private.zscaler.com` is in the allowlist, and user devices are allowed to make an outbound connection to the `zpa-oauth.private.zscaler.com` server. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+By design, certificate verification is not configurable to maintain the integrity of the service. So ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the Network Connector. This is necessary for allowing the Network Connector to resolve and reach Public Service Edges or Private Service Edges. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). If you are using OAuth 2.0, ensure that the OAuth server FQDN`zpa-oauth.private.zscaler.com` is in the allowlist, and user devices are allowed to make an outbound connection to the `zpa-oauth.private.zscaler.com` server. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 
 ### Firewalld Configuration for VPN Redundancy (RPM Install Only)
 
@@ -16599,13 +16613,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/network-connector-release-summary-2026","lastmod":"2026-08-20T15:30Z","nid":"1534309"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-release-summary-2026","lastmod":"2026-08-26T09:28Z","nid":"1534309"} -->
 ## Network Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/network-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Network Connector Release Notes > Network Connector Release Summary (2026)
-- Last modified: 2026-08-20T15:30Z
+- Last modified: 2026-08-26T09:28Z
 - Summary: Zscaler Private Access (ZPA) Network Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Network Connector version.

@@ -1,7 +1,7 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 52
 
 ---
@@ -551,13 +551,13 @@ Bandwidth Control is disabled for all traffic from the isolated browser destined
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas","lastmod":"2026-08-23T07:06Z","nid":"1447211"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas","lastmod":"2026-08-25T06:49Z","nid":"1447211"} -->
 ## Creating Isolation Profiles for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Profiles > Internet & SaaS Profiles > Creating Isolation Profiles for Internet & SaaS
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-25T06:49Z
 - Summary: How to create an isolation profile for Internet & SaaS.
 
 [Watch a video about creating a Internet & SaaS Profile for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/qjllwn7ytu)
@@ -600,7 +600,7 @@ To create an isolation profile for Internet & SaaS:
     4. **Read-Only Isolation**: Enable or disable this setting for restricting keyboard/text input from the user to isolated web pages.
     5. **View Office files in isolation**: Enable or disable this setting for the user to view Microsoft Office files in isolation.
     6. **Enable Original URL**: Enable or disable this setting. If enabled, it shows the original URL in the browser bar.
-    7. **Allow microphone and camera**: Enable or disable this setting for the user to access their device's microphone and camera functionality while in an isolated session. You can only enable this setting if Turbo Mode is also enabled.
+    7. **Allow microphone and camera**: (Optional) Enable this setting for users to access their device's microphone and camera while in an isolated session. You must also enable Turbo Mode to enable this setting. This setting is not supported on mobile devices.
     8. **Allow Application Deep Linking**:Enabling this setting allows the user to open applications from their local machine via the rendered deep link data on an isolated web page. From there, the user can click the rendered link in the isolated browser and open the application for use on their machine. If you enable this setting, add the specific links for the allowed applications to the list. If you disable this feature for the isolation profile, or an application is not on the list in the isolation profile, the user sees an error message explaining that the application isn't allowed by policy. See image.
     9. **Redactive Sensitive Text** **Based on DLP Engines**: Enable or disable redaction. To learn more, see [Using Redactive Sensitive Text for Isolation](https://help.zscaler.com/zero-trust-browser/using-redactive-sensitive-text-isolation). If you enable it, configure the following settings:
       1. **Redact**: Select DLP engines from the drop-down menu.
@@ -650,13 +650,13 @@ You can use this isolation profile to create a policy in Internet & SaaS to allo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-08-17T12:45Z","nid":"1447731"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-08-25T17:52Z","nid":"1447731"} -->
 ## Creating Isolation Profiles for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Profiles > Private Access Profiles > Creating Isolation Profiles for Private Access
-- Last modified: 2026-08-17T12:45Z
+- Last modified: 2026-08-25T17:52Z
 - Summary: How to create an isolation profile for Private Access.
 
 [Watch a video about creating a Private Access Isolation Profile for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/bbh6zk55s2)
@@ -696,7 +696,7 @@ To create a Private Access isolation profile:
     4. **Read-Only isolation**: Enable or disable this setting for restricting keyboard or text input from the user to the isolated web pages.
     5. **View Office Files in Isolation**: Enable or disable this setting for the user to view Microsoft Office files in isolation.
     6. **Allow Local Browser Rendering**: Enable or disable this setting for the browser to render local files while in isolation.
-    7. **Enable Mic and Camera**: Enable or disable this setting for users to access their device's microphone and camera while in an isolated session. This setting can only be enabled if **Turbo Mode** has been enabled on the **General Information** tab.
+    7. **Enable Mic and Camera**: (Optional) Enable this setting for users to access their device's microphone and camera while in an isolated session. You must also enable Turbo Mode to enable this setting. This setting is not supported on mobile devices.
     8. **Enable Application Deep Linking**: Enable or disable this setting to allow the user to open applications from their local machine via the rendered deep link data on an isolated web page. From there, the user can click the rendered link in the isolated browser, and open the application for use on their machine. If you enable this feature, add the specific links for the allowed applications to the list. If you disable this feature for the isolation profile, or an application is not on the list in the isolation profile, the user sees an error message explaining that the application isn't allowed by policy.
     9. **Redact Sensitive Text Based on DLP Engines**. Enable or disable redaction. To learn more, see [Using Redactive Sensitive Text for Isolation](https://help.zscaler.com/zero-trust-browser/using-redactive-sensitive-text-isolation). If you enable this setting:
       - **DLP Engine**: Select DLP engines from the drop-down menu.
@@ -709,7 +709,7 @@ To create a Private Access isolation profile:
     1. **Isolation Experience**: Select one of the following modes:
       - **Native browser experience**: Provides the user with a browsing experience similar to accessing the native web page with a typical browser. Admins can also customize this view. To learn more, see [User Experience Modes in Isolation](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation).
       - **Browser-in-browser experience**: Provides the user with the complete look and feel of an isolated session experience. To learn more, see [User Experience Modes in Isolation](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation).
-    2. **Enable Persistence State**:(Optional)Enabling this option causes the data from a user's active session to carry over to their new session each time they begin an isolated session. If you enable this feature, the **Enable Persistence State** window displays a consent message for you to read before confirming. Click **Enable**. If you do not enable it, the data does not persist, meaning it is destroyed with the container when the user logs out or exceeds the session timeout. To learn more, see [Using Persistent State for Isolation](https://help.zscaler.com/zero-trust-browser/using-persistent-state-isolation) and [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). See image.
+    2. **Enable Persistent State**:(Optional)Enabling this option causes the data from a user's active session to carry over to their new session each time they begin an isolated session. If you enable this feature, the **Enable Persistent State** window displays a consent message for you to read before confirming. Click **Ok**. If you do not enable it, the data does not persist, meaning it is destroyed with the container when the user logs out or exceeds the session timeout. To learn more, see [Using Persistent State for Isolation](https://help.zscaler.com/zero-trust-browser/using-persistent-state-isolation) and [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). See image.
     3. **Persist Isolation URL Bar**: Enable or disable this settingto allow the last accessed URL to reappear in a new session.
     4. **Isolation Banner**: Select a banner to view in the **Preview**. You can choose from existing banners or create custom banners to use for your isolation profiles. The **Default** isolation banner is automatically selected when adding a new profile or to preconfigured [default isolation profiles](https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser). To learn more, see [Adding a Banner Theme for the Isolation End User Notification in Private Access](https://help.zscaler.com/zero-trust-browser/adding-banner-theme-isolation-end-user-notification-zpa).
     5. **Enable Watermark**: (Optional) Enable this setting to display a watermark over the rendered web content while the user is in isolation. Select the checkboxes for **User ID**, **Date & Timestamp** (UTC), and **Message**to include those options.

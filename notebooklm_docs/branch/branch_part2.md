@@ -1,207 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
-Articles in this file: 107
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling","lastmod":"2026-08-04T21:06Z","nid":"1535452"} -->
-## Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
-
-- Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
-- Last modified: 2026-08-04T21:06Z
-- Summary: Information about Google Cloud Platform autoscaling managed instance group (MIG) deployment with Zscaler Cloud Connector
-
-A Google Cloud Platform (GCP) Managed Instance Group (MIG) with autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs) to an instance group to meet the current load when it increases, and it removes Cloud Connector VMs from the instance group when the load decreases. For example, consider a virtual Windows workstation deployment where users log in to their own virtual workstations at the beginning of the work day and log out at the end of the day. This causes fluctuations in the number of users and the amount of traffic flow during these periods.
-
-Instance groups also constantly monitor the health of each Cloud Connector VM in the instance group. They remove unhealthy VMs from the instance group and replace them with healthy ones. If someone manually terminates a VM that is part of an instance group from the Google Cloud console, the instance group replaces the VM.
-
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, stopping or rebooting a VM that is part of an instance group from the Google Cloud console could cause the VM to be terminated.
-
-Instance groups with autoscaling provide the following benefits:
-
-- Dynamically scale the number of VMs in the instance group to match demand.
-- Automatically remove unhealthy VMs and replaces them with healthy ones.
-- Deploy VMs across availability zones for high availability. Load balancing distributes traffic among the VMs.
-
-This article describes instance groups and how they work in a Cloud Connector deployment. The deployment template prompts you to configure certain instance group settings mentioned in this article. For information about the deployment template and the deployment steps, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#azure-terraform) and [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform). For comprehensive autoscaling information, refer to the [GCP product documentation](https://docs.cloud.google.com/compute/docs/autoscaler).
-
-## Topology
-
-The following sections provide a diagram depicting the topology of an autoscaling deployment and a description of its components and flow.
-
-- Topology diagram
-- Topology details
-
-[Image: Diagram showing a Cloud Connector autoscaling deployment on the Google Cloud Platorm]
-
-- The security stack is deployed in either a dedicated GCP project or within the same project as the workloads, based on your organizational architecture. GCP has an architectural limitation where instances with multiple network interfaces require separate virtual private cloud (VPC) networks for each interface. Cloud Connector deployments therefore require the creation of two distinct VPCs: one for management and one for service and security operations. After the security stack is in place, you must configure custom routes in the workload VPCs to direct appropriate traffic to the load balancer in front of the Cloud Connectors. This load balancer serves as the central entry point for the security stack.
-- Zonal MIGs with autoscaling are deployed in each configured region or zone, ensuring high availability and automatic failover across zones.
-- A Cloud NAT gateway is deployed in each region for the Cloud Connectors. This arrangement provides managed, scalable outbound internet access and allocates dedicated external IPs for each gateway.
-- Two Google Cloud Run functions are deployed: The Resource Sync Cloud Run function uses RESTful APIs to communicate with the Cloud Connector API endpoint securely over HTTPS. The functions do not directly interact with individual Cloud Connector VMs; instead, they orchestrate via the Admin API.
-  - **Health Monitoring**: This function uses custom metrics exported from each Cloud Connector VM (for example, via Cloud Monitoring/Operations) to determine the health status of the VM. The instance group automatically terminates unhealthy Cloud Connector VMs and replaces them with new ones. The Health Monitoring function is triggered every minute by default using Cloud Scheduler.
-  - **Resource Sync**: This function ensures that the VMs registered in the Zscaler Admin Console match the membership of each Cloud Connector instance group. If the function discovers a Cloud Connector in the Zscaler Admin Console that is not part of any instance group, it issues an API call to the Zscaler Admin Console to delete the VM. This function runs every 10 minutes by default.
-- Each Cloud Function is packaged in a [ZIP file](https://zscaler-cc-functions-artifacts.s3.amazonaws.com/zscaler-cc-functions/latest/cloud-functions-latest.zip) and deployed via Google Cloud Storage. The ZIP file is uploaded either to a newly created storage bucket during deployment or to an existing bucket specified in the deployment configuration. The Cloud Functions retrieve their code from this bucket during initialization.
-
-## Scale-Out and Scale-In
-
-Each Cloud Connector independently posts data plane CPU utilization metrics at one-minute intervals to GCP Cloud Monitoring as a user-defined metric. The MIG autoscaling policy uses the aggregate CPU utilization value across all VMs in the instance group to determine whether a scale-in or scale-out event should happen based on a target percentage value.
-
-Auto Scaling uses custom CPU utilization metrics instead of VM-level metrics because custom metrics provide more detailed and precise information about CPU usage. In logs and reports, the CPU utilization metric is displayed as `smedge_cpu_utilization`.
-
-- Scaling Policy
-- Cooldown Period
-- Examples
-
-The scaling policy manages scale-out and scale-in events using the following variables:
-
-- **Target value**: By default, the target value is 80% aggregate CPU utilization across all VMs in the instance group over a period of two to three minutes. Autoscaling maintains CPU utilization as close to the target value as possible without exceeding it.
-- **Instance group size**: When a scaling event happens, autoscaling automatically determines the number of VMs to add or remove to bring the aggregate CPU utilization metric closer to the target value. By default, the maximum size of an instance group is 10 VMs and the minimum size is one VM. (The maximum cannot exceed the [Cloud Connector group limit of 16 VMs per group](https://help.zscaler.com/unified/ranges-limitations).)
-
-You can view the policy in the instance group details in the Google Cloud console.
-
-While your VMs are initializing, the utilization metric might not reflect normal conditions. As a safeguard, autoscaling provides a cooldown (or initialization) period, which is the number of seconds between scaling actions.
-
-- For scale-in events, autoscaling takes into account utilization data from all VMs, even those that are still in the cooldown period.
-- For scale-out events, autoscaling ignores utilization data from VMs that are still in the cooldown period.
-
-By default, the initialization period is 900 seconds (15 minutes).
-
-The following examples demonstrate how scaling events affect the size of an instance group with a minimum size of two, a maximum size of 5, and the default target value (80%):
-
-**Scale-Out**: Because the minimum instance group size is two, at least two VMs must always be running.
-
-- No scaling event happens in normal conditions with two VMs running at 60% aggregate CPU utilization.
-- If the aggregate CPU utilization exceeds 80%, a scale-out event happens, bringing the number of VMs in the instance group to three.
-- After the cooldown period, if the aggregated CPU utilization still exceeds 80%, another scale-out event adds one more VM to the instance group, bringing the number of VMs to 4. This continues after the cooldown period ends until the average is less than 80%.
-
-**Scale-In**: GCP autoscaling uses its own logic to determine what to do when the aggregate CPU utilization is less than 80%:
-
-- Wait because the value is too close to 80% or has not been under 80% long enough.
-- Trigger a scale-in event because, based on the time sample and the individual CPU utilization of each VM, removing one VM will meet the following criteria:
-  - The number of VMs will be at or above the minimum target group size.
-  - The average fluctuation for the remaining VM will likely remain below the target CPU utilization value.
-
-## Cloud Connector Health Monitoring
-
-Health monitoring includes the following entities:
-
-- **Custom Metric Publishing**: Each Cloud Connector publishes a VM-level custom metric at one-minute intervals. This metric value is either 0 for an unhealthy VM or 100 for a healthy VM. Custom metrics also include dataplane CPU utilization metrics published at one-minute intervals, described in the previous section.
-- **Health Monitoring**: The Health Monitor function consumes the health metric at one-minute intervals and initiates the termination of a VM that it determines is unhealthy. It uses two criteria to determine whether to terminate the VM: Recent Health Data; Missing Metrics Unhealthy VMs are terminated in iterations. By default, in a single iteration, 16 VMs can be terminated. After a VM is terminated, it is replaced immediately.
-
-The Health Monitor function evaluates recent health data using sliding window logic with the following configurable environment variables:
-
-- The size of the sliding window. The default is 10 consecutive minutes.
-- The amount of time the VM was in an unhealthy state. The default value for defining a VM as unhealthy is 5 consecutive minutes.
-- The tolerance for flapping values in the sliding window. The default value is 7 unhealthy counts in 10 consecutive minutes.
-
-The Health Monitor function uses the following configurable environment variables to handle scenarios in which a running VM does not post metrics:
-
-- If the VM does not report metrics for two minutes, the function generates a warning log.
-- If the VM does not report metrics for 5 minutes, the function generates a critical log.
-- If the VM does not report metrics for 10 minutes, the function generates a termination log and starts the process of deleting the VM.
-
-In logs and reports, the health metric is displayed as `cloud_connector_aggr_health`.
-
-## Viewing Metrics and Logs
-
-- Instance Group Details
-- Cloud Connector VM Details
-
-The details page for an instance group contains comprehensive information about the group, such as the capacity overview, configuration settings, scaling policy, instance management, activity history, metrics, and so on.
-
-To view the instance group details:
-
-1. Open the Google Cloud console.
-2. In the navigation pane, click **Instance Groups**.
-3. Select the instance group for which you want to view details. The **Overview**tab opens. See image.
-4. Click the **Details**tab to review the instance status, template, configuration, location, group size, and autoscaling policy. See image.
-5. Click the **Monitoring** tab to review instance group metrics over a period of time. See image.
-
-To view details about a VM in the instance group:
-
-1. Open the Google Cloud console.
-2. In the navigation pane, click **Instance Groups**.
-3. Select the instance group for which you want to view details.
-4. On the **Overview**tab, in the **VM instances** section, click an instance in the **Name** column.
-5. Click **Observability** to monitor VM health, behavior, and performance. See image.
-
-## Access to GCP Resources
-
-Service accounts provide secure access to Google Cloud resources. Three service accounts are required in a GCP autoscaling deployment:
-
-- Deployment Service Account
-- Cloud Connector VM Service Account
-- Cloud Function Service Account
-
-This service account allows Terraform to run during deployment. It needs the following roles:
-
-- Compute Instance Admin (v1)
-- Compute Network Admin
-- Compute Security Admin
-- Service Account Admin
-- Service Account User
-- Secret Manager Admin
-- Project IAM Admin
-- DNS Administrator (optional)
-- Cloud Functions Admin (Autoscaling only)
-- Cloud Scheduler Admin (Autoscaling only)
-- Storage Admin (Autoscaling only)
-
-This service account also needs the following APIs enabled:
-
-- Compute Engine API
-- Cloud DNS API
-- Cloud Resource Manager API
-- Identity and Access Management (IAM) API
-- Secret Manager API
-- Autoscaling deployments only:
-  - Cloud Functions API
-  - Cloud Scheduler API
-  - Cloud Monitoring API
-  - Cloud Logging API
-  - Cloud Build API
-
-This service account allows Cloud Connectors to access secret credentials. It needs the following roles:
-
-- Monitoring Metric Writer
-- One of the following roles, depending on the method you use to manage and store your secret credentials:
-  - Secret Manager Secret Accessor (for GCP Secret Manager)
-  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
-    - compute.instanceGroups.list
-    - compute.instances.get
-    - iam.serviceAccounts.get
-    - iam.serviceAccountKeys.get,
-    - iam.serviceAccounts.signJwt
-
-This service account allows the Cloud Run Functions (Health Monitor and Resource Sync) to make API calls to perform operations such as reading metrics, terminating VMs, and replacing VMs. It needs the following roles:
-
-- Compute Instance Admin (v1)
-- Monitoring Viewer
-- Logs Writer
-- Cloud Run Invoker
-- One of the following roles, depending on the method you use to manage and store your secret credentials:
-  - Secret Manager Secret Accessor (for GCP Secret Manager)
-  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
-    - compute.instanceGroups.list
-    - compute.instances.get
-    - iam.serviceAccounts.get
-    - iam.serviceAccountKays.get
-    - iam.serviceAccounts.sign.Jwt
-
-For information about creating service accounts and assigning roles, see [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/tech-pubs-drafts/deploying-zscaler-cloud-connector-google-cloud-platform-draft-doc-57264).
-
-[Image: Cloud Connector instance group Overview tab, showing status and other details, and the VM instances in the group]
-
-[Image: Cloud Connector instance group Details tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
-
-[Image: Cloud Connector instance group Monitoring tab, where you can view the group size and CPU utilization over a period of time]
-
-[Image: Cloud Connector instance Observability tab, where you can view the CPU utilization, memory utilization, network traffic, disk space utilization, new connections, and disk throughputDetails tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
-<!-- /ZS-ARTICLE -->
+Generated: 2026-08-31 03:58 UTC
+Articles in this file: 108
 
 ---
 
@@ -514,13 +315,13 @@ In the [Amazon VPC console](https://console.aws.amazon.com/vpc/), you must assig
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-08-17T14:39Z","nid":"1517756"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-08-28T13:41Z","nid":"1517756"} -->
 ## What Are Zero Trust Gateways?
 
 - Source: https://help.zscaler.com/cloud-branch-connector/what-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > What Are Zero Trust Gateways?
-- Last modified: 2026-08-17T14:39Z
+- Last modified: 2026-08-28T13:41Z
 - Summary: Introductory information, key features, and benefits of Zero Trust Gateways accessible in the Zscaler Admin Console.
 
 The Zscaler Zero Trust Gateway service transforms how you can secure your workloads and workload traffic deployed in public clouds. Built on the Zscaler Zero Trust Exchange (ZTE), the Zero Trust Gateway service simplifies cloud workload security for enterprises.
@@ -1024,16 +825,92 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-07-15T01:57Z","nid":"1534300"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-08-27T14:34Z","nid":"1534300"} -->
 ## Zscaler Client Connector for VDI Release Summary (2026)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector VDI Release Notes (per OS) > Zscaler Client Connector for VDI Release Summary (2026)
-- Last modified: 2026-07-15T01:57Z
+- Last modified: 2026-08-27T14:34Z
 - Summary: Zscaler Client Connector for VDI release summary for updates deployed, per OS and version, in 2026 on Zscaler Cloud & Branch Connector.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector for VDI on Zscaler Cloud & Branch Connector.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/32-ip-device-compatibility-limitations-and-workarounds","lastmod":"2026-08-27T11:52Z","nid":"1543092"} -->
+## /32 IP Device Compatibility Limitations and Workarounds
+
+- Source: https://help.zscaler.com/zero-trust-branch/32-ip-device-compatibility-limitations-and-workarounds
+- Product: Zero Trust Branch
+- Path: Zero Trust Branch Help > Zero Trust Device Segmentation > /32 IP Device Compatibility Limitations and Workarounds
+- Last modified: 2026-08-27T11:52Z
+- Summary: Information about devices that are incompatible with Zero Trust Branch's /32 subnet mask configuration and recommended workarounds.
+
+Zero Trust Branch delivers true [zero trust microsegmentation](https://help.zscaler.com/zero-trust-branch/understanding-micro-subnets) by assigning a /32 subnet mask to each device endpoint. This approach creates a network-of-one system that isolates devices from one another, blocks direct endpoint-to-endpoint communication, and reduces the attack surface.
+
+However, there are certain Internet of Things (IoT), Operational Technology (OT), industrial controller, and older networking devices that are unable to operate /32 subnet masks due to limitations in their legacy or embedded network stacks, causing them to not operate correctly within the network-of-one configuration. There are some endpoints that are Purdue Level 2 and below that require direct Layer 2 (L2) connectivity to function correctly, such as communication between Programmable Logic Controllers (PLCs).
+
+## Incompatible Devices
+
+The following are several devices that have been identified as incompatible with /32 IP configurations based on field testing. There might be others not listed that have the potential for showing similar behavior and should be tested with recommended workarounds detailed in the Recommended Workarounds section in this article.
+
+- Amazon Blink Cameras
+- Apple AirPort Time Capsules
+- Cisco Devices
+- LaMetric Connected Clock
+- Legacy HVAC Controllers and Devices
+- Network Printers
+- Siemens S7 and Rockwell/Allen-Bradley PLCs and EtherNet/IP Adapters
+- Sonos Sound System Devices
+
+Some older versions of Amazon Blink cameras might have connectivity and functionality issues with /32 IP addressing. Field observations frequently show connectivity and setup failures when nonstandard network settings are used.
+
+See image
+
+[Image: Amazon Blink Mini Properties and Discovery window with the Properties tab highlighted and displaying device and network information]
+
+Apple AirPort Time Capsule devices do not natively support /32 IP addresses.
+
+Some Cisco devices, such as routers, switches, access points, wireless LAN controllers, and IP phones, might not handle /32 segmentation correctly.
+
+Certain firmware versions of this device have a limited network stack and experience connectivity problems when assigned /32 IP addresses.
+
+See image
+
+[Image: LaMetric-LM6010 Properties and Discovery window with the Properties tab highlighted and displaying device and network information]
+
+Legacy HVAC controllers, building automation devices, and older cameras and sensors typically have limiting network stacks. These stacks often expect conventional network or host bit boundaries and might not handle /32 masking correctly.
+
+Most printers accept subnet mask configurations in the user interface, but /32 configurations might still cause issues if there are any changes in the routing or in the Address Resolution Protocol (ARP).
+
+Services, such as Bonjour, Line Printer Daemon (LPD), and Server Message Block (SMD) discovery, might break if they cannot communicate with gateway or multicast neighboring endpoints.
+
+Older printer models might also experience intermittent connectivity or print job failures in /32 configurations.
+
+Siemens S7 family and Rockwell/Allen-Bradely EtherNet/IP modules expect devices and programming tools to be on the same subnet using conventional subnet masks such as /24. Unusual masks, such as /32, can prevent management tools or gateway-based communication from functioning correctly.
+
+Sonos devices historically rely on DHCP reservations, multicast discovery, Simple Service Discovery Protocol (SSDP), and SonosNet behavior. Some models have been observed to become unstable with unusual subnetting or nonstandard addressing and might fail to maintain consistent communication on /32-based networks.
+
+See image
+
+[Image: SonosZP Properties and Discovery window with the Properties tab highlighted and displaying device and network information]
+
+## Recommended Workarounds
+
+If you have a device with limited /32 addressing support, use one of the following workarounds based on your deployment requirements:
+
+- For devices that cannot operate reliably with /32 addressing
+- For devices that don't support /32 addressing and full isolation is not required
+
+Deploy these devices under micro-subnet segmentation to enforce strict network segmentation and policy control. Configure these devices with subnet masks in the range of /27 to /30 to ensure that they are compatible with legacy network stacks while still providing fine-grained logical segmentation.
+
+To learn more, see [Creating Micro-Subnets](https://help.zscaler.com/zero-trust-branch/creating-micro-subnets).
+
+Use network segmentation to configure these devices with the same subnet mask that the DHCP server provides. This enables direct communication between device endpoints without forcing traffic through the Zero Trust Branch gateway for policy evaluation, which offers lightweight segmentation and reduced overhead.
+
+To learn more, see [Configuring Airgap-Lite Mode for Assets](https://help.zscaler.com/zero-trust-branch/configuring-airgap-lite-mode-assets).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1159,29 +1036,38 @@ Manage Microsoft AD objects on the Microsoft AD tab:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-app-connector-site","lastmod":"2026-08-11T11:07Z","nid":"1529430"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-app-connector-site","lastmod":"2026-08-25T13:45Z","nid":"1529430"} -->
 ## Adding App Connectors to a Site
 
 - Source: https://help.zscaler.com/zero-trust-branch/adding-app-connector-site
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Sites > Adding App Connectors to a Site
-- Last modified: 2026-08-11T11:07Z
+- Last modified: 2026-08-25T13:45Z
 - Summary: How to add App Connectors to a site in Zero Trust Branch.
 
-App Connectors provide an authenticated interface between a site and the Zscaler Admin Console cloud. You need the provisioning key for the App Connector in order to add it to the site. To learn more, see [About App Connector Provisioning Keys](https://help.zscaler.com/zpa/about-connector-provisioning-keys).
+App Connectors provide an authenticated interface between a site and the Private Access (ZPA) cloud. Adding an App Connector to a Zero Trust Branch site provides inbound access to private applications hosted at the branch location, such as allowing Remote Desktop Protocol (RDP) to a server. You need the provisioning key for the App Connector in order to add it to the site. To learn more, see [About App Connector Provisioning Keys](https://help.zscaler.com/zpa/about-connector-provisioning-keys).
 
-To add an App Connector to a site:
+To add an App Connector to a site, complete the following steps in the Zscaler Admin Console:
 
-1. Go to **Infrastructure > Connectors > Edge > Sites**.
+1. Go to **Infrastructure** > **Connectors** > **Edge**> **Sites**.
 2. In the**Site Name** column, click the name of the site to which you want to add an App Connector. See image.
-3. On the site details page, click the **Settings**tab, then click **ZPA**in the left-side navigation. Click **Add** in the upper-right corner to add a new App Connector. See image. In the **Add App Connector**panel: See image.
+3. In the left-side navigation, click **Connectivity**, then click the **App Connectors (Private Access)** tab.
+4. To optionally use global DNS mappings for private applications on this site, enable **Use Static App Segment to IP Mappings**. This uses the globally defined static mappings to resolve application segment FQDNs, ensuring that private applications consistently resolve to a predictable IP address across all sites where this option is enabled. To learn more, see [Managing App Segment IP Mappings](https://help.zscaler.com/zero-trust-branch/managing-app-segment-ip-mappings). See image.
+5. Click **Add** in the upper-right corner to add a new App Connector. In the **Add App Connector**panel: See image.
   - **Name**: Enter a name for this App Connector.
   - **Provision Key**: Enter the provisioning key for this App Connector.
-4. Click **Save** to save the configuration.
+6. Click **Save** to save the configuration.
+
+## App Connector Behavior in HA Deployments
+
+Depending on the high availability (HA) topology, the embedded App Connectors operate differently:
+
+- **Standard HA:** In a standard HA deployment, the App Connectors operate in an active-standby mode. Only one App Connector is up and running on the active appliance at any given time.
+- **Enhanced HA:** In an Enhanced HA deployment, the App Connectors operate in an active-active mode, meaning that both appliances in the HA cluster run an active App Connector simultaneously. Both App Connectors establish independent connections to the Private Access cloud. There is no need to configure separate settings as the system automatically uses both App Connectors to ensure continuous access to private applications. If one appliance restarts or fails, the App Connector on the other appliance continues to process connections without interruption.
 
 [Image: Accessing details for a site on the Sites page]
 
-[Image: Adding an App Connector on the Settings tab for a Site]
+[Image: App Connector section of the Connectivity tab on the Sites page]
 
 [Image: Add App Connector panel]
 <!-- /ZS-ARTICLE -->
@@ -3225,25 +3111,19 @@ After saving the rule, the cluster begins forwarding traffic matching the policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster","lastmod":"2026-05-17T07:06Z","nid":"1533622"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster","lastmod":"2026-08-25T13:42Z","nid":"1533622"} -->
 ## Creating a Zero Trust Branch High Availability Cluster
 
 - Source: https://help.zscaler.com/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster
 - Product: Zero Trust Branch
-- Path: Zero Trust Branch Help > Deploying Zero Trust Branch > High Availability Clusters > Creating a Zero Trust Branch High Availability Cluster
-- Last modified: 2026-05-17T07:06Z
+- Path: Zero Trust Branch Help > Deployment Preparation > Templates > High Availability Clusters > Creating a Zero Trust Branch High Availability Cluster
+- Last modified: 2026-08-25T13:42Z
 - Summary: How to create a Zero Trust Branch high availability (HA) cluster
 
 A Zscaler Zero Trust Branch high availability (HA) cluster consists of two identical Zero Trust Branch appliances (or *nodes*). One node is the primary node and has the active role. The other node is the secondary node and has the standby role. If the primary node fails, the secondary node takes over as the primary, active node. The nodes coordinate stateful failover and traffic handling using protocols such as traffic session state synchronization and Virtual Router Redundancy Protocol (VRRP).
 
 - Traffic session state synchronization enables seamless, stateful failover between the nodes. This ensures uninterrupted service for session-based applications such as SSH, SCP, FTP, and HTTP during node failovers. The session state information on the primary node is continuously synchronized to the secondary node to ensure that it has up-to-date session data to seamlessly continue traffic processing if the primary node fails.
 - VRRP determines the active and standby roles of the nodes, monitors the health and availability of the nodes, and initiates a failover when necessary. When VRRP detects a node failure and triggers a failover, the new active node uses the synchronized session data to maintain ongoing traffic sessions without disruption.
-
-## ZPA App Connector Behavior in HA Clusters
-
-While the Zero Trust Branch gateway operates in an active-standby mode, the embedded Private Access (ZPA) App Connector on each appliance in a WAN Edge HA cluster (also known as Enhanced HA) operates in an active-active mode. In these deployments, both App Connector instances run concurrently on the active and standby Zero Trust Branch appliances, ensuring no service disruption during App Connector container restarts or appliance failovers. Both the primary (active) and secondary (standby) Zero Trust Branch appliances establish independent connections to the ZPA cloud, so if the primary node fails, the App Connector on the secondary Zero Trust Branch appliance is already available to process private application traffic, minimizing service disruption.
-
-This active-active behavior applies only to the embedded App Connector in [WAN Edge HA](https://help.zscaler.com/zero-trust-branch/creating-zero-trust-branch-enhanced-wan-edge-high-availability-cluster) deployments.
 
 ## Prerequisites
 
@@ -3266,8 +3146,8 @@ To create and activate a cluster, complete the following steps in the Zscaler Ad
 
 - Step 1: Add a Template
 - Step 2: Add a Site
-- Step 3: Activate the Gateways
-- Step 4: (Optional) Configure VRRP
+- Step 3: Activate the Appliances
+- Step 4: Configure VRRP
 
 [Image: Topology diagram with two Zero Trust Branch appliances in the cluster, connected to each other via a LAN and the GE ports on a switch, and connected to the endpoint devices via a separate LAN]
 
@@ -3281,13 +3161,13 @@ You must use an HA template to launch a Zero Trust Branch cluster. You can use a
 1. Go to **Infrastructure** > **Connectors** > **Edge** > **Site Templates**.
 2. On the **Templates** page, complete the [Add a New Template](https://help.zscaler.com/zero-trust-branch/managing-templates#add) procedure, ensuring that you select **standard_mode_ha** for the **Deployment Type.** See image.
 
-When you add a site in a Zero Trust Branch HA deployment, you configure a gateway for each appliance.
+When you add a site in a Zero Trust Branch HA deployment, you configure a appliance for each appliance.
 
 1. Go to **Infrastructure** > **Connectors** > **Edge** > **Sites**.
-2. On the **Sites** page, complete the [Add a Site](https://help.zscaler.com/zero-trust-branch/adding-site) procedure, ensuring that you select the default HA template or a custom HA template, and configure both gateways. After the site is saved, you are returned to the **Sites** page.
-3. Review the site details. Both gateways are in a **Pending Activation** or **Disconnected** state because they have not been activated. See image.
+2. On the **Sites** page, complete the [Add a Site](https://help.zscaler.com/zero-trust-branch/adding-site) procedure, ensuring that you select the default HA template or a custom HA template, and configure both appliances. After the site is saved, you are returned to the **Sites** page.
+3. Review the site details. Both appliances are in a **Pending Activation** or **Disconnected** state because they have not been activated. See image.
 
-The example used in this procedure shows how to activate one gateway and is not intended to represent the cluster setup described in this article. Repeat this procedure for the secondary node. The gateway that is activated first becomes the primary node and the other gateway becomes the secondary node.
+The example used in this procedure shows how to activate one appliance and is not intended to represent the cluster setup described in this article. Repeat this procedure for the secondary node. The appliance that is activated first becomes the primary node and the other appliance becomes the secondary node.
 
 To review the ports that need to be open, see [Open Ports on the Upstream Device](https://help.zscaler.com/zero-trust-branch/deploying-zero-trust-branch-appliance#OpenPorts).
 
@@ -3364,11 +3244,11 @@ This method uses the URL that you saved during the [Adding a Site](https://help.
 
 [Image: Diagram showing a laptop directly connected to the GE1 management port on the appliance and the appliance connected to the internet via the GE3 WAN port. The laptop receives the 192.168.0.0/24 address from the appliance.]
 
-On the **Sites**page, you can observe the activation process, which goes through several states, such as **Initializing**and **Post-update**. When both gateways are activated, the primary gateway state is **Active**and the secondary gateway state is **Standby**.
+On the **Sites**page, you can observe the activation process, which goes through several states, such as **Initializing**and **Post-update**. When both appliances are activated, the primary appliance state is **Active**and the secondary appliance state is **Standby**.
 
 See image.
 
-You can configure a password and additional settings to prevent other devices using VRRP from communicating with the nodes in the HA cluster. To learn more, see [Configuring a High Availability Site with Virtual Router Redundancy Protocol](https://help.zscaler.com/zero-trust-branch/configuring-ha-site-vrrp).
+Configure VRRP at the site level to select which interface to use for HA synchronization. During this step, configure a password and additional settings to prevent other devices using VRRP from communicating with the nodes in the HA cluster. To learn more, see [Configuring a High Availability Site with Virtual Router Redundancy Protocol](https://help.zscaler.com/zero-trust-branch/configuring-ha-site-vrrp).
 
 [Image: Add Template panel showing configuration of a new custom template for an HA cluster]
 
@@ -3962,13 +3842,13 @@ Follow these steps to configure the integration between Zero Trust Branch and Ar
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-crowdstrike-zero-trust-branch","lastmod":"2026-08-12T19:26Z","nid":"1534196"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-crowdstrike-zero-trust-branch","lastmod":"2026-08-28T03:35Z","nid":"1534196"} -->
 ## Integrating CrowdStrike with Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/integrating-crowdstrike-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Integrating CrowdStrike with Zero Trust Branch
-- Last modified: 2026-08-12T19:26Z
+- Last modified: 2026-08-28T03:35Z
 - Summary: How to integrate CrowdStrike with Zero Trust Branch.
 
 Zscaler Zero Trust Branch integrates with CrowdStrike Falcon to deliver endpoint-aware zero trust security across branches. By combining Zscaler's zero trust enforcement with CrowdStrike’s endpoint risk insights, organizations gain unified, adaptive access control for both on-premises and remote users. Organizations can dynamically adapt access based on device posture while extending Zscaler policies to remote endpoints through CrowdStrike Falcon, ensuring consistent zero trust protection across all environments.
@@ -3990,22 +3870,22 @@ Follow these steps to integrate CrowdStrike Falcon with Zero Trust Branch:
 
 The following limitations and caveats apply when integrating CrowdStrike with Zero Trust Branch:
 
-- Polling delay: Zero Trust Branch periodically polls CrowdStrike for posture informatio. Score availability depends on Falcon check-in interval, which can introduce additional delays. Real-time enforcement is not guaranteed.
+- Polling delay: Zero Trust Branch periodically polls CrowdStrike for posture information. Score availability depends on Falcon check-in interval, which can introduce additional delays. Real-time enforcement is not guaranteed.
 - API scope: The API Credential Test or Validate function confirms successful authentication but does not verify whether the API key has the required permissions to retrieve ZTA posture scores. An API key without the `Zero Trust Assessment - Read scope` permission can pass validation but fail at runtime with a `403 – Access denied` error.
-- FQDN policies: FQDN and wildcard domain rules in security policies require DNS Proxy to be enabled. Use IP-based rules as a fallback.
+- FQDN policies: FQDN and wildcard domain rules in security policies require DNS Proxy to be enabled. Use IP address-based rules as a fallback.
 - Device identity: Assets are identified by MAC addresses. Changes to the network interface, such as switching Wi-Fi adapters or using a dock, can create duplicate devices and require a new score per MAC address.
-- SSL inspection bypass: CrowdStrike sensor communication can fail silently when SSL inspection is enabled. Configure SSL inspection bypass for the following domains, including `*.cloudsink.net`, `*.csa.cloudsink.net`, `*.falcon.crowdstrike.com`.
+- SSL inspection bypass: CrowdStrike sensor communication can fail silently when SSL inspection is enabled. Configure SSL inspection bypass for the following domains: `*.cloudsink.net`, `*.csa.cloudsink.net`, `*.falcon.crowdstrike.com`.
 
 Configuring the API integration requires steps in both the CrowdStrike Falcon Console and the Zscaler Admin Console.
 
-1. In the CrowdStrike Falcon Console, go to **Support and Resources > API Clients and Keys > Add new API client**.
+1. In the CrowdStrike Falcon Console, go to **Support and Resources**> **API Clients and Keys**> **Add new API client**.
 2. CrowdStrike creates a new API client. Copy the values in the **Client ID**, **Secret**, and **Base**URL fields for use in the next step. Note that the secret is only available once at creation. See image. CrowdStrike recommends that you only give Zscaler read-only access (no write or admin functions) for hosts, devices, zero trust appliances, user management, sensor download, and event streams.
-3. In the Zscaler Admin Console, go to **Settings > Integrations** and click **Settings**in the **CrowdStrike Integration** panel. See image.
+3. In the Zscaler Admin Console, go to **Infrastructure**> **Connectors**> **Edge**>**Integrations** and click **Settings**in the **CrowdStrike Integration** panel. See image.
 4. In the **CrowdStrike Integration** panel, enter the client ID, client secret, and base URL from the previous step and click **Confirm**. See image.
 5. Click **Test**to validate the integration. See image. When complete, a dialog window confirms that the integration has been validated. See image.
 6. Click **Save** to save the integration.
 
-1. In the CrowdStrike Falcon Console, go to **Host setup and management > Host dashboard.**
+1. In the CrowdStrike Falcon Console, go to **Host setup and management**> **Host dashboard.**
 2. Click **Download sensor**to download the Falcon sensor. See image.
 3. Note the customer ID during the installation. This ID is used later when the sensor is installed on the host. See image.
 4. Copy the sensor file to the Zero Trust Branch host and install using the command for your platform:
@@ -4017,9 +3897,9 @@ Configuring the API integration requires steps in both the CrowdStrike Falcon Co
   - Linux: `sudo /opt/CrowdStrike/falconctl -s --cid=``<your_customer-ID>`
   - Windows: `WindowsSensor.exe /install /quiet /norestart CID=``<your_customer-ID>`
 6. Enable and start the Falcon service: `sudo systemctl enable falcon-sensor` `sudo systemctl start falcon-sensor`
-7. Check the Falcon sensor agent ID: `sudo /opt/CrowdStrike/falconctl -g--aid` This command returns the agent ID string, which is a unique identifier assigned to this Falcon sensor. `aid="dbb*xxxxxxxxxxxxxxxxxxxxxxxxxx*226`" Make a note of the ID, which is useful for managing, tracking, and troubleshooting the sensor as it communicates with the CrowdStrike cloud.
-8. Run the following `curl`command from the hosts running the Falcon sensor to make an HTTPS request to CrowdStrike cloud services and infrastructure: `curl -v https://ts01-gyr-maverick.cloudsink.net` The Falcon sensor communicates with the CrowdStrike cloud through secure TLS (SSL) connections and returns the server certificate. You might need to configure an SSL inspection policy in Internet & SaaS to bypass the CrowdStrike domains: *.cloudsink.net; *.csa.cloudsink.net; *.falcon.crowdstrike.comIf the domains are not bypassed, the Falcon sensor might detect tampering or certificate mismatches, causing registration failures or blocking sensor communication to the cloud. For more information, see [Configuring SSL Inspection Policy](https://help.zscaler.com/zia/configuring-ssl-inspection-policy).
-9. Finally, verify your integration. In the CrowdStrike Falcon Console, go to **Host setup and management > Host management**. See image. Verify that the Zero Trust Branch topology matches the system configuration shown in the CrowdStrike Falcon Console. In this example, assume this is your system configuration:
+7. Check the Falcon sensor agent ID: `sudo /opt/CrowdStrike/falconctl -g--aid` This command returns the agent ID string, which is a unique identifier assigned to this Falcon sensor: `aid="dbb*xxxxxxxxxxxxxxxxxxxxxxxxxx*226`" Make a note of the ID, which is useful for managing, tracking, and troubleshooting the sensor as it communicates with the CrowdStrike cloud.
+8. Run the following `curl`command from the hosts running the Falcon sensor to make an HTTPS request to CrowdStrike cloud services and infrastructure: `curl -v https://ts01-gyr-maverick.cloudsink.net` The Falcon sensor communicates with the CrowdStrike cloud through secure TLS (SSL) connections and returns the server certificate. You might need to configure an SSL inspection policy in Internet & SaaS to bypass the CrowdStrike domains: *.cloudsink.net; *.csa.cloudsink.net; *.falcon.crowdstrike.comIf the domains are not bypassed, the Falcon sensor might detect tampering or certificate mismatches, causing registration failures or blocking sensor communication to the cloud. To learn more, see [Configuring SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).
+9. Finally, verify your integration. In the CrowdStrike Falcon Console, go to **Host setup and management**> **Host management**. See image. Verify that the Zero Trust Branch topology matches the system configuration shown in the CrowdStrike Falcon Console. In this example, assume this is your system configuration:
 
 [Image: Schematic showing example of Zero Trust Branch integration with CrowdStrike Falcon.]
 
@@ -4027,21 +3907,21 @@ CrowdStrike Falcon prevention policies are used to define and enforce rules on e
 
 To create a new policy in CrowdStrike:
 
-1. In the CrowdStrike Falcon Console, go to **Endpoint security > Prevention policies**.
+1. In the CrowdStrike Falcon Console, go to **Endpoint security**> **Prevention policies**.
 2. Select your platform (e.g., Linux) from the drop-down menu and click **Create policy**.
 3. Complete the information on the new policy and click **Submit**. See image.
 
 CrowdStrike Falcon host groups are used to organize and manage sets of endpoints (hosts) within the CrowdStrike Falcon platform. They simplify policy assignment, sensor deployment, and operational control.
 
 1. Create a host group:
-  1. In the CrowdStrike Falcon Console, go to **Host setup and management** **>** **Host groups.**
+  1. In the CrowdStrike Falcon Console, go to **Host setup and management** > **Host groups.**
   2. Click **Create new group**. Enter a name, description, and group type for the host group and click **Submit**. See image.
 2. Add your Zero Trust Branch hosts to the host group:
-  1. In the CrowdStrike Falcon Console, go to **Host setup and management > Host groups**.
+  1. In the CrowdStrike Falcon Console, go to **Host setup and management**> **Host groups**.
   2. Select the host group to which you want to add your hosts, then click **Add hosts**. See image.
   3. Select the hosts to be added from the list and click **Add hosts**.
 3. Assign policies to the host group: See image.
-  1. In the CrowdStrike Falcon Console, go to **Host setup and management > Host groups**.
+  1. In the CrowdStrike Falcon Console, go to **Host setup and management**> **Host groups**.
   2. Click the host group to which you want to assign policies, then click the **Policy assignment** tab.
   3. In the **Prevention policies** panel, click **Add policy**.
   4. Select the policy you want to add from the list and click **Assign policy**.
@@ -4050,12 +3930,12 @@ The CrowdStrike Zero Trust Assessment (ZTA) score is a real-time risk score from
 
 To view the ZTA score for a host:
 
-1. In the CrowdStrike Falcon Console, go to **Host setup and management > Zero Trust Assessment** and click the **Hosts by assessment score** panel. See image.
+1. In the CrowdStrike Falcon Console, go to **Host setup and management**> **Zero Trust Assessment** and click the **Hosts by assessment score** panel. See image.
 2. The **Overall assessment** column shows the ZTA score for each device. See image.
 
 In Zero Trust Branch, the Secure Posture Score also provides a risk evaluation. To view the Secure Posture Score for your host:
 
-1. In the Zscaler Admin Console, go to **Asset Intelligence > Assets**. See image.
+1. In the Zscaler Admin Console, go to **Infrastructure**> **Connectors**> **Edge**> **Assets**. See image.
 2. Select a host to view its Secure Posture Score. See image.
 
 To learn more, see [Managing Your Assets](https://help.zscaler.com/zero-trust-branch/managing-your-assets).
@@ -4068,13 +3948,13 @@ Zero Trust Branch supports several different types of objects used in the firewa
 
 To create device objects for high-, medium-, and low-risk devices in the Zscaler Admin Console:
 
-1. Go to **Resources > Objects**.
+1. Go to **Policies**> **Access Control**> **Segementation**> **Objects & Groups**.
 2. Click **Add**and select **Devices**from the drop-down menu. See image.
 3. In the **Add Devices**panel, create device groups for each of the high-, medium-, and low-risk devices using the **Device Security Posture** attribute, which is synced from CrowdStrike during the integration process. For example: To learn more, see [Managing Objects](https://help.zscaler.com/zero-trust-branch/managing-objects).
   - High-risk device settings
   - Medium-risk device settings
   - Low-risk device settings
-4. Go to **Firewall > Policies** and create policies that allow access based on device Secure Posture Score; for example: To learn more about creating firewall policies, see [Configuring Firewall Policies](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies).
+4. Go to **Policies** > **Access Control**> **Segmentation**> **Policies**and create policies that allow access based on device Secure Posture Score; for example: To learn more about creating firewall policies, see [Configuring Firewall Policies](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies).
   - Low-risk devices: Allow all protocols.
   - Medium-risk devices: Only allow ICMP.
   - High-risk devices: Block all protocols. See image.
@@ -4090,11 +3970,11 @@ To create device objects for high-, medium-, and low-risk devices in the Zscaler
 
 [Image: CrowdStrike Falcon dialog showing API secret]
 
-[Image: Integrations page in the Zero Trust Branch Admin Portal highlighting the CrowdStrike Integrations Settings button]
+[Image: Integrations page in the Zscaler Admin Console highlighting the CrowdStrike Integrations Settings button]
 
-[Image: CrowdStrike Integration panel in the Zero Trust Branch Admin Portal.]
+[Image: CrowdStrike Integration panel in the Zscaler Admin Console.]
 
-[Image: CrowdStrike Integration panel in the Zero Trust Branch Admin Portal with Test button highlighted..]
+[Image: CrowdStrike Integration panel in the Zscaler Admin Console with Test button highlighted..]
 
 [Image: Dialog box confirming that the CrowdStrike API integration was successful.]
 
@@ -4116,11 +3996,11 @@ To create device objects for high-, medium-, and low-risk devices in the Zscaler
 
 [Image: Viewing the ZTA score in the CrowdStrike Falcon Console.]
 
-[Image: Assets page in the Zero Trust Branch Admin Portal.]
+[Image: Assets page in the Zscaler Admin Console.]
 
-[Image: Viewing the Secure Posture Score for an asset in the Zero Trust Branch Admin Portal.]
+[Image: Viewing the Secure Posture Score for an asset in the Zscaler Admin Console.]
 
-[Image: Add a Devices group on the Objects page in the Zero Trust Branch Admin Portal.]
+[Image: Add a Devices group on the Objects page in the Zscaler Admin Console.]
 
 [Image: Settings for high-risk devices in the Add Devices panel.]
 
@@ -4128,7 +4008,7 @@ To create device objects for high-, medium-, and low-risk devices in the Zscaler
 
 [Image: Settings for low-risk devices in the Add Devices panel.]
 
-[Image: Viewing the Secure Posture Score for an asset in the Zero Trust Branch Admin Portal.]
+[Image: Viewing the Secure Posture Score for an asset in the Zscaler Admin Console.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4304,6 +4184,80 @@ To view and revoke API keys, follow these steps:
 [Image: Viewing API keys from the Zero Trust Branch Admin Portal Global settings page.]
 
 [Image: Revoking an API key from the Zero Trust Branch Admin Portal API Keys panel.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-app-segment-ip-mappings","lastmod":"2026-08-25T13:39Z","nid":"1539497"} -->
+## Managing App Segment IP Mappings
+
+- Source: https://help.zscaler.com/zero-trust-branch/managing-app-segment-ip-mappings
+- Product: Zero Trust Branch
+- Path: Zero Trust Branch Help > Deployment Preparation > Sites > Managing App Segment IP Mappings
+- Last modified: 2026-08-25T13:39Z
+- Summary: How to create and manage static mappings between Private Access App Segment FQDNs and synthetic IP addresses.
+
+The ZPA DNS Static Mappings settings allow the creation and management of static mappings between Private Access (ZPA) app segment FQDNs and synthetic IP addresses. These static mappings ensure that multiple Zero Trust Branch sites resolve the same app segment FQDN to a consistent IP address. By forcing every Zero Trust Branch site to resolve a specific FQDN to the same synthetic IP address, you can ensure consistent, reliable, and predictable access to private applications for all users, irrespective of their location. The ZPA DNS tile allows the management of static app segment-to-IP mappings through a CSV import/export workflow.
+
+On the ZPA DNS tile, you can do the following:
+
+- **Import App Segments CSV**: Create or delete mappings in bulk.
+- **Export Static Mappings CSV**: Download existing mappings as a CSV file.
+- **View Static Mappings**: See the current configured mappings in the UI.
+
+## Importing App Segment Mappings
+
+To import app segment mappings:
+
+1. Go to **Infrastructure** > **Connectors** > **Edge** > **Settings**.
+2. On the **ZPA DNS** tile, click **Settings**, and select **Import App Segments CSV**. See image. The **Import App Segments** drawer appears.
+3. In the **Import App Segments** drawer: See image.
+  - Click **Download Template** (recommended) to get a properly formatted CSV file. The template contains the following columns:
+    - **fqdn**
+    - **action (create, delete)**
+    - **description**
+  - In the **Upload CSV File** section, you can either drag and drop the file, or click **Upload a CSV File** and select the updated CSV file for upload.
+4. Click **Validate**. After validation, the drawer displays the entries from your CSV file, and you can remove any incorrect rows if needed. See image.
+  1. Hover over the **Error** icon to see validation error messages for an entry (if any).
+  2. Click the **Delete** icon to remove an entry from the current import task.
+5. Click **Submit**. A confirmation message appears after the settings are saved.
+
+Note the following when importing app segment mappings:
+
+- Wildcard FQDNs are not supported for import.
+- To modify existing entries, update the CSV file and import it again.
+
+[Image: Global settings page showing the tiles and annotation around the Import App Segments CSV option on the ZPA DNS tile.]
+
+[Image: Import App Segments drawer with Download CSV template and upload updated CSV options.]
+
+[Image: Import App Segments drawer to validate, review, and delete rows with errors before importing app segments.]
+
+## Exporting Static Mappings
+
+To export static mappings:
+
+1. Go to **Infrastructure** > **Connectors** > **Edge** > **Settings**.
+2. On the **ZPA DNS** tile, click **Settings**, and select **Export Static Mappings CSV**. See image.
+
+A CSV file containing all current mappings is downloaded. The file includes the following columns: **fqdn**, **ip**, and **description**.
+
+[Image: Global settings page showing the tiles and annotation around the Export Static Mappings CSV option on the ZPA DNS tile.]
+
+## Viewing Static Mappings
+
+To view static mappings:
+
+1. Go to **Infrastructure** > **Connectors** > **Edge** > **Settings**.
+2. On the **ZPA DNS** tile, click **Settings**, and select **View Static Mappings**. See image.
+
+The **Static App Segment to IP Mappings**drawer appears, displaying a table of the current mappings, with the **App Segment**, **IP Address**, and **Description** for each mapping.
+
+See image.
+
+[Image: Global settings page showing the tiles and annotation around the View Static Mappings option on the ZPA DNS tile.]
+
+[Image: Static App Segment To IP Mappings drawer showing the columns for App Segment, IP Address, and Description.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4539,13 +4493,13 @@ To configure route preference:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-08-23T07:06Z","nid":"1525146"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-08-27T14:26Z","nid":"1525146"} -->
 ## Managing Sites
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-sites
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Sites > Managing Sites
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-27T14:26Z
 - Summary: How to add new sites, manage site-specific DNS configurations, and configure static routes in Zero Trust Branch.
 
 Sites are where Zero Trust Branch appliances are deployed. From the Zscaler Admin Console, you can add new sites, manage site-specific DNS configurations, and configure static routes. To learn more about templates, see [Managing Templates](https://help.zscaler.com/zero-trust-branch/managing-templates).
@@ -4562,8 +4516,8 @@ The example shown in this procedure uses a custom standalone template, a new Int
 To add a site, complete the following steps in the Zscaler Admin Console:
 
 1. Go to **Infrastructure > Connectors > Edge > Sites**.
-2. On the **Sites** page, click **Add Site**. See image.
-3. In the **Add Site**panel: See image.
+2. On the **Sites** page, click **Add Site** >**New Site**. See image.
+3. In the **Add Site**drawer: See image.
   - **Name**: Enter a name to identify the site.
   - **Platform**: Select the hardware model or virtual machine for this site.
   - **Template**: Select the template to use for this site. It can be a template that you cloned and customized or a default template.
@@ -4574,16 +4528,18 @@ To add a site, complete the following steps in the Zscaler Admin Console:
     - **None**: Select this option if the site does not have a physical location.
   - **DHCP Service**: This field defines whether the Zero Trust Branch operates as a **DHCP Server** or a **DHCP Relay**. The template populates this field, but you can override it for a site that uses a cloned and customized template.
   - **DHCP Server IP Address**: If the **DHCP Service** field displays **DHCP Relay**, enter the IP address of the DHCP server.
-  - **Gateway 1**: Enter the site-specific information for the primary gateway:
-    - **Name**: Enter a name to identify the primary gateway. By default, the name is appended with `-gw-01`, but you can enter any name to identify the primary gateway.
+  - **Appliance 1**: Enter the site-specific information for the primary appliance:
+    - **Name**: Enter a name to identify the primary appliance. By default, the name is appended with `-gw-01`, but you can enter any name to identify the primary appliance.
+    - **Serial Number**: Select the serial number.
     - **WAN Interface**: Select the WAN interface.
+    - **WAN VLAN ID**: Enter the WAN VLAN ID.
     - **Use DHCP for IP**: Enable to use DHCP to obtain the IP address. If you do not enable DHCP, enter the following details:
     - **WAN IP Address**: Enter the WAN IP address.
     - **WAN Prefix Length**: Enter the WAN prefix length (subnet mask).
     - **Default Gateway IP Address**: Enter the gateway IP address.
-  - **Gateway 2**: If you are using an HA template, a **Gateway 2** section appears. Complete this section for the secondary gateway, as described previously for **Gateway 1**. By default, the gateway name is appended with `-gw-02`, but you can enter any name to identify the secondary gateway.
+  - **Appliance 2**: If you are using an HA template, an **Appliance 2** section appears. Complete this section for the secondary appliance, as described previously for **Appliance 1**. By default, the name is appended with `-gw-02`, but you can enter any name to identify the secondary appliance.
 4. Click **Add**to add the site.
-5. The **Add Site** panel displays the site URL and activation code. Copy both values and paste them somewhere safe. You need them when you activate the appliance. See image.
+5. The **Add Site** drawer displays the site URL and activation code. Copy both values and paste them somewhere safe. You need them when you activate the appliance. See image.
 
 ## Managing Site DNS Settings
 
@@ -4593,17 +4549,19 @@ To review and configure the DNS servers:
 
 1. Go to **Infrastructure > Connectors > Edge > Sites**.
 2. In the **Site Name** column, click the name of the site you want to manage.
-3. Click the **Settings** tab, then click **DNS**.
+3. Click **Settings** in the left-side navigation, then click the **DNS** tab.
 4. View or edit the following fields: See image.
   - **WAN DNS Servers**: Review and configure the WAN DNS servers used for site activation and local system processes.
     - To add a server, enter the IP address and click **Add**.
     - To remove a server, click the **X** next to the DNS address.
+  - **DNS Proxy Service:** Disable this option to turn off the DNS proxy service for the site and gray out **Private DNS Servers** options.
+  - **Dynamic DNS Support:** Enable this option to allow Dynamic DNS (DDNS) update requests from clients to be forwarded to the configured private DNS servers. For example, use this option with Windows clients that dynamically register or update their DNS records in an Active Directory DNS environment.
   - **Private DNS Servers**: Review and configure the private DNS servers used to resolve both private namespaces and public domains.
     - To add a server, enter the IP address and click **Add**.
     - To remove a server, click the **X** next to the DNS address.
 5. Click **Save** to apply any changes.
 
-[Image: Site DNS settings page showing options to review and configure WAN and Private DNS servers.]
+[Image: Enabled DNS Proxy Service Option for Sites]
 
 ## Configuring Static Routes for a Site
 
@@ -4613,7 +4571,7 @@ To configure static routes for a site:
 
 1. Go to **Infrastructure > Connectors > Edge > Sites**.
 2. In the **Site Name** column, click the name of the site you want to configure.
-3. Click the **Settings** tab, then click **Static Routes**.
+3. Click **Routing**in the left-side navigation, then click the **Static Routes** tab.
 4. Click **Add route**. See image.
 5. In the **Add Static Route** window: See image.
   - **Name**: Enter a name for the static route.
@@ -4626,6 +4584,7 @@ To configure static routes for a site:
       - **Gateway:**`**<site-name>**`**-gw-02:** Select interfaces for a gateway to ensure path redundancy.
   - **Nexthop IP Address**: Enter the IP address of the nexthop gateway.
   - **Metrics**: Enter a metric value to determine routing priority if multiple routes exist for the same destination.
+  - **Comment:** Enter a comment for any noteworthy items.
 6. Click **Save**.
 
 You can also enable or disable the **Share Over RT** option directly from the toggle on the **Static Routes** list page.
@@ -4640,9 +4599,9 @@ See image.
 
 [Image: Sites page with Add Site button and list of existing sites]
 
-[Image: Add Site panel populated with values to add a site for a standalone ZT400 appliance using DHCP]
+[Image: Add Site drawer populated with values to add a site for a standalone ZT400 appliance using DHCP]
 
-[Image: Add Site panel showing the activation code and URL]
+[Image: Add Site drawer showing the activation code and URL]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4909,13 +4868,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-08-21T21:06Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-08-27T21:07Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-21T21:06Z
+- Last modified: 2026-08-27T21:07Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -5390,14 +5349,14 @@ You can also create notifications using the Ransomware Kill Switch. To learn mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-bonding-interfaces","lastmod":"2026-08-12T19:36Z","nid":"1538749"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-bonding-interfaces","lastmod":"2026-08-28T04:08Z","nid":"1538749"} -->
 ## Understanding Bonding Interfaces
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-bonding-interfaces
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Templates > Bonding Interfaces > Understanding Bonding Interfaces
-- Last modified: 2026-08-12T19:36Z
-- Summary: Information on bonding interfaces on the LAN side in [variable:zero-trust-branch]].
+- Last modified: 2026-08-28T04:08Z
+- Summary: Information on bonding interfaces on the LAN side in Zero Trust Branch.
 
 Zero Trust Branch bonding interfaces empower organizations to seamlessly combine high availability, increased bandwidth, and streamlined network management in distributed branch, factory, and data center environments. The two bonding interfaces, ebond0 and ebond1, are logical interfaces created by combining multiple physical network interfaces (ports). By leveraging bonding interfaces, you can ensure that the traffic is load balanced and protected against link failures, while administrative overhead is greatly reduced through centralized, template-driven configuration.
 
@@ -5408,7 +5367,7 @@ The following are key benefits of using bonding interfaces:
 - **Enhanced Performance**: Load balancing using 5-tuple hashing improves network throughput and efficiency.
 - **Simplified Configuration**: Network admins can configure settings once on the logical port channel interface, and those settings are then automatically applied to the individual physical member interfaces.
 
-### **Limitations**
+## Limitations
 
 The following are some of the limitations with bonding interfaces:
 
@@ -5416,8 +5375,8 @@ The following are some of the limitations with bonding interfaces:
 - Members must have the same port speed.
 - Multiple tags (Q-in-Q) are not supported.
 - Bonding is supported on the primary WAN interface for untagged interfaces only. VLAN-tagged subinterfaces on the primary WAN interface are not supported.
-- An eBond can connect to a port-channel on a switch stack or Multi-Chassis Link Aggregation (MLA), virtual Port Channel (vPC), or Virtual Switching System (VSS) provided it is a single Layer 2 domain presenting one logical Layer 3 next hop (Switched Virtual Interface (SVI)).
-- All Bonding interface member links must terminate on the same Zero Trust Branch node.
+- An ebond can connect to a port channel on a switch stack or Multi-Chassis Link Aggregation (MLAG), virtual Port Channel, or Virtual Switching System (VSS) provided it is a single Layer 2 domain presenting one logical Layer 3 nexthop (Switched Virtual Interface).
+- All bonding interface member links must terminate on the same Zero Trust Branch node.
 
 ## Topology
 
@@ -6684,13 +6643,13 @@ Zero Trust Branch provides the following tagging options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-08-12T14:36Z","nid":"1529460"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-08-28T08:18Z","nid":"1529460"} -->
 ## Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
 
 - Source: https://help.zscaler.com/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Installation > Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
-- Last modified: 2026-08-12T14:36Z
+- Last modified: 2026-08-28T08:18Z
 - Summary: Instructions for wall and rack mounting the Zero Trust Branch appliances.
 
 After you receive the Zscaler Zero Trust Branch appliance, you can mount the Zero Trust Branch appliance as follows:
@@ -6757,11 +6716,7 @@ The package includes the following items:
 3. 1x USB serial console cable
 4. 1x RJ45 cable
 5. 2x rack mounting brackets
-6. 1x adapter holder
-7. 1x adapter bracket
-8. 6x A screws for attaching the brackets to the appliance
-9. 4x B screws for mounting the appliance on the rack
-10. 4x cage nuts
+6. 6x A screws for attaching the brackets to the appliance
 
 See image.
 
@@ -6769,12 +6724,9 @@ To rack mount the Zero Trust Branch ZT600:
 
 1. Align one ear bracket to the screw holes on the side panel of the appliance and attach the bracket using three A screws. See image.
 2. Secure the other ear bracket to the other side of the appliance.
-3. Attach the adapter holder to the left side of the appliance and secure it with two A screws. See image.
-4. Place the adapter in the adapter holder and connect the barrel power connector to the appliance's DC input. See image.
-5. Position the adapter bracket so that the holes align with the two B screws. See image.
-6. Ensure that the adapter's cable is connected and secured. See image.
-7. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. Hold the appliance and lift carefully to insert the appliance into the rack. See image.
-8. Connect the necessary cables to the designated ports of the appliance. To learn more, see [Zero Trust Branch Physical Port Mapping](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping#ZT600).
+3. Ensure that the adapter's cable is connected and secured. See image.
+4. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. Hold the appliance and lift carefully to insert the appliance into the rack. See image.
+5. Connect the necessary cables to the designated ports of the appliance. To learn more, see [Zero Trust Branch Physical Port Mapping](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping#ZT600).
 
 - Package Contents
 - Wall Mount the Appliance
@@ -6787,11 +6739,7 @@ The package includes the following items:
 3. 1x USB serial console cable
 4. 2x RJ45 cables
 5. 2x rack mounting brackets
-6. 1x adapter holder
-7. 1x adapter bracket
-8. 6x A screws for attaching the brackets to the appliance
-9. 4x B screws for mounting the appliance on the rack
-10. 4x cage nuts
+6. 6x A screws for attaching the brackets to the appliance
 
 See image.
 
@@ -6820,12 +6768,9 @@ To rack mount the Zero Trust Branch ZT800:
 
 1. Align one ear bracket to the screw holes on the side panel of the appliance and secure the bracket using three A screws. See image.
 2. Secure the other ear bracket to the other side of the appliance.
-3. Attach the adapter holder to the side of the appliance and secure it with two A screws. See image.
-4. Place the adapter in the adapter holder and connect the barrel power connector to the appliance's DC input. See image.
-5. Then position the adapter bracket so that the holes align with the two B screws. See image.
-6. Ensure that the adapter's cable is connected and secured. See image.
-7. Hold the appliance and lift carefully to insert the appliance into the rack. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. See image.
-8. Connect the necessary cables to the designated ports of the appliance. To learn more, see [Zero Trust Branch Physical Port Mapping](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping#ZT800).
+3. Ensure that the adapter's cable is connected and secured. See image.
+4. Hold the appliance and lift carefully to insert the appliance into the rack. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. See image.
+5. Connect the necessary cables to the designated ports of the appliance. To learn more, see [Zero Trust Branch Physical Port Mapping](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping#ZT800).
 
 - Package Contents
 - Rack Mount the Appliance
@@ -6891,12 +6836,6 @@ The following table provides the environmental and power specifications for Zero
 
 [Image: Attaching ear bracket to side panel of appliance]
 
-[Image: Placing the power adapter and connecting it to the appliance]
-
-[Image: Placing the adapter in the adapter holder and positioning the adapter bracket]
-
-[Image: Attaching adapter holder to left side of appliance]
-
 [Image: Securing the adapter cable in ZT600]
 
 [Image: Installing the appliance to the rack]
@@ -6918,12 +6857,6 @@ The following table provides the environmental and power specifications for Zero
 [Image: Locking four bracket screws into position]
 
 [Image: Securing ear bracket to the side panel of the appliance]
-
-[Image: Placing the power adapter and connecting it to the appliance]
-
-[Image: Positioning adapter and adapter holder]
-
-[Image: Attaching adapter holder to appliance]
 
 [Image: Securing the adapter cable in ZT800]
 

@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 181
 
 ---
@@ -689,13 +689,13 @@ For each evidence rule, you can view the following details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-identity-inventory","lastmod":"2026-07-02T02:13Z","nid":"1529532"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-identity-inventory","lastmod":"2026-08-29T07:06Z","nid":"1529532"} -->
 ## About Identity Inventory
 
 - Source: https://help.zscaler.com/dspm/about-identity-inventory
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > About Identity Inventory
-- Last modified: 2026-07-02T02:13Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information about the Identity Inventory, which lists all identities within the cloud environment, along with details about the type and number of data stores that a user has access to.
 
 An identity represents a user, device, application, or service that can access data stores containing sensitive data in the cloud environment. While securing sensitive data, it is crucial to control and manage the permissions assigned to identities, as excessive permissions and insecure configurations could lead to security breaches. DSPM detects identities in all the onboarded cloud accounts (AWS, Azure, and GCP), including [managed and unmanaged databases, and Snowflake.](https://help.zscaler.com/dspm/viewing-graph-databases)
@@ -935,13 +935,13 @@ On the On-Premises Scanner Integrations page (Policies > Common Configuration > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-resource-inventory","lastmod":"2026-07-02T02:36Z","nid":"1478076"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-resource-inventory","lastmod":"2026-08-29T07:06Z","nid":"1478076"} -->
 ## About Resource Inventory
 
 - Source: https://help.zscaler.com/dspm/about-resource-inventory
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > About Resource Inventory
-- Last modified: 2026-07-02T02:36Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information about the Resource Inventory page in the Zscaler Admin Console
 
 Sensitive data such as personally identifiable information (PII), protected health information (PHI), financial records, social security number, etc., are confidential and valuable information that must be protected and kept secure at all times. Not knowing where the sensitive data is stored or not protecting this data is a huge risk, which could lead to data breaches such as hackers accessing valuable data and exploiting the vulnerabilities in the system. In addition, it could also lead to financial and compliance issues. Therefore, it is crucial to know where your sensitive data is stored within your cloud environment, so you can implement strong security controls to keep the data secure.
@@ -1657,13 +1657,13 @@ On the Integrations page (Policies > Common Configuration > DSPM > Integrations)
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-account-details-and-deploying-templates","lastmod":"2026-07-02T00:35Z","nid":"1520286"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-account-details-and-deploying-templates","lastmod":"2026-08-29T07:06Z","nid":"1520286"} -->
 ## Adding Account Details and Deploying Templates
 
 - Source: https://help.zscaler.com/dspm/adding-account-details-and-deploying-templates
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Account > Adding Account Details and Deploying Templates
-- Last modified: 2026-07-02T00:35Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information on how to add target accounts and deploy templates for a standalone AWS account.
 
 After deploying the [orchestrator template](https://help.zscaler.com/dspm/deploying-orchestrator-template), when [onboarding a standalone AWS account](https://help.zscaler.com/dspm/onboarding-single-aws-account), add the target accounts that must be monitored and deploy the monitoring and CloudTrail templates that include policies and permissions providing DSPM with read-only access to the target accounts.
@@ -2962,13 +2962,13 @@ To add custom tags:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-organization-details","lastmod":"2026-07-01T23:45Z","nid":"1525716"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-organization-details","lastmod":"2026-08-29T07:06Z","nid":"1525716"} -->
 ## Adding Organization Details
 
 - Source: https://help.zscaler.com/dspm/adding-organization-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Adding Organization Details
-- Last modified: 2026-07-01T23:45Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information about adding AWS organization details in the Zscaler Admin Console.
 
 The first step in the [onboarding process](https://help.zscaler.com/dspm/onboarding-aws-organization) is to provide the AWS organization details in the Zscaler Admin Console. DSPM uses these details to generate a template to connect to the AWS organization.
@@ -8585,13 +8585,13 @@ The account is deleted from the DSPM Admin Portal.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/deploying-aws-tree-discovery-template","lastmod":"2026-07-01T23:04Z","nid":"1525746"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/deploying-aws-tree-discovery-template","lastmod":"2026-08-29T07:06Z","nid":"1525746"} -->
 ## Deploying the AWS Tree Discovery Template
 
 - Source: https://help.zscaler.com/dspm/deploying-aws-tree-discovery-template
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Deploying the AWS Tree Discovery Template
-- Last modified: 2026-07-01T23:04Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information on how to deploy the tree discovery template in the AWS organization.
 
 After adding the [organization details](https://help.zscaler.com/dspm/adding-organization-details) for the [onboarding process](https://help.zscaler.com/dspm/onboarding-aws-organization), deploy the tree discovery template. This template includes the policies and permissions required to create IAM roles in the AWS root account, along with the Cloudtrail details required to perform incremental [data scans](https://help.zscaler.com/dspm/about-scan-settings). The IAM roles provide DSPM with read-only access to discover the resources in the AWS organization.
@@ -9444,13 +9444,13 @@ Run the following commands:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/disabling-sensitivity-setting-dlp-engines","lastmod":"2026-07-08T22:00Z","nid":"1479346"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/disabling-sensitivity-setting-dlp-engines","lastmod":"2026-08-29T07:06Z","nid":"1479346"} -->
 ## Disabling the Sensitivity Settings for DLP Engines
 
 - Source: https://help.zscaler.com/dspm/disabling-sensitivity-setting-dlp-engines
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data Classification Settings > Disabling the Sensitivity Settings for DLP Engines
-- Last modified: 2026-07-08T22:00Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: How to disable the data sensitivity setting for DLP engines specific to DSPM.
 
 Data sensitivity determines how susceptible the data is along with the level of risk associated with it, which could lead to data breaches. For example, the sensitivity level is high for personally identifiable information (PII) or credit card numbers, moderate for email addresses, and low for data that does not have any sensitive or confidential information.
@@ -13038,13 +13038,13 @@ To select the services:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-vulnerabilities-aws-accounts","lastmod":"2026-07-01T23:37Z","nid":"1486696"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-vulnerabilities-aws-accounts","lastmod":"2026-08-29T07:06Z","nid":"1486696"} -->
 ## Managing Vulnerabilities in AWS Accounts
 
 - Source: https://help.zscaler.com/dspm/managing-vulnerabilities-aws-accounts
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Vulnerability Scanning > Managing Vulnerabilities in AWS Accounts
-- Last modified: 2026-07-01T23:37Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information about vulnerability scanning of AWS accounts in the Zscaler Admin Console.
 
 DSPM scans your Amazon Web Services (AWS) cloud accounts to detect vulnerabilities and displays the scan results on the [Resource Inventory page](https://help.zscaler.com/dspm/about-data-inventory).
@@ -13117,13 +13117,13 @@ DSPM supports the vulnerability scanning of Azure accounts located in the follow
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/onboarding-aws-organization","lastmod":"2026-07-07T09:31Z","nid":"1474896"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/onboarding-aws-organization","lastmod":"2026-08-29T07:06Z","nid":"1474896"} -->
 ## Onboarding an AWS Organization
 
 - Source: https://help.zscaler.com/dspm/onboarding-aws-organization
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Onboarding an AWS Organization
-- Last modified: 2026-07-07T09:31Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information on how to onboard an AWS organization in the Zscaler Admin Console.
 
 [Watch a video about Onboarding an AWS Organization.](https://fast.wistia.net/embed/iframe/08mtpwfaqc)
@@ -16130,13 +16130,13 @@ The DLP engine running in DSPM automatically classifies each document (file) usi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/understanding-dlp-engines-and-dictionaries","lastmod":"2026-07-01T23:20Z","nid":"1474716"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/understanding-dlp-engines-and-dictionaries","lastmod":"2026-08-29T07:06Z","nid":"1474716"} -->
 ## Understanding DLP Engines and Dictionaries
 
 - Source: https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Understanding DLP Engines and Dictionaries
-- Last modified: 2026-07-01T23:20Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information about the DLP engines and dictionaries that are used in DSPM to scan and detect sensitive data.
 
 A DLP engine is a security solution that comprises a collection of one or more DLP dictionaries. A DLP dictionary contains a set of patented algorithms that are designed to detect specific types of information in your cloud resources, users' traffic, and activities. DLP engines are used to identify sensitive data and prevent data breaches. By using a DLP engine, you can create policy rules to detect content that encompasses more than one dictionary. For example, if your organization wants to protect personally identifiable information (PII) and credit card numbers, you can create a rule using a DLP engine that contains the PII and Credit Cards dictionaries. The Zscaler service provides predefined DLP engines and supports custom DLP engines.

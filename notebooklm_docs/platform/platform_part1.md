@@ -1,7 +1,7 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 261
 
 ---
@@ -1548,13 +1548,13 @@ To add a new group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-06-24T06:30Z","nid":"1499101"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-08-28T08:42Z","nid":"1499101"} -->
 ## Adding Users
 
 - Source: https://help.zscaler.com/authentication-service/adding-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Adding Users
-- Last modified: 2026-06-24T06:30Z
+- Last modified: 2026-08-28T08:42Z
 - Summary: How to add user accounts for Authentication Service.
 
 You can add individual user accounts in Authentication Service. A user account can belong to up to 1,024 groups. You can use a [CSV file to add multiple users](https://help.zscaler.com/zidentity/importing-user-details-csv-file) at once.
@@ -2558,13 +2558,13 @@ If you want to change this default behavior and have users redirected to Experie
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-08-09T23:14Z","nid":"1499421"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499421"} -->
 ## Configuring Microsoft Entra ID as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-microsoft-entra-id-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Microsoft Entra ID as an External IdP
-- Last modified: 2026-08-09T23:14Z
+- Last modified: 2026-08-24T21:06Z
 - Summary: How to configure Microsoft Entra ID as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Microsoft Entra ID as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Entra ID as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -3404,13 +3404,13 @@ To verify:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-08-09T23:46Z","nid":"1499411"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499411"} -->
 ## Configuring Okta as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-okta-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Okta as an External IdP
-- Last modified: 2026-08-09T23:46Z
+- Last modified: 2026-08-24T21:06Z
 - Summary: How to configure Okta as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Okta as an external Identity Provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Okta as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -4609,13 +4609,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-08-09T23:40Z","nid":"1499471"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499471"} -->
 ## Configuring PingFederate as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingfederate-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingFederate as an External IdP
-- Last modified: 2026-08-09T23:40Z
+- Last modified: 2026-08-24T21:06Z
 - Summary: How to configure PingFederate as an external IdP for Authentication Service.
 
 This guide provides information on how to configure PingFederate as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure PingFederate as an external IdP to enable SSO to Authentication Service using the Security Assertion Markup Language (SAML) authentication protocol. You can provision users to Authentication Service from PingFederate using System for Cross-domain Identity Management (SCIM) provisioning.
@@ -5256,13 +5256,13 @@ To change the default redirection, contact [Zscaler Support](https://help.zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-08-09T23:18Z","nid":"1499331"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499331"} -->
 ## Configuring PingOne as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingone-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingOne as an External IdP
-- Last modified: 2026-08-09T23:18Z
+- Last modified: 2026-08-24T21:06Z
 - Summary: This guide provides information on how to configure PingOne as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure PingOne as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -16239,64 +16239,166 @@ After the drill-down hierarchy is configured, you can click the widget to drill 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-07-30T11:20Z","nid":"1541704"} -->
-## Configuring Entity Unification
+<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-drawers","lastmod":"2026-08-25T12:10Z","nid":"1542111"} -->
+## Configuring Entity Drawers
 
-- Source: https://help.zscaler.com/unified/configuring-entity-unification
+- Source: https://help.zscaler.com/unified/configuring-entity-drawers
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Entity Unification
-- Last modified: 2026-07-30T11:20Z
-- Summary: How to configure entity unification rules to merge duplicate records.
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Configuring Entity Drawers
+- Last modified: 2026-08-25T12:10Z
+- Summary: How to configure entity drawers for the applications in the Security Operations Platform.
 
-Ingesting data from multiple sources often leads to duplicate records that represent the same real-world entity. As part of the broader data unification process, entity unification focuses on data normalization by identifying and merging these duplicates to establish a single, trusted source of truth. You can create entity unification rules that specify how records are recognized as duplicates and the conditions under which they are merged. This step is especially critical for asset deduplication, and it serves as a foundation for consistent and reliable data across systems. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
+The Security Operations Platform (SecOps Platform) provides a default configuration for displaying the main entity drawers in each of its applications:
 
-## Configuring Entity Unification Rule Sets
+- Unified Vulnerability Management (UVM): Tickets, Assets, Findings, and Exceptions
+- Asset Exposure Management (AEM): Assets, Violation Tickets, Policy Violations, and Users
+- SOC Workbench: Incidents, Alerts, Assets, and Users
+- Identity Protection: Users, Identity Findings, Tenants, and Alerts
 
-An entity's unification rule set is a collection of individual rules designed to cluster duplicate entity records into a single merged entity based on specific conditions according to your organization's business logic. Within an entity unification rule set, you create the individual rules ("if-then" logic statements) that define how the source data should be clustered into a single entity. For example, you can create a rule to merge all Windows assets that share the same asset hostname into a single asset.
+You can customize the fields and organize the information layout within the entity drawer to meet your organization's specific needs.
 
-For access to entity unification, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-managing-role-permissions) and [Assigning Roles to Users](https://help.zscaler.com/unified/assigning-roles-users).
+To configure a drawer:
+
+1. In the SecOps Platform Admin Portal, go to the application (e.g., click **Vulnerabilities** for UVM).
+2. In the left-side navigation, click **Settings** > **UI Config**. The drawer configuration page opens (e.g., **Ticket UI Configuration** for UVM). See image.
+3. From the **Entity**drop-down menu, select the entity drawer you want to configure (e.g., **Ticket**, **Asset**, **Finding**, **Exception**for UVM).
+4. From the **Type**drop-down menu, select the type of entity. The available fields vary depending on the entity (e.g., **CVE**, **DEFAULT**, **MISCONFIG** for the Ticket drawer in UVM) and whether you've added your own types (see Creating Types).
+5. (Optional) Select the **Severity** checkbox to display the severity level in the top panel of the entity drawer.
+6. (Optional) Select the **Status Timeline** checkbox to display the status timeline in the top panel of the entity drawer. See image.
+7. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+## Creating Types
+
+You can create a new type for the different entities.
+
+To create a new type:
+
+1. From the **Entity**drop-down menu, select the entity you want to configure (e.g., **Ticket**).
+2. From the **Type**drop-down menu, select the type of entity (e.g., **CVE**, **MISCONFIG**), and use it as a template to create a new type. The original types are not affected.
+3. Configure the fields and settings as needed.
+4. Click **Save as New Type**.
+5. Enter a name for the new type.
+6. Click **Apply**. The new type is added to the **Type** drop-down menu.
+
+## Creating and Managing Tabs
+
+For each entity drawer, you can manage system tabs and also create and configure custom tabs. Each tab corresponds to a configurable element in the entity drawer. You can perform the following actions when customizing an entity drawer:
+
+- Add Tabs
+- Rearrange Tabs
+- Delete Tabs
+- Restore System Tabs
+
+## Customizing Fields in Tabs
+
+You can customize the presentation of information within each tab and add new fields to a tab.
+
+The following table lists the differences between configuring system tabs and custom tabs.
+
+| **Tab Type** | **Available Configurations** |
+| --- | --- |
+| System Tabs | Rearrange tabs by dragging them to a new position.; Add new fields.; Delete tabs.; Restore deleted tabs.; For the Details tab, you can specify whether fields appear on the left or right columns.; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
+| Custom Tabs | Edit tabs, sections, and fields.; Rearrange tabs by dragging them to a new position.; Add new fields.; Delete tabs (cannot be restored later).; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
+
+When customizing fields, you can perform the following actions:
+
+- Add Custom Fields
+- Rearrange Fields
+- Delete Fields
+- Edit Custom Fields
+
+After completing the configuration of the settings, click **Save**.
+
+To add tabs to an entity drawer:
+
+1. Click **Add Tab**. See image.
+2. Click **Add Custom Tab**. See image. A dialog window appears.
+3. In the dialog window: See image.
+  1. **Tab Name**: Enter a name for the tab.
+  2. **Tab main projection**: Select the entity from the drop-down menu that the tab should display data from.
+  3. **Should show the tab by field**: (Optional) Select a field to set the tab visibility. This tab only appears when the selected field is populated.
+  4. **Type**: Select the tab type.
+    - **Fields**: Data is displayed as a list of fields.
+    - **2 Columns**: Data is displayed in two columns.
+    - **Table**: Data is displayed in a table.
+    - **Text**: Data is displayed as plain text.
+4. Click **Apply**.
+5. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+To rearrange the order of tabs:
+
+1. Hover over the grid icon to drag the tab to the desired position. See image.
+2. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+To delete a tab, hover over the tab and click the **Delete**icon.
+
 See image.
 
-[Image: The Model Management resource with all permissions enabled]
+You can restore system tabs that were deleted.
 
-To create a unification rule set:
+1. Click **Add Tab**. See image. A list of deleted system tabs appears.
+2. Select the deleted tab from the list.
+3. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
 
-1. In the SecOps Platform Admin Portal, go to **Configure**> **Data Unification**> **Entities**. See image.
-2. Locate the entity you want to create the unification rule set for, and click **Merge**. See image. The **Merge**page appears.
-3. On the **Merge** page, click **New Rule**. The **Add Merge Rule** drawer opens.
-4. In the **Add Merge Rule** drawer:
-  - **Name**: Enter a name for the rule.
-  - **If**: Define the rule condition that determines which records the rule should apply to. See image.
-    1. Select a field from the drop-down menu on which the condition should be based. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. For example, when creating rules for the **Asset** entity, available fields include **Asset** fields (e.g., **Asset Name**, **Asset ID**), and fields with a relation to the **Asset** entity (e.g., **Application ID**, **Application Name**).
-    2. Select an operator from the drop-down menu. The available operators vary depending on the field type, indicated to the left of the field name.
-    3. Enter the value to which the rule should apply (e.g., `Windows`).
-    4. (Optional) Use **AND**/**OR** logic to define compound rules:
-      - **AND** merges entities only if they meet all conditions in the rule.
-      - **OR** merges entities if they meet any of the conditions in the rule.
-  - **Then**: Select at least one field according to which entities that meet your conditions should be merged. All entities with the same value are merged into a single entity. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. When merging entities based on multiple fields, the fields are evaluated using a logical **AND**relationship. This means that entities are merged only if the values in each of the specified fields match (e.g., the values in the **Asset ID** field must match, and the values in the **Asset Type** field must match for the record to merge). See image.
-  - (Recommended) Select the **Exclude Nulls from Merge** checkbox to avoid merging entities with null values in the defined fields.
-  - Click **Save** to save the rule. Repeat the process to add as many rules as necessary for the entity.
-5. Save the rule set to complete the process in one of the following ways: See image. A rule set that includes at least one conditional merging rule must also include a fallback rule, otherwise the rule set cannot be saved. The fallback rule specifies a single field to use for merging entities without applying any conditions. It ensures a default merging method is always in place, preventing data loss or conflicts.
-  - Click **Save** to save the rule set. Rules will apply the next time data is ingested into your account.
-  - From the **Save** drop-down menu, click **Save & Run** to save the rule set and immediately apply the rules to the data in your account.
+You can add a new field to a system tab or to a custom tab.
 
-Your saved rule sets appear on the Data Unification - Entities page, where you can view, edit, and manage them as needed. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification).
+To add a new custom field:
 
-[Image: How to access the entities page]
+1. Click **Add Field**. See image. A dialog window appears.
+2. In the dialog window: See image.
+  1. **Display Name**: Enter a name for the field.
+  2. **Field Name**: Select a field from the drop-down menu.
+  3. **Link Field**: (Optional) Select a field from the drop-down menu. If a field contains a valid URL, the hyperlink is populated within the field on the ticket or asset. The **Field Name**text is displayed as a clickable hyperlink.
+  4. (Optional) Select the **Display When Empty**checkbox to display the field even if no value is present for the field.
+3. Click **Apply**.
 
-[Image: Merge button highlighted on entities page]
+To rearrange the order of fields on the tab or section, hover over the grid icon to drag the field to the desired position.
 
-## When Unification Rules Run
+See image.
 
-Unification rules run when data related to the entity is ingested, directly processed, or indirectly impacted by a different processed entity. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
+To delete a field, click the **Delete**icon.
 
-## Rule Order in Entity Unification Rule Set
+See image.
 
-The rules' order of appearance doesn't affect the order of their application. Each data point is evaluated against all rules, even if one rule has already been satisfied.
+To edit a custom field:
 
-[Image: Example if conditions in merge rule]
+1. Hover over the tile of the field you want to edit.
+2. Click the **Edit**icon. See image.
+3. Make the necessary changes, and click **Apply**.
 
-[Image: Example then statements in merge rule]
+You cannot edit a system tab, including the name, type, and default fields. These can only be rearranged or deleted.
 
-[Image: Click Save or Save and Run for your ruleset]
+[Image: The Ticket UI Configuration page in UVM]
+
+[Image: Severity and status in a ticket drawer]
+
+[Image: UI Configuration page with an option to add a new tab]
+
+[Image: Adding a custom tab]
+
+[Image: Adding a new tab]
+
+[Image: Hover and rearrange tabs]
+
+[Image: Deleting a tab from an entity drawer]
+
+[Image: UI Configuration page with an option to add a new tab]
+
+[Image: Adding a field to a tab]
+
+[Image: Adding a new field in a tab]
+
+[Image: Moving a field within a tab]
+
+[Image: Delete option in a tab]
+
+[Image: Editing a field in a tab]
 <!-- /ZS-ARTICLE -->

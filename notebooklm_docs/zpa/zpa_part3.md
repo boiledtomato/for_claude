@@ -1,8 +1,8 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
-Articles in this file: 118
+Generated: 2026-08-31 03:58 UTC
+Articles in this file: 119
 
 ---
 
@@ -397,20 +397,20 @@ Zscaler modifies HTTP headers for Browser Access applications in the following w
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-access-and-splunk-deployment-guide","lastmod":"2026-04-17T11:32Z","nid":"1485466"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-access-and-splunk-deployment-guide","lastmod":"2026-08-25T10:59Z","nid":"1485466"} -->
 ## Private Access and Splunk Deployment Guide
 
 - Source: https://help.zscaler.com/zpa/private-access-and-splunk-deployment-guide
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > SIEM Integration for LSS > Private Access and Splunk Deployment Guide
-- Last modified: 2026-04-17T11:32Z
+- Last modified: 2026-08-25T10:59Z
 - Summary: How to configure LSS and a Splunk SIEM so LSS can stream logs to Splunk.
 
 This deployment guide provides information on configuring Private Access (ZPA) and Splunk, downloading the Zscaler Splunk App and Zscaler Technical Add-On, the Zscaler Splunk App requirements, and how to add the log sources in the Splunk SIEM. To learn more about the Zscaler Splunk App, including instructions on how to integrate Internet & SaaS (ZIA) and Private Access, see [Zscaler and Splunk Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-splunk-deployment-guide).
 
 In Private Access, the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service) uses a log receiver and an [App Connector](https://help.zscaler.com/zpa/about-connectors) to stream traffic logs in real time from the log receiver to your security information and event management (SIEM), such as Splunk, enabling you to receive information about App Connectors and users.
 
-While the LSS is used to capture log data about App Connectors and users in Private Access using a log receiver, the Nanolog Streaming Service (NSS) resides in Internet & SaaS and allows streaming of traffic logs from the Zscaler Nanolog to your SIEM. To learn more, see [About Nanolog Streaming Service](https://help.zscaler.com/zia/about-nanolog-streaming-service) and the [Zscaler and Splunk Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-splunk-deployment-guide).
+While the LSS is used to capture log data about App Connectors and users in Private Access using a log receiver, the Nanolog Streaming Service (NSS) resides in Internet & SaaS and allows streaming of traffic logs from the Zscaler Nanolog to your SIEM. To learn more, see [Understanding Nanolog Streaming Service](https://help.zscaler.com/zia/about-nanolog-streaming-service).
 
 - Step 1:[Configure an LSS Log Receiver](https://help.zscaler.com/zpa/configuring-log-receiver)
 - Step 2: Download the Zscaler Splunk App and the Zscaler Technical Add-On from Splunkbase
@@ -2701,13 +2701,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-08-20T15:28Z","nid":"1534308"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-08-26T09:28Z","nid":"1534308"} -->
 ## Private Cloud Controller Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Cloud Controller Release Notes > Private Cloud Controller Release Summary (2026)
-- Last modified: 2026-08-20T15:28Z
+- Last modified: 2026-08-26T09:28Z
 - Summary: Zscaler Private Access (ZPA) Private Cloud Controller release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Cloud Controller version.
@@ -3522,13 +3522,13 @@ The following table provides a list of Linux capabilities that the container use
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-google-cloud-platform","lastmod":"2026-08-21T14:10Z","nid":"1507506"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-google-cloud-platform","lastmod":"2026-08-24T09:49Z","nid":"1507506"} -->
 ## Private Service Edge Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-google-cloud-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Google Cloud Platform
-- Last modified: 2026-08-21T14:10Z
+- Last modified: 2026-08-24T09:49Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Google Cloud Platform (GCP), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an Private Service Edge for Private Access (ZPA) on Google Cloud Platform (GCP), and post-deployment verification checks. For general information regarding Private Service Edge deployment for Private Access, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges).
@@ -3536,7 +3536,7 @@ This deployment guide provides information on prerequisites, how to deploy an Pr
 - Step 1: Make Sure You Have Met All Private Service Edge Deployment Prerequisites
 - Step 2: Deploy the Private Service Edge on GCP
 - Step 3: Configure the Networking for the Deployed Private Service Edge
-- Step 4: Verify the status of the deployed Private Service Edge
+- Step 4: Verify the Status of the Deployed Private Service Edge
 
 After you have verified your deployment, you can perform additional tasks to maintain the system (i.e., changing your Private Service Edge console admin credentials or performing system software updates). To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components).
 
@@ -3694,7 +3694,7 @@ To deploy an Private Service Edge using an Private Service Edge instance:
 4. (Optional) If you want to add a startup script with a provisioning key, you need to add the provisioning key as a secret:
   1. Go to **Security** > **Data Protection** > **Secret Manager**. The **Secret Manager** page appears. See image.
   2. Click **Create secret**. The **Create secret** page appears.
-  3. In the **Create secret**page: See image.
+  3. On the **Create secret**page: See image.
     1. **Name**: Enter the name of the secret (e.g., `provisioning_key`).
     2. **Secret value**: Enter the value for the secret (e.g., `<your provisioning key>`). You can acquire a provisioning key when creating a Private Service Edge in the Zscaler Admin Console. To learn more, see [About Private Service Edge Provisioning Keys](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys).
   4. Click **Create secret**.
@@ -3833,7 +3833,7 @@ See image.
 1. On the **Create instance group** page:
   1. **Instance group name**: Enter a name for the instance group.
   2. **Description**: Enter a description for the instance group.
-  3. On the **Instance template**drop-down menu, select an existing instance template, or click **Create a new instance template**to create a new instance template. See instructions.
+  3. From the **Instance template**drop-down menu, select an existing instance template, or click **Create a new instance template**to create a new instance template. See instructions.
 2. Select the region and zone from the drop-down menu.
 3. Click **Configure** **autoscaling**:
   1. Select a minimum and maximum number of instances as 2 and 4, respectively.
@@ -3843,7 +3843,7 @@ See image.
 4. Click **Create**.
 
 1. **Name**: Enter a name for the instance template.
-2. Machine configuration: Enter the details for the configuration.
+2. **Machine configuration**: Enter the details for the configuration.
 3. Under **Boot disk**, click **Change**. See image.
 4. Select the customized zpa-service-edge image that was taken from GCP Marketplace. To learn more, see [Zscaler Private Service Edge - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-service-edge).
 5. Click **Select**. The **Boot disk** page closes.
@@ -7083,13 +7083,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2025","lastmod":"2026-07-28T10:45Z","nid":"1515686"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2025","lastmod":"2026-08-25T08:35Z","nid":"1515686"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2025
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-07-28T10:45Z
+- Last modified: 2026-08-25T08:35Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2025.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -7099,13 +7099,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-08-21T09:51Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-08-27T15:42Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-21T09:51Z
+- Last modified: 2026-08-27T15:42Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -9116,13 +9116,13 @@ Fill in the additional fields if necessary.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/service-edge-deployment-prerequisites","lastmod":"2026-08-21T13:48Z","nid":"1484511"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/service-edge-deployment-prerequisites","lastmod":"2026-08-24T09:47Z","nid":"1484511"} -->
 ## Private Service Edge Deployment Prerequisites
 
 - Source: https://help.zscaler.com/zpa/service-edge-deployment-prerequisites
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Prerequisites
-- Last modified: 2026-08-21T13:48Z
+- Last modified: 2026-08-24T09:47Z
 - Summary: Detailed specifications and sizing information, platform prerequisites, and best practices for Private Service Edges for Private Access (ZPA), including information on various operating system (OS) security features, firewall requirements, and interoperability guidelines that must be addressed prior to Private Service Edge deployment.
 
 Before deploying a Private Service Edge for Private Access (ZPA) on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
@@ -9909,13 +9909,13 @@ For SAP, you can configure DNS search domains for FQDNs in the Zscaler Admin Con
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-app-connectors","lastmod":"2026-06-25T16:04Z","nid":"1484651"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-app-connectors","lastmod":"2026-08-24T15:07Z","nid":"1484651"} -->
 ## Troubleshooting App Connectors
 
 - Source: https://help.zscaler.com/zpa/troubleshooting-app-connectors
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Managing & Troubleshooting > Troubleshooting App Connectors
-- Last modified: 2026-06-25T16:04Z
+- Last modified: 2026-08-24T15:07Z
 - Summary: Detailed information on how to troubleshoot issues with App Connectors.
 
 This article provides troubleshooting information and guidelines about App Connectors. To learn more about App Connectors, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors). To configure App Connectors, see [Configuring App Connectors](https://help.zscaler.com/zpa/configuring-connectors).
@@ -10274,7 +10274,7 @@ Before wiping and rebuilding the App Connector, you need to:
 If needed, you can raise the maximum enrollment count. To learn more, see [Editing App Connector Provisioning Keys](https://help.zscaler.com/zpa/about-connectorprovisioning/edit).
 
 1. Stop the App Connector. To learn more, see [Start, Stop, or Restart an App Connector](https://help.zscaler.com/zpa/managing-deployed-connectors#Starting).
-2. Wipe the configuration directory. [admin@zpa-connector ~]$ sudo rm /opt/zscaler/var/*
+2. Wipe the configuration directory. `[admin@zpa-connector]$ sudo su [sudo] password for admin: [root@zpa-connector admin]# rm -rf /opt/zscaler/var/*`
 3. Create a provisioning key file with 644 permissions. [admin@zpa-connector ~]$ sudo touch /opt/zscaler/var/provision_key [admin@zpa-connector ~]$ sudo chmod 644 /opt/zscaler/var/provision_key
 4. Copy the provisioning key from the Zscaler Admin Console and use an editor to paste it into the file. To learn more, see [About the App Connector Provisioning Keys Page](https://help.zscaler.com/zpa/about-connector-provisioning-keys).
 5. Save the provisioning key file.
@@ -11188,13 +11188,13 @@ pcc> run-all
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-private-service-edges","lastmod":"2026-06-22T16:08Z","nid":"1485476"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-private-service-edges","lastmod":"2026-08-24T15:48Z","nid":"1485476"} -->
 ## Troubleshooting Private Service Edges
 
 - Source: https://help.zscaler.com/zpa/troubleshooting-private-service-edges
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Managing & Troubleshooting > Troubleshooting Private Service Edges
-- Last modified: 2026-06-22T16:08Z
+- Last modified: 2026-08-24T15:48Z
 - Summary: Detailed information on how to troubleshoot issues with Private Service Edges for Private Access (ZPA).
 
 This article provides troubleshooting information and guidelines about Private Service Edges for Private Access (ZPA). To learn more about Private Service Edges, see [About Private Service Edges](https://help.zscaler.com/zpa/about-private-service-edges). To configure Private Service Edges, see [Configuring Private Service Edges](https://help.zscaler.com/zpa/configuring-service-edges).
@@ -11578,13 +11578,8 @@ Before you wipe and rebuild the Private Service Edge, you must:
 If needed, you can raise the maximum enrollment count. To learn more, see [Editing Private Service Edge Provisioning Keys](https://help.zscaler.com/zpa/edit-service-edge-provisioning-key).
 
 1. Stop the Private Service Edge. To learn more, see [Start, Stop, or Restart a Private Service Edge](https://help.zscaler.com/zpa/managing-deployed-software-components#Starting).
-2. Wipe the configuration directory.
-
-```
-[admin@zpa-serivce-edge ~]$ sudo rm -rf /opt/zscaler/var/service-edge/*
-```
-
-1. Create a provisioning key file with 644 permissions.
+2. Wipe the configuration directory. `[admin@zpa-serivce-edge]$ sudo su [sudo] password for admin: [root@zpa-serivce-edge]# rm -rf /opt/zscaler/var/service-edge/*`
+3. Create a provisioning key file with 644 permissions.
 
 ```
 [admin@zpa-service-edge ~]$ sudo touch /opt/zscaler/var/service-edge/provision_key
@@ -12581,6 +12576,47 @@ The following limitations apply for Business Continuity:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-continuity-event-log-fields","lastmod":"2026-08-25T08:37Z","nid":"1543031"} -->
+## Understanding Business Continuity Event Log Fields
+
+- Source: https://help.zscaler.com/zpa/understanding-business-continuity-event-log-fields
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding Business Continuity Event Log Fields
+- Last modified: 2026-08-25T08:37Z
+- Summary: Information on the various Business Continuity Event logs captured by Log Streaming Service (LSS) log receivers.
+
+The Log Streaming Service (LSS) can send Business Continuity Event log information to any third-party log analytics tool. By default, the Business Continuity Event log includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While [configuring your log receiver](https://help.zscaler.com/zpa/configuring-log-receiver), you can edit the default log stream content to capture only specific fields, and create a custom log template.
+
+- View an example Business Continuity Event log.
+
+The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
+
+| Field | Description | Supported Field Format Specifications |
+| --- | --- | --- |
+| LogTimeStamp | The timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
+| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Component | The maximum CPU usage in the past 5 minutes | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| UserName | The user name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| UserIP | The user IP address of the Business Continuity Event Log | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| UserLocation | The user location of the Business Continuity Event Log | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| BcMode | Whether the Business Continuity mode is set to On or Off | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| GeneratedBy | The Business Continuity Event that generated the log | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| GeneratedByGroup | The Business Continuity Event group that generated the log | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| GeneratorIP | The IP of the Business Continuity Event Log | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| Latitude | The latitude coordinate of the Business Continuity Event location | %[OPT]f; %[OPT]o |
+| Longitude | The longitude coordinate of the Business Continuity Event location | %[OPT]f; %[OPT]o |
+| CountryCode | The country code of the Business Continuity Event location | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| Continent | The continent of the Business Continuity Event location | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| UserPubIP | The User Pub IP address of the Business Continuity Event location | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+| MicroTenantID | The MicroTenant ID of the Business Continuity Event location | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]d |
+
+```
+"LogTimestamp": "Thu Jun 25 14:56:35 2026","Customer": "acme","Component": "Zscaler Client Connector","UserName": "user1@acme.com","UserPubIP": "199.168.150.161","UserIP": "199.168.150.161","UserLocation": "San Jose, US","BcMode": "OFF","GeneratedBy": "pse-123456789","GeneratedByGroup": "pse grp1","GeneratorIP": "10.18.10.92","Latitude": 37.407300,"Longitude": -121.939000,"CountryCode": "US","Continent": "North America","MicroTenantID":"0"
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zpa/understanding-certificates","lastmod":"2026-06-01T12:30Z","nid":"1484066"} -->
 ## Understanding Certificates
 
@@ -13005,13 +13041,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-log-stream-content-format","lastmod":"2026-05-21T07:04Z","nid":"1483966"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-log-stream-content-format","lastmod":"2026-08-25T08:44Z","nid":"1483966"} -->
 ## Understanding the Log Stream Content Format
 
 - Source: https://help.zscaler.com/zpa/understanding-log-stream-content-format
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Understanding the Log Stream Content Format
-- Last modified: 2026-05-21T07:04Z
+- Last modified: 2026-08-25T08:44Z
 - Summary: Guidelines and information about the log field format used by the Private Access (ZPA) log types captured by Log Streaming Service (LSS) log receivers.
 
 The following information includes specifications and guidelines about the log field format that is used by these log types:
@@ -13020,6 +13056,7 @@ The following information includes specifications and guidelines about the log f
 - [App Connector Metrics](https://help.zscaler.com/zpa/about-app-connector-metrics-log-fields)
 - [App Connector Status](https://help.zscaler.com/zpa/about-connector-status-log-fields)
 - [Browser Access](https://help.zscaler.com/zpa/about-browser-access-log-fields)
+- [Business Continuity Event Logs](https://help.zscaler.com/zpa/understanding-business-continuity-event-log-fields)
 - [KRB Inspection Logs](https://help.zscaler.com/zpa/understanding-krb-inspection-log-fields)
 - [LDAP Inspection Logs](https://help.zscaler.com/zpa/understanding-ldap-inspection-log-fields)
 - [Microsegmentation Flow](https://help.zscaler.com/zpa/about-microsegmentation-flow-log-fields)
@@ -14397,13 +14434,13 @@ Zero trust network access (ZTNA), also known as the software-defined perimeter (
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/updating-host-os-and-software-packages","lastmod":"2026-06-04T12:52Z","nid":"1484916"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/updating-host-os-and-software-packages","lastmod":"2026-08-25T13:43Z","nid":"1484916"} -->
 ## Updating the Host OS and Software Packages
 
 - Source: https://help.zscaler.com/zpa/updating-host-os-and-software-packages
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Updates > Updating the Host OS and Software Packages
-- Last modified: 2026-06-04T12:52Z
+- Last modified: 2026-08-25T13:43Z
 - Summary: How to upgrade the App Connector, Private Service Edge for Private Access (ZPA), Private Cloud Controller, and Network Connector host operating system (OS).
 
 Software components are licensed so that Zscaler can periodically update their software. However, updates to the host operating system (OS) and software packages are the organization's responsibility. Zscaler ensures that the virtual machine software is the latest version. Software components refer to App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors. The software component is designed to be compatible with updates to the host OS. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components).
@@ -14462,8 +14499,6 @@ For host OS and software package updates, choose the component you want to updat
 ```
 $ sudo systemctl stop zpa-connector
 ```
-
-The command to stop the ZPA service for a Private Service Edge is `sudo systemctl stop zpa-service-edge`.
 
 1. Remove all cached files using the following command:
 
@@ -14727,33 +14762,33 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/uploading-and-transferring-files-pra-file-transfer-system","lastmod":"2026-06-25T13:46Z","nid":"1508961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/uploading-and-transferring-files-pra-file-transfer-system","lastmod":"2026-08-25T15:23Z","nid":"1508961"} -->
 ## Uploading and Transferring Files for the PRA File Transfer System
 
 - Source: https://help.zscaler.com/zpa/uploading-and-transferring-files-pra-file-transfer-system
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > Uploading and Transferring Files for the PRA File Transfer System
-- Last modified: 2026-06-25T13:46Z
+- Last modified: 2026-08-25T15:23Z
 - Summary: Information on how to upload files in a Privileged Remote Access (PRA) Portal and transfer files in a privileged console for the PRA File Transfer System.
 
 If you have the[PRA File Transfer System](https://help.zscaler.com/zpa/about-pra-file-system), you can upload files from your system directly to the Privileged Remote Access (PRA) cloud using the PRA Portal where you can manage your uploaded files. After you have uploaded files to the PRA File System, you can then transfer those files to a privileged console.
 
-If you don't have the PRA File Transfer System, you can upload and download files from a privileged console. To learn more, see [Uploading and Downloading with File Transfer](https://help.zscaler.com/zpa/uploading-and-downloading-file-transfer).
+If you don't have the PRA File Transfer System, you can upload and download files directly to and from a privileged console. To learn more, see [Uploading and Downloading with File Transfer](https://help.zscaler.com/zpa/uploading-and-downloading-file-transfer).
 
 ## Uploading a File to the PRA File Transfer System
 
 To upload a file to the PRA File Transfer System:
 
-1. Click the **PRA File Transfer System** icon on the PRA Portal homepage.
+1. Click the **My Files** icon on the PRA Portal homepage.
 2. Click the **Upload** icon on the My Files page.
 
 Your system's file window appears.
 
-1. In your system's file window, select the file you want to upload and click **Open**.
-
-The status of the uploading process can be tracked in the bottom right window. If you click **Cancel**, a window appears to confirm the cancelation. If you cancel a file upload, the file won't appear on the My Files page.
+1. In your system's file window, select the file you want to upload and click **Open**. You can upload up to 10 files at one time.
 
 See image.
+
+The status of the uploading process can be tracked in the bottom right window. If you click Cancel, a window appears to confirm the cancelation. If you cancel a file upload, the file won't appear on the My Files page.
 
 1. When the file is uploading, you can view the status on the My Files page.
 
@@ -14764,15 +14799,15 @@ If the file isn't uploaded, then it shows as canceled in the bottom right window
 To transfer a file to a privileged console:
 
 1. Select the privileged console from the PRA Portal homepage.
-2. Click the **File Transfer** icon at the bottom of the screen.
+2. Click the **My Files** icon at the bottom of the screen.
 
 The **File Transfer** window appears and the files you've uploaded to the My Files page are displayed.
 
-1. Under **My Files**,select the file that you want to transfer, and select the directory you want to transfer the file to. Malicious files cannot be transferred.
-
-You can only store two files at a time in the Shared Z drive if you are using an RDP-enabled privileged console.
-
 See image.
+
+1. On the **My Files** page, select the files that you want to transfer, and select the directory you want to transfer the files to. You can upload up to 10 files at one time. Malicious files cannot be transferred.
+
+You can store up to 10 GB in My Files.
 
 1. Click the arrow icon to transfer the file.
 

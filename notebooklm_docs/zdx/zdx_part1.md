@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 131
 
 ---
@@ -863,13 +863,13 @@ On the Webooks page (Policies > Digital Experience Monitoring > Webhooks), you c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-zdx-role-based-administration","lastmod":"2026-04-28T11:28Z","nid":"1358781"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-zdx-role-based-administration","lastmod":"2026-08-28T08:46Z","nid":"1358781"} -->
 ## About ZDX Role-Based Administration
 
 - Source: https://help.zscaler.com/zdx/about-zdx-role-based-administration
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > About ZDX Role-Based Administration
-- Last modified: 2026-04-28T11:28Z
+- Last modified: 2026-08-28T08:46Z
 - Summary: Introduces information about role-based administration for ZDX admins.
 
 [Watch a video about ZDX Role-Based Administration.](https://fast.wistia.net/embed/iframe/aouq1i024g)
@@ -884,7 +884,7 @@ ZDX Role-Based Administration provides the following benefits and enables you to
 
 Your Internet & SaaS credentials can't be used to log in to Digital Experience. For example, an Internet & SaaS admin can't log in to Digital Experience if their organization is not using that service.
 
-Attributes configured in ZDX (excluding Login ID) are overwritten across all admin profiles. If you create an admin profile in Digital Experience, using the same credentials used in a Internet & SaaS admin profile, all attributes except Login ID created in Digital Experience overwrite the attributes in Internet & SaaS. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins) and [Adding Internet & SaaS Admins](https://help.zscaler.com/zia/adding-zia-admins).
+Attributes configured in ZDX (excluding Login ID) are overwritten across all admin profiles. If you create an admin profile in Digital Experience, using the same credentials used in a Internet & SaaS admin profile, all attributes except Login ID created in Digital Experience overwrite the attributes in Internet & SaaS. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins) and [Adding Users](https://help.zscaler.com/authentication-service/adding-users).
 
 ## About ZDX Roles
 
@@ -3026,13 +3026,13 @@ To configure a predefined application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-probe","lastmod":"2026-08-11T13:27Z","nid":"1350846"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-probe","lastmod":"2026-08-27T11:08Z","nid":"1350846"} -->
 ## Configuring a Probe
 
 - Source: https://help.zscaler.com/zdx/configuring-probe
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Probes > Configuring a Probe
-- Last modified: 2026-08-11T13:27Z
+- Last modified: 2026-08-27T11:08Z
 - Summary: How to add a probe for an application for ZDX.
 
 [Watch a video about probes in ZDX](https://fast.wistia.net/embed/iframe/ni88xj64fh) (shows legacy UI).
@@ -3241,7 +3241,11 @@ Configure the following fields:
   - **UDP**: Choose **UDP** for applications that use UDP for real-time application pathways. The **UDP Port** is automatically displayed and populated with the RFC-defined port for the destination server, `33434`, and is editable.
   - **TCP**: Choose **TCP** if you want to know about port availability to determine application availability. Select a TCP type and configure the **TCP Port** information.
     - List of TCP types
-- If you have chosen to follow a Web probe and then choose **TCP**as the protocol, you cannot edit the port value. If the minimum version compatibility is not met when you select Resilient TCP type or Strict TCP type, then the selection defaults to the Conventional TCP type.
+
+If you have chosen to follow a Web probe and then choose **TCP**as the protocol, you cannot edit the port value.
+
+If the minimum version compatibility is not met when you select Resilient TCP type or Strict TCP type, then the selection defaults to the Conventional TCP type.
+
 - **Packet Count**: The number of probe packets sent per hop discovery that have the same TTL value. The default is `5` packets, the maximum is `20` packets, and the minimum is `3` packets. For Private Access, the recommended packet count is `3` packets, and the maximum is `6` packets. The Packet Count determines the number of these iterations or cycles. While the default packet count is 5, a higher packet count provides a more accurate measurement of packet loss.
 - **Interval (ms)**: The time interval between probe packets with the same TTL. Probe packets of incremental TTL are paced evenly within this time interval. The number of iterations or cycles is defined by the configured Packet Count. The default is `1000`, the minimum is `1000`, and the maximum is `10000`. If the Interval is configured as `6000` ms, the packets for a run are spaced over 6000 ms. For a maximum of 30 hops, packets are paced at every 200 ms: the first packet with TTL 1 is sent at 0 ms, the packet with TTL 2 at 200 ms, the packet with TTL 3 at 400 ms, and so on.
 - **Timeout (ms)**: The time to wait for a response to a probe packet before considering loss. The default is `1000`, the minimum is `500`, and the maximum is `5000`. The recommended setting for Private Access is `500`. If the Timeout is configured as `2000` ms, the first probe would time out at 2,000 ms, the second at 2,200 ms, the third at 2,400 ms, and so on.
@@ -4467,13 +4471,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-08-20T21:06Z","nid":"1391316"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-08-24T17:24Z","nid":"1391316"} -->
 ## Evaluating User Details
 
 - Source: https://help.zscaler.com/zdx/evaluating-user-details
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Users > Evaluating User Details
-- Last modified: 2026-08-20T21:06Z
+- Last modified: 2026-08-24T17:24Z
 - Summary: Information about the user details page, accessed from the Users Dashboard.
 
 To better understand the digital experience for a user, view the user details page for user and device metrics.
@@ -4481,7 +4485,7 @@ To better understand the digital experience for a user, view the user details pa
 To access user details, choose one of the following options:
 
 - From the User Overview page, select one or more applications from the Applications filter drop-down menu and click **Apply.**Click the table cell for User or Devices to view a page with details about the user's digital experience.
-- Search for a user in the Search panel and view their page. To learn more, see [Using Search in the ZDX Admin Portal](https://help.zscaler.com/zdx/using-user-search-zdx-admin-portal).
+- Search for a user in the Search panel and view their page. To learn more, see [Searching in the Zscaler Admin Console](https://help.zscaler.com/unified/searching-zscaler-admin-console).
 
 Any filters used on the User Overview page remain in place after selecting a user or the user's device. Click **Reset**to adjust or remove the filters.
 
@@ -5910,13 +5914,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-applications-overview","lastmod":"2026-05-28T07:06Z","nid":"1355811"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-applications-overview","lastmod":"2026-08-27T09:53Z","nid":"1355811"} -->
 ## Monitoring the Applications Overview
 
 - Source: https://help.zscaler.com/zdx/monitoring-applications-overview
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Applications > Monitoring the Applications Overview
-- Last modified: 2026-05-28T07:06Z
+- Last modified: 2026-08-27T09:53Z
 - Summary: Information on the Applications Overview and widgets accessible within the ZDX Admin Portal.
 
 The Applications Overview provides information about the applications users are accessing and the impact of those applications on your organization's digital experience. If you have [Real User Monitoring (RUM)](https://help.zscaler.com/zdx/understanding-real-user-monitoring) enabled for an application, then you can view RUM metrics (e.g., RUM Users, application details specific to RUM).
@@ -6012,16 +6016,16 @@ Only the Super Admin, or the admin who created the view, can edit or delete a co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-device-health-dashboard","lastmod":"2026-06-04T14:48Z","nid":"1529520"} -->
-## Monitoring the Device Health Dashboard
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-devices-overview","lastmod":"2026-08-27T15:30Z","nid":"1529520"} -->
+## Monitoring the Devices Overview
 
-- Source: https://help.zscaler.com/zdx/monitoring-device-health-dashboard
+- Source: https://help.zscaler.com/zdx/monitoring-devices-overview
 - Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Device Health Dashboard
-- Last modified: 2026-06-04T14:48Z
+- Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Devices Overview
+- Last modified: 2026-08-27T15:30Z
 - Summary: Information on devices and their Device Health Score to determine the overall device health across an organization.
 
-The Device Health Dashboard uses existing user and device data to create a comprehensive device health scoreboard that monitors the performance of Windows and macOS devices. The dashboard provides useful data in evaluating trends to identify and understand the root causes of poor-performing devices. Then you can proactively collect device data and identify which devices require an IT admin's attention to remedy the device's poor performance (e.g., high CPU usage). With a dedicated dashboard, you can target hardware upgrades based on the device's usage for greater cost-effectiveness.
+The Devices overview uses existing user and device data to create a comprehensive device health scoreboard that monitors the performance of Windows and macOS devices. The dashboard provides useful data in evaluating trends to identify and understand the root causes of poor-performing devices. Then you can proactively collect device data and identify which devices require an IT admin's attention to remedy the device's poor performance (e.g., high CPU usage). With a dedicated dashboard, you can target hardware upgrades based on the device's usage for greater cost-effectiveness.
 
 The Device Health Score provides a comprehensive view of struggling devices across an entire organization, department, user group, or location. The score is determined by individual contributing metrics (e.g., CPU usage, memory usage, disk usage). The Device Health Scores are categorized as:
 
@@ -6033,14 +6037,14 @@ All scores are rounded to the nearest whole number.
 
 ## Prerequisites
 
-To monitor device performance within the Device Health dashboard, ensure:
+To monitor device performance within the Devices overview, ensure:
 
-- Your ZDX subscription level supports monitoring the Device Health dashboard. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
+- Your ZDX subscription level supports monitoring the Devices overview. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
 - Your ZDX role has the proper permission level. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
 
-## Viewing the Device Health Dashboard
+## Viewing the Devices Overview
 
-To access the Device Health Dashboard, go to **Dashboard** > **Device Health Dashboard**. You can view Thresholds to understand the device metrics.
+To access the Devices overview, go to **Analytics** > **Digital Experience** > **Devices**. You can view Thresholds to understand the device metrics.
 
 Access the Summary, Device List, or Hardware Analysis tab to monitor device performance at varying levels in your organization.
 
@@ -6055,7 +6059,7 @@ You can view the following:
   - **Impacted Device**: Displays the number of impacted devices over time.
   - **Device Health Trend**: Displays the health of devices using the categories of Good, Okay, and Poor devices. See image.
 3. **Device Health by Region**: A map to highlight the most impacted geolocations with a high number of impacted devices with poor experience.
-4. **Useful Links**: Navigate to additional device monitoring data pages on the ZDX Admin Portal.
+4. **Useful Links**: Navigate to additional device monitoring data pages in the Zscaler Admin Console.
 5. **Hardware Usage Analysis**: Devices are categorized into usage profiles based on their average CPU and memory usage.
 6. **Device Count By Usage Profile**: The number of impacted devices are categorized into Light, Normal, and Power based on their device usage profile.
 7. **Device Count by Hardware Profile**: The number of impacted devices are categorized into Low, Standard, and High based on the hardware profiles,
@@ -6197,7 +6201,7 @@ You can view:
   - **Name**: The name of the device. Clicking the device name allows you to [evaluate user details](https://help.zscaler.com/zdx/evaluating-user-details).
   - **User**: The user associated with the device name. Clicking the user allows you to [evaluate user details](https://help.zscaler.com/zdx/evaluating-user-details).
   - **Operating System**: The operating system of the device.
-  - **Geo Location**: The geolocation of the device.
+  - **Geolocation**: The geolocation of the device.
   - **Device Vendor**: The vendor of the device.
   - **Device Model**: The model name of the device.
   - **CPU**: The CPU of the device.
@@ -6554,13 +6558,13 @@ In order to be considered an incident, the following must be considered to categ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-network-intelligence-dashboard","lastmod":"2026-07-13T13:35Z","nid":"1529289"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-network-intelligence-dashboard","lastmod":"2026-08-28T14:52Z","nid":"1529289"} -->
 ## Monitoring the Network Intelligence Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-network-intelligence-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Network Intelligence Dashboard
-- Last modified: 2026-07-13T13:35Z
+- Last modified: 2026-08-28T14:52Z
 - Summary: Information on the Network Intelligence Dashboard and accessible data within the Zscaler Admin Console.
 
 Network Intelligence provides end-to-end multi-path network visibility from Last Mile Internet Service Providers (ISPs) to Zero Trust Exchange to applications. ZDX runs Cloud Path probes to gather network metrics (e.g., network latency, packet loss) to establish a baseline for network latency and compares the network performance against the baseline. ZDX detects and analyzes network anomalies to create a deep analysis and allows you to investigate root causes. You can analyze and pinpoint Last Mile or Intermediate ISP issues, understand root causes, and assess their impact on end users using ML-based algorithms to extract patterns and identify anomalies, and then you can observe and determine the most optimal routing paths to data centers. With all this knowledge at your disposal, you can take proactive measures to resolve network issues to improve the overall organization's digital experience.
@@ -6592,7 +6596,7 @@ Interactions in these widgets do not apply to global filters. Use the map or fil
 
 To adjust your Network Intelligence Dashboard view, you can:
 
-- Filter by **Zero Trust Exchange**, **Application**, **Zscaler Locations**, or **Geolocations**. When you select the **Application** filter, the map displays all geolocations where users are accessing the selected application and does not contain flickering anomalies. Instead, anomalies are detected at runtime and you must select a geolocation on the map to populate the anomaly data.
+- Filter by **Zero Trust Exchange,** **Application**, **Zscaler Locations**, or **Geolocations**. When you select the **Application** filter, the map displays all geolocations where users are accessing the selected application and does not contain flickering anomalies. Instead, anomalies are detected at runtime and you must select a geolocation on the map to populate the anomaly data.
 - Select a time range (**2 Hours**, **4 Hours**, **6 Hours**, **12 Hours**, **24 Hours**, **48 Hours**, **Current**, **Custom**).
 
 You can view the total of each impacted geolocation when the network latency deviates from the baseline and is considered an anomaly.
@@ -6779,13 +6783,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-performance-dashboard","lastmod":"2026-04-03T15:36Z","nid":"1355786"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-performance-dashboard","lastmod":"2026-08-27T09:51Z","nid":"1355786"} -->
 ## Monitoring the Performance Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-performance-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Performance Dashboard
-- Last modified: 2026-04-03T15:36Z
+- Last modified: 2026-08-27T09:51Z
 - Summary: Information on the ZDX dashboard and widgets accessible within the Zscaler Admin Console.
 
 The Performance Dashboard provides an overview about the Zscaler Digital Experience (ZDX) for your organization.
@@ -8067,13 +8071,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-08-21T15:28Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-08-28T08:17Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-21T15:28Z
+- Last modified: 2026-08-28T08:17Z
 - Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -9305,13 +9309,13 @@ Start a Diagnostics session to analyze any issues that users might be facing. To
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/supported-versions-feature-compatibility","lastmod":"2026-08-11T13:49Z","nid":"1433851"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/supported-versions-feature-compatibility","lastmod":"2026-08-27T13:34Z","nid":"1433851"} -->
 ## Supported Versions & Feature Compatibility
 
 - Source: https://help.zscaler.com/zdx/supported-versions-feature-compatibility
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Supported Versions & Feature Compatibility
-- Last modified: 2026-08-11T13:49Z
+- Last modified: 2026-08-27T13:34Z
 - Summary: To provide information on version compatibility and operating system that a user needs in order to use specific features of ZDX with Zscaler Client Connector.
 
 To begin configuring Zscaler Digital Experience (ZDX), you must first deploy the minimum required or later version of Zscaler Client Connector based on your OS.
@@ -11880,13 +11884,13 @@ To view IPv6 configurations, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-predefined-reports","lastmod":"2026-05-15T07:06Z","nid":"1456566"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-predefined-reports","lastmod":"2026-08-28T14:38Z","nid":"1456566"} -->
 ## Viewing Predefined Reports
 
 - Source: https://help.zscaler.com/zdx/viewing-predefined-reports
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Viewing Predefined Reports
-- Last modified: 2026-05-15T07:06Z
+- Last modified: 2026-08-28T14:38Z
 - Summary: Provides details about predefined reports, available in the Zscaler Admin Console.
 
 Predefined reports allow you to view user data across your organization that can reveal distinctive patterns among various metrics and applications. Details for each report are aggregated day-to-day and most reports are captured in a rolling 14-day cycle.
@@ -11896,7 +11900,7 @@ Predefined reports allow you to view user data across your organization that can
 To access and view system-generated reports, ensure:
 
 - Your ZDX subscription level supports viewing system-generated reports. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
-- Your admin role is configured to view system-generated reports. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
+- Your admin role is configured to view predefinted reports using the System Generated Reports permission. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
 
 ## Accessing Reports
 
@@ -12068,7 +12072,7 @@ The report provides the following information:
 - View a list with the following information: Click **Location History** to view the history of the location for that user. See image.
   - **User Name**: The user name. You can click the user name to view [user details](https://help.zscaler.com/zdx/evaluating-user-details).
   - **Device**: The device name.
-  - **Geo Location**: The geolocation of the user's device.
+  - **Geolocation**: The geolocation of the user's device.
   - **Latitude / Longitude**: The latitude and longitude of the geolocation.
   - **Source**: The geolocation's source information.
 

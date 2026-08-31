@@ -1,700 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
-Articles in this file: 124
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-hyper-v","lastmod":"2026-07-31T11:28Z","nid":"1532796"} -->
-## NSS Deployment Guide for Hyper-V
-
-- Source: https://help.zscaler.com/zia/nss-deployment-guide-hyper-v
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Hyper-V
-- Last modified: 2026-07-31T11:28Z
-- Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Hyper-V.
-
-Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via Microsoft Hyper-V. This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
-
-## Prerequisites
-
-Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscriptions) to either NSS for Web or NSS for Firewall and review the following specifications and requirements:
-
-- VM Specs
-- Host Specs
-- Network Specs
-- Firewall Requirements
-
-## Deploying NSS
-
-To deploy NSS:
-
-- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate
-- Step 2: In the Zscaler Admin Console, Add a TCP NSS Feed
-- (Optional) Step 3: In the Zscaler Admin Console, Add an HTTP NSS Feed
-- Step 4: In the Zscaler Admin Console, Compute the Recommended VM Instance Specifications
-- Step 5: In the Hyper-V Manager, Create the VM Instance
-- Step 6: Configure and Verify the NSS on the VM Instance
-
-## Post-Deployment Tasks
-
-After you have verified your deployment, you can perform additional tasks:
-
-- Troubleshoot the NSS
-- Configure Advanced NSS Settings
-- Deploy Multiple NSS Virtual Machines for Reliability
-
-- 2 CPU cores: NSS uses one core for the control plane and another core for the data plane.
-- Instance memory: If you have more than 100K users, contact Zscaler Support.
-  - 8 GB for up to 8K users
-  - 16 GB for up to 20K users
-  - 32 GB for up to 50K users
-  - 48 GB for up to 75K users
-  - 64 GB for more than 75K users
-- Recommended disk size: 500 GB
-
-- Hypervisor: Hyper-V Manager
-- Host CPU: 64-bit Xeon or equivalent
-- Host CPU Speed: Greater than or equal to 2.40GHz
-- Hyper-V VM
-
-- Network Adapter: E1000
-- VM Network: 2 Virtual NICs. Optionally, you might need two additional virtual NICs as described in [Configuring Advanced NSS Settings](https://help.zscaler.com/zia/configuring-advanced-nss-settings).
-- Bandwidth for Log Download: 11 Mbps for 10K users is an example average value.
-- IP Addresses: The following table lists the IP addresses and the interfaces on which they're configured. Internal IP addresses are allowed. The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
-  | Virtual Interface | IP Address | Description |
-  | --- | --- | --- |
-  | hn0 (First network adapter) | Management IP Address | This is used for control connections to the Zscaler cloud and to make an SSH connection to the NSS VM for configuration and management. You can customize the deployment and define a separate IP address for the SSH connection to the NSS VM. To learn more, see [Configuring Advanced NSS Settings](https://help.zscaler.com/zia/configuring-advanced-nss-settings). |
-  | hn1 (Second network adapter) | Service IP Address | This is used for data connections to the Zscaler cloud and to the SIEM. |
-  | hn2 (Third network adapter) | (Optional) Second Management IP Address | In cases where the default management interface cannot be used for SSH due to VLAN restrictions, Zscaler recommends that you add another interface just for management, so the first interface is used only for control connections to the cloud. To learn more, see [Configuring Advanced NSS Settings](https://help.zscaler.com/zia/configuring-advanced-nss-settings). |
-  | hn3 (Fourth network adapter) | (Optional) Second Service IP Address | In cases where the default service interface cannot be used to connect to the Zscaler cloud and to the SIEM, you can add another service interface, so one service interface can be used to connect to the Zscaler cloud, and a separate interface can be used to connect to the SIEM. |
-
-The firewall requirements are as follows:
-
-- You must deploy the NSS instance behind a VM network security group. The NSS instance requires only outbound connections to the Zscaler cloud. It doesn't require any inbound connections to your network from the Zscaler cloud.
-- To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
-- The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
-- Communication from the NSS instance to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet & SaaS (ZIA) as this can result in networking, latency, and administration issues.
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. From the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
-3. In the **Add NSS Server**window: See image.
-  - **Name**: Enter a name for the NSS server.
-  - **Type**: **NSS for Web** is selected by default. If you are configuring an NSS for Firewall logs, select **NSS for Firewall**. If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
-  - **Status**: The NSS is **Enabled** by default.
-4. Click **Save**. The NSS server is added to the Zscaler Admin Console.
-5. Click **Download** in the **SSL Certificate** column of the newly added NSS server, and then save the SSL certificate for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-configure-start-nss). See image.
-
-A TCP Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. You can filter the data so that you send only the data you need to the SIEM, and you can add up to 16 TCP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per NSS server to ensure optimal performance.) Each feed can have different filters and fields, and a different output format (e.g., CSV). To learn more about how to configure each feed, see:
-
-- [Adding TCP NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-web-logs)
-- [Adding TCP NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-firewall-logs)
-- [Adding TCP NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-dns-logs)
-- [Adding TCP NSS Feeds for Tunnel Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-tunnel-logs)
-- [Adding TCP NSS Feeds for SaaS Security Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs)
-- [Adding TCP NSS Feeds for SaaS Security Activity Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-activity-logs)
-- [Adding TCP NSS Feeds for Alerts](https://help.zscaler.com/zia/adding-tcp-nss-feeds-alerts)
-- [Adding TCP NSS Feeds for Admin Audit Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-admin-audit-logs)
-- [Adding TCP NSS Feeds for Endpoint DLP Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-endpoint-dlp-logs)
-- [Adding TCP NSS Feeds for Email DLP Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-email-dlp-logs)
-- [Adding TCP NSS Feeds for Sandbox Verdict Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs)
-- [Adding TCP NSS Feeds for Authentication Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-authentication-logs)
-- [Adding TCP NSS Feeds for SCIM Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-scim-logs)
-- [Adding TCP NSS Feeds for 3rd-Party App Governance Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-3rd-party-app-governance-logs)
-- [Adding TCP NSS Feeds for Posture Management Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-posture-management-logs)
-
-When adding a feed, note the SIEM IP address and TCP port for later [verifying the NSS-to-SIEM connection](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#verify-nss-configuration).
-
-In addition to TCP-based NSS feeds, you can optionally stream NSS logs to SIEM over HTTP connections. To add HTTP-based NSS feeds, you must:
-
-1. Run the following command in your VM instance: `nss configure-nssas`
-2. (Optional) Run the following command to configure a self-signed certificate: You can use self-signed or internally issued certificates for the SIEM connectivity test. `nss add-cert-to-trust <self-signed certificate>`Replace <self-signed certificate> with the path of your self-signed certificate from the NSS node in the command.
-3. Run the following command to restart the NSS service: `sudo nss restart`
-
-After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet & SaaS (ZIA).
-
-An HTTP NSS feed specifies the data from the logs that the HTTP NSS sends to the security information and event management (SIEM) system. You can add up to 8 HTTP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to two feeds per NSS server to ensure optimal performance.
-
-To learn more about how to configure each feed, see the following links:
-
-- [Adding HTTP NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-web-logs)
-- [Adding HTTP NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-firewall-logs)
-- [Adding HTTP NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-dns-logs)
-- [Adding HTTP NSS Feeds for Tunnel Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-tunnel-logs)
-- [Adding HTTP NSS Feeds for SaaS Security Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-saas-security-logs)
-- [Adding HTTP NSS Feeds for SaaS Security Activity Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-saas-security-activity-logs)
-- [Adding HTTP NSS Feeds for Alerts](https://help.zscaler.com/zia/adding-http-nss-feeds-alerts)
-- [Adding HTTP NSS Feeds for Admin Audit Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-admin-audit-logs)
-- [Adding HTTP NSS Feeds for Endpoint DLP Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-endpoint-dlp-logs)
-- [Adding HTTP NSS Feeds for Email DLP Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-email-dlp-logs)
-- [Adding HTTP NSS Feeds for Sandbox Verdict Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-sandbox-verdict-logs)
-
-You must enter information about your traffic and users so that the Zscaler service can compute the appropriate resources for your NSS.
-
-The NSS buffers the logs for at least one hour. If a SIEM goes offline for maintenance, or if the connection between the NSS and the SIEM is disrupted, the NSS buffers the logs and sends them when the connection is re-established. The amount of memory required to buffer the logs is incorporated into the VM spec computation. The buffer size increases proportionally to the amount of RAM allocated to the NSS.
-
-To compute the appropriate resources for your NSS:
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. Click **Deploy NSS Virtual Appliance**. The **NSS Virtual Appliance Deployment** window appears.
-3. In the **NSS Virtual Appliance Deployment**window, choose either of the following NSS types: If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
-  - NSS for Web
-  - NSS for Firewall
-4. For your platform, select **Hyper-V**.
-5. Click **Compute**. The recommended VM specs and hypervisor specs are displayed.
-6. Click **Download NSS Virtual Appliance** to download the NSS VHDX file. See image.
-7. Click **Close**.
-
-To determine the memory and bandwidth requirements:
-
-- **Number of Users**:Enter the number of users. The service displays the recommended resources for the NSS and the Hyper-V Manager hypervisor.
-- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Analytics** >**Internet & SaaS** > **Dashboard**> **Web Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
-
-See image.
-
-The recommended internet bandwidth is the peak bandwidth required to download the logs from the Nanolog in the Zscaler cloud. If the NSS is not allocated the bandwidth it needs, the logs can accumulate in the Nanolog. This can result in frequent connection resets and the logs not being streamed to the NSS.
-
-To determine the memory and bandwidth requirements:
-
-- **Number of Users**:Enter the number of users. The service displays the recommended resources for the NSS and the Hyper-V Manager hypervisor.
-- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Analytics** >**Internet & SaaS** > **Dashboard** > **Firewall Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
-- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Analytics** >**Internet & SaaS** > **Dashboard** > **DNS Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
-
-See image.
-
-The recommended internet bandwidth is the peak bandwidth required to download the logs from the Nanolog in the Zscaler cloud. If the NSS is not allocated the bandwidth it needs, the logs can accumulate in the Nanolog. This can result in frequent connection resets and the logs not being streamed to the NSS.
-
-Before you create a VM instance on Hyper-V, ensure that you have [downloaded the NSS VHDX file](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-compute-recommended-vm-instance-specs) from the Zscaler Admin Console.
-
-To configure the NSS virtual appliance on the VM:
-
-1. Open Hyper-V Manager and connect to your virtualization server.
-2. Right-click the server name, select **New**, and then select **Virtual Machine**. See image. The **New Virtual Machine Wizard** appears displaying the **Before You Begin** page.
-3. On the **Before You Begin** page, review the instructions and click **Next**.
-4. On the **Specify Name and Location**page that appears, enter a name for the VM and click **Next**. See image. Optionally, you can enable **Store the virtual machine in a different location** to store the VM in a preferred location.
-5. On the **Specify Generation** page that appears, select **Generation 1** and click **Next**. See image.
-6. On the **Assign Memory** page that appears, enter the memory in MB to allocate to the VM and click **Next**. See image.
-7. On the **Configure Networking** page that appears, select the VM network from the **Connection** drop-down menu and click **Next**. See image.
-8. On the **Connect Virtual Hard Disk** page that appears, select **Use an existing virtual hard disk** and upload the NSS VHDX (`.vhdx`) file you previously downloaded. See image.
-9. Review your settings. Click **Finish** to close the wizard and deploy the VM.
-
-After you have configured the VM, you must add a minimum of two network interface adapters: one for the management interface and another for the service interface.
-
-To add network adapters to the VM:
-
-1. Select the newly created VM and go to **Settings**.
-2. Click **Add Hardware**.
-3. On the **Add Hardware** page, select **Network Adapter** and click **Add**. See image.
-4. On the **Network Adapter** page, select the network configuration from the **Virtual switch** drop-down menu. The network configuration you select must match the VM network selected on the [configure networking](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-configure-start-nss-vm-instance) page. See image. Optionally, you can enable the VLAN identification and bandwidth management settings.
-5. Click **Apply** and then **OK**.
-
-Similarly, add another network adapter for the VM with the same network configuration for the **Virtual Switch**.
-
-Before you configure and start the NSS on the Hyper-V VM, ensure that you have [downloaded the SSL certificate](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-add-nss-server-download-ssl-certificate) from the Zscaler Admin Console.
-
-Complete the following steps to configure NSS on the VM instance:
-
-- a. Configure the NSS and install the SSL certificate.
-- b. Verify the NSS configuration.
-- c. (Optional) Remove the SSL certificate.
-
-1. Go to the newly created VM instance from the Hyper-V console and assign the management IP address. To configure the management IP address, in the `/etc/rc.conf` file:
-  1. Add ifconfig_hn0= "xx.xx.xx.xx/xx".
-  2. Add defaultrouter= "xx.xx.xx.xx".
-  3. Ensure that the network_interfaces="hn0 hn1 lo0".
-  4. Save the file and reboot the VM to apply the management IP configuration.
-  5. After the VM reboots, the management IP address is available in the `ifconfig hn0` field and the gateway is reachable.
-2. When prompted, enter the username and password (e.g., `zsroot`/ `zsroot`).
-3. Run the following command to configure the NSS: sudo nss configure
-4. When prompted, enter the following IP addresses: The following configuration is an example. Replace the values in red with the IP addresses for your deployment: [root@nss /usr/home/zsroot]# nss dump-config Configured Values: CloudName:zscalerthree.net nameserver:169.254.169.254 Mgmt IP: Default gateway for Mgmt IP: Internal Mgmt IP: route_net: Service IP Address:/dev/tap0:192.168.4.13/24 Default Gateway for Service IP:192.168.4.1 Default Router:192.168.1.1 ifconfig_hn0: inet 192.168.1.100 netmask 255.255.255.0 Routes for Siem N/w:
-  1. Nameserver IP address
-  2. Internal service IP address associated with the service interface
-  3. Default gateway for the internal service IP address
-  4. Default gateway for the management IP address
-  5. Management interface IP with CIDR netmask
-5. Copy the [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v#step-add-nss-server-download-ssl-certificate) SSL certificate to the VM instance.
-6. Run the following command to install the SSL certificate: nss install-cert <SSL Certificate>Replace the parameter in red with the SSL certificate file name (e.g., `NssCertificate.zip`) if you are in the path of the file. If not, use the file path (e.g., `/usr/home/zsroot/NssCertificate.zip`). The NSS uses the SSL certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active VM at a time. Having multiple VMs that use only one certificate causes cloud connection flapping, which disrupts log streaming.
-7. Check the configuration by running the following command: sudo nss dump-config
-8. Before starting the NSS, run the following command to download and install the NSS binaries: sudo nss update-nowAfter the first NSS software deployment, the software is automatically updated with new versions.
-9. Run the following command to reboot the NSS: sudo reboot
-10. Run the following command to start the NSS: sudo nss startThe NSS starts within a few minutes.
-
-To verify the NSS configuration, run the following command:
-
-```
-sudo nss troubleshoot netstat | less
-```
-
-The output of the command shows the following TCP connections:
-
-- **Connection to the Zscaler cloud on port 443**: This is the control connection that is used to authenticate the NSS to the Zscaler Central Authority (CA) and to download the configuration. It is also the data connection to the Zscaler Nanolog so that it can stream the logs.
-- **Connection to the SIEM**: This is the long-lived TCP connection to the SIEM on the specified log data port (e.g., 192.168.0.3.34561). If there are multiple feeds configured, then multiple connections must be listed.
-
-The following image shows a sample output verifying the TCP connections are established:
-
-See image.
-
-### Troubleshooting
-
-If the NSS does not start, open the `/etc/rc.conf` file to verify the following configuration:
-
-```
-#configurable per-machine info goes here (hn0 is mgmt and hn1 is service int)
-network_interfaces="lo0 hn0 hn1"
-ifconfig_hn0="UP"
-ifconfig_hn0="DHCP"
-ifconfig_hn0="SYNCDHCP mtu 1460"
-```
-
-The configuration confirms that there are two network interfaces (i.e., management and service), and that the management interface (i.e., `hn0`) is working as expected. If the configuration is not present in `/etc/rc.conf`, add it to the file and save, and then run the following command to restart the service:
-
-```
-/etc/rc.d/netif restart
-```
-
-Zscaler recommends adding a custom route to the `sc.conf` file if your downstream SIEM IP address is in the same subnet.
-
-As a security measure, you can remove the SSL certificate from the VM. To remove the SSL certificate, run the `rm` command. See the following example:
-
-```
-rm NssCertificate.zip
-```
-
-If you do not remove the SSL certificate from the VM, you must change the file permission to be readable only by the root user.
-
-An [NSS server](https://help.zscaler.com/zia/adding-nss-servers) represents the NSS VM in the Zscaler Admin Console. When you create an NSS server in the console, an SSL certificate is generated. You download the SSL certificate from the console and upload it to the NSS VM that you configure and [deploy](https://help.zscaler.com/zia/deploying-nss-virtual-appliances). The newly configured NSS VM uses the SSL certificate to authenticate itself to the Zscaler service.
-
-Each NSS server supports up to 16 [NSS feeds](https://help.zscaler.com/zia/adding-nss-feeds). ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per NSS to ensure optimal performance.) Each NSS feed can have different filters and fields and a different output format (e.g., CSV).
-
-For site reliability, you can deploy multiple NSS VMs, either in an active-active or active-passive configuration.
-
-### Active-Active Configuration
-
-Zscaler recommends leveraging two NSS servers per NSS type (i.e., NSS for Web and NSS for Firewall) and deploying each pair in an active-active configuration. In this configuration, you create two NSS servers of the same NSS type in the Zscaler Admin Console with separate SSL certificates.
-
-Running multiple active NSS VMs with the same SSL certificate causes cloud connection flapping, which disrupts the streaming of logs to the NSS.
-
-Optionally, for optimal reliability, you can configure the NSS VMs to stream logs to two separate SIEMs. In this configuration, each NSS VM runs independently, streaming logs to its respective SIEM at the same time.
-
-Zscaler does not recommend configuring two NSS VMs of the same NSS type to stream logs to a single SIEM. In this case, each NSS VM sends copies of the same logs to the SIEM, which might not be able to deduplicate them.
-
-### Active-Passive Configuration
-
-Alternatively, you can deploy multiple NSS VMs in an active-passive configuration. In this configuration, you create one NSS server (for Web or Firewall) in the Zscaler Admin Console and use the generated SSL certificate to deploy one active NSS VM; the second VM serves as a cold standby. Both NSS VMs use the same SSL certificate in this configuration, but they should not connect to the Zscaler [Nanolog](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) at the same time as this results in connection flapping.
-
-If the active NSS VM fails, you must perform failover activities, ideally within one hour of the failure to prevent data loss. In this time frame, you can leverage the following NSS reliability mechanisms:
-
-- **NSS to SIEM**: The NSS buffers the logs in the VM memory to increase its resiliency to transient network issues between the SIEM and the NSS. If the connection drops, the NSS replays logs from the buffer, according to the Duplicate Logs setting.
-- **Nanolog to SIEM**: If the connectivity between the Zscaler cloud and the NSS is interrupted, the NSS misses logs that arrived at the [Nanolog cluster](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) during the interruption, and they are not delivered to the SIEM. When the connection is restored, the NSS one-hour recovery allows the Nanolog to replay logs up to one hour back.
-
-To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscriptions, contact Zscaler Support.
-
-When deploying the NSS, additional features that facilitate successful deployment require advanced NSS settings in cases where you have specific requirements or restrictions. It includes the following topics:
-
-The first three sections listed pertain to the [NSS deployment over VMware vSphere](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere) only.
-
-- Configuring a Second Management Interface
-- Configuring a Second Service Interface
-- Configuring the Additional Interfaces from the Console
-- Configuring a Local NTP Server
-- Configuring NSS in Explicit Proxy Mode
-- Updating an NSS VM Hostname
-- Allowing SSH Access to the NSS Only from a Specific Subnet or IP Address
-- Setting Up Key-Based Authentication to the NSS
-
-Sometimes, the default management interface can't be used for SSH due to VLAN restrictions. In those cases, Zscaler recommends that you add an additional interface just for management, so the first interface is used only for control connections to the cloud.
-
-There are two ways to add a second management interface:
-
-- Zscaler recommends that you log in to your client and configure the additional interface from the console tab. See [Configuring the Additional Interfaces from the Console](https://help.zscaler.com/zia/nss-advanced-deployment#Additional).
-- Alternatively, you can manually configure the second management interface.
-
-To manually add a management interface:
-
-1. Shut down the NSS and stop the VM.
-2. Using your client, assign an additional interface to the VM. Map it to an appropriate network or VLAN.
-3. Reboot the NSS.
-4. Run the following command and ensure that the em2 interface is active:
-
-```
-ifconfig
-```
-
-1. Update the system configuration file `/etc/rc.conf` to configure the interface automatically after each system restart. To do this, run the following command:
-
-```
-sudo vi /etc/rc.conf
-```
-
-1. Add the em2 interface to the list of network interfaces. Modify the line that starts with `network_interfaces` and change it to:
-
-```
-network_interfaces="em0 em1 em2 lo0"
-```
-
-1. Add a new line at the end of the file:
-
-```
-ifconfig_em2="
-<subnet-ip-address>
-"
-```
-
-Ensure that you replace <subnet-ip-address> with the IP address of the subnet. For example:
-
-```
-ifconfig_em2="
-192.168.1.100/24
-”
-```
-
-1. The default gateway is automatically added via the em0 interface. To add a static route to a different subnet or VLAN for the newly added em2 interface, add the following lines at the end of the file:
-
-```
-static_routes="em2"
-route_em2="-net
-<destination-subnet> <gateway-ip-address>
-"
-```
-
-Replace <destination-subnet> with the IP address of the destination subnet, and replace <gateway-ip-address>with the appropriate gateway IP address. For example:
-
-```
-static_routes="em2"
-route_em2="-net
-198.51.100.0/24 192.168.1.3
-"
-```
-
-1. Reboot the VM.
-2. To verify the changes, ping the newly added subnet gateway and run the following command to print the route information:
-
-```
-sudo netstat -rn
-```
-
-The NSS typically uses the service interface to download logs from the Nanolog in the Zscaler cloud and send them to your security information and event management (SIEM).
-
-Some organizations might need to use one interface to connect to the Zscaler cloud and another interface to connect to the SIEM. For example, an organization might have a SIEM in a management LAN that is not routed to the internet, and it might also have a service LAN that is routed to the internet but not to the management LAN, as shown in the following diagram:
-
-See image.
-
-If your organization has a similar requirement, you can configure a second service interface. You can then use one interface to connect to the Zscaler cloud to download the logs and a different interface to send the logs to the SIEM located in the management LAN.
-
-There are two ways to add a second service interface:
-
-- Zscaler recommends that you log in to your client and configure the additional interface from the console tab. See [Configuring the Additional Interfaces from the Console](https://help.zscaler.com/zia/nss-advanced-deployment#Additional).
-- Alternatively, you can manually configure the second service interface.
-
-[Image: One interface connecting to the Zscaler cloud and another interface connecting to the SIEM.]
-
-To manually add a second service interface:
-
-1. Shut down the NSS and stop the VM.
-2. Using your client, assign an additional interface to the VM. Map it to an appropriate network or VLAN.
-3. Reboot the NSS.
-4. Run the following command and ensure that the em2 interface is active:
-
-```
-ifconfig
-```
-
-1. Copy the `sc.conf` file.
-
-```
-cp /sc/conf/sc.conf /sc/conf/sc.conf.old
-```
-
-1. Use the vi Editor to edit the `sc.conf` file. Run the following command:
-
-```
-vi /sc/conf/sc.conf
-```
-
-1. Add the following lines to the file, replacing the sample values in red per your configuration:
-
-```
-smnet_dev=em2=zs1:
-192.168.223.41/24
-smnet_route=
-10.0.0.0/8
-/
-192.168.223.1
-```
-
-In this example, em2=zs1 is the second service interface, and 192.168.223.41/24 is the service IP address with the subnet mask. If your SIEM is in the same subnet, then the second line is not required. If your SIEM is in a different subnet, add `smnet_route` and define values in the second line. For example, to reach 10.0.0.0/8, use gateway 192.168.223.1.
-
-1. Save the changes in the file and then restart the NSS by running the following command:
-
-```
-sudo nss restart
-```
-
-1. Verify whether the NSS is using the second service interface by running the following command:
-
-```
-sudo nss dump-config
-```
-
-To configure both a second management interface and service interface, first ensure that you run the followingcommand to establish your network settings:
-
-```
-sudo nss configure
-```
-
-Then, run the following command to specify the IP addresses for the additional interfaces and their corresponding routes:
-
-```
-sudo nss configure split-interface
-```
-
-****[Image: The FreeBSD command prompt showing the command sudo nss configure split-interface]****
-
-During a split-interface configuration, the NSS asks for an `smnet_route`. If your SIEM is in a different network compared to the NSS smnet interface (em3=zs1) subnet, you can enter specific routes for feeds.
-
-See the following example:
-
-```
-[root@NSS /sc/update]# nss configure split-interface
-            ifconfig_em2 (Internal Management interface IP address with netmask) [1.1.1.1/23]:
-            route_net:-net 1.1.1.2/12 2.1.1.1 (Options <c:change, d:delete, n:no change>) [n]
-            Do you wish to add a new route_net? <n:no y:yes> [n]:
-            smnet_dev=em3 (Internal Service interface IP address with netmask) [10.10.35.20/24]:
-Do you wish to add a new smnet_route? <n:no y:yes> [n]: y
-            Atleast one entry required for smnet_route
-            smnet_route (Static route for Siem N/w ,e.g (network/subnet/gateway): 172.12.1.0/21/10.10.35.1) []: 1.3.2.1/2/2.2.1.2
-            Do you wish to add a new smnet_route? <n:no y:yes> [n]: 2.1.2.3/2/43.3.3.2
-```
-
-If you have a local NTP server, you can configure the NSS to synchronize time with that server:
-
-1. Run the following command as root:
-
-```
-crontab -e
-```
-
-1. Run the following command:
-
-```
-PATH=/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/games:/sc/update:/home/zsroot/bin:/sc/update
-```
-
-1. Run the following command:
-
-```
-*/10 * * * * ntpdate
-<ntp-server-name>
-```
-
-Replace <ntp-server-name> with your local NTP server's FQDN or IP address.
-
-1. Save and exit.
-
-The time synchronization command runs every 10 minutes. You can find logs for the NTP process in `/var/log/cron.`
-
-Some customers might have a [no-default route environment](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments). This prevents the NSS from establishing connections to the Zscaler cloud. For this scenario, you can configure the NSS in explicit proxy mode, so that it tunnels all Zscaler cloud-bound connections through a proxy. These include [network connections](https://config.zscaler.com/zscaler.net/nss) and TCP connections from the NSS to the:
-
-- Nanolog (SMSM)
-- Zscaler Central Authority (CA) (SMCA)
-- Update server (SMCDSS) for software updates
-- Kafka server for audit log streaming
-
-Connections from the NSS to the SIEM are not tunneled.
-
-The NSS in explicit proxy mode can tunnel Zscaler cloud-bound connections. Based on your configuration, you can tunnel these connections without the need for internet-facing DNS resolution.
-
-If you configure the `dnsoverproxy` flag to `1`, then the NSS in explicit proxy mode makes a CONNECT request to the following domains, and the explicit proxy performs the name resolution:
-
-- msmca.<cloudname> for the connection to the Zscaler CA
-- zdistribute.<cloudname> for the connection to the update server
-- kproxy.hdeu1.zdataservices.net for the connection to the Kafka server
-
-If you configure the `dnsoverproxy` flag to `0`, then the NSS needs DNS resolution for the connections to the current master CA IP address, update server, and Kafka server.
-
-NTP connections are not tunneled. The NSS needs DNS resolution for the NTP server. To learn more, see [Configuring a Local NTP Server](https://help.zscaler.com/zia/configuring-advanced-nss-settings#Local).
-
-To configure the NSS in explicit proxy mode:
-
-1. Run the `nss configure` command to configure the two network interfaces.
-2. Run the `nss configure proxy` command. For example:
-
-```
-[root@NSS /usr/home/zsroot]#
-nss configure proxy
-proxyserver (Proxy Host ) [10.81.153.26]:
-        proxyport (Proxy Port ) [443]:
-        dnsoverproxy (DNS over proxy: 0/1 ) []:
-1
-Successfully configured proxy
-```
-
-To undo this configuration, you can use `remove`:
-
-```
-nss configure proxy
-remove
-```
-
-1. Run the `sudo nss restart` command to restart the NSS service. When the NSS starts, it tries to connect to the Zscaler CA or Nanolog using the proxy it configured.
-2. Run the `nss troubleshoot netstat` command to verify the proxy (e.g., 10.81.153.26) connections for the Zscaler CA and Nanolog. See image.
-
-[Image: The established TCP connections to the Zscaler Central Authority (CA) and Nanolog]
-
-To update your NSS VM hostname:
-
-1. Log in to your NSS VM.
-2. Edit the file `/etc/rc.conf` using the vi Editor.
-
-```
-[zsroot@New_Hostname ~/$ vi /etc/rc.conf
-```
-
-1. Add the hostname entry to the file.
-
-```
-hostname=<name>
-```
-
-1. Run the `reboot` command.
-
-```
-root@New_Hostname:/usr/home/zsroot # reboot
-```
-
-1. After the NSS restarts, your new hostname appears.
-
-You can restrict SSH access based on IP/Subject using the following configuration in `sshd_config`:
-
-```
-AllowUsers zsroot@10.66.70.*
-```
-
-In this example, SSH is allowed only from the source IP address range 10.66.70.0/24. Then, run the followingcommand to make the configuration change effective:
-
-```
-service sshd restart
-```
-
-To configure key-based authentication:
-
-1. Create a .ssh directory in the home directory:`/home/zsroot/` under the user`root`*.*
-2. Upload your user public key file to the file `authorized_keys` under the directory `/home/zsroot/.ssh.`
-3. Adjust the file `/etc/ssh/sshd_config` with the following updates: (Make a backup of this file before changing it.)
-
-```
-ChallengeResponseAuthentication no
-PasswordAuthentication no
-```
-
-These entries are set to `yes` by default. You can set them to `no`or comment them out.
-
-1. Use the following command to restart the `sshd` service:
-
-```
-service sshd restart
-```
-
-Replace option `restart` with `stop` and `start` as required.
-
-1. Test the new configuration on the client side using SSH (e.g., PuTTY).
-
-You can use the following commands within the virtual machine (VM) console for your platform to configure and troubleshoot the NSS server. By default, root login is not permitted, so admins must use the `sudo` utility to run a command with higher privileges.
-
-- To start the service: `sudo nss start`
-- To stop the service: `sudo nss stop`
-- To restart the service: `sudo nss restart`
-- To smoothly shut down the OS: `sudo nss halt`
-- To change the network configuration (i.e., IP addresses, gateway information) for the service: `sudo nss configure`To learn more, see the [NSS deployment guide](https://help.zscaler.com/zia/deploying-nss-virtual-appliances) for your platform.
-- To configure additional interfaces: `sudo nss configure split-interface`To learn more, see [Configuring the Additional Interfaces from the Console](https://help.zscaler.com/zia/nss-advanced-deployment#Additional).
-- To configure an explicit proxy: `sudo nss configure proxy`To learn more, see [Configuring NSS in Explicit Proxy Mode](https://help.zscaler.com/zia/nss-advanced-deployment#proxy).
-- To remove the configuration (if you configured additional interfaces using the `sudo nss configure split-interface` command): `sudo nss configure split-interface --wipe`
-- To remove the network settings that were configured using the `sudo nss configure` command: `sudo nss configure --wipe`
-- To display the configuration file that was changed using the `sudo nss configure` command: `sudo nss dump-config`
-- To install NSS certificates from a specified certificate bundle file: `sudo nss install-cert <certificate bundle file>`
-- To check whether a new NSS version is available: `sudo nss checkversion`
-- To manually update the NSS to the latest version: `sudo nss update-now`
-- To force the NSS to update, regardless of whether a new version is available: `sudo nss force-update-now`
-- To check the firewall configuration: `sudo nss test-firewall`This command does active firewall configuration probing by attempting to resolve the DNS names and establishing outbound connections to the Zscaler cloud. This command doesn't reset the management IP interface, so you can run it on an SSH connection.
-- To view troubleshooting help command information: `sudo nss troubleshoot help`
-- To show the active connections on the service IP address: `sudo nss troubleshoot netstat`The output is similar to that of the `netstat` utility.
-- To show the connections and their statuses: `sudo nss troubleshoot connection`This command probes the connection status over a period of time and indicates whether the connections are stable or flapping.
-- To show the status of the NSS feeds for TCP, HTTP, and Cloud NSS: `sudo nss troubleshoot feeds`This command probes the status of the feeds and determines whether the logs are queued due to the slow consumption of logs by your security information and event management (SIEM).
-- To generate diagnostic information to send to Zscaler Support: `sudo nss collect-diagnostics`This command collects the configuration, vital statistics regarding the health of the NSS, and error statistics, and then downloads the data to a local file. You can email this file to Zscaler Support for troubleshooting purposes.
-- To reset the network configuration: `sudo nss reset-network`
-- To change the SNMP admin user configuration: `sudo nss snmp-admin-configure`You must restart the NSS using the `sudo nss restart` command for the changes to take effect.
-- To change the SNMP trap configuration: `sudo nss snmp-trap-configure`You must restart the NSS using the `sudo nss restart` command for the changes to take effect.
-- To set the SNMP community string: `sudo nss snmp-community-string <community string>`You must restart the NSS using the `sudo nss restart` command for the changes to take effect.
-- To automatically start the NSS after reboot: `sudo nss enable-autostart`
-- To disable the automatic start of the NSS after reboot: `sudo nss disable-autostart`
-- To set up and enable MCAS: `sudo nss configure-mcas2`You must restart the NSS using the `sudo nss restart` command for the changes to take effect. To learn more, see [Integrating with Microsoft Cloud App Security](https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security).
-- To disable MCAS: `sudo nss disable-mcas`You must restart the NSS using the `sudo nss restart` command for the changes to take effect. You can re-enable MCAS by re-issuing the `sudo nss configure-mcas2` command.
-
-## Enabling Remote Access
-
-An admin can request remote assistance and allow Zscaler Support to log in to their NSS server without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-Use the following commands to manage remote access to your NSS server:
-
-- To enable Zscaler Support to access your NSS server: `sudo nss support-access-start`This creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your NSS server.
-- To disable Zscaler Support access to your NSS server: `sudo nss support-access-stop`This brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-- To check the status of the Zscaler Support access to your NSS server: `sudo nss support-access-status`This checks the status of the long-lived SSH tunnel to the Zscaler cloud, which Zscaler Support uses to log in to your NSS server.
-- To enable a remote debugging session: `sudo nss enable-remote-debugging`
-- To disable a remote debugging session: `sudo nss disable-remote-debugging`
-
-## Error Codes
-
-The following are error codes that you might encounter when executing the `sudo nss update-now` command:
-
-| Error Code | Description |
-| --- | --- |
-| 96 | The client certificate is invalid. |
-| 97 | A timeout occurred while contacting the upgrade server. |
-| 99 | A problem occurred while downloading and installing the latest version. The `sudo force-update-now` command needs to be explicitly issued. |
-
-## Use Case
-
-You can use the following commands to check the DNS resolution issues on the service interface and routes to the surface interface:
-
-- To check the reachability of a server IP address using ICMP: `/sc/bin/smmgr -ys smnet='ping <IP address or Domain Name>'`
-- To print the server interface IP address config details: `/sc/bin/smmgr -ys smnet=ifconfig`
-- To check the DNS resolution of a hostname: `/sc/bin/smmgr -ys smnet='route'/sc/bin/smmgr -ys host="<Domain Name>" -ys connect=dns`
-- To check the communication or port reachability of a server: `/sc/bin/smmgr -ys host="<FQDN of SIEM server>" -ys port=<Listening port> -ys connect=tcp`
-
-## What happens if the NSS goes down?
-
-In the event of a connection loss between the NSS server and the cloud [Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture), the cloud retransmits the logs to the NSS up to a maximum of one hour. If the NSS is down for more than an hour, the logs falling out of the one-hour window aren't retrieved by the NSS.
-
-[Image: The Add NSS Server window on the Nanolog Streaming Service page]
-
-[Image: Option to download the SSL Certificate for the NSS Server]
-
-[Image: The recommended specs for the Hyper-V VM and Hypervisor for the NSS Virtual Appliance Deployment]
-
-[Image: Selecting the NSS type and platform for the Virtual Appliance Deployment for Web logs]
-
-[Image: Selecting the NSS type and platform for the Virtual Appliance Deployment for Firewall logs]
-
-[Image: The New > Virtual Machine option in the Hyper-V server]
-
-[Image: The Specify Name and Location page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Specify Generation page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Assign Memory page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Configure Networking page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Connect Virtual Hard Disk page on the New Virtual Machine Wizard for the Hyper-V server]
-
-[Image: The Add Hardware option to add network adapters for the Hyper-V server]
-
-[Image: Specifying the Network Adapter configurations for the Hyper-V server]
-
-[Image: Verifying TCP connections in Hyper-V server]
-<!-- /ZS-ARTICLE -->
+Generated: 2026-08-31 03:58 UTC
+Articles in this file: 130
 
 ---
 
@@ -5897,13 +5205,13 @@ To learn more about the configuration steps, refer to the [Okta documentation](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/obfuscating-device-information-admins","lastmod":"2026-06-15T21:06Z","nid":"1402326"} -->
+<!-- ZS-ARTICLE {"url":"/zia/obfuscating-device-information-admins","lastmod":"2026-08-28T17:34Z","nid":"1402326"} -->
 ## Obfuscating Device Information for Admins
 
 - Source: https://help.zscaler.com/zia/obfuscating-device-information-admins
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Obfuscating Device Information for Admins
-- Last modified: 2026-06-15T21:06Z
+- Last modified: 2026-08-28T17:34Z
 - Summary: How to obfuscate device information for admins viewing dashboards, reports, or insights in the Zscaler Admin Console.
 
 You can specify whether device information (i.e., device hostname, device owner, and device name) are visible or obfuscated for an admin when they view dashboards, reports, or insights.
@@ -5915,7 +5223,7 @@ If admins need to view device information, they must have an auditor grant them 
 To configure this setting for an admin account, your own admin account must meet the following conditions:
 
 - Your admin account must have an admin role that has **Full** permission to **Administrators Access**. To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
-- Your admin account must have [organizational admin scope](https://help.zscaler.com/zia/adding-admins). To learn more, see [About Admin Scope](https://help.zscaler.com/zia/about-admin-scope).
+- Your admin account must have organizational admin scope. To learn more, see [About Admin Scope](https://help.zscaler.com/zia/about-admin-scope).
 - If your organization has the [admin rank](https://help.zscaler.com/zia/about-admin-rank) feature enabled, and you're configuring this setting for another admin account, that admin must have an admin rank lower than or equal to your own admin rank.
 
 ## Obfuscating Device Information for Admins
@@ -5930,44 +5238,38 @@ To obfuscate device information for an admin, do one of the following:
 - Add a new admin role and account
 
 1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
-2. In the **Device Information**column, check which existing admin roles have device information **Obfuscated**. Ensure that all other permission settings for the existing admin role are appropriate for the admin you want to assign this role to. See image.
+2. Ensure that you have a role with the appropriate permissions for the admin you want to assign the role to and that the **Device Information** column for that row displays **Obfuscated**.
 3. Go to**Administration** > **Admin Management** > **Role Based Access Control** > **Administrative Entitlements**.
 4. Select **Zscaler Internet Access**.
-5. Click on the **Users**tab.
-6. Click **Assign Users**.
-7. Use the search bar to find the admin you want to assign the role to.
+5. Click the **Users**tab.
+6. Click **Assign Users**. The **Select Users & Roles** page appears.
+7. On the **Select Users & Roles** page, use the search bar to find the admin you want to assign the role to.
 8. Select the desired role from the drop-down menu.
 9. Click **Next**.
 10. On the **Summary** page, review the assignment details and click **Assign**.
 11. [Activate the change.](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal)
 
-[Image: Screenshot showing visible and obfuscated device information in the Role Management window]
-
 1. Go to**Administration**>**Admin Management**>**Administrator Management**>**Internet Access Administrators**.
 2. In the **Role** column, check which admin role is assigned to admin you want to edit. Also, check which other admins have been assigned this specific role, and ensure you want device information obfuscation enabled for those admins as well.
 3. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
-4. Click the **Edit** icon for the role assigned to the admin you're editing. See image. The **Edit Administrator Role**window appears.
-5. In the **Edit Administrator Role**window, for **Device Information**, choose **Obfuscated**. See image.
+4. Click the **Edit** icon for the role assigned to the admin you're editing. The **Edit Administrator Role**window appears.
+5. In the **Edit Administrator Role**window, for **Device Information**, choose **Obfuscated**.
 6. Click**Save**and[activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-****[Image: Screenshot of the Edit Administrator Role window showing how to change device information from visible to obsfuscated]****
-
-[Image: Screenshot showing how to edit admin]
 
 1. Go to**Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role**window, follow [the instructions for adding a new admin role](https://help.zscaler.com/zia/adding-admin-roles), including how to enable device information obfuscation.
 4. Go to**Administration** > **Admin Management** > **Role Based Access Control** > **Administrative Entitlements**.
 5. Select **Zscaler Internet Access**.
-6. Click on the **Users**tab.
-7. Click **Assign Users**.
-8. Use the search bar to find the admin you want to assign the role to.
+6. Click the **Users**tab.
+7. Click **Assign Users**. The **Select Users & Roles** page appears.
+8. On the **Select Users & Roles** page, use the search bar to find the admin you want to assign the role to.
 9. Select the desired role from the drop-down menu.
 10. Click **Next**.
 11. On the **Summary** page, review the assignment details and click **Assign**.
 12. [Activate the change.](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal)
 
-For convenience, Zscaler recommends creating the admin role first because you'll assign the role to the new admin.
+For convenience, Zscaler recommends creating the admin role first so you can assign the role to the new admin.
 
 1. [Add a new admin role with device information obfuscation enabled.](https://help.zscaler.com/zia/adding-admin-roles)
 2. [Add a new user.](https://help.zscaler.com/zidentity/adding-users)
@@ -5976,13 +5278,13 @@ For convenience, Zscaler recommends creating the admin role first because you'll
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/obfuscating-user-names-admins","lastmod":"2026-06-15T21:06Z","nid":"1399736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/obfuscating-user-names-admins","lastmod":"2026-08-28T17:11Z","nid":"1399736"} -->
 ## Obfuscating User Names for Admins
 
 - Source: https://help.zscaler.com/zia/obfuscating-user-names-admins
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Obfuscating User Names for Admins
-- Last modified: 2026-06-15T21:06Z
+- Last modified: 2026-08-28T17:11Z
 - Summary: How to obfuscate user names for admins viewing dashboards, reports, or insights in the Zscaler Admin Console.
 
 You can specify whether real user names are visible or obfuscated for an admin when they view dashboards, reports, or insights. You can also obfuscate user names in NSS feeds. To learn more, see [Adding NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-nss-feeds-web-logs), [Adding NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs), and [Adding NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-nss-feeds-dns-logs).
@@ -5994,7 +5296,7 @@ Some regions have legal requirements that dictate that user names always remain 
 To configure this setting for an admin account, your own admin account must meet the following conditions:
 
 - Your admin account must have an admin role that has **Full** permission to **Administrators Access**. To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
-- Your admin account must have [organizational admin scope](https://help.zscaler.com/zia/adding-admins). To learn more, see [About Admin Scope](https://help.zscaler.com/zia/about-admin-scope).
+- Your admin account must have organizational admin scope. To learn more, see [About Admin Scope](https://help.zscaler.com/zia/about-admin-scope).
 - If your organization has the [admin rank](https://help.zscaler.com/zia/about-admin-rank) feature enabled, and you're configuring this setting for another admin account, that admin must have an admin rank lower than or equal to your own admin rank.
 
 ## Obfuscating User Names for Admins
@@ -6003,35 +5305,29 @@ To obfuscate user names for an admin viewing dashboards, reports, and insights, 
 
 To obfuscate user names for an admin, do one of the following:
 
-- Assign the admin an existing role with user obfuscation enabled
-- Enable user obfuscation for an existing role
-- Add a new role with user obfuscation enabled and assign it to the admin
-- Add a new admin role and account
+- Assign the admin an existing role with user obfuscation enabled.
+- Enable user obfuscation for an existing role.
+- Add a new role with user obfuscation enabled and assign it to the admin.
+- Add a new admin role and account.
 
 1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
-2. In the **User Names** column, check which existing admin roles have user names **Obfuscated**. Ensure that all other permission settings for the existing admin role are appropriate for the admin you want to assign this role to. See image.
+2. Ensure that you have a role with the appropriate permissions for the admin you want to assign the role to and that the **User Names**column for that row displays **Obfuscated**.
 3. Go to**Administration** > **Admin Management** > **Role Based Access Control** > **Administrative Entitlements**.
 4. Select **Zscaler Internet Access**.
-5. Click on the **Users**tab.
-6. Click **Assign Users**.
-7. Use the search bar to find the admin you want to assign the role to.
+5. Click the **Users**tab.
+6. Click **Assign Users**. The **Select Users & Roles** page appears.
+7. On the **Select Users & Roles** page, use the search bar to find the admin you want to assign the role to.
 8. Select the desired role from the drop-down menu.
 9. Click **Next**.
 10. On the **Summary** page, review the assignment details and click **Assign**.
 11. [Activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 
-[Image: Screenshot showing visible and obfuscated user names in the Role Management window]
-
 1. Go to**Administration**>**Admin Management**>**Administrator Management**>**Internet Access Administrators**.
 2. In the **Role** column, check which admin role is assigned to the admin you want to edit. Also, check which other admins have been assigned this specific role, and ensure you want user obfuscation enabled for those admins as well.
 3. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
-4. Click the **Edit** icon for the role assigned to the admin you're editing. See image. The **Edit Administrator Role**window appears.
-5. In the **Edit Administrator Role**window, For **User Names**, choose **Obfuscated**. See image.
-6. Click**Save**and[activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-****[Image: Screenshot of the Edit Administrator Role window showing how to change users from visible to obsfuscated]****
-
-[Image: Screenshot showing how edit admin]
+4. Click the **Edit** icon for the role assigned to the admin you're editing. The **Edit Administrator Role**window appears.
+5. In the **Edit Administrator Role**window, For **User Names**, choose **Obfuscated**.
+6. Click**Save**and[activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 
 1. Go to**Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
@@ -6039,18 +5335,18 @@ To obfuscate user names for an admin, do one of the following:
 4. Go to**Administration** > **Admin Management** > **Role Based Access Control** > **Administrative Entitlements**.
 5. Select **Zscaler Internet Access**.
 6. Click on the **Users**tab.
-7. Click **Assign Users**.
-8. Use the search bar to find the admin you want to assign the role to.
+7. Click **Assign Users**. The **Select Users & Roles** page appears.
+8. On the **Select Users & Roles** page, use the search bar to find the admin you want to assign the role to.
 9. Select the desired role from the drop-down menu.
 10. Click **Next**.
 11. On the **Summary** page, review the assignment details and click **Assign**.
 12. [Activate the change.](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal)
 
-For convenience, Zscaler recommends creating the admin role first because you'll assign the role to the new admin.
+For convenience, Zscaler recommends creating the admin role first so you can assign the role to the new admin.
 
 1. [Add a new admin role with user obfuscation enabled.](https://help.zscaler.com/zia/adding-admin-roles)
-2. [Add a new user.](https://help.zscaler.com/zidentity/adding-users)
-3. [Assign an administrative entitlement for Zscaler Internet Access to the user with the newly created role selected.](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups)
+2. [Add a new user.](https://help.zscaler.com/authentication-service/adding-users)
+3. [Assign an administrative entitlement for Zscaler Internet Access to the user with the newly created role selected.](https://help.zscaler.com/authentication-service/assigning-entitlements-users-and-user-groups)
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6205,13 +5501,13 @@ An Organization Admin with Full Admin, Compliance Officer, and Webex Site Admin 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/policy-reasons","lastmod":"2026-03-26T11:10Z","nid":"1400931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/policy-reasons","lastmod":"2026-08-28T03:46Z","nid":"1400931"} -->
 ## Policy Reasons
 
 - Source: https://help.zscaler.com/zia/policy-reasons
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Policy Reasons
-- Last modified: 2026-03-26T11:10Z
+- Last modified: 2026-08-28T03:46Z
 - Summary: A list of Zscaler policy reasons and an explanation of their meaning.
 
 This article provides an explanation of the policy actions that are seen in Insights and NSS reports.
@@ -6219,7 +5515,7 @@ This article provides an explanation of the policy actions that are seen in Insi
 | Policy Reason | Feature | Description |
 | --- | --- | --- |
 | Access denied due to bad server certificate | SSL/TLS | The transaction to an SSL/TLS site was blocked due to server certificate validation failure or OCSP revocation check failure. |
-| Access denied due to low TLS version | SSL/TLS | The inspected or uninspected SSL/TLS traffic was blocked due to a minimum TLS version enforcement in Policy > SSL/TLS Inspection. |
+| Access denied due to low TLS version | SSL/TLS | The inspected or uninspected SSL/TLS traffic was blocked due to a minimum TLS version enforcement in the [SSL/TLS Inspection policy](https://help.zscaler.com/zia/about-ssltls-inspection-policy). |
 | Access denied due to Domain Fronting | Core Proxy | The transaction that indicates domain fronting due to an FQDN mismatch between: The request URL and the request's host header; The SNI (Server Name Indication) and the inner request's host header |
 | Allow due to insufficient app data | Firewall Filtering | Packets were allowed as the deep packet inspection (DPI) was trying to determine the network application, but the DPI session terminated unexpectedly before any configured policy could be matched. |
 | Allowed | N/A | The transaction was allowed. |
@@ -6228,7 +5524,7 @@ This article provides an explanation of the policy actions that are seen in Insi
 | Allowed and archived to mailbox failed | DLP | The transaction violated a DLP policy rule, but it was allowed. Failed to send an email to the auditor's mailbox. |
 | Allowed and No Scan | Sandbox | The file was allowed for download because a Sandbox policy had the First Time Action of Allow and Do Not Scan. |
 | Allowed due to override | URL Filtering | The transaction was blocked initially but was allowed after the override password was entered. |
-| Block Internet access | Locations | Access to the internet, including non-HTTP traffic, was blocked because the user has not accepted the Acceptable Use Policy. This option is set in Locations > Enable AUP > Block Internet Access. |
+| Block Internet access | Locations | Access to the internet, including non-HTTP traffic, was blocked because the user has not accepted the Acceptable Use Policy. This option is set [when configuring a location (under Gateway Options)](https://help.zscaler.com/zia/configuring-locations). |
 | Blocked due to Rate-based HTTP/HTTP2 Command and Control traffic detection | Advanced Threat Protection | The transaction was blocked by IPS as rate-based botnet command and control traffic was detected in the response. |
 | Blocked Mobile App communicating with remote unknown servers | Mobile Malware Protection | The transaction was generated by an application which communicates with unknown third party servers and was blocked by Mobile Malware Protection policy. |
 | Blocked Mobile App communicating to Ad websites | Mobile Malware Protection | The transaction was generated by an application that communicates with ad sites and was blocked by Mobile Malware Protection policy. |
@@ -6242,7 +5538,7 @@ This article provides an explanation of the policy actions that are seen in Insi
 | Blocked by Default URL Filtering | URL Filtering | The transaction was blocked by the default URL Filtering policy. |
 | Blocked due to Bad SSL/TLS record | SSL/TLS | The SSL/TLS connection was blocked due to the forwarding of non-SSL/TLS traffic to HTTPS port. |
 | Blocked due to invalid server IP | Web Insights Logs | The DNS server resolved an origin server as an invalid IP address. |
-| Blocked due to Server Probe Failure | SSL/TLS | Block Undecryptable Traffic in Policy > SSL/TLS Inspection is enabled and the Zscaler service was unable to make a server-side connection (TCP or SSL/TLS). |
+| Blocked due to Server Probe Failure | SSL/TLS | The Block Undecryptable Trafficsetting in the [SSL/TLS Inspection policy](https://help.zscaler.com/zia/about-ssltls-inspection-policy) is enabled, and the Zscaler service was unable to make a server-side connection (TCP or SSL/TLS). |
 | Bypassed due to missing config | Firewall Filtering | This implicit rule action is logged when the Service Edge for Internet & SaaS (ZIA) fails to establish a connection with the Zscaler Central Authority (CA), resulting in the traffic flow passing through Zscaler Firewall or DNS without policy application. This might occur when traffic flow from a specific user or location arrives at the Service Edge for the first time and a connection to the CA is required to apply policies. |
 | Cautioned the use of this Social Network site | Cloud App Control | Due to a Cloud App Control policy restricting access to Social Networking cloud apps, the transaction was cautioned. |
 | Cautioned to post message to this site | Cloud App Control | Due to a Cloud App Control policy that restricts the user from posting content to Social Networking cloud apps, the transaction was cautioned. |
@@ -6298,7 +5594,7 @@ This article provides an explanation of the policy actions that are seen in Insi
 | Not allowed to browse this category | URL Filtering | The transaction triggered a URL Filtering policy which has a Block action. |
 | Not allowed to browse this P2P site | Advanced Threat Protection | Access to a known peer-to-peer site was blocked. |
 | Not allowed to browse with unknown user agent | Advanced Threat Protection | An unknown user agent was detected and the transaction was blocked. |
-| Not allowed to establish SSL/TLS connection due to policy | SSL/TLS | The traffic was blocked due to an SSL/TLS inspection policy which has a Block action. |
+| Not allowed to establish SSL/TLS connection due to policy | SSL/TLS | The traffic was blocked due to an SSL/TLS Inspection policy which has a Block action. |
 | Not allowed to post message to this site | Cloud App Control | Due to a Cloud App Control policy, an attempt to post content to a Social Networking application was blocked. |
 | Not allowed to send webmail | Cloud App Control | Due to a Cloud App Control policy that restricts access to sending out emails from webmail cloud apps. |
 | Not allowed to upload files to this site | Cloud App Control | Due to a Cloud App Control policy that restricts access to uploading files to File Sharing cloud apps, the transaction was blocked. |
@@ -6333,7 +5629,7 @@ This article provides an explanation of the policy actions that are seen in Insi
 | Secure Browsing warned about an outdated/disallowed component | Browser Control | An outdated component was detected and the user was warned by the Browser Vulnerability Protection policies. |
 | Timed out while waiting for a config | Firewall Filtering | This implicit rule action is logged when the Service Edge for Internet & SaaS (ZIA) has established a connection with the CA but the requested configuration does not arrive from the CA within the expected time period (typically 5 seconds). This might occur when traffic flow from a specific user or location arrives at the Service Edge for the first time and a connection to the CA is established but there is no response from the CA within the expected time frame. |
 | Time quota exceeded daily limit | Cloud App Control, URL Filtering | The transaction was blocked due to a time quota associated with a policy. |
-| Undecryptable Traffic Block | Cloud App Control | The traffic from applications that used non-standard encryption methods was blocked as the Block Undecryptable Traffic option is enabled under Policy > SSL/TLS Inspection. |
+| Undecryptable Traffic Block | Cloud App Control | The traffic from applications that used non-standard encryption methods was blocked because the Block Undecryptable Traffic setting is enabled in the [SSL/TLS Inspection policy](https://help.zscaler.com/zia/about-ssltls-inspection-policy). |
 | Unenrolled user is not allowed to establish SSL/TLS connection | SSL/TLS | The SSL/TLS connection of an unenrolled user was blocked. Use a non-SSL/TLS URL to enroll. |
 | Violates Compliance Category | DLP | Due to a DLP policy violation, the transaction was blocked. |
 | Violates Compliance Category, archive to mailbox | DLP | The transaction was blocked due to a DLP policy violation. Email was sent to the auditor's mailbox. |
@@ -6574,23 +5870,27 @@ Zscaler recommends the following configuration for the [Advanced Threat Protecti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/recommended-browser-control-policy","lastmod":"2026-07-13T05:23Z","nid":"1399836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/recommended-browser-control-policy","lastmod":"2026-08-25T12:20Z","nid":"1399836"} -->
 ## Recommended Browser Control Policy
 
 - Source: https://help.zscaler.com/zia/recommended-browser-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Browser Control > Recommended Browser Control Policy
-- Last modified: 2026-07-13T05:23Z
+- Last modified: 2026-08-25T12:20Z
 - Summary: View the Zscaler-recommended configuration for the Browser Control policy.
 
-Zscaler recommends that you configure the following [Browser Control](https://help.zscaler.com/zia/configuring-browser-control-policy) policy when using vulnerable browsers:
+To reduce exposure from end-of-life and known-vulnerable versions and guide users to update via clear notifications before enforcement, Zscaler recommends the following [Browser Control](https://help.zscaler.com/zia/configuring-browser-control-policy) settings when users run vulnerable browsers:
 
-- Enable **Enable Checks & User Notification**
+Vulnerable browsers include unsupported versions, missing patches, and end-of-life versions. The Zscaler Admin Console shows the latest 12 versions for most browsers. Use the version lists to warn or block specific versions. Checks include beta browsers where applicable.
+
+- Enable **Checks & User Notification**
 - Disable **Allow All Browsers**
 
-Browser Control policy settings only work for non-Zscaler Client Connector traffic. If Zscaler Client Connector is enabled, the Browser Vulnerability Protection settings do not take effect. Browser Blocking settings still take effect if Zscaler Client Connector is enabled.
+See image
 
-[Image: Enable Checks & User Notification and disable Allow All Browsers on the Browser Control page]
+Browser Vulnerability Protection only works with non-Zscaler Client Connector traffic. Browser Blocking still takes effect if Zscaler Client Connector is enabled.
+
+[Image: View Recommended Browser Control Policy window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7229,13 +6529,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-08-21T12:59Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-08-28T11:21Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-21T12:59Z
+- Last modified: 2026-08-28T11:21Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -7499,13 +6799,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/role-based-administration-configuration-examples","lastmod":"2026-06-15T21:06Z","nid":"1399741"} -->
+<!-- ZS-ARTICLE {"url":"/zia/role-based-administration-configuration-examples","lastmod":"2026-08-28T17:04Z","nid":"1399741"} -->
 ## Role-Based Administration Configuration Examples
 
 - Source: https://help.zscaler.com/zia/role-based-administration-configuration-examples
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role-Based Administration Configuration Examples
-- Last modified: 2026-06-15T21:06Z
+- Last modified: 2026-08-28T17:04Z
 - Summary: Information on common examples of role-based administration in the Zscaler Admin Console.
 
 With [role-based administration](https://help.zscaler.com/zia/configuring-role-based-administration), organizations can assign specific [roles](https://help.zscaler.com/zia/adding-admin-roles) to admins with different levels of access to the Zscaler Admin Console features.
@@ -7520,7 +6820,7 @@ Admins with **Full** or **View Only** permissions for the **Dashboard**, **Repor
 
 For this example, let's consider your organization has an office located in the US and another office located in the UK, and requires HR admins with the following conditions in these two locations:
 
-- They should manage access-control policies like URL filtering and bandwidth usage.
+- They should manage access-control policies like URL Filtering and Bandwidth Usage.
 - They are responsible for providing reports on employee web usage to measure productivity and ensure compliance.
 - They are ranked lower than the VP of HR, who has an admin account with an admin rank of 2, to ensure that the VP has the final say on access-control policies.
 - They have access to logs for an unrestricted period of time.
@@ -7534,18 +6834,16 @@ For this example, let's consider your organization has an office located in the 
 
 To configure an admin with the preceding specifications:
 
-- Step 1: Add the Admin Role
-- Step 2: Add the US Admin Account
-- Step 3: Add the UK Admin Account
-
-To configure an admin role:
+- 1. Add the admin role.
+- 2. Add the US admin account.
+- 3. Add the UK admin account.
 
 1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
-2. Click **Add Administrator Role**.
-3. In the **Add Administrator Role** window: See image.
+2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
+3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
   - **Enable Permissions for Executive Insights**: Disable this option.
-  - **Permissions**: Select permissions for the following categories:
+  - In the **Permissions**section:
     - **Admin Rank**: Select an admin rank lower than 2. For example, select **3**.
     - **Logs Limit (Days)**:Select**Unrestricted**.
     - **Dashboard Access**:Select **Full**.
@@ -7554,38 +6852,45 @@ To configure an admin role:
     - **Alerts Access**: Select **View Only**.
     - **User Names**: Select **Obfuscated**.
     - **Device Information**: Select **Obfuscated**.
-  - Select permissions for the following scopes:
-    - **Policy & Components**: Assign **Full** permission for all the features under the **Policy Control** and **Policy Components** sections in the **Access Control** tab. Assign **None**permissionfor **Security**, **Data Protection**, **Decryption**, **URL Categories**, and **Shared Policy Components** tabs in this scope.
-    - **Cloud Configuration & Integration**: Assign **None** permission for integrations and cloud-configurations features under the **Integrations** and **Cloud Configuration**tabs, respectively.
-    - **Traffic Forwarding**: Assign **None** permission for **Traffic Forwarding**, **Traffic Forwarding Methods**, and **Traffic Forwarding Components** features.
-    - **Administration Controls**: Assign **None** permission for **Administration Controls** and **Backup Controls** features.
-    - **Reporting Data**: Assign **None** permission for the reporting features.
+    - **Gen AI Prompt**: Select **Obfuscated**.
+  - Select permissions for the following categories:
+    - **Policy & Components**: Configure the following permissions:
+      - **Security**: Select **None**for all permissions in this category.
+      - **Access Control**: Select **Full**for all permissions in this category.
+      - **Data Protection**: Select **None**for all permissions in this category.
+      - **Decryption**: Select **None**for all permissions in this category.
+      - **URL Categories**: Select **None**for all permissions in this category.
+      - **Shared Policy Components**: Select **None**for all permissions in this category.
+    - **Cloud Configuration & Integration**: Select **None**for all permissions in this category.
+    - **Traffic Forwarding**: Select **None**for all permissions in this category.
+    - **Administration Controls**: Select **None**for all permissions in this category.
+    - **Reporting Data**: Select **None**for all permissions in this category.
 
-This role can then be assigned to both admins since they are performing the same tasks in the Zscaler Admin Console. To learn more about configuring admin roles with different permissions and scope, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
-
-To configure an admin for the US location:
-
-1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
-2. After the user has been added, [assign them an entitlement to the Internet & SaaS (ZIA) service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added in the initial [step](https://help.zscaler.com/zia/examples-role-based-administration#admin-role-us-uk).
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**and select the admin you added. In the **Edit Administrator**window: See image.
-  1. **Scope**: Choose **Location**.
-    1. **Locations**: Select your US office location. In this example, it is **USA Office**.
-  2. **Security Updates**: Disable this option.
-  3. **Service Updates**: Disable this option.
-  4. **Product Updates**: Disable this option.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-To configure an admin for the UK location:
+This role can be assigned to both admins since they are performing the same tasks in the Zscaler Admin Console. To learn more about configuring admin roles with different permissions and scope, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
-2. After the user has been added, [assign them an entitlement to the Internet & SaaS (ZIA) service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added in the initial [step](https://help.zscaler.com/zia/examples-role-based-administration#admin-role-us-uk).
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**and select the admin you added. In the **Edit Administrator**window: See image.
+2. After the user has been added, [assign them an entitlement to the Internet & SaaS (ZIA) service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
+3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+5. In the **Edit Administrator** window: See image.
+  - **Scope**: Choose **Location**.
+    - **Locations**: Select your US office location. In this example, it is **USA Office**.
+  - **Security Updates**: Disable this option.
+  - **Service Updates**: Disable this option.
+  - **Product Updates**: Disable this option.
+6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
+2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
+3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+5. In the **Edit Administrator** window: See image.
   - **Scope**: Choose **Location**.
     - **Locations**: Select your UK office location. In this example, it is **UK Office**.
   - **Security Updates**: Disable this option.
   - **Service Updates**: Disable this option.
   - **Product Updates**: Disable this option.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 For this example, let's consider that your organization requires that admins have access to configure security policies for the organization, and you require two types of admin accounts, CISO and Security Response Manager, with the following conditions:
 
@@ -7610,19 +6915,17 @@ For this example, let's consider that your organization requires that admins hav
 
 To configure an admin with the preceding specifications:
 
-- Step 1: Add the CISO Admin Role
-- Step 2: Add the Security Response Manager Admin Role
-- Step 3: Add the CISO Admin Account
-- Step 4: Add the Security Response Manager Admin Account
-
-To configure a CISO admin role:
+- 1. Add the CISO admin role.
+- 2. Add the Security Response Manager admin role.
+- 3. Add the CISO admin account.
+- 4. Add the Security Response Manager admin account.
 
 1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
-2. Click **Add Administrator Role**.
-3. In the **Add Administrator Role** window: See image.
+2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
+3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
   - **Enable Permissions for Executive Insights**: Disable this option.
-  - **Permissions**: Select permissions for the following categories:
+  - In the **Permissions**section:
     - **Admin Rank**: Select an admin rank lower than 1. For example, select **2**.
     - **Logs Limit (Days)**:Select**Unrestricted**.
     - **Dashboard Access**:Select **Full**.
@@ -7631,23 +6934,28 @@ To configure a CISO admin role:
     - **Alerts Access**: Select **View Only**.
     - **User Names**: Select **Visible**.
     - **Device Information**: Select **Visible**.
-  - Select permissions for the following scopes:
-    - **Policy & Components**: Assign **Full** permission for all the features under the **Security** tab. Assign **None**permissionfor **Access Control**, **Data Protection**, **Decryption**, **URL Categories**, and **Shared Policy Components** tabs in this scope.
-    - **Cloud Configuration & Integration**: Assign **None** permission for integrations and cloud-configurations features under the **Integrations** and **Cloud Configuration**tabs, respectively.
-    - **Traffic Forwarding**: Assign **None** permission for **Traffic Forwarding**, **Traffic Forwarding Methods**, and **Traffic Forwarding Components** features.
-    - **Administration Controls**: Assign **None** permission for **Administration Controls** and **Backup Controls** features.
-    - **Reporting Data**: Assign **None** permission for the reporting features.
+    - **Gen AI Prompt**: Select **Visible**.
+  - Select permissions for the following categories:
+    - **Policy & Components**: Configure the following permissions:
+      - **Security**: Select **Full**for all permissions in this category.
+      - **Access Control**: Select **None**for all permissions in this category.
+      - **Data Protection**: Select **None**for all permissions in this category.
+      - **Decryption**: Select **None**for all permissions in this category.
+      - **URL Categories**: Select **None**for all permissions in this category.
+      - **Shared Policy Components**: Select **None**for all permissions in this category.
+    - **Cloud Configuration & Integration**: Select **None**for all permissions in this category.
+    - **Traffic Forwarding**: Select **None**for all permissions in this category.
+    - **Administration Controls**: Select **None**for all permissions in this category.
+    - **Reporting Data**: Select **None**for all permissions in this category.
 
 To learn more about configuring admin roles with different permissions and scope, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
 
-To configure a Security Response Manager admin role:
-
 1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
-2. Click **Add Administrator Role**.
-3. In the **Add Administrator Role** window: See image.
+2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
+3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
   - **Enable Permissions for Executive Insights**: Disable this option.
-  - **Permissions**: Select permissions for the following categories:
+  - In the **Permissions**section:
     - **Admin Rank**: Select an admin rank lower than the CISO admin. For example, select **3**.
     - **Logs Limit (Days)**:Select**30**.
     - **Dashboard Access**:Select **Full**.
@@ -7656,36 +6964,43 @@ To configure a Security Response Manager admin role:
     - **Alerts Access**: Select **View Only**.
     - **User Names**: Select **Visible**.
     - **Device Information**: Select **Visible**.
-  - Select permissions for the following scopes:
-    - **Policy & Components**: Assign **View Only** permission for all the features under the **Security** tab. Assign **None**permissionfor **Access Control**, **Data Protection**, **Decryption**, **URL Categories**, and **Shared Policy Components** tabs in this scope.
-    - **Cloud Configuration & Integration**: Assign **None** permission for integrations and cloud-configurations features under the **Integrations** and **Cloud Configuration**tabs, respectively.
-    - **Traffic Forwarding**: Assign **None** permission for **Traffic Forwarding**, **Traffic Forwarding Methods**, and **Traffic Forwarding Components** features.
-    - **Administration Controls**: Assign **None** permission for **Administration Controls** and **Backup Controls** features.
-    - **Reporting Data**: Assign **None** permission for the reporting features.
+    - **Gen AI Prompt**: Select **Visible**.
+  - Select permissions for the following categories:
+    - **Policy & Components**: Configure the following permissions:
+      - **Security**: Select **View Only**for all permissions in this category.
+      - **Access Control**: Select **None**for all permissions in this category.
+      - **Data Protection**: Select **None**for all permissions in this category.
+      - **Decryption**: Select **None**for all permissions in this category.
+      - **URL Categories**: Select **None**for all permissions in this category.
+      - **Shared Policy Components**: Select **None**for all permissions in this category.
+    - **Cloud Configuration & Integration**: Select **None**for all permissions in this category.
+    - **Traffic Forwarding**: Select **None**for all permissions in this category.
+    - **Administration Controls**: Select **None**for all permissions in this category.
+    - **Reporting Data**: Select **None**for all permissions in this category.
 
 To learn more about configuring admin roles with different permissions and scope, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
 
-To configure a CISO admin:
+1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
+2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
+3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+5. In the **Edit Administrator** window: See image.
+  - **Scope**: Choose **Organization**.
+  - **Security Updates**: Enable this option.
+  - **Service Updates**: Enable this option.
+  - **Product Updates**: Enable this option.
+6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
-2. After the user has been added, [assign them an entitlement to the Internet & SaaS (ZIA) service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added in the initial [step](https://help.zscaler.com/zia/examples-role-based-administration#ciso-admin-role).
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**and select the admin you added. In the **Edit Administrator**window: See image.
+2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
+3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+5. In the **Edit Administrator**window: See image.
   1. **Scope**: Choose **Organization**.
   2. **Security Updates**: Enable this option.
   3. **Service Updates**: Enable this option.
   4. **Product Updates**: Enable this option.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-To configure a Security Response Manager admin:
-
-1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
-2. After the user has been added, [assign them an entitlement to the Internet & SaaS (ZIA) service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added in the initial [step](https://help.zscaler.com/zia/examples-role-based-administration#ciso-admin-role).
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**and select the admin you added. In the **Edit Administrator**window: See image.
-  1. **Scope**: Choose **Organization**.
-  2. **Security Updates**: Enable this option.
-  3. **Service Updates**: Enable this option.
-  4. **Product Updates**: Enable this option.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 For this example, let's consider that your organization requires admins to have view-only access to Zscaler Client Connector and you require admins with the following conditions:
 
@@ -7699,17 +7014,15 @@ For this example, let's consider that your organization requires admins to have 
 
 To configure an admin with the preceding specifications:
 
-- Step 1: Add the Admin Role
-- Step 2: Add the Admin
-
-To configure an admin role with view-only access to Zscaler Client Connector:
+- 1. Add the admin role.
+- 2. Add the admin.
 
 1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
-2. Click **Add Administrator Role**.
-3. In the **Add Administrator Role** window: See image.
+2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
+3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
   - **Enable Permissions for Executive Insights**: Disable this option.
-  - **Permissions**: Select permissions for the following categories:
+  - In the **Permissions**section:
     - **Admin Rank**: Select a lower admin rank.
     - **Logs Limit (Days)**:Select**Unrestricted**.
     - **Dashboard Access**:Select **View Only**.
@@ -7718,41 +7031,41 @@ To configure an admin role with view-only access to Zscaler Client Connector:
     - **Alerts Access**: Select **None**.
     - **User Names**: Select **Obfuscated**.
     - **Device Information**: Select **Obfuscated**.
-  - Select permissions for the following scopes:
-    - **Policy & Components**: Assign **None** permission for all the features under the **Security**, **Access Control**, **Data Protection**, **Decryption**, **URL Categories**, and **Shared Policy Components** tabs in this scope.
-    - **Cloud Configuration & Integration**: Assign **None** permission for integrations and cloud-configurations features under the **Integrations** and **Cloud Configuration**tabs, respectively.
-    - **Traffic Forwarding**: Assign **View Only** permission only to the Zscaler Client Connector feature under the **Traffic Forwarding Components** section. Assign **None** permission to all other features in the **Traffic Forwarding Components** section and all the features in the **Traffic Forwarding** and **Traffic Forwarding Methods** sections in this scope.
-    - **Administration Controls**: Assign **None** permission for **Administration Controls** and **Backup Controls** features.
-    - **Reporting Data**: Assign **None** permission for the reporting features.
+    - **Gen AI Prompt**: Select **Obfuscated**.
+  - Select permissions for the following categories:
+    - **Policy & Components**: Select **None**for all permissions in this category.
+    - **Cloud Configuration & Integration**: Select **None**for all permissions in this category.
+    - **Traffic Forwarding**: Configure the following permissions:
+      - In the **Traffic Forwarding**section, select **None**.
+      - In the **Traffic Forwarding Methods**section, select **None**.
+      - In the **Traffic Forwarding Components**section, select **Custom**and configure the following:
+        - **Proxies & Gateways**: Select**None**.
+        - **Zscaler Client Connector Portal**: Select **View Only**.
+        - **Subclouds & DC Exclusion**: Select**None**.
+        - **Traffic Capture**: Select**None**.
+    - **Administration Controls**: Select **None**for all permissions in this category.
+    - **Reporting Data**: Select **None**for all permissions in this category.
 
 To learn more about configuring admin roles with different permissions and scope, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
 
-To configure an admin:
-
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
-2. After the user has been added, [assign them an entitlement to the Internet & SaaS (ZIA) service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added in the initial step.
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**and select the admin you added. In the **Edit Administrator**window: See image.
-  1. **Scope**: Choose **Organization**.
-  2. **Security Updates**: Disable this option.
-  3. **Service Updates**: Disable this option.
-  4. **Product Updates**: Disable this option.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: The Add Administrator Role window displaying configurations for an admin with Full access to Access Control policies]
+2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
+3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+5. In the **Edit Administrator**window: See image.
+  - **Scope**: Choose **Organization**.
+  - **Security Updates**: Disable this option.
+  - **Service Updates**: Disable this option.
+  - **Product Updates**: Disable this option.
+6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: The Edit Administrator window displaying configurations for HR-Access Control]
 
 [Image: The Edit Administrator window displaying configurations for UK HR-Access Control]
 
-[Image: The Add Administrator Role window displaying configurations for an admin with Full access to Security policies]
-
-[Image: The Add Administrator Role window displaying configurations for an admin with View Only access to Security policies]
-
 [Image: The Edit Administrator window displaying configurations for CISO admin account]
 
 [Image: The Edit Administrator window displaying configurations for Security Response Manager admin account]
-
-[Image: The Add Administrator Role window displaying configurations for an admin with View Only access to Zscaler Client Connector Portal]
 
 [Image: The Edit Administrator window displaying configurations for a Read-Only (view-only) admin role]
 <!-- /ZS-ARTICLE -->
@@ -11255,13 +10568,13 @@ The **Reports**menu in the left-side navigation allows you to navigate to any cu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-internet-saas","lastmod":"2026-06-22T21:06Z","nid":"1401206"} -->
+<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-internet-saas","lastmod":"2026-08-28T00:28Z","nid":"1401206"} -->
 ## Step-by-Step Configuration Guide for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Step-by-Step Configuration Guide for Internet & SaaS
-- Last modified: 2026-06-22T21:06Z
+- Last modified: 2026-08-28T00:28Z
 - Summary: This guide takes you step-by-step through the configuration tasks you must complete for Internet & SaaS (ZIA)
 
 This guide takes you through the configuration steps you need to complete to begin using Internet & SaaS (ZIA) for your organization.
@@ -11283,9 +10596,16 @@ To configure Internet & SaaS, complete the following steps:
 - Step 5: Configure Your Policies
 - Step 6: Configure Your Analytics
 
+Locations identify the various networks from which your organization sends its internet traffic. To learn more, see:
+
+- [About Locations](https://help.zscaler.com/zia/about-locations)
+- [Configuring Locations](https://help.zscaler.com/zia/configuring-locations)
+- [Understanding Sublocations](https://help.zscaler.com/zia/understanding-sublocations)
+- [Configuring Sublocations](https://help.zscaler.com/zia/configuring-sublocations)
+
 To update your company information and configure administrators as applicable, see:
 
-- [Configuring Company Profile](https://help.zscaler.com/unified/configuring-company-profile)
+- [Configuring the Company Profile](https://help.zscaler.com/unified/configuring-company-profile)
 - [About Administrators](https://help.zscaler.com/zia/about-administrators)
 - [Adding Admins](https://help.zscaler.com/zia/adding-admins)
 - [About Role Management](https://help.zscaler.com/zia/about-role-management)
@@ -11299,14 +10619,14 @@ The Zscaler service supports multiple methods for provisioning and authenticatin
 
 To learn more, see:
 
-- [Provisioning and Authenticating Users](https://help.zscaler.com/zia/provisioning-and-authenticating-users)
+- [Understanding User Provisioning and Authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users)
 - [Choosing Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods)
 
 Of the available methods, Zscaler recommends you use SAML for authentication and SCIM for provisioning. To learn more, see:
 
 - [Understanding SAML](https://help.zscaler.com/zia/understanding-saml)
 - [Configuring SAML](https://help.zscaler.com/zia/configuring-saml)
-- [About SCIM](https://help.zscaler.com/zia/about-scim)
+- [Understanding SCIM](https://help.zscaler.com/zia/about-scim)
 - [Configuring SCIM](https://help.zscaler.com/zia/configuring-scim)
 
 Zscaler recommends that organizations forward all internet traffic (traffic for all protocols and destined for all ports) to the Zscaler service so they can secure your internet traffic and apply policies accordingly.
@@ -11317,7 +10637,7 @@ Before you begin traffic forwarding, see:
 - [Best Practices for Traffic Forwarding](https://help.zscaler.com/zia/best-practices-traffic-forwarding)
 - [Determining Optimal MTU for GRE or IPSec Tunnels](https://help.zscaler.com/zia/determining-the-optimal-mtu-for-gre-or-ipsec-tunnels) (if you are using GRE or IPSec tunnels)
 
-There are four preferred ways to forward your traffic:
+There are 4 preferred ways to forward your traffic:
 
 - GRE
 - IPSec
@@ -11329,21 +10649,21 @@ A Generic Routing Encapsulation (GRE) tunnel is ideal for forwarding internet-bo
 - [Understanding Generic Routing Encapsulation (GRE)](https://help.zscaler.com/zia/understanding-generic-routing-encapsulation-gre)
 - [Configuring GRE Tunnels](https://help.zscaler.com/zia/configuring-gre-tunnels)
 
-Configuring locations is a requirement for GRE tunnels. To learn more, see [Step 4](https://help.zscaler.com/zia/step-step-configuration-guide-zia#location) in this article.
+Configuring locations is a requirement for GRE tunnels. To learn more, see [Configure Your Locations](https://help.zscaler.com/zia/step-step-configuration-guide-internet-saas#loc).
 
 Internet Protocol Security (IPSec) is a suite of protocols that provide network-layer security to a Virtual Private Network (VPN). To learn more, see:
 
 - [Understanding IPSec VPNs](https://help.zscaler.com/zia/understanding-ipsec-vpns)
 - [Configuring an IPSec VPN Tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel)
 
-By using the Zscaler Client Connector, users can get all the benefits of the Zscaler service for internet traffic, as well as granular, policy-based access to internal resources from a single point. To learn more, see:
+By using Zscaler Client Connector, users can get all the benefits of the Zscaler service for internet traffic, as well as granular, policy-based access to internal resources from a single point. To learn more, see:
 
-- [What is the Zscaler Client Connector?](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector)
+- [What is Zscaler Client Connector?](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector)
 - [Step-by-Step Configuration Guide for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/step-step-configuration-guide-zscaler-client-connector)
 
 A proxy autoconfiguration (PAC) file is a text file that instructs a browser to forward traffic to a proxy server, instead of directly to the destination server.
 
-When using PAC files to forward traffic to the Zscaler service, Zscaler recommends that organizations use them in combination with tunneling, Surrogate IP, and the Zscaler Client Connector.
+When using PAC files to forward traffic to the Zscaler service, Zscaler recommends that organizations use them in combination with tunneling, Surrogate IP, and Zscaler Client Connector.
 
 To learn more, see:
 
@@ -11353,24 +10673,17 @@ To learn more, see:
 
 ### Private Service Edges and Virtual Service Edges
 
-Sometimes, forwarding your traffic to public Public Service Edges for Internet & SaaS is not the right choice for some portions of your organization. If this is the case, you can choose to instead forward it to Private Service Edges or Virtual Service Edges for Internet & SaaS. To learn more, see:
+Sometimes, forwarding your traffic to Public Service Edges for Internet & SaaS is not the right choice for some portions of your organization. If this is the case, you can choose to instead forward it to Private Service Edges or Virtual Service Edges for Internet & SaaS. To learn more, see:
 
-- [Choosing Between Private Service Edges and Virtual Service Edge](https://help.zscaler.com/zia/choosing-between-private-service-edge-and-virtual-service-edge)
-- [Understanding Private Service Edges](https://help.zscaler.com/zia/understanding-private-service-edge)
-- [About Virtual Service Edge](https://help.zscaler.com/zia/about-virtual-service-edge)
-
-Locations identify the various networks from which your organization sends its internet traffic. To learn more, see:
-
-- [About Locations](https://help.zscaler.com/zia/about-locations)
-- [Configuring Locations](https://help.zscaler.com/zia/configuring-locations)
-- [Understanding Sublocations](https://help.zscaler.com/zia/understanding-sublocations)
-- [Configuring Sublocations](https://help.zscaler.com/zia/configuring-sublocations)
+- [Choosing Between Private Service Edge and Virtual Service Edge for Internet & SaaS](https://help.zscaler.com/zia/choosing-between-private-service-edge-and-virtual-service-edge)
+- [Understanding Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/understanding-private-service-edge)
+- [About Virtual Service Edges for Internet & SaaS](https://help.zscaler.com/zia/about-virtual-service-edge)
 
 Creating your policies gives you granular control over how users interact with content.
 
 Before configuring your policies, see:
 
-- [About Policy Enforcement](https://help.zscaler.com/zia/about-policy-enforcement)
+- [Understanding Policy Enforcement](https://help.zscaler.com/zia/about-policy-enforcement)
 - [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations)
 - [Saving and Activating Changes in the Zscaler Admin Console](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 - [About Backup and Restore](https://help.zscaler.com/zia/about-backup-and-restore)
@@ -11384,7 +10697,7 @@ The Zscaler service provides real-time log consolidation across the globe, so yo
 - [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs)
 - [Reports](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/dashboards-reports-and-logs/reports)
 
-You can also utilize the Nanolog Streaming Service (NSS). This uses a virtual machine (VM) to stream traffic logs in real-time from the Zscaler NSS to your security information and event management (SIEM) system, such as Splunk or ArcSight, enabling real-time alerting, correlation with the logs of your other devices, and long-term local log archival. To learn more, see [About Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/about-nanolog-streaming-service).
+You can also utilize the Nanolog Streaming Service (NSS). This uses a virtual machine (VM) to stream traffic logs in real-time from the Zscaler NSS to your security information and event management (SIEM) system, such as Splunk or ArcSight, enabling real-time alerting, correlation with the logs of your other devices, and long-term local log archival. To learn more, see [Understanding Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/about-nanolog-streaming-service).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11453,13 +10766,13 @@ To learn more, see [About Insights Logs](https://help.zscaler.com/zia/about-insi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-client-connector-based-euns","lastmod":"2026-04-06T10:09Z","nid":"1529295"} -->
+<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-client-connector-based-euns","lastmod":"2026-08-27T01:42Z","nid":"1529295"} -->
 ## Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs
-- Last modified: 2026-04-06T10:09Z
+- Last modified: 2026-08-27T01:42Z
 - Summary: Step-by-step guide for configuring Zscaler Client Connector-based end user notifications in the Zscaler Admin Console
 
 This guide describes the configuration steps for displaying notifications to users through Zscaler Client Connector when the user activity triggers Internet & SaaS (ZIA) policy actions. You can customize these notifications and associate them with individual policy rules as explained in the following steps. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
@@ -11540,7 +10853,7 @@ To learn more, see:
 
 | Requirement | Details |
 | --- | --- |
-| In Zscaler Client Connector | Endpoint DLP (includes EUN) or EUN as a standalone feature must be enabled. Standalone EUN feature requires:  For Windows: 4.6.0.123 or later; For macOS: 4.3.1.56 or later |
+| In Zscaler Client Connector | Endpoint DLP (includes EUN) or EUN as a standalone feature must be enabled. Standalone EUN feature requires: For Windows: 4.6.0.123 or later; For macOS: 4.3.1.56 or later |
 | In Internet & SaaS | Contact Zscaler Support to enable EUN for Inline Web DLP. |
 
 | Requirement | Details |
@@ -11809,24 +11122,24 @@ Session-ID: 725CB3755C8F55CF2FBFFB4CF4ECD0B7A6FD79EF79E3E692E028B6606421EAFC
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/supporting-citrix-xenapp-and-xendesktop-applications","lastmod":"2026-04-29T07:59Z","nid":"1400926"} -->
+<!-- ZS-ARTICLE {"url":"/zia/supporting-citrix-xenapp-and-xendesktop-applications","lastmod":"2026-08-28T03:51Z","nid":"1400926"} -->
 ## Supporting Citrix XenApp & XenDesktop Applications
 
 - Source: https://help.zscaler.com/zia/supporting-citrix-xenapp-and-xendesktop-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Supporting Citrix XenApp & XenDesktop Applications
-- Last modified: 2026-04-29T07:59Z
+- Last modified: 2026-08-28T03:51Z
 - Summary: Information on forwarding your traffic from Citrix workloads to Zscaler Internet & SaaS (ZIA).
 
-Zscaler Internet & SaaS (ZIA) is used by many existing Citrix customers. To forward traffic to Internet & SaaS from Citrix workloads, you can use GRE or IPSec tunnels, PAC files, or the Zscaler Client Connector. However, there are some situations where one option might not be feasible or where it needs to be configured in a certain way.
+Zscaler Internet & SaaS (ZIA) is used by many existing Citrix customers. To forward traffic to Internet & SaaS from Citrix workloads, you can use GRE or IPSec tunnels, PAC files, or Zscaler Client Connector. However, there are some situations where one option might not be feasible or where it needs to be configured in a certain way.
 
 ## Using XenDesktop with Internet & SaaS (ZIA)
 
 These workloads are typically Windows Client Operating Systems, such as Windows 7, 8, or 10.
 
-- **GRE or IPSec tunnels**: These can be treated like any Windows user device going through Internet & SaaS. You will likely only need to [create a sublocation](https://help.zscaler.com/zia/understanding-sublocations) for these workloads.
+- **GRE or IPSec tunnels**: These can be treated like any Windows user device going through Internet & SaaS. You likely only need to [create a sublocation](https://help.zscaler.com/zia/understanding-sublocations) for these workloads.
 - **PAC files**: These are typically deployed as a Group Policy Object (GPO) and treated no differently than a user’s physical device. However, you need to ensure that the Zscaler authentication cookies are retained across sessions. This way, a user does not need to re-authenticate each time they launch a new desktop. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings).
-- **Zscaler Client Connector**: Zscaler Client Connector currently supports Windows Client Operating Systems and can work with Virtual Desktops. However, due to Zscaler Client Connector’s enrollment process, this only works well with a dedicated VDI. Zscaler Client Connector does not support multiple, simultaneous user sessions from a single host operating system. If you are using non-persistent VDIs where users get fresh desktops each time they connect, they will need to re-enroll each time. This might cause users to quickly hit the limit of 16 devices per user. To avoid this, configure Device Cleanup in the Zscaler Client Connector Portal to remove the oldest enrolled device. To learn more, see [Configuring Automated Device Cleanup](https://help.zscaler.com/zscaler-client-connector/configuring-automated-device-cleanup).
+- **Zscaler Client Connector**: Zscaler Client Connector currently supports Windows Client Operating Systems and can work with Virtual Desktops. However, due to Zscaler Client Connector’s enrollment process, this only works well with a dedicated VDI. Zscaler Client Connector does not support multiple, simultaneous user sessions from a single host operating system. If you are using non-persistent VDIs where users get fresh desktops each time they connect, they need to re-enroll each time. This might cause users to quickly hit the limit of 16 devices per user. To avoid this, configure Device Cleanup in the Zscaler Client Connector Portal to remove the oldest enrolled device. To learn more, see [Configuring Automated Device Cleanup](https://help.zscaler.com/zscaler-client-connector/configuring-automated-device-cleanup).
 
 If you are running Zscaler Client Connector in conjunction with a corporate VPN client, follow the [best practices for VPN client interoperability.](https://help.zscaler.com/zscaler-client-connector/best-practices-zscaler-client-connector-and-vpn-client-interoperability)
 
@@ -11837,9 +11150,9 @@ If you are running Zscaler Client Connector in conjunction with a corporate VPN 
 
 These workloads are typically Windows Servers, such as Windows Server 2008R2, and Windows Server 2012.
 
-- **GRE or IPSec tunnels**: These can be treated like any Windows user device going through Internet & SaaS. You will likely only need to [create a sublocation](https://help.zscaler.com/zia/understanding-sublocations) for these workloads.
+- **GRE or IPSec tunnels**: These can be treated like any Windows user device going through Internet & SaaS. You likely only need to [create a sublocation](https://help.zscaler.com/zia/understanding-sublocations) for these workloads.
 - **PAC files**: These are typically deployed as a Group Policy Object (GPO) and treated no differently than a user’s physical device. However, you need to ensure that the Zscaler authentication cookies are retained across sessions. This way, a user does not need to re-authenticate each time they launch a new desktop. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings).
-- **Zscaler Client Connector**: Zscaler Client Connector currently supports Windows Client Operating Systems and is not supported for use with Virtual Apps and Hosted Shared Desktops. This is because Zscaler does not support concurrent user sessions on a device with Zscaler Client Connector installed. Zscaler Client Connector will establish a single tunnel to Internet & SaaS from the first Windows user session that has enrolled with the service. Any concurrently connected users on the same server will be able to enroll with Zscaler Client Connector, but the Internet & SaaS and Private Access (ZPA) tunnels will fail.
+- **Zscaler Client Connector**: Zscaler Client Connector currently supports Windows Client Operating Systems and is not supported for use with Virtual Apps and Hosted Shared Desktops. This is because Zscaler does not support concurrent user sessions on a device with Zscaler Client Connector installed. Zscaler Client Connector establishes a single tunnel to Internet & SaaS from the first Windows user session that has enrolled with the service. Any concurrently connected users on the same server are able to enroll with Zscaler Client Connector, but the Internet & SaaS and Private Access (ZPA) tunnels fail.
 - **SSL Inspection**: If needed, you can deploy the Zscaler Root certificate centrally to the Citrix master images or via GPO as you would any other domain-joined machine.
 - **IP Surrogacy**: IP Surrogacy needs to be disabled for the sublocation containing the XenApp workloads. The reason is that these servers have multiple concurrent users connected to them. Therefore, if user authentication is enabled, IP Surrogate can flip between users and eventually stop working. Since all the users connected to the server have the same source IP address, there is no way for Zscaler to know which user to map to that IP. To learn more about surrogate IP, see [About Surrogate IP](https://help.zscaler.com/zia/about-surrogate-ip).
 <!-- /ZS-ARTICLE -->
@@ -13250,22 +12563,22 @@ Following are the tunnel log filters you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-admin-rank","lastmod":"2026-07-24T21:06Z","nid":"1399726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-admin-rank","lastmod":"2026-08-28T13:44Z","nid":"1399726"} -->
 ## Understanding Admin Rank
 
 - Source: https://help.zscaler.com/zia/understanding-admin-rank
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Understanding Admin Rank
-- Last modified: 2026-07-24T21:06Z
+- Last modified: 2026-08-28T13:44Z
 - Summary: Information on admin rank and how it's used when creating roles in the Zscaler Admin Console.
 
-[Watch a video about Admin Rank and how to configure Admin Rank](https://fast.wistia.net/embed/iframe/zm3n7kynyx) (shows legacy UI)
+[Watch a video about Admin Rank and how to configure Admin Rank](https://fast.wistia.net/embed/iframe/zm3n7kynyx) (shows legacy UI).
 
 Admin rank is a feature you use when creating [roles](https://help.zscaler.com/zia/adding-admin-roles) for [role-based administration](https://help.zscaler.com/zia/about-administrators).
 
 Admin rank enables you to create a hierarchy between admins and ensures that policies and settings configured by admins with a higher rank cannot be overridden by admins with a lower rank. For example, if the CISO, who has the highest rank, sets a rule for the organization blocking all access to pornography, no lower-ranked admin can create a pornography rule that overrides the one set by the CISO. The admin rank ranges from 0 (high) to 7 (low). The highest rank, 0, belongs to the super admin. For each additional role you create, you can assign an admin rank between 1 (high) and 7 (low).
 
-By default, the admin ranking is disabled. To use this feature, you must enable admin rank on the Advanced Settings page (Policies > Common Configuration > Advanced > Advanced Settings). To learn more, see [About Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking).
+By default, admin ranking is disabled. To use this feature, you must enable admin rank on the Advanced Settings page. To learn more, see [About Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking).
 
 The admin rank affects admins in the following areas:
 
@@ -13285,7 +12598,7 @@ Rule-based policies in the Zscaler Admin Console include:
 - Firewall Control
 - DNS Control
 
-When creating rules for any of the above policies, admins must assign the rule an admin rank that is lower than their own rank. The rule’s admin rank in turn automatically determines the rule order, so that rules with a higher admin rank are always given precedence in the rule order. Rules with the same admin rank can be manually moved before or after another rule with the same rank.
+When creating rules for any of the preceding policies, admins must assign the rule an admin rank that is lower than their own rank. The rule’s admin rank in turn automatically determines the rule order, so that rules with a higher admin rank are always given precedence in the rule order. Rules with the same admin rank can be manually moved before or after another rule with the same rank.
 
 Admins can edit a rule or change a rule’s place in the rule order only if the rule’s admin rank is equal to or lower than their own admin rank.
 
@@ -13293,18 +12606,18 @@ Admins who have permission to manage roles can only create or edit roles with a 
 
 Admins who have permission to manage other admin accounts can only create, edit, or view accounts with a lower rank.
 
-Admins are also users that can be specified in the criteria for a particular rule. For example, an admin can be chosen as a user to whom a URL filtering rule applies. Thus, if admins add another admin as a user for a rule, they can only select admins that have a lower admin rank.
+Admins are also users that can be specified in the criteria for a particular rule. For example, an admin can be chosen as a user to whom a URL Filtering rule applies. Thus, if admins add another admin as a user for a rule, they can only select admins that have a lower admin rank.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-admin-scope","lastmod":"2026-06-15T21:06Z","nid":"1399731"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-admin-scope","lastmod":"2026-08-28T19:54Z","nid":"1399731"} -->
 ## Understanding Admin Scope
 
 - Source: https://help.zscaler.com/zia/understanding-admin-scope
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Understanding Admin Scope
-- Last modified: 2026-06-15T21:06Z
+- Last modified: 2026-08-28T19:54Z
 - Summary: Information on admin scope as well as the benefits of using a role and scope for admins in the Zscaler Admin Console.
 
 With [role-based administration](https://help.zscaler.com/zia/about-administrators), an admin's scope specifies which areas of the organization an admin can manage in the Zscaler Admin Console. The default admin has scope over the entire organization. For each additional admin you create, you must select one of the following scopes:
@@ -13314,7 +12627,7 @@ With [role-based administration](https://help.zscaler.com/zia/about-administrato
 - Location
 - Location Group
 
-You can assign scope over the entire organization or either location, location group, or department (you can't combine location, location group, and department). You can assign a scope to an admin by editing that admin on the [Internet Access Administrators page](https://help.zscaler.com/zia/about-administrators).
+You can assign scope over the entire organization or either location, location group, or department (you can't combine location, location group, and department). You can assign a scope to an admin by editing that admin on the [Internet & SaaS Administrators page](https://help.zscaler.com/zia/about-administrators).
 
 ## The Effect of a Scope on an Admin
 
@@ -13330,7 +12643,7 @@ An admin’s scope affects the following areas:
 
 The process of creating an admin by assigning a [role](https://help.zscaler.com/zia/adding-admin-roles) ensures that rules and settings configured by that admin aren't impacted even if the admin account is modified or deleted at some point in the future. This is because a rule or setting is associated with an admin’s role (the role’s [admin rank](https://help.zscaler.com/zia/about-admin-rank), to be specific) and admin scope rather than a particular admin. Furthermore, if an admin account is deleted, you don't lose all the distinct permissions and functional scopes associated with that admin. You can simply reassign the admin scope and role, which includes configured permissions and functional scopes, to another admin.
 
-For example, your organization’s CISO may have an admin account with access to all security-related policies and scope over the organization. If a CISO leaves the organization and their account is deleted, the policy rules they created would not be affected and would remain in place. Furthermore, you can easily assign the next CISO the same role and admin scope as the previous CISO, without redefining permissions and functional scopes from scratch.
+For example, your organization’s CISO might have an admin account with access to all security-related policies and scope over the organization. If a CISO leaves the organization and their account is deleted, the policy rules they created would not be affected and would remain in place. Furthermore, you can easily assign the next CISO the same role and admin scope as the previous CISO, without redefining permissions and functional scopes from scratch.
 
 Admins can only define rules and settings for their assigned locations, location groups, or departments.
 
@@ -13367,7 +12680,7 @@ In the scenario depicted below, Admin B creates a rule and specifies the followi
 
 This rule applies only to users inside the orange box.
 
-Admins can edit a rule or setting only if their scope is equal to or greater than the scope assigned the rule or setting. Along with scope, admin rank also impacts which rule or setting an admin can edit.For example, consider a URL filtering rule that has a location criterion of Germany and France. Only an admin with scope over both Germany and France can edit this rule. Admin A, who has scope only over Germany, would not be able to edit this rule.
+Admins can edit a rule or setting only if their scope is equal to or greater than the scope assigned the rule or setting. Along with scope, admin rank also impacts which rule or setting an admin can edit.For example, consider a URL Filtering rule that has a location criterion of Germany and France. Only an admin with scope over both Germany and France can edit this rule. Admin A, who has scope only over Germany, would not be able to edit this rule.
 
 If admins have permission to manage admins, their scope limits the scope that they can assign other admins. For example, if Admin A, who has scope over Germany, creates an admin, and she wants to assign a scope by location, only Germany is available as an option. However, if she wants to assign the admin a scope in the department category, she can choose any (or all) departments.
 
@@ -13389,25 +12702,21 @@ The following table outlines how admin scope impacts the ability to access Zscal
 | Policy |  |
 | --- | --- |
 | Features | Admin Scope Impact |
-| **Web** > **Security** Malware Protection; Advanced Threat Protection; Sandbox; Browser Control | Admins require organizational scope to edit policies. |
-| **Web** > **Access Control** URL & Cloud App Control; File Type Control; Bandwidth Control; SSL Inspection | Admins can only define rules for their assigned locations or departments. |
-| **Web** > **Data Loss Prevention** Data Loss Prevention | Admins can only define rules for their assigned locations or departments. |
-| **Mobile** > **Zscaler App Configuration** Zscaler Client Connector Portal | All admins can edit policies here. |
-| **Mobile** > **Security** Mobile Malware Protection | Admins require organizational scope to edit policies. |
-| **Mobile** > **Access Control** Mobile App Store Control | Admins can only define rules for their assigned locations or departments. |
-| **Firewall** > **Access Control** Firewall Control; DNS Control; FTP Control | Admins can only define rules for their assigned locations or departments. |
+| Malware Protection; Advanced Threat Protection; Sandbox; Browser Control; Mobile Malware Protection | Admins require organizational scope to edit policies. |
+| URL & Cloud App Control; File Type Control; Bandwidth Control; SSL/TLS Inspection; Data Loss Prevention; Mobile App Store Control; Firewall Control; DNS Control; FTP Control | Admins can only define rules for their assigned locations or departments. |
+| Zscaler Client Connector | All admins can edit policies here. |
 
 | Administration |  |
 | --- | --- |
 | Features | Admin Scope Impact |
-| **Settings** > **Account Management** My Profile; Company Profile; Alerts; Print All Policies | Scope does not impact My Profile and Print All Policies.; For Company Profile, admins require organizational scope to make changes.; For Alerts, if specifying users, departments, or locations, admins can only set alerts for users in their assigned departments or for their assigned locations. For example, if Admin A, who has scope over Germany, creates an alert, and she wants to have the alert apply by location, only Germany is available as an option. For Admin B who has scope over the HR and IT departments, only HR and IT are available as options for department, and if specifying users, only users from those departments are available as options. |
-| **Settings** > **Cloud Configuration** Nanolog Streaming Service; Advanced Settings; Virtual Service Edges or Virtual ZENs; ICAP Settings; Partner Integrations | Admins require organizational scope to make changes. |
-| **Authentication** > **Authentication Configuration** Authentication Settings; User Management; Identity Proxy Settings; Cloud Service API Key Management | For Authentication Settings, admins require organizational scope to make changes.; For User Management, if admins are assigned scope over specific departments, they can only manage users from that department. If admins are assigned organizational scope or scope over locations, admins can manage all users. |
-| **Authentication** > **Administration Controls** Administrator Management; Role Management; Audit Logs; Backup & Restore | For Administrator Management, the admins’ scope limits the scope that they can assign other admins. To make changes to Auditors in Administrator Management, admins must have organizational scope.; For Role Management, admin requires organizational scope to make changes.; For Audit Logs, admins require organizational scope to make changes.; For Backup & Restore, admins with limited scope may back up policies, but only admins with organizational scope can restore policies. |
-| **Resources** > **Traffic Forwarding** Locations; VPN Credentials; Hosted PAC Files; eZ Agent Configuration; Zscaler Client Connector Devices | For Locations:Admins require organizational scope to add locations.; If the admin’s scope is limited by location, the admin can make changes only for that location.; If the admin has scope over organizations or departments, the admin can make changes to all locations.; For all other features, admins require organizational scope to make changes. |
-| **Resources**> **Access Control** URL Categories; Bandwidth Classes; Time Intervals; End User Notifications | For URL categories whose super category is User-Defined, admins require that their operational scope matches at least one of the scopes defined in the category to make changes.; For all other features, admins require organizational scope to make changes. |
-| **Resources**> **Firewall** Network Services; Network Applications; IP Groups | For Network Services, admins with organizational scope can add and edit Services and Services Groups, while admins with limited scope can add Services and Service Groups, but not edit them.; For Network Applications, admins with organizational scope can add and edit Applications Groups, while admins with limited scope can add Application Groups, but not edit them.; For IP Groups, admins with organizational scope can add and edit Source and Destination IP groups. Admins with limited scope cannot add or edit Source and Destination IP Groups. |
-| **Resources**>**Data Loss Prevention** DLP Dictionaries & Engines; DLP Notification Templates; Index Templates; Index Tool | Admins require organizational scope to make changes. |
+| Account Management My Profile; Company Profile; Alerts; View All Policies | Scope does not impact My Profile and View All Policies.; For Company Profile, admins require organizational scope to make changes.; For Alerts, if specifying users, departments, or locations, admins can only set alerts for users in their assigned departments or for their assigned locations. For example, if Admin A, who has scope over Germany, creates an alert, and she wants to have the alert apply by location, only Germany is available as an option. For Admin B who has scope over the HR and IT departments, only HR and IT are available as options for department, and if specifying users, only users from those departments are available as options. |
+| Cloud Configuration Nanolog Streaming Service (NSS); Advanced Settings; Virtual Service Edges; ICAP Settings; Partner Integrations | Admins require organizational scope to make changes. |
+| Authentication Configuration Internet Authentication Settings; User Management; Identity Proxy Settings; Internet & SaaS API | For Internet Authentication Settings, admins require organizational scope to make changes.; For User Management, if admins are assigned scope over specific departments, they can only manage users from that department. If admins are assigned organizational scope or scope over locations, admins can manage all users. |
+| Administration Controls Administrator Management; Role Management; Audit Logs; Backup & Restore | For Administrator Management, the admins’ scope limits the scope that they can assign other admins. To make changes to Auditors in Administrator Management, admins must have organizational scope.; For Role Management, admin requires organizational scope to make changes.; For Audit Logs, admins require organizational scope to make changes.; For Backup & Restore, admins with limited scope might back up policies, but only admins with organizational scope can restore policies. |
+| Traffic Forwarding Locations; VPN Credentials; Hosted PAC Files; eZ Agent Configuration; Zscaler Client Connector Devices | For Locations:Admins require organizational scope to add locations.; If the admin’s scope is limited by location, the admin can make changes only for that location.; If the admin has scope over organizations or departments, the admin can make changes to all locations.; For all other features, admins require organizational scope to make changes. |
+| Access Control URL Categories; Bandwidth Classes; Time Intervals; End User Notifications | For URL categories whose super category is User-Defined, admins require that their operational scope matches at least one of the scopes defined in the category to make changes.; For all other features, admins require organizational scope to make changes. |
+| Firewall Resources Network Services; Network Applications; IP Groups | For Network Services, admins with organizational scope can add and edit Services and Services Groups, while admins with limited scope can add Services and Service Groups, but not edit them.; For Network Applications, admins with organizational scope can add and edit Applications Groups, while admins with limited scope can add Application Groups, but not edit them.; For IP Groups, admins with organizational scope can add and edit Source and Destination IP groups. Admins with limited scope cannot add or edit Source and Destination IP Groups. |
+| Data Loss Prevention Resources DLP Dictionaries & Engines; DLP Notification Templates; Index Templates; Index Tool | Admins require organizational scope to make changes. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16809,4 +16118,462 @@ The Zscaler service records and displays logs for your IPv6 traffic on the respe
 - DNS Insights Logs: [Filters](https://help.zscaler.com/zia/dns-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/dns-insights-logs-columns)
 
 In addition, the [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/about-nanolog-streaming-service) allows you to stream your logs in real time from the [Zscaler Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture) to your security information and event management (SIEM) system. To learn more, see [About NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-jwt-authentication","lastmod":"2026-06-02T05:29Z","nid":"1530875"} -->
+## Understanding JWT Authentication
+
+- Source: https://help.zscaler.com/zia/understanding-jwt-authentication
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > JWT Authentication > Understanding JWT Authentication
+- Last modified: 2026-06-02T05:29Z
+- Summary: Information on using JSON Web Token (JWT) authentication for Internet & SaaS.
+
+Zscaler supports JSON Web Token (JWT) authentication for cloud workloads. JWTs generated for cloud workloads are authenticated by token validators configured with the Authentication Service.
+
+JWT authentication can be enabled when [configuring locations](https://help.zscaler.com/zia/configuring-locations). You can also bypass JWT authentication on the [Advanced Settings page](https://help.zscaler.com/zia/configuring-advanced-settings). Token validators are configured with the Authentication Service.
+
+Sessions that include JWT authentication are logged in the [Insights Logs](https://help.zscaler.com/zia/about-insights-logs) with the user ID from the JWT.
+
+JWT authentication is not enabled by default. To access this feature, submit a provisioning ticket to [Zscaler Support](https://help.zscaler.com/submit-ticket-links).
+
+## How JWT Authentication Works with Zscaler
+
+The following diagram provides an overview of the JWT authentication flow with Zscaler:
+
+1. The workload requests a JWT from the token provider.
+2. After the workload receives the JWT, the workload sends a request along with the JWT through Zscaler Cloud & Branch Connector or GRE and IPSec tunnels.
+3. The Zscaler service checks the JWT against the token validators configured through the Authentication Service and authenticates it if the token is validated.
+4. The traffic proceeds to its destination and a 200 OK verification code is sent back to the client and Zscaler service.
+
+[Image: Traffic flow for JWT authentication]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ldap-user-synchronization","lastmod":"2026-08-20T11:38Z","nid":"1399606"} -->
+## Understanding LDAP User Synchronization
+
+- Source: https://help.zscaler.com/zia/understanding-ldap-user-synchronization
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Active Directory & LDAP > Understanding LDAP User Synchronization
+- Last modified: 2026-08-20T11:38Z
+- Summary: Information on what happens when you use the Zscaler service to synchronize users from an Active Directory server.
+
+When you configure the Zscaler service to synchronize user information from the directory server to the Zscaler database, it uses Lightweight Directory Access Protocol (LDAP) to synchronize user, group, and department information. To learn more about LDAP, refer to [RFC 2251 Lightweight Directory Access Protocol (v3)](https://tools.ietf.org/html/rfc2251). The Zscaler service performs an LDAP search based on the configured customer's directory parameters and imports users who have a user or email attribute and who are part of the domain that is configured for the account.
+
+The Zscaler service synchronizes data as follows:
+
+- It adds users, groups and departments that are in the directory server, but not in the service. It can synchronize up to 128 groups per user.
+- It deletes users, groups and departments that are in the service, but not in the directory server.
+
+Zscaler does not delete but deactivates users. It invalidates the authentication cookies of the users that were deleted and they are no longer allowed to authenticate.
+
+- It modifies its data to match what's in the directory, if there's a discrepancy between the information that's in the service and in the directory server.
+
+If your organization cannot allow the Zscaler service to connect directly to your internal directory servers or if you want to bypass any firewall constraints on your network, your organization can install an on-site [Zscaler Authentication Bridge (ZAB)](https://help.zscaler.com/zia/about-zscaler-authentication-bridge). The ZAB, which is typically located in your DMZ, is an appliance that communicates with your internal directory servers. The Zscaler service communicates only with the ZAB, which then queries your organization's directory server. To learn more about obtaining a ZAB, contact your Zscaler representative.
+
+The Zscaler service by default performs an LDAP query to the directory server to authenticate users whose data was synchronized with a directory server (described in the next section.) You can configure the service to use another authentication method, as described in [Choosing Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods).
+
+## Authenticating Synchronized Users
+
+The Zscaler service by default performs an LDAP query to the directory server to authenticate users whose data was synchronized from a directory server. It performs an LDAP Bind to the directory server to validate a user’s password and authenticate a user. Therefore, passwords are always stored and maintained on your directory server. They are never synchronized.
+
+Zscaler highly recommends the option to use secure LDAP, to ensure the privacy of the LDAP communications between the service and your directory server, as shown in the diagram when a user logs in to the Zscaler service:
+
+1. A synchronized user logs in to the Zscaler service.
+2. The Zscaler Central Authority (CA) searches for the user in the Zscaler database by the login attribute and email address specified by the user.
+3. If the CA finds the user, it displays the password request form.
+4. When the user submits the password request form, the CA retrieves the Distinguished Name and tries to perform an LDAP Bind to the directory server using the Distinguished Name and password of the user.
+5. If the LDAP Bind succeeds, user authentication is successful.
+
+[Image: LDAP User Synchronization]
+
+To learn more, see [Synchronizing User Data with an Active Directory or OpenLDAP](https://help.zscaler.com/zia/synchronizing-user-data-active-directory-openldap).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-microsoft-365","lastmod":"2026-05-27T18:32Z","nid":"1399291"} -->
+## Understanding Microsoft 365
+
+- Source: https://help.zscaler.com/zia/understanding-microsoft-365
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Office 365 > Understanding Microsoft 365
+- Last modified: 2026-05-27T18:32Z
+- Summary: Information on Microsoft 365 and how Zscaler simplifies your network architecture to use your current network to proxy Office 365 traffic.
+
+Zscaler enables direct-to-cloud access for internet-based cloud applications, like Microsoft 365. This is achieved by enabling organizations to send traffic directly to application servers over the internet, instead of backhauling traffic over costly MPLS circuits. Zscaler simplifies your Microsoft 365 deployment by taking advantage of our global direct-to-cloud network, which will improve user experience and application performance for your organization. To learn more, see [Configuring Source IP Anchoring for Microsoft 365 Conditional Access](https://help.zscaler.com/zia/source-ip-anchoring-configuration-guide-microsoft-365-conditional-access).
+
+The Zscaler service complies with Microsoft 365 connectivity principles:
+
+- Differentiate Traffic: Identify and differentiate Microsoft 365 traffic using Microsoft-published endpoints data.
+- Egress Connections: Egress Microsoft 365 data connections as close to the user as practical with matching DNS resolution.
+- Optimize Route Length: Avoid network hairpins and optimize connectivity directly to the nearest entry point into Microsoft’s network.
+- Assess Network Security: Assess inspecting traffic with proxies and traffic inspection devices.
+
+In general, for cloud-based applications going direct-to-cloud, having local internet breakouts for your branch office locations is key. Because Microsoft Office 365 is a trusted enterprise cloud application, Zscaler can securely connect users to our cloud service. Zscaler's direct peering relationship with Microsoft allows us to extend our secure connectivity to Microsoft 365, using their principles and recommendations.
+
+## Understanding Microsoft Office 365 Applications
+
+Deploying Microsoft 365 using the traditional appliance model has certain challenges, but the Zscaler service has solutions to help alleviate these issues:
+
+| Apps | Appliance Model Challenges | Zscaler Service Solutions |
+| --- | --- | --- |
+| Exchange Online | Latency due to distance/operations; Outlook requires around 5 to 20 TCP connections per user; Designed for transient rather than persistent connections | Directing peering with Microsoft 365 backbone network; Unlimited persistent connections without worrying about scale |
+| Skype for Business; Microsoft Teams | Traditional proxies do not handle UDP traffic; Additional persistent connections by client; Media traffic can add high load | Identify and automate IP/FQDN ports and protocols related to Skype and Microsoft Teams; Bandwidth management controls |
+| SharePoint Online; OneDrive for Business | Additional persistent connections by client; Large amount of data movement; Same IP address used for all connections | TCP optimizations to support higher window sizes for faster file uploads and downloads |
+
+## Managing Microsoft 365 Authentication and Directory Services
+
+User authentication is required to implement group and user policies and to leverage the Microsoft 365 application usage and reporting capabilities of the Zscaler service. Zscaler supports authentication using:
+
+- Microsoft Active Directory Domain Services (AD)
+- Microsoft Azure Active Directory (Azure AD) for SAML-based Single Sign-On (SSO)
+- Microsoft Active Directory Federation Services (ADFS) for SAML-based SSO
+
+Zscaler supports authentication with an organization’s AD infrastructure using various methods, including AD synchronization, SAML-based SSO using ADFS, and Kerberos.
+
+With Microsoft 365, mail servers and other collaboration services are located in data centers managed by Microsoft. Deploying ADFS along with Directory Synchronization (DirSync) is necessary to enable login to Microsoft 365. This allows Microsoft 365 to read and understand user/groups/departments and other directory objects from your organization’s on-premises AD. Microsoft Office 365 uses Azure AD in the cloud, which is capable of syncing with an on-premises AD. Therefore, your organization does not need to replace its on-premises AD to use Microsoft 365. To learn more, refer to the [Microsoft Technical documentation](https://docs.microsoft.com/en-us/office365/enterprise/deploy-office-365-directory-synchronization-dirsync-in-microsoft-azure).
+
+## Managing Microsoft 365 Content Inspection and Security
+
+Microsoft 365 applications rely on tunnel protocols like MAPI/RPC over HTTPS (Outlook) and on non-web protocols like RTMP, SIP (Lync), and Autodiscover (for all Office apps) for data transfers. To be in compliance with Microsoft's connectivity principles and recommendations, you can enable the [Microsoft-Recommended One Click Office 365 Configuration](https://help.zscaler.com/zia/understanding-microsoft-one-click-options) for all Microsoft 365 application URLs.
+
+If your organization has a requirement to inspect Microsoft 365 web apps, such as SharePoint, Yammer, and Office online, which run within a web browser, then content inspection and [SSL Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection) can be enabled using the [Office 365 One Click Configuration](https://help.zscaler.com/zia/understanding-microsoft-one-click-options) option, where you can choose individual cloud applications. However, Zscaler strongly recommends using the [Microsoft-Recommended One Click Office 365 Configuration](https://help.zscaler.com/zia/understanding-microsoft-one-click-options) for better performance.
+
+In addition, you can also use Zscaler's [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (ATP), [File Type Control](https://help.zscaler.com/zia/about-file-type-control), [Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-data-loss-prevention), and [Sandbox](https://help.zscaler.com/zia/about-sandbox) to report any suspicious files and detect potential malware in your traffic.
+
+### Managing Bandwidth Control
+
+Deploying a local internet breakout for Microsoft 365 takes the load off backhauled MPLS networks. It also makes sense to use the same internet breakout for general internet-bound traffic. However, you must ensure that the general browsing traffic doesn’t saturate the internet link and cause congestion for Microsoft 365 traffic. Zscaler provides granular bandwidth controls to define guaranteed bandwidth for applications and constrain recreational traffic (e.g., streaming media traffic, social media traffic) when internet links are saturated. To define a bandwidth management policy for Microsoft 365, Zscaler recommends that you add Office 365 to a bandwidth class and then define the appropriate bandwidth rule for that class. To learn more, see [Adding Rules to the Bandwidth Control Policy](https://help.zscaler.com/zia/adding-rules-bandwidth-control-policy) and [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes). If you plan to deploy the OneDrive sync app and want to estimate the bandwidth users will need for syncing, refer to the [Microsoft Technical documentation](https://docs.microsoft.com/en-us/onedrive/network-utilization-planning#create-a-windows-qos-policy-for-the-onedrive-sync-client).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-microsoft-one-click-options","lastmod":"2026-05-26T00:26Z","nid":"1400881"} -->
+## Understanding Microsoft One Click Options
+
+- Source: https://help.zscaler.com/zia/understanding-microsoft-one-click-options
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Office 365 > Understanding Microsoft One Click Options
+- Last modified: 2026-05-26T00:26Z
+- Summary: Information on the Microsoft-Recommended Microsoft 365 One Click option and Microsoft 365 One Click available for Internet & SaaS (ZIA) in the Zscaler Admin Console.
+
+If your organization uses any of the Microsoft 365 applications, you can send all Microsoft 365 traffic from all your locations, including remote user traffic, through the Zscaler service to the Microsoft cloud. Currently, Zscaler has two configuration options to choose from for Microsoft 365 traffic:
+
+- Microsoft-Recommended One Click Microsoft 365 Configuration
+- Microsoft 365 One Click Configuration
+
+Microsoft recommends using their preferred configuration because it incorporates [their connectivity principles and recommendations](https://help.zscaler.com/zia/understanding-microsoft-365).
+
+## Microsoft-Recommended One Click Microsoft 365 Configuration
+
+Microsoft strongly recommends that any proxy should transparently forward end user Microsoft 365 traffic to their cloud. Zscaler does not identify all Microsoft 365 application traffic based on IP address and FQDN. It exempts a select list of FQDNs and IP address ranges listed by Microsoft from SSL/TLS Inspection. To learn more, refer to the [Microsoft Technical documentation](https://docs.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-network-connectivity-principles?view=o365-worldwide#new-office-365-endpoint-categories).
+
+The Microsoft-Recommended Microsoft 365 One Click Configuration option allows Zscaler to map several but not all Microsoft IP address ranges and domains for most Microsoft 365 apps listed in [Microsoft 365 URLs and IP Address Ranges](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US&fromAR=1). Zscaler leverages the REST-based web service published by Microsoft to keep this mapping up to date.
+
+Zscaler excludes specific Microsoft-listed FQDNs and IP address ranges from SSL/TLS Inspection, as outlined in the following Microsoft 365 endpoints:
+
+- [Microsoft 365 Worldwide (+GCC)](https://docs.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide)
+- [Microsoft 365 operated by 21 Vianet](https://docs.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges-21vianet?view=o365-worldwide)
+- [Microsoft 365 U.S. Government DoD](https://docs.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-u-s-government-dod-endpoints?view=o365-worldwide)
+- [Microsoft 365 U.S. Government GCC High](https://docs.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-u-s-government-gcc-high-endpoints?view=o365-worldwide)
+
+- Enabling the Microsoft-Recommended Microsoft 365 One Click Configuration
+- Effects of Enabling the Microsoft-Recommended Microsoft 365 One Click Configuration
+
+To learn about enabling Microsoft Tenant Restrictions, see [Adding Tenant Profiles](https://help.zscaler.com/zia/adding-tenant-profiles#microsoft-login-services).
+
+Zscaler does not publish the complete list of IP address ranges and FQDNs or wildcard domain names exempted from SSL/TLS Inspection. If further exemptions are required, you can define [SSL/TLS Inspection](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy) rules.
+
+## Microsoft 365 One Click Configuration
+
+The following configuration was built prior to Microsoft's current [connectivity principles and recommendations](https://help.zscaler.com/zia/understanding-microsoft-365). Microsoft advises using the Microsoft-Recommended One Click Office 365 Configuration detailed in the previous section.
+
+With the Office 365 One Click Configuration feature, the Zscaler service automatically configures authentication exemption and decryption exemption rules required for the service to seamlessly support and secure your Microsoft 365 traffic. If this option is enabled, the Zscaler service exempts select Microsoft 365 applications from SSL/TLS Inspection. These exemptions are continuously evaluated based on Zscaler's assessment of risk exposure and to ensure that anything exempted is as specific as possible to the delivery of Microsoft 365 for corporate users and no wider.
+
+Zscaler does not publish the complete list of IP address ranges and FQDNs or wildcard domain names exempted from SSL/TLS Inspection. If further exemptions are required, you can define [SSL/TLS Inspection](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy) rules.
+
+To enable Microsoft365 One Click Configuration:
+
+The **Enable Microsoft-Recommended Office 365 One Click Configuration** option should be disabled.
+
+1. Go to**Policies**>**Common Configuration**> **Advanced**> **Advanced Settings**.
+2. Scroll down and select **Enable Office 365 One Click Configuration**.
+3. Click **Save**, and then [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+The **Office 365 One Click Configuration**option should be disabled.
+
+1. Go to **Policies** > **Access Control** > **Internet & SaaS** >**Advanced Settings**.
+2. Select **Enable Microsoft-Recommended One Click Office 365 Configuration**.
+3. Click **Save**, and then [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+If you get an error message after trying to enable this option, this relates to your admin rank. We compare your admin rank to that of two existing custom Firewall and DNS rules with top order. If your admin rank is less than those two ranks, you don't have permission to enable the option.
+
+- The **Office 365 One Click Configuration** option is grayed out.
+- The Zscaler service automatically configures authentication exemption for Microsoft domains.
+- A predefined **Office 365 One Click Rule** is enabled in the following policies: You can modify the Rule Order, Admin Rank, Rule Status, Rule Label, and Description, and choose Evaluate Other Policies (i.e., URL Filtering and Cloud App Control) or Bypass Other Policies under the Do Not Inspect action for this rule and cannot edit other attributes. To learn more, see [Configuring SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).; If Evaluate Other Policies is selected and a block (or similar) rule exists in the URL Filtering policy, Cloud App Control policy, or other policies, then the system allows these rules to match on SSL/TLS bypassed traffic. However, with the SSL/TLS bypass, the policy application is limited due to the lack of decryption. This would mean that subsequent policy action is likely limited to only the domain portion and not the full URL. For example, for the website sample.com/chatBotAI, only sample.com is seen. So, users can access sample.com, and it's classified under IT Services, and do not separate the fact that sample.com/chatBotAI is classified under General AI and ML Applications.
+  - SSL/TLS Inspection Policy
+  - Firewall Control Policy
+  - DNS Control Policy
+  - Cloud App Control Policy
+- When Microsoft 365 traffic is sent to the firewall, the service fingerprints the application. All the fingerprinted information is logged and is viewable on the [Microsoft 365 dashboard](https://help.zscaler.com/zia/about-dashboards#o365).
+- Zscaler overrides the destination IP address of Microsoft 365 traffic with the closest CDN destination for the Microsoft 365 application and leverages DNS servers at each of our data centers to provide a better user experience and improved application performance.
+  - DNS optimization is done automatically when the **Microsoft-Recommended Office 365 One Click Configuration**option is enabled.
+  - Microsoft's peering partnership with Zscaler allows for minimal hops into the Microsoft backbone for Microsoft 365 traffic, resulting in a better user experience.
+  - Zscaler exempts some IP addresses, FQDNs, or URLs from One Click if they are part of the Default category. Default category endpoints can be treated like regular destinations, which allows customers to apply the appropriate security controls. To learn more about Microsoft categories, refer to the [Microsoft Technical documentation](https://docs.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-network-connectivity-principles?view=o365-worldwide#new-office-365-endpoint-categories).
+
+The rule isn't configurable and can't be deleted. It's automatically created to handle Microsoft 365 traffic through our Firewall module without inspecting the traffic. The rule allows Microsoft 365 traffic whose destination IP address matches Microsoft 365 categories.
+
+- If your admin rank is greater than or equal to that of the Firewall rule with top order, then the rule appears at rule order one with your rank. Going forward, only an admin with an equal or higher rank than yours can edit the rule order.
+- If admin rank is disabled, then the rule appears at rule order one with rank 7.
+
+The rule allows DNS traffic destined to Microsoft 365. The rule isn't configurable and can't be deleted, but its rule order can be changed, if necessary.
+
+- If your admin rank is greater than or equal to that of the DNS rule with top order, then the rule appears at rule order one with your rank. Going forward, only an admin with an equal or higher rank than yours can edit the rule order.
+
+A predefined rule is created, under each of the following cloud app categories, on the Cloud App Control Policy page (Policies > Access Control > Internet & SaaS > Policies):
+
+- **Collaboration & Online Meetings**: The predefined rule in this category allows the Cloud App Control traffic destined to the following Microsoft 365 cloud applications:
+  - Yammer
+  - SharePoint Online
+  - Microsoft Teams
+  - Microsoft Sway
+- **Productivity and CRM Tools**: The predefined rule in this category allows the Cloud App Control traffic destined to the following Microsoft 365 cloud applications:
+  - Common Microsoft 365 Applications
+  - Microsoft Dynamics 365
+  - Microsoft Delve
+  - Microsoft Power BI
+  - Microsoft Planner
+- **File Sharing**: The predefined rule in this category allows the Cloud App Control traffic destined to the OneDrive cloud application.
+- **Hosting Providers**: The predefined rule in this category allows the Cloud App Control traffic destined to the Microsoft Azure cloud application.
+- **IT Services**: The predefined rule in this category allows the Cloud App Control traffic destined to the following Microsoft 365 cloud applications:
+  - Microsoft Azure AD
+  - Microsoft Intune
+- **Webmail**: The predefined rule in this category allows the Cloud App Control traffic destined to the Outlook cloud application.
+
+Cascading to URL filtering does not apply to the preceding predefined Cloud App Control policy rules when you enable the Allow Cascading to URL Filtering option (Policies > Common Configuration > Advanced > Advanced Settings). To perform URL cascading for Office 365 One Click, create a new rule with a higher rank than the existing predefined rule and use the cascading feature in that new rule.
+
+The rules aren't configurable and can't be deleted, but their rule orders can be changed, if necessary.
+
+If your admin rank is greater than or equal to that of the Cloud App Control rule with top order, then the rules appear at rule order one with your rank. Going forward, only an admin with an equal or higher rank than yours can edit the rule order.
+
+The rule isn't configurable and can't be deleted. If this rule is enabled, any Microsoft 365 traffic is exempted from SSL/TLS Inspection and other web policies, such as URL Filtering and Cloud App Control. For example, if you created a URL policy to block OneDrive, Sharepoint, etc., it's not applied.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-mobile-malware-protection","lastmod":"2026-06-11T10:17Z","nid":"1398751"} -->
+## Understanding Mobile Malware Protection
+
+- Source: https://help.zscaler.com/zia/understanding-mobile-malware-protection
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Mobile Security > Mobile Malware Protection > Understanding Mobile Malware Protection
+- Last modified: 2026-06-11T10:17Z
+- Summary: Information on the Mobile Malware Protection policy, which protects users from inadvertently downloading malicious apps or apps with known vulnerabilities.
+
+The Mobile Malware Protection policy protects users from inadvertently downloading or using mobile applications that contain vulnerabilities, perform malicious activities, send or receive information from malicious websites, or leak personal, device-specific, or other sensitive information from their devices.
+
+Mobile Malware Protection includes two mobile app security actions:
+
+- **Malicious Activity**: Blocks apps that are known to be malicious, compromised, or perform activities unknown to, or hidden from, the user. Examples include:
+  - Known malware (e.g., signature, hash, or YARA rule)
+  - Communication with malicious websites or command and control (C2) infrastructure
+  - Performing device or personal information collection and harvesting (e.g., phone number, SMS messages, email address, or location coordinates)
+  - Performing suspicious actions or displaying suspicious behavioral indicators
+- **Known Vulnerabilities**: Blocks apps which contain vulnerabilities or are using insecure features, modules, or protocols. Examples include:
+  - Common vulnerabilities and exposures (CVEs)
+  - Use of insecure operations or features, such as vulnerable version of SSL/TLS
+
+Mobile Malware Protection includes 6 mobile app privacy actions:
+
+- **Unencrypted User Credentials**: Blocks an application from leaking a user's credentials in an unencrypted format (e.g., a username and password sent in clear text).
+- **Location Information**: Blocks an application from leaking device location details via communication in an unencrypted format or for an unknown purpose.
+- **Personally Identifiable Information**: Blocks an application from leaking a user's personally identifiable information (PII) via communication in an unencrypted format or for an unknown purpose.
+- **Device Identifiers**: Blocks an application from leaking device identifiers via communication in an unencrypted format or for an unknown purpose.
+- **Communication with Ad Servers**: Blocks an application from communicating with known ad servers.
+- **Communication with Unknown Servers**: Blocks an application from communicating with unknown servers (e.g., servers not normally or historically associated with the application).
+
+If a mobile app performs any blocked privacy action, Zscaler prevents that app from working at all. The apps can also be blocked on tablets, laptops, and desktop computers when the same indicators are present on the tablet, laptop, or desktop version of the apps.
+
+By default, the Mobile Malware Protection policy blocks all of these actions. You can customize the Mobile Malware Protection policy for your organization. To learn more, see [Configuring the Mobile Malware Protection Policy](https://help.zscaler.com/zia/configuring-mobile-malware-protection-policy).
+
+## How It Works
+
+Zscaler blocks suspicious apps using URL information, network traffic data, content signatures, and other app information. This information is gathered from Zscaler's proprietary threat intelligence and data gathered from [ThreatLabZ](https://www.zscaler.com/threatlabz/cloud-activity-dashboard) to identify exploits, threats, or malicious communication.
+
+If your organization has a Mobile Security subscription, you can also define policies to restrict mobile app downloads to specific app stores. To learn more, see [About Mobile App Store Control](https://help.zscaler.com/zia/about-mobile-app-store-control).
+
+To see how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-multi-cluster-load-sharing","lastmod":"2026-07-08T09:11Z","nid":"1402116"} -->
+## Understanding Multi-Cluster Load Sharing
+
+- Source: https://help.zscaler.com/zia/understanding-multi-cluster-load-sharing
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Understanding Multi-Cluster Load Sharing
+- Last modified: 2026-07-08T09:11Z
+- Summary: Information about the Multi-Cluster Load Sharing feature.
+
+The Multi-Cluster Load Sharing feature allows multiple Public Service Edge for Internet & SaaS (ZIA) clusters in different network address blocks to participate in a Virtual IP (VIP) address from any network address block in a data center. The ingress traffic will enter a given VIP address and access the end destination via any instance of the Service Edge clusters from any of the network address blocks listed for the data center (DC). To view the complete list of data center information, go to config.zscaler.com/<Zscaler Cloud Name>/cenr.
+
+You can find the name of your cloud in the URL your admins use to log in to the Zscaler service. For example, if an organization logs in to admin.zscalertwo.net, then that organization's cloud name is zscalertwo.net. In this case, you should go to config.zscaler.com/zscalertwo.net/cenr. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+
+All the traffic is distributed across every participating cluster load balancer (LB) instance, and they can forward traffic to any service node in any participating cluster.
+
+[Image: Schematic Diagram of Multi-Cluster Load Sharing]
+
+This feature allows Zscaler to scale its DCs without the need to migrate your clusters while using the same existing VIP addresses.
+
+For example, in the following table, ZSC Cluster 1 resides in the `165.225.80.0/23` network address block, and ZSC Cluster 3 in the `147.161.166.0/23` network address block. Both these clusters can serve the GRE VIP address `165.225.80.36`, allowing us to add more Service Edge capacity without impacting your GRE VIP address destination. So, you no longer need to move your GRE tunnels to a new VIP address when a new cluster is added to a DC.
+
+| Cluster | VIP Address | Cluster Type | Network Address Block |
+| --- | --- | --- | --- |
+| ZSC Cluster 1 | 165.225.80.36 | GRE | 165.225.80.0/23 |
+| 165.225.80.37 | VPN | 165.225.80.0/23 |  |
+| 165.225.81.247 | PAC | 165.225.80.0/23 |  |
+| ZSC Cluster 3 (Shared VIP addresses with Cluster 1) | 165.225.80.36 | GRE | 147.161.166.0/23 |
+| 165.225.80.37 | VPN | 147.161.166.0/23 |  |
+| 165.225.81.247 | PAC | 147.161.166.0/23 |  |
+
+This feature rollout follows the monthly infrastructure upgrade schedule as per the [Zscaler service Continuity Customer Notification Protocol](https://help.zscaler.com/zia/zscaler-service-continuity-customer-notification-protocol).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-nanolog-streaming-service","lastmod":"2026-06-23T07:11Z","nid":"1399061"} -->
+## Understanding Nanolog Streaming Service (NSS)
+
+- Source: https://help.zscaler.com/zia/understanding-nanolog-streaming-service
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Understanding Nanolog Streaming Service (NSS)
+- Last modified: 2026-06-23T07:11Z
+- Summary: Information on Nanolog Streaming Service (NSS).
+
+[Watch a video about Nanolog Streaming Service (NSS)](https://fast.wistia.net/embed/iframe/p3of1u4s69) (shows legacy UI).
+
+Zscaler's Nanolog Streaming Service (NSS) is a family of products that enable Zscaler cloud communication with third-party security solution devices for exchanging event logs.
+
+## Log Streaming
+
+This provision allows streaming of all logs from the Zscaler [Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture) to your security information and event management (SIEM) system with the following offerings:
+
+- **Virtual machine (VM)-based NSS**: Uses a VM set within your network to stream logs to your SIEM over a raw TCP connection or HTTP connection.
+- **Cloud NSS**: Uses an HTTPS API feed to push logs to an HTTPS API-based log collector on your SIEM.
+
+Through SIEM integration, you can leverage VM-based NSS or Cloud NSS to enable real-time alerting on security events of your choice, correlate Zscaler's logs with the logs from your other devices, and locally set up long-term log archival.
+
+To learn more, see:
+
+- About VM-based NSS
+- About Cloud NSS
+- Comparison between VM-based NSS and Cloud NSS
+
+## Log Collection
+
+This provision allows for near real-time log collection from third-party vendors' firewall and web proxy devices inside your network perimeter and streaming of the logs to the Zscaler cloud by using the [NSS Collector](https://help.zscaler.com/zia/about-nss-collector-servers). The log data collected from third-party security solutions is integrated with Zscaler Admin Console to provide a comprehensive [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) for a broad range of cloud application discovery and analysis.
+
+The NSS Collector functionality and the data collected using this functionality are exclusive to the SaaS Security Report. To enable this feature for your organization, contact Zscaler Support.
+
+To learn more, see:
+
+- About NSS Collector
+
+The NSS uses a [deployed virtual machine (VM)](https://help.zscaler.com/zia/deploying-nss-virtual-appliances) to stream logs to your SIEM system. Zscaler offers the following NSS subscriptions:
+
+- **NSS for Web**: Streams web and mobile traffic logs.
+- **NSS for Firewall**: Streams logs from the Zscaler Firewall.
+
+As shown in the following diagram, the web and Firewall logs are stored in the Nanolog in the Zscaler cloud. When you deploy one NSS for web and another for Firewall logs, each NSS opens a secure tunnel to the Nanolog in the Zscaler cloud. The Nanolog then streams copies of the logs to each NSS in a highly compressed format to reduce bandwidth footprint. The original logs are retained in the Nanolog.
+
+When an NSS receives the logs from the Nanolog, it decompresses and detokenizes them, applies the configured filters to exclude unwanted logs, converts the filtered logs to the configured output format so that they can be consumed and parsed by your SIEM. There are two types of NSS feeds:
+
+- **TCP Feed**: Uses a TCP connection to stream the logs between NSS and your SIEM.
+- **HTTPS Feed**: Uses the TLS protocol to load-balance and encrypt syslog feeds between NSS and your SIEM.
+
+[Image: Diagram of the VM-based Nanolog Streaming Service, which streams web and Firewall logs from the Zscaler Nanolog to your SIEM system]
+
+As part of VM-based deployment, you add NSS servers and configure NSS feeds in the Zscaler Admin Console to specify the data that the NSS sends to your SIEM. To learn more, see [About NSS Servers](https://help.zscaler.com/zia/about-nss-servers) and [About NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds).
+
+After deployment, the NSS requires minimal administration and automatically polls the Zscaler service for updates and installs them. For monitoring purposes, you can [configure a separate feed for NSS alerts](https://help.zscaler.com/zia/adding-nss-feeds-alerts). The service sends the alerts in an [RFC-compliant Syslog format](https://help.zscaler.com/zia/syslog-overview) to the specified IP address and port.
+
+The NSS has the following reliability mechanisms:
+
+1. **NSS to SIEM**: The NSS buffers the logs in the VM memory to increase its resiliency to transient network issues between the SIEM and NSS. If the connection drops, the NSS replays logs from the buffer, according to the Duplicate Logs setting.
+2. **Nanolog to SIEM**: If the connectivity between the Zscaler cloud and NSS is interrupted, the NSS misses logs that arrived at the Nanolog cluster during the interruption, and they are not delivered to the SIEM. When the connection is restored, the NSS one-hour recovery allows the Nanolog to replay logs up to one hour back. To enable the NSS one-hour recovery for your organization, contact Zscaler Support.
+
+Additionally, if you have [Advanced Sandbox](https://help.zscaler.com/zia/about-sandbox), you can open a [Sandbox Detail Report](https://help.zscaler.com/zia/viewing-sandbox-reports-data) based on the MD5 parameter that you retrieve from your logs in the SIEM.
+
+### About NSS Deployment Guides
+
+The following guides detail the requirements and steps to deploy NSS via the appropriate platform:
+
+- [NSS Deployment Guide for Amazon Web Services](https://help.zscaler.com/zia/nss-deployment-guide-aws)
+- [NSS Deployment Guide for Google Cloud Platform](https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform)
+- [NSS Deployment Guide for Hyper-V](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v)
+- [NSS Deployment Guide for Microsoft Azure](https://help.zscaler.com/zia/nss-deployment-guide-microsoft-azure)
+- [NSS Deployment Guide for Nutanix](https://help.zscaler.com/zia/nss-deployment-guide-nutanix)
+- [NSS Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-deployment-guide-vsphere)
+
+### About SIEM Integration for NSS
+
+You can integrate NSS with any SIEM system. For a list of SIEMs verified for compatibility, see [Integrating VM-Based NSS with SIEMs](https://help.zscaler.com/zia/integrating-vm-based-nss-siems).
+
+You can optionally subscribe to Cloud NSS, enabling direct cloud-to-cloud log streaming for all [ZIA log types](https://help.zscaler.com/zia/adding-cloud-nss-feeds) into a compatible cloud-based SIEM without any on-premises connectors. Zscaler offers Cloud NSS for Web and Cloud NSS for Firewall subscriptions.
+
+Instead of deploying, managing, and monitoring NSS VMs, you can configure an HTTPS API feed to push logs from the Zscaler cloud into an HTTPS API-based log collector on your SIEM. As a result, you can focus on meaningful log analysis activities (e.g., detection, hunting, investigation, alerting), rather than the administration of logging infrastructure.
+
+[Image: Diagram of Cloud NSS, which enables direct cloud-to-cloud log streaming without any on-premises connectors]
+
+Cloud NSS supports a customizable HTTPS outbound connector, allowing interoperability with most private and public cloud-based SIEMs that support a stateless log ingestion API. Zscaler can `POST` batches of logs if the SIEM exposes a publicly routable HTTPS log collection API (e.g., Splunk HTTP Event Collector). HTTPS is the more reliable and preferred approach for log delivery over the internet.
+
+If the connection between the Nanolog cluster and the SIEM is interrupted, logs are not delivered to the SIEM. When the connection is restored, the Cloud NSS one-hour recovery, provided by a separate Zscaler capability, allows the Nanolog to replay logs up to one hour back.
+
+You can create one Cloud NSS feed per ZIA log type per Cloud NSS instance. When configuring a Cloud NSS feed, you can customize the feed format; Zscaler recommends using JSON. To learn more, see [About Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds).
+
+After deployment, you have access to continuous monitoring and alerting with Zscaler CloudOps.
+
+To learn more about the geo-availability and qualifications for Cloud NSS, contact Zscaler Support.
+
+### About SIEM Integration for Cloud NSS
+
+You can integrate Cloud NSS with any SIEM system that exposes a publicly routable HTTPS log collection API. To see a list of SIEMs verified for compatibility, see [Integrating Cloud NSS with Cloud-Based SIEMs](https://help.zscaler.com/zia/integrating-cloud-nss-cloud-based-siems).
+
+The following table summarizes the benefits, limitations, and requirements of the offerings:
+
+|  | **Benefits** | **Limitations** | **Requirements** |
+| --- | --- | --- | --- |
+| VM-based NSS | Operates with minimal administration after deployment.; Automatically polls the Zscaler service for updates and installs them.; Supports a customizable feed format.; Supports a separate alert feed for monitoring purposes.; Buffers logs in the VM memory for increased resiliency.; Supports TCP and HTTP(S) connection, allowing interoperability with most SIEMs. | Supports up to 16 [NSS feeds](https://help.zscaler.com/zia/adding-tcp-nss-feeds) per NSS server. To ensure optimal performance, [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to 8 feeds per server and the HTTP logs are restricted to 2 feeds within the total. | Requires a virtual appliance for deployment. To learn more, see [Deploying NSS Virtual Appliances](https://help.zscaler.com/zia/deploying-nss-virtual-appliances). |
+| Cloud NSS | Operates without an additional VM within your network.; Supports a customizable HTTPS outbound connector, allowing interoperability with most SIEMs.; Supports a customizable feed format (JSON recommended).; Includes CloudOps 24/7 monitoring and alerting. | Supports one Cloud NSS feed per [ZIA log type](https://help.zscaler.com/zia/adding-cloud-nss-feeds) per Cloud NSS instance. | Requires a separate concurrent subscription. To learn more, contact Zscaler Support. |
+
+The NSS Collector collects traffic logs from third-party syslog feeds, processes the log data, and securely pushes the logs to the Zscaler cloud over HTTPS. The NSS Collector requires a subscription to the NSS VM or Cloud NSS. The NSS Collector must be deployed on VMware within your organization’s network perimeter. The deployment involves installing the NSS Collector server using the [packaged software](https://help.zscaler.com/zia/adding-nss-collector-servers) (VM image) obtained from the Zscaler Admin Console and configuring the client certificate issued by Zscaler for the NSS Collector server.
+
+The following diagram shows the NSS Collector’s deployment and workflow used in the third-party log integration with Zscaler:
+
+[Image: A diagram of log collection from third-party security devices using NSS Collector]
+
+When the NSS Collector service is started, it listens on a fixed port configured on your firewall to forward the logs. The firewall must also be configured to use a syslog feed format for forwarding logs to the NSS Collector’s IP address and predesignated port. The NSS Collector can collect the syslog feeds from one or many firewall devices in the CEF format over a TCP connection. Upon receiving the logs, the NSS Collector performs the following actions to process the log data:
+
+- Resolves user information based on integration with IdP. Unmanaged Zscaler users are categorized as Unidentified Users.
+- Resolves the URL information to facilitate cloud application discovery and analysis by Zscaler.
+- Securely transmits processed log data to the Zscaler cloud over HTTPS.
+
+The third-party device logs are processed by Zscaler and retained for 6 months. This data is integrated with Zscaler and is made available for cloud application discovery and analytics through the SaaS Security Report.
+
+The NSS Collector maintains a one-hour buffer to ensure no data loss due to communication issues with the Zscaler cloud or during maintenance procedures. If the connection between the NSS Collector and the Zscaler cloud is disrupted, the NSS Collector buffers the third-party firewall or web proxy logs and sends them when the connection is re-established. To learn about the amount of memory required to buffer the logs, see the [prerequisites in NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere#step1-prerequisites). The buffer size increases proportionally to the amount of RAM allocated to the NSS Collector.
+
+- An organization can have up to 4 NSS Collector servers.
+- The NSS Collector does not support historical load from the source. Records older than one hour are dropped from the stream.
+
+The NSS Collector restricts the log events streaming to the Zscaler cloud to 10K events per second. Events that exceed the rate limit are dropped.
+
+### About NSS Collector Deployment Guides
+
+To learn more about the requirements and steps to deploy the NSS Collector via the VMware vSphere platform, see [NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere).
 <!-- /ZS-ARTICLE -->

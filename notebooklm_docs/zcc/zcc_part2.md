@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 52
 
 ---
@@ -216,13 +216,13 @@ This widget displays the number of devices with the top 10 failed device posture
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uninstalling-zscaler-client-connector","lastmod":"2025-10-06T13:45Z","nid":"1285486"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uninstalling-zscaler-client-connector","lastmod":"2026-08-27T15:45Z","nid":"1285486"} -->
 ## Uninstalling Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/uninstalling-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Uninstalling Zscaler Client Connector
-- Last modified: 2025-10-06T13:45Z
+- Last modified: 2026-08-27T15:45Z
 - Summary: Information on various methods of uninstalling Zscaler Client Connector from a device.
 
 This article is for Zscaler Client Connector admin use only. If you are not a Zscaler Client Connector admin, contact your organization's support team about uninstalling Zscaler Client Connector.
@@ -336,9 +336,9 @@ To uninstall Zscaler Client Connector via PowerShell from your user's device:
 
 1. To set the variable to your <uninstall password>, enter the following: [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User')Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings.
 2. To confirm the variable is set correctly, enter the following: [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User')The `<uninstall password>` is returned.
-3. To start the uninstall process, enter the following. Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe"--mode unattended"You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
+3. To start the uninstall process, enter the following. Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" "--mode unattended"You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
 
-1. In NotePad, create a PowerShell script with the following script. [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User') [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User') Start-Process FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" -ArgumentList "--mode unattended"Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings. You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
+1. In NotePad, create a PowerShell script with the following script. [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User') [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User') Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" -ArgumentList "--mode unattended"Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings. You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
 2. Save it as `test.ps1`.
 3. Return to PowerShell to enter the following to start uninstallation. .\test.ps1
 <!-- /ZS-ARTICLE -->
@@ -2649,13 +2649,13 @@ You can temporarily resolve the issue by restarting the application (terminate t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-errors","lastmod":"2026-07-16T21:06Z","nid":"1285866"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-errors","lastmod":"2026-08-27T16:47Z","nid":"1285866"} -->
 ## Zscaler Client Connector Errors
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-errors
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Troubleshooting > Zscaler Client Connector Errors
-- Last modified: 2026-07-16T21:06Z
+- Last modified: 2026-08-27T16:47Z
 - Summary: Information on the error messages that Zscaler Client Connector might display while it is in use.
 
 The following tables provide lists of error messages your user might see on Zscaler Client Connector while the app is in use:
@@ -2731,8 +2731,9 @@ The following tables provide lists of error messages your user might see on Zsca
 | 1017 | LDAP Authentication Failed, Please Contact Administrator. | This error is triggered when the cloud fails to communicate with LDAP. | Verify the LDAP configuration and ensure network connectivity. |
 | 1018 | LDAP Authentication Failed, Please Contact Administrator. | This error is triggered when the cloud fails to communicate with LDAP. | Verify the LDAP configuration and ensure network connectivity. |
 | 1019 | Failed to Authenticate, Credentials are not Valid. | This error occurs when the user enters the incorrect credentials. | Verify the user’s credentials. |
+| 1060 | Internal Error: Contact Administrator | This error occurs when a required Zscaler Client Connector driver or service is missing or failed to install after a partial install or upgrade. | Repair or reinstall Zscaler Client Connector to restore the driver. |
 | 10060 | Network Connection Failed: Check Your Network. | This error occurs when Zscaler Client Connector fails to connect to your network. | Check network connectivity. |
-| 10101 | Failed to Discover Service for Given User. | This error occurs when Zscaler Client Connector fails to fetch user cloud information. | Verify that the user's credentials. Verify that the user exists in the user authentication source. Verify your company name is provisioned correctly. |
+| 10101 | Failed to Discover Service for Given User. | This error occurs when Zscaler Client Connector fails to fetch user cloud information. | Verify the user's credentials. Verify that the user exists in the user authentication source. Verify your company name is provisioned correctly. |
 | 10104 | Service Configuration not Found. | This error occurs when Zscaler Client Connector fails to fetch the policy. | Export logs and contact Zscaler Support. |
 | 10108 | Failed to Enroll Device. | This error occurs when the device registration fails either due to an inability to reach the server or an error response from the server. This applies to Internet & SaaS and Private Access. | Check network connectivity. Check if there is a trust post for the cloud status. |
 | 10110 | Username not valid. | This error occurs when the user enters a username that cannot be found. | Verify that the user is entering the correct username. Verify that the user exists in the user authentication source. |
@@ -2961,13 +2962,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-08-23T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-08-30T07:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.

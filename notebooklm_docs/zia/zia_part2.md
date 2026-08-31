@@ -1,21 +1,21 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
-Articles in this file: 111
+Generated: 2026-08-31 03:58 UTC
+Articles in this file: 112
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-admin-roles","lastmod":"2026-08-05T12:44Z","nid":"1399711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-admin-roles","lastmod":"2026-08-30T10:48Z","nid":"1399711"} -->
 ## Adding Admin Roles
 
 - Source: https://help.zscaler.com/zia/adding-admin-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding Admin Roles
-- Last modified: 2026-08-05T12:44Z
+- Last modified: 2026-08-30T10:48Z
 - Summary: How to add administrator roles in the Zscaler Admin Console.
 
-[Watch a video about Configuring Admin Roles.](https://fast.wistia.net/embed/iframe/8byizrie9e) (shows legacy UI)
+[Watch a video about Configuring Admin Roles.](https://fast.wistia.net/embed/iframe/8byizrie9e) (shows legacy UI).
 
 Configuring an admin role is one of the tasks that you must complete when [configuring role-based administration](https://help.zscaler.com/zia/configuring-role-based-administration). You can [edit or delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) admin roles at any time. You can add up to 64 admin roles. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations).
 
@@ -25,7 +25,7 @@ To configure admin roles, make sure the following prerequisites are met:
 
 - You must have permissions to the Role Management feature to configure roles.
 - You must have access to create, edit, or delete roles with a lower [rank](https://help.zscaler.com/zia/about-admin-rank). To manage admins with a lower rank, the admin rank feature must be enabled for your tenant on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. If admin ranking is not enabled, only super admins (rank 0) can manage roles and permissions for other admins. To learn more, see [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank).
-- You must be assigned organizational [admin scope](https://help.zscaler.com/zia/about-admin-scope).
+- You must be assigned organizational [admin scope](https://help.zscaler.com/zia/understanding-admin-scope).
 
 Admin rank and scope don't apply to SD-WAN partner API clients. To learn more, see [Adding SD-WAN Partner API Clients](https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients).
 
@@ -35,7 +35,7 @@ To add and configure admin roles:
 
 1. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
-3. In the **Add Administrator Role** window:
+3. In the **Add Administrator Role** window: Assign permissions to regulate access to Internet & SaaS features. For each admin role, you can configure the following permissions: When you select **None**for a feature, that feature does not show up in the Zscaler Admin Console for that admin role. You can configure permissions for the following categories:
   - **Name**: Enter a namefor the admin role.
   - **Enable Permissions for Executive Insights App**: Enable to give the admin assigned this role the permissions and scope required to access the Executive Insights App. This setting is disabled by default. If you enable this setting, the Zscaler service enables the following scopes regardless of your configuration: **Data Loss Prevention**, **Security**, and **Firewall, DNAT, DNS & IPS**. Enabling this setting also enables the **Policy and Resource Management** option for **Access Control (Web and Mobile)**.
   - **Permissions**: Permissions allow you to control an admin's access to the major features of the Zscaler Admin Console. For each admin, select permissions for the following categories: See image.
@@ -47,17 +47,17 @@ To add and configure admin roles:
     - Alerts Access
     - User Names
     - Device Information
-    - Gen AI Prompts
-  - **Scope**: Assign appropriate permissions for the admins to access major Zscaler features. Assigning permissions allows admins to access certain features with more granularity. For each admin role, you can configure the following permissions to access various features: Optionally, you can select **Custom**, which allows you to assign feature-wise permissions (Full, View Only, and None) for the Zscaler modules, providing further granular access to those features. See image. When a role doesn't have any access (i.e., if **None** is selected) to a feature, that feature does not show up in the Zscaler Admin Console for that admin role. You can configure permissions for the following scopes:
-    - **Full**: This permission provides admins with full (i.e., edit) access to the feature.
-    - **View Only**: This permission only allows admins to view the feature. Admins cannot edit any data within the feature.
-    - **None**: This permission does not allow admins to access the feature.
-    - Policy & Components
-    - Cloud Configuration & Integration
-    - Traffic Forwarding
-    - Administration Controls
-    - Reporting Data
-4. Click **Save**and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
+    - Gen AI Prompt
+  - **Full**: This permission provides admins with full (i.e., edit) access to the feature.
+  - **View Only**: This permission only allows admins to view the feature. Admins cannot edit any data within the feature.
+  - **None**: This permission does not allow admins to access the feature.
+  - **Custom**: Assign granular permissions (Full, View Only, and None) for each Internet & SaaS feature.
+  - Policy & Components
+  - Cloud Configuration & Integration
+  - Traffic Forwarding
+  - Administration Controls
+  - Reporting Data
+4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 Select an admin rank for the role if this feature is enabled in [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking). Admin rank enables you to create a hierarchy between admins and ensures that policies and settings configured by admins with a higher rank cannot be overridden by admins with a lower rank. To learn more, see [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank).
 
@@ -120,7 +120,7 @@ Choose whether generative AI (Gen AI) prompts are visible to admins when they vi
 - **Visible**: Gen AI prompts are visible.
 - **Obfuscated**: Gen AI prompts are obfuscated.
 
-The **Policy & Components** scope includes the following categories:
+The **Policy & Components** section includes the following categories:
 
 - Security
 - Access Control
@@ -129,16 +129,17 @@ The **Policy & Components** scope includes the following categories:
 - URL Categories
 - Shared Policy Components
 
-The **Cloud Configuration** scope includes the following categories:
+The **Cloud Configuration & Integration** section includes the following categories:
 
 - Integrations
 - Cloud Configuration
+- Business Continuity
 
-The **Traffic Forwarding** scope includes Traffic Forwarding, Traffic Forwarding Methods, and Traffic Forwarding Components.
+The **Traffic Forwarding** section includes Traffic Forwarding, Traffic Forwarding Methods, and Traffic Forwarding Components.
 
 You can assign **Full**, **View Only**,**None**, or **Custom**permissions to the admin to access the traffic-forwarding features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the following features:
 
-Custom permission is available for traffic forwarding methods and traffic forwarding components. Select **Custom**to assign field-wise permissions to those features.
+The **Custom** permission is available for traffic forwarding methods and traffic forwarding components. Select **Custom**to assign field-wise permissions to those features.
 
 - Traffic Forwarding:
   - Forwarding Control
@@ -150,13 +151,13 @@ Custom permission is available for traffic forwarding methods and traffic forwar
   - Hosted PAC Files
 - Traffic Forwarding Components:
   - Proxies & Gateways
-  - Zscaler Client Connector Portal This field is not available if you are subscribed to Authentication Service. You can manage Zscaler Client Connector Portal access for your admins from the [Authentication Service](https://help.zscaler.com/zslogin/accessing-and-navigating-zslogin-admin-portal). To learn more, see [What Is Authentication Service?](https://help.zscaler.com/zslogin/what-zslogin)
+  - Zscaler Client Connector Portal
   - Subclouds & DC Exclusion
   - Traffic Capture
 
 See image.
 
-The **Administration Control** scope includes Administration Controls and Backup Controls.
+The **Administration Controls** section includes Administration Controls and Backup Controls.
 
 You can assign **Full**, **View Only**,**None**, or **Custom** permissions to the admin to access the Administration Controls and Backup Controls features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
 
@@ -262,7 +263,7 @@ You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the 
 
 See image.
 
-This section provides the applications that are integrated with Zscaler for your organization. You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the integrated applications. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all applications. To assign custom permissions, select **Custom**and assign appropriate permissions for the following applications:
+This section provides the applications that are integrated with the Zscaler service for your organization. You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the integrated applications. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all applications. To assign custom permissions, select **Custom**and assign appropriate permissions for the following applications:
 
 - Microsoft Cloud App Security
 - SD-WAN
@@ -278,36 +279,40 @@ See image.
 You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the cloud-configuration features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
 
 - Nanolog Streaming Service
-- Virtual ZENs
+- Virtual Service Edges
 - API Key Management
 
 See image.
 
-[Image: The Add Administrator Role window > Permissions section on the Role Management page]
+You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access Business Continuity.
 
-[Image: The Add Administrator Role window displaying different permissions options (full, view only, none, custom) on the Role Management page]
+See image.
 
-[Image: The Security tab in the Policy & Components section in the Add Administrator Role window]
+[Image: Options in the Permissions section of the Add Administrator role window]
 
-[Image: The Access Control tab in the Policy & Components section in the Add Administrator Role window]
+[Image: Policy & Components - Security]
 
-[Image: The Data Protection tab in the Policy & Components section in the Add Administrator Role window]
+[Image: Policy & Components - Access Control]
 
-[Image: The Decryption tab in the Policy & Components section in the Add Administrator Role window]
+[Image: Policy & Components - Data Protection]
 
-[Image: The URL Categories tab in the Policy & Components section in the Add Administrator Role window]
+[Image: Policy & Components - Decryption]
 
-[Image: The Shared Policy Components tab in the Policy & Components section in the Add Administrator Role window]
+[Image: Policy & Components - URL Categories]
 
-[Image: The Integrations tab in the Cloud Configuration & Integration section in the Add Administrator Role window]
+[Image: Policy & Components - Shared Policy Components]
 
-[Image: The Cloud Configuration tab in the Cloud Configuration & Integration section in the Add Administrator Role window]
+[Image: Cloud Configuration & Integration - Integrations]
+
+[Image: Cloud Configuration & Integration - Cloud Configuration]
+
+[Image: Traffic Forwarding]
 
 [Image: The Traffic Forwarding section in the Add Administrator Role window]
 
-[Image: The Administration Controls section > Administration Controls and Backup Controls in the Add Administrator Role window]
+[Image: Administration Controls]
 
-[Image: The Reporting Data section in the Add Administrator Role window]
+[Image: Reporting Data]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -507,22 +512,22 @@ For example, you can set the severity level of an event with 5 occurrences in 5 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-07-24T21:06Z","nid":"1411441"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-08-30T11:16Z","nid":"1411441"} -->
 ## Adding API Roles
 
 - Source: https://help.zscaler.com/zia/adding-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding API Roles
-- Last modified: 2026-07-24T21:06Z
+- Last modified: 2026-08-30T11:16Z
 - Summary: How to add Internet & SaaS API roles in the Zscaler Admin Console.
 
-[Watch a video about Adding API Roles.](https://fast.wistia.net/embed/iframe/leihuwkgjo) (shows legacy UI)
+[Watch a video about Adding API Roles](https://fast.wistia.net/embed/iframe/leihuwkgjo) (shows legacy UI).
 
-An API role defines a client application's permission and access to the different API categories in the Zscaler cloud service API. An API role is not assigned to an admin. Instead, it is used during the configuration of an external OAuth 2.0 authentication server for API authentication. You can add up to 16 API roles. For a complete list of ranges and limits per API category, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations).
+An API role defines a client application's permission and access to the different API categories in the Zscaler cloud service API. An API role is not assigned to an admin. Instead, it is used during the configuration of an external OAuth 2.0 authentication server for API authentication. You can add up to 16 API roles. For a complete list of ranges and limits per API category, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
-Configuring an API role is one of the tasks you must complete when configuring an external OAuth 2.0 authentication server for API authentication. To learn more, see [Securing ZIA APIs with OAuth 2.0](https://help.zscaler.com/zia/securing-zia-apis-oauth-2.0).
+Configuring an API role is one of the tasks you must complete when configuring an external OAuth 2.0 authentication server for API authentication. To learn more, see [Securing Internet & SaaS APIs with OAuth 2.0](https://help.zscaler.com/zia/securing-internet-saas-apis-oauth-2.0).
 
-You can [edit or delete](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal) API roles at any time.
+You can [edit or delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) API roles at any time.
 
 ## Prerequisites
 
@@ -536,17 +541,20 @@ To add and configure API roles:
 
 1. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
 2. Click **Add API Role**. The **Add API Role** window appears.
-3. In the **Add API Role** window: See image.
+3. In the **Add API Role** window: Assign appropriate permissions for the API categories that the client application can access. Assigning permissions allows you to control a client application's access to the major API categories of the Zscaler cloud service API with more granularity. For each API role, you can configure the following permissions to access various API categories You can configure permissions for the following categories:
   - **Name**: Enter a namefor the API role.
-  - **Scope**: Assign appropriate permissions for the API categories that the client application can access. Assigning permissions allows you to control a client application's access to the major API categories of the Zscaler cloud service API with more granularity. For each API role, you can configure the following permissions to access various API categories: You can configure permissions for the following scopes:
-    - **Full**: This permission provides the client application full (i.e., edit) access to the API categories.
-    - **View Only**: This permission provides the client application view-only access to the API categories.
-    - **None**: This permission provides the client application with no access to the API categories.
-    - **Custom**: This permission allows you to assign field-wise permissions (Full, View Only, and None) to the API categories, providing further granular access to them.
-    - Policy & Components
-    - Cloud Configuration & Integration
-    - Traffic Forwarding
-    - Administration Controls
+  - **Permissions**: In the **Permissions**section: See image.
+    - **Reporting Access**: Select **Full**, **View Only**, or **None**to give the API role the corresponding access to reports.
+    - **Alerts Access**: Select **Full**, **View Only**, or **None**to give the API role the corresponding access to alerts.
+  - **Full**: This permission provides the client application full (i.e., edit) access to the API categories.
+  - **View Only**: This permission provides the client application view-only access to the API categories.
+  - **None**: This permission provides the client application with no access to the API categories.
+  - **Custom**: This permission allows you to assign field-wise permissions (Full, View Only, and None) to the API categories, providing further granular access to them.
+  - Policy & Components
+  - Cloud Configuration & Integration
+  - Traffic Forwarding
+  - Administration Controls
+  - Reporting Data
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 The API role is created, and an internal API user is automatically created for the role in the format of `oauth-<rolename>$@<orgid>.<cloud_domain>`. For example, `oauth-apirole1$@64444.zscaler.net` is used as the User context in any API operation. It is also displayed in the audit log for any API operation that is authenticated by an external OAuth 2.0 authentication server. However, this internal user is not displayed on the Administrator Management or User Management pages in the Zscaler Admin Console.
@@ -557,7 +565,7 @@ After the API role is created, define that role as a Scope on the authorization 
 - Org ID represents your Company ID obtained from your company profile in the Zscaler Admin Console (Administration > Account Management > Organization).
 - API Role represents an API role configured in the Add API Role window in the Zscaler Admin Console.
 
-The **Policy & Components** scope includes the following categories:
+The **Policy & Components** section includes the following categories:
 
 - Security
 - Access Control
@@ -566,12 +574,13 @@ The **Policy & Components** scope includes the following categories:
 - URL Categories
 - Shared Policy Components
 
-The **Cloud Configuration & Integration** scope includes the following categories:
+The **Cloud Configuration & Integration** section includes the following categories:
 
 - Integrations
 - Cloud Configuration
+- Business Continuity
 
-The **Traffic Forwarding** scope includes Traffic Forwarding, Traffic Forwarding Methods, and Traffic Forwarding Components.
+The **Traffic Forwarding** section includes Traffic Forwarding, Traffic Forwarding Methods, and Traffic Forwarding Components.
 
 You can assign **Full**, **View Only**, or**None** permissions to the client application to access the traffic-forwarding API category within the Zscaler cloud service API. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the following categories:
 
@@ -594,7 +603,7 @@ To learn more about the endpoints, see the [Forwarding Control API Reference Gui
 
 See image.
 
-The **Administration** **Controls** scope includes Administration Controls and Backup Controls.
+The **Administration** **Controls** section includes Administration Controls and Backup Controls.
 
 You can assign **Full**, **View Only**,**None**, or **Custom** permissions to the client application to access the Administration Controls and Backup Controls API category within the Zscaler cloud service API. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the categories. To assign custom permissions, select **Custom**and assign appropriate permissions for the following categories:
 
@@ -602,6 +611,7 @@ You can assign **Full**, **View Only**,**None**, or **Custom** permissions to th
   - Advanced Settings
   - Administrator Management
   - Audit Logs
+  - User Management
   - Remote Assistance Management
   - Authentication Settings
   - Identity Proxy Settings
@@ -609,6 +619,18 @@ You can assign **Full**, **View Only**,**None**, or **Custom** permissions to th
 - Backup Controls
   - Backup
   - Restore
+
+See image.
+
+You can assign **View Only**,**None**,or**Custom** permissions to the API role to access the reporting features. If you select **View Only** or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the reporting features:
+
+- Security
+- Web Data
+- DLP
+- Firewall
+- URL Categories
+- IoT Discovery
+- Sandbox
 
 See image.
 
@@ -636,7 +658,7 @@ See image.
 You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the client application to access the shared-policy components API category within the Zscaler cloud service API. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the categories. To assign custom permissions, select **Custom**and assign appropriate permissions for the following categories:
 
 - IP & FQDN Groups
-- Browser Isolation Allowing client applications to access Zero Trust Browser (formerly Isolation) also includes permission to access the Zscaler integrated [Votiro](https://votiro.com/resource-center/?fwp_resource_categories=guides) CDR services. Zero Trust Browser customers can enable the Votiro functionality on Internet & SaaS isolation profiles to allow the file-sanitization capability.
+- Browser Isolation Allowing client applications to access Zero Trust Browser (formerly Isolation) also includes permission to access the Zscaler-integrated [Votiro](https://votiro.com/resource-center/?fwp_resource_categories=guides) CDR services. Zero Trust Browser customers can enable the Votiro functionality on Internet & SaaS isolation profiles to allow the file-sanitization capability.
 - Device Management
 - Time Intervals
 
@@ -655,6 +677,7 @@ You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the 
   - FTP Control
 - Policy Components:
   - Bandwidth Classes
+  - Tenant Profiles
 
 See image.
 
@@ -687,7 +710,7 @@ To learn more about the endpoints, see the [Intermediate CA Certificates API Ref
 
 See image.
 
-This section provides the applications that are integrated with ZIA for your organization. You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the integrated applications. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all applications. To assign custom permissions, select **Custom**and assign appropriate permissions for the following applications:
+This section provides the applications that are integrated with Internet & SaaS (ZIA) for your organization. You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the API role to access the integrated applications. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all applications. To assign custom permissions, select **Custom**and assign appropriate permissions for the following applications:
 
 - Microsoft Cloud App Security
 - SD-WAN
@@ -700,48 +723,56 @@ The applications appear only if your organization has access to or subscriptions
 
 See image.
 
-You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the cloud-configuration features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
+You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the API role to access the cloud-configuration features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
 
 - Nanolog Streaming Service
-- Virtual ZENs
+- Virtual Service Edges
 
 See image.
 
-[Image: The Add API Role window on the Role Management page]
+You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the API role to access Business Continuity.
 
-[Image: The Security tab in the Policy & Components section in the Add API Role window on the Role Management page]
+See image.
 
-[Image: The Access Control tab in the Policy & Components section in the Add API Role window on the Role Management page]
+[Image: Options in the Permissions section]
 
-[Image: The Data Protection tab in the Policy & Components section in the Add API Role window on the Role Management page]
+[Image: Policy & Components - Security]
 
-[Image: The Decryption tab in the Policy & Components section in the Add API Role window on the Role Management page]
+[Image: Policy & Components - Access Control]
 
-[Image: The URL Categories tab in the Policy & Components section in the Add API Role window on the Role Management page]
+[Image: Policy & Components - Data Protection]
 
-[Image: The Shared Policy Components tab in the Policy & Components section in the Add API Role window on the Role Management page]
+[Image: Policy & Components - Decryption]
 
-[Image: The Integrations tab in the Cloud Configuration & Integration section in the Add API Role window on the Role Management page]
+[Image: Policy & Components - URL Categories]
 
-[Image: The Cloud Configuration tab in the Cloud Configuration & Integration section in the Add API Role window on the Role Management page]
+[Image: Policy & Components - Shared Policy Components]
 
-[Image: The Traffic Forwarding section in the Add API Role window on the Role Management page]
+[Image: Cloud Configuration & Integration - Integrations]
 
-[Image: The Administration Controls section in the Add API Role window on the Role Management page]
+[Image: Cloud Configuration & Integration - Cloud Configuration]
+
+[Image: Cloud Configuration & Integration - Business Continuity]
+
+[Image: Traffic Forwarding]
+
+[Image: Administration Controls]
+
+[Image: Reporting Data]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-06-15T21:06Z","nid":"1399011"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-08-26T10:53Z","nid":"1399011"} -->
 ## Adding Auditors
 
 - Source: https://help.zscaler.com/zia/adding-auditors
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Adding Auditors
-- Last modified: 2026-06-15T21:06Z
+- Last modified: 2026-08-26T10:53Z
 - Summary: How to add auditors in the Zscaler Admin Console.
 
-[Watch a video about Auditors](https://fast.wistia.net/embed/iframe/68fj7gj7xh) (shows legacy UI)
+[Watch a video about Auditors](https://fast.wistia.net/embed/iframe/68fj7gj7xh) (shows legacy UI).
 
 You must have a super admin [role](https://help.zscaler.com/zia/adding-admin-roles) and organizational [scope](https://help.zscaler.com/zia/about-admin-scope) to add [auditors](https://help.zscaler.com/zia/about-auditors).
 
@@ -754,7 +785,7 @@ To add an auditor:
   - **Name**: Enter a name for the auditor.
   - **Status**: Enable or disable the auditor. If you disable the auditor, the password is automatically cleared. So, when you re-enable the status of the disabled auditor, you must set a new password. If SAML is enabled, then setting a password is optional. You can save your changes only after the authentication is complete.
   - **Comments**: (Optional) Enter additional notes or information. The comments cannot exceed 10,240 characters.
-  - **New Password**: Enter a password for the auditor. It can be 8 to 100 characters and must contain at least one number, one special character, and one upper-case letter. This is the password the auditor must enter to give an admin permission to view user names. To learn more, see [About Auditors](https://help.zscaler.com/zia/about-auditors).
+  - **New Password**: Enter a password for the auditor. It can be 8 to 100 characters and must contain at least one number, one special character, and one uppercase letter. This is the password the auditor must enter to give an admin permission to view user names. To learn more, see [About Auditors](https://help.zscaler.com/zia/about-auditors).
   - **Confirm Password**: Re-enter the password to confirm.
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 <!-- /ZS-ARTICLE -->
@@ -3130,13 +3161,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-08-23T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-08-30T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
@@ -3294,16 +3325,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-dlp-and-endpoint-resources","lastmod":"2026-08-05T21:06Z","nid":"1541427"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-dlp-and-endpoint-resources","lastmod":"2026-08-26T10:29Z","nid":"1541427"} -->
 ## Adding DLP and Endpoint Resources
 
 - Source: https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Adding DLP and Endpoint Resources
-- Last modified: 2026-08-05T21:06Z
+- Last modified: 2026-08-26T10:29Z
 - Summary: Information on how to add DLP and endpoint resources to prevent data loss on endpoints.
 
-The page for Data Loss Prevention (DLP) and Endpoint resources (Policies > Data Protection > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
+The page for Data Loss Prevention (DLP) and Endpoint resources (Policies > Data Protection > Policy > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
 
 - If your organization has licensed only Endpoint DLP, this page is called DLP Resources.
 - If your organization has licensed only [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context), this page is called Endpoint Resources.
@@ -3336,7 +3367,7 @@ You can use the following methods to add endpoint and DLP resources:
 1. Go to **Policies**> **Data Protection**> **Policy**> **Endpoint DLP Resources**.
 2. On the **DLP & Endpoint Resources** page:
   - Add a network share
-  - Add a network printer
+  - Add a printer
   - Add a removable storage device
   - Add an application
 3. [Activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) your changes.
@@ -3360,13 +3391,13 @@ See image.
 
 On the **Printers** page (Policies > Data Protection > Endpoint DLP Resources > Printers):
 
-1. Click **Add Printer**. The **Add Network Printer** window appears.
+1. Click **Add Printer**. The **Add Printer** window appears.
 2. In the **Add Network Share** window:
-  - **Name**: Enter a name for the network printer.
+  - **Name**: Enter a name for the printer.
   - **Domain**: Enter the name of the domain where the printer is located.
   - **Printer Name**: Enter the name of the printer as it appears in the OS list of printers.
-  - **IP Address**: Enter the IP address for the network printer.
-  - **Description**: (Optional) Enter a description for the network printer.
+  - **IP Address**: Enter the IP address for the printer.
+  - **Description**: (Optional) Enter a description for the printer.
 3. Click **Add**.
 
 See image.
@@ -3375,8 +3406,8 @@ See image.
 
 On the **Removable Storage Devices** page (Policies > Data Protection > Endpoint DLP Resources > Removable Storage Devices):
 
-1. Click **Add a Removable Storage** device. The **Add Removable Storage Device** window appears.
-2. In the **Add Removable Storage Device** window:
+1. Click **Add Removable Storage Devices**. The **Add Removable Storage Devices** window appears.
+2. In the **Add Removable Storage Devices** window:
   - Enter the following **Removable Storage Device Details**:
     - **Name**: The name of the removable storage device
     - **Description**: (Optional) A description of the removable storage device
@@ -3384,7 +3415,7 @@ On the **Removable Storage Devices** page (Policies > Data Protection > Endpoint
     - **Vendor ID**: The manufacturer of the removable storage device
     - **Product ID**: The product ID of the removable storage device
     - **Serial Number**: The serial number of the removable storage device
-3. Click **Add**.
+3. Click **Save**.
 
 See image.
 
@@ -3397,7 +3428,7 @@ To import multiple DLP and endpoint resources:
 1. Go to **Policies**> **Data Protection**> **Policy**> **Endpoint DLP Resources**.
 2. On the **DLP & Endpoint Resources** page:
   - Import network shares
-  - Import network printers
+  - Import printers
   - Import removable storage devices
   - Import applications
 3. [Activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) your changes.
@@ -3462,8 +3493,8 @@ Printer1,Printer outside Conference Room 1,blr/resources/folder1,1.1.1.1,printer
 
 See image.
 
-1. In the **Preview** pane, confirm the details of the network printers you are importing.
-2. (Optional) Add the network printers to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time. Resource groups are available if your organization licenses Endpoint Data Loss Prevention (DLP) without [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). When your organization licenses Endpoint Context, any resource groups that you have already configured are automatically converted to [resource tag groups](https://help.zscaler.com/zia/adding-resource-tags). All policies that previously used resource groups are automatically updated to use the converted resource tag groups.
+1. In the **Preview** pane, confirm the details of the printers you are importing.
+2. (Optional) Add the printers to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time. Resource groups are available if your organization licenses Endpoint Data Loss Prevention (DLP) without [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). When your organization licenses Endpoint Context, any resource groups that you have already configured are automatically converted to [resource tag groups](https://help.zscaler.com/zia/adding-resource-tags). All policies that previously used resource groups are automatically updated to use the converted resource tag groups.
   1. Select **Add the imported resources to a group** or **Add the imported resources to a tag**, depending on the products you have licensed for your organization. See image.
   2. Do one of the following:
     - For groups:
@@ -3472,7 +3503,7 @@ See image.
     - For tags:
       1. To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
       2. To add the resources to an existing group, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
-3. Click **Import**. The network printers appear in the list in the **Printers** window.
+3. Click **Import**. The printers appear in the list in the **Printers** window.
 
 [Image: A screenshot of the CSV Import Printers window for Zscaler Endpoint DLP]
 
@@ -4176,13 +4207,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-08-23T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-08-30T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-08-30T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under SaaS Security API DLP and Malware policies into categories based on the sensitivity of the email data.
@@ -4225,27 +4256,26 @@ The email label is created in the Zscaler Admin Console. You can [edit](https://
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-profiles","lastmod":"2026-07-07T14:45Z","nid":"1492726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-profiles","lastmod":"2026-08-26T09:42Z","nid":"1492726"} -->
 ## Adding Email Profiles
 
 - Source: https://help.zscaler.com/zia/adding-email-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Email Profiles
-- Last modified: 2026-07-07T14:45Z
+- Last modified: 2026-08-26T09:42Z
 - Summary: How to add email profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
 Zscaler's email profiles allow you to make custom sets of email domains and recipient profiles that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
 
 To add email profiles:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **Email Domain Profiles**.
-2. On the **Email Profiles** page:
+1. In the Zscaler Admin Console, on the corresponding profile page:
   - Add a domain profile
   - Add a recipient profile
-3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-1. Click **Domain Profiles**.
-2. Click **Add Domain Profile**.
+1. Go to **Policies**> **Data Protection**> **Common Resources**> **Domain Profiles**.
+2. Click **Add Domain Profile**. The **Add Domain Profile** window appears.
 3. In the **Add Domain Profile** window:
   - **Profile Name**: Enter a name for the domain profile.
   - **Top Personal Email Service Providers**: Select from a list of email service providers to include and click **Done**.
@@ -4256,27 +4286,30 @@ To add email profiles:
 
 See image.
 
-1. Click **Recipient Profiles**.
-2. Click **Add Recipient Profile**.
-3. In the **Add Recipient Profile** window:
+[Image: Add a Domain Profile]
+
+1. Go to **Policies**> **Data Protection**> **Common Resources**> **Recipient Profiles**.
+2. Click **Recipient Profiles**.
+3. Click **Add Recipient Profile**. The **Add Recipient Profile** window appears.
+4. In the **Add Recipient Profile** window:
   - **Profile Name**: Enter a name for the recipient profile.
   - **Recipients**: Enter one or more recipient email addresses separated by line breaks, then click **Add Items**.
   - **Description**: Enter additional notes or information. The description cannot exceed 256 characters.
 
 See image.
 
-[Image: Screenshot of the Add Recipient Profile window.]
+[Image: Add a Recipient Profile]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-tenants","lastmod":"2026-08-21T07:10Z","nid":"1492711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-tenants","lastmod":"2026-08-25T14:21Z","nid":"1492711"} -->
 ## Adding Email Tenants
 
 - Source: https://help.zscaler.com/zia/adding-email-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Email Tenants
-- Last modified: 2026-08-21T07:10Z
+- Last modified: 2026-08-25T14:21Z
 - Summary: How to add email tenants for use in Zscaler Outbound Email Policy rules.
 
 Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you create are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp) and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
@@ -4289,9 +4322,9 @@ For next-hop validation to enforce strict security checks during SMTP connection
 
 To add an email tenant:
 
-1. In the Zscaler Admin Console, go to **Policies**> **Data Protection**> **Policy**> **Email Tenants**.
-2. Click **Add Email Tenant**. The **Add Email Tenant**window appears.
-3. Under **Choose the Email Service Provider**, select **Secure Email Gateway**, **Gmail**, or **Exchange**.
+1. Go to **Policies**> **Data Protection**> **Policy**> **Email Tenants**.
+2. Click **Add Email Tenant**. The **Add Email Tenant**page appears.
+3. On the **Add Email Tenant** page, under **Choose the Email Service Provider**, select **Secure Email Gateway**, **Gmail**, or **Exchange**.
   - Configure Secure Email Gateway
   - Configure Gmail
   - Configure Exchange
@@ -4310,7 +4343,7 @@ Under **Email Tenant Security Options**, the **Workflow Automation** option is a
   - **Port Number**: Enter the port number for the email domain (e.g., `587`).
 4. Click **Add Domain**. The domain information is added to the email tenant. See image.
 
-[Image: Screenshot of the Email Tenant Domain Configuration]
+[Image: Email Tenant Domain Configuration]
 
 1. Under **Name Email Tenant**, enter a unique name for the tenant.
 2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
@@ -4348,13 +4381,13 @@ Under **Email Tenant Security Options**, the **Workflow Automation** option is a
 
 [Image: Search for role in the MS Exchange Portal]
 
-[Image: Assign Role in the ZIA Admin Portal]
+[Image: Select Assign Role]
 
-[Image: View your SaaS Connector ID in the ZIA Admin Portal]
+[Image: View your SaaS Connector ID]
 
-[Image: View your Tenant ID in the ZIA Admin Portal]
+[Image: View your Tenant ID]
 
-[Image: Workflow Automation check box in the ZIA Admin Portal]
+[Image: Workflow Automation check box]
 
 1. Sign in to the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home#/homepage).
 2. In the left-side navigation, go to **Settings > Domains**. See image. The **Domains** page appears.
@@ -4364,17 +4397,17 @@ Under **Email Tenant Security Options**, the **Workflow Automation** option is a
 6. On the **MX record** page, in the **Expected record** row, copy the value from the **Points to address or Value** column. See image.
 7. In the Zscaler Admin Console, paste the copied value into the **Next Hop Address** field.
 
-[Image: A screenshot of the Domains menu option in the Microsoft M365 Admin Center]
+[Image: Domains menu option in the Microsoft M365 Admin Center]
 
-[Image: A screenshot of the Domain Overview page in the Microsoft M365 Admin Center]
+[Image: Domain Overview page in the Microsoft M365 Admin Center]
 
-[Image: A screenshot of the copy MX record value in the Microsoft M365 Admin Center]
+[Image: Copy the MX record value in the Microsoft M365 Admin Center]
 
-[Image: Screenshot highlighting the Email Tenant Connectors and Rules Configuration]
+[Image: Configure Connectors and Rules for Email Tenants]
 
-[Image: Screenshot highlighting the Email Tenant Connectors and Rules Configuration]
+[Image: Configure Connectors and Rules for Email Tenants]
 
-[Image: Screenshot of the Email Tenant Domain Configuration]
+[Image: Email Tenant Domain Configuration]
 
 If your organization uses a secure email gateway (SEG) (e.g., Mimecast, Cisco IronPort), you can onboard your SEG tenant to use as part of your outbound email DLP policies. After you onboard SEG tenants on the **Email Tenants** page, you can then select those tenants when creating [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
 
@@ -7227,16 +7260,16 @@ On the **Applications** (Policies > Data Protection > Endpoint DLP Resources > A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-restore-points-manually","lastmod":"2026-05-22T07:06Z","nid":"1398976"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-restore-points-manually","lastmod":"2026-08-28T11:19Z","nid":"1398976"} -->
 ## Adding Restore Points Manually
 
 - Source: https://help.zscaler.com/zia/adding-restore-points-manually
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > Adding Restore Points Manually
-- Last modified: 2026-05-22T07:06Z
+- Last modified: 2026-08-28T11:19Z
 - Summary: Information on how to back up and restore a set of policies and configuration settings for the Zscaler service.
 
-[Watch a video about Backup and Restore](https://fast.wistia.net/embed/iframe/52m88uwf64) (shows legacy UI)
+[Watch a video about Backup & Restore including adding Restore Points manually.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
 
 You can back up and restore a set of policies and configuration settings, and save up to 12 restore points. To learn more, see [About Backup and Restore](https://help.zscaler.com/zia/about-backup-and-restore).
 
@@ -7294,13 +7327,13 @@ To add a root certificate for proxy chaining:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-06-01T21:06Z","nid":"1402206"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-08-27T23:39Z","nid":"1402206"} -->
 ## Adding a Rule Label
 
 - Source: https://help.zscaler.com/zia/adding-rule-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Adding a Rule Label
-- Last modified: 2026-06-01T21:06Z
+- Last modified: 2026-08-27T23:39Z
 - Summary: Information on how to add a rule label in the Zscaler Admin Console.
 
 Zscaler's rule label feature allows you to logically group all your organization's policies. The feature consists of two parts, creating rule labels and associating the labels with all the policy rules.
@@ -9836,49 +9869,49 @@ Choose to isolate all the traffic that matches the cloud app control rule throug
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-07-24T21:06Z","nid":"1400626"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-08-27T16:24Z","nid":"1400626"} -->
 ## Adding SD-WAN Partner API Clients
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding SD-WAN Partner API Clients
-- Last modified: 2026-07-24T21:06Z
+- Last modified: 2026-08-27T16:24Z
 - Summary: How to add and remove SD-WAN partner API clients for the Zscaler service.
 
 To add an SD-WAN partner API client:
 
 1. Go to **Administration**>**Admin Management**>**Administrator Management**>**Internet Access Administrators**.
-2. Click **Add SD-WAN Partner API Client**: The **Add SD-WAN Partner API Client** window appears.
+2. On the **Administrators** tab, click **Add SD-WAN Partner API Client**: The **Add SD-WAN Partner API Client** window appears.
 3. In the **Add SD-WAN Partner API Client** window: See image.
   - **Login ID**: Enter the login ID the SD-WAN partner API client uses to log in, and select the appropriate domain name. The domain names you provided to Zscaler appear in the drop-down menu.
   - **Email**: Enter an email address for the SD-WAN partner API client and select the appropriate domain name. The domain names you provided to Zscaler appear in the drop-down menu.
   - **Name**: Enter a name for the SD-WAN partner API client.
-  - **Partner Role**: Choose an [SD-WAN partner API role](https://help.zscaler.com/zia/adding-partner-admin-roles) to specify the SD-WAN partner API client's level of access to the Zscaler Admin Console. SD-WAN partner API client roles you've configured appear in the drop-down menu. You can also search for SD-WAN partner API roles or click the **Add**icon to add a new role.
+  - **Partner Role**: Choose an [SD-WAN partner API role](https://help.zscaler.com/zia/adding-partner-admin-roles) to specify the SD-WAN partner API client's level of access to the Zscaler Admin Console. SD-WAN partner API client roles you've configured appear in the drop-down menu.
   - **Status**: Enable or disable the SD-WAN partner API client. If you disable the admin, the password is automatically cleared. So, when you re-enable the status of the disabled admin, you must set a new password. If SAML is enabled, then setting a password is optional. You can save your changes only after the admin authentication is complete.
   - **Comments**: (Optional) Enter additional notes or information.
-  - **Password**: Enter a password for the SD-WAN partner API client. It can be 8 to 100 characters and must contain at least one number, one special character, and one uppercase letter.
+  - **Password**: Enter a password for the SD-WAN partner API client. It can be 8 to 100 characters and must contain at least 1 number, 1 special character, and 1 uppercase letter.
   - **Confirm Password**: Re-enter the password to confirm.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal) or delete SD-WAN partner API clients at any time.
 
-[Image: The Add SD-WAN Partner API Client window.]
+[Image: The Add SD-WAN Partner API Client window]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-07-24T21:06Z","nid":"1400621"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-08-28T19:55Z","nid":"1400621"} -->
 ## Adding SD-WAN Partner API Roles
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding SD-WAN Partner API Roles
-- Last modified: 2026-07-24T21:06Z
+- Last modified: 2026-08-28T19:55Z
 - Summary: How to add and remove SD-WAN partner API roles for the Zscaler service.
 
-[Watch a video about SD-WAN Partner API Roles.](https://fast.wistia.net/embed/iframe/a5gc2g3evl) (shows legacy UI)
+[Watch a video about SD-WAN Partner API Roles.](https://fast.wistia.net/embed/iframe/a5gc2g3evl) (shows legacy UI).
 
-A Software-Defined Wide Area Network (SD-WAN) partner API role is a specific role for API access to the ZIA cloud service APIs. SD-WAN partner APIs cannot be users; only admins can be assigned to an SD-WAN partner API role. SD-WAN partner APIs can:
+A Software-Defined Wide Area Network (SD-WAN) partner API role is a specific role for API access to the Internet & SaaS (ZIA) cloud service APIs. SD-WAN partner APIs cannot be users; only admins can be assigned to an SD-WAN partner API role. SD-WAN partner APIs can:
 
 - Make API calls to endpoints that involve building tunnels and mapping tunnels to locations.
 - Only access API endpoints (no Zscaler Admin Console interactive login allowed).
@@ -9898,9 +9931,9 @@ To add an SD-WAN partner API role:
 
 1. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
 2. Click **Add SD-WAN Partner API Role**.
-3. In the **Add SD-WAN Partner API Role** window:
+3. In the **Add SD-WAN Partner API Role** window: See image.
   - **Name**: Enter a name for the SD-WAN partner API role.
-  - **Traffic Forwarding**(scope): Assign appropriate permissions for the SD-WAN partner APIs to access the Traffic Forwarding API endpoints that the partner is managing via the[cloud service API](https://help.zscaler.com/zia/understanding-zia-api). For each SD-WAN partner API role, you can configure the following permissions: If an SD-WAN partner API role does not have access to an API endpoint, the option to get or update resources via the API is not available. See image.
+  - **Traffic Forwarding**(scope): Assign appropriate permissions for the SD-WAN partner APIs to access the Traffic Forwarding API endpoints that the partner is managing via the[cloud service API](https://help.zscaler.com/zia/understanding-zia-api). For each SD-WAN partner API role, you can configure the following permissions: If an SD-WAN partner API role does not have access to an API endpoint, the option to get or update resources via the API is not available.
     - **Full**: This permission allows SD-WAN partner APIs to view and edit the traffic-forwarding API resources.
     - **View Only**: This permission allows SD-WAN partner APIs to only view the traffic-forwarding API resources.
     - **Custom**: This permission allows you to assign field-wise permissions (**Full** or **View Only**) to the API endpoints, providing further granular access to those API resources. Selecting **Full** or **View Only**permissions applies to all the traffic-forwarding resources. To assign custom permissions, select **Custom**and assign appropriate permissions to the following API endpoints:
@@ -11652,4 +11685,49 @@ To add a custom threat category,
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Adding a custom threat category by specifying name and description]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-04-24T03:21Z","nid":"1399311"} -->
+## Adding URLs to the Allowlist
+
+- Source: https://help.zscaler.com/zia/adding-urls-allowlist
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
+- Last modified: 2026-04-24T03:21Z
+- Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
+
+There might be trusted websites of partners or vendors whose webmail or file downloads might otherwise be blocked due to anti-virus, anti-spyware, anti-malware, or URL filtering policies. You can exempt URLs from security scans, URL filtering, or both.
+
+The allowlist applies to [Malware Protection](https://help.zscaler.com/zia/about-malware-protection), [Advanced Threat Protection](https://help.zscaler.com/zia/about-advanced-threat-protection), [Sandbox](https://help.zscaler.com/zia/about-sandbox), and [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policies. To learn more about how security exceptions impact policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/how-does-zscaler-service-enforce-policies).
+
+You can allowlist URLs completely by exempting them from security scans and URL filtering.
+
+## Adding URLs to Allowlist for Security Scans
+
+Adding URLs to the allowlist for security scans allows users to download content from these URLs without inspecting the traffic.
+
+To add URLs to the allowlist for security policies:
+
+1. Go to one of the following pages:
+  - **Policies**> **Cybersecurity**> **Inline Security**> **Malware Protection**.
+  - **Policies**>**Cybersecurity**> **Inline Security**> **Advanced Threat Protection**
+2. Click the **Security Exceptions** tab.
+3. In **Do Not Scan Content from these URLs**, enter the URLs you want to allowlist and click **Add Items**. You can enter multiple entries by pressing `Enter` after each entry. You can add up to 1,024 URLs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+This allowlist also applies to the [Sandbox](https://help.zscaler.com/zia/about-sandbox) policy.
+
+1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+## Adding URLs to Allowlist for URL Filtering
+
+Adding URLs to the allowlist for URL filtering allows access to the content without being blocked by other URL Filtering policy rules.
+
+To add URLs to allowlist for URL Filtering policy:
+
+1. Add the URLs you want to allowlist to a [custom URL category](https://help.zscaler.com/zia/adding-custom-url-categories).
+2. [Configure a URL Filtering rule](https://help.zscaler.com/zia/configuring-url-filtering-policy) to allow the custom URL category.
+
+Ensure that the rule order of this rule is higher than the URL Filtering rule that blocks these URLs.
 <!-- /ZS-ARTICLE -->

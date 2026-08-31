@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 150
 
 ---
@@ -12445,13 +12445,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/sd-wan-integrations-using-api","lastmod":"2026-01-06T23:49Z","nid":"1400806"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/sd-wan-integrations-using-api","lastmod":"2026-08-28T16:56Z","nid":"1400806"} -->
 ## SD-WAN Integrations Using API
 
 - Source: https://help.zscaler.com/legacy-apis/sd-wan-integrations-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Working with APIs > SD-WAN Integrations Using API
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-08-28T16:56Z
 - Summary: Information on Software-Defined Wide Area Networking (SD-WAN) partner integrations, and how to enable SD-WAN API access to integrate with the Zscaler service and set up IPSec VPN tunnels for traffic forwarding.
 
 This article only includes information on how to:
@@ -12461,8 +12461,6 @@ This article only includes information on how to:
 - Use [Locations](https://help.zscaler.com/zia/location-management#/locations-get) and [VPN Credentials](https://help.zscaler.com/zia/traffic-forwarding-0#/vpnCredentials-get) API resources to set up IPSec VPN tunnels.
 
 For details and SD-WAN deployment configuration guides for each partner (i.e., Riverbed SteelConnect, HPE Aruba, etc.), see the [SD-WAN partner site](https://www.zscaler.com/partners/technology/sd-wan?_ga=2.151531454.664659488.1542647815-1285048483.1515448871) or contact Zscaler Business Development.
-
-If you have [enabled restricted access](https://help.zscaler.com/zia/configuring-restricted-access-admins) to the ZIA Admin Portal based on the source IP address, you need to include the SD-WAN device IP addresses in the allowlist for accessing the ZIA Admin Portal via API. To learn more, see [Configuring Restricted Access for Admins](https://help.zscaler.com/zia/configuring-restricted-access-admins).
 
 ## Enabling SD-WAN API Access for Partners
 
@@ -17749,13 +17747,13 @@ If you receive a ZDX Score of -1 on the ZDX API, then there is no data available
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zia-api","lastmod":"2026-07-09T10:55Z","nid":"1400486"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zia-api","lastmod":"2026-08-28T16:50Z","nid":"1400486"} -->
 ## Understanding ZIA APIs
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-zia-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > Understanding ZIA APIs
-- Last modified: 2026-07-09T10:55Z
+- Last modified: 2026-08-28T16:50Z
 - Summary: Introductory information about Zscaler's APIs, which give programmatic access to various Zscaler Internet Access (ZIA) features.
 
 Zscaler Internet Access (ZIA) provides three APIs: the cloud service API, Sandbox Submission API, and 3rd-Party App Governance API. To learn more about authentication, making API calls, and activating configuration changes, see [Getting Started](https://help.zscaler.com/zia/api-getting-started). For detailed information on all available API calls, endpoints, and parameters, see the [Reference Guide](https://help.zscaler.com/zia/about-api). For a table summarizing all available API calls, endpoints, and rate limits, see the [API Rate Limit Summary](https://help.zscaler.com/zia/api-rate-limit-summary). To try out requests and responses for API calls using the Postman app, see [Configuring the Postman REST API Client](https://help.zscaler.com/zia/configuring-postman-rest-api-client).
@@ -18034,7 +18032,6 @@ To learn more, see:
 - [Reference Guide > Admin & Role Management](https://help.zscaler.com/zia/admin-role-management) Access to these resources requires an [admin](https://help.zscaler.com/zia/adding-admin-roles#administrators-access) or [API role](https://help.zscaler.com/zia/adding-api-roles#administrators-access) with full Administrator Management and Role Management permissions under Administration Controls.
 - [About Role Management](https://help.zscaler.com/zia/about-role-management)
 - [About Administrators](https://help.zscaler.com/zia/about-administrators)
-- [Configuring Password Expiration](https://help.zscaler.com/zia/configuring-password-expiration)
 
 Data Loss Prevention (DLP) API resources allow you to retrieve information for DLP dictionaries, engines, incident receivers, Internet Content Adaptation Protocol (ICAP) servers, Cloud-to-Cloud Incident Receivers, etc. In addition, you can create and update DLP predefined dictionaries, Exact Data Match (EDM) and Indexed Document Match (IDM) dictionaries, notifications, and policy rules. You can also create and delete custom DLP engines, update predefined and custom DLP engines, and validate DLP engine expressions formed by combining DLP dictionaries using logical operators.
 

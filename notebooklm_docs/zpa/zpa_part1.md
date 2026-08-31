@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 174
 
 ---
@@ -655,16 +655,16 @@ On the API Keys page (Administration > API Configuration > Legacy API > Private 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-api-protection-controls","lastmod":"2026-08-05T13:42Z","nid":"1499831"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-api-protection-controls","lastmod":"2026-08-27T16:19Z","nid":"1499831"} -->
 ## About API Controls
 
 - Source: https://help.zscaler.com/zpa/about-api-protection-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > About API Controls
-- Last modified: 2026-08-05T13:42Z
-- Summary: Information on API Protection controls in the Zscaler Admin Console.
+- Last modified: 2026-08-27T16:19Z
+- Summary: Information on API Protection Controls page in the Zscaler Admin Console.
 
-API controls provide inspection of API traffic by flagging transactions that include security violations such as social security numbers and credit card numbers. Zscaler doesn't store the details or actual numbers of this secure data; Zscaler instead identifies these transactions as a security violation category. You can view the analytics of this inspected API traffic on the [API Protection dashboard](https://help.zscaler.com/zpa/viewing-api-protection-dashboard) and [API Protection Diagnostics](https://help.zscaler.com/zpa/accessing-api-protection-diagnostics) pages. All [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) have a set of AppProtection controls that you can use to help you define how AppProtection is managed. You can create multiple API controls to use within the same AppProtection profile by [designating application segments with API Protection](https://help.zscaler.com/zpa/configuring-defined-application-segments).
+API controls provide inspection of API traffic by flagging transactions that include security violations such as social security numbers and credit card numbers. Zscaler doesn't store the details or actual numbers of this secure data; Zscaler instead identifies these transactions as a security violation category. You can view the analytics of this inspected API traffic on the [API Protection dashboard](https://help.zscaler.com/zpa/viewing-api-protection-dashboard) and [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics) pages. All [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) have a set of AppProtection controls that you can use to help you define how AppProtection is managed.
 
 API controls provide the following benefits and enable you to:
 
@@ -686,7 +686,7 @@ On the API Controls page (Policies > Cybersecurity > Inline Security > Protectio
 3. Refresh the API Controls page to reflect the most current information.
 4. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
 5. Expand all of the rows in the table to see more information about each API control.
-6. View a list of API controls. you can view:
+6. For each API control. you can view:
   - **Control Number**: A number to differentiate each API control. The table shows the controls in the order they were created, and the order cannot be changed. When expanded, the following information is displayed:
     - **Description**: An explanation of how the control works.
     - **Paranoia Level**: The associated level, which corresponds to the levels available in an AppProtection profile.
@@ -699,7 +699,7 @@ On the API Controls page (Policies > Cybersecurity > Inline Security > Protectio
 9. Go to the [OWASP Predefined Controls](https://help.zscaler.com/zpa/about-appprotection-profiles) page to view and manage the available OWASP predefined controls.
 10. Go to the [Custom Controls](https://help.zscaler.com/zpa/about-custom-controls) page to view and manage the available custom controls.
 11. Go to the [WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls) page to view and manage the available WebSocket predefined and custom controls.
-12. Go to the [Active Directory](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
+12. Go to the [Active Directory Controls](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
 
 [Image: The API Controls page]
 <!-- /ZS-ARTICLE -->
@@ -952,13 +952,13 @@ On the Protected Applications page (Policies > Cybersecurity > Inline Security >
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-appprotection-controls","lastmod":"2026-08-22T07:06Z","nid":"1484976"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-appprotection-controls","lastmod":"2026-08-27T12:56Z","nid":"1484976"} -->
 ## About AppProtection Controls
 
 - Source: https://help.zscaler.com/zpa/about-appprotection-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > About AppProtection Controls
-- Last modified: 2026-08-22T07:06Z
+- Last modified: 2026-08-27T12:56Z
 - Summary: Information on AppProtection controls and the Open Web Application Security Project (OWASP) Predefined Controls page in the Zscaler Admin Console.
 
 All [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) have a set of AppProtection controls that you can use to help you define how AppProtections are managed. AppProtection controls are grouped by predefined controls that come from ThreatLabZ, Open Web Application Security Project (OWASP), and WebSocket, or custom WebSocket or HTTP controls. To learn more, see [About ThreatLabZ Controls](https://help.zscaler.com/zpa/about-threatlabz-controls), [About Custom Controls](https://help.zscaler.com/zpa/about-custom-controls), and [About WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls).
@@ -1007,7 +1007,7 @@ On the OWASP Predefined Controls page (Policies > Cybersecurity > Inline Securit
 10. Go to the [Custom Controls](https://help.zscaler.com/zpa/about-custom-controls) page to view and manage your custom controls.
 11. Go to the [WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls) page to view and manage the available WebSocket predefined and custom controls.
 12. Go to the [API Controls](https://help.zscaler.com/zpa/about-api-protection-controls) page to view and manage the available API controls.
-13. Go to the [Active Directory](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
+13. Go to the [Active Directory Controls](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
 
 [Image: The OWASP Predefined Controls page]
 <!-- /ZS-ARTICLE -->
@@ -1064,14 +1064,14 @@ On the AppProtection Policy page (Policies > Cybersecurity > Inline Security > P
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-appprotection-profiles","lastmod":"2026-08-22T07:06Z","nid":"1485006"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-appprotection-profiles","lastmod":"2026-08-27T12:51Z","nid":"1485006"} -->
 ## About AppProtection Profiles
 
 - Source: https://help.zscaler.com/zpa/about-appprotection-profiles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > AppProtection for Private Application Traffic Profiles > About AppProtection Profiles
-- Last modified: 2026-08-22T07:06Z
-- Summary: Information on the AppProtection Profiles page in the Zscaler Admin Console.
+- Last modified: 2026-08-27T12:51Z
+- Summary: Information on the AppProtection page in the Zscaler Admin Console.
 
 AppProtection profiles allow you to determine how traffic is inspected and managed. Each AppProtection profile uses a paranoia level if using [API controls](https://help.zscaler.com/zpa/about-api-protection-controls), [ThreatLabZ predefined controls](https://help.zscaler.com/zpa/about-threatlabz-controls), [Open Web Application Security Project (OWASP) predefined controls](https://help.zscaler.com/zpa/about-appprotection-controls), or [WebSocket predefined controls](https://help.zscaler.com/zpa/about-websocket-controls). Predefined controls are a selection of the controls to establish the requirements for AppProtection, and what action is taken for those controls. You can use your own [WebSocket custom controls](https://help.zscaler.com/zpa/about-websocket-controls) or [HTTP custom controls](https://help.zscaler.com/zpa/about-custom-controls), or you can use the ThreatLabZ predefined controls, OWASP predefined controls, API controls, or WebSocket predefined controls. You can also apply the same action for all the controls, or a different action for each control in the AppProtection profile.
 
@@ -1123,13 +1123,13 @@ See image.
 You can't edit or delete the default AppProtection profile.
 
 1. Display more rows or a different page of the table.
-2. Go to the [Browser Protection profiles](https://help.zscaler.com/zpa/about-browser-protection-profiles) page to manage your Browser Protection profiles.
+2. Go to the [Browser Protection](https://help.zscaler.com/zpa/about-browser-protection-profiles) page to view and manage your Browser Protection profiles.
 
 [Image: Used in AppProtection Controls window on the AppProtection Profile page]
 
 [Image: Recommended OWASP Top 10 Profile on the AppProtection page]
 
-[Image: Used in AppProtection Controls window on the AppProtection Profile page]
+[Image: The AppProtection page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1741,13 +1741,13 @@ On the Browser Protection Policy page (Policies > Cybersecurity > Inline Securit
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-browser-protection-profiles","lastmod":"2026-08-07T09:56Z","nid":"1485621"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-browser-protection-profiles","lastmod":"2026-08-27T12:54Z","nid":"1485621"} -->
 ## About Browser Protection Profiles
 
 - Source: https://help.zscaler.com/zpa/about-browser-protection-profiles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > Browser Protection Profiles > About Browser Protection Profiles
-- Last modified: 2026-08-07T09:56Z
+- Last modified: 2026-08-27T12:54Z
 - Summary: Information on the Browser Protection Profiles page in the Zscaler Admin Console.
 
 Browser Protection profiles allow you to determine how traffic is inspected and managed for browser sessions. Each Browser Protection profile consists of selected browser and operating system attributes.
@@ -1757,7 +1757,7 @@ Browser Protection profiles provide the following benefits and enable you to:
 - Curate the attributes used to create a unique browser fingerprint for each user's browser access session (e.g., OS name, browser engine version, user agent string, geolocation, etc.).
 - Exclude the attributes that should not be used to create a fingerprint.
 
-After creating a Browser Protection profile, add it to a Browser Protection policy for the ZPA service to use. To learn more, see [About Browser Protection Policy](https://help.zscaler.com/zpa/about-browser-protection-policy).
+After creating a Browser Protection profile, add it to a Browser Protection policy for the Private Access (ZPA) service to use. To learn more, see [About Browser Protection Policy](https://help.zscaler.com/zpa/about-browser-protection-policy).
 
 ## About the Browser Protection Page
 
@@ -1782,7 +1782,7 @@ On the Browser Protection page (Policies > Cybersecurity > Inline Security > Pro
 3. [Edit a Browser Protection profile.](https://help.zscaler.com/zpa/editing-browser-protection-profiles)
 4. Delete a Browser Protection profile.
 5. Display more rows or a different page of the table.
-6. Go to the [AppProtection Profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) page to manage your AppProtection profiles.
+6. Go to the [AppProtection](https://help.zscaler.com/zpa/about-appprotection-profiles) page to view and manage your AppProtection profiles.
 
 [Image: The Browser Protection page]
 <!-- /ZS-ARTICLE -->
@@ -2432,13 +2432,13 @@ On the Credential Providers page (Policies > Access Control > Clientless > Crede
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-custom-controls","lastmod":"2026-08-05T15:56Z","nid":"1484981"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-custom-controls","lastmod":"2026-08-27T12:57Z","nid":"1484981"} -->
 ## About Custom Controls
 
 - Source: https://help.zscaler.com/zpa/about-custom-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > Custom Controls > About Custom Controls
-- Last modified: 2026-08-05T15:56Z
+- Last modified: 2026-08-27T12:57Z
 - Summary: Information on the Custom Controls page within the Zscaler Admin Console.
 
 All [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) have a set of AppProtection controls that you can use to help you define how AppProtections are managed. Custom controls give you the flexibility to set and define the specific request and response elements (e.g., request header, response body, etc.) and the preferred action used to handle them. You can create multiple custom controls and use them within the same AppProtection profile.
@@ -2479,7 +2479,7 @@ When a custom control is in use by an [AppProtection profile](https://help.zscal
 3. Go to the [OWASP Predefined Controls](https://help.zscaler.com/zpa/about-inspection-profiles) page to view and manage the available OWASP predefined controls.
 4. Go to the [WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls) page to view and manage the available WebSocket predefined and custom controls.
 5. Go to the [API Controls](https://help.zscaler.com/zpa/about-api-protection-controls) page to view and manage the available API controls.
-6. Go to the [Active Directory](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
+6. Go to the [Active Directory Controls](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
 
 [Image: The Custom Controls page]
 <!-- /ZS-ARTICLE -->
@@ -2757,16 +2757,16 @@ On the Discovered page (Policies > Access Control > Clientless > Privileged Cred
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-emergency-access-users","lastmod":"2026-07-20T08:24Z","nid":"1485696"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-emergency-access-users","lastmod":"2026-08-27T15:01Z","nid":"1485696"} -->
 ## About Emergency Access Users
 
 - Source: https://help.zscaler.com/zpa/about-emergency-access-users
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Authentication > Emergency Access Authentication > About Emergency Access Users
-- Last modified: 2026-07-20T08:24Z
+- Last modified: 2026-08-27T15:01Z
 - Summary: Information on users designated for emergency access and the Emergency Access Users page within the Zscaler Admin Console.
 
-Emergency access users are third-party users (e.g., contractors and vendors) that are created in an Okta IdP and configured on the [Emergency Access](https://help.zscaler.com/zpa/configuring-emergency-access) page in the Zscaler Admin Console.
+Emergency access users are third-party users (e.g., contractors and vendors) that are created in Authentication Service and configured on the [Emergency Access](https://help.zscaler.com/zpa/configuring-emergency-access) page in the Zscaler Admin Console.
 
 Emergency access users provide the following benefits and enable you to:
 
@@ -2790,7 +2790,7 @@ On the Emergency Access Users page (Administration > Identity > Private Access >
   - **First Name**: The first name of the emergency access user, as provided by the admin.
   - **Last Name**: The last name of the emergency access user, as provided by the admin.
   - **Email Address**: The email address of the emergency access user, as provided by the admin.
-  - **Status**: The status of the emergency user. The emergency access user can be in one of the following states: Other statuses (e.g., **Password Expired**, **Locked Out**, **Recovery**) might appear. To learn more, refer to the [Okta Help Center](https://support.okta.com/help/s/article/What-are-the-different-user-statuses-in-the-Okta-Password-Health-Check-Report?language=en_US).
+  - **Status**: The status of the emergency user. The emergency access user can be in one of the following states: Other statuses (e.g., **Password Expired**, **Locked Out**, **Recovery**) might appear.
     - **Active**: The user is activated and has completed the email-based authentication.
     - **Staged**: The user is created in the IdP but neither activated nor deactivated.
     - **Provisioned**: The user is created and activated in the IdP, but still needs to complete activation via email-based authentication.
@@ -3372,13 +3372,13 @@ On the Cluster Resources page (Policies > Access Control > Segmentation > Cluste
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-log-streaming-service","lastmod":"2026-07-22T08:27Z","nid":"1483941"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-log-streaming-service","lastmod":"2026-08-25T08:39Z","nid":"1483941"} -->
 ## About the Log Streaming Service
 
 - Source: https://help.zscaler.com/zpa/about-log-streaming-service
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > About the Log Streaming Service
-- Last modified: 2026-07-22T08:27Z
+- Last modified: 2026-08-25T08:39Z
 - Summary: Information on how the Private Access Log Streaming Service (LSS) is deployed, including information on the log types captured by configured log receivers within the Zscaler Admin Console.
 
 [Watch a video about the Log Streaming Service](https://fast.wistia.net/embed/iframe/fycyoh6xk5) (shows legacy UI).
@@ -3460,6 +3460,7 @@ On the Log Receivers page (Logs > Log Streaming > Log Receivers), you can do the
 - App Connector Metrics: Information related to an App Connector's metrics. To learn more, see [Understanding App Connector Metrics Log Fields](https://help.zscaler.com/zpa/understanding-app-connector-metrics-log-fields).
 - App Connector Status: Information related to an App Connector's availability and connection to Private Access. To learn more, see [Understanding App Connector Status Log Fields](https://help.zscaler.com/zpa/understanding-connector-status-log-fields).
 - Browser Access Logs: HTTP log information related to Browser Access. To learn more, see [Understanding Browser Access Log Fields](https://help.zscaler.com/zpa/understanding-browser-access-log-fields) and [About Browser Access](https://help.zscaler.com/zpa/about-browser-access).
+- Business Continuity Event Log Fields: Information related to Business Continuity Events activity. To learn more, see [Understanding Business Continuity Event Log Fields](https://help.zscaler.com/zpa/understanding-business-continuity-event-log-fields).
 - KRB Inspection Logs: Information related to Kerberos inspection log activity in your organization. To learn more, see [Understanding KRB Inspection Log Fields](https://help.zscaler.com/tech-pubs-drafts/understanding-kerberos-log-fields-doc-53660).
 - LDAP Inspection Logs: Information related to LDAP inspection log activity in your organization. To learn more, see [Understanding LDAP Inspection Log Fields](https://help.zscaler.com/tech-pubs-drafts/understanding-ldap-log-fields-doc-53660).
 - Microsegmentation: Information related to Microsegmentation Flow activity. To learn more, see [Understanding Microsegmentation Flow Log Fields](https://help.zscaler.com/zpa/understanding-microsegmentation-flow-log-fields).
@@ -4732,13 +4733,13 @@ On the Private Service Edge Groups page (Infrastructure > Private Access > Compo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edges","lastmod":"2026-07-02T11:38Z","nid":"1484466"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edges","lastmod":"2026-08-29T07:06Z","nid":"1484466"} -->
 ## About Private Service Edges
 
 - Source: https://help.zscaler.com/zpa/about-private-service-edges
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge > About Private Service Edges
-- Last modified: 2026-07-02T11:38Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information on Private Service Edges for [[variable:zscaler-private-access]] (ZPA) in the Zscaler Admin Console.
 
 [Watch a video about Private Service Edges](https://fast.wistia.net/embed/iframe/476cwkzro2)(shows legacy UI).
@@ -5211,13 +5212,13 @@ On the Privileged Applications page (Policies > Access Control > Clientless > Pr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-remote-access-pra-file-transfer-system","lastmod":"2026-06-25T13:42Z","nid":"1508956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-remote-access-pra-file-transfer-system","lastmod":"2026-08-25T16:11Z","nid":"1508956"} -->
 ## About the Privileged Remote Access (PRA) File Transfer System
 
 - Source: https://help.zscaler.com/zpa/about-privileged-remote-access-pra-file-transfer-system
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > About the Privileged Remote Access (PRA) File Transfer System
-- Last modified: 2026-06-25T13:42Z
+- Last modified: 2026-08-25T16:11Z
 - Summary: Information about how to manage inspected and uninspected files that have been uploaded in a privileged console for Privileged Remote Access (PRA).
 
 If a user has the PRA File Transfer System feature enabled, they can click on the[PRA File Transfer System icon on the PRA Portal page](https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal). The user can manage and view uploaded files on the My Files and Uninspected Files tabs. The admin must also configure a portals policy to enable the following actions: deleting a file, accessing uninspected files, uploading an inspected file (via [DI scan](https://help.zscaler.com/zia/sandbox-submission-api#/zscsb/discan-post) or Sandbox). The visibility of the files displayed on the Uninspected Files page are dependent on the user's permissions. You can view the analytics of the uploaded inspected files on the [Files page](https://help.zscaler.com/zpa/accessing-privileged-remote-access-files).
@@ -5233,11 +5234,22 @@ The PRA File Transfer System provides the following benefits and enables you to:
 On the My Files page (PRA Portal > Files icon > My Files), you can do the following:
 
 1. Click the**Home Page** icon to go to the PRA Portal Home page.
-2. Select the listed icons as mentioned in [Accessing a Privileged Remote Access Portal](https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal).
-3. Filter the information that appears in the table. By default, no filters are applied. The characters & and + cannot be used in the PRA Portal search field.
-4. Refresh the table.
-5. [Upload a file.](https://help.zscaler.com/zpa/uploading-and-transferring-files-pra-file-system) You can upload up to 10 files for each privileged portal.
-6. View a list of the uploaded files. For each file, you can see:
+2. Click the **My Files** icon to go to the My Files page.
+3. Click the **My Approvals** icon to go to the My Approvals page.
+4. Click the **My Desktops** icon to go to the My Desktops page.
+5. [Navigate the PRA Portal](https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal) using the icons.
+6. Filter the information that appears in the table. By default, no filters are applied.
+
+The characters & and + cannot be used in the filter search field.
+
+1. Click the **Actions**drop-down menu to delete multiple selected files.
+2. View storage used and your storage limit.
+3. Refresh the My Files page to reflect the most current information.
+4. [Upload a file.](https://help.zscaler.com/zpa/uploading-and-transferring-files-pra-file-system)
+
+You can upload up to 10 files for each privileged portal.
+
+1. View a list of the uploaded files. For each file, you can see:
   - **File Name**: The name of the uninspected file. Only the following characters can be used when naming a file: & $ , _ - ! @ ( ) [ ]= ' ~ ;
   - **Size**: The size of the file. You can upload a file with a maximum limit of up to 1 GB.
   - **Last Updated**: The date and time that the file was most recently updated.
@@ -5252,12 +5264,12 @@ On the My Files page (PRA Portal > Files icon > My Files), you can do the follow
 
 The status of the uploading process can be tracked in the bottom right window. If you click **Cancel**, a window appears to confirm the cancellation. If you cancel a file upload, the file won't appear on the **My Files** page.
 
-[Image: Upload status window on the My Files page]
+See image.
 
-1. Download the file. When you select this option, the download is shown in the top-right of your browser after the download is complete. You can view the download in your system's Downloads folder.
-2. Delete the file. You will receive a confirmation window before the file is deleted. You can't delete the file if it is being uploaded or if it contains malicious content.
-3. Adjust the table settings.
-4. Go to the Uninspected Files page to manage files that have been uploaded but haven't been inspected.
+1. Download a file. When the download is complete, it appears in the top-right of your browser, and you can view the download in your system's Downloads folder.
+2. Delete a file. A confirmation window appears before the file is deleted. You can't delete the file if it is being uploaded or if it contains malicious content.
+3. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+4. Go to the Uninspected Files page to view a list of uninspected files.
 
 [Image: The My Files page in the PRA File Transfer System section of a PRA privileged portal]
 
@@ -5266,19 +5278,27 @@ The status of the uploading process can be tracked in the bottom right window. I
 On the Uninspected Files page (PRA Portal > Files icon > My Files), you can do the following:
 
 1. Select the **Home Page** icon to go to the PRA Portal Home page.
-2. Select the listed icons as mentioned in [Accessing a Privileged Remote Access Portal](https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal).
-3. Filter the information that appears in the table. By default, no filters are applied.
-4. Refresh the table.
-5. View a list of all the uninspected files. For each file, you can see:
+2. Click the **My Files** icon to go to the My Files page.
+3. Click the **My Approvals** icon to go to the My Approvals page.
+4. Click the **My Desktops** icon to go to the My Desktops page.
+5. [Navigate the PRA Portal](https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal) using the icons.
+6. Filter the information that appears in the table. By default, no filters are applied.
+
+The characters & and + cannot be used in the filter search field.
+
+1. Refresh the Uninspected Files page to reflect the most current information.
+2. View a list of all the uninspected files. For each file, you can see:
   - **File Name**: The name of the uninspected file.
   - **Size**: The size of the file. You can upload a file with a maximum limit of up to 1 GB.
   - **Last Updated**: The date and time that the file was most recently updated.
   - **User**: The email of the user that uploaded the file.
-6. Download the uninspected files.
-7. Adjust the table settings.
-8. Go to the My Files page to manage files that have been uploaded and inspected.
+3. Download the uninspected files.
+4. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+5. Go to the My Files page to manage files that have been uploaded and inspected.
 
 [Image: The Uninspected Files page in the PRA File Transfer System section of a PRA privileged portal]
+
+[Image: Upload status window on the My Files page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6045,20 +6065,20 @@ On the Tags page (Policies > Access Control > Segmentation > Tags), you can do t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-threatlabz-controls","lastmod":"2026-08-06T14:41Z","nid":"1485491"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-threatlabz-controls","lastmod":"2026-08-27T13:03Z","nid":"1485491"} -->
 ## About ThreatLabZ Controls
 
 - Source: https://help.zscaler.com/zpa/about-threatlabz-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > About ThreatLabZ Controls
-- Last modified: 2026-08-06T14:41Z
+- Last modified: 2026-08-27T13:03Z
 - Summary: Information on the ThreatlabZ Controls page in the Zscaler Admin Console.
 
 All [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) have a set of AppProtection controls that you can use to help you define how AppProtections are managed. AppProtection controls are grouped by HTTP predefined controls that come from ThreatLabZ or [Open Web Application Security Project (OWASP)](https://help.zscaler.com/zpa/about-appprotection-controls) and predefined controls for WebSocket. Custom controls can be created for [HTTP](https://help.zscaler.com/zpa/about-custom-controls) or [WebSocket](https://help.zscaler.com/zpa/about-websocket-controls).
 
 ThreatLabZ controls provide the following benefits and enable you to:
 
-- Protect internal applications from the latest threats by providing up-to-date controls written and maintained by Zscaler's expert security team who addresses emerging attack vectors and vulnerabilities.
+- Protect internal applications from the latest threats by providing up-to-date controls written and maintained by Zscaler Security team who addresses emerging attack vectors and vulnerabilities.
 - Understand the severity, description, and recommended default action for each type of attack that ThreatLabZ controls protect against.
 
 The ThreatLabZ predefined controls in the Zscaler Admin Console are created by the Zscaler Security team to address confirmed Common Vulnerabilites and Exposures (CVEs). Each predefined control is identified with a unique number, defined with how the control operates, and associated with a level of concern.
@@ -6087,7 +6107,7 @@ On the ThreatLabZ Controls page (Policies > Cybersecurity > Inline Security > Pr
 9. Go to the [Custom Controls](https://help.zscaler.com/zpa/about-custom-controls) page to view and manage the available custom controls.
 10. Go to the [WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls) page to view and manage the available WebSocket predefined and custom controls.
 11. Go to the [API Controls](https://help.zscaler.com/zpa/about-api-protection-controls) page to view and manage the available API controls.
-12. Go to the [Active Directory](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
+12. Go to the [Active Directory Controls](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
 
 [Image: The ThreatLabz Controls page]
 <!-- /ZS-ARTICLE -->
@@ -6938,13 +6958,13 @@ Depending on the **Expiry Date**, the following icons are displayed next to the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-websocket-controls","lastmod":"2026-08-05T15:04Z","nid":"1485201"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-websocket-controls","lastmod":"2026-08-27T13:06Z","nid":"1485201"} -->
 ## About WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/about-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > About WebSocket Controls
-- Last modified: 2026-08-05T15:04Z
+- Last modified: 2026-08-27T13:06Z
 - Summary: Information on the WebSocket Controls page in the Zscaler Admin Console.
 
 All [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) have a set of AppProtection controls that you can use to help you define how AppProtections are managed. The WebSocket controls in the Zscaler Admin Console consist of predefined controls and custom controls. WebSocket predefined controls are automatically populated in the portal. You can create WebSocket custom controls and use them within a new or existing AppProtection profile. Custom controls give you the flexibility to set and define the specific request and response elements (e.g., max fragments per message, max payload size, etc.) and the preferred action used to handle them.
@@ -6973,7 +6993,7 @@ On the WebSocket Controls page (Policies > Cybersecurity > Inline Security > Pro
 1. Refresh the WebSocket Controls page to reflect the most current information.
 2. [Add a new WebSocket custom control](https://help.zscaler.com/zpa/configuring-websocket-controls).
 3. Expand all the rows in the table to see more information about each WebSocket control.
-4. View a list of all configured WebSocket controls. For each WebSocket control you can view:
+4. View a list of all configured WebSocket controls. For each WebSocket control, you can view:
 
 - **Control Number**: A number to differentiate each WebSocket control. The table shows the controls in the order they were created, and the order cannot be changed. When expanded, the following information is displayed:
   - **Description**: An explanation of how the control works.
@@ -6991,10 +7011,10 @@ On the WebSocket Controls page (Policies > Cybersecurity > Inline Security > Pro
 When a WebSocket control is in use by an [AppProtection profile](https://help.zscaler.com/zpa/about-appprotection-profiles), it cannot be deleted.
 
 1. Go to the [ThreatLabZ Controls](https://help.zscaler.com/zpa/about-threatlabz-controls) page to view and manage the available ThreatLabZ controls.
-2. Go to the [OWASP Predefined Controls](https://help.zscaler.com/zpa/about-inspection-profiles) page to view and manage the available OWASP predefined controls.
+2. Go to the [OWASP Predefined Controls](https://help.zscaler.com/zpa/about-appprotection-profiles) page to view and manage the available OWASP predefined controls.
 3. Go to the [Custom Controls](https://help.zscaler.com/zpa/about-custom-controls) page to view and manage the available custom controls.
 4. Go to the [API Controls](https://help.zscaler.com/zpa/about-api-protection-controls) page to view and manage the available API controls.
-5. Go to the [Active Directory](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
+5. Go to the [Active Directory Controls](https://help.zscaler.com/zpa/about-active-directory-controls) page to view and manage the available Active Directory controls.
 
 [Image: The WebSocket Controls page]
 <!-- /ZS-ARTICLE -->
@@ -8777,16 +8797,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-remote-access-files","lastmod":"2026-06-11T13:14Z","nid":"1508966"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-remote-access-files","lastmod":"2026-08-25T16:05Z","nid":"1508966"} -->
 ## Accessing Privileged Remote Access Files
 
 - Source: https://help.zscaler.com/zpa/accessing-privileged-remote-access-files
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Privileged Remote Access Monitoring > Accessing Privileged Remote Access Files
-- Last modified: 2026-06-11T13:14Z
+- Last modified: 2026-08-25T16:05Z
 - Summary: Information about files uploaded in the Privileged Remote Access (PRA) Portal for the PRA File Transfer System.
 
-You can view and filter data for files uploaded as part of the Privileged Remote Access (PRA) File Transfer System. To view file data, go to **Logs** > **Insights** > **Files**.
+You can view and filter data for files uploaded to My Files as part of the Privileged Remote Access (PRA) File Transfer System. To view file data in the Zscaler Admin Console, go to **Logs** > **Insights** > **Files**.
 
 Uploaded files from a default PRA Portal can only be viewed on the Files page in the Global tenant. Files uploaded to a Microtenant PRA Portal can only be viewed on the Files page for that Microtenant.
 
@@ -8794,7 +8814,7 @@ Uploaded files from a default PRA Portal can only be viewed on the Files page in
 
 The Files page displays the following information and functionality:
 
-- **Time Range Filter**: View PRA File Transfer System data over a period between 1 Hour to 365 Days. To change the time range, click the **Calendar** menu and select a preset range or select **Custom Range**. If you use **Custom Range**, the start date must be within the last 365 days. The end date automatically sets to the system's current time. To change the time zone, click the current **Time Zone** button. This filter applies to all widgets on the Files page. By default, the detailed activity for all files is displayed for PRA File Transfer Systems that occurred in the last 24 hours.
+- **Time Range Filter**: View PRA File Transfer System data over a period between 1 Hour to 14 Days. To change the time range, click the **Calendar** menu and select a preset range or select **Custom Range**. If you use **Custom Range**, the start date must be within the last 14 days. The end date automatically sets to the system's current time. To change the time zone, click the current **Time Zone** button. This filter applies to all widgets on the Files page. By default, the detailed activity for all files is displayed for PRA File Transfer Systems that occurred in the last 24 hours.
 - **Refresh Icon**: Refresh the dashboard to reflect the most current information.
 - **Expand Icon**: Expand all rows in the table to see more information about each file.
 
@@ -8845,7 +8865,7 @@ The table displays the following data for files:
 - **Size**: The size of the file. The maximum file size you can upload is 1 GB.
 - **Status**: The status of the file's upload.
 - **Policy**: The name of the portal policy assigned to the privileged portal that the file was uploaded to.
-- **Actions**: Click the **Download** icon to export a file (.csv) containing information on the PRA File Transfer System file for the selected time frame.
+- **Actions**: Click the **Download** icon to export a file (.csv) containing information on the PRA File Transfer System file for the selected time frame. Click the Delete icon ([Image: My Files "Delete" icon]) to delete a file stored in the PRA File Transfer System.
 
 See image.
 
@@ -9968,13 +9988,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-user-status-diagnostics","lastmod":"2026-07-20T14:01Z","nid":"1483776"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-user-status-diagnostics","lastmod":"2026-08-24T07:45Z","nid":"1483776"} -->
 ## Accessing User Status Diagnostics
 
 - Source: https://help.zscaler.com/zpa/accessing-user-status-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Accessing User Status Diagnostics
-- Last modified: 2026-07-20T14:01Z
+- Last modified: 2026-08-24T07:45Z
 - Summary: Information about User Status diagnostics and user event data, accessible within the Zscaler Admin Console.
 
 You can view and filter user status and authentication data for past events.
@@ -10713,13 +10733,13 @@ The following table provides a list of Linux capabilities that the container use
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-google-cloud-platform","lastmod":"2026-08-21T13:44Z","nid":"1505701"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-google-cloud-platform","lastmod":"2026-08-24T09:47Z","nid":"1505701"} -->
 ## App Connector Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-google-cloud-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Google Cloud Platform
-- Last modified: 2026-08-21T13:44Z
+- Last modified: 2026-08-24T09:47Z
 - Summary: How to deploy an App Connector on Google Cloud Platform (GCP), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on Google Cloud Platform (GCP), and post-deployment verification checks. For general information regarding App Connector deployment for Private Access (ZPA), see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -11059,7 +11079,7 @@ See image.
 1. On the **Create Instance Group** page:
   1. **Instance group name**: Enter a name for the instance group.
   2. **Description**: Enter a description for the instance group.
-  3. On the **Instance template**drop-down menu, select an existing instance template, or click **Create a new instance template**to create a new instance template. See instructions.
+  3. From the **Instance template**drop-down menu, select an existing instance template, or click **Create a new instance template**to create a new instance template. See instructions.
 2. Select the region and zone from the drop-down menu.
 3. Click **Configure** **Autoscaling**:
   1. Select a minimum and maximum number of instances as 2 and 4, respectively.
@@ -11894,21 +11914,21 @@ The following table provides a list of Kubernetes App Connector Linux capabiliti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-linux","lastmod":"2026-08-20T15:13Z","nid":"1484561"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-linux","lastmod":"2026-08-28T14:51Z","nid":"1484561"} -->
 ## App Connector Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Linux
-- Last modified: 2026-08-20T15:13Z
+- Last modified: 2026-08-28T14:51Z
 - Summary: How to deploy an App Connector on Red Hat Enterprise Linux. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on Red Hat Enterprise Linux 9.x (and 8.x), and post-deployment verification checks. For general information regarding App Connector deployment for Private Access, see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
 
 - Step 1: Make Sure You Have Met All App Connector Deployment Prerequisites
-- Step 2: Configure the Networking for the Deployed App Connector
-- Step 3: (Optional) Migrate App Connector to Red Hat Enterprise Linux 9
-- Step 4: Deploy the App Connector on Red Hat Enterprise Linux
+- Step 2: (Optional) Migrate App Connector to Red Hat Enterprise Linux 9
+- Step 3: Deploy the App Connector on Red Hat Enterprise Linux
+- Step 4: Configure the Networking for the Deployed App Connector
 - Step 5: Verify that the deployed App Connector is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status). Also, check that it [meets your sizing requirements](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing).
 
 After you have verified your deployment, you can perform additional tasks to maintain the system (i.e., changing your App Connector console admin credentials or performing system software updates). To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components).
@@ -14188,13 +14208,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-08-20T15:40Z","nid":"1534306"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-08-26T09:27Z","nid":"1534306"} -->
 ## App Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/app-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA App Connector Release Notes > App Connector Release Summary (2026)
-- Last modified: 2026-08-20T15:40Z
+- Last modified: 2026-08-26T09:27Z
 - Summary: Zscaler Private Access (ZPA) App Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) App Connector version.

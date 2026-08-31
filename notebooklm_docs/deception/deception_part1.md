@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
+Generated: 2026-08-31 03:58 UTC
 Articles in this file: 297
 
 ---
@@ -10969,13 +10969,13 @@ After the Decoy Connector management network is configured, you must [add the De
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-08-21T07:09Z","nid":"1540481"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-08-23T21:53Z","nid":"1540481"} -->
 ## Deploying Endpoint Deception with Zscaler Client Connector for Windows
 
 - Source: https://help.zscaler.com/deception/deploying-endpoint-deception-zscaler-client-connector-windows
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Deploying Endpoint Deception with Zscaler Client Connector for Windows
-- Last modified: 2026-08-21T07:09Z
+- Last modified: 2026-08-23T21:53Z
 - Summary: How to deploy endpoint deception with Zscaler Client Connector for Windows.
 
 If your organization is provisioned for Zscaler Internet Access (ZIA), you can deploy endpoint deception capabilities on Microsoft Windows machines using Zscaler Client Connector.
@@ -10996,7 +10996,7 @@ Before deploying endpoint deception with Zscaler Client Connector, ensure that y
 - Outbound HTTPS access from either or both of your proxy and firewall in your local environment to: To learn more, see the [Zscaler Client Connector Config page](https://config.zscaler.com/zscaler.net/zscaler-app). If you are running endpoint deception using a [landmine agent](https://help.zscaler.com/deception/about-landmine-agent-agentless) and want to migrate to Zscaler Client Connector, you can automatically migrate during the Zscaler Client Connector upgrade process. During the upgrade, important information such as lures applied and decoys deployed are automatically copied to the new installation location, and the standalone landmine agent is uninstalled.
   - Deception Admin Portal on port 443, i.e., <your_subdomain>.illusionblack.com on port 443
   - dwv281inkfqg3.cloudfront.net on port 443
-  - zcc.ecdn.zscaler.com
+  - zcc.ecdn.zscaler.com on port 443
 
 ## Deploying Endpoint Deception with Zscaler Client Connector
 
@@ -15815,13 +15815,13 @@ The illusionblack.com cloud represents all clouds, and updates to specific cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-08-19T08:30Z","nid":"1540673"} -->
+<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-08-28T08:38Z","nid":"1540673"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/deception/release-upgrade-summary-2026
 - Product: Deception
 - Path: Deception Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-19T08:30Z
+- Last modified: 2026-08-28T08:38Z
 - Summary: Zscaler Deception release summary for updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Deception.

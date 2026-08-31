@@ -1,8 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-24 01:16 UTC
-Articles in this file: 159
+Generated: 2026-08-31 03:58 UTC
+Articles in this file: 160
 
 ---
 
@@ -100,13 +100,13 @@ On the Accounts page (Infrastructure > Connectors > Cloud > Management > Partner
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways","lastmod":"2026-08-21T13:57Z","nid":"1516706"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways","lastmod":"2026-08-28T13:43Z","nid":"1516706"} -->
 ## About Amazon Web Services Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > About Amazon Web Services Zero Trust Gateways
-- Last modified: 2026-08-21T13:57Z
+- Last modified: 2026-08-28T13:43Z
 - Summary: Information about the Amazon Web Services (AWS) Zero Trust Gateway page in the Zscaler Admin Console.
 
 Amazon Web Services (AWS) Zero Trust Gateways are a Zscaler cloud native service offering in public clouds.
@@ -2121,13 +2121,13 @@ To add an AWS account group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway","lastmod":"2026-08-21T13:50Z","nid":"1516711"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway","lastmod":"2026-08-28T13:43Z","nid":"1516711"} -->
 ## Adding an Amazon Web Services Zero Trust Gateway
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Adding an Amazon Web Services Zero Trust Gateway
-- Last modified: 2026-08-21T13:50Z
+- Last modified: 2026-08-28T13:43Z
 - Summary: Information on how to add an Amazon Web Services (AWS) Zero Trust Gateway on the AWS page of the Zscaler Admin Console.
 
 This article provides information on adding an Amazon Web Services (AWS) Zero Trust Gateway in the Zscaler Admin Console. To learn more, see [About Amazon Web Services Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways).
@@ -3299,13 +3299,13 @@ On the AWS account group details page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-zero-trust-gateway-details","lastmod":"2026-08-21T14:45Z","nid":"1516716"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-zero-trust-gateway-details","lastmod":"2026-08-28T13:50Z","nid":"1516716"} -->
 ## Analyzing Amazon Web Services Zero Trust Gateway Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-zero-trust-gateway-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Analyzing Amazon Web Services Zero Trust Gateway Details
-- Last modified: 2026-08-21T14:45Z
+- Last modified: 2026-08-28T13:50Z
 - Summary: Information on the Amazon Web Services (AWS) Zero Trust Gateway details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) gateway details page provides management and operational information about the selected zero trust gateway. You can access the AWS gateway details page by selecting a gateway on the [AWS Gateway](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways) page.
@@ -3334,7 +3334,7 @@ On the **Dashboard** tab, you can view the following AWS gateway details:
   - **Created Date**: The date and time when the AWS gateway was created.
   - **Last Modified On**: The date and time when the AWS gateway was last modified.
   - **Endpoint Service Name**: The name of the AWS endpoint service hosted by the Zscaler service. You need this service address to create an endpoint in your AWS account. This is the service name based in your AWS console.
-- **Regions And Location**
+- **Region and Location**
   - **Region**: The name of the AWS region where the AWS gateway is deployed. To learn more about supported regions, see [Supported Regions for Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/supported-regions-zero-trust-gateways).
   - **Location Template**: The location template name of the AWS gateway.
   - **Availability Zones**: The IDs of availability zones where the AWS gateway is deployed.
@@ -3429,15 +3429,15 @@ See image.
 
 [Image: The Dashboard sections containing the Gateway Info, Regions and Location, and Accounts information in the Zscaler Admin Console]
 
-[Image: The Status tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A row of information for a gateway named usw1-az1 shows Internet: Healthy, Local Egres: Healthy, Private Applications: Healthy.]
+[Image: The Status tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console.]
 
 [Image: The Endpoints tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console]
 
 [Image: The Config tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A table with columns for Version, Submitted On, Active, and Inactive.]
 
-[Image: The Analytics tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A line graph. The y-axis shows values from 1500000 to 26184117. The x-axis shows times from 15:00 to 00:00 at intervals of one hour. Timeframe is set to Current Day, Stat is set ot Sum, and Type is set to Processed Bytes.]
+[Image: The Analytics tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. A line graph. The y-axis shows values from 1500000 to 277201. The x-axis shows the time 10:03. Timeframe is set to Current Day, Stat is set to Sum, and Type is set to Processed Bytes.]
 
-[Image: The Events tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. The Timeframe drop-down menu shows Current Week: 01/19/2025-01/24/2025. Below the menu, a table with columns for Event, Category, Type, Start Time, and Status. Two example events appear in the table.]
+[Image: The Events tab viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console. The Timeframe drop-down menu shows Current Day. Below the menu, a table with columns for Event, Category, Type, Start Time, and Status. Four example events appear in the table.]
 
 [Image: The Traffic Simulation tab details viewed when analyzing Zero Trust Gateway details in the Zscaler Admin Console]
 
@@ -4343,13 +4343,13 @@ You can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-08-17T14:27Z","nid":"1516906"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-08-28T13:46Z","nid":"1516906"} -->
 ## Analyzing Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Analyzing Zero Trust Gateways
-- Last modified: 2026-08-17T14:27Z
+- Last modified: 2026-08-28T13:46Z
 - Summary: Information on the Zero Trust Gateway page in the Zscaler Admin Console.
 
 The Zero Trust Gateway page provides information on the name, location, entitlement status, and health status of your Zero Trust Gateway. You can use the **Refresh**icon ([Image: Refresh Icon on the Traffic Monitoring Page in the Zscaler Cloud & Branch Connector Admin Portal]) to refresh the dashboard to view the most recent information.
@@ -12275,13 +12275,13 @@ To edit a Zero Trust Branch Device:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-gateways","lastmod":"2026-08-21T12:30Z","nid":"1529794"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-gateways","lastmod":"2026-08-28T13:47Z","nid":"1529794"} -->
 ## Editing Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/editing-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Editing Zero Trust Gateways
-- Last modified: 2026-08-21T12:30Z
+- Last modified: 2026-08-28T13:47Z
 - Summary: How to modify the Zero Trust Gateway details from the Cloud Connector Groups page in the Zscaler Admin Console.
 
 Modifying Zscaler Zero Trust Gateway groups or viewing individual Zero Trust Gateways are some of the tasks you can complete after deployment.
@@ -13713,13 +13713,13 @@ When the Zscaler service sends logs to the NSS, it hex encodes all nonprintable 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/registering-endpoint-amazon-web-services","lastmod":"2026-08-21T14:51Z","nid":"1519146"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/registering-endpoint-amazon-web-services","lastmod":"2026-08-28T13:47Z","nid":"1519146"} -->
 ## Registering an Endpoint in Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/registering-endpoint-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Registering an Endpoint in Amazon Web Services
-- Last modified: 2026-08-21T14:51Z
+- Last modified: 2026-08-28T13:47Z
 - Summary: Information on how to register an endpoint in Amazon Web Services (AWS).
 
 Zero Trust Gateways allow you to register an endpoint in Amazon Web Services (AWS). Registering your endpoint with the Zscaler service allows you to route and secure your traffic to the Zero Trust Exchange (ZTE).
@@ -13827,13 +13827,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2024","lastmod":"2026-08-03T10:00Z","nid":"1473301"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2024","lastmod":"2026-08-26T11:45Z","nid":"1473301"} -->
 ## Release Upgrade Summary (2024)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/release-upgrade-summary-2024
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector Service Release Notes > Release Upgrade Summary (2024)
-- Last modified: 2026-08-03T10:00Z
+- Last modified: 2026-08-26T11:45Z
 - Summary: Zscaler Cloud & Branch Connector Release Upgrade Summary for service updates deployed in 2024.
 
 This article provides a summary of all new features and enhancements for Zscaler Cloud & Branch Connector. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -13855,13 +13855,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-08-19T08:00Z","nid":"1534301"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-08-26T11:45Z","nid":"1534301"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/release-upgrade-summary-2026
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-19T08:00Z
+- Last modified: 2026-08-26T11:45Z
 - Summary: Zscaler Cloud & Branch Connector Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Cloud & Branch Connector. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -14556,13 +14556,13 @@ Gather the following information to respond to Terraform deployment wizard promp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-08-17T08:46Z","nid":"1538721"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-08-28T13:46Z","nid":"1538721"} -->
 ## Supported Regions for Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/supported-regions-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Supported Regions for Zero Trust Gateways
-- Last modified: 2026-08-17T08:46Z
+- Last modified: 2026-08-28T13:46Z
 - Summary: Information about the supported regions for Zscaler Zero Trust Gateways in the Zscaler Admin Console.
 
 Zscaler Zero Trust Gateways are supported in the following regions:
@@ -16050,4 +16050,203 @@ This managed identity allows the Azure Functions App to make API calls to perfor
 User-assigned managed identities allow access to different entities in a VMSS deployment. Ensure that Cloud Connector is not assigned an Azure System-Assigned Managed Identity, because that identity overrides the deployment requirements.
 
 For information about creating managed identities and assigning roles, see [Deploying Zscaler Cloud Connector with Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling","lastmod":"2026-08-04T21:06Z","nid":"1535452"} -->
+## Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
+
+- Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
+- Last modified: 2026-08-04T21:06Z
+- Summary: Information about Google Cloud Platform autoscaling managed instance group (MIG) deployment with Zscaler Cloud Connector
+
+A Google Cloud Platform (GCP) Managed Instance Group (MIG) with autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs) to an instance group to meet the current load when it increases, and it removes Cloud Connector VMs from the instance group when the load decreases. For example, consider a virtual Windows workstation deployment where users log in to their own virtual workstations at the beginning of the work day and log out at the end of the day. This causes fluctuations in the number of users and the amount of traffic flow during these periods.
+
+Instance groups also constantly monitor the health of each Cloud Connector VM in the instance group. They remove unhealthy VMs from the instance group and replace them with healthy ones. If someone manually terminates a VM that is part of an instance group from the Google Cloud console, the instance group replaces the VM.
+
+When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, stopping or rebooting a VM that is part of an instance group from the Google Cloud console could cause the VM to be terminated.
+
+Instance groups with autoscaling provide the following benefits:
+
+- Dynamically scale the number of VMs in the instance group to match demand.
+- Automatically remove unhealthy VMs and replaces them with healthy ones.
+- Deploy VMs across availability zones for high availability. Load balancing distributes traffic among the VMs.
+
+This article describes instance groups and how they work in a Cloud Connector deployment. The deployment template prompts you to configure certain instance group settings mentioned in this article. For information about the deployment template and the deployment steps, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#azure-terraform) and [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform). For comprehensive autoscaling information, refer to the [GCP product documentation](https://docs.cloud.google.com/compute/docs/autoscaler).
+
+## Topology
+
+The following sections provide a diagram depicting the topology of an autoscaling deployment and a description of its components and flow.
+
+- Topology diagram
+- Topology details
+
+[Image: Diagram showing a Cloud Connector autoscaling deployment on the Google Cloud Platorm]
+
+- The security stack is deployed in either a dedicated GCP project or within the same project as the workloads, based on your organizational architecture. GCP has an architectural limitation where instances with multiple network interfaces require separate virtual private cloud (VPC) networks for each interface. Cloud Connector deployments therefore require the creation of two distinct VPCs: one for management and one for service and security operations. After the security stack is in place, you must configure custom routes in the workload VPCs to direct appropriate traffic to the load balancer in front of the Cloud Connectors. This load balancer serves as the central entry point for the security stack.
+- Zonal MIGs with autoscaling are deployed in each configured region or zone, ensuring high availability and automatic failover across zones.
+- A Cloud NAT gateway is deployed in each region for the Cloud Connectors. This arrangement provides managed, scalable outbound internet access and allocates dedicated external IPs for each gateway.
+- Two Google Cloud Run functions are deployed: The Resource Sync Cloud Run function uses RESTful APIs to communicate with the Cloud Connector API endpoint securely over HTTPS. The functions do not directly interact with individual Cloud Connector VMs; instead, they orchestrate via the Admin API.
+  - **Health Monitoring**: This function uses custom metrics exported from each Cloud Connector VM (for example, via Cloud Monitoring/Operations) to determine the health status of the VM. The instance group automatically terminates unhealthy Cloud Connector VMs and replaces them with new ones. The Health Monitoring function is triggered every minute by default using Cloud Scheduler.
+  - **Resource Sync**: This function ensures that the VMs registered in the Zscaler Admin Console match the membership of each Cloud Connector instance group. If the function discovers a Cloud Connector in the Zscaler Admin Console that is not part of any instance group, it issues an API call to the Zscaler Admin Console to delete the VM. This function runs every 10 minutes by default.
+- Each Cloud Function is packaged in a [ZIP file](https://zscaler-cc-functions-artifacts.s3.amazonaws.com/zscaler-cc-functions/latest/cloud-functions-latest.zip) and deployed via Google Cloud Storage. The ZIP file is uploaded either to a newly created storage bucket during deployment or to an existing bucket specified in the deployment configuration. The Cloud Functions retrieve their code from this bucket during initialization.
+
+## Scale-Out and Scale-In
+
+Each Cloud Connector independently posts data plane CPU utilization metrics at one-minute intervals to GCP Cloud Monitoring as a user-defined metric. The MIG autoscaling policy uses the aggregate CPU utilization value across all VMs in the instance group to determine whether a scale-in or scale-out event should happen based on a target percentage value.
+
+Auto Scaling uses custom CPU utilization metrics instead of VM-level metrics because custom metrics provide more detailed and precise information about CPU usage. In logs and reports, the CPU utilization metric is displayed as `smedge_cpu_utilization`.
+
+- Scaling Policy
+- Cooldown Period
+- Examples
+
+The scaling policy manages scale-out and scale-in events using the following variables:
+
+- **Target value**: By default, the target value is 80% aggregate CPU utilization across all VMs in the instance group over a period of two to three minutes. Autoscaling maintains CPU utilization as close to the target value as possible without exceeding it.
+- **Instance group size**: When a scaling event happens, autoscaling automatically determines the number of VMs to add or remove to bring the aggregate CPU utilization metric closer to the target value. By default, the maximum size of an instance group is 10 VMs and the minimum size is one VM. (The maximum cannot exceed the [Cloud Connector group limit of 16 VMs per group](https://help.zscaler.com/unified/ranges-limitations).)
+
+You can view the policy in the instance group details in the Google Cloud console.
+
+While your VMs are initializing, the utilization metric might not reflect normal conditions. As a safeguard, autoscaling provides a cooldown (or initialization) period, which is the number of seconds between scaling actions.
+
+- For scale-in events, autoscaling takes into account utilization data from all VMs, even those that are still in the cooldown period.
+- For scale-out events, autoscaling ignores utilization data from VMs that are still in the cooldown period.
+
+By default, the initialization period is 900 seconds (15 minutes).
+
+The following examples demonstrate how scaling events affect the size of an instance group with a minimum size of two, a maximum size of 5, and the default target value (80%):
+
+**Scale-Out**: Because the minimum instance group size is two, at least two VMs must always be running.
+
+- No scaling event happens in normal conditions with two VMs running at 60% aggregate CPU utilization.
+- If the aggregate CPU utilization exceeds 80%, a scale-out event happens, bringing the number of VMs in the instance group to three.
+- After the cooldown period, if the aggregated CPU utilization still exceeds 80%, another scale-out event adds one more VM to the instance group, bringing the number of VMs to 4. This continues after the cooldown period ends until the average is less than 80%.
+
+**Scale-In**: GCP autoscaling uses its own logic to determine what to do when the aggregate CPU utilization is less than 80%:
+
+- Wait because the value is too close to 80% or has not been under 80% long enough.
+- Trigger a scale-in event because, based on the time sample and the individual CPU utilization of each VM, removing one VM will meet the following criteria:
+  - The number of VMs will be at or above the minimum target group size.
+  - The average fluctuation for the remaining VM will likely remain below the target CPU utilization value.
+
+## Cloud Connector Health Monitoring
+
+Health monitoring includes the following entities:
+
+- **Custom Metric Publishing**: Each Cloud Connector publishes a VM-level custom metric at one-minute intervals. This metric value is either 0 for an unhealthy VM or 100 for a healthy VM. Custom metrics also include dataplane CPU utilization metrics published at one-minute intervals, described in the previous section.
+- **Health Monitoring**: The Health Monitor function consumes the health metric at one-minute intervals and initiates the termination of a VM that it determines is unhealthy. It uses two criteria to determine whether to terminate the VM: Recent Health Data; Missing Metrics Unhealthy VMs are terminated in iterations. By default, in a single iteration, 16 VMs can be terminated. After a VM is terminated, it is replaced immediately.
+
+The Health Monitor function evaluates recent health data using sliding window logic with the following configurable environment variables:
+
+- The size of the sliding window. The default is 10 consecutive minutes.
+- The amount of time the VM was in an unhealthy state. The default value for defining a VM as unhealthy is 5 consecutive minutes.
+- The tolerance for flapping values in the sliding window. The default value is 7 unhealthy counts in 10 consecutive minutes.
+
+The Health Monitor function uses the following configurable environment variables to handle scenarios in which a running VM does not post metrics:
+
+- If the VM does not report metrics for two minutes, the function generates a warning log.
+- If the VM does not report metrics for 5 minutes, the function generates a critical log.
+- If the VM does not report metrics for 10 minutes, the function generates a termination log and starts the process of deleting the VM.
+
+In logs and reports, the health metric is displayed as `cloud_connector_aggr_health`.
+
+## Viewing Metrics and Logs
+
+- Instance Group Details
+- Cloud Connector VM Details
+
+The details page for an instance group contains comprehensive information about the group, such as the capacity overview, configuration settings, scaling policy, instance management, activity history, metrics, and so on.
+
+To view the instance group details:
+
+1. Open the Google Cloud console.
+2. In the navigation pane, click **Instance Groups**.
+3. Select the instance group for which you want to view details. The **Overview**tab opens. See image.
+4. Click the **Details**tab to review the instance status, template, configuration, location, group size, and autoscaling policy. See image.
+5. Click the **Monitoring** tab to review instance group metrics over a period of time. See image.
+
+To view details about a VM in the instance group:
+
+1. Open the Google Cloud console.
+2. In the navigation pane, click **Instance Groups**.
+3. Select the instance group for which you want to view details.
+4. On the **Overview**tab, in the **VM instances** section, click an instance in the **Name** column.
+5. Click **Observability** to monitor VM health, behavior, and performance. See image.
+
+## Access to GCP Resources
+
+Service accounts provide secure access to Google Cloud resources. Three service accounts are required in a GCP autoscaling deployment:
+
+- Deployment Service Account
+- Cloud Connector VM Service Account
+- Cloud Function Service Account
+
+This service account allows Terraform to run during deployment. It needs the following roles:
+
+- Compute Instance Admin (v1)
+- Compute Network Admin
+- Compute Security Admin
+- Service Account Admin
+- Service Account User
+- Secret Manager Admin
+- Project IAM Admin
+- DNS Administrator (optional)
+- Cloud Functions Admin (Autoscaling only)
+- Cloud Scheduler Admin (Autoscaling only)
+- Storage Admin (Autoscaling only)
+
+This service account also needs the following APIs enabled:
+
+- Compute Engine API
+- Cloud DNS API
+- Cloud Resource Manager API
+- Identity and Access Management (IAM) API
+- Secret Manager API
+- Autoscaling deployments only:
+  - Cloud Functions API
+  - Cloud Scheduler API
+  - Cloud Monitoring API
+  - Cloud Logging API
+  - Cloud Build API
+
+This service account allows Cloud Connectors to access secret credentials. It needs the following roles:
+
+- Monitoring Metric Writer
+- One of the following roles, depending on the method you use to manage and store your secret credentials:
+  - Secret Manager Secret Accessor (for GCP Secret Manager)
+  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
+    - compute.instanceGroups.list
+    - compute.instances.get
+    - iam.serviceAccounts.get
+    - iam.serviceAccountKeys.get,
+    - iam.serviceAccounts.signJwt
+
+This service account allows the Cloud Run Functions (Health Monitor and Resource Sync) to make API calls to perform operations such as reading metrics, terminating VMs, and replacing VMs. It needs the following roles:
+
+- Compute Instance Admin (v1)
+- Monitoring Viewer
+- Logs Writer
+- Cloud Run Invoker
+- One of the following roles, depending on the method you use to manage and store your secret credentials:
+  - Secret Manager Secret Accessor (for GCP Secret Manager)
+  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
+    - compute.instanceGroups.list
+    - compute.instances.get
+    - iam.serviceAccounts.get
+    - iam.serviceAccountKays.get
+    - iam.serviceAccounts.sign.Jwt
+
+For information about creating service accounts and assigning roles, see [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/tech-pubs-drafts/deploying-zscaler-cloud-connector-google-cloud-platform-draft-doc-57264).
+
+[Image: Cloud Connector instance group Overview tab, showing status and other details, and the VM instances in the group]
+
+[Image: Cloud Connector instance group Details tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
+
+[Image: Cloud Connector instance group Monitoring tab, where you can view the group size and CPU utilization over a period of time]
+
+[Image: Cloud Connector instance Observability tab, where you can view the CPU utilization, memory utilization, network traffic, disk space utilization, new connections, and disk throughputDetails tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
 <!-- /ZS-ARTICLE -->
