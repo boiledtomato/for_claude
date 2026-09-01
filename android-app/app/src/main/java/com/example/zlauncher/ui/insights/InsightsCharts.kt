@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -172,6 +173,70 @@ private fun StackedBar(
                     .fillMaxWidth()
                     .height(2.dp)
                     .background(ZColors.TextPrimary)
+            )
+        }
+    }
+}
+
+/**
+ * 時間軸。**棒と同じ配置で刻む。**
+ *
+ * 目盛りを等間隔に置いただけの行にすると、棒の間隔とわずかにずれて「どの棒が何時か」が
+ * 読めない。だからこの行は棒と同じ Row 構造（各バケット weight(1f)、間隔 2dp）で組み、
+ * 目盛りの位置に短い縦線とラベルを置く。
+ *
+ * ラベルは全部の棒には振らない（24 本に時刻を並べても読めない）。[maxTicks] 本まで
+ * 等間隔で間引き、**右端の数本には置かない** — 中央揃えのラベルが枠外へはみ出すため。
+ * 右端が「いつ」かは [endLabel] が受け持つ。
+ */
+@Composable
+fun TimeAxis(
+    bucketStarts: List<Long>,
+    label: (Long) -> String,
+    modifier: Modifier = Modifier,
+    maxTicks: Int = 4,
+    endLabel: String? = "now",
+) {
+    if (bucketStarts.isEmpty()) return
+    val count = bucketStarts.size
+    val step = maxOf(1, (count + maxTicks - 1) / maxTicks)
+    // 右端 1/8 は endLabel の場所として空けておく
+    val lastTick = count - 1 - count / 8
+
+    Box(modifier.fillMaxWidth()) {
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+            bucketStarts.forEachIndexed { index, start ->
+                Box(
+                    Modifier.weight(1f),
+                    // 先頭は中央揃えだと左へはみ出すので左寄せ
+                    contentAlignment = if (index == 0) Alignment.TopStart else Alignment.TopCenter,
+                ) {
+                    if (index % step == 0 && index <= lastTick) {
+                        Column(
+                            horizontalAlignment = if (index == 0) Alignment.Start else Alignment.CenterHorizontally,
+                        ) {
+                            Box(Modifier.width(1.dp).height(3.dp).background(ZColors.Outline))
+                            Spacer(Modifier.height(2.dp))
+                            Text(
+                                text = label(start),
+                                style = ZType.Sub.copy(fontSize = 9.sp),
+                                color = ZColors.TextDim,
+                                maxLines = 1,
+                                // 棒 1 本より広いので、幅の制約から外して描かせる
+                                modifier = Modifier.wrapContentWidth(unbounded = true),
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        endLabel?.let {
+            Text(
+                text = it,
+                style = ZType.Sub.copy(fontSize = 9.sp),
+                color = ZColors.TextDim,
+                maxLines = 1,
+                modifier = Modifier.align(Alignment.TopEnd).padding(top = 5.dp),
             )
         }
     }

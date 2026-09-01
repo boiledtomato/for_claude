@@ -34,7 +34,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -182,8 +184,11 @@ private fun ChartView(viewModel: InsightsViewModel) {
                         onSelect = viewModel::toggleBucketFilter,
                     )
                     ChartSpacer(6.dp)
-                    AxisRow(report)
-                    ChartSpacer(12.dp)
+                    TimeAxis(
+                        bucketStarts = report.bucketStarts,
+                        label = { formatAxis(it, report.range) },
+                    )
+                    ChartSpacer(14.dp)
                     // 2 系列以上あるので凡例は必ず出す。実数も並べて色だけに頼らせない
                     ChartLegend(series = series, onClick = { viewModel.openCategoryDetail(it.id) })
                 }
@@ -234,18 +239,6 @@ private fun ChartView(viewModel: InsightsViewModel) {
                 onClick = { viewModel.toggleCategoryFilter(rollup.id) },
                 onOpen = { viewModel.openCategoryDetail(rollup.id) },
             )
-        }
-    }
-}
-
-/** 時間軸の目盛り。両端と中央だけ。全部の棒に時刻を振ると読めなくなる */
-@Composable
-private fun AxisRow(report: WebInsightsReport) {
-    val first = report.bucketStarts.firstOrNull()
-    val middle = report.bucketStarts.getOrNull(report.bucketStarts.size / 2)
-    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-        listOfNotNull(first, middle, report.generatedAtMillis.takeIf { it > 0 }).forEach { millis ->
-            Text(formatBucket(millis, report.range), style = ZType.Sub, color = ZColors.TextDim)
         }
     }
 }
@@ -583,6 +576,11 @@ private fun DetailOverlay(viewModel: InsightsViewModel, detail: InsightDetail, o
 
             ChartSpacer(14.dp)
             if (series.any { it > 0 }) {
+                // 棒だけでは「いつの通信か」が読めない。軸で時刻を置き、
+                // 棒をタップしたらその 1 本の時刻と量を数字で出す
+                var picked by remember(detail) { mutableStateOf<Long?>(null) }
+                val pickedIndex = picked?.let { report.bucketStarts.indexOf(it) } ?: -1
+
                 StackedTimeline(
                     bucketStarts = report.bucketStarts,
                     series = listOf(
@@ -598,9 +596,21 @@ private fun DetailOverlay(viewModel: InsightsViewModel, detail: InsightDetail, o
                             series = series,
                         )
                     ),
-                    selected = null,
-                    onSelect = {},
-                    height = 64.dp,
+                    selected = picked,
+                    onSelect = { start -> picked = if (picked == start) null else start },
+                    height = 72.dp,
+                )
+                ChartSpacer(6.dp)
+                TimeAxis(
+                    bucketStarts = report.bucketStarts,
+                    label = { formatAxis(it, report.range) },
+                    maxTicks = 3,
+                )
+                ChartSpacer(8.dp)
+                BucketReadout(
+                    start = picked,
+                    bytes = series.getOrElse(pickedIndex) { 0L },
+                    range = report.range,
                 )
             } else {
                 ChartEmpty("No traffic in this window.")
@@ -953,6 +963,29 @@ private fun UsageAccessCard(onGrant: () -> Unit) {
     }
 }
 
+/**
+ * 選んだ 1 本の読み取り欄。
+ *
+ * 触って選ぶ画面にホバーは無いので、グラフの下に常に 1 行ぶんの場所を確保しておき、
+ * 選ぶ前は使い方を出す。行ごと出したり消したりすると下の内容が飛び跳ねる。
+ */
+@Composable
+private fun BucketReadout(start: Long?, bytes: Long, range: InsightRange) {
+    val text = if (start == null) {
+        "Tap a bar for its time and volume"
+    } else {
+        val (value, unit) = formatBytes(bytes)
+        "${formatBucket(start, range)} – ${formatBucket(start + range.bucketMillis, range)} · $value $unit"
+    }
+    Text(
+        text = text,
+        style = ZType.Sub,
+        color = if (start == null) ZColors.TextDim else ZColors.TextPrimary,
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis,
+    )
+}
+
 // ---- 表示ヘルパ -------------------------------------------------------------
 
 private val InsightTransport.label: String
@@ -968,6 +1001,16 @@ private fun formatClock(millis: Long): String =
 private fun formatBucket(millis: Long, range: InsightRange): String {
     if (millis <= 0) return "—"
     val pattern = if (range == InsightRange.LAST_WEEK) "MMM d HH:mm" else "HH:mm"
+    return SimpleDateFormat(pattern, Locale.ENGLISH).format(Date(millis))
+}
+
+/**
+ * 軸の目盛り。棒 1 本ぶんの幅しかないので、読める最短の形にする。
+ * 週表示は時刻だけだと 4 日前の 06:00 と今日の 06:00 が同じ表示になるので日付を足す。
+ */
+private fun formatAxis(millis: Long, range: InsightRange): String {
+    if (millis <= 0) return ""
+    val pattern = if (range == InsightRange.LAST_WEEK) "M/d HH:mm" else "HH:mm"
     return SimpleDateFormat(pattern, Locale.ENGLISH).format(Date(millis))
 }
 
