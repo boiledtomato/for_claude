@@ -37,8 +37,8 @@ import com.example.zlauncher.data.device.NetworkKind
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.domain.model.CardStatus
 import com.example.zlauncher.ui.console.ConsoleSnapshot
-import com.example.zlauncher.ui.home.component.AppIconTile
-import com.example.zlauncher.ui.home.component.rememberAppIcon
+import com.example.zlauncher.ui.apps.component.AppIconTile
+import com.example.zlauncher.ui.apps.component.rememberAppIcon
 
 /** カードが必要とするもの一式。実データと、押したときの動作 */
 data class CardContext(

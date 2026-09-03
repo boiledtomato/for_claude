@@ -1,8 +1,8 @@
 # ZLauncher — Android ホームランチャー MVP
 
-Kotlin + Jetpack Compose のホームランチャー。ホーム画面（ウィジェット＋アプリ検索＋アプリグリッド
-＋お気に入りドック）と、カード型のコンソール画面（ダークコンソール調・並べ替え可能）、
-ウィジェットピッカーの 3 画面構成。
+Kotlin + Jetpack Compose のホームランチャー。**ホームはコンソール画面**（ダークコンソール調、
+左レール＋ペイン）で、全アプリの一覧はそこから開くドロワー、ほかにウィジェットピッカーの
+3 画面構成。
 
 UI モックアップ: [Android Launcher Console](https://claude.ai/code/artifact/ef5bddd6-040a-497f-8bcc-f7a89fe8567f)
 
@@ -36,23 +36,25 @@ app/src/main/java/com/example/zlauncher/
 │   ├── widgets/                       # AppWidgetHost の管理とウィジェット配置の永続化
 │   └── dashboard/                     # カード配置の永続化
 └── ui/
-    ├── home/                          # ホーム画面（グリッド＋ドック＋長押しメニュー）
-    ├── console/                       # コンソール画面・レール・カード登録表・カード実装
+    ├── apps/                          # アプリドロワー（グリッド＋ドック＋長押しメニュー）
+    ├── console/                       # ホーム = コンソール。レール・ペイン・カード実装
+    ├── widgets/                       # ウィジェットピッカーと配置済みウィジェットの部品
     ├── navigation/                    # NavHost
     └── setup/DefaultLauncher.kt       # ROLE_HOME / ホームアプリ設定への導線
 ```
 
 ## 画面
 
-- **ホーム** — 起動可能アプリを 4 列グリッドに自動整列（名前順 / インストール日時順）。
-  上部にウィジェット（全幅・縦一列）とアプリ検索、下部にお気に入りドック 4 枠。
-  アイコン長押しで「ドックに追加 / アプリ情報」。
-- **コンソール** — 左のレールと右のペインの 2 段構成。
+- **アプリドロワー** — 起動可能アプリを 4 列グリッドに自動整列（名前順 / インストール日時順）。
+  上部にアプリ検索、下部にお気に入りドック 4 枠。アイコン長押しで「ドックに追加 / アプリ情報」。
+  コンソールのレール先頭「Apps」から開き、戻るとコンソールへ帰る。
+- **コンソール（＝ホーム）** — HOME キーで戻ってくる画面。左のレールと右のペインの 2 段構成。
   - レール上部: **よく使う 4 アプリのピン**（タップで起動 / 長押しで差し替え）。
     見出しがタブになっていて押すと開閉する。4 枠あるとレールの上半分をピンが占めるので、
     使わないときは畳んで場所を返せる。畳んでいるときも「Pinned 2/4」と個数は出す
     （畳んだ結果ピンの存在ごと忘れる、という状態を作らないため）
-  - レール: 「Overview」「Insights」の下に区切り線と「Categories」の見出しを挟み、
+  - レール最上段: **Apps**（アプリドロワーを開く）。ランチャーの本業なので 1 タップで届く
+  - レール: 「Overview」「Insights」「Widgets」の下に区切り線と「Categories」の見出しを挟み、
     そこから下が**ユーザーが作るカテゴリー**（＋ で追加、色と名前を編集）。
     見出しはピン留めと同じくタブで、押すと畳める（畳むと「Categories 5」と件数を出す）。
     据え置きの機能と自分で作ったものが同じ見た目で続くと境目が消えるので、必ず区切る
@@ -64,6 +66,7 @@ app/src/main/java/com/example/zlauncher/
   - カテゴリーペイン: そのカテゴリーに入れ子にしたアプリを一覧（長押しで外す）。
     「Insights」でそのカテゴリーに絞った通信ログへ飛ぶ
   - Insights ペイン: **Web Insights**（下記）
+  - Widgets ペイン: **置いたウィジェットの一覧と追加導線**（下記）
 - **ウィジェットピッカー** — インストール済みプロバイダの一覧。**検索して複数選び、
   まとめて追加する。** 行を押すと選択が付き / 外れ、下の帯から一括追加。追加後の
   ウィジェットは「Size」から高さを変えられる。
@@ -346,6 +349,10 @@ Web Insights にも出てこない。作れてしまうこと自体は残しつ�
 `AppWidgetHost` を `WidgetHostController` に閉じ込め、配置は座標ではなく**順序リスト**で持つ
 （全幅・縦一列）。自由座標にするとグリッド列数の変化で配置が破綻するため MVP では採らない。
 
+**置き場所はコンソールの Widgets ペイン。** 追加導線も同じペインに置いてある。以前は
+ホーム（全アプリのグリッド）に並び、追加はコンソールの設定行という分かれ方をしていて、
+押した結果どこに増えるのかが読めなかった。
+
 追加フローの要点（`WidgetPickerScreen`）。1 件ごとに:
 
 1. `allocateAppWidgetId()` で ID を払い出す
@@ -442,7 +449,7 @@ AOSP の Launcher3 も同じ挙動。回避策として「インストール日�
 | `stateNotNeeded="true"` で復元時例外による起動不能を防ぐ | `AndroidManifest.xml` |
 | `launchMode="singleTask"`（`singleInstance` は不可） | `AndroidManifest.xml` |
 | HOME キー再押下は `onNewIntent` で拾う（拾わないと HOME が効かない） | `MainActivity` |
-| ホームでは戻る操作を無効化 | `HomeScreen` の `BackHandler` |
+| ホーム（コンソール）では戻る操作を無効化 | `ConsoleScreen` の `BackHandler` |
 | `<queries>` のみでアプリ可視性を確保（`QUERY_ALL_PACKAGES` は使わない） | `AndroidManifest.xml` |
 | debug は `applicationIdSuffix ".debug"`。既定ホームを壊さず共存できる | `app/build.gradle.kts` |
 | DataStore の `corruptionHandler` と JSON デコード失敗の既定値フォールバック | `LauncherPreferencesRepository` |

@@ -54,7 +54,6 @@ private const val GRID_COLUMNS = 12
 fun OverviewPane(
     viewModel: ConsoleViewModel,
     snapshot: ConsoleSnapshot,
-    onAddWidget: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val layout by viewModel.layout.collectAsStateWithLifecycle()
@@ -96,7 +95,6 @@ fun OverviewPane(
                     sortOrder = sortOrder,
                     themedIcons = themedIcons,
                     viewModel = viewModel,
-                    onAddWidget = onAddWidget,
                 )
             }
         } else {
@@ -110,7 +108,6 @@ fun OverviewPane(
                 sortOrder = sortOrder,
                 themedIcons = themedIcons,
                 viewModel = viewModel,
-                onAddWidget = onAddWidget,
             )
         }
     }
@@ -127,7 +124,6 @@ private fun CardGrid(
     sortOrder: AppSortOrder,
     themedIcons: Boolean,
     viewModel: ConsoleViewModel,
-    onAddWidget: () -> Unit,
 ) {
     val context = LocalContext.current
     LazyVerticalGrid(
@@ -203,8 +199,6 @@ private fun CardGrid(
                 SortOrderRow(current = sortOrder, onSelect = viewModel::setSortOrder)
                 Spacer(Modifier.height(8.dp))
                 IconStyleRow(themed = themedIcons, onSelect = viewModel::setThemedIcons)
-                Spacer(Modifier.height(8.dp))
-                SettingsRow(label = "Add widget", onClick = onAddWidget)
                 Spacer(Modifier.height(8.dp))
                 // 自動更新は 3 か月周期なので、待たずに確かめたいときの導線を置く
                 SettingsRow(

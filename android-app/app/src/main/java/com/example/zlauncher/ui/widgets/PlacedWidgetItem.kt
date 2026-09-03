@@ -1,4 +1,4 @@
-package com.example.zlauncher.ui.home.component
+package com.example.zlauncher.ui.widgets
 
 import android.appwidget.AppWidgetHostView
 import android.os.Build
@@ -49,7 +49,7 @@ import kotlin.math.roundToInt
  * （ウィジェット上の長押しはウィジェット側の操作と競合する）。
  */
 @Composable
-fun HomeWidgetItem(
+fun PlacedWidgetItem(
     placement: WidgetPlacement,
     controller: WidgetHostController,
     onRemove: () -> Unit,

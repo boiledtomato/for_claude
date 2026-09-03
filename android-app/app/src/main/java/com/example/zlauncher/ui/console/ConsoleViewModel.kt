@@ -21,6 +21,7 @@ import com.example.zlauncher.data.catalog.UrlCategoryRepository
 import com.example.zlauncher.data.dashboard.DashboardLayoutRepository
 import com.example.zlauncher.data.device.DeviceMetricsRepository
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
+import com.example.zlauncher.data.widgets.WidgetRepository
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CardLayout
@@ -28,6 +29,7 @@ import com.example.zlauncher.domain.model.CardSpan
 import com.example.zlauncher.domain.model.CatalogDiff
 import com.example.zlauncher.domain.model.CatalogPick
 import com.example.zlauncher.domain.model.UrlCategoryGroup
+import com.example.zlauncher.domain.model.WidgetPlacement
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -49,6 +51,7 @@ class ConsoleViewModel @Inject constructor(
     private val catalogRepository: UrlCategoryRepository,
     private val classifier: AppClassifier,
     private val catalogUpdater: CatalogUpdater,
+    private val widgetRepository: WidgetRepository,
     installedApps: InstalledAppRepository,
     metricsRepository: DeviceMetricsRepository,
 ) : ViewModel() {
@@ -211,6 +214,19 @@ class ConsoleViewModel @Inject constructor(
 
     fun setPinned(slot: Int, packageName: String?) = viewModelScope.launch {
         categoryRepository.setPinned(slot, packageName)
+    }
+
+    // ---- ウィジェット -------------------------------------------------------
+
+    val widgets: StateFlow<List<WidgetPlacement>> = widgetRepository.widgets
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    fun setWidgetHeight(appWidgetId: Int, heightDp: Int) = viewModelScope.launch {
+        widgetRepository.setHeight(appWidgetId, heightDp)
+    }
+
+    fun removeWidget(appWidgetId: Int) = viewModelScope.launch {
+        widgetRepository.remove(appWidgetId)
     }
 
     // ---- カード配置 ---------------------------------------------------------

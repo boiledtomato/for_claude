@@ -10,6 +10,9 @@ sealed interface ConsolePane {
 
     /** Web Insights。カテゴリーから開いたときは、そのカテゴリーで絞った状態で入る */
     data class Insights(val categoryId: String? = null) : ConsolePane
+
+    /** 置いたウィジェットの一覧と追加導線。ホームがコンソールになったのでここに置く */
+    data object Widgets : ConsolePane
 }
 
 /** カードが描画に使う値。実データはすべてここに集約する */

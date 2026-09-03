@@ -64,7 +64,7 @@ import com.example.zlauncher.domain.model.InsightLogEntry
 import com.example.zlauncher.domain.model.InsightRange
 import com.example.zlauncher.domain.model.InsightTransport
 import com.example.zlauncher.domain.model.WebInsightsReport
-import com.example.zlauncher.ui.home.component.AppSearchBar
+import com.example.zlauncher.ui.apps.component.AppSearchBar
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

@@ -1,12 +1,12 @@
-package com.example.zlauncher.ui.home
+package com.example.zlauncher.ui.apps
 
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CardStatus
 
-data class HomeStatusChip(val label: String, val status: CardStatus)
+data class DrawerStatusChip(val label: String, val status: CardStatus)
 
-data class HomeUiState(
+data class AppDrawerUiState(
     val loading: Boolean = true,
     /** 検索で絞り込んだ結果。検索していないときは全アプリ */
     val apps: List<AppEntry> = emptyList(),
@@ -14,7 +14,7 @@ data class HomeUiState(
     val query: String = "",
     val favorites: List<AppEntry> = emptyList(),
     val sortOrder: AppSortOrder = AppSortOrder.LABEL,
-    val statusChips: List<HomeStatusChip> = emptyList(),
+    val statusChips: List<DrawerStatusChip> = emptyList(),
     val favoriteSlots: Int = 4,
 ) {
     val isSearching: Boolean get() = query.isNotBlank()

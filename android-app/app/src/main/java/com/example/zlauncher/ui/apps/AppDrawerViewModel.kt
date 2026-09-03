@@ -1,4 +1,4 @@
-package com.example.zlauncher.ui.home
+package com.example.zlauncher.ui.apps
 
 import android.graphics.Rect
 import androidx.compose.ui.graphics.ImageBitmap
@@ -12,11 +12,9 @@ import com.example.zlauncher.data.apps.LauncherAppsDataSource
 import com.example.zlauncher.data.device.DeviceMetricsRepository
 import com.example.zlauncher.data.device.NetworkKind
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
-import com.example.zlauncher.data.widgets.WidgetRepository
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CardStatus
-import com.example.zlauncher.domain.model.WidgetPlacement
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -28,12 +26,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class AppDrawerViewModel @Inject constructor(
     installedApps: InstalledAppRepository,
     metricsRepository: DeviceMetricsRepository,
     private val iconLoader: AppIconLoader,
     private val favoritesRepository: FavoritesRepository,
-    private val widgetRepository: WidgetRepository,
     private val preferences: LauncherPreferencesRepository,
     private val launcherApps: LauncherAppsDataSource,
 ) : ViewModel() {
@@ -49,10 +46,7 @@ class HomeViewModel @Inject constructor(
     private val _query = MutableStateFlow("")
     val query: StateFlow<String> = _query.asStateFlow()
 
-    val widgets: StateFlow<List<WidgetPlacement>> = widgetRepository.widgets
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
-
-    val uiState: StateFlow<HomeUiState> = combine(
+    val uiState: StateFlow<AppDrawerUiState> = combine(
         installedApps.apps,
         favoritesRepository.favorites,
         preferences.state,
@@ -60,7 +54,7 @@ class HomeViewModel @Inject constructor(
         _query,
     ) { apps, favorites, state, metrics, query ->
         val sorted = AppSorter.sort(apps, state.sortOrder)
-        HomeUiState(
+        AppDrawerUiState(
             loading = false,
             apps = if (query.isBlank()) sorted else sorted.filter { it.matches(query) },
             totalAppCount = sorted.size,
@@ -70,11 +64,11 @@ class HomeViewModel @Inject constructor(
             favoriteSlots = favoritesRepository.maxSlots,
             // ダミーではなく実際の状態を出す
             statusChips = listOf(
-                HomeStatusChip(
+                DrawerStatusChip(
                     label = if (metrics.vpnActive) "VPN on" else "VPN off",
                     status = if (metrics.vpnActive) CardStatus.GREEN else CardStatus.NEUTRAL,
                 ),
-                HomeStatusChip(
+                DrawerStatusChip(
                     label = when (metrics.network) {
                         NetworkKind.WIFI -> "Wi-Fi"
                         NetworkKind.CELLULAR -> "Mobile"
@@ -88,7 +82,7 @@ class HomeViewModel @Inject constructor(
                         else -> CardStatus.GREEN
                     },
                 ),
-                HomeStatusChip(
+                DrawerStatusChip(
                     label = "${metrics.batteryPercent}%",
                     status = when {
                         metrics.batteryCharging || metrics.batteryPercent >= 50 -> CardStatus.GREEN
@@ -98,7 +92,7 @@ class HomeViewModel @Inject constructor(
                 ),
             ),
         )
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), HomeUiState())
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AppDrawerUiState())
 
     /** アイコンは一覧描画のあとから解決する。キャッシュ済みなら即返る */
     suspend fun icon(entry: AppEntry): ImageBitmap? = iconLoader.load(entry, themedIcons)
@@ -129,14 +123,6 @@ class HomeViewModel @Inject constructor(
 
     fun moveFavorite(from: Int, to: Int) = viewModelScope.launch {
         favoritesRepository.move(from, to)
-    }
-
-    fun setWidgetHeight(appWidgetId: Int, heightDp: Int) = viewModelScope.launch {
-        widgetRepository.setHeight(appWidgetId, heightDp)
-    }
-
-    fun removeWidget(appWidgetId: Int) = viewModelScope.launch {
-        widgetRepository.remove(appWidgetId)
     }
 
     fun setSortOrder(order: AppSortOrder) = viewModelScope.launch {

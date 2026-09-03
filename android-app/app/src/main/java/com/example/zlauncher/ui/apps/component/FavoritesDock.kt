@@ -1,4 +1,4 @@
-package com.example.zlauncher.ui.home.component
+package com.example.zlauncher.ui.apps.component
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.animateColorAsState

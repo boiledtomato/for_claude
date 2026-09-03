@@ -1,4 +1,4 @@
-package com.example.zlauncher.ui.home
+package com.example.zlauncher.ui.apps
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
@@ -50,32 +50,31 @@ import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.domain.model.AppEntry
-import com.example.zlauncher.data.widgets.WidgetHostController
-import com.example.zlauncher.ui.home.component.AppSearchBar
-import com.example.zlauncher.ui.home.component.AppTile
-import com.example.zlauncher.ui.home.component.HomeWidgetItem
-import com.example.zlauncher.ui.home.component.FavoritesDock
+import com.example.zlauncher.ui.apps.component.AppSearchBar
+import com.example.zlauncher.ui.apps.component.AppTile
+import com.example.zlauncher.ui.apps.component.FavoritesDock
 import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 private const val DOCK_AREA_HEIGHT_DP = 176
-private const val HOME_COLUMNS = 4
+private const val DRAWER_COLUMNS = 4
 
+/**
+ * 全アプリのドロワー。**ホームはコンソール**で、この画面はそこから開く。
+ *
+ * ランチャーの本業はアプリを速く開くことなので、コンソールのレール先頭「Apps」から
+ * 1 タップで届く場所に置いてある。戻るとコンソールへ帰る（ここでは戻るを飲み込まない）。
+ */
 @Composable
-fun HomeScreen(
-    onOpenConsole: () -> Unit,
-    widgetHost: WidgetHostController,
+fun AppDrawerScreen(
+    onBack: () -> Unit,
     modifier: Modifier = Modifier,
     gridState: LazyGridState = rememberLazyGridState(),
-    viewModel: HomeViewModel = hiltViewModel(),
+    viewModel: AppDrawerViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
-    val widgets by viewModel.widgets.collectAsStateWithLifecycle()
-
-    // ホームでは戻る操作を無効化する。ランチャーの Activity は終了しないのが正しい
-    BackHandler(enabled = true) { }
 
     Box(
         modifier
@@ -94,32 +93,15 @@ fun HomeScreen(
             )
             Spacer(Modifier.height(16.dp))
             LazyVerticalGrid(
-                columns = GridCells.Fixed(HOME_COLUMNS),
+                columns = GridCells.Fixed(DRAWER_COLUMNS),
                 state = gridState,
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(start = 10.dp, end = 10.dp, bottom = DOCK_AREA_HEIGHT_DP.dp),
                 horizontalArrangement = Arrangement.spacedBy(2.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp),
             ) {
-                // ウィジェットは全幅・縦一列。検索中は結果を押し下げないよう隠す
-                if (!state.isSearching) {
-                    items(
-                        items = widgets,
-                        key = { it.appWidgetId },
-                        span = { GridItemSpan(HOME_COLUMNS) },
-                    ) { placement ->
-                        HomeWidgetItem(
-                            placement = placement,
-                            controller = widgetHost,
-                            onRemove = { viewModel.removeWidget(placement.appWidgetId) },
-                            onHeightChange = { viewModel.setWidgetHeight(placement.appWidgetId, it) },
-                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
-                        )
-                    }
-                }
-
                 if (state.isEmptyResult) {
-                    item(span = { GridItemSpan(HOME_COLUMNS) }) {
+                    item(span = { GridItemSpan(DRAWER_COLUMNS) }) {
                         Text(
                             text = "No apps match “${state.query}”",
                             style = ZType.Body,
@@ -131,7 +113,7 @@ fun HomeScreen(
 
                 items(state.apps, key = { it.key }) { entry ->
                     // 検索や並び順の変更で位置が変わるときに滑らせる
-                    HomeAppItem(
+                    DrawerAppItem(
                         modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
                         entry = entry,
                         isFavorite = state.isFavorite(entry),
@@ -169,7 +151,7 @@ fun HomeScreen(
                 .padding(horizontal = 16.dp, vertical = 14.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            ConsoleHandle(onClick = onOpenConsole)
+            ConsoleHandle(onClick = onBack)
             Spacer(Modifier.height(12.dp))
             FavoritesDock(
                 favorites = state.favorites,
@@ -184,7 +166,7 @@ fun HomeScreen(
 }
 
 @Composable
-private fun HomeAppItem(
+private fun DrawerAppItem(
     modifier: Modifier = Modifier,
     entry: AppEntry,
     isFavorite: Boolean,
@@ -241,7 +223,7 @@ private fun HomeAppItem(
 }
 
 @Composable
-private fun ClockHeader(chips: List<HomeStatusChip>) {
+private fun ClockHeader(chips: List<DrawerStatusChip>) {
     val time by produceState(initialValue = formatTime()) {
         while (true) {
             value = formatTime()
@@ -262,7 +244,7 @@ private fun ClockHeader(chips: List<HomeStatusChip>) {
 }
 
 @Composable
-private fun StatusChip(chip: HomeStatusChip) {
+private fun StatusChip(chip: DrawerStatusChip) {
     val color = LocalStatusColors.current.colorFor(chip.status)
     Row(
         Modifier
@@ -289,7 +271,7 @@ private fun ConsoleHandle(onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Box(Modifier.size(8.dp).background(ZColors.AccentAlt, CircleShape))
+        Text("‹", style = ZType.Title.copy(fontSize = 18.sp), color = ZColors.TextSecondary)
         Text(text = "Console", style = ZType.Body, color = ZColors.TextPrimary)
     }
 }

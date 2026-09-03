@@ -1,4 +1,4 @@
-package com.example.zlauncher.ui.home.component
+package com.example.zlauncher.ui.apps.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

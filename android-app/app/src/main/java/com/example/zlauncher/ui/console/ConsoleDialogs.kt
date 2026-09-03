@@ -45,8 +45,8 @@ import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.apps.AppSuggestion
 import com.example.zlauncher.data.apps.SuggestionConfidence
 import com.example.zlauncher.domain.model.AppEntry
-import com.example.zlauncher.ui.home.component.AppIconTile
-import com.example.zlauncher.ui.home.component.rememberAppIcon
+import com.example.zlauncher.ui.apps.component.AppIconTile
+import com.example.zlauncher.ui.apps.component.rememberAppIcon
 
 /** カテゴリーの名前と色の変更 */
 @Composable

@@ -381,10 +381,13 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 
 An independent Gradle project — it shares nothing with the Python/HTML pipeline and is
 not deployed by any workflow. Kotlin + Jetpack Compose home launcher (`HOME` intent
-filter) with three screens: a home screen (widgets, app search, an auto-sorted app grid,
-a favourites dock), a console screen (left rail with pinned apps and user-created
-categories; panes for live device metrics or a category's apps), and a widget picker.
-Work profile apps appear in the same grid with badged icons.
+filter) with three screens: **the console is the home screen** (left rail with an `Apps`
+entry, pinned apps and user-created categories; panes for live device metrics, Web
+Insights, placed widgets, or a category's apps), an app drawer (`ui/apps/`: search, the
+auto-sorted app grid, the favourites dock) opened from the rail, and a widget picker.
+The all-apps grid used to be the home screen itself, which buried everything this app is
+actually about and split "where widgets are placed" from "where widgets are added".
+Work profile apps appear in the drawer grid with badged icons.
 
 - Build: `cd android-app && ./gradlew assembleDebug` (needs an Android SDK with
   compileSdk 36; `local.properties` is git-ignored). The Gradle wrapper is committed

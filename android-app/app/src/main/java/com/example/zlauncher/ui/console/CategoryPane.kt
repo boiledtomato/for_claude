@@ -43,8 +43,8 @@ import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.core.ui.springyCombinedClick
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.domain.model.AppEntry
-import com.example.zlauncher.ui.home.component.AppIconTile
-import com.example.zlauncher.ui.home.component.rememberAppIcon
+import com.example.zlauncher.ui.apps.component.AppIconTile
+import com.example.zlauncher.ui.apps.component.rememberAppIcon
 
 private const val CATEGORY_COLUMNS = 4
 

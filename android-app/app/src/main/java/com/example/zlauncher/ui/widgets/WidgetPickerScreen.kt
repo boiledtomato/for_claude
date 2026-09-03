@@ -46,7 +46,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.springyClick
-import com.example.zlauncher.ui.home.component.AppSearchBar
+import com.example.zlauncher.ui.apps.component.AppSearchBar
 
 private data class PendingWidget(val appWidgetId: Int, val item: WidgetPickerViewModel.ProviderItem)
 

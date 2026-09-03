@@ -1,5 +1,6 @@
 package com.example.zlauncher.ui.console
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
@@ -76,9 +77,10 @@ import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.apps.CategoryWithApps
+import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.domain.model.AppEntry
-import com.example.zlauncher.ui.home.component.AppIconTile
-import com.example.zlauncher.ui.home.component.rememberAppIcon
+import com.example.zlauncher.ui.apps.component.AppIconTile
+import com.example.zlauncher.ui.apps.component.rememberAppIcon
 import com.example.zlauncher.ui.insights.InsightsPane
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -89,8 +91,9 @@ private val RAIL_WIDTH = 84.dp
 
 @Composable
 fun ConsoleScreen(
-    onBack: () -> Unit,
+    onOpenApps: () -> Unit,
     onAddWidget: () -> Unit,
+    widgetHost: WidgetHostController,
     modifier: Modifier = Modifier,
     viewModel: ConsoleViewModel = hiltViewModel(),
 ) {
@@ -129,8 +132,15 @@ fun ConsoleScreen(
         categories.firstOrNull { it.id == pane.id }
     }
 
+    // この画面がホーム。戻る操作は飲み込む（ランチャーの Activity は終了しないのが正しい）。
+    // Overview 以外を見ているときだけは、まず Overview へ戻す
+    BackHandler(enabled = true) {
+        if (selected !is ConsolePane.Overview) viewModel.select(ConsolePane.Overview)
+    }
+
     Row(modifier.fillMaxSize().background(ZColors.Background)) {
         ConsoleRail(
+            onOpenApps = onOpenApps,
             pinned = pinned,
             pinnedSlots = viewModel.pinnedSlots,
             pinnedExpanded = pinnedExpanded,
@@ -158,18 +168,19 @@ fun ConsoleScreen(
             ConsoleTopBar(
                 title = when {
                     selected is ConsolePane.Insights -> "Web Insights"
+                    selected is ConsolePane.Widgets -> "Widgets"
                     selectedCategory != null -> selectedCategory.category.name
                     else -> "Overview"
                 },
                 subtitle = when {
                     selected is ConsolePane.Insights -> "Per-category traffic log"
+                    selected is ConsolePane.Widgets -> "Placed on this screen"
                     selectedCategory != null -> "${selectedCategory.apps.size} apps"
                     else -> "Live · updated ${formatClock(snapshot.metrics.sampledAtMillis)}"
                 },
                 live = selected is ConsolePane.Overview && snapshot.loaded,
                 isEditing = viewModel.isEditing,
                 showEdit = selected is ConsolePane.Overview,
-                onBack = onBack,
                 onToggleEdit = { viewModel.setEditMode(!viewModel.isEditing) },
             )
 
@@ -205,6 +216,12 @@ fun ConsoleScreen(
                 when (target) {
                     is ConsolePane.Insights -> InsightsPane(initialCategoryId = target.categoryId)
 
+                    ConsolePane.Widgets -> WidgetsPane(
+                        viewModel = viewModel,
+                        widgetHost = widgetHost,
+                        onAddWidget = onAddWidget,
+                    )
+
                     is ConsolePane.Category -> {
                         val pane = categories.firstOrNull { it.id == target.id }
                         if (pane == null) {
@@ -227,7 +244,6 @@ fun ConsoleScreen(
                     ConsolePane.Overview -> OverviewPane(
                         viewModel = viewModel,
                         snapshot = snapshot,
-                        onAddWidget = onAddWidget,
                     )
                 }
             }
@@ -326,6 +342,7 @@ fun ConsoleScreen(
 
 @Composable
 private fun ConsoleRail(
+    onOpenApps: () -> Unit,
     pinned: List<AppEntry>,
     pinnedSlots: Int,
     pinnedExpanded: Boolean,
@@ -351,6 +368,17 @@ private fun ConsoleRail(
             .padding(vertical = 10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        // ここがホーム。全アプリの一覧はドロワーとして別画面に出す。
+        // ランチャーの本業なので、レールの一番上から 1 タップで届く場所に置く
+        RailItem(
+            label = "Apps",
+            selected = false,
+            indicator = { RailGrid(ZColors.Accent) },
+            onClick = onOpenApps,
+        )
+
+        RailDivider()
+
         // 枠が 4 つあるとレールの上半分をピンが占める。畳んで場所を返せるようにする
         RailSectionHeader(
             label = "Pinned",
@@ -391,6 +419,13 @@ private fun ConsoleRail(
             selected = selected is ConsolePane.Insights,
             indicator = { RailBars(ZColors.AccentSoft) },
             onClick = { onSelect(ConsolePane.Insights()) },
+        )
+
+        RailItem(
+            label = "Widgets",
+            selected = selected is ConsolePane.Widgets,
+            indicator = { RailFrame(ZColors.AccentSoft) },
+            onClick = { onSelect(ConsolePane.Widgets) },
         )
 
         // Overview / Insights は据え置きの機能、以下は自分で作った URL カテゴリー。
@@ -724,6 +759,43 @@ private fun RailBars(color: Color) {
     }
 }
 
+/** Apps の目印。4 マスのグリッド */
+@Composable
+private fun RailGrid(color: Color) {
+    Column(
+        Modifier.size(14.dp),
+        verticalArrangement = Arrangement.spacedBy(2.dp),
+    ) {
+        repeat(2) {
+            Row(Modifier.weight(1f), horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+                repeat(2) {
+                    Box(
+                        Modifier
+                            .weight(1f)
+                            .fillMaxHeight()
+                            .clip(RoundedCornerShape(1.5.dp))
+                            .background(color)
+                    )
+                }
+            }
+        }
+    }
+}
+
+/** Widgets の目印。中に横線の入った枠 */
+@Composable
+private fun RailFrame(color: Color) {
+    Box(
+        Modifier
+            .size(14.dp)
+            .clip(RoundedCornerShape(3.dp))
+            .border(1.5.dp, color, RoundedCornerShape(3.dp)),
+        contentAlignment = Alignment.Center,
+    ) {
+        Box(Modifier.width(8.dp).height(1.5.dp).background(color))
+    }
+}
+
 @Composable
 private fun RailSquare(color: Color) {
     Box(
@@ -741,7 +813,6 @@ private fun ConsoleTopBar(
     live: Boolean,
     isEditing: Boolean,
     showEdit: Boolean,
-    onBack: () -> Unit,
     onToggleEdit: () -> Unit,
 ) {
     Row(
@@ -749,12 +820,6 @@ private fun ConsoleTopBar(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Box(
-            Modifier.size(32.dp).clip(RoundedCornerShape(8.dp)).springyClick(onClick = onBack),
-            contentAlignment = Alignment.Center,
-        ) {
-            Text("‹", style = ZType.Title.copy(fontSize = 22.sp), color = ZColors.TextSecondary)
-        }
         Column(Modifier.weight(1f)) {
             Text(title, style = ZType.Title, color = ZColors.TextPrimary, maxLines = 1, overflow = TextOverflow.Ellipsis)
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
