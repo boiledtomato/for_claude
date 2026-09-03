@@ -112,6 +112,7 @@ fun HomeScreen(
                             placement = placement,
                             controller = widgetHost,
                             onRemove = { viewModel.removeWidget(placement.appWidgetId) },
+                            onHeightChange = { viewModel.setWidgetHeight(placement.appWidgetId, it) },
                             modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
                         )
                     }

@@ -131,6 +131,10 @@ class HomeViewModel @Inject constructor(
         favoritesRepository.move(from, to)
     }
 
+    fun setWidgetHeight(appWidgetId: Int, heightDp: Int) = viewModelScope.launch {
+        widgetRepository.setHeight(appWidgetId, heightDp)
+    }
+
     fun removeWidget(appWidgetId: Int) = viewModelScope.launch {
         widgetRepository.remove(appWidgetId)
     }

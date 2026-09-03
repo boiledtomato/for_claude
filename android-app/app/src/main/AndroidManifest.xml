@@ -34,6 +34,11 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.HOME" />
         </intent>
+        <!-- ウィジェット提供元アプリ。ランチャーアイコンを持たない提供元もあるので、
+             これが無いと一覧に提供元アプリ名を出せない（検索も効かなくなる） -->
+        <intent>
+            <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+        </intent>
     </queries>
 
     <application

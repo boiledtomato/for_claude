@@ -23,6 +23,19 @@ class WidgetRepository @Inject constructor(
         }
     }
 
+    /** 高さの変更。範囲外の値が入るとホームが描けなくなるので、必ず丸める */
+    suspend fun setHeight(appWidgetId: Int, heightDp: Int) = preferences.update { state ->
+        state.copy(
+            widgets = state.widgets.map {
+                if (it.appWidgetId == appWidgetId) {
+                    it.copy(heightDp = WidgetPlacement.clampHeight(heightDp))
+                } else {
+                    it
+                }
+            }
+        )
+    }
+
     suspend fun remove(appWidgetId: Int) {
         host.deleteAppWidgetId(appWidgetId)
         preferences.update { state ->
