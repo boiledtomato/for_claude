@@ -37,10 +37,13 @@ for_claude/
 ├── community_docs/                   # Zenith Community Markdown — not published
 │   ├── README.md
 │   └── <category>/community_<category>_partN.md
+├── android-app/                      # Kotlin + Compose ホームランチャー（独立プロジェクト）
+│   └── app/src/main/java/com/example/zlauncher/
 ├── docs/
 │   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
 │   └── workflows/
+│       ├── android-build.yml         # Debug APK build + rolling pre-release
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy
 │       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
 │       └── community-weekly.yml      # Weekly community.zscaler.com doc refresh
@@ -373,6 +376,40 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 - **Commit message format:** `docs: Zenith Community 週次更新 YYYY-MM-DD`
 - Syncs with `--docs-dir community_docs --state-file
   data/community_notebooklm_sync_state.json --notebook-title Zscaler_community`
+
+## Android launcher app (`android-app/`)
+
+An independent Gradle project — it shares nothing with the Python/HTML pipeline and is
+not deployed by any workflow. Kotlin + Jetpack Compose home launcher (`HOME` intent
+filter) with three screens: **the console is the home screen** (left rail with an `Apps`
+entry, pinned apps and user-created categories; panes for live device metrics, Web
+Insights, placed widgets, or a category's apps), an app drawer (`ui/apps/`: search, the
+auto-sorted app grid, the favourites dock) opened from the rail, and a widget picker.
+The all-apps grid used to be the home screen itself, which buried everything this app is
+actually about and split "where widgets are placed" from "where widgets are added".
+Work profile apps appear in the drawer grid with badged icons.
+
+- Build: `cd android-app && ./gradlew assembleDebug` (needs an Android SDK with
+  compileSdk 36; `local.properties` is git-ignored). The Gradle wrapper is committed
+- `android-build.yml` builds the debug APK on every push touching `android-app/` and
+  replaces the asset on the rolling `android-debug-latest` pre-release, so the download
+  URL never changes — that is how the APK reaches a phone without a PC
+- `keystore/debug.keystore` is committed on purpose: without a fixed debug key every
+  build environment produces a differently-signed APK that cannot be installed over the
+  previous one. Never use it for a release build
+- Debug builds carry `applicationIdSuffix ".debug"` so they coexist with the device's
+  real launcher — **do not set a debug build as the default home until it is verified**
+- Console cards read real device metrics (`DeviceMetricsRepository`, polled every 1s while the console is open, single sampling coroutine via `stateIn`); the only permission used is `ACCESS_NETWORK_STATE`
+- The console's Insights pane is **Web Insights**: per-category traffic logs over 1H/24H/7D from `NetworkStatsManager` (`data/insights/`), shown as three views — Chart (stacked-by-category timeline, connection/direction splits), Apps (ranked, with inline series), Log (raw rows). Every timeline carries a `TimeAxis` built from the same Row structure as the bars (per-bucket `weight(1f)`, 2dp gaps) — an evenly-spaced label row drifts off the bars and makes the hour unreadable; ticks are thinned to 3-4, the first is start-aligned, the last eighth is left to the `now` label, and the detail overlay reads out a tapped bar's window and volume — searchable, filterable by time bucket and category, with tap-through detail for a category or app, and exportable as CSV via FileProvider. It needs usage access (`PACKAGE_USAGE_STATS`, signature|appop — granted in Settings, never by a runtime dialog); everything else works without it. URLs/hostnames are not obtainable without running a VPN service and are deliberately out of scope
+- There are 15 category colour slots. `ZColors.CategoryChartColors` is a darker sibling of the identity `CategoryColors` (hue drift <=18 degrees per slot). Measured on all pairs against the card surface: identity normal-vision min deltaE 12.1 / CVD 6.5, chart 9.8 / 5.3 — 15 categorical colours cannot meet the 15/8 floors, which is a computational limit, not an oversight. It works because colour is never the only cue: the rail always shows the name, and charts colour at most 4 series (rest fold into a neutral `Other`) with a legend carrying names and byte values. Never eyeball a palette change — re-run the validation
+- Console rail categories are built from Zscaler's predefined URL category CSV, bundled at `assets/zscaler_url_categories.csv` and re-fetched every 90 days by `CatalogSyncWorker` (`data/catalog/`). The picker groups sub-categories under collapsible super-category headers. The `Advanced Security` (ATP-only) and `Microsoft Office 365` (SSL-inspection-only) super-categories are dropped at parse time, leaving 28 supers / 109 sub-categories. `AppClassifier` suggests which apps belong in a category (declared `ApplicationInfo.category`, a keyword table, then token overlap) but never applies them — the picker shows candidates with their reason and the user confirms; `AppMatchingTest` pins the short-keyword guard. The CSV URL carries a revision date so it cannot be hardcoded — the updater reads the help article via `zapi/fetch-data` and extracts the current `.csv` link with `CatalogArticle.csvPath()`, which unescapes the JSON body first: the response carries `href=\u0022\/downloads\/…csv\u0022`, so a plain `/downloads/…` regex never matches and the app just reports "The help article no longer links a CSV" — `CatalogArticleTest` pins the real shape. Diffs are never applied silently (the CSV has no stable ID column, so renames are inferred); the user reviews them. `UrlCategoryCsvTest` parses the real bundled file — keep it passing.
+- UI strings are English throughout. Console cards are drag-reorderable at all times — the Layout button only reveals hide/resize chrome. The rail separates the fixed panes from the user's categories with a divider and a collapsible `Categories` header (same tab pattern as `Pinned`), and the categories themselves reorder by long-press drag. The reorder commits on release, not per swap — reordering mid-gesture re-keys the row's `pointerInput` and kills the drag; `RailReorder` does the maths against measured row heights (names wrap to two lines, so a fixed step is off by one next to a long name) and `RailReorderTest` pins it. Cancelling the app picker that opens right after creating a category discards that category — the dialog says `Discard`, and only there is click-outside dismissal disabled. All motion timings live in `core/designsystem/Motion.kt` (`ZMotion`) and every tappable uses `springyClick`
+- The widget picker searches by widget name, provider app name and package, and adds a multi-selection in one pass — the bind consent and configure activities cannot overlap, so the queue runs one at a time: a denied consent aborts the rest, a closed configure screen skips just that widget. The queue's `LaunchedEffect` key includes the queue index because a cancelled widget's id is freed and can be handed straight back, which would leave the key unchanged and stall the queue. Placed widgets resize by height (72-560dp, `WidgetPlacement.clampHeight`) via steppers or a handle shown only in resize mode; `updateAppWidgetSize` must be called or the widget keeps its first-chosen layout
+- See `android-app/README.md` for the placement model, the Japanese app-name sorting
+  limitation, and the launcher-specific manifest flags
+
+`daily-update.yml` excludes `android-app/` (and `ios-app/`) from the Pages staging tar —
+app sources are not published.
 
 ## Development Workflows
 
