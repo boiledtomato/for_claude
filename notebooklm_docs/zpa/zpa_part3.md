@@ -1,8 +1,49 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 119
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 120
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-release-summary-2026","lastmod":"2026-09-04T13:50Z","nid":"1534309"} -->
+## Network Connector Release Summary (2026)
+
+- Source: https://help.zscaler.com/zpa/network-connector-release-summary-2026
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Release Notes > ZPA Network Connector Release Notes > Network Connector Release Summary (2026)
+- Last modified: 2026-09-04T13:50Z
+- Summary: Zscaler Private Access (ZPA) Network Connector release summary for updates deployed, per version, in 2026.
+
+This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Network Connector version.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-software-platform","lastmod":"2026-09-04T13:37Z","nid":"1531244"} -->
+## Network Connector Software by Platform
+
+- Source: https://help.zscaler.com/zpa/network-connector-software-platform
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Deployment Guides for Supported Platforms > Network Connector Software by Platform
+- Last modified: 2026-09-04T13:37Z
+- Summary: The current Network Connector software downloads by platform.
+
+Network Connectors are supported on Linux operating systems. To learn more, see [Network Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/vpn-legacy-apps/network-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
+
+The following platforms support Network Connector software packages. Where applicable, see the download links for the RPM package.
+
+| Platform | Software |
+| --- | --- |
+| Colocation / Data Centers |  |
+| [VMware](https://help.zscaler.com/zpa/network-connector-deployment-guide-vmware-platforms) | [OVA](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova) [OVA checksum](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova.sha256sum) |
+| Clouds |  |
+| Amazon Web Services (AWS) | [Private Access - AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-pmmdag3jsanga?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) |
+| Google Cloud Platform (GCP) | [Private Access - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-network-connector?q=search&referrer=search&organizationId=143569286330) |
+| Microsoft Azure | [Private Access - Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-access-network-connector?tab=Overview) |
+| Linux Operating Systems |  |
+| [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Network Connector deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/np-connector-26.56.9-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -397,13 +438,13 @@ Zscaler modifies HTTP headers for Browser Access applications in the following w
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-access-and-splunk-deployment-guide","lastmod":"2026-08-25T10:59Z","nid":"1485466"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-access-and-splunk-deployment-guide","lastmod":"2026-09-03T08:49Z","nid":"1485466"} -->
 ## Private Access and Splunk Deployment Guide
 
 - Source: https://help.zscaler.com/zpa/private-access-and-splunk-deployment-guide
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > SIEM Integration for LSS > Private Access and Splunk Deployment Guide
-- Last modified: 2026-08-25T10:59Z
+- Last modified: 2026-09-03T08:49Z
 - Summary: How to configure LSS and a Splunk SIEM so LSS can stream logs to Splunk.
 
 This deployment guide provides information on configuring Private Access (ZPA) and Splunk, downloading the Zscaler Splunk App and Zscaler Technical Add-On, the Zscaler Splunk App requirements, and how to add the log sources in the Splunk SIEM. To learn more about the Zscaler Splunk App, including instructions on how to integrate Internet & SaaS (ZIA) and Private Access, see [Zscaler and Splunk Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-splunk-deployment-guide).
@@ -447,7 +488,7 @@ To add the Zscaler LSS as a log source:
 
 1. In Splunk, go to **Manager**> **Data Inputs**.
 2. Click **Add new** next to **TCP**.
-3. On the **Add New** page, complete the following steps and repeat this for each Zscaler source type you'll add in Splunk: See image.
+3. On the **Add New** page, complete the following steps and repeat this for each Zscaler source type you'll add in Splunk:
   1. Specify the TCP port where the logs are received.
   2. For **Source Type**, choose the Zscaler source type from the source type list. To learn more, see Private Access Source Types.
   3. Click **More Settings** to expand the page.
@@ -456,8 +497,6 @@ To add the Zscaler LSS as a log source:
 4. Click **Save**.
 
 If you require further assistance after deployment, contact Zscaler Support.
-
-[Image: Adding Zscaler LSS as a log source in Splunk]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1213,13 +1252,13 @@ If necessary, egress traffic directions can be restricted to Private Access host
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-08-20T15:16Z","nid":"1507451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-09-04T13:30Z","nid":"1507451"} -->
 ## Private Cloud Controller Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Guide for Linux
-- Last modified: 2026-08-20T15:16Z
+- Last modified: 2026-09-04T13:30Z
 - Summary: How to deploy a Private Cloud Controller on Red Hat, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Cloud Controller on Red Hat Enterprise Linux 9.x, and post-deployment verification checks.
@@ -1699,14 +1738,14 @@ Determining fastest mirrors
 * updates: mirrors.cat.pdx.edu
 Resolving Dependencies
 --> Running transaction check
----> Package zpa-pcc.x86_64 0:26.56.5-1.el9 will be installed
+---> Package zpa-pcc.x86_64 0:26.56.9-1.el9 will be installed
 --> Finished Dependency Resolution
 Dependencies Resolved
 ================================================================================
 Package              Arch         Version             Repository         Size
 ================================================================================
 Installing:
-zpa-pcc     x86_64       26.56.5-1.el9       zscaler            1.1 M
+zpa-pcc     x86_64       26.56.9-1.el9       zscaler            1.1 M
 Transaction Summary
 ================================================================================
 Install 1 Package
@@ -1714,9 +1753,9 @@ Total download size: 1.1 M
 Installed size: 2.9 M
 Is this ok [y/d/N]: y
 Downloading packages:
-warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-pcc-26.56.5-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
-Public key for zpa-pcc-26.56.5-1.el9.x86_64.rpm is not installed
-zpa-pcc-26.56.5-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
+warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-pcc-26.56.9-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
+Public key for zpa-pcc-26.56.9-1.el9.x86_64.rpm is not installed
+zpa-pcc-26.56.9-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
 Retrieving key from https://yum.private.zscaler.com/gpg
 Importing GPG key 0x8765E1DD:
 Userid    : "Zscaler, Inc. (External Package Repository Signing Key) <ext-pkg-repo@zscaler.com>"
@@ -1728,10 +1767,10 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-Installing : zpa-pcc-26.56.5-1.el9.x86_64                          1/1
-Verifying  : zpa-pcc-26.56.5-1.el9.x86_64                           1/1
+Installing : zpa-pcc-26.56.9-1.el9.x86_64                          1/1
+Verifying  : zpa-pcc-26.56.9-1.el9.x86_64                           1/1
 Installed:
-zpa-pcc.x86_64 0:26.56.5-1.el9
+zpa-pcc.x86_64 0:26.56.9-1.el9
 Complete!
 ```
 
@@ -1746,7 +1785,7 @@ After the Private Cloud Controller provisioning key is applied, and you have mad
 If the Private Cloud Controller can't download the RPM package, you must download the package on a server:
 
 1. Download the following files on a server with access for Red Hat Enterprise Linux 9-based deployments:
-  - RPM package ([zpa-pcc.rpm](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.56.5-1.el9.x86_64.rpm))
+  - RPM package ([zpa-pcc.rpm](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.56.9-1.el9.x86_64.rpm))
   - GPG public key ([https://yum.private.zscaler.com/yum/el9/gpg](https://yum.private.zscaler.com/yum/el9/gpg))
 2. Use the scp command to copy the RPM package to the Private Cloud Controller, for example:
 
@@ -2701,13 +2740,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-08-26T09:28Z","nid":"1534308"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-09-04T13:53Z","nid":"1534308"} -->
 ## Private Cloud Controller Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Cloud Controller Release Notes > Private Cloud Controller Release Summary (2026)
-- Last modified: 2026-08-26T09:28Z
+- Last modified: 2026-09-04T13:53Z
 - Summary: Zscaler Private Access (ZPA) Private Cloud Controller release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Cloud Controller version.
@@ -2715,13 +2754,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-08-21T11:54Z","nid":"1519431"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-09-04T13:32Z","nid":"1519431"} -->
 ## Private Cloud Controller Software by Platform
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-software-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Software by Platform
-- Last modified: 2026-08-21T11:54Z
+- Last modified: 2026-09-04T13:32Z
 - Summary: The current Private Cloud Controller software downloads by platform.
 
 Private Cloud Controllers are supported on Linux operating systems. To learn more, see [Private Cloud Controller Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/business-continuity-management/private-cloud-controller-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -2737,7 +2776,7 @@ The following platform supports Private Cloud Controller software packages. Wher
 | [Google Cloud Platform](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-google-cloud-platform) | [Zscaler Private Access - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-cloud-controller?organizationId=143569286330) |
 | Microsoft Azure | [Zscaler Private Access - Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-cloud-controller) |
 | Linux Operating Systems |  |
-| [Private Cloud Controller Deployment Guide for Linux](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Private Cloud Controller deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.56.5-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
+| [Private Cloud Controller Deployment Guide for Linux](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Private Cloud Controller deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.56.9-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4256,13 +4295,13 @@ If necessary, egress traffic directions can be restricted to Private Access host
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-08-20T15:14Z","nid":"1484566"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-09-04T13:28Z","nid":"1484566"} -->
 ## Private Service Edge Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Linux
-- Last modified: 2026-08-20T15:14Z
+- Last modified: 2026-09-04T13:28Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux 9.x (and 8.x), and post-deployment verification checks.
@@ -4786,14 +4825,14 @@ Determining fastest mirrors
   * updates: mirrors.cat.pdx.edu
 Resolving Dependencies
 --> Running transaction check
----> Package zpa-service-edge.x86_64 0:26.56.5-1.el9 will be installed
+---> Package zpa-service-edge.x86_64 0:26.56.9-1.el9 will be installed
 --> Finished Dependency Resolution
 Dependencies Resolved
 ================================================================================
   Package              Arch         Version             Repository         Size
 ================================================================================
 Installing:
-  zpa-service-edge     x86_64       26.56.5-1.el9       zscaler            1.1 M
+  zpa-service-edge     x86_64       26.56.9-1.el9       zscaler            1.1 M
 Transaction Summary
 ================================================================================
 Install 1 Package
@@ -4802,9 +4841,9 @@ Installed size: 2.9 M
 Is this ok [y/d/N]:
 y
 Downloading packages:
-warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-service-edge-26.56.5-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
-Public key for zpa-service-edge-26.56.5-1.el9.x86_64.rpm is not installed
-zpa-service-edge-26.56.5-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
+warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-service-edge-26.56.9-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
+Public key for zpa-service-edge-26.56.9-1.el9.x86_64.rpm is not installed
+zpa-service-edge-26.56.9-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
 Retrieving key from https://yum.private.zscaler.com/gpg
 Importing GPG key 0x8765E1DD:
  Userid    : "Zscaler, Inc. (External Package Repository Signing Key) <ext-pkg-repo@zscaler.com>"
@@ -4816,10 +4855,10 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-  Installing : zpa-service-edge-26.56.5-1.el9.x86_64                          1/1
-  Verifying  : zpa-service-edge-26.56.5-1.el9.x86_64                           1/1
+  Installing : zpa-service-edge-26.56.9-1.el9.x86_64                          1/1
+  Verifying  : zpa-service-edge-26.56.9-1.el9.x86_64                           1/1
 Installed:
-  zpa-service-edge.x86_64 0:26.56.5-1.el9
+  zpa-service-edge.x86_64 0:26.56.9-1.el9
 Complete!
 ```
 
@@ -4831,16 +4870,16 @@ After the Private Service Edge provisioning key is applied, and you have made an
 
 1. Zscaler highly recommends [updating the Private Service Edge system software](https://help.zscaler.com/zpa/understanding-software-updates-private-access) before proceeding.
 
-Console outputs reference 26.56.5-1.el9 if you are using the Private Service Edge RPM for Red Hat Enterprise Linux 9-based deployments.
+Console outputs reference 26.56.9-1.el9 if you are using the Private Service Edge RPM for Red Hat Enterprise Linux 9-based deployments.
 
 If the Private Service Edge can't download the RPM package, you must download the package on a server:
 
 1. Download the following files on a server with access:
   - For Red Hat Enterprise Linux 8-based deployments:
-    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.56.5-1.el8.x86_64.rpm))
+    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.56.9-1.el8.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el8/gpg](https://yum.private.zscaler.com/yum/el8/gpg))
   - For Red Hat Enterprise Linux 9-based deployments:
-    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.56.5-1.el9.x86_64.rpm))
+    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.56.9-1.el9.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el9/gpg](https://yum.private.zscaler.com/yum/el9/gpg))
 2. Use the scp command to copy the RPM package to the Private Service Edge, for example:
 
@@ -6943,13 +6982,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-software-by-platform","lastmod":"2026-08-20T15:06Z","nid":"1485961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-software-by-platform","lastmod":"2026-09-04T11:12Z","nid":"1485961"} -->
 ## Private Service Edge Software by Platform
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Software by Platform
-- Last modified: 2026-08-20T15:06Z
+- Last modified: 2026-09-04T11:12Z
 - Summary: The current Private Service Edge for Private Access (ZPA) platform downloads links.
 
 Private Service Edges for Private Access (ZPA) are supported on [many different platforms](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms). Each supported platform has a Private Service Edge image you can use to deploy Private Service Edges on that platform. To learn more, see [Private Service Edge Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -6968,7 +7007,7 @@ The following platforms support Private Service Edge software packages. Where ap
 | Containers |  |
 | [Docker](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-docker) | [Docker Hub](https://hub.docker.com/r/zscaler/zpa-service-edge/tags?page=1&ordering=last_updated) |
 | Linux Operating Systems |  |
-| [Red Hat Enterprise Linux](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux) | The following RPM packages are supported on RHEL Private Service Edge deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.56.5-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.56.5-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
+| [Red Hat Enterprise Linux](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux) | The following RPM packages are supported on RHEL Private Service Edge deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.56.9-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.56.9-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7083,13 +7122,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2025","lastmod":"2026-08-25T08:35Z","nid":"1515686"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2025","lastmod":"2026-09-02T10:59Z","nid":"1515686"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2025
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-08-25T08:35Z
+- Last modified: 2026-09-02T10:59Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2025.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -7099,18 +7138,18 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-08-27T15:42Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-09-04T13:42Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-27T15:42Z
+- Last modified: 2026-09-04T13:42Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
-This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
+This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Admin Console. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
 
-When Zscaler cloud and Admin Portal updates are deploying, some functionality will not be available until the deployment process completes.
+When Zscaler cloud and the Zscaler Admin Console updates are deploying, some functionality will not be available until the deployment process completes.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9475,13 +9514,13 @@ If you use Okta as an IdP, then you have the option to dynamically create end us
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/step-step-configuration-guide-vpn-legacy-apps","lastmod":"2026-08-19T11:21Z","nid":"1529062"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/step-step-configuration-guide-vpn-legacy-apps","lastmod":"2026-09-02T21:06Z","nid":"1529062"} -->
 ## Step-by-Step Configuration Guide for VPN (for Legacy Apps)
 
 - Source: https://help.zscaler.com/zpa/step-step-configuration-guide-vpn-legacy-apps
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Step-by-Step Configuration Guide for VPN (for Legacy Apps)
-- Last modified: 2026-08-19T11:21Z
+- Last modified: 2026-09-02T21:06Z
 - Summary: A high-level overview of how to configure tasks for VPN (for Legacy Apps) in the Zscaler Admin Console.
 
 With VPN (for Legacy Apps), Private Access (ZPA) can natively support a secondary Layer 3 network-based VPN tunnel for applications and services (e.g., VoIP or server-to-client) that require Layer 3 IP-based connectivity consistent with its Zero Trust security architecture and inside-out connection. From a single client for users and a single console for IT administrators, you can migrate to Zero Trust Network Access (ZTNA) with Private Access and completely eliminate legacy VPNs. You can accelerate application modernization while retaining access for users during the transition.
@@ -9588,13 +9627,13 @@ Verify that users can successfully connect to the VPN Service Edge. To learn mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-08-14T10:36Z","nid":"1531938"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-09-01T10:30Z","nid":"1531938"} -->
 ## Supported Versions & OS Compatibility for Microsegmentation
 
 - Source: https://help.zscaler.com/zpa/supported-versions-os-compatibility-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Supported Versions & OS Compatibility for Microsegmentation
-- Last modified: 2026-08-14T10:36Z
+- Last modified: 2026-09-01T10:30Z
 - Summary: Information on version compatibility and operating systems that a user needs to deploy to use agents for Microsegmentation.
 
 To begin configuring [Microsegmentation policies](https://help.zscaler.com/zpa/about-microsegmentation-policies), you must first configure and deploy agents to your machine based on your OS.
@@ -11833,14 +11872,14 @@ After the Zscaler DNS Record Generator is installed, you can proceed to [create 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-anti-tamper-protection-microsegmentation","lastmod":"2026-07-13T12:22Z","nid":"1538752"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-anti-tamper-protection-microsegmentation","lastmod":"2026-09-04T07:23Z","nid":"1538752"} -->
 ## Understanding Anti-Tamper Protection for Microsegmentation
 
 - Source: https://help.zscaler.com/zpa/understanding-anti-tamper-protection-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Understanding Anti-Tamper Protection for Microsegmentation
-- Last modified: 2026-07-13T12:22Z
-- Summary: An article about anti-tamper agent protection for Microsegmentation in Private Access (ZPA).
+- Last modified: 2026-09-04T07:23Z
+- Summary: Information about anti-tamper agent protection for Microsegmentation.
 
 Agent version 1.12.2 is the minimum-supported version for the anti-tamper protection feature.
 
@@ -12617,23 +12656,23 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-certificates","lastmod":"2026-06-01T12:30Z","nid":"1484066"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-certificates","lastmod":"2026-09-02T17:00Z","nid":"1484066"} -->
 ## Understanding Certificates
 
 - Source: https://help.zscaler.com/zpa/understanding-certificates
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Certificate Management > Understanding Certificates
-- Last modified: 2026-06-01T12:30Z
+- Last modified: 2026-09-02T17:00Z
 - Summary: Information on enrollment and (web server) certificates within the Zscaler Admin Console.
 
 [Watch a video about Certificates](https://fast.wistia.net/embed/iframe/k9inmwljuz) (shows legacy UI).
 
 Within Private Access (ZPA), you must provide certificates for enrollment and for web servers, typically for Browser Access:
 
-- [Enrollment Certificates](https://help.zscaler.com/zpa/about-enrollment-ca-certificates): App Connectors, Private Service Edges, Private Cloud Controllers, and Zscaler Client Connector are issued certificates that are sent by an enrollment certificate. The enrollment certificate must be capable of acting as a certificate authority (CA). To learn more, see [About Enrollment Certificates](https://help.zscaler.com/zpa/about-enrollment-ca-certificates).
-- [Certificates](https://help.zscaler.com/zpa/about-web-server-certificates): A web server certificate that is used by Private Access to provide access to a web application, typically for Browser Access. If the web server certificate is signed by a public certificate authority (CA), then Private Access encrypts traffic using HTTPS. If the web server certificate is self-signed, or Private Access is unable to verify the chain of trust to the public CA, then HTTP is used. To learn more, see [About (Web Server) Certificates](https://help.zscaler.com/zpa/about-web-server-certificates).
+- **Enrollment Certificates**: App Connectors, Private Service Edges, Private Cloud Controllers, and Zscaler Client Connector are issued certificates that are sent by an enrollment certificate. The enrollment certificate must be capable of acting as a certificate authority. To learn more, see [About Enrollment Certificates](https://help.zscaler.com/zpa/about-enrollment-ca-certificates).
+- **Certificates**: A web server certificate that is used by Private Access to provide access to a web application, typically for Browser Access. If the web server certificate is signed by a public certificate authority, then Private Access encrypts traffic using HTTPS. If the web server certificate is self-signed, or Private Access is unable to verify the chain of trust to the public certificate authority, then HTTP is used. To learn more, see [About (Web Server) Certificates](https://help.zscaler.com/zpa/about-web-server-certificates).
 
-Enrollment and other certificates uploaded to Private Access must be encoded in PEM format.
+Enrollment certificates that are managed by Zscaler are read only and cannot be edited. Enrollment and other certificates uploaded to Private Access must be encoded in PEM format.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13107,13 +13146,13 @@ The applicability of the following log field format guidelines and recommendatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-manager-software","lastmod":"2026-06-04T07:25Z","nid":"1485136"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-manager-software","lastmod":"2026-09-04T14:35Z","nid":"1485136"} -->
 ## Understanding the Manager Software
 
 - Source: https://help.zscaler.com/zpa/understanding-manager-software
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Understanding the Manager Software
-- Last modified: 2026-06-04T07:25Z
+- Last modified: 2026-09-04T14:35Z
 - Summary: Information about the Manager software regarding App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors.
 
 This article provides information about the Manager software; details about the Manager version; details about the App Connector, Private Service Edge for Private Access (ZPA), Private Cloud Controller, and Network Connector software versions; and upgrades to all.
@@ -13142,7 +13181,7 @@ The Manager software is what makes the upgrades possible.
 - Private Cloud Controller Upgrades
 - Network Connector Upgrades
 
-App Connector upgrades mean upgrading the `zpa-connector-child` software. To learn more, see Understanding Software Updates in Private Access.
+App Connector upgrades mean upgrading the `zpa-connector-child` software. To learn more, see [Understanding Software Updates in Private Access](https://help.zscaler.com/zpa/understanding-software-updates-private-access).
 
 The Manager upgrades mean upgrading the `zpa-connector`, `zpa-service-edge,` `zpa-pcc`, or `np-connector` software. If you are using Linux software packages, the Manager software must be upgraded manually in the software component's console using the following command:
 
@@ -13180,11 +13219,11 @@ All commands include the upgrade of the Manager software.
 
 The Manager software is included in upgrades to the host operating system (OS). Zscaler recommends periodically updating the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector host OS using the `sudo yum update -y` command. To learn more, see [Updating the Host OS and Software Packages](https://help.zscaler.com/zpa/updating-host-os-and-software-packages).
 
-Private Cloud Controller upgrades mean upgrading the `zpa-pcc-child` software. To learn more, see Understanding Software Updates in Private Access.
+Private Cloud Controller upgrades mean upgrading the `zpa-pcc-child` software. To learn more, see [Understanding Software Updates in Private Access](https://help.zscaler.com/zpa/understanding-software-updates-private-access).
 
-Private Service Edge upgrades means upgrading the `zpa-service-edge-child` software. To learn more, see Understanding Software Updates in Private Access.
+Private Service Edge upgrades means upgrading the `zpa-service-edge-child` software. To learn more, see [Understanding Software Updates in Private Access](https://help.zscaler.com/zpa/understanding-software-updates-private-access).
 
-Network Connector upgrades means upgrading the `np-connector-child` software. To learn more, see Understanding Software Updates in Private Access.
+Network Connector upgrades means upgrading the `np-connector-child` software. To learn more, see [Understanding Software Updates in Private Access](https://help.zscaler.com/zpa/understanding-software-updates-private-access).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13252,6 +13291,99 @@ Private Access VM images automatically have OAuth 2.0 enabled, with the exceptio
 The OAuth server only supports IPv4-based communication. If a software component only has an IPv6 address, it cannot access the OAuth server.
 
 To use OAuth 2.0, the OAuth server FQDN `zpa-oauth.private.zscaler.com` must be allowlisted, and user devices must be allowed to make an outbound connection to the`zpa-oauth.private.zscaler.com` server. Refer to [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud) for the IP address to add to the allowlist.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-policies","lastmod":"2026-09-01T14:09Z","nid":"1483496"} -->
+## Understanding Policies
+
+- Source: https://help.zscaler.com/zpa/understanding-policies
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Policies > Understanding Policies
+- Last modified: 2026-09-01T14:09Z
+- Summary: Information on policies and policy evaluation order for Private Access (ZPA).
+
+Users cannot access any internal applications you've configured for Private Access (ZPA), regardless of whether you [explicitly define your applications](https://help.zscaler.com/zpa/about-application-access#AboutApplicationDefinitions) or [enable application discovery](https://help.zscaler.com/zpa/about-application-discovery), until you configure policies for them. If you are using the Log Streaming Service (LSS), you can also configure log streaming policies for information captured by a log receiver. To learn more, see [Configuring a Log Receiver](https://help.zscaler.com/zpa/configuring-log-receiver#Step2).
+
+Private Access uses the Name Identifier (NameID) within a SAML assertion for [IdP configuration](https://help.zscaler.com/zpa/about-idps) and authentication. Using NameID as a SAML attribute within access and timeout policy rules is not supported.
+
+However, you can use the value associated with NameID within your policy rule criteria by explicitly defining a user attribute (e.g., Email Address, User Name, etc.). In your IdP's SAML assertion, the user attribute can use the same value, and then you can include this attribute in your policy rule criteria.
+
+- See example SAML JSON
+
+Private Access allows you to apply the following policies to your organization:
+
+- Access Policy: Access policy rules enable you to implement role-based access control. This allows you to define rules that determine who has access to an application. To learn more, see [About Access Policy](https://help.zscaler.com/zpa/about-access-policy). To view examples of how an organization can configure access policy rules for a variety of scenarios, see [Access Policy Configuration Examples](https://help.zscaler.com/zpa/access-policy-configuration-examples).
+- AppProtection Policy: AppProtection policy rules allow you to create rules that define when application requests need to go through an AppProtection control. To learn more, see [About AppProtection Policy](https://help.zscaler.com/zpa/about-appprotection-policy).
+- Browser Protection Policy: Browser Protection policy rules allow you to create rules that define Browser Protection requests for Browser Protection profiles. To learn more, see [About Browser Protection Policy](https://help.zscaler.com/zpa/about-browser-protection-policy).
+- Client Forwarding Policy: Client forwarding policy rules allow you to create rules that define when application requests are forwarded to Private Access from the Zscaler Client Connector. To learn more, see [About Client Forwarding Policy](https://help.zscaler.com/zpa/about-client-forwarding-policy).
+- Isolation Policy: Isolation policy rules allow you to create rules that define what isolation profiles to use or bypass. To learn more, see [About Isolation Policy](https://help.zscaler.com/zpa/about-isolation-policy).
+- Privileged Remote Access (PRA) policies: Privileged Remote Access (PRA) policies consist of privileged credentials policies and consoles policies. Privileged credentials policy rules allow you to assign privileged consoles to include designated credentials. To learn more, see [About Privileged Credentials Policy](https://help.zscaler.com/zpa/about-privileged-credentials-policy). consoles policy rules allow you to set permissions for File Transfer, Clipboard, and Session Recording features. To learn more, see [About Consoles Policy](https://help.zscaler.com/zpa/about-privileged-capabilities-policy).
+- Timeout Policy: Timeout policy rules allow you to create granular rules that control authentication timeout and idle connection timeout settings. To learn more, see [About Timeout Policy](https://help.zscaler.com/zpa/about-timeout-policy).
+- Redirection Policy: Redirection policy rules allow you to set criteria for preferring Private Service Edges for Private Access over Public Service Edges for Private Access. To learn more, see [About Redirection Policy](https://help.zscaler.com/zpa/about-redirection-policy).
+
+## Policy Evaluation Order
+
+Private Access evaluates policy rules using the most specific application segment and a top-down, first-match principle. For example, when a user requests a specific application, Private Access starts evaluating all of your configured policies, starting with the first rule in a set of policy rules. As soon as it finds a policy that matches the criteria that was specified in a rule, it enforces that policy rule and disregards all other rules that follow, including any potentially conflicting rules.
+
+Private Access evaluates policy rules in the following order:
+
+1. When the application request is received, Private Access first tries to identify the rule that matches the criteria. If application segments are part of the criteria, then Private Access chooses the rule corresponding to the most specific application segment for a given domain name or IP address.
+2. Private Access evaluates your policy rules and executes the specified action for the rule. Within a set of policy rules, if none of the policy rules apply, then the following applies:
+
+- For access policy, access to the application is implicitly set to Block Access. This is also the case if you do not define any policy rules at all within the Zscaler Admin Console. To learn more, see [About Access Policy](https://help.zscaler.com/zpa/about-access-policy).
+- For timeout policy, Private Access applies the default timeout policy rule. To learn more, see [About Timeout Policy](https://help.zscaler.com/zpa/about-timeout-policies).
+- For client forwarding policy, access to the application is implicitly set to Forward to Private Access. This is also the case if you do not define any policy rules at all within the Zscaler Admin Console. To learn more, see [About Client Forwarding Policy](https://help.zscaler.com/zpa/about-client-forwarding-policy).
+- For isolation policy, Private Access applies the default isolation policy rule. To learn more, see [About Isolation Policy](https://help.zscaler.com/zpa/about-isolation-policy).
+
+These policy evaluation order guidelines apply in the following scenarios:
+
+- Conflicting Access Policy Rules
+- Conflicting Access Policy Rules with Segment Groups
+
+Private Access evaluates policy rules using the most specific application segment and a top-down, first-match principle for Default [Microtenants](https://help.zscaler.com/zpa/about-microtenants), and then evaluates the most specific application segment for a custom Microtenant. However, some caveats apply:
+
+- If you are a user within the Default Microtenant attempting to access an application segment within the Default Microtenant, Private Access evaluates access policies, timeout policies, and client forwarding policies using the most specific application segment that is within the Default Microtenant.
+- If you are a user within a custom Microtenantattempting to access an application segment within a custom Microtenant, Private Access evaluates access policies, timeout policies, and client forwarding policies using the most specific application segment that is within the custom Microtenant.
+- If you are a user within a custom Microtenant attempting to access an application segment within the Default Microtenant, Private Access evaluates the Default Microtenant first. If there is no match, Private Access evaluates the access policy, timeout policy, client forwarding policy within the custom Microtenant.
+- If you are a user within a custom Microtenant, Private Access evaluates redirection policies for only the custom Microtenant you are within. If you are a user within the Default Microtenant, Private Access evaluates redirection policies only for the Default Microtenant.
+
+- An organization configures an access policy rule that allows all applications for the "Marketing Dept."
+
+See image.
+
+- The organization also configures a policy that denies the "Operations Apps" segment group to the "Marketing Dept."
+
+See image.
+
+In this scenario, even if the organization configured the latter policy denying the "Operations App" segment group to the "Marketing Dept," users from "Marketing Dept" still have access to the "Operations Apps" segment group. When a user from the "Marketing Dept" requests an application from the "Operations App" segment group, Private Access first checks the access policy rules and finds the policy rule allowing Marketing users access to any application. It then applies that access policy rule and immediately stops checking any other policies, because a matching policy was found for the user.
+
+[Image: Add Access Policy with SAML Attributes defined]
+
+[Image: Add Access Policy with Block Access]
+
+- An organization configures an access policy rule that allows access to any application for any user.
+- It temporarily wants to block the "Sales" group from accessing any applications, so it configures an additional access policy rule denying them access.
+
+See image.
+
+In this scenario, users in the "Sales" group are not blocked from accessing any applications because these users match the first policy rule, which allows any users access to any applications. Private Access applies that first access policy rule and disregards the second policy rule. To resolve this issue, the order of the access policy rules must be modified so that the policy rule blocking the "Sales" group comes before the policy rule allowing any users access to any applications.
+
+[Image: Access Policy page with rules displayed in table]
+
+```
+{
+"nameid": "jane.doe@example.com"
+"orgid": "86753098675309696"
+"saml_attributes": {
+    "Group": "ZPA-users",
+    "First Name": "Jane",
+    "Last Name": "Doe",
+    "Email Address": "jane.doe@example.com"
+   }
+}
+```
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14224,6 +14356,52 @@ App Connectors are licensed so that Zscaler can periodically update their softwa
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-traffic-flow-vpn-legacy-apps-log-fields","lastmod":"2026-09-01T22:53Z","nid":"1538714"} -->
+## Understanding Traffic Flow for VPN (for Legacy Apps) Log Fields
+
+- Source: https://help.zscaler.com/zpa/understanding-traffic-flow-vpn-legacy-apps-log-fields
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding Traffic Flow for VPN (for Legacy Apps) Log Fields
+- Last modified: 2026-09-01T22:53Z
+- Summary: Information on the various Traffic Flow log fields captured by Log Streaming Service (LSS) log receivers.
+
+The Log Streaming Service (LSS) can send Traffic Flow VPN log information to any third-party log analytics tool. By default, the Traffic Flow VPN log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
+
+- View a Traffic Flow log fields example.
+
+The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
+
+| Field | Description | Supported Field Format Specifications |
+| --- | --- | --- |
+| LogTimestamp | The timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
+| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| SessionID | The unique ID assigned to traffic flow | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ConnectionID | The unique identifier for the user connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| SessionState | The state of the traffic flow session (e.g., open or closed) | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Version | The VPN Service Edge version | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNServiceEdge | The VPN Service Edge used for the traffic | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| CertificateCN | The Common Name component of the SSL/TLS certificate for identifying the primary identity | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Username | The username entered in Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Hostname | The name of the device reported by Zscaler Client Connector. This field only provides valid values for Zscaler Client Connector and machine tunnel client types. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Protocol | The L4 protocol number per IANA standards | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| SourceIP | The source IP address used in the connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| SourcePort | The source port used in the connection | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| DestinationIP | The destination IP address used in the connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| DestinationPort | The destination port used in the connection | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| FlowStartTime | The time when the traffic flow started | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| FlowEndTime | The time when the traffic flow ended | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| BytesReceivedTotal | The total bytes of data received during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| BytesSentTotal | The total bytes of data sent during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| PacketsReceivedTotal | The number of data packets received during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| PacketsSentTotal | The number of data packets sent during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+
+```
+{"LogTimestamp": "Mon Mar 23 15:31:19 2026","Customer": "VishnuVarshitha Automation1","SessionID": "40","ConnectionID": "acLgpN9es0LZAylRPHWe","SessionState": "close","Version": "26.54.0-PR-13494-6-g484d548ee1","VPNServiceEdge": "varshitha txnVisibilty 1","CertificateCN": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc7@vishnu1.uk","Username": "user1@vishnu1.uk","Hostname": "Disabled","Protocol": 6,"SourceIP": "50.50.50.1","SourcePort": 56673,"DestinationIP": "10.18.9.184","DestinationPort": 3020,"FlowStartTime": "2026-03-23T15:30:03.340Z","FlowEndTime": "2026-03-23T15:31:07.005Z","BytesReceivedTotal": 240,"BytesSentTotal": 240,"PacketsReceivedTotal": 4,"PacketsSentTotal": 4}
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zpa/understanding-user-activity-log-fields","lastmod":"2026-07-17T16:22Z","nid":"1483961"} -->
 ## Understanding User Activity Log Fields
 
@@ -14382,6 +14560,88 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields","lastmod":"2026-09-02T08:08Z","nid":"1538669"} -->
+## Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields
+
+- Source: https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields
+- Last modified: 2026-09-02T08:08Z
+- Summary: Information on the various User Status -VPN Service Edge log fields captured by Log Streaming Service (LSS) log receivers.
+
+The Log Streaming Service (LSS) can send User Status - VPN Service Edge (IP Address Reservation) log information to any third-party log analytics tool. By default, the User Status - VPN Service Edge (IP Address Reservation) log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
+
+You can use the shared `ConnectionID` key field to merge user status logs produced by both User Status - VPN Service Edge (IP Address Reservation) and [VPN Service Edge](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-log-fields). This common identifier enables SIEM servers to effectively link, correlate, and integrate the data from both sources.
+
+- View a User Status - VPN Service Edge (IP Address Reservation) log example.
+
+The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
+
+| Field | Description | Supported Field Format Specifications |
+| --- | --- | --- |
+| LogTimestamp | Timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
+| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Username | The username entered in Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Hostname | The name of the device reported by Zscaler Client Connector. This field only provides valid values for Zscaler Client Connector and machine tunnel client types. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ConnectionID | The unique identifier for the user connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| StatusCode | The status code of the VPN IP reservation transaction: Success; Error_bad_request; Error_no_gateway_available; Error_no_ip_available; Error_service_not_available; Error_stale_connection; Error_service_disabled | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Version | The VPN Service Edge version | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Result | The VPN IP reservation attempt result: Success; Error | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ZPAServiceEdge | The Private Access (ZPA) Service Edge the user is connected to | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNServiceEdge | The VPN Service Edge the assigned VPN client subnet belongs to | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| CertificateCN | The certificate name of the user | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNClientIP | The VPN client's IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Action | The action on the transaction: Reserve; Promote; Release; Expire; Free; Invalidate | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNClientSubnet | The VPN client's subnet | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+
+```
+{"LogTimestamp": "Mon Mar 23 15:30:43 2026","Customer": "VishnuVarshitha Automation1","Username": "user1@vishnu1.uk","Hostname": "Disabled","ConnectionID": "acLgpN9es0LZAylRPHWe","StatusCode": "success","Version": "26.54.0-PR-13494-6-g484d548ee1-035","Result": "success","ZPAServiceEdge": "broker-np-cte-1a.pdx12.dev.zpath.net","VPNServiceEdge": "varshitha txnVisibilty 1","CertificateCN": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc7@vishnu1.uk","VPNClientIP": "50.50.50.1","Action": "reserve","VPNClientSubnet": "50.50.50.0/24"}
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-log-fields","lastmod":"2026-09-01T22:53Z","nid":"1538713"} -->
+## Understanding User Status - VPN Service Edge Log Fields
+
+- Source: https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-log-fields
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status - VPN Service Edge Log Fields
+- Last modified: 2026-09-01T22:53Z
+- Summary: Information on the various User Status - VPN Service Edge log fields captured by Log Streaming Service (LSS) log receivers.
+
+The Log Streaming Service (LSS) can send User Status - VPN Service Edge log information to any third-party log analytics tool. By default, the User Status - VPN Service Edge log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
+
+You can use the shared `ConnectionID` key field to merge user status logs produced by both VPN Service Edge and [VPN Service Edge (IP Address Reservation)](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields). This common identifier enables SIEM servers to effectively link, correlate, and integrate the data from both sources.
+
+- View a User Status - VPN Service Edge log example.
+
+The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
+
+| Field | Description | Supported Field Format Specifications |
+| --- | --- | --- |
+| LogTimestamp | The timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
+| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNState | The status of the VPN connection: Connecting; Connected; Disconnected | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Version | The VPN Service Edge version | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Hostname | The name of the device reported by Zscaler Client Connector. This field only provides valid values for Zscaler Client Connector and machine tunnel client types. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ConnectionID | The unique identifier for the user connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNServiceEdge | The VPN Service Edge used for the traffic | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| CertificateCN | The Common Name component of the SSL/TLS certificate for identifying the primary identity | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNClientIP | The client's VPN IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ClientPublicIP | The client's public IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ClientPort | The port number for the client | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| LatestHandshakeTime | The latest handshake time | %[OPT]s; %[OPT]j; %[OPT]J |
+| BytesReceivedTotal | The total bytes of data received during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| BytesSentTotal | The total bytes of data sent during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+
+```
+{"LogTimestamp": "Mon Mar 23 15:01:49 2026","Customer": "VishnuVarshitha Automation1","ConnectionID": "4+QuTvrVsfUHHds3km5z","VPNState": "connected","Version": "26.54.0-PR-13494-6-g484d548ee1","VPNServiceEdge": "varshitha txnVisibilty 1","CertificateCN": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc7@vishnu1.uk","Hostname": "","VPNClientIP": "50.50.50.1","ClientPublicIP": "199.168.150.161","ClientPort": 36196,"LatestHandshakeTime": "2026-03-23T14:59:39.000Z","BytesReceivedTotal": 24480,"BytesSentTotal": 28720}
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zpa/understanding-zpa-appliances","lastmod":"2026-06-29T07:06Z","nid":"1540960"} -->
 ## Understanding ZPA Appliances
 
@@ -14434,13 +14694,13 @@ Zero trust network access (ZTNA), also known as the software-defined perimeter (
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/updating-host-os-and-software-packages","lastmod":"2026-08-25T13:43Z","nid":"1484916"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/updating-host-os-and-software-packages","lastmod":"2026-09-04T15:32Z","nid":"1484916"} -->
 ## Updating the Host OS and Software Packages
 
 - Source: https://help.zscaler.com/zpa/updating-host-os-and-software-packages
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Updates > Updating the Host OS and Software Packages
-- Last modified: 2026-08-25T13:43Z
+- Last modified: 2026-09-04T15:32Z
 - Summary: How to upgrade the App Connector, Private Service Edge for Private Access (ZPA), Private Cloud Controller, and Network Connector host operating system (OS).
 
 Software components are licensed so that Zscaler can periodically update their software. However, updates to the host operating system (OS) and software packages are the organization's responsibility. Zscaler ensures that the virtual machine software is the latest version. Software components refer to App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors. The software component is designed to be compatible with updates to the host OS. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components).
@@ -14489,7 +14749,7 @@ For host OS and software package updates, choose the component you want to updat
 
 1. (Optional) Disable the App Connector you want to update. When you disable the App Connector in the Zscaler Admin Console prior to stopping the service and updating, Private Access no longer routes new connections through the component and existing connections will continue through to their conclusion. If you stop the service without first disabling the App Connector and allowing traffic to drain, it results in forced connection resets for users connected through that App Connector.
   1. Log in to the Zscaler Admin Console.
-  2. Go to **Infrastructure** > **Private Access** > **Component**>**App Connectors**.
+  2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access** >**Private Infrastructure** > **App Connectors**.
   3. Click the **Edit** icon for the App Connector you want to update.
   4. Select **Disabled** under **Status** to disable the individual App Connector in the group. See image.
   5. Access the [App Connector Status](https://help.zscaler.com/zpa/about-connector-diagnostics) log type in the Zscaler Admin Console to view the list of currently active App Connectors to make sure any existing or long-lived critical transactions have ended or stopped.
@@ -14536,7 +14796,7 @@ See image.
 
 1. (Optional) Disable the Private Service Edge you want to update.
   1. Log in to the Zscaler Admin Console.
-  2. Go to **Infrastructure** > **Private Access** > **Component** > **Private Service Edges**.
+  2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access** > **Private Infrastructure** > **Private Service Edges**.
   3. Click the **Edit** icon for the Private Service Edge that you want to update.
   4. Select **Disabled** under **Status** to disable the individual Private Service Edge in the group. See image.
   5. Access the [Private Service Edge Status log type](https://help.zscaler.com/zpa/accessing-zpa-service-edge-status-diagnostics) in the Zscaler Admin Console to view the list of currently active Private Service Edges to make sure any existing or long-lived critical transactions have ended or stopped.
@@ -14583,7 +14843,7 @@ See image.
 
 1. (Optional) Disable the Private Cloud Controller you want to update.
   1. Log in to the Zscaler Admin Console.
-  2. Go to **Infrastructure** > **Private Access** > **Business Continuity** > **Private Cloud Controllers**.
+  2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Business Continuity** > **Private Cloud Controllers**.
   3. Click the **Edit** icon for the Private Cloud Controller that you want to update.
   4. Select **Disabled** under **Status** to disable the individual Private Cloud Controller in the group. See image.
   5. Access the [Private Cloud Controller Status log type](https://help.zscaler.com/zpa/accessing-private-cloud-controller-status-diagnostics) in the Zscaler Admin Console to view the list of currently active Private Cloud Controllers to make sure any existing or long-lived critical transactions have ended or stopped.
@@ -14642,7 +14902,7 @@ See image.
 
 1. (Optional) Disable the Network Connector you want to update.
   1. Log in to the Zscaler Admin Console.
-  2. Go to **Infrastructure** > **Private Access** > **Component**>**Network Connectors**.
+  2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access** > **VPN (for Legacy Apps)** > **Network Connectors**.
   3. Click the **Edit** icon for the Network Connector you want to update.
   4. Select **Disabled** under **Status** to disable the individual Network Connector in the group. See image.
   5. Access the [Network Connector Status](https://help.zscaler.com/zpa/about-vpn-support-information) log type in the Zscaler Admin Console to view the list of currently active Network Connectors to make sure any existing or long-lived critical transactions have ended or stopped.
@@ -16319,557 +16579,4 @@ For each widget, you can search by entering part or all of a Public Service Edge
 
 - Let's say there is App Connector group 1, which contains App Connectors A and B, and then App Connector group 2, which contains App Connectors C and D.
 - If App Connector group 1 and App Connector C are selected, the dashboard shows App Connectors A, B, and C, rather than showing no App Connectors because C is not part of App Connector group 1.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-and-user-group-relationships","lastmod":"2026-04-17T07:06Z","nid":"1530860"} -->
-## Viewing Application and User Group Relationships
-
-- Source: https://help.zscaler.com/zpa/viewing-application-and-user-group-relationships
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application and User Group Relationships
-- Last modified: 2026-04-17T07:06Z
-- Summary: Information on the Application and User Group Relationships Report and its granular details.
-
-Application and User Group Relationships provides you with interactive and actionable insights on the usage of application segments and segment groups by user groups. To help you design better policy, you can gain insights into the relationships of the application and user groups to ensure [least privileged access](https://www.zscaler.com/resources/security-terms-glossary/what-is-least-privilege-access), a central tenet of Zscaler's Zero Trust Network Access (ZTNA).
-
-The Application and User Group Relationship insights are provided for the following items:
-
-- Application Segments
-  - The application segments accessed by user groups.
-  - The user groups accessing the application segments.
-- Segment Groups
-  - The segment groups accessed by user groups.
-  - The user groups accessing the segment groups.
-
-Items include application segments, segment groups, and user groups.
-
-See image.
-
-## Application and User Group Relationships Report
-
-Use the Application and User Group Relationships page (Logs > Insights > Usage > Application and User Group Relationships) to view the usage between applications and user groups.
-
-The report consists of the following information:
-
-- **Top Items**: Displays the top items as segment groups, application segments, or user groups with the total number. This automatically updates based on the selection filter and exclusion criteria from the Settings drawer.
-- **Current Report Information**: Displays the current report information based on when it was last updated. See image.
-- **Launch Tour**: Displays a series of guided steps to interact with the Application and User Group Relationships page.
-- **Run Report**: Generate the report to include data from the selected time range. In the time range drop-down menu, you can select a preset range (e.g., **14 Days** or **30 Days**). By default, the time range of the report is set to **14 Days**. The report automatically expires after 90 days. You cannot run the report if there is no more data to add when the report was recently updated. Run Report is disabled for 72 hours before and after 12:00 AM on the first Saturday of every month due to scheduled automatic reports. You cannot manually generate a report during this time. Additionally, customers with the Segmentation Add-On feature can generate one report per day, and customers without the feature can generate one report every 90 days. See image.
-- **Settings**: Customize your page view between Application Segments or Segment Groups. The default is set to Application Segments. You can opt to exclude items.
-- **Download**: Download a CSV file for your list of items. Click **Download** and select one of the following reports:
-  - **Full Report**: Click **Full Report** to open the **Download CSV File** window. In the **Download CSV File** window, you can access the following report views:
-    - **Detailed**: The detailed report includes details about segment groups, application segments, applications (including FQDN, port, protocol, application type, and discovered applications), access policy rule, and user groups and users who have accessed the applications and application segments. Only customers with the Segmentation Add-On can generate detailed report views for the last 6 reports (i.e., 180 days). See image.
-    - **Summary**: The summary report includes application types, application segments, segment groups, and the count of users and user groups. See image.
-  - **Filtered Report**: The filtered report includes details about segment groups, application segments, applications (including FQDN, port, protocol, and application type), access policy rules, and user groups and users who have accessed the applications and application segments for the filtered application segments.
-- **View Filter**: Alternate the view of your page between Application Segments or Segment Groups and User Groups.
-
-The report displays the following graphical representations of the relationship between applications and user groups:
-
-- **Sunburst Chart**: Displays a hierarchical graphical representation of the top items (up to 10) based on selection and view. You can select parts of the sunburst chart to drill down for granular details.
-- **List of Items**: Displays the top items based on selection and shows the total count between applications and user groups. The list shows: Your list varies and updates accordingly based on your Settings, View Filter, and Selection Filter. For example, if you select Application Segments in your Settings and User Groups in your View Filter, then your list shows User Groups, Application Segments, and Users Accessed.
-  - **Application Segments** or **Segment Groups**: The names of the application segments or segment groups.
-  - **User Groups**: The names of the user groups.
-  - **Users Accessed**: The number of users accessing the application (i.e., application segment or segment group).
-  - **Application Types**: The type of application (e.g., **RDP**, **SSH**, **Microsoft SQL**) based on standard ports and protocols. If ports for an application can't be classified, then the application type appears as **Unknown**. Applications can be classified as **Unknown**for up to 14 days until a proper classification occurs.
-
-See image.
-
-## Customizing the Application and User Group Relationships Page
-
-Zscaler recommends starting with Customize Your View from the Settings drawer to decide what information you want to analyze: Application Segments or Segment Groups.
-
-There are multiple ways to customize the Application and User Group Relationships page:
-
-- Settings
-- Selection with the Sunburst Chart
-- Alternate Your View
-- Select
-- Exclude
-- Reset
-
-## Viewing Item Details
-
-The Application and User Group Relationships page allows you to display item details in a granular view.
-
-You can click a specific row to open a drawer containing its details.
-
-See image.
-
-You can customize your view to display or exclude application segments or segment groups. To change your view settings:
-
-1. On the **Application and User Group Relationships** page, click **Settings**(). The **Settings** drawer appears. See image.
-2. In the **Settings**drawer, under **Customize Your View**, select **Application Segments** or **Segment Groups**. The default is **Application Segments**.
-3. In the **Exclude**section, you can exclude specific items depending on what you selected: Excluding multiple items uses the OR logic.
-  - Application Segments or Segment Groups
-  - User Groups
-  - Branch and Cloud Connector access policy rules The option to exclude Branch and Cloud Connector access policy rules is supported only for Application Segments.
-4. For **Maximum number of reports to retain**, select the maximum number of reports to retain (e.g., **4**, **5**, or **6**). Older reports are deleted. The option to retain the maximum number of reports is supported only for Application Segments.
-5. In the Include section, you can include specific items depending on what you selected:
-  - **SCIM Attribute**: Select the SCIM attribute value from the drop-down menu.
-  - **SAML Attribute**: Select the SAML attribute value from the drop-down menu.
-6. Click **Save**.
-
-Your page is updated based on your selections to view Application Segments or Segment Groups and to exclude the specified items.
-
-You can interact with the sunburst chart to view multiple levels of the relationship between the application and user group. The levels are displayed as follows:
-
-- 1st Level: Displays the relationship between the top items and what each individual item is. Up to 10 items are displayed. For example, the top 7 application segments are displayed as a continuous, inner ring and the outer ring displays what those 7 application segments are. Click the inner ring to display the next hierarchy level. See image.
-  - Inner Ring: Displays the top items as a continuous ring.
-  - Outer Ring: Displays top items currently associated with the inner ring (e.g., application segments, segment groups, user groups).
-- 2nd Level: Displays the relationship between the subsequent items and their associated items. Click one of the parts on the inner ring to select the item to display on the next hierarchy level. See image.
-  - Inner Ring: Displays the subsequent items from the previous level.
-  - Outer Ring: Displays the related items to the subsequent items.
-  - You can also:
-    - Hover over an item part and click to exclude it.
-    - Click the **Back**icon () to return to the previous level.
-- 3rd Level: Displays the last level of the hierarchical data between the selected item and who accessed it. By selecting an item in the 3rd level of hierarchical data, the display switches your view to that item type (e.g., Application Segments > User Groups, User Groups > Application Segments). See image.
-
-If there are more than 10 items for the top inner ring or if you exclude items, then the remaining items are displayed as Others in the sunburst chart.
-
-See image.
-
-You can alternate between viewing Application Segments or Segment Groups (based on your Settings) and User Groups.
-
-See image.
-
-You can reset from the following sections:
-
-- Settings: Clear all exclusions and then click **Save** to reset all items. See image.
-- Sunburst chart: Click the **Back**icon () to return to the previous level of the chart.
-- Reset: Next to the selection filter, click the **Reset**icon () to return to the default view.
-
-Select your items to include what you want displayed.
-
-A maximum of 10 items can be selected.
-
-See image.
-
-You can exclude items from:
-
-- Settings: Select items to exclude. See image.
-- Sunburst chart: If you click an individual item in the inner ring, you can exclude it from display. See image.
-
-If you exclude items, then the sunburst chart, selection filter, and list adjust accordingly.
-
-[Image: Top Items - 1st Level]
-
-[Image: Application Segments and User Groups]
-
-[Image: Selected Application Segment and User Group]
-
-[Image: Application Segment Settings in the Application and User Group Relationships Page]
-
-[Image: Settings for Segment Groups]
-
-[Image: Clear All]
-
-[Image: Selection Filter]
-
-[Image: Exclude Items in Settings Drawer]
-
-[Image: Exclude Item from Sunburst Chart]
-
-[Image: Sunburst Chart]
-
-[Image: Specific Item Details]
-
-[Image: Using the Application and User Group Relationships Insights]
-
-[Image: Application and User Group Relationship]
-
-[Image: Report Information]
-
-[Image: Run Report]
-
-[Image: Selected Application Segments View]
-
-[Image: Selected Segment Groups View]
-
-[Image: Detailed Report View within the Download CSV File window in the Zscaler Admin Console]
-
-[Image: Summary Report View within the Download CSV File window in the Zscaler Admin Console]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-map","lastmod":"2026-02-24T06:06Z","nid":"1534383"} -->
-## Viewing the Application Map
-
-- Source: https://help.zscaler.com/zpa/viewing-application-map
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Application Map
-- Last modified: 2026-02-24T06:06Z
-- Summary: How to view the Application Map for Microsegmentation in the ZPA Admin Portal.
-
-The Application Map provides graphed visualizations of network data in your organization. It gives a high-level view of how resource groups and their connected resources are performing, and allows the option to view granular details for each widget of information.
-
-To view the Application Map, go to **Microsegmentation** > **Dashboard** > **Application Map**.
-
-[Image: A GIF of the Network Viz dashboard.]
-
-## Dashboard Tools
-
-The Application Map dashboard displays the following information and functionality:
-
-- Use your mouse to zoom in or out of the graph and rearrange the graph widgets.
-- Filter the results to find detailed information for a specific Resource Group, VPC/VNET, or Public Internet.
-- Click a managed Resource Group widget to open the drawer of its full details:
-  - **General Information**
-    - Name
-    - Type
-    - Description
-    - Member Count
-    - Static Membership
-    - Dynamic Membership
-  - **Member Resources**
-    - Resource Name
-    - AppZones
-- Click an unmanaged Resource Group to open the drawer of its full details:
-  - **General Information**
-    - Name
-    - Type
-    - Description
-    - CIDRs
-    - IP Ranges
-- Click a Public Internet to open the drawer of its full details:
-  - IP Address
-  - Direction
-  - Count
-- Click a VPC/VNET to open the drawer of its full details:
-  - Cloud
-  - Subnets
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage","lastmod":"2026-04-21T16:16Z","nid":"1531128"} -->
-## Viewing Application Segments Usage
-
-- Source: https://help.zscaler.com/zpa/viewing-application-segments-usage
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application Segments Usage
-- Last modified: 2026-04-21T16:16Z
-- Summary: Viewing and understanding the application usage by users and groups in the Application Segments Usage page.
-
-Application Segments Usage insights provide visibility into which application segments are being actively used or not. These insights can help you assess and determine unused application segments for improvement consideration. The Application Segments Usage insights provide:
-
-- A distribution of users and their associated application segments.
-- Most used application segments.
-- Least used application segments.
-
-See image.
-
-[Image: Application Segments Usage page]
-
-## Application Segments Usage Report
-
-The Application Segments Usage Report contains the following information:
-
-- The number of application segments applied to a percentage distribution of users. This includes: The distribution of users is calculated based on the number of unique users (must be more than zero users) against each application segment. Then the distribution categorizes the users into 1 of 10 percentage bars based on their usage of the application segment. Each bar indicates a tenth percentage of application segments based on usage. You can click a bar to view application segment usage data based on that user group. The percentage is rounded to the nearest whole number.
-  - **Most Used Application Segments**: Displays the number of most used application segments.
-  - **Unused Application Segments**: Displays the number of unused application segments.
-- **Current Report Information**: Displays the current report information based on when it was last updated. See image.
-- **Launch Tour**: Launches a series of guided steps on how to interact with the Application Segments Usage page.
-- **Run Report**: Generates the report to include data from the selected time range. In the time range drop-down menu, you can select a preset range (e.g., **14 Days** or **30 Days**). By default, the time range of the report is set to **14 Days**. The report automatically expires after 90 days. You cannot run the report if there is no more data to add when the report was recently updated. Run Report is disabled for 72 hours before and after 12:00 AM on the first Saturday of every month due to scheduled automatic reports. You cannot manually generate a report during this time. Additionally, customers with the Segmentation Add-On feature can generate one report per day, and customers without the feature can generate one report every 90 days. See image.
-
-[Image: Viewing the Current Report Information in the Application Segment Usage Insights page]
-
-See image.
-
-[Image: Run a report on the Application Segments Usage insights page]
-
-[Image: Application Segment Usage report information]
-
-## Application Segments Usage Chart and Table
-
-The Application Segments Usage page consists of two charts:
-
-- Usage
-- Discovered Host Count
-
-The Application Segments Usage chart and table provide the following information:
-
-- **Application Segment Usage Bar Chart**: Displays the distribution of application segment usage from access policy rules. Click a bar to specify the application segments displayed in the table. The default is set to **Unused Application Segments**.
-- See image.
-- **Application Segment Filter**: Select specific application segments to display in the chart and table. See image.
-- **View Application Segments**: Allows you to access the [Defined Application Segments](https://help.zscaler.com/zpa/about-applications) page to manage the defined application segments.
-- **Application Segment Table**: Displays the following information for each application segment:
-  - **Application Segment**: The name of the application segment.
-  - **Segment Group**: The name of the segment group.
-  - **Applications**: The number of applications accessed. If the same application is accessed through different ports and/or protocols (e.g., TCP, UDP), then each application is counted separately.
-  - **Access Policy Rules**: The number of access policy rules that allowed access to the application segment.
-  - **Unique Users**: The number of unique users impacted by the application segment.
-  - **Transactions**: The number of Private Access (ZPA) transactions going through the application segment.
-  - **Actions**: The available actions for the application segment. This includes:
-    - **Edit**: Edit the application segment in the Edit Application Segment window. To learn more, see [Editing Defined Application Segments](https://help.zscaler.com/zpa/editing-application-segments).
-    - **Application Segments and User Details**: View the application segment's usage details. To learn more, see [Viewing Application Segment Usage Details](https://help.zscaler.com/zpa/viewing-application-segment-usage-details).
-
-[Image: Bar Chart Selection within the Application Segment Usage Insights page]
-
-[Image: Application Segment Filter within the Application Segment Usage Insights Table]
-
-See image.
-
-[Image: Application Segment Usage Page within the ZPA Admin Portal]
-
-The Discovered Host Count chart and table provide the following information:
-
-- **Discovered Host Count Bar Chart**: Displays the top 10 application segments by discovered host count. See image.
-- **Application Segment Filter**: Select specific application segments to display in the chart and table.
-- **Application Segment Table**: Displays the following information for each application segment:
-  - **Application Segment**: The name of the application segment.
-  - **Segment Group**: The name of the segment group.
-  - **Discovered Host Count**: The number of discovered hosts.
-
-See image.
-
-[Image: Discovered Host Count Bar Chart]
-
-[Image: Viewing the Discovered Host Count Chart and Table]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage-details","lastmod":"2025-08-25T21:16Z","nid":"1531129"} -->
-## Viewing Application Segments Usage Details
-
-- Source: https://help.zscaler.com/zpa/viewing-application-segments-usage-details
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application Segments Usage Details
-- Last modified: 2025-08-25T21:16Z
-- Summary: Application segments usage details include granular information for a specific application segment from the Application Segments Usage page.
-
-Application segment usage details are accessible from the following pages:
-
-- [Application Segments Usage](https://help.zscaler.com/zpa/viewing-application-segments-usage)
-- [Defined Application Segments](https://help.zscaler.com/zpa/about-applications)
-
-When you click the **Graph** icon (), you can view the following application segment usage details:
-
-- **Time Range**: Select to filter details based on a time range.
-- **Refresh**: Click the **Refresh** icon to include the most recent updates. The report automatically refreshes every 30 days.
-- Depending on what view you selected, you see the following widgets: When you click **View Logs** on a widget, you are taken to the Diagnostics page. To learn more, see [Accessing User Activity Diagnostics](https://help.zscaler.com/zpa/accessing-user-activity-diagnostics).
-  - **Users** view(default):
-    - **Users Over Time**: Displays the number of users over time for the application segment.
-    - **Top Access Policies**: Displays the most impacted access policies.
-    - **Top Applications**: Displays the most impacted applications across users. You can hover over and then select ports to switch the view between applications and ports. To switch back, select the application name.
-    - **Top Ports**: Displays the most used ports.
-    - **Top Client Types**: Displays the most impacted client types for the application segment.
-  - **Transactions** view:
-    - **Transactions Over Time**: Displays the number of transactions for the application segment.
-    - **Top Access Policies**: Displays the most impacted access policies.
-    - **Top Applications**: Displays the most impacted applications across users. You can hover over and then select a port to switch the view between applications and ports. To switch back, select the application name.
-    - **Top Ports**: Displays the most used ports.
-    - **Top Users**: Displays the users creating the most transactions for the application segment.
-    - **Top Client Types**: Displays the most impacted client types for the application segment.
-
-See image.
-
-No data is shown if the application segment has no usage within the time range (e.g., unused application segment).
-
-See image.
-
-[Image: Application Segment Usage Details]
-
-[Image: No Data Available]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-applications-dashboard","lastmod":"2026-07-20T10:06Z","nid":"1483451"} -->
-## Viewing the Applications Dashboard
-
-- Source: https://help.zscaler.com/zpa/viewing-applications-dashboard
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Applications Dashboard
-- Last modified: 2026-07-20T10:06Z
-- Summary: Information on the Applications dashboard and widgets accessible within the Zscaler Admin Console.
-
-The Applications dashboard provides information about applications in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Applications.
-
-See image.
-
-[Image: pplications dashboard in the Zscaler Admin Console]
-
-## Dashboard Tools
-
-The Applications dashboard displays the following information and functionality:
-
-- **Time Range Filter**: View application data over a period between **1 Hour** to **14 Days**, or you can select **Custom Range**. If you use a **Custom Range**, the start and end date must be within the last 14 days. The end can be configured to the selected time in hours and minutes. This filter applies to all widgets on the dashboard except **Discovered Applications**and **Recommended Application Segments by Confidence %**. By default, the dashboard displays information for events that occurred in the last hour.
-
-Log information in the dashboard is limited to 14 days. For longer access to the logs, use the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming).
-
-- **Federated By**: Filter data in the dashboard by applications that are federated by your tenant (i.e., **My Tenant**), or by applications that are federated by your partner (i.e., **Partner**). If the **Federated By** filter is set to **Partner**, then the **Partner**filter and a valid value must be applied in addition to the Federated By filter. To learn more, see [Understanding Business-to-Business (B2B) Federation](https://help.zscaler.com/zpa/understanding-business-business-b2b-federation).
-- **Partner**: Filter data in the dashboard by the federated partner. The **Partner**filter must be applied with the **Federated By** filter, and is only visible when the **Federated By** filter is set to **Partner**. To learn more, see [About Federated Partners](https://help.zscaler.com/zpa/about-federated-partners).
-- **Refresh icon**: Refresh the dashboard to reflect the most current information.
-- **Recent Applications Accessed**: View the total number for this category at the top of the page, and then view its details in the widget below. This number is based on the applications accessed by users, and it includes all successful and unsuccessful transactions.
-- **Discovered Applications**: View the total number for this category at the top of the page, and then view its details in the widget below. This number is based only on successful transactions.
-- **Access Policy Blocks** and **Successful Transactions**: View the total numbers for these categories at the top of the page, and then view their details in the widgets below.
-- **Chart Selection**: Select the charts you want to display or hide on the dashboard. A minimum of 4 charts and a maximum of 8 charts can be selected.
-
-See image.
-
-[Image: Applications Dashboard tools]
-
-## Widgets
-
-The Applications dashboard provides the following widgets:
-
-- AI-Powered Recommendations by Attack Surface Reduction %
-- Recent Applications Accessed
-- Top Applications by Bandwidth
-- Top Errors
-- Top Application Segments by Bandwidth
-- Top Disaster Recovery App Segments by Bandwidth
-- Top Policy Blocks
-- Top Applications by Users
-- Applications Discovered in the Past 14 Days
-- App Configuration in Past 3 Months
-- Top Applications by Tunnel Count
-
-If you are using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming), the Users dashboard includes information for a ZPA LSS Client user. This user represents the LSS service, not an actual user. Also, each log receiver is displayed as an application to reflect the data coming in from the service. To learn more, including how to stop the LSS service from streaming ZPA LSS Client logs, see [Configuring a Log Receiver](https://help.zscaler.com/zpa/configuring-log-receiver#Step2).
-
-This widget displays the total number of recommended application segments, grouped by their percentage of attack surface reduction. The attack surface reduction groups are broken up into 25% increments to show how many recommended application segments had higher attack surface reduction versus those that were lower. If you hover over the chart and click a specific section, a tooltip appears that specifies the attack surface reduction group for the percentage increment, the total number of AI-powered recommendations, and the percentage total. Clicking **View All** takes you to the [AI-Powered Recommendations](https://help.zscaler.com/zpa/about-ai-powered-recommendations-application-segments) page.
-
-AI-Powered Recommendations must be activated to display the AI-Powered Recommendations by Attack Surface Reduction % widget and populate it with data. To activate this feature, click **Activate Recommendations** on the AI-Powered Recommendations page (Policies > Access Control > Private Apps > AI-Powered Recommendations).
-
-[Image: AI-Powered Recommendations by Attack Surface Reduction % Widget in the Zscaler Admin Console]
-
-This widget displays real-time information about the total number of applications requested by users that were accessed in the selected time frame. The widget uses the current time for its end time unless you select a custom time range with a different end time.
-
-[Image: Applications Dashboard with Applications Accessed widget]
-
-- Click on an application to view more details in **Diagnostics**.
-- Click the **Download** icon ([Image: Download icon within the ZPA Admin Portal]) to export a CSV file containing information on the applications accessed for the selected time frame (i.e., Timestamp (in UTC), application (domain name or IP address), port number, and protocol).
-
-This widget displays the top 10 applications that used the most bandwidth for your organization in the selected time frame. The percentage of total transactions for the top 10 applications by bandwidth appears in the top-right corner.
-
-[Image: Top Applications by Bandwidth widget]
-
-- Hover over an application to view:
-  - **Name**:The application name.
-  - **Bandwidth**: The amount of bandwidth used by the application in the selected time frame, and the percentage of that amount represents the total bandwidth used by the 10 applications shown in the widget.
-- Click on an application to view more details in **Diagnostics**.
-
-This widget displays the top 10 application segments that used the most bandwidth for your organization in the selected time frame. The percentage of total transactions for the top application segments by bandwidth appears in the top-right corner.
-
-[Image: Top Application Segments by Bandwidth widget]
-
-This widget displays the top 10 disaster recovery-enabled application segments that used the most bandwidth for your organization in the selected time frame. If there was a disaster recovery-related incident during this time frame, it accounts for both the disaster recovery-related transactions and the regular transactions. The percentage of total transactions for the top disaster recovery-enabled application segments by bandwidth appears in the top-right corner.
-
-[Image: Top Disaster Recovery App Segments by Bandwidth widget]
-
-This widget displays the top errors experienced by users per connection status code, application, App Connector, and Private Service Edges for Private Access over the selected time frame.
-
-- Connection Status Codes
-- Applications
-- App Connectors
-- Service Edges
-
-You can hover over the connection status codes to:
-
-- View the total number of transactions that occurred with this connection status code.
-- View the percentage of errors where this connection status code occurred for the drilldown data displayed.
-- Analyze by:
-  - **Applications**: This drills down and displays data on the applications impacted by the connection status code.
-  - **Connectors**: This drills down and displays data on the App Connectors impacted by the connection status code.
-  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
-
-[Image: Top Errors widget]
-
-You can hover over the applications to:
-
-- View the total number of transactions where the application error occurred.
-- View the percentage of errors where this application error occurred for the drilldown data displayed.
-- Analyze by:
-  - **Connectors**: This drills down and displays data on the App Connectors impacted by the application error.
-  - **Connection Status Codes**: This drills down and displays data on the connection status code applicable to the impacted application.
-  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
-
-[Image: Top Errors widget]
-
-You can hover over the App Connectors to:
-
-- View the total number of transactions where the App Connector error occurred.
-- View the percentage of errors for the drilldown data displayed for the App Connector.
-- Analyze by:
-  - **Applications**: This drills down and displays data on the applications impacted by the App Connector error.
-  - **Connection Status Codes**: This drills down and displays data on the connection status code applicable to the impacted App Connector.
-  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
-
-[Image: Top Errors widget]
-
-You can hover over the Private Service Edges to:
-
-- View the total number of transactions for the error that occurred on the Private Service Edge.
-- View the percentage of errors for the drilldown data displayed for the Private Service Edge.
-- Analyze by:
-  - **Connectors**: This drills down and displays data on the App Connectors impacted by the Private Service Edge error.
-  - **Connection Status Codes**: This drills down and displays data on the connection status code applicable to the impacted Private Service Edge.
-  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
-
-[Image: Top Errors widget]
-
-This widget displays the top access policy and timeout policy blocks experienced by users over the selected time frame.
-
-- Access Policy Blocks
-- Timeout Policy Blocks
-
-You can hover over the access policy block to:
-
-- View the total number of transactions where the access policy block occurred.
-- View the percentage of errors where this access policy block occurred for the drilldown data displayed.
-- Analyze by:
-  - **Applications**: This drills down and displays data on the applications impacted by the access policy block.
-  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
-
-[Image: Access Policy Blocks widget]
-
-You can hover over the timeout policy block to:
-
-- View the total number of transactions where the timeout policy block occurred.
-- View the percentage of errors where this timeout policy block occurred for the drilldown data displayed.
-- Analyze by:
-  - **Applications**: This drills down and displays data on the applications impacted by the timeout policy block.
-  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
-
-[Image: Timeout Policy Blocks widget within Dashboard]
-
-This widget displays the top 10 applications accessed by your organization's users in the selected time frame. The percentage of total transactions for the top applications by users appears in the top-right corner.
-
-[Image: Top Applications by User widget]
-
-- Hover over an application to view:
-  - **Name**: The application name.
-  - **Number of User(s)**:The top 10 applications accessed by your organization's users in the selected time frame, and the percentage that number represents of the 10 applications shown in the widget.
-- Click on an application to view more details in **Diagnostics**.
-
-This widget displays the applications that Zscaler has [discovered](https://help.zscaler.com/zpa/understanding-application-discovery) for your organization in the past 14 days, with the most recently discovered application listed first.
-
-[Image: Applications Dashboard with the Applications Discovered in the Past 14 Days widget]
-
-- Click on an application to view more details in **Diagnostics**. If the application has not been accessed in the last 14 days, you will not see data for the application in **Diagnostics**.
-- Click the **Download** icon ([Image: Download icon within the ZPA Admin Portal]) to export a CSV file containing information on the applications discovered in the last 14 days (i.e., application (domain name), port number, protocol, and internal application ID).
-- To define a user access policy or change settings for an application (e.g., enable health monitoring or configure bypass settings), you can explicitly define an application by clicking on **Add Application Segment**, selecting the applications, and then clicking **Define Selected Applications**. To learn more, see [Defining a Dynamically Discovered Application](https://help.zscaler.com/zpa/defining-dynamically-discovered-application).
-
-To learn more about application discovery, see [Understanding Application Discovery](https://help.zscaler.com/zpa/understanding-application-discovery).
-
-This widget displays the number of Defined Application Segments (orange) compared to the number of Discovered Applications (blue) in two-week increments over the past 3 months. Ideally for Zero Trust, the number of Defined Application Segments should increase while the number of Discovered Applications should decrease.
-
-Hover over a graph bar to get detailed information for each two-week increment. Click a graph bar and then click **View Recommended Apps** to view the Recommended Application Segments page.
-
-AI-Powered Recommendations must be activated to display the App Configuration in Past 3 Months widget and populate it with data. To activate this feature, click **Activate Recommendations** on the AI-Powered Recommendations page (Policies > Access Control > Private Applications > AI-Powered Recommendations).
-
-[Image: App Configuration in Past 3 Months widget]
-
-This widget displays the top applications by tunnel count in the selected time frame.
-
-[Image: Top Applications by Tunnel Count widget on the Applications dashboard]
-
-- Hover over an application to view:
-  - **Name**: The application name.
-  - **Number of MTunnel(s)**:The number of tunnel counts accessed by the application in the selected time frame, and the percentage that number represents of the applications shown in the widget.
-- Click an application to view more details in **Diagnostics**.
 <!-- /ZS-ARTICLE -->

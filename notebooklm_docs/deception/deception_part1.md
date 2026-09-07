@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 297
 
 ---
@@ -3596,13 +3596,13 @@ Default web server banners cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-browser-lures","lastmod":"2026-08-03T00:19Z","nid":"1540378"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-browser-lures","lastmod":"2026-09-04T07:06Z","nid":"1540378"} -->
 ## Configuring Browser Lures
 
 - Source: https://help.zscaler.com/deception/configuring-browser-lures
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Configuring Browser Lures
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-04T07:06Z
 - Summary: How to configure landmine policies to deploy various browser lures on endpoints.
 
 The Browser Lures module enables you to add decoy credentials, cookies, and bookmarks to browsers such as Google Chrome, Mozilla Firefox, and Microsoft Edge on endpoints.
@@ -15815,13 +15815,13 @@ The illusionblack.com cloud represents all clouds, and updates to specific cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-08-28T08:38Z","nid":"1540673"} -->
+<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-08-31T08:00Z","nid":"1540673"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/deception/release-upgrade-summary-2026
 - Product: Deception
 - Path: Deception Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-28T08:38Z
+- Last modified: 2026-08-31T08:00Z
 - Summary: Zscaler Deception release summary for updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Deception.

@@ -1,8 +1,8 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 92
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 94
 
 ---
 
@@ -581,6 +581,48 @@ VMware ESXi Virtual Machine deployments with ZscalerOS version 10 and earlier ar
 If your organization is running an ESXi Virtual Machine deployment with ZscalerOS version 10 and earlier, migrate to ZscalerOS version 24 or higher by June 24, 2022, to ensure service continuity.
 
 Announcement date: May 4, 2022
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-zsos24-branch-connector-deployments","lastmod":"2026-09-03T16:37Z","nid":"1543210"} -->
+## End-of-Support for ZSOS 24 for Branch Connector Deployments
+
+- Source: https://help.zscaler.com/product-usage-terms/end-support-zsos24-branch-connector-deployments
+- Product: Product Usage Terms & Policies
+- Path: Product Usage Terms & Policies > EOS & EOL Announcements > End-of-Support for ZSOS 24 for Branch Connector Deployments
+- Last modified: 2026-09-03T16:37Z
+- Summary: End-of-Support (EOS) for ZSOS 24 for Branch Connector deployments.
+
+Branch Connector appliances based on ZSOS 24 and earlier are no longer supported:
+
+- Virtual appliances are no longer supported on VMware platforms, Linux KVM, and Microsoft Hyper-V.
+- Hardware appliances are no longer supported on ZT-400, ZT-600, and ZT-800.
+
+If your organization is running a Branch Connector deployment with ZSOS 24 or earlier, you can either:
+
+- Migrate to ZSOS 42 or higher by November 30, 2026 to ensure service continuity.
+- Migrate to Zero Trust Branch appliances. Contact your Zscaler Account team to learn about the available options.
+
+No action is required for customers with Branch Connectors running ZSOS 42.
+
+Announcement date: August 30, 2026
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-zsos24-cloud-connector-deployments","lastmod":"2026-09-03T11:43Z","nid":"1543209"} -->
+## End-of-Support for ZSOS 24 for Cloud Connector Deployments
+
+- Source: https://help.zscaler.com/product-usage-terms/end-support-zsos24-cloud-connector-deployments
+- Product: Product Usage Terms & Policies
+- Path: Product Usage Terms & Policies > EOS & EOL Announcements > End-of-Support for ZSOS 24 for Cloud Connector Deployments
+- Last modified: 2026-09-03T11:43Z
+- Summary: End-of-Support (EOS) for ZSOS 24 on Amazon Web Services, Microsoft Azure, and Google Cloud Platform Cloud Connector deployments.
+
+Zscaler deployments with ZSOS 24 and earlier are no longer supported on Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). If your organization is running a Cloud Connector deployment with ZSOS 24 or earlier, migrate to ZSOS 42 or higher by November 30, 2026 to ensure service continuity. No action is required for customers with Cloud Connectors running ZSOS 42.
+
+Announcement date: August 30, 2026
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6869,13 +6911,13 @@ The following section describes resolutions.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-08-05T21:06Z","nid":"1533933"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-09-02T14:34Z","nid":"1533933"} -->
 ## Private Access Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Private Access Performance Support Troubleshooting Runbook
-- Last modified: 2026-08-05T21:06Z
+- Last modified: 2026-09-02T14:34Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for general Private Access performance issues, categorized into four scopes: issues accessing a applications, issues with all applications from a specific App Connector, issues that affect a specific location or locations, or an issue with a single broker or the whole data center.
 
 The Private Access Performance Support Troubleshooting Runbook outlines a systematic approach to troubleshooting performance slowness experienced by users. It emphasizes understanding the scope of issues, including isolating between affected applications types. The troubleshooting steps involve validating Private Access slowness check points, configurations, collecting and analyzing data through network diagnostic tools and Zscaler Digital Experience (ZDX) (if available). By following this methodology, engineers can effectively identify the root causes of performance issues and implement corrective actions to optimize the user experience.
@@ -7007,7 +7049,7 @@ It is important to find out the location of the application and user.
 
 From the Zscaler Admin Console:
 
-1. Go to **Analytics**> **Diagnostics**> **User Activity** to identify the data path for a Private Access connection based on the following fields:
+1. Go to **Data Explorer**> **Private Diagnostics**and select **User Activity**from the **Log Type**dropdown menu to identify the data path for a Private Access connection based on the following fields:
   - User Location and Public IP address.
   - Public Service Edge Name (Format: AA-AA-NNNN) or Private Service Edge Name (the format is dictated by your [Private Service Edge for Private Access Configuration](https://help.zscaler.com/zpa/about-zpa-private-service-edges)). See image.
 2. From Zscaler Client Connector, go to the **Private Access** tab, then take note of the **Broker IP address**. See image.
@@ -7042,9 +7084,9 @@ When analyzing MTR:
 
 From the Zscaler Admin Console:
 
-1. Go to **Analytics**> **Diagnostics** > **User Activity** to identify the App Connector for a Private Access connection based on the App Connector Name and IP address that is serving the traffic for that particular Private Access connection. See image.
+1. Go to **Data Explorer**> **Private Diagnostics**and select **User Activity**from the **Log Type** to identify the App Connector for a Private Access connection based on the App Connector Name and IP address that is serving the traffic for that particular Private Access connection. See image.
 2. Based on all the App Connectors configured, observe if the App Connector that are serving the traffic is the best for serving this traffic in terms of Geo location and latency aspect.
-3. Go to **Configuration & Control**> **Private Infrastructure** > **App Connector** to note the Public IP address of the particular App Connector. See image.
+3. Go to **Private Access**> **Private Infrastructure** > **App Connector** and select the App Connector **Name**. Scroll down to note the Public IP address of the particular App Connector. See image.
 
 ###### Review App Connector and Zscaler Data Center and Application Server MTR
 
@@ -7099,9 +7141,9 @@ If the issue symptom resides on a specific App Connector, review the following t
 
 From the Zscaler Admin Console:
 
-1. Go to the **Analytics**> **Diagnostics**> **User Activity** to identify the App Connector for a Private Access connection based on the App Connector Name and IP address that is serving the traffic for that particular Private Access connection. See image.
+1. Go to **Data Explorer**> **Private Diagnostics**and select **User Activity**from the **Log Type** to identify the App Connector for a Private Access connection based on the App Connector Name and IP address that is serving the traffic for that particular Private Access connection. See image.
 2. Based on all the App Connectors configured, observe if the App Connector that is serving the traffic is the best for serving this traffic in terms of Geo location and latency aspect.
-3. Go to **Configuration & Control** > **Private Infrastructure** > **App Connectors** configuration, and note the Public IP address of the particular App Connector. See image.
+3. Go to **Private Access**> **Private Infrastructure** > **App Connector** and select the configuration name, and note the Public IP address of the particular App Connector. See image.
 
 ##### Review App Connector and Zscaler Data Center and Application Server MTR
 
@@ -7125,8 +7167,8 @@ To analyze the MTR:
 2. The amount of latency jumps significantly between hops 3 and 4 remains high. This might point to a network latency issue as round trip times remain high after the 4th hop. While there is a large jump in latency between hosts 3 and 4, the latency does not increase unusually in any subsequent hops. From this, it is logical to assume that there is some issue with the 4th hop. See image.
 3. Verify packet loss. The loss reported between hops 1 and 2 is likely due to rate limiting on the second hop. If the loss continues for more than one hop, then it is possible that there are packet loss or routing issues. See image.
 4. There is a 60% loss between hops 2 and 3, as well as between hops 3 and 4. We can assume that the third and fourth hop is likely to lose some amount of traffic because no subsequent host reports zero loss. However, some of the losses are due to rate limiting as several of the final hops are only experiencing a 40% loss. When different amounts of loss are reported, always trust the reports from later hops. Some loss is explained by problems with the return route. Packets reach their destination without error, but have a dificult time making the return trip. See image.
-5. In the Zscaler Admin Console, go to the **Analytics**> **Diagnostics**> **Events** to find any errors reported for App Connectors. See image. To learn more, see [Viewing and Managing Events Diagnostics](https://help.zscaler.com/zpa/viewing-and-managing-events-diagnostics).
-6. In the Zscaler Admin Console, go to the **Dashboard**> **App Connectors** > **App Connectors Details** > **Details**and find any high utilization for Bandwidth Trends, CPU Trends, or Memory Utilization Trends. See image.
+5. In the Zscaler Admin Console, go to **Data Explorer**> **Private Access**> **Private Diagnostics**and select **Events**from the **Log Type**dropdown menu to find any errors reported for App Connectors. See image. To learn more, see [Viewing and Managing Events Diagnostics](https://help.zscaler.com/zpa/viewing-and-managing-events-diagnostics).
+6. In the Zscaler Admin Console, go to the **Private Access**> **Dashboards**> **App Connectors** and go to **App Connector Details** and find any high utilization for Bandwidth Trends, CPU Trends, or Memory Utilization Trends. See image.
 7. In the Zscaler Admin Console, go to **Dashboard**> **App Connectors** > **App Connectors Details** > **Latency**and find any high TCP latency between the App Connectors and the Private Service Edge for Private Access (Broker). See image. To learn more, see [Viewing the App Connectors Dashboard](https://help.zscaler.com/zpa/viewing-app-connectors-dashboard).
 
 There are different types of RTTs:
@@ -7213,7 +7255,7 @@ The following sections describe reviewing client, Zscaler, and Private Service E
 From Zscaler Client Connector towards the Private Service Edge for Private Access Public IP address:
 
 1. Use a tool called WinMTR, which you can download from sites such as [sourceforge.net](https://sourceforge.net) or [winmtr.en.uptodown.com](https://winmtr.en.uptodown.com).
-2. Find out the Private Service Edge for Private Access Public IP address from Zscaler Admin Console by going to **Configuration & Control** > **Private Infrastructure** > **Private Service Edges**. See image. To learn more, see [About Private Service Edges for Private Access](https://help.zscaler.com/zpa/about-zpa-private-service-edges).
+2. Find out the Private Service Edge for Private Access Public IP address from Zscaler Admin Console by going to **Private Access** > **Private Infrastructure** > **Private Service Edges**. Click on the Private Service Edges**name**and scroll to the **Public IP**address. See image. To learn more, see [About Private Service Edges for Private Access](https://help.zscaler.com/zpa/about-zpa-private-service-edges).
 3. Take note of the Private Service Edge for Private Access Public IP address and enter this IP address in the Host option in the WinMTR tool. Then click **Start**. See image. Remember to deselect **Resolve names**before collecting this data so that you can see the IP addresses of all the Hops. See image.
 4. After the MTR is started, keep it running for at least 300 packets. You might run it for more packets as well. However, 300 is the minimum count needed. After it is complete, you can stop it. See image.
 5. Next, you must save this output. To do so, click **Export Text**. The sample output snippet is as follows: See image. For Zscaler Client Connector in Z-Tunnel 2.0 mode, log out of Zscaler Client Connector first before collecting the MTR.
@@ -7333,7 +7375,7 @@ Compile all the data collected and open a [Zscaler Support](https://help.zscaler
 
 [Image: Events]
 
-[Image: App Connector Details]
+[Image: App Connectors Details]
 
 [Image: App Connector Latency]
 
@@ -7359,7 +7401,7 @@ Compile all the data collected and open a [Zscaler Support](https://help.zscaler
 
 [Image: MTR Return]
 
-[Image: Private Service Edges]
+[Image: Private Service Edge]
 
 [Image: WinMTR Start]
 
@@ -13744,13 +13786,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-08-30T07:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-09-06T07:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).

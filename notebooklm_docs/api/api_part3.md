@@ -1,8 +1,54 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 150
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 151
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-vpn-legacy-apps-resources-using-api","lastmod":"2026-01-06T23:49Z","nid":"1532173"} -->
+## Obtaining VPN (for Legacy Apps) Resources Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-vpn-legacy-apps-resources-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining VPN (for Legacy Apps) Resources Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information about VPN (for Legacy Apps) use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on obtaining VPN (for Legacy Apps) resources using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting) and [VPN (for Legacy Apps)](https://help.zscaler.com/zpa/vpn-legacy-apps).
+
+## Getting Details of All Users Connected to VPN Service Edges
+
+To get details of all users that are connected to VPN Service Edges:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/vpnConnectedUsers`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/73229488749543424/vpnConnectedUsers`.
+
+- View an example response
+
+```
+{
+  "totalPages": "1",
+  "currentCount": "1",
+  "totalCount": "1",
+  "list": [
+    {
+      "id": "73229488749551415",
+      "creationTime": "1756977137",
+      "modifiedBy": "72057594038820580",
+      "deviceState": "1",
+      "clientIPAddress": "192.0.2.0",
+      "vpnServiceEdgeId": "73229488749551620",
+      "commonName": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc@vishnu1.com",
+      "UserName": "exampleUser2@sample.com",
+      "vpnServiceEdgeName": "Sample VPN Service Edge Name"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -11929,13 +11975,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/sandbox-policy-settings","lastmod":"2026-01-06T23:49Z","nid":"1403026"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/sandbox-policy-settings","lastmod":"2026-08-30T23:58Z","nid":"1403026"} -->
 ## Sandbox Policy & Settings
 
 - Source: https://help.zscaler.com/legacy-apis/sandbox-policy-settings
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Sandbox Policy & Settings
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-08-30T23:58Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 

@@ -1,8 +1,8 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 77
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 80
 
 ---
 
@@ -201,6 +201,70 @@ On the AI Guard **Token Usage** page (AI Guard > Token Usage), you can do the fo
   4. **LLM Provider Distribution**: See LLM distribution information based on the level of granularity you have selected (Daily, Hourly, 5-min).
   5. **Top usage by app**: The 10 applications that used the most tokens. The label at the end of each bar shows when usage peaked.
   6. **Raw Data**: A quick total summary of prompts and responses by date. Data can be exported.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-red-teaming-onboarding-agent","lastmod":"2026-08-31T07:07Z","nid":"1542630"} -->
+## About AI Red Teaming Onboarding Agent
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/about-ai-red-teaming-onboarding-agent
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > About AI Red Teaming Onboarding Agent
+- Last modified: 2026-08-31T07:07Z
+- Summary: This article describes how to build a working proxy to bridge your AI Application to AI Security Admin Portal.
+
+During Red Teaming tests, AI Red Teaming acts as a client connecting to your application. Oftentimes, the application may be implemented in a non-standard way. In such cases, an intermediary layer is needed to perform this translation. This intermediary layer is what is known as a proxy in AI Red Teaming. Custom-built apps need custom-built proxies, and other apps can be connected with AI Security's prebuilt connectors.
+
+Building a proxy means collecting specific technical details about your target application: its connection protocol, authentication method, session behavior, message format, and rate limits. Many customers may not have the knowledge or resources to do this on their own, so it creates friction when adopting AI Red Teaming. To reduce this friction, it's now possible to create this proxy via the Onboarding Agent.
+
+Onboarding Agent is a chat-based assistant in the AI Security Admin Portal that guides you through this process with structured questions, adapts to your level of technical expertise, and generates a complete, ready-to-deploy Python project. Whether you are a developer building a production integration, a security analyst coordinating an onboarding, or a sales engineer demoing against a customer's live application, Onboarding Agent collects everything it needs in a single guided session and delivers a working proxy in minutes.
+
+The Onboarding Agent includes the following benefits and enables you to:
+
+- Build a working proxy without filing a request or waiting in the engineering queue, reducing integration timelines from weeks to a single session.
+- Get started without prior SDK knowledge. The assistant asks the right questions, offers predefined answer choices for technical fields, and explains unfamiliar concepts in plain language when you need it.
+- Download a complete, production-ready project, which includes `main.py`, a Dockerfile, environment configuration, a README with deployment instructions, and a VS Code debug config, ready to run locally or deploy to your infrastructure.
+- Iterate without starting over, refine your spec through conversation after generation, regenerate at any time, and access a full version history so you can roll back to any prior version.
+- Work in your preferred environment, use the platform chatbot in the browser, or install the agent skill to get the same guided experience directly inside Claude Code, Cursor, or your preferred local coding agent.
+
+## About Onboarding Agent Page
+
+On the Onboarding Agent page (AI Infrastructure > AI Red Teaming > Onboarding Agent), you can do the following:
+
+1. Click **+ New Session** to start a new session.
+2. Click **Download Skill.**
+
+1. In the **Start New Session** window, do the following:
+  1. **Session Name:** Enter a suitable name for the session.
+  2. **Session Type:** Select one of the following:
+    - **Private:**Accessible only to the user who creates it.
+    - **Public:** Visible and accessible to all users within the organization or tenant.
+      - **Business Unit:** Select the Business Unit.
+2. Click **Start New Session.**
+3. The agent automatically sends the first message and begins collecting information through a structured question flow. To get started, provide the following details about your application:
+  - **Connection type:** The protocol your application uses, such as REST, WebSocket, or SSE.
+  - **Base URL and endpoints:** The base URL of your application and the list of available endpoints.
+  - **Request and response format:** The structure of the request and response body.
+  - **Input type:**Whether your application supports multi-modal input or text only.
+  - **Authentication:** Whether your application requires authentication and how it is configured.
+  - **Rate limits:** Any rate limits or throughput constraints that apply.
+4. For each question, select a predefined answer option or type a custom response. If a question is unclear, type "what does this mean?" the agent explains it in plain language and re-asks the question.
+5. Monitor the spec completeness indicator after each exchange to track progress.
+6. After the spec reaches 100%, review the summary presented by the agent and confirm the details.
+7. Click **Generate Proxy** to trigger code generation.
+8. After generation, click **Download ZIP** to download the proxy project.
+9. Run the proxy locally or deploy it using the provided Dockerfile, then go to the [**Configure your connection**](https://help.zscaler.com/secure-ai-apps-infra/configuring-connection) page and create a new connection with type **Proxy SDK**, pointing to the proxy's URL. Ensure that the platform can reach the URL (public URL, IP whitelisting, or broker). You can delete the Onboarding Agent you created from the **Actions** tab in the **New Session** page.
+
+Skill is a downloadable package that users install in their local coding agent environment (such as Claude Code, Cursor, or Copilot) to run the same guided proxy-building experience locally on their machine without needing to use the AI Security Admin Portal.
+
+How it works:
+
+- Follows the same question-tree-driven spec collection as the platform chatbot.
+- Generates `main.py` and scaffolds the full project directory locally on spec confirmation.
+- Runs a bundled test script to validate the generated proxy endpoints.
+- Auto-fixes known issues or asks targeted follow-up questions if tests fail.
+- Assists with deployment stages such as Docker image build, registry push, and connecting the proxy to AI Red Teaming.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2654,6 +2718,58 @@ After you select your [connection type](https://help.zscaler.com/secure-ai-apps-
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/prompting-guide-ai-red-teaming-onboarding-agent","lastmod":"2026-08-31T07:03Z","nid":"1542866"} -->
+## Prompting Guide for AI Red Teaming Onboarding Agent
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/prompting-guide-ai-red-teaming-onboarding-agent
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Prompting Guide for AI Red Teaming Onboarding Agent
+- Last modified: 2026-08-31T07:03Z
+- Summary: This article provides guidelines for prompting while using Red Teaming Onboarding agent in AI Security Admin Portal.
+
+The Onboarding Agent turns a conversation about a target chat or API into a working proxy forAI Red Teaming. This guide covers what to know before you start, how to prompt the agent effectively, and what to verify once it hands you code.
+
+The agent runs in two phases:
+
+1. Spec gathering: As you describe your target, the agent fills in a structured checklist covering connection type, authentication, multi-turn state handling, request and response shapes, and error behavior. It does not offer to generate code until every required field has a value. If something is missing or ambiguous, it asks rather than guessing.
+2. Code generation: After you approve the spec, the agent generates a single proxy file built from a library of known-good patterns, including REST, streaming, WebSocket, authentication handling, and retries. It then runs an automated check and resolves some issues before handing you the bundle. The automated check catches obvious mistakes such as bad imports and syntax errors; however, it does not validate behavioral correctness. Running the code yourself remains essential. You can continue the conversation after a generation to request changes. The agent applies a focused patch to the existing code rather than rewriting from scratch, which preserves behavior you have already confirmed.
+
+## Before You Start
+
+Gather the following information about your target before starting a session:
+
+- **Connection type and base URL:** Whether the target uses REST, SSE, or WebSocket, and where it is hosted.
+- **Authentication details:** Not just that a token exists, but the exact header name and format. `Authorization: Bearer <token>` produces a different build than a raw token or a custom `X-API-Key` header.
+- **Statefulness:**Whether every call is independent, or whether the target maintains a server-side state that must be referenced across turns. If the target is stateful, describe the creation step and what gets reused, e.g. creating a thread once and passing its ID on every subsequent message.
+- **Exact request and response field names:** The outgoing message field, the reply field, and any counters or IDs the proxy needs to handle. Do not leave these to be inferred.
+- **Error contract, per failure mode:**What the target returns on bad authentication, an unknown or invalid ID, rate limiting, and generic server errors and which of those should trigger a retry. This is the area most often left vague and most likely to be implemented incorrectly.
+- **Multimodal support:** Whether the target handles anything beyond text, such as images or files.
+- **Operational limits:** Rate limits, expected latency, retry preferences, and any content guardrail or refusal behavior the proxy needs to recognize.
+
+## How to Prompt the Agent
+
+Here's how you can prompt the agent:
+
+- Provide complete information upfront. State all known details organized by topic rather than one fact per message. A complete opening message can produce a ready-to-generate spec in a single turn.
+- Be honest about what you don't know. The agent asks targeted follow-up questions rather than guessing. It can also draft a precise question list for you to forward to whoever owns the integration. Honest uncertainty still produces a complete spec.
+- Confirm literal values explicitly. Specify the exact header prefix, the exact JSON field names, and whether an ID goes in the path, a header, or the request body. Ambiguity can result in creating incorrect or fragile code.
+- Be explicit with error handling one failure mode at a time. Specify what a bad-authentication response looks like, what an unknown-ID response looks like, and what a rate-limit response looks like. "Handle errors sensibly" is too vague.
+- Describe stateful behavior explicitly. For example: Create a thread once and reuse its ID on every following message in that conversation. Stated upfront, this is the detail the agent implements most reliably. Left implicit, it is the one most often implemented incorrectly.
+- Never paste real credentials or customer data into the chat. Refer to secrets by name and let the agent wire up an environment variable.
+- Request post-generation changes as a single focused delta. For example: Also send header X on every call. A focused request reliably produces a small patch. Restating the full spec risks a rewrite that can silently discard behavior you have already verified.
+
+## Verify the Code After Generation
+
+The chat summary describes what the agent intended to build, not verified behavior. Treat it as a changelog, not a test report.
+
+- Run the code against the real target or a sandbox environment. Test with two known-good tests and at least two failure modes, i.e., an authentication failure and a not-found or invalid-ID case, and confirm the returned status codes match what you specified.
+- Check error mapping specifically. Distinct upstream failures such as bad authentication, not-found, and rate-limiting have a tendency to collapse into a single generic error response, even when the summary states otherwise.
+- Verify stateful behavior end to end. If you request stateful behavior, send two messages in the same conversation and confirm that the target's own counter or history advances correctly.
+- Skim the generated file for unrequested behavior. Look for invented guardrail logic, extra retry paths, or unused fields that are not part of your spec.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/proxy-sdk","lastmod":"2026-08-10T19:43Z","nid":"1540722"} -->
 ## Proxy SDK
 
@@ -3124,13 +3240,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-08-28T10:21Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-09-04T15:29Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-28T10:21Z
+- Last modified: 2026-09-04T15:29Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -4054,6 +4170,78 @@ Download the run manifest file that contains the broker configuration. Use this 
 Confirm that the broker shows **Online**in the AI Security Admin Portal. An **Online**status indicates that the broker has successfully established an outbound WebSocket connection to the Zscaler cloud gateway.
 
 Add your private AI application as a target in the platform and associate it with the provisioned broker. This enables Zscaler AI Red Teaming workers to route test traffic through the broker to reach the application. To learn more, see [Connect an Asset](https://help.zscaler.com/secure-ai-apps-infra/connect-an-asset).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/understanding-onboarding-agent-with-use-cases","lastmod":"2026-08-31T07:35Z","nid":"1542710"} -->
+## Understanding Onboarding Agent with Use Cases
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/understanding-onboarding-agent-with-use-cases
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Understanding Onboarding Agent with Use Cases
+- Last modified: 2026-08-31T07:35Z
+- Summary: This article explains about how to create a proxy to bridge your AI Application to AI Security Admin Portal
+
+The AI Red Teaming Onboarding Agent simplifies the process of connecting your application to AI Red Teaming. Instead of manually building a proxy from scratch, you answer a series of guided questions about your application, such as connection type, authentication, and message format. The agent uses your responses, along with any API documentation you upload, to automatically generate a ready-to-use proxy project that you can download, configure, and deploy. This reduces integration time from weeks to minutes and eliminates the need to depend on the internal engineering team.
+
+## How it Works
+
+You can use the AI Red Teaming Onboarding Agent to connect your application to AI Red Teaming in a few steps.
+
+1. Create a session in the agent and assign it to a business unit.
+2. Upload API documentation and instruct the agent to review it.
+3. The agent asks clarifying questions to complete the technical specification.
+4. After the specification is complete, the agent generates the proxy code, which you can download.
+5. You configure the environment file and API keys, then access the application in a browser.
+6. You connect the application to the AI red teaming platform for testing.
+
+## Use Cases
+
+The following use case examples show how you can use the onboarding agent:
+
+- Guided Spec Collection
+- Proxy Code Generation and Download
+- Iterative Refinement and Regeneration
+- Agent Skill for Local Development
+
+The Onboarding Agent collects your proxy specification through a structured conversation. It guides you through the following topic groups:
+
+- **Basics:** Integration name, company, and description
+- **Connectivity:** Connection protocol and endpoints
+- **Authentication:** Authentication type and credentials flow
+- **Session behavior:** Stateless or persistent sessions
+- **Message handling:** Request and response format
+- **Multimodal support:** File or media input handling
+- **Rate limits:** Request throttling and retry behavior
+
+For each question, you can select a predefined answer or type a custom response. The agent adapts follow-up questions based on your previous answers and tracks spec completeness as a percentage. You cannot proceed to code generation until the spec is 100% complete. If you don't understand a question, ask the agent to explain it, and it responds in plain language before asking again.
+
+After your spec is complete, click **Generate Proxy**. The agent produces a full Python project built on the proxy SDK, containing:
+
+- `main.py`: A server subclass implementing open_session, send_message, and close_session
+- `pyproject.toml`: All required dependencies
+- `Dockerfile`: For containerized deployment
+- `.env / .env.example`: Environment configuration
+- `README.md`: Setup, testing, and deployment instructions
+- `.vscode/launch.json`: Local debug configuration
+
+Download the project as a ZIP, run it locally, and connect it to the AI Red Teaming by configuring a new connection with type Proxy SDK.
+
+After generating a proxy, you can continue the conversation to refine it. You can correct a spec field, add details you missed, ask questions about the generated code, or request changes to the proxy's behavior. The agent updates the spec and lets you regenerate at any time.
+
+Each generation creates a numbered version (v1, v2, v3...). You can view the full version history with timestamps and download any previous version as a ZIP, so you can roll back if a regeneration introduces issues.
+
+If you prefer working in your own editor, download and install the Onboarding Agent skill in Claude Code, Cursor, Copilot, or your preferred coding agent. The skill provides the same guided spec collection as the platform chatbot and runs entirely on your machine.
+
+After generating the proxy, the skill automatically:
+
+- Runs a test script to validate the proxy's three endpoints.
+- Checks authentication handling and response formatting.
+- Looks up common failures in a known-problems database if a test fails.
+- Fixes the code automatically or asks a targeted follow-up question.
+
+The skill can also help you build a Docker image, push it to a registry, and connect the proxy to AI Red Teaming.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5031,13 +5219,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-08-27T07:55Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-09-02T09:35Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-08-27T07:55Z
+- Last modified: 2026-09-02T09:35Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -5051,7 +5239,7 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   - AI Guard can only be mapped to a single tenant and a single domain. For example, if `acme.com` exists in both the QA and Production tenant, AI Guard can map to either the QA or Production tenant, but not both.
 - Have Experience Center enabled for your tenant. Instructions for ZIA-related configuration assume that it will be performed via Experience Center.
 - Have the CA certificate of the AI Guard endpoint. Contact Zscaler Support if you need help getting it.
-- Are using a supported generative AI application. The following table lists the supported AI applications (last updated: July 02, 2026); use the page controls at the bottom-right of the table to view all providers:
+- Are using a supported generative AI application. The following table lists the supported AI applications (last updated: Sept. 02, 2026); use the page controls at the bottom-right of the table to view all providers:
   | Application | Client Types | Domains Required |
   | --- | --- | --- |
   | Anthropic (Claude) | Web Browsers; Claude Desktop; Claude CLI; Claude Code for VS Code; Claude MS Add-in (Excel/PPT) | `*.claude.ai` `*.api.anthropic.com` |
@@ -5078,6 +5266,8 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   | OpenAI (ChatGPT, Codex) | Web Browsers; Desktop App (Windows and Mac) | `*.chatgpt.com` `*.chat.openai.com` |
   | OpenCode | App; CLI | `*.opencode.ai` |
   | Perplexity | Web Browsers; Perplexity Desktop App; Comet Browser | `*.perplexity.ai` |
+  | Quillbot | Web Browsers | `quillbot.com` |
+  | Replit | Web Browsers | `sp.replit.com` |
   | Vertex AI | Web Browsers | `*.cloudconsole-pa.clients6.google.com` |
   | Windsurf | Desktop App (Proxy Mode Only).Custom Block Messages are not currently supported with this provider. | `server.self-serve.windsurf.com` `server.codeium.com` |
 
@@ -6009,13 +6199,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-08-28T11:01Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-04T15:28Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-28T11:01Z
+- Last modified: 2026-09-04T15:28Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.

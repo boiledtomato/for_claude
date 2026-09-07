@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 131
 
 ---
@@ -2396,13 +2396,13 @@ To configure SCIM protocol for admins:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-alert-rule","lastmod":"2026-07-17T13:56Z","nid":"1364456"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-alert-rule","lastmod":"2026-09-03T16:12Z","nid":"1364456"} -->
 ## Configuring an Alert Rule
 
 - Source: https://help.zscaler.com/zdx/configuring-alert-rule
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Configuring an Alert Rule
-- Last modified: 2026-07-17T13:56Z
+- Last modified: 2026-09-03T16:12Z
 - Summary: How to configure alert rules for ZDX.
 
 [Watch a video about Configuring Alerts for ZDX.](https://fast.wistia.net/embed/iframe/5ozc9luba9)
@@ -2411,7 +2411,7 @@ You can configure alert rules to modify an expression to create criteria based o
 
 To configure a rule for an alert:
 
-1. Go to **Analytics** > **Digital Experience**> **Alerts** > **Alert Rules and Templates**.
+1. Go to **Administration** > **Alerts** > **Digital Experience Management** > **Rules**.
 2. Click **Add Alert Rule**. The **Add Alert Rule** window appears. See image.
 3. In the **Add New Alert Rule** window:
   - a. Configure Rule
@@ -2429,7 +2429,7 @@ On the **Configure Rule** tab:
 
 - **Name**: Enter a name to identify the rule.
 - **Status**: Select from **Enabled** or **Disabled**. Select **Enabled** to enable the rule.
-- **Type**: Choose from **Application**, **Device**, **Incident**, **Network**, **Network Intelligence**, or **Real User Monitoring (RUM)**. Application and Network include ZDX Score and ZDX Score Drops detection as a criteria for Dynamic Alerting. This feature and its procedures are available based on your subscription level. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience). If you select **Incident** as your type, you can select one or more checkboxes from the **Incident Type** drop-down menu to configure an alert rule for. If you select multiple incidents, the criteria are predefined for you based on their minimum thresholds. To learn more, see [Monitoring the Incidents Dashboard](https://help.zscaler.com/zdx/monitoring-incidents-dashboard) and [Understanding Alert Triggers](https://help.zscaler.com/zdx/triggering-alert). See image.
+- **Type**: Choose from **Application**, **Device**, **Incident**, **Network**, **Network Intelligence**, or **Real User Monitoring (RUM)**. Application and Network include ZDX Score and ZDX Score Drops detection as a criteria for Dynamic Alerting. This feature and its procedures are available based on your subscription level. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience). If you select **Incident** as your type, you can select one or more checkboxes from the **Incident Type** drop-down menu to configure an alert rule for. If you select multiple incidents, the criteria are predefined for you based on their minimum thresholds. To learn more, see [Monitoring the Incidents Dashboard](https://help.zscaler.com/zdx/monitoring-incidents-dashboard) and [Understanding Alert Triggers](https://help.zscaler.com/zdx/understanding-alert-triggers). See image.
 - **Severity**: Select **High**, **Medium**, or **Low** options for severity, depending on the impact of this event on users.
 - **Labels (Optional)**: Select the applicable labels for the alert rule. You can also search for the label name to select. To learn more, see [About Labels](https://help.zscaler.com/zdx/about-labels).
 
@@ -2465,7 +2465,7 @@ See image.
 | Application | DNS Time; Page Fetch Time; Server Processing Time; Web Request Availability; ZDX Score; ZDX Score Drops; Zscaler Time to First Byte |
 | Call Quality | MOS; ZDX Score |
 | Device | Bandwidth in mbps; Battery Level; CPU Idle; CPU Kernel Usage; CPU Usage; CPU User Usage; Disk Reads in bps; Disk Usage; Disk Writes in bps; Memory Usage; Memory Used; Received Bits in mbps; Sent Bits in mbps; Wi-Fi Signal |
-| Incident | Impacted Devices Each incident type or subtype has a different minimum number of impacted devices. To learn more, see [Understanding Alert Triggers](https://help.zscaler.com/zdx/triggering-alert). If you select multiple incidents, the criteria are already configured for you based on their minimum thresholds. |
+| Incident | Impacted Devices Each incident type or subtype has a different minimum number of impacted devices. To learn more, see [Understanding Alert Triggers](https://help.zscaler.com/zdx/understanding-alert-triggers). If you select multiple incidents, the criteria are already configured for you based on their minimum thresholds. |
 | Network | Latency; Number of Hops; Packet Count; Packet Loss; ZDX Score; ZDX Score Drops |
 | Network Intelligence | Threshold Latency; Network Latency Deviation |
 | Real User Monitoring (RUM) | API Call Duration; DNS; DOM Content Load Time; DOM Interactive Time; DOM Interactive to Complete; DOM Processing to Interactive; Error Count; Javascript Errors; Javascript Load Time; Network Errors; Page Download Time; Page Fetch Time; Page Load Time; Redirect; Request-Response; Resource Load Time; Response Code; SSL Handshake; TCP Connect; TTFB; ZDX Score |
@@ -2488,19 +2488,15 @@ On the **Actions** tab:
   - Network Intelligence
   - Incident
 2. For **Actions**:
-  - If **Muted** is enabled, no alerts are sent, and you can view the status of alerts on the Alertspage in the ZDX Admin Portal.
+  - If **Muted** is enabled, no alerts are sent, and you can view the status of alerts on the Alertspage in the Zscaler Admin Console.
   - If **Muted** is disabled, select the **Alert Delivery Method** from the drop-down menu:
     - **Email**: Enter the email address you want the alerts to be sent to. Click **Email Preview** to preview the email that will be sent. To learn more about the information sent, see [Understanding the Alert Email](https://help.zscaler.com/zdx/understanding-alerts-email).
     - **Webhook**: Set up a webhook to provide alerts. In the drop-down menu, select from previously configured webhooks or [configure a new webhook](https://help.zscaler.com/zdx/configuring-webhooks).
-    - **Workflow Automation**: If you are subscribed to Workflow Automation, you can select Workflow Automation to send alerts to. To learn more, see [What Is Workflow Automation?](https://help.zscaler.com/workflow-automation/what-workflow-automation) You cannot select Webhook and Workflow Automation together, therefore your options for Alert Delivery Methods are: You can access the Workflow Automation Admin Portal to configure workflows. Workflow Automation is configurable with the rule types: Application, Network, and Device.
-      - You can select Email and Workflow Automation together, but not with Webhook.
-      - You can select Email and Webhook together, but not with Workflow Automation.
-      - You can select Email, Webhook, or Workflow Automation individually.
 
 - **Alert Only if Repeated**: Enter the number of times a triggering event occurs before an alert is sent. Zscaler recommends entering 3 or more.
 - **Number of Active Devices**: Enter the number of active devices.
 - **Minimum Devices Impacted**: Choose by **Number** or **Percentage**. The alert triggers only if this minimum number is reached. Alerts trigger even if only one device is present in a specific group and the device meets the alert criteria.
-- **In Group**: Select the groups these throttling options apply to: **Departments**, **Cities**, **Organization**, **Regions**, or **Locations**. These options apply to the **Number** or **Percentage** of impacted devices, and the devices are also grouped based on these options. For example, in the following criteria: If only one device is present in Cairo, the PFT of a device exceeds 1000ms, and this situation repeats 3 times in a row, an alert is not triggered. The alert won't trigger because there must be at least 5 active devices in Cairo. An alert is sent when all the criteria you have set up for [triggering an alert](https://help.zscaler.com/zdx/triggering-alert) are met. See image.
+- **In Group**: Select the groups these throttling options apply to: **Departments**, **Cities**, **Organization**, **Regions**, or **Locations**. These options apply to the **Number** or **Percentage** of impacted devices, and the devices are also grouped based on these options. For example, in the following criteria: If only one device is present in Cairo, the PFT of a device exceeds 1000ms, and this situation repeats 3 times in a row, an alert is not triggered. The alert won't trigger because there must be at least 5 active devices in Cairo. An alert is sent when all the criteria you have set up for [triggering an alert](https://help.zscaler.com/zdx/understanding-alert-triggers) are met. See image.
   - **Number of Active Devices**: 5 **Minimum Devices Impacted**: 20%
   - **Page Fetch Time (PFT)**: >1000ms
   - **In Group**: Cities (city = Cairo)
@@ -2508,7 +2504,7 @@ On the **Actions** tab:
 
 - **Number of Meetings is**: Enter the number of impacted meetings in a 15-minute rolling time duration within the range of 1 and 10.
 - **Minimum Number of Active Participants is**: Enter the number of total active participants in a meeting within the range of 3 and 10.
-- **Number of Impacted Active Participants is:** Enter the number of impacted active participants within the range of 1 and 20 from a selected group (**Department**, **Organization**). See image.
+- **Number of Impacted Active Participants is**: Enter the number of impacted active participants within the range of 1 and 20 from a selected group (**Department**, **Cities**, **Organization**, **Regions**, **Zscaler Locations**). See image.
 
 - **Alert Only if Repeated**: Enter the number of times a triggering event occurs before an alert is sent. Zscaler recommends entering 3 or more.
 - **Minimum Users Impacted**: The alert triggers only if this minimum number of impacted users is reached. See image.
@@ -2521,7 +2517,7 @@ On the **Review** tab, review your rule configuration and then click **Submit**.
 
 See image.
 
-[Image: Configure Alert Rule]
+[Image: Configure Rule]
 
 [Image: Under Type, select ZDX Score to see Group ZDX Score By]
 
@@ -2535,7 +2531,7 @@ See image.
 
 [Image: Throttling]
 
-[Image: Configuring an Alert Rule for Incident]
+[Image: Configuring an alert rule for an incident]
 
 [Image: Incident Alert Rule Action]
 
@@ -8071,13 +8067,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-08-28T08:17Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-09-04T08:15Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-28T08:17Z
+- Last modified: 2026-09-04T08:15Z
 - Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -10524,13 +10520,13 @@ If you do not find any results, Zscaler recommends reducing the amount of criter
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-real-user-monitoring","lastmod":"2026-05-03T07:06Z","nid":"1535279"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-real-user-monitoring","lastmod":"2026-09-02T13:29Z","nid":"1535279"} -->
 ## Understanding Real User Monitoring
 
 - Source: https://help.zscaler.com/zdx/understanding-real-user-monitoring
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Users > Understanding Real User Monitoring
-- Last modified: 2026-05-03T07:06Z
+- Last modified: 2026-09-02T13:29Z
 - Summary: Information on Real User Monitoring that captures metrics to analyze user interactions with applications and their web browsers.
 
 Real User Monitoring (RUM) captures metrics where you can analyze user interactions with applications through their web browsers on Windows and macOS devices. RUM creates a comprehensive view into the application's digital experience. Use RUM to identify bottlenecks a user encounters while they are accessing their applications through their web browsers. RUM provides metrics based on web pages such as Page Fetch Time, Page Loading Time, and Core Web Vitals (i.e., Largest Contentful Paint).
@@ -10545,7 +10541,7 @@ Before RUM can gather metrics, you must have the following:
   - View user information and the performance dashboard.
 - The appropriate version compatibility for Zscaler Client Connector and ZDX Module. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
 - The device's browser has installed the latest RUM browser extension. For Chrome browsers, refer to [Chrome Web Store - Zscaler Real User Monitoring (RUM)](https://chromewebstore.google.com/detail/zscaler-real-user-monitor/eojpolfgdcogokpbcgejpgeblcjellak?utm_source=item-share-cb). For Microsoft Edge browsers, refer to [Microsoft Edge Add-ons - Zscaler Real Time User Monitoring](https://microsoftedge.microsoft.com/addons/detail/realtimeusermonitoring/dggndchpbpgadddajngjekkkegacfaea).
-- You must allowlist `ZUpmApplication.exe` on the device. To learn more, see [Zscaler Client Connector Processes to Allowlist](https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist).
+- You must allowlist `ZUpmApplication.exe` on the device. To learn more, see [ZDX Module Processes to Allowlist](https://help.zscaler.com/zdx/zdx-module-processes-allowlist).
 
 ## Configuring for Real User Monitoring
 
@@ -11460,18 +11456,18 @@ You can delete to cancel or abort a job on any table.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-device-events-reports","lastmod":"2026-07-15T13:20Z","nid":"1529314"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-device-events-reports","lastmod":"2026-09-03T16:30Z","nid":"1529314"} -->
 ## Viewing Device Events Reports
 
 - Source: https://help.zscaler.com/zdx/viewing-device-events-reports
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Viewing Device Events Reports
-- Last modified: 2026-07-15T13:20Z
+- Last modified: 2026-09-03T16:30Z
 - Summary: Provide details about viewing device events in the Zscaler Admin Console.
 
 Device events are captured in the Zscaler Admin Console to provide aggregated insights into common system and software crashes that impact users and their devices. You can analyze system crashes and software crashes across your organization or drill down into the user details page to understand the specific device event's information. You can then plan your next course of action to remediate the crashes.
 
-Go to Analytics > Digital Experience > Devices > Device Events to view the aggregated view of critical device events.
+Go to Digital Experience > Devices > Device Events to view the aggregated view of critical device events.
 
 The System Crashes and Software Crashes reports are shown for the previous 30 days by default.
 
@@ -11479,7 +11475,7 @@ The System Crashes and Software Crashes reports are shown for the previous 30 da
 
 To view the Device Events reports, ensure:
 
-- You have an Advanced subscription level for the Device Events reports. To learn more, see [Ranges & Limitations](https://help.zscaler.com/zdx/ranges-limitations).
+- You have an Advanced subscription level for the Device Events reports. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
 - You're running the following on the monitored device: To learn more, see [Supported Versions & Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
   - The required minimum or later versions of Zscaler Client Connector and ZDX Module
   - The supported OS
@@ -11591,20 +11587,17 @@ When you select software, you see:
 
 See image.
 
-## Caveat
+## Multiple Users for a Single Device
 
-ZDX collects data for single-user access per device. If there are multiple users on a device, then ZDX collects data for each user and the associated device. This scenario increases the device data aggregation.
+When a device is shared between multiple users, the user count is higher than the device count.
 
 For example:
 
 - User A is on Device X.
 - User B is also on Device X.
-- User A and User B access Device X at different times.
+- Therefore, User A and User B access Device X at different times.
 
-In this scenario, ZDX collects two separate device data when:
-
-- User A is on Device X.
-- User B is on Device X.
+In this scenario, there are two users and one device.
 
 [Image: View which devices are experiencing system crashes]
 

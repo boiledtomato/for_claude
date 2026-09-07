@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 77
 
 ---
@@ -108,13 +108,13 @@ The Executive Director of Finance (Megan Williams) sends an email that contains 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-pac-file","lastmod":"2026-08-26T21:57Z","nid":"1399376"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-pac-file","lastmod":"2026-09-02T06:10Z","nid":"1399376"} -->
 ## Understanding PAC Files
 
 - Source: https://help.zscaler.com/zia/understanding-pac-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Understanding PAC Files
-- Last modified: 2026-08-26T21:57Z
+- Last modified: 2026-09-02T06:10Z
 - Summary: Information on proxy auto-configuration (PAC) files and how it forwards internet traffic to the Zscaler service.
 
 A proxy auto-configuration (PAC) file is a text file that instructs a browser to forward traffic to a proxy server instead of directly to the destination server. It contains JavaScript that specifies the proxy server and, optionally, additional parameters that specify when and under what circumstances a browser forwards traffic to the proxy server. For example, a PAC file can specify on what days of the week or what hours of the day traffic is sent to a proxy, or for which domains and URLs traffic is not sent to a proxy.
@@ -136,7 +136,7 @@ Zscaler recommends that organizations use a combination of tunneling, PAC files,
 
 IPSec tunnels have additional processing overhead on your equipment, compared to GRE tunnels. Zscaler also recommends that organizations deploy mechanisms such as IP SLA to monitor tunnel health and enable fast failover. In addition to the GRE or IPSec VPN tunnel, Zscaler recommends that you install a PAC file for each user to ensure coverage outside the corporate network.
 
-To learn more about how to use PAC files to forward traffic to the Zscaler service, see [Using Default PAC Files to Forward Traffic to Internet & SaaS](https://help.zscaler.com/zia/using-default-pac-files-forward-traffic-internet-saas) and [Using Custom PAC Files to Forward Traffic to Internet & SaaS](https://help.zscaler.com/zia/using-custom-pac-file-forward-traffic-zia).
+To learn more about how to use PAC files to forward traffic to the Zscaler service, see [Using Default PAC Files to Forward Traffic to Internet & SaaS](https://help.zscaler.com/zia/using-default-pac-files-forward-traffic-internet-saas) and [Using Custom PAC Files to Forward Traffic to Internet & SaaS](https://help.zscaler.com/zia/using-custom-pac-file-forward-traffic-internet-saas).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -222,13 +222,13 @@ To learn more about the Zscaler and Votiro integration, see the [Zscaler and Vot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-policy-enforcement","lastmod":"2026-08-27T23:38Z","nid":"1399856"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-policy-enforcement","lastmod":"2026-09-02T19:36Z","nid":"1399856"} -->
 ## Understanding Policy Enforcement
 
 - Source: https://help.zscaler.com/zia/understanding-policy-enforcement
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Understanding Policy Enforcement
-- Last modified: 2026-08-27T23:38Z
+- Last modified: 2026-09-02T19:36Z
 - Summary: Information on how the Zscaler service uses Public Service Edges to inspect and enforce policies on inbound and outbound traffic.
 
 Zscaler uses full-featured inline proxies called [Public Service Edges](https://help.zscaler.com/zia/about-public-service-edges-internet-saas) for Internet & SaaS (ZIA), which feature Single Scan Multi-Action (SSMA) technology, to inspect and enforce policies on traffic leaving and coming into your organization. SSMA technology handles the traffic inspection. The policy enforcement takes place in the Public Service Edge's web and Firewall modules.
@@ -319,7 +319,7 @@ The policies enforced depend on whether the transaction is an HTTP GET request, 
 - HTTP GET or POST Response
 
 The following diagram summarizes the order of policy enforcement for different HTTP traffic types: 
-[Image: The policy order image]
+[Image: Diagram showing the policy order]
 
 This is a user request to retrieve a resource from the web (e.g., a web page). The Public Service Edge scans the GET request and applies policies in the following order:
 
@@ -493,13 +493,13 @@ To learn more about how to view and analyze the Post-Quantum Visibility Report, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-08-30T07:06Z","nid":"1447026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-09-06T07:06Z","nid":"1447026"} -->
 ## Understanding Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding Predefined DLP Dictionaries
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: Information about the predefined DLP dictionaries in the Zscaler Admin Console.
 
 Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint DLP. To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
@@ -534,6 +534,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - Fiscal Code (Italy)
 - Full Names (Japan)
 - Gambling
+- HR Document
 - ID Card
 - Identity Card Number (China)
 - Identity Card Number (Hong Kong)
@@ -578,7 +579,6 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - Personal Identification Number (Croatia)
 - Real Estate Document
 - Resident Registration Number (Korea)
-- Resume Document
 - Salesforce.com Data
 - Satellite Data
 - Schematic Data
@@ -1506,7 +1506,7 @@ This dictionary detects My Numbers (also referred to as Individual Numbers) from
 
 This dictionary uses the *Mod 11-2* checksum.
 
-The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/unified/editing-predefined-dlp-dictionaries#confidence).
+The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
 
 | Confidence Score | Threshold Criteria | Examples of Data |
 | --- | --- | --- |
@@ -1520,7 +1520,7 @@ The popular format for a Uruguay-issued Document ID number is a 7- or 8-characte
 
 This dictionary uses the *MOD 10*checksum.
 
-The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/unified/editing-predefined-dlp-dictionaries#confidence).
+The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
 
 | Confidence Score | Threshold Criteria | Examples of Data |
 | --- | --- | --- |
@@ -1639,7 +1639,7 @@ The popular format for a RUN number is an 8- or 9-digit number following the for
 
 The dictionary uses the *Mod 11* checksum.
 
-The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/unified/editing-predefined-dlp-dictionaries#confidence).
+The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
 
 | Confidence Score | Threshold Criteria | Examples of Data |
 | --- | --- | --- |
@@ -1667,7 +1667,7 @@ The popular format for a CUI number is an 8- or 9-digit number using the format 
 
 This dictionary uses the *Mod 11* checksum.
 
-The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/unified/editing-predefined-dlp-dictionaries#confidence).
+The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
 
 | Confidence Score | Threshold Criteria | Examples of Data |
 | --- | --- | --- |
@@ -1842,9 +1842,9 @@ The following table lists the confidence score threshold criteria for this dicti
 | **Medium** | The dictionary counts an instance as a violation if: The requirements of Low Confidence are met.; The RRN is in a popular format.The RRN can contain: A non-alphanumeric boundary.; Only a hyphen as a delimiter. | The number formats that can trigger the dictionary are: 970403-2966211; !780220-1296377@The number formats that do not trigger the dictionary are: 720590-2208919; #840...719-2145299@; D921009-5664079D |
 | **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The RNN is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *korean resident registration number*. | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: 970403-2966211; !780220-1296377@; 890320-1104929; 840719-2145299; 921009-5664079; 940219-5027845 |
 
-This dictionary detects resume documents.
+This dictionary detects HR documents.
 
-Zscaler supports only the following document types for resume documents: RTF, PDF, MSG, DOC, DOCX, DOCM, DOTX, DOTM, XLS, XLSX, XLSM, XLTM, PPT, PPTX, PPSX, PPTM, POTM, POTX, and IWORK (pages, numbers, and keynote). To detect sensitive content, this dictionary requires at least 1 KB of extracted content from a resume document file.
+Zscaler supports only the following document types for HR documents: RTF, PDF, MSG, DOC, DOCX, DOCM, DOTX, DOTM, XLS, XLSX, XLSM, XLTM, PPT, PPTX, PPSX, PPTM, POTM, POTX, and IWORK (pages, numbers, and keynote). To detect sensitive content, this dictionary requires at least 1 KB of extracted content from an HR document file.
 
 The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
 
@@ -3694,13 +3694,13 @@ If you want your web traffic to be forwarded to certain Public Service Edges and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-sublocations","lastmod":"2026-08-24T03:29Z","nid":"1399271"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-sublocations","lastmod":"2026-08-31T06:42Z","nid":"1399271"} -->
 ## Understanding Sublocations
 
 - Source: https://help.zscaler.com/zia/understanding-sublocations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Understanding Sublocations
-- Last modified: 2026-08-24T03:29Z
+- Last modified: 2026-08-31T06:42Z
 - Summary: Information on sublocations and how they are used within the Zscaler service.
 
 Sublocations enable an organization to create new locations that reference IP addresses that are encapsulated within a [GRE](https://help.zscaler.com/zia/configuring-gre-tunnels) or [IPSec](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) tunnel, or that are passed to the Zscaler service through X-Forwarded-For (XFF) headers.
@@ -3715,7 +3715,7 @@ For example, an organization can define one sublocation for its corporate networ
 Key considerations while using sublocations:
 
 - Sublocations cannot have overlapping IP addresses within a location.
-- Sublocations can reference IP address ranges (e.g., 10.10.20.2-10.10.20.250).
+- Sublocations can reference IP address ranges (e.g., 10.10.20.2 to 10.10.20.250).
 - After you add a sublocation, the Zscaler service automatically creates a sublocation named **other** on the Locations page. The **other** sublocation is created, by default, for IP addresses that are sent to the cloud from a location that is not already defined in the sublocation. You can rename the **other** sublocation if desired. If the **Enable IPv6** option is enabled for your location, the Zscaler service automatically creates a sublocation named **other6** in addition to the **other** sublocation. You can rename the **other6** sublocation if desired. See image.
 - After you add a sublocation to a location created in the Zscaler Cloud & Branch Connector Admin Portal, the **Workload traffic type** and **Workload Traffic Group** are applied as the default location type and the location group for the sublocation, respectively.
 - When you add a sublocation to an **Extranet**-type location, the **Extranet** location type is applied automatically. The extranet sublocation uses the DNS serverand traffic selectorof the extranet location it was created for. To learn more, see [Configuring an Extranet](https://help.zscaler.com/zia/configuring-extranet).
@@ -4588,13 +4588,13 @@ Select between **All**, **Allowed**, or **Blocked**tabs to see the URL categorie
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/using-custom-pac-file-forward-traffic-internet-saas","lastmod":"2026-08-27T23:38Z","nid":"1399446"} -->
+<!-- ZS-ARTICLE {"url":"/zia/using-custom-pac-file-forward-traffic-internet-saas","lastmod":"2026-09-02T07:28Z","nid":"1399446"} -->
 ## Using Custom PAC Files to Forward Traffic to Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/using-custom-pac-file-forward-traffic-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Using Custom PAC Files to Forward Traffic to Internet & SaaS
-- Last modified: 2026-08-27T23:38Z
+- Last modified: 2026-09-02T07:28Z
 - Summary: How to use a custom PAC file to forward internet traffic to the Internet & SaaS (ZIA).
 
 Zscaler allows you to host up to 10 versions of your custom PAC files at a time in the Zscaler Admin Console. You can create multiple versions for the same PAC file and can stage them for testing before deployment. When you add a PAC file, you can check its syntax and correct any errors before you save it.
@@ -4742,7 +4742,7 @@ After adding the custom PAC file to the Zscaler Admin Console, you must:
 
 [Image: The commit message for saving the new PAC file branch on the Save window]
 
-[Image: The commit message for staging the new PAC file branch on the Save & Stage Deployment window]
+[Image: The commit message on the Save & Deploy window]
 
 [Image: The commit message for saving and deploying the new PAC file branch on the Save & Deploy window]
 
@@ -4750,19 +4750,19 @@ After adding the custom PAC file to the Zscaler Admin Console, you must:
 
 [Image: The Manage Versions icon on the Hosted PAC Files page]
 
-[Image: The PAC file version numbers on the manage Versions tab]
+[Image: The PAC file version numbers on the Manage Versions tab]
 
-[Image: The View Deployed Version tab on the manage PAC File page]
+[Image: The View Deployed Version tab on the Manage PAC File page]
 
-[Image: The Compare Two versions button on the Manage Versions tab]
+[Image: The Compare Two Versions button on the Manage Versions tab]
 
-[Image: The Manage Versions icon for deleting PAC files on the Hosted PAC Files page]
+[Image: The Manage Versions icon for deleting PAC Files on the Hosted PAC Files page]
 
 [Image: The Delete button on the Manage Versions tab]
 
-[Image: The confirmation message for deleting PAC files in the Delete PAC Version window]
+[Image: The confirmation message for deleting PAC Files in the Delete PAC Version window]
 
-[Image: The Delete icon on the Hosted PAC files page]
+[Image: The Delete icon on the Hosted PAC Files page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5088,16 +5088,16 @@ If you don't see the **MD5** column, click the **Menu** icon at the top right-ha
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/using-zscaler-cloud-performance-test-tool","lastmod":"2026-08-27T23:07Z","nid":"1402306"} -->
+<!-- ZS-ARTICLE {"url":"/zia/using-zscaler-cloud-performance-test-tool","lastmod":"2026-08-31T00:55Z","nid":"1402306"} -->
 ## Using the Zscaler Cloud Performance Test Tool
 
 - Source: https://help.zscaler.com/zia/using-zscaler-cloud-performance-test-tool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Using the Zscaler Cloud Performance Test Tool
-- Last modified: 2026-08-27T23:07Z
+- Last modified: 2026-08-31T00:55Z
 - Summary: Information on how to use the Zscaler Cloud Performance Test speed test tool.
 
-The Zscaler Cloud Performance Test is a browser-based tool for collecting performance troubleshooting information for end users when connecting to the internet through the Internet & SaaS (ZIA). This tool runs several performance tests, such as download or upload bandwidth, between the browser and the [Public Service Edge for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/about-public-service-edges-internet-saas) or [Private Service Edge for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas) to which the traffic is forwarded.
+The Zscaler Cloud Performance Test is a browser-based tool for collecting performance troubleshooting information for end users when connecting to the internet through Internet & SaaS (ZIA). This tool runs several performance tests, such as download or upload bandwidth, between the browser and the [Public Service Edge for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/about-public-service-edges-internet-saas) or [Private Service Edge for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas) to which the traffic is forwarded.
 
 Zscaler recommends you use our proprietary Cloud Performance Test tool powered by [Zscaler Digital Experience (ZDX)](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience)over third-party speed test tools, such as Speedtest.net, because these tools introduce additional latency and variables that make it difficult to troubleshoot issues.
 
@@ -5998,13 +5998,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-sublocations","lastmod":"2026-08-24T15:25Z","nid":"1531209"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-sublocations","lastmod":"2026-08-31T06:55Z","nid":"1531209"} -->
 ## Viewing Sublocations
 
 - Source: https://help.zscaler.com/zia/viewing-sublocations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Viewing Sublocations
-- Last modified: 2026-08-24T15:25Z
+- Last modified: 2026-08-31T06:55Z
 - Summary: Information on viewing the Sublocations table on the Locations page in the Zscaler Admin Console
 
 You can add sublocations to an existing parent location using your organization's internal IP address range. Organizations can leverage sublocations to implement various policies based on IP addresses, enforce authentication for selective networks, and enforce bandwidth control to ensure unused bandwidth is available for the parent location. To learn more, see [Understanding Sublocations](https://help.zscaler.com/zia/understanding-sublocations).
@@ -6013,7 +6013,7 @@ You can [add sublocations](https://help.zscaler.com/zia/configuring-sublocations
 
 To view the sublocations created for the location:
 
-1. Go to **Infrastructure > Locations > Location Management > Legacy Locations**.
+1. Go to **Infrastructure > Locations > Legacy Locations**.
 2. On the**Locations** page, click the sublocation number in the **Sublocations**column within the locations table. The **View Sublocation** page appears, displaying all the sublocations created for the location.
 3. On the **View Sublocation** page, you can view the following for each sublocation:
   - **Name**: The name of the sublocation.
@@ -10473,13 +10473,13 @@ To learn more about configuring Zscaler Outbound Email DLP, see [Step-by-Step Co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/writing-pac-file","lastmod":"2026-08-27T04:48Z","nid":"1399396"} -->
+<!-- ZS-ARTICLE {"url":"/zia/writing-pac-file","lastmod":"2026-09-02T17:17Z","nid":"1399396"} -->
 ## Writing a PAC File
 
 - Source: https://help.zscaler.com/zia/writing-pac-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Writing a PAC File
-- Last modified: 2026-08-27T04:48Z
+- Last modified: 2026-09-02T17:17Z
 - Summary: How to write a PAC file and include Zscaler-specific variables in the argument.
 
 This article describes how to write a new [PAC file](https://help.zscaler.com/zia/understanding-pac-file).
@@ -10659,7 +10659,7 @@ The following lines in the PAC file example exclude requests for internal hosts 
 
 This argument uses the JavaScript function `IsInNet()`, which is typically used to identify either of the following:
 
-- Client IP address (if the request comes from this IP address, use this proxy.) Be aware that this argument returns the first IP address on your device, based on its OS. The first IP address, shown when you use the `ipconfig` command, might be the IPv6 address of the device or the IP address of virtual adapters and this can cause conflicts.
+- Client IP address (if the request comes from this IP address, use this proxy). Be aware that this argument returns the first IP address on your device, based on its OS. The first IP address, shown when you use the `ipconfig` command, might be the IPv6 address of the device or the IP address of virtual adapters and this can cause conflicts.
 - Host server IP address (if the request is going to this address, use this proxy). Be aware that this argument results in a DNS lookup. It can impact performance if the DNS server is not available. Instead, you can use the following to constrain the `IsInNet()` function based on the host domains being accessed:
 
 ```
@@ -11004,7 +11004,7 @@ If the data center has fewer than 8 healthy gateways, then the PAC server alloca
 
 If your organization uses a subcloud, you can use the country gateway host index tokens (`_F0`through`_F7`suffix) with the subcloud variables. For example, `${COUNTRY_GATEWAY.``<Subcloud>``.``<Zscaler cloud>``.net_HOST_F1}` and `${COUNTRY_SECONDARY.GATEWAY.``<Subcloud>``.``<Zscaler cloud>``.net_HOST_F1}`.
 
-Use the suffix, `_FX` to the `${COUNTRY_GATEWAY_HOST}` variable in the PAC file for the PAC server to dynamically issue the gateway hosts within a country based on the client fingerprints, i.e., all users from a single egress IP address are given a gateway host from a pool of healthy gateway hosts. The fingerprint is used to ensure that a single device continues its session on the same gateway host.
+Use the suffix `_FX` to the `${COUNTRY_GATEWAY_HOST}` variable in the PAC file for the PAC server to dynamically issue the gateway hosts within a country based on the client fingerprints, i.e., all users from a single egress IP address are given a gateway host from a pool of healthy gateway hosts. The fingerprint is used to ensure that a single device continues its session on the same gateway host.
 
 Use the following syntax to include the `${COUNTRY_GATEWAY_HOST_FX}`variable in your PAC file:
 
@@ -11092,7 +11092,7 @@ return "PROXY ${SECONDARY_GATEWAY_FX}:9400; PROXY ${GATEWAY_FX}:9400; DIRECT";
 }
 ```
 
-[Image: Default PAC Files menu in Zscaler Admin Console]
+[Image: Default PAC Files menu in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---

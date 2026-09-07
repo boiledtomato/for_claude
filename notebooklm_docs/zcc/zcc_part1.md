@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 203
 
 ---
@@ -2240,13 +2240,13 @@ After you have added the partner tenant, the partner tenant remains on this wind
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-process-based-applications-bypass-traffic","lastmod":"2026-07-31T07:06Z","nid":"1458811"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-process-based-applications-bypass-traffic","lastmod":"2026-09-01T07:06Z","nid":"1458811"} -->
 ## Adding Process-Based Applications to Bypass Traffic
 
 - Source: https://help.zscaler.com/zscaler-client-connector/adding-process-based-applications-bypass-traffic
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Profile Management > Adding Process-Based Applications to Bypass Traffic
-- Last modified: 2026-07-31T07:06Z
+- Last modified: 2026-09-01T07:06Z
 - Summary: Configuring Application Bypass Based on Application Identity
 
 [Watch a video about Application Bypass](https://fast.wistia.net/embed/iframe/vslmsh229d) (shows legacy UI).
@@ -4246,13 +4246,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-08-26T10:30Z","nid":"1535130"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-09-02T13:25Z","nid":"1535130"} -->
 ## Client Connector App Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Release Notes (per OS) > Client Connector App Release Summary (2026)
-- Last modified: 2026-08-26T10:30Z
+- Last modified: 2026-09-02T13:25Z
 - Summary: Zscaler Client Connector app release summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector app. To successfully update to the latest version of Zscaler Client Connector, see [Best Practices for Updating Latest Versions of Zscaler Client Connector Application](https://help.zscaler.com/zscaler-client-connector/best-practices-updating-latest-version-zscaler-client-connector-application).
@@ -11478,13 +11478,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/deploying-zscaler-client-connector-workspace-one-uem-macos","lastmod":"2026-07-31T07:06Z","nid":"1541097"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/deploying-zscaler-client-connector-workspace-one-uem-macos","lastmod":"2026-09-01T07:06Z","nid":"1541097"} -->
 ## Deploying Zscaler Client Connector with Workspace ONE UEM for macOS
 
 - Source: https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-workspace-one-uem-macos
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Deploying Zscaler Client Connector with Workspace ONE UEM > Deploying Zscaler Client Connector with Workspace ONE UEM for macOS
-- Last modified: 2026-07-31T07:06Z
+- Last modified: 2026-09-01T07:06Z
 - Summary: How to deploy the macOS version of Zscaler Client Connector with Workspace ONE UEM.
 
 This guide is for admins only. If you are an end user, contact your organization’s administrator for deployment-related details.
@@ -13641,13 +13641,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/release-upgrade-summary-2026","lastmod":"2026-08-21T08:16Z","nid":"1534303"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/release-upgrade-summary-2026","lastmod":"2026-09-04T08:00Z","nid":"1534303"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/release-upgrade-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Portal Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-21T08:16Z
+- Last modified: 2026-09-04T08:00Z
 - Summary: Zscaler Client Connector Portal Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Client Connector Portal. Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).

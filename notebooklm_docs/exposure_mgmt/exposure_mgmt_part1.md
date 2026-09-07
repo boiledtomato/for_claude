@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 204
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 201
 
 ---
 
@@ -1075,13 +1075,13 @@ This article provides a summary of all new features and enhancements for Asset E
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-08-11T08:33Z","nid":"1534298"} -->
+<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-08-31T07:45Z","nid":"1534298"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/aem/release-upgrade-summary-2026
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-11T08:33Z
+- Last modified: 2026-08-31T07:45Z
 - Summary: Asset Exposure Management Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Asset Exposure Management.
@@ -3541,6 +3541,44 @@ To delete a custom role:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/adding-azure-target-subscriptions","lastmod":"2026-08-31T22:18Z","nid":"1542948"} -->
+## Adding Azure Target Subscriptions
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/adding-azure-target-subscriptions
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Adding Azure Target Subscriptions
+- Last modified: 2026-08-31T22:18Z
+- Summary: Information on how to add Azure target subscriptions.
+
+The target subscriptions in AI Security refer to the Azure subscriptions that AI Security must monitor. You can add new target subscriptions to the existing onboarded Azure account. AI Security monitors and scans the data stores within the onboarded subscriptions to identify sensitive data, misconfigurations, and vulnerabilities.
+
+## Prerequisites
+
+You must be assigned either an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions) or a custom role with the Configure Monitoring Scope permission in the AI Security Admin Portal.
+
+## Adding Target Subscriptions
+
+To add Azure target subscriptions:
+
+1. In the Zscaler Admin Console, go to **Administration** > **Account Onboarding**. The **Cloud Accounts**page appears.
+2. In the **Configured Integrations**section, select the onboarded account for which you want to add new subscriptions.
+3. Click **Manage**and select **Add Target Subscriptions** from the drop-down menu. See image. The **Add Target Subscriptions** window appears.
+4. In the **Add Target Subscriptions** window, enter the following information and click **Save**: See image.
+  - **Subscription ID**: Enter the subscription ID.
+  - **Subscription Name (Optional)**: Enter the subscription name.
+  - **Business Unit**: Select a business unit for the subscription.
+  - Click **+ Add Subscription** to add more subscriptions.
+5. On the **Roles and Templates** tab, click **Download Template** to download and [deploy the template](https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription). See image.
+
+[Image: The Manage actions drop-down menu with annotation around Add Target Subscriptions]
+
+[Image: The Add Target Subscriptions window with the list of target subscriptions]
+
+[Image: The Roles and Templates tab with annotation around Azure Onboarding template]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/adding-microsoft-entra-tenant-details","lastmod":"2026-06-18T21:06Z","nid":"1540115"} -->
 ## Adding Microsoft Entra Tenant Details
 
@@ -3929,6 +3967,66 @@ Update the following downloaded files:
   4. To initialize the working directory and apply Terraform configuration: `terraform init`
   5. To verify the changes in the Terraform configuration: `terraform plan`
   6. To run the Terraform script: `terraform apply`Under **Do you want to perform these actions?**, enter `yes` and then press `Enter`.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/changing-client-secret-azure-application","lastmod":"2026-08-31T23:43Z","nid":"1542946"} -->
+## Changing Client Secret for Azure Application
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/changing-client-secret-azure-application
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Changing Client Secret for Azure Application
+- Last modified: 2026-08-31T23:43Z
+- Summary: Information on how to change the client secret ID for an Azure application.
+
+You can update the client secret for the application you created while [onboarding an Azure subscription](https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription). The client secret ID in Microsoft Azure is a confidential string that is used as a password for the application. It comes with an expiration date and must be renewed for the application to retain AI Security's access.
+
+## Prerequistes
+
+Make sure the following prerequisites are met:
+
+- You must be assigned either an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions) or any role with Change Application Details permissions in the AI Security Admin Portal.
+- Add a new client secret for the application in the Microsoft Entra tenant. See instructions.
+
+## Changing the Client Secret
+
+To change the client secret:
+
+1. Go to **Administration**> **Accounts Onboarding**.
+2. Select the subscription for which you want to update the client secret.
+3. Click **Manage**and then select **Change Application Details**. See image. The **Change Application Details**window appears.
+4. In the **Change Application Details** window, for **Client Secret**, paste the string copied from the Microsoft Entra tenant. See image.
+5. Click **Validate**. AI Security validates the updated client secret by verifying it against the application ID. If the validation is successful, a message appears indicating that the connection is established. If the client secret is invalid, or it does not match the application, an error is displayed.
+6. Click **Done**. The client secret is updated for the application.
+
+To add a new client secret:
+
+1. Sign in to the [Microsoft Azure portal](https://portal.azure.com/) and go to **Microsoft Entra ID**.
+2. In the left-side navigation, select **App registrations**. See image. The **App registrations page** appears.
+3. On the **App registrations page**, select the **Owned applications** tab.
+4. Search for and select the [application](https://help.zscaler.com/dspm/onboarding-azure-subscription)you created while onboarding.
+5. In the left-side navigation, select **Certificates & secrets**. See image. The **Certificates & secrets**page appears.
+6. On the **Certificates & secrets**page, under **Client secrets** tab, click **+ New client secret**. See image. The **Add a client secret** page appears.
+7. On the **Add a client secret** page: See image.
+  - **Description**: Enter a description for the client secret.
+  - **Expires**: Select the expiration date from the drop-down menu.
+8. Click **Add**.
+9. In the **Client secrets** table, under **Value**, click the **Copy**icon to copy the string to the clipboard. See image.
+
+[Image: Left-side navigation of Entra ID and annotation around App registrations]
+
+[Image: The App registrations page with annotation around Certificates & secrets]
+
+[Image: The Certificates & secrets page with annotation around New client secret]
+
+[Image: Add a client secret page]
+
+[Image: The Client secrets tab with annotation around client secret value]
+
+[Image: The Manage actions drop-down menu with annotation around Change Application Details]
+
+[Image: The Change Application Details window with application ID and client secret]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7539,13 +7637,13 @@ The scan rule is enabled or disabled per its status.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-aws","lastmod":"2026-07-20T02:15Z","nid":"1539939"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-aws","lastmod":"2026-09-03T04:26Z","nid":"1539939"} -->
 ## IAM Roles and Permissions for AWS
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/iam-roles-and-permissions-aws
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > IAM Roles and Permissions for AWS
-- Last modified: 2026-07-20T02:15Z
+- Last modified: 2026-09-03T04:26Z
 - Summary: Information about the roles created and permissions while onboarding AWS accounts.
 
 As part of the [onboarding](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization) process, you need to deploy the AI Security templates that create roles and permissions in the AWS organization. These templates create multiple IAM roles with the required permissions to establish a trust relationship between AI Security, the [orchestrator account](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator), and target accounts. Each role has permissions for various services and actions such as resource discovery, CloudTrail log collection, etc.
@@ -9282,6 +9380,397 @@ To create the AWSCloudFormationStackSetExecutionRole role:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-08-31T22:10Z","nid":"1542892"} -->
+## Onboarding an Azure Subscription
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Onboarding an Azure Subscription
+- Last modified: 2026-08-31T22:10Z
+- Summary: Information on how to onboard a single Azure subscription.
+
+You can onboard a single Azure subscription for AI Security to monitor and scan the data stores to identify sensitive data, misconfigurations, and vulnerabilities.
+
+## Prerequisites
+
+Before onboarding an Azure subscription, ensure you have completed the following:
+
+- Create the following in the Microsoft Entra ID:
+  1. Azure application or service principal: To provide AI Security access to the resources within the target subscriptions. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser). See instructions.
+  2. Client secret: A confidential string that is used as a password for the application created. See instructions.
+  3. API permissions: Add API permissions and grant admin consent to the application to access resources within the subscription. See instructions.
+- Identify an Azure subscription as the orchestrator account. The AI Security template is deployed in this account to scan the data in the target accounts.
+- Assign the User Access Administrator role to the created application or service principal on the orchestrator and target subscriptions. This is required for the application to manage user permissions and role assignments for Azure resources. See instructions.
+- You must have the following roles to deploy the templates:
+  | Scope | Role |
+  | --- | --- |
+  | Orchestrator subscription | User Access Administrator; Contributor; Key Vault Administrator |
+  | Target subscriptions | User Access Administrator |
+  | Storage account | Storage Account Contributor |
+  | Microsoft Entra ID | Application Administrator |
+- Install the latest versions of Terraform and Azure CLIs to run the templates. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Identify the storage containers where Terraform state files must be stored. The state files are required to manage resources created by the AI Security Terraform templates and to [upgrade to new templates](https://help.zscaler.com/dspm/viewing-roles-and-templates). You can also create the following new storage containers to store the state files:
+  - Resource Group
+  - Storage Account
+  - Storage Account Container
+
+## Onboarding a Single Azure Subscription
+
+To onboard an Azure subscription:
+
+- 1. Select Azure subscription.
+- 2. Register an Azure application.
+- 3. Add orchestrator details and select the network configuration.
+- 4. Select services to monitor.
+- 5. Select regions to monitor.
+- 6. Configure diagnostic logs.
+- 7. Configure evidence.
+- 8. Select the target subscription to monitor.
+- 9. Configure resource tags (optional).
+- 10. Deploy orchestrator.
+
+After completing the onboarding process, you can configure the scan settings. To learn more, see [About Scan Settings](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings).
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, click **+ New registration**. The **Register an application** page appears.
+4. On the **Register an application** page, provide the following details and click **Register**.
+  - **Name**: Enter a unique name for the application.
+  - **Supported account types**: Select the subscription.
+
+The application is created in the Entra ID. Copy the **Application (client) ID** and save them on your system as this is required while onboarding.
+
+See image.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **Certificates & Secrets**.
+5. On the **Client secrets** tab, click **+ New client secret**. See image. The **Add a client secret** drawer appears.
+6. In the **Add a client secret** drawer:
+  - **Description**: Enter a description for the client secret.
+  - **Expires**: Select the expiration date from the drop-down menu.
+7. Click **Add**.
+8. In the **Client secrets** table, under **Value**, click the **Copy**icon to copy the string to the clipboard. See image.
+
+1. Sign in to the Azure portal and go to **Subscriptions**. The **Subscriptions**page with the list of subscriptions appears.
+2. On the **Subscriptions**page, select the subscription you want AI Security to monitor.
+3. In the left-side navigation, go to **Access control (IAM)**. The **Access control (IAM)**page appears.
+4. On the **Access control (IAM)**page, click **+ Add** and select **Add role assignment**. The **Add role assignment**page appears.
+5. On the **Add role assignment**page, under the **Role**tab, select the **Privileged administrator roles**tab.
+6. Search for and select the **User Access Administrator** role and click **Next**. See image.
+7. On the **Members**tab: See image.
+  1. **Assign access to**: Select **User, group, or service principal**.
+  2. **Members**: Click **+ Select members**. The **Select members**drawer appears.
+  3. In the **Select members**drawer, search and select the applicationyou created and click **Select**. See image.
+  4. Click **Next**.
+8. On the **Conditions**tab, for **What users can do**, select **Allow user to assign all roles (highly privileged)**and click **Review + assign**. See image.
+
+Repeat this for all the subscriptions that you want AI Security to monitor.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **API permissions**.
+5. Click **+ Add a permissions**. The **Request API permissions** drawer appears.
+6. On the **Request API permissions** drawer, select **Microsoft Graph** and add the following permissions: See image. Entitlements are affected if the optional API permissions are not configured.
+  | API or Permissions Name | State | Type | Description |
+  | --- | --- | --- | --- |
+  | Application.Read.All | Mandatory | Application | Read all applications |
+  | User.Read | Mandatory | Delegated | Sign in and read user profile |
+  | AuditLog.Read.All | Optional | Application | Read all audit log data |
+  | Directory.Read.All | Optional | Application | Read directory data |
+  | Organization.Read.All | Optional | Application | Read organization information |
+  | Reports.Read.All | Optional | Application | Read all usage reports |
+  | RoleManagement.Read.Directory | Optional | Application | Read all directory RBAC settings |
+  | RoleManagementPolicy.Read.Directory | Optional | Application | Read all policies for privileged role assignments of your company's directory |
+  | UserAuthenticationMethod.Read.All | Optional | Application | Read all users' authentication methods |
+7. On the **API permissions** page, click **Grant admin consent for <application name>**.
+8. In the **Grand admin consent confirmation** window, click **Yes**.
+
+Resource groups are logical containers that comprises a group of Azure resources. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal).
+
+To create a resource group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Resource groups**.
+2. Click **+Create**. See image. The **Create a resource group** drawer appears
+3. In the **Create a resource group** drawer, on the **Basics** tab:
+  1. **Subscription**: Select the orchestrator subscription from the drop-down menu.
+  2. **Resource group**: Enter a unique name for the resource group.
+  3. **Region**: Select a region where the resource group must be created.
+4. Click **Review + create**. See image.
+
+Storage accounts store data objects such as files, queues, tables, and Terraform state files. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
+
+To create a storage account:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Click **+Create**. See image. The **Create a storage account** drawer appears.
+3. In the **Create a storage account** window, on the **Basics** tab:
+  1. **Subscription**: Select your Azure subscription.
+  2. **Resource group**: Select the resource group that you created.
+  3. **Storage account name**: Enter a unique name for the storage account.
+  4. **Region**: Select location where the storage account must be created.
+4. Click **Review + create**. See image.
+
+A storage account container is a set of blobs similar to a directory in a file system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+
+To create a storage account container:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Locate the storage account you created and click the storage account.
+3. In the left-side navigation, under **Data storage**, select **Containers**. See image.
+4. Click **+Container**. See image.
+5. In the **New container** drawer: See image.
+  1. **Name**: Enter a unique name for the container.
+  2. **Anonymous access level**: Select the access level for the container.
+6. Click **Create**.
+
+| Environment | Terraform Version | Azure CLI Version | PowerShell or Bash Version |
+| --- | --- | --- | --- |
+| Mac | v1.10.3 | 2.65.0 | version 3.2.57(1)-release (arm64-apple-darwin23) |
+| Cloud Shell - Bash | v1.9.5 | 2.65.0 | version 5.1.8(1)-release (x86_64-pc-linux-gnu) |
+| Cloud Shell - PowerShell | v1.9.5 | 2.65.0 | 7.4.5 |
+| Windows - Command line | v1.7.5 | 2.67.0 | NA |
+| Windows - PowerShell | v1.9.8 | 2.67.0 | 7.4.6 |
+
+1. In the Zscaler Admin Console, go to **Administration**> **Account Onboarding**.
+2. Click **Add New**.
+3. In the **Select Cloud Provider** window: See image.
+  1. For **Select Cloud Type**, click the**Azure** tile.
+  2. For **Select Onboarding Type**, click the **Subscription**tile.
+4. Click **Next**.
+
+Provide the following details to register an Azure application for AI Security to connect to the Azure subscription and click **Apply**.
+
+- **AI Security Alias**: Enter a user-friendly name for the subscription.
+- **Azure AD Tenant ID**: Enter the Microsoft Entra tenant ID. You can find the tenant ID in the Azure portal in multiple ways. For example:
+  1. Sign in to the Azure portal.
+  2. On the top right, select your account and then click **Switch directory**.
+  3. On the **Portal Settings | Directories + subscriptions** page, under **All Directories**, copy the **Directory ID** of the corresponding tenant that you want to onboard.
+- **Custom Role Name Prefix**: Enter a unique role name. This role name is added as a prefix to all the custom roles that are created during the onboarding process.
+- **Application ID**: Enter the application or client ID.
+- **Client Secret**: Enter the client secret.
+- **Notification Emails (Optional)**: Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded tenant. You can add up to 30 email addresses to receive notifications about the issues. You can also add email addresses after completing the onboarding process.
+
+See image.
+
+In the **Orchestrator Configuration** section, provide the following Azure subscription details to deploy the AI Security orchestrator scanner and click **Apply**.
+
+- **Orchestrator Subscription ID**: Enter the subscription ID.
+- **Select the Orchestrator Region**: Select the region.
+- **Network Configuration**: Select one of the following:
+  - **Custom**: Select to use your organization's resources to deploy the orchestrator.
+    - **Subnet ID**: Enter the subnet where the orchestrator instances must be launched.
+    - **Network Security Group ID**: Enter the network security group for the orchestrator instance.
+  - **Zscaler**: Select to use Zscaler resources to deploy the orchestrator.
+
+See image.
+
+In the **Configure Services** section, select the services that AI Security must monitor and click **Apply**. AI Security permissions are restricted to monitor and scan the data only in the selected services.
+
+See image.
+
+Select the regions that AI Security must monitor and enter the following details for each selected region. AI Security creates and deploys resources required for scanning only in the selected regions.
+
+- **Subnet ID**: Enter the subnet where the scanner instances must be launched.
+- **Network Security Group ID**: Enter the network security group for the scanner instance.
+- **Postgres Delegated Subnet ID**: (Optional) Enter the Postgres subnet ID for the scanner instance. This option is available only if the database is selected on the **Configure Services** section.
+
+See image.
+
+Diagnostic logs are used to identify new, modified, or deleted files from monitored storage accounts. If not configured, only [full scans](https://help.zscaler.com/dspm/about-scan-settings) are supported.
+
+Enter an existing storage account name or account resource ID in each region of the target subscription to store the scanning logs and click **Apply**.
+
+See image.
+
+AI Security discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing storage account container or add a new one to store these evidence snippets. In the **Evidence**section, select one of the following and click **Apply**.
+
+- **Custom**: Use an existing storage account container to configure evidence data.
+  - **Storage Account ID**: The resource ID of the storage account.
+  - **Container Name**: The name of the container.
+- **Automated**: AI Security creates a storage container in the orchestrator account to upload the snippet of evidence data.
+
+See image.
+
+In the **Add Target Subscriptions** section, add the target subscriptions that you want AI Security to monitor:
+
+1. Click **Add Target Subscriptions**.
+2. In the **Add Target Subscriptions** window, enter the following information:
+  - **Subscription ID**: Enter the subscription ID.
+  - **Subscription Name** **(Optional)**: Enter the subscription name.
+  - **Business Unit**: Select a business unit to the subscription.
+3. Click **+ Add Subscription** to add more subscriptions to monitor. See image.
+4. Click **Save**.
+
+In the **Resource Tags** section, configure custom tags to identify the resources created by AI Security.
+
+1. Click **Add Custom Tags**. The **Add Custom Tags** window appears.
+2. In the **Add Custom Tags** window, enter a key and value pair for the tag.
+3. Click **Add Tag**, and enter key-value pairs to add more tags. See image.
+4. Click **Done**.
+
+Download and deploy the orchestrator templates. Orchestrator template includes policies and permissions to create custom roles that provide AI Security with access to the resources in the tenant.
+
+To deploy the templates:
+
+- a. Download and modify the template.
+- b. Initialize the template.
+- c. Deploy the template.
+- d. Validate the template.
+
+1. In the **Deploy Orchestrator** section, click **Evidence**or **Azure Onboarding** to download the template as a ZIP file. Extract the file to your local system and create a new folder to store the extracted files. The ZIP file contains multiple Terraform files.
+2. Update the following details in the `backend.tf` file: See image.
+  - **resource_group_name**: Enter the resource group name.
+  - **storage_account_name**: Enter the storage account name.
+  - **container_name**: Enter the container name where the Terraform state files are stored.
+
+Use any of the following methods:
+
+- Cloud Shell
+- Command Prompt
+
+1. Sign in to the Azure portal, and click **Cloud Shell**.
+2. In the **Welcome to Azure Cloud Shell** window, choose **Bash**or **PowerShell**, as required. See image.
+3. In the **Getting started** window: See image.
+  1. Select **Mount storage account**.
+  2. Select the storage account subscription from the list.
+  3. Click **Apply**.
+4. In the **Mount storage account** window, choose **Select existing storage account**and click **Next**.
+5. In the **Select storage account** window: See image.
+  1. **Subscription**: Select the subscription where the storage account is created.
+  2. **Resource group**: Select the resource group from the list.
+  3. **Storage account name**: Select the storage account.
+  4. **File share**: Click **Create a file share**and enter a name for the new file.
+  5. Click **Select**.
+6. Use any of the following:
+  - Azure PowerShell
+  - Bash
+
+1. Run the following commands to prepare the PowerShell environment:
+  1. To switch to the clouddrive folder: `cd clouddrive`
+  2. To create a AI Security folder within the clouddrive folder and switch to the newly created AI Security folder: `md ai-security_onboarding cd ai-security_onboarding`
+  3. To create the logs and tree discovery folders: `md logs md tree discovery`
+  4. To verify if all the folders are created: `ls`
+  5. To switch to the newly created tree discovery folder: `cd tree discovery`
+2. Zip the modified template and upload the folder:
+  1. Click **Manage files** and select **Upload**.
+  2. Browse for the template and click **Open**.
+3. Run the following commands :
+  1. To extract the ZIP folder: `expand -archive -path <folder name.zip>`
+  2. To switch to the folder within the ZIP folder: `cd ./<folder name>/ai-security-azure/`
+
+1. Run the following commands to prepare the Bash environment:
+  1. To switch to the clouddrive folder: `cd clouddrive`
+  2. To create a AI Security folder within the clouddrive folder and switch to the newly created AI Security folder: `mkdir ai-security_onboarding cd ai-security_onboarding`
+  3. To create the logs and tree discovery folders: `mkdir logs mkdir tree discovery`
+  4. To verify if all the folders are created: `ls`
+  5. To switch to the newly created folder: `cd tree discovery`
+2. Zip the modified template and upload the folder:
+  1. Click **Manage files** and select **Upload**.
+  2. Browse for the template and click **Open**.
+3. Run the following commands:
+  1. To extract the ZIP folder: `unzip <folder name.zip>`
+  2. To switch to the folder within the ZIP folder: `cd ./<folder name>/ai-security-azure/`
+
+Run the following commands:
+
+1. To set the subscription where the storage containers containing the Terraform state files are stored: `az account set --subscription <subscription ID>`
+2. (Optional) To verify if the subscription is accurately set: `az account show`
+3. To update the Terraform configuration to use the latest Azure and Terraform versions: `terraform init -upgrade`
+4. To initialize the working directory and apply Terraform configuration: `terraform init`See image.
+5. To verify the changes in the Terraform configuration: `terraform plan`
+6. To apply the configuration and deploy the resources: `terraform apply`
+
+Respond to the following prompts while running the commands:
+
+1. **Enter the IPv4 address from which terraform is being run from**: Enter the public IP address of the system on which you are running the template, and press `Enter`. See image.
+2. **Do you want to perform these actions?**: Enter `yes` and then press `Enter`. See image.
+
+1. Open the Command Prompt or any other CLI app in your local system.
+2. Switch to the directory containing the downloaded Terraform file.
+3. Connect to the Microsoft Entra tenant by running the following command: `az login --tenant <tenant ID>`See image. You are directed to a web browser to authorize the Microsoft Entra tenant. Select your account to confirm the authorization. See image. The command output returns the subscriptions available.
+
+AI Security validates the template deployment every hour by checking the roles created and permissions granted.
+
+Click **Validate** to verify if the template is deployed. This process takes a couple of minutes to complete.
+
+If the templates are successfully deployed, you are directed to the [Overview](https://help.zscaler.com/dspm/viewing-onboarding-status)page to view the status of the onboarded subscription.
+
+[Image: Welcome to Azure Cloud Shell window with Bash and PowerShell options]
+
+[Image: The Getting started window in the Azure portal to select a subscription and storage account]
+
+[Image: Select storage account window to select the subscription, resource group, storage account name, and create a file share]
+
+[Image: The output of Terraform apply command to confirm the IP address]
+
+[Image: The output of Terraform apply command to confirm the actions]
+
+[Image: The command prompt with az login command annotated]
+
+[Image: The Azure Authorization page with list of accounts to select from]
+
+[Image: Resource groups page showing a list of resource groups and an annotation around the Create option]
+
+[Image: Create a resource group page showing the Basics tab with annotation around Review + create button]
+
+[Image: Storage accounts page showing a list of storage accounts and an annotation around the Create option]
+
+[Image: Create a storage account page showing the Basics tab with annotation around Review + create button]
+
+[Image: A storage account page with the left-side navigation that shows an annotation around the Containers page]
+
+[Image: A storage account page with the annotation around the Container option]
+
+[Image: New container drawer with fields filled out]
+
+[Image: The app registrations page with annotation around Application ID]
+
+[Image: The Certificate and Secrets page with annotations around New client secret]
+
+[Image: The Client secrets page with annotation around value]
+
+[Image: The Azure Application Registration section to enter the application details]
+
+[Image: Select Cloud and Onboarding Type]
+
+[Image: The Request API permissions drawer with the list of Application permissions]
+
+[Image: The Orchestrator Configuration section to provide orchestrator subscription details]
+
+[Image: The Configure Services section to select Azure services to monitor]
+
+[Image: The Configure Regions section to select Azure regions to monitor]
+
+[Image: The Diagnostic Logs section to enter the storage account ID for each selected region]
+
+[Image: The Evidence section to add storage account ID to store evidence data]
+
+[Image: The Add Target Subscriptions window with the list of Azure subscriptions added]
+
+[Image: The Add Custom Tags window with the list of tags that must be attached to the resources created by DSPM]
+
+[Image: The backend.tf file opened in visual studio code with annotation around resource group name, storage account name, and container name]
+
+[Image: The command prompt section with the output of terraform init command]
+
+[Image: The output of Terraform apply command to confirm the IP address]
+
+[Image: The output of Terraform apply command to confirm the actions]
+
+[Image: The Add role assignment page with Members tab selected]
+
+[Image: The Select members drawer with the application selected for User Access Administrator role]
+
+[Image: The Add role assignment page with Conditions tab selected]
+
+[Image: The Add role assignment page with the Role tab selected]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-gcp-organization","lastmod":"2026-07-30T09:34Z","nid":"1539955"} -->
 ## Onboarding a GCP Organization
 
@@ -10078,13 +10567,13 @@ To onboard an AWS account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-08-19T10:55Z","nid":"1539122"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-08-31T08:00Z","nid":"1539122"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-19T10:55Z
+- Last modified: 2026-08-31T08:00Z
 - Summary: AI Asset Management Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for AI Asset Management.
@@ -14784,53 +15273,6 @@ On the Tenants page (Identities > Tenants), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-users","lastmod":"2026-05-17T07:06Z","nid":"1538887"} -->
-## About Users
-
-- Source: https://help.zscaler.com/identity-protection/about-users
-- Product: Identity Protection
-- Path: Identity Protection Help > Users > About Users
-- Last modified: 2026-05-17T07:06Z
-- Summary: Information on how the Users page in Identity Protection helps you monitor a user's activity.
-
-You can view a consolidated list of user accounts and their identity types on the Users page. You can also review the identity findings for each user and the total number of critical or high-severity findings so that you can take the necessary action. Only identities in an active state are displayed on the Users page.
-
-Managing users provide the following benefits and enable you to:
-
-- Aggregate users from different sources for a centralized view.
-- View user details and identity findings for each user.
-- Monitor internal and external users.
-
-## About the Users Page
-
-On the Users page (Identities > Users), you can do the following:
-
-1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
-2. Search for a user.
-3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
-4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the user information.
-5. View the distribution of identities based on the type (**User**, **Service Principa**l, or **Special Identities**).
-6. View the distribution of users based on the type (**Internal**or **External**).
-7. Group users by category such as user first seen, user last seen, user tags, etc.
-8. Refresh the user table to reflect the most current information.
-9. Export the list of users and their associated details as a CSV file.
-10. Modify the columns displayed in the table.
-11. View the list of users. Click a user to [view detailed information](https://help.zscaler.com/identity-protection/viewing-users-details). For each user in the list, you can see:
-  - **ID**: The unique identifier of the user.
-  - **Name**: The name of the user.
-  - **Is Admin**: The user's admin role status. If the user is an admin, this field shows `true`.
-  - **Total Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the user.
-  - **Sources**: The source of the user (e.g., **Active Directory**, **Microsoft Entra ID**, etc.).
-  - **Identity Type**: The type of identity (**User**, **Service Principa**l, or **Special Identities**).
-  - **Last Activity Date**: The date of most recent activity.
-  - **State**: The state of the user's account (**Active**or **Inactive**).
-  - **Type**: The type of user (**Internal**or **External**).
-
-[Image: Users page in the Identities app.]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/identity-protection/managing-itdr-configurations","lastmod":"2026-05-01T07:06Z","nid":"1538791"} -->
 ## Managing ITDR Configurations
 
@@ -14891,13 +15333,13 @@ To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/understanding-identity-protection-architecture","lastmod":"2026-07-01T21:06Z","nid":"1539481"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/understanding-identity-protection-architecture","lastmod":"2026-08-30T23:24Z","nid":"1539481"} -->
 ## Understanding Identity Protection Architecture
 
 - Source: https://help.zscaler.com/identity-protection/understanding-identity-protection-architecture
 - Product: Identity Protection
-- Path: Identity Protection Help > Getting Started > Understanding Identity Protection Architecture
-- Last modified: 2026-07-01T21:06Z
+- Path: Identity Protection Help > Understanding Identity Protection Architecture
+- Last modified: 2026-08-30T23:24Z
 - Summary: Information about the Identity Protection architecture.
 
 Identity Protection is an effective identity threat detection and response solution (ITDR) integrated with the Zscaler Security Operations (SecOps) platform. Identity Protection protects users with continuous visibility into identity misconfigurations, risky permissions, and exposed credentials. It detects and stops identity-based attacks such as credential theft, multi-factor authentication bypass, privilege escalation, etc
@@ -15070,58 +15512,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-user-details","lastmod":"2026-05-22T07:06Z","nid":"1538893"} -->
-## Viewing User Details
-
-- Source: https://help.zscaler.com/identity-protection/viewing-user-details
-- Product: Identity Protection
-- Path: Identity Protection Help > Users > Viewing User Details
-- Last modified: 2026-05-22T07:06Z
-- Summary: How to view a user's detailed information in Identity Protection.
-
-You can view detailed information about users and identity findings. This helps security teams to review the severity level of each user and details of these findings to understand the potential security risks and remediate the issues.
-
-To view user details:
-
-1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**> **Users**.
-2. On the **Users**page, click a user. A user details drawer appears.
-3. In the user details drawer, you can access the following tabs:
-  - Details
-  - Identity Findings
-
-On the **Details**tab, you can view:
-
-- **Name**: The name of the user.
-- **Type**: The type of the user (**Internal**or **External**).
-- **Email**: The email ID of the user.
-- **Is Admin**: The user's admin role status. If the user is an admin, this field shows `True`.
-- **Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the user. See image.
-
-On the **Identity Findings** tab, you can do the following:
-
-- Click the **Export as CSV**icon to export the identity findings list for a user to a CSV file.
-- Click the **Settings**icon to modify the columns displayed in the table.
-- Apply filters to the identity findings list (e.g., filtering the findings by a particular state, title, or severity score). To learn more, see [Using Filters](https://help.zscaler.com/identity-protection/using-filters).
-- View the identity findings details: See image.
-  - **Severity**: The severity level (**Critical**, **High**, **Medium**, or **Low**). The **Critical**and **High**severity findings are prioritized.
-  - **Name**: The name of the identity finding.
-  - **Type of Risk**: The type of risk (e.g., **Kerberos Abuse**, **Account Management**, **Credential Exposure**, etc.).
-  - **MITRE Tactics**: The [MITRE ATT&CK](https://attack.mitre.org/tactics/) tactic ID.
-
-[Image: Details tab on Users page displaying detailed information about user.]
-
-[Image: Identity findings tab displaying findings list for a user.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/what-identity-protection","lastmod":"2026-05-17T07:06Z","nid":"1535399"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/what-identity-protection","lastmod":"2026-08-30T23:23Z","nid":"1535399"} -->
 ## What Is Identity Protection?
 
 - Source: https://help.zscaler.com/identity-protection/what-identity-protection
 - Product: Identity Protection
-- Path: Identity Protection Help > Getting Started > What Is Identity Protection?
-- Last modified: 2026-05-17T07:06Z
+- Path: Identity Protection Help > What Is Identity Protection?
+- Last modified: 2026-08-30T23:23Z
 - Summary: Information on what Identity Protection is and why it is used.
 
 Identity has become the new target for attackers because human and non-human identities have permissions to access critical applications, assets, and sensitive data. Security teams are overwhelmed by fragmented findings and disconnected tools, and risks are increasing faster than the time it takes to resolve them. When an identity is compromised, security teams need more details, such as who the identity is, what it can access, whether it is over-privileged, whether its credentials are weak or exposed, and whether its behavior deviates from normal. This information can help security teams to prioritize, take immediate action, and reduce the risks.
@@ -15286,354 +15683,4 @@ The drawer shows the following information about the alert:
 - **Throttling**: The time frame during which the criteria in the rule persisted.
 - **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
 - **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/risk360/about-asset-level-risk","lastmod":"2024-07-10T07:06Z","nid":"1486691"} -->
-## About Asset-Level Risk
-
-- Source: https://help.zscaler.com/risk360/about-asset-level-risk
-- Product: Risk360
-- Path: About Asset-Level Risk
-- Last modified: 2024-07-10T07:06Z
-- Summary: Information about assets and their risk score significance in your organization's overall risk.
-
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
-
-?xml version='1.0' encoding='UTF-8'?
-
-Asset-level risk aggregates and visualizes the total number of assets in your organization, highlights risky assets, and further provides drill-downs on these risky assets to understand what's driving the risk. In progression to the Risk360's organizational-level risk score representation, and over 100 factors that can drill down to show specific users and locations at risk, asset-level risk helps view the risk score assigned at the asset level. It facilitates the monitoring and remediation of risky assets.
-
-Zscaler’s asset-level risk scoring model considers more than 65 indicators that influence the risk score. The model accounts for the fact that not all indicators are equal; each indicator variably contributes to the risk score based on the severity and frequency of the associated threat. Hence, these indicators are separated into three major categories:
-
-- Pre-infection Behavior
-- Post-infection Behavior
-- Suspicious Behavior
-
-Asset-level risk provides the following benefits and enables you to:
-
-- View risk at the asset-level and perform necessary remediation to lower the risk.
-- Analyze asset metadata, graphical analysis, risk score, risk trends, and a list of events impacting risk score, among many other insights of significance.
-- Identify users, locations, etc. with risky assets to isolate security exposure.
-
-## About the Assets Page
-
-On the Assets page, you can view the following information:
-
-1. **Overview**: View your assets in the following views:
-  - Risk Score
-  - Location
-2. **Distribution of Assets by Authentication Status**: The pie chart shows the percentage split between the number of authenticated and unauthenticated assets. The total number of assets is displayed at the center of the pie chart.
-3. **Authenticated Assets**: The chart shows the types of assets available in your organization's traffic with their count. This data is for authenticated assets only.
-4. **Risky Asset Inventory**: The table shows the top 1,000 risky asset details. For each asset, you can view the following information:
-  - **Asset ID**: The unique ID assigned to the asset by the Zscaler service.
-  - **Private IP Address**: The IP address of the asset.
-  - **Egress IP Address**: The client's gateway IP address that sends the local network traffic to other networks on the internet.
-  - **Username**: The user responsible or owns the asset.
-  - **Asset Type**: The type of asset (iOS, Android OS, etc.).
-  - **Authentication Status**: Indicates whether the asset is authenticated or not.
-  - **Risk Score**: The risk score computed for the asset.
-  - **Last Seen**: The time and date when the last activity was observed on the asset.
-  - **Location**: The city where the asset is located. Displays Road Warrior if the asset isn't tied to a location. Click an asset row to view additional details about the risky assets on the [Asset Details](https://help.zscaler.com/risk360/analyzing-asset-risk) page. You can use the following operators for the table:
-    - Filter the data for specific Asset ID, Asset Type, or Location.
-    - Download the table data into a CSV file.
-    - Search for a specific asset using the asset ID.
-    - [Modify the table columns.](https://help.zscaler.com/risk360/using-tables-risk360)
-    - Use the arrows at the bottom of the table to go to the next page. You can also select the number of entries you want to view on a page.
-
-[Image: The Assets Page]
-
-The Location view shows all the assets in your organization spread across the globe. The map shows the country where the assets are located. Hover over the country to view the number of assets in them. The size of the bubble signifies the number of assets present, relative to other locations. The top-left of the section displays the number of assets with unknown locations.
-
-The **Top Risky Locations** section at the bottom-left displays the locations with the highest percentage of risky assets in descending order.
-
-See image.
-
-The Risk Score view displays a three-dimensional graph with the Risk Score, Asset Count, and Days. This helps you analyze the number of assets under each severity for a select date:
-
-- Each risk severity is highlighted with a unique color code:
-  - No Risk (0–1)
-  - Low (>1–25)
-  - Medium (>25–50)
-  - High (>50–75)
-  - Critical (>75–100)
-- Your organization's total number of assets is displayed at the top of the section.
-- You can view the data for specific severities using the severity checkboxes.
-- Hover over the severity dots in the graph to view the number of assets under specific severity for that day. This helps you view the number of assets under each severity for a particular date.
-- You can left-click, hold the mouse, and then move the graph to the position in which you want to view the data. Click **Reset Chart Position**to set the graph to its original position.
-- You can use your mouse scroll to increase or decrease the size of the graph.
-
-See image.
-
-[Image: Assets Page: Risk Score View]
-
-[Image: Location View]
-
-Pre-infection behavior indicators encompass a range of blocked actions that could lead to an asset infection, such as blocked malware, known and suspected malicious URLs, phishing sites, pages with browser exploits, and more. Some sample indicators for asset risk scoring include:
-
-- Malware blocked by Zscaler’s Advanced Threat Protection or inline Sandbox
-- Blocked known and suspected malicious URLs
-- Blocked websites with known and suspected phishing content
-- Blocked pages with known browser exploits
-- Blocked known and suspected adware and spyware
-- Blocked pages with a high PageRisk score
-- Quarantined pages
-- Blocked files with known vulnerabilities
-- Blocked emails containing viruses
-- Detected mobile app vulnerabilities
-
-Post-infection behavior indicators include a range of blocked actions that are attempted after an asset is infected. Some sample indicators for asset risk scoring include:
-
-- Botnet traffic
-- Command-and-control traffic
-
-Suspicious behavior indicators are similar to pre-infection indicators, with less severity and less guarantee of leading to infection. This includes policy violations, risky activities like browsing deny-listed URLs, DLP compliance violations, and anonymizing sites that could lead to an infected asset. Some sample indicators for asset risk scoring include:
-
-- URLs that are denylisted
-- DLP compliance violations
-- Pages with known dangerous ActiveX controls
-- Pages vulnerable to cross-site scripting attacks
-- Possible browser cookie theft
-- Internet Relay Chat (IRC) tunneling use
-- Anonymizing sites
-- Blocks or warnings from secure browsing about an outdated/disallowed component
-- Peer-to-peer (P2P) site denials
-- Webspam sites
-- Attempts to browse blocked URL categories
-- Mobile app issues that include denial of the mobile app, insecure user credentials, location information leaks, personally identifiable information (PII), information identifying the asset, or communication with unknown servers.
-- Tunnel blocks
-- Fake proxy authentication
-- SMTP (email) issues including rejected password-encrypted attachments, unscannable attachments, detected or suspected spam, rejected recipients, DLP blocks or quarantines, and blocked attachments.
-- IPS blocks of cryptomining & blockchain traffic
-- Reputation-based blocks of suspected adware/spyware sites
-- Disallowed use of a DNS-over-HTTPS site
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/risk360/about-audit-logs","lastmod":"2026-04-07T12:14Z","nid":"1463846"} -->
-## About Audit Logs
-
-- Source: https://help.zscaler.com/risk360/about-audit-logs
-- Product: Risk360
-- Path: Risk360 Help > Logs > About Audit Logs
-- Last modified: 2026-04-07T12:14Z
-- Summary: Information regarding audit logs within the Risk360 service.
-
-[Watch a video About Audit Logs in Risk360.](https://fast.wistia.net/embed/iframe/6vloz7chdy)
-
-Zscaler records the login name and IP address of every user who changes configuration settings. Audit logs display the user's login and logout record (timestamps, actions, client IP, etc.), and the configuration changes they perform.
-
-Audit Logs provide the following benefits and enable you to:
-
-- Monitor the changes made by the admins to configurations.
-- Review configuration changes for comparison of the before-and-after administration sessions.
-
-## About the Risk360 Audit Logs Page
-
-On the Audit Logs page (Administration > Admin Management > Audit Logs > Risk360), you can do the following:
-
-1. Download a CSV file. The times mentioned in the CSV file are in PDT.
-2. Search for the logs by Resource, Admin ID, or Client IP.
-3. Filter logs by Time Range, Action, Category, Sub Category, Interface, or Result.
-4. View a list of user logins. For each user login, you can see:
-  - **Timestamp**: The date and time of the user's action.
-  - **Action**:The action performed by the user in the Risk360 Admin Portal.
-  - **Category**: A location within the Risk360 Admin Portal where the action is performed.
-  - **Sub-Category**: The subject under the selected category.
-  - **Resource**: The item within the selected sub-category.
-  - **Admin ID**: The user's login ID.
-  - **Client IP**: The IP address for the user.
-  - **Interface**: How the user performed their actions. The interface is either UI or API based.
-  - **Result**: The outcome of an action (Success, Failure, or Partially Failed).
-
-[Image: Audit Logs Page in the Risk360 Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/risk360/about-dashboard-risk360","lastmod":"2026-02-26T21:24Z","nid":"1452686"} -->
-## About the Dashboard in Risk360
-
-- Source: https://help.zscaler.com/risk360/about-dashboard-risk360
-- Product: Risk360
-- Path: About the Dashboard in Risk360
-- Last modified: 2026-02-26T21:24Z
-- Summary: Information on the functionalities of the dashboard in the Risk360 Admin Portal.
-
-The Dashboard page gives visibility and insight into your organization's risk score, contributed by various underlying factors such as exposed servers, recent malware outbreaks, segmentation posture, and data uploads to risky applications. Zscaler's architecture quantifies these events across 4 major categories, such as exposure of attack surfaces, asset compromise, lateral propagation, and sensitive data loss. You can study how your organization's risk score has changed over time and compare your score against industry peers. Different risk factors bear different weights on the score. For example, an active infection is more severe than a blocked access attempt to a blocked destination.
-
-The dashboard provides the following benefits and enables you to:
-
-- Analyze your organization's risk score change over time and against your industry peers to understand your risk exposure against potential cyber attacks.
-- Configure stronger policies for your organization, location, and user-level risk exposures as per Zscaler's recommendations to attain a healthy risk score.
-
-## About the Dashboard Page
-
-On the Dashboard page, you can view the following sections:
-
-1. **Organization Risk Score**: The section shows the Zscaler-computed risk score for your organization and the industry peer average risk score. Your organization's risk score is an average risk score across 4 categories, i.e., External Attack Surface, Compromise, Lateral Propagation, and Data Loss. You can study how the risk score has changed over time and compare your score against your industry peers. The following severities appear for the score ranges:
-  - Low (0–25)
-  - Medium (26–50)
-  - High (51–75)
-  - Critical (76–100)
-
-Hover over the dollar symbol to view the financial risk estimates. You can click **View Details**to further analyze it; you are redirected to the [Financial Risk](https://help.zscaler.com/risk360/about-financial-risk) page.
-
-1. **Risk Score Trend**: The graph shows the Zscaler-computed and industry peer average risk score trend for the last 90 days. Hover over a point in the graph to view the risk score for that date. You can select to view the risk trend for a specific risk score type by using the checkboxes at the bottom of the graph. Click:
-  - The **Settings**icon ([Image: Peer Score Settings]) to view and manage the peer score settings.
-    - Peer Score Settings
-  - The **Download**icon ([Image: Download icon for risk score trend]) to download the risk score trend data as a CSV file.
-  - The **Expand**icon ([Image: Expand Icon]) to view significant events that contributed to your risk score in an enlarged view.
-    - Enlarged View
-2. **Risk Event by Location**: The map shows a category-based number of risky events from geolocation coordinates derived by looking at the client or server IP. As geo-IP lookups are only possible for a subset of overall risky events, the location visualizations represent a small fraction of overall risky events, but the map view allows you to visualize the geospatial distribution of risky events wherever possible. Hover over a location to view the number of risky events across each category. Use the mouse to drag within the maps or zoom in (+) and out (-). The bottom left of the section shows the top risky locations with the percentage of risky events in descending order.
-3. **Contributing Factors by Entity**: This section shows the total number of contributing factors from each entity. The circle chart shows the segregation across each category affected by these factors:
-  - **Workforce**: The factors contributing to the risk score due to risky user activity.
-  - **3rd Parties**: The factors contributing to the risk score due to activities by 3rd-party users (e.g., contract workers).
-  - **Applications**: The factors contributing to the risk score due to the usage of unsanctioned or less secure SaaS applications.
-  - **Assets**: The factors contributing to the risk score due to exposed organizational assets.
-
-Hover over the circle chart to view the number of factors from each category and the percentage contribution to the total number of factors in that entity. You can click **View All**to further analyze it; you are redirected to the[Factors](https://help.zscaler.com/risk360/about-factors) page.
-
-1. **Top 10 Factors**: View top 10 factors contributing to your organization's risk score. For each factor, you can view the following information:
-  - **Category**: The category the factor falls under.
-  - **Factor Name**: The name of the contributing factor affecting the risk score.
-  - **Your Score**: The score for the contributing factor. The total score for a factor depends on its severity (0 being a healthy score).
-  - **Last 30 Days**: The graph showing the last 30-day score trend for that factor.
-  - **Entities**: The entities affected by the factor.
-  - **Licensed?**: Whether you are subscribed to the required feature to implement the recommended action (**Y** for Yes and **N** for No).
-  - **Recommended Actions**: The recommended action required to lower the risk score.
-
-You can click **View All**to further analyze it; you are redirected to the[Factors](https://help.zscaler.com/risk360/about-factors) page.
-
-1. **High Impact Recommendations**: The section shows top factors with high impact on your risk score and the recommendation to lower your organization's risk score. Each recommendation consists of the category name, the day it was discovered, the consequence of not implementing the recommendation, and the trend (if applicable). You can click **Explore**to further analyze a particular recommendation or click **View All** to view the list of all the recommended actions; you are redirected to the [Insights](https://help.zscaler.com/risk360/about-insights-risk360) page.
-
-[Image: Dashboard Showing Risk Metrics]
-
-The **Risk Score Trend** graph shows the Zscaler-computed and industry peer average risk score trend for the last 90 days in an enlarged view. You can:
-
-1. Hover over a key event to view the change in the risk score because of the events for that date.
-2. Hover over the strategy indicator to view the peer risk score change for that date because of the peer score strategy update. Click **Peer Score Strategy Updated** to go to the [Score Change Logs](https://help.zscaler.com/risk360/about-audit-logs#risk-logs) page, where you can view logs for this strategy update.
-
-The **Top 10 Events** section lists the top 10 events observed within the last 90 days. These events are numbered in the order of their occurrence. Click **View All Events** to go to the [Score Change Logs](https://help.zscaler.com/risk360/about-audit-logs#risk-logs) page, where you can view *all* the events that contributed to the risk score change in detail.
-
-[Image: Risk Trend Graph and Top 10 Events]
-
-The Peer Score Settings drawer shows the strategy selected for calculating your industry peer score. The **Default**strategy is Zscaler-defined. You can create a custom strategy for peer score calculation. To learn more, see [Managing Peer Score Settings](https://help.zscaler.com/risk360/managing-peer-score-settings).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/risk360/about-factors","lastmod":"2026-01-13T20:00Z","nid":"1452786"} -->
-## About Factors
-
-- Source: https://help.zscaler.com/risk360/about-factors
-- Product: Risk360
-- Path: About Factors
-- Last modified: 2026-01-13T20:00Z
-- Summary: Information about the factors affecting your risk score on the Factors page in the Risk360 Admin Portal.
-
-The Factors page shows the list of contributing factors that are affecting your organization's risk score. The Risk360 service quantifies each factor according to its risk weight, which then adds to your overall organization risk score and also maps these factors to various renowned risk and security frameworks such as MITRE and NIST. The service also supports integration with other vendors like CrowdStrike to gather data for risky events and activities and translate them into Risk360 factors to provide a holistic risk-management experience.
-
-The Factors page provides the following benefits and allows you to:
-
-- Analyze each contributing factor influencing your organization's risk score.
-- View the factors from different perspectives to better understand the factors affecting your organization's risk score.
-
-## About the Factors Page
-
-On the Factors page, in the top right, you can select how you want to view the page. Based on your selection, the page updates to the following views:
-
-- Attack-Based
-- Entity-Based
-
-The attack view shows the factors in a single list.
-
-In this view, you can:
-
-1. Export the factors contributing to your organization's risk score into a CSV file. The downloaded file shows all the factors contributing to your organization's risk score, irrespective of any filter selected at the time of the download.
-2. Switch to the entity-based view (**Tree View**).
-3. View the category-based risk score for your organization.
-4. Search for a factor.
-5. View a list of all the contributing factors to your organization's risk score. For each factor, you can see:
-  - **Factor Name**: The name of the contributing factor affecting the risk score.
-  - **Category**: The type of risk the factor represents, such as lateral propagation or data loss.
-  - **Your Score**: The score for the contributing factor. The total score for a factor depends on its severity (0 being a healthy score).
-  - **Last 30 Days**: A graph showing the last 30-day score trend for that factor.
-  - **Entities**: The entities affected by the factor, such as third parties, applications, workforce, or assets.
-  - **Licensed?**: Whether you are subscribed to the feature required to implement the recommended action (**Y** for Yes and **N** for No).
-  - **Recommended Actions**: The recommended actions proposed to attain a healthy risk score. Click any of the columns (except **Licensed?**, **Include**, or **Entities**) to view more information about the factor in the drawer view:
-    - Drawer
-6. Choose whether to include or exclude the factor from risk score computation. By default, this option is enabled for all factors. You can exclude a factor if you have a compensating control over the factor or any other reason, but you must provide an explanation. Compensating controls are supplementary security measures that are implemented to protect against identified risks or threats (e.g., multi-factor authentication, firewalls, antivirus software). The changes you make are captured in the [audit logs](https://help.zscaler.com/risk360/about-audit-logs) with your username and the reason you provide for the change. See image.
-
-[Image: The Factors page showing the Attack-based view]
-
-The drawer consists of the following tabs:
-
-### Details
-
-On the Details tab, you can view the following information:
-
-- The name of the factor.
-- **Severity**: The severity of the factor, such as critical, high, or medium.
-- **Recommended Actions**: The recommended actions proposed to attain a healthy risk score.
-- **Description**: Detailed information about the factor, useful help article links, and a link that redirects you to the admin portal for the Zscaler service that is responsible for the factor, if available.
-- **Notes**: Any notes that you added. Click the **Edit**or **Delete**icon to modify or delete the note, respectively.
-- **Related Recommendation Cards**: The related discovered problems and their recommendations.
-
-Each problem or factor affecting your organization's risk is visualized in the form of cards on the Insights Page.
-
-[Image: The Drawer view for the factors in the Risk360 Portal]
-
-### Compliance
-
-On the Compliance tab, you can view a list of recognized cybersecurity frameworks and their control IDs mapped to the factor. If you click the control ID, you're redirected to the framework's website, where the control IDs are explained in detail. To learn more, see [Assessing Compliance](https://help.zscaler.com/risk360/assessing-compliance).
-
-[Image: Compliance tab on the Factors tab]
-
-The entity-based view shows the factors listed within their category.
-
-In this view, you can:
-
-1. Export the factors contributing to your organization's risk score into a CSV file. The downloaded file shows all the factors contributing to your organization's risk score, irrespective of any filter selected at the time of the download.
-2. Switch to the attack-based view (**List View**).
-3. Filter factors for specific entities by clicking the entity tiles. To deselect an entity, click it again.
-4. View the contributing factors to your organization's risk score. For each factor, you can see:
-  - **Factor Name**: The name of the contributing factor affecting the risk score.
-  - **Recommended Actions**: The recommended actions proposed to attain a healthy risk score.
-  - **Licensed?**: Whether you are subscribed to the required feature to implement the recommended action (**Y** for Yes and **N** for No).
-  - **Your Score**: The score for the contributing factor. The total score for a factor depends on its severity (0 being a healthy score).
-  - **Last 30 Days**: A graph showing the last 30-day score trend for the factor.
-  - **Include**: Whether the factor is enabled for risk score computation. Click any of the columns (except **Licensed?** or **Include**) to view more information about the factor in the drawer view:
-    - Drawer
-5. Choose whether to include or exclude the factor from risk score computation. By default, this option is enabled for all factors. You can exclude a factor if you have a compensating control over the factor or any other reason, but you must provide an explanation. Compensating controls are supplementary security measures that are implemented to protect against identified risks or threats (e.g., multi-factor authentication, firewalls, antivirus software). The changes you make are captured in the [audit logs](https://help.zscaler.com/risk360/about-audit-logs) with your username and the reason you provide for the change. See image.
-6. Show or hide the factors for a specific category.
-
-[Image: The Factors Page showing Entity-based view]
-
-The drawer consists of the following tabs:
-
-### Details
-
-On the Details tab, you can view the following information:
-
-- The name of the factor.
-- **Severity**: The severity of the factor, such as critical, high, or medium.
-- **Recommended Actions**: The recommended actions proposed to attain a healthy risk score.
-- **Description**: Detailed information about the factor, useful help article links, and a link that redirects you to the admin portal for the Zscaler service that is responsible for the factor, if available.
-- **Notes**: Any notes that you added. Click the **Edit**or **Delete**icon to modify or delete the note, respectively.
-- **Related Recommendation Cards**: The related discovered problems and their recommendations.
-
-[Image: The Drawer view for the factors in the Risk360 Portal]
-
-### Compliance
-
-On the Compliance tab, you can view a list of recognized cybersecurity frameworks and their control IDs mapped to the factor. Click on the control ID; you're redirected to the framework's website where the control IDs are explained in detail. To learn more, see [Assessing Compliance](https://help.zscaler.com/risk360/assessing-compliance).
-
-[Image: Compliance tab on the drawer]
-
-[Image: Factor Override Note Window]
-
-[Image: Factor Override Note Window]
 <!-- /ZS-ARTICLE -->

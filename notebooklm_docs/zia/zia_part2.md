@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 112
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 111
 
 ---
 
@@ -317,13 +317,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-08-14T00:07Z","nid":"1459041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-08-30T22:51Z","nid":"1459041"} -->
 ## Adding an AI & ML Applications Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an AI & ML Applications Rule for Cloud App Control
-- Last modified: 2026-08-14T00:07Z
+- Last modified: 2026-08-30T22:51Z
 - Summary: Information on how to add a rule for AI & ML Applications cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud applications are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
@@ -386,7 +386,7 @@ Choose to allow the users to access the selected applications.
 The following applications support additional granular actions, which you can **Allow** or **Block**:
 
 - For **ChatGPT**, the granular actions include **Chatting**, **Uploading**, **Downloading**, **Deleting**, **Sharing**, and **Inviting**.
-- For **Google Gemini**, the granular actions include **Chatting**, **Downloading**, and **Renaming**.
+- For **Google Gemini**, the granular actions include **Chatting**, **Downloading**, **Renaming**, and **Uploading**.
 - For **Microsoft Copilot**, the granular actions include **Chatting**, **Deleting**, **Renaming**, **Sharing**, and **Uploading**.
 - For **Perplexity**, the granular actions include **Chatting**, **Deleting**, **Sharing**, and **Uploading**.
 - For **Poe**, the granular actions include **Chatting**, **Deleting**, **Sharing**, and **Uploading**.
@@ -3161,13 +3161,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-08-30T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-09-06T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
@@ -4207,13 +4207,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-08-30T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-09-06T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under SaaS Security API DLP and Malware policies into categories based on the sensitivity of the email data.
@@ -7327,13 +7327,13 @@ To add a root certificate for proxy chaining:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-08-27T23:39Z","nid":"1402206"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-09-01T21:07Z","nid":"1402206"} -->
 ## Adding a Rule Label
 
 - Source: https://help.zscaler.com/zia/adding-rule-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Adding a Rule Label
-- Last modified: 2026-08-27T23:39Z
+- Last modified: 2026-09-01T21:07Z
 - Summary: Information on how to add a rule label in the Zscaler Admin Console.
 
 Zscaler's rule label feature allows you to logically group all your organization's policies. The feature consists of two parts, creating rule labels and associating the labels with all the policy rules.
@@ -7350,9 +7350,11 @@ The **Add Rule Label** window appears.
 - **Name**: Enter a name for the rule label.
 - **Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
 
-[Image: Image showing the add rule dialog box]
+See image.
 
 1. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: The Add Rule window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11378,13 +11380,13 @@ To configure a TCP NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tenant-profiles","lastmod":"2026-08-14T00:00Z","nid":"1401746"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tenant-profiles","lastmod":"2026-09-02T22:19Z","nid":"1401746"} -->
 ## Adding Tenant Profiles
 
 - Source: https://help.zscaler.com/zia/adding-tenant-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Tenant Restriction > Adding Tenant Profiles
-- Last modified: 2026-08-14T00:00Z
+- Last modified: 2026-09-02T22:19Z
 - Summary: Information on how to add a tenant profile in the Zscaler Admin Console.
 
 Zscaler's tenancy restriction feature allows you to restrict access either to personal accounts, business accounts, or both for certain cloud applications. The feature consists of two parts: creating [tenant profiles](https://help.zscaler.com/zia/about-tenant-profiles) and associating the profiles with the [Cloud App Control policy rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy).
@@ -11485,23 +11487,29 @@ You can configure the following tenant profile types for Microsoft Login Service
 
 The version of the tenant profiles can be changed only when the profiles are not associated with any policy.
 
-The following headers are inserted only for each incoming request to login.microsoftonline.com, login.microsoft.com, login.windows.net, and login.live.com:
+The Zscaler service inserts the following headers when a tenant profile is associated with the [Cloud App Control](https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control) policy rule and there is an incoming request to login.microsoftonline.com, login.microsoft.com, login.windows.net, or login.live.com:
 
-- Restrict-Access-Context (value of the **Tenant Directory ID**field)
-- Restrict-Access-To-Tenants (values of the **Office 365 Tenants or Tenant IDs**field)
-- sec-Restrict-Tenant-Access-Policy (value of the **Tenant Directory ID:Policy ID** field)
+- **Restrict-Access-Context**: Identifies the Microsoft Entra tenant that is enforcing the tenant restriction policy. The value of the **Tenant Directory ID**field is inserted into this header.
+- **Restrict-Access-To-Tenants**: Identifies the Microsoft tenant's users that are allowed access. The values of the **Office 365 Tenants or Tenant IDs**field are inserted into this header.
+- **sec-Restrict-Tenant-Access-Policy**: Restricts access to Microsoft personal accounts when configured. The value of the **Allow Personal Office 365 Domains** field is inserted into this header only for login.live.com traffic when the field is set to **No**.
 
 To learn more about Microsoft Tenant Restrictions, refer to the [Microsoft Tenant Restriction documentation](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/tenant-restriction-v2-is-now-public-preview/ba-p/3094113#:~:text=Tenant%20restrictions%20V2%20let%20an,accounts%20created%20in%20unknown%20tenants) and [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions).
+
+The following caveats apply to the Microsoft Login Services tenant profile:
+
+- Add only one tenant directory ID per tenant profile.
+- Entry of wildcard domains is not allowed in the tenant profile.
+- Associate multiple tenant profiles with a Cloud App Control policy rule only if their tenant directory IDs are the same.
 
 To learn more about associating tenant profiles of Microsoft Login Services with the Cloud App Control policy rule, see [Adding an IT Services Rule for Cloud App Control](https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control).
 
 To configure Version 1 tenant profile for Microsoft Login Services:
 
-1. In the **Tenant Directory ID** field, enter the tenant directory ID (e.g., `f4c77d8d-6bb8-41a2-a3c9-69dd3edaa158`).
-2. In the **Office 365 Tenants or Tenant IDs** field, enter the tenant names or tenant IDs (e.g., `corp1.safemarch.com` or `784b1673-628c-56e3-c3b2-5d2f0d59524m`) that you want to add to this tenant profile, and click **Add Items**. Do not exempt these domains from [authentication](https://help.zscaler.com/zia/configuring-advanced-settings#auth-exemption). To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add one tenant directory per tenant profile and up to 500 Office 365 tenant names. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-3. In the **Allow Personal Office 365 Domains** field, select **No** to block the personal Office 365 domains in the tenant profile. This field is set to **Yes**by default. To learn more about allowing personal accounts for Microsoft applications, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions#blocking-consumer-applications).
+1. In the **Tenant Directory ID** field, enter the tenant directory ID (e.g., `f4c77d8d-6bb8-41a2-a3c9-69dd3edaa158`). This field specifies the Microsoft Entra tenant ID that is enforcing the tenant restriction policy.
+2. In the **Office 365 Tenants or Tenant IDs** field, enter the tenant names or tenant IDs (e.g., `corp1.safemarch.com` or `784b1673-628c-56e3-c3b2-5d2f0d59524m`) that you want to add to this tenant profile, and click **Add Items**. This field specifies the Microsoft tenant's users that are allowed access. Do not exempt these domains from [authentication](https://help.zscaler.com/zia/configuring-advanced-settings#auth-exemption). To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add one tenant directory per tenant profile and up to 500 Office 365 tenant names. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+3. In the **Allow Personal Office 365 Domains** field, select **No** to block the personal Office 365 domains in the tenant profile. The Zscaler service inserts the sec-Restrict-Tenant-Access-Policy header when this field is set as **No** and users attempt to sign in to Microsoft personal account. This header is inserted only for login.live.com traffic. This field is set to **Yes**by default. To learn more about allowing personal accounts for Microsoft applications, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions#blocking-consumer-applications).
 
-In the **Tenant Directory ID:Policy ID** field, enter the tenant directory ID of your organization followed by the policy ID with a colon in between (e.g., `f4c77d8d-6bb8-41a2-a3c9-69dd3edaa158:quadsj`) to configure the Version 2 tenant profile for Microsoft Login Services. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/governance/policy/overview).
+In the **Tenant Directory ID:Policy ID** field, enter the tenant directory ID of your organization (Microsoft Entra tenant ID) followed by the policy ID with a colon in between (e.g., `f4c77d8d-6bb8-41a2-a3c9-69dd3edaa158:quadsj`) to configure the Version 2 tenant profile for Microsoft Login Services. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/governance/policy/overview).
 
 The **Tenant Directory ID** and **Policy ID**are GUIDs from your tenant on the Azure Active Directory portal. You can find these GUIDs as follows:
 
@@ -11685,49 +11693,4 @@ To add a custom threat category,
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Adding a custom threat category by specifying name and description]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-04-24T03:21Z","nid":"1399311"} -->
-## Adding URLs to the Allowlist
-
-- Source: https://help.zscaler.com/zia/adding-urls-allowlist
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
-- Last modified: 2026-04-24T03:21Z
-- Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
-
-There might be trusted websites of partners or vendors whose webmail or file downloads might otherwise be blocked due to anti-virus, anti-spyware, anti-malware, or URL filtering policies. You can exempt URLs from security scans, URL filtering, or both.
-
-The allowlist applies to [Malware Protection](https://help.zscaler.com/zia/about-malware-protection), [Advanced Threat Protection](https://help.zscaler.com/zia/about-advanced-threat-protection), [Sandbox](https://help.zscaler.com/zia/about-sandbox), and [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policies. To learn more about how security exceptions impact policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/how-does-zscaler-service-enforce-policies).
-
-You can allowlist URLs completely by exempting them from security scans and URL filtering.
-
-## Adding URLs to Allowlist for Security Scans
-
-Adding URLs to the allowlist for security scans allows users to download content from these URLs without inspecting the traffic.
-
-To add URLs to the allowlist for security policies:
-
-1. Go to one of the following pages:
-  - **Policies**> **Cybersecurity**> **Inline Security**> **Malware Protection**.
-  - **Policies**>**Cybersecurity**> **Inline Security**> **Advanced Threat Protection**
-2. Click the **Security Exceptions** tab.
-3. In **Do Not Scan Content from these URLs**, enter the URLs you want to allowlist and click **Add Items**. You can enter multiple entries by pressing `Enter` after each entry. You can add up to 1,024 URLs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-This allowlist also applies to the [Sandbox](https://help.zscaler.com/zia/about-sandbox) policy.
-
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-## Adding URLs to Allowlist for URL Filtering
-
-Adding URLs to the allowlist for URL filtering allows access to the content without being blocked by other URL Filtering policy rules.
-
-To add URLs to allowlist for URL Filtering policy:
-
-1. Add the URLs you want to allowlist to a [custom URL category](https://help.zscaler.com/zia/adding-custom-url-categories).
-2. [Configure a URL Filtering rule](https://help.zscaler.com/zia/configuring-url-filtering-policy) to allow the custom URL category.
-
-Ensure that the rule order of this rule is higher than the URL Filtering rule that blocks these URLs.
 <!-- /ZS-ARTICLE -->

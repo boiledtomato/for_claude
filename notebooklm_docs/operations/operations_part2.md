@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-08-30T07:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-09-06T07:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -2904,13 +2904,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-08-26T09:55Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-08-31T08:15Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-26T09:55Z
+- Last modified: 2026-08-31T08:15Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2984,13 +2984,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-08-30T07:06Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-09-06T07:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4061,13 +4061,13 @@ On the Incidents page in the Zscaler Admin Console, you can see the total count 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/understanding-notification-reminders","lastmod":"2026-07-14T08:26Z","nid":"1535308"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/understanding-notification-reminders","lastmod":"2026-09-02T11:42Z","nid":"1535308"} -->
 ## Understanding Notification Reminders
 
 - Source: https://help.zscaler.com/workflow-automation/understanding-notification-reminders
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Understanding Notification Reminders
-- Last modified: 2026-07-14T08:26Z
+- Last modified: 2026-09-02T11:42Z
 - Summary: Information about notification reminders in Workflow Automation.
 
 Workflow Automation can send out notification reminders to those end users, managers, and approvers that have not responded to end user or escalation notifications that were previously sent to them. You must configure these notification reminders for your organization on the Account Settings page before they are sent.
@@ -4080,7 +4080,7 @@ On the Account Settings page, you can:
 
 See image.
 
-After you have enabled notification reminders, the system automatically sends these notification reminders at the frequency you configured. These notification reminders are identical to the notifications the end users, managers, and approvers previously received but have not yet responded to. Plus, the system updates the information (i.e., Number of Attempts) that appears for the incident in the User Notifications section on the Incident Details page, and it logs the reminder activity for the incident in the State Changes section for the incident on the Incident Details page.
+After you have enabled notification reminders, the system automatically sends these notification reminders at the frequency you configured. These notification reminders are identical to the notifications the end users, managers, and approvers previously received but have not yet responded to. Plus, the system updates the information (i.e., Number of Attempts) that appears for the incident in the User Notifications section on the Incident Details drawer, and it logs the reminder activity for the incident in the State Changes tab for the incident on the Incident Details drawer.
 
 See image.
 
@@ -4090,7 +4090,9 @@ To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow
 
 [Image: Viewing the Notification Reminder tab on the Account Settings page]
 
-[Image: Viewing the Incident Details page with the notification reminder information highlighted]
+[Image: Viewing the User Notifications section on the Incident Details drawer. The No. of Attempts field is highlighted for a couple of user notifications that are displayed in the section.]
+
+[Image: Viewing the State Changes tab on the Incident Details drawer.  Several reminder service entries are highlighted for the notification reminders.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4300,13 +4302,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-08-30T07:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-09-06T07:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.

@@ -1,8 +1,358 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 153
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 158
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/about-asset-level-risk","lastmod":"2024-07-10T07:06Z","nid":"1486691"} -->
+## About Asset-Level Risk
+
+- Source: https://help.zscaler.com/risk360/about-asset-level-risk
+- Product: Risk360
+- Path: About Asset-Level Risk
+- Last modified: 2024-07-10T07:06Z
+- Summary: Information about assets and their risk score significance in your organization's overall risk.
+
+html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
+
+?xml version='1.0' encoding='UTF-8'?
+
+Asset-level risk aggregates and visualizes the total number of assets in your organization, highlights risky assets, and further provides drill-downs on these risky assets to understand what's driving the risk. In progression to the Risk360's organizational-level risk score representation, and over 100 factors that can drill down to show specific users and locations at risk, asset-level risk helps view the risk score assigned at the asset level. It facilitates the monitoring and remediation of risky assets.
+
+Zscaler’s asset-level risk scoring model considers more than 65 indicators that influence the risk score. The model accounts for the fact that not all indicators are equal; each indicator variably contributes to the risk score based on the severity and frequency of the associated threat. Hence, these indicators are separated into three major categories:
+
+- Pre-infection Behavior
+- Post-infection Behavior
+- Suspicious Behavior
+
+Asset-level risk provides the following benefits and enables you to:
+
+- View risk at the asset-level and perform necessary remediation to lower the risk.
+- Analyze asset metadata, graphical analysis, risk score, risk trends, and a list of events impacting risk score, among many other insights of significance.
+- Identify users, locations, etc. with risky assets to isolate security exposure.
+
+## About the Assets Page
+
+On the Assets page, you can view the following information:
+
+1. **Overview**: View your assets in the following views:
+  - Risk Score
+  - Location
+2. **Distribution of Assets by Authentication Status**: The pie chart shows the percentage split between the number of authenticated and unauthenticated assets. The total number of assets is displayed at the center of the pie chart.
+3. **Authenticated Assets**: The chart shows the types of assets available in your organization's traffic with their count. This data is for authenticated assets only.
+4. **Risky Asset Inventory**: The table shows the top 1,000 risky asset details. For each asset, you can view the following information:
+  - **Asset ID**: The unique ID assigned to the asset by the Zscaler service.
+  - **Private IP Address**: The IP address of the asset.
+  - **Egress IP Address**: The client's gateway IP address that sends the local network traffic to other networks on the internet.
+  - **Username**: The user responsible or owns the asset.
+  - **Asset Type**: The type of asset (iOS, Android OS, etc.).
+  - **Authentication Status**: Indicates whether the asset is authenticated or not.
+  - **Risk Score**: The risk score computed for the asset.
+  - **Last Seen**: The time and date when the last activity was observed on the asset.
+  - **Location**: The city where the asset is located. Displays Road Warrior if the asset isn't tied to a location. Click an asset row to view additional details about the risky assets on the [Asset Details](https://help.zscaler.com/risk360/analyzing-asset-risk) page. You can use the following operators for the table:
+    - Filter the data for specific Asset ID, Asset Type, or Location.
+    - Download the table data into a CSV file.
+    - Search for a specific asset using the asset ID.
+    - [Modify the table columns.](https://help.zscaler.com/risk360/using-tables-risk360)
+    - Use the arrows at the bottom of the table to go to the next page. You can also select the number of entries you want to view on a page.
+
+[Image: The Assets Page]
+
+The Location view shows all the assets in your organization spread across the globe. The map shows the country where the assets are located. Hover over the country to view the number of assets in them. The size of the bubble signifies the number of assets present, relative to other locations. The top-left of the section displays the number of assets with unknown locations.
+
+The **Top Risky Locations** section at the bottom-left displays the locations with the highest percentage of risky assets in descending order.
+
+See image.
+
+The Risk Score view displays a three-dimensional graph with the Risk Score, Asset Count, and Days. This helps you analyze the number of assets under each severity for a select date:
+
+- Each risk severity is highlighted with a unique color code:
+  - No Risk (0–1)
+  - Low (>1–25)
+  - Medium (>25–50)
+  - High (>50–75)
+  - Critical (>75–100)
+- Your organization's total number of assets is displayed at the top of the section.
+- You can view the data for specific severities using the severity checkboxes.
+- Hover over the severity dots in the graph to view the number of assets under specific severity for that day. This helps you view the number of assets under each severity for a particular date.
+- You can left-click, hold the mouse, and then move the graph to the position in which you want to view the data. Click **Reset Chart Position**to set the graph to its original position.
+- You can use your mouse scroll to increase or decrease the size of the graph.
+
+See image.
+
+[Image: Assets Page: Risk Score View]
+
+[Image: Location View]
+
+Pre-infection behavior indicators encompass a range of blocked actions that could lead to an asset infection, such as blocked malware, known and suspected malicious URLs, phishing sites, pages with browser exploits, and more. Some sample indicators for asset risk scoring include:
+
+- Malware blocked by Zscaler’s Advanced Threat Protection or inline Sandbox
+- Blocked known and suspected malicious URLs
+- Blocked websites with known and suspected phishing content
+- Blocked pages with known browser exploits
+- Blocked known and suspected adware and spyware
+- Blocked pages with a high PageRisk score
+- Quarantined pages
+- Blocked files with known vulnerabilities
+- Blocked emails containing viruses
+- Detected mobile app vulnerabilities
+
+Post-infection behavior indicators include a range of blocked actions that are attempted after an asset is infected. Some sample indicators for asset risk scoring include:
+
+- Botnet traffic
+- Command-and-control traffic
+
+Suspicious behavior indicators are similar to pre-infection indicators, with less severity and less guarantee of leading to infection. This includes policy violations, risky activities like browsing deny-listed URLs, DLP compliance violations, and anonymizing sites that could lead to an infected asset. Some sample indicators for asset risk scoring include:
+
+- URLs that are denylisted
+- DLP compliance violations
+- Pages with known dangerous ActiveX controls
+- Pages vulnerable to cross-site scripting attacks
+- Possible browser cookie theft
+- Internet Relay Chat (IRC) tunneling use
+- Anonymizing sites
+- Blocks or warnings from secure browsing about an outdated/disallowed component
+- Peer-to-peer (P2P) site denials
+- Webspam sites
+- Attempts to browse blocked URL categories
+- Mobile app issues that include denial of the mobile app, insecure user credentials, location information leaks, personally identifiable information (PII), information identifying the asset, or communication with unknown servers.
+- Tunnel blocks
+- Fake proxy authentication
+- SMTP (email) issues including rejected password-encrypted attachments, unscannable attachments, detected or suspected spam, rejected recipients, DLP blocks or quarantines, and blocked attachments.
+- IPS blocks of cryptomining & blockchain traffic
+- Reputation-based blocks of suspected adware/spyware sites
+- Disallowed use of a DNS-over-HTTPS site
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/about-audit-logs","lastmod":"2026-04-07T12:14Z","nid":"1463846"} -->
+## About Audit Logs
+
+- Source: https://help.zscaler.com/risk360/about-audit-logs
+- Product: Risk360
+- Path: Risk360 Help > Logs > About Audit Logs
+- Last modified: 2026-04-07T12:14Z
+- Summary: Information regarding audit logs within the Risk360 service.
+
+[Watch a video About Audit Logs in Risk360.](https://fast.wistia.net/embed/iframe/6vloz7chdy)
+
+Zscaler records the login name and IP address of every user who changes configuration settings. Audit logs display the user's login and logout record (timestamps, actions, client IP, etc.), and the configuration changes they perform.
+
+Audit Logs provide the following benefits and enable you to:
+
+- Monitor the changes made by the admins to configurations.
+- Review configuration changes for comparison of the before-and-after administration sessions.
+
+## About the Risk360 Audit Logs Page
+
+On the Audit Logs page (Administration > Admin Management > Audit Logs > Risk360), you can do the following:
+
+1. Download a CSV file. The times mentioned in the CSV file are in PDT.
+2. Search for the logs by Resource, Admin ID, or Client IP.
+3. Filter logs by Time Range, Action, Category, Sub Category, Interface, or Result.
+4. View a list of user logins. For each user login, you can see:
+  - **Timestamp**: The date and time of the user's action.
+  - **Action**:The action performed by the user in the Risk360 Admin Portal.
+  - **Category**: A location within the Risk360 Admin Portal where the action is performed.
+  - **Sub-Category**: The subject under the selected category.
+  - **Resource**: The item within the selected sub-category.
+  - **Admin ID**: The user's login ID.
+  - **Client IP**: The IP address for the user.
+  - **Interface**: How the user performed their actions. The interface is either UI or API based.
+  - **Result**: The outcome of an action (Success, Failure, or Partially Failed).
+
+[Image: Audit Logs Page in the Risk360 Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/about-dashboard-risk360","lastmod":"2026-02-26T21:24Z","nid":"1452686"} -->
+## About the Dashboard in Risk360
+
+- Source: https://help.zscaler.com/risk360/about-dashboard-risk360
+- Product: Risk360
+- Path: About the Dashboard in Risk360
+- Last modified: 2026-02-26T21:24Z
+- Summary: Information on the functionalities of the dashboard in the Risk360 Admin Portal.
+
+The Dashboard page gives visibility and insight into your organization's risk score, contributed by various underlying factors such as exposed servers, recent malware outbreaks, segmentation posture, and data uploads to risky applications. Zscaler's architecture quantifies these events across 4 major categories, such as exposure of attack surfaces, asset compromise, lateral propagation, and sensitive data loss. You can study how your organization's risk score has changed over time and compare your score against industry peers. Different risk factors bear different weights on the score. For example, an active infection is more severe than a blocked access attempt to a blocked destination.
+
+The dashboard provides the following benefits and enables you to:
+
+- Analyze your organization's risk score change over time and against your industry peers to understand your risk exposure against potential cyber attacks.
+- Configure stronger policies for your organization, location, and user-level risk exposures as per Zscaler's recommendations to attain a healthy risk score.
+
+## About the Dashboard Page
+
+On the Dashboard page, you can view the following sections:
+
+1. **Organization Risk Score**: The section shows the Zscaler-computed risk score for your organization and the industry peer average risk score. Your organization's risk score is an average risk score across 4 categories, i.e., External Attack Surface, Compromise, Lateral Propagation, and Data Loss. You can study how the risk score has changed over time and compare your score against your industry peers. The following severities appear for the score ranges:
+  - Low (0–25)
+  - Medium (26–50)
+  - High (51–75)
+  - Critical (76–100)
+
+Hover over the dollar symbol to view the financial risk estimates. You can click **View Details**to further analyze it; you are redirected to the [Financial Risk](https://help.zscaler.com/risk360/about-financial-risk) page.
+
+1. **Risk Score Trend**: The graph shows the Zscaler-computed and industry peer average risk score trend for the last 90 days. Hover over a point in the graph to view the risk score for that date. You can select to view the risk trend for a specific risk score type by using the checkboxes at the bottom of the graph. Click:
+  - The **Settings**icon ([Image: Peer Score Settings]) to view and manage the peer score settings.
+    - Peer Score Settings
+  - The **Download**icon ([Image: Download icon for risk score trend]) to download the risk score trend data as a CSV file.
+  - The **Expand**icon ([Image: Expand Icon]) to view significant events that contributed to your risk score in an enlarged view.
+    - Enlarged View
+2. **Risk Event by Location**: The map shows a category-based number of risky events from geolocation coordinates derived by looking at the client or server IP. As geo-IP lookups are only possible for a subset of overall risky events, the location visualizations represent a small fraction of overall risky events, but the map view allows you to visualize the geospatial distribution of risky events wherever possible. Hover over a location to view the number of risky events across each category. Use the mouse to drag within the maps or zoom in (+) and out (-). The bottom left of the section shows the top risky locations with the percentage of risky events in descending order.
+3. **Contributing Factors by Entity**: This section shows the total number of contributing factors from each entity. The circle chart shows the segregation across each category affected by these factors:
+  - **Workforce**: The factors contributing to the risk score due to risky user activity.
+  - **3rd Parties**: The factors contributing to the risk score due to activities by 3rd-party users (e.g., contract workers).
+  - **Applications**: The factors contributing to the risk score due to the usage of unsanctioned or less secure SaaS applications.
+  - **Assets**: The factors contributing to the risk score due to exposed organizational assets.
+
+Hover over the circle chart to view the number of factors from each category and the percentage contribution to the total number of factors in that entity. You can click **View All**to further analyze it; you are redirected to the[Factors](https://help.zscaler.com/risk360/about-factors) page.
+
+1. **Top 10 Factors**: View top 10 factors contributing to your organization's risk score. For each factor, you can view the following information:
+  - **Category**: The category the factor falls under.
+  - **Factor Name**: The name of the contributing factor affecting the risk score.
+  - **Your Score**: The score for the contributing factor. The total score for a factor depends on its severity (0 being a healthy score).
+  - **Last 30 Days**: The graph showing the last 30-day score trend for that factor.
+  - **Entities**: The entities affected by the factor.
+  - **Licensed?**: Whether you are subscribed to the required feature to implement the recommended action (**Y** for Yes and **N** for No).
+  - **Recommended Actions**: The recommended action required to lower the risk score.
+
+You can click **View All**to further analyze it; you are redirected to the[Factors](https://help.zscaler.com/risk360/about-factors) page.
+
+1. **High Impact Recommendations**: The section shows top factors with high impact on your risk score and the recommendation to lower your organization's risk score. Each recommendation consists of the category name, the day it was discovered, the consequence of not implementing the recommendation, and the trend (if applicable). You can click **Explore**to further analyze a particular recommendation or click **View All** to view the list of all the recommended actions; you are redirected to the [Insights](https://help.zscaler.com/risk360/about-insights-risk360) page.
+
+[Image: Dashboard Showing Risk Metrics]
+
+The **Risk Score Trend** graph shows the Zscaler-computed and industry peer average risk score trend for the last 90 days in an enlarged view. You can:
+
+1. Hover over a key event to view the change in the risk score because of the events for that date.
+2. Hover over the strategy indicator to view the peer risk score change for that date because of the peer score strategy update. Click **Peer Score Strategy Updated** to go to the [Score Change Logs](https://help.zscaler.com/risk360/about-audit-logs#risk-logs) page, where you can view logs for this strategy update.
+
+The **Top 10 Events** section lists the top 10 events observed within the last 90 days. These events are numbered in the order of their occurrence. Click **View All Events** to go to the [Score Change Logs](https://help.zscaler.com/risk360/about-audit-logs#risk-logs) page, where you can view *all* the events that contributed to the risk score change in detail.
+
+[Image: Risk Trend Graph and Top 10 Events]
+
+The Peer Score Settings drawer shows the strategy selected for calculating your industry peer score. The **Default**strategy is Zscaler-defined. You can create a custom strategy for peer score calculation. To learn more, see [Managing Peer Score Settings](https://help.zscaler.com/risk360/managing-peer-score-settings).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/about-factors","lastmod":"2026-01-13T20:00Z","nid":"1452786"} -->
+## About Factors
+
+- Source: https://help.zscaler.com/risk360/about-factors
+- Product: Risk360
+- Path: About Factors
+- Last modified: 2026-01-13T20:00Z
+- Summary: Information about the factors affecting your risk score on the Factors page in the Risk360 Admin Portal.
+
+The Factors page shows the list of contributing factors that are affecting your organization's risk score. The Risk360 service quantifies each factor according to its risk weight, which then adds to your overall organization risk score and also maps these factors to various renowned risk and security frameworks such as MITRE and NIST. The service also supports integration with other vendors like CrowdStrike to gather data for risky events and activities and translate them into Risk360 factors to provide a holistic risk-management experience.
+
+The Factors page provides the following benefits and allows you to:
+
+- Analyze each contributing factor influencing your organization's risk score.
+- View the factors from different perspectives to better understand the factors affecting your organization's risk score.
+
+## About the Factors Page
+
+On the Factors page, in the top right, you can select how you want to view the page. Based on your selection, the page updates to the following views:
+
+- Attack-Based
+- Entity-Based
+
+The attack view shows the factors in a single list.
+
+In this view, you can:
+
+1. Export the factors contributing to your organization's risk score into a CSV file. The downloaded file shows all the factors contributing to your organization's risk score, irrespective of any filter selected at the time of the download.
+2. Switch to the entity-based view (**Tree View**).
+3. View the category-based risk score for your organization.
+4. Search for a factor.
+5. View a list of all the contributing factors to your organization's risk score. For each factor, you can see:
+  - **Factor Name**: The name of the contributing factor affecting the risk score.
+  - **Category**: The type of risk the factor represents, such as lateral propagation or data loss.
+  - **Your Score**: The score for the contributing factor. The total score for a factor depends on its severity (0 being a healthy score).
+  - **Last 30 Days**: A graph showing the last 30-day score trend for that factor.
+  - **Entities**: The entities affected by the factor, such as third parties, applications, workforce, or assets.
+  - **Licensed?**: Whether you are subscribed to the feature required to implement the recommended action (**Y** for Yes and **N** for No).
+  - **Recommended Actions**: The recommended actions proposed to attain a healthy risk score. Click any of the columns (except **Licensed?**, **Include**, or **Entities**) to view more information about the factor in the drawer view:
+    - Drawer
+6. Choose whether to include or exclude the factor from risk score computation. By default, this option is enabled for all factors. You can exclude a factor if you have a compensating control over the factor or any other reason, but you must provide an explanation. Compensating controls are supplementary security measures that are implemented to protect against identified risks or threats (e.g., multi-factor authentication, firewalls, antivirus software). The changes you make are captured in the [audit logs](https://help.zscaler.com/risk360/about-audit-logs) with your username and the reason you provide for the change. See image.
+
+[Image: The Factors page showing the Attack-based view]
+
+The drawer consists of the following tabs:
+
+### Details
+
+On the Details tab, you can view the following information:
+
+- The name of the factor.
+- **Severity**: The severity of the factor, such as critical, high, or medium.
+- **Recommended Actions**: The recommended actions proposed to attain a healthy risk score.
+- **Description**: Detailed information about the factor, useful help article links, and a link that redirects you to the admin portal for the Zscaler service that is responsible for the factor, if available.
+- **Notes**: Any notes that you added. Click the **Edit**or **Delete**icon to modify or delete the note, respectively.
+- **Related Recommendation Cards**: The related discovered problems and their recommendations.
+
+Each problem or factor affecting your organization's risk is visualized in the form of cards on the Insights Page.
+
+[Image: The Drawer view for the factors in the Risk360 Portal]
+
+### Compliance
+
+On the Compliance tab, you can view a list of recognized cybersecurity frameworks and their control IDs mapped to the factor. If you click the control ID, you're redirected to the framework's website, where the control IDs are explained in detail. To learn more, see [Assessing Compliance](https://help.zscaler.com/risk360/assessing-compliance).
+
+[Image: Compliance tab on the Factors tab]
+
+The entity-based view shows the factors listed within their category.
+
+In this view, you can:
+
+1. Export the factors contributing to your organization's risk score into a CSV file. The downloaded file shows all the factors contributing to your organization's risk score, irrespective of any filter selected at the time of the download.
+2. Switch to the attack-based view (**List View**).
+3. Filter factors for specific entities by clicking the entity tiles. To deselect an entity, click it again.
+4. View the contributing factors to your organization's risk score. For each factor, you can see:
+  - **Factor Name**: The name of the contributing factor affecting the risk score.
+  - **Recommended Actions**: The recommended actions proposed to attain a healthy risk score.
+  - **Licensed?**: Whether you are subscribed to the required feature to implement the recommended action (**Y** for Yes and **N** for No).
+  - **Your Score**: The score for the contributing factor. The total score for a factor depends on its severity (0 being a healthy score).
+  - **Last 30 Days**: A graph showing the last 30-day score trend for the factor.
+  - **Include**: Whether the factor is enabled for risk score computation. Click any of the columns (except **Licensed?** or **Include**) to view more information about the factor in the drawer view:
+    - Drawer
+5. Choose whether to include or exclude the factor from risk score computation. By default, this option is enabled for all factors. You can exclude a factor if you have a compensating control over the factor or any other reason, but you must provide an explanation. Compensating controls are supplementary security measures that are implemented to protect against identified risks or threats (e.g., multi-factor authentication, firewalls, antivirus software). The changes you make are captured in the [audit logs](https://help.zscaler.com/risk360/about-audit-logs) with your username and the reason you provide for the change. See image.
+6. Show or hide the factors for a specific category.
+
+[Image: The Factors Page showing Entity-based view]
+
+The drawer consists of the following tabs:
+
+### Details
+
+On the Details tab, you can view the following information:
+
+- The name of the factor.
+- **Severity**: The severity of the factor, such as critical, high, or medium.
+- **Recommended Actions**: The recommended actions proposed to attain a healthy risk score.
+- **Description**: Detailed information about the factor, useful help article links, and a link that redirects you to the admin portal for the Zscaler service that is responsible for the factor, if available.
+- **Notes**: Any notes that you added. Click the **Edit**or **Delete**icon to modify or delete the note, respectively.
+- **Related Recommendation Cards**: The related discovered problems and their recommendations.
+
+[Image: The Drawer view for the factors in the Risk360 Portal]
+
+### Compliance
+
+On the Compliance tab, you can view a list of recognized cybersecurity frameworks and their control IDs mapped to the factor. Click on the control ID; you're redirected to the framework's website where the control IDs are explained in detail. To learn more, see [Assessing Compliance](https://help.zscaler.com/risk360/assessing-compliance).
+
+[Image: Compliance tab on the drawer]
+
+[Image: Factor Override Note Window]
+
+[Image: Factor Override Note Window]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -8611,31 +8961,32 @@ This menu is available in the SentinelOne CNS Findings stream.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-service-level-agreement-settings","lastmod":"2026-04-23T03:27Z","nid":"1534129"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-service-level-agreement-settings","lastmod":"2026-08-31T02:42Z","nid":"1534129"} -->
 ## Configuring Service Level Agreement Settings
 
 - Source: https://help.zscaler.com/uvm/configuring-service-level-agreement-settings
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Settings for UVM > Configuring Service Level Agreement Settings
-- Last modified: 2026-04-23T03:27Z
-- Summary: How to configure service level agreement (SLA) settings in the Zscaler SecOps UVM application.
+- Last modified: 2026-08-31T02:42Z
+- Summary: How to configure service level agreement (SLA) settings in UVM.
 
-Service level agreement (SLA) settings in Zscaler Unified Vulnerability Management (UVM) allow you to define and enforce resolution timelines for findings or tickets, helping your organization meet internal policies and compliance requirements. With customizable SLA rules, you can set timelines based on factors such as severity, asset criticality, vulnerability type, and other criteria. Additionally, you can enable dynamic SLA adjustments when key attributes change (e.g., severity or asset ownership), ensuring timelines stay accurate as conditions evolve.
+Service level agreement (SLA) settings in Unified Vulnerability Management (UVM) allow you to define and enforce resolution timelines for findings or tickets, helping your organization meet internal policies and compliance requirements. With customizable SLA rules, you can set timelines based on factors such as severity, asset criticality, vulnerability type, and other criteria. Additionally, you can enable dynamic SLA adjustments when key attributes change (e.g., severity or asset ownership), ensuring timelines stay accurate as conditions evolve.
 
 SLA settings rely on severity categories, which are mapped to severity scores on the Severity Settings page. These severity categories feed into your SLA rules, allowing you to set resolution timelines that align with the risk levels of findings or tickets in your environment. To learn more, see [Configuring Severity Scores](https://help.zscaler.com/uvm/configuring-severity-scores) and [Configuring Severity Categories](https://help.zscaler.com/uvm/configuring-severity-categories).
 
-For access to severity settings, your assigned role must include the Read, Create, and Edit permissions under the Vulnerabilities App - Ticket Settings resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/uvm/managing-user-roles). 
+For access to severity settings, your assigned role must include the Read, Create, and Edit permissions under the Vulnerabilities App - Ticket Settings resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles). 
 See image.
 
 To configure SLA settings:
 
-1. In the **Vulnerabilities**app, go to **Settings**>**Severity & SLA**. See image.
-2. Click **SLA Settings**. The **SLA Settings** page appears. If SLA is configured in the Data Model, you'll be prompted to unlink and override to configure the settings on the SLA Settings page.
-3. On the **SLA Settings** page, configure the setup in the following sections:
+1. In the SecOps Platform Admin Portal, click **Vulnerabilities** in the top navigation bar.
+2. In the left-side navigation, go to **Settings** > **Severity & SLA**. See image.
+3. Click **SLA Settings**. The **SLA Settings** page appears. If SLA is configured in the Data Model, you'll be prompted to unlink and override to configure the settings on the SLA Settings page.
+4. On the **SLA Settings** page, configure the setup in the following sections:
   - Configuration
   - Default SLA Rules
   - Custom SLA Rules
-4. Save the SLA settings in one of the following ways:
+5. Save the SLA settings in one of the following ways:
   - Click **Save**. The SLA settings apply the next time the finding or the ticket entity is processed.
   - In the **Save**drop-down menu, click **Save & Run**to save the settings and immediately apply them in your account.
 
@@ -8656,6 +9007,7 @@ To configure the SLA granularity and start date:
     - Select a ticket-related date field from the drop-down menu (e.g., **Ticket Last Seen**).
     - Select **Third-Party Issue Created** (i.e., when the ticket is dispatched to an external system). This option triggers the SLA countdown when the ticket is dispatched to an external system.
 3. (Optional) Select **Enable Dynamic SLA Updates**to allow SLA deadlines to automatically recalculate when key attributes change (e.g., severity or asset owner). Dynamic SLA updates are not available when **Third-Party Issue Created**is selected as the start date.
+4. (Optional) Select **Calculate ticket SLA based on active findings only** to calculate SLA based only on the active findings in the ticket. This helps teams focus remediation timelines on findings that still require action, and avoid SLA dates being driven by findings that are no longer active. If all findings are inactive, the SLA remains populated with its most recent value.
 
 See image.
 
@@ -10141,6 +10493,92 @@ In the field, optionally enter the sensor names. A sensor is a script that runs 
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-teams-outegration","lastmod":"2026-09-03T12:06Z","nid":"1528061"} -->
+## Configuring the Teams Outegration
+
+- Source: https://help.zscaler.com/uvm/configuring-teams-outegration
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Teams Outegration
+- Last modified: 2026-09-03T12:06Z
+- Summary: How to configure the Microsoft Teams outegration in the Security Operations Platform.
+
+The Microsoft Teams outegration is used to send exposure and remediation notifications into Teams, enabling collaboration and efficiency between security and IT teams.
+
+This article explains how to set up the Teams outegration. The process involves setting up authentication and outegration visibility in the platform.
+
+## Prerequisites
+
+Before you configure the outegration, make sure you have the following parameters:
+
+- Client ID, Client Secret, and Tenant ID
+- Group ID and Channel ID
+
+## Creating a Microsoft Teams Outegration
+
+To configure the Microsoft Teams outegration:
+
+- Step 1: Authenticate the Teams Connection
+- Step 2: Configure Settings and Mapping
+
+1. In the SecOps Platform Admin Portal, go to **Configure** > **Outegrations**. See image.
+2. Click **Create**. The **Connect a New Outegration** page appears.
+3. On the **Connect a New Outegration** page, select **Teams**. The **Create Teams Outegration** page appears. See image.
+4. In the **Details** section: See image.
+  1. **Display Name**: Enter a name for the outegration.
+  2. **Active**: Enable or disable to use the outegration in automation workflows.
+  3. **Group ID**: Enter the group ID you retrieved from the Prerequisites section.
+  4. **Channel ID**: Enter the channel ID you retrieved from the Prerequisites section.
+  5. **Authentication**: Select an authentication source. If no authentication sources are available, click **Create New**. In the **Teams Authentication** window, enter the parameters you retrieved from the Prerequisites section. After the authentication is successful, the Authentication section shows a unique **Authentication ID**.
+5. **Click Test** to verify the connection.
+6. After the connection is verified, click **Next** to proceed to the **Settings** step.
+
+In the Settings step, configure your Teams outegration's visibility and behavior within Unified Vulnerability Management (UVM).
+
+In the Mapping step, configure the field mapping between your SecOps tickets and Teams account. This defines how data is exchanged and synchronized between the two systems upon initial dispatch and subsequent updates. The SecOps Platform's unique mapping capabilities allow for flexible mapping of any custom field or logic to any field in your Teams account, facilitating highly customized workflows that align with your organization's requirements.
+
+To retrieve the client ID and tenant ID:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the Azure portal, under **Azure Resources**, select **App registrations**.
+3. Click **New registration**, or select an existing registration.
+  - If you are creating a new registration, configure the following:
+    - **Name**: Enter a name for your app.
+    - **Supported account types**: Select **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)**.
+    - **Redirect URI (optional)**: Enter `https://app.avalor.io/oauth`.
+  - If you are using an existing registration, in the **Redirect URIs** section, in **Platform configurations**, select **Web** and enter `https://app.avalor.io/oauth` in the field. See image.
+4. In the application properties, locate the **Application (client) ID** and **Directory (tenant) ID**. Copy and save these values. See image.
+5. In the left-side navigation, go to **API Permissions**.
+6. Add the following permissions:
+  - `Microsoft Graph → Delegated permissions → ChannelMessage → ChannelMessage.Send`
+  - `Microsoft Graph → Delegated permissions → OpenId permissions → offline_access`
+  - `Microsoft Graph → Delegated permissions → Channel → Channel.ReadBasic.All`
+7. In the left-side navigation, go to **Certificates & Secrets**.
+8. Create a new client secret, select the expiration time, and save the value.
+9. In the left-side navigation, go to **Authentication** and authenticate Teams.
+10. Click **Save Authentication**.
+11. When the window appears, click **Accept**.
+
+To retrieve the group ID and channel ID:
+
+1. In the Teams application, open the channel that you want to integrate.
+2. Click the **More channel options** menu. See image.
+3. Select **Get link to channel**. The channel link containing the group ID and channel ID is generated. For example, in `https://teams.microsoft.com/l/channel/19%3A7mtmyDCaMAD1h1tFFlWACNkFhW_m3ga7_4GnTobaOVU1%40thread.tacv2/General?groupId=02ce587c-6d8b-4e69-87bd-8dfe827cadeb&tenantId=7a59ef4d-8896-44eb-aeb2-305ce132a3b6`, the channel ID is `19%3A7mtmyDCaMAD1h1tFFlWACNkFhW_m3ga7_4GnTobaOVU1%40thread.tacv2` and the group ID is `02ce587c-6d8b-4e69-87bd-8dfe827cadeb`.
+
+[Image: The Outegrations page]
+
+[Image: Selecting Teams on the Connect a New Outegration page]
+
+[Image: The Details page when configuring a Teams outegration]
+
+[Image: Copying and saving the Application (client) ID and Directory (tenant) ID]
+
+[Image: Entering https://app.avalor.io/oauth in the Redirect URIs section]
+
+[Image: Selecting More channel options]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/uvm/configuring-tenable-nessus-connector","lastmod":"2026-07-31T07:06Z","nid":"1528381"} -->
 ## Configuring the Tenable Nessus Connector
 
@@ -10521,20 +10959,20 @@ This field is available in the Tenable Vulnerability Management - Vulnerabilitie
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-ticket-workflows","lastmod":"2026-07-09T00:51Z","nid":"1534318"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-ticket-workflows","lastmod":"2026-08-31T02:49Z","nid":"1534318"} -->
 ## Configuring Ticket Workflows
 
 - Source: https://help.zscaler.com/uvm/configuring-ticket-workflows
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Settings for UVM > Configuring Ticket Workflows
-- Last modified: 2026-07-09T00:51Z
+- Last modified: 2026-08-31T02:49Z
 - Summary: How to configure ticket workflows to automate ticket status transitions, lock ticket scopes, and dispatch tickets to external work management systems.
 
-Ticket workflows in Zscaler Unified Vulnerability Management (UVM) allow you to automate and standardize the ticket lifecycle according to your organization's operational requirements. By defining rule sets for status transitions, locking ticket scopes, and dispatching tickets to external systems, you can ensure that ticket states remain synchronized with the real-time status of underlying findings and third-party work management tools. These workflows reduce manual administrative effort and maintain data integrity throughout the remediation process.
+Ticket workflows in Unified Vulnerability Management (UVM) allow you to automate and standardize the ticket lifecycle according to your organization's operational requirements. By defining rule sets for status transitions, locking ticket scopes, and dispatching tickets to external systems, you can ensure that ticket states remain synchronized with the real-time status of underlying findings and third-party work management tools. These workflows reduce manual administrative effort and maintain data integrity throughout the remediation process.
 
 You can create and manage the list of available ticket statuses on the Ticket Statuses page. To learn more, see [Managing Ticket Statuses in UVM](https://help.zscaler.com/uvm/managing-ticket-status).
 
-On initial setup, the Ticket Workflows page displays default system logic. You can customize these rules to align with your organization's remediation policies across three primary categories:
+On initial setup of your Security Operations Platform (SecOps Platform) account, the Ticket Workflows page displays default system logic. You can customize these rules to align with your organization's remediation policies across three primary categories:
 
 - **Ticket Status Management**: Automate transitions based on finding activity, such as auto-closing tickets when findings are no longer detected or reopening them if they resurface.
 - **Lock Ticket Scope Triggers**: Define conditions to automatically lock a ticket's scope, preventing automated system logic from adding or removing findings after a ticket has been manually modified.
@@ -10544,21 +10982,20 @@ To learn more, see [About Tickets](https://help.zscaler.com/uvm/about-tickets) a
 
 ## Configuring Ticket Workflow Rule Sets
 
-For access to ticket workflows, your assigned role must include the **Read**, **Create**, **Edit**, and **Delete**permissions under the **Vulnerabilities App**- **Ticket Settings**resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/uvm/managing-user-roles).
+For access to ticket workflows, your assigned role must include the **Read**, **Create**, **Edit**, and **Delete**permissions under the **Vulnerabilities App**- **Ticket Settings**resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
 
 To configure ticket workflow rule sets:
 
-1. Go to the UVM app (**Vulnerabilities**).
-2. In the left-side navigation, click **Settings**> **Ticket Lifecycle**. The **Ticket Lifecycle** page appears. See image.
-3. Click **Ticket Workflows**. The **Ticket Workflows**page appears, displaying one of the following states: See image.
+1. In the SecOps Platform Admin Portal, go to **Vulnerabilities** > **Settings**> **Ticket Lifecycle**. The **Ticket Lifecycle** page appears. See image.
+2. Click **Ticket Workflows**. The **Ticket Workflows**page appears, displaying one of the following states: See image.
   - If no custom rules have been defined, the page displays the default system workflow logic.
-  - If workflows are currently managed through [data unification](https://help.zscaler.com/uvm/what-data-unification), click **Unlink & Override**to enable local rule configuration.
+  - If workflows are currently managed through [data unification](https://help.zscaler.com/unified/what-data-unification), click **Unlink & Override**to enable local rule configuration.
   - If rules have already been configured and saved, your existing workflow settings and rules are displayed.
-4. On the **Ticket Workflows**page, you can configure rules for the following workflow categories: For each of the**Ticket Status Management**and **Lock Ticket Scope Triggers**categories, rules are processed sequentially. When a ticket meets the criteria for multiple rules within the same category, the system applies only the first matching rule based on the list order. For the **Auto-Dispatch to External Systems**category, the system evaluates all rules. Every rule that matches the ticket's criteria is triggered, allowing a single ticket to trigger dispatches to multiple destinations if it meets the conditions for more than one rule.
+3. On the **Ticket Workflows**page, you can configure rules for the following workflow categories: For each of the**Ticket Status Management**and **Lock Ticket Scope Triggers**categories, rules are processed sequentially. When a ticket meets the criteria for multiple rules within the same category, the system applies only the first matching rule based on the list order. For the **Auto-Dispatch to External Systems**category, the system evaluates all rules. Every rule that matches the ticket's criteria is triggered, allowing a single ticket to trigger dispatches to multiple destinations if it meets the conditions for more than one rule.
   - Ticket Status Management
   - Lock Ticket Scope Triggers
   - Auto-Dispatch to External Systems
-5. Click **Done.**
+4. Click **Done.**
 
 You can view the activity log for all these actions on the Activity tab of a ticket. To learn more, see [Viewing & Managing Tickets in UVM](https://help.zscaler.com/uvm/viewing-managing-tickets-uvm#ticket-drawer-activity-tab).
 
@@ -10572,7 +11009,7 @@ Automated ticket status workflows take precedence over manual status updates to 
 
 To configure automated rules for tickets:
 
-1. Click **Ticket Status Management**. The **Ticket Status Management**drawer opens. See image. If the **Ticket Status Management**setting is configured through [data unification](https://help.zscaler.com/uvm/what-data-unification), you'll be prompted to unlink and override to configure ticket workflows on the Ticket Workflows page. If no rules have been configured yet, click **Create New Rule**.
+1. Click **Ticket Status Management**. The **Ticket Status Management**drawer opens. See image. If the **Ticket Status Management**setting is configured through [data unification](https://help.zscaler.com/unified/what-data-unification), you'll be prompted to unlink and override to configure ticket workflows on the Ticket Workflows page. If no rules have been configured yet, click **Create New Rule**.
 2. In the **Ticket Status Management** drawer, enter the following details: See image. You can't use the same ticket status as the input condition for both a **Resurface Finding - Create New Ticket**rule and any rule that performs a status transition (i.e., **Automatic Ticket Closure**, **Resurface Finding - Reopen Ticket**, or **Custom Status Transition**). This restriction ensures deterministic behavior, guaranteeing that a single trigger event results in one unambiguous outcome (e.g., when a finding resurfaces, the system either creates a new ticket or changes the status of the original one, but not both).
   - **NAME**: Enter a name for the rule.
   - **ACTIVE**: Enable to activate the rule. Keeping a rule inactive is useful when you want to save the rule without applying its logic during initial setup or while testing your workflow configuration.
@@ -10593,13 +11030,15 @@ Set the criteria:
 
 - **IF**:
   - **Ticket status is not**: Select the ticket statuses for which this rule should be applied. Available statuses are those configured in the Remediated or Closed buckets under [Ticket Statuses settings](https://help.zscaler.com/uvm/managing-ticket-status). This ensures the rule applies only to active tickets, so the automation does not attempt to process or close tickets that have already reached the specified closed statuses.
-  - **All findings are undetected for**: (Optional) Select the checkbox and enter the number of days that findings must remain undetected (not seen in a recent scan) before the ticket closes. If set to 0, the ticket is closed immediately when all findings are undetected. Findings are marked as Undetected based on the finding aging logic configured in the [Remediation Detection settings](https://help.zscaler.com/uvm/creating-data-sources#remediation-detection-settings) of a source and, if enabled, in the [Asset Aging](https://help.zscaler.com/uvm/aging-assets) settings. Make sure the specified number of days aligns with the expected aging cycles.
+  - **All findings are undetected for**: (Optional) Select the checkbox and enter the number of days that findings must remain undetected (not seen in a recent scan) before the ticket closes. If set to 0, the ticket is closed immediately when all findings are undetected. Findings are marked as Undetected based on the finding aging logic configured in the [Remediation Detection settings](https://help.zscaler.com/unified/creating-data-sources#remediation-detection-settings) of a source and, if enabled, in the [Asset Aging](https://help.zscaler.com/unified/aging-assets) settings. Make sure the specified number of days aligns with the expected aging cycles.
   - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules (e.g., specific ticket severities or assignment groups).
 - **THEN**: From the **Update ticket status to** drop-down menu, select the status that tickets that meet the IF conditions should move to (e.g., **Auto Closed**).
 
 See image.
 
-Configure rules to define when a resurfaced finding in a closed ticket should trigger creation of a new ticket. If your scanners detect the finding again (i.e., it transitions from Undetected to Active) and it remains active for the specified number of days, the system creates a new ticket that includes the resurfaced finding(s) so the recurrence can be tracked separately. This starts a new remediation cycle ensuring historical and MTTX measurements are tracked separately. If an [aged asset](https://help.zscaler.com/uvm/aging-assets) resurfaces, its associated findings also resurface.
+Configure rules to define when a resurfaced finding in a closed ticket should trigger creation of a new ticket. If your scanners detect the finding again (i.e., it transitions from Undetected to Active) and it remains active for the specified number of days, the system creates a new ticket that includes the resurfaced finding(s) so the recurrence can be tracked separately. This starts a new remediation cycle ensuring historical and MTTX measurements are tracked separately. If an [aged asset](https://help.zscaler.com/unified/aging-assets) resurfaces, its associated findings also resurface.
+
+This rule is automated and can create a new ticket even if the original ticket has an exception request. Exception requests only restrict manual split and merge actions. To learn more, see [Requesting Exceptions](https://help.zscaler.com/uvm/requesting-exceptions).
 
 Set the criteria:
 
@@ -10608,11 +11047,11 @@ Set the criteria:
   - **At least one finding is active for**: Enter the minimum number of days that a resurfaced finding must remain active before the rule is triggered. The rule is triggered even if one finding is active for the specified period.
   - **A third-party work management item is attached**: (Optional) Select the checkbox to apply the rule only to tickets linked to a third-party tool (e.g., a [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration) issue or a [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration) ticket).
   - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules.
-- **THEN**: The platform is set to open a new ticket with the resurfaced finding by default. This ensures the resurfaced findings are isolated for tracking and assignment.
+- **THEN**: The SecOps Platform is set to open a new ticket with the resurfaced finding by default. This ensures the resurfaced findings are isolated for tracking and assignment.
 
 See image.
 
-Configure rules to define when a resurfaced finding in a closed ticket should trigger reopening the existing ticket. If your scanners detect the finding again (i.e., it transitions from Undetected to Active) and it remains active for the specified number of days, the system reopens the ticket (i.e., moves it to the selected status) so remediation can be tracked in the same ticket. If an [aged asset](https://help.zscaler.com/uvm/aging-assets) resurfaces, its associated findings also resurface.
+Configure rules to define when a resurfaced finding in a closed ticket should trigger reopening the existing ticket. If your scanners detect the finding again (i.e., it transitions from Undetected to Active) and it remains active for the specified number of days, the system reopens the ticket (i.e., moves it to the selected status) so remediation can be tracked in the same ticket. If an [aged asset](https://help.zscaler.com/unified/aging-assets) resurfaces, its associated findings also resurface.
 
 Set the criteria:
 
@@ -10621,7 +11060,7 @@ Set the criteria:
   - **At least one finding is active for**: Enter the minimum number of days that a resurfaced finding must remain active before the rule is triggered. The rule is triggered even if one finding is active for the specified period.
   - **A third-party work management item is attached**: (Optional) Select the checkbox to apply the rule only to tickets linked to a third-party tool (e.g., a [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration) issue or a [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration) ticket).
   - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules.
-- **THEN**: From the **Move ticket to status** drop-down menu, select the status that the ticket should move to when reopened. The platform reopens the ticket with the resurfaced finding, ensuring the resurfaced findings are tracked on their original ticket with the original assignment.
+- **THEN**: From the **Move ticket to status** drop-down menu, select the status that the ticket should move to when reopened. The SecOps Platform reopens the ticket with the resurfaced finding, ensuring the resurfaced findings are tracked on their original ticket with the original assignment.
 
 See image.
 
@@ -10641,13 +11080,13 @@ Configure rules to define when to automatically lock a ticket's scope, which pre
 
 To configure automated rules to lock a ticket:
 
-1. Click **Lock Ticket Scope Triggers**. The **Lock Ticket Scope Triggers**drawer opens. If the **Lock Ticket Scope Triggers**setting is configured through [data unification](https://help.zscaler.com/uvm/what-data-unification), you'll be prompted to unlink and override to configure ticket workflows on the Ticket Workflows page. If no rules have been configured yet, click **Create New Rule**.
+1. Click **Lock Ticket Scope Triggers**. The **Lock Ticket Scope Triggers**drawer opens. If the **Lock Ticket Scope Triggers**setting is configured through [data unification](https://help.zscaler.com/unified/what-data-unification), you'll be prompted to unlink and override to configure ticket workflows on the Ticket Workflows page. If no rules have been configured yet, click **Create New Rule**.
 2. In the**Lock Ticket Scope Triggers** drawer, enter the following details: See image.
   - **NAME**: Enter a name for the rule.
   - **ACTIVE**: Enable to activate the rule. Keeping a rule inactive is useful when you want to save the rule without applying its logic during initial setup or while testing your workflow configuration.
   - Set the criteria:
     - **IF**:
-      - **Ticket is manually split or merged**: This checkbox is selected by default and cannot be changed. This ensures that when a user [splits or merges tickets](https://help.zscaler.com/uvm/managing-manual-ticket-grouping), the platform locks the scope of the resulting tickets so subsequent automated [grouping](https://help.zscaler.com/uvm/configuring-grouping-rules) or [data unification](https://help.zscaler.com/uvm/what-data-unification) logic doesn't adjust the findings in the ticket.
+      - **Ticket is manually split or merged**: This checkbox is selected by default and cannot be changed. This ensures that when a user [splits or merges tickets](https://help.zscaler.com/uvm/managing-manual-ticket-grouping), the SecOps Platform locks the scope of the resulting tickets so subsequent automated [grouping](https://help.zscaler.com/uvm/configuring-grouping-rules) or [data unification](https://help.zscaler.com/unified/what-data-unification) logic doesn't adjust the findings in the ticket.
       - **Ticket status is**: Select the ticket statuses for which this rule should be applied. Available statuses to select from are those configured in [Ticket Statuses](https://help.zscaler.com/uvm/managing-ticket-status) settings.
       - **A third-party work management item is attached**: (Optional) Select the checkbox to apply the rule only to tickets linked to a third-party tool (e.g., a [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration) issue or a [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration) ticket).
       - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules.
@@ -10673,7 +11112,7 @@ To configure automated rules for creating third-party work management items and 
       - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules.
     - **THEN**:
       - **Create a third-party item on**: Select the outegration for the system you want to trigger. The drop-down menu lists the outegrations already configured in your account.
-      - **Create New Outegration**: If no outegration is configured for the destination you want to dispatch to, click to open the **Connect a New Outegration**page and [create one](https://help.zscaler.com/uvm/creating-outegrations). After you create an outegration, it appears in the **Create a third-party item on**drop-down menu.
+      - **Create New Outegration**: If no outegration is configured for the destination you want to dispatch to, click to open the **Connect a New Outegration**page and [create one](https://help.zscaler.com/unified/creating-outegrations). After you create an outegration, it appears in the **Create a third-party item on**drop-down menu.
 3. (Optional) Click **New Rule** to add a new rule.
 4. Save the rule set in one of the following ways: See image. If the save options are disabled, ensure you have completed the required configuration, including entering a name for every rule and configuring the THEN conditions.
   - Click **Save** for rules take effect when new data is ingested into your account.
@@ -11831,18 +12270,18 @@ To delete a rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/managing-manual-ticket-grouping","lastmod":"2025-11-20T01:08Z","nid":"1533826"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/managing-manual-ticket-grouping","lastmod":"2026-08-31T02:46Z","nid":"1533826"} -->
 ## Managing Manual Ticket Grouping
 
 - Source: https://help.zscaler.com/uvm/managing-manual-ticket-grouping
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Managing Manual Ticket Grouping
-- Last modified: 2025-11-20T01:08Z
-- Summary: How to manage ticket grouping in the Vulnerabilities app.
+- Last modified: 2026-08-31T02:46Z
+- Summary: How to manage ticket grouping in UVM.
 
 An account's grouping rules automatically aggregate findings with similar attributes into tickets, facilitating a productive work process. In addition to automatic grouping rules, the system also offers manual grouping management, allowing isolated grouping adjustments when necessary.
 
-For access to manual ticket grouping, your assigned role must include the Read, Create, and Edit permissions under the Vulnerabilities App - Ticket Operational View resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users).
+For access to manual ticket grouping, your assigned role must include the Read, Create, and Edit permissions under the Vulnerabilities App - Ticket Operational View resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
 See image.
 
 [Image: List of roles and their permissions]
@@ -11854,6 +12293,8 @@ There are two general use cases where manual grouping can be used:
   - Merging tickets into a single ticket
 - To launch a one-time remediation campaign, where manually grouping findings based on meaningful shared attributes into a single work unit can be assigned and tracked. For example, searching for instances of a particular CVE vulnerability located on multiple assets can be grouped into a single ticket for convenient remediation.
 
+Manual split and merge actions are unavailable for tickets that have [exception requests](https://help.zscaler.com/uvm/understanding-exception-requests). Users cannot split findings from these tickets, merge findings from these tickets with findings from other tickets, or merge these tickets with other tickets. If all exceptions requests for a ticket are closed or in a Closed status bucket, these actions become available again. Users with Exceptions - Audit permission can still split and merge findings and tickets.
+
 Ensure that automatic grouping rules in your account accurately group findings into tickets reflecting your business logic and vulnerability management efforts. Frequent use of manual ticket grouping might require you to revise your account's automatic grouping rules.
 
 ## Splitting Findings
@@ -11862,7 +12303,7 @@ You can split findings from a ticket into one or more new tickets. For example, 
 
 To split findings from an existing ticket into a new ticket:
 
-1. In the SecOps platform, go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears. See image.
+1. In the SecOps Platform Admin Portal, go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears. See image.
 2. Click the ticket you want to split. The ticket details drawer appears.
 3. Click the **Findings**tab.
 4. Select the findings you want to split, using filters if needed. To select all filtered findings, select the checkbox at the top of the list. To select more than 20 findings, click **Select all**<#>**rows**. See image. The **Split Into a New Ticket** drop-down menu appears.
@@ -11886,7 +12327,7 @@ Ticket merging is useful when you want to merge tickets with related findings in
 
 To merge multiple tickets into one single ticket:
 
-1. In the SecOps platform, go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears.
+1. Go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears.
 2. Select the ticket(s) you want to merge, using filters if needed. You can't merge tickets if more than one of them is linked to an external case management system (e.g., Jira issue) to ensure the dispatched task scope remains unchanged. To proceed with the action despite this restriction, unlink the ticket from the external issue.
 3. Click **Merge**. See image.
 4. Enter a name for the new ticket. See image.
@@ -11904,7 +12345,7 @@ Manual grouping allows you to manually curate findings into a single ticket. A c
 
 To manually group a set of related findings into one single ticket:
 
-1. In the SecOps platform, go to **Vulnerabilities**> **Findings**. The **Findings**page appears. See image.
+1. Go to **Vulnerabilities**> **Findings**. The **Findings**page appears. See image.
 2. Select the finding(s) you want to group, search for the CVE or keyword, or use filters if needed.
 3. Click **Create Ticket**. See image.
 4. Review the selected findings before proceeding, as this action can potentially affect multiple tickets and deselect irrelevant findings. See image. Removing all findings from a ticket is generally not recommended, and isn't permitted when a ticket is linked to an external case management system. To proceed with the action despite this restriction, unlink the ticket from the external issue.
@@ -12143,13 +12584,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-08-19T07:40Z","nid":"1534299"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-08-31T02:50Z","nid":"1534299"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/uvm/release-upgrade-summary-2026
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-19T07:40Z
+- Last modified: 2026-08-31T02:50Z
 - Summary: Unified Vulnerability Management (UVM) Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Unified Vulnerability Management (UVM).
@@ -12157,13 +12598,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/requesting-exceptions","lastmod":"2025-11-20T01:20Z","nid":"1527636"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/requesting-exceptions","lastmod":"2026-08-31T02:50Z","nid":"1527636"} -->
 ## Requesting Exceptions
 
 - Source: https://help.zscaler.com/uvm/requesting-exceptions
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Requesting Exceptions
-- Last modified: 2025-11-20T01:20Z
+- Last modified: 2026-08-31T02:50Z
 - Summary: How to submit exception requests to extend the SLA date of UVM tickets.
 
 When a ticket cannot be remediated within its designated service level agreement (SLA) due to technical limitations, an unavailable fix, or unacceptable business impact, you can submit an exception request to temporarily exempt the ticket from published security policies. When initiating the exception request, you'll need to provide justification and submit necessary supporting evidence for review. The request is then assessed by a reviewer, who either approves or denies it. To learn more, see [Understanding Exception Requests](https://help.zscaler.com/uvm/understanding-exception-requests).
@@ -12179,9 +12620,11 @@ Before submitting an exception request, make sure the ticket contains only the f
 
 When your findings are grouped into a single ticket, you can request an exception.
 
+After you request an exception for a ticket, manual split and merge actions are disabled for that ticket. Users cannot split findings from the ticket, merge findings from the ticket with findings from other tickets, or merge the ticket with another ticket. If all exceptions for the ticket are closed or in a Closed status bucket, these actions become available again. Users with Exceptions - Audit permission can still split and merge findings and tickets. To learn more, see [Managing Manual Ticket Grouping](https://help.zscaler.com/uvm/managing-manual-ticket-grouping).
+
 To create an exception request:
 
-1. Go to **Vulnerabilities** > **Tickets**.
+1. In the SecOps Platform Admin Portal, go to **Vulnerabilities** > **Tickets**.
 2. In the table, click the ticket for which you want to request an exception. The **Ticket**drawer appears.
 3. On the **Details** tab, click **Request Exception**. See image. The **Request Exception**dialog window appears.
 4. In the **Request Exception**dialog window:
@@ -12209,13 +12652,15 @@ The status of your request reflects the reviewer's decision and is shown in the 
 
 ## Syncing Exceptions with External Systems
 
-If your organization uses an outegration (e.g., ServiceNow IRM) to track exceptions, you can sync your request. To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
+If your organization uses an outegration (e.g., ServiceNow IRM) to track exceptions, you can sync your request. To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations).
 
 To sync an exception request with an external system:
 
 1. Go to **Vulnerabilities**> **Exceptions**.
 2. In the table, click the exception request you want to sync.
 3. Click **Create**<Outegration> **Ticket**.
+
+[Image: Request Exception on the Details tab in a ticket drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13111,22 +13556,24 @@ You can filter the feed by:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/viewing-overview-dashboard","lastmod":"2026-07-19T06:00Z","nid":"1540139"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-overview-dashboard","lastmod":"2026-08-31T02:36Z","nid":"1540139"} -->
 ## Viewing the Overview Dashboard
 
 - Source: https://help.zscaler.com/uvm/viewing-overview-dashboard
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Analyze for UVM > Viewing the Overview Dashboard
-- Last modified: 2026-07-19T06:00Z
+- Last modified: 2026-08-31T02:36Z
 - Summary: How to view and interpret the Overview dashboard in UVM.
 
-The Overview dashboard provides a comprehensive view of your Zscaler Unified Vulnerability Management (UVM) findings from ingestion to remediation. The dashboard demonstrates the data deduplication, normalization, and prioritization capabilities in the Zscaler Security Operations (SecOps) platform, allowing you to view how fragmented data points are transformed into a streamlined set of prioritized work items.
+The Overview dashboard provides a comprehensive view of your Unified Vulnerability Management (UVM) findings from ingestion to remediation. The dashboard demonstrates the data deduplication, normalization, and prioritization capabilities in the Security Operations Platform (SecOps Platform), allowing you to view how fragmented data points are transformed into a streamlined set of prioritized work items.
 
-To access the dashboard, go to **Vulnerabilities** > **Overview**.
+To access the dashboard in the SecOps Platform Admin Portal, go to **Vulnerabilities** > **Overview**.
+
+The dashboard initially displays a recent snapshot of your data while it loads the most current data.
 
 See image.
 
-You can adjust the data displayed in the dashboard by using the filters at the top of the page. To learn more, see [Using Filters](https://help.zscaler.com/uvm/using-filters). You can save the adjusted view to return to without reapplying the filters each time. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/uvm/creating-managing-saved-views).
+You can adjust the data displayed in the dashboard by using the filters at the top of the page. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). You can save the adjusted view to return to without reapplying the filters each time. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/unified/creating-managing-saved-views).
 
 ## Tracking Discovery to Prioritization
 
@@ -13136,7 +13583,7 @@ See image.
 
 ### Source Findings and Assets
 
-On the left, the dashboard displays source findings and source assets for each of the [data sources configured in your account](https://help.zscaler.com/uvm/creating-data-sources) (e.g., Qualys, CrowdStrike, ServiceNow), after mapping but before unification.
+On the left, the dashboard displays source findings and source assets for each of the [data sources configured in your account](https://help.zscaler.com/unified/creating-data-sources) (e.g., Qualys, CrowdStrike, ServiceNow), after mapping but before unification.
 
 - Findings: The total number of findings reported by a specific source.
 - Assets: The number of assets that the source is reporting on.
@@ -13145,7 +13592,7 @@ See image.
 
 ### Unified Findings
 
-As you trace the flow toward the right, the source data is aggregated into the Findings node. The number of findings displayed in this node reflects the findings after they have been processed by the platform's [unification](https://help.zscaler.com/uvm/what-data-unification). UVM identifies when multiple different sources report the same vulnerability on the same machine and merges them into a single, unified record. Thus, you might see a lower number in the central Findings node than the sum of all raw source findings on the left. This provides you with an accurate count of unique findings in your environment without the duplication of overlapping scanner reports.
+As you trace the flow toward the right, the source data is aggregated into the Findings node. The number of findings displayed in this node reflects the findings after they have been processed by the platform's [unification](https://help.zscaler.com/unified/what-data-unification). UVM identifies when multiple different sources report the same vulnerability on the same machine and merges them into a single, unified record. Thus, you might see a lower number in the central Findings node than the sum of all raw source findings on the left. This provides you with an accurate count of unique findings in your environment without the duplication of overlapping scanner reports.
 
 The trend arrow indicates the percentage of increased or decreased deduplicated findings in the past 30 days.
 
@@ -13181,11 +13628,11 @@ The Total Unique CVE tile counts the number of distinct Common Vulnerabilities a
 
 ### % Assigned Tickets
 
-The % Assigned Tickets tile tracks how many currently active tickets have been assigned to a specific owner or remediation team. A low assignment percentage indicates that tickets are being created but are sitting in an unassigned queue. You can automate assignment with [data unification](https://help.zscaler.com/uvm/what-data-unification) rules.
+The % Assigned Tickets tile tracks how many currently active tickets have been assigned to a specific owner or remediation team. A low assignment percentage indicates that tickets are being created but are sitting in an unassigned queue. You can automate assignment with [data unification](https://help.zscaler.com/unified/what-data-unification) rules.
 
 ### % Third-Party Tickets
 
-The % Third-Party Tickets tile represents the percentage of tickets that have been dispatched to an external work management system using [outegrations](https://help.zscaler.com/uvm/creating-outegrations) (e.g., Jira or ServiceNow). A high percentage indicates a healthy, automated integration where security insights are being pushed directly into the existing workflows of your IT and development teams.
+The % Third-Party Tickets tile represents the percentage of tickets that have been dispatched to an external work management system using [outegrations](https://help.zscaler.com/unified/creating-outegrations) (e.g., Jira or ServiceNow). A high percentage indicates a healthy, automated integration where security insights are being pushed directly into the existing workflows of your IT and development teams.
 
 [Image: Vulnerabilities Overview dashboard]
 

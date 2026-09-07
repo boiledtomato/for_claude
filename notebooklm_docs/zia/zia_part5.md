@@ -1,8 +1,33 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 131
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 132
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas","lastmod":"2026-07-31T10:30Z","nid":"1398926"} -->
+## Downloading Virtual Service Edge Certificates for Internet & SaaS
+
+- Source: https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates for Internet & SaaS
+- Last modified: 2026-07-31T10:30Z
+- Summary: Information on how to download Virtual Service Edge certificates for Internet & SaaS (ZIA), which are used to validate Virtual Service Edge instances within the Zscaler cloud.
+
+Downloading a Virtual Service Edge certificate for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters for production. To learn more, see [Configuring Virtual Service Edge Clusters for Internet & SaaS](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters-internet-saas).
+
+The Virtual Service Edge certificate is used to authenticate each Virtual Service Edge instance to the Zscaler cloud. You must download the certificate for each Virtual Service Edge instance that you added. For example, if your cluster has two Virtual Service Edges, you'll need to download two certificates. You will upload each certificate to the appropriate vSphere client. To learn more, see [Adding Virtual Service Edge Instances for Internet & SaaS](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas).
+
+To download a Virtual Service Edge certificate:
+
+1. Go to **Infrastructure**> **Internet & SaaS** > **Traffic Forwarding** >**Virtual Service Edges**.
+2. In the**SSL Certificate** column, click **Download** for the [Virtual Service Edge](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas) that you added previously, and then save the certificate. See image.
+
+If you're downloading multiple certificates, you might want to change the certificate name so that you can differentiate between them. For example, if the Virtual Service Edge instances in a cluster are called VSE1 and VSE2, you can rename the certificate's ZIP files to VSE1.zip and VSE2.zip.
+
+[Image: SSL Certificate column and download link on the Virtual Service Edges page]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -668,13 +693,13 @@ Quarantined emails can also be found in the [Microsoft Quarantine Center](https:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-08-24T03:29Z","nid":"1535315"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-08-31T06:40Z","nid":"1535315"} -->
 ## Editing Locations
 
 - Source: https://help.zscaler.com/zia/editing-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Editing Locations
-- Last modified: 2026-08-24T03:29Z
+- Last modified: 2026-08-31T06:40Z
 - Summary: Information on editing locations in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, you can edit or delete an existing location from the Locations page. You can also use a CSV file to [add and remove multiple locations and sublocations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
@@ -683,7 +708,7 @@ In the Zscaler Admin Console, you can edit or delete an existing location from t
 
 To edit an existing location:
 
-1. Go to **Infrastructure > Locations > Location Management > Legacy Locations**.
+1. Go to **Infrastructure > Locations > Legacy Locations**.
 2. Click **Edit** for the location you want to modify. The**Edit Location** window appears.
 3. In the **Edit Location** window, modify the location parameters. See image.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -692,7 +717,7 @@ To edit an existing location:
 
 To delete an existing location:
 
-1. Go to **Infrastructure > Locations > Location Management > Legacy Locations**.
+1. Go to **Infrastructure > Locations > Legacy Locations**.
 2. Click **Edit** for the location you want to delete. The **Edit Location** window appears.
 3. In the **Edit Location** window, click **Delete**. See image.
 4. Read the warning message that appears and then click **Confirm** to delete the location. See image.
@@ -1518,21 +1543,23 @@ Following are the Email DLP Insights Logs filters that you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/enabling-firewall-locations","lastmod":"2026-04-29T07:16Z","nid":"1399931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/enabling-firewall-locations","lastmod":"2026-09-01T08:23Z","nid":"1399931"} -->
 ## Enabling the Firewall for Locations
 
 - Source: https://help.zscaler.com/zia/enabling-firewall-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Enabling the Firewall for Locations
-- Last modified: 2026-04-29T07:16Z
+- Last modified: 2026-09-01T08:23Z
 - Summary: How to enforce firewall controls on specific locations for the Zscaler service.
 
 The firewall can be enabled on a per-location basis.
 
-## Before Enabling the Firewall
+## Prerequisites
+
+Before enabling the firewall, ensure the following prerequisites are met:
 
 1. Ensure you have configured the following policy resources:
-  - [Users](https://help.zscaler.com/zia/about-users), [Groups](https://help.zscaler.com/zia/about-groups), [Departments](https://help.zscaler.com/zia/about-departments), [Locations](https://help.zscaler.com/zia/about-locations), and [Sublocations](https://help.zscaler.com/zia/understanding-sublocations) for your firewall policies
+  - [Users](https://help.zscaler.com/zia/about-users), [Groups](https://help.zscaler.com/zia/about-groups), [Departments](https://help.zscaler.com/zia/about-departments), [Locations](https://help.zscaler.com/zia/about-locations), and [Sublocations](https://help.zscaler.com/zia/understanding-sublocations) for your Firewall policies
   - [Time Intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals)
   - Network Applications. You can create [network application groups](https://help.zscaler.com/zia/about-network-application-groups) as needed.
   - Network Services. You can [modify network services](https://help.zscaler.com/zia/about-network-services) to edit services, add custom services, and create groups.
@@ -1555,7 +1582,7 @@ To enable the firewall for a location:
 [Image: The Zscaler firewall location section highlighting edit icon]
 
 1. Select**Enforce Firewall Control** to enable the service's [firewall controls](https://help.zscaler.com/zia/about-firewall-control).
-2. Select **Enable IPS Control** to enable the service's [IPS controls](https://help.zscaler.com/zia/about-ips-control). (Available with the Advanced Firewall subscription)
+2. Select **Enable IPS Control** to enable the service's [IPS controls](https://help.zscaler.com/zia/about-ips-control). (Available with Advanced Firewall)
 
 [Image: Enabling firewall and IPS control]
 
@@ -2362,13 +2389,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/executive-insights-app-errors-and-troubleshooting","lastmod":"2026-08-27T22:50Z","nid":"1516996"} -->
+<!-- ZS-ARTICLE {"url":"/zia/executive-insights-app-errors-and-troubleshooting","lastmod":"2026-08-31T00:53Z","nid":"1516996"} -->
 ## Executive Insights App Errors and Troubleshooting
 
 - Source: https://help.zscaler.com/zia/executive-insights-app-errors-and-troubleshooting
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Executive Insights App Errors and Troubleshooting
-- Last modified: 2026-08-27T22:50Z
+- Last modified: 2026-08-31T00:53Z
 - Summary: Information on common errors that might occur in the Executive Insights App and the respective troubleshooting steps.
 
 To learn how to install and use the Executive Insights App, see [Accessing and Using the Executive Insights App](https://help.zscaler.com/zia/accessing-and-using-executive-insights-app).
@@ -2408,7 +2435,7 @@ The following tables provide lists of error messages users might see on the Exec
 
 | Error Type | Error Message or Issue Description | Resolution |
 | --- | --- | --- |
-| Subscription Required Message | The user gets "Subscription Required" message on some of the widgets instead of the actual data. | Widgets are rendered based on the subscriptions included for the user's tenant. To check the ZDX subscriptions for the tenant, go to Account Settings and check the subscriptions. |
+| Subscription Required Message | The user gets "Subscription Required" message on some of the widgets instead of the actual data. | Widgets are rendered based on the subscriptions included for the user's tenant. To check the ZDX subscriptions for the tenant, go to **Account Settings** and check the subscriptions. |
 | Demo Mode on Risk360 Screen | No data displays on the Risk360 screen, and only an option to start the Demo mode is available. | The tenant must be provisioned on Risk360 before any data for that tenant would start showing up on the Risk360 screen. Until then, the tenant users can only see the Demo mode. |
 
 | Error Type | Error Message or Issue Description | Resolution |
@@ -3603,24 +3630,24 @@ Displays data about traffic associated with a specific user. You can apply the f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/firewall-http-tunnel-connectivity","lastmod":"2026-04-29T07:46Z","nid":"1401616"} -->
+<!-- ZS-ARTICLE {"url":"/zia/firewall-http-tunnel-connectivity","lastmod":"2026-09-01T08:32Z","nid":"1401616"} -->
 ## Firewall HTTP Tunnel Connectivity
 
 - Source: https://help.zscaler.com/zia/firewall-http-tunnel-connectivity
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall HTTP Tunnel Connectivity
-- Last modified: 2026-04-29T07:46Z
-- Summary: This article provides information about the Zscaler recommended tunnel connectivity for onsite and remote workers.
+- Last modified: 2026-09-01T08:32Z
+- Summary: This article provides information about the Zscaler recommended tunnel connectivity for onsite and remote users.
 
 Zscaler recommends using GRE/IPSec tunnel connectivity from branch or headquarter location gateway devices. For remote users, the recommendation is to install Zscaler Client Connector to connect to the Zscaler service. Zscaler Client Connector should be implemented when users are off network using HTTP CONNECT tunnels to forward their traffic.
 
-With HTTP CONNECT tunnels, there are two 5-tuples associated with the traffic: the outer IP and the inner IP address. Zscaler removes the HTTP CONNECT request from the outer tunnel and then applies the firewall policies to the request inside the HTTP CONNECT tunnel independently. This means that any 5-tuple that results in a blocking policy blocks the corresponding session.
+With HTTP CONNECT tunnels, there are two 5-tuples associated with the traffic: the outer IP and the inner IP address. Zscaler removes the HTTP CONNECT request from the outer tunnel and then applies the Firewall policies to the request inside the HTTP CONNECT tunnel independently. This means that any 5-tuple that results in a blocking policy blocks the corresponding session.
 
 To ensure your organization is configured to allow connectivity to the Zscaler service, you must leverage the following predefined Zscaler network services and IP groups in your organization’s policies:
 
-- A predefined network service: Zscaler Proxy Network Service - This includes all proxied network services (e.g., TCP 21, 80, 443, 9400, 9480, etc.) and the subscription to a DPPC port.
-- A predefined IP category: Zscaler Proxy IPs - It includes all Public Service Edge for Internet & SaaS service IPs in a particular cloud, local IPs of the particular Public Service Edge for Internet & SaaS, and global service IPs.
-- A predefined Firewall policy rule: Zscaler Proxy Traffic - This is available to match the Zscaler Proxy IPs category and the Zscaler Proxy Networking Service.
+- **A predefined network service**: Zscaler Proxy Network Service - This includes all proxied network services (e.g., TCP 21, 80, 443, 9400, 9480, etc.) and the subscription to a DPPC port.
+- **A predefined IP category**: Zscaler Proxy IPs - It includes all Public Service Edge for Internet & SaaS (ZIA) service IPs in a particular cloud, local IPs of the particular Public Service Edge for Internet & SaaS, and global service IPs.
+- **A predefined Firewall policy rule**: Zscaler Proxy Traffic - This is available to match the Zscaler Proxy IPs category and the Zscaler Proxy Networking Service.
 
 Zscaler Client Connector version 2.0 or later uses DTLS/TLS tunnels to forward traffic, and it doesn't support Zscaler Proxy Traffic rule.
 
@@ -5455,20 +5482,20 @@ Review your CSV file and ensure that there is no duplication. If you attempt to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-locations-using-a-csv","lastmod":"2026-08-24T03:30Z","nid":"1399256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-locations-using-a-csv","lastmod":"2026-08-31T07:20Z","nid":"1399256"} -->
 ## Importing Location and Sublocation Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-locations-using-a-csv
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Importing Location and Sublocation Information from a CSV File
-- Last modified: 2026-08-24T03:30Z
+- Last modified: 2026-08-31T07:20Z
 - Summary: How to import a CSV file in order to add, edit, or delete locations and sublocations for the Zscaler service using the Zscaler Admin Console.
 
-This article describes how to add, edit, or delete multiple locations and sublocations by importing a CSV file. You can add up to 32,000 locations and 2,000 sublocations per location. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations#Locations).
+This article describes how to add, edit, or delete multiple locations and sublocations by importing a CSV file. You can add up to 32,000 locations and 2,000 sublocations per location. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To import a CSV file to add, edit, or delete locations and sublocations:
 
-1. Go to **Infrastructure > Locations > Location Management**.
+1. Go to **Infrastructure > Locations**.
 2. Click **Import Locations**. The **Import Location** window appears.
 3. In the **Import Location** window, click **Choose File**, navigate to the CSV file, then click **Open**. Make sure that the CSV file you are importing is in the same format as the **Sample Import CSV file** provided by Zscaler.
 4. (Optional) If you want to update your existing locations, including deleting locations, as well as add new locations, select the **Override Existing Entries** checkbox. Do not select this option if you only want to add new locations. If you attempt to add a location that already exists and this option is not selected, the Zscaler service displays an error message stating that identical locations cannot be imported. If this occurs, review your CSV file and ensure that there is no duplication. To learn more, see [Configuring Multiple Locations and Sublocations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
@@ -7701,16 +7728,16 @@ Your Zendesk organization is now connected. After integration is completed, a su
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/internet-saas-and-application-layer-gateway-enabled-applications","lastmod":"2026-04-29T10:00Z","nid":"1400876"} -->
+<!-- ZS-ARTICLE {"url":"/zia/internet-saas-and-application-layer-gateway-enabled-applications","lastmod":"2026-09-01T09:03Z","nid":"1400876"} -->
 ## Internet & SaaS and Application Layer Gateway Enabled Applications
 
 - Source: https://help.zscaler.com/zia/internet-saas-and-application-layer-gateway-enabled-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Internet & SaaS and Application Layer Gateway Enabled Applications
-- Last modified: 2026-04-29T10:00Z
-- Summary: Information on how application layer gateway (ALG) enabled applications work with the Zscaler service.
+- Last modified: 2026-09-01T09:03Z
+- Summary: Information on how application layer gateway (ALG)-enabled applications work with the Zscaler service.
 
-The best practice for customers using forwarding methods such as IPSec, GRE, or Zscaler Tunnel (Z-Tunnel) 2.0 (for remote users) is generally to send all ports and protocols through their tunnels. However, there are some protocols that currently cannot be fully handled by Public Service Edges for Internet & SaaS. These protocols require an application layer gateway (ALG) feature to be tracked across control and bearer channels.
+The best practice for customers using forwarding methods such as IPSec, GRE, or Zscaler Tunnel (Z-Tunnel) 2.0 (for remote users) is generally to send all ports and protocols through their tunnels. However, there are some protocols that currently cannot be fully handled by Public Service Edges for Internet & SaaS (ZIA). These protocols require an application layer gateway (ALG) feature to be tracked across control and bearer channels.
 
 ## About ALG
 
@@ -7718,7 +7745,7 @@ Some protocols use separate data and control channels for transmission. The cont
 
 To learn more about ALGs, refer to [RFC 2694 DNS Extensions to Network Address Translators (DNS_ALG)](https://tools.ietf.org/html/rfc2694).
 
-## Zscaler service and Traffic Requiring the ALG Feature
+## Zscaler Service and Traffic Requiring the ALG Feature
 
 The Zscaler service supports and applies the ALG feature automatically to the following protocols:
 
@@ -11581,13 +11608,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/kerberos-authentication-deployment-guidelines","lastmod":"2026-08-20T06:49Z","nid":"1399561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/kerberos-authentication-deployment-guidelines","lastmod":"2026-09-03T21:06Z","nid":"1399561"} -->
 ## Kerberos Authentication Deployment Guidelines
 
 - Source: https://help.zscaler.com/zia/kerberos-authentication-deployment-guidelines
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Authentication Deployment Guidelines
-- Last modified: 2026-08-20T06:49Z
+- Last modified: 2026-09-03T21:06Z
 - Summary: Guidelines and deployment options for deploying Kerberos authentication.
 
 Before you [deploy Kerberos](https://help.zscaler.com/zia/how-do-i-deploy-kerberos), review the following guidelines:
@@ -11915,13 +11942,13 @@ Open the browser and browse to a site to ensure that you are not challenged for 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/load-balancing-pac-forwarded-traffic","lastmod":"2026-08-27T08:29Z","nid":"1401356"} -->
+<!-- ZS-ARTICLE {"url":"/zia/load-balancing-pac-forwarded-traffic","lastmod":"2026-09-02T07:32Z","nid":"1401356"} -->
 ## Load Balancing for PAC Forwarded Traffic
 
 - Source: https://help.zscaler.com/zia/load-balancing-pac-forwarded-traffic
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Load Balancing for PAC Forwarded Traffic
-- Last modified: 2026-08-27T08:29Z
+- Last modified: 2026-09-02T07:32Z
 - Summary: Information on load balancing the PAC forwarded traffic across multiple Public Service Edge for Internet & SaaS (ZIA) instances.
 
 Zscaler supports up to 8 Virtual IP (VIP) addresses in a cluster and up to 64 clusters in a data center to ensure load balancing for the incoming traffic. Load balancing is typically based on the source IP address and the destination IP address. Many deployments have traffic forwarding either through Zscaler Client Connector or directly via a browser. If your organization uses NAT, the traffic originating from multiple users has the same public IP address.
@@ -11930,7 +11957,7 @@ Many organizations use only Zscaler Client Connector as the traffic forwarding m
 
 To evenly distribute PAC forwarded traffic over multiple Public Service Edge instances in a data center, the PAC server returns multiple VIP addresses within the same data center as the destination IP address. When the clients with the same source IP address are assigned with different VIP addresses as the destination IP addresses, they are load-balanced to different Public Service Edge instances. This ensures even distribution of traffic from the same source IP address over multiple Public Service Edge instances.
 
-The PAC server uses the [`${GATEWAY_FX}`](https://help.zscaler.com/zia/writing-pac-file#dynamic-gateway-tokens) and [`${GATEWAY_Fn}`](https://help.zscaler.com/zia/writing-pac-file#gateway-index-tokens) variables, (where n can take up to 8 values from 0 to 7) in the Zscaler-hosted PAC file to assign the VIP addresses for the incoming traffic:
+The PAC server uses the [`${GATEWAY_FX}`](https://help.zscaler.com/zia/writing-pac-file#dynamic-gateway-tokens) and [`${GATEWAY_Fn}`](https://help.zscaler.com/zia/writing-pac-file#gateway-index-tokens) variables (where n can take up to 8 values from 0 to 7) in the Zscaler-hosted PAC file to assign the VIP addresses for the incoming traffic:
 
 Load balancing for PAC forwarded traffic can be classified as:
 
@@ -11941,7 +11968,7 @@ For Zscaler Client Connector users, the PAC server allocates VIP addresses for d
 
 Each data center can have up to 8 unique VIP addresses assigned to it. For non-Zscaler Client Connector users, admins can leverage the [`${GATEWAY_Fn}`](https://help.zscaler.com/zia/writing-pac-file#gateway-index-tokens) variable in the Zscaler-hosted PAC file to evenly distribute the clients across multiple VIP addresses.
 
-[`${GATEWAY_Fn}`](https://help.zscaler.com/zia/writing-pac-file#gateway-index-tokens) represents 8 different variables starting from `${GATEWAY_F0}` to `${GATEWAY_F7}` that are used to pick an available VIP address from the data center. The PAC server returns the VIP address value based on the variable used in the PAC file. If the number of VIP addresses assigned to a data center is less than 8, then the PAC server allocates the available VIP addresses to all 8 variables in a round-robin fashion.
+[`${GATEWAY_Fn}`](https://help.zscaler.com/zia/writing-pac-file#gateway-index-tokens) represents 8 different variables starting from `${GATEWAY_F0}` to `${GATEWAY_F7}` that are used to pick an available VIP address from the data center. The PAC server returns the VIP address value based on the variable used in the PAC file. If the number of VIP addresses assigned to a data center is fewer than 8, then the PAC server allocates the available VIP addresses to all 8 variables in a round-robin fashion.
 
 The following image illustrates how the VIP addresses are mapped to the variables based on the number of available VIP addresses in a data center:
 
@@ -13123,16 +13150,16 @@ After confirmation, the token is immediately removed and invalidated.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/measuring-performance-zscaler-service","lastmod":"2026-08-28T03:36Z","nid":"1400951"} -->
+<!-- ZS-ARTICLE {"url":"/zia/measuring-performance-zscaler-service","lastmod":"2026-08-31T01:03Z","nid":"1400951"} -->
 ## Measuring the Performance of the Zscaler Service
 
 - Source: https://help.zscaler.com/zia/measuring-performance-zscaler-service
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Measuring the Performance of the Zscaler Service
-- Last modified: 2026-08-28T03:36Z
+- Last modified: 2026-08-31T01:03Z
 - Summary: Information about common issues when using speed testing tools with the Zscaler service and suggested alternate measures.
 
-Common tools for network performance measurement, such as Speedtest and Iperf, can provide inaccurate results when using the Zscaler service. This is due to their test conditions and the methods they use to test network throughput. To obtain a more accurate measure of end-user performance, Zscaler recommends that you use the Zscaler Cloud Performance Test tool, one of your browser's network analysis tools, or Wireshark.
+Common tools for network performance measurement, such as Speedtest and Iperf, can provide inaccurate results when using the Zscaler service. This is due to their test conditions and the methods they use to test network throughput. To obtain a more accurate measure of end user performance, Zscaler recommends that you use the Zscaler Cloud Performance Test tool, one of your browser's network analysis tools, or Wireshark.
 
 ## Issues with Common Measurement Tools
 
@@ -13144,11 +13171,11 @@ Another aspect of testing that can lead to misleading results is caching. While 
 
 Iperf shares many of the same issues as Speedtest. In addition, it's highly susceptible to both server limitations and limitations on a single session.
 
-Zscaler does not recommend using ping tests to measure the end-user performance because Zscaler implements ICMP deprioritization on its data centers (DCs).
+Zscaler does not recommend using ping tests to measure the end user performance because Zscaler implements ICMP deprioritization on its data centers (DCs).
 
 ## Recommended Tools
 
-Zscaler recommends using the following tools to obtain an accurate measure of end-user performance.
+Zscaler recommends using the following tools to obtain an accurate measure of end user performance.
 
 ### Zscaler Cloud Performance Test Tool
 
@@ -13206,7 +13233,7 @@ As displayed in the preceding table, a connection of 4 Mbps is capable of provid
 - [WebEx](https://collaborationhelp.cisco.com/article/en-us/WBX22158)
 - [Zoom](https://support.zoom.us/hc/en-us/articles/201362023-System-Requirements-for-PC-Mac-and-Linux)
 
-With this in mind, the Zscaler service is capable of providing users with an end-user experience that is free of disruption, even when they are using highly demanding applications.
+With this in mind, the Zscaler service is capable of providing users with an end user experience that is free of disruption, even when they are using highly demanding applications.
 
 Refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/lyncserver/lync-server-2013-network-bandwidth-requirements-for-media-traffic).
 

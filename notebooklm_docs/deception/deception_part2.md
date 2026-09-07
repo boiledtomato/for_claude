@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 25
 
 ---
@@ -279,13 +279,13 @@ Strategy Builder allows you to deploy different types of decoys in your environm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-08-19T22:40Z","nid":"1540336"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-08-31T20:56Z","nid":"1540336"} -->
 ## Understanding the Zscaler Deception Architecture
 
 - Source: https://help.zscaler.com/deception/understanding-zscaler-deception-architecture
 - Product: Deception
 - Path: Deception Help > Getting Started > Understanding the Zscaler Deception Architecture
-- Last modified: 2026-08-19T22:40Z
+- Last modified: 2026-08-31T20:56Z
 - Summary: Information on the Zscaler Deception architecture and key components.
 
 Zscaler Deception is a threat-detection solution built on the Zero Trust architecture, which is designed for seamless integration with the Zscaler service and other parts of your security environment. Deception is cloud-delivered and scalable, and requires minimal on-premises computing.

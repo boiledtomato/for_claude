@@ -1,8 +1,8 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 52
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 53
 
 ---
 
@@ -72,13 +72,13 @@ On the Banners page (Policies > Access Control > Clientless > Banners), you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-isolation-profiles-for-internet-and-saas","lastmod":"2026-08-12T07:12Z","nid":"1539920"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-isolation-profiles-for-internet-and-saas","lastmod":"2026-09-01T08:23Z","nid":"1539920"} -->
 ## About Isolation Profiles for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-isolation-profiles-for-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Internet & SaaS Profiles > About Isolation Profiles for Internet & SaaS
-- Last modified: 2026-08-12T07:12Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Internet & SaaS Profiles > About Isolation Profiles for Internet & SaaS
+- Last modified: 2026-09-01T08:23Z
 - Summary: Information about isolation profiles used for Zero Trust Browser in Internet & SaaS.
 
 When creating an Internet & SaaS (ZIA) policy with the action as Isolate, you must reference an isolation profile in the policy you're creating. These profiles determine certain attributes and specifications about how the user interacts with the isolated web page, where the isolation containers are spun up, and what the isolation experience looks like to the user.
@@ -87,11 +87,11 @@ You can use [Private Access (ZPA) isolation profiles](https://help.zscaler.com/z
 
 For any organization that is using Zero Trust Browser, Internet & SaaS and Private Access automatically create default isolation profiles. You can use the default isolation profiles or manually create isolation profiles to use in Internet & SaaS and Private Access policies. To learn more, see [Default Isolation Profiles for Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser).
 
-For certain levels of Internet & SaaS and Zero Trust Browser integration access, admins are provided with preconfigured profiles that can only be partially edited. To learn more, see [Understanding Isolation of Miscellaneous and Unknown Category in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/understanding-isolation-miscellaneous-and-unknown-category-internet-and-saas) and [Editing Your Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-internet-and-saas).
+For certain levels of Internet & SaaS and Zero Trust Browser integration access, admins are provided with preconfigured profiles that can only be partially edited. To learn more, see [Understanding Isolation of Miscellaneous and Unknown Category in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/understanding-isolation-miscellaneous-and-unknown-category-internet-and-saas) and [Editing an Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas).
 
 ## About the Isolation Profiles Page
 
-On the Isolation Profiles page (Policies > Common Configuration > Resources > Browser Isolation Threat > Isolation Profiles), you can do the following:
+On the Isolation Profiles page (Zero Trust Browser > Browser Isolation Internet Access > Isolation Profile & Banner > Isolation Profiles), you can do the following:
 
 1. Search for an isolation profile.
 2. [Add an isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas).
@@ -107,20 +107,20 @@ On the Isolation Profiles page (Policies > Common Configuration > Resources > Br
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-isolation-profiles-private-access","lastmod":"2026-08-17T12:30Z","nid":"1539921"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-isolation-profiles-private-access","lastmod":"2026-09-01T08:35Z","nid":"1539921"} -->
 ## About Isolation Profiles for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-isolation-profiles-private-access
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Private Access Profiles > About Isolation Profiles for Private Access
-- Last modified: 2026-08-17T12:30Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > About Isolation Profiles for Private Access
+- Last modified: 2026-09-01T08:35Z
 - Summary: Information about isolation profiles used for Zero Trust Browser in Private Access.
 
 To configure Zscaler Zero Trust Browser for your application, you must use a Private Access (ZPA) isolation profile. These profiles determine certain attributes and specifications of the isolation browser. They also define how the isolation browser handles web requests, as well as the level of interaction with the user's native browser. You can use isolation profiles to create policies in Private Access to isolate specific web applications. To learn more, see [About Isolation Policy](https://help.zscaler.com/zpa/about-isolation-policy) and [Configuring Isolation Policies](https://help.zscaler.com/zpa/configuring-isolation-policies).
 
 ## About the Profiles Page
 
-On the Profiles page (Policies > Access Control > Clientless > Profiles), you can do the following:
+On the Profiles page (Zero Trust Browser > Browser Isolation Private Apps > Isolation Profile), you can do the following:
 
 1. [Add an isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access).
 2. Search for an isolation profile.
@@ -135,13 +135,13 @@ On the Profiles page (Policies > Access Control > Clientless > Profiles), you ca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-07-02T17:13Z","nid":"1447286"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-09-01T14:02Z","nid":"1447286"} -->
 ## About Root Certificates for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Profile Certificates > ZIA Root Certificates > About Root Certificates for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-07-02T17:13Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Internet & SaaS Root Certificates > About Root Certificates for Zero Trust Browser in Internet & SaaS
+- Last modified: 2026-09-01T14:02Z
 - Summary: Information about the custom root certificates used for Zero Trust Browser with Internet & SaaS.
 
 [Watch a video about Custom Internet & SaaS Root Certificates for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/ty0r2pt9gx)
@@ -150,38 +150,43 @@ The isolation browser trusts all the well-known certificate authorities trusted 
 
 ## About the Root Certificates Page
 
-On the Root Certificates page (Infrastructure > Internet & SaaS > Networking Policies > Root Certificates), you can do the following:
+On the Root Certificates page (Internet Access > Resources > Root Certificates), you can do the following:
 
 1. [Add](https://help.zscaler.com/zero-trust-browser/adding-root-certificates-isolation-zia) a new root certificate.
 2. Search for a root certificate.
-3. View existing root certificates and their details in the list.
+3. View a list of existing root certificates and their details. For each root certificate, you can see:
+  - **Certificate Name**: The name of the root certificate.
+  - **Uploaded on**: The date and time the root certificate was uploaded.
+  - **Expiration Date**: The expiration date of the root certificate.
+  - **Type**: The type of root certificate.
+  - **Certificate**: The option to download the root certificate.
 4. Customize the columns for the list.
 5. Download any root certificates that are not the default root certificate.
 6. [Edit](https://help.zscaler.com/zero-trust-browser/editing-root-certificate-isolation-zia) any root certificates that are not the default root certificate.
 7. [Delete](https://help.zscaler.com/zero-trust-browser/deleting-root-certificate-isolation-zia) any root certificates that are not the default root certificate.
 8. View the full details for the default root certificate.
 
-[Image: The ZIA Root Certificates page.]
+[Image: The [[variable:internet-saas] Root Certificates page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access","lastmod":"2026-07-02T17:22Z","nid":"1450586"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access","lastmod":"2026-09-01T11:12Z","nid":"1450586"} -->
 ## About Root Certificates for Zero Trust Browser in Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Profile Certificates > ZPA Root Certificates > About Root Certificates for Zero Trust Browser in Private Access
-- Last modified: 2026-07-02T17:22Z
-- Summary: An article about root certificates for Zero Trust Browser in Private Access.
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Private Access Root Certificates > About Root Certificates for Zero Trust Browser in Private Access
+- Last modified: 2026-09-01T11:12Z
+- Summary: Information about root certificates for Zero Trust Browser in Private Access.
 
-[Watch a video about Custom Private Access Root Certificates in Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/ty0r2pt9gx)
+[Watch a video about custom Private Access root certificates in Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/ty0r2pt9gx)
 
 Root certificates allow admins to have more control over isolation profile authentication. Admins can manage root certificates for their organization and associate them with specific isolation profiles. To learn more, see [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access).
 
 ## About the Root Certificates Page
 
-On the Root Certificates page (Policies > Access Control > Clientless > Root Certificates), you can do the following:
+On the Root Certificates page (Zero Trust Browser > Browser Isolation Private Apps > Root Certificate), you can do the following:
 
 1. Refresh the root certificate list.
 2. [Add](https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access) a new root certificate.
@@ -192,19 +197,19 @@ On the Root Certificates page (Policies > Access Control > Clientless > Root Cer
 7. [Edit](https://help.zscaler.com/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access) any custom root certificates that are not the default.
 8. [Delete](https://help.zscaler.com/zero-trust-browser/deleting-root-certificate-zero-trust-browser-private-access) any custom root certificates that are not the default and are not associated with any isolation profile.
 
-[Image: Functions of the root certificates pages in ZPA]
+[Image: The Root Certificates page for Private Access]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-sandbox-integration-zero-trust-browser","lastmod":"2026-08-04T15:15Z","nid":"1463131"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-sandbox-integration-zero-trust-browser","lastmod":"2026-09-04T07:31Z","nid":"1463131"} -->
 ## About Sandbox Integration with Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-sandbox-integration-zero-trust-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Policy Management > About Sandbox Integration with Zero Trust Browser
-- Last modified: 2026-08-04T15:15Z
-- Summary: An article about Zscaler's Sandbox Integration with Zscaler Zero Trust Browser (formerly Zscaler Isolation)
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > About Sandbox Integration with Zero Trust Browser
+- Last modified: 2026-09-04T07:31Z
+- Summary: Information about Zscaler's Sandbox integration with Zscaler Zero Trust Browser (formerly Zscaler Isolation)
 
 Sandboxing is a method of protecting your organization from file-based zero-day threats. Internet & SaaS (ZIA) provides admins with the ability to define advanced [sandbox policies](https://help.zscaler.com/zia/configuring-sandbox-policy). For example, a file with active content can be downloaded to the sandbox for analysis and only viewed or downloaded by the user if the defined policy approves it. While analyzing the file in the sandbox, based on the policy defined, Internet & SaaS can quarantine the file so the user sees a temporary quarantine page. The analysis of the file can take anywhere between 5 to 10 minutes. If the sandbox environment determines that the file is malicious, it blocks the file download. To learn more, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox) and [Configuring the Sandbox Policy](https://help.zscaler.com/zia/configuring-sandbox-policy).
 
@@ -213,28 +218,6 @@ With quarantine and isolate actions in the sandbox policies, files can be scanne
 To allow sandboxing files for isolation users, enable this feature through the isolation profile. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas).
 
 [Image: Sandbox Integration with Isolation diagram flow]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-zero-trust-client-browser-for-zero-trust-browser","lastmod":"2026-07-10T21:06Z","nid":"1535457"} -->
-## About Zero Trust Client Browser for Zero Trust Browser
-
-- Source: https://help.zscaler.com/zero-trust-browser/about-zero-trust-client-browser-for-zero-trust-browser
-- Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > About Zero Trust Client Browser for Zero Trust Browser
-- Last modified: 2026-07-10T21:06Z
-- Summary: An article with information about the purpose and function of the Zero Trust Client Browser feature for Zero Trust Browser.
-
-The Zero Trust Client Browser feature contains three portions: the agent, the extension plugin, and the isolated browser.
-
-The extension plugin acts as the user interface and traffic controller within the isolated browser. It supports the agent client that admins can deploy onto their users' machines. Admins manage the configuration and deployment of this agent, and users are the group utilizing it during the isolated browser experience. To have the agent installed on your machine, contact your Zero Trust Browser admin.
-
-With this feature, users can split web traffic between the isolated cloud browser and agent to allow the enforcement of selected security and data exfiltration controls. By adopting an architecture that allows splitting traffic between the isolated browser and the agent, the user can balance aspects of the desired user experience with the benefits of layered security. The extension plugin enforces DLP policies within the browser and maintains user session information. It also prevents double authentication for applications.
-
-The lightweight agent performs real-time device posture validation before granting access to users. The end-user result is that applications are rendered in a secure environment, handling pixel-streaming and ensuring last-mile DLP control.
-
-[Image: A diagram of the Zero Trust Client Browser feature]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -402,20 +385,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/adding-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-07-02T17:17Z","nid":"1447291"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/adding-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-09-02T12:30Z","nid":"1447291"} -->
 ## Adding Root Certificates for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Profile Certificates > ZIA Root Certificates > Adding Root Certificates for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-07-02T17:17Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Internet & SaaS Root Certificates > Adding Root Certificates for Zero Trust Browser in Internet & SaaS
+- Last modified: 2026-09-02T12:30Z
 - Summary: How to add an Internet & SaaS root certificate for Zero Trust Browser.
 
 The default Zscaler Root Certificate is deployed automatically as a placeholder root certificate for any new [isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas). However, you can add your own root certificates to use for isolation profiles instead.
 
 To add an Internet & SaaS (ZIA) root certificate:
 
-1. Go to **Infrastructure** > **Internet & SaaS** > **Networking Policies** > **Root Certificates**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Root Certificates**.
 2. Click **Add Root Certificate**. See image. The **Add Root Certificate**window appears.
 3. In the **Add Root Certificate** window:
   - Enter a **Name**.
@@ -425,7 +408,7 @@ To add an Internet & SaaS (ZIA) root certificate:
 
 You can add up to 10 root certificates for your organization. After adding them, you can [edit a root certificate](https://help.zscaler.com/zero-trust-browser/editing-root-certificates-zero-trust-browser-internet-and-saas) that is not the default and not associated with an isolation profile.
 
-To deploy root certificates to isolation profiles, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Editing Your Internet & SaaS Isolation Profile](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-internet-and-saas).
+To deploy root certificates to isolation profiles, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Editing an Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas).
 
 [Image: The Root Certificates page]
 
@@ -434,14 +417,14 @@ To deploy root certificates to isolation profiles, see [Creating Isolation Profi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access","lastmod":"2026-07-14T21:06Z","nid":"1450591"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access","lastmod":"2026-09-02T12:28Z","nid":"1450591"} -->
 ## Adding Root Certificates for Zero Trust Browser in Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Profile Certificates > ZPA Root Certificates > Adding Root Certificates for Zero Trust Browser in Private Access
-- Last modified: 2026-07-14T21:06Z
-- Summary: An article about how to add root certificates for Zero Trust Browser in Private Access.
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Private Access Root Certificates > Adding Root Certificates for Zero Trust Browser in Private Access
+- Last modified: 2026-09-02T12:28Z
+- Summary: How to add root certificates for Zero Trust Browser in Private Access.
 
 [Watch a video about Custom Private Access Root Certificates in Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/ty0r2pt9gx)
 
@@ -449,17 +432,12 @@ The default Zscaler Root Certificate is deployed automatically as a placeholder 
 
 To add a root certificate:
 
-1. Go to **Policies** > **Access Control** > **Clientless** > **Root Certificates**.
-2. On the **Root Certificates** page, click **Add**.
-
-See image.
-
-The **Add Root Certificate**side panel appears.
-
-1. In the **Add Root Certificate** side panel: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Root Certificate**.
+2. Click **Add**. See image. The **Add Root Certificate**drawer opens.
+3. In the **Add Root Certificate** drawer: See image.
   1. Enter a **Name**.
   2. Click **Upload File** to choose a PEM file.
-2. Click **Save**.
+4. Click **Save**.
 
 The page refreshes, and the new root certificate displays in the page list.
 
@@ -488,18 +466,18 @@ If a user shares the bookmarked isolation URL with another user, the other user 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser","lastmod":"2026-06-24T23:21Z","nid":"1447181"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser","lastmod":"2026-09-04T07:30Z","nid":"1447181"} -->
 ## Configuring Internet & SaaS for Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Policy Management > Configuring Internet & SaaS for Zero Trust Browser
-- Last modified: 2026-06-24T23:21Z
-- Summary: Information about how to configure Zero Trust Browser (formerly Zscaler Isolation) for Internet & SaaS.
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Configuring Internet & SaaS for Zero Trust Browser
+- Last modified: 2026-09-04T07:30Z
+- Summary: How to configure Zero Trust Browser (formerly Zscaler Isolation) for Internet & SaaS.
 
-[Watch a video about configuring ZIA for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/6r6l3ej234)
+[Watch a video about configuring Internet & SaaS (ZIA) for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/6r6l3ej234)
 
-Zscaler Zero Trust Browser (formerly Zscaler Isolation) provides organizations with the capability to isolate web pages and categories of web pages, as well as isolate files downloaded from these web pages in a contained, temporary browser on the Zscaler cloud. Zero Trust Browser offers complete integration with Internet & SaaS (ZIA), allowing admins to granularly define what web traffic from a user should be isolated and which policies need to be applied on the isolated traffic. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
+Zscaler Zero Trust Browser (formerly Zscaler Isolation) provides organizations with the capability to isolate web pages and categories of web pages, as well as isolate files downloaded from these web pages in a contained, temporary browser on the Zscaler cloud. Zero Trust Browser offers complete integration with Internet & SaaS, allowing admins to granularly define what web traffic from a user should be isolated and which policies need to be applied on the isolated traffic. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
 To learn about configuring Zero Trust Browser for Private Access (ZPA), see [About Isolation Policy](https://help.zscaler.com/zpa/about-isolation-policy).
 
@@ -512,7 +490,7 @@ This article explains how to create a new [URL filtering policy rule for Interne
 Before you begin configuration, ensure:
 
 - Zero Trust Browser is licensed for your organization.
-- Admins use the isolation profiles to configure policies in Internet & SaaS. To learn more, see [Creating Isolation Profiles for ZIA](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zia) and [Default Isolation Profiles in Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser).
+- Admins use the isolation profiles to configure policies in Internet & SaaS. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Default Isolation Profiles in Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser).
 
 ## Creating a URL Filtering Policy Rule to Isolate Web Traffic
 
@@ -526,38 +504,30 @@ These parameters are automatically set after your organization enables Zero Trus
 
 To create a policy:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **URL Filtering**.
-2. Click **Create**.
-
-See image.
-
-The **Add URL Filtering Rule**page appears.
-
-1. In the **Add URL Filtering Rule page**:
-  1. Choose a **URL Category** and any other rule **Criteria**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **URL Filtering**.
+2. Click **Add Rule**. See image. The **Add Rule**page appears.
+3. On the **Add Rule**page: See image.
+  1. Choose URL categories and any other rule **Criteria**.
   2. For **Web Traffic**, select **Isolate**.
   3. Select a profile from the **Isolation Profile** drop-down menu.
-
-See image.
-
-1. Click **Save** to activate your changes.
+4. Click **Save** to activate your changes.
 
 Bandwidth Control is disabled for all traffic from the isolated browser destined to the Public Service Edges for Internet & SaaS. To learn more, see [About Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control).
 
-[Image: A view of the URL Filtering Policy page.]
+[Image: The URL Filtering Page shows the various functions and a list of existing policies]
 
-[Image: Choose the Isolate Action for Web traffic and then isolation profile from the dropdown]
+[Image: Choose the Isolate action and Isolation Profile]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas","lastmod":"2026-08-25T06:49Z","nid":"1447211"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas","lastmod":"2026-09-03T07:43Z","nid":"1447211"} -->
 ## Creating Isolation Profiles for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Internet & SaaS Profiles > Creating Isolation Profiles for Internet & SaaS
-- Last modified: 2026-08-25T06:49Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Internet & SaaS Profiles > Creating Isolation Profiles for Internet & SaaS
+- Last modified: 2026-09-03T07:43Z
 - Summary: How to create an isolation profile for Internet & SaaS.
 
 [Watch a video about creating a Internet & SaaS Profile for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/qjllwn7ytu)
@@ -575,7 +545,7 @@ Before creating an isolation profile for Internet & SaaS, ensure the following:
 
 To create an isolation profile for Internet & SaaS:
 
-1. Go to **Policies** > **Common Configuration** > **Resources** > **Browser Isolation Threat** > **Isolation Profiles**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser**>**Browser Isolation Internet Access**>**Isolation Profile & Banner**>**Isolation Profiles**.
 2. Click **Add Isolation Profile**. See image. The **Add Isolation Profile** window appears.
 3. In the **Add Isolation Profile** window:
   1. On the **General Information** tab: See image.
@@ -650,13 +620,13 @@ You can use this isolation profile to create a policy in Internet & SaaS to allo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-08-25T17:52Z","nid":"1447731"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-09-02T12:24Z","nid":"1447731"} -->
 ## Creating Isolation Profiles for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Private Access Profiles > Creating Isolation Profiles for Private Access
-- Last modified: 2026-08-25T17:52Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Creating Isolation Profiles for Private Access
+- Last modified: 2026-09-02T12:24Z
 - Summary: How to create an isolation profile for Private Access.
 
 [Watch a video about creating a Private Access Isolation Profile for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/bbh6zk55s2)
@@ -671,7 +641,7 @@ Before creating an isolation profile for Private Access, make sure Zero Trust Br
 
 To create a Private Access isolation profile:
 
-1. Go to **Policies** > **Access Control** > **Clientless** > **Profiles**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Zero Trust Browser** > **Browser Isolation Private Apps** > **Isolation Profile**.
 2. Click**Add**. See image. The **Create** wizard appears.
 3. In the **Create**wizard:
   1. On the **General Information**tab: Click **Next**. See image.
@@ -681,7 +651,7 @@ To create a Private Access isolation profile:
   2. On the **Company Settings** tab:
     1. **Deploy Custom Root Certificates**: Enable at least one certificate to deploy. The **Zscaler Root Certificate** is applied by default, and you cannot disable it. To learn more, see [About Root Certificates for Zero Trust Browser in Private Access](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access).
     2. **Enable** **Debug Mode**: Enable or disable this setting. If you enable it, you must set a password for the ZIP file that is created at the end of a debug troubleshoot. Make sure to share the password with the user associated with the isolation profile. To learn more, see [Using Debug Mode for Isolation](https://help.zscaler.com/zero-trust-browser/using-debug-mode-isolation).
-    3. **Forward Internet Traffic via ZIA**: Enable or disable this setting. To learn more, see [Forwarding Traffic from Private Access Profiles to Internet & SaaS in Isolation](https://help.zscaler.com/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation). If you enable it, configure the following settings:
+    3. **Forward Internet Traffic via Internet & SaaS**: Enable or disable this setting. To learn more, see [Forwarding Traffic from Private Access Profiles to Internet & SaaS in Isolation](https://help.zscaler.com/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation). If you enable it, configure the following settings:
       - **Cloud Name (Cloud Name | Organization ID)**: Select the Zscaler cloud name and organization ID.
       - **PAC File URL**: Select to use either a recommended or custom PAC file. If you choose to use a custom PAC file, enter the **Automatic Proxy Configuration URL**.
     4. Click **Next**. See image.
@@ -742,20 +712,20 @@ You can use this isolation profile to create policies in Private Access to isola
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/default-isolation-profiles-zero-trust-browser","lastmod":"2026-08-04T15:25Z","nid":"1447301"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/default-isolation-profiles-zero-trust-browser","lastmod":"2026-09-01T08:14Z","nid":"1447301"} -->
 ## Default Isolation Profiles for Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Default Isolation Profiles for Zero Trust Browser
-- Last modified: 2026-08-04T15:25Z
-- Summary: This article contains information about the default isolation profiles automatically created for organizations using Internet & SaaS and Private Access.
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Default Isolation Profiles for Zero Trust Browser
+- Last modified: 2026-09-01T08:14Z
+- Summary: Information about the default isolation profiles automatically created for organizations using Internet & SaaS and Private Access.
 
 Default isolation profiles are automatically created for any organization that uses [Zscaler Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) (formerly Zscaler Isolation). This allows a quick setup for your organization without manually creating the first isolation profile needed for configuring Zero Trust Browser. It is not required to use the default isolation profiles for any configuration. They are only used if your organization does not manually create any isolation profiles.
 
 ## Editing Default Isolation Profiles
 
-Admins can edit these default isolation profiles but not delete them. To learn more, see [Editing Your Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-internet-and-saas) and [Editing Your Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-private-access).
+Admins can edit these default isolation profiles but not delete them. To learn more, see [Editing an Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas) and [Editing an Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-private-access).
 
 Each default isolation profile is automatically named Default Isolation Profile <Tenant ID> <Cloud Name>.
 
@@ -822,13 +792,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-isolation-profile-internet-and-saas","lastmod":"2026-08-14T12:15Z","nid":"1447281"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-isolation-profile-internet-and-saas","lastmod":"2026-09-02T12:23Z","nid":"1447281"} -->
 ## Deleting an Isolation Profile for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/deleting-isolation-profile-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Internet & SaaS Profiles > Deleting an Isolation Profile for Internet & SaaS
-- Last modified: 2026-08-14T12:15Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Internet & SaaS Profiles > Deleting an Isolation Profile for Internet & SaaS
+- Last modified: 2026-09-02T12:23Z
 - Summary: How to delete an isolation profile for Internet & SaaS.
 
 After [creating an isolation profile for Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas), you can [edit](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-internet-and-saas) or delete the profile at any time.
@@ -837,7 +807,7 @@ You cannot delete [default isolation profiles](https://help.zscaler.com/zero-tru
 
 To delete an Internet & SaaS isolation profile:
 
-1. Go to **Policies** > **Common Configuration** > **Resources** > **Browser Isolation Threat** > **Isolation Profiles**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser**>**Browser Isolation Internet Access**>**Isolation Profile & Banner**>**Isolation Profiles**.
 2. Click the **Delete** icon next to the isolation profile you want to delete. See image. The **Delete Isolation Profile** window appears.
 3. In the **Delete Isolation Profile**window, click **Delete**. See image.
 
@@ -850,21 +820,22 @@ The page refreshes, and a temporary message appears to confirm that the isolatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-isolation-profile-private-access","lastmod":"2026-08-17T12:27Z","nid":"1450581"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-isolation-profile-private-access","lastmod":"2026-09-02T12:26Z","nid":"1450581"} -->
 ## Deleting an Isolation Profile for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/deleting-isolation-profile-private-access
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Private Access Profiles > Deleting an Isolation Profile for Private Access
-- Last modified: 2026-08-17T12:27Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Deleting an Isolation Profile for Private Access
+- Last modified: 2026-09-02T12:26Z
 - Summary: This article provides the step-by-step process of how to delete an isolation profile for Private Access.
 
 After [creating a Private Access (ZPA) isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access), you can delete the profile at any time.
 
 To delete your Private Access isolation profile:
 
-1. On the **Profiles** page, click the **Delete** icon for the isolation profile that you want to delete. See image. The **Confirm: Delete Profile** window appears.
-2. In the **Confirm: Delete Profile** window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Isolation Profile**.
+2. Click the **Delete** icon for the isolation profile that you want to delete. See image. The **Confirm: Delete Profile** window appears.
+3. In the **Confirm: Delete Profile** window:
   1. Enter `CONFIRM`. See image.
   2. Click **Delete**.
 
@@ -877,28 +848,24 @@ The page refreshes and removes the deleted profile from the list.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-root-certificate-zero-trust-browser-internet-saas","lastmod":"2026-07-14T21:06Z","nid":"1447366"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-root-certificate-zero-trust-browser-internet-saas","lastmod":"2026-09-02T12:29Z","nid":"1447366"} -->
 ## Deleting a Root Certificate for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/deleting-root-certificate-zero-trust-browser-internet-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Profile Certificates > ZIA Root Certificates > Deleting a Root Certificate for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-07-14T21:06Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Internet & SaaS Root Certificates > Deleting a Root Certificate for Zero Trust Browser in Internet & SaaS
+- Last modified: 2026-09-02T12:29Z
 - Summary: How to delete a root certificate for Zero Trust Browser in Internet & SaaS.
 
 You can delete almost all root certificates, excluding the default Zscaler Root Certificate. You can't delete the default because at least one root certificate is required per isolation profile. To learn more, see [About Root Certificates for Zero Trust Browser in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas).
 
-Additionally, if any other root certificates are associated with an isolation profile, you cannot delete them. You must first disable a certificate from the isolation profile before deleting it. To learn more, see [Editing Your Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-internet-and-saas).
+Additionally, if any other root certificates are associated with an isolation profile, you cannot delete them. You must first disable a certificate from the isolation profile before deleting it. To learn more, see [Editing an Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas).
 
 To delete a root certificate:
 
-From the **Root Certificates** page, click the **Delete** icon for the certificate.
-
-See image.
-
-A warning message appears to confirm that you want to delete the certificate. Select the checkbox, then click **Delete**.
-
-See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Root Certificates**.
+2. Click the **Delete** icon for the certificate. See image. A warning message appears to confirm that you want to delete the certificate.
+3. Select the checkbox, then click **Delete**. See image.
 
 [Image: The Root Certificates page]
 
@@ -907,28 +874,24 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-root-certificate-zero-trust-browser-private-access","lastmod":"2026-07-02T17:23Z","nid":"1450601"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-root-certificate-zero-trust-browser-private-access","lastmod":"2026-09-02T12:26Z","nid":"1450601"} -->
 ## Deleting a Root Certificate for Zero Trust Browser in Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/deleting-root-certificate-zero-trust-browser-private-access
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Profile Certificates > ZPA Root Certificates > Deleting a Root Certificate for Zero Trust Browser in Private Access
-- Last modified: 2026-07-02T17:23Z
-- Summary: An article about how to delete root certificates for Zero Trust Browser in Private Access.
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Private Access Root Certificates > Deleting a Root Certificate for Zero Trust Browser in Private Access
+- Last modified: 2026-09-02T12:26Z
+- Summary: How to delete root certificates for Zero Trust Browser in Private Access.
 
 Almost all root certificates can be deleted, excluding the default Zscaler Root Certificate. This is because at least one root certificate is required per isolation profile. To learn more, see [About Root Certificates for Zero Trust Browser in Private Access](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access).
 
-Additionally, if any other custom root certificates are associated with an isolation profile, you cannot delete them. You must first disable a certificate from the isolation profile before deleting it. To learn more, see [Editing Your Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-private-access).
+Additionally, if any other custom root certificates are associated with an isolation profile, you cannot delete them. You must first disable a certificate from the isolation profile before deleting it. To learn more, see [Editing an Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-private-access).
 
 To delete a root certificate:
 
-1. On the **Root Certificates** page, click the **Delete** icon for the certificate. If the certificate is the default or is associated with an isolation profile, the delete icon is not available.
-
-See image.
-
-1. A warning message appears to confirm that you want to delete the certificate. Select the checkbox, then click **Delete**.
-
-See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Root Certificate**.
+2. Click the **Delete** icon for the certificate. If the certificate is the default or is associated with an isolation profile, the delete icon is not available. See image.
+3. A warning message appears to confirm that you want to delete the certificate. Select the checkbox, then click **Delete**. See image.
 
 [Image: Click the Delete icon for the Root Certificate]
 
@@ -991,20 +954,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-profile-internet-and-saas","lastmod":"2026-08-14T12:14Z","nid":"1447276"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-profile-internet-and-saas","lastmod":"2026-09-02T12:23Z","nid":"1447276"} -->
 ## Editing an Isolation Profile for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Internet & SaaS Profiles > Editing an Isolation Profile for Internet & SaaS
-- Last modified: 2026-08-14T12:14Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Internet & SaaS Profiles > Editing an Isolation Profile for Internet & SaaS
+- Last modified: 2026-09-02T12:23Z
 - Summary: How to edit an isolation profile for Internet & SaaS.
 
 After [creating an isolation profile for Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas), you can edit the profile at any time.
 
 To edit your Internet & SaaS isolation profile:
 
-1. Go to **Policies** > **Common Configuration** > **Resources** > **Browser Isolation Threat** > **Isolation Profiles**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser**>**Browser Isolation Internet Access**>**Isolation Profile & Banner**>**Isolation Profiles**.
 2. Click the **Edit** icon next to the isolation profile you want to edit. See image. The **Edit Isolation Profile** window appears.
 3. In the **Edit Isolation Profile**window, modify the information as necessary. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas). See image.
 
@@ -1017,21 +980,22 @@ You can use this isolation profile to create policies in Internet & SaaS integra
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-profile-private-access","lastmod":"2026-08-14T12:13Z","nid":"1450576"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-profile-private-access","lastmod":"2026-09-02T12:25Z","nid":"1450576"} -->
 ## Editing an Isolation Profile for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-private-access
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Private Access Profiles > Editing an Isolation Profile for Private Access
-- Last modified: 2026-08-14T12:13Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Editing an Isolation Profile for Private Access
+- Last modified: 2026-09-02T12:25Z
 - Summary: How to edit an isolation profile for Private Access.
 
 After [creating a Private Access (ZPA) isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access), you can edit the profile at any time.
 
 To edit your Private Access isolation profile:
 
-1. From the **Profiles** page, click the **Edit** icon for the isolation profile that you want to edit. See image. The **Edit**wizard appears.
-2. In the **Edit**wizard, modify the information as necessary. To learn more, see [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access). See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Isolation Profile**.
+2. Click the **Edit** icon for the isolation profile that you want to edit. See image. The **Edit**wizard appears.
+3. In the **Edit**wizard, modify the information as necessary. To learn more, see [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access). See image.
 
 You can use this isolation profile to create policies in Private Access to isolate specific web applications. To learn more, see [Configuring Isolation Policies](https://help.zscaler.com/zpa/configuring-isolation-policies).
 
@@ -1042,14 +1006,14 @@ You can use this isolation profile to create policies in Private Access to isola
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access","lastmod":"2026-07-14T21:06Z","nid":"1450596"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access","lastmod":"2026-09-02T12:27Z","nid":"1450596"} -->
 ## Editing a Root Certificate for Zero Trust Browser in Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Profile Certificates > ZPA Root Certificates > Editing a Root Certificate for Zero Trust Browser in Private Access
-- Last modified: 2026-07-14T21:06Z
-- Summary: An article about how to edit root certificates for Zero Trust Browser in Private Access.
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Private Access Root Certificates > Editing a Root Certificate for Zero Trust Browser in Private Access
+- Last modified: 2026-09-02T12:27Z
+- Summary: How to edit root certificates for Zero Trust Browser in Private Access.
 
 After a root certificate is [added](https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access) to your organization, you can edit it at any time, even while it's associated with an isolation profile. The only root certificate you cannot edit is the default Zscaler Root Certificate. To learn more, see [About Root Certificates for Zero Trust Browser in Private Access](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access).
 
@@ -1057,9 +1021,10 @@ You cannot change the PEM file when editing a root certificate. To use a differe
 
 To edit a root certificate:
 
-1. On the **Root Certificates** page, click the **Edit** icon for the certificate. See image. The **Edit Root Certificate** side panel appears.
-2. In the **Edit Root Certificate** side panel, edit the **Name** for the root certificate. See image.
-3. Click **Save**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Root Certificate**.
+2. Click the **Edit** icon for the certificate. See image. The **Edit Root Certificate** side panel appears.
+3. In the **Edit Root Certificate** side panel, edit the **Name** for the root certificate. See image.
+4. Click **Save**.
 
 [Image: Click Edit for the desired root certificate.]
 
@@ -1068,13 +1033,13 @@ To edit a root certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-07-02T17:19Z","nid":"1447361"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-09-02T12:29Z","nid":"1447361"} -->
 ## Editing Root Certificates for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/editing-root-certificates-zero-trust-browser-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Profile Certificates > ZIA Root Certificates > Editing Root Certificates for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-07-02T17:19Z
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Internet & SaaS Root Certificates > Editing Root Certificates for Zero Trust Browser in Internet & SaaS
+- Last modified: 2026-09-02T12:29Z
 - Summary: How to edit root certificates for Zero Trust Browser in Internet & SaaS.
 
 After a root certificate is added to your organization for Zero Trust Browser, you can edit it at any time, even while it's associated with an [isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas). The only certificate you cannot fully edit is the default Zscaler Root Certificate. To learn more, see [About Root Certificates for Zero Trust Browser in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas).
@@ -1083,16 +1048,12 @@ You cannot change the PEM file in a root certificate. To use a different PEM fil
 
 To edit a root certificate:
 
-1. From the **Root Certificates** page, click the **Edit** icon for the certificate.
-
-See image.
-
-The **Edit Root Certificate** window.
-
-1. In the **Edit Root Certificate** window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Root Certificates**.
+2. Click the **Edit** icon for the certificate. See image. The **Edit Root Certificate** window.
+3. In the **Edit Root Certificate** window: See image.
   1. Edit the **Name** for the root certificate.
   2. Edit the **Type** of the root certificate. Use the drop-down menu to add or remove the selected type(s).
-  3. Click **Save**. See image.
+  3. Click **Save**.
 
 [Image: Root Certificates Page]
 
@@ -1101,14 +1062,14 @@ The **Edit Root Certificate** window.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation","lastmod":"2026-08-04T17:24Z","nid":"1462296"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation","lastmod":"2026-09-01T08:51Z","nid":"1462296"} -->
 ## Forwarding Traffic from Private Access Profiles to Internet & SaaS in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Private Access Profiles > Forwarding Traffic from Private Access Profiles to Internet & SaaS in Isolation
-- Last modified: 2026-08-04T17:24Z
-- Summary: An article about forwarding internet traffic for Private Access isolation profiles to Internet & SaaS.
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Forwarding Traffic from Private Access Profiles to Internet & SaaS in Isolation
+- Last modified: 2026-09-01T08:51Z
+- Summary: Information about forwarding internet traffic for Private Access isolation profiles to Internet & SaaS.
 
 An isolation session can be initiated from Internet & SaaS (ZIA) policies or Private Access (ZPA) policies. However, an isolation browser initiated from Private Access policies can send traffic only via Private Access.
 
@@ -1116,9 +1077,9 @@ Any applications defined in Private Access are forwarded via the Private Access 
 
 A user might want the Private Access-derived isolation container to isolate SaaS applications. In this case, the user accesses a dummy URL which is configured as a browser access application. However, the URL is rewritten to its full extent when pushed into isolation. To learn more, see [Secure SaaS Access from Unmanaged Devices via User Portal](https://help.zscaler.com/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal).
 
-Users who isolate private web applications might also want to enforce DLP policies or security policies on the traffic. This is typical to ensure that any file of a malicious nature is not uploaded onto the isolated web application, nor is there any sensitive information matching a downloaded DLP policy. To ensure this, Zero Trust Browser can forward the private application traffic via Internet & SaaS ensure that all these policies are applied. It can also ensure that Internet & SaaS provides connectivity to the private applications via the Source IP Anchoring route. To learn more, see [Understanding Source IP Anchoring](https://help.zscaler.com/zia/understanding-source-ip-anchoring).
+Users who isolate private web applications might also want to enforce DLP policies or security policies on the traffic. This is typical to ensure that any file of a malicious nature is not uploaded onto the isolated web application, nor is there any sensitive information matching a downloaded DLP policy. Zero Trust Browser can forward the private application traffic via Internet & SaaS ensuring that all these policies are applied. It can also ensure that Internet & SaaS provides connectivity to the private applications via the Source IP Anchoring route. To learn more, see [Understanding Source IP Anchoring](https://help.zscaler.com/zia/understanding-source-ip-anchoring).
 
-You can enable this feature per Private Access isolation profile. To learn more, see [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) and [Editing Your Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-private-access).
+You can enable this feature per Private Access isolation profile. To learn more, see [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) and [Editing an Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-private-access).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1200,14 +1161,14 @@ If you have read-only mode enabled for your isolation profile and think it is a 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal","lastmod":"2026-08-17T12:25Z","nid":"1463476"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal","lastmod":"2026-09-01T10:14Z","nid":"1463476"} -->
 ## Secure SaaS Access from Unmanaged Devices via User Portal
 
 - Source: https://help.zscaler.com/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Private Access Profiles > Secure SaaS Access from Unmanaged Devices via User Portal
-- Last modified: 2026-08-17T12:25Z
-- Summary: An article about using Secure SaaS Access from Unmanaged Devices via User Portal for Private Access and Zero Trust Browser.
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Secure SaaS Access from Unmanaged Devices via User Portal
+- Last modified: 2026-09-01T10:14Z
+- Summary: Information about secure SaaS access from unmanaged devices via the User Portal for Private Access and Zero Trust Browser.
 
 Organizations can allow unmanaged devices access to sanctioned SaaS applications while still enforcing the [isolation policies](https://help.zscaler.com/zpa/about-isolation-policy) you define on Private Access (ZPA). The isolation containers that are created as a result of a Private Access isolation policy for Zero Trust Browser can forward to Internet & SaaS (ZIA) any internet traffic or application traffic not defined on Private Access for further processing and enforcement of necessary policies. Any traffic generated by applications defined on Private Access will continue to be forwarded via [Private Access’s ZTNA service](https://help.zscaler.com/zpa/universal-ztna-zscaler-private-access-private-service-edge).
 
@@ -1217,7 +1178,7 @@ See image.
 
 SaaS applications are typically accessed using a URL that has a domain your organization does not own, such as zscaler70-dev-ed.lightning.force.com. Because the admin does not own this domain, they must define an application segment with an application using a placeholder domain, as shown below.
 
-In the above example, the admin created an application segment named “Isolated SaaS Application” and an application using a FQDN in a DNS namespace that they own, which is salesforce.safemarch.com. They are transforming the domain to zscaler70-dev-ed.lightning.force.com, which is the true FQDN used by the SaaS application that they intend to provide isolated access to. The admin has ensured that the application defined is configured for browser access. To learn more, see [About Browser Access](https://help.zscaler.com/zpa/about-browser-access) and [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
+In the above example, the admin created an application segment named “Isolated SaaS Application” and an application using a FQDN in a DNS namespace that they own, which is salesforce.safemarch.com. They are transforming the domain to zscaler70-dev-ed.lightning.force.com, which is the true FQDN used by the SaaS application that they intend to provide isolated access to. The admin has ensured that the application defined is configured for browser access. To learn more, see [About Browser Access](https://help.zscaler.com/zpa/about-browser-access) and [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
 
 See image.
 
@@ -1258,82 +1219,79 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/step-step-configuration-guide-zero-trust-browser","lastmod":"2026-08-06T14:17Z","nid":"1529970"} -->
-## Step-by-Step Configuration Guide for Zero Trust Browser
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/step-step-configuration-guide-cloud-browser","lastmod":"2026-09-04T07:53Z","nid":"1529970"} -->
+## Step-by-Step Configuration Guide for Cloud Browser
 
-- Source: https://help.zscaler.com/zero-trust-browser/step-step-configuration-guide-zero-trust-browser
+- Source: https://help.zscaler.com/zero-trust-browser/step-step-configuration-guide-cloud-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Step-by-Step Configuration Guide for Zero Trust Browser
-- Last modified: 2026-08-06T14:17Z
-- Summary: Information on the configuration tasks an organization must complete to begin using Zscaler Zero Trust Browser (formerly Zscaler Isolation).
+- Path: Zero Trust Browser Help > Cloud Browser > Step-by-Step Configuration Guide for Cloud Browser
+- Last modified: 2026-09-04T07:53Z
+- Summary: Information on the configuration tasks an organization must complete to begin using Cloud Browser for Zero Trust Browser (formerly Zscaler Isolation).
 
-This guide takes you step by step through the configuration tasks you must complete to use Zero Trust Browser (formerly Zscaler Isolation) for your organization. The steps reflect the process for configuring Zero Trust Browser for either Internet & SaaS (ZIA) or Private Access (ZPA). To learn more, see [Understanding the Zscaler Cloud Architecture for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) and [What Is Zscaler Private Access?](https://help.zscaler.com/zpa/what-zscaler-private-access)
+This guide takes you step by step through the configuration tasks you must complete to use the Cloud Browser for Zero Trust Browser (formerly Zscaler Isolation) for your organization. The steps reflect the process for configuring Cloud Browser for either Internet & SaaS (ZIA) or Private Access (ZPA). To learn more, see [Understanding the Zscaler Cloud Architecture for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) and [What Is Zscaler Private Access?](https://help.zscaler.com/zpa/what-zscaler-private-access)
 
-Before you use Zero Trust Browser, Zscaler recommends reading the following articles:
+Before you use Cloud Browser, Zscaler recommends reading the following articles:
 
-- [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
+- [Understanding Cloud Browser](https://help.zscaler.com/zero-trust-browser/understanding-cloud-browser)
 - [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations)
 
 ## Prerequisites
 
-Before you configure Zero Trust Browser, make sure you have:
+Before you configure Cloud Browser, make sure you have:
 
 - Access to an Internet & SaaS or a Private Access tenant.
-- A subscription to the Zero Trust Browser add-on.
+- A subscription to Zero Trust Browser.
 - Supporting Private Access infrastructure (e.g., App Connector or Application Access).
 - An identity provider (IdP) with conditional access capabilities (e.g., IP restrictions or context-aware policy).
 
-## Configuring Zero Trust Browser
+## Configuring Cloud Browser
 
-To configure Zero Trust Browser, complete the following steps:
+To configure Cloud Browser, complete the following steps:
 
-- Step 1: Enable Zero Trust Browser for Your Organization
-- Step 2: Create Zero Trust Browser Profiles
-- Step 3: Configure Policies for Zero Trust Browser
-- Step 4: Install the Zero Trust Browser Client Browser on Users' Devices
+- Step 1: Enable Cloud Browser for Your Organization
+- Step 2: Create Isolation Profiles
+- Step 3: Configure Policies for Cloud Browser
 
-Before you configure Zero Trust Browser, ensure that you have the access your organization needs:
+To enable Cloud Browser for your organization:
 
 1. [Enable Internet & SaaS for your organization.](https://help.zscaler.com/zia/step-step-configuration-guide-zia)
 2. [Enable Private Access for your organization.](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
-3. Contact Zscaler Support to get Zero Trust Browser enabled for your organization.
+3. Contact Zscaler Support to get Cloud Browser enabled for your organization.
 
-Configure individual isolation profiles for your tenant for different users:
+Create isolation profiles for different users of your tenant:
 
 - For Internet & SaaS isolation profiles:
   1. [Create an Internet & SaaS isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas). You can [edit your isolation profiles](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-internet-and-saas) at any time.
-  2. Choose [banner themes for the isolation end user notification](https://help.zscaler.com/zero-trust-browser/adding-banner-theme-isolation-end-user-notification-internet-and-saas) that appears for each individual isolation profile.
+  2. Choose [banner themes for the isolation end user notification](https://help.zscaler.com/zero-trust-browser/adding-banner-theme-isolation-end-user-notification-internet-and-saas) that appears for each isolation profile.
   3. Choose the [root certificates](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas) for each isolation profile.
 - For Private Access isolation profiles:
   1. [Create a Private Access isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access). You can [edit your isolation profiles](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-private-access) at any time.
-  2. Choose [banner themes for the isolation end user notification](https://help.zscaler.com/zero-trust-browser/adding-banner-theme-isolation-end-user-notification-private-access) that appears for individual isolation profile.
+  2. Choose [banner themes for the isolation end user notification](https://help.zscaler.com/zero-trust-browser/adding-banner-theme-isolation-end-user-notification-private-access) that appears for each isolation profile.
   3. Choose the [root certificates](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access) for each isolation profile.
 
-Configure the policies to map to the isolation profiles:
+Configure policies to map to the isolation profiles:
 
 - For Internet & SaaS policies:
-  1. [Configure Internet & SaaS for Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser).
+  1. [Configure Internet & SaaS for Cloud Browser](https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser).
   2. [Configure the cloud app control policy](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy).
   3. [Configure the Smart Browser Isolation policy](https://help.zscaler.com/zia/configuring-smart-browser-isolation-policy).
-  4. [Configure Sandbox integration with Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/using-sandbox-integration-with-zero-trust-browser).
+  4. [Configure the Sandbox integration with Cloud Browser](https://help.zscaler.com/zero-trust-browser/using-sandbox-integration-with-zero-trust-browser).
 - For Private Access policies:
   1. [Learn about the isolation policy](https://help.zscaler.com/zpa/about-isolation-policy).
   2. [Configure isolation policies](https://help.zscaler.com/zpa/configuring-isolation-policies).
-  3. [Configure the access policy for Zero Trust Browser](https://help.zscaler.com/zpa/configuring-access-policies).
-  4. [Configure secure SaaS access from unmanaged devices via the user portal](https://help.zscaler.com/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal).
-
-Install the Zero Trust Browser client browser onto users' devices. To learn more, see [About Zero Trust Client Browser for Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/about-zero-trust-client-browser-for-zero-trust-browser).
+  3. [Configure the access policy for Cloud Browser](https://help.zscaler.com/zpa/configuring-access-policies).
+  4. [Configure secure SaaS access from unmanaged devices via the User Portal](https://help.zscaler.com/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/transferring-and-viewing-files-isolation","lastmod":"2026-08-05T08:01Z","nid":"1373986"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/transferring-and-viewing-files-isolation","lastmod":"2026-09-01T10:50Z","nid":"1373986"} -->
 ## Transferring and Viewing Files in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/transferring-and-viewing-files-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Transferring and Viewing Files in Isolation
-- Last modified: 2026-08-05T08:01Z
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Transferring and Viewing Files in Isolation
+- Last modified: 2026-09-01T10:50Z
 - Summary: How to transfer, download, and view files as well as print web pages in isolation.
 
 [Watch a video about transferring and viewing files in an isolated browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/yfsb90jsen)
@@ -1358,17 +1316,23 @@ The following lists show the different file types and what you can do with them 
 
 You can upload and download the following file types to your Protected Storage and your device, and you can open them directly to render and view while in isolation:
 
-- Video formats: .MP4, .OGG, . WEBM, .WAV
-- Audio formats: .MP3, .WAV, .OGG
-- Document formats: .PDF, .TXT, .DOC, .DOCX, .XLS, .XLSX, .PPTX, .PPT, .ODT, .ODS, .ODP
-- Image formats: .JPG, .PNG, .GIF, .BMP, .SVG, .ICO, .WEBP, .APNG
-- Compressed formats: .ZIP, .TAR, .7Z, .RAR
-- Other formats: .JSON, .XML, .HTML, .CSV, .RTF, .VSDX If a user accesses an Office file or password-protected file, they are prompted to enter the file-specific password. Then the file is rendered on the isolation browser for the duration of the isolated session. See image. Depending on the mobile device used, some file types such as PDFs require the user to allow pop-ups on their device. To learn more, see [Mobile User Experience in Isolation](https://help.zscaler.com/zero-trust-browser/mobile-user-experience-isolation) and [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
+- Video formats: .mp4, .ogg, . webm, .wav
+- Audio formats: .mp3, .wav, .ogg
+- Document formats: .pdf, .txt, .doc, .docx, .xls, .xlsx, .xlsm, .pptx, .ppt, .odt, .ods, .odp
+- Image formats: .jpg, .png, .gif, .bmp, .svg, .ico, .webp, .apng
+- Compressed formats: .zip, .tar, .7z, .rar
+- Other formats: .json, .xml, .html, .csv, .rtf, .vsdx
+
+If a user accesses an Office file or password-protected file, they are prompted to enter the file-specific password. Then the file is rendered on the isolation browser for the duration of the isolated session.
+
+See image.
+
+Depending on the mobile device used, some file types such as PDFs require the user to allow pop-ups on their device. To learn more, see [Mobile User Experience in Isolation](https://help.zscaler.com/zero-trust-browser/mobile-user-experience-isolation) and [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 You cannot render or view the following file types in isolation. However, you can still download or upload them directly to and from your device:
 
-- Video formats: .AVI, .MOV, .WMV, .AVIF, .M4V, .M4A, .MKV, .OGV, .OGA
-- Image formats: .TIFF, .MNG, .CUR
+- Video formats: .avi, .mov, .wmv, .avif, .m4v, .m4a, .mkv, .ogv, .oga
+- Image formats: .tiff, .mng, .cur
 
 ## Uploading, Downloading, and Viewing Files in Isolation
 
@@ -1450,20 +1414,86 @@ To print from your isolated browser:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-enterprise-browser","lastmod":"2026-08-23T07:06Z","nid":"1541211"} -->
-## Understanding Zero Trust Enterprise Browser
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-browser-extension","lastmod":"2026-09-04T07:55Z","nid":"1535457"} -->
+## Understanding Browser Extension
+
+- Source: https://help.zscaler.com/zero-trust-browser/understanding-browser-extension
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Browser Extension > Understanding Browser Extension
+- Last modified: 2026-09-04T07:55Z
+- Summary: Information about Browser Extension for Zero Trust Browser.
+
+Browser Extension for Zero Trust Browser is a lightweight solution providing seamless and secure enterprise access from any browser.
+
+The extension enhances existing browsers with browser detection and response (BDR) and data loss prevention (DLP) capabilities. Organizations can control browser threats and sensitive data interactions in real time, without relying solely on traditional endpoint or network-centric controls.
+
+## Key Features
+
+Browser Extension supports the following features:
+
+- **Adaptive App Access**: Enforcement of device posture controls to ensure that only compliant devices can access sensitive business applications.
+- **Browser-Based Threat Protection**: Robust defense against malicious extensions, identity-based attacks, and emerging web threats.
+- **Data Exfiltration Prevention**: Advanced security controls, including screenshot protection and keystroke logger prevention.
+
+Device posture controls, screenshot protection, and keystroke logger protection require a lightweight agent to be installed along with the extension.
+
+To get Browser Extension, contact Zscaler Support. For deployment information, refer to [https://deployztbrowser.com/docs/](https://deployztbrowser.com/docs/).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-cloud-browser","lastmod":"2026-09-04T07:53Z","nid":"1542917"} -->
+## Understanding Cloud Browser
+
+- Source: https://help.zscaler.com/zero-trust-browser/understanding-cloud-browser
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Understanding Cloud Browser
+- Last modified: 2026-09-04T07:53Z
+- Summary: Information about Cloud Browser for Zero Trust Browser (formerly Zscaler Isolation), including traffic flow, architecture, as well as integrations with Internet & SaaS and Private Access.
+
+Zero Trust Browser (formerly Zscaler Isolation) provides the Cloud Browser to isolate users from potentially harmful content on the internet. This is done by loading the accessed web page on a remote browser in any one of the many Zscaler data centers across the globe, and streaming the rendered content as a stream of pixels of Web Graphic Library (WebGL) instructions to the user's native browser.
+
+Isolating web pages on an ephemeral, remote browser ensures that the HTML files, CSS files, JavaScript files, and any other active content served by the accessed web page never reach the user's machine or the corporate network, thus ensuring an air gap between the user and the web page they access.
+
+Cloud Browser not only provides the capability to isolate web pages, but also allows the user to view file types in isolation without requiring a download of the files to their local machine.
+
+This feature is fully integrated with [Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser) and [Private Access (ZPA)](https://help.zscaler.com/zpa/about-isolation-policy), allowing the admin of an organization to granularly define what web traffic should be isolated and which policies need to be applied to the isolated traffic. The traffic egressing the isolation browser is also passed through the Public Service Edges for Internet & SaaS before reaching the internet web page being accessed.
+
+In addition to the security policies enforced by Internet & SaaS, Cloud Browser provides additional data exfiltration security controls, which enable an organization to control the level of interaction the user can have with the isolated web page.
+
+## Traffic Flow
+
+The internet-bound web traffic is forwarded to the Public Service Edge using a GRE tunnel, Zscaler Client Connector, or any of the other Zscaler-recommended traffic-forwarding methods. If the accessed URL meets the qualifications for a URL filtering policy in Internet & SaaS created by the admin to isolate the traffic, the Zscaler service redirects the HTTP/HTTPS request to the isolation profile.
+
+The user's browser follows the redirect and forwards the request to Cloud Browser based on the isolation profile configured in the policy. Cloud Browser accepts the request and assigns a temporary, remote browser for the user. The remote browser then makes a connection to the original URL that the user intended to access, and the web page is loaded on the remote browser. This request to the original web page is also routed through the nearest Public Service Edges, and the traffic is evaluated against all [the policies defined for the user in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser) by the admin.
+
+[Default isolation profiles](https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser) are automatically created for all organizations when they have Cloud Browser. You can also manually create multiple isolation profiles for both [Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) in the [Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console).
+
+## Architecture
+
+The structure consists of multiple engines that work together to forward and convert traffic. When the user's traffic reaches the Cloud Browser, it creates an endpoint container for the user on the cloud. The Chromium rendering engine makes a connection to the web page that the user has requested, and renders the content of that web page. The rendered web page is processed by the proprietary experience engine, which then converts it into a stream of images and WebGL instructions that are delivered to the user's native browser over a secure HTTPS connection.
+
+Each user redirected to Cloud Browser is allocated an endpoint container, and all subsequent requests that utilize the isolation profile use the same container. The containers are destroyed if a user manually logs out of the isolation session, or if the default idle timeout of 10 minutes is reached.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-enterprise-browser","lastmod":"2026-09-04T07:57Z","nid":"1541211"} -->
+## Understanding Enterprise Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-enterprise-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Understanding Zero Trust Enterprise Browser
-- Last modified: 2026-08-23T07:06Z
-- Summary: An article with information about the Zero Trust Enterprise Browser component of Zero Trust Browser.
+- Path: Zero Trust Browser Help > Enterprise Browser > Understanding Enterprise Browser
+- Last modified: 2026-09-04T07:57Z
+- Summary: Information about Enterprise Browser for Zero Trust Browser.
 
-Zero Trust Enterprise Browser for [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) is for accessing private applications while in an isolated session. Traditional security technologies are not designed to focus on securing daily browser execution, and they often lack the needed layers of protection for all the complex operations that browsers perform. This feature enables organizations to detect, investigate, and control browser-native threats and sensitive data interactions in real time.
+Enterprise Browser for [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) is a dedicated, hardened Chromium browser that protects users from everyday browser-based threats and allows them to securely access SaaS applications and private web, Remote Desktop Protocol (RDP), SSH, and Virtual Network Computing (VNC) applications.
 
-Enterprise Browser protects organizations without relying solely on traditional endpoint or network-centric controls. Instead, it combines several proactive methods: threat prevention, data encryption, and policy enforcement. It also utilizes tamper-resistant runtime on the browser for the entirety of a user's isolated session. Additionally, it continuously monitors malicious actions occurring inside browser sessions and fully analyzes user behavior as soon as the user starts interacting with web content.
+Traditional security technologies are not designed to focus on securing daily browser execution, and they often lack the needed layers of protection for all the complex operations that browsers perform. Enterprise Browser enables organizations to detect, investigate, and control browser-native threats and sensitive data interactions in real time.
 
-The Enterprise Browser component prevents common attacks on users that occur in daily operations within browsers, such as:
+Zscaler Enterprise Browser protects organizations without relying solely on traditional endpoint or network-centric controls. Instead, it combines several proactive methods: threat prevention, data encryption, and policy enforcement. Additionally, it continuously monitors malicious actions occurring inside browser sessions and fully analyzes user behavior as soon as the user starts interacting with web content.
+
+Enterprise Browser prevents common attacks on users that occur in daily operations within browsers, such as:
 
 - Accessing SaaS applications
 - Uploading or downloading files
@@ -1473,29 +1503,29 @@ The Enterprise Browser component prevents common attacks on users that occur in 
 - Browsing internal and external websites
 - Sharing sensitive information through collaboration tools
 
-This feature is automatically a part of the Zscaler offerings for Zero Trust Browser, and admins do not have to manually enable it for users. When a user enters isolation, the isolated browser utilizes the Enterprise Browser capabilities and maintains the native look and feel of a regular browser. To learn more, see [About Zero Trust Client Browser for Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/about-zero-trust-client-browser-for-zero-trust-browser).
+To get Enterprise Browser, contact Zscaler Support. For deployment information, refer to [https://deployztbrowser.com/docs/](https://deployztbrowser.com/docs/.%20%20%20).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-isolation-miscellaneous-and-unknown-category-internet-and-saas","lastmod":"2026-08-07T07:54Z","nid":"1518406"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-isolation-miscellaneous-and-unknown-category-internet-and-saas","lastmod":"2026-09-04T07:41Z","nid":"1518406"} -->
 ## Understanding Isolation of Miscellaneous & Unknown Category in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-isolation-miscellaneous-and-unknown-category-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Policy Management > Understanding Isolation of Miscellaneous & Unknown Category in Internet & SaaS
-- Last modified: 2026-08-07T07:54Z
-- Summary: Information about using Zscaler Zero Trust Browser (formerly Zscaler Isolation) for the miscellaneous and unknown category in Internet & SaaS.
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Understanding Isolation of Miscellaneous & Unknown Category in Internet & SaaS
+- Last modified: 2026-09-04T07:41Z
+- Summary: Information about using Zscaler Zero Trust Browser (formerly Zscaler Isolation) for the Miscellaneous and Unknown category in Internet & SaaS.
 
-Admins who have [Zscaler Zero Trust Browser (formerly Zscaler Isolation) integrated with Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser) have the ability to isolate [URL categories](https://help.zscaler.com/zia/about-url-categories) using [ZIA policies](https://help.zscaler.com/zia/configuring-smart-browser-isolation-policy). Depending on your organization's level of [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)access, you might only have the ability to isolate the category *Miscellaneous & Unknown*.
+Admins who have [Zscaler Zero Trust Browser (formerly Zscaler Isolation) integrated with Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser) have the ability to isolate [URL categories](https://help.zscaler.com/zia/about-url-categories) using [Internet & SaaS policies](https://help.zscaler.com/zia/configuring-smart-browser-isolation-policy). Depending on your organization's level of [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)access, you might only have the ability to isolate the category *Miscellaneous & Unknown*.
 
-If you have the Miscellaneous & Unknown Category subscription, Zero Trust Browser makes a preconfigured [isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zia) for you when you first log in. This profile is different from the [default isolation profiles](https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser) that are made for different levels of Zero Trust Browser access upon first login. Additionally, an Internet & SaaS URL filtering rule with the category of Miscellaneous & Unknown is automatically created. The rule is disabled by default for existing tenants, but it is enabled by default for new tenants.
+If you have the Miscellaneous & Unknown Category subscription, Zero Trust Browser makes a preconfigured [isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for you when you first log in. This profile is different from the [default isolation profiles](https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser) that are made for different levels of Zero Trust Browser access upon first login. Additionally, an Internet & SaaS URL filtering rule with the category of Miscellaneous & Unknown is automatically created. The rule is disabled by default for existing tenants, but it is enabled by default for new tenants.
 
 The fields for this profile have certain functionalities permanently enabled, others permanently disabled, and some that the admin can change. The following are the settings automatically defined for this isolation profile:
 
 - **Name**: Misc & Unknown
 - **Enable Turbo Mode**: Enabled
-- **PAC File URL**: Use Recommended Pac file URL
+- **PAC File URL**: Use Recommended PAC file URL
 - **Override PAC File**: Disabled
 - **Enable Debug Mode**: Disabled
 - **Root Certificate**: Default Zscaler Root Certificate
@@ -1514,7 +1544,7 @@ The fields for this profile have certain functionalities permanently enabled, ot
 - **Enable Watermarking**: Disabled
 - **Persistent State**: Disabled
 
-Admins can [edit](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-zia) the following fields after the preconfigured profile is created:
+Admins can [edit](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas) the following fields after the preconfigured profile is created:
 
 - Turbo Mode
 - Debug Mode
@@ -1522,7 +1552,7 @@ Admins can [edit](https://help.zscaler.com/zero-trust-browser/editing-your-isola
 - Read-Only Isolation
 - Region Selection
 
-To learn more, see [Editing Your Isolation Profile for ZIA](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-zia).
+To learn more, see [Editing an Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1579,20 +1609,20 @@ Admins must enable this feature in the user's isolation profile. To learn more, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-votiro-integration-zero-trust-browser","lastmod":"2026-06-15T07:31Z","nid":"1486761"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-votiro-integration-zero-trust-browser","lastmod":"2026-09-04T07:33Z","nid":"1486761"} -->
 ## Understanding Votiro Integration for Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-votiro-integration-zero-trust-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Policy Management > Understanding Votiro Integration for Zero Trust Browser
-- Last modified: 2026-06-15T07:31Z
-- Summary: Article with information about using Votiro CDR with Zscaler Zero Trust Browser (formerly Zscaler Isolation).
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Understanding Votiro Integration for Zero Trust Browser
+- Last modified: 2026-09-04T07:33Z
+- Summary: Information about using Votiro CDR with Zscaler Zero Trust Browser (formerly Zscaler Isolation).
 
 When your organization is using Zscaler Zero Trust Browser (formerly Zscaler Isolation), any file downloaded or uploaded to the isolation container is inline scanned to ensure that the file does not contain malware. The integration of [Votiro](https://votiro.com/) and Internet & SaaS (ZIA) adds additional coverage for files accessed while in isolation by providing further inline scanning for malicious content. To learn more, see [Understanding Partner Integrations](https://help.zscaler.com/zia/understanding-partner-integrations).
 
-Votiro allows supported files downloaded from, or uploaded to, internet destinations to be sanitized by their Content Disarm and Reconstruction (CDR) services. These CDR services consume the original file being transacted, and return to the user a file in the same format as the original file, but sanitized. This ensures that the active content is either stripped out or replaced with a sanitized model, ensuring the file itself cannot be used for malicious purposes.
+Votiro allows supported files downloaded from, or uploaded to, internet destinations to be sanitized by their Content Disarm and Reconstruction (CDR) services. These CDR services consume the original file being transacted, and return to the user a file in the same format as the original file, but sanitized. This ensures that the active content is either stripped out or replaced with a sanitized model, ensuring that the file itself cannot be used for malicious purposes.
 
-If you are an Zero Trust Browser admin with access to the [Votiro Secure File Gateway for Web Downloads and Uploads](https://votiro.com/guides/what-is-content-disarm-and-reconstruction-cdr/), you can use Votiro as part of your ZIA isolation profile configuration. To learn more, see [Creating Isolation Profiles for ZIA](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zia).
+If you are a Zero Trust Browser admin with access to the [Votiro Secure File Gateway for Web Downloads and Uploads](https://votiro.com/guides/what-is-content-disarm-and-reconstruction-cdr/), you can use Votiro as part of your Internet & SaaS isolation profile configuration. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas).
 
 For the complete procedure on how to configure Votiro and Zero Trust Browser for Internet & SaaS, see the [Zscaler and Votiro Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-votiro-deployment-guide).
 <!-- /ZS-ARTICLE -->
@@ -1854,14 +1884,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-sandbox-integration-with-zero-trust-browser","lastmod":"2026-06-09T12:55Z","nid":"1517336"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-sandbox-integration-with-zero-trust-browser","lastmod":"2026-09-04T07:31Z","nid":"1517336"} -->
 ## Using Sandbox Integration with Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-sandbox-integration-with-zero-trust-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Policy Management > Using Sandbox Integration with Zero Trust Browser
-- Last modified: 2026-06-09T12:55Z
-- Summary: How to use Sandbox Integration with Zscaler Zero Trust Browser (formerly Zscaler Isolation).
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Using Sandbox Integration with Zero Trust Browser
+- Last modified: 2026-09-04T07:31Z
+- Summary: How to use the Sandbox integration with Zscaler Zero Trust Browser (formerly Zscaler Isolation).
 
 For organizations using both Internet & SaaS (ZIA) Sandbox and Zero Trust Browser (formerly Isolation), an integration between these modules exists which provides additional benefits, maximizing both security and end-user productivity. To learn more, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox) and [About Sandbox Integration with Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/about-sandbox-integration-zero-trust-browser).
 
@@ -1871,8 +1901,8 @@ When a user opens an unknown file, such as a PDF or Microsoft Office document, t
 
 Before you begin configuration:
 
-- Configure the Sandbox policy in ZIA. To learn more, see [Configuring the Sandbox Policy](https://help.zscaler.com/zia/configuring-sandbox-policy).
-- In your isolation profile, enable the Sandbox option for file transfer. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zia).
+- Configure the Sandbox policy in Internet & SaaS. To learn more, see [Configuring the Sandbox Policy](https://help.zscaler.com/zia/configuring-sandbox-policy).
+- In your isolation profile, enable the Sandbox option for file transfer. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas).
 
 To use Sandbox with Zero Trust Browser:
 
@@ -1928,52 +1958,44 @@ To access the Zero Trust Mode menu:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-08-03T13:44Z","nid":"1447296"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-09-04T07:58Z","nid":"1447296"} -->
 ## What Is Zero Trust Browser?
 
 - Source: https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > What Is Zero Trust Browser?
-- Last modified: 2026-08-03T13:44Z
-- Summary: Information about Zscaler Zero Trust Browser (formerly Zscaler Isolation), including traffic flow, architecture, as well as integrations with Internet & SaaS and Private Access.
+- Last modified: 2026-09-04T07:58Z
+- Summary: Information about Zscaler Zero Trust Browser (formerly Zscaler Isolation) and its three components: Cloud Browser, Browser Extension, and Enterprise Browser.
 
-Zero Trust Browser (formerly Zscaler Isolation) provides an organization the capability to isolate users from potentially harmful content on the internet. This is done by loading the accessed web page on a remote browser in any one of the many Zscaler data centers across the globe, and streaming the rendered content as a stream of pixels to the user's native browser.
+Zero Trust Browser (formerly Zscaler Isolation) is a secure platform that protects organizations against web-based threats while enabling high-performance access to the internet, SaaS applications, and private web, Remote Desktop Protocol (RDP), SSH, and Virtual Network Computing (VNC) applications.
 
-The overall solution of Zero Trust Browser consists of three primary components: a browser extension that handles web-based security and access, a lightweight agent that enforces device posture controls and advanced data protection during the session, and a cloud browser for accessing private applications in an isolated session. To learn more, see [About Zero Trust Client Browser for Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/about-zero-trust-client-browser-for-zero-trust-browser) and [Understanding Zero Trust Enterprise Browser](https://help.zscaler.com/zero-trust-browser/understanding-enterprise-browser).
+The platform provides browser-native security, including real-time threat detection and data loss prevention (DLP), while seamlessly integrating with your identity and access management (IAM) systems. Zero Trust Browser provides the visibility and control that organizations require for use cases such as:
 
-Isolating web pages on an ephemeral, remote browser ensures that the HTML files, CSS files, JavaScript files, and any other active content served by the accessed web page never reach the user's machine or the corporate network, thus ensuring an air gap between the user and the web page they access.
+- Protecting against sophisticated phishing attacks
+- Controlling sensitive data exposure to generative AI platforms
+- Securing access from unmanaged devices
 
-Zero Trust Browser not only provides the capability to isolate web pages, but also allows the user to view file types in isolation without requiring a download of the files to their local machine.
+## Key Components
 
-This feature is fully integrated with [Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/configuring-zia-for-zero-trust-browser) and [Private Access (ZPA)](https://help.zscaler.com/zpa/about-isolation-policy), allowing the admin of an organization to granularly define what web traffic should be isolated and which policies need to be applied to the isolated traffic. The traffic egressing the isolation browser is also passed through the Public Service Edges for Internet & SaaS before reaching the internet web page being accessed.
+The platform consists of the following components:
 
-In addition to the security policies enforced by Internet & SaaS, Zero Trust Browser provides additional data exfiltration security controls, which enable an organization to control the level of interaction the user can have with the isolated web page.
-
-## Zero Trust Browser Traffic Flow
-
-The internet-bound web traffic is forwarded to the Public Service Edge using a GRE tunnel, Zscaler Client Connector, or any of the other Zscaler-recommended traffic forwarding methods. If the accessed URL hits a URL filtering policy in Internet & SaaS created by the admin to isolate the traffic, the HTTP/HTTPS request is redirected to the isolation profile URL with the original URL in the query string.
-
-The user's browser follows the redirect and makes a request to the isolation profile URL. Zero Trust Browser accepts the request and assigns a temporary, remote browser for the user. The remote browser then makes a connection to the original URL that the user intended to access, and the web page is loaded on the remote browser. This request to the original web page is also routed through the nearest Public Service Edges, and the traffic is evaluated against all [the policies defined for the user in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser) by the admin.
-
-[Default isolation profiles](https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser) are automatically created for all organizations when they have Zero Trust Browser. You can also manually create multiple isolation profiles for both [Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zia) and [Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zpa) in the [Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console).
-
-## Zero Trust Browser Architecture
-
-The structure of Zero Trust Browser consists of multiple engines that work together to forward and convert traffic. When the user's traffic reaches Zero Trust Browser, Zero Trust Browser creates an endpoint container for the user on the cloud. The Chromium rendering engine makes a connection to the web page that the user has requested, and renders the content of that web page. The rendered web page is processed by the proprietary experience engine, which then converts it into a stream of images that are delivered to the user's native browser over a secure HTTPS connection.
-
-Each user redirected to Zero Trust Browser is allocated an endpoint container, and all subsequent requests that utilize the isolation profile use the same container. The containers are destroyed if a user manually logs out of the isolation session, or if the default idle timeout of 10 minutes is reached.
+| **Component** | **Function** |
+| --- | --- |
+| Cloud Browser | Delivers secure internet and application access in isolation, preventing data from reaching managed and unmanaged devices. To learn more, see [Understanding Cloud Browser](https://help.zscaler.com/zero-trust-browser/understanding-cloud-browser). |
+| Browser Extension | Enhances existing browsers with browser detection and response (BDR), DLP, and posture-based application access. To learn more, see [Understanding Browser Extension](https://help.zscaler.com/zero-trust-browser/understanding-browser-extension). |
+| Enterprise Browser | Standardizes security, access, and data protection through a dedicated, hardened Chromium browser. To learn more, see [Understanding Enterprise Browser](https://help.zscaler.com/zero-trust-browser/understanding-enterprise-browser). |
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/zero-trust-browser-reports-in-internet-and-saas","lastmod":"2026-08-03T14:53Z","nid":"1477996"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/zero-trust-browser-reports-in-internet-and-saas","lastmod":"2026-09-03T07:15Z","nid":"1477996"} -->
 ## Interactive Reports for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/zero-trust-browser-reports-in-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Analytics > Interactive Reports for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-08-03T14:53Z
-- Summary: An article about Zero Trust Browser reports for Internet & SaaS (ZIA).
+- Path: Zero Trust Browser Help > Cloud Browser > Analytics > Interactive Reports for Zero Trust Browser in Internet & SaaS
+- Last modified: 2026-09-03T07:15Z
+- Summary: Information about Zero Trust Browser reports for Internet & SaaS.
 
 Internet & SaaS (ZIA) provides data reports for admins who use Zero Trust Browser (formerly Zscaler Isolation) within their organization. Any organization that uses Zero Trust Browser automatically sees these default reports for Internet & SaaS.
 
@@ -1985,36 +2007,35 @@ The Interactive Reports for Zero Trust Browser consist of data for Consumption, 
 
 To find these interactive reports:
 
-1. Go to **Analytics**.
-2. Enable the toggle **Switch to Existing Reports**.
-3. Click **Internet & SaaS**.
-4. Click **Analytics**.
-5. Click **Interactive Reports**.
-6. Click **Browser Isolation**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Reports** > **Interactive Reports**.
+2. Scroll down to the **Browser Isolation** section.
 
 See image.
 
 The reports provide data for the following metrics:
 
-- **Consumption**: This report shows an overview of how your organization is consuming Zero Trust Browser as a service. See image.
-  - The **Overall Traffic Trend in Isolation**for web traffic.
-  - The **Overall Data Volume** of data accessed by users.
-  - The **Isolated Data Volume** of data accessed via the isolation container.
-  - The **Unique Isolated Users** to reflect discrepancies between types of users.
-  - The **Policy Reason** to show which policy enforced isolation.
-- **Zero Trust Browser Traffic Summary Overview**: This report shows an overview of the web traffic being isolated for your organization. See image.
-  - The **Top URL Supercategories in Isolation** to reflect the most commonly accessed web pages based on popular content.
-  - The **Top URL Categories in Isolation** to reflect the most commonly accessed web pages based on general content.
-  - The **Cloud Applications in Isolation** to reflect which cloud-based applications are accessed via isolation.
-  - The **Top Cloud Application Classes in Isolation** to reflect which cloud-based application classes are accessed the most via isolation.
-- **Security Overview**: This report shows an overview of the security events and trends that were detected in the isolated web traffic for your organization. See image.
-  - The **Weekly Top Threats in Isolation This Week** to reflect the most common threats detected within isolation on a weekly basis.
-  - The **Monthly Top Advanced Threats in Isolation This Month** to reflect the most common advanced threats detected within isolation on a monthly basis.
-  - The **Sandbox in Isolation This Month** to reflect how many users' isolation environments were sandboxed on a monthly basis.
-  - The **Sandbox Action in Isolation This Month** to reflect what actions were taken when users' isolation environments were sandboxed on a monthly basis.
-- **File and Document in Zero Trust Browser**: This report shows an overview of the files that users in the organization uploaded, downloaded, or viewed while using Zero Trust Browser. See image.
-  - The **Files Uploaded from Isolation** to reflect the types and quantities of files that were uploaded by users within isolation.
-  - The **Files Downloaded to Isolation** to reflect the types and quantities of files that were downloaded by users within isolation.
+- **Consumption**: This report shows an overview of how your organization is consuming Zero Trust Browser as a service and includes the following widgets: See image.
+  - **Overall Traffic Trend in Isolation**: This widget shows the overall trendfor web traffic.
+  - **Overall Data Volume**: This widget shows the volume of data accessed by users.
+  - **Isolated Data Volume**: This widget shows the volume of data accessed via the isolation container.
+  - **Unique Isolated Users**: This widget shows discrepancies between types of users.
+  - **Policy Reason**: This widget shows which policy enforced isolation.
+- **Isolation Traffic Summary Overview**: This report shows an overview of the web traffic being isolated for your organization and includes the following widgets:: See image.
+  - **Top URL Supercategories in Isolation**: This widget shows the most commonly accessed web pages based on popular content.
+  - **Top URL Categories in Isolation**: This widget shows the most commonly accessed web pages based on general content.
+  - **Cloud Applications in Isolation**: This widget shows which cloud-based applications are accessed via isolation.
+  - **Top Cloud Application Classes in Isolation**: This widget shows which cloud-based application classes are accessed the most via isolation.
+  - **Top Users Using Isolation**: This widget shows the top users of isolation based on the bandwidth utilized.
+  - **Top Departments in Isolation**: This widget shows the top departments of isolation based on the bandwidth utilized.
+  - **Top Locations in Isolation**: This widget shows the locations from which traffic is redirected to isolation.
+- **Security Overview**: This report shows an overview of the security events and trends that were detected in the isolated web traffic for your organization and includes the following widgets:: See image.
+  - **Weekly Top Threats in Isolation This Week**: This widget shows the most common threats detected within isolation on a weekly basis.
+  - **Monthly Top Advanced Threats in Isolation This Month**: This widget shows the most common advanced threats detected within isolation on a monthly basis.
+  - The **Sandbox in Isolation This Month**: This widget shows how many users' isolation environments were sandboxed on a monthly basis.
+  - The **Sandbox Action in Isolation This Month**: This widget shows what actions were taken when users' isolation environments were sandboxed on a monthly basis.
+- **File and Document in Isolation**: This report shows an overview of the files that users in the organization uploaded, downloaded, or viewed while using Zero Trust Browser and includes the following widgets:: See image.
+  - **Files Uploaded from Isolation**: This widget shows the types and quantities of files that were uploaded by users within isolation.
+  - **Files Downloaded to Isolation**: This widget shows the types and quantities of files that were downloaded by users within isolation.
 
 [Image: The Interactive Reports show data for Consumption, Isolation Traffic Summary Overview, Security Overview, and File and Document in Isolation]
 

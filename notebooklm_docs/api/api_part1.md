@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 87
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 88
 
 ---
 
@@ -7489,13 +7489,13 @@ Deletes a Bandwidth Control policy rule based on the specified ID
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/branch-connectors","lastmod":"2026-07-30T16:58Z","nid":"1542218"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/branch-connectors","lastmod":"2026-08-31T07:06Z","nid":"1542218"} -->
 ## Branch Connectors
 
 - Source: https://help.zscaler.com/legacy-apis/branch-connectors
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Branch Connectors
-- Last modified: 2026-07-30T16:58Z
+- Last modified: 2026-08-31T07:06Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
@@ -9801,13 +9801,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-08-30T07:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-09-06T07:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -11325,6 +11325,248 @@ To get the platform types for a customer:
 ```
 
 A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-and-managing-aws-accounts","lastmod":"2026-08-31T02:41Z","nid":"1542868"} -->
+## Configuring and Managing AWS Accounts
+
+- Source: https://help.zscaler.com/legacy-apis/configuring-and-managing-aws-accounts
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Cloud & Branch Connector API > API Developer & Reference Guide > Working with APIs > Configuring and Managing AWS Accounts
+- Last modified: 2026-08-31T02:41Z
+- Summary: Information about configuring and managing AWS accounts using APIs.
+
+This article provides information on configuring and managing Amazon Web Services (AWS) accounts using APIs. All APIs are rate limited. To learn more, see [API Rate Limit Summary](https://help.zscaler.com/legacy-apis/api-rate-limit-summary-1).
+
+## Prerequisites
+
+Before configuring and managing AWS accounts, make sure you've identified the access token required for authorization.
+
+## Creating an AWS Account
+
+To create an AWS account:
+
+1. Send a POST request to the following endpoint: `/publicCloudInfo`
+2. Include the request headers to provide information about the request context:
+  - **Content Type**: application/json
+  - **Authorization**: Bearer <access_token>
+3. Use the following JSON payload to create an AWS account and provide the following information: `publicCloudInfo`:
+  - (Required) `name` (String): The name of the AWS account.
+  - `accountDetails`:
+    - (Required) `awsAccountId` (String): The AWS account ID where workloads are deployed. The ID must be non-null, non-empty, and unique, and contain 12 digits.
+    - (Required) `awsRoleName` (String): The AWS trusting role in your account. The name must be non-null, non-empty, and 64 characters or fewer in length.
+  - `accountGroups`:
+    - `id` (Integer): An ID that uniquely identifies an entity.
+  - `cloudType` (String): The cloud type. The default value is AWS.
+  - `externalId` (String): A unique external ID for the AWS account.
+  - (Required) `supportedRegions`: Regions supported by the Zscaler Tag Discovery Service.
+    - `id` (Integer): The unique ID of the supported region.
+
+View a sample JSON payload:
+
+- Creating an AWS Account
+
+A successful response returns code 201, meaning the AWS account is created. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Getting Details for All AWS Accounts
+
+- To get details for all AWS accounts, send a GET request to the following endpoint: `/publicCloudInfo`
+- This API supports pagination. To get a paginated response, send a GET request to the following endpoint: `/publicCloudInfo?page=1&pagesize=2`
+
+View an example response:
+
+- Getting details for all AWS accounts
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Getting Details of a Specific AWS Account
+
+To get details for a particular AWS Account:
+
+1. Send a GET request to the following endpoint: `/publicCloudInfo/{id}`
+2. Provide the unique ID of the AWS account in the request endpoint. For example: `/publicCloudInfo/100`
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Updating a Specific AWS Account
+
+To update a specific AWS account:
+
+1. Provide the updated JSON payload from the Creating an AWS Account section and send a PUT request to the following endpoint: `/publicCloudInfo/{id}`
+2. Provide the unique ID of the AWS account, account groups, and region in the request payload.
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Deleting a Specific AWS Account
+
+To delete an AWS account:
+
+1. Send a DELETE request to the following endpoint: `/publicCloudInfo/{id}`
+2. Provide the unique ID of the AWS account in the request endpoint. For example: `/publicCloudInfo/100`
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Additional APIs
+
+The following table provides details of additional AWS APIs that you can use to perform various operations:
+
+| Operation | API Endpoint |
+| --- | --- |
+| Retrieve a list of AWS supported regions | Send a GET request to `/publicCloudInfo/supportedRegions`. The GET request retrieves details such as cloud type, region ID, and region name. |
+| Retrieve the total number of AWS accounts. | Send a GET request to `/publicCloudInfo/count`. |
+| Create an external ID for an AWS account. | Send a POST request to `/publicCloudInfo/generateExternalId`. |
+| Retrieve basic information about the AWS cloud accounts. | Send a GET request to `/publicCloudInfo/lite`. |
+| Enable or disable a specific AWS account in all regions based on the provided ID. | Send a PUT request to `/publicCloudInfo/{id}/changeState`. Provide AWS account ID and enable (True) or disable (False) in the request payload. |
+| Retrieve the CloudFormation template URL | Send a GET request to `publicCloudInfo/cloudFormationTemplate`. |
+
+```
+{
+    "name": "aws-account-1",
+    "cloudType": "AWS", // optional
+    "externalId": "daba767765f2670722c4d68e8f81bf90", // optional
+    "accountDetails": {
+        "awsAccountId": "674109010822",
+        "awsRoleName": "role1"
+    },
+    "supportedRegions": [
+        {
+            "id": 456414
+        }
+    ],
+    // optional
+    "accountGroups": [
+        {
+            "id": 1090178
+        }
+    ]
+}
+```
+
+```
+[
+    {
+        "id": 2883305,
+        "name": "Dev-account",
+        "cloudType": "AWS",
+        "externalId": "daba767765f2670722c4d68e8f81bf90",
+        "accountDetails": {
+            "awsAccountId": "22333332123",
+            "awsRoleName": "role1",
+            "externalId": "daba767765f2670722c4d68e8f81bf90",
+            "eventBusName": "zscaler-bus-2212-zscaler.net",
+            "trustedAccountId": "275777770888",
+            "trustedRole": "arn:aws:iam::275777770888:role/ZscalerTagDiscoveryRole",
+            "troubleShootingLogging": true,
+            "cloudWatchGroupArn": "DISABLED"
+        },
+        "permissionStatus": {
+            "status": {
+                "assumeRole": "Allowed",
+                "describeVpcs": "Allowed",
+                "describeSubnets": "Allowed",
+                "describesInstances": "Allowed",
+                "describeVpcEndpoints": "Allowed",
+                "describeNetworkInterfaces": "Allowed",
+                "describeIamInstanceProfile": "Allowed"
+            },
+            "permission": {
+                "status": "Allowed",
+                "account": "22333332123",
+                "externalId": "daba767765f2670722c4d68e8f81bf90",
+                "discoveryRoleName": "role1"
+            }
+        },
+        "lastSyncTime": 1761777570,
+        "supportedRegions": [
+            {
+                "id": 228553,
+                "cloudType": "AWS",
+                "name": "US_WEST_1",
+                "regionName": "us-west-1"
+            },
+            {
+                "id": 228554,
+                "cloudType": "AWS",
+                "name": "US_EAST_1",
+                "regionName": "us-east-1"
+            }
+        ],
+        "lastModUser": {
+            "id": 61209299,
+            "name": "bac-admin@2212.zscaler.net"
+        },
+        "lastModTime": 1761777570,
+        "accountGroups": [],
+        "regionStatus": [
+            {
+                "id": 228553,
+                "cloudType": "AWS",
+                "name": "US_WEST_1",
+                "status": true
+            },
+            {
+                "id": 228554,
+                "cloudType": "AWS",
+                "name": "US_EAST_1",
+                "status": true
+            }
+        ]
+    },
+    {
+        "id": 5138887,
+        "name": "Prod-account",
+        "cloudType": "AWS",
+        "externalId": "cb5da6706cfd671223c4e68e8d51afc77",
+        "accountDetails": {
+            "awsAccountId": "877428091333",
+            "awsRoleName": "role101",
+            "externalId": "cb5da6706cfd671223c4e68e8d51afc77",
+            "eventBusName": "zscaler-bus-2212-zscaler.net",
+            "trustedAccountId": "275777770888",
+            "trustedRole": "arn:aws:iam::275777770888:role/ZscalerTagDiscoveryRole",
+            "troubleShootingLogging": true,
+            "cloudWatchGroupArn": "DISABLED"
+        },
+        "permissionStatus": {
+            "status": {
+                "reason": "An error occurred (AccessDenied) when calling the AssumeRole operation",
+                "assumeRole": "Denied"
+            },
+            "permission": {
+                "status": "Denied",
+                "account": "877428091333",
+                "externalId": "cb5da6706cfd671223c4e68e8d51afc77",
+                "discoveryRoleName": "role101"
+            }
+        },
+        "lastSyncTime": 1782954717,
+        "supportedRegions": [
+            {
+                "id": 228553,
+                "cloudType": "AWS",
+                "name": "US_WEST_1",
+                "regionName": "us-west-1"
+            }
+        ],
+        "lastModUser": {
+            "id": 61209299,
+            "name": "bac-admin@2212.zscaler.net"
+        },
+        "lastModTime": 1782954717,
+        "accountGroups": [],
+        "regionStatus": [
+            {
+                "id": 228553,
+                "cloudType": "AWS",
+                "name": "US_WEST_1",
+                "status": true
+            }
+        ]
+    }
+]
+```
 <!-- /ZS-ARTICLE -->
 
 ---

@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 181
 
 ---
@@ -615,6 +615,85 @@ On the Policy page (Policies > Data Protection > Policy > Data Posture Policies)
 - SQL Server
 - Storage Account
 - Virtual Machine
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/about-dspm-integrations","lastmod":"2026-09-04T02:47Z","nid":"1474786"} -->
+## About DSPM Integrations
+
+- Source: https://help.zscaler.com/dspm/about-dspm-integrations
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > About DSPM Integrations
+- Last modified: 2026-09-04T02:47Z
+- Summary: Information about integrating DSPM with cloud storage services, ITSM, and ChatOps tools.
+
+Integrations allow DSPM to share findings (alerts) with other tools in your organization's ecosystem. Common integrations include cloud storage services used for external backup, audit storage, or intermediate storage for SIEM/SOAR tools. ITSM tools where DSPM findings are maintained as issues, incidents, or tickets for internal workflows, and ChatOps tools that enable faster communication of these issues across stakeholder teams.
+
+You can integrate DSPM with the following tools:
+
+- Cloud storage services: [Amazon Simple Storage Service (Amazon S3)](https://help.zscaler.com/dspm/integrating-amazon-s3), [Azure Blob Storage](https://help.zscaler.com/dspm/integrating-azure-blob-storage), and [Amazon Security Lake](https://help.zscaler.com/dspm/integrating-amazon-security-lake)
+- ITSM tools:[Jira](https://help.zscaler.com/dspm/integrating-jira) and [ServiceNow](https://help.zscaler.com/dspm/integrating-servicenow)
+- ChatOps tools: [Slack](https://help.zscaler.com/dspm/integrating-slack)
+
+Integrating with other tools provides the following benefits and enables you to:
+
+- Have increased visibility into the security posture of your data.
+- Reduce the number of false positive alerts and focus on real threats.
+- Audit security incidents and take immediate action to remediate issues.
+
+## About the Integrations Page
+
+On the Integrations page (Data Security > DSPM > Configuration > DSPM Integrations), you can view the following integrations:
+
+- Cloud Storage
+- ITSM
+- ChatOps Tools
+
+[Image: The Integrations page]
+
+1. [Add a cloud storage integration](https://help.zscaler.com/dspm/integrating-dspm-cloud-storage-services).
+2. View the list of cloud storage integrations. For each integration, you can see:
+  - **Cloud Storage**: The name of the cloud storage service (Amazon S3 Bucket or Azure Blob Storage).
+  - **Integration Name**: The integration name.
+  - **Log Type**: The type of data log that is sent to the storage service.
+  - **Last Sent**: The date and time when the data was last sent to the storage service.
+  - **Status**: The outcome (**Success**, **Failed**, **Paused**, or **Pending**) of the previous data transfer. For failed status, hover over the label to see the reason for failure.
+  - **Data Transfer**: The state (**Enabled**or **Disabled**) of data transfer. By default, the data transfer is enabled. If you want to pause the transfer without deleting the integration, click the toggle to disable the data transfer. If any data transfer is in progress, the activity is completed and then the data transfer is disabled.
+3. Sort the column data.
+4. Enable or disable the data transfer.
+5. [Edit or delete a cloud storage integration.](https://help.zscaler.com/dspm/editing-or-deleting-third-party-integrations)
+
+[Image: View the cloud storage integrations describing the page details.]
+
+1. [Add an ITSM integration](https://help.zscaler.com/dspm/integrating-dspm-itsm-tools).
+2. View the list of ITSM integrations. For each ITSM integration, you can see:
+  - **IT Service**: The name of the service (Jira or ServiceNow).
+  - **Integration Name**: The integration name.
+  - **Hostname**: The host name for the service.
+  - **Log Type**: The type of data log that is sent to the IT service.
+  - **Last Sent**: The date and time when the data was last sent to the IT service.
+  - **Status**: The outcome (**Success**, **Failed**, **Paused**, or **Pending**) of the previous data transfer. For failed status, hover over the label to see the reason for failure.
+  - **Data Transfer**: The state (**Enabled**or **Disabled**) of data transfer.
+3. Sort the column data.
+4. Enable or disable the data transfer.
+5. [Edit or delete an ITSM integration.](https://help.zscaler.com/dspm/editing-or-deleting-third-party-integrations)
+
+[Image: View the ITSM integrations describing the page details.]
+
+1. [Add a Slack integration](https://help.zscaler.com/dspm/integrating-slack).
+2. View the list of Slack integrations. For each integration, you can see:
+  - **Service**: The name of the service (Slack).
+  - **Integration Name**: The integration name.
+  - **Channels**: The number of channels that are added for sending notifications.
+  - **Last Sent**: The date and time when the data was last sent to the Slack channels.
+  - **Status**: The outcome (**Success**, **Failed**, **Paused**, or **Pending**) of the previous data transfer. For failed status, hover over the label to see the reason for failure.
+  - **Data Transfer**: The state (**Enabled**or **Disabled**) of data transfer.
+3. Sort the column data.
+4. Enable or disable the data transfer.
+5. [Edit or delete a Slack integration.](https://help.zscaler.com/dspm/editing-or-deleting-third-party-integrations)
+
+[Image: View the ChatOps integrations describing the page details.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1574,85 +1653,6 @@ On the Data Inventory page (Analytics > Data Security > DSPM > Data Inventory), 
 9. [Show or hide columns](https://help.zscaler.com/unified/using-tables) in the table.
 
 [Image: The Data Inventory page shows the list of data assets in your organization]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/about-third-party-integrations","lastmod":"2026-08-18T21:06Z","nid":"1474786"} -->
-## About Third-Party Integrations
-
-- Source: https://help.zscaler.com/dspm/about-third-party-integrations
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > About Third-Party Integrations
-- Last modified: 2026-08-18T21:06Z
-- Summary: Information about integrating DSPM with third-party cloud storage services, ITSM, and ChatOps tools.
-
-Security information and event management (SIEM) is a solution to detect and address security threats and vulnerabilities. Data from security systems, network devices, servers, domain controllers, etc., is aggregated and analyzed to identify threats or anomalies, enabling security teams to investigate and address these issues.
-
-You can integrate DSPM with the following third-party tools:
-
-- Cloud storage services: [Amazon Simple Storage Service (Amazon S3)](https://help.zscaler.com/dspm/integrating-amazon-s3), [Azure Blob Storage](https://help.zscaler.com/dspm/integrating-azure-blob-storage), and [Amazon Security Lake](https://help.zscaler.com/dspm/integrating-amazon-security-lake)
-- ITSM tools:[Jira](https://help.zscaler.com/dspm/integrating-jira) and [ServiceNow](https://help.zscaler.com/dspm/integrating-servicenow)
-- ChatOps tools: [Slack](https://help.zscaler.com/dspm/integrating-slack)
-
-Third-party integration includes the following benefits and enables you to:
-
-- Have increased visibility into the security posture of your data.
-- Reduce the number of false positive alerts and focus on real threats.
-- Audit security incidents and take immediate action to remediate issues.
-
-## About the Integrations Page
-
-On the Integrations page (Policies > Common Configuration > DSPM > Integrations), you can view the following integrations:
-
-- Cloud Storage
-- ITSM
-- ChatOps Tools
-
-[Image: The Integrations page]
-
-1. [Add a cloud storage integration](https://help.zscaler.com/dspm/integrating-dspm-cloud-storage-services).
-2. View the list of cloud storage integrations. For each integration, you can see:
-  - **Cloud Storage**: The name of the cloud storage service (Amazon S3 Bucket or Azure Blob Storage).
-  - **Integration Name**: The integration name.
-  - **Log Type**: The type of data log that is sent to the storage service.
-  - **Last Sent**: The date and time when the data was last sent to the storage service.
-  - **Status**: The outcome (**Success**, **Failed**, **Paused**, or **Pending**) of the previous data transfer. For failed status, hover over the label to see the reason for failure.
-  - **Data Transfer**: The state (**Enabled**or **Disabled**) of data transfer. By default, the data transfer is enabled. If you want to pause the transfer without deleting the integration, click the toggle to disable the data transfer. If any data transfer is in progress, the activity is completed and then the data transfer is disabled.
-3. Sort the column data.
-4. Enable or disable the data transfer.
-5. [Edit or delete a cloud storage integration.](https://help.zscaler.com/dspm/editing-or-deleting-third-party-integrations)
-
-[Image: View the cloud storage integrations describing the page details.]
-
-1. [Add an ITSM integration](https://help.zscaler.com/dspm/integrating-dspm-itsm-tools).
-2. View the list of ITSM integrations. For each ITSM integration, you can see:
-  - **IT Service**: The name of the service (Jira or ServiceNow).
-  - **Integration Name**: The integration name.
-  - **Hostname**: The host name for the service.
-  - **Log Type**: The type of data log that is sent to the IT service.
-  - **Last Sent**: The date and time when the data was last sent to the IT service.
-  - **Status**: The outcome (**Success**, **Failed**, **Paused**, or **Pending**) of the previous data transfer. For failed status, hover over the label to see the reason for failure.
-  - **Data Transfer**: The state (**Enabled**or **Disabled**) of data transfer.
-3. Sort the column data.
-4. Enable or disable the data transfer.
-5. [Edit or delete an ITSM integration.](https://help.zscaler.com/dspm/editing-or-deleting-third-party-integrations)
-
-[Image: View the ITSM integrations describing the page details.]
-
-1. [Add a Slack integration](https://help.zscaler.com/dspm/integrating-slack).
-2. View the list of Slack integrations. For each integration, you can see:
-  - **Service**: The name of the service (Slack).
-  - **Integration Name**: The integration name.
-  - **Channels**: The number of channels that are added for sending notifications.
-  - **Last Sent**: The date and time when the data was last sent to the Slack channels.
-  - **Status**: The outcome (**Success**, **Failed**, **Paused**, or **Pending**) of the previous data transfer. For failed status, hover over the label to see the reason for failure.
-  - **Data Transfer**: The state (**Enabled**or **Disabled**) of data transfer.
-3. Sort the column data.
-4. Enable or disable the data transfer.
-5. [Edit or delete a Slack integration.](https://help.zscaler.com/dspm/editing-or-deleting-third-party-integrations)
-
-[Image: View the ChatOps integrations describing the page details.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9641,6 +9641,46 @@ The Databricks workspace or account is deleted from the Zscaler Admin Console.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-dspm-integrations","lastmod":"2026-09-04T04:01Z","nid":"1487821"} -->
+## Editing or Deleting DSPM Integrations
+
+- Source: https://help.zscaler.com/dspm/editing-or-deleting-dspm-integrations
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > Editing or Deleting DSPM Integrations
+- Last modified: 2026-09-04T04:01Z
+- Summary: How to edit or delete DSPM integrations in the Zscaler Admin Console.
+
+You can edit or delete any cloud storage, ITSM, or ChatOps integration as required.
+
+## Editing an Integration
+
+To edit an integration:
+
+1. From the navigation menu, go to **Data Security**>**DSPM**>**Configuration**>**DSPM Integrations**.
+2. On the **Integrations** page, click the **Actions**icon for the integration that you want to edit, and select **Edit**. See image.
+3. In the **Edit Integration** window, change the values as required. If you change the values, you must test the connection again. See image.
+4. Click **Save**.
+
+## Deleting an Integration
+
+To delete an integration:
+
+1. From the navigation menu, go to **Data Security**>**DSPM**>**Configuration**>**DSPM Integrations**.
+2. On the **Integrations** page, click the **Actions**icon for the integration that you want to delete, and select **Delete**. See image.
+3. In the **Delete Integration** window, read the message related to alert rules. You cannot delete an integration if it is associated with alert rules. You must first move the alert rules to another integration. Until then, the **Delete** button is disabled. See image.
+4. After you've moved the alert rules, click **Delete**.
+
+[Image: Clicking the Edit icon for an integration on the list.]
+
+[Image: Clicking the Delete icon for an integration on the list.]
+
+[Image: Edit an integration]
+
+[Image: Delete an integration]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-investigation","lastmod":"2026-05-04T21:06Z","nid":"1480631"} -->
 ## Editing or Deleting an Investigation
 
@@ -10062,46 +10102,6 @@ The Snowflake account is deleted from the Zscaler Admin Console.
 [Image: GCP authentication with Username, and GCP Secret ID.]
 
 [Image: GCP authentication with Key-Pair.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-third-party-integrations","lastmod":"2026-08-18T21:06Z","nid":"1487821"} -->
-## Editing or Deleting Third-Party Integrations
-
-- Source: https://help.zscaler.com/dspm/editing-or-deleting-third-party-integrations
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Editing or Deleting Third-Party Integrations
-- Last modified: 2026-08-18T21:06Z
-- Summary: How to edit or delete third-party integrations in the Zscaler Admin Console.
-
-You can edit or delete any cloud storage, ITSM, or ChatOps integration as required.
-
-## Editing an Integration
-
-To edit an integration:
-
-1. Go to **Policies**>**Common Configuration**> **DSPM**>**Integrations**.
-2. On the **Integrations** page, click the **Actions**icon for the integration that you want to edit, and select **Edit**. See image.
-3. In the **Edit Integration** window, change the values as required. If you change the values, you must test the connection again. See image.
-4. Click **Save**.
-
-## Deleting an Integration
-
-To delete an integration:
-
-1. Go to **Policies**>**Common Configuration**> **DSPM**>**Integrations**.
-2. On the **Integrations** page, click the **Actions**icon for the integration that you want to delete, and select **Delete**. See image.
-3. In the **Delete Integration** window, read the message related to alert rules. You cannot delete an integration if it is associated with alert rules. You must first move the alert rules to another integration. Until then, the **Delete** button is disabled. See image.
-4. After you've moved the alert rules, click **Delete**.
-
-[Image: Clicking the Edit icon for an integration on the list.]
-
-[Image: Clicking the Delete icon for an integration on the list.]
-
-[Image: Edit an integration]
-
-[Image: Delete an integration]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10840,13 +10840,13 @@ After the initialization completes, the scanner VM registers with the DSPM tenan
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-s3","lastmod":"2026-08-18T21:06Z","nid":"1487531"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-s3","lastmod":"2026-09-04T04:17Z","nid":"1487531"} -->
 ## Integrating with Amazon S3
 
 - Source: https://help.zscaler.com/dspm/integrating-amazon-s3
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating with Amazon S3
-- Last modified: 2026-08-18T21:06Z
+- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > Cloud Storage Services > Integrating with Amazon S3
+- Last modified: 2026-09-04T04:17Z
 - Summary: How to integrate DSPM with Amazon S3 to send alert details to the cloud storage service.
 
 You can integrate DSPM with Amazon Simple Storage Service (Amazon S3). This integration enables DSPM to send the alert data logs of your cloud resources to the Amazon S3 buckets for storage.
@@ -10857,7 +10857,7 @@ Only [users with the administrator role](https://help.zscaler.com/dspm/predefine
 
 To integrate DSPM with Amazon S3:
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** >**Integrations**.
+1. From the navigation menu, go to **Data Security** > **DSPM** > **Configuration** > **DSPM** **Integrations**.
 2. Click **Add** for cloud storage integration. See image.
 3. On the **Add Cloud Storage Integration** page, for **Integrations Details**: See image.
   1. For **Integration Name**, enter a unique name for the integration.
@@ -10880,7 +10880,7 @@ To integrate DSPM with Amazon S3:
 11. Review the integration summary. Click the **Edit** icon if you want to make any changes. See image.
 12. Click **Finish**.
 
-You can see the integration details on the **Integrations** page. The initial status is shown as Pending because data is not yet sent to the Amazon S3 bucket. You must first configure and associate the [alert rules](https://help.zscaler.com/dspm/about-alert-notifications) with this integration for DSPM to be able to send the data logs. After DSPM sends the data logs to the Amazon S3 Bucket, then the status changes to Success.
+You can see the integration details on the **Integrations** page. The initial status is shown as Pending because data is not yet sent to the Amazon S3 bucket. You must first configure and associate the [alert notification rules](https://help.zscaler.com/dspm/about-alert-notifications) with this integration for DSPM to be able to send the data logs. After DSPM sends the data logs to the Amazon S3 Bucket, then the status changes to Success.
 
 [Image: Add a cloud storage integration]
 
@@ -14786,13 +14786,13 @@ This article provides a summary of all new features and enhancements for DSPM. T
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/release-upgrade-summary-2026","lastmod":"2026-08-19T21:56Z","nid":"1534312"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/release-upgrade-summary-2026","lastmod":"2026-09-02T21:57Z","nid":"1534312"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/dspm/release-upgrade-summary-2026
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-19T21:56Z
+- Last modified: 2026-09-02T21:57Z
 - Summary: DSPM Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for DSPM. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).

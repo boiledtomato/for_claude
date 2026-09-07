@@ -1,8 +1,53 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 100
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-04-24T03:21Z","nid":"1399311"} -->
+## Adding URLs to the Allowlist
+
+- Source: https://help.zscaler.com/zia/adding-urls-allowlist
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
+- Last modified: 2026-04-24T03:21Z
+- Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
+
+There might be trusted websites of partners or vendors whose webmail or file downloads might otherwise be blocked due to anti-virus, anti-spyware, anti-malware, or URL filtering policies. You can exempt URLs from security scans, URL filtering, or both.
+
+The allowlist applies to [Malware Protection](https://help.zscaler.com/zia/about-malware-protection), [Advanced Threat Protection](https://help.zscaler.com/zia/about-advanced-threat-protection), [Sandbox](https://help.zscaler.com/zia/about-sandbox), and [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policies. To learn more about how security exceptions impact policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/how-does-zscaler-service-enforce-policies).
+
+You can allowlist URLs completely by exempting them from security scans and URL filtering.
+
+## Adding URLs to Allowlist for Security Scans
+
+Adding URLs to the allowlist for security scans allows users to download content from these URLs without inspecting the traffic.
+
+To add URLs to the allowlist for security policies:
+
+1. Go to one of the following pages:
+  - **Policies**> **Cybersecurity**> **Inline Security**> **Malware Protection**.
+  - **Policies**>**Cybersecurity**> **Inline Security**> **Advanced Threat Protection**
+2. Click the **Security Exceptions** tab.
+3. In **Do Not Scan Content from these URLs**, enter the URLs you want to allowlist and click **Add Items**. You can enter multiple entries by pressing `Enter` after each entry. You can add up to 1,024 URLs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+This allowlist also applies to the [Sandbox](https://help.zscaler.com/zia/about-sandbox) policy.
+
+1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+## Adding URLs to Allowlist for URL Filtering
+
+Adding URLs to the allowlist for URL filtering allows access to the content without being blocked by other URL Filtering policy rules.
+
+To add URLs to allowlist for URL Filtering policy:
+
+1. Add the URLs you want to allowlist to a [custom URL category](https://help.zscaler.com/zia/adding-custom-url-categories).
+2. [Configure a URL Filtering rule](https://help.zscaler.com/zia/configuring-url-filtering-policy) to allow the custom URL category.
+
+Ensure that the rule order of this rule is higher than the URL Filtering rule that blocks these URLs.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -170,13 +215,13 @@ To add a VPN credential:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-webhook","lastmod":"2026-08-20T05:43Z","nid":"1403116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-webhook","lastmod":"2026-09-03T21:06Z","nid":"1403116"} -->
 ## Adding a Webhook
 
 - Source: https://help.zscaler.com/zia/adding-webhook
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > Adding a Webhook
-- Last modified: 2026-08-20T05:43Z
+- Last modified: 2026-09-03T21:06Z
 - Summary: Information on how to add a webhook in the Zscaler Admin Console.
 
 [Watch a video about Security & UEBA Alerts including configuration](https://fast.wistia.net/embed/iframe/xg2ozazz6z) (shows legacy UI).
@@ -987,14 +1032,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/applying-policies-for-authenticated-guest-users","lastmod":"2026-08-27T23:38Z","nid":"1400686"} -->
+<!-- ZS-ARTICLE {"url":"/zia/applying-policies-for-authenticated-guest-users","lastmod":"2026-09-01T18:30Z","nid":"1400686"} -->
 ## Applying Policies for Authenticated Guest Users
 
 - Source: https://help.zscaler.com/zia/applying-policies-for-authenticated-guest-users
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Applying Policies for Authenticated Guest Users
-- Last modified: 2026-08-27T23:38Z
-- Summary: Explains how Zscaler service policies (i.e., URL & Cloud App policies, firewall policies, Data Loss Prevention policies, etc.) are applied to authenticated guest user traffic.
+- Last modified: 2026-09-01T18:30Z
+- Summary: Explains how Zscaler service policies (i.e., URL & Cloud App policies, Firewall policies, Data Loss Prevention policies, etc.) are applied to authenticated guest user traffic.
 
 In general, policies are applied to authenticated traffic, regardless of location. If the traffic to the Zscaler service is from an authenticated user, the policies you configure are applied.
 
@@ -1507,13 +1552,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-08-30T07:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-09-06T07:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -3198,13 +3243,13 @@ The benefits and limitations of using PAC files to forward traffic to one or mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/best-practices-writing-pac-files","lastmod":"2026-08-27T05:09Z","nid":"1399381"} -->
+<!-- ZS-ARTICLE {"url":"/zia/best-practices-writing-pac-files","lastmod":"2026-09-02T07:06Z","nid":"1399381"} -->
 ## Best Practices for Writing PAC Files
 
 - Source: https://help.zscaler.com/zia/best-practices-writing-pac-files
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Best Practices for Writing PAC Files
-- Last modified: 2026-08-27T05:09Z
+- Last modified: 2026-09-02T07:06Z
 - Summary: Best practices for writing PAC files for Internet & SaaS (ZIA).
 
 If your organization needs to use [custom PAC files](https://help.zscaler.com/zia/writing-pac-file), Zscaler highly recommends that you copy and paste the default PAC file in the Zscaler Admin Console and edit the file accordingly. This article provides best practices for [writing a PAC file](https://help.zscaler.com/zia/writing-pac-file):
@@ -3241,19 +3286,19 @@ If your organization needs to use [custom PAC files](https://help.zscaler.com/zi
 - Nested between the opening and closing curly brackets are various JavaScript variables, conditional statements, return statements, and comments.
 - Test all conditions and exceptions used in your PAC file prior to deployment. Verify that your JavaScript is error-free. You can use the Google tool (pactester) or any other PAC parser tool to ensure that there are no syntax errors in your PAC file and it works correctly. Additionally, leverage the **Verify PAC File** option in the Zscaler Admin Console. See image.
 
-[Image: Verify PAC File in Zscaler Admin Console]
+[Image: Verify PAC File button in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-google-chrome","lastmod":"2026-08-28T00:49Z","nid":"1398981"} -->
+<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-google-chrome","lastmod":"2026-09-03T23:08Z","nid":"1398981"} -->
 ## Capturing HTTP Headers on Google Chrome
 
 - Source: https://help.zscaler.com/zia/capturing-http-headers-google-chrome
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Capturing HTTP Headers on Google Chrome
-- Last modified: 2026-08-28T00:49Z
-- Summary: How to use Chrome's built-in developer tool to capture HTTP headers.
+- Last modified: 2026-09-03T23:08Z
+- Summary: How to capture HTTP headers on Google Chrome.
 
 At times, Zscaler Support might ask you to provide HTTP headers when troubleshooting certain issues. The HTTP headers identify the specific URL the browser accessed when you open a web page. Google Chrome has a built-in developer tool that allows you to capture HTTP headers and save them to a file. You can use the Google Chrome embedded HTTP header capture tool on Google Chrome version 54.0.2840.71 m and later. If you are running a different browser version, the steps might be different.
 
@@ -3267,16 +3312,16 @@ To capture headers in Chrome:
   - Open the Developer Tools window by pressing `Ctrl+Shift+i`.
   - Open themenu in the top-right corner and go to**More Tools**> **Developer Tools**. See image.
 2. Click the **Network** tab.
-3. Make sure the record button is red and the **Preserve log**and**Disable Cache** options are checked. See image.
+3. Make sure the record button is red and the **Keep log**and**Disable cache** options are checked. See image.
 4. When the test is completed, click on the **Export HAR (sanitized)** icon to download the sanitized HAR file. To get the option to export the HAR file with sensitive data, do the first three steps of the following section, Exporting HTTP Headers with Sensitive Data. See image.
-5. Click **Save**on the window that appears to download the file.
+5. Click **Save**in the window that appears to download the file.
 6. Selectthe **Console**tab, right-click on the message, and select **Save as**. See image.
-7. Click **Save**on the window that appears to download the file.
+7. Click **Save**in the window that appears to download the file.
 8. Send the saved file to Zscaler Support.
 
 [Image: Go to Developer Tools by clicking More tools and then Developer tools]
 
-[Image: Ensure Record, Disable Cache, and Preserve log are selected]
+[Image: Make sure that Keep log and Disable cache is selected]
 
 [Image: Options displayed after long click]
 
@@ -3293,7 +3338,7 @@ To store the HTTP header file with sensitive data:
 1. Open the **Developer Tools** window by pressing `Ctrl+Shift+i`.
 2. Click the **Settings** icon and go to **Preferences**.
 3. Scroll to the **Network**section and check **Allow to generate HAR (with sensitive data)**. See Image.
-4. On the **Network** tab, check **Preserve Log** and **Disable cache** to save data after SSO redirects. See Image.
+4. On the **Network** tab, check **Keep log** and **Disable cache** to save data after SSO redirects. See Image.
 5. Click the **Clear network log**icon (circle with a diagonal cross) before starting the test.
 6. Optionally, click the **Stop recording network log**icon (red circle) when the test is complete. See Image.
 7. Click and hold the **download** button and select**Export HAR (with sensitive data)**. See Image.
@@ -3307,7 +3352,7 @@ Alternatively, you can:
 
 [Image: Click the Settings icon and go to Preferences]
 
-[Image: make sure that Preserve logs and Disable cache is selected]
+[Image: Make sure that Keep log and Disable cache is selected]
 
 [Image: Click red circle or the circle with the cross to record or clear logs]
 
@@ -3318,14 +3363,14 @@ Alternatively, you can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-microsoft-edge","lastmod":"2026-08-28T04:02Z","nid":"1504371"} -->
+<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-microsoft-edge","lastmod":"2026-09-03T23:10Z","nid":"1504371"} -->
 ## Capturing HTTP Headers on Microsoft Edge
 
 - Source: https://help.zscaler.com/zia/capturing-http-headers-microsoft-edge
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Capturing HTTP Headers on Microsoft Edge
-- Last modified: 2026-08-28T04:02Z
-- Summary: Information on Capturing HTTP Headers on Microsoft Edge
+- Last modified: 2026-09-03T23:10Z
+- Summary: Information on Capturing HTTP Headers on Microsoft Edge.
 
 At times, Zscaler Support might ask you to provide HTTP headers when troubleshooting certain issues. The HTTP headers identify the specific URL the browser accessed when you open a web page. Microsoft Edge has a built-in developer tool that allows you to capture HTTP headers and save them to a file. You can use the Microsoft Edge embedded HTTP header capture tool on Microsoft Edge version 126. If you are running a different browser version, the steps might be different.
 
@@ -3337,16 +3382,18 @@ To capture headers in Microsoft Edge:
   - Open the Developer Tools window by pressing `Ctrl+Shift+i`.
   - Open the menu in the top-right corner and go to**More Tools**> **Developer Tools**. See image.
 2. Click the **Network** tab.
-3. Make sure the record button is red and the **Preserve log**and **Disable Cache** options are checked. See image.
-4. When the test is completed. When the test is completed, click the **Export HAR (sanitized)** icon. To get the option to export the HAR file with sensitive data, do the first three steps of the following section, Exporting HTTP Headers with Sensitive Data.
-5. Click **Save**on the window that appears to download the file.
+3. Make sure the record button is red and the **Keep log**and **Disable cache** options are checked. See image.
+4. When the test is completed, click the **Export HAR (sanitized)** icon. To get the option to export the HAR file with sensitive data, do the first three steps of the following section, Exporting HTTP Headers with Sensitive Data. See image.
+5. Click **Save**in the window that appears to download the file.
 6. Select the **Console**tab, right-click on the message, and select **Save as**. See image.
-7. Click **Save**on the window that appears to download the file.
+7. Click **Save**in the window that appears to download the file.
 8. Send the saved file to Zscaler Support.
 
 [Image: Go to Developer Tools by clicking More tools and then Developer tools]
 
-[Image: Ensure Record, Disable Cache, and Preserve log are selected]
+[Image: Exporting HAR with sensitive data]
+
+[Image: Ensure Record, Disable Cache, and Keep log are selected]
 
 [Image: Click Console and then click on Save as]
 
@@ -3361,7 +3408,7 @@ To store the HTTP header file with sensitive data:
 1. Open the **Developer Tools** window by pressing `Ctrl+Shift+i`.
 2. Click the **Settings** icon and go to **Preferences**.
 3. Scroll to the **Network**section and check **Allow to generate HAR (with sensitive data)**. See Image.
-4. On the **Network** tab, check **Preserve Log** and **Disable cache** to save data after SSO redirects. See Image.
+4. On the **Network** tab, check **Keep log** and **Disable cache** to save data after SSO redirects. See Image.
 5. Click the **Clear network log**icon (circle with a diagonal cross) before starting the test.
 6. Optionally, click the **Stop recording network log**icon (red circle) when the test is complete. See Image.
 7. Click and hold the **download** button and select**Export HAR (with sensitive data)**. See Image.
@@ -3375,24 +3422,24 @@ Alternatively, you can:
 
 [Image: Click the Settings icon and go to Preferences]
 
-[Image: make sure that Preserve logs and Disable cache is selected]
+[Image: Make sure that Keep log and Disable cache is selected]
 
 [Image: Click red circle or the circle with the cross to record or clear logs]
 
-[Image: Click and hold the download button to export HAR with sensitive data]
+[Image: Export HAR with sensitive data]
 
 [Image: Right click an entry and click Copy and then copy all as HAR]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-mozilla-firefox","lastmod":"2026-08-28T01:50Z","nid":"1398971"} -->
+<!-- ZS-ARTICLE {"url":"/zia/capturing-http-headers-mozilla-firefox","lastmod":"2026-08-31T01:00Z","nid":"1398971"} -->
 ## Capturing HTTP Headers on Mozilla Firefox
 
 - Source: https://help.zscaler.com/zia/capturing-http-headers-mozilla-firefox
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Capturing HTTP Headers on Mozilla Firefox
-- Last modified: 2026-08-28T01:50Z
+- Last modified: 2026-08-31T01:00Z
 - Summary: How to capture HTTP headers on Mozilla Firefox.
 
 At times, Zscaler Support might ask you to provide HTTP headers when troubleshooting certain issues. The HTTP headers identify the specific URL the browser accessed when you opened a web page. You can use Mozilla's Inspector tool to capture HTTP headers in Mozilla Firefox version 128. If you are running a different browser version, the steps might be different. To learn more, refer to the [Mozilla documentation](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor/request_details).
@@ -3407,10 +3454,10 @@ To capture header in Mozilla Firefox:
 2. Select the **Network** tab. See image.
 3. In the **Network** tab, select **Disable Cache**and right-click the element you want to inspect.
 4. Select **Save All As HAR**. See image.
-5. Click **Save** on the window to download the file.
+5. Click **Save** in the window to download the file.
 6. Select the**Console**tab and right-click on the message.
 7. Select **Save all Messages to File**. See image.
-8. Click **Save** on the window to download the file.
+8. Click **Save** in the window to download the file.
 9. Send the saved file to Zscaler Support.
 
 [Image: Click to see more options]
@@ -3962,18 +4009,14 @@ To learn more about what you can do within the report, see [About Interactive Re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/classifying-apps","lastmod":"2024-07-04T07:18Z","nid":"1450401"} -->
+<!-- ZS-ARTICLE {"url":"/zia/classifying-apps","lastmod":"2026-09-01T02:48Z","nid":"1450401"} -->
 ## Classifying Apps
 
 - Source: https://help.zscaler.com/zia/classifying-apps
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Using 3rd-Party App Governance > Classifying Apps
-- Last modified: 2024-07-04T07:18Z
+- Last modified: 2026-09-01T02:48Z
 - Summary: How to classify an app in 3rd-Party App Governance.
-
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
-
-?xml version='1.0' encoding='UTF-8'?
 
 A classification is a way to categorize apps in the App Inventory. You can assign one of the following classifications to an app:
 
@@ -3993,23 +4036,16 @@ You can also automatically assign a classification to apps that meet the criteri
 
 To classify an app:
 
-1. In the left-side navigation, go to **Inventory**.
+1. In the left-side navigation, go to **App**.
 2. In the App Inventory, go to the **Classification** column.
-3. In the drop-down menu, select the appropriate classification for the app.
-
-See image.
+3. In the drop-down menu, select the appropriate classification for the app. See image.
 
 You can update the Classification of multiple apps at once. To learn more, see [Taking Bulk Actions on Apps](https://help.zscaler.com/zia/taking-bulk-actions-on-apps).
 
 To classify an app:
 
-1. Select an app.
-
-The App Panel opens.
-
-1. In the **Classification** drop-down menu, located in the App Panel header, select the appropriate classification for the app.
-
-See image.
+1. Select an app. The App Panel opens.
+2. In the **Classification** drop-down menu, located in the App Panel header, select the appropriate classification for the app. See image.
 
 [Image: Screenshot of the Classification menu in the App Inventory]
 
@@ -5405,44 +5441,46 @@ To configure an email notification:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-azure-vwan-locations","lastmod":"2026-08-24T03:34Z","nid":"1400941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-azure-vwan-locations","lastmod":"2026-08-31T08:33Z","nid":"1400941"} -->
 ## Configuring Azure Virtual WAN Locations
 
 - Source: https://help.zscaler.com/zia/configuring-azure-vwan-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Azure Virtual WAN Locations
-- Last modified: 2026-08-24T03:34Z
+- Last modified: 2026-08-31T08:33Z
 - Summary: How to sync Microsoft Azure Virtual WAN (VWAN) hubs, as well as set up their tunnel configurations, locations, and VPN credentials information for the Zscaler service.
 
 To configure an Azure Virtual WAN (VWAN) location:
 
 You must complete the procedure for [Configuring a Microsoft Azure Virtual WAN Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) before you can sync and configure tunnels for your Azure hubs.
 
-1. Go to **Infrastructure > Locations > Location Management > Azure Virtual WAN Locations**.
+1. Go to **Infrastructure**>**Locations**>**Azure Virtual WAN Locations**.
 
 All newly synced Azure hubs have their tunnel configuration listed as **Not Configured**.
 
 See image.
 
-The date and time of the **Last Sync** and **Last Refresh** is always displayed in the upper-right corner next to the search field. If you are not seeing your synced hub locations, click **Sync** to manually re-sync the information or click **Refresh** to update the tunnel configuration information.
+The date and time of the **Last Sync** and **Last Refresh** are always displayed in the upper-right corner next to the search field. If you are not seeing your synced hub locations, click **Sync** to manually re-sync the information or click **Refresh** to update the tunnel configuration information.
 
 1. Within the table, find the Azure hub location you want to configure an IPSec tunnel for and click the **Edit** icon.
 
 The **Edit Azure Hub** window appears.
 
-1. In the **Edit Azure Hub** window, click **Start Configuration**. Zscaler will immediately begin to set up IPSec tunnel configuration objects for the selected Azure hub.
+1. In the **Edit Azure Hub** window, click **Start Configuration**. Zscaler service will immediately begin to set up IPSec tunnel configuration objects for the selected Azure hub.
 
 See image.
 
 When you start the configuration, the status changes to **In Progress**. During this time, the Zscaler service will:
 
 1. Check with Azure to obtain hub configuration information.
-2. Find the closest Zscaler data center (DC) and configure the hub to create an outbound tunnel to that DC.
-3. Fetch the IPSec pre-shared key for the VPN site from the hub.
-4. Provision the hub's IP address for the proper Zscaler cloud and organization.
-5. Create the VPN credentials using the IPSec pre-shared key associated to the VPN site and the hub's IP address.
-6. Create a new Zscaler location for the hub and associate the VPN credentials to it.
-7. Click **Done**.
+
+- Find the closest Zscaler data center (DC) and configure the hub to create an outbound tunnel to that DC.
+- Fetch the IPSec pre-shared key for the VPN site from the hub.
+- Provision the hub's IP address for the proper Zscaler cloud and organization.
+- Create the VPN credentials using the IPSec pre-shared key associated to the VPN site and the hub's IP address.
+- Create a new Zscaler location for the hub and associate the VPN credentials to it.
+
+1. Click **Done**.
 
 After the configuration completes, the **Tunnel Status** changes to **Configured** and the **IP Address** displays the relevant information for that IP. However, **VPN Connection** will remain unlisted, or is set as unknown, at this time.
 
@@ -5454,7 +5492,7 @@ You can view all Azure hub locations from this tab under the **Locations** tab. 
 
 [Image: Screenshot of the Azure Virtual WAN Locations tab within the Zscaler Admin Console]
 
-[Image: Edit Azure Hub window within the ZIA Admin Portal]
+[Image: Edit Azure Hub window within the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6436,13 +6474,13 @@ alert [protocol] any any -> any any
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-ports","lastmod":"2026-04-29T09:48Z","nid":"1399926"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-ports","lastmod":"2026-09-01T08:58Z","nid":"1399926"} -->
 ## Configuring Custom Ports
 
 - Source: https://help.zscaler.com/zia/configuring-custom-ports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Configuring Custom Ports
-- Last modified: 2026-04-29T09:48Z
+- Last modified: 2026-09-01T08:58Z
 - Summary: How to configure Internet & SaaS (ZIA) to use custom ports for specific types of traffic.
 
 By default, the Zscaler service *listens to* the following ports:
@@ -6495,10 +6533,10 @@ To add a custom network service:
 
 To configure the Zscaler proxy service to accept traffic from custom ports:
 
-1. Go to **Policies**> **Common Configuration** > **Advanced**>**Advanced Settings**
+1. Go to **Policies**> **Common Configuration** > **Advanced**>**Advanced Settings**.
 2. Complete the following information:
   - **Services Forwarded to HTTP Web Proxy**:From the **HTTP Services** and **HTTPS Services** lists, choose the custom service that specifies the ports your organization uses for HTTP and HTTPS.
-  - **Services Applicable to DNS Transaction Policies**: From the **DNS Services** list, choose the custom service that specifies the ports your organization uses for DNS traffic.
+  - **Services Applicable to DNS Transaction Policies**: From the **DNS Services** list, choose the custom service that specifies the ports your organization uses for DNS traffic. If no values are selected for the **DNS Services** option, [DNS Control policies](https://help.zscaler.com/zia/about-dns-control) are not enforced on your organization's traffic. However, Zscaler might still resolve your DNS queries if the predefined NAT rule, [Zscaler Trusted DNS Resolver](https://help.zscaler.com/zia/about-nat-control), is enabled. You can manually disable this rule, if required.
   - **Services Forwarded to FTP Proxy**:From the **FTP Services** list, choose the custom service that specifies the ports your organization uses for FTP traffic.
   - **Services Forwarded to RTSP**: From the **RTSP Services** list, choose the custom service that specifies the ports your organization uses for RTSP traffic.
   - **Services Forwarded to PPTP**: From the **PPTP Services** list, choose the custom service that specifies the ports your organization uses for PPTP traffic.
@@ -7907,21 +7945,21 @@ To configure a gateway:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dedicated-proxy-ports","lastmod":"2026-08-24T03:31Z","nid":"1399261"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dedicated-proxy-ports","lastmod":"2026-08-31T07:36Z","nid":"1399261"} -->
 ## Configuring Dedicated Proxy Ports
 
 - Source: https://help.zscaler.com/zia/configuring-dedicated-proxy-ports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Dedicated Proxy Ports
-- Last modified: 2026-08-24T03:31Z
+- Last modified: 2026-08-31T07:36Z
 - Summary: How to enable dedicated proxy ports for the Zscaler service, that can then be associated with a location.
 
 Your organization can subscribe to one or more ports, associate them with a [location](https://help.zscaler.com/zia/how-do-i-add-location), and then forward your remote user traffic to those ports. Forwarding remote users to your subscribed ports enables the Zscaler service to do the following:
 
 - When [SSL Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) is enabled at the location, the service can apply all the SSL settings to remote user traffic, including the ability to exclude [URL categories](https://help.zscaler.com/zia/about-url-categories) and custom domains from decryption. Typically, the traffic of remote users is forwarded to port 9443 where the service does not apply the SSL exclusion settings. Additionally, this allows remote users to automatically authenticate using your SAML ID provider.
-- Apply the location’s policies, instead of the default policy, to remote user traffic that cannot be authenticated, such as transactions that use unknown agents or non-HTTP protocols.
-- Support FTP over HTTP for remote users, enabling the antivirus engine of the service to scan content for viruses and spyware when a remote user’s browser connects to FTP sites and downloads files.
-- Identify a remote user’s organization and display its logo on the login page. In addition, if SAML authentication is used, remote users are not prompted to enter their login name.
+- Apply the location's policies, instead of the default policy, to remote user traffic that cannot be authenticated, such as transactions that use unknown agents or non-HTTP protocols.
+- Support FTP over HTTP for remote users, enabling the antivirus engine of the service to scan content for viruses and spyware when a remote user's browser connects to FTP sites and downloads files.
+- Identify a remote user's organization and display its logo on the login page. In addition, if SAML authentication is used, remote users are not prompted to enter their login name.
 
 For enhanced security and to prevent unauthorized use of the subscribed ports, authentication must be enforced for the location associated with the ports. The service blocks traffic that it cannot authenticate, such as transactions that have an unknown user-agent or a non-HTTP protocol, if it is from an IP address that an authenticated user has not used.
 
@@ -7931,16 +7969,18 @@ Additionally, you can enable the service to map users to their external IP addre
 
 ## Configuring Dedicated Proxy Ports
 
+To configure your proxy ports:
+
 1. Contact Zscaler Support to subscribe to the proxy ports.
-2. After you receive the port numbers of the proxy ports from Zscaler, go to **Infrastructure > Locations > Location Management**.
+2. After you receive the port numbers of the proxy ports from Zscaler, go to **Infrastructure**>**Locations**.
 3. [Add a new location](https://help.zscaler.com/zia/how-do-i-add-location) or [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal) an existing location.
-4. In the **Add Location** or **Edit Location** window, under **Addressing**, choose the **Proxy Ports**you want to associate to the location.
+4. In the **Add Location** or **Edit Location** window, under **Addressing**, choose the **Proxy Ports**you want to associate with the location.
 5. Under **Gateway Options**, select **Enforce Authentication**. See image.
 6. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-After you configure the proxy ports on the ZIA Admin Portal, edit the [PAC file](https://help.zscaler.com/zia/what-pac-file) for your remote users in order to forward their traffic to the subscribed proxy ports.
+After you configure the proxy ports on the Zscaler Admin Console, edit the [PAC file](https://help.zscaler.com/zia/what-pac-file) for your remote users in order to forward their traffic to the subscribed proxy ports.
 
-[Image: Edit Locations Page with Dedicated Proxy Ports Defined and Enforce Authentication Enabled]
+[Image: Edit locations page with Dedicated Proxy Ports Defined and Enforce Authentication enabled]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9070,13 +9110,13 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-08-30T07:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-09-06T07:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
 [Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection.](https://fast.wistia.net/embed/iframe/za6nr8ax7t)
@@ -9258,13 +9298,13 @@ To learn how to use external DLP engines to detect data and also forward informa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-08-30T07:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-09-06T07:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
@@ -9802,13 +9842,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-08-30T07:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-09-06T07:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -10256,16 +10296,16 @@ Iterative DNS requests from DNS servers should only transit Internet & SaaS (i.e
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dynamic-location-groups","lastmod":"2026-08-24T03:34Z","nid":"1401361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dynamic-location-groups","lastmod":"2026-08-31T08:15Z","nid":"1401361"} -->
 ## Configuring Dynamic Location Groups
 
 - Source: https://help.zscaler.com/zia/configuring-dynamic-location-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Dynamic Location Groups
-- Last modified: 2026-08-24T03:34Z
+- Last modified: 2026-08-31T08:15Z
 - Summary: How to add, edit, and delete dynamic location groups within the Zscaler Admin Console.
 
-This article describes how to create a [dynamic location group](https://help.zscaler.com/zia/about-location-groups) and configure location attributes that locations or sublocation must match to be assigned to the dynamic group. You can add up to 256 groups, inclusive of dynamic and manual location groups. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
+This article describes how to create a [dynamic location group](https://help.zscaler.com/zia/about-location-groups) and configure location attributes that locations or sublocations must match to be assigned to the dynamic group. You can add up to 256 groups, inclusive of dynamic and manual location groups. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 By default, the following predefined dynamic location groups are available in the **Location Groups** tab and are view-only:
 
@@ -10281,12 +10321,12 @@ One of these predefined dynamic location groups is automatically populated in th
 
 To add a dynamic location group:
 
-1. Go to **Infrastructure > Locations > Location Management > Location Groups**.
+1. Go to **Infrastructure**>**Locations**>**Location Groups**.
 2. Click **Add Dynamic Group**. The **Add Dynamic Group**window appears.
-3. In the **Add Dynamic Group** window, for **1. Group Information**: See image.
+3. In the **Add Dynamic Group** window, on the **Group Information** tab: See image.
   - In the **General**section:
-    - **Name**: Enter a name for the location group
-    - **Description**: (Optional) Enter a description for the location group
+    - **Name**: Enter a name for the location group.
+    - **Description**: (Optional) Enter a description for the location group.
   - In the **Group Conditions**Section: Select the location attributes that locations or sublocations must match to be assigned to this group. To configure the group conditions: Repeat these steps to add more than one attribute.
     1. Click **Add New Condition**.
     2. From the drop-down menu, select and configure the attribute. You can add any of the following attributes:
@@ -10303,8 +10343,7 @@ To add a dynamic location group:
         - **IoT traffic**
         - **Server traffic**
         - **Workload traffic type** The **Workload traffic type** is automatically populated to a sublocation of a location created in the Zscaler Cloud & Branch Connector Admin Portal.
-        - **Extranet**
-          - **Extranet Resource**: All locations assigned to the extranet you select are added unless they are excluded by another condition.
+        - **Extranet** **Extranet Resource**: All locations assigned to the extranet you select are added unless they are excluded by another condition.
       - **Managed By**: Search for and select the SD-WAN partner name from the drop-down menu. Locations or sublocations managed by the partner are assigned to the group.
       - **Name**: Select a Boolean operator from the drop-down menu (e.g., **Contains**, **Ends With**, **Equals**, **Starts With**), and then enter the name. Locations or sublocations that have the specified name are assigned to the group.
       - **Use XFF from Client Request**: Enable or disable the switch. If enabled, locations or sublocations that have the **Use XFF from Client Request** setting turned on are assigned to the group. If disabled, locations or sublocations that have the setting turned off are assigned to the group.
@@ -10317,7 +10356,7 @@ When saved, the dynamic group continues to automatically update to include any n
 
 To edit or delete a dynamic location group:
 
-1. Go to **Infrastructure > Locations > Location Management > Location Groups**.
+1. Go to **Infrastructure**>**Locations**>**Location Groups**.
 2. Locate the location group in the table and click **Edit**. The **Edit Dynamic Group** window appears.
 3. In the **Edit Dynamic Group**window, modify the **Name**,**Description**, or **Group Conditions**. If you want to remove the group, click **Delete**. See image.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -11613,44 +11652,4 @@ In an alternative scenario, if the location of the user changed from San Jose to
 [Image: Firewall filtering rules actions]
 
 [Image: Network applications criteria in firewall filtering rules]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-firewall-policies","lastmod":"2026-04-29T02:50Z","nid":"1399871"} -->
-## Configuring Firewall Policies
-
-- Source: https://help.zscaler.com/zia/configuring-firewall-policies
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Configuring Firewall Policies
-- Last modified: 2026-04-29T02:50Z
-- Summary: How to configure Zscaler Firewall policies, configure resources that policies will reference, define rules for each policy, and enable the firewall per location.
-
-[Watch a video about Firewall Policies](https://fast.wistia.net/embed/iframe/67lc77bxsf) (shows legacy UI)
-
-Configuring firewall policies requires configuring the following policies as applicable: Firewall Filtering, NAT Control, and DNS Control policies. For FTP Control settings within Firewall, see [Understanding FTP Control](https://help.zscaler.com/zia/understanding-ftp-control).
-
-To configure firewall policies:
-
-1. Configure the resources that the policies reference:
-  - Users, Groups, Departments, Locations, and Sublocations for your firewall policies.
-  - Time Intervals.
-  - Network Applications. You can create network application groups as needed.
-  - Network Services. You can modify network services to edit services, add custom services, and create groups.
-  - Source and Destination IPv4 Groups.
-  - [IPv6 Configuration](https://help.zscaler.com/zia/understanding-ipv6-support)
-2. Define the rules for each policy:
-  - [Firewall Filtering Policy](https://help.zscaler.com/zia/configuring-firewall-filtering-policy)
-  - [NAT Control Policy](https://help.zscaler.com/zia/configuring-nat-control-policy)
-  - [DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy)
-3. By default, the Zscaler service *listens to* the following ports: If your organization uses other or additional ports for these types of traffic, you can configure the service to use [custom ports](https://help.zscaler.com/zia/configuring-custom-ports) for these services.
-  - Port 80 for HTTP traffic
-  - Port 443 for HTTPS traffic
-  - Port 53 for DNS traffic
-  - Port 21 for FTP traffic
-  - Port 554 for RTSP traffic
-  - Port 1723 for PPTP traffic
-4. [Enable the firewall per location.](https://help.zscaler.com/zia/enabling-firewall-locations)
-
-Advanced Firewall is required to configure and apply policies based on users, groups, departments, or network applications.
 <!-- /ZS-ARTICLE -->

@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 130
 
 ---
@@ -5640,13 +5640,13 @@ This article provides an explanation of the policy actions that are seen in Insi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/pre-vetting-apps","lastmod":"2026-08-20T02:28Z","nid":"1450406"} -->
+<!-- ZS-ARTICLE {"url":"/zia/pre-vetting-apps","lastmod":"2026-09-01T02:50Z","nid":"1450406"} -->
 ## Pre-Vetting Apps
 
 - Source: https://help.zscaler.com/zia/pre-vetting-apps
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Using 3rd-Party App Governance > Pre-Vetting Apps
-- Last modified: 2026-08-20T02:28Z
+- Last modified: 2026-09-01T02:50Z
 - Summary: How to add apps from the 3rd-Party App Governance App Catalog to your inventory and submit apps for sandboxing.
 
 Depending on your organization's policy, users might request approval for apps, third-party integrations, and browser extensions before installing them.
@@ -5660,37 +5660,18 @@ If the app is not yet available in the App Catalog, you can submit the app for s
 
 To add an app to your inventory:
 
-1. In the left-side navigation, go to **Inventory**.
-2. Search for an app by name or client ID. To learn more, see [Searching for Apps](https://help.zscaler.com/zia/searching-apps).
-
-See image.
-
-1. In the search results, if the app appears in blue, then it is in the App Catalog. Select the app to open the [App Panel](https://help.zscaler.com/zia/about-app-panel) and further review it.
-
-See image.
-
-1. (Optional) Click **Add to inventory**in the App Panel header. The header also appears in blue if the app is in the App Catalog.
-
-See image.
+1. In the left-side navigation, go to **App**.
+2. Search for an app by name or client ID. To learn more, see [Searching for Apps](https://help.zscaler.com/zia/searching-apps). See image.
+3. In the search results, if the app appears in blue, then it is in the App Catalog. Select the app to open the [App Panel](https://help.zscaler.com/zia/about-app-panel) and further review it. See image.
+4. (Optional) Click **Add to inventory**in the App Panel header. The header also appears in blue if the app is in the App Catalog. See image.
 
 You can add multiple apps to your inventory at once. To learn more, see [Uploading Apps in Bulk](https://help.zscaler.com/zia/uploading-apps-bulk).
 
 To submit an app for sandboxing:
 
-1. In the left-side navigation, go to **Inventory**.
-2. Enter the client ID of the app in the search bar.
-
-See image.
-
-A `No Applications Found` message appears, prompting you to submit the client ID to the 3rd-Party App Governance Sandbox.
-
-See image.
-
-1. Click **Submit**.
-
-A summary appears indicating that your app is **Pending**. You receive an email when your app is uploaded.
-
-See image.
+1. In the left-side navigation, go to **App**.
+2. Enter the client ID of the app in the search bar. See image. A `No Applications Found` message appears, prompting you to submit the client ID to the 3rd-Party App Governance Sandbox. See image.
+3. Click **Submit**. A summary appears indicating that your app is **Pending**. You receive an email when your app is uploaded. See image.
 
 The same summary appears when you [upload apps in bulk](https://help.zscaler.com/zia/uploading-apps-bulk) and 3rd-Party App Governance does not recognize one of the apps. The unrecognized apps are sent for sandboxing automatically and marked as pending.
 
@@ -6529,13 +6510,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-08-28T11:21Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-09-04T06:29Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-28T11:21Z
+- Last modified: 2026-09-04T06:29Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -11122,28 +11103,28 @@ Session-ID: 725CB3755C8F55CF2FBFFB4CF4ECD0B7A6FD79EF79E3E692E028B6606421EAFC
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/supporting-citrix-xenapp-and-xendesktop-applications","lastmod":"2026-08-28T03:51Z","nid":"1400926"} -->
+<!-- ZS-ARTICLE {"url":"/zia/supporting-citrix-xenapp-and-xendesktop-applications","lastmod":"2026-08-31T01:06Z","nid":"1400926"} -->
 ## Supporting Citrix XenApp & XenDesktop Applications
 
 - Source: https://help.zscaler.com/zia/supporting-citrix-xenapp-and-xendesktop-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Troubleshooting > Supporting Citrix XenApp & XenDesktop Applications
-- Last modified: 2026-08-28T03:51Z
+- Last modified: 2026-08-31T01:06Z
 - Summary: Information on forwarding your traffic from Citrix workloads to Zscaler Internet & SaaS (ZIA).
 
 Zscaler Internet & SaaS (ZIA) is used by many existing Citrix customers. To forward traffic to Internet & SaaS from Citrix workloads, you can use GRE or IPSec tunnels, PAC files, or Zscaler Client Connector. However, there are some situations where one option might not be feasible or where it needs to be configured in a certain way.
 
-## Using XenDesktop with Internet & SaaS (ZIA)
+## Using XenDesktop with Internet & SaaS
 
 These workloads are typically Windows Client Operating Systems, such as Windows 7, 8, or 10.
 
 - **GRE or IPSec tunnels**: These can be treated like any Windows user device going through Internet & SaaS. You likely only need to [create a sublocation](https://help.zscaler.com/zia/understanding-sublocations) for these workloads.
-- **PAC files**: These are typically deployed as a Group Policy Object (GPO) and treated no differently than a user’s physical device. However, you need to ensure that the Zscaler authentication cookies are retained across sessions. This way, a user does not need to re-authenticate each time they launch a new desktop. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings).
-- **Zscaler Client Connector**: Zscaler Client Connector currently supports Windows Client Operating Systems and can work with Virtual Desktops. However, due to Zscaler Client Connector’s enrollment process, this only works well with a dedicated VDI. Zscaler Client Connector does not support multiple, simultaneous user sessions from a single host operating system. If you are using non-persistent VDIs where users get fresh desktops each time they connect, they need to re-enroll each time. This might cause users to quickly hit the limit of 16 devices per user. To avoid this, configure Device Cleanup in the Zscaler Client Connector Portal to remove the oldest enrolled device. To learn more, see [Configuring Automated Device Cleanup](https://help.zscaler.com/zscaler-client-connector/configuring-automated-device-cleanup).
+- **PAC files**: These are typically deployed as a Group Policy Object (GPO) and treated no differently than a user’s physical device. However, you need to ensure that the Zscaler authentication cookies are retained across sessions. This way, a user does not need to reauthenticate each time they launch a new desktop. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings).
+- **Zscaler Client Connector**: Zscaler Client Connector currently supports Windows Client Operating Systems and can work with Virtual Desktops. However, due to Zscaler Client Connector’s enrollment process, this only works well with a dedicated VDI. Zscaler Client Connector does not support multiple, simultaneous user sessions from a single host operating system. If you are using non-persistent VDIs where users get fresh desktops each time they connect, they need to re-enroll each time. This might cause users to quickly hit the limit of 16 devices per user. To avoid this, configure Device Cleanup in the Zscaler Admin Console to remove the oldest enrolled device. To learn more, see [Configuring Automated Device Cleanup](https://help.zscaler.com/zscaler-client-connector/configuring-automated-device-cleanup).
 
 If you are running Zscaler Client Connector in conjunction with a corporate VPN client, follow the [best practices for VPN client interoperability.](https://help.zscaler.com/zscaler-client-connector/best-practices-zscaler-client-connector-and-vpn-client-interoperability)
 
-- **SSL Inspection**: If needed, you can deploy the Zscaler Root certificate centrally to the Citrix master images or via GPO as you would any other domain-joined machine.
+- **SSL/TLS Inspection**: If needed, you can deploy the Zscaler Root certificate centrally to the Citrix master images or via GPO as you would any other domain-joined machine.
 - **IP Surrogacy**: Since each user gets a one-to-one mapping with a virtual desktop, you can use IP Surrogacy to bind a username to an internal IP for transactions that would normally only show the Internet & SaaS location name. Typically, you should configure the threshold to be much lower than on normal device networks, such as only a few hours. To learn more about surrogate IP, see [About Surrogate IP](https://help.zscaler.com/zia/about-surrogate-ip).
 
 ## Using XenApp and Hosted Shared Desktops with Internet & SaaS
@@ -11151,7 +11132,7 @@ If you are running Zscaler Client Connector in conjunction with a corporate VPN 
 These workloads are typically Windows Servers, such as Windows Server 2008R2, and Windows Server 2012.
 
 - **GRE or IPSec tunnels**: These can be treated like any Windows user device going through Internet & SaaS. You likely only need to [create a sublocation](https://help.zscaler.com/zia/understanding-sublocations) for these workloads.
-- **PAC files**: These are typically deployed as a Group Policy Object (GPO) and treated no differently than a user’s physical device. However, you need to ensure that the Zscaler authentication cookies are retained across sessions. This way, a user does not need to re-authenticate each time they launch a new desktop. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings).
+- **PAC files**: These are typically deployed as a Group Policy Object (GPO) and treated no differently than a user’s physical device. However, you need to ensure that the Zscaler authentication cookies are retained across sessions. This way, a user does not need to reauthenticate each time they launch a new desktop. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings).
 - **Zscaler Client Connector**: Zscaler Client Connector currently supports Windows Client Operating Systems and is not supported for use with Virtual Apps and Hosted Shared Desktops. This is because Zscaler does not support concurrent user sessions on a device with Zscaler Client Connector installed. Zscaler Client Connector establishes a single tunnel to Internet & SaaS from the first Windows user session that has enrolled with the service. Any concurrently connected users on the same server are able to enroll with Zscaler Client Connector, but the Internet & SaaS and Private Access (ZPA) tunnels fail.
 - **SSL Inspection**: If needed, you can deploy the Zscaler Root certificate centrally to the Citrix master images or via GPO as you would any other domain-joined machine.
 - **IP Surrogacy**: IP Surrogacy needs to be disabled for the sublocation containing the XenApp workloads. The reason is that these servers have multiple concurrent users connected to them. Therefore, if user authentication is enabled, IP Surrogate can flip between users and eventually stop working. Since all the users connected to the server have the same source IP address, there is no way for Zscaler to know which user to map to that IP. To learn more about surrogate IP, see [About Surrogate IP](https://help.zscaler.com/zia/about-surrogate-ip).
@@ -14360,13 +14341,13 @@ The attributes defined for the rule are as follows:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-cloud-app-categories","lastmod":"2026-06-24T06:47Z","nid":"1399341"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-cloud-app-categories","lastmod":"2026-09-02T22:25Z","nid":"1399341"} -->
 ## Understanding Cloud App Categories
 
 - Source: https://help.zscaler.com/zia/understanding-cloud-app-categories
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Understanding Cloud App Categories
-- Last modified: 2026-06-24T06:47Z
+- Last modified: 2026-09-02T22:25Z
 - Summary: Information on the Cloud App categories available with Internet & SaaS (ZIA) and which cloud apps are included in the categories.
 
 Cloud app categories are a key part of [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control). The service organizes cloud applications into 19 categories. For 11 of the categories, you can [create rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy) to allow or block applications per category. For the other 8 categories, in addition to creating rules to allow or block applications per category, you can also apply granular controls (i.e., the specific actions a user can take within the application) as per your organizational requirements.
@@ -15170,46 +15151,46 @@ This is the typical traffic flow for partners accessing resources on your organi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-firewall-capabilities","lastmod":"2026-06-12T03:25Z","nid":"1402371"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-firewall-capabilities","lastmod":"2026-08-31T21:53Z","nid":"1402371"} -->
 ## Understanding Firewall Capabilities
 
 - Source: https://help.zscaler.com/zia/understanding-firewall-capabilities
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Understanding Firewall Capabilities
-- Last modified: 2026-06-12T03:25Z
-- Summary: Information on Zscaler cloud-based next-generation firewall capabilities and policies.
+- Last modified: 2026-08-31T21:53Z
+- Summary: Information on Zscaler's Firewall capabilities and policies.
 
 The Zscaler cloud provides integrated cloud-based next-generation firewall capabilities that allow granular control over your organization's outbound TCP, UDP, and ICMP traffic.
 
 Zscaler works with multiple firewall partners, and [provides a separate deployment guide for each partner](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-firewall-technology-partner-deployment-guides).
 
-You can configure the following firewall policies:
+You can configure the following Firewall policies:
 
 - [Firewall Filtering Policy](https://help.zscaler.com/zia/about-firewall-control): Add rules to allow or block specified types of traffic from your network to the internet. You can also specify how the sessions are logged.
 - [NAT Control Policy](https://help.zscaler.com/zia/about-nat-control): Add rules to perform destination NAT. You can redirect traffic to specific IP addresses or ports.
 - [DNS Control Policy](https://help.zscaler.com/zia/about-dns-control): Add rules to allow or block DNS requests, redirect requests to a different DNS server, or redirect DNS responses by substituting the IP address in a DNS response with a preconfigured IP address.
 - [IPS Control Policy](https://help.zscaler.com/zia/about-ips-control): Add rules to control and protect your traffic from intrusion over all ports and protocols using signature-based detection.
 
-[Configuring firewall policies](https://help.zscaler.com/zia/configuring-firewall-policies) requires configuring the four policies in the preceding list as applicable and [enabling the firewall](https://help.zscaler.com/zia/enabling-firewall-locations) for your locations. You might also need to enable [IPv6 configuration](https://help.zscaler.com/zia/understanding-ipv6-support), create [source](https://help.zscaler.com/zia/how-do-i-configure-source-ip-groups) and [destination IP](https://help.zscaler.com/zia/how-do-i-configure-destination-ip-groups) groups, modify [network services](https://help.zscaler.com/zia/about-network-services), create [network application groups](https://help.zscaler.com/zia/about-network-application-groups), and configure [custom ports](https://help.zscaler.com/zia/configuring-custom-ports).
+[Configuring Firewall policies](https://help.zscaler.com/zia/configuring-firewall-policies) requires configuring the 4 policies in the preceding list as applicable and [enabling the firewall](https://help.zscaler.com/zia/enabling-firewall-locations) for your locations. You might also need to enable [IPv6 configuration](https://help.zscaler.com/zia/understanding-ipv6-support), create [source](https://help.zscaler.com/zia/how-do-i-configure-source-ip-groups) and [destination IP](https://help.zscaler.com/zia/how-do-i-configure-destination-ip-groups) groups, modify [network services](https://help.zscaler.com/zia/about-network-services), create [network application groups](https://help.zscaler.com/zia/about-network-application-groups), and configure [custom ports](https://help.zscaler.com/zia/configuring-custom-ports).
 
-Configuring a firewall policy also requires the following:
+Configuring a Firewall policy also requires the following:
 
 - An organization must forward its IP traffic from a known location.
-- If your organization wants to apply firewall policies at the user level, user authentication and surrogate IP must be enabled. Otherwise, the Zscaler Firewall service applies organization and location policies.
+- If your organization wants to apply Firewall policies at the user level, user authentication and surrogate IP must be enabled. Otherwise, the Zscaler Firewall service applies organization and location policies.
 
 ## Standard and Advanced Firewall
 
-The following table lists the features and functionalities offered by Standard and Advanced Firewall subscriptions:
+The following table lists the features and functionalities offered by Standard and Advanced Firewall:
 
 | Features and Functionalities | Standard Firewall | Advanced Firewall |
 | --- | --- | --- |
-| **Firewall policies based on the following criteria**: [**Network and Application Services**](https://help.zscaler.com/zia/about-network-services): Manage your traffic based on network services and application services that are designated to use specific IP addresses, ports, and protocols (5-tuple firewall).; **FQDN Filtering**:Control your network traffic based on fully qualified domain names (FQDN) and wildcard FQDN*.; [**Location Awareness**](https://help.zscaler.com/zia/about-locations): Enforce policies on internet traffic from known locations (locations configured in the Zscaler Admin Console), sublocations, and remote users.; **User Awareness**: Define granular policies based on [users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), and [departments](https://help.zscaler.com/zia/about-departments).; [**Application Awareness**](https://help.zscaler.com/zia/about-network-applications): Identify and control traffic that belongs to network applications using deep packet inspection (DPI). | Supported with limitations: User Awareness and Application Awareness criteria are notsupported; Only 10 firewall filtering rules are allowed | Supported |
-| [**Destination NAT**](https://help.zscaler.com/zia/about-nat-control): Create rules to redirect your traffic to specific IP addresses and ports within a network using destination NAT. | Supported | Supported |
-| [**FTP Traffic Control**](https://help.zscaler.com/zia/understanding-ftp-control): Use configuration settings to manage native FTP traffic and FTP over HTTP traffic. Configure policies to allow access to specific FTP sites. | Supported | Supported |
-| [**DNS Security and Control**](https://help.zscaler.com/zia/about-dns-control): Define granular DNS filtering policies to control DNS attributes, requests, and responses. Optimize DNS resolution using Zscaler Trusted DNS Resolver hosted in Zscaler data centers. | Supported (only 64 rules are allowed) | Supported |
-| [**DNS Tunnel and DNS Application Control**](https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels): Secure your DNS traffic from DNS tunneling, malicious domains, malware, and phishing attacks. Control DNS applications including web pages, social networking sites, search engines, and network services at the DNS level. | N/A | Supported |
-| [**IPS Control**](https://help.zscaler.com/zia/about-ips-control): Use signature-based IPS to monitor your traffic in real time and protect your network against identified threats over all ports and protocols. In addition to the signatures managed by Zscaler, create and deploy custom IPS signature rules to identify unique threats that are specific to your organization's requirements and threat landscape. | N/A | Supported |
-| [**Non-Standard Traffic Redirection**](https://help.zscaler.com/zia/about-advanced-settings#auto-proxy-forwarding): Identify outbound HTTP, HTTPS, FTP, DNS, RTSP, and PPTP traffic that is destined for non-standard ports and redirect the traffic to the web proxy (secure web gateway) for full web visibility and security. | N/A | Supported |
+| Firewall policies based on the following criteria: [Network and Application Services](https://help.zscaler.com/zia/about-network-services): Manage your traffic based on network services and application services that are designated to use specific IP addresses, ports, and protocols (5-tuple firewall).; **FQDN Filtering**:Control your network traffic based on fully qualified domain names (FQDN) and wildcard FQDN*.; [Location Awareness](https://help.zscaler.com/zia/about-locations): Enforce policies on internet traffic from known locations (locations configured in the Zscaler Admin Console), sublocations, and remote users.; **User Awareness**: Define granular policies based on [users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), and [departments](https://help.zscaler.com/zia/about-departments).; [Application Awareness](https://help.zscaler.com/zia/about-network-applications): Identify and control traffic that belongs to network applications using deep packet inspection (DPI). | Supported with limitations: User Awareness and Application Awareness criteria are notsupported; Only 10 Firewall Filtering rules are allowed | Supported |
+| [Destination NAT](https://help.zscaler.com/zia/about-nat-control): Create rules to redirect your traffic to specific IP addresses and ports within a network using destination NAT. | Supported | Supported |
+| [FTP Traffic Control](https://help.zscaler.com/zia/understanding-ftp-control): Use configuration settings to manage native FTP traffic and FTP over HTTP traffic. Configure policies to allow access to specific FTP sites. | Supported | Supported |
+| [DNS Security and Control](https://help.zscaler.com/zia/about-dns-control): Define granular DNS filtering policies to control DNS attributes, requests, and responses. Optimize DNS resolution using Zscaler Trusted DNS Resolver hosted in Zscaler data centers. | Supported (only 64 rules are allowed) | Supported |
+| [DNS Tunnel and DNS Application Control](https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels): Secure your DNS traffic from DNS tunneling, malicious domains, malware, and phishing attacks. Control DNS applications including web pages, social networking sites, search engines, and network services at the DNS level. | N/A | Supported |
+| [IPS Control](https://help.zscaler.com/zia/about-ips-control): Use signature-based IPS to monitor your traffic in real time and protect your network against identified threats over all ports and protocols. In addition to the signatures managed by Zscaler, create and deploy custom IPS signature rules to identify unique threats that are specific to your organization's requirements and threat landscape. | N/A | Supported |
+| [Non-Standard Traffic Redirection](https://help.zscaler.com/zia/about-advanced-settings#auto-proxy-forwarding): Identify outbound HTTP, HTTPS, FTP, DNS, RTSP, and PPTP traffic that is destined for non-standard ports and redirect the traffic to the web proxy (secure web gateway) for full web visibility and security. | N/A | Supported |
 | **Firewall & IPS Dashboards, Insights, and Logs**:Analyze your traffic information using customizable dashboards, interactive charts, and real-time logs. | Supported. Limitations in logging in Standard Firewall include full logging for each blocked flow but aggregated logging every 15 minutes for allowed flows. | Supported |
 | **DNS Dashboards, Insights, and Logs**: Analyze your traffic information using customizable dashboards, interactive charts, and real-time logs. | Supported. Limitations in logging: DNS tunnel and DNS application information are not populated in DNS logs. | Supported |
 | **Miscellaneous**: Forwarding Control policy (including Source IP Anchoring) | Supported with limitations: Users, groups, departments, custom application service groups, or device groups criteria are not supported in the Forwarding Control policy. | Supported |

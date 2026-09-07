@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
+Generated: 2026-09-07 03:10 UTC
 Articles in this file: 179
 
 ---
@@ -510,13 +510,13 @@ On the Advanced Threat Protection Policy page (Policies > Cybersecurity > Intern
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-alert-history","lastmod":"2026-08-20T05:46Z","nid":"1415171"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-alert-history","lastmod":"2026-09-03T21:06Z","nid":"1415171"} -->
 ## About Alert History
 
 - Source: https://help.zscaler.com/zia/about-alert-history
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Alert History
-- Last modified: 2026-08-20T05:46Z
+- Last modified: 2026-09-03T21:06Z
 - Summary: Information about all the disabled or ended alerts under the Security Alerts page in the Zscaler Admin Console.
 
 The Alert History page displays the list of all the alerts with their evaluation status as ended. The page also displays alerts up to a period of 14 days from the time that the status was changed to Ended.
@@ -2028,13 +2028,13 @@ On the Authentication Profiles page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-08-30T07:06Z","nid":"1398956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-09-06T07:06Z","nid":"1398956"} -->
 ## About Backup and Restore
 
 - Source: https://help.zscaler.com/zia/about-backup-and-restore
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > About Backup and Restore
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: Information about backing up and restoring policies, and configuration settings, within the Zscaler service.
 
 [Watch a video about Backup & Restore.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
@@ -4649,13 +4649,13 @@ Use the arrows at the bottom of the page to go to view the next entries. You can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-08-27T23:39Z","nid":"1402246"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-08-30T20:55Z","nid":"1402246"} -->
 ## About Devices
 
 - Source: https://help.zscaler.com/zia/about-devices
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > About Devices
-- Last modified: 2026-08-27T23:39Z
+- Last modified: 2026-08-30T20:55Z
 - Summary: Information on the Device Management page in the Zscaler Admin Console.
 
 The Device Management page displays all the devices in your organization that have the Zscaler Client Connector deployed. You can select devices when you configure policies​​​​​.
@@ -5763,13 +5763,13 @@ On the EDNS Client Subnet Prefix Objects page (Policies > Access Control > Firew
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-08-30T07:06Z","nid":"1444161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-09-06T07:06Z","nid":"1444161"} -->
 ## About Email Labels
 
 - Source: https://help.zscaler.com/zia/about-email-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: Information on how to create email labels for Gmail and Microsoft Exchange clients.
 
 Email labels provide the option of adding response actions to Gmail and Microsoft Exchange clients based on the email content. Applying email labels creates categories in the users' email accounts automatically. These labels serve as indications to the users about the type of email content and the level of sensitivity.
@@ -5942,13 +5942,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-tenants","lastmod":"2026-08-26T10:20Z","nid":"1492706"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-tenants","lastmod":"2026-09-02T05:01Z","nid":"1492706"} -->
 ## About Email Tenants
 
 - Source: https://help.zscaler.com/zia/about-email-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > About Email Tenants
-- Last modified: 2026-08-26T10:20Z
+- Last modified: 2026-09-02T05:01Z
 - Summary: Information on how to set up email tenants as part of the Zscaler Outbound Email Data Loss Prevention (DLP) policy.
 
 Zscaler's email tenants feature allows you to create email tenants that you can easily add to Zscaler Outbound Email Policy rules to monitor and take action on sensitive data sent by members of your organization to external domains. To learn more, see [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
@@ -6821,13 +6821,13 @@ On the Groups page (Administration > User Management > Groups), you can do the f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-hosted-pac-files","lastmod":"2026-08-26T23:58Z","nid":"1399456"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-hosted-pac-files","lastmod":"2026-09-02T06:25Z","nid":"1399456"} -->
 ## About Hosted PAC Files
 
 - Source: https://help.zscaler.com/zia/about-hosted-pac-files
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > About Hosted PAC Files
-- Last modified: 2026-08-26T23:58Z
+- Last modified: 2026-09-02T06:25Z
 - Summary: Information on hosted PAC files in the Zscaler service.
 
 The Zscaler service hosts 4 default PAC files: recommended.pac, proxy.pac, mobile_proxy.pac, and kerberos.pac. These files are all configured to automatically forward all browser traffic to the nearest Public Service Edge for Internet & SaaS (ZIA). The default PAC files are non-editable, but you can copy them to create and build your custom PAC files. Your organization can use more than one PAC file. For example, you can use one PAC file for mobile devices and another for all other devices. Zscaler recommends using the Kerberos PAC file if you are deploying [Kerberos authentication](https://help.zscaler.com/zia/about-kerberos-authentication).
@@ -6850,8 +6850,8 @@ On the Hosted PAC Files page (Infrastructure > Internet & SaaS > Traffic Forward
   - **Domain**: The Zscaler domain in which the PAC file is hosted.
   - **Hosted URL**: The hosted URL of the PAC file.
   - **Status**: Indicates the verification status of the PAC file. The verification status can be:
-    - **Verified**: Indicates that the PAC file is verified on the Zscaler Admin Console.
-    - **Error-Accepted**: Indicates that the PAC file has some errors and the admin has accepted and saved it with errors at the time of verification on the Zscaler Admin Console.
+    - **Verified**: Indicates that the PAC file is verified in the Zscaler Admin Console.
+    - **Error-Accepted**: Indicates that the PAC file has some errors and the admin has accepted and saved it with errors at the time of verification in the Zscaler Admin Console.
   - **Number of Hits**: The number of times the PAC file is hit in the last 30 days.
   - **Currently Deployed Version**: The version number of the currently deployed PAC file.
 4. Preview a PAC file.
@@ -7107,13 +7107,13 @@ On the Identity Proxy Settings page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-08-30T07:06Z","nid":"1400641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-09-06T07:06Z","nid":"1400641"} -->
 ## About the Index Tool
 
 - Source: https://help.zscaler.com/zia/about-index-tool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: Information on Index Tool Configurations and the Index Tool virtual machine (VM), which are used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 The Index Tool allows you to configure index templates that can be applied when creating custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
@@ -7671,13 +7671,13 @@ You cannot delete a draft or the default intermediate CA certificate.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-internet-saas-users","lastmod":"2026-07-02T15:42Z","nid":"1399891"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-internet-saas-users","lastmod":"2026-09-03T08:13Z","nid":"1399891"} -->
 ## About Internet & SaaS Users
 
 - Source: https://help.zscaler.com/zia/about-internet-saas-users
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > About Internet & SaaS Users
-- Last modified: 2026-07-02T15:42Z
+- Last modified: 2026-09-03T08:13Z
 - Summary: Information on the Internet & SaaS Users page and its features in the Zscaler Admin Console.
 
 [Watch a video about User Management](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
@@ -8012,13 +8012,13 @@ Click **Clear** to remove all rule label selection.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-kerberos-authentication","lastmod":"2026-08-20T06:35Z","nid":"1399556"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-kerberos-authentication","lastmod":"2026-09-03T21:06Z","nid":"1399556"} -->
 ## Understanding Kerberos Authentication
 
 - Source: https://help.zscaler.com/zia/about-kerberos-authentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Understanding Kerberos Authentication
-- Last modified: 2026-08-20T06:35Z
+- Last modified: 2026-09-03T21:06Z
 - Summary: Information on using Kerberos authentication, an industry standard secure protocol, and how it works with the Zscaler service.
 
 Zscaler supports authentication using Kerberos, an industry standard secure protocol. Unlike the other supported authentication mechanisms, Kerberos doesn't use cookies for authentication. It is a ticket-based authentication protocol that is widely used to authenticate users to network services. To learn more about the Kerberos protocol, see [RFC 4120 The Kerberos Network Authentication Service (V5)](https://tools.ietf.org/html/rfc4120).
@@ -8094,25 +8094,25 @@ Additionally, the following are required in a Windows environment:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-location-groups","lastmod":"2026-08-24T03:32Z","nid":"1400541"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-location-groups","lastmod":"2026-08-31T07:59Z","nid":"1400541"} -->
 ## About Location Groups
 
 - Source: https://help.zscaler.com/zia/about-location-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > About Location Groups
-- Last modified: 2026-08-24T03:32Z
+- Last modified: 2026-08-31T07:59Z
 - Summary: Information on location groups and how they are used to managing locations and sublocations in the Zscaler service.
 
 If you have many locations and associated sublocations within your organization, consider using location groups. You can create manual location groups or dynamic location groups:
 
-- Manual Location Groups: When creating a manual location group, you can manually assign any number of locations or sublocations to it.
-- Dynamic Location Groups: When creating a dynamic location group, you select the location attributes that locations or sublocations must match to be assigned to the group. A dynamic group automatically updates to include any matching locations or sublocations. A location or sublocation must match all of a dynamic group's location attributes, including when only some of a location's or sublocation's attributes match. For example, consider that you’ve created a dynamic location group with the following attributes: the location name starts with “NYC” and the **Enforce Bandwidth Control** setting is enabled. A location named “NYC Office 1” that has **Enforce Bandwidth Control** and **Enforce Firewall Control**enabled can be assigned to this group.
+- **Manual Location Groups**: When creating a manual location group, you can manually assign any number of locations or sublocations to it.
+- **Dynamic Location Groups**: When creating a dynamic location group, you select the location attributes that locations or sublocations must match to be assigned to the group. A dynamic group automatically updates to include any matching locations or sublocations. A location or sublocation must match all of a dynamic group's location attributes, including when only some of a location's or sublocation's attributes match. For example, consider that you've created a dynamic location group with the following attributes: the location name starts with "NYC" and the **Enforce Bandwidth Control** setting is enabled. A location named "NYC Office 1" that has **Enforce Bandwidth Control** and **Enforce Firewall Control**enabled is assigned to this group.
 
 The following conditions apply when configuring manual or dynamic location groups:
 
 - A location can join a location group independently of its sublocations, and a sublocation independently of its parent location.
 - A location or sublocation can be a member of multiple manual and dynamic location groups.
-- Location groups can be used to define the scope of a new or existing admin. You can also select location groups for use in policies and reporting (i.e., Insights, Dashboards, etc.).
+- You can use location groups to define the scope of a new or existing admin. You can also select location groups for use in policies and reporting (i.e., Insights, Dashboards, etc.).
 
 ## About the Location Groups Page
 
@@ -8124,7 +8124,7 @@ On the Location Groups page, you can do the following:
 4. View a list of all location groups that were configured for your organization. For location groups, you can see the following:
   - **Name**: The name of the group. You can sort this column.
   - **Type**: Shows if the group is a manual or dynamic location group
-  - **Number of Locations and Sub-Locations**: The number of locations associated with the group. Clicking on the number displays the locations (and their sublocations, if applicable) within the [Locations](https://help.zscaler.com/zia/about-locations#Page) page. You can sort this column.
+  - **Number of Locations and Sub-Locations**: The number of locations associated with the group. Clicking the number displays the locations (and their sublocations, if applicable) within the [Locations](https://help.zscaler.com/zia/about-locations#Page) page. You can sort this column.
   - **Last Modified By**: The last admin user to modify the group. You can sort this column.
   - **Last Modified On**: The date and time the group was last modified.
   - **Description**: The description of the group, if available
@@ -8140,20 +8140,20 @@ On the Location Groups page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-locations","lastmod":"2026-08-24T03:29Z","nid":"1399236"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-locations","lastmod":"2026-08-31T06:18Z","nid":"1399236"} -->
 ## About Locations
 
 - Source: https://help.zscaler.com/zia/about-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > About Locations
-- Last modified: 2026-08-24T03:29Z
+- Last modified: 2026-08-31T06:18Z
 - Summary: Information about how locations and sublocations identify the various networks from which an organization sends its Internet traffic to the Zscaler service.
 
-Locations identify the various networks from which your organization sends its internet traffic. When an organization forwards its traffic to the Zscaler service through a [GRE](https://help.zscaler.com/zia/configuring-gre-tunnels) or [IPSec](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) tunnel, Zscaler provisions your organization's IP addresses, which you then add as locations in the Zscaler Admin Console. You can either [add locations individually](https://help.zscaler.com/zia/configuring-locations) or [import a CSV file with your locations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
+Locations identify the various networks from which your organization sends its internet traffic. When an organization forwards its traffic to the Zscaler service through a [GRE](https://help.zscaler.com/zia/configuring-gre-tunnels) or [IPSec](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) tunnel, Zscaler service provisions your organization's IP addresses, which you then add as locations in the Zscaler Admin Console. You can either [add locations individually](https://help.zscaler.com/zia/configuring-locations) or [import a CSV file with your locations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
 
-When the Zscaler service receives traffic, it checks whether the traffic is from a known location (a location that is configured on the Zscaler Admin Console), or from an unknown location (remote user traffic). If the traffic is from a known location, the service processes the traffic based on the location settings. For example, the service checks whether the location has authentication enabled and proceeds accordingly. It also applies any location policies that you configure and log Internet activity by location.
+When the Zscaler service receives traffic, it checks whether the traffic is from a known location (a location that is configured on the Zscaler Admin Console), or from an unknown location (remote user traffic). If the traffic is from a known location, the service processes the traffic based on the location settings. For example, the service checks whether the location has authentication enabled and proceeds accordingly. It also applies any location policies that you configure and logs Internet activity by location.
 
-If your organization has thousands of locations or sublocations, then the loading time on the Locations page and in any policy that references locations when selected might incur noticeable loading time to retrieve and display the full location list.
+If your organization has thousands of locations or sublocations, then the Locations page and in any policy that references locations when selected might incur noticeable loading time to retrieve and display the full location list.
 
 Locations provide the following benefits and enable you to:
 
@@ -8172,13 +8172,13 @@ You can use a previously deleted location or sublocation name when you create a 
 2. [Delete the location or sublocation](https://help.zscaler.com/zia/editing-locations).
 3. Create a new [location](https://help.zscaler.com/zia/configuring-locations) or [sublocation](https://help.zscaler.com/zia/configuring-sublocations) with the deleted name and the proper attributes.
 
-Zscaler Admin Console displays an error if you attempt to use a name that already belongs to an existing location or sublocation. It also displays this error if you attempt to change an existing location’s or sublocation’s name to a previously deleted name without completing the preceding steps.
+Zscaler Admin Console displays an error if you attempt to use a name that already belongs to an existing location or sublocation. It also displays this error if you attempt to change an existing location's or sublocation's name to a previously deleted name without completing the preceding steps.
 
 See image.
 
 ## About the Locations Page
 
-On the Locations page (Infrastructure > Locations > Location Management > Legacy Locations), you can do the following:
+On the Locations page (Infrastructure > Locations > Legacy Locations), you can do the following:
 
 1. [Add a location](https://help.zscaler.com/zia/configuring-locations).
 2. [Import new locations and sublocations, or modify existing locations and sublocations, using a CSV file](https://help.zscaler.com/zia/importing-locations-using-a-csv).
@@ -8186,10 +8186,10 @@ On the Locations page (Infrastructure > Locations > Location Management > Legacy
 4. Download a **Sample Import CSV file** that shows the correct CSV format for adding or modifying locations and sublocations.
 5. Filter the list of locations and sublocations.
 6. Search for a location or sublocation.
-7. View a list of all locations and sublocations that were configured for your organization. For each location, you can see the following: For location lists, you can view up to 100 locations on a page.
+7. View a list of all locations and sublocations that were configured for your organization. For each location, you can see: For location lists, you can view up to 100 locations on a page.
   - **Name**: The name of the location or sublocation.
   - **Sublocations**: The number of sublocations for the location. If you click the number in this column, the **View Sublocation** window appears.
-  - **IP Addresses**: The static IP addresses for your local gateway for the location. The organization’s shared public IP addresses cannot be used for a specific tenant’s location.
+  - **IP Addresses**: The static IP addresses for your local gateway for the location. The organization's shared public IP addresses cannot be used for a specific tenant's location.
   - **Proxy Ports**: The [subscribed proxy ports](https://help.zscaler.com/zia/configuring-dedicated-proxy-ports) for the location, if applicable.
   - **Use XFF from Client Request**: Indicates whether the [Use XFF from Client Request](https://help.zscaler.com/zia/configuring-locations#EnableXFFForwarding) feature is enabled for the location.
   - **Authentication**: Indicates whether the [Enforce Authentication](https://help.zscaler.com/zia/configuring-locations#EnforceAuthentication) feature is enabled for the location. If you are also using the [Enable IP Surrogates](https://help.zscaler.com/zia/configuring-locations#EnableIPSurrogates) feature, this column displays the specified Idle Time to Disassociation.
@@ -8204,10 +8204,8 @@ On the Locations page (Infrastructure > Locations > Location Management > Legacy
 8. [Modify the table and its columns](https://help.zscaler.com/zia/using-tables).
 9. [Add a sublocation](https://help.zscaler.com/zia/understanding-sublocations).
 10. [Edit a location or sublocation](https://help.zscaler.com/zia/editing-locations), including the ability to delete a location.
-11. Go to the [Location Groups](https://help.zscaler.com/zia/about-location-groups) page, to add a new location group or manage existing groups.
-12. Go to the [Azure Virtual WAN Locations](https://help.zscaler.com/zia/configuring-azure-vwan-locations) page, to view and manage your synced Microsoft Azure hub site locations. This tab is only displayed if you have a Microsoft Azure Virtual WAN integration with Zscaler. To learn more, see [About Partner Integrations](https://help.zscaler.com/zia/about-partner-integration-management).
 
-[Image: Viewing and managing locations and sublocations within the Zscaler Internet Access (ZIA) Admin Portal]
+[Image: Locations Page within the ZIA Admin Portal]
 
 To narrow down the list of locations and sublocations, click the **Apply Filter** icon ([Image: Filter icon]). Click **Add Filter** and then select a location attribute from the drop-down menu. After you configure the attribute, the list automatically updates to show relevant locations and sublocations. You can add multiple attributes to narrow down the list even further. To remove a filter, click the **Remove icon** ([Image: Remove icon]).
 
@@ -8969,13 +8967,13 @@ On the OAuth 2.0 Authorization Servers page (Administration > API Configuration>
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-ongoing-alerts","lastmod":"2026-08-20T05:46Z","nid":"1415176"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-ongoing-alerts","lastmod":"2026-09-03T21:06Z","nid":"1415176"} -->
 ## About Ongoing Alerts
 
 - Source: https://help.zscaler.com/zia/about-ongoing-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Ongoing Alerts
-- Last modified: 2026-08-20T05:46Z
+- Last modified: 2026-09-03T21:06Z
 - Summary: Information about a graphical and detailed view of all the configured alerts and event types.
 
 The Ongoing Alerts page displays the information about all the ongoing alerts in a graphical and detailed view. It provides high-level details of what is happening within your organization during a given time period to quickly take action and prioritize investigation. The page also helps you check the responses based on the type of detectable threats within the organization and the scope of impact.
@@ -9524,13 +9522,13 @@ On the Root Certificates page (Infrastructure > Internet & SaaS > Network Polici
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-rule-labels","lastmod":"2026-08-27T23:39Z","nid":"1402201"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-rule-labels","lastmod":"2026-09-01T20:07Z","nid":"1402201"} -->
 ## About Rule Labels
 
 - Source: https://help.zscaler.com/zia/about-rule-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > About Rule Labels
-- Last modified: 2026-08-27T23:39Z
+- Last modified: 2026-09-01T20:07Z
 - Summary: Information on using Rule Labels in the Zscaler Admin Console.
 
 Zscaler's rule label feature allows you to logically group all your organization's policies. The feature consists of two parts: creating rule labels and associating the labels with all the policy rules. You can control the policy rules displayed under a rule label.
@@ -9560,7 +9558,7 @@ On the Rule Labels page (Policies > Common Configuration > Resources > Rule Labe
 
 You can delete a rule label only if it's not associated with any policy rule.
 
-[Image: Add Rule Label window]
+[Image: The Rule Labels page shows a list of rule labels and details]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12824,13 +12822,13 @@ A super admin can view and edit all scheduled reports. Other administrators can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-security-ueba-alerts","lastmod":"2026-08-20T05:46Z","nid":"1403106"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-security-ueba-alerts","lastmod":"2026-09-03T21:06Z","nid":"1403106"} -->
 ## About Security & UEBA Alerts
 
 - Source: https://help.zscaler.com/zia/about-security-ueba-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Security & UEBA Alerts
-- Last modified: 2026-08-20T05:46Z
+- Last modified: 2026-09-03T21:06Z
 - Summary: Information on the Security & UEBA Alerts page in the Zscaler Admin Console.
 
 [Watch a video about Security & UEBA Alerts including configuration](https://fast.wistia.net/embed/iframe/xg2ozazz6z) (shows legacy UI).
@@ -12983,25 +12981,26 @@ On the**Notifications** tab, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-source-ip-groups","lastmod":"2026-06-29T23:29Z","nid":"1400191"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-source-ip-groups","lastmod":"2026-09-03T05:43Z","nid":"1400191"} -->
 ## About Source IP Groups
 
 - Source: https://help.zscaler.com/zia/about-source-ip-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Source IP Groups
-- Last modified: 2026-06-29T23:29Z
+- Last modified: 2026-09-03T05:43Z
 - Summary: Information on source IP groups that can be used in various policy configurations in Internet & SaaS (ZIA).
 
 [Watch a video about IP and FQDN Groups](https://fast.wistia.net/embed/iframe/t9xati8hoh) (shows legacy UI).
 
-Source IP groups allow you to group and control source IP addresses in the [Firewall policies](https://help.zscaler.com/zia/configuring-firewall-policies), the [DLP policy](https://help.zscaler.com/zia/about-data-loss-prevention) rule ([with content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection) or [without content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection)), [URL Filtering policy,](https://help.zscaler.com/zia/configuring-url-filtering-policy)and the[SSL/TLS Inspection policy](https://help.zscaler.com/zia/configuring-ssl-inspection-policy).
+Source IP groups are used as a single, reusable object to enforce rules across various security policies. You can apply source IP groups to policies, such as [Firewall](https://help.zscaler.com/zia/configuring-firewall-policies), [DLP](https://help.zscaler.com/zia/about-data-loss-prevention), [URL Filtering](https://help.zscaler.com/zia/configuring-url-filtering-policy), and [SSL/TLS Inspection](https://help.zscaler.com/zia/configuring-ssl-inspection-policy).
 
 Source IP groups provide the following benefits and enable you to:
 
-- Group source IP addresses into a single entity to manage them collectively in security policies.
-- Configure Firewall Filtering rules, NAT rules, DNS rules, IPS Control policies, Forwarding rules, DLP rules, URL Filtering rules, and SSL/TLS Inspection rules based on source IP groups to control your inbound traffic and enforce condition-based actions on your network traffic.
+- Simplify policy management by grouping multiple source IP addresses into a single object to collectively manage them across all security policies.
+- Enforce granular traffic control by applying consistent inbound and outbound security rules based on unified source IP groups.
+- Automate policy updates by modifying IP addresses within a group once to automatically apply those changes across all linked security controls, minimizing configuration errors.
 
-The groups are created and managed for IPv4 and IPv6 addresses separately. The Zscaler service provides two predefined groups, namely All IPv4 and All IPv6, for encompassing all IP addresses of the respective type into a single group. In addition, you can create custom groups for IPv4 addresses by specifying individual, subnet, or range of addresses.
+Source IPv4 and IPv6 addresses are managed in separate groups. The Zscaler service provides two predefined groups (All IPv4 and All IPv6) that contain all addresses of their respective types. Additionally, you can create custom groups for IPv4 addresses using individual IP addresses, subnets, or ranges to define specific network segments.
 
 Custom groups for IPv6 addresses are not currently supported.
 
@@ -13012,29 +13011,33 @@ You can use the following pages to create and manage source IP address groups:
 
 On the Source IPv4 Groups page (Policies > Access Control > Firewall > IP & FQDN Groups > Source IPv4 Groups), you can do the following:
 
-1. [Add a source IPv4 group](https://help.zscaler.com/zia/configuring-source-ip-groups).
-2. Search for a source IPv4 group.
-3. View a list of all source IPv4 groups. For each group, you can view:
+1. Search for a source IPv4 group.
+2. [Add a source IPv4 group](https://help.zscaler.com/zia/configuring-source-ip-groups).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View the list of available source IPv4 groups. For each group, you can view:
   - **Name**: The name of the source IPv4 group. You can sort this column.
   - **IP Addresses**: The IPv4 addresses included in the group.
   - **Description**: The description of the group, if available. You can sort this column.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. View information about the predefined **All IPv4** group.
-6. [Edit a source IPv4 group](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-7. Go to the Source IPv6 Groups, [Destination IPv4 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv4), [Destination IPv6 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv6), and [IP Pool](https://help.zscaler.com/zia/about-ip-pool) pages.
+  - **Actions**: The actions you can perform on a group, such as editing and deleting.
+5. [Edit or delete a source IPv4 group](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+6. View details for read-only predefined groups.
+7. The source IPv4 groups are paginated with up to 500 groups displayed per page.
+8. Go to the Source IPv6 Groups, [Destination IPv4 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv4), [Destination IPv6 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv6), and [IP Pool](https://help.zscaler.com/zia/about-ip-pool) pages.
 
 [Image: The Source IPv4 Groups page shows a list of configured source IP groups, IP addresses in each group, and descriptions]
 
 On the Source IPv6 Groups page (Policies > Access Control > Firewall > IP & FQDN Groups > Source IPv6 Groups), you can do the following:
 
 1. Search for a source IPv6 group.
-2. View the list of source IPv6 groups along with the following information: Only the predefined **All IPv6** group is currently available.
-  - **Name**: The name of the source IPv4 group. You can sort this column.
-  - **IP Addresses**: The IPv4 addresses included in the group.
-  - **Description**: The description of the group, if available. You can sort this column.
+2. View the available source IPv6 groups. Currently, only the predefined **All IPv6** group is available. For this group, you can view:
+  - **Name**: The name of the source IPv6 group. You can sort this column.
+  - **IP Addresses**: The IPv6 addresses included in the group.
+  - **Description**: The description of the group. You can sort this column.
+  - **Actions**: An option to view details about this group.
 3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. View information about the predefined **All IPv6** group.
-5. Go to the Source IPv4 Groups, [Destination IPv4 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv4), [Destination IPv6 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv6), and [IP Pool](https://help.zscaler.com/zia/about-ip-pool) pages.
+4. View details for read-only predefined groups.
+5. Pagination is supported to display up to 500 groups per page.
+6. Go to the Source IPv4 Groups, [Destination IPv4 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv4), [Destination IPv6 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv6), and [IP Pool](https://help.zscaler.com/zia/about-ip-pool) pages.
 
 [Image: The Source IPv6 Groups page shows a list of configured source IP groups, IP addresses in each group, and descriptions]
 <!-- /ZS-ARTICLE -->
@@ -13613,13 +13616,13 @@ On the Threat Insights page (click Analytics, enable the toggle Switch to Existi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-time-intervals","lastmod":"2026-08-27T23:40Z","nid":"1399151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-time-intervals","lastmod":"2026-09-02T19:26Z","nid":"1399151"} -->
 ## About Time Intervals
 
 - Source: https://help.zscaler.com/zia/about-time-intervals
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > About Time Intervals
-- Last modified: 2026-08-27T23:40Z
+- Last modified: 2026-09-02T19:26Z
 - Summary: How to define time intervals in the Zscaler Admin Console for use in policies.
 
 [Watch a video about Time Intervals](https://fast.wistia.net/embed/iframe/5216rd7peb) (shows legacy UI).
@@ -13652,9 +13655,9 @@ On the Time Intervals page (Policies > Common Configuration > Resources > Time I
 4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 5. [Edit a time interval](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
 
-[Image: Image showing the Time Intervals page]
+[Image: Time Intervals page]
 
-[Image: A location in London]
+[Image: London location]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14239,13 +14242,13 @@ On the URL Filtering Policy page (Policies > Access Control > Internet & SaaS > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-user-confirmation-notification-templates","lastmod":"2026-08-27T23:41Z","nid":"1492901"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-user-confirmation-notification-templates","lastmod":"2026-09-01T21:57Z","nid":"1492901"} -->
 ## About User Confirmation Notification Templates
 
 - Source: https://help.zscaler.com/zia/about-user-confirmation-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > About User Confirmation Notification Templates
-- Last modified: 2026-08-27T23:41Z
+- Last modified: 2026-09-01T21:57Z
 - Summary: Information on user confirmation notification templates. These are sent to your organization’s auditors when an Endpoint Data Loss Prevention (DLP) policy triggers in the Zscaler service.
 
 You can use Endpoint Data Loss Prevention (DLP) and Inline Web DLP policies to identify and act on end user activities that involve sensitive data. If an activity is part of a necessary workflow, you can configure your Endpoint DLP and Inline Web DLP policy rules with a Confirm action that requires users to explain the activity and provide justification for why it requires sensitive data.
@@ -14265,16 +14268,17 @@ User Confirmation notification templates provide the following benefits and allo
 
 On the User Confirmation Notification Templates page (Policies > Common Configuration > Resources > Data Protection User Confirmation), you can do the following:
 
-1. Add a [customer user notification](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates) message for your organization.
+1. [Add a customer user notification message for your organization](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
 2. Search for a user confirmation template.
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. [Customize](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates) the introductory language for each user confirmation notification template.
-5. View a list of the default user notification templates available for your organization. For user confirmation notification templates, you can see:
-  - **Channel**: The channel to which each default template is assigned. You can sort this column.
-  - **Name**: The default template name for each channel.
-6. [Specify global settings](https://help.zscaler.com/zia/configuring-settings-user-confirmation-notification-templates) for user confirmation templates.
+3. View a list of the default user notification templates available for your organization. For user confirmation notification templates, you can see:
+  1. **Channel**: The channel to which each default template is assigned. You can sort this column.
+  2. **Name**: The default template name for each channel.
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. [Customize](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates) the introductory language for each user confirmation notification template.
+6. Delete a notification template.
+7. [Specify global settings](https://help.zscaler.com/zia/configuring-settings-user-confirmation-notification-templates) for user confirmation templates.
 
-[Image: Image showing the notification templates page]
+[Image: Diagram showing the notification templates page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14672,13 +14676,13 @@ On the Watermarking page (Policies > Data Protection > Policy > Rights Managemen
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-webhooks","lastmod":"2026-08-20T05:44Z","nid":"1403111"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-webhooks","lastmod":"2026-09-03T21:06Z","nid":"1403111"} -->
 ## About Webhooks
 
 - Source: https://help.zscaler.com/zia/about-webhooks
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Webhooks
-- Last modified: 2026-08-20T05:44Z
+- Last modified: 2026-09-03T21:06Z
 - Summary: Information about Webhook in the Zscaler Admin Console.
 
 Webhook configuration in the Zscaler Admin Console allows you to deliver alerts for the configured events in the alert rule to third-party applications (e.g., ServiceNow, Splunk) for incident management.

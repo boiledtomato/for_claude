@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 99
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 98
 
 ---
 
@@ -8329,13 +8329,13 @@ Before sending this request, ensure that you generate a report using `POST /even
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/extranet","lastmod":"2026-07-30T17:19Z","nid":"1542221"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/extranet","lastmod":"2026-08-31T07:06Z","nid":"1542221"} -->
 ## Extranet
 
 - Source: https://help.zscaler.com/legacy-apis/extranet
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Extranet
-- Last modified: 2026-07-30T17:19Z
+- Last modified: 2026-08-31T07:06Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
@@ -21920,13 +21920,13 @@ You can also bulk delete locations, up to a maximum of 100 locations per request
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/managing-log-streaming-service-configurations-using-api","lastmod":"2026-02-24T06:06Z","nid":"1485036"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/managing-log-streaming-service-configurations-using-api","lastmod":"2026-09-03T08:30Z","nid":"1485036"} -->
 ## Managing Log Streaming Service Configurations Using API
 
 - Source: https://help.zscaler.com/legacy-apis/managing-log-streaming-service-configurations-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Managing Log Streaming Service Configurations Using API
-- Last modified: 2026-02-24T06:06Z
+- Last modified: 2026-09-03T08:30Z
 - Summary: Information on Log Streaming Service (LSS) configuration applicable to Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information for managing Zscaler Private Access (ZPA) Log Streaming Service (LSS) configuration using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
@@ -21942,11 +21942,12 @@ To get details of all LSS configurations for a given customer:
 1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/lssConfig`.
 2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/lssConfig`.
 
-- View an example response
+- View an example response.
 
 ```
 {
   "totalPages": "16",
+"totalCount": "3",
   "list": [
     {
       "id": "217246660303025321",
@@ -22169,11 +22170,12 @@ This API supports pagination. To get a paginated response:
 
 For example: `/mgmtconfig/v2/admin/customers/217246660302995456/lssConfig?page=1&pagesize=2.`
 
-- View an example response
+- View an example response.
 
 ```
 {
   "totalPages": "9",
+"totalCount": "3",
   "list": [
     {
       "id": "217246660303025321",
@@ -22683,7 +22685,7 @@ To get details for a particular LSS configuration:
 
 For example: `/mgmtconfig/v2/admin/customers/144118148382064640/lssConfig/144118148382065634`.
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -22759,7 +22761,7 @@ A successful response returns code 200. To learn more, see [API Response Codes a
 
 To get details of all LSS status codes, send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/lssConfig/statusCodes`.
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -23646,7 +23648,7 @@ To get details of all LSS log formats:
 1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}lssConfig/logType/formats`.
 2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/72057594037927936/lssConfig/logType/formats`.
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -23689,6 +23691,11 @@ To get details of all LSS log formats:
 "tsv":"%s{LogTimestamp:time} Browser Access zpa-lss:\t%s{ConnectionID}\t%s{Exporter}\t%s{TimestampRequestReceiveStart:iso8601}\t%s{TimestampRequestReceiveHeaderFinish:iso8601}\t%s{TimestampRequestReceiveFinish:iso8601}\t%s{TimestampRequestTransmitStart:iso8601}\t%s{TimestampRequestTransmitFinish:iso8601}\t%s{TimestampResponseReceiveStart:iso8601}\t%s{TimestampResponseReceiveFinish:iso8601}\t%s{TimestampResponseTransmitStart:iso8601}\t%s{TimestampResponseTransmitFinish:iso8601}\t%d{TotalTimeRequestReceive}\t%d{TotalTimeRequestTransmit}\t%d{TotalTimeResponseReceive}\t%d{TotalTimeResponseTransmit}\t%d{TotalTimeConnectionSetup}\t%d{TotalTimeServerResponse}\t%s{Method}\t%s{Protocol}\t%s{Host}\t%s{URL}\t%s{UserAgent}\t%s{XFF}\t%s{NameID}\t%d{StatusCode}\t%d{RequestSize}\t%d{ResponseSize}\t%d{ApplicationPort}\t%s{ClientPublicIp}\t%d{ClientPublicPort}\t%s{ClientPrivateIp}\t%s{Customer}\t%s{ConnectionStatus}\t%s{ConnectionReason}\t%s{Origin}\t%s{CorsToken}\\n",
 "csv":"%s{LogTimestamp:time} Browser Access zpa-lss: ,%s{ConnectionID},%s{Exporter},%s{TimestampRequestReceiveStart:iso8601},%s{TimestampRequestReceiveHeaderFinish:iso8601},%s{TimestampRequestReceiveFinish:iso8601},%s{TimestampRequestTransmitStart:iso8601},%s{TimestampRequestTransmitFinish:iso8601},%s{TimestampResponseReceiveStart:iso8601},%s{TimestampResponseReceiveFinish:iso8601},%s{TimestampResponseTransmitStart:iso8601},%s{TimestampResponseTransmitFinish:iso8601},%d{TotalTimeRequestReceive},%d{TotalTimeRequestTransmit},%d{TotalTimeResponseReceive},%d{TotalTimeResponseTransmit},%d{TotalTimeConnectionSetup},%d{TotalTimeServerResponse},%s{Method},%s{Protocol},%s{Host},%s{URL},%j{UserAgent},%s{XFF},%s{NameID},%d{StatusCode},%d{RequestSize},%d{ResponseSize},%d{ApplicationPort},%s{ClientPublicIp},%d{ClientPublicPort},%s{ClientPrivateIp},%s{Customer},%s{ConnectionStatus},%j{ConnectionReason},%s{Origin},%s{CorsToken}\\n",
 "json":"{\"LogTimestamp\":%j{LogTimestamp:time},\"ConnectionID\":%j{ConnectionID},\"Exporter\":%j{Exporter},\"TimestampRequestReceiveStart\":%j{TimestampRequestReceiveStart:iso8601},\"TimestampRequestReceiveHeaderFinish\":%j{TimestampRequestReceiveHeaderFinish:iso8601},\"TimestampRequestReceiveFinish\":%j{TimestampRequestReceiveFinish:iso8601},\"TimestampRequestTransmitStart\":%j{TimestampRequestTransmitStart:iso8601},\"TimestampRequestTransmitFinish\":%j{TimestampRequestTransmitFinish:iso8601},\"TimestampResponseReceiveStart\":%j{TimestampResponseReceiveStart:iso8601},\"TimestampResponseReceiveFinish\":%j{TimestampResponseReceiveFinish:iso8601},\"TimestampResponseTransmitStart\":%j{TimestampResponseTransmitStart:iso8601},\"TimestampResponseTransmitFinish\":%j{TimestampResponseTransmitFinish:iso8601},\"TotalTimeRequestReceive\":%d{TotalTimeRequestReceive},\"TotalTimeRequestTransmit\":%d{TotalTimeRequestTransmit},\"TotalTimeResponseReceive\":%d{TotalTimeResponseReceive},\"TotalTimeResponseTransmit\":%d{TotalTimeResponseTransmit},\"TotalTimeConnectionSetup\":%d{TotalTimeConnectionSetup},\"TotalTimeServerResponse\":%d{TotalTimeServerResponse},\"Method\":%j{Method},\"Protocol\":%j{Protocol},\"Host\":%j{Host},\"URL\":%j{URL},\"UserAgent\":%j{UserAgent},\"XFF\":%j{XFF},\"NameID\":%j{NameID},\"StatusCode\":%d{StatusCode},\"RequestSize\":%d{RequestSize},\"ResponseSize\":%d{ResponseSize},\"ApplicationPort\":%d{ApplicationPort},\"ClientPublicIp\":%j{ClientPublicIp},\"ClientPublicPort\":%d{ClientPublicPort},\"ClientPrivateIp\":%j{ClientPrivateIp},\"Customer\":%j{Customer},\"ConnectionStatus\":%j{ConnectionStatus},\"ConnectionReason\":%j{ConnectionReason},\"Origin\":%j{Origin},\"CorsToken\":%j{CorsToken}}\\n"
+},
+"zpn_siem_type_bc_event_log":{
+"tsv":"%s{LogTimestamp:time} Business Continuity Events zpa-lss: \\t%s{Customer}\\t%s{Component}\\t%s{UserName}\\t%s{UserPubIP}\\t%s{BcMode}\\t%s{GeneratedBy}\\t%s{GeneratedByGroup}\\t%s{GeneratorIP}\\t%f{Latitude}\\t%f{Longitude}\\t%s{CountryCode}\\n",
+"csv":"%s{LogTimestamp:time} Business Continuity Events zpa-lss: ,%s{Customer},%s{Component},%s{UserName},%s{UserPubIP},%s{BcMode},%s{GeneratedBy},%s{GeneratedByGroup},%s{GeneratorIP},%f{Latitude},%f{Longitude},%s{CountryCode}\\n",
+"json":"{\"LogTimestamp\": %j{LogTimestamp:time},\"Customer\": %j{Customer},\"Component\": %j{Component},\"UserName\": %j{UserName},\"UserIP\": %j{UserPubIP},\"BcMode\": %j{BcMode},\"GeneratedBy\": %j{GeneratedBy},\"GeneratedByGroup\": %j{GeneratedByGroup},\"GeneratorIP\": %j{GeneratorIP},\"Latitude\": %f{Latitude},\"Longitude\": %f{Longitude},\"CountryCode\": %j{CountryCode}}\\n"
 },
 "zpn_ldap_inspection_log":{
 "tsv":"%s{LogTimestamp:time} LDAP Inspection Logs zpa-lss: \\t%s{Customer}\\t%s{ConnectionID}\\t%s{UserID}\\t%d{AssistantID}\\t%s{Domain}\\t%d{ServerPort}\\t%s{Transport}\\t%s{InspectionProtocolConfig}\\t%s{TrafficClassfication}\\t%s{ProtocolClassification}\\t%s{ProtocolInspectionError}\\t%s{ProtocolVersion}\\t%s{ProtocolActivityType}\\t%d{LDAPNullBindRequests}\\t%d{LDAPBindRequests}\\t%d{LDAPGeneralRequests}\\t%d{LDAPModifyRequests}\\t%d{LDAPSearchRequests}\\t%d{LDAPGroupQueryRequests}\\t%d{LDAPACLQueryRequests}\\t%d{LDAPObjectPropertyRequests}\\t%d{LDAPBaseObjectQueries}\\t%d{LDAPSingleLevelQueries}\\t%d{LDAPWholeSubTreeQueries}\\t%d{Application}\\t%d{ApplicationGroup}\\t%d{InspectionPolicy}\\t%d{InspectionProfile}\\t%d{ParanoiaLevel}\\t%d{InspectionControlsHitCount}\\t%d{ProcessingTime}\\t%d{RequestProcessingTime}\\t%d{ResponseProcessingTime}\\t%d{TotalBytesProcessed}\\t%d{RequestBytes}\\t%d{ResponseBytes}\\t%d{DoubleEncryption}\t%s(,){InspectionControlArray}\t%s(,){ControlTypeArray}\t%s(,){InspectionControlCategories}\t%s(,){Actions}\t%s(,){SeveritiesArray}\t%s(,){DescriptiveExplanationsArray}\\n",
@@ -23767,8 +23774,9 @@ To create a new LSS configuration:
   - `zpn_sitec_auth_log`: Denotes the [Private Cloud Controller Status](https://help.zscaler.com/zpa/understanding-private-cloud-controller-status-log-fields) log type.
   - `zpn_sitec_comprehensive_stats`: Denotes the [Private Cloud Controller Metrics](https://help.zscaler.com/zpa/understanding-private-cloud-controller-metrics-log-fields) log type.
   - `zms_flow_log`: Denotes the [Microsegmentation Flow Logs](https://help.zscaler.com/zpa/about-microsegmentation-flow-log-fields) log type.
+  - `zpn_siem_type_bc_event_log`: Denotes the [Business Continuity Events](https://help.zscaler.com/zpa/understanding-business-continuity-event-log-fields) log type. You cannot create or update LSS configurations using the `zpn_siem_type_bc_event_log` value for `sourceLogType`.
 
-- View the JSON payload
+- View the JSON payload.
 
 ```
 {
@@ -23813,7 +23821,7 @@ To create a new LSS configuration:
 }
 ```
 
-- View the sample JSON payload
+- View the sample JSON payload.
 
 ```
 {
@@ -23897,7 +23905,7 @@ To create a new LSS configuration:
 }
 ```
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -24070,7 +24078,7 @@ To create a new LSS configuration:
 
 A successful response returns code 201, meaning the LSS configuration is created. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-You choose the LSS configuration criteria you want to include in the JSON payload. Refer to the Adding Field Descriptions section for supported values.
+You can choose the LSS configuration criteria you want to include in the JSON payload. Refer to the Adding Field Descriptions section for supported values.
 
 ## Adding Field Descriptions
 
@@ -24086,7 +24094,7 @@ The following table includes available fields you can use for the LSS configurat
 | config.lssHost | The host of the LSS configuration | Yes | String |
 | config.filter | The filter for the LSS configuration | Yes | The format given by the following API to get status codes: `/mgmtconfig/v2/admin/lssConfig/statusCodes`. To learn more, see the Getting Details of All LSS Status Codes section. |
 | config.useTls | Whether TLS is enabled or not | Yes | Default: `false` Supported values: `true`, `false` |
-| config.sourceLogType | The log type of the LSS configuration | Yes | Supported log type values: `zpn_trans_log`: Denotes the [User Activity](https://help.zscaler.com/zpa/about-user-activity-log-fields) log type.; `zpn_auth_log`: Denotes the [User Status](https://help.zscaler.com/zpa/about-user-status-log-fields) log type.; `zpn_ast_auth_log`: Denotes the [App Connector Status](https://help.zscaler.com/zpa/about-connector-status-log-fields) log type.; `zpn_http_trans_log`: Denotes the [Browser Access](https://help.zscaler.com/zpa/about-browser-access-log-fields) log type.; `zpn_audit_log`: Denotes the [Audit Log](https://help.zscaler.com/zpa/about-audit-log-fields) log type.; `zpn_sys_auth_log`: Denotes the [Private Service Edge Status](https://help.zscaler.com/zpa/about-private-service-edge-status-log-fields) log type.; `zpn_ast_comprehensive_stats`: Denotes the [App Connector Metrics](https://help.zscaler.com/zpa/about-app-connector-metrics-log-fields) log type.; `zpn_waf_http_exchanges_log`: Denotes the [AppProtection](https://help.zscaler.com/zpa/about-appprotection-log-fields) log type.; `zpn_smb_inspection_log`: Denotes the SMB Inspection log type.; `zpn_ldap_inspection_log`: Denotes the LDAP Inspection log type.; `zpn_krb_inspection_log`: Denotes the KRB Inspection log type.; `zpn_pbroker_comprehensive_stats`: Denotes the [Private Service Edge Metrics](https://help.zscaler.com/zpa/about-private-service-edge-metrics-log-fields) log type.; `zpn_sitec_auth_log`: Denotes the [Private Cloud Controller Status](https://help.zscaler.com/zpa/understanding-private-cloud-controller-status-log-fields) log type.; `zpn_sitec_comprehensive_stats`: Denotes the [Private Cloud Controller Metrics](https://help.zscaler.com/zpa/understanding-private-cloud-controller-metrics-log-fields) log type.; `zms_flow_log`: Denotes the [Microsegmentation Flow Logs](https://help.zscaler.com/zpa/about-microsegmentation-flow-log-fields) log type. |
+| config.sourceLogType | The log type of the LSS configuration | Yes | Supported log type values: `zpn_trans_log`: Denotes the [User Activity](https://help.zscaler.com/zpa/about-user-activity-log-fields) log type.; `zpn_auth_log`: Denotes the [User Status](https://help.zscaler.com/zpa/about-user-status-log-fields) log type.; `zpn_ast_auth_log`: Denotes the [App Connector Status](https://help.zscaler.com/zpa/about-connector-status-log-fields) log type.; `zpn_http_trans_log`: Denotes the [Browser Access](https://help.zscaler.com/zpa/about-browser-access-log-fields) log type.; `zpn_audit_log`: Denotes the [Audit Log](https://help.zscaler.com/zpa/about-audit-log-fields) log type.; `zpn_sys_auth_log`: Denotes the [Private Service Edge Status](https://help.zscaler.com/zpa/about-private-service-edge-status-log-fields) log type.; `zpn_ast_comprehensive_stats`: Denotes the [App Connector Metrics](https://help.zscaler.com/zpa/about-app-connector-metrics-log-fields) log type.; `zpn_waf_http_exchanges_log`: Denotes the [AppProtection](https://help.zscaler.com/zpa/about-appprotection-log-fields) log type.; `zpn_smb_inspection_log`: Denotes the SMB Inspection log type.; `zpn_ldap_inspection_log`: Denotes the LDAP Inspection log type.; `zpn_krb_inspection_log`: Denotes the KRB Inspection log type.; `zpn_pbroker_comprehensive_stats`: Denotes the [Private Service Edge Metrics](https://help.zscaler.com/zpa/about-private-service-edge-metrics-log-fields) log type.; `zpn_sitec_auth_log`: Denotes the [Private Cloud Controller Status](https://help.zscaler.com/zpa/understanding-private-cloud-controller-status-log-fields) log type.; `zpn_sitec_comprehensive_stats`: Denotes the [Private Cloud Controller Metrics](https://help.zscaler.com/zpa/understanding-private-cloud-controller-metrics-log-fields) log type.; `zms_flow_log`: Denotes the [Microsegmentation Flow Logs](https://help.zscaler.com/zpa/about-microsegmentation-flow-log-fields) log type.; `zpn_siem_type_bc_event_log`: Denotes the [Business Continuity Events](https://help.zscaler.com/zpa/understanding-business-continuity-event-log-fields) log type. You cannot create or update LSS configurations using the `zpn_siem_type_bc_event_log` value for `sourceLogType`. |
 | appConnectorGroups | The App Connector groups to be added to the LSS configuration | No | Any long value in the App Connector Group IDs |
 | policyRuleResource.objectType | The object type of the rule as part of the log receiver configuration. To learn more, see [Configuring a Log Receiver](https://help.zscaler.com/zpa/configuring-log-receiver#Step2). | No | Supported values: `APP`: Denotes the Applications streaming policy criteria for the log receiver.; `APP_GROUP`: Denotes the segments groups for the Applications streaming policy criteria for the log receiver.; `CLIENT_TYPE`: Denotes the Client Types streaming policy criteria for the log receiver.; `SAML`: Denotes the SAML attributes for the SAML and SCIM Attributes streaming policy criteria for the log receiver.; `SCIM`: Denotes the SCIM attributes for the SAML and SCIM Attributes streaming policy criteria for the log receiver.; `SCIM_GROUP`: Denotes the SCIM groups for the SAML and SCIM Attributes streaming policy criteria for the log receiver.To learn more about the supported key (i.e., lhs) and object (i.e., rhs) values for criteria, see [Configuring Access Policies Using API](https://help.zscaler.com/zpa/configuring-access-policies-using-api#lhsandrhsvalues). |
 
@@ -24097,7 +24105,7 @@ To get details of all client types:
 1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/lssConfig/customers/{customerId}/clientTypes`.
 2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/lssConfig/customers/217246660302995456/clientTypes`.
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -24134,7 +24142,7 @@ To update an LSS attribute:
 
 For example: `/mgmtconfig/v2/admin/customers/217246660302995456/lssConfig/217246660303023855`.
 
-- View the JSON payload
+- View the JSON payload.
 
 ```
 {
@@ -24181,7 +24189,7 @@ For example: `/mgmtconfig/v2/admin/customers/217246660302995456/lssConfig/217246
 
 A successful response returns code 204, meaning the LSS attribute is updated. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-If an LSS attribute is configured using Zscaler Deception, then the update and delete options are unavailable.
+If an LSS attribute is configured using Zscaler Deception, then the update option is unavailable.
 
 ## Deleting an LSS Attribute
 
@@ -24197,7 +24205,7 @@ For example: `/mgmtconfig/v2/admin/customers/{217246660302995456/lssConfig/21724
 
 A successful response yields code 204, meaning the LSS attribute is deleted. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-If an LSS attribute is configured using Zscaler Deception, then the update and delete options are unavailable.
+If an LSS attribute is configured using Zscaler Deception, then the delete option is unavailable.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -28926,52 +28934,6 @@ For example: `/mgmtconfig/v1/admin/customers/144118148382065089/server?page=1&pa
 ```
 
 If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-vpn-legacy-apps-resources-using-api","lastmod":"2026-01-06T23:49Z","nid":"1532173"} -->
-## Obtaining VPN (for Legacy Apps) Resources Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-vpn-legacy-apps-resources-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining VPN (for Legacy Apps) Resources Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information about VPN (for Legacy Apps) use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information on obtaining VPN (for Legacy Apps) resources using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting) and [VPN (for Legacy Apps)](https://help.zscaler.com/zpa/vpn-legacy-apps).
-
-## Getting Details of All Users Connected to VPN Service Edges
-
-To get details of all users that are connected to VPN Service Edges:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/vpnConnectedUsers`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/73229488749543424/vpnConnectedUsers`.
-
-- View an example response
-
-```
-{
-  "totalPages": "1",
-  "currentCount": "1",
-  "totalCount": "1",
-  "list": [
-    {
-      "id": "73229488749551415",
-      "creationTime": "1756977137",
-      "modifiedBy": "72057594038820580",
-      "deviceState": "1",
-      "clientIPAddress": "192.0.2.0",
-      "vpnServiceEdgeId": "73229488749551620",
-      "commonName": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc@vishnu1.com",
-      "UserName": "exampleUser2@sample.com",
-      "vpnServiceEdgeName": "Sample VPN Service Edge Name"
-    }
-  ]
-}
-```
 
 A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 <!-- /ZS-ARTICLE -->

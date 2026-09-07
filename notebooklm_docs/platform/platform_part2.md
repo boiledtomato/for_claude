@@ -1,8 +1,428 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 147
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 154
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-authentication-data-sources-and-outegrations","lastmod":"2026-08-05T11:11Z","nid":"1542183"} -->
+## Configuring Authentication for Data Sources and Outegrations
+
+- Source: https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source & Outegration Authentication > Configuring Authentication for Data Sources and Outegrations
+- Last modified: 2026-08-05T11:11Z
+- Summary: How to configure API authentications for connecting data sources and outegrations in the Security Operations Platform.
+
+The Security Operations Platform (SecOps Platform) supports integration with a wide variety of third-party tools and services, and enables secure data exchange such as retrieving findings from external scanners or sending tickets to work management systems. To connect these tools, you must first configure API authentications. Authentication ensures the SecOps Platform can access external resources using valid credentials with the necessary permissions, supporting uninterrupted automation and continuous data flow.
+
+You can create a new authentication during the setup of a [data source](https://help.zscaler.com/unified/creating-data-sources) or [outegration](https://help.zscaler.com/unified/creating-outegrations), or directly from the Authentications page.
+
+- When setting up a source, the Authentication drop-down menu appears in the Retrieval section. See image.
+- When configuring an outegration, the Authentication drop-down menu appears in the Details section of the Connect step. See image.
+
+[Image: Authentication drop-down menu in source setup page with CrowdStrike options]
+
+[Image: The Authentication drop-down menu in the Details section]
+
+## Creating Authentications
+
+Before creating a new authentication, check whether a valid authentication method already exists for the third-party data source or outegration you plan to integrate.
+
+For access to authentications, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Authentications resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Creating & Managing Users](https://help.zscaler.com/unified/creating-managing-users). 
+See image.
+
+[Image: Select permissions for access to authentications]
+
+To create an authentication:
+
+1. In the SecOps Platform Admin Portal, go to **Configure**>**Authentications**. A list of all existing authentications appears.
+2. Click **Create**to add a new authentication.
+3. Select the vendor for which you want to configure authentication. You can also search for a vendor in the search field. The <Vendor Name> **Authentication** window appears.
+4. In the <Vendor Name> **Authentication** window:
+  1. **Name**: Enter an informativename for your authentication. This is the name displayed on the integration setup page, so it should clearly identify the specific authentication instance for the selected vendor. For example, enter `CrowdStrike Vulnerabilities` when creating an authentication for CrowdStrike to be used in the Vulnerabilities stream.
+  2. **Credentials**: Enter the required credentialsfor the API authentication. Each source or outegration has its own unique set of required parameters that must carry the appropriate scopes and permissions to ensure successful integration. Each vendor requires specific parameters with appropriate scopes and permissions. Refer to the vendor's [Sources Configuration Guide](https://help.zscaler.com/uvm/data-sources-outegration-configuration-guides/source-configuration-guides) or [Outegration Configuration Guide](https://help.zscaler.com/uvm/data-sources-outegration-configuration-guides/outegration-configuration-guides) for the exact requirements. If you plan to use the same authentication for multiple integrations (e.g., both Assets and Vulnerabilities streams for CrowdStrike), ensure that the provided credentials have all necessary permissions. Missing or insufficient scopes can result in failed authentication or incomplete data ingestion.
+5. Click **Create** to save the authentication.
+
+The newly created authentication appears in the Authentication drop-down menu on the corresponding vendor's data source or outegration setup page. You can reuse an authentication across multiple integrations, as long as it has the required access permissions.
+
+After authentications are created, ongoing management of them are done through the Authentications page. To learn more, see [Managing Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/managing-authentication-data-sources-and-outegrations).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-blocked-countries","lastmod":"2026-08-21T13:59Z","nid":"1488041"} -->
+## Configuring Blocked Countries
+
+- Source: https://help.zscaler.com/unified/configuring-blocked-countries
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Configuring Blocked Countries
+- Last modified: 2026-08-21T13:59Z
+- Summary: How to specify the countries from which you want to block internet traffic.
+
+You can block internet traffic to and from web servers based in specific countries.
+
+To block countries, on the **Miscellaneous** page, under **Block Countries**:
+
+1. (Optional) Click the **Add**icon and search for the country you want to block.
+2. (Optional) Click the **Close**icon within the country you want to remove from the blocked list.
+
+See image.
+
+You can also [add your company logo to banners, emails, and user notifications sent from Zscaler](https://help.zscaler.com/unified/adding-your-company-logo) or click **Next** to review the internet security settings you've configured.
+
+You can review the list of blocked countries later in the Zscaler Admin Console.
+
+[Image: Set up blocked countries during the onboarding process]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-company-profile","lastmod":"2026-07-31T08:00Z","nid":"1488221"} -->
+## Configuring the Company Profile
+
+- Source: https://help.zscaler.com/unified/configuring-company-profile
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Account Management > Configuring the Company Profile
+- Last modified: 2026-07-31T08:00Z
+- Summary: How to configure the Company Profile page for your organization.
+
+The Internet & SaaS service automatically creates a profile for your organization. On the Company Profile page (Administration > Account Management > Organization), you can:
+
+1. Review your organization's information.
+  - The service automatically assigns your organization a **Company ID**. You may be asked to provide this ID when requesting Zscaler Support.
+  - The service displays the organization **Name** and **Domains** that you provided. Your organization name appears in the login form that the service displays:
+    - When users authenticate to the Zscaler service.
+    - In the user notifications, when policy violations occur.
+2. Enter the **Address** of your organization and **Primary Time Zone.**The time zones listed are those within the geographic location of your primary address. The primary time zone is used when your organization synchronizes user, group, and department information from a directory server.
+3. Upload a logo. The service supports JPG, GIF, and PNG image files of 10 KB size or smaller.
+  - Your company logo appears in the login form that the service displays:
+    - When users authenticate to the Zscaler service.
+    - In the user notifications, when policy violations occur.
+4. Update key contacts. Ensure that the key contacts are current so they can open support tickets for your organization. Enter the names, titles, email addresses and phone numbers of the following key contacts:
+  - **Technical Contacts:** Anyone listed here is authorized to open Support tickets with the Zscaler service.
+  - **Billing Contacts:** Anyone listed here is authorized to open Support tickets with the Zscaler service.
+  - **Business Contacts:** The service displays the primary contact information that you provided. You can edit the **Title** and **Phone**.
+5. Click **Save** and activate the change.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-custom-dashboards","lastmod":"2026-08-19T10:25Z","nid":"1541899"} -->
+## Configuring Custom Dashboards
+
+- Source: https://help.zscaler.com/unified/configuring-custom-dashboards
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Configuring Custom Dashboards
+- Last modified: 2026-08-19T10:25Z
+- Summary: How to configure custom dashboards and add widgets to the dashboard.
+
+You can create a custom dashboard according to your organization's requirements in the Security Operations Platform (SecOps Platform). These dashboards provide the flexibility to add and customize various widgets as required. You must add at least one widget to configure a new custom dashboard. You can also use predefined dashboard templates to create a custom dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).
+
+## Creating a Custom Dashboard
+
+To create a custom dashboard:
+
+1. In the SecOps Platform Admin Portal, go to **Explore**> **Dashboards**. See image.
+2. Click **New**. The **Create New Dashboard** window appears.
+3. In the **Create New Dashboard** window: See image. You can also click **Import Template**to upload a dashboard template.
+  1. **Name**: Enter a name for the dashboard.
+  2. **Description**: (Optional) Enter a description for the dashboard.
+  3. **Viewers**: Select the users who can view the dashboard. To keep the dashboard private, leave the **Viewers**drop-down menu blank.
+    - **Public**: Select to grant view access to all users in the account.
+    - **Specific Users**: Select specific users that can view the dashboard.
+  4. **Editors**: Select the users who can edit the dashboard. To keep the dashboard private, leave the **Editors**drop-down menu blank.
+    - **Public**: Select to grant edit access to all users in the account.
+    - **Specific Users:** Select specific users that can edit the dashboard. The edit access overrides the view access.
+  5. **Pin to Apps**: (Optional) Select the application that you want to pin to the dashboard.
+  6. **Tags**: Enter a tag name, or select from existing tags. You can add one or more tags to a dashboard to categorize it.
+4. Click **Create**. The **Create New Widget** page appears.
+
+[Image: Create New Dashboard window]
+
+### Adding Widgets to Dashboards
+
+After creating the dashboard, you can add widgets to it by selecting the required [dimensions and measurements](https://help.zscaler.com/unified/understanding-measurements-and-dimensions). The dimension defines how data is grouped in a widget (e.g., by user, tenant, or severity, etc.) and the measurement defines the value to be calculated and displayed in the widget (e.g., count of alerts, number of users, or risk score, etc.).
+
+To add widgets to the dashboard:
+
+1. In the **Create New Widget**window:
+  1. Select a widget type in the left-side pane (e.g., **Bar**, **Line**, **Pie**). The widget type affects the number of measurements and dimensions you can add to the widget. To learn more, see [Understanding Dashboard Widget Types](https://help.zscaler.com/unified/understanding-dashboard-widget-types).
+  2. In the right pane, replace **Widget Title (Optional)**with a custom title. See image.
+  3. Customize the widget's displayed data, filters, style, and interactions:
+    - Configure the data displayed in the widget.
+    - (Optional) Apply filters to the widget.
+    - (Optional) Set the widget style.
+    - (Optional) Configure the widget drill-down hierarchy.
+  4. (Optional) Enable **Table View**to display the data in a table format.
+  5. Click **Save**to save the widget to the dashboard. To add more widgets, click **Widget**and repeat the process.
+2. Click **Save** in the top right of the page to add the widget to the dashboard.
+
+[Image: Updating widget title in the dashboard.]
+
+1. On the **Data** tab, select the **Main Entity** type from the drop-down menu.
+2. Add measurements and dimensions to the widget. See image. For example, to create a table widget to monitor the critical identity findings and impacted users across various tenants, you would perform the following steps: Select **Table**as widget type.; On the **Data** tab, select **Tenant**as the**Main Entity** type.; In the **Dimensions**section, select**Tenant ID** and **Tenant Name** to group the data for each tenant.; In the **Measurements**section, select **Critical Active Identity Findings** and **Total Users** to display their total count.; Click **Save**.See image.
+  - Click the **Measurements**icon to view the list of available measurements.
+  - Click the **Dimensions**icon to view the list of available dimensions.
+
+The selected measurements and dimensions appear in the left-side pane, you can drag and rearrange them to the desired position.
+
+See image.
+
+[Image: Measurements icon and Dimensions icon]
+
+[Image: Rearrange measurements and dimensions]
+
+[Image: Example of creating a new widget for tenant.]
+
+On the **Filters** tab, select filters to display specific data in the widgets:
+
+- Date
+- Sort & Top
+- Conditions Filters
+
+To set the date, select either of the following options for **Timeframe**:
+
+- **Current**: Select to generate a widget based on current data.
+- **Historical**: Select to generate a widget based on historical data in the selected date range.
+  - In the **Date range** drop-down menu, select the range of the data that the widget should display. You can choose either a fixed range (e.g., **Last 30 Days**) or a dynamic range that updates based on the current date.
+  - (Optional) In the **Break down by**drop-down menu, select a time interval to set a time-based granularity (e.g., **Day**, **Week**, or **Month**). This selection adds a time dimension to the widget, which counts toward the total number of dimensions. If you do not select anything in the **Break down by**drop-down menu, the widget does not include a time dimension.
+
+See image.
+
+[Image: Configure the time range of a dimension]
+
+To sort and reorder the data:
+
+- **Sort by**: Select the measurement or dimension to sort the data.
+- **Order**: Set the display order of data to either descending or ascending.
+- **Show Top**: Select the maximum number of values that the widget should display (e.g., if you enter 100, the widget displays a maximum of 100 values). Select the **Group Others** checkbox to group the remaining results into one group called **Other**.
+- **Exclude zero values**: Enable to exclude the zero values to be displayed in the widget.
+
+To apply condition filters:
+
+1. **Filter Evaluation Time**: If you selected **Historical**for the **Timeframe**setting, this drop-down menu appears. Select an evaluation time to specify how the filter applies to the data. To learn more, see [Understanding Historical Data](https://help.zscaler.com/unified/understanding-historical-data). See image. The selected date range and filter evaluation time appear when hovering over the widget's historical icon. See image.
+  - **Current State**: Evaluates filter conditions based on the current, most recent state of the data. For example, if the filter **Asset Owner Equals DevOps Team**is applied, the widget displays data for assets currently owned by the DevOps team, even if those assets weren't owned by the DevOps team during the selected date range.
+  - **Historical State**: Evaluates the filter conditions for each time bucket within the selected date range, based on the data's state at that specific point in time, even if it doesn't currently meet the condition. For example, when filtering **Asset Owner Equals DevOps Team**on a widget displaying **Total Critical Assets**for Jan 15 to Dec 15, broken down by week, the filter checks ownership for each week within the date range. For each week, it displays only the critical assets owned by the DevOps team during that week.
+2. **Select Field**: Select the field you want to filter from the drop-down menu.
+3. **Select Operator**: Select an operator. The available operators vary depending on the selected field type.
+4. **Type Value**: Enter the field value against which the filter is evaluated.
+
+Use the operators (**AND**, **OR**) and repeat this process to add multiple conditions filters to the widget. To remove a filter condition, click the **Delete** icon located to the right of the condition. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
+
+See image.
+
+[Image: Filter Evaluation Time drop-down menu]
+
+[Image: Hovering over the Historical icon in a widget]
+
+[Image: Filters conditions]
+
+On the **Style** tab, you can determine how the data is displayed in the widget.
+
+For example, you can configure the legend display for pie charts. The available options include:
+
+- **Table**: Displays the legend in a tabular format. See image.
+- **Aside**: Displays the legend in lines extending from each chart segment. See image.
+- **Basic**: Displays dimension values above the chart and measurement values when hovering over a segment. See image.
+- **Off**: Hides the legend.
+
+For the **Table** and **Aside** options, you can enable or disable **Show Values** and **Show Percentage** to control the display of corresponding measurements.
+
+See image.
+
+Apply formatting rules to set color-coded thresholds for measurements and dimensions, providing clear visual indicators in widgets.
+
+[Image: Table style for a chart legend]
+
+[Image: Aside legend for table data]
+
+[Image: Basic legend and hover data for a chart]
+
+[Image: Style tab Legend options]
+
+On the **Interactions** tab, you can add additional settings that allow you to click elements in the widget to view data at a more granular level.
+
+A drill-down hierarchy is available for **Bar**, **Pie**, and **Table** widgets that are configured with exactly one dimension.
+
+To set up a drill-down hierarchy:
+
+1. Click the **Interactions** tab. See image.
+2. Click **Add Level** to add the next dimension in the drill-down hierarchy. You can add up to three drill-down levels.
+
+After the drill-down hierarchy is configured, you can click the widget to drill down into the next level.
+
+[Image: Interactions tab]
+
+[Image: All Dashboards page in Security Operations platform]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-drawers","lastmod":"2026-08-25T12:10Z","nid":"1542111"} -->
+## Configuring Entity Drawers
+
+- Source: https://help.zscaler.com/unified/configuring-entity-drawers
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Configuring Entity Drawers
+- Last modified: 2026-08-25T12:10Z
+- Summary: How to configure entity drawers for the applications in the Security Operations Platform.
+
+The Security Operations Platform (SecOps Platform) provides a default configuration for displaying the main entity drawers in each of its applications:
+
+- Unified Vulnerability Management (UVM): Tickets, Assets, Findings, and Exceptions
+- Asset Exposure Management (AEM): Assets, Violation Tickets, Policy Violations, and Users
+- SOC Workbench: Incidents, Alerts, Assets, and Users
+- Identity Protection: Users, Identity Findings, Tenants, and Alerts
+
+You can customize the fields and organize the information layout within the entity drawer to meet your organization's specific needs.
+
+To configure a drawer:
+
+1. In the SecOps Platform Admin Portal, go to the application (e.g., click **Vulnerabilities** for UVM).
+2. In the left-side navigation, click **Settings** > **UI Config**. The drawer configuration page opens (e.g., **Ticket UI Configuration** for UVM). See image.
+3. From the **Entity**drop-down menu, select the entity drawer you want to configure (e.g., **Ticket**, **Asset**, **Finding**, **Exception**for UVM).
+4. From the **Type**drop-down menu, select the type of entity. The available fields vary depending on the entity (e.g., **CVE**, **DEFAULT**, **MISCONFIG** for the Ticket drawer in UVM) and whether you've added your own types (see Creating Types).
+5. (Optional) Select the **Severity** checkbox to display the severity level in the top panel of the entity drawer.
+6. (Optional) Select the **Status Timeline** checkbox to display the status timeline in the top panel of the entity drawer. See image.
+7. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+## Creating Types
+
+You can create a new type for the different entities.
+
+To create a new type:
+
+1. From the **Entity**drop-down menu, select the entity you want to configure (e.g., **Ticket**).
+2. From the **Type**drop-down menu, select the type of entity (e.g., **CVE**, **MISCONFIG**), and use it as a template to create a new type. The original types are not affected.
+3. Configure the fields and settings as needed.
+4. Click **Save as New Type**.
+5. Enter a name for the new type.
+6. Click **Apply**. The new type is added to the **Type** drop-down menu.
+
+## Creating and Managing Tabs
+
+For each entity drawer, you can manage system tabs and also create and configure custom tabs. Each tab corresponds to a configurable element in the entity drawer. You can perform the following actions when customizing an entity drawer:
+
+- Add Tabs
+- Rearrange Tabs
+- Delete Tabs
+- Restore System Tabs
+
+## Customizing Fields in Tabs
+
+You can customize the presentation of information within each tab and add new fields to a tab.
+
+The following table lists the differences between configuring system tabs and custom tabs.
+
+| **Tab Type** | **Available Configurations** |
+| --- | --- |
+| System Tabs | Rearrange tabs by dragging them to a new position.; Add new fields.; Delete tabs.; Restore deleted tabs.; For the Details tab, you can specify whether fields appear on the left or right columns.; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
+| Custom Tabs | Edit tabs, sections, and fields.; Rearrange tabs by dragging them to a new position.; Add new fields.; Delete tabs (cannot be restored later).; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
+
+When customizing fields, you can perform the following actions:
+
+- Add Custom Fields
+- Rearrange Fields
+- Delete Fields
+- Edit Custom Fields
+
+After completing the configuration of the settings, click **Save**.
+
+To add tabs to an entity drawer:
+
+1. Click **Add Tab**. See image.
+2. Click **Add Custom Tab**. See image. A dialog window appears.
+3. In the dialog window: See image.
+  1. **Tab Name**: Enter a name for the tab.
+  2. **Tab main projection**: Select the entity from the drop-down menu that the tab should display data from.
+  3. **Should show the tab by field**: (Optional) Select a field to set the tab visibility. This tab only appears when the selected field is populated.
+  4. **Type**: Select the tab type.
+    - **Fields**: Data is displayed as a list of fields.
+    - **2 Columns**: Data is displayed in two columns.
+    - **Table**: Data is displayed in a table.
+    - **Text**: Data is displayed as plain text.
+4. Click **Apply**.
+5. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+To rearrange the order of tabs:
+
+1. Hover over the grid icon to drag the tab to the desired position. See image.
+2. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+To delete a tab, hover over the tab and click the **Delete**icon.
+
+See image.
+
+You can restore system tabs that were deleted.
+
+1. Click **Add Tab**. See image. A list of deleted system tabs appears.
+2. Select the deleted tab from the list.
+3. Save the settings in one of the following ways:
+  - Click **Save**to update the current configuration.
+  - Click **Save as New Type** to save the settings as a new type.
+
+You can add a new field to a system tab or to a custom tab.
+
+To add a new custom field:
+
+1. Click **Add Field**. See image. A dialog window appears.
+2. In the dialog window: See image.
+  1. **Display Name**: Enter a name for the field.
+  2. **Field Name**: Select a field from the drop-down menu.
+  3. **Link Field**: (Optional) Select a field from the drop-down menu. If a field contains a valid URL, the hyperlink is populated within the field on the ticket or asset. The **Field Name**text is displayed as a clickable hyperlink.
+  4. (Optional) Select the **Display When Empty**checkbox to display the field even if no value is present for the field.
+3. Click **Apply**.
+
+To rearrange the order of fields on the tab or section, hover over the grid icon to drag the field to the desired position.
+
+See image.
+
+To delete a field, click the **Delete**icon.
+
+See image.
+
+To edit a custom field:
+
+1. Hover over the tile of the field you want to edit.
+2. Click the **Edit**icon. See image.
+3. Make the necessary changes, and click **Apply**.
+
+You cannot edit a system tab, including the name, type, and default fields. These can only be rearranged or deleted.
+
+[Image: The Ticket UI Configuration page in UVM]
+
+[Image: Severity and status in a ticket drawer]
+
+[Image: UI Configuration page with an option to add a new tab]
+
+[Image: Adding a custom tab]
+
+[Image: Adding a new tab]
+
+[Image: Hover and rearrange tabs]
+
+[Image: Deleting a tab from an entity drawer]
+
+[Image: UI Configuration page with an option to add a new tab]
+
+[Image: Adding a field to a tab]
+
+[Image: Adding a new field in a tab]
+
+[Image: Moving a field within a tab]
+
+[Image: Delete option in a tab]
+
+[Image: Editing a field in a tab]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -1994,13 +2414,13 @@ To customize the logo and email:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/customizing-your-account-settings","lastmod":"2026-08-28T13:39Z","nid":"1498541"} -->
+<!-- ZS-ARTICLE {"url":"/unified/customizing-your-account-settings","lastmod":"2026-08-31T06:40Z","nid":"1498541"} -->
 ## Customizing Your Account Settings
 
 - Source: https://help.zscaler.com/unified/customizing-your-account-settings
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Customizing Your Account Settings
-- Last modified: 2026-08-28T13:39Z
+- Last modified: 2026-08-31T06:40Z
 - Summary: How to customize your account settings in the Zscaler Admin Console.
 
 Zscaler automatically creates a profile for each account in the Zscaler Admin Console where you can change your display language, time zone, password, and default Internet & SaaS (ZIA) cloud.
@@ -2097,13 +2517,13 @@ If a source behaves unexpectedly, you can also review audit logs to track change
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-08-30T07:06Z","nid":"1541895"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-09-06T07:06Z","nid":"1541895"} -->
 ## Deploying Outegration Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-outegration-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Deploying Outegration Configurations
-- Last modified: 2026-08-30T07:06Z
+- Last modified: 2026-09-06T07:06Z
 - Summary: Information about deploying outegration configuration in the Security Operations Platform.
 
 The Security Operations Platform (SecOps Platform) enables you to send security findings, alerts, remediation tasks, and operational context to a wide array of external tools, including ticketing systems, work management platforms, cloud storage services, streaming platforms, and other third-party systems. Connecting these external destinations to your account establishes outbound workflows that move SecOps Platform data and actions into the systems where security, IT, and engineering teams already work.
@@ -2518,50 +2938,6 @@ Your grouping preferences can be saved as a set view. To learn more, see [Creati
 [Image: The Group By drop-down menu on an entity page]
 
 [Image: Click Clear Selection to remove the grouping]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/integrating-3rd-party-connectors-risk-factors","lastmod":"2026-08-13T21:50Z","nid":"1542636"} -->
-## Integrating 3rd-Party Connectors for Risk Factors
-
-- Source: https://help.zscaler.com/unified/integrating-3rd-party-connectors-risk-factors
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Integrating 3rd-Party Connectors for Risk Factors
-- Last modified: 2026-08-13T21:50Z
-- Summary: Information about 3rd-party app integration for risk factors.
-
-The Risk360 service's integration with Zscaler Data Fabric helps in providing better security and a risk assessment that creates a holistic risk quantification environment observed for Zscaler and other third-party technologies. Data Fabric ingests Zscaler and third-party data sources and then harmonizes, deduplicates, correlates, and enriches the ingested data that is used in the Risk360 service for risk quantification. You can configure connectors in the Data Fabric to ingest third-party data sources.
-
-The following out-of-the-box risk factors based on third-party data sources are available with a connector configuration:
-
-| Factor Name | Connector Name |
-| --- | --- |
-| CrowdStrike - Zero Trust Score CrowdStrike - Endpoint Security CrowdScore | CrowdStrike Crowdscore |
-| CrowdStrike - Unsupported Devices CrowdStrike - Unmanaged Devices CrowdStrike - End-of-Life Operating System | CrowdStrike Environment Assets |
-| CrowdStrike - Critical Domain Users Having High Privileges | CrowdStrike Identity Protection - Domain Users |
-| CrowdStrike - Identity Protection for Active Directory | CrowdStrike Identity Protection - Security Assessment |
-| CrowdStrike - Critical and High Incidents | CrowdStrike Incidents |
-| CrowdStrike - High Severity XDR Detections | CrowdStrike Alerts |
-| Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
-| Highly Exploitable Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
-| Is WAF Enabled Is WAF Enforced Is DDoS Protection Enabled Reach out to your Zscaler Account team to implement these factors. | F5 WAF Data |
-| Unaddressed Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
-
-Reach out to your Zscaler Account team to define and implement custom risk factors not listed in the preceding table to serve your organization's specific requirements.
-
-Refer to the following deployment guides for configuring connectors in Zscaler Data Fabric to implement the preceding factors:
-
-- Deployment Guides
-
-| Connector | Deployment Guides |
-| --- | --- |
-| Microsoft Defender for Endpoints - Vulnerabilities | [Zscaler UVM and Microsoft Services Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-microsoft-services-deployment-guide) |
-| CrowdStrike Incidents CrowdStrike Alerts CrowdStrike Environment Assets CrowdStrike Vulnerabilities | [Zscaler and CrowdStrike Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide) |
-| Qualys Vulnerabilities | [Zscaler UVM and Qualys Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-qualys-deployment-guide) |
-| Tenable Vulnerability Management | [Zscaler UVM and Tenable Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-tenable-deployment-guide) |
-| Wiz Vulnerability Findings | [Zscaler UVM and Wiz Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-wiz-deployment-guide) |
-| Rapid7 InsightVM | [Zscaler and Rapid7 Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-rapid7-deployment-guide) |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4724,20 +5100,20 @@ If you mapped only `asset_id` as the key, all 4 records would share the same ide
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/onboarding-users-experience-center","lastmod":"2026-08-21T13:21Z","nid":"1542045"} -->
+<!-- ZS-ARTICLE {"url":"/unified/onboarding-users-experience-center","lastmod":"2026-09-01T12:53Z","nid":"1542045"} -->
 ## Onboarding Users to Experience Center
 
 - Source: https://help.zscaler.com/unified/onboarding-users-experience-center
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Onboarding New Users > Onboarding Users to Experience Center
-- Last modified: 2026-08-21T13:21Z
+- Last modified: 2026-09-01T12:53Z
 - Summary: How to onboard users to Experience Center.
 
 While onboarding to Experience Center for the first time, as a super admin, you can import users via your identity provider (IdP), import user details using a CSV file, or add individual users.
 
 To add users:
 
-1. Sign in to [Experience Center](https://console.zscaler.com).
+1. Sign in to Experience Center via the Zscaler Admin Console (i.e., console.zscaler.com).
 2. On the **Welcome** page, click **Initiate Set Up** under **Set Up New Users**. See image. The **Users** page appears. See image.
 3. On the **Users** page, add users by using all or any of the following three methods: The user details are displayed on the **Users** page.
   - Import users via your IdP.
@@ -4888,13 +5264,13 @@ Click **View All Iterations** to open the Simulation Results drawer. The drawer 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-08-28T00:16Z","nid":"1492411"} -->
+<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-08-31T16:23Z","nid":"1492411"} -->
 ## Ranges & Limitations
 
 - Source: https://help.zscaler.com/unified/ranges-limitations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Ranges & Limitations
-- Last modified: 2026-08-28T00:16Z
+- Last modified: 2026-08-31T16:23Z
 - Summary: Information about product and feature ranges and limitations.
 
 This article lists the ranges and limitations of rules, policies, fields, and other features. All values are per organization unless noted otherwise.
@@ -6243,13 +6619,13 @@ The service automatically activates an admin's saved changes if the admin:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/searching-zscaler-admin-console","lastmod":"2026-08-28T14:03Z","nid":"1503801"} -->
+<!-- ZS-ARTICLE {"url":"/unified/searching-zscaler-admin-console","lastmod":"2026-08-31T06:41Z","nid":"1503801"} -->
 ## Searching in the Zscaler Admin Console
 
 - Source: https://help.zscaler.com/unified/searching-zscaler-admin-console
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Searching in the Zscaler Admin Console
-- Last modified: 2026-08-28T14:03Z
+- Last modified: 2026-08-31T06:41Z
 - Summary: How to search in the Zscaler Admin Console.
 
 To help you navigate faster, you can search for pages in the Zscaler Admin Console. Search results include Zscaler Admin Console pages (except for items in the Help menu) and do not include:
@@ -7000,13 +7376,133 @@ To share a custom dashboard:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/signing-zscaler-admin-console","lastmod":"2026-07-01T13:41Z","nid":"1491881"} -->
+<!-- ZS-ARTICLE {"url":"/unified/signing-security-operations-platform-admin-portal","lastmod":"2026-09-02T08:22Z","nid":"1542055"} -->
+## Signing In to the Security Operations Platform Admin Portal
+
+- Source: https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Admin Portal Access & Navigation > Signing In to the Security Operations Platform Admin Portal
+- Last modified: 2026-09-02T08:22Z
+- Summary: How to sign in to and navigate the SecOps Platform Admin Portal.
+
+This article covers the following topics to help you get started with the Security Operations Platform Admin Portal (SecOps Platform Admin Portal):
+
+- Signing In to the SecOps Platform Admin Portal
+- Accessing the Admin Settings
+- Navigating within the SecOps Platform Admin Portal
+
+After your organization is provisioned for the SecOps Platform, you receive an email with a username (this is your registered email address) and a password to sign in to the SecOps Platform. Go to the login page provided in the email (app.avalor.io).
+
+If your account is configured without single sign-on (SSO):
+
+1. Enter your email address.
+2. Click **Continue**. The **Login**page appears.
+3. Enter your email address and password.
+4. Click **Sign In**.
+
+If your account is configured to use SSO:
+
+1. Enter your email address.
+2. Click **Continue**. You are redirected to your IdP's login page.
+3. Log in with your credentials. If you are logged in successfully, you are redirected to the SecOps Platform.
+
+The SecOps Platform account admin can configure SSO, user management, and email notifications in the account.
+
+To access Account Settings:
+
+1. In the SecOps Platform Admin Portal, click the **Profile**menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation:
+  - Click **Settings**to configure and manage SSO (e.g., Okta).
+  - Click **User Management**to configure and manage [users](https://help.zscaler.com/unified/creating-managing-users).
+  - Click **Permissions**to configure and manage [roles permissions](https://help.zscaler.com/unified/managing-system-and-custom-roles), [content permissions](https://help.zscaler.com/unified/creating-managing-content-permissions) and [email notifications](https://help.zscaler.com/unified/enabling-email-notifications-failures).
+
+You can search to locate pages, features, or tools within the SecOps Platform. Press `Ctrl+K` (Windows) or `Cmd+K` (Mac) to open the search bar, then enter keywords to find relevant results.
+
+Click **Explore**to access various data analysis and visualization tools.
+
+To learn more, see the following articles:
+
+- [Entity Explorer](https://help.zscaler.com/unified/using-entity-explorer)
+- [Logs](https://help.zscaler.com/unified/building-queries-and-searching-logs)
+- [Reports](https://help.zscaler.com/unified/creating-reports)
+- [Dashboards](https://help.zscaler.com/unified/configuring-custom-dashboards)
+
+Click **Configure**to access settings for customizing and managing the data in the SecOps Platform.
+
+To learn more, see the following articles:
+
+- [Sources](https://help.zscaler.com/unified/creating-data-sources)
+- [Outegrations](https://help.zscaler.com/unified/creating-outegrations)
+- [Authentications](https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations)
+- [Data Model](https://help.zscaler.com/unified/about-data-model-management)
+- [Data Unification](https://help.zscaler.com/unified/what-data-unification) >
+  - [Fields](https://help.zscaler.com/unified/configuring-field-unification)
+  - [Entities](https://help.zscaler.com/unified/configuring-entity-unification)
+- [Asset Aging](https://help.zscaler.com/unified/aging-assets)
+- [Measurements and Dimensions](https://help.zscaler.com/unified/understanding-measurements-and-dimensions)
+- [Formatting Rules](https://help.zscaler.com/unified/creating-formatting-rules)
+
+Click the **Knowledge Center**icon to access the SecOps Platform's knowledge base directly within the interface, featuring resources such as configuration guides, deployment guides, and FAQs.
+
+Click the **Contact Support**icon for assistance with technical issues, account configurations, or general inquiries regarding the SecOps Platform.
+
+Click the **Profile**menu to access various settings and account management options.
+
+To learn more, see the following articles:
+
+Profile Settings >
+
+- Personal Info: Update personal details associated with your account.
+- [Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions)
+- [Email Notifications](https://help.zscaler.com/unified/enabling-email-notifications-failures)
+
+Account Settings >
+
+- [Authenticate](https://help.zscaler.com/unified/generating-saml-details)
+- [AI Capabilities](https://help.zscaler.com/unified/managing-ai-capabilities-secops-platform)
+- [Audit Logs Export](https://help.zscaler.com/unified/viewing-audit-logs)
+- [Zscaler Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway)
+- [User Management](https://help.zscaler.com/unified/creating-managing-users)
+- Permissions >
+  - [Roles](https://help.zscaler.com/unified/managing-system-and-custom-roles)
+  - [Content](https://help.zscaler.com/unified/creating-managing-content-permissions)
+
+Click **Dark Mode** to toggle between light and dark modes for the SecOps Platform.
+
+Click **Log Out**to log out of the SecOps Platform. You can enable automatic logout after a period of inactivity in Account Settings > Authenticate, after an email domain is added.
+
+[Image: Account Settings page in the Security Operations Platform]
+
+The SecOps Platform has the following items in the top navigation bar:
+
+- Search
+- Apps
+- Explore
+- Configure
+- Knowledge Center
+- Support
+- Profile Menu
+
+You can click the Zscaler logo in the top navigation bar to return to the main dashboard.
+
+The left-side navigation changes dynamically based on your current location within the SecOps Platform, and can be collapsed or expanded. To set the mode, hover over the menu and click the arrow icon.
+
+[Image: Security Operations Platform top navigation bar]
+
+Click the **App Menu**icon to access SecOps Platform applications available in your account, such as Unified Vulnerability Management (UVM) and Asset Exposure Management (AEM).
+
+To pin an app to the top navigation bar, click the **App Menu** icon, then click the **Add to Favorite** icon ([Image: app menu add to favorite star icon]) next to the app.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/signing-zscaler-admin-console","lastmod":"2026-09-04T14:37Z","nid":"1491881"} -->
 ## Signing in to the Zscaler Admin Console
 
 - Source: https://help.zscaler.com/unified/signing-zscaler-admin-console
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Signing in to the Zscaler Admin Console
-- Last modified: 2026-07-01T13:41Z
+- Last modified: 2026-09-04T14:37Z
 - Summary: How to sign in to and navigate the Zscaler Admin Console, the unified user interface for Experience Center.
 
 The Zscaler Admin Console is the unified user interface for Experience Center (i.e., console.zscaler.com).
@@ -7017,84 +7513,63 @@ This article covers the following topics:
 - Navigating Within the Zscaler Admin Console
 - Maintenance and Upgrades
 
+If you need to onboard users, see [Setting up Secure Access](https://help.zscaler.com/unified/setting-up-secure-access).
+
 After your organization is provisioned, you can access the Zscaler Admin Console at [https://console.zscaler.com](https://console.zscaler.com).
 
 When the Sign In page appears:
 
 1. Enter your**Login ID** and select the **Remember my Login ID** checkbox if you want the service to remember your username the next time you log in.
 2. Click **Next**.
-3. If you have access to multiple Zscaler clouds or tenants, select the one you want to use and click **Proceed**. Your selection is saved for future logins. You can change the default cloud and tenant in[Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings).
-4. Based on your organization's [authentication preference](https://help.zscaler.com/zidentity/configuring-multi-factor-authentication), sign in to Authentication Service using one of the following methods: Password; Multi-Factor Authentication (MFA); Security Key or Biometric Enter your **Login ID and**select **Remember me**if you want the service to remember your login ID the next time you log in.; Click**Next**.; Enter your **Password**and click **Sign In**.If you forget your password, click **Having trouble signing in?**> **Reset Password**, and a reset email is sent to your email ID. The password reset link within the email expires after 5 minutes. To learn more, see [Resetting the Password or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa). Enter your **Login ID**and select **Remember me**if you want the service to remember your login ID the next time you log in.; Click**Next**.; Enter your **Password**and click **Sign In**.; Based on your organization's MFA policy, two-factor authentication (2FA) is required. Complete your 2FA to access the Authentication Service landing page.If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset email is sent to your email ID. The reset link within the email expires after 5 minutes. To learn more, see [Resetting the Password or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa). Enter your **Login ID**and select **Remember me**if you want the service to remember your login ID the next time you log in.; Select **Sign-in using Security Key or Biometric**.; Click**Next**.; Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page.If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset email is sent to your email ID. The reset link within the email expires after 5 minutes. To learn more, see [Resetting the Password or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+3. If you have access to multiple Zscaler clouds or tenants, select the one you want to use and click **Proceed**. Your selection is saved for future logins. You can change the default cloud and tenant in [Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings).
+4. Based on your organization's [authentication preference](https://help.zscaler.com/authentication-service/configuring-multi-factor-authentication), sign in to Authentication Service using one of the following methods: Password; Multi-Factor Authentication (MFA); Security Key or Biometric Enter your **Login ID and**select **Remember me**if you want the service to remember your login ID the next time you log in.; Click**Next**.; Enter your **Password**and click **Sign In**.If you forget your password, click **Having trouble signing in?**> **Reset Password**, and a reset email is sent to your email ID. The password reset link within the email expires after 5 minutes. To learn more, see [Resetting the Password or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa). Enter your **Login ID**and select **Remember me**if you want the service to remember your login ID the next time you log in.; Click**Next**.; Enter your **Password**and click **Sign In**.; Based on your organization's MFA policy, two-factor authentication (2FA) is required. Complete your 2FA to access the Authentication Service landing page.If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset email is sent to your email ID. The reset link within the email expires after 5 minutes. To learn more, see [Resetting the Password or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa). Enter your **Login ID**and select **Remember me**if you want the service to remember your login ID the next time you log in.; Select **Sign-in using Security Key or Biometric**.; Click**Next**.; Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page.If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset email is sent to your email ID. The reset link within the email expires after 5 minutes. To learn more, see [Resetting the Password or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
 
 To sign out, go to the **Account**menu in the upper-right corner and click **Sign Out**.
 
 See image.
 
-You are automatically logged out after a configurable number of inactive minutes. To learn more, see [Configuring the Authentication Session](https://help.zscaler.com/zidentity/configuring-authentication-session).
+You are automatically logged out after a configurable number of inactive minutes. To learn more, see [Configuring the Authentication Session](https://help.zscaler.com/authentication-service/configuring-authentication-session).
 
 If you are an admin or user with access to Internet & SaaS features within the Zscaler Admin Console and you have 5 unsuccessful attempts to sign in within one minute, your account is locked out for 5 minutes. The failed attempts are recorded in the audit log. Audit logs are stored for up to 6 months. 
 
 If you are an admin or user with access to Private Access application features within the Zscaler Admin Console and you have three unsuccessful attempts to sign in, your account is locked out for 30 minutes. However, another admin with the same level of access or a full admin can reset your password.
 
-The Zscaler Admin Console has the following items in the top navigation:
-
-- Analytics
-- Administration
-- Policies
-- Infrastructure
-- Logs
-- Search
-- Help
-- Activation
-- Account
-
-Click the **Analytics** menu to view dashboards and reports that allow you to analyze your organization's traffic, application security, user experience, and more. By default, enhanced dashboards and reports that are unique to the Experience Center are displayed. To display classic reports for Internet & SaaS, Private Access, etc., select the **Switch to Existing Reports** toggle.
-
-To learn more, see [Analytics](https://help.zscaler.com/unified/analytics).
-
-Click the **Administration** menu to view and configure administration settings for various Zscaler services.
-
-Click the **Policies**menuto view and configure policies for various Zscaler services.
-
-Click the
-
-**Infrastructure**
-
-menu to configure networking settings for various Zscaler services.
-
-Click the **Logs** menu to configure log streaming and other log-related settings.
-
-Click the **Search** icon to search for menus in the Zscaler Admin Console. To learn more, see [Searching in the Zscaler Admin Console](https://help.zscaler.com/unified/searching-zscaler-admin-console).
+The Zscaler Admin Console includes the following items at the top of the page:
 
 See image.
 
-Click the **Help** icon to display context-sensitive help in the **Page Help** tab. This technical documentation includes, but is not limited to, overview, configuration, and deployment information.
+- Click the navigation menu to access pages throughout the Zscaler Admin Console. [Image: Navigation Menu]
+- Use the **Search** menu to locate pages within the Zscaler Admin Console user interface. To learn more, see [Searching in the Zscaler Admin Console](https://help.zscaler.com/unified/searching-zscaler-admin-console).
+- Click the **Wand** icon to display ZAgent. To learn more, see [About ZAgent](https://help.zscaler.com/unified/about-zagent).
+- Click the **Help** icon to display context-sensitive help in the **Page Help** tab. This technical documentation includes, but is not limited to, overview, configuration, and deployment information. All technical documentation is also accessible from the [Zscaler Help Portal](https://help.zscaler.com). See image. Click the**Tools & Resources**tab to access these additional resources: See image.
+  - **Remote Assistance**: Allows you to enable remote assistance so that Zscaler Support can securely and remotely log in to your Zscaler Admin Console. To learn more, see [Enabling Remote Assistance](https://help.zscaler.com/unified/enabling-remote-assistance).
+  - **Help Portal**: Opens the Zscaler Help Portal in a new tab.
+  - **Support Portal**: Opens the Zscaler Support Portal in a new tab.
+  - **Terms and Policies**: Displays links where you can access Zscaler legal notices, the privacy policy, and the end user subscription agreement.
+  - **Share Feedback**: Opens a page with contact information for Zscaler.
+- Click the **Activation** icon to activate configuration changes that impact Internet & SaaS features. To learn more, see [Saving and Activating Changes in the Zscaler Admin Console](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
+- Click the **Account**icon to switch between [Zscaler clouds](https://help.zscaler.com/unified/understanding-zscaler-cloud-names) and tenants (if applicable), view your username and organization information, view or change your password, display language, or time zone, and [sign out](https://help.zscaler.com/unified/signing-zscaler-admin-console#sign-out). To learn more, see [Customizing Your Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings).
 
-See image.
+When the navigation menu is selected, the following top-level categories are displayed:
 
-Click the**Tools & Resources**tab to access these additional help resources:
-
-- **Remote Assistance**: Allows you to enable remote assistance so that Zscaler Support can securely and remotely log in to your Zscaler Admin Console. To learn more, see [Enabling Remote Assistance](https://help.zscaler.com/unified/enabling-remote-assistance).
-- **Help Portal**: Opens the Zscaler Help Portal in a new tab.
-- **Support Portal**: Opens the Zscaler Support Portal in a new tab.
-- **Terms and Policies**: Displays links where you can access Zscaler legal notices, the privacy policy, and the end user subscription agreement.
-- **Share Feedback**: Opens a page with contact information for Zscaler.
-
-See image.
-
-Click the **Activation** icon to activate configuration changes that impact Internet & SaaS features. To learn more, see [Saving and Activating Changes in the Zscaler Admin Console](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
-
-See image.
-
-Click the **Account**icon to switch between Zscaler clouds and tenants (if applicable), view your username and organization information, and view or change your password, display language, or time zone. To learn more, see [Customizing Your Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings). If you want to sign out of your account, click **Sign Out**.
-
-See image.
+- **Analytics**- This section includes enhanced dashboards and reports that allow you to analyze your organization's traffic, application security, user experience, for various Zscaler services (i.e., Internet & SaaS, Private Access, etc.). To learn more, see [Analytics](https://help.zscaler.com/unified/analytics).
+- **Administration** - This section includes administration configuration settings for various Zscaler services.
+- **Internet Access**- This section includes configuration, policy, and deployment settings for various Internet Access features.
+- **Private Access**- This section includes configuration, policy, and deployment settings for various Private Access features.
+- **Cyber Security** - This section includes cybersecurity-related insights, policies (e.g., Advanced Threat Protection, Malware Protection, etc.), tools, and partner integrations.
+- **Digital Experience**- This section includes configuration, policy, and deployment settings for various Zscaler Digital Experience (ZDX) features.
+- **Data Security**- This section includes configuration, policy, and deployment settings for various data security-related features.
+- **Infrastructure** - This section includes configurations and networking settings for various Zscaler services.
+- **Zero Trust Branch** - This section includes configuration, policy, and deployment settings for various Zero Trust Branch features.
+- **Zero Trust Cloud** - This section includes configuration, policy, and deployment settings for various Cloud & Branch Connector features.
+- **Zero Trust Browser** - This section includes configuration, policy, and deployment settings for various Zero Trust Browser features.
+- **Data Explorer** - This section includes insights, logs (i.e., log streaming, event logs, audit logs, etc.), and other log-related settings for various Zscaler services.
 
 During the scheduled maintenance and regular upgrade periods, the Zscaler Admin Console is in read-only mode. You can view content and navigate through the Zscaler Admin Console to view various details.
 
 You cannot configure or edit any parameters when the Zscaler Admin Console is in read-only mode. After the upgrade is complete, the Zscaler Admin Console automatically refreshes and enables editing.
 
-If you need to onboard users, see [Setting up Secure Access](https://help.zscaler.com/unified/setting-up-secure-access).
+[Image: Menu items and icons at the top of every Zscaler Admin Console page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7411,104 +7886,6 @@ Click **View Alerts in Risk360** to view further details in the Admin Portal.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-copilot-use-cases","lastmod":"2026-05-26T21:06Z","nid":"1503891"} -->
-## Understanding Copilot with Use Cases
-
-- Source: https://help.zscaler.com/unified/understanding-copilot-use-cases
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Copilot > Understanding Copilot with Use Cases
-- Last modified: 2026-05-26T21:06Z
-- Summary: Provides use case examples when conversing with Copilot.
-
-Copilot for Digital Experience Monitoring engages with you as if it were a conversational partner. It can be your teacher, expert, or assistant to enhance your digital experience by creating in-depth and knowledge-based conversations powered by AI/ML. These insights empower you with the knowledge and expertise to navigate through digital experience issues within your organization.
-
-The following use case examples show how you can engage in conversation with Copilot:
-
-- Analytics
-- Troubleshooting
-- Configuration
-- Learning
-- Optimization
-
-Copilot's analytics, powered by AI/ML, creates a deep dive into granular details and overview of users and their impacted devices.
-
-The following are examples of questions or commands for analytics:
-
-- What is John Doe's ZDX Score for the Zoom application in the last 4 hours?
-- Show me John Doe's page fetch time for SharePoint in the last 4 hours.
-- Analyze John Doe's Microsoft Teams call quality issue.
-- Show me the Incidents in the last 48 hours.
-- Show me the Wi-Fi signal quality for John Doe.
-- Analyze John Doe's Wi-Fi issue.
-- Show me the number of ongoing alerts.
-- Show me the number of applications impacted by alerts.
-
-Wi-Fi Analysis Scenario
-
-You can use Copilot to find root causes that can impact multiple users. Copilot is an expert with in-depth knowledge of finding complex correlations and patterns that require remediation.
-
-The following are examples of questions or commands for troubleshooting:
-
-- What can I do when I see a blackout incident with an ISP?
-- For the impacted users with a low ZDX Score, what is the recommended course of action to resolve their issues?
-- Why is John Doe's packet loss low?
-- Troubleshoot John Doe's ZDX Score for SharePoint in the last 4 hours.
-
-ISP-Related Issues Scenario
-
-Copilot provides guidance on how to create configurations within the Zscaler Admin Console. These can include alerts, probes, administration, or webhook configurations.
-
-The following are examples of questions or commands for configuration:
-
-- How do I onboard Digital Experience Monitoring for my organization?
-- How do I configure a webhook for OpsGenie?
-- What are the steps to add a ZDX Admin?
-- Configure a Web probe for Box.
-
-Copilot is an expert on Digital Experience and can provide answers to your knowledge-based questions to enhance your learning.
-
-The following are examples of questions for learning:
-
-- What is the ZDX Score?
-- How is the ZDX Score calculated?
-- What is Dynamic Alerting?
-- Where is my data stored?
-
-You can ask Copilot for best practices and areas of focus to optimize your digital experience.
-
-The following are examples of questions for optimization:
-
-- What are the best practices for latency to a Private Service Edge for Internet & SaaS?
-- Can you find the impacted users that have a ZDX Score below 50 and propose a method of alerting?
-- What probe type should I configure for Microsoft Teams?
-
-The following conversation example is a scenario where users are impacted by an ISP that is reducing their access to their organization's resources:
-
-Admin: What is the issue with high latency on devices in the Dallas office?
-
-Copilot: Analyzing Cloud Paths...The issue is with an ISP outage.
-
-Admin: Do you have any recommendations?
-
-Copilot: I suggest notifying the ISP for a resolution or rerouting traffic through an alternate ISP.
-
-Admin: Can you compile Cloud Path data for an impacted user? I will be using this data to contact the ISP.
-
-Copilot: Certainly. Compiling the Cloud Path data.
-
-The following conversation example is a scenario where users are impacted by their Wi-Fi instability:
-
-Admin: There are several users reporting Wi-Fi drops. Can you identify the cause?
-
-Copilot: Checking device telemetry...There's interference in Wi-Fi channels 6 and 11.
-
-Admin: Which channels are currently less congested?
-
-Copilot: Channels 1 and 13 are less congested.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/unified/understanding-dashboard-widget-types","lastmod":"2026-08-19T10:14Z","nid":"1541898"} -->
 ## Understanding Dashboard Widget Types
 
@@ -7684,6 +8061,66 @@ The following table summarizes dimension and measurement specifications per widg
 | Tile and Trend | 0 | 1 | Highlighting single metrics or KPIs |
 
 [Image: Creating custom dashboard widgets types]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/understanding-data-model-security-operations-platform","lastmod":"2026-08-31T08:39Z","nid":"1541777"} -->
+## Understanding the Data Model in the Security Operations Platform
+
+- Source: https://help.zscaler.com/unified/understanding-data-model-security-operations-platform
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Understanding the Data Model in the Security Operations Platform
+- Last modified: 2026-08-31T08:39Z
+- Summary: Information on using the data model in the Security Operations Platform, including details on supported operations and configurations.
+
+The data model is an entity-based relational database within the Security Operations Platform (SecOps Platform). It provides the canonical schema for entities and fields across your data sources, and it defines names, types, relationships, defaults, fallback logic, and how conflicting values from multiple sources are resolved. To learn more, see [About Data Model Management](https://help.zscaler.com/unified/about-data-model-management).
+
+## Data Model Concepts
+
+The SecOps Platform data model is focused on the following core concepts:
+
+- **Entity-based architecture**: The data model is built around entities, which offers a more meaningful, relationship-based view of security data. To learn more, see [Understanding Entity Types](https://help.zscaler.com/unified/understanding-entity-types).
+- **Prescriptive schema**: Built with specific principles and strong assumptions about how data should be structured, managed, and accessed, the data model emphasizes prescriptive structures that prioritize specific use cases within SecOps Platform applications. These data model principles are backed by Zscaler's extensive knowledge, research, and development within the security landscape.
+- **Extensible schema**: If the prescriptive schema must be adjusted, you can define your own entities, attributes, and relationships to adjust as new data sources or security tools are integrated. This extensibility is critical in keeping the data model relevant and aligned with evolving security requirements, and Zscaler recommends consulting with your Zscaler Account team to learn more.
+- **Unified source**: Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), Agentic SOC, and Identity Protection use the unified and transformed data to drive effective prioritization and streamlined remediation.
+
+## Processing Security Data in the Data Model
+
+The following procedure shows the configuration steps necessary to process, transform, and consume data within the data model:
+
+1. Create a data source and ingest its data. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
+2. Map ingested fields to the data model. All fields within the SecOps Platform are preconfigured with field defaults, and mapping is configured per source. To learn more, see [Mapping Data Sources](https://help.zscaler.com/unified/mapping-data-sources).
+3. Create merge and unification rules. When the rules run, the system deduplicates records across multiple sources and applies reconciliation and transformation logic using these rules. The output is a unified record. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification), [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification), and [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification).
+4. View the unified records within Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), Agentic SOC, and Identity Protection.
+
+You can preview the data model schema for a certain entity or field on the Data Model Management page. To learn more, see [Adding and Managing Entities and Fields](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields).
+
+### Example: Merging Two Asset Records
+
+The following example illustrates how two asset records are processed in the data model:
+
+1. Two data sources report the same asset with different hostnames and operating systems.
+2. The data model processes each source's data and associates each record field to a default SecOps Platform field.
+3. The data model applies merge and unification rules:
+  - Entity unification detects a duplicate and merges them into one asset.
+  - Field unification applies reconciliation (e.g., source priority) to choose the hostname, and a transformation to normalize system OS format.
+4. When a vulnerability is found on the asset, you see the unified asset name, hostname, and OS in the vulnerability finding.
+
+See image.
+
+[Image: Diagram showing ingestion, mapping, unification, and consumption]
+
+## Best Practices for Configuring the Data Model
+
+Consult your Zscaler Account team when making changes to the data model. Uninformed or well-meaning changes to the data model can affect data integrity and cause fragmented or duplicated data, which can result in operational inefficiencies or noncompliance.
+
+Review the following best practices before configuring the data model:
+
+- Follow the established data mapping guidelines. To learn more, see [Mapping Data Sources](https://help.zscaler.com/unified/mapping-data-sources).
+- Start with the default configuration in the SecOps Platform, and only introduce field‑unification overrides or custom mapping transforms when business outcomes require them. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification).
+- Create custom entities or fields with the help of your Zscaler Account team. To learn more, see [Adding and Managing Entities and Fields](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields).
+- Document why an override or mapping deviation exists, and periodically review and update source mappings as vendor schemas evolve.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8282,6 +8719,193 @@ The Internet & SaaS service is displayed as ZIA in the SecOps Platform.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/understanding-zagent-use-cases","lastmod":"2026-09-02T17:02Z","nid":"1503891"} -->
+## Understanding ZAgent with Use Cases
+
+- Source: https://help.zscaler.com/unified/understanding-zagent-use-cases
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > ZAgent > Understanding ZAgent with Use Cases
+- Last modified: 2026-09-02T17:02Z
+- Summary: Provides use case examples when conversing with Copilot.
+
+This feature is in Limited Availability. To enable this feature, contact Zscaler Support.
+
+ZAgent engages with you as if it were a conversational partner. It can be your teacher, expert, or assistant to enhance your experience by creating in-depth and knowledge-based conversations powered by AI/ML. These insights empower you with the knowledge and expertise to navigate through digital experience and data protection issues within your organization.
+
+To use ZAgent:
+
+1. Click the **Wand** icon in your Zscaler Admin Console.
+2. (Optional) Select an agent.
+3. (Optional) Select a skill.
+4. Enter your prompt.
+
+See image.
+
+Depending on your prompt and ZAgent's reply, you might have the opportunity for additional actions (e.g., viewing device details, running a diagnostics session).
+
+## Use Cases for ZAgent
+
+View use case examples of how you can engage in conversation if you select one of the following as an agent:
+
+- Data Protection
+- Digital Experience
+
+## Considerations & Limitations
+
+When using ZAgent, consider the following:
+
+- If ZAgent is running slow, check if the selected ZAgent's skill is deselected. Consider selecting an agent's skill, so the prompt runs through the ZAgent's selected skill.
+- You can broaden ZAgent's search if you deselect the agent's skill and agent. Your prompt might take longer to answer.
+- If you are unable to access specific data or configuration, check which admin role permissions you have. If you need access, check with your admin to gain the appropriate permissions.
+- If you are unable to access specific agents, check which [Zscaler subscriptions](https://help.zscaler.com/unified/ranges-limitations) you have.
+
+These are use case examples if you select Data Protection as the agent.
+
+- Analytics
+- Knowledge
+
+The Data Protection agent supports DSPM and API Cloud Access Security Broker (CASB) related queries to provide information about your data at rest coverage.
+
+ZAgent's analytics, powered by AI/ML, creates a deep dive into granular details about your organization's data protection.
+
+The following are examples of questions or commands:
+
+- Where is our sensitive data?
+- Which data stores have the highest exposure?
+- What is exposed right now?
+- What matters most?
+- What should we fix first?
+- What posture issues should I prioritize first?
+- Which alerts are tied to this policy?
+- What vulnerabilities are associated with this environment?
+- Do we have duplicated data where copies span services / geographic location?
+- List the custom Data Loss Prevention (DLP) engines currently enabled or in use.
+- What critical alerts were detected in the past 48 hours? Use a similar follow-up prompt: What remediation steps should I take to fix them?
+
+ZAgent is an expert on data protection where it can provide answers to your knowledge-based questions to enhance your learning.
+
+The following are examples of questions for learning about data protection terminology:
+
+- How do I find out who has access to my sensitive data?"
+- How do I find out where my data is stored?
+- How do I `{insert a specific task}` in DSPM? For example: How do I detect duplicated files in DSPM?
+- What is Data Protection in Zscaler?
+- What are AWS scan rules and how can I configure them?
+
+These are use case examples if you select Digital Experience as the agent.
+
+- Data
+- Troubleshooting
+- Knowledge
+
+ZAgent's analytics, powered by AI/ML, creates a deep dive into granular details and overview of users and their impacted devices.
+
+The following are examples of questions or commands for analytics:
+
+- What is John Doe's ZDX Score for the Zoom application in the last 4 hours?
+- Show me John Doe's page fetch time for SharePoint in the last 4 hours.
+- Analyze John Doe's Microsoft Teams call quality issue.
+- Show me the incidents in the last 48 hours.
+- Show me the Wi-Fi signal quality for John Doe.
+- Analyze John Doe's Wi-Fi issue.
+- Show me the number of ongoing alerts.
+- Show me the number of applications impacted by alerts.
+- Show me the memory distribution.
+
+- Wi-Fi Analysis Scenario
+
+You can use ZAgent to find root causes that can impact multiple users. ZAgent is an expert with in-depth knowledge of finding complex correlations and patterns that require remediation.
+
+The following are examples of questions or commands for troubleshooting:
+
+- What can I do when I see a blackout incident with an ISP?
+- For the impacted users with a low ZDX Score, what is the recommended course of action to resolve their issues?
+- Why is John Doe's packet loss low?
+- Troubleshoot John Doe's ZDX Score for SharePoint in the last 4 hours.
+- Why is Zoom slow for John Doe?
+- Report any issues for John Doe with the Zscaler Data Center in the last week.
+- Troubleshoot John Doe's Wi-Fi issues in the last 48 hours.
+- Debug John Doe's issues with Box from last week.
+
+The following are scenarios you might consider when asking a series of questions:
+
+- ISP-Related Issues Scenario
+- Device Issues Scenario
+
+ZAgent provides guidance on how to create configurations within the Zscaler Admin Console. These can include alerts, probes, administration, or webhook configurations.
+
+The following are examples of questions or commands for configuration:
+
+- How do I onboard Digital Experience for my organization?
+- How do I configure a webhook for OpsGenie?
+- What are the steps to adding an Admin?
+- Configure a Web probe for Box.
+
+ZAgent is an expert on digital experience where it can provide answers to your knowledge-based questions to enhance your learning.
+
+The following are examples of questions for learning about digital experience terminology:
+
+- What is the ZDX Score?
+- How is the ZDX Score calculated?
+- What is Dynamic Alerting?
+- Where is my data stored?
+- What is the recommended protocol for Cloud Path?
+- What is the recommended latency from Client to Public Service Edge?
+
+The following are knowledge questions you might consider when asking about:
+
+- Configuration
+- Optimization
+
+You can ask ZAgent for best practices and areas of focus to optimize your digital experience.
+
+The following are examples of questions for optimization:
+
+- What are the best practices for latency to a Private Service Edge?
+- Can you find the impacted users that have a ZDX Score below 50 and propose a method of alerting?
+- What probe type should I configure for Microsoft Teams?
+
+The following conversation example is a scenario where users are impacted by an ISP that is reducing their access to their organization's resources:
+
+Admin: What is the issue with high latency on devices in the Dallas office?
+
+ZAgent: Analyzing Cloud Paths... The issue is with an ISP outage.
+
+Admin: Do you have any recommendations?
+
+ZAgent: I suggest notifying the ISP for a resolution or rerouting traffic through an alternate ISP.
+
+Admin: Can you compile Cloud Path data for an impacted user? I use this data to contact the ISP.
+
+ZAgent: Certainly. Compiling the Cloud Path data.
+
+The following conversation example is a scenario where users are impacted by their Wi-Fi instability:
+
+Admin: There are several users reporting Wi-Fi drops. Can you identify the cause?
+
+ZAgent: Checking device telemetry... There's interference in Wi-Fi channels 6 and 11.
+
+Admin: Which channels are currently less congested?
+
+ZAgent: Channels 1 and 13 are less congested.
+
+In this scenario, ZAgent can assist you by troubleshooting a user's device and run a sequence of steps to get to the root cause of the issues.
+
+Admin: Troubleshoot device issues for Aarav.
+
+ZAgent: Could you please specify the user you're inquiring about? Please provide only one user.
+
+Admin: Aarav Patel
+
+ZAgent:
+
+[Image: ZAgent provides you an interactive overview and device details]
+
+[Image: Using ZAgent]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/understanding-zscaler-cloud-names","lastmod":"2026-06-12T10:39Z","nid":"1538551"} -->
 ## Understanding Zscaler Cloud Names
 
@@ -8783,13 +9407,13 @@ To delete a category:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/using-tables","lastmod":"2026-06-08T17:24Z","nid":"1492406"} -->
+<!-- ZS-ARTICLE {"url":"/unified/using-tables","lastmod":"2026-09-01T13:06Z","nid":"1492406"} -->
 ## Using Tables
 
 - Source: https://help.zscaler.com/unified/using-tables
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Using Tables
-- Last modified: 2026-06-08T17:24Z
+- Last modified: 2026-09-01T13:06Z
 - Summary: How to use tables in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, some of the data is organized and displayed in tables. You can modify the default settings for each table. Every time you make a change, the settings are stored in your browser's local storage so that your changes are preserved the next time you log on. If you clear your cache or use a different browser, your settings are lost.
@@ -8818,7 +9442,7 @@ You can filter the information shown in some tables. To filter the data in the t
 3. (Optional) Click **Apply**if available for the table**.**
 4. (Optional) Select from the following options, if available for the table:
   - **Clear**to remove selections
-  - **Reset**to undo applied filters
+  - **Reset** to undo applied filters
   - **Filter** icon to hide the filters
 
 On certain pages, you can select the following additional functions:
@@ -10214,13 +10838,13 @@ This tab contains incident-related insights with the following sections:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-experience-center-home-page","lastmod":"2026-08-21T14:06Z","nid":"1529129"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-experience-center-home-page","lastmod":"2026-09-03T10:32Z","nid":"1529129"} -->
 ## Viewing the Experience Center Home Page
 
 - Source: https://help.zscaler.com/unified/viewing-experience-center-home-page
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Viewing the Experience Center Home Page
-- Last modified: 2026-08-21T14:06Z
+- Last modified: 2026-09-03T10:32Z
 - Summary: How to view and customize the Experience Center home page within the Zscaler Admin Console.
 
 On the Zscaler Experience Center home page is a customizable start page where you can select from a variety of information cards and customize the view to your own preferences and work requirements.
@@ -10230,6 +10854,8 @@ You can view dashboards of analytics information, see a list of recently-visited
 The home page appears when you log into the Zscaler Admin Console. You can add, delete, rearrange and resize the cards on the page to best suit your working requirements and preferences.
 
 See image.
+
+To learn more about navigating user interface, see [Navigating Within the Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal).
 
 ## Customizing the Home Page
 
@@ -11494,6 +12120,114 @@ See image.
 [Image: Bar chart showing Top URL Categories Blocked on the Transactional Activity dashboard]
 
 [Image: Bubble chart showing Top Cloud Apps Blocked on the Transactional Activity dashboard]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/viewing-user-details","lastmod":"2026-09-03T23:49Z","nid":"1542897"} -->
+## Viewing User Details
+
+- Source: https://help.zscaler.com/unified/viewing-user-details
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > User Management > Viewing User Details
+- Last modified: 2026-09-03T23:49Z
+- Summary: How to view a user's detailed information in the Security Operations Platform.
+
+You can view detailed information about users and identity findings, and review the severity level to understand potential security risks and remediate the issues.
+
+To view the user details:
+
+1. In the Security Operations Platform (SecOps Platform), navigate to the **Users**page using one of the following paths: **Identities** > **Users** **Agentic SOC** > **Users** **Asset Exposure Management (AEM)**> **Users**
+2. Click a user. The user details drawer opens.
+3. In the user details drawer, you can access the following tabs:
+  - Details
+  - Identity Findings
+  - Alerts
+  - Tenants
+  - Groups
+
+On the **Details**tab, you can view:
+
+- **Name**: The name of the user.
+- **Name**: The first name of the user.
+- **Email**: The user's email ID.
+- **Login ID**: The user's login ID.
+- **Type**: The type of user (**Internal**or **External**).
+- **Identity Type**: The type of identity or entity (**User**, **Service Principal**, or **Special Identities**).
+- **Is Admin**: The user's admin role status. If the user is an admin, this field shows **True**.
+- **First Seen**: The date the system first detected the user.
+- **Last Seen**: The date the system last detected the user.
+- **Status**: Refers whether the account is **Active** or **Inactive**.
+- **Groups**: A logical entity used to combine several users into groups.
+- **Applications**: The applications accessed or used by individual users.
+- **Roles**: The roles assigned to users.
+- **Identity Findings**: The total number of critical, high, medium, and low identity findings for the user. See image.
+
+On the **Groups** tab, you can do the following:
+
+- Click the **Export as CSV**icon to export the groups list to a CSV file.
+- Click the **Manage Table Columns**icon to modify the columns displayed in the table.
+- Apply filters to view specific data. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
+- View the groups details: See image.
+  - **Group Name**: The name assigned to a group.
+  - **Group Key**: A unique identifier used to identify the group associated with a user.
+  - **Tenant Name**: The name of the tenant.
+  - **Group Identity Provider**: The entity used in the authentication process to facilitate secure user access and verification for a group.
+  - **Group Created:**The date when the group was created.
+  - **Group Last Updated**: The date when the group was last updated.
+
+[Image: Groups tab displaying groups details]
+
+On the **Identity Findings** tab, you can do the following:
+
+- Click the **Export as CSV**icon to export the identity findings list for a user to a CSV file.
+- Click the **Manage Table Columns**icon to modify the columns displayed in the table.
+- Apply filters to view specific data. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
+- View the identity findings details: See image.
+  - **Identity Finding Severity**: The severity level (**Critical**, **High**, **Medium**, or **Low**). The **Critical**and **High**severity findings are listed first.
+  - **Identity Finding Title**: The name of the identity finding.
+  - **MITRE ATT&CK Tactics**: The tactic category (Privilege Escalation, Credential Access, or Initial Access).
+  - **MITRE ATT&CK Techniques**: The techniques used to detect, categorize, and assess cybersecurity risks.
+  - **Tenant Name**: The name assigned to a tenant account.
+  - **Identity Provider**: The entity used in the authentication process to facilitate secure user access and verification.
+  - **Identity Finding Created**: The date when the identity finding was created.
+  - **Identity Finding Last Update**: The date when the identity finding was last updated.
+  - **Type of Risk**: The type of risk (e.g., **Kerberos Abuse**, **Account Management**, **Credential Exposure**, etc.).
+
+On the **Alerts**tab, you can do the following:
+
+- Click the **Export as CSV**icon to export the alerts list to a CSV file.
+- Click the **Manage Table Columns**icon to modify the columns displayed in the table.
+- Click **Update** to update alerts details.
+- Apply filters to view specific data. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
+- View the alerts details: See image.
+  - **Alert Severity Score**: The score is calculated using multiple factors, such as the application triggering the alert. The severity score ranges from 0 to 10, with higher scores indicating greater criticality and requiring immediate remediation.
+  - **Alert Title**: The title of the alert.
+  - **Alert Created**: The date when the alert was created.
+  - **Sources**: The sources of the alert (e.g., alerts sent by Zscaler use the Zscaler logo).
+  - **MITRE ATT&CK Tactics**: The tactic category (**Privilege Escalation**, **Credential Access**, or I**nitial Access**).
+  - **MITRE ATT&CK Techniques:**The techniques used to detect, categorize, and assess cybersecurity risks.
+  - **Alert Verdict:**The verdict for the alert (**Accepted**, **Executed**, **Partial**, **Proposed**, **Scheduled**, **Success**, **under Review**, or **Recommendation Status Unspecified**).
+
+On the **Tenants**tab, you can do the following:
+
+- Click the **Export as CSV**icon to export the tenants list to a CSV file.
+- Click the **Manage Table Columns**icon to modify the columns displayed in the table.
+- Apply filters to view specific data. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
+- View the tenants details: See image.
+  - **Tenant Severity**: The severity score reflects the seriousness of identity findings for each tenant, e.g., Critical, High, Medium, or Low.
+  - **Tenant Name**: The name assigned to a tenant account.
+  - **Total Identity Findings**: The total number of identity findings for a user.
+  - **Total Alerts**: The total number of alerts created for a user.
+  - **Tenant Identity Providers**: The entity used in the authentication process to facilitate secure user access and verification for a tenant.
+
+[Image: Tenants tab displaying tenant details]
+
+[Image: Alerts tab displaying alerts details]
+
+[Image: Details tab on Users page displaying detailed information about user.]
+
+[Image: Identity findings tab displaying findings list for a user.]
 <!-- /ZS-ARTICLE -->
 
 ---

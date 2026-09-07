@@ -1,8 +1,561 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 37
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 42
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-and-user-group-relationships","lastmod":"2026-04-17T07:06Z","nid":"1530860"} -->
+## Viewing Application and User Group Relationships
+
+- Source: https://help.zscaler.com/zpa/viewing-application-and-user-group-relationships
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application and User Group Relationships
+- Last modified: 2026-04-17T07:06Z
+- Summary: Information on the Application and User Group Relationships Report and its granular details.
+
+Application and User Group Relationships provides you with interactive and actionable insights on the usage of application segments and segment groups by user groups. To help you design better policy, you can gain insights into the relationships of the application and user groups to ensure [least privileged access](https://www.zscaler.com/resources/security-terms-glossary/what-is-least-privilege-access), a central tenet of Zscaler's Zero Trust Network Access (ZTNA).
+
+The Application and User Group Relationship insights are provided for the following items:
+
+- Application Segments
+  - The application segments accessed by user groups.
+  - The user groups accessing the application segments.
+- Segment Groups
+  - The segment groups accessed by user groups.
+  - The user groups accessing the segment groups.
+
+Items include application segments, segment groups, and user groups.
+
+See image.
+
+## Application and User Group Relationships Report
+
+Use the Application and User Group Relationships page (Logs > Insights > Usage > Application and User Group Relationships) to view the usage between applications and user groups.
+
+The report consists of the following information:
+
+- **Top Items**: Displays the top items as segment groups, application segments, or user groups with the total number. This automatically updates based on the selection filter and exclusion criteria from the Settings drawer.
+- **Current Report Information**: Displays the current report information based on when it was last updated. See image.
+- **Launch Tour**: Displays a series of guided steps to interact with the Application and User Group Relationships page.
+- **Run Report**: Generate the report to include data from the selected time range. In the time range drop-down menu, you can select a preset range (e.g., **14 Days** or **30 Days**). By default, the time range of the report is set to **14 Days**. The report automatically expires after 90 days. You cannot run the report if there is no more data to add when the report was recently updated. Run Report is disabled for 72 hours before and after 12:00 AM on the first Saturday of every month due to scheduled automatic reports. You cannot manually generate a report during this time. Additionally, customers with the Segmentation Add-On feature can generate one report per day, and customers without the feature can generate one report every 90 days. See image.
+- **Settings**: Customize your page view between Application Segments or Segment Groups. The default is set to Application Segments. You can opt to exclude items.
+- **Download**: Download a CSV file for your list of items. Click **Download** and select one of the following reports:
+  - **Full Report**: Click **Full Report** to open the **Download CSV File** window. In the **Download CSV File** window, you can access the following report views:
+    - **Detailed**: The detailed report includes details about segment groups, application segments, applications (including FQDN, port, protocol, application type, and discovered applications), access policy rule, and user groups and users who have accessed the applications and application segments. Only customers with the Segmentation Add-On can generate detailed report views for the last 6 reports (i.e., 180 days). See image.
+    - **Summary**: The summary report includes application types, application segments, segment groups, and the count of users and user groups. See image.
+  - **Filtered Report**: The filtered report includes details about segment groups, application segments, applications (including FQDN, port, protocol, and application type), access policy rules, and user groups and users who have accessed the applications and application segments for the filtered application segments.
+- **View Filter**: Alternate the view of your page between Application Segments or Segment Groups and User Groups.
+
+The report displays the following graphical representations of the relationship between applications and user groups:
+
+- **Sunburst Chart**: Displays a hierarchical graphical representation of the top items (up to 10) based on selection and view. You can select parts of the sunburst chart to drill down for granular details.
+- **List of Items**: Displays the top items based on selection and shows the total count between applications and user groups. The list shows: Your list varies and updates accordingly based on your Settings, View Filter, and Selection Filter. For example, if you select Application Segments in your Settings and User Groups in your View Filter, then your list shows User Groups, Application Segments, and Users Accessed.
+  - **Application Segments** or **Segment Groups**: The names of the application segments or segment groups.
+  - **User Groups**: The names of the user groups.
+  - **Users Accessed**: The number of users accessing the application (i.e., application segment or segment group).
+  - **Application Types**: The type of application (e.g., **RDP**, **SSH**, **Microsoft SQL**) based on standard ports and protocols. If ports for an application can't be classified, then the application type appears as **Unknown**. Applications can be classified as **Unknown**for up to 14 days until a proper classification occurs.
+
+See image.
+
+## Customizing the Application and User Group Relationships Page
+
+Zscaler recommends starting with Customize Your View from the Settings drawer to decide what information you want to analyze: Application Segments or Segment Groups.
+
+There are multiple ways to customize the Application and User Group Relationships page:
+
+- Settings
+- Selection with the Sunburst Chart
+- Alternate Your View
+- Select
+- Exclude
+- Reset
+
+## Viewing Item Details
+
+The Application and User Group Relationships page allows you to display item details in a granular view.
+
+You can click a specific row to open a drawer containing its details.
+
+See image.
+
+You can customize your view to display or exclude application segments or segment groups. To change your view settings:
+
+1. On the **Application and User Group Relationships** page, click **Settings**(). The **Settings** drawer appears. See image.
+2. In the **Settings**drawer, under **Customize Your View**, select **Application Segments** or **Segment Groups**. The default is **Application Segments**.
+3. In the **Exclude**section, you can exclude specific items depending on what you selected: Excluding multiple items uses the OR logic.
+  - Application Segments or Segment Groups
+  - User Groups
+  - Branch and Cloud Connector access policy rules The option to exclude Branch and Cloud Connector access policy rules is supported only for Application Segments.
+4. For **Maximum number of reports to retain**, select the maximum number of reports to retain (e.g., **4**, **5**, or **6**). Older reports are deleted. The option to retain the maximum number of reports is supported only for Application Segments.
+5. In the Include section, you can include specific items depending on what you selected:
+  - **SCIM Attribute**: Select the SCIM attribute value from the drop-down menu.
+  - **SAML Attribute**: Select the SAML attribute value from the drop-down menu.
+6. Click **Save**.
+
+Your page is updated based on your selections to view Application Segments or Segment Groups and to exclude the specified items.
+
+You can interact with the sunburst chart to view multiple levels of the relationship between the application and user group. The levels are displayed as follows:
+
+- 1st Level: Displays the relationship between the top items and what each individual item is. Up to 10 items are displayed. For example, the top 7 application segments are displayed as a continuous, inner ring and the outer ring displays what those 7 application segments are. Click the inner ring to display the next hierarchy level. See image.
+  - Inner Ring: Displays the top items as a continuous ring.
+  - Outer Ring: Displays top items currently associated with the inner ring (e.g., application segments, segment groups, user groups).
+- 2nd Level: Displays the relationship between the subsequent items and their associated items. Click one of the parts on the inner ring to select the item to display on the next hierarchy level. See image.
+  - Inner Ring: Displays the subsequent items from the previous level.
+  - Outer Ring: Displays the related items to the subsequent items.
+  - You can also:
+    - Hover over an item part and click to exclude it.
+    - Click the **Back**icon () to return to the previous level.
+- 3rd Level: Displays the last level of the hierarchical data between the selected item and who accessed it. By selecting an item in the 3rd level of hierarchical data, the display switches your view to that item type (e.g., Application Segments > User Groups, User Groups > Application Segments). See image.
+
+If there are more than 10 items for the top inner ring or if you exclude items, then the remaining items are displayed as Others in the sunburst chart.
+
+See image.
+
+You can alternate between viewing Application Segments or Segment Groups (based on your Settings) and User Groups.
+
+See image.
+
+You can reset from the following sections:
+
+- Settings: Clear all exclusions and then click **Save** to reset all items. See image.
+- Sunburst chart: Click the **Back**icon () to return to the previous level of the chart.
+- Reset: Next to the selection filter, click the **Reset**icon () to return to the default view.
+
+Select your items to include what you want displayed.
+
+A maximum of 10 items can be selected.
+
+See image.
+
+You can exclude items from:
+
+- Settings: Select items to exclude. See image.
+- Sunburst chart: If you click an individual item in the inner ring, you can exclude it from display. See image.
+
+If you exclude items, then the sunburst chart, selection filter, and list adjust accordingly.
+
+[Image: Top Items - 1st Level]
+
+[Image: Application Segments and User Groups]
+
+[Image: Selected Application Segment and User Group]
+
+[Image: Application Segment Settings in the Application and User Group Relationships Page]
+
+[Image: Settings for Segment Groups]
+
+[Image: Clear All]
+
+[Image: Selection Filter]
+
+[Image: Exclude Items in Settings Drawer]
+
+[Image: Exclude Item from Sunburst Chart]
+
+[Image: Sunburst Chart]
+
+[Image: Specific Item Details]
+
+[Image: Using the Application and User Group Relationships Insights]
+
+[Image: Application and User Group Relationship]
+
+[Image: Report Information]
+
+[Image: Run Report]
+
+[Image: Selected Application Segments View]
+
+[Image: Selected Segment Groups View]
+
+[Image: Detailed Report View within the Download CSV File window in the Zscaler Admin Console]
+
+[Image: Summary Report View within the Download CSV File window in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-map","lastmod":"2026-02-24T06:06Z","nid":"1534383"} -->
+## Viewing the Application Map
+
+- Source: https://help.zscaler.com/zpa/viewing-application-map
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Application Map
+- Last modified: 2026-02-24T06:06Z
+- Summary: How to view the Application Map for Microsegmentation in the ZPA Admin Portal.
+
+The Application Map provides graphed visualizations of network data in your organization. It gives a high-level view of how resource groups and their connected resources are performing, and allows the option to view granular details for each widget of information.
+
+To view the Application Map, go to **Microsegmentation** > **Dashboard** > **Application Map**.
+
+[Image: A GIF of the Network Viz dashboard.]
+
+## Dashboard Tools
+
+The Application Map dashboard displays the following information and functionality:
+
+- Use your mouse to zoom in or out of the graph and rearrange the graph widgets.
+- Filter the results to find detailed information for a specific Resource Group, VPC/VNET, or Public Internet.
+- Click a managed Resource Group widget to open the drawer of its full details:
+  - **General Information**
+    - Name
+    - Type
+    - Description
+    - Member Count
+    - Static Membership
+    - Dynamic Membership
+  - **Member Resources**
+    - Resource Name
+    - AppZones
+- Click an unmanaged Resource Group to open the drawer of its full details:
+  - **General Information**
+    - Name
+    - Type
+    - Description
+    - CIDRs
+    - IP Ranges
+- Click a Public Internet to open the drawer of its full details:
+  - IP Address
+  - Direction
+  - Count
+- Click a VPC/VNET to open the drawer of its full details:
+  - Cloud
+  - Subnets
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage","lastmod":"2026-04-21T16:16Z","nid":"1531128"} -->
+## Viewing Application Segments Usage
+
+- Source: https://help.zscaler.com/zpa/viewing-application-segments-usage
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application Segments Usage
+- Last modified: 2026-04-21T16:16Z
+- Summary: Viewing and understanding the application usage by users and groups in the Application Segments Usage page.
+
+Application Segments Usage insights provide visibility into which application segments are being actively used or not. These insights can help you assess and determine unused application segments for improvement consideration. The Application Segments Usage insights provide:
+
+- A distribution of users and their associated application segments.
+- Most used application segments.
+- Least used application segments.
+
+See image.
+
+[Image: Application Segments Usage page]
+
+## Application Segments Usage Report
+
+The Application Segments Usage Report contains the following information:
+
+- The number of application segments applied to a percentage distribution of users. This includes: The distribution of users is calculated based on the number of unique users (must be more than zero users) against each application segment. Then the distribution categorizes the users into 1 of 10 percentage bars based on their usage of the application segment. Each bar indicates a tenth percentage of application segments based on usage. You can click a bar to view application segment usage data based on that user group. The percentage is rounded to the nearest whole number.
+  - **Most Used Application Segments**: Displays the number of most used application segments.
+  - **Unused Application Segments**: Displays the number of unused application segments.
+- **Current Report Information**: Displays the current report information based on when it was last updated. See image.
+- **Launch Tour**: Launches a series of guided steps on how to interact with the Application Segments Usage page.
+- **Run Report**: Generates the report to include data from the selected time range. In the time range drop-down menu, you can select a preset range (e.g., **14 Days** or **30 Days**). By default, the time range of the report is set to **14 Days**. The report automatically expires after 90 days. You cannot run the report if there is no more data to add when the report was recently updated. Run Report is disabled for 72 hours before and after 12:00 AM on the first Saturday of every month due to scheduled automatic reports. You cannot manually generate a report during this time. Additionally, customers with the Segmentation Add-On feature can generate one report per day, and customers without the feature can generate one report every 90 days. See image.
+
+[Image: Viewing the Current Report Information in the Application Segment Usage Insights page]
+
+See image.
+
+[Image: Run a report on the Application Segments Usage insights page]
+
+[Image: Application Segment Usage report information]
+
+## Application Segments Usage Chart and Table
+
+The Application Segments Usage page consists of two charts:
+
+- Usage
+- Discovered Host Count
+
+The Application Segments Usage chart and table provide the following information:
+
+- **Application Segment Usage Bar Chart**: Displays the distribution of application segment usage from access policy rules. Click a bar to specify the application segments displayed in the table. The default is set to **Unused Application Segments**.
+- See image.
+- **Application Segment Filter**: Select specific application segments to display in the chart and table. See image.
+- **View Application Segments**: Allows you to access the [Defined Application Segments](https://help.zscaler.com/zpa/about-applications) page to manage the defined application segments.
+- **Application Segment Table**: Displays the following information for each application segment:
+  - **Application Segment**: The name of the application segment.
+  - **Segment Group**: The name of the segment group.
+  - **Applications**: The number of applications accessed. If the same application is accessed through different ports and/or protocols (e.g., TCP, UDP), then each application is counted separately.
+  - **Access Policy Rules**: The number of access policy rules that allowed access to the application segment.
+  - **Unique Users**: The number of unique users impacted by the application segment.
+  - **Transactions**: The number of Private Access (ZPA) transactions going through the application segment.
+  - **Actions**: The available actions for the application segment. This includes:
+    - **Edit**: Edit the application segment in the Edit Application Segment window. To learn more, see [Editing Defined Application Segments](https://help.zscaler.com/zpa/editing-application-segments).
+    - **Application Segments and User Details**: View the application segment's usage details. To learn more, see [Viewing Application Segment Usage Details](https://help.zscaler.com/zpa/viewing-application-segment-usage-details).
+
+[Image: Bar Chart Selection within the Application Segment Usage Insights page]
+
+[Image: Application Segment Filter within the Application Segment Usage Insights Table]
+
+See image.
+
+[Image: Application Segment Usage Page within the ZPA Admin Portal]
+
+The Discovered Host Count chart and table provide the following information:
+
+- **Discovered Host Count Bar Chart**: Displays the top 10 application segments by discovered host count. See image.
+- **Application Segment Filter**: Select specific application segments to display in the chart and table.
+- **Application Segment Table**: Displays the following information for each application segment:
+  - **Application Segment**: The name of the application segment.
+  - **Segment Group**: The name of the segment group.
+  - **Discovered Host Count**: The number of discovered hosts.
+
+See image.
+
+[Image: Discovered Host Count Bar Chart]
+
+[Image: Viewing the Discovered Host Count Chart and Table]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage-details","lastmod":"2025-08-25T21:16Z","nid":"1531129"} -->
+## Viewing Application Segments Usage Details
+
+- Source: https://help.zscaler.com/zpa/viewing-application-segments-usage-details
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application Segments Usage Details
+- Last modified: 2025-08-25T21:16Z
+- Summary: Application segments usage details include granular information for a specific application segment from the Application Segments Usage page.
+
+Application segment usage details are accessible from the following pages:
+
+- [Application Segments Usage](https://help.zscaler.com/zpa/viewing-application-segments-usage)
+- [Defined Application Segments](https://help.zscaler.com/zpa/about-applications)
+
+When you click the **Graph** icon (), you can view the following application segment usage details:
+
+- **Time Range**: Select to filter details based on a time range.
+- **Refresh**: Click the **Refresh** icon to include the most recent updates. The report automatically refreshes every 30 days.
+- Depending on what view you selected, you see the following widgets: When you click **View Logs** on a widget, you are taken to the Diagnostics page. To learn more, see [Accessing User Activity Diagnostics](https://help.zscaler.com/zpa/accessing-user-activity-diagnostics).
+  - **Users** view(default):
+    - **Users Over Time**: Displays the number of users over time for the application segment.
+    - **Top Access Policies**: Displays the most impacted access policies.
+    - **Top Applications**: Displays the most impacted applications across users. You can hover over and then select ports to switch the view between applications and ports. To switch back, select the application name.
+    - **Top Ports**: Displays the most used ports.
+    - **Top Client Types**: Displays the most impacted client types for the application segment.
+  - **Transactions** view:
+    - **Transactions Over Time**: Displays the number of transactions for the application segment.
+    - **Top Access Policies**: Displays the most impacted access policies.
+    - **Top Applications**: Displays the most impacted applications across users. You can hover over and then select a port to switch the view between applications and ports. To switch back, select the application name.
+    - **Top Ports**: Displays the most used ports.
+    - **Top Users**: Displays the users creating the most transactions for the application segment.
+    - **Top Client Types**: Displays the most impacted client types for the application segment.
+
+See image.
+
+No data is shown if the application segment has no usage within the time range (e.g., unused application segment).
+
+See image.
+
+[Image: Application Segment Usage Details]
+
+[Image: No Data Available]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-applications-dashboard","lastmod":"2026-07-20T10:06Z","nid":"1483451"} -->
+## Viewing the Applications Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-applications-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Applications Dashboard
+- Last modified: 2026-07-20T10:06Z
+- Summary: Information on the Applications dashboard and widgets accessible within the Zscaler Admin Console.
+
+The Applications dashboard provides information about applications in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Applications.
+
+See image.
+
+[Image: pplications dashboard in the Zscaler Admin Console]
+
+## Dashboard Tools
+
+The Applications dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View application data over a period between **1 Hour** to **14 Days**, or you can select **Custom Range**. If you use a **Custom Range**, the start and end date must be within the last 14 days. The end can be configured to the selected time in hours and minutes. This filter applies to all widgets on the dashboard except **Discovered Applications**and **Recommended Application Segments by Confidence %**. By default, the dashboard displays information for events that occurred in the last hour.
+
+Log information in the dashboard is limited to 14 days. For longer access to the logs, use the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming).
+
+- **Federated By**: Filter data in the dashboard by applications that are federated by your tenant (i.e., **My Tenant**), or by applications that are federated by your partner (i.e., **Partner**). If the **Federated By** filter is set to **Partner**, then the **Partner**filter and a valid value must be applied in addition to the Federated By filter. To learn more, see [Understanding Business-to-Business (B2B) Federation](https://help.zscaler.com/zpa/understanding-business-business-b2b-federation).
+- **Partner**: Filter data in the dashboard by the federated partner. The **Partner**filter must be applied with the **Federated By** filter, and is only visible when the **Federated By** filter is set to **Partner**. To learn more, see [About Federated Partners](https://help.zscaler.com/zpa/about-federated-partners).
+- **Refresh icon**: Refresh the dashboard to reflect the most current information.
+- **Recent Applications Accessed**: View the total number for this category at the top of the page, and then view its details in the widget below. This number is based on the applications accessed by users, and it includes all successful and unsuccessful transactions.
+- **Discovered Applications**: View the total number for this category at the top of the page, and then view its details in the widget below. This number is based only on successful transactions.
+- **Access Policy Blocks** and **Successful Transactions**: View the total numbers for these categories at the top of the page, and then view their details in the widgets below.
+- **Chart Selection**: Select the charts you want to display or hide on the dashboard. A minimum of 4 charts and a maximum of 8 charts can be selected.
+
+See image.
+
+[Image: Applications Dashboard tools]
+
+## Widgets
+
+The Applications dashboard provides the following widgets:
+
+- AI-Powered Recommendations by Attack Surface Reduction %
+- Recent Applications Accessed
+- Top Applications by Bandwidth
+- Top Errors
+- Top Application Segments by Bandwidth
+- Top Disaster Recovery App Segments by Bandwidth
+- Top Policy Blocks
+- Top Applications by Users
+- Applications Discovered in the Past 14 Days
+- App Configuration in Past 3 Months
+- Top Applications by Tunnel Count
+
+If you are using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming), the Users dashboard includes information for a ZPA LSS Client user. This user represents the LSS service, not an actual user. Also, each log receiver is displayed as an application to reflect the data coming in from the service. To learn more, including how to stop the LSS service from streaming ZPA LSS Client logs, see [Configuring a Log Receiver](https://help.zscaler.com/zpa/configuring-log-receiver#Step2).
+
+This widget displays the total number of recommended application segments, grouped by their percentage of attack surface reduction. The attack surface reduction groups are broken up into 25% increments to show how many recommended application segments had higher attack surface reduction versus those that were lower. If you hover over the chart and click a specific section, a tooltip appears that specifies the attack surface reduction group for the percentage increment, the total number of AI-powered recommendations, and the percentage total. Clicking **View All** takes you to the [AI-Powered Recommendations](https://help.zscaler.com/zpa/about-ai-powered-recommendations-application-segments) page.
+
+AI-Powered Recommendations must be activated to display the AI-Powered Recommendations by Attack Surface Reduction % widget and populate it with data. To activate this feature, click **Activate Recommendations** on the AI-Powered Recommendations page (Policies > Access Control > Private Apps > AI-Powered Recommendations).
+
+[Image: AI-Powered Recommendations by Attack Surface Reduction % Widget in the Zscaler Admin Console]
+
+This widget displays real-time information about the total number of applications requested by users that were accessed in the selected time frame. The widget uses the current time for its end time unless you select a custom time range with a different end time.
+
+[Image: Applications Dashboard with Applications Accessed widget]
+
+- Click on an application to view more details in **Diagnostics**.
+- Click the **Download** icon ([Image: Download icon within the ZPA Admin Portal]) to export a CSV file containing information on the applications accessed for the selected time frame (i.e., Timestamp (in UTC), application (domain name or IP address), port number, and protocol).
+
+This widget displays the top 10 applications that used the most bandwidth for your organization in the selected time frame. The percentage of total transactions for the top 10 applications by bandwidth appears in the top-right corner.
+
+[Image: Top Applications by Bandwidth widget]
+
+- Hover over an application to view:
+  - **Name**:The application name.
+  - **Bandwidth**: The amount of bandwidth used by the application in the selected time frame, and the percentage of that amount represents the total bandwidth used by the 10 applications shown in the widget.
+- Click on an application to view more details in **Diagnostics**.
+
+This widget displays the top 10 application segments that used the most bandwidth for your organization in the selected time frame. The percentage of total transactions for the top application segments by bandwidth appears in the top-right corner.
+
+[Image: Top Application Segments by Bandwidth widget]
+
+This widget displays the top 10 disaster recovery-enabled application segments that used the most bandwidth for your organization in the selected time frame. If there was a disaster recovery-related incident during this time frame, it accounts for both the disaster recovery-related transactions and the regular transactions. The percentage of total transactions for the top disaster recovery-enabled application segments by bandwidth appears in the top-right corner.
+
+[Image: Top Disaster Recovery App Segments by Bandwidth widget]
+
+This widget displays the top errors experienced by users per connection status code, application, App Connector, and Private Service Edges for Private Access over the selected time frame.
+
+- Connection Status Codes
+- Applications
+- App Connectors
+- Service Edges
+
+You can hover over the connection status codes to:
+
+- View the total number of transactions that occurred with this connection status code.
+- View the percentage of errors where this connection status code occurred for the drilldown data displayed.
+- Analyze by:
+  - **Applications**: This drills down and displays data on the applications impacted by the connection status code.
+  - **Connectors**: This drills down and displays data on the App Connectors impacted by the connection status code.
+  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
+
+[Image: Top Errors widget]
+
+You can hover over the applications to:
+
+- View the total number of transactions where the application error occurred.
+- View the percentage of errors where this application error occurred for the drilldown data displayed.
+- Analyze by:
+  - **Connectors**: This drills down and displays data on the App Connectors impacted by the application error.
+  - **Connection Status Codes**: This drills down and displays data on the connection status code applicable to the impacted application.
+  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
+
+[Image: Top Errors widget]
+
+You can hover over the App Connectors to:
+
+- View the total number of transactions where the App Connector error occurred.
+- View the percentage of errors for the drilldown data displayed for the App Connector.
+- Analyze by:
+  - **Applications**: This drills down and displays data on the applications impacted by the App Connector error.
+  - **Connection Status Codes**: This drills down and displays data on the connection status code applicable to the impacted App Connector.
+  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
+
+[Image: Top Errors widget]
+
+You can hover over the Private Service Edges to:
+
+- View the total number of transactions for the error that occurred on the Private Service Edge.
+- View the percentage of errors for the drilldown data displayed for the Private Service Edge.
+- Analyze by:
+  - **Connectors**: This drills down and displays data on the App Connectors impacted by the Private Service Edge error.
+  - **Connection Status Codes**: This drills down and displays data on the connection status code applicable to the impacted Private Service Edge.
+  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
+
+[Image: Top Errors widget]
+
+This widget displays the top access policy and timeout policy blocks experienced by users over the selected time frame.
+
+- Access Policy Blocks
+- Timeout Policy Blocks
+
+You can hover over the access policy block to:
+
+- View the total number of transactions where the access policy block occurred.
+- View the percentage of errors where this access policy block occurred for the drilldown data displayed.
+- Analyze by:
+  - **Applications**: This drills down and displays data on the applications impacted by the access policy block.
+  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
+
+[Image: Access Policy Blocks widget]
+
+You can hover over the timeout policy block to:
+
+- View the total number of transactions where the timeout policy block occurred.
+- View the percentage of errors where this timeout policy block occurred for the drilldown data displayed.
+- Analyze by:
+  - **Applications**: This drills down and displays data on the applications impacted by the timeout policy block.
+  - **Show in Logs**: To view more details in **Diagnostics** for the drilldown data that is displayed.
+
+[Image: Timeout Policy Blocks widget within Dashboard]
+
+This widget displays the top 10 applications accessed by your organization's users in the selected time frame. The percentage of total transactions for the top applications by users appears in the top-right corner.
+
+[Image: Top Applications by User widget]
+
+- Hover over an application to view:
+  - **Name**: The application name.
+  - **Number of User(s)**:The top 10 applications accessed by your organization's users in the selected time frame, and the percentage that number represents of the 10 applications shown in the widget.
+- Click on an application to view more details in **Diagnostics**.
+
+This widget displays the applications that Zscaler has [discovered](https://help.zscaler.com/zpa/understanding-application-discovery) for your organization in the past 14 days, with the most recently discovered application listed first.
+
+[Image: Applications Dashboard with the Applications Discovered in the Past 14 Days widget]
+
+- Click on an application to view more details in **Diagnostics**. If the application has not been accessed in the last 14 days, you will not see data for the application in **Diagnostics**.
+- Click the **Download** icon ([Image: Download icon within the ZPA Admin Portal]) to export a CSV file containing information on the applications discovered in the last 14 days (i.e., application (domain name), port number, protocol, and internal application ID).
+- To define a user access policy or change settings for an application (e.g., enable health monitoring or configure bypass settings), you can explicitly define an application by clicking on **Add Application Segment**, selecting the applications, and then clicking **Define Selected Applications**. To learn more, see [Defining a Dynamically Discovered Application](https://help.zscaler.com/zpa/defining-dynamically-discovered-application).
+
+To learn more about application discovery, see [Understanding Application Discovery](https://help.zscaler.com/zpa/understanding-application-discovery).
+
+This widget displays the number of Defined Application Segments (orange) compared to the number of Discovered Applications (blue) in two-week increments over the past 3 months. Ideally for Zero Trust, the number of Defined Application Segments should increase while the number of Discovered Applications should decrease.
+
+Hover over a graph bar to get detailed information for each two-week increment. Click a graph bar and then click **View Recommended Apps** to view the Recommended Application Segments page.
+
+AI-Powered Recommendations must be activated to display the App Configuration in Past 3 Months widget and populate it with data. To activate this feature, click **Activate Recommendations** on the AI-Powered Recommendations page (Policies > Access Control > Private Applications > AI-Powered Recommendations).
+
+[Image: App Configuration in Past 3 Months widget]
+
+This widget displays the top applications by tunnel count in the selected time frame.
+
+[Image: Top Applications by Tunnel Count widget on the Applications dashboard]
+
+- Hover over an application to view:
+  - **Name**: The application name.
+  - **Number of MTunnel(s)**:The number of tunnel counts accessed by the application in the selected time frame, and the percentage that number represents of the applications shown in the widget.
+- Click an application to view more details in **Diagnostics**.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -228,13 +781,13 @@ The table covers:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-configuration-graphs","lastmod":"2026-06-01T13:23Z","nid":"1516601"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-configuration-graphs","lastmod":"2026-09-04T15:03Z","nid":"1516601"} -->
 ## Viewing Configuration Graphs
 
 - Source: https://help.zscaler.com/zpa/viewing-configuration-graphs
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Viewing Configuration Graphs
-- Last modified: 2026-06-01T13:23Z
+- Last modified: 2026-09-04T15:03Z
 - Summary: Information on how to view the configuration graphs in the Zscaler Admin Console.
 
 Configuration graphs are graphical representations of how configuration objects are connected to each other (e.g., how an application segment is connected to a server group and server groups). They are helpful in determining when and where you might need to fix configuration requisites to get them working together again.
@@ -1559,16 +2112,16 @@ This widget displays the top users by tunnel count in the selected time frame. T
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-vpn-service-edges-dashboard","lastmod":"2026-08-11T13:33Z","nid":"1542720"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-vpn-service-edges-dashboard","lastmod":"2026-09-03T12:13Z","nid":"1542720"} -->
 ## Viewing the VPN Service Edges Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-vpn-service-edges-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the VPN Service Edges Dashboard
-- Last modified: 2026-08-11T13:33Z
+- Last modified: 2026-09-03T12:13Z
 - Summary: Information about the VPN Service Edge dashboard and widgets available in the Zscaler Admin Console.
 
-The VPN Service Edges Dashboard provides information about the VPN Service Edges for your organization. To view the dashboard in the Zscaler Admin Console, go to Infrastructure > Private Access > Component > VPN Service Edges Dashboard.
+The VPN Service Edges Dashboard provides information about the VPN Service Edges for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access >VPN (for Legacy Apps) > Dashboard > VPN Service Edge.
 
 The dashboard displays a series of interactive timeseries charts. These charts show how data changes over a selected period and help you identify trends, patterns, and anomalies in performance and usage. You can hover over any point in a chart to see the specific value at that time.
 
@@ -1776,20 +2329,22 @@ To add access polices, see the following articles:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/what-is-microsegmentation","lastmod":"2026-08-05T13:33Z","nid":"1531937"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/what-is-microsegmentation","lastmod":"2026-09-04T12:18Z","nid":"1531937"} -->
 ## What Is Microsegmentation?
 
 - Source: https://help.zscaler.com/zpa/what-is-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > What Is Microsegmentation?
-- Last modified: 2026-08-05T13:33Z
+- Last modified: 2026-09-04T12:18Z
 - Summary: Information about Microsegmentation in the Zscaler Admin Console.
 
-Zscaler Microsegmentation is a platform within the [Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console) that provides the capability to visualize traffic flows within private applications and segment them on a fractional level, reducing the attack surface and preventing lateral movement of any threats on your network. It is a multi-tenant software-as-a-service solution optimized for security, reliability, and scale, using a system divided into the Zscaler cloud and deployed agents. The Zscaler cloud and agents work together to collect and analyze application flow and telemetry data and also monitor the health of all managed systems.
+Zscaler Microsegmentation is a platform within the Zscaler Admin Console that provides the capability to visualize traffic flows within private applications and segment them on a fractional level, reducing the attack surface and preventing lateral movement of any threats on your network. It is a multi-tenant Software as a Service solution optimized for security, reliability, and scale, using a system divided into the Zscaler cloud and deployed agents. The Zscaler cloud and agents work together to collect and analyze application flow and telemetry data and also monitor the health of all managed systems.
 
-The deployed agents sit on Windows or Linux hosts in your environment and collect information about application activity. Agents are deployed to your servers, whether they are virtual or physical, cloud based, or in your data center. The agents are responsible for downloading the latest access policies from the Zscaler cloud and translating them to rules that are specific to local OS enforcement points (e.g., Windows Filtering Platform and Linux nftables). You can create [agent groups](https://help.zscaler.com/zpa/configuring-agent-groups) and [AppZones](https://help.zscaler.com/zpa/configuring-appzones) that group together specific machines and their applications that you want to monitor for certain data flows.
+Microsegmentation agents and Zscaler Client Connector are not compatible and should not be installed on the same host.
 
-You can enable Microsegmentation for organizations that have [Private Access (ZPA)](https://help.zscaler.com/zpa/what-zscaler-private-access). The backend framework is hosted and managed by the Zscaler cloud and is available across the US region. The data collection is localized to the region of choice of the administrator, and the data retention cycle is a 14-day rolling period. You can deploy the managed resources to any other region. The installed agents operate in continuous mode.
+The deployed agents sit on Windows or Linux hosts in your environment and collect information about application activity. Agents are deployed to your servers, whether they are virtual or physical, cloud based, or in your data center. The agents are responsible for downloading the latest access policies from the Zscaler cloud and translating them to rules that are specific to local OS enforcement points (e.g., Windows Filtering Platform and Linux nftables). You can create [Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups), [Resource Groups](https://help.zscaler.com/zpa/configuring-resource-groups), and [AppZones](https://help.zscaler.com/zpa/configuring-appzones) that group together specific machines and their applications that you want to monitor for certain data flows.
+
+The backend application is hosted and managed by the Zscaler cloud and is available across the US region. The data collection is localized to the region of choice of the administrator, and the data retention cycle is a 14-day rolling period. You can deploy the agent to resources in any region. The installed agents operate in continuous mode.
 
 If you want Microsegmentation provisioned for your organization, contact your Zscaler Account team.
 <!-- /ZS-ARTICLE -->
@@ -1850,13 +2405,13 @@ Private Access admins can view [dashboards](https://help.zscaler.com/zpa/dashboa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zero-trust-access-private-apps-aws-zscaler-private-access","lastmod":"2023-09-22T13:04Z","nid":"1485076"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zero-trust-access-private-apps-aws-zscaler-private-access","lastmod":"2026-09-02T08:00Z","nid":"1485076"} -->
 ## Zero Trust Access to Private Apps in AWS with Zscaler Private Access
 
 - Source: https://help.zscaler.com/zpa/zero-trust-access-private-apps-aws-zscaler-private-access
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Reference Architecture > Zero Trust Access to Private Apps in AWS with Zscaler Private Access
-- Last modified: 2023-09-22T13:04Z
+- Last modified: 2026-09-02T08:00Z
 - Summary: The Zero Trust Access to Private Apps in Amazon Web Services (AWS) with Zscaler Private Access (ZPA) reference architecture guide that steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
 
 The Zscaler Reference Architecture series delivers best practices based on real-world deployments. The recommendations in this series were developed by Zscaler's transformation experts from across the company. This guide will steer you through the architecture process and provide technical deep dives into specific platform functionality and integrations. The Zscaler Reference Architecture series is designed to be modular, so this guide will show you how to configure a different aspect of the platform in order to allow you meet your specific policy goals.
@@ -1888,13 +2443,13 @@ Zscaler Private Access (ZPA) is a part of the Zscaler Zero Trust Exchange platfo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zero-trust-user-to-app-segmentation-zpa","lastmod":"2025-11-06T09:14Z","nid":"1485376"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zero-trust-user-to-app-segmentation-zpa","lastmod":"2026-09-02T08:01Z","nid":"1485376"} -->
 ## Zero Trust User-to-App Segmentation with ZPA
 
 - Source: https://help.zscaler.com/zpa/zero-trust-user-to-app-segmentation-zpa
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Reference Architecture > Zero Trust User-to-App Segmentation with ZPA
-- Last modified: 2025-11-06T09:14Z
+- Last modified: 2026-09-02T08:01Z
 - Summary: The Zero Trust User-to-App Segmentation with Zscaler Private Access (ZPA) reference architecture guide that steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
 
 The Zscaler Reference Architecture series delivers best practices based on real-world deployments. The recommendations in this series were developed by Zscaler's transformation experts from across the company. This guide will steer you through the architecture process and provide technical deep dives into specific platform functionality and integrations. The Zscaler Reference Architecture series is designed to be modular, so this guide will show you how to configure a different aspect of the platform in order to allow you meet your specific policy goals.
@@ -1908,13 +2463,13 @@ Zero trust has become a popular model for secure user access to applications and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-08-20T15:05Z","nid":"1485956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-09-04T11:10Z","nid":"1485956"} -->
 ## App Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Software by Platform
-- Last modified: 2026-08-20T15:05Z
+- Last modified: 2026-09-04T11:10Z
 - Summary: The current App Connector software downloads by platform.
 
 App Connectors are supported on [many different platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms). Each supported platform has an App Connector image you can use to deploy App Connectors on that platform. To learn more, see [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -1935,21 +2490,21 @@ The following platforms support App Connector software packages. Where applicabl
 | [Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes) | To learn more, see the [App Connector Deployment Guide for Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes). |
 | [OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#deploy) | A Helm Chart must be installed in order to deploy an App Connector on OpenShift. To learn more, see the [App Connector Deployment Guide for OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#get-helm-chart). |
 | Linux Operating Systems |  |
-| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.56.5-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.56.5-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
+| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.56.9-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.56.9-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-physical-port-mapping","lastmod":"2026-06-29T07:06Z","nid":"1540962"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-physical-port-mapping","lastmod":"2026-09-03T10:55Z","nid":"1540962"} -->
 ## ZPA Appliance Physical Port Mapping
 
 - Source: https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > ZPA Appliance Physical Port Mapping
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-09-03T10:55Z
 - Summary: A description of the physical ports on the ZPA hardware appliance, and its interface, port types, and roles.
 
-This article depicts the physical ports on the ZPA hardware appliance and identifies its interface names, port types, and roles. You can configure the ports using `kubectl` commands from the command-line interface.
+This article depicts the physical ports on the ZPA hardware appliance and identifies its interface names, port types, and roles. You can configure the ports using Linux commands from the command-line interface.
 
 The following image and table description describe the physical port mapping on the ZS-ZPA-APPL-8010 and ZS-ZPA-PSE-8010 appliances.
 
@@ -1958,7 +2513,7 @@ The following image and table description describe the physical port mapping on 
 | Port | Interface | Port Type | Speed | Role |
 | --- | --- | --- | --- | --- |
 | C | Console | RJ45 | 1GbE | Serial console |
-| 1 | GE1/eno1 | RJ45 | 1GbE | Management |
+| 1 | GE1/eno1 | RJ45 | 1GbE | LAN |
 | 2 | GE2/enp1s0 | RJ45 | 1GbE | LAN |
 | 3 | GE3/ens84f3 | RJ45 | 1GbE | LAN |
 | 4 | GE4/ens84f2 | RJ45 | 1GbE | LAN |
@@ -2210,13 +2765,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-08-26T09:29Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-09-04T13:48Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-08-26T09:29Z
+- Last modified: 2026-09-04T13:48Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.

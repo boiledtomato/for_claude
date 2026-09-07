@@ -1,8 +1,207 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-31 03:58 UTC
-Articles in this file: 108
+Generated: 2026-09-07 03:10 UTC
+Articles in this file: 111
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling","lastmod":"2026-08-04T21:06Z","nid":"1535452"} -->
+## Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
+
+- Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
+- Last modified: 2026-08-04T21:06Z
+- Summary: Information about Google Cloud Platform autoscaling managed instance group (MIG) deployment with Zscaler Cloud Connector
+
+A Google Cloud Platform (GCP) Managed Instance Group (MIG) with autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs) to an instance group to meet the current load when it increases, and it removes Cloud Connector VMs from the instance group when the load decreases. For example, consider a virtual Windows workstation deployment where users log in to their own virtual workstations at the beginning of the work day and log out at the end of the day. This causes fluctuations in the number of users and the amount of traffic flow during these periods.
+
+Instance groups also constantly monitor the health of each Cloud Connector VM in the instance group. They remove unhealthy VMs from the instance group and replace them with healthy ones. If someone manually terminates a VM that is part of an instance group from the Google Cloud console, the instance group replaces the VM.
+
+When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, stopping or rebooting a VM that is part of an instance group from the Google Cloud console could cause the VM to be terminated.
+
+Instance groups with autoscaling provide the following benefits:
+
+- Dynamically scale the number of VMs in the instance group to match demand.
+- Automatically remove unhealthy VMs and replaces them with healthy ones.
+- Deploy VMs across availability zones for high availability. Load balancing distributes traffic among the VMs.
+
+This article describes instance groups and how they work in a Cloud Connector deployment. The deployment template prompts you to configure certain instance group settings mentioned in this article. For information about the deployment template and the deployment steps, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#azure-terraform) and [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform). For comprehensive autoscaling information, refer to the [GCP product documentation](https://docs.cloud.google.com/compute/docs/autoscaler).
+
+## Topology
+
+The following sections provide a diagram depicting the topology of an autoscaling deployment and a description of its components and flow.
+
+- Topology diagram
+- Topology details
+
+[Image: Diagram showing a Cloud Connector autoscaling deployment on the Google Cloud Platorm]
+
+- The security stack is deployed in either a dedicated GCP project or within the same project as the workloads, based on your organizational architecture. GCP has an architectural limitation where instances with multiple network interfaces require separate virtual private cloud (VPC) networks for each interface. Cloud Connector deployments therefore require the creation of two distinct VPCs: one for management and one for service and security operations. After the security stack is in place, you must configure custom routes in the workload VPCs to direct appropriate traffic to the load balancer in front of the Cloud Connectors. This load balancer serves as the central entry point for the security stack.
+- Zonal MIGs with autoscaling are deployed in each configured region or zone, ensuring high availability and automatic failover across zones.
+- A Cloud NAT gateway is deployed in each region for the Cloud Connectors. This arrangement provides managed, scalable outbound internet access and allocates dedicated external IPs for each gateway.
+- Two Google Cloud Run functions are deployed: The Resource Sync Cloud Run function uses RESTful APIs to communicate with the Cloud Connector API endpoint securely over HTTPS. The functions do not directly interact with individual Cloud Connector VMs; instead, they orchestrate via the Admin API.
+  - **Health Monitoring**: This function uses custom metrics exported from each Cloud Connector VM (for example, via Cloud Monitoring/Operations) to determine the health status of the VM. The instance group automatically terminates unhealthy Cloud Connector VMs and replaces them with new ones. The Health Monitoring function is triggered every minute by default using Cloud Scheduler.
+  - **Resource Sync**: This function ensures that the VMs registered in the Zscaler Admin Console match the membership of each Cloud Connector instance group. If the function discovers a Cloud Connector in the Zscaler Admin Console that is not part of any instance group, it issues an API call to the Zscaler Admin Console to delete the VM. This function runs every 10 minutes by default.
+- Each Cloud Function is packaged in a [ZIP file](https://zscaler-cc-functions-artifacts.s3.amazonaws.com/zscaler-cc-functions/latest/cloud-functions-latest.zip) and deployed via Google Cloud Storage. The ZIP file is uploaded either to a newly created storage bucket during deployment or to an existing bucket specified in the deployment configuration. The Cloud Functions retrieve their code from this bucket during initialization.
+
+## Scale-Out and Scale-In
+
+Each Cloud Connector independently posts data plane CPU utilization metrics at one-minute intervals to GCP Cloud Monitoring as a user-defined metric. The MIG autoscaling policy uses the aggregate CPU utilization value across all VMs in the instance group to determine whether a scale-in or scale-out event should happen based on a target percentage value.
+
+Auto Scaling uses custom CPU utilization metrics instead of VM-level metrics because custom metrics provide more detailed and precise information about CPU usage. In logs and reports, the CPU utilization metric is displayed as `smedge_cpu_utilization`.
+
+- Scaling Policy
+- Cooldown Period
+- Examples
+
+The scaling policy manages scale-out and scale-in events using the following variables:
+
+- **Target value**: By default, the target value is 80% aggregate CPU utilization across all VMs in the instance group over a period of two to three minutes. Autoscaling maintains CPU utilization as close to the target value as possible without exceeding it.
+- **Instance group size**: When a scaling event happens, autoscaling automatically determines the number of VMs to add or remove to bring the aggregate CPU utilization metric closer to the target value. By default, the maximum size of an instance group is 10 VMs and the minimum size is one VM. (The maximum cannot exceed the [Cloud Connector group limit of 16 VMs per group](https://help.zscaler.com/unified/ranges-limitations).)
+
+You can view the policy in the instance group details in the Google Cloud console.
+
+While your VMs are initializing, the utilization metric might not reflect normal conditions. As a safeguard, autoscaling provides a cooldown (or initialization) period, which is the number of seconds between scaling actions.
+
+- For scale-in events, autoscaling takes into account utilization data from all VMs, even those that are still in the cooldown period.
+- For scale-out events, autoscaling ignores utilization data from VMs that are still in the cooldown period.
+
+By default, the initialization period is 900 seconds (15 minutes).
+
+The following examples demonstrate how scaling events affect the size of an instance group with a minimum size of two, a maximum size of 5, and the default target value (80%):
+
+**Scale-Out**: Because the minimum instance group size is two, at least two VMs must always be running.
+
+- No scaling event happens in normal conditions with two VMs running at 60% aggregate CPU utilization.
+- If the aggregate CPU utilization exceeds 80%, a scale-out event happens, bringing the number of VMs in the instance group to three.
+- After the cooldown period, if the aggregated CPU utilization still exceeds 80%, another scale-out event adds one more VM to the instance group, bringing the number of VMs to 4. This continues after the cooldown period ends until the average is less than 80%.
+
+**Scale-In**: GCP autoscaling uses its own logic to determine what to do when the aggregate CPU utilization is less than 80%:
+
+- Wait because the value is too close to 80% or has not been under 80% long enough.
+- Trigger a scale-in event because, based on the time sample and the individual CPU utilization of each VM, removing one VM will meet the following criteria:
+  - The number of VMs will be at or above the minimum target group size.
+  - The average fluctuation for the remaining VM will likely remain below the target CPU utilization value.
+
+## Cloud Connector Health Monitoring
+
+Health monitoring includes the following entities:
+
+- **Custom Metric Publishing**: Each Cloud Connector publishes a VM-level custom metric at one-minute intervals. This metric value is either 0 for an unhealthy VM or 100 for a healthy VM. Custom metrics also include dataplane CPU utilization metrics published at one-minute intervals, described in the previous section.
+- **Health Monitoring**: The Health Monitor function consumes the health metric at one-minute intervals and initiates the termination of a VM that it determines is unhealthy. It uses two criteria to determine whether to terminate the VM: Recent Health Data; Missing Metrics Unhealthy VMs are terminated in iterations. By default, in a single iteration, 16 VMs can be terminated. After a VM is terminated, it is replaced immediately.
+
+The Health Monitor function evaluates recent health data using sliding window logic with the following configurable environment variables:
+
+- The size of the sliding window. The default is 10 consecutive minutes.
+- The amount of time the VM was in an unhealthy state. The default value for defining a VM as unhealthy is 5 consecutive minutes.
+- The tolerance for flapping values in the sliding window. The default value is 7 unhealthy counts in 10 consecutive minutes.
+
+The Health Monitor function uses the following configurable environment variables to handle scenarios in which a running VM does not post metrics:
+
+- If the VM does not report metrics for two minutes, the function generates a warning log.
+- If the VM does not report metrics for 5 minutes, the function generates a critical log.
+- If the VM does not report metrics for 10 minutes, the function generates a termination log and starts the process of deleting the VM.
+
+In logs and reports, the health metric is displayed as `cloud_connector_aggr_health`.
+
+## Viewing Metrics and Logs
+
+- Instance Group Details
+- Cloud Connector VM Details
+
+The details page for an instance group contains comprehensive information about the group, such as the capacity overview, configuration settings, scaling policy, instance management, activity history, metrics, and so on.
+
+To view the instance group details:
+
+1. Open the Google Cloud console.
+2. In the navigation pane, click **Instance Groups**.
+3. Select the instance group for which you want to view details. The **Overview**tab opens. See image.
+4. Click the **Details**tab to review the instance status, template, configuration, location, group size, and autoscaling policy. See image.
+5. Click the **Monitoring** tab to review instance group metrics over a period of time. See image.
+
+To view details about a VM in the instance group:
+
+1. Open the Google Cloud console.
+2. In the navigation pane, click **Instance Groups**.
+3. Select the instance group for which you want to view details.
+4. On the **Overview**tab, in the **VM instances** section, click an instance in the **Name** column.
+5. Click **Observability** to monitor VM health, behavior, and performance. See image.
+
+## Access to GCP Resources
+
+Service accounts provide secure access to Google Cloud resources. Three service accounts are required in a GCP autoscaling deployment:
+
+- Deployment Service Account
+- Cloud Connector VM Service Account
+- Cloud Function Service Account
+
+This service account allows Terraform to run during deployment. It needs the following roles:
+
+- Compute Instance Admin (v1)
+- Compute Network Admin
+- Compute Security Admin
+- Service Account Admin
+- Service Account User
+- Secret Manager Admin
+- Project IAM Admin
+- DNS Administrator (optional)
+- Cloud Functions Admin (Autoscaling only)
+- Cloud Scheduler Admin (Autoscaling only)
+- Storage Admin (Autoscaling only)
+
+This service account also needs the following APIs enabled:
+
+- Compute Engine API
+- Cloud DNS API
+- Cloud Resource Manager API
+- Identity and Access Management (IAM) API
+- Secret Manager API
+- Autoscaling deployments only:
+  - Cloud Functions API
+  - Cloud Scheduler API
+  - Cloud Monitoring API
+  - Cloud Logging API
+  - Cloud Build API
+
+This service account allows Cloud Connectors to access secret credentials. It needs the following roles:
+
+- Monitoring Metric Writer
+- One of the following roles, depending on the method you use to manage and store your secret credentials:
+  - Secret Manager Secret Accessor (for GCP Secret Manager)
+  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
+    - compute.instanceGroups.list
+    - compute.instances.get
+    - iam.serviceAccounts.get
+    - iam.serviceAccountKeys.get,
+    - iam.serviceAccounts.signJwt
+
+This service account allows the Cloud Run Functions (Health Monitor and Resource Sync) to make API calls to perform operations such as reading metrics, terminating VMs, and replacing VMs. It needs the following roles:
+
+- Compute Instance Admin (v1)
+- Monitoring Viewer
+- Logs Writer
+- Cloud Run Invoker
+- One of the following roles, depending on the method you use to manage and store your secret credentials:
+  - Secret Manager Secret Accessor (for GCP Secret Manager)
+  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
+    - compute.instanceGroups.list
+    - compute.instances.get
+    - iam.serviceAccounts.get
+    - iam.serviceAccountKays.get
+    - iam.serviceAccounts.sign.Jwt
+
+For information about creating service accounts and assigning roles, see [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/tech-pubs-drafts/deploying-zscaler-cloud-connector-google-cloud-platform-draft-doc-57264).
+
+[Image: Cloud Connector instance group Overview tab, showing status and other details, and the VM instances in the group]
+
+[Image: Cloud Connector instance group Details tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
+
+[Image: Cloud Connector instance group Monitoring tab, where you can view the group size and CPU utilization over a period of time]
+
+[Image: Cloud Connector instance Observability tab, where you can view the CPU utilization, memory utilization, network traffic, disk space utilization, new connections, and disk throughputDetails tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -315,13 +514,13 @@ In the [Amazon VPC console](https://console.aws.amazon.com/vpc/), you must assig
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-08-28T13:41Z","nid":"1517756"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-08-31T16:11Z","nid":"1517756"} -->
 ## What Are Zero Trust Gateways?
 
 - Source: https://help.zscaler.com/cloud-branch-connector/what-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > What Are Zero Trust Gateways?
-- Last modified: 2026-08-28T13:41Z
+- Last modified: 2026-08-31T16:11Z
 - Summary: Introductory information, key features, and benefits of Zero Trust Gateways accessible in the Zscaler Admin Console.
 
 The Zscaler Zero Trust Gateway service transforms how you can secure your workloads and workload traffic deployed in public clouds. Built on the Zscaler Zero Trust Exchange (ZTE), the Zero Trust Gateway service simplifies cloud workload security for enterprises.
@@ -699,13 +898,13 @@ To rack mount the Zero Trust SD-WAN Device 800:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zero-trust-security-aws-workloads-zscaler-cloud-connector","lastmod":"2025-06-24T07:06Z","nid":"1420871"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zero-trust-security-aws-workloads-zscaler-cloud-connector","lastmod":"2026-09-02T08:02Z","nid":"1420871"} -->
 ## Zero Trust Security for AWS Workloads with Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/zero-trust-security-aws-workloads-zscaler-cloud-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Reference Architecture > Zero Trust Security for AWS Workloads with Zscaler Cloud Connector
-- Last modified: 2025-06-24T07:06Z
+- Last modified: 2026-09-02T08:02Z
 - Summary: The Zero Trust Security for Amazon Web Services (AWS) Workloads with Zscaler Cloud Connector reference architecture guide that steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
 
 The Zscaler Reference Architecture series delivers best practices based on real-world deployments. The recommendations in this series were developed by Zscaler's transformation experts from across the company. This guide will steer you through the architecture process and provide technical deep dives into specific platform functionality and integrations. The Zscaler Reference Architecture series is designed to be modular, so this guide will show you how to configure a different aspect of the platform in order to allow you meet your specific policy goals.
@@ -719,13 +918,13 @@ Zscaler Cloud Connector ensures that cloud workloads adhere to organizational se
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zero-trust-security-azure-workloads-zscaler-cloud-connector","lastmod":"2024-12-19T06:06Z","nid":"1420866"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zero-trust-security-azure-workloads-zscaler-cloud-connector","lastmod":"2026-09-02T08:02Z","nid":"1420866"} -->
 ## Zero Trust Security for Azure Workloads with Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/zero-trust-security-azure-workloads-zscaler-cloud-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Reference Architecture > Zero Trust Security for Azure Workloads with Zscaler Cloud Connector
-- Last modified: 2024-12-19T06:06Z
+- Last modified: 2026-09-02T08:02Z
 - Summary: The Zero Trust Security for Azure Workloads with Zscaler Cloud Connector reference architecture guide that steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
 
 The Zscaler Reference Architecture series delivers best practices based on real-world deployments. The recommendations in this series were developed by Zscaler's transformation experts from across the company. This guide will steer you through the architecture process and provide technical deep dives into specific platform functionality and integrations. The Zscaler Reference Architecture series is designed to be modular, so this guide will show you how to configure a different aspect of the platform in order to allow you meet your specific policy goals.
@@ -915,13 +1114,13 @@ To learn more, see [Configuring Airgap-Lite Mode for Assets](https://help.zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/about-integrations","lastmod":"2026-07-15T16:10Z","nid":"1532892"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/about-integrations","lastmod":"2026-09-02T21:59Z","nid":"1532892"} -->
 ## About Integrations
 
 - Source: https://help.zscaler.com/zero-trust-branch/about-integrations
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > About Integrations
-- Last modified: 2026-07-15T16:10Z
+- Last modified: 2026-09-02T21:59Z
 - Summary: Information on different types of third-party integrations supported by Zero Trust Branch.
 
 Zero Trust Branch integrates with third-party and Zscaler services to extend visibility, automate response workflows, and enrich analytics across your enterprise systems. You can integrate Zero Trust Branch with other tools from a centralized interface in the Zscaler Admin Console. The supported integrations include tools for monitoring, security orchestration, IT service management, and analytics.
@@ -929,6 +1128,7 @@ Zero Trust Branch integrates with third-party and Zscaler services to extend vis
 Integrations provide the following benefits and enable you to:
 
 - Unify monitoring and analytics across your environment by forwarding data to external tools such as security information and event management (SIEM) systems, SNMP dashboards, and Kibana for richer operational insights.
+- Enrich asset data with additional context from ServiceNow.
 - Automate incident response and IT workflows by integrating with platforms, such as ServiceNow, CrowdStrike, and SentinelOne to streamline ticketing, alerting, and remediation.
 - Enhance security intelligence and visibility by correlating telemetry with third-party and Zscaler services, helping to identify threats faster and reduce response time.
 
@@ -943,7 +1143,7 @@ On the Integrations page (Infrastructure > Connectors > Edge > Integrations), yo
 5. **SIEM Integration**: Forward Zero Trust Branch events to your [SIEM platform](https://help.zscaler.com/zero-trust-branch/configuring-siem-integration) for centralized security analytics.
 6. **Armis Integration**: Enhance the accuracy of device discovery by integrating with Armis.
 7. **Ordr Integration**: Enhance the accuracy of device discovery by integrating with Ordr.
-8. **ServiceNow Integration**: Automate incident creation by integrating with ServiceNow.
+8. **ServiceNow Integration**: Enrich discovered asset details with additional context by integrating with ServiceNow.
 9. **Zscaler Services Integration**: Manage connectivity with your other Zscaler services.
 
 [Image: The Integrations page in Zero Trust Branch showing different integration options]
@@ -3259,6 +3459,97 @@ Configure VRRP at the site level to select which interface to use for HA synchro
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-device-using-zero-touch-provisioning","lastmod":"2026-09-03T14:33Z","nid":"1529033"} -->
+## Deploying an Appliance Using Zero Touch Provisioning
+
+- Source: https://help.zscaler.com/zero-trust-branch/deploying-device-using-zero-touch-provisioning
+- Product: Zero Trust Branch
+- Path: Zero Trust Branch Help > Deployment > Deploying an Appliance Using Zero Touch Provisioning
+- Last modified: 2026-09-03T14:33Z
+- Summary: Overview of Zero Trust Branch Zero Touch Provisioning in the Zscaler Admin Console.
+
+Zero Touch Provisioning (ZTP) automates onboarding for Zero Trust Branch appliances. When a new appliance is powered on and connected, it securely identifies itself to the Zscaler ZTP service and automatically retrieves its configuration. This automated, zero-touch deployment eliminates the need for manual configuration.
+
+ZTP is supported on Zero Trust Branch appliances running version 8.1.2 or later, and is not supported for VM deployment.
+
+## Before You Deploy
+
+### Prerequisites
+
+- The appliance is running 8.1.2 or later.
+- The ISP link used for ZTP supports DHCP.
+- The appliance serial number is listed in the Appliance Inventory.
+
+### Default ZTP-Enabled WAN Ports by Model
+
+For ZTP, the gateway listens for ZTP only on the ZTP-enabled WAN port(s) by default. To onboard via ZTP, connect the WAN cable to the ZTP-enabled port before powering on the appliance.
+
+#### WAN Ports by Model for 8.1.2
+
+- ZT400: ge3
+- ZT600: ge5
+- ZT800: ge2
+- ZT8010: ge2
+
+#### WAN Ports by Model for 8.1.2P1 and Later
+
+- ZT400: ge3
+- ZT600: ge5, ge6
+- ZT800: ge2, ge7
+- ZT8010: ge2, xe7
+
+### Appliance Templates
+
+Refer to the following table to determine which templates you can use for your appliance. You can clone and edit the templates to meet your deployment configuration. Zscaler recommends cloning or creating a new template for site deployment. To learn more, see [Managing Templates](https://help.zscaler.com/zero-trust-branch/managing-templates).
+
+| Appliance | Template (High Availability) | Template (Standalone) |
+| --- | --- | --- |
+| ZT400 | `zt400-ha-default` | `zt400-standalone-default` `zt400-standalone-dualwan-default` |
+| ZT600 | `zt600-ha-default` `zt600-enhanced-ha-default` | `zt600-standalone-default` |
+| ZT800 | `zt800-ha-default` `zt800-enhanced-ha-default` | `zt800-standalone-default` |
+| ZT8010 | `zt8010-ha-default` `zt8010-enhanced-ha-default` | `zt8010-standalone-default` |
+
+## Adding a Site with ZTP
+
+To add a site with ZTP:
+
+1. From the navigation menu, go to **Zero Trust Branch > Deployments** >**Sites**.
+2. On the **Sites** page, click **Add Site** >**New Site**.
+3. Follow the steps in [Adding a Site](https://help.zscaler.com/zero-trust-branch/managing-sites/#adding-a-site), using the following settings to ensure ZTP:
+  - **Serial Number**:Select the serial number, which must be available in the inventory. To learn more, including what to do if a serial number is missing, see Appliance Inventory.
+  - **WAN Interface**: Select the interface matching the previously listed ZTP-enabled WAN port for initial onboarding.
+  - **Use DHCP for IP Address**: Enable this option. ZTP does not work with static IP addresses.
+
+See image.
+
+## Verifying ZTP
+
+Use the command line interface for your newly added site to verify the authentication state and hardware identity using the following steps:
+
+1. From the navigation menu, go to **Zero Trust Branch** > **Deployments** > **Sites** > **[Site Name]** > **Troubleshooting** > **Appliance Admin Console** > **Connect**.
+2. To confirm the authentication state, ZTP device, ZTP server, appliance serial number, and TPM serial number, use the command `show ztp activation-state`. If your appliance is configured correctly, the command output displays the following information:
+  - **Authentication State**: true
+  - **ZTP Device**: true
+  - **Current ZTP Server**: <server name>
+  - **Serial Number**: <appliance serial number>
+  - **TPM Serial Number**: <TPM-based hardware identity>
+3. To validate the hardware identity against the TPM endorsement key certificate, use the command `show ztp tpm-attest`. If your appliance is configured correctly, the command output shows that the hardware is genuine, the endorsement key certification serial number matches the TPM serial number, and the secrets match.
+
+Contact Zscaler Support if you encounter issues.
+
+## Appliance Inventory
+
+The Appliance Inventory page shows your available appliances and their statuses, as well as their serial numbers. To view this page, go to Zero Trust Branch > Resources > Appliance Inventory. Serial numbers are auto-populated during the ordering process. If certain serial numbers are not available in the inventory, request additional serial numbers by contacting Zscaler Support.
+
+See image.
+
+[Image: Appliance Inventory page in the Zscaler Admin Console]
+
+[Image: Adding a site with appliance serial number, WAN Interface, and DHCP for IP Address]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-appliance","lastmod":"2026-08-11T10:59Z","nid":"1532526"} -->
 ## Deploying a Zero Trust Branch Appliance
 
@@ -3486,6 +3777,42 @@ To verify the Zero Trust Branch deployment:
 
 1. In **IPSec Tunnels**, click the **Edit** icon for the tunnel to edit the configuration.
 2. In the **Remote address** field, enter the IP address for the Internet & SaaS global VPN.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-mainland-china","lastmod":"2026-09-02T14:41Z","nid":"1543212"} -->
+## Deploying Zero Trust Branch in Mainland China
+
+- Source: https://help.zscaler.com/zero-trust-branch/deploying-zero-trust-branch-mainland-china
+- Product: Zero Trust Branch
+- Path: Zero Trust Branch Help > Deployment > Deploying Zero Trust Branch in Mainland China
+- Last modified: 2026-09-02T14:41Z
+- Summary: Information on deploying a Zero Trust Branch appliance in mainland China using the appliance console CLI
+
+Zscaler supports mainland China proxy use for appliances with Zero Trust Branch version 8.1.2P1 and later.
+
+## Meeting Prerequisites for Mainland China Support
+
+You must provide Zscaler with your appliance serial number as described in the following steps. Although you can do this after configuration, your appliance cannot connect to the proxy until it is authorized to do so.
+
+1. Connect your appliance and power it on.
+2. Log in with an admin account, via either a console cable or SSH, and note the serial number. No command is necessary, as the serial number appears when you log in.
+3. Open a support ticket with Zscaler Support to provide the serial number and request that your appliance be supported for use in mainland China.
+
+## Configuring the Appliance to Use the Connection Proxy for Mainland China
+
+For mainland China deployment support, enable the connection proxy as described in the following steps. This dedicated proxy provides a premium connection to its cloud control plane, mitigating connection challenges associated with restricted network environments. For details, contact Zscaler Support.
+
+1. Connect your appliance and power it on.
+2. Log in with an admin account, via either a console cable or SSH, and enter `zscaler-console`.
+3. Select option **1 - Configure Appliance**.
+4. Select option**3 - Configure CNP Client**.
+5. Update the CNP virtual IP address if required.
+6. Update the web proxy and AS ports if required.
+7. If asked to confirm the IP address, enter `y` and press `Enter`. (Press `Enter` for any remaining prompts as needed.)
+
+Your appliance is now configured for use in mainland China.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4493,13 +4820,13 @@ To configure route preference:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-08-27T14:26Z","nid":"1525146"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-09-03T14:45Z","nid":"1525146"} -->
 ## Managing Sites
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-sites
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Sites > Managing Sites
-- Last modified: 2026-08-27T14:26Z
+- Last modified: 2026-09-03T14:45Z
 - Summary: How to add new sites, manage site-specific DNS configurations, and configure static routes in Zero Trust Branch.
 
 Sites are where Zero Trust Branch appliances are deployed. From the Zscaler Admin Console, you can add new sites, manage site-specific DNS configurations, and configure static routes. To learn more about templates, see [Managing Templates](https://help.zscaler.com/zero-trust-branch/managing-templates).
@@ -4515,7 +4842,7 @@ The example shown in this procedure uses a custom standalone template, a new Int
 
 To add a site, complete the following steps in the Zscaler Admin Console:
 
-1. Go to **Infrastructure > Connectors > Edge > Sites**.
+1. From the navigation menu, go to **Zero Trust Branch**> **Deployments** >**Sites**.
 2. On the **Sites** page, click **Add Site** >**New Site**. See image.
 3. In the **Add Site**drawer: See image.
   - **Name**: Enter a name to identify the site.
@@ -4547,7 +4874,7 @@ You can view and manage the DNS configuration for an existing site.
 
 To review and configure the DNS servers:
 
-1. Go to **Infrastructure > Connectors > Edge > Sites**.
+1. From the navigation menu, go to **Zero Trust Branch** > **Deployments**>**Sites**.
 2. In the **Site Name** column, click the name of the site you want to manage.
 3. Click **Settings** in the left-side navigation, then click the **DNS** tab.
 4. View or edit the following fields: See image.
@@ -4569,7 +4896,7 @@ You can add static routes to define manual paths for network traffic and choose 
 
 To configure static routes for a site:
 
-1. Go to **Infrastructure > Connectors > Edge > Sites**.
+1. From the navigation menu, go to **Zero Trust Branch** > **Deployments**>**Sites**.
 2. In the **Site Name** column, click the name of the site you want to configure.
 3. Click **Routing**in the left-side navigation, then click the **Static Routes** tab.
 4. Click **Add route**. See image.
@@ -4606,13 +4933,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-snmp-configurations","lastmod":"2026-07-12T07:06Z","nid":"1532443"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-snmp-configurations","lastmod":"2026-09-02T21:31Z","nid":"1532443"} -->
 ## Managing SNMP Configurations
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-snmp-configurations
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Analytics & Monitoring > Managing SNMP Configurations
-- Last modified: 2026-07-12T07:06Z
+- Last modified: 2026-09-02T21:31Z
 - Summary: Managing SNMP Configurations in Zero Trust Branch.
 
 Zero Trust Branch supports the Simple Network Management Protocol (SNMP) standard for network monitoring and management. You can use the following standard management information bases (MIBs):
@@ -4868,13 +5195,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-08-27T21:07Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-09-04T09:37Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-27T21:07Z
+- Last modified: 2026-09-04T09:37Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -5349,13 +5676,13 @@ You can also create notifications using the Ransomware Kill Switch. To learn mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-bonding-interfaces","lastmod":"2026-08-28T04:08Z","nid":"1538749"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-bonding-interfaces","lastmod":"2026-08-31T20:53Z","nid":"1538749"} -->
 ## Understanding Bonding Interfaces
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-bonding-interfaces
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Templates > Bonding Interfaces > Understanding Bonding Interfaces
-- Last modified: 2026-08-28T04:08Z
+- Last modified: 2026-08-31T20:53Z
 - Summary: Information on bonding interfaces on the LAN side in Zero Trust Branch.
 
 Zero Trust Branch bonding interfaces empower organizations to seamlessly combine high availability, increased bandwidth, and streamlined network management in distributed branch, factory, and data center environments. The two bonding interfaces, ebond0 and ebond1, are logical interfaces created by combining multiple physical network interfaces (ports). By leveraging bonding interfaces, you can ensure that the traffic is load balanced and protected against link failures, while administrative overhead is greatly reduced through centralized, template-driven configuration.
@@ -6643,13 +6970,13 @@ Zero Trust Branch provides the following tagging options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-08-28T08:18Z","nid":"1529460"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-09-02T21:07Z","nid":"1529460"} -->
 ## Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
 
 - Source: https://help.zscaler.com/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Installation > Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
-- Last modified: 2026-08-28T08:18Z
+- Last modified: 2026-09-02T21:07Z
 - Summary: Instructions for wall and rack mounting the Zero Trust Branch appliances.
 
 After you receive the Zscaler Zero Trust Branch appliance, you can mount the Zero Trust Branch appliance as follows:
@@ -6722,8 +7049,8 @@ See image.
 
 To rack mount the Zero Trust Branch ZT600:
 
-1. Align one ear bracket to the screw holes on the side panel of the appliance and attach the bracket using three A screws. See image.
-2. Secure the other ear bracket to the other side of the appliance.
+1. Align one rack mounting bracket to the screw holes on the side panel of the appliance and attach the bracket using three A screws. See image.
+2. Secure the other rack mounting bracket to the other side of the appliance.
 3. Ensure that the adapter's cable is connected and secured. See image.
 4. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. Hold the appliance and lift carefully to insert the appliance into the rack. See image.
 5. Connect the necessary cables to the designated ports of the appliance. To learn more, see [Zero Trust Branch Physical Port Mapping](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping#ZT600).
@@ -6766,8 +7093,8 @@ To wall mount the Zero Trust Branch ZT800:
 
 To rack mount the Zero Trust Branch ZT800:
 
-1. Align one ear bracket to the screw holes on the side panel of the appliance and secure the bracket using three A screws. See image.
-2. Secure the other ear bracket to the other side of the appliance.
+1. Align one rack mounting bracket to the screw holes on the side panel of the appliance and secure the bracket using three A screws. See image.
+2. Secure the other rack mounting bracket to the other side of the appliance.
 3. Ensure that the adapter's cable is connected and secured. See image.
 4. Hold the appliance and lift carefully to insert the appliance into the rack. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. See image.
 5. Connect the necessary cables to the designated ports of the appliance. To learn more, see [Zero Trust Branch Physical Port Mapping](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping#ZT800).
@@ -7105,13 +7432,13 @@ On the SIMs page (Infrastructure > Connectors > Cellular > SIMs), you can do the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-zscaler-cellular-audit-logs","lastmod":"2026-08-03T21:06Z","nid":"1539636"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-zscaler-cellular-audit-logs","lastmod":"2026-09-03T21:04Z","nid":"1539636"} -->
 ## About Zscaler Cellular Audit Logs
 
 - Source: https://help.zscaler.com/zscaler-cellular/about-zscaler-cellular-audit-logs
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Audit Logs > About Zscaler Cellular Audit Logs
-- Last modified: 2026-08-03T21:06Z
+- Last modified: 2026-09-03T21:04Z
 - Summary: Information regarding Audit Logs for Zscaler Cellular.
 
 Zscaler Cellular audit logs allow you to view a record of all administrative actions performed in the Zscaler Cellular configurations. It helps track configuration changes, identify who performed an action, and understand when the action occurred.
@@ -7129,9 +7456,9 @@ Zscaler Cellular audit logs provide the following benefits and enable you to:
 On the Zscaler Cellular Audit Logs page (Administration > Admin Management > Audit Logs > Cellular), you can do the following:
 
 1. Apply time filters to view log entries specific to that period.
-2. Show or hide filtering options
-3. Refresh the table data
-4. Add or remove columns from the table
+2. Refresh the table data.
+3. Add or remove columns from the table.
+4. Show or hide filtering options.
 5. Apply filters based on specific parameters. For each parameter, you can specify a value to filter the table data.
 6. View audit log entries based on the applied filters. For each log entry, you can view:
   - **Timestamp**: The date and time when the action occurred.
@@ -7779,13 +8106,13 @@ To view the details of a specific network event:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-sim-details","lastmod":"2026-08-14T04:45Z","nid":"1518126"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-sim-details","lastmod":"2026-09-01T00:34Z","nid":"1518126"} -->
 ## Viewing SIM Details
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-sim-details
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Viewing SIM Details
-- Last modified: 2026-08-14T04:45Z
+- Last modified: 2026-09-01T00:34Z
 - Summary: How to view details of each SIM card.
 
 You can access in-depth information about each SIM—both physical SIMs and eSIMs—provisioned to your organization. The SIM details page provides a comprehensive overview of a selected SIM's session activity, including its current status, historical data usage, key connectivity details, and location history.
@@ -7794,7 +8121,7 @@ To view the details of a SIM card:
 
 1. Go to**Infrastructure**> **Connectors**> **Cellular**> **SIMs**. The **SIMs**page appears.
 2. In the table, click the **ICCID**link for the SIM you are interested in. The **SIM details**page opens.
-3. On the **SIM details**page, you can view: See image.
+3. On the **SIM details**page, you can view:
   - **SIM Info**: Displays the basic details about the SIM:
     - **Connection**: Indicates whether the SIM is online or offline.
     - **APN**: The Access Point Name used for the SIM's network connectivity.
@@ -7824,6 +8151,15 @@ To view the details of a SIM card:
   - **Location History**: A widget that provides a detailed visual representation of your SIM’s movements across different locations and the network events that triggered those transitions. It helps you identify travel patterns, frequent activity areas, and connectivity changes. It shows: See image.
     - Map Indicators: Blue pins on the map represent SIM activity and movements. Hovering over a pin shows detailed information, including the event’s date and time, type of event, operator, Mobile Country Code (MCC), Mobile Network Code (MNC), and Cell ID.
     - Timeline Bar: The timeline bar displays the total number of SIM location events and allows you to move through them from the oldest to the newest. This gives you a quick, chronological view of activity over time.
+
+A backend feature flag controls how map content is displayed:
+
+- Enabled: Shows the SIM’s location history over the selected timeframe.
+- Disabled: Displays the SIM’s current location only.
+
+To update or change this feature flag, please contact [Zscaler Support](https://help.zscaler.com/contact-support).
+
+See image.
 
 [Image: Viewing basic information on the SIM details page with sensitive information blurred]
 
