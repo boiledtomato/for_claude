@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-31 06:38 UTC
+Generated: 2026-09-07 05:39 UTC
 Posts in this file: 730
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -17065,14 +17065,14 @@ Regards
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy","lastmod":"2026-08-26T15:43:56.000Z","id":"0D5PJ000011GFN30AO"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy","lastmod":"2026-09-02T17:53:46.000Z","id":"0D5PJ000011GFN30AO"} -->
 ## file type control policy
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy
 - Type: Q&A
 - Posted: 2026-08-24T11:03:35.000Z
-- Last activity: 2026-08-26T15:43:56.000Z
-- Answers: 2
+- Last activity: 2026-09-02T17:53:46.000Z
+- Answers: 3
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。

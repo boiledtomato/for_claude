@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-17 02:18 UTC
-Posts in this file: 655
+Generated: 2026-09-07 05:39 UTC
+Posts in this file: 656
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -14841,15 +14841,15 @@ Did anyone upgrade to 4.5 and faced this issue? How did you sort it?
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000kpyJA0AY/ios-shared-ipad-zcc-deployment-help","lastmod":"2025-11-25T14:59:09.000Z","id":"0D5PJ00000kpyJA0AY"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000kpyJA0AY/ios-shared-ipad-zcc-deployment-help","lastmod":"2026-09-04T15:23:52.000Z","id":"0D5PJ00000kpyJA0AY"} -->
 ## iOS Shared iPad + ZCC Deployment: Help
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000kpyJA0AY/ios-shared-ipad-zcc-deployment-help
 - Type: Q&A
 - Posted: 2025-11-24T22:14:37.000Z
-- Last activity: 2025-11-25T14:59:09.000Z
+- Last activity: 2026-09-04T15:23:52.000Z
 - Answers: 0
-- Likes: 0
+- Likes: 1
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
 
@@ -15335,4 +15335,21 @@ Regards
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>Would like to know best practices for ZCC and Golden Gate testing. Beta testing reveals ZCC connection instability for some users. Are there recommended ZCC versions to test with.</p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011vRiL0AU/zcc-vs-gre-performance-for-zia","lastmod":"2026-09-03T04:58:30.000Z","id":"0D5PJ000011vRiL0AU"} -->
+## ZCC vs GRE performance for ZIA
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011vRiL0AU/zcc-vs-gre-performance-for-zia
+- Type: Q&A
+- Posted: 2026-09-03T04:58:30.000Z
+- Last activity: 2026-09-03T04:58:30.000Z
+- Answers: 0
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>Hi,</p><p><br></p><p>Looking to get some feedback on whether to use ZCC or GRE for ZIA from a trusted network. My edge device are GRE capable. My primary concern is internet performance. Is GRE more consistent and dies it orovide better speeds, better page fetch times and lesser latency as compared to zcc</p><p><br></p><p> </p>
 <!-- /ZS-POST -->

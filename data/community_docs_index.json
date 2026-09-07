@@ -1,6 +1,6 @@
 {
  "fetch_mode": "api",
- "generated_at": "2026-08-31T06:38:40Z",
+ "generated_at": "2026-09-07T05:39:56Z",
  "posts": {
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
    "category": "zcc",
@@ -11925,8 +11925,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u00009ezG1FCAU/step-5-how-to-post-content": {
    "category": "other",
-   "hash": "daea6058afbf9177",
-   "lastmod": "2026-08-14T13:36:19.000Z",
+   "hash": "24dab9e28444a7a7",
+   "lastmod": "2026-09-03T20:05:17.000Z",
    "title": "STEP 5 - How to post content",
    "type": "question"
   },
@@ -17651,8 +17651,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000kpyJA0AY/ios-shared-ipad-zcc-deployment-help": {
    "category": "zcc",
-   "hash": "658e7dbe46268b55",
-   "lastmod": "2025-11-25T14:59:09.000Z",
+   "hash": "cbe186ee5369e0cb",
+   "lastmod": "2026-09-04T15:23:52.000Z",
    "title": "iOS Shared iPad + ZCC Deployment: Help",
    "type": "question"
   },
@@ -18092,8 +18092,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000qixuf0AA/branch-connector": {
    "category": "branch",
-   "hash": "191a53821ab7ad90",
-   "lastmod": "2026-08-27T19:29:49.000Z",
+   "hash": "dd524b6f8853e7b5",
+   "lastmod": "2026-09-02T17:54:29.000Z",
    "title": "Branch Connector",
    "type": "question"
   },
@@ -18561,8 +18561,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures": {
    "category": "platform",
-   "hash": "90ad182f289a9a02",
-   "lastmod": "2026-08-20T17:32:01.000Z",
+   "hash": "38cfea476bd2e85f",
+   "lastmod": "2026-09-02T17:54:04.000Z",
    "title": "SAML Authentication Expired Causing Private Application Access Failures",
    "type": "question"
   },
@@ -18589,8 +18589,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy": {
    "category": "zia",
-   "hash": "76c1be4afe2c448f",
-   "lastmod": "2026-08-26T15:43:56.000Z",
+   "hash": "43cd9d48bf316c03",
+   "lastmod": "2026-09-02T17:53:46.000Z",
    "title": "file type control policy",
    "type": "question"
   },
@@ -18599,6 +18599,27 @@
    "hash": "13dd6979fdbee0d7",
    "lastmod": "2026-08-25T19:57:55.000Z",
    "title": "Tenant restriction for Chatgpt",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011XXIq0AO/idp-issue": {
+   "category": "platform",
+   "hash": "db53326462b6d397",
+   "lastmod": "2026-09-02T17:52:44.000Z",
+   "title": "IDP Issue",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011pexC0AQ/lss-log-stream-content-discrepancies-in-the-official-documentation": {
+   "category": "platform",
+   "hash": "47534401f1064b8a",
+   "lastmod": "2026-09-02T17:52:16.000Z",
+   "title": "LSS Log Stream Content discrepancies in the official documentation",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011vRiL0AU/zcc-vs-gre-performance-for-zia": {
+   "category": "zcc",
+   "hash": "6d1dab4ccabc73d1",
+   "lastmod": "2026-09-03T04:58:30.000Z",
+   "title": "ZCC vs GRE performance for ZIA",
    "type": "question"
   }
  },
@@ -19005,6 +19026,7 @@
   "https://community.zscaler.com/s/Articles/aSmPJ00000Gej5F0AR/zero-trust-branch-videos": "2026-07-28T03:02:39.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000GelOn0AJ/leverage-red-canary-zscaler-oneapi-for-automated-zia-threat-response": "2026-08-10T15:04:12.000Z",
   "https://community.zscaler.com/s/Articles/aSmPJ00000Genwr0AB/forwarding-profiles-made-simple": "2026-08-14T13:29:50.000Z",
+  "https://community.zscaler.com/s/Articles/aSmPJ00000Gevkj0AB/edu100-workshop-september-available-sessions-lineup": "2026-09-04T15:36:48.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ00000000b70AA/zscaler-certification-at-pub-sec-in-march": "2025-03-04T16:04:40.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ00000001Ab0AI/new-courses-alert-explore-them-now": "2025-05-07T20:23:09.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ00000001CD0AY/3rd-party-contractors-how-to-protect-data-from-mobile-personal-laptop-": "2025-05-09T18:42:31.000Z",
@@ -19359,6 +19381,9 @@
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000dsb0AA/joy-to-recognition-certification-champion-spotlight-with-manuel-bock": "2026-07-24T19:38:55.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000ebl0AA/chaotic-caffeinated-and-community-powered-david-gillot-spotlight": "2026-08-12T17:46:45.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000eez0AA/choose-your-edu100-session-monthly-lineup-apj-emea-ams": "2026-08-14T17:19:46.000Z",
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000etV0AQ/zdta-exam-resources": "2026-09-02T17:53:54.000Z",
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000ewj0AA/learning-zpa-from-scratch-a-beginner-friendly-guide": "2026-09-02T17:53:51.000Z",
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000fET0AY/zia-proxychaining-explained-in-30-seconds": "2026-09-02T17:53:23.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": "2025-04-28T14:39:01.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000005aCX0AY/how-to-access-your-cases-in-the-zscaler-customer-support-portal": "2025-09-25T16:40:36.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000005aMD0AY/how-to-access-customer-support-portal-csp-and-view-the-service-status-section": "2025-10-09T07:00:19.000Z",
@@ -19738,7 +19763,7 @@
   "https://community.zscaler.com/s/Guides/aSoPJ0000006C890AE/the-criteria-zscaler-uses-to-identify-which-browser-is-handling-specific-traffic": "2026-06-03T18:33:38.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006C9l0AE/determine-user-count-peak-transactions-for-an-nss-virtual-appliance-deployment": "2026-06-03T18:45:16.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006PBp0AM/working-of-zcc-listening-proxy-ztunnel-20": "2026-06-26T10:29:56.000Z",
-  "https://community.zscaler.com/s/Guides/aSoPJ0000006QCj0AM/how-to-validate-if-a-zscaler-vm-is-running-zsos24-needs-redeployment": "2026-07-09T15:11:38.000Z",
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006QCj0AM/how-to-validate-if-a-zscaler-vm-is-running-zsos24-needs-redeployment": "2026-09-03T16:52:36.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006QEL0A2/redeploying-dlp-index-tool-on-zscaleros42": "2026-06-30T19:09:41.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006QHZ0A2/redeploying-dlp-incident-receiver-on-zscaleros42": "2026-07-01T18:04:01.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006QpR0AU/redeploying-authentication-bridge-on-zscaleros42": "2026-07-01T19:13:05.000Z",
@@ -19758,6 +19783,8 @@
   "https://community.zscaler.com/s/Guides/aSoPJ0000006alZ0AQ/how-to-renew-microsoft-entra-id-zpa-certificate-before-it-expires": "2026-08-07T07:02:27.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006bWL0AY/how-to-configure-a-custom-watermark-message-in-cloud-browser-isolation": "2026-08-11T17:02:28.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006eSb0AI/redeploying-virtual-branch-connector": "2026-08-30T17:28:10.000Z",
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006exF0AQ/redeploying-cloud-connectors": "2026-09-01T18:20:49.000Z",
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006gML0AY/redeploying-hardware-branch-connector-onearmedmode-nongateway-mode": "2026-09-03T16:46:09.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evml4CAA/new-community-signups-welcome-picturespictures": "2023-07-06T12:57:39.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmvxCAA/guide-deploy-zscaler-client-connector-with-intune-ios-android": "2023-07-06T13:02:32.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmwrCAA/guide-integrate-zscaler-with-azure-sentinel": "2023-07-06T13:03:45.000Z",

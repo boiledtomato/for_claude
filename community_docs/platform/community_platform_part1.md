@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-24 02:21 UTC
-Posts in this file: 209
+Generated: 2026-09-07 05:39 UTC
+Posts in this file: 211
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -5618,17 +5618,51 @@ we have our NSS server status always showing unhealthy. what could be the reason
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures","lastmod":"2026-08-20T17:32:01.000Z","id":"0D5PJ00000zoFsY0AU"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures","lastmod":"2026-09-02T17:54:04.000Z","id":"0D5PJ00000zoFsY0AU"} -->
 ## SAML Authentication Expired Causing Private Application Access Failures
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures
 - Type: Q&A
 - Posted: 2026-08-03T12:41:30.000Z
-- Last activity: 2026-08-20T17:32:01.000Z
-- Answers: 1
+- Last activity: 2026-09-02T17:54:04.000Z
+- Answers: 2
 - Likes: 0
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>I'm troubleshooting an issue where users are unable to access an internally published application. </p><p><br></p><p>It is a Domain Controller.</p><p><br></p><p>The logs show a BRK_MT_SETUP_FAIL_SAML_EXPIRED failure while attempting to access an internal resource. The transaction references UDP/389, but the connection is denied with a re-authentication action of Deny before any traffic is exchanged. Has anyone seen SAML expiration errors occur before connector/app selection? And what it is weird, we are not having any authentication issue internally.</p><p><br></p><p>Note</p><p>We don't have any <span style="font-size: 16px; font-family: Inter-Medium;">Timeout Policy.</span></p><p><br></p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011XXIq0AO/idp-issue","lastmod":"2026-09-02T17:52:44.000Z","id":"0D5PJ000011XXIq0AO"} -->
+## IDP Issue
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011XXIq0AO/idp-issue
+- Type: Q&A
+- Posted: 2026-08-28T06:04:44.000Z
+- Last activity: 2026-09-02T17:52:44.000Z
+- Answers: 0
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>My okta idp has two users (A &amp; B), both users are in a Group (test group)</p><p>I have created a ZIA application and configured the SAML authentication and i have assigned both users (A &amp;B) and the (test group) to the ZIA application in okta.</p><p>I have integrated my OKTA IDP with my Zscaler tenant along with SCIM integration. Now im able to see my users and group in my Zscaler ZIA user management. </p><p>The same i have done for ZPA with my IDP and Zscaler tenant, and the user &amp; group are synced and visible in the ZPA user management.</p><p>I also given the entitilement for ZPA fro the test group.</p><p><br></p><p>Issue - First when i tried to login to ZCC with User B it got connected and passing traffic to Zscaler. Next when i created access policies for ZPA and tried to login again to ZCC there is a error (Internal Error 42049).</p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011pexC0AQ/lss-log-stream-content-discrepancies-in-the-official-documentation","lastmod":"2026-09-02T17:52:16.000Z","id":"0D5PJ000011pexC0AQ"} -->
+## LSS Log Stream Content discrepancies in the official documentation
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011pexC0AQ/lss-log-stream-content-discrepancies-in-the-official-documentation
+- Type: Q&A
+- Posted: 2026-09-02T04:31:08.000Z
+- Last activity: 2026-09-02T17:52:16.000Z
+- Answers: 0
+- Likes: 0
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">Hi all,</span></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">We're building custom Log Stream Content templates for all LSS log types. Validating every field against the official "Understanding <log type> Log Fields" pages surfaced discrepancies between the docs, the default template the Admin Portal generates, and the example logs in the docs themselves. Field names are case sensitive and an unrecognised token yields a silently empty value rather than an error, so we'd like these confirmed.</span></p><p style="text-align: justify;"><br></p><p style="text-align: justify;"><strong style="font-size: 10pt;">1. The default Log Stream Content uses field names that are not in the documentation.</strong></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">The pre-populated default template contains "c2c" (User Activity) and "fqdn_registered" / "fqdn_register_error" (User Status). The docs for those log types show ClientToClient, FQDNRegistered and FQDNRegisteredError instead. None of the three default-template tokens appear anywhere in the corresponding Log Fields pages.</span></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">Are the default-template names canonical, with the docs showing display names? Or are both accepted? Anyone building a template from the docs alone would use the documented names, and if only the default names resolve, those fields would be silently empty.</span></p><p style="text-align: justify;"><br></p><p style="text-align: justify;"><strong style="font-size: 10pt;">2. The field table and the example log disagree within the same page.</strong></p><ul><li style="text-align: justify;"><span style="font-size: 10pt;">User Activity: table AppMicroTenantID, example log AppMicrotenantID</span></li><li style="text-align: justify;"><span style="font-size: 10pt;">User Status: table PosturesMiss, example log PosturesMisses</span></li><li style="text-align: justify;"><span style="font-size: 10pt;">Private Service Edge Metrics: table LogTimeStamp, example log LogTimestamp</span></li><li style="text-align: justify;"><span style="font-size: 10pt;">Private Service Edge Status: table TimestampUnAuthnetication, example log TimestampUnAuthentication</span></li></ul><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">Which spelling does LSS resolve in each case?</span></p><p style="text-align: justify;"><br></p><p style="text-align: justify;"><strong style="font-size: 10pt;">3. Two fields appear in an example log but have no table entry.</strong></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">In "Understanding Private Service Edge Status Log Fields", Version and PublicIP appear in the example log but have no row in the field table, so neither has a documented description or supported format specifications. Could these be added?</span></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">Related: is HostStartTime (App Connector Status, Private Service Edge Status) versus HostUpTime (Private Cloud Controller Status) a real per-log-type difference or an inconsistency? The descriptions are effectively identical.</span></p><p style="text-align: justify;"><br></p><p style="text-align: justify;"><strong style="font-size: 10pt;">4. Is the comma-separated array construct supported?</strong></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">The format guide defines the grammar as %[OPT]<specifier>{<field_name>}, where [OPT] is a printf width/precision value. No separator or array construct is documented. Yet for the multi-valued User Status fields (TrustedNetworks, TrustedNetworksNames, PosturesHit, PosturesMiss) we have seen this form in use:</span></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">"TrustedNetworks": [%j(,){TrustedNetworks}]</span></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">Is %j(,){...} supported? If so, could it be documented? If not, what is the recommended way to emit a multi-valued field as a JSON array rather than one comma-joined string?</span></p><p style="text-align: justify;"><br></p><p style="text-align: justify;"><strong style="font-size: 10pt;">5. Which specifiers may be combined with the timestamp modifiers?</strong></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">Every timestamp-modifier example in the format guide uses %s or %d, e.g. %s{startrx_us:iso8601}. We have been writing %j{TimestampAuthentication:iso8601} to get a quoted ISO-8601 value directly. Is a modifier with %j supported, or should we use %s and add the quotation marks ourselves?</span></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">Also, in User Activity the "Last" timestamps (TimestampZENLastRxClient, TimestampZENLastTxClient, TimestampConnectorZENSetupComplete) are documented as supporting %[OPT]s, %[OPT]j and %[OPT]J, while the "First" timestamps (TimestampZENFirstRxClient/TxClient, TimestampZENFirstRxConnector/TxConnector) support only %[OPT]d, %[OPT]x, %[OPT]f and %[OPT]o. Is that intentional? As documented, the "First" timestamps cannot be rendered as ISO-8601 while their "Last" counterparts can.</span></p><p style="text-align: justify;"><br></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">Any clarification would be much appreciated.</span></p><p style="text-align: justify;"><br></p><p style="text-align: justify;"><strong>Note:</strong></p><p style="text-align: justify;">links we are talking about are available here under this page: https://help.zscaler.com/zpa/log-streaming-service</p><p style="text-align: justify;"><br></p><p style="text-align: justify;"><span style="font-family: Roboto, sans-serif; font-size: 10pt;">Thanks!</span></p><p><br></p><p><br></p>
 <!-- /ZS-POST -->
