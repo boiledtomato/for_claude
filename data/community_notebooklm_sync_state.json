@@ -11,8 +11,8 @@
   },
   "community_branch_part1.md": {
    "rel": "branch/community_branch_part1.md",
-   "sha256": "7f3fec4839b78af141b796139f3aae48a84aaf3e253db12644856720064b3d4f",
-   "source_id": "9dabf7d7-942d-4d39-9b08-cb2c5aad006a"
+   "sha256": "32e9316b9faa3e4324843eda5c3409ed9283397b8ebbcd83763851eddb38cd0e",
+   "source_id": "689af4a2-58ea-4cd3-b070-58219018c2da"
   },
   "community_data_security_part1.md": {
    "rel": "data_security/community_data_security_part1.md",
@@ -26,18 +26,18 @@
   },
   "community_other_part1.md": {
    "rel": "other/community_other_part1.md",
-   "sha256": "0a9768e093e35ed53228766196fffe3c27e162cc65af30df0ad147f6f9caebbd",
-   "source_id": "a43771c7-60cd-463f-b932-27afe5fb1082"
+   "sha256": "fe3a9d46422e7318f0dec1740bb9353a1287c1370b2454d873273bc1d0048ea8",
+   "source_id": "0a86e2f6-b310-4345-a28d-a5dc94429d78"
   },
   "community_platform_part1.md": {
    "rel": "platform/community_platform_part1.md",
-   "sha256": "4429b3c5e2cf00c0269994be29ae752ab190bc9e734891ca25c9e11fa62b70fe",
-   "source_id": "42491776-1d4e-421f-8262-93fae44c69d8"
+   "sha256": "d61dc7b6c19f0cef5f0cf2f8b4089df8a54100dc7b4417388d8e7c233acdca93",
+   "source_id": "31f4b596-18bb-4c8d-a4f5-8d7b5cac525a"
   },
   "community_zcc_part1.md": {
    "rel": "zcc/community_zcc_part1.md",
-   "sha256": "f73105aec26f26ad041257847754e29a1480cb642516ecf76be1b763a9534502",
-   "source_id": "c306af21-442e-421f-9ea0-3a0e5bb75557"
+   "sha256": "938cbcd01d8328abbe0af6aa2760c5efeb2961eed4ddb08d623b59eadd8b93ef",
+   "source_id": "369277e6-72f8-44f3-9dda-15526c1dcc9f"
   },
   "community_zdx_part1.md": {
    "rel": "zdx/community_zdx_part1.md",
@@ -46,8 +46,8 @@
   },
   "community_zia_part1.md": {
    "rel": "zia/community_zia_part1.md",
-   "sha256": "51008c3e9b228bf3677b7609768fbca6d23e795b3998f188a8d2f3ce6ed7eefe",
-   "source_id": "113e4f85-e1d9-472e-b465-165e1181d1b0"
+   "sha256": "3876160740414ae2264925a98dbf9493b8f7e3b640d095788f177d0dc24ec9c6",
+   "source_id": "b4b3e2ad-2292-46ad-aedb-9e20d0b8728c"
   },
   "community_zpa_part1.md": {
    "rel": "zpa/community_zpa_part1.md",
@@ -55,5 +55,5 @@
    "source_id": "ea51b554-a6ff-4681-b3ea-a46ba22632a7"
   }
  },
- "synced_at": "2026-08-31T06:39:28Z"
+ "synced_at": "2026-09-07T05:41:10Z"
 }
