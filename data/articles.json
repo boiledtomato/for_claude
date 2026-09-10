@@ -1,5 +1,16 @@
 {
-  "last_updated": "2026-09-09T02:32:16Z",
-  "total": 0,
-  "articles": []
+  "last_updated": "2026-09-10T02:33:18Z",
+  "total": 1,
+  "articles": [
+    {
+      "id": "4ae4a671d3f463a3",
+      "title": "Zscaler Agentic SOC combines AI agents with zero trust telemetry",
+      "url": "https://www.helpnetsecurity.com/2026/09/09/zscaler-agentic-soc-solution/",
+      "summary": "Zscaler has announced Zscaler Agentic SOC, a new approach to security operations built to proactively reduce exposures, scale human expertise and stop AI-driven attacks at machine speed. Simply layering in AI capabilities onto the existing security stack will not provide the protection needed. Zscaler is delivering a new solution to the security operations center (SOC), purpose-built from the grou",
+      "date": "2026-09-09T10:09:49Z",
+      "source": "Help Net Security",
+      "category": "industry_news",
+      "tags": []
+    }
+  ]
 }
