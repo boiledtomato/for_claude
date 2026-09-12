@@ -37,10 +37,14 @@ for_claude/
 ├── community_docs/                   # Zenith Community Markdown — not published
 │   ├── README.md
 │   └── <category>/community_<category>_partN.md
+├── android-app/                      # Kotlin + Compose ホームランチャー（独立プロジェクト）
+│   ├── app/src/main/java/com/example/zlauncher/
+│   └── tools/palette_check.py        # カテゴリー配色の検証（ΔE2000・CVD・コントラスト）
 ├── docs/
 │   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
 │   └── workflows/
+│       ├── android-build.yml         # Debug APK build + rolling pre-release
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy
 │       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
 │       └── community-weekly.yml      # Weekly community.zscaler.com doc refresh
@@ -373,6 +377,42 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 - **Commit message format:** `docs: Zenith Community 週次更新 YYYY-MM-DD`
 - Syncs with `--docs-dir community_docs --state-file
   data/community_notebooklm_sync_state.json --notebook-title Zscaler_community`
+
+## Android launcher app (`android-app/`)
+
+An independent Gradle project — it shares nothing with the Python/HTML pipeline and is
+not deployed by any workflow. Kotlin + Jetpack Compose home launcher (`HOME` intent
+filter) with three screens: **the console is the home screen** (left rail with an `Apps`
+entry, pinned apps and user-created categories; panes for live device metrics, Web
+Insights, placed widgets, or a category's apps), an app drawer (`ui/apps/`: search, the
+auto-sorted app grid, the favourites dock) opened from the rail, and a widget picker.
+The all-apps grid used to be the home screen itself, which buried everything this app is
+actually about and split "where widgets are placed" from "where widgets are added".
+Work profile apps appear in the drawer grid with badged icons.
+
+- Build: `cd android-app && ./gradlew assembleDebug` (needs an Android SDK with
+  compileSdk 36; `local.properties` is git-ignored). The Gradle wrapper is committed
+- `android-build.yml` builds the debug APK on every push touching `android-app/` and
+  replaces the asset on the rolling `android-debug-latest` pre-release, so the download
+  URL never changes — that is how the APK reaches a phone without a PC
+- `keystore/debug.keystore` is committed on purpose: without a fixed debug key every
+  build environment produces a differently-signed APK that cannot be installed over the
+  previous one. Never use it for a release build
+- Debug builds carry `applicationIdSuffix ".debug"` so they coexist with the device's
+  real launcher — **do not set a debug build as the default home until it is verified**
+- Console cards read real device metrics (`DeviceMetricsRepository`, polled every 1s while the console is open, single sampling coroutine via `stateIn`); the only permission used is `ACCESS_NETWORK_STATE`
+- The console's Insights pane is **Web Insights**: per-category traffic logs over 1H/24H/7D from `NetworkStatsManager` (`data/insights/`), shown as three views — Chart (stacked-by-category timeline, connection/direction splits), Apps (ranked, with inline series), Log (raw rows). Every timeline carries a `TimeAxis` built from the same Row structure as the bars (per-bucket `weight(1f)`, 2dp gaps) — an evenly-spaced label row drifts off the bars and makes the hour unreadable; ticks are thinned to 3-4, the first is start-aligned, the last eighth is left to the `now` label, and the detail overlay reads out a tapped bar's window and volume — searchable, filterable by time bucket and category, with tap-through detail for a category or app, and exportable as CSV via FileProvider. It needs usage access (`PACKAGE_USAGE_STATS`, signature|appop — granted in Settings, never by a runtime dialog); everything else works without it. URLs/hostnames are not obtainable without running a VPN service and are deliberately out of scope
+- **Colour tokens are theme-aware.** `ZColors.X` reads `LocalZColors` (a `ZColorScheme`), so call sites are unchanged but the values differ between the dark and light schemes — and they cannot be read outside composition (a `DrawScope` must be handed the colour). The light scheme is taken from the Zscaler Experience Center console (nav blue `#1D56CE`, white page, `#E3E8EF` rules). The mode (`ThemeMode`, default SYSTEM) is persisted and cycled from the rail's bottom button; `MainActivity` re-applies `enableEdgeToEdge` so the status bar icons follow, since the user can pin light while the device is dark
+- There are 15 category colour slots per theme, and `CategoryChartColors` is a darker sibling of the identity `CategoryColors` (hue drift <=18 degrees per slot). `tools/palette_check.py` measures every pair — ΔE2000 for normal vision and for Viénot-simulated protan/deutan, plus contrast against the surface — and prints the floors; run it after any palette edit and update the table in `android-app/README.md`. Measured: dark identity 12.8 / 3.6, dark chart 12.6 / 4.9, light identity 20.1 / 8.7, light chart 19.0 / 8.0. **On the dark surface 15 categorical colours cannot meet the 15/8 floors** — a computational limit, not an oversight; on white there is room and the light palettes clear both. It works anyway because colour is never the only cue: the rail always shows the name, and charts colour at most 4 series (rest fold into a neutral `Other`) with a legend carrying names and byte values. Never eyeball a palette change. (The older figures in this file — 12.1/6.5 and 9.8/5.3 — came from a throwaway script that was never committed; the colours did not change, the measurement did.)
+- Console rail categories are built from Zscaler's predefined URL category CSV, bundled at `assets/zscaler_url_categories.csv` and re-fetched every 90 days by `CatalogSyncWorker` (`data/catalog/`). The picker groups sub-categories under collapsible super-category headers. The `Advanced Security` (ATP-only) and `Microsoft Office 365` (SSL-inspection-only) super-categories are dropped at parse time, leaving 28 supers / 109 sub-categories. `AppClassifier` suggests which apps belong in a category (declared `ApplicationInfo.category`, a keyword table, then token overlap) but never applies them — the picker shows candidates with their reason and the user confirms; `AppMatchingTest` pins the short-keyword guard. The CSV URL carries a revision date so it cannot be hardcoded — the updater reads the help article via `zapi/fetch-data` and extracts the current `.csv` link with `CatalogArticle.csvPath()`, which unescapes the JSON body first: the response carries `href=\u0022\/downloads\/…csv\u0022`, so a plain `/downloads/…` regex never matches and the app just reports "The help article no longer links a CSV" — `CatalogArticleTest` pins the real shape. Diffs are never applied silently (the CSV has no stable ID column, so renames are inferred); the user reviews them. `UrlCategoryCsvTest` parses the real bundled file — keep it passing.
+- UI strings are English throughout. Console cards reorder by drag **only in Layout mode** (dragging at all times moved cards when the user meant to touch their content), as do widgets. Every drag reorder (console cards, widgets) commits through `ReorderGate`: the dragged centre must reach the middle 40% of a neighbour, hold there 140ms, and no second swap fires for 220ms — judging on plain rect overlap swapped on a 1px touch and cascaded several places while the finger passed by. The wait is returned to the caller and re-checked on a timer, or holding still over a target would never commit; `ReorderGateTest` pins the boundaries, so move its expectations when tuning the feel. The rail separates the fixed panes from the user's categories with a divider and a collapsible `Categories` header (same tab pattern as `Pinned`), and the categories themselves reorder by long-press drag. The reorder commits on release, not per swap — reordering mid-gesture re-keys the row's `pointerInput` and kills the drag; `RailReorder` does the maths against measured row heights (names wrap to two lines, so a fixed step is off by one next to a long name) and `RailReorderTest` pins it. Removing apps from a category is its own mode: long-press a tile to enter it (targets jiggle, corners round off, each icon gets a top-left `−`), select any number, then a bottom **Remove from category** bar (danger pink, white text) asks Yes/No before anything is removed — back exits the mode first, and the removal is one write, not one per app. Cancelling the app picker that opens right after creating a category discards that category — the dialog says `Discard`, and only there is click-outside dismissal disabled. All motion timings live in `core/designsystem/Motion.kt` (`ZMotion`) and every tappable uses `springyClick`
+- The widget picker searches by widget name, provider app name and package, and adds a multi-selection in one pass — the bind consent and configure activities cannot overlap, so the queue runs one at a time: a denied consent aborts the rest, a closed configure screen skips just that widget. The queue's `LaunchedEffect` key includes the queue index because a cancelled widget's id is freed and can be handed straight back, which would leave the key unchanged and stall the queue
+- Placed widgets flow into a **4-column grid** (`WidgetFlow.rows`): each carries a `widthSpan` (1-4) and `heightDp`, and only a widget that does not fit the remaining columns starts a new row, so two narrow ones share a row. A gap is left as a gap — pulling a later widget up would move something the user placed. The starting span comes from the provider's own `minWidth`, which is declared as `70dp × cells − 30dp`: `spanForWidthDp` adds the 30 back before dividing, or every 2×1 widget collapses to one column (`WidgetFlowTest` pins it). Sizing happens only in the pane's **Layout** mode, on the selected widget, from a bar at the top of the pane — a widget can be one column (~60dp) wide, so controls inside its own frame would always overflow — plus grab handles on the selected widget's right edge (width, one column per half-column of travel) and bottom edge (height). In Layout mode a veil covers the widget so the provider app never sees the touch; selection taps and the long-press drag are handled by the veil, not the widget. Height is 72-560dp (`WidgetPlacement.clampHeight`) via the bar or a handle shown only while selected; `updateAppWidgetSize` must be called with the measured width or the widget keeps its first-chosen layout
+- See `android-app/README.md` for the placement model, the Japanese app-name sorting
+  limitation, and the launcher-specific manifest flags
+
+`daily-update.yml` excludes `android-app/` (and `ios-app/`) from the Pages staging tar —
+app sources are not published.
 
 ## Development Workflows
 

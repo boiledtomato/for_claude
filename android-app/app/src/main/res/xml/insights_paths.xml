@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- InsightsExporter が書く CSV だけを公開する -->
+    <cache-path
+        name="insights"
+        path="insights/" />
+</paths>
