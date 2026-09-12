@@ -25,6 +25,7 @@ app/src/main/java/com/example/zlauncher/
 │   │   └── component/                 # DashboardCardScaffold / StatusIndicator / MiniCharts
 │   └── ui/
 │       ├── DragReorder.kt             # 長押しドラッグ並べ替え（離した後の着地アニメ付き）
+│       ├── ReorderGate.kt             # 入れ替えてよいかの判定（深さ・滞在・間隔）
 │       └── Interaction.kt             # springyClick — 押し込みスケールの共通 Modifier
 ├── domain/model/                      # AppEntry / CardLayout / CardStatus / CardIds
 ├── data/
@@ -84,6 +85,7 @@ app/src/main/java/com/example/zlauncher/
 |---|---|
 | 押し込み・持ち上げ | `spring(dampingRatio = 0.78f, StiffnessMediumLow)` |
 | 並べ替え時の他要素の追従 | `spring(dampingRatio = 0.85f, StiffnessLow)` |
+| 離したあとの着地 | `spring(dampingRatio = 1f, StiffnessLow)`（跳ね返さない） |
 | 画面 / ペイン遷移 | `tween(260ms)` のフェード＋スライド |
 | メーターやグラフの値 | `tween(550ms)` |
 
@@ -92,6 +94,7 @@ app/src/main/java/com/example/zlauncher/
   （`Interaction.kt` の実装だけが例外）。
 - カードを掴むと 1.04 倍に浮いて僅かに傾き、周囲のカードは `animateItem` で流れるように詰める。
   指を離した位置から元の位置へバネで着地するので、パッと戻る瞬間が無い。
+- **入れ替えの判定は `ReorderGate`**（下記）。手触りを変えるならここの 3 つの数字を変える。
 
 ## 配置モデル（重要）
 
@@ -344,6 +347,27 @@ Web Insights にも出てこない。作れてしまうこと自体は残しつ�
 所属アプリはインストール済みアプリの Flow と combine して解決するので、アンインストール
 されたアプリは自動的に消える。ピン留めの 2 枠も同じ仕組み。
 
+## 並べ替えの判定（`ReorderGate`）
+
+つまんだ要素をいつ隣と入れ替えるか。素朴に「中心が相手の矩形に入ったら入れ替える」と
+**端に 1px 触れただけで入れ替わる**。指は真っ直ぐ動かないので、隣を通り過ぎる途中に何度も
+入れ替わり、離すころにはどこへ置いたのか分からなくなる。歯止めは 3 つで、Overview の
+カードもウィジェットも同じ判定を通る。
+
+| 歯止め | 既定値 | 効き方 |
+|---|---|---|
+| 深さ（`ReorderGeometry.INSET_FRACTION`） | 0.3 | 相手の矩形を四辺から 3 割縮めた「的」に中心が入るまで候補にしない。中央の 4 割だけが的 |
+| 滞在（`ReorderGate.DWELL_MILLIS`） | 140ms | その候補に留まって初めて確定する。通り過ぎた相手とは入れ替わらない |
+| 間隔（`ReorderGate.COOLDOWN_MILLIS`） | 220ms | 1 回入れ替えたら少し待つ。連鎖して数枚ぶん飛ばない |
+
+外すと動かなくなる点が 1 つ。**待ち時間は `Decision.Wait` で呼び出し側に返し、その時間後に
+再評価を予約する。** ポインタのイベントが来たときだけ判定していると、相手の上で指を止めた
+まま待っても永久に確定しない。
+
+数字は `ReorderGateTest` が境界ごと固定している（端に触れただけでは入れ替わらない、
+通りすがりでは確定しない、据わり時間が滞在時間より優先される、など）。手触りを変えるときは
+テストの期待値も一緒に動かす ― 端末を触らないと分からない部分なので、意図せず戻るのを防ぐ。
+
 ## ウィジェット
 
 `AppWidgetHost` を `WidgetHostController` に閉じ込め、配置は座標ではなく**順序リスト + 列幅**で
@@ -396,7 +420,11 @@ Web Insights にも出てこない。作れてしまうこと自体は残しつ�
 並ぶ。
 
 **空いた列は空いたまま**にし、後ろのものを繰り上げて埋めない。並び順は利用者が決めたもので、
-勝手に入れ替えると動かしたはずの位置に戻らなくなる。隣に並べたいものは `◀` / `▶` で寄せる。
+勝手に入れ替えると動かしたはずの位置に戻らなくなる。動かすのは Layout 中の**長押しドラッグ**
+（判定は上記の `ReorderGate`）か、バーの `◀` / `▶`。ウィジェットの面は「行の中に幅の違う
+要素が並ぶ」ので Lazy の項目 = 1 行になり、その中の位置は Lazy からは読めない。そこで
+`ListReorderState` では各要素が `onGloballyPositioned` で**ウィンドウ基準の位置を自分で申告**
+する（行をまたぐと親の座標系が変わるため、親のどれか 1 つを基準にはできない）。
 
 初期値は提供元の申告からそのまま決まる（`WidgetPlacement.spanForWidthDp`）。`minWidth` は
 **70dp × セル数 − 30dp** で申告される慣習なので、30 を足し戻してから割る。これを忘れると

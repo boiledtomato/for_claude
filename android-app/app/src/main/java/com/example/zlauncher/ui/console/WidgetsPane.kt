@@ -24,14 +24,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.rememberListReorderState
+import com.example.zlauncher.core.ui.reorderableSlot
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.domain.model.WidgetPlacement
@@ -61,6 +65,9 @@ fun WidgetsPane(
     val widgets by viewModel.widgets.collectAsStateWithLifecycle()
     var editing by remember { mutableStateOf(false) }
     var selectedId by remember { mutableStateOf<Int?>(null) }
+
+    val reorder = rememberListReorderState(onMove = viewModel::moveWidgetTo)
+    reorder.count = widgets.size
 
     val rows = remember(widgets) { WidgetFlow.rows(widgets) }
     // 選択したウィジェットが消えた（削除した）ときは、バーを「未選択」に戻す
@@ -172,7 +179,8 @@ fun WidgetsPane(
             }
         }
 
-        itemsIndexed(rows, key = { _, row -> row.widgets.first().appWidgetId }) { _, row ->
+        itemsIndexed(rows, key = { _, row -> row.widgets.first().appWidgetId }) { rowIndex, row ->
+            val firstIndex = rows.take(rowIndex).sumOf { it.widgets.size }
             Row(
                 Modifier
                     .fillMaxWidth()
@@ -180,19 +188,32 @@ fun WidgetsPane(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.Top,
             ) {
-                row.widgets.forEach { placement ->
+                row.widgets.forEachIndexed { indexInRow, placement ->
+                    val index = firstIndex + indexInRow
+                    val dragging = reorder.draggingIndex == index
+                    val active = reorder.isActive(index)
                     PlacedWidgetItem(
                         placement = placement,
                         controller = widgetHost,
                         editing = editing,
                         selected = editing && placement.appWidgetId == selectedId,
+                        lifted = dragging,
                         onSelect = {
                             selectedId = if (selectedId == placement.appWidgetId) null else placement.appWidgetId
                         },
                         onHeightChange = { viewModel.setWidgetHeight(placement.appWidgetId, it) },
-                        modifier = Modifier.weight(
-                            WidgetPlacement.clampSpan(placement.widthSpan).toFloat()
-                        ),
+                        modifier = Modifier
+                            .weight(WidgetPlacement.clampSpan(placement.widthSpan).toFloat())
+                            // つまみ上げた 1 枚は必ず手前に。奥に潜ると指の下から消える
+                            .zIndex(if (active) 1f else 0f)
+                            .graphicsLayer {
+                                translationX = if (active) reorder.dragOffset.x else 0f
+                                translationY = if (active) reorder.dragOffset.y else 0f
+                                val scale = if (dragging) ZMotion.LIFT_SCALE else 1f
+                                scaleX = scale
+                                scaleY = scale
+                            }
+                            .reorderableSlot(reorder, index, enabled = editing),
                     )
                 }
                 if (row.freeSpan > 0) {
@@ -237,8 +258,8 @@ private fun SizeBar(
         if (placement == null) {
             Text("Tap a widget to resize it", style = ZType.Sub, color = ZColors.TextSecondary)
             Text(
-                "Width moves in columns of ${WidgetPlacement.COLUMNS}. Narrow a widget and the one " +
-                    "after it moves up beside it.",
+                "Width moves in columns of ${WidgetPlacement.COLUMNS}, so narrowing one lets the next " +
+                    "sit beside it. Long-press a widget to drag it somewhere else.",
                 style = ZType.Sub,
                 color = ZColors.TextDim,
             )

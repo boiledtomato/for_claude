@@ -71,6 +71,17 @@ class WidgetRepository @Inject constructor(
         }
     }
 
+    /** ドラッグ並べ替え用。位置そのものを指定する */
+    suspend fun moveTo(fromIndex: Int, toIndex: Int) = preferences.update { state ->
+        if (fromIndex !in state.widgets.indices || toIndex !in state.widgets.indices) {
+            state
+        } else {
+            val reordered = state.widgets.toMutableList()
+            reordered.add(toIndex, reordered.removeAt(fromIndex))
+            state.copy(widgets = reordered)
+        }
+    }
+
     suspend fun remove(appWidgetId: Int) {
         host.deleteAppWidgetId(appWidgetId)
         preferences.update { state ->

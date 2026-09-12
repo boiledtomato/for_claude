@@ -52,6 +52,7 @@ fun PlacedWidgetItem(
     controller: WidgetHostController,
     editing: Boolean,
     selected: Boolean,
+    lifted: Boolean,
     onSelect: () -> Unit,
     onHeightChange: (Int) -> Unit,
     modifier: Modifier = Modifier,
@@ -68,10 +69,10 @@ fun PlacedWidgetItem(
     Column(
         modifier
             .clip(shape)
-            .background(if (selected) ZColors.SurfaceHigh else ZColors.Surface.copy(alpha = 0.55f))
+            .background(if (selected || lifted) ZColors.SurfaceHigh else ZColors.Surface.copy(alpha = 0.55f))
             .border(
-                if (selected) 2.dp else 1.dp,
-                if (selected) ZColors.Accent else ZColors.Outline,
+                if (selected || lifted) 2.dp else 1.dp,
+                if (selected || lifted) ZColors.Accent else ZColors.Outline,
                 shape,
             )
             .then(if (editing) Modifier.springyClick(onClick = onSelect) else Modifier)

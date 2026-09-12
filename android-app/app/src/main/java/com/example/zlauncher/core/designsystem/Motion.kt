@@ -21,6 +21,15 @@ object ZMotion {
     fun <T> reflow(): FiniteAnimationSpec<T> =
         spring(dampingRatio = 0.85f, stiffness = Spring.StiffnessLow)
 
+    /**
+     * つまんだ要素を離したあと、所定の位置へ収まるまで。
+     *
+     * ここだけ跳ね返させない（減衰 1.0）。行き過ぎて戻る動きは「まだ動かせる」ように見えて、
+     * 置いた直後の確定感を消してしまう。
+     */
+    fun <T> settle(): FiniteAnimationSpec<T> =
+        spring(dampingRatio = 1f, stiffness = Spring.StiffnessLow)
+
     /** グリッドの入れ替えアニメーション用 */
     fun placement(): FiniteAnimationSpec<IntOffset> =
         spring(dampingRatio = 0.85f, stiffness = Spring.StiffnessLow)

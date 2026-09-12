@@ -234,6 +234,11 @@ class ConsoleViewModel @Inject constructor(
         widgetRepository.move(appWidgetId, delta)
     }
 
+    /** ドラッグ並べ替え。位置で指定する */
+    fun moveWidgetTo(fromIndex: Int, toIndex: Int) = viewModelScope.launch {
+        widgetRepository.moveTo(fromIndex, toIndex)
+    }
+
     fun removeWidget(appWidgetId: Int) = viewModelScope.launch {
         widgetRepository.remove(appWidgetId)
     }
