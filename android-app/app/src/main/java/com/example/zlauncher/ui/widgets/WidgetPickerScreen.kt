@@ -107,7 +107,7 @@ fun WidgetPickerScreen(
     }
 
     fun finish(target: PendingWidget) {
-        viewModel.confirm(target.appWidgetId, target.item.minHeightDp)
+        viewModel.confirm(target.appWidgetId, target.item.minHeightDp, target.item.widthSpan)
         queueIndex += 1
         pending = null
         step()

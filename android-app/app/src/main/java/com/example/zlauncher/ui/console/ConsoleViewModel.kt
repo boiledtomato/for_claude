@@ -225,6 +225,15 @@ class ConsoleViewModel @Inject constructor(
         widgetRepository.setHeight(appWidgetId, heightDp)
     }
 
+    fun setWidgetSpan(appWidgetId: Int, widthSpan: Int) = viewModelScope.launch {
+        widgetRepository.setSpan(appWidgetId, widthSpan)
+    }
+
+    /** 並び順を前後に 1 つ動かす。隣り合わせたいものを寄せるための唯一の手段 */
+    fun moveWidget(appWidgetId: Int, delta: Int) = viewModelScope.launch {
+        widgetRepository.move(appWidgetId, delta)
+    }
+
     fun removeWidget(appWidgetId: Int) = viewModelScope.launch {
         widgetRepository.remove(appWidgetId)
     }

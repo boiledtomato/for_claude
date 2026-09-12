@@ -15,11 +15,16 @@ class WidgetRepository @Inject constructor(
 ) {
     val widgets: Flow<List<WidgetPlacement>> = preferences.state.map { it.widgets }
 
-    suspend fun add(appWidgetId: Int, heightDp: Int) = preferences.update { state ->
+    suspend fun add(appWidgetId: Int, heightDp: Int, widthSpan: Int) = preferences.update { state ->
         if (state.widgets.any { it.appWidgetId == appWidgetId }) {
             state
         } else {
-            state.copy(widgets = state.widgets + WidgetPlacement(appWidgetId, heightDp))
+            val placement = WidgetPlacement(
+                appWidgetId = appWidgetId,
+                heightDp = WidgetPlacement.clampHeight(heightDp),
+                widthSpan = WidgetPlacement.clampSpan(widthSpan),
+            )
+            state.copy(widgets = state.widgets + placement)
         }
     }
 
@@ -34,6 +39,36 @@ class WidgetRepository @Inject constructor(
                 }
             }
         )
+    }
+
+    /** 幅（列数）の変更。丸めるのは高さと同じ理由 */
+    suspend fun setSpan(appWidgetId: Int, widthSpan: Int) = preferences.update { state ->
+        state.copy(
+            widgets = state.widgets.map {
+                if (it.appWidgetId == appWidgetId) {
+                    it.copy(widthSpan = WidgetPlacement.clampSpan(widthSpan))
+                } else {
+                    it
+                }
+            }
+        )
+    }
+
+    /**
+     * 並び順を 1 つ動かす。
+     *
+     * 行の詰め方は順序だけで決まるので、隣に並べたい 2 つを寄せる手段がこれになる。
+     */
+    suspend fun move(appWidgetId: Int, delta: Int) = preferences.update { state ->
+        val from = state.widgets.indexOfFirst { it.appWidgetId == appWidgetId }
+        val to = from + delta
+        if (from < 0 || to !in state.widgets.indices) {
+            state
+        } else {
+            val reordered = state.widgets.toMutableList()
+            reordered.add(to, reordered.removeAt(from))
+            state.copy(widgets = reordered)
+        }
     }
 
     suspend fun remove(appWidgetId: Int) {

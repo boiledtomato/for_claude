@@ -12,6 +12,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.zlauncher.core.ui.toImageBitmap
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.data.widgets.WidgetRepository
+import com.example.zlauncher.domain.model.WidgetPlacement
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
@@ -37,6 +38,8 @@ class WidgetPickerViewModel @Inject constructor(
         val appLabel: String,
         val icon: ImageBitmap?,
         val minHeightDp: Int,
+        /** 申告された minWidth から決まる「本来の幅」（列数） */
+        val widthSpan: Int,
         val sizeLabel: String,
         /** 設定画面を持つウィジェットは、バインド後にこれを起動しないと空のまま表示される */
         val configure: ComponentName?,
@@ -83,6 +86,7 @@ class WidgetPickerViewModel @Inject constructor(
                     appLabel = appLabel,
                     icon = info.loadIcon(context, metrics.densityDpi)?.toImageBitmap(iconSize),
                     minHeightDp = (info.minHeight / metrics.density).roundToInt().coerceIn(80, 320),
+                    widthSpan = WidgetPlacement.spanForWidthDp((info.minWidth / metrics.density).roundToInt()),
                     sizeLabel = "%d × %d dp".format(
                         (info.minWidth / metrics.density).roundToInt(),
                         (info.minHeight / metrics.density).roundToInt(),
@@ -129,7 +133,7 @@ class WidgetPickerViewModel @Inject constructor(
     /** 追加を取りやめたときは必ず ID を返す（放置すると ID がリークする） */
     fun cancel(appWidgetId: Int) = host.deleteAppWidgetId(appWidgetId)
 
-    fun confirm(appWidgetId: Int, heightDp: Int) = viewModelScope.launch {
-        widgetRepository.add(appWidgetId, heightDp)
+    fun confirm(appWidgetId: Int, heightDp: Int, widthSpan: Int) = viewModelScope.launch {
+        widgetRepository.add(appWidgetId, heightDp, widthSpan)
     }
 }
