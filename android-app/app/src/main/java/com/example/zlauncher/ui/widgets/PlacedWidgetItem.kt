@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.util.SizeF
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -32,7 +35,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
-import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.domain.model.WidgetPlacement
 import kotlin.math.roundToInt
@@ -42,9 +44,13 @@ import kotlin.math.roundToInt
  *
  * 幅は呼び出し側（行）が weight で与える。ここは与えられた幅いっぱいに描き、高さだけ持つ。
  *
- * **操作の口はここに置かない。** 幅は 1 列（≒60dp）まで細くできるので、枠の中に
- * ラベルやボタンを並べると必ず溢れる。Layout 中に選ぶと、操作はペイン上部の
- * 共通バーに出る ― ここに出すのは高さのつまみだけ。
+ * **Layout 中はウィジェット本体にタッチを渡さない。** ウィジェットは自前のビューなので、
+ * 何もしなければタップがそのまま提供元アプリに届き、選ぼうとしただけでアプリが開く。
+ * 膜（[EditVeil]）を上にかぶせて、選択・移動・リサイズはすべてそちらで受ける。
+ *
+ * 操作の口のうち、幅と高さの**つまみは枠の縁に出す**。1 列ぶんの幅にボタンは並ばないので
+ * 数値の増減はペイン上部のバーに置いてあるが、つまみが無いと「どこを掴めば伸びるのか」が
+ * 分からない。
  */
 @Composable
 fun PlacedWidgetItem(
@@ -53,8 +59,11 @@ fun PlacedWidgetItem(
     editing: Boolean,
     selected: Boolean,
     lifted: Boolean,
+    columnWidth: Dp,
     onSelect: () -> Unit,
     onHeightChange: (Int) -> Unit,
+    onSpanChange: (Int) -> Unit,
+    dragHandle: Modifier,
     modifier: Modifier = Modifier,
 ) {
     val density = LocalDensity.current
@@ -63,8 +72,8 @@ fun PlacedWidgetItem(
 
     // ドラッグ中は保存せずここで持つ。1px ごとに書くと DataStore が悲鳴を上げる
     var draftHeight by remember(placement.appWidgetId) { mutableFloatStateOf(placement.heightDp.toFloat()) }
-    var dragging by remember { mutableStateOf(false) }
-    val heightDp = if (dragging) WidgetPlacement.clampHeight(draftHeight.roundToInt()) else placement.heightDp
+    var resizing by remember { mutableStateOf(false) }
+    val heightDp = if (resizing) WidgetPlacement.clampHeight(draftHeight.roundToInt()) else placement.heightDp
 
     Column(
         modifier
@@ -75,69 +84,186 @@ fun PlacedWidgetItem(
                 if (selected || lifted) ZColors.Accent else ZColors.Outline,
                 shape,
             )
-            .then(if (editing) Modifier.springyClick(onClick = onSelect) else Modifier)
             .padding(3.dp),
     ) {
-        if (info != null) {
-            // ウィジェットは与えられた寸法で描画を選ぶ。実測幅を渡さないと、
-            // 高さだけ変えても中身が前のレイアウトのまま伸び縮みする
-            BoxWithConstraints(Modifier.fillMaxWidth()) {
-                val widthDp = maxWidth
-                AndroidView(
-                    factory = { ctx -> controller.createView(ctx, placement.appWidgetId, info) },
-                    update = { view -> view.applySize(widthDp, heightDp.dp) },
-                    modifier = Modifier.fillMaxWidth().height(heightDp.dp),
+        Box(Modifier.fillMaxWidth()) {
+            if (info != null) {
+                // ウィジェットは与えられた寸法で描画を選ぶ。実測幅を渡さないと、
+                // 高さだけ変えても中身が前のレイアウトのまま伸び縮みする
+                BoxWithConstraints(Modifier.fillMaxWidth()) {
+                    val widthDp = maxWidth
+                    AndroidView(
+                        factory = { ctx -> controller.createView(ctx, placement.appWidgetId, info) },
+                        update = { view -> view.applySize(widthDp, heightDp.dp) },
+                        modifier = Modifier.fillMaxWidth().height(heightDp.dp),
+                    )
+                }
+            } else {
+                Box(
+                    Modifier.fillMaxWidth().height(56.dp).padding(horizontal = 6.dp),
+                    contentAlignment = Alignment.CenterStart,
+                ) {
+                    Text("Provider app not found", style = ZType.Sub, color = ZColors.TextDim)
+                }
+            }
+
+            if (editing) {
+                EditVeil(
+                    selected = selected,
+                    onSelect = onSelect,
+                    dragHandle = dragHandle,
+                    modifier = Modifier.matchParentSize(),
                 )
             }
-        } else {
-            Box(
-                Modifier.fillMaxWidth().height(56.dp).padding(horizontal = 6.dp),
-                contentAlignment = Alignment.CenterStart,
-            ) {
-                Text("Provider app not found", style = ZType.Sub, color = ZColors.TextDim)
-            }
-        }
 
-        // つまみは選択中だけ。常時出すと、縦にスクロールしたつもりが
-        // ウィジェットの高さを変えてしまう
-        if (editing && selected && info != null) {
-            Box(
-                Modifier
-                    .fillMaxWidth()
-                    .height(22.dp)
-                    .pointerInput(placement.appWidgetId) {
-                        detectVerticalDragGestures(
-                            onDragStart = {
-                                dragging = true
-                                draftHeight = placement.heightDp.toFloat()
-                            },
-                            onVerticalDrag = { change, delta ->
-                                change.consume()
-                                draftHeight = (draftHeight + delta / density.density).coerceIn(
-                                    WidgetPlacement.MIN_HEIGHT_DP.toFloat(),
-                                    WidgetPlacement.MAX_HEIGHT_DP.toFloat(),
-                                )
-                            },
-                            // 保存は指を離してから 1 回だけ
-                            onDragEnd = {
-                                dragging = false
-                                onHeightChange(WidgetPlacement.clampHeight(draftHeight.roundToInt()))
-                            },
-                            onDragCancel = { dragging = false },
+            if (editing && selected && info != null) {
+                WidthHandle(
+                    columnWidth = columnWidth,
+                    span = placement.widthSpan,
+                    onSpanChange = onSpanChange,
+                    modifier = Modifier.align(Alignment.CenterEnd),
+                )
+                HeightHandle(
+                    appWidgetId = placement.appWidgetId,
+                    resizing = resizing,
+                    onStart = {
+                        resizing = true
+                        draftHeight = placement.heightDp.toFloat()
+                    },
+                    onDrag = { delta ->
+                        draftHeight = (draftHeight + delta / density.density).coerceIn(
+                            WidgetPlacement.MIN_HEIGHT_DP.toFloat(),
+                            WidgetPlacement.MAX_HEIGHT_DP.toFloat(),
                         )
                     },
-                contentAlignment = Alignment.Center,
-            ) {
-                Box(
-                    Modifier
-                        .width(32.dp)
-                        .height(4.dp)
-                        .clip(RoundedCornerShape(2.dp))
-                        .background(if (dragging) ZColors.Accent else ZColors.OutlineStrong)
+                    // 保存は指を離してから 1 回だけ
+                    onEnd = {
+                        resizing = false
+                        onHeightChange(WidgetPlacement.clampHeight(draftHeight.roundToInt()))
+                    },
+                    onCancel = { resizing = false },
+                    modifier = Modifier.align(Alignment.BottomCenter),
                 )
             }
         }
     }
+}
+
+/**
+ * Layout 中に中身へかぶせる膜。
+ *
+ * これが無いと、ウィジェットのビューがタップを先に取って提供元アプリが開いてしまう。
+ * 選択のタップと長押しの並べ替えはここで受ける（本体には一切渡さない）。
+ */
+@Composable
+private fun EditVeil(
+    selected: Boolean,
+    onSelect: () -> Unit,
+    dragHandle: Modifier,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier
+            .background(
+                if (selected) ZColors.Accent.copy(alpha = 0.10f) else ZColors.Background.copy(alpha = 0.28f)
+            )
+            .pointerInput(Unit) { detectTapGestures { onSelect() } }
+            .then(dragHandle)
+    )
+}
+
+/**
+ * 右端の幅つまみ。
+ *
+ * 幅は列なので、指の移動が 1 列の半分を越えたところで 1 列ぶん動かす。dp をそのまま
+ * 幅にすると列から外れ、行の詰め方と食い違う。
+ */
+@Composable
+private fun WidthHandle(
+    columnWidth: Dp,
+    span: Int,
+    onSpanChange: (Int) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val density = LocalDensity.current
+    var dragged by remember { mutableStateOf(0f) }
+    var active by remember { mutableStateOf(false) }
+    val stepPx = with(density) { columnWidth.toPx() }.coerceAtLeast(1f)
+
+    Box(
+        modifier
+            .width(26.dp)
+            .fillMaxHeight()
+            .pointerInput(span, stepPx) {
+                detectHorizontalDragGestures(
+                    onDragStart = {
+                        active = true
+                        dragged = 0f
+                    },
+                    onHorizontalDrag = { change, delta ->
+                        change.consume()
+                        dragged += delta
+                        // 半列を越えた時点で 1 列動かし、越えたぶんを繰り越す
+                        while (dragged >= stepPx / 2f) {
+                            onSpanChange(WidgetPlacement.clampSpan(span + 1))
+                            dragged -= stepPx
+                        }
+                        while (dragged <= -stepPx / 2f) {
+                            onSpanChange(WidgetPlacement.clampSpan(span - 1))
+                            dragged += stepPx
+                        }
+                    },
+                    onDragEnd = { active = false },
+                    onDragCancel = { active = false },
+                )
+            },
+        contentAlignment = Alignment.Center,
+    ) {
+        Grip(vertical = true, active = active)
+    }
+}
+
+@Composable
+private fun HeightHandle(
+    appWidgetId: Int,
+    resizing: Boolean,
+    onStart: () -> Unit,
+    onDrag: (Float) -> Unit,
+    onEnd: () -> Unit,
+    onCancel: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier
+            .fillMaxWidth()
+            .height(26.dp)
+            .pointerInput(appWidgetId) {
+                detectVerticalDragGestures(
+                    onDragStart = { onStart() },
+                    onVerticalDrag = { change, delta ->
+                        change.consume()
+                        onDrag(delta)
+                    },
+                    onDragEnd = { onEnd() },
+                    onDragCancel = { onCancel() },
+                )
+            },
+        contentAlignment = Alignment.Center,
+    ) {
+        Grip(vertical = false, active = resizing)
+    }
+}
+
+/** つまみの見た目。掴める場所だと分かる大きさにする */
+@Composable
+private fun Grip(vertical: Boolean, active: Boolean) {
+    val color = if (active) ZColors.Accent else ZColors.AccentSoft
+    Box(
+        Modifier
+            .then(if (vertical) Modifier.width(5.dp).height(34.dp) else Modifier.width(34.dp).height(5.dp))
+            .clip(RoundedCornerShape(3.dp))
+            .background(color),
+    )
 }
 
 /** 空いた列。Layout 中だけ枠で見せる ― 入ることが分からないと幅を縮める意味が伝わらない */

@@ -39,13 +39,16 @@ fun ProgressRing(
     content: @Composable BoxScope.() -> Unit = {},
 ) {
     val safeProgress = progress.coerceIn(0f, 1f)
+    // DrawScope は Composable ではないので、配色はここで受け取ってから渡す
+    val trackColor = ZColors.Outline
+    val sweepColors = listOf(ZColors.Accent, ZColors.AccentAlt)
     Box(modifier.size(diameter), contentAlignment = Alignment.Center) {
         Canvas(Modifier.fillMaxSize()) {
             val stroke = strokeWidth.toPx()
             val inset = stroke / 2f
             val arcSize = Size(size.width - stroke, size.height - stroke)
             drawArc(
-                color = ZColors.Outline,
+                color = trackColor,
                 startAngle = 0f,
                 sweepAngle = 360f,
                 useCenter = false,
@@ -56,7 +59,7 @@ fun ProgressRing(
             val brush = if (color != null) {
                 Brush.linearGradient(listOf(color, color))
             } else {
-                Brush.linearGradient(listOf(ZColors.Accent, ZColors.AccentAlt))
+                Brush.linearGradient(sweepColors)
             }
             drawArc(
                 brush = brush,

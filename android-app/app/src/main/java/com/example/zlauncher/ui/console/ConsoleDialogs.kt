@@ -358,3 +358,52 @@ private fun DialogButton(label: String, accent: Boolean, onClick: () -> Unit) {
         )
     }
 }
+
+/**
+ * 取り消せない操作の確認。
+ *
+ * 「はい / いいえ」を英語のまま Yes / No で聞く（アプリの文言は英語で統一）。**破棄側を
+ * 既定の見た目にしない** ― 誤って押しても消えないよう、危険側だけ色を持たせる。
+ */
+@Composable
+fun ConfirmDialog(
+    title: String,
+    message: String,
+    confirmLabel: String = "Yes",
+    dismissLabel: String = "No",
+    onConfirm: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    Dialog(onDismissRequest = onDismiss) {
+        Column(
+            Modifier
+                .clip(RoundedCornerShape(18.dp))
+                .background(ZColors.Surface)
+                .border(1.dp, ZColors.OutlineStrong, RoundedCornerShape(18.dp))
+                .padding(18.dp),
+        ) {
+            Text(title, style = ZType.Title, color = ZColors.TextPrimary)
+            Spacer(Modifier.height(10.dp))
+            Text(message, style = ZType.Body, color = ZColors.TextSecondary)
+            Spacer(Modifier.height(20.dp))
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                DialogButton(dismissLabel, accent = false, onClick = onDismiss)
+                Spacer(Modifier.size(10.dp))
+                DangerButton(confirmLabel, onClick = onConfirm)
+            }
+        }
+    }
+}
+
+@Composable
+private fun DangerButton(label: String, onClick: () -> Unit) {
+    Box(
+        Modifier
+            .clip(RoundedCornerShape(999.dp))
+            .background(ZColors.Danger)
+            .springyClick(onClick = onClick)
+            .padding(horizontal = 20.dp, vertical = 9.dp),
+    ) {
+        Text(label, style = ZType.Body.copy(fontSize = 12.5.sp), color = ZColors.OnDanger)
+    }
+}

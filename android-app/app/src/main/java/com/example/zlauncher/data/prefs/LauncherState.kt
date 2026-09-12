@@ -4,6 +4,7 @@ import com.example.zlauncher.domain.model.AppCategory
 import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CatalogDiff
 import com.example.zlauncher.domain.model.CardLayout
+import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.domain.model.DEFAULT_CARD_LAYOUT
 import com.example.zlauncher.domain.model.WidgetPlacement
 import kotlinx.serialization.Serializable
@@ -44,6 +45,8 @@ data class LauncherState(
     val categoriesExpanded: Boolean = true,
     /** アイコンをテーマ色に寄せる（モノクロレイヤーを持つアプリのみ、Android 13 以降） */
     val themedIcons: Boolean = false,
+    /** 配色。既定は端末の設定に従う */
+    val themeMode: ThemeMode = ThemeMode.SYSTEM,
     /** 取り込み済み URL カテゴリー CSV のファイル名。空なら同梱版のまま */
     val catalogRevision: String = "",
     val catalogFetchedAtMillis: Long = 0L,

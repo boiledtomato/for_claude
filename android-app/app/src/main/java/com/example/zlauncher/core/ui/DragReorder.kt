@@ -276,30 +276,38 @@ fun rememberListReorderState(onMove: (from: Int, to: Int) -> Unit): ListReorderS
 fun Modifier.reorderableSlot(
     state: ListReorderState,
     index: Int,
-    enabled: Boolean = true,
-): Modifier = this
-    .onGloballyPositioned { coordinates ->
-        val position = coordinates.positionInWindow()
-        state.report(
-            ReorderGeometry.Slot(
-                index = index,
-                left = position.x,
-                top = position.y,
-                width = coordinates.size.width.toFloat(),
-                height = coordinates.size.height.toFloat(),
-            )
+): Modifier = this.onGloballyPositioned { coordinates ->
+    val position = coordinates.positionInWindow()
+    state.report(
+        ReorderGeometry.Slot(
+            index = index,
+            left = position.x,
+            top = position.y,
+            width = coordinates.size.width.toFloat(),
+            height = coordinates.size.height.toFloat(),
         )
-    }
-    .then(
-        if (!enabled) Modifier else Modifier.pointerInput(index, enabled) {
-            detectDragGesturesAfterLongPress(
-                onDragStart = { state.start(index) },
-                onDrag = { change, delta ->
-                    change.consume()
-                    state.drag(delta)
-                },
-                onDragEnd = { state.end() },
-                onDragCancel = { state.end() },
-            )
-        }
     )
+}
+
+/**
+ * 長押しで並べ替えを始める口。
+ *
+ * 位置の申告（[reorderableSlot]）と分けてあるのは、置き場所が違うから ―
+ * 位置は枠そのもの、掴む口は中身の上にかぶせた膜（ウィジェットにタッチを渡さないための
+ * もの）に付ける。同じ修飾子にまとめると、膜の大きさが枠の位置として申告されてしまう。
+ */
+fun Modifier.reorderableHandle(
+    state: ListReorderState,
+    index: Int,
+    enabled: Boolean = true,
+): Modifier = if (!enabled) this else this.pointerInput(index, enabled) {
+    detectDragGesturesAfterLongPress(
+        onDragStart = { state.start(index) },
+        onDrag = { change, delta ->
+            change.consume()
+            state.drag(delta)
+        },
+        onDragEnd = { state.end() },
+        onDragCancel = { state.end() },
+    )
+}

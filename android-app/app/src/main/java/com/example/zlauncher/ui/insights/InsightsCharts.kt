@@ -19,6 +19,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -47,14 +48,22 @@ import com.example.zlauncher.domain.model.OTHER_COLOR_INDEX
  * - 2 系列以上あるときは凡例を必ず出す。色だけで区別させない
  */
 
-/** 系列色。色番号を持たないもの（未分類・その他）は無彩色に落とす */
+/**
+ * 系列色。色番号を持たないもの（未分類・その他）は無彩色に落とす。
+ *
+ * 配色はテーマごとに違うので Composable として読む（明るい面では暗い面の色が沈む）。
+ */
+@Composable
+@ReadOnlyComposable
 fun chartColor(colorIndex: Int): Color = when (colorIndex) {
     OTHER_COLOR_INDEX -> ZColors.ChartOther
     NO_COLOR_INDEX -> ZColors.ChartOther
     else -> ZColors.CategoryChartColors[colorIndex % ZColors.CategoryChartColors.size]
 }
 
-/** 識別色（点・レール・枠に使う明るいほう） */
+/** 識別色（点・レール・枠に使うほう） */
+@Composable
+@ReadOnlyComposable
 fun identityColor(colorIndex: Int): Color =
     if (colorIndex < 0) ZColors.TextDim else ZColors.CategoryColors[colorIndex % ZColors.CategoryColors.size]
 

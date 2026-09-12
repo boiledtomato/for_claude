@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -35,6 +36,7 @@ import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.rememberListReorderState
+import com.example.zlauncher.core.ui.reorderableHandle
 import com.example.zlauncher.core.ui.reorderableSlot
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.widgets.WidgetHostController
@@ -181,13 +183,14 @@ fun WidgetsPane(
 
         itemsIndexed(rows, key = { _, row -> row.widgets.first().appWidgetId }) { rowIndex, row ->
             val firstIndex = rows.take(rowIndex).sumOf { it.widgets.size }
-            Row(
-                Modifier
-                    .fillMaxWidth()
-                    .animateItem(placementSpec = ZMotion.placement()),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.Top,
-            ) {
+            BoxWithConstraints(Modifier.fillMaxWidth().animateItem(placementSpec = ZMotion.placement())) {
+                // 幅つまみは「1 列ぶん」を知らないと動かせない。列の幅は行の実測から出す
+                val columnWidth = (maxWidth - ROW_GAP * (WidgetPlacement.COLUMNS - 1)) / WidgetPlacement.COLUMNS
+                Row(
+                    Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(ROW_GAP),
+                    verticalAlignment = Alignment.Top,
+                ) {
                 row.widgets.forEachIndexed { indexInRow, placement ->
                     val index = firstIndex + indexInRow
                     val dragging = reorder.draggingIndex == index
@@ -198,10 +201,13 @@ fun WidgetsPane(
                         editing = editing,
                         selected = editing && placement.appWidgetId == selectedId,
                         lifted = dragging,
+                        columnWidth = columnWidth,
                         onSelect = {
                             selectedId = if (selectedId == placement.appWidgetId) null else placement.appWidgetId
                         },
                         onHeightChange = { viewModel.setWidgetHeight(placement.appWidgetId, it) },
+                        onSpanChange = { viewModel.setWidgetSpan(placement.appWidgetId, it) },
+                        dragHandle = Modifier.reorderableHandle(reorder, index, enabled = editing),
                         modifier = Modifier
                             .weight(WidgetPlacement.clampSpan(placement.widthSpan).toFloat())
                             // つまみ上げた 1 枚は必ず手前に。奥に潜ると指の下から消える
@@ -213,7 +219,7 @@ fun WidgetsPane(
                                 scaleX = scale
                                 scaleY = scale
                             }
-                            .reorderableSlot(reorder, index, enabled = editing),
+                            .reorderableSlot(reorder, index),
                     )
                 }
                 if (row.freeSpan > 0) {
@@ -223,10 +229,14 @@ fun WidgetsPane(
                         Box(Modifier.weight(row.freeSpan.toFloat()))
                     }
                 }
+                }
             }
         }
     }
 }
+
+/** 行の中の隙間。列の幅を実測から割り出すのに同じ値が要る */
+private val ROW_GAP = 8.dp
 
 /**
  * 選んだ 1 件を操作するバー。

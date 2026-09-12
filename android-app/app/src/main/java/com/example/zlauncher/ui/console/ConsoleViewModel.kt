@@ -29,6 +29,7 @@ import com.example.zlauncher.domain.model.CardSpan
 import com.example.zlauncher.domain.model.CatalogDiff
 import com.example.zlauncher.domain.model.CatalogPick
 import com.example.zlauncher.domain.model.UrlCategoryGroup
+import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.domain.model.WidgetPlacement
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -208,8 +209,8 @@ class ConsoleViewModel @Inject constructor(
         categoryRepository.setApps(id, packages)
     }
 
-    fun removeAppFromCategory(id: String, packageName: String) = viewModelScope.launch {
-        categoryRepository.removeApp(id, packageName)
+    fun removeAppsFromCategory(id: String, packageNames: List<String>) = viewModelScope.launch {
+        categoryRepository.removeApps(id, packageNames)
     }
 
     fun setPinned(slot: Int, packageName: String?) = viewModelScope.launch {
@@ -271,6 +272,28 @@ class ConsoleViewModel @Inject constructor(
 
     fun setThemedIcons(enabled: Boolean) = viewModelScope.launch {
         preferences.update { it.copy(themedIcons = enabled) }
+    }
+
+    val themeMode: StateFlow<ThemeMode> = preferences.state
+        .map { it.themeMode }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), ThemeMode.SYSTEM)
+
+    /**
+     * 端末の設定 → 明るい → 暗い → 端末の設定、と回す。
+     *
+     * 切り替えを 1 つのボタンで済ませるため。設定画面を持たないので、3 つの状態を
+     * それぞれ選ばせるとレールに 3 つ並べることになる。
+     */
+    fun cycleThemeMode() = viewModelScope.launch {
+        preferences.update {
+            it.copy(
+                themeMode = when (it.themeMode) {
+                    ThemeMode.SYSTEM -> ThemeMode.LIGHT
+                    ThemeMode.LIGHT -> ThemeMode.DARK
+                    ThemeMode.DARK -> ThemeMode.SYSTEM
+                }
+            )
+        }
     }
 
     fun createFromCatalog(picks: List<CatalogPick>) = viewModelScope.launch {

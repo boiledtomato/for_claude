@@ -156,7 +156,6 @@ private fun CardGrid(
                 )
                 Column(
                     Modifier
-                        // 並べ替えは編集モードに入らなくても常に効く
                         .animateItem(placementSpec = ZMotion.placement())
                         .zIndex(if (isDragging) 1f else 0f)
                         .graphicsLayer {
@@ -166,7 +165,9 @@ private fun CardGrid(
                             scaleY = lift
                             rotationZ = tilt
                         }
-                        .reorderableItem(reorderState, index)
+                        // 並べ替えは Layout のときだけ。常時効かせると、カードの中身を
+                        // 触ったつもりで配置が動く
+                        .reorderableItem(reorderState, index, enabled = isEditing)
                 ) {
                     Box {
                         Box(Modifier.alpha(if (isEditing) 0.92f else 1f)) {
@@ -264,7 +265,7 @@ private fun EditHint() {
             .padding(horizontal = 11.dp, vertical = 8.dp),
     ) {
         Text(
-            "Drag any card to reorder · − hides it · chips resize it",
+            "Drag any card to reorder · − hides it · chips resize it · Done when finished",
             style = ZType.Sub.copy(fontSize = 11.sp),
             color = ZColors.TextSecondary,
         )

@@ -37,6 +37,16 @@ object ZMotion {
     /** 数値・ゲージの更新。指に追従しないのでバネにしない */
     fun <T> value(): FiniteAnimationSpec<T> = tween(durationMillis = 550)
 
+    /**
+     * 削除の対象が揺れる動き。
+     *
+     * 「押したら消えるものが今いくつある」を、色や文字ではなく動きで見せる。片道
+     * [JIGGLE_MS] で往復させ、振れ幅は [JIGGLE_DEGREES] ― これ以上大きいと、並んだ
+     * アイコンの文字が読めなくなる。
+     */
+    const val JIGGLE_MS = 140
+    const val JIGGLE_DEGREES = 1.7f
+
     /** 画面やペインの切り替え */
     const val TRANSITION_MS = 260
 

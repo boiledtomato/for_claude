@@ -73,6 +73,8 @@ fun CategoryCatalogDialog(
 ) {
     val selected = remember { mutableStateListOf<CatalogPick>() }
     val expanded = remember { mutableStateListOf<String>() }
+    // 色の本数は配色（テーマ）側が持つ。Composable の外では読めないのでここで受ける
+    val paletteSize = ZColors.CategoryColors.size
     // 色を開いている行。1 行ずつしか開かない（全部開くと選択一覧が縦に伸びきる）
     var colorEditing by remember { mutableStateOf<String?>(null) }
     var query by remember { mutableStateOf("") }
@@ -147,7 +149,7 @@ fun CategoryCatalogDialog(
                                 selected.remove(hit)
                             } else {
                                 // 既定は空いている色から順に。同じ色が並ばないようにする
-                                selected.add(CatalogPick(entry, nextColor(defaultColorIndex, selected)))
+                                selected.add(CatalogPick(entry, nextColor(defaultColorIndex, selected, paletteSize)))
                             }
                         },
                         modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
@@ -553,9 +555,8 @@ private fun ColorPicker(selected: Int, onSelect: (Int) -> Unit) {
 }
 
 /** まだ使っていない色から順に配る。同じ色が並ぶのを避ける */
-private fun nextColor(start: Int, picked: List<CatalogPick>): Int {
+private fun nextColor(start: Int, picked: List<CatalogPick>, total: Int): Int {
     val used = picked.map { it.colorIndex }.toSet()
-    val total = ZColors.CategoryColors.size
     repeat(total) { offset ->
         val candidate = (start + picked.size + offset) % total
         if (candidate !in used) return candidate

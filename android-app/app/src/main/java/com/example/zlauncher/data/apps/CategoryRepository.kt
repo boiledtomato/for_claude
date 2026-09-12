@@ -125,10 +125,13 @@ class CategoryRepository @Inject constructor(
         )
     }
 
-    suspend fun removeApp(id: String, packageName: String) = preferences.update { state ->
+    /** まとめて外す。取り外しモードは複数選べるので、1 件ずつ書くと保存が何度も走る */
+    suspend fun removeApps(id: String, packageNames: Collection<String>) = preferences.update { state ->
+        if (packageNames.isEmpty()) return@update state
+        val drop = packageNames.toSet()
         state.copy(
             categories = state.categories.map {
-                if (it.id == id) it.copy(packages = it.packages - packageName) else it
+                if (it.id == id) it.copy(packages = it.packages.filterNot(drop::contains)) else it
             }
         )
     }

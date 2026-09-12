@@ -79,6 +79,7 @@ import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.domain.model.AppEntry
+import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.ui.apps.component.AppIconTile
 import com.example.zlauncher.ui.apps.component.rememberAppIcon
 import com.example.zlauncher.ui.insights.InsightsPane
@@ -108,6 +109,7 @@ fun ConsoleScreen(
     val emptyCategories by viewModel.emptyCategories.collectAsStateWithLifecycle()
     val pinnedExpanded by viewModel.pinnedExpanded.collectAsStateWithLifecycle()
     val categoriesExpanded by viewModel.categoriesExpanded.collectAsStateWithLifecycle()
+    val themeMode by viewModel.themeMode.collectAsStateWithLifecycle()
 
     // カタログは初回だけ読む。ダイアログを開いた瞬間に空、という状態を作らない
     LaunchedEffect(Unit) { viewModel.loadCatalog() }
@@ -158,6 +160,8 @@ fun ConsoleScreen(
                 showCreateDialog = true
             },
             onMoveCategory = viewModel::moveCategory,
+            themeMode = themeMode,
+            onCycleTheme = viewModel::cycleThemeMode,
         )
 
         Column(
@@ -232,7 +236,7 @@ fun ConsoleScreen(
                                 category = pane,
                                 iconProvider = viewModel::icon,
                                 onLaunch = { entry -> viewModel.launch(entry) },
-                                onRemoveApp = { pkg -> viewModel.removeAppFromCategory(pane.id, pkg) },
+                                onRemoveApps = { pkgs -> viewModel.removeAppsFromCategory(pane.id, pkgs) },
                                 onPickApps = { pickingAppsFor = pane; pickingIsNew = false },
                                 onEditCategory = { editingCategory = pane },
                                 onDeleteCategory = { viewModel.deleteCategory(pane.id) },
@@ -357,6 +361,8 @@ private fun ConsoleRail(
     onEditPin: (Int) -> Unit,
     onAddCategory: () -> Unit,
     onMoveCategory: (Int, Int) -> Unit,
+    themeMode: ThemeMode,
+    onCycleTheme: () -> Unit,
 ) {
     Column(
         Modifier
@@ -464,6 +470,30 @@ private fun ConsoleRail(
                 )
             }
         }
+
+        RailDivider()
+
+        // 配色の切り替え。設定画面を持たないので、1 つのボタンで 3 つの状態を回す
+        RailItem(
+            label = when (themeMode) {
+                ThemeMode.SYSTEM -> "Auto"
+                ThemeMode.LIGHT -> "Light"
+                ThemeMode.DARK -> "Dark"
+            },
+            selected = false,
+            indicator = {
+                Text(
+                    text = when (themeMode) {
+                        ThemeMode.SYSTEM -> "◐"
+                        ThemeMode.LIGHT -> "☀"
+                        ThemeMode.DARK -> "☾"
+                    },
+                    style = ZType.Title.copy(fontSize = 16.sp),
+                    color = ZColors.TextSecondary,
+                )
+            },
+            onClick = onCycleTheme,
+        )
     }
 }
 
