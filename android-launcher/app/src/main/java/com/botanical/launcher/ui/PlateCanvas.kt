@@ -72,7 +72,19 @@ fun PlateCanvas(
         val openBitmap = gemma?.openBitmap
         if (gemma?.rect != null && openBitmap != null && b > 0.004f) {
             val grow = 0.34f + 0.66f * b
-            val center = transform.toScreen(gemma.rect.center)
+            val host = plate.organ(gemma.organId)?.first
+            val bend = if (host != null && host.rect.height > 0f) {
+                bendOffset(
+                    layer = host,
+                    v = (gemma.rect.center.y - host.rect.top) / host.rect.height,
+                    t = transform,
+                    phase = p,
+                    extra = if (host.id == nudged) nudge else 0f,
+                )
+            } else {
+                0f
+            }
+            val center = transform.toScreen(gemma.rect.center).let { it.copy(x = it.x + bend) }
             val w = gemma.rect.width * transform.scale * grow
             val h = gemma.rect.height * transform.scale * grow
             paint.alpha = (b * 255).toInt().coerceIn(0, 255)
@@ -101,7 +113,6 @@ fun PlateCanvas(
 
 /**
  * 根元を固定した撓み。頂部ほど振れるよう、根元からの距離の 1.7 乗で効かせる。
- * [grow] は開花時にわずかに持ち上げるための拡大。
  */
 private fun DrawScope.drawBent(
     layer: PlantLayer,
@@ -110,33 +121,44 @@ private fun DrawScope.drawBent(
     phase: Float,
     extra: Float,
     paint: Paint,
-    grow: Float = 0f,
 ) {
     val cols = 3
     val rows = 12
     val topLeft = t.toScreen(layer.rect.topLeft)
-    val w = layer.rect.width * t.scale * (1f + grow * 0.06f)
-    val h = layer.rect.height * t.scale * (1f + grow * 0.06f)
-    val left = topLeft.x - (w - layer.rect.width * t.scale) * layer.pivot.x
-    val top = topLeft.y - (h - layer.rect.height * t.scale) * layer.pivot.y
-
-    val swing = sin(phase * layer.bendSpeed + layer.bendPhase)
-    val amplitude = layer.bendAmplitude * t.scale * (1f + extra * 2.2f)
-    val pivotY = layer.pivot.y.coerceIn(0.05f, 1f)
+    val w = layer.rect.width * t.scale
+    val h = layer.rect.height * t.scale
 
     val verts = FloatArray((cols + 1) * (rows + 1) * 2)
     var i = 0
     for (r in 0..rows) {
         val v = r / rows.toFloat()
-        // 根元で 0、先端で 1
-        val u = ((pivotY - v) / pivotY).coerceIn(0f, 1f)
-        val dx = amplitude * u.pow(1.7f) * swing
+        val dx = bendOffset(layer, v, t, phase, extra)
         for (c in 0..cols) {
-            verts[i++] = left + (c / cols.toFloat()) * w + dx
-            verts[i++] = top + v * h
+            verts[i++] = topLeft.x + (c / cols.toFloat()) * w + dx
+            verts[i++] = topLeft.y + v * h
         }
     }
     drawContext.canvas.nativeCanvas.drawBitmapMesh(bitmap, cols, rows, verts, 0, null, 0, paint)
+}
+
+/**
+ * 撓みによる横方向のずれ（画面ピクセル）。[v] は配置矩形の中での縦位置（0..1）。
+ *
+ * 蕾の上に重ねる花も同じ式でずらす。そうしないと、咲いていく途中で
+ * 花だけが茎から取り残される。
+ */
+private fun bendOffset(
+    layer: PlantLayer,
+    v: Float,
+    t: SceneTransform,
+    phase: Float,
+    extra: Float,
+): Float {
+    val pivotY = layer.pivot.y.coerceIn(0.05f, 1f)
+    // 根元で 0、先端で 1
+    val u = ((pivotY - v) / pivotY).coerceIn(0f, 1f)
+    val swing = sin(phase * layer.bendSpeed + layer.bendPhase)
+    return layer.bendAmplitude * t.scale * (1f + extra * 2.2f) * u.pow(1.7f) * swing
 }
 
 private fun DrawScope.drawPaper(plate: Plate) {

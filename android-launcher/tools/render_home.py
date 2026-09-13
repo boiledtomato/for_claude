@@ -23,17 +23,22 @@ def fit(screen, pw, ph):
     return s, (screen[0] - pw * s) / 2, (screen[1] - ph * s) / 2
 
 
+def bend_offset(pivot, amplitude_px, swing, v):
+    """撓みによる横方向のずれ。アプリの bendOffset と同じ式。"""
+    py = max(pivot[1], 0.05)
+    u = max(0.0, min(1.0, (py - v) / py))
+    return amplitude_px * (u ** 1.7) * swing
+
+
 def bend(im, pivot, amplitude_px, swing, rows=48):
     """根元を固定して上ほど横へずらす。アプリの drawBitmapMesh と同じ式。"""
     w, h = im.size
     pad = int(abs(amplitude_px)) + 2
     out = Image.new("RGBA", (w + pad * 2, h), (0, 0, 0, 0))
-    py = max(pivot[1], 0.05)
     for r in range(rows):
         y0, y1 = int(h * r / rows), int(h * (r + 1) / rows)
         v = (y0 + y1) / 2 / h
-        u = max(0.0, min(1.0, (py - v) / py))
-        dx = amplitude_px * (u ** 1.7) * swing
+        dx = bend_offset(pivot, amplitude_px, swing, v)
         out.paste(im.crop((0, y0, w, y1)), (pad + int(round(dx)), y0))
     return out, pad
 
@@ -76,7 +81,15 @@ def render(assets, screen, swing, bloom, hits, out_path):
         w2, h2 = max(1, int(gw * s * k)), max(1, int(gh * s * k))
         g = g.resize((w2, h2), Image.LANCZOS)
         g.putalpha(g.getchannel("A").point(lambda v: int(v * bloom)))
-        cx, cy = dx + (gx + gw / 2) * s, dy + (gy + gh / 2) * s
+        # 開いた花も茎と同じだけ撓ませる。でないと咲く途中で茎から取り残される。
+        host = next((l for l in m["plants"]
+                     if any(f"{l['id']}/{o['id']}" == gem["organ"] for o in l["organs"])), None)
+        off = 0.0
+        if host:
+            hx, hy, hw, hh = host["rect"]
+            off = bend_offset(host["pivot"], host["bend"]["amplitude"] * s, swing,
+                              (gy + gh / 2 - hy) / hh)
+        cx, cy = dx + (gx + gw / 2) * s + off, dy + (gy + gh / 2) * s
         img.paste(g, (int(cx - w2 / 2), int(cy - h2 / 2)), g)
 
     img.resize((screen[0] // 2, screen[1] // 2), Image.LANCZOS).save(out_path)
