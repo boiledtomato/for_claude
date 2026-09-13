@@ -51,7 +51,21 @@ android-launcher/
     └── sources/<id>/            # 元スキャン（パブリックドメイン）
 ```
 
-## ビルドと導入
+## 導入
+
+### できあがった APK を使う
+
+GitHub の **Releases** から `Herbarium-*.apk` を落とす。`android-launcher/` に
+変更を入れると CI がビルドし、Actions の成果物としても 90 日置かれる。
+
+新しい Release を作るときは Actions から **Herbarium Launcher Build** を
+手動実行し、`release_tag` に `launcher-v0.2.0` のようなタグ名を渡す。タグが
+打たれ、APK が添付された Release ができる。
+
+タグ push を引き金にしていないのは、`paths` フィルタと併用するとタグでは変更
+ファイルが拾えず発火しないことがあるため。
+
+### 自分でビルドする
 
 ```bash
 cd android-launcher
@@ -62,7 +76,11 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 インストール後、**設定 → アプリ → デフォルトのアプリ → ホームアプリ** で
 `Herbarium` を選ぶ。アプリ内でも紙の余白を長押しすると設定画面へ行ける。
 
-`local.properties` に `sdk.dir` が要る（`.gitignore` 済み）。
+`local.properties` に `sdk.dir` が要る（`.gitignore` 済み）。CI では Actions の
+ランナーに入っている Android SDK を使うので不要。
+
+署名はデバッグ鍵のまま。個人の端末に入れる用途ではこれで足りるが、配布ストアに
+出すときは release 署名の鍵を Secrets に置いて署名する必要がある。
 
 ## 操作
 
