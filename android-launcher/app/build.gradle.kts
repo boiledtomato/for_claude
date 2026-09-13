@@ -12,11 +12,32 @@ android {
         applicationId = "com.botanical.launcher"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.1.1"
+    }
+
+    signingConfigs {
+        // 鍵をリポジトリに固定する。
+        //
+        // 既定のデバッグ鍵はビルドする機械ごとに自動生成されるため、手元で
+        // 作った APK と CI が作った APK で署名が変わる。Android は署名の違う
+        // アプリを上書きできないので、更新しようとすると「アプリがインストール
+        // されていません」で弾かれる。
+        //
+        // パスワードは Android のデバッグ鍵の慣例値そのままで、秘匿する意味は
+        // ない。配布ストアに出すときは別途 release 用の鍵を Secrets に置く。
+        getByName("debug") {
+            storeFile = rootProject.file("keystore/debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
     }
 
     buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("debug")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
