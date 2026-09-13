@@ -1,5 +1,6 @@
 package com.botanical.launcher.ui
 
+import android.graphics.Bitmap
 import android.graphics.Paint
 import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable
@@ -22,18 +23,16 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.sp
 import com.botanical.launcher.data.AppEntry
+import com.botanical.launcher.garden.Gemma
 import com.botanical.launcher.garden.Palette
 import com.botanical.launcher.garden.Plate
 import com.botanical.launcher.garden.PlantLayer
-import kotlin.math.pow
-import kotlin.math.sin
 
 /**
  * 版面の描画。
  *
- * 切り抜いた株を丸ごと回転させると板を振っているように見えるので、
- * `drawBitmapMesh` で根元を固定したまま上ほど大きく撓ませる。
- * 風に揺れる草の見え方はこれでほぼ再現できる。
+ * アニメーションする値（[phase] [bloom] [nudgeAmount]）はすべて draw ラムダの中で
+ * 読むので、再コンポーズは起きず再描画だけで済む。
  */
 @Composable
 fun PlateCanvas(
@@ -43,63 +42,66 @@ fun PlateCanvas(
     bloom: () -> Float,
     nudgedPlantId: () -> String?,
     nudgeAmount: () -> Float,
-    bindings: Map<String, String>,
+    bindings: Map<String, List<String>>,
     appsByKey: Map<String, AppEntry>,
     showCaptions: Boolean,
     showHitAreas: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val measurer = rememberTextMeasurer()
-    val paint = remember { Paint().apply { isFilterBitmap = true; isAntiAlias = true; isDither = true } }
+    val paint = remember {
+        Paint().apply { isFilterBitmap = true; isAntiAlias = true; isDither = true }
+    }
+    // 風の場は版面ごとに一度だけ組む
+    val winds = remember(plate) { plate.plants.associate { it.id to WindField.of(plate, it) } }
 
     Canvas(modifier) {
         drawPaper(plate)
         if (transform.scale <= 0f) return@Canvas
-
         if (plate.frame) drawPlateFrame(plate, transform)
 
         val p = phase()
         val nudged = nudgedPlantId()
         val nudge = nudgeAmount()
         val b = bloom()
+        val gust = WindField.gust(p)
+
+        val gemma = plate.gemma
+        val gemmaHost = gemma?.let { plate.organ(it.organId) }
+        val budAt = gemmaHost?.let { it.second.at.x to it.second.at.y }
+
         for (layer in plate.plants) {
             val bitmap = layer.bitmap ?: continue
-            drawBent(layer, bitmap, transform, p, if (layer.id == nudged) nudge else 0f, paint)
+            val wind = winds[layer.id] ?: continue
+            val isHost = gemmaHost?.first?.id == layer.id
+            drawWindblown(
+                layer = layer,
+                bitmap = bitmap,
+                wind = wind,
+                t = transform,
+                phase = p,
+                gust = gust,
+                nudge = if (layer.id == nudged) nudge else 0f,
+                bloom = if (isHost) b else 0f,
+                bloomAt = if (isHost) budAt else null,
+                paint = paint,
+            )
         }
 
-        // 蕾の上に開いた花を重ねて咲かせる
-        val gemma = plate.gemma
+        // 蕾の上に、花弁がほどけるように開いた花を重ねる
         val openBitmap = gemma?.openBitmap
-        if (gemma?.rect != null && openBitmap != null && b > 0.004f) {
-            val grow = 0.34f + 0.66f * b
-            val host = plate.organ(gemma.organId)?.first
-            val bend = if (host != null && host.rect.height > 0f) {
-                bendOffset(
-                    layer = host,
-                    v = (gemma.rect.center.y - host.rect.top) / host.rect.height,
-                    t = transform,
-                    phase = p,
-                    extra = if (host.id == nudged) nudge else 0f,
-                )
-            } else {
-                0f
-            }
-            val center = transform.toScreen(gemma.rect.center).let { it.copy(x = it.x + bend) }
-            val w = gemma.rect.width * transform.scale * grow
-            val h = gemma.rect.height * transform.scale * grow
-            paint.alpha = (b * 255).toInt().coerceIn(0, 255)
-            drawContext.canvas.nativeCanvas.drawBitmap(
-                openBitmap,
-                android.graphics.Rect(0, 0, openBitmap.width, openBitmap.height),
-                android.graphics.RectF(
-                    center.x - w / 2f,
-                    center.y - h / 2f,
-                    center.x + w / 2f,
-                    center.y + h / 2f,
-                ),
-                paint,
+        if (gemma?.rect != null && openBitmap != null && b > 0.004f && gemmaHost != null) {
+            drawBloom(
+                gemma = gemma,
+                bitmap = openBitmap,
+                host = gemmaHost.first,
+                wind = winds[gemmaHost.first.id],
+                t = transform,
+                phase = p,
+                gust = gust,
+                bloom = b,
+                paint = paint,
             )
-            paint.alpha = 255
         }
 
         if (showCaptions) {
@@ -112,53 +114,93 @@ fun PlateCanvas(
 }
 
 /**
- * 根元を固定した撓み。頂部ほど振れるよう、根元からの距離の 1.7 乗で効かせる。
+ * 風で揺れる版面。
+ *
+ * 全体を一様に撓ませるとただの板が揺れているようにしか見えない。メッシュを
+ * 細かく取り、頂点ごとに [WindField] を評価することで、隣り合う花が別々の位相で
+ * 頷き、突風が横切っていくように見える。
  */
-private fun DrawScope.drawBent(
+private fun DrawScope.drawWindblown(
     layer: PlantLayer,
-    bitmap: android.graphics.Bitmap,
+    bitmap: Bitmap,
+    wind: WindField,
     t: SceneTransform,
     phase: Float,
-    extra: Float,
+    gust: Float,
+    nudge: Float,
+    bloom: Float,
+    bloomAt: Pair<Float, Float>?,
     paint: Paint,
 ) {
-    val cols = 3
-    val rows = 12
+    val cols = 12
+    val rows = 20
     val topLeft = t.toScreen(layer.rect.topLeft)
     val w = layer.rect.width * t.scale
     val h = layer.rect.height * t.scale
 
     val verts = FloatArray((cols + 1) * (rows + 1) * 2)
+    val d = FloatArray(2)
     var i = 0
     for (r in 0..rows) {
         val v = r / rows.toFloat()
-        val dx = bendOffset(layer, v, t, phase, extra)
         for (c in 0..cols) {
-            verts[i++] = topLeft.x + (c / cols.toFloat()) * w + dx
-            verts[i++] = topLeft.y + v * h
+            val u = c / cols.toFloat()
+            wind.displace(u, v, phase, gust, nudge, bloom, bloomAt, d)
+            verts[i++] = topLeft.x + u * w + d[0] * t.scale
+            verts[i++] = topLeft.y + v * h + d[1] * t.scale
         }
     }
     drawContext.canvas.nativeCanvas.drawBitmapMesh(bitmap, cols, rows, verts, 0, null, 0, paint)
 }
 
 /**
- * 撓みによる横方向のずれ（画面ピクセル）。[v] は配置矩形の中での縦位置（0..1）。
- *
- * 蕾の上に重ねる花も同じ式でずらす。そうしないと、咲いていく途中で
- * 花だけが茎から取り残される。
+ * 開花。花弁が中心からほどけて広がるように、スプライトをメッシュで変形する。
+ * 単なるクロスフェードでは「開いた」ようには見えない。
  */
-private fun bendOffset(
-    layer: PlantLayer,
-    v: Float,
+private fun DrawScope.drawBloom(
+    gemma: Gemma,
+    bitmap: Bitmap,
+    host: PlantLayer,
+    wind: WindField?,
     t: SceneTransform,
     phase: Float,
-    extra: Float,
-): Float {
-    val pivotY = layer.pivot.y.coerceIn(0.05f, 1f)
-    // 根元で 0、先端で 1
-    val u = ((pivotY - v) / pivotY).coerceIn(0f, 1f)
-    val swing = sin(phase * layer.bendSpeed + layer.bendPhase)
-    return layer.bendAmplitude * t.scale * (1f + extra * 2.2f) * u.pow(1.7f) * swing
+    gust: Float,
+    bloom: Float,
+    paint: Paint,
+) {
+    val rect = gemma.rect ?: return
+    val eased = bloom * bloom * (3f - 2f * bloom)
+
+    // 蕾と同じだけ風に流される。でないと咲く途中で花だけ取り残される。
+    val d = FloatArray(2)
+    if (wind != null && host.rect.height > 0f && host.rect.width > 0f) {
+        wind.displace(
+            u = (rect.center.x - host.rect.left) / host.rect.width,
+            v = (rect.center.y - host.rect.top) / host.rect.height,
+            phase = phase, gust = gust, nudge = 0f, bloom = 0f, bloomAt = null, out = d,
+        )
+    }
+    val centre = t.toScreen(rect.center)
+    val cx = centre.x + d[0] * t.scale
+    val cy = centre.y + d[1] * t.scale
+    val w = rect.width * t.scale
+    val h = rect.height * t.scale
+
+    val cols = 8
+    val rows = 8
+    val verts = FloatArray((cols + 1) * (rows + 1) * 2)
+    val uv = FloatArray(2)
+    var i = 0
+    for (r in 0..rows) {
+        for (c in 0..cols) {
+            unfurl(c / cols.toFloat(), r / rows.toFloat(), eased, uv)
+            verts[i++] = cx + (uv[0] - 0.5f) * w
+            verts[i++] = cy + (uv[1] - 0.5f) * h
+        }
+    }
+    paint.alpha = (((bloom - 0.04f) / 0.30f).coerceIn(0f, 1f) * 255).toInt()
+    drawContext.canvas.nativeCanvas.drawBitmapMesh(bitmap, cols, rows, verts, 0, null, 0, paint)
+    paint.alpha = 255
 }
 
 private fun DrawScope.drawPaper(plate: Plate) {
@@ -180,12 +222,10 @@ private fun DrawScope.drawPaper(plate: Plate) {
 
 private fun DrawScope.drawPlateFrame(plate: Plate, t: SceneTransform) {
     val inset = 36f
-    val topLeft = t.toScreen(Offset(inset, inset))
-    val frameSize = Size((plate.width - inset * 2) * t.scale, (plate.height - inset * 2) * t.scale)
     drawRect(
         color = Palette.Ink.copy(alpha = 0.5f),
-        topLeft = topLeft,
-        size = frameSize,
+        topLeft = t.toScreen(Offset(inset, inset)),
+        size = Size((plate.width - inset * 2) * t.scale, (plate.height - inset * 2) * t.scale),
         style = Stroke(width = 2.4f * t.scale),
     )
     val inner = inset + 9f
@@ -232,19 +272,28 @@ private fun DrawScope.drawPlateNumber(measurer: TextMeasurer, t: SceneTransform,
     drawText(layout, topLeft = Offset(at.x - layout.size.width, at.y))
 }
 
-/** 割り当て済みの器官にだけアプリ名を添える。 */
+/**
+ * 割り当て済みの部位にだけ名前を添える。複数入っているときは
+ * 代表 1 つと残りの数を出す。
+ */
 private fun DrawScope.drawBindingLabels(
     measurer: TextMeasurer,
     t: SceneTransform,
     plate: Plate,
-    bindings: Map<String, String>,
+    bindings: Map<String, List<String>>,
     appsByKey: Map<String, AppEntry>,
 ) {
     if (bindings.isEmpty() || t.scale <= 0f) return
-    for ((organId, appKey) in bindings) {
-        val app = appsByKey[appKey] ?: continue
+    for ((organId, keys) in bindings) {
+        val present = keys.mapNotNull { appsByKey[it] }
+        if (present.isEmpty()) continue
         val (layer, organ) = plate.organ(organId) ?: continue
-        val layout = measurer.measure(AnnotatedString(app.label), labelStyle, maxLines = 1)
+        val text = if (present.size == 1) {
+            present[0].label
+        } else {
+            "${present[0].label} +${present.size - 1}"
+        }
+        val layout = measurer.measure(AnnotatedString(text), labelStyle, maxLines = 1)
         val center = t.toScreen(organ.center(layer))
         val y = center.y + organ.radius(layer) * t.scale + 6f
         val x = center.x - layout.size.width / 2f

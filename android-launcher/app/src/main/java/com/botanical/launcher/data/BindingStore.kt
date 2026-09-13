@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.core.content.edit
 
 /**
- * 「どの葉・どの花にどのアプリを割り当てたか」の永続化。
+ * 「どの花・どの葉に、どのアプリを割り当てたか」の永続化。
  *
- * 器官 ID（例: salvia.leaf0）→ アプリキー（package/class）。
+ * 部位 ID（例: pl134/magna）→ アプリキー（package/class）の**並び**。
+ * 1 つの部位に複数入れられる（束ねた花のように、まとめて開く）。
+ *
  * ランチャーは起動が速くないと体感が悪いので SharedPreferences を同期で読む。
  */
 class BindingStore(context: Context) {
@@ -24,13 +26,23 @@ class BindingStore(context: Context) {
         get() = prefs.getString(KEY_PLATE, null)
         set(value) = prefs.edit { putString(KEY_PLATE, value) }
 
-    fun load(): Map<String, String> =
+    fun load(): Map<String, List<String>> =
         prefs.all.entries
             .filter { it.key !in RESERVED && !it.key.startsWith(KEY_SEEDED) }
-            .mapNotNull { (k, v) -> (v as? String)?.let { k to it } }
+            .mapNotNull { (k, v) ->
+                (v as? String)?.split(SEP)?.filter { it.isNotBlank() }
+                    ?.takeIf { it.isNotEmpty() }
+                    ?.let { k to it }
+            }
             .toMap()
 
-    fun put(organId: String, appKey: String) = prefs.edit { putString(organId, appKey) }
+    fun put(organId: String, appKeys: List<String>) {
+        if (appKeys.isEmpty()) {
+            remove(organId)
+        } else {
+            prefs.edit { putString(organId, appKeys.joinToString(SEP)) }
+        }
+    }
 
     fun remove(organId: String) = prefs.edit { remove(organId) }
 
@@ -39,22 +51,21 @@ class BindingStore(context: Context) {
 
     /**
      * 初回表示時、空の版面を見せても操作が分からないので、
-     * よく使われそうなアプリを花・大きい葉の順に置いておく。
+     * よく使われそうなアプリを目立つ部位から順に置いておく。
      */
     fun seedIfNeeded(
         plateId: String,
         apps: List<AppEntry>,
         slots: List<String>,
-    ): Map<String, String> {
+    ): Map<String, List<String>> {
         if (prefs.getBoolean(seededKey(plateId), false) || apps.isEmpty() || slots.isEmpty()) {
             return load()
         }
 
-        val byKey = apps.associateBy { it.key }
         val picked = LinkedHashSet<String>()
         for (pattern in SEED_ORDER) {
-            val hit = apps.firstOrNull { it.packageName.contains(pattern, ignoreCase = true) }
-            if (hit != null) picked += hit.key
+            apps.firstOrNull { it.packageName.contains(pattern, ignoreCase = true) }
+                ?.let { picked += it.key }
         }
         // 足りない分はアルファベット順で埋める
         for (app in apps) {
@@ -67,11 +78,12 @@ class BindingStore(context: Context) {
             assignment.forEach { (organId, appKey) -> putString(organId, appKey) }
             putBoolean(seededKey(plateId), true)
         }
-        // 既に他の図版に置いた割り当ても残す
-        return load() + assignment.filterValues { byKey.containsKey(it) }
+        // 既に他の図版へ置いた割り当ても残す
+        return load()
     }
 
     private companion object {
+        const val SEP = "|"
         const val KEY_SEEDED = "__seeded__"
         const val KEY_CAPTIONS = "__captions__"
         const val KEY_PLATE = "__plate__"

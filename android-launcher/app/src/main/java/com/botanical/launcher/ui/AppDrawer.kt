@@ -24,6 +24,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -49,8 +50,15 @@ sealed interface DrawerMode {
     /** ふつうにアプリを起動する */
     data object Browse : DrawerMode
 
-    /** 器官 [organId] に割り当てるアプリを選ぶ。[label] は「蕾」「オオギキョウ」など表示名 */
-    data class Assign(val organId: String, val label: String) : DrawerMode
+    /**
+     * 部位 [organId] に割り当てるアプリを選ぶ。複数選べる。
+     * [label] は「蕾」「オオギキョウ」など表示名、[initial] は今入っているもの。
+     */
+    data class Assign(
+        val organId: String,
+        val label: String,
+        val initial: List<String> = emptyList(),
+    ) : DrawerMode
 }
 
 /**
@@ -62,13 +70,18 @@ sealed interface DrawerMode {
 fun AppDrawer(
     apps: List<AppEntry>,
     mode: DrawerMode,
-    onPick: (AppEntry) -> Unit,
-    onClearBinding: () -> Unit,
+    onLaunch: (AppEntry) -> Unit,
+    onConfirmAssign: (List<String>) -> Unit,
     onAppInfo: (AppEntry) -> Unit,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     var query by remember { mutableStateOf("") }
+    val assign = mode as? DrawerMode.Assign
+    // 割り当て中の選択。順番どおりに束ねたいので List で持つ。
+    val chosen = remember(assign?.organId) {
+        mutableStateListOf<String>().apply { assign?.initial?.let { addAll(it) } }
+    }
     val visible = remember(apps, query) {
         if (query.isBlank()) apps
         else apps.filter { it.label.contains(query.trim(), ignoreCase = true) }
@@ -105,7 +118,9 @@ fun AppDrawer(
                     Text(
                         text = when (mode) {
                             DrawerMode.Browse -> "${apps.size} 点の標本"
-                            is DrawerMode.Assign -> "${mode.label.ifBlank { "この部位" }} に割り当てる"
+                            is DrawerMode.Assign ->
+                                "${mode.label.ifBlank { "この部位" }} に割り当てる" +
+                                    if (chosen.isEmpty()) "（複数選べます）" else "（${chosen.size} 件）"
                         },
                         style = TextStyle(
                             fontFamily = FontFamily.Serif,
@@ -128,20 +143,39 @@ fun AppDrawer(
                 )
             }
 
-            if (mode is DrawerMode.Assign) {
-                Text(
-                    text = "割り当てを解除する",
-                    modifier = Modifier
-                        .padding(start = 18.dp, top = 8.dp)
-                        .clip(RoundedCornerShape(6.dp))
-                        .combinedClickable(onClick = onClearBinding)
-                        .padding(horizontal = 6.dp, vertical = 4.dp),
-                    style = TextStyle(
-                        fontFamily = FontFamily.Serif,
-                        fontSize = 13.sp,
-                        color = Palette.Crimson,
-                    ),
-                )
+            if (assign != null) {
+                Row(
+                    modifier = Modifier.padding(start = 18.dp, end = 18.dp, top = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text = if (chosen.isEmpty()) "選ばずに決定すると解除されます" else "決定する",
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(6.dp))
+                            .combinedClickable { onConfirmAssign(chosen.toList()) }
+                            .padding(horizontal = 8.dp, vertical = 4.dp),
+                        style = TextStyle(
+                            fontFamily = FontFamily.Serif,
+                            fontSize = 14.sp,
+                            color = if (chosen.isEmpty()) Palette.Crimson else Palette.Green1,
+                        ),
+                    )
+                    Spacer(Modifier.weight(1f))
+                    if (chosen.isNotEmpty()) {
+                        Text(
+                            text = "選択を空に",
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(6.dp))
+                                .combinedClickable { chosen.clear() }
+                                .padding(horizontal = 8.dp, vertical = 4.dp),
+                            style = TextStyle(
+                                fontFamily = FontFamily.Serif,
+                                fontSize = 13.sp,
+                                color = Palette.InkSoft,
+                            ),
+                        )
+                    }
+                }
             }
 
             SearchLine(
@@ -159,7 +193,14 @@ fun AppDrawer(
                 items(visible, key = { it.key }) { app ->
                     AppMedallion(
                         app = app,
-                        onClick = { onPick(app) },
+                        order = if (assign == null) 0 else chosen.indexOf(app.key) + 1,
+                        onClick = {
+                            if (assign == null) {
+                                onLaunch(app)
+                            } else if (!chosen.remove(app.key)) {
+                                chosen.add(app.key)
+                            }
+                        },
                         onLongClick = { onAppInfo(app) },
                     )
                 }
@@ -218,6 +259,7 @@ private fun SearchLine(
 @Composable
 private fun AppMedallion(
     app: AppEntry,
+    order: Int,
     onClick: () -> Unit,
     onLongClick: () -> Unit,
 ) {
@@ -246,6 +288,15 @@ private fun AppMedallion(
                         center = c,
                         style = Stroke(width = 1f),
                     )
+                    if (order > 0) {
+                        drawCircle(Palette.Green1.copy(alpha = 0.16f), radius = r, center = c)
+                        drawCircle(
+                            color = Palette.Green1,
+                            radius = r,
+                            center = c,
+                            style = Stroke(width = 3f),
+                        )
+                    }
                 },
             )
             Image(
@@ -256,7 +307,7 @@ private fun AppMedallion(
         }
         Spacer(Modifier.height(6.dp))
         Text(
-            text = app.label,
+            text = if (order > 0) "$order. ${app.label}" else app.label,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             textAlign = TextAlign.Center,

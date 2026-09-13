@@ -46,8 +46,13 @@ import com.botanical.launcher.garden.PlateLoader
 import kotlinx.coroutines.launch
 import kotlin.math.PI
 
-/** 撓みの周期。長めにとって「気づくと動いている」程度にする。 */
-private const val SWAY_PERIOD_MS = 13_000
+/**
+ * 風の基準周期。花や葉はこの整数倍の速さで揺れる。
+ *
+ * 長めに取ってあるのは、遅いうねり（突風の強弱）と速い揺れ（葉の震え）を
+ * 同じ位相から作るため。倍率が整数でないと、位相が一周するたびに動きが飛ぶ。
+ */
+private const val SWAY_PERIOD_MS = 36_000
 
 @Composable
 fun HomeScreen() {
@@ -64,7 +69,7 @@ fun HomeScreen() {
     var plate by remember { mutableStateOf(Plate.Empty) }
     var apps by remember { mutableStateOf<List<AppEntry>>(emptyList()) }
     val appsByKey = remember(apps) { apps.associateBy { it.key } }
-    val bindings = remember { mutableStateMapOf<String, String>() }
+    val bindings = remember { mutableStateMapOf<String, List<String>>() }
 
     var canvasSize by remember { mutableStateOf(Size.Zero) }
     val transform = remember(canvasSize, plate) {
@@ -72,6 +77,8 @@ fun HomeScreen() {
     }
 
     var drawerMode by remember { mutableStateOf<DrawerMode?>(null) }
+    // 複数入っている部位を押したときに、その場で開く束
+    var posy by remember { mutableStateOf<Triple<String, String, Offset>?>(null) }
     var showSettings by remember { mutableStateOf(false) }
     var showCaptions by remember { mutableStateOf(store.captionsVisible) }
     var showHitAreas by remember { mutableStateOf(false) }
@@ -107,7 +114,10 @@ fun HomeScreen() {
     }
 
     // アプリを起動したら一覧は畳んでおく（戻ってきたとき版面から始まる）
-    LifecycleEventEffect(Lifecycle.Event.ON_STOP) { drawerMode = null }
+    LifecycleEventEffect(Lifecycle.Event.ON_STOP) {
+        drawerMode = null
+        posy = null
+    }
 
     val swayPhase by rememberInfiniteTransition(label = "sway").animateFloat(
         initialValue = 0f,
@@ -138,6 +148,10 @@ fun HomeScreen() {
         nudge.animateTo(0f, tween(900, easing = FastOutSlowInEasing))
     }
 
+    fun assign(organ: OrganSpot) {
+        drawerMode = DrawerMode.Assign(organ.id, organ.label, bindings[organ.id].orEmpty())
+    }
+
     fun activate(layer: PlantLayer, organ: OrganSpot) {
         nudgedPlantId = layer.id
         nudgeTick++
@@ -145,11 +159,16 @@ fun HomeScreen() {
             drawerMode = DrawerMode.Browse
             return
         }
-        val app = bindings[organ.id]?.let { appsByKey[it] }
-        if (app != null) {
-            AppRepository.launch(context, app)
-        } else {
-            drawerMode = DrawerMode.Assign(organ.id, organ.label)
+        val present = bindings[organ.id].orEmpty().mapNotNull { appsByKey[it] }
+        when {
+            present.isEmpty() -> assign(organ)
+            present.size == 1 -> AppRepository.launch(context, present[0])
+            // 複数入っているときは、押した花の脇に束を開く
+            else -> posy = Triple(
+                organ.id,
+                organ.label,
+                transform.toScreen(organ.center(layer)),
+            )
         }
     }
 
@@ -184,10 +203,10 @@ fun HomeScreen() {
                                 val (layer, organ) = hit
                                 nudgedPlantId = layer.id
                                 nudgeTick++
-                                drawerMode = if (organ.id == plate.gemma?.organId) {
-                                    DrawerMode.Browse
+                                if (organ.id == plate.gemma?.organId) {
+                                    drawerMode = DrawerMode.Browse
                                 } else {
-                                    DrawerMode.Assign(organ.id, organ.label)
+                                    assign(organ)
                                 }
                             }
                         },
@@ -220,29 +239,47 @@ fun HomeScreen() {
                 AppDrawer(
                     apps = apps,
                     mode = mode ?: DrawerMode.Browse,
-                    onPick = { app ->
-                        when (val m = mode) {
-                            is DrawerMode.Assign -> {
-                                store.put(m.organId, app.key)
-                                bindings[m.organId] = app.key
-                                drawerMode = null
-                            }
-                            else -> {
-                                AppRepository.launch(context, app)
-                                drawerMode = null
-                            }
-                        }
+                    onLaunch = { app ->
+                        AppRepository.launch(context, app)
+                        drawerMode = null
                     },
-                    onClearBinding = {
-                        (mode as? DrawerMode.Assign)?.let {
-                            store.remove(it.organId)
-                            bindings.remove(it.organId)
+                    onConfirmAssign = { keys ->
+                        (mode as? DrawerMode.Assign)?.let { m ->
+                            store.put(m.organId, keys)
+                            if (keys.isEmpty()) bindings.remove(m.organId)
+                            else bindings[m.organId] = keys
                         }
                         drawerMode = null
                     },
                     onAppInfo = { AppRepository.openAppInfo(context, it) },
                     onDismiss = { drawerMode = null },
                 )
+            }
+        }
+
+        val open = posy
+        if (open != null) {
+            val (organId, label, at) = open
+            val items = bindings[organId].orEmpty().mapNotNull { appsByKey[it] }
+            if (items.isEmpty()) {
+                posy = null
+            } else {
+                Box(Modifier.fillMaxSize().systemBarsPadding()) {
+                    Posy(
+                        apps = items,
+                        label = label,
+                        anchor = at,
+                        onPick = { app ->
+                            AppRepository.launch(context, app)
+                            posy = null
+                        },
+                        onEdit = {
+                            posy = null
+                            plate.organ(organId)?.let { (_, organ) -> assign(organ) }
+                        },
+                        onDismiss = { posy = null },
+                    )
+                }
             }
         }
 
@@ -280,7 +317,9 @@ fun HomeScreen() {
         }
     }
 
-    BackHandler(enabled = drawerOpen) { drawerMode = null }
+    BackHandler(enabled = drawerOpen || posy != null) {
+        if (posy != null) posy = null else drawerMode = null
+    }
 }
 
 /**
