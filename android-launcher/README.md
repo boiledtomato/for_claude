@@ -31,6 +31,7 @@ android-launcher/
 │           ├── AppDrawer.kt     # 標本帳（アプリ一覧）
 │           └── SceneTransform.kt
 └── tools/                       # 素材づくり（Python / Pillow + numpy）
+    ├── vectorise.py             # 線をベクター化して任意解像度で描き直す
     ├── align_crops.py           # 部分拡大を全体図へ貼り戻して高精細化
     ├── make_plate.py            # レシピ → assets/plate/ 一式
     ├── render_home.py           # 端末に入れる前の確認用レンダラ
@@ -78,14 +79,35 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 （`make_plate.py` の `cut_by_hue`）。開花は「蕾を消して花を描く」のではなく、
 蕾の上に開いた花を重ねて覆い隠している。図版から蕾だけを消すと背後の茎まで欠けるため。
 
+### ベクター化で「化け」を消す
+
+ラスターのまま拡大すると輪郭がぼけ、ギザギザが出る。かといって画像全体を
+そのままベクター化すると、色の領域がまとめられて**細い黒線が隣の色に呑まれて
+消える**。版画は線が主役なので、それでは別物になる。
+
+`tools/vectorise.py` は線と色を分けて扱う。
+
+| | やること |
+|---|---|
+| 線 | 周囲より暗い成分だけを抜き出して二値化し、ベクター化する。何倍に拡大しても輪郭が崩れない |
+| 淡彩 | 線を取り除いてから滑らかに拡大する。もともと低周波なので化けない |
+
+最後に拡大した淡彩の上へベクターの線を重ねる。線の濃さは元の濃淡を掛けて残す
+（一律に塗ると版画が塗り絵になる）。
+
+ベクター化はぼけとギザギザを消すが、**元の画像に無い細部は増やせない**。
+効くのは「低い解像度の原画を大きく使いたい」場面で、Pl.134 では 380x599 の
+全体図を 4 倍で使えるようになった。
+
 ### 手順
 
 ```bash
-# 1. 低解像度の全体図に、高解像度の部分拡大を位置合わせして貼り戻す
-#    （正規化相互相関の総当たり。倍率と位置を自動で求める）
+# 1. 全体図と部分拡大を位置合わせし、ベクター化して 4 倍で描き直す
+#    （倍率と位置は正規化相互相関の総当たりで自動決定）
 python3 tools/align_crops.py \
-    tools/sources/pl134/plate_full.png tools/work/bells_hi.png \
-    --crops tools/sources/pl134/detail_{top,mid,bottom}.png --scale 1.8 3.6
+    tools/sources/pl134/plate_full.png tools/work/plate_vec.png \
+    --crops tools/sources/pl134/detail_{top,mid,bottom}.png \
+    --scale 1.8 3.6 --vectorise --out-scale 4.0 --pad 38
 
 # 2. 座標を読むためのグリッドを出す
 python3 tools/render_home.py app/src/main/assets/plate --grid --out tools/work/grid.png
@@ -99,7 +121,7 @@ python3 tools/render_home.py app/src/main/assets/plate --bloom 1
 ```
 
 `Pl.134` では 380x599 の全体図に 2.72 倍の部分拡大 3 枚が一致し（相関 0.96〜0.97）、
-実質 1034x1629 まで精細化できた。
+ベクター化と合わせて 1520x2396 まで破綻なく引き上げられた。
 
 ### 図版を差し替える
 
@@ -142,3 +164,11 @@ Biodiversity Heritage Library から自由に入手できる。
 
 素材を足すときは、元の版画が 1900 年以前の出版であることと、スキャンの
 配布条件を確認すること。
+
+## 素材づくりに必要な Python パッケージ
+
+```bash
+pip install pillow numpy scipy vtracer cairosvg scikit-image
+```
+
+`vtracer` がベクター化、`cairosvg` が SVG の描き出しを担当する。

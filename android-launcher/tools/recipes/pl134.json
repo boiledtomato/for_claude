@@ -1,24 +1,24 @@
 {
-  "_note": "Anne Pratt 系 Pl.134 Bell Flowers。source は align_crops.py で合成した高精細版。座標はその画像の画素。",
-  "source": "tools/work/bells_hi.png",
+  "_note": "Anne Pratt 系 Pl.134 Bell Flowers。source は align_crops.py --vectorise で ベクター化して 4 倍で描き直した版面。座標はその画像の画素。",
+  "source": "tools/work/plate_vec.png",
   "assetsDir": "app/src/main/assets/plate",
   "bouquet": {
     "box": [
-      26,
-      26,
-      1012,
-      1330
+      38,
+      38,
+      1488,
+      1955
     ],
-    "feather": 46,
+    "feather": 66,
     "image": "bouquet.webp",
-    "quality": 90
+    "quality": 88
   },
   "gemmaOpen": {
     "box": [
-      739,
-      552,
-      836,
-      663
+      1086,
+      811,
+      1229,
+      975
     ],
     "image": "gemma_open.webp",
     "cut": "crimson",
@@ -56,137 +56,137 @@
     [
       "latifolia",
       "flower",
-      509,
-      217,
-      77,
+      748,
+      319,
+      113,
       "オオホタルブクロ"
     ],
     [
       "patula",
       "flower",
-      161,
-      383,
-      85,
+      237,
+      563,
+      125,
       "ヒロハホタルブクロ"
     ],
     [
       "persicifolia",
       "flower",
-      302,
-      297,
-      62,
+      444,
+      437,
+      91,
       "モモバギキョウ"
     ],
     [
       "nigra",
       "flower",
-      191,
-      524,
-      54,
+      281,
+      770,
+      79,
       "クロホタルブクロ"
     ],
     [
       "pallida",
       "flower",
-      151,
-      645,
-      67,
+      222,
+      948,
+      98,
       "シロバナギキョウ"
     ],
     [
       "stellata",
       "flower",
-      111,
-      751,
-      58,
+      163,
+      1104,
+      85,
       "ムラサキギキョウ"
     ],
     [
       "pendula",
       "flower",
-      247,
-      778,
-      62,
+      363,
+      1144,
+      91,
       "ウナヅキギキョウ"
     ],
     [
       "magna",
       "flower",
-      524,
-      605,
-      79,
+      770,
+      889,
+      116,
       "オオギキョウ"
     ],
     [
       "rubra1",
       "flower",
-      625,
-      502,
-      52,
+      919,
+      738,
+      76,
       "ベニギキョウ"
     ],
     [
       "rubra2",
       "flower",
-      758,
-      564,
-      50,
+      1114,
+      829,
+      74,
       "ベニギキョウ"
     ],
     [
       "rosea1",
       "flower",
-      806,
-      838,
-      62,
+      1185,
+      1232,
+      91,
       "モモイロギキョウ"
     ],
     [
       "rosea2",
       "flower",
-      869,
-      942,
-      56,
+      1277,
+      1385,
+      82,
       "モモイロギキョウ"
     ],
     [
       "campanula",
       "flower",
-      459,
-      907,
-      69,
+      675,
+      1333,
+      101,
       "ツリガネソウ"
     ],
     [
       "folium",
       "leaf",
-      800,
-      1092,
-      74,
+      1176,
+      1605,
+      109,
       "葉"
     ],
     [
       "hedera1",
       "leaf",
-      257,
-      1189,
-      69,
+      378,
+      1748,
+      101,
       "ツタバギキョウの葉"
     ],
     [
       "hedera2",
       "leaf",
-      404,
-      1240,
-      58,
+      594,
+      1823,
+      85,
       "ツタバギキョウの葉"
     ],
     [
       "gemma",
       "bud",
-      790,
-      293,
-      52,
+      1161,
+      431,
+      76,
       "蕾"
     ]
   ]
