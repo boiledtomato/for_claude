@@ -4,25 +4,25 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- 一枚の葉と茎。銅版画調に合わせて線は細く。 -->
+    <!-- 鉛筆の線一色。茎と葉、先に巻きひげ。 -->
     <path
-        android:pathData="M54,84 C54,66 54,52 54,40"
-        android:strokeColor="#3A362C"
-        android:strokeWidth="2"
+        android:pathData="M56,86 C54,70 52,56 50,44"
+        android:strokeColor="#423F44"
+        android:strokeWidth="2.4"
         android:strokeLineCap="round" />
     <path
-        android:pathData="M54,58 C42,58 34,52 30,42 C42,38 52,44 54,58 Z"
-        android:fillColor="#6E8A4E"
-        android:strokeColor="#3A362C"
-        android:strokeWidth="1.4" />
+        android:pathData="M53,64 C42,62 34,55 31,45 C43,43 51,50 53,64 Z"
+        android:strokeColor="#423F44"
+        android:strokeWidth="1.8"
+        android:strokeLineJoin="round" />
     <path
-        android:pathData="M54,48 C66,48 74,42 78,32 C66,28 56,34 54,48 Z"
-        android:fillColor="#4E6B3C"
-        android:strokeColor="#3A362C"
-        android:strokeWidth="1.4" />
+        android:pathData="M52,54 C63,52 71,45 74,35 C62,33 54,40 52,54 Z"
+        android:strokeColor="#423F44"
+        android:strokeWidth="1.8"
+        android:strokeLineJoin="round" />
     <path
-        android:pathData="M54,40 m-7,0 a7,7 0 1,0 14,0 a7,7 0 1,0 -14,0"
-        android:fillColor="#A33B2E"
-        android:strokeColor="#3A362C"
-        android:strokeWidth="1.4" />
+        android:pathData="M50,44 C50,36 56,32 61,35 C65,37 64,43 60,43 C57,43 56,40 58,38"
+        android:strokeColor="#423F44"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round" />
 </vector>

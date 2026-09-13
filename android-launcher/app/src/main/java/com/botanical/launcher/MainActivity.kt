@@ -7,7 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
-import com.botanical.launcher.garden.Palette
+import com.botanical.launcher.flora.Palette
 import com.botanical.launcher.ui.HomeScreen
 
 class MainActivity : ComponentActivity() {

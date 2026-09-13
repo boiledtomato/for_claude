@@ -38,21 +38,19 @@ import androidx.lifecycle.compose.LifecycleEventEffect
 import com.botanical.launcher.data.AppEntry
 import com.botanical.launcher.data.AppRepository
 import com.botanical.launcher.data.BindingStore
-import com.botanical.launcher.garden.OrganSpot
-import com.botanical.launcher.garden.Plate
-import com.botanical.launcher.garden.PlantLayer
-import com.botanical.launcher.garden.PlateCatalog
-import com.botanical.launcher.garden.PlateLoader
+import com.botanical.launcher.flora.Flora
+import com.botanical.launcher.flora.FloraLoader
+import com.botanical.launcher.flora.TapTarget
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.PI
+import kotlin.math.hypot
 
-/**
- * 風の基準周期。花や葉はこの整数倍の速さで揺れる。
- *
- * 長めに取ってあるのは、遅いうねり（突風の強弱）と速い揺れ（葉の震え）を
- * 同じ位相から作るため。倍率が整数でないと、位相が一周するたびに動きが飛ぶ。
- */
-private const val SWAY_PERIOD_MS = 36_000
+/** 風の基準周期。葉や花はこの整数倍の速さで揺れる。 */
+private const val SWAY_PERIOD_MS = 22_000
+
+/** 描き直しの速さ。手描きアニメと同じで、滑らかにしすぎると CG に見える。 */
+private const val BOIL_FPS = 11
 
 @Composable
 fun HomeScreen() {
@@ -64,62 +62,45 @@ fun HomeScreen() {
         LocalConfiguration.current.screenWidthDp.dp.roundToPx()
     }
 
-    var catalog by remember { mutableStateOf(PlateCatalog.Empty) }
-    var plateId by remember { mutableStateOf(store.selectedPlateId ?: "") }
-    var plate by remember { mutableStateOf(Plate.Empty) }
+    var flora by remember { mutableStateOf(Flora.Empty) }
     var apps by remember { mutableStateOf<List<AppEntry>>(emptyList()) }
     val appsByKey = remember(apps) { apps.associateBy { it.key } }
     val bindings = remember { mutableStateMapOf<String, List<String>>() }
 
     var canvasSize by remember { mutableStateOf(Size.Zero) }
-    val transform = remember(canvasSize, plate) {
-        SceneTransform.fit(canvasSize, plate.width, plate.height)
+    val transform = remember(canvasSize, flora) {
+        SceneTransform.fit(canvasSize, flora.width, flora.height)
     }
 
     var drawerMode by remember { mutableStateOf<DrawerMode?>(null) }
-    // 複数入っている部位を押したときに、その場で開く束
-    var posy by remember { mutableStateOf<Triple<String, String, Offset>?>(null) }
     var showSettings by remember { mutableStateOf(false) }
-    var showCaptions by remember { mutableStateOf(store.captionsVisible) }
+    var showLabels by remember { mutableStateOf(store.captionsVisible) }
     var showHitAreas by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         bindings.putAll(store.load())
-        catalog = PlateLoader.loadCatalog(context)
-        plateId = catalog.resolve(store.selectedPlateId)
-    }
-
-    // 図版が決まったら（切り替えたときも）読み直す
-    LaunchedEffect(plateId) {
-        if (plateId.isBlank()) return@LaunchedEffect
-        plate = PlateLoader.load(context, plateId, screenWidthPx)
-        val slots = plate.bindableOrgans.map { it.second.id }
+        flora = FloraLoader.load(context, screenWidthPx)
+        val slots = flora.bindable
         if (apps.isNotEmpty() && slots.isNotEmpty()) {
             bindings.clear()
-            bindings.putAll(store.seedIfNeeded(plateId, apps, slots))
+            bindings.putAll(store.seedIfNeeded("flora", apps, slots))
         }
     }
 
-    // インストール・アンインストールを拾うため、前面に戻るたびに読み直す
     LifecycleEventEffect(Lifecycle.Event.ON_START) {
         scope.launch {
             val loaded = AppRepository.load(context)
             apps = loaded
-            val slots = plate.bindableOrgans.map { it.second.id }
-            if (plateId.isNotBlank() && slots.isNotEmpty()) {
+            val slots = flora.bindable
+            if (slots.isNotEmpty()) {
                 bindings.clear()
-                bindings.putAll(store.seedIfNeeded(plateId, loaded, slots))
+                bindings.putAll(store.seedIfNeeded("flora", loaded, slots))
             }
         }
     }
 
-    // アプリを起動したら一覧は畳んでおく（戻ってきたとき版面から始まる）
-    LifecycleEventEffect(Lifecycle.Event.ON_STOP) {
-        drawerMode = null
-        posy = null
-    }
-
-    val swayPhase by rememberInfiniteTransition(label = "sway").animateFloat(
+    // 風の位相は滑らかに、線の描き直しは 11 コマ / 秒
+    val phase by rememberInfiniteTransition(label = "wind").animateFloat(
         initialValue = 0f,
         targetValue = (2 * PI).toFloat(),
         animationSpec = infiniteRepeatable(
@@ -128,97 +109,139 @@ fun HomeScreen() {
         ),
         label = "phase",
     )
+    var boil by remember { mutableIntStateOf(0) }
+    LaunchedEffect(Unit) {
+        while (true) {
+            delay(1000L / BOIL_FPS)
+            boil++
+        }
+    }
 
+    // 蕾の開き（アプリ一覧）
     val bloom = remember { Animatable(0f) }
     val drawerOpen = drawerMode != null
     LaunchedEffect(drawerOpen) {
         bloom.animateTo(
             targetValue = if (drawerOpen) 1f else 0f,
-            animationSpec = tween(if (drawerOpen) 680 else 420, easing = FastOutSlowInEasing),
+            animationSpec = tween(if (drawerOpen) 700 else 420, easing = FastOutSlowInEasing),
         )
     }
 
-    // タップされた株を一度だけ大きく揺らす
-    var nudgedPlantId by remember { mutableStateOf<String?>(null) }
-    var nudgeTick by remember { mutableIntStateOf(0) }
-    val nudge = remember { Animatable(0f) }
-    LaunchedEffect(nudgeTick) {
-        if (nudgeTick == 0) return@LaunchedEffect
-        nudge.snapTo(1f)
-        nudge.animateTo(0f, tween(900, easing = FastOutSlowInEasing))
+    // アプリを開くときに伸びる蔓
+    var reach by remember { mutableStateOf<Reach?>(null) }
+    val reachGrow = remember { Animatable(0f) }
+    val reachBloom = remember { Animatable(0f) }
+
+    fun clearReach() {
+        reach = null
+        scope.launch {
+            reachGrow.snapTo(0f)
+            reachBloom.snapTo(0f)
+        }
     }
 
-    fun assign(organ: OrganSpot) {
-        drawerMode = DrawerMode.Assign(organ.id, organ.label, bindings[organ.id].orEmpty())
+    fun startReach(target: TapTarget, keys: List<String>, launchWhenOpen: Boolean) {
+        val heading = if (target.at.x < flora.width / 2f) -142f else -38f
+        reach = Reach(
+            originId = target.id,
+            origin = target.at,
+            heading = heading,
+            length = flora.width * 0.34f,
+            seed = target.id.hashCode(),
+            appKeys = keys,
+        )
+        scope.launch {
+            reachGrow.snapTo(0f)
+            reachBloom.snapTo(0f)
+            reachGrow.animateTo(1f, tween(460, easing = FastOutSlowInEasing))
+            reachBloom.animateTo(1f, tween(380, easing = FastOutSlowInEasing))
+            if (launchWhenOpen) {
+                keys.firstOrNull()?.let { k -> appsByKey[k]?.let { AppRepository.launch(context, it) } }
+                delay(240)
+                clearReach()
+            }
+        }
     }
 
-    fun activate(layer: PlantLayer, organ: OrganSpot) {
-        nudgedPlantId = layer.id
-        nudgeTick++
-        if (organ.id == plate.gemma?.organId) {
+    fun assign(target: TapTarget) {
+        drawerMode = DrawerMode.Assign(target.id, target.label, bindings[target.id].orEmpty())
+    }
+
+    fun activate(target: TapTarget) {
+        if (target.id == flora.gemma?.id) {
             drawerMode = DrawerMode.Browse
             return
         }
-        val present = bindings[organ.id].orEmpty().mapNotNull { appsByKey[it] }
+        val keys = bindings[target.id].orEmpty().filter { appsByKey.containsKey(it) }
         when {
-            present.isEmpty() -> assign(organ)
-            present.size == 1 -> AppRepository.launch(context, present[0])
-            // 複数入っているときは、押した花の脇に束を開く
-            else -> posy = Triple(
-                organ.id,
-                organ.label,
-                transform.toScreen(organ.center(layer)),
-            )
+            keys.isEmpty() -> assign(target)
+            // 1 つなら伸びた蔓の先で花が開き、そのまま起動する
+            keys.size == 1 -> startReach(target, keys, launchWhenOpen = true)
+            // 複数なら枝分かれして並ぶので、どれかを選んでもらう
+            else -> startReach(target, keys, launchWhenOpen = false)
         }
     }
 
+    LifecycleEventEffect(Lifecycle.Event.ON_STOP) {
+        drawerMode = null
+        clearReach()
+    }
+
     Box(Modifier.fillMaxSize()) {
-        PlateCanvas(
-            plate = plate,
+        FloraCanvas(
+            flora = flora,
             transform = transform,
-            phase = { swayPhase },
+            phase = { phase },
+            boil = { boil },
             bloom = { bloom.value },
-            nudgedPlantId = { nudgedPlantId },
-            nudgeAmount = { nudge.value },
+            reach = { reach },
+            reachGrow = { reachGrow.value },
+            reachBloom = { reachBloom.value },
             bindings = bindings,
             appsByKey = appsByKey,
-            showCaptions = showCaptions,
+            showLabels = showLabels,
             showHitAreas = showHitAreas,
             modifier = Modifier
                 .fillMaxSize()
                 .systemBarsPadding()
                 .onSizeChanged { canvasSize = Size(it.width.toFloat(), it.height.toFloat()) }
-                .pointerInput(transform, plate) {
+                .pointerInput(transform, flora, reach) {
                     detectTapGestures(
                         onTap = { p ->
-                            hitTest(plate, transform, p)?.let { (layer, organ) ->
-                                activate(layer, organ)
+                            val open = reach
+                            // 咲いている花のどれかを押したら、そのアプリを起動
+                            if (open != null && open.appKeys.size > 1) {
+                                val picked = pickFlower(open, transform, p)
+                                if (picked != null) {
+                                    appsByKey[open.appKeys[picked]]
+                                        ?.let { AppRepository.launch(context, it) }
+                                    clearReach()
+                                    return@detectTapGestures
+                                }
+                                clearReach()
+                                return@detectTapGestures
                             }
+                            hitTest(flora, transform, p)?.let { activate(it) }
                         },
                         onLongPress = { p ->
-                            val hit = hitTest(plate, transform, p)
+                            clearReach()
+                            val hit = hitTest(flora, transform, p)
                             if (hit == null) {
                                 showSettings = true
+                            } else if (hit.id == flora.gemma?.id) {
+                                drawerMode = DrawerMode.Browse
                             } else {
-                                val (layer, organ) = hit
-                                nudgedPlantId = layer.id
-                                nudgeTick++
-                                if (organ.id == plate.gemma?.organId) {
-                                    drawerMode = DrawerMode.Browse
-                                } else {
-                                    assign(organ)
-                                }
+                                assign(hit)
                             }
                         },
                     )
                 },
         )
 
-        // 一覧は蕾の位置から咲き広がるように拡大して現れる
         val mode = drawerMode
         if (bloom.value > 0.004f) {
-            val budAnchor = remember(transform, plate) {
-                plate.gemma?.rect?.center?.let { transform.toScreen(it) } ?: Offset.Zero
+            val budAnchor = remember(transform, flora) {
+                flora.gemma?.let { transform.toScreen(it.hit.at) } ?: Offset.Zero
             }
             Box(
                 Modifier
@@ -230,8 +253,8 @@ fun HomeScreen() {
                         alpha = (bloom.value * 1.8f).coerceAtMost(1f)
                         if (size.width > 0f && size.height > 0f) {
                             transformOrigin = TransformOrigin(
-                                pivotFractionX = (budAnchor.x / size.width).coerceIn(0f, 1f),
-                                pivotFractionY = (budAnchor.y / size.height).coerceIn(0f, 1f),
+                                (budAnchor.x / size.width).coerceIn(0f, 1f),
+                                (budAnchor.y / size.height).coerceIn(0f, 1f),
                             )
                         }
                     },
@@ -257,54 +280,19 @@ fun HomeScreen() {
             }
         }
 
-        val open = posy
-        if (open != null) {
-            val (organId, label, at) = open
-            val items = bindings[organId].orEmpty().mapNotNull { appsByKey[it] }
-            if (items.isEmpty()) {
-                posy = null
-            } else {
-                Box(Modifier.fillMaxSize().systemBarsPadding()) {
-                    Posy(
-                        apps = items,
-                        label = label,
-                        anchor = at,
-                        onPick = { app ->
-                            AppRepository.launch(context, app)
-                            posy = null
-                        },
-                        onEdit = {
-                            posy = null
-                            plate.organ(organId)?.let { (_, organ) -> assign(organ) }
-                        },
-                        onDismiss = { posy = null },
-                    )
-                }
-            }
-        }
-
         if (showSettings) {
-            PlateSettingsDialog(
-                plates = catalog.plates,
-                selectedPlateId = plateId,
-                onSelectPlate = { id ->
-                    if (id != plateId) {
-                        store.selectedPlateId = id
-                        plateId = id
-                    }
-                    showSettings = false
-                },
-                captionsVisible = showCaptions,
-                onToggleCaptions = {
-                    showCaptions = it
+            SettingsDialog(
+                labelsVisible = showLabels,
+                onToggleLabels = {
+                    showLabels = it
                     store.captionsVisible = it
                 },
                 hitAreasVisible = showHitAreas,
                 onToggleHitAreas = { showHitAreas = it },
                 onClearAll = {
-                    plate.bindableOrgans.forEach { (_, organ) ->
-                        store.remove(organ.id)
-                        bindings.remove(organ.id)
+                    flora.bindable.forEach { id ->
+                        store.remove(id)
+                        bindings.remove(id)
                     }
                     showSettings = false
                 },
@@ -317,35 +305,43 @@ fun HomeScreen() {
         }
     }
 
-    BackHandler(enabled = drawerOpen || posy != null) {
-        if (posy != null) posy = null else drawerMode = null
+    BackHandler(enabled = drawerOpen || reach != null) {
+        if (reach != null) clearReach() else drawerMode = null
     }
 }
 
 /**
  * 画面座標から器官を引く。
  *
- * 器官は撓んで動いているが、振れ幅は版面幅の 1.5% ほどで、判定円の半径に比べて
- * 十分小さい。静止位置で判定して体感上の破綻はない。
+ * 器官は風で動いているが、振れ幅は判定円の半径に比べて十分小さい。
+ * 静止位置で判定して体感上の破綻はない。
  */
-private fun hitTest(
-    plate: Plate,
-    transform: SceneTransform,
-    screenPoint: Offset,
-): Pair<PlantLayer, OrganSpot>? {
-    if (transform.scale <= 0f) return null
-    val p = transform.toScene(screenPoint)
-    var best: Pair<PlantLayer, OrganSpot>? = null
-    var bestDistance = Float.MAX_VALUE
-    for ((layer, organ) in plate.tapTargets) {
-        val c = organ.center(layer)
-        val r = organ.radius(layer)
-        val dx = p.x - c.x
-        val dy = p.y - c.y
-        val d2 = dx * dx + dy * dy
-        if (d2 <= r * r && d2 < bestDistance) {
-            bestDistance = d2
-            best = layer to organ
+private fun hitTest(flora: Flora, t: SceneTransform, p: Offset): TapTarget? {
+    if (t.scale <= 0f) return null
+    val q = t.toScene(p)
+    var best: TapTarget? = null
+    var bestD = Float.MAX_VALUE
+    for (target in flora.tapTargets) {
+        val d = hypot(q.x - target.at.x, q.y - target.at.y)
+        if (d <= target.radius && d < bestD) {
+            bestD = d
+            best = target
+        }
+    }
+    return best
+}
+
+/** 咲いている花のどれを押したか。 */
+private fun pickFlower(reach: Reach, t: SceneTransform, p: Offset): Int? {
+    val size = 108f
+    var best: Int? = null
+    var bestD = Float.MAX_VALUE
+    for (i in reach.tips.indices) {
+        val c = t.toScreen(reach.flowerCentre(i, size))
+        val d = hypot(p.x - c.x, p.y - c.y)
+        if (d <= size * 0.7f * t.scale && d < bestD) {
+            bestD = d
+            best = i
         }
     }
     return best

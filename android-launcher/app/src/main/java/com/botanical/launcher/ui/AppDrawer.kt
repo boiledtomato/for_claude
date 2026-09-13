@@ -44,7 +44,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.botanical.launcher.data.AppEntry
-import com.botanical.launcher.garden.Palette
+import com.botanical.launcher.flora.Palette
 
 sealed interface DrawerMode {
     /** ふつうにアプリを起動する */
