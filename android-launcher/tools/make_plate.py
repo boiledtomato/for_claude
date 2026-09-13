@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""レシピ 1 枚から、アプリが読む素材一式（画像 + plate.json）を書き出す。
+"""レシピから、アプリが読む素材一式（画像 + plate.json）を書き出す。
 
-図版を差し替えるときに触るのはレシピだけで、このスクリプトは変えない。
+図版を足す・差し替えるときに触るのはレシピだけで、このスクリプトは変えない。
 
-    python3 tools/make_plate.py tools/recipes/pl134.json
+    python3 tools/make_plate.py tools/recipes/*.json
 
-レシピの座標はすべて「合成済みの図版画像の画素」で書く。
-tools/render_home.py にグリッドを出させて読み取るのが早い。
+複数渡すと、まとめて書き出したうえで plates/index.json（切り替え用の一覧）も
+作り直す。レシピの座標はすべて「ベクター化した図版画像の画素」で書く。
+tools/render_home.py --grid にグリッドを出させて読み取るのが早い。
 """
 import argparse
 import json
@@ -62,18 +63,12 @@ def cut_by_hue(im, hue, dilate=1, feather=0.7):
     return out.crop(out.getbbox())
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("recipe")
-    ap.add_argument("--root", default=".", help="レシピ内の相対パスの基準")
-    args = ap.parse_args()
-
-    with open(args.recipe, encoding="utf-8") as f:
+def build(recipe_path, root):
+    with open(recipe_path, encoding="utf-8") as f:
         r = json.load(f)
 
-    root = args.root
     src = Image.open(os.path.join(root, r["source"])).convert("RGB")
-    out_dir = os.path.join(root, r["assetsDir"])
+    out_dir = os.path.join(root, r["assetsDir"], r["id"])
     os.makedirs(out_dir, exist_ok=True)
 
     # --- 本体レイヤー ---
@@ -83,7 +78,7 @@ def main():
     body_path = os.path.join(out_dir, bq["image"])
     body.save(body_path, "WEBP", quality=bq.get("quality", 90), method=6)
     bw, bh = body.size
-    print(f"{bq['image']}: {bw}x{bh}  {os.path.getsize(body_path)//1024} KB")
+    print(f"  {bq['image']}: {bw}x{bh}  {os.path.getsize(body_path)//1024} KB")
 
     layer = r["layer"]
     rect = layer["rect"]
@@ -125,7 +120,7 @@ def main():
         sprite = cut_by_hue(src.crop(tuple(gem["box"])), gem.get("cut", "crimson"))
         sprite_path = os.path.join(out_dir, gem["image"])
         sprite.save(sprite_path, "WEBP", quality=gem.get("quality", 92), method=6)
-        print(f"{gem['image']}: {sprite.width}x{sprite.height}  {os.path.getsize(sprite_path)//1024} KB")
+        print(f"  {gem['image']}: {sprite.width}x{sprite.height}  {os.path.getsize(sprite_path)//1024} KB")
 
         bud = next(o for o in r["organs"] if o[0] == gem["organ"])
         grow = gem.get("grow", 1.15)
@@ -142,7 +137,47 @@ def main():
     path = os.path.join(out_dir, "plate.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
-    print(f"plate.json: {len(organs)} organs -> {path}")
+    print(f"  plate.json: {len(organs)} organs -> {path}")
+    return r, out_dir
+
+
+def write_index(entries, root):
+    """切り替え用の一覧。アプリはこれを見て図版を並べる。"""
+    if not entries:
+        return
+    # レシピの order で並べる。コマンドラインの展開順に依存させない。
+    entries = sorted(entries, key=lambda e: (e[0].get("order", 999), e[0]["id"]))
+    parent = os.path.dirname(entries[0][1])
+    index = {
+        "plates": [
+            {
+                "id": r["id"],
+                "title": r.get("title", r["id"]),
+                "latin": r.get("layer", {}).get("latin", ""),
+            }
+            for r, _ in entries
+        ],
+        "default": entries[0][0]["id"],
+    }
+    path = os.path.join(parent, "index.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(index, f, ensure_ascii=False, indent=2)
+    print(f"index.json: {len(index['plates'])} plates -> {path}")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("recipes", nargs="+")
+    ap.add_argument("--root", default=".", help="レシピ内の相対パスの基準")
+    ap.add_argument("--no-index", action="store_true")
+    args = ap.parse_args()
+
+    entries = []
+    for path in args.recipes:
+        print(os.path.basename(path))
+        entries.append(build(path, args.root))
+    if not args.no_index:
+        write_index(entries, args.root)
 
 
 if __name__ == "__main__":

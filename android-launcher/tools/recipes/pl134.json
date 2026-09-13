@@ -1,7 +1,9 @@
 {
   "_note": "Anne Pratt 系 Pl.134 Bell Flowers。source は align_crops.py --vectorise で ベクター化して 4 倍で描き直した版面。座標はその画像の画素。",
+  "id": "pl134",
+  "title": "ホタルブクロ",
   "source": "tools/work/plate_vec.png",
-  "assetsDir": "app/src/main/assets/plate",
+  "assetsDir": "app/src/main/assets/plates",
   "bouquet": {
     "box": [
       38,
@@ -189,5 +191,6 @@
       76,
       "蕾"
     ]
-  ]
+  ],
+  "order": 1
 }

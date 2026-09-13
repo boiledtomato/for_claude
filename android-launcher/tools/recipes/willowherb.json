@@ -1,0 +1,176 @@
+{
+  "_note": "Rosebay willowherb。右側に閉じた紅い蕾が並ぶので、そこを蕾に使う。",
+  "id": "willowherb",
+  "title": "ヤナギラン",
+  "source": "tools/work/willowherb_vec.png",
+  "assetsDir": "app/src/main/assets/plates",
+  "bouquet": {
+    "box": [
+      10,
+      10,
+      1310,
+      1310
+    ],
+    "feather": 150,
+    "image": "bouquet.webp",
+    "quality": 88
+  },
+  "gemmaOpen": {
+    "box": [
+      450,
+      140,
+      690,
+      350
+    ],
+    "image": "gemma_open.webp",
+    "cut": "crimson",
+    "organ": "gemma",
+    "grow": 0.6
+  },
+  "plate": {
+    "width": 940,
+    "height": 1800,
+    "number": "",
+    "paper": "#F2ECE2",
+    "paperDeep": "#E9E0D0",
+    "frame": false
+  },
+  "layer": {
+    "id": "willowherb",
+    "latin": "Epilobium — Willowherb",
+    "rect": [
+      -50,
+      170,
+      1040,
+      1040
+    ],
+    "pivot": [
+      0.5,
+      1.0
+    ],
+    "bend": {
+      "amplitude": 12,
+      "speed": 1,
+      "phase": 0.0
+    },
+    "captionAt": [
+      470.0,
+      1264
+    ]
+  },
+  "organs": [
+    [
+      "flos_tl",
+      "flower",
+      270,
+      250,
+      130,
+      "ヤナギラン"
+    ],
+    [
+      "flos_tc",
+      "flower",
+      550,
+      230,
+      100,
+      "ヤナギラン"
+    ],
+    [
+      "flos_c",
+      "flower",
+      530,
+      610,
+      140,
+      "ヤナギラン"
+    ],
+    [
+      "flos_l",
+      "flower",
+      110,
+      490,
+      100,
+      "ヤナギラン"
+    ],
+    [
+      "flos_ll",
+      "flower",
+      140,
+      1000,
+      120,
+      "ヤナギラン"
+    ],
+    [
+      "flos_b",
+      "flower",
+      410,
+      1020,
+      110,
+      "ヤナギラン"
+    ],
+    [
+      "bud_a",
+      "bud",
+      950,
+      90,
+      50,
+      "蕾"
+    ],
+    [
+      "bud_b",
+      "bud",
+      1150,
+      120,
+      55,
+      "蕾"
+    ],
+    [
+      "bud_c",
+      "bud",
+      1100,
+      520,
+      55,
+      "蕾"
+    ],
+    [
+      "bud_d",
+      "bud",
+      810,
+      790,
+      50,
+      "蕾"
+    ],
+    [
+      "bud_e",
+      "bud",
+      870,
+      890,
+      50,
+      "蕾"
+    ],
+    [
+      "leaf_a",
+      "leaf",
+      990,
+      410,
+      80,
+      "葉"
+    ],
+    [
+      "leaf_b",
+      "leaf",
+      690,
+      840,
+      70,
+      "葉"
+    ],
+    [
+      "gemma",
+      "bud",
+      1140,
+      980,
+      60,
+      "蕾"
+    ]
+  ],
+  "order": 3
+}

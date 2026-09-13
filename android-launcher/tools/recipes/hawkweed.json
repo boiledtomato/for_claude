@@ -1,0 +1,152 @@
+{
+  "_note": "Hawkweed & dandelion clocks。左半分の無彩色の大きな葉は重いので外し、彩色された右側だけを使う。",
+  "id": "hawkweed",
+  "title": "コウゾリナとタンポポの綿毛",
+  "source": "tools/work/hawkweed_vec.png",
+  "assetsDir": "app/src/main/assets/plates",
+  "bouquet": {
+    "box": [
+      430,
+      10,
+      1310,
+      1310
+    ],
+    "feather": 150,
+    "image": "bouquet.webp",
+    "quality": 88
+  },
+  "gemmaOpen": {
+    "box": [
+      1020,
+      560,
+      1180,
+      720
+    ],
+    "image": "gemma_open.webp",
+    "cut": "yellow",
+    "organ": "gemma",
+    "grow": 0.7
+  },
+  "plate": {
+    "width": 940,
+    "height": 1800,
+    "number": "",
+    "paper": "#F2ECE2",
+    "paperDeep": "#E9E0D0",
+    "frame": false
+  },
+  "layer": {
+    "id": "hawkweed",
+    "latin": "Hieracium — Hawkweed",
+    "rect": [
+      -50,
+      120,
+      1040,
+      1536
+    ],
+    "pivot": [
+      0.5,
+      1.0
+    ],
+    "bend": {
+      "amplitude": 12,
+      "speed": 1,
+      "phase": 0.0
+    },
+    "captionAt": [
+      470,
+      1710
+    ]
+  },
+  "organs": [
+    [
+      "flos_a",
+      "flower",
+      189,
+      413,
+      70,
+      "コウゾリナ"
+    ],
+    [
+      "clock_a",
+      "fruit",
+      360,
+      510,
+      70,
+      "綿毛"
+    ],
+    [
+      "clock_b",
+      "fruit",
+      470,
+      550,
+      70,
+      "綿毛"
+    ],
+    [
+      "clock_c",
+      "fruit",
+      550,
+      600,
+      65,
+      "綿毛"
+    ],
+    [
+      "flos_b",
+      "flower",
+      670,
+      630,
+      75,
+      "コウゾリナ"
+    ],
+    [
+      "flos_c",
+      "flower",
+      730,
+      820,
+      65,
+      "コウゾリナ"
+    ],
+    [
+      "flos_d",
+      "flower",
+      270,
+      880,
+      65,
+      "コウゾリナ"
+    ],
+    [
+      "flos_g",
+      "flower",
+      600,
+      1150,
+      60,
+      "コウゾリナ"
+    ],
+    [
+      "bud_d",
+      "bud",
+      660,
+      1010,
+      45,
+      "蕾"
+    ],
+    [
+      "bud_e",
+      "bud",
+      430,
+      1110,
+      45,
+      "蕾"
+    ],
+    [
+      "gemma",
+      "bud",
+      260,
+      720,
+      50,
+      "蕾"
+    ]
+  ],
+  "order": 5
+}

@@ -78,6 +78,8 @@ def main():
     ap.add_argument("--out-scale", type=float, default=0.0,
                     help="出力倍率（フル図版に対して）。0 でクロップの倍率に合わせる")
     ap.add_argument("--ink-thresh", type=int, default=26)
+    ap.add_argument("--ink-keep", type=float, default=0.55, help="ベクター線の効き")
+    ap.add_argument("--mode", choices=["overlay", "replace"], default="overlay")
     args = ap.parse_args()
 
     plate = vectorise.load_rgb(args.full)
@@ -97,7 +99,8 @@ def main():
 
     if args.vectorise:
         base = vectorise.restore(plate, factor, thresh=args.ink_thresh + 4,
-                                 keep=0.74, binary_thresh=0.55, work_prefix="tools/work/_vec_plate")
+                                 keep=args.ink_keep, binary_thresh=0.55, mode=args.mode,
+                                 work_prefix="tools/work/_vec_plate")
     else:
         base = plate.resize((round(plate.width * factor), round(plate.height * factor)),
                             Image.LANCZOS)
@@ -108,7 +111,8 @@ def main():
         if args.vectorise:
             # クロップも同じ縮尺（factor / s 倍）でベクターから描き直す
             c = vectorise.restore(crop, factor / s, thresh=args.ink_thresh,
-                                  keep=0.78, work_prefix=f"tools/work/_vec_crop{i}")
+                                  keep=args.ink_keep, mode=args.mode,
+                                  work_prefix=f"tools/work/_vec_crop{i}")
         else:
             c = crop.resize((round(crop.width / s * factor), round(crop.height / s * factor)),
                             Image.LANCZOS)

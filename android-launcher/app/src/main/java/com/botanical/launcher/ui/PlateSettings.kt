@@ -1,7 +1,14 @@
 package com.botanical.launcher.ui
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -19,10 +26,14 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.botanical.launcher.garden.Palette
+import com.botanical.launcher.garden.PlateInfo
 
 /** 版面そのものの設定。紙の余白を長押しすると出る。 */
 @Composable
 fun PlateSettingsDialog(
+    plates: List<PlateInfo>,
+    selectedPlateId: String,
+    onSelectPlate: (String) -> Unit,
     captionsVisible: Boolean,
     onToggleCaptions: (Boolean) -> Unit,
     hitAreasVisible: Boolean,
@@ -45,7 +56,46 @@ fun PlateSettingsDialog(
             )
         },
         text = {
-            Column {
+            Column(Modifier.verticalScroll(rememberScrollState())) {
+                if (plates.size > 1) {
+                    Text(
+                        "図版",
+                        style = serif.copy(fontSize = 13.sp, color = Palette.InkSoft),
+                    )
+                    Spacer(Modifier.height(6.dp))
+                    for (plate in plates) {
+                        val chosen = plate.id == selectedPlateId
+                        Column(
+                            Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(8.dp))
+                                .background(
+                                    if (chosen) Palette.Cream else Palette.Paper,
+                                )
+                                .clickable { onSelectPlate(plate.id) }
+                                .padding(horizontal = 10.dp, vertical = 8.dp),
+                        ) {
+                            Text(
+                                text = if (chosen) "◆ ${plate.title}" else "◇ ${plate.title}",
+                                style = serif.copy(
+                                    color = if (chosen) Palette.Green1 else Palette.Ink,
+                                ),
+                            )
+                            if (plate.latin.isNotBlank()) {
+                                Text(
+                                    plate.latin,
+                                    style = serif.copy(
+                                        fontSize = 11.sp,
+                                        fontStyle = FontStyle.Italic,
+                                        color = Palette.InkSoft,
+                                    ),
+                                )
+                            }
+                        }
+                        Spacer(Modifier.height(3.dp))
+                    }
+                    Spacer(Modifier.height(14.dp))
+                }
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -93,7 +143,7 @@ fun PlateSettingsDialog(
                     Text("端末のホームアプリ設定を開く", style = serif.copy(color = Palette.Green1))
                 }
                 TextButton(onClick = onClearAll) {
-                    Text("すべての割り当てを解除", style = serif.copy(color = Palette.Crimson))
+                    Text("この図版の割り当てを解除", style = serif.copy(color = Palette.Crimson))
                 }
             }
         },

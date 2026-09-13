@@ -1,0 +1,189 @@
+{
+  "plate": {
+    "width": 940,
+    "height": 1800,
+    "number": "",
+    "paper": "#F2ECE2",
+    "paperDeep": "#E9E0D0",
+    "frame": false
+  },
+  "plants": [
+    {
+      "id": "willowherb",
+      "latin": "Epilobium — Willowherb",
+      "number": "",
+      "image": "bouquet.webp",
+      "rect": [
+        -50,
+        170,
+        1040,
+        1040
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "bend": {
+        "amplitude": 12,
+        "speed": 1,
+        "phase": 0.0
+      },
+      "captionAt": [
+        470.0,
+        1264
+      ],
+      "organs": [
+        {
+          "id": "flos_tl",
+          "kind": "flower",
+          "at": [
+            0.2077,
+            0.1923
+          ],
+          "radius": 0.1,
+          "label": "ヤナギラン"
+        },
+        {
+          "id": "flos_tc",
+          "kind": "flower",
+          "at": [
+            0.4231,
+            0.1769
+          ],
+          "radius": 0.0769,
+          "label": "ヤナギラン"
+        },
+        {
+          "id": "flos_c",
+          "kind": "flower",
+          "at": [
+            0.4077,
+            0.4692
+          ],
+          "radius": 0.1077,
+          "label": "ヤナギラン"
+        },
+        {
+          "id": "flos_l",
+          "kind": "flower",
+          "at": [
+            0.0846,
+            0.3769
+          ],
+          "radius": 0.0769,
+          "label": "ヤナギラン"
+        },
+        {
+          "id": "flos_ll",
+          "kind": "flower",
+          "at": [
+            0.1077,
+            0.7692
+          ],
+          "radius": 0.0923,
+          "label": "ヤナギラン"
+        },
+        {
+          "id": "flos_b",
+          "kind": "flower",
+          "at": [
+            0.3154,
+            0.7846
+          ],
+          "radius": 0.0846,
+          "label": "ヤナギラン"
+        },
+        {
+          "id": "bud_a",
+          "kind": "bud",
+          "at": [
+            0.7308,
+            0.0692
+          ],
+          "radius": 0.0385,
+          "label": "蕾"
+        },
+        {
+          "id": "bud_b",
+          "kind": "bud",
+          "at": [
+            0.8846,
+            0.0923
+          ],
+          "radius": 0.0423,
+          "label": "蕾"
+        },
+        {
+          "id": "bud_c",
+          "kind": "bud",
+          "at": [
+            0.8462,
+            0.4
+          ],
+          "radius": 0.0423,
+          "label": "蕾"
+        },
+        {
+          "id": "bud_d",
+          "kind": "bud",
+          "at": [
+            0.6231,
+            0.6077
+          ],
+          "radius": 0.0385,
+          "label": "蕾"
+        },
+        {
+          "id": "bud_e",
+          "kind": "bud",
+          "at": [
+            0.6692,
+            0.6846
+          ],
+          "radius": 0.0385,
+          "label": "蕾"
+        },
+        {
+          "id": "leaf_a",
+          "kind": "leaf",
+          "at": [
+            0.7615,
+            0.3154
+          ],
+          "radius": 0.0615,
+          "label": "葉"
+        },
+        {
+          "id": "leaf_b",
+          "kind": "leaf",
+          "at": [
+            0.5308,
+            0.6462
+          ],
+          "radius": 0.0538,
+          "label": "葉"
+        },
+        {
+          "id": "gemma",
+          "kind": "bud",
+          "at": [
+            0.8769,
+            0.7538
+          ],
+          "radius": 0.0462,
+          "label": "蕾"
+        }
+      ]
+    }
+  ],
+  "gemma": {
+    "organ": "willowherb/gemma",
+    "openImage": "gemma_open.webp",
+    "rect": [
+      804.4,
+      903.6,
+      115.2,
+      100.8
+    ]
+  }
+}

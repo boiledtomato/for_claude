@@ -1,0 +1,30 @@
+{
+  "plates": [
+    {
+      "id": "pl134",
+      "title": "ホタルブクロ",
+      "latin": "Campanula — Bell Flowers"
+    },
+    {
+      "id": "campion",
+      "title": "モモイロマンテマ",
+      "latin": "Silene — Campion"
+    },
+    {
+      "id": "willowherb",
+      "title": "ヤナギラン",
+      "latin": "Epilobium — Willowherb"
+    },
+    {
+      "id": "pl111",
+      "title": "アザミとヤグルマギク",
+      "latin": "Centaurea — Knapweeds"
+    },
+    {
+      "id": "hawkweed",
+      "title": "コウゾリナとタンポポの綿毛",
+      "latin": "Hieracium — Hawkweed"
+    }
+  ],
+  "default": "pl134"
+}

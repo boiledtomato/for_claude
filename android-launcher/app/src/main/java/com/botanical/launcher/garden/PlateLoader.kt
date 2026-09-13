@@ -8,20 +8,34 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 /**
- * assets/plate/ から版面を読む。
+ * assets/plates/ から版面を読む。
+ *
+ * 図版は複数入っていて、plates/index.json がその一覧、
+ * plates/<id>/plate.json が 1 枚ぶんの定義になる。
  *
  * スキャン画像は元が数千 px あるので、画面上で実際に必要な大きさまで
- * 間引いて読む。等倍で持つと数株で数百 MB になり、ランチャーとしては即死する。
+ * 間引いて読む。等倍で持つと数枚で数百 MB になり、ランチャーとしては即死する。
  */
 object PlateLoader {
 
-    private const val DIR = "plate"
-    private const val MANIFEST = "$DIR/plate.json"
+    private const val ROOT = "plates"
 
-    suspend fun load(context: Context, screenWidthPx: Int): Plate = withContext(Dispatchers.IO) {
-        val assets = context.assets
+    suspend fun loadCatalog(context: Context): PlateCatalog = withContext(Dispatchers.IO) {
         val json = runCatching {
-            assets.open(MANIFEST).bufferedReader().use { it.readText() }
+            context.assets.open("$ROOT/index.json").bufferedReader().use { it.readText() }
+        }.getOrNull() ?: return@withContext PlateCatalog.Empty
+        runCatching { parseCatalog(json) }.getOrNull() ?: PlateCatalog.Empty
+    }
+
+    suspend fun load(
+        context: Context,
+        plateId: String,
+        screenWidthPx: Int,
+    ): Plate = withContext(Dispatchers.IO) {
+        val assets = context.assets
+        val dir = "$ROOT/$plateId"
+        val json = runCatching {
+            assets.open("$dir/plate.json").bufferedReader().use { it.readText() }
         }.getOrNull() ?: return@withContext Plate.Empty
 
         val plate = runCatching { parsePlate(json) }.getOrNull() ?: return@withContext Plate.Empty
@@ -30,17 +44,22 @@ object PlateLoader {
         val unitPx = if (plate.width > 0f) screenWidthPx / plate.width else 1f
 
         for (layer in plate.plants) {
-            layer.bitmap = decode(assets, layer.imagePath, (layer.rect.width * unitPx).toInt())
+            layer.bitmap = decode(assets, dir, layer.imagePath, (layer.rect.width * unitPx).toInt())
         }
         plate.gemma?.let { gemma ->
             val targetPx = ((gemma.rect?.width ?: 200f) * unitPx).toInt()
-            gemma.openBitmap = gemma.openImagePath?.let { decode(assets, it, targetPx) }
+            gemma.openBitmap = gemma.openImagePath?.let { decode(assets, dir, it, targetPx) }
         }
         plate
     }
 
-    private fun decode(assets: AssetManager, path: String, targetWidthPx: Int): Bitmap? {
-        val full = "$DIR/$path"
+    private fun decode(
+        assets: AssetManager,
+        dir: String,
+        path: String,
+        targetWidthPx: Int,
+    ): Bitmap? {
+        val full = "$dir/$path"
         val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
         runCatching { assets.open(full).use { BitmapFactory.decodeStream(it, null, bounds) } }
             .getOrNull()

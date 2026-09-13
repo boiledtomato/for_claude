@@ -1,0 +1,176 @@
+{
+  "_note": "Anne Pratt 系 Pl.111 Knapweeds & Thistles。羽毛状の花弁なので線は控えめに拾う。",
+  "id": "pl111",
+  "title": "アザミとヤグルマギク",
+  "source": "tools/work/pl111_vec.png",
+  "assetsDir": "app/src/main/assets/plates",
+  "bouquet": {
+    "box": [
+      25,
+      25,
+      1215,
+      1650
+    ],
+    "feather": 70,
+    "image": "bouquet.webp",
+    "quality": 88
+  },
+  "gemmaOpen": {
+    "box": [
+      430,
+      235,
+      720,
+      455
+    ],
+    "image": "gemma_open.webp",
+    "cut": "crimson",
+    "organ": "gemma",
+    "grow": 0.62
+  },
+  "plate": {
+    "width": 1000,
+    "height": 1700,
+    "number": "Pl. 111.",
+    "paper": "#F2ECE2",
+    "paperDeep": "#E9E0D0",
+    "frame": false
+  },
+  "layer": {
+    "id": "pl111",
+    "latin": "Centaurea — Knapweeds",
+    "rect": [
+      -10,
+      90,
+      1020,
+      1393
+    ],
+    "pivot": [
+      0.42,
+      0.98
+    ],
+    "bend": {
+      "amplitude": 16,
+      "speed": 1,
+      "phase": 0.0
+    },
+    "captionAt": [
+      500.0,
+      1537
+    ]
+  },
+  "organs": [
+    [
+      "knapweed_top",
+      "flower",
+      548,
+      315,
+      110,
+      "ヤグルマギク"
+    ],
+    [
+      "thistle_crimson",
+      "flower",
+      276,
+      567,
+      95,
+      "アザミ"
+    ],
+    [
+      "bud_dark",
+      "bud",
+      484,
+      558,
+      48,
+      "蕾"
+    ],
+    [
+      "bud_spiny",
+      "bud",
+      334,
+      694,
+      55,
+      "蕾"
+    ],
+    [
+      "cornflower",
+      "flower",
+      499,
+      829,
+      95,
+      "ヤグルマギク"
+    ],
+    [
+      "thistle_pale",
+      "flower",
+      538,
+      732,
+      70,
+      "アザミ"
+    ],
+    [
+      "bud_brown",
+      "bud",
+      218,
+      791,
+      50,
+      "蕾"
+    ],
+    [
+      "knapweed_low",
+      "flower",
+      286,
+      1062,
+      100,
+      "ヤグルマギク"
+    ],
+    [
+      "thistle_yellow",
+      "flower",
+      975,
+      735,
+      75,
+      "キバナアザミ"
+    ],
+    [
+      "thistle_yellow2",
+      "flower",
+      1005,
+      950,
+      70,
+      "キバナアザミ"
+    ],
+    [
+      "thistle_red",
+      "flower",
+      875,
+      975,
+      75,
+      "アザミ"
+    ],
+    [
+      "leaf_spiny",
+      "leaf",
+      810,
+      596,
+      80,
+      "葉"
+    ],
+    [
+      "leaf_low",
+      "leaf",
+      392,
+      1218,
+      70,
+      "葉"
+    ],
+    [
+      "gemma",
+      "bud",
+      595,
+      475,
+      62,
+      "蕾"
+    ]
+  ],
+  "order": 4
+}

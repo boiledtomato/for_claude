@@ -7,21 +7,32 @@
 - 右上の**蕾をタップすると花が開き**、その花から標本帳（アプリ一覧）が咲き広がる
 
 絵は手続き的に描いたものではなく、実際の図版スキャンを素材として使っている。
-使っているのは Anne Pratt 系の *Pl. 134 Bell Flowers*（ホタルブクロ類）。
+図版は 5 枚入っていて、紙の余白を長押しすると切り替えられる。
+
+| id | 図版 | 学名 |
+|---|---|---|
+| `pl134` | ホタルブクロ | *Campanula* — Bell Flowers |
+| `campion` | モモイロマンテマ | *Silene* — Campion |
+| `willowherb` | ヤナギラン | *Epilobium* — Willowherb |
+| `pl111` | アザミとヤグルマギク | *Centaurea* — Knapweeds |
+| `hawkweed` | コウゾリナとタンポポの綿毛 | *Hieracium* — Hawkweed |
 
 ## 構成
 
 ```
 android-launcher/
 ├── app/src/main/
-│   ├── assets/plate/            # 版面の素材（自動生成。手で編集しない）
-│   │   ├── plate.json           #   配置・当たり判定の定義
-│   │   ├── bouquet.webp         #   ブーケ本体
-│   │   └── gemma_open.webp      #   蕾が開いたあとの花
+│   ├── assets/plates/           # 版面の素材（自動生成。手で編集しない）
+│   │   ├── index.json           #   切り替え用の一覧
+│   │   └── <id>/
+│   │       ├── plate.json       #   配置・当たり判定の定義
+│   │       ├── bouquet.webp     #   ブーケ本体
+│   │       └── gemma_open.webp  #   蕾が開いたあとの花
 │   └── java/com/botanical/launcher/
 │       ├── MainActivity.kt
 │       ├── garden/              # 版面のモデルと読み込み
 │       │   ├── Plate.kt         #   plate.json のパース
+│       │   ├── PlateCatalog.kt  #   index.json のパース（図版の一覧）
 │       │   ├── PlateLoader.kt   #   assets → Bitmap（画面幅に合わせて間引く）
 │       │   └── Palette.kt
 │       ├── data/                # アプリ一覧と割り当ての永続化
@@ -36,8 +47,8 @@ android-launcher/
     ├── make_plate.py            # レシピ → assets/plate/ 一式
     ├── render_home.py           # 端末に入れる前の確認用レンダラ
     ├── prep_plate.py            # 紙の背景を抜く（別方式が要るとき用）
-    ├── recipes/pl134.json       # 図版ごとの設定はここだけ
-    └── sources/pl134/           # 元スキャン（パブリックドメイン）
+    ├── recipes/*.json           # 図版ごとの設定はここだけ
+    └── sources/<id>/            # 元スキャン（パブリックドメイン）
 ```
 
 ## ビルドと導入
@@ -61,11 +72,13 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 | 花・葉を長押し | その部位にアプリを割り当てる／解除する |
 | 蕾をタップ | 花が開き、アプリ一覧が咲き広がる |
 | 一覧でアプリを長押し | アプリ情報を開く |
-| 紙の余白を長押し | 版面の設定（学名の表示、当たり判定の可視化、全解除） |
+| 紙の余白を長押し | 版面の設定（**図版の切り替え**、学名の表示、当たり判定の可視化、解除） |
 | 戻る | 一覧を閉じる |
 
-割り当ては `SharedPreferences` に「部位 ID → package/class」で保存する。
-初回起動時は電話・カメラ・ブラウザなどを目立つ花から順に自動で置く。
+割り当ては `SharedPreferences` に「部位 ID → package/class」で保存する。部位 ID は
+`<図版の id>/<部位の id>` なので図版をまたいで衝突せず、切り替えても前の図版の
+割り当ては残る。初回表示時は電話・カメラ・ブラウザなどを目立つ花から順に自動で
+置く（図版ごとに一度だけ）。
 
 ## 素材づくり
 
@@ -90,10 +103,17 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 | | やること |
 |---|---|
 | 線 | 周囲より暗い成分だけを抜き出して二値化し、ベクター化する。何倍に拡大しても輪郭が崩れない |
-| 淡彩 | 線を取り除いてから滑らかに拡大する。もともと低周波なので化けない |
+| 淡彩 | もともと低周波なので、滑らかに拡大しても化けない |
 
-最後に拡大した淡彩の上へベクターの線を重ねる。線の濃さは元の濃淡を掛けて残す
-（一律に塗ると版画が塗り絵になる）。
+重ね方が 2 通りある。
+
+| mode | やること |
+|---|---|
+| `overlay`（既定） | 元の絵をそのまま拡大し、上からベクター線で暗くする。元の線の濃さが残るので輪郭が痩せない |
+| `replace` | 線を取り除いてから拡大し、ベクター線で引き直す。線の濃さが平均化されるぶん輪郭が弱くなり、輪郭際に灰色の欠けが出ることがある |
+
+最初は `replace` で作っていたが、花弁の縁に灰色の塊が残ることが分かったので
+`overlay` を既定にした。
 
 ベクター化はぼけとギザギザを消すが、**元の画像に無い細部は増やせない**。
 効くのは「低い解像度の原画を大きく使いたい」場面で、Pl.134 では 380x599 の
@@ -102,30 +122,35 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 ### 手順
 
 ```bash
-# 1. 全体図と部分拡大を位置合わせし、ベクター化して 4 倍で描き直す
-#    （倍率と位置は正規化相互相関の総当たりで自動決定）
+# 1a. 全体図と部分拡大の両方がある図版（pl134）は位置合わせしてから描き直す
+#     （倍率と位置は正規化相互相関の総当たりで自動決定）
 python3 tools/align_crops.py \
     tools/sources/pl134/plate_full.png tools/work/plate_vec.png \
     --crops tools/sources/pl134/detail_{top,mid,bottom}.png \
     --scale 1.8 3.6 --vectorise --out-scale 4.0 --pad 38
 
-# 2. 座標を読むためのグリッドを出す
-python3 tools/render_home.py app/src/main/assets/plate --grid --out tools/work/grid.png
+# 1b. 1 枚しかない図版はそのままベクター化する
+python3 tools/vectorise.py tools/sources/campion/plate_full.png \
+    tools/work/campion_vec.png --scale 2.2
 
-# 3. レシピを書いて素材を生成
-python3 tools/make_plate.py tools/recipes/pl134.json
+# 2. 座標を読むためのグリッドを出す
+python3 tools/render_home.py app/src/main/assets/plates/pl134 --grid --out tools/work/grid.png
+
+# 3. レシピを書いて素材を生成（まとめて渡すと index.json も作り直す）
+python3 tools/make_plate.py tools/recipes/*.json
 
 # 4. 端末に入れる前に確認
-python3 tools/render_home.py app/src/main/assets/plate --hits
-python3 tools/render_home.py app/src/main/assets/plate --bloom 1
+python3 tools/render_home.py app/src/main/assets/plates/campion --hits
+python3 tools/render_home.py app/src/main/assets/plates/campion --bloom 1
 ```
 
 `Pl.134` では 380x599 の全体図に 2.72 倍の部分拡大 3 枚が一致し（相関 0.96〜0.97）、
 ベクター化と合わせて 1520x2396 まで破綻なく引き上げられた。
 
-### 図版を差し替える
+### 図版を足す・差し替える
 
 `tools/recipes/` に JSON を足して `make_plate.py` に渡すだけ。Kotlin は触らない。
+`index.json` は渡したレシピから作り直され、`order` の昇順に並ぶ。
 
 | キー | 意味 |
 |---|---|
@@ -137,7 +162,8 @@ python3 tools/render_home.py app/src/main/assets/plate --bloom 1
 | `layer.pivot` | 撓みの支点。茎が束になる位置（画像内の割合） |
 | `layer.bend.amplitude` | 撓みの最大横移動量（版面単位） |
 | `organs` | `[id, 種別, 中心x, 中心y, 半径, 表示名]`。座標はブーケ画像の画素 |
-| `gemmaOpen` | 蕾が開いたあとの花。`organ` に対応する蕾の id を書く |
+| `gemmaOpen` | 蕾が開いたあとの花。`organ` に対応する蕾の id を書く。`grow` で大きさを調整し、元の蕾を覆い隠せるようにする |
+| `id` / `title` / `order` | 切り替え一覧での id・表示名・並び順 |
 
 `layer.bend.speed` は**整数**にする。整数でないと位相が 1 周するたびに動きが飛ぶ。
 

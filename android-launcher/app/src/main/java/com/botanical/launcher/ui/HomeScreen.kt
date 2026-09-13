@@ -41,6 +41,7 @@ import com.botanical.launcher.data.BindingStore
 import com.botanical.launcher.garden.OrganSpot
 import com.botanical.launcher.garden.Plate
 import com.botanical.launcher.garden.PlantLayer
+import com.botanical.launcher.garden.PlateCatalog
 import com.botanical.launcher.garden.PlateLoader
 import kotlinx.coroutines.launch
 import kotlin.math.PI
@@ -58,6 +59,8 @@ fun HomeScreen() {
         LocalConfiguration.current.screenWidthDp.dp.roundToPx()
     }
 
+    var catalog by remember { mutableStateOf(PlateCatalog.Empty) }
+    var plateId by remember { mutableStateOf(store.selectedPlateId ?: "") }
     var plate by remember { mutableStateOf(Plate.Empty) }
     var apps by remember { mutableStateOf<List<AppEntry>>(emptyList()) }
     val appsByKey = remember(apps) { apps.associateBy { it.key } }
@@ -75,7 +78,19 @@ fun HomeScreen() {
 
     LaunchedEffect(Unit) {
         bindings.putAll(store.load())
-        plate = PlateLoader.load(context, screenWidthPx)
+        catalog = PlateLoader.loadCatalog(context)
+        plateId = catalog.resolve(store.selectedPlateId)
+    }
+
+    // 図版が決まったら（切り替えたときも）読み直す
+    LaunchedEffect(plateId) {
+        if (plateId.isBlank()) return@LaunchedEffect
+        plate = PlateLoader.load(context, plateId, screenWidthPx)
+        val slots = plate.bindableOrgans.map { it.second.id }
+        if (apps.isNotEmpty() && slots.isNotEmpty()) {
+            bindings.clear()
+            bindings.putAll(store.seedIfNeeded(plateId, apps, slots))
+        }
     }
 
     // インストール・アンインストールを拾うため、前面に戻るたびに読み直す
@@ -84,9 +99,9 @@ fun HomeScreen() {
             val loaded = AppRepository.load(context)
             apps = loaded
             val slots = plate.bindableOrgans.map { it.second.id }
-            if (slots.isNotEmpty()) {
+            if (plateId.isNotBlank() && slots.isNotEmpty()) {
                 bindings.clear()
-                bindings.putAll(store.seedIfNeeded(loaded, slots))
+                bindings.putAll(store.seedIfNeeded(plateId, loaded, slots))
             }
         }
     }
@@ -233,6 +248,15 @@ fun HomeScreen() {
 
         if (showSettings) {
             PlateSettingsDialog(
+                plates = catalog.plates,
+                selectedPlateId = plateId,
+                onSelectPlate = { id ->
+                    if (id != plateId) {
+                        store.selectedPlateId = id
+                        plateId = id
+                    }
+                    showSettings = false
+                },
                 captionsVisible = showCaptions,
                 onToggleCaptions = {
                     showCaptions = it
@@ -241,8 +265,10 @@ fun HomeScreen() {
                 hitAreasVisible = showHitAreas,
                 onToggleHitAreas = { showHitAreas = it },
                 onClearAll = {
-                    plate.bindableOrgans.forEach { (_, organ) -> store.remove(organ.id) }
-                    bindings.clear()
+                    plate.bindableOrgans.forEach { (_, organ) ->
+                        store.remove(organ.id)
+                        bindings.remove(organ.id)
+                    }
                     showSettings = false
                 },
                 onOpenHomeSettings = {

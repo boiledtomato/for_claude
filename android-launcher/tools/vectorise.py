@@ -9,10 +9,15 @@
 
   線   周囲より暗い成分（トップハット）だけを抜き出して二値化し、ベクター化する。
        ベクターなので何倍に拡大しても輪郭が崩れない。
-  淡彩 線を取り除いてから滑らかに拡大する。もともと低周波なので拡大しても化けない。
+  淡彩 もともと低周波なので、滑らかに拡大しても化けない。
 
-最後に、拡大した淡彩の上へベクターの線を重ねる。線の濃さは元の濃淡を掛けて
-残す（一律に塗ると版画が塗り絵になる）。
+重ね方に 2 通りある。
+
+  overlay  元の絵をそのまま拡大し、上からベクター線で暗くする（既定）。
+           元の線の濃さがそのまま残るので輪郭が痩せない。ぼけた線の上に
+           芯が通った状態になる。
+  replace  線を取り除いてから拡大し、ベクター線で引き直す。拡大率が大きい
+           ときは有効だが、線の濃さが平均化されるぶん輪郭は弱くなる。
 
     python3 tools/vectorise.py in.png out.png --scale 4.0
 
@@ -75,25 +80,30 @@ def ink_colour(im, a):
     return tuple(int(v) for v in arr[strong].mean(axis=0))
 
 
-def restore(im, scale=4.0, thresh=26, radius=2.4, speckle=2, keep=0.78,
-            binary_thresh=0.52, work_prefix="tools/work/_vec"):
-    """[im] を [scale] 倍で描き直した RGB 画像を返す。"""
+def restore(im, scale=4.0, thresh=26, radius=2.4, speckle=2, keep=0.55,
+            binary_thresh=0.52, mode="overlay", work_prefix="tools/work/_vec"):
+    """[im] を [scale] 倍で描き直した RGB 画像を返す。mode は overlay / replace。"""
     size = (round(im.width * scale), round(im.height * scale))
     a = ink_mask(im, radius=radius, thresh=thresh)
-    wash_up = inpaint_ink(im, a).resize(size, Image.LANCZOS)
-
     vec = vector_ink(a, size, work_prefix, binary_thresh, speckle)
     cov = 1.0 - np.asarray(vec, dtype=np.float32) / 255.0
-
-    # 元の線の濃淡を保つ。すべて同じ濃さにすると版画が塗り絵になる。
-    strength = np.asarray(
-        Image.fromarray((a * 255).astype(np.uint8), "L").resize(size, Image.LANCZOS),
-        dtype=np.float32) / 255.0
-    cov = np.clip(cov * np.clip(strength * 1.35 + 0.18, 0, 1) * keep, 0, 1)[..., None]
-
     ink = np.array(ink_colour(im, a), dtype=np.float32)
-    base = np.asarray(wash_up, dtype=np.float32)
-    return Image.fromarray((base * (1 - cov) + ink * cov).clip(0, 255).astype(np.uint8), "RGB")
+
+    if mode == "overlay":
+        base = np.asarray(im.resize(size, Image.LANCZOS), dtype=np.float32)
+        cov = np.clip(cov * keep, 0, 1)[..., None]
+        # 暗くする方向にだけ効かせる。明るい面を塗り潰さない。
+        out = base * (1 - cov) + np.minimum(base, ink) * cov
+    else:
+        base = np.asarray(inpaint_ink(im, a).resize(size, Image.LANCZOS), dtype=np.float32)
+        # 元の線の濃淡を保つ。すべて同じ濃さにすると版画が塗り絵になる。
+        strength = np.asarray(
+            Image.fromarray((a * 255).astype(np.uint8), "L").resize(size, Image.LANCZOS),
+            dtype=np.float32) / 255.0
+        cov = np.clip(cov * np.clip(strength * 1.35 + 0.18, 0, 1) * keep, 0, 1)[..., None]
+        out = base * (1 - cov) + ink * cov
+
+    return Image.fromarray(out.clip(0, 255).astype(np.uint8), "RGB")
 
 
 def load_rgb(path):
@@ -112,7 +122,8 @@ def main():
     ap.add_argument("dst")
     ap.add_argument("--scale", type=float, default=4.0)
     ap.add_argument("--thresh", type=int, default=26, help="線とみなす暗さ。上げると線が減る")
-    ap.add_argument("--keep", type=float, default=0.78, help="線の濃さ")
+    ap.add_argument("--keep", type=float, default=0.55, help="ベクター線の効き")
+    ap.add_argument("--mode", choices=["overlay", "replace"], default="overlay")
     ap.add_argument("--binary-thresh", type=float, default=0.52)
     ap.add_argument("--speckle", type=int, default=2)
     args = ap.parse_args()
@@ -120,7 +131,7 @@ def main():
     im = load_rgb(args.src)
     out = restore(im, args.scale, thresh=args.thresh, keep=args.keep,
                   binary_thresh=args.binary_thresh, speckle=args.speckle,
-                  work_prefix=os.path.splitext(args.dst)[0] + "_work")
+                  mode=args.mode, work_prefix=os.path.splitext(args.dst)[0] + "_work")
     out.save(args.dst)
     print(f"{args.src} {im.size} -> {args.dst} {out.size}  (x{args.scale})")
 

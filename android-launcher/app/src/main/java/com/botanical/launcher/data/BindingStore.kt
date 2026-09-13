@@ -19,9 +19,14 @@ class BindingStore(context: Context) {
         get() = prefs.getBoolean(KEY_CAPTIONS, true)
         set(value) = prefs.edit { putBoolean(KEY_CAPTIONS, value) }
 
+    /** 選んでいる図版。未選択なら null。 */
+    var selectedPlateId: String?
+        get() = prefs.getString(KEY_PLATE, null)
+        set(value) = prefs.edit { putString(KEY_PLATE, value) }
+
     fun load(): Map<String, String> =
         prefs.all.entries
-            .filter { it.key !in RESERVED }
+            .filter { it.key !in RESERVED && !it.key.startsWith(KEY_SEEDED) }
             .mapNotNull { (k, v) -> (v as? String)?.let { k to it } }
             .toMap()
 
@@ -29,14 +34,21 @@ class BindingStore(context: Context) {
 
     fun remove(organId: String) = prefs.edit { remove(organId) }
 
-    private val seeded: Boolean get() = prefs.getBoolean(KEY_SEEDED, false)
+    /** 初期配置は図版ごとに一度だけ。別の図版に切り替えたらそちらも一度置く。 */
+    private fun seededKey(plateId: String) = "$KEY_SEEDED$plateId"
 
     /**
-     * 初回起動時、空の版面を見せても操作が分からないので、
+     * 初回表示時、空の版面を見せても操作が分からないので、
      * よく使われそうなアプリを花・大きい葉の順に置いておく。
      */
-    fun seedIfNeeded(apps: List<AppEntry>, slots: List<String>): Map<String, String> {
-        if (seeded || apps.isEmpty() || slots.isEmpty()) return load()
+    fun seedIfNeeded(
+        plateId: String,
+        apps: List<AppEntry>,
+        slots: List<String>,
+    ): Map<String, String> {
+        if (prefs.getBoolean(seededKey(plateId), false) || apps.isEmpty() || slots.isEmpty()) {
+            return load()
+        }
 
         val byKey = apps.associateBy { it.key }
         val picked = LinkedHashSet<String>()
@@ -53,15 +65,17 @@ class BindingStore(context: Context) {
         val assignment = slots.zip(picked.toList()).toMap()
         prefs.edit {
             assignment.forEach { (organId, appKey) -> putString(organId, appKey) }
-            putBoolean(KEY_SEEDED, true)
+            putBoolean(seededKey(plateId), true)
         }
-        return assignment.filterValues { byKey.containsKey(it) }
+        // 既に他の図版に置いた割り当ても残す
+        return load() + assignment.filterValues { byKey.containsKey(it) }
     }
 
     private companion object {
         const val KEY_SEEDED = "__seeded__"
         const val KEY_CAPTIONS = "__captions__"
-        val RESERVED = setOf(KEY_SEEDED, KEY_CAPTIONS)
+        const val KEY_PLATE = "__plate__"
+        val RESERVED = setOf(KEY_CAPTIONS, KEY_PLATE)
 
         /** 「ホームに置いてあってほしい」順。部分一致で探す。 */
         val SEED_ORDER = listOf(
