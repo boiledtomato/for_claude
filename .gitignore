@@ -1,2 +1,12 @@
 __pycache__/
 _site/
+
+# Android (android-launcher/)
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+captures/
+.cxx/
+android-launcher/tools/work/

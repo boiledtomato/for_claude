@@ -1,0 +1,219 @@
+{
+  "plate": {
+    "width": 1100,
+    "height": 1760,
+    "number": "Pl. 134.",
+    "paper": "#F2ECE2",
+    "paperDeep": "#E9E0D0",
+    "frame": false
+  },
+  "plants": [
+    {
+      "id": "bellflowers",
+      "latin": "Campanula — Bell Flowers",
+      "number": "",
+      "image": "bouquet.webp",
+      "rect": [
+        30,
+        160,
+        1040,
+        1376
+      ],
+      "pivot": [
+        0.36,
+        0.98
+      ],
+      "bend": {
+        "amplitude": 17,
+        "speed": 1,
+        "phase": 0.0
+      },
+      "captionAt": [
+        550.0,
+        1582
+      ],
+      "organs": [
+        {
+          "id": "latifolia",
+          "kind": "flower",
+          "at": [
+            0.5162,
+            0.1664
+          ],
+          "radius": 0.0781,
+          "label": "オオホタルブクロ"
+        },
+        {
+          "id": "patula",
+          "kind": "flower",
+          "at": [
+            0.1633,
+            0.2937
+          ],
+          "radius": 0.0862,
+          "label": "ヒロハホタルブクロ"
+        },
+        {
+          "id": "persicifolia",
+          "kind": "flower",
+          "at": [
+            0.3063,
+            0.2278
+          ],
+          "radius": 0.0629,
+          "label": "モモバギキョウ"
+        },
+        {
+          "id": "nigra",
+          "kind": "flower",
+          "at": [
+            0.1937,
+            0.4018
+          ],
+          "radius": 0.0548,
+          "label": "クロホタルブクロ"
+        },
+        {
+          "id": "pallida",
+          "kind": "flower",
+          "at": [
+            0.1531,
+            0.4946
+          ],
+          "radius": 0.068,
+          "label": "シロバナギキョウ"
+        },
+        {
+          "id": "stellata",
+          "kind": "flower",
+          "at": [
+            0.1126,
+            0.5759
+          ],
+          "radius": 0.0588,
+          "label": "ムラサキギキョウ"
+        },
+        {
+          "id": "pendula",
+          "kind": "flower",
+          "at": [
+            0.2505,
+            0.5966
+          ],
+          "radius": 0.0629,
+          "label": "ウナヅキギキョウ"
+        },
+        {
+          "id": "magna",
+          "kind": "flower",
+          "at": [
+            0.5314,
+            0.464
+          ],
+          "radius": 0.0801,
+          "label": "オオギキョウ"
+        },
+        {
+          "id": "rubra1",
+          "kind": "flower",
+          "at": [
+            0.6339,
+            0.385
+          ],
+          "radius": 0.0527,
+          "label": "ベニギキョウ"
+        },
+        {
+          "id": "rubra2",
+          "kind": "flower",
+          "at": [
+            0.7688,
+            0.4325
+          ],
+          "radius": 0.0507,
+          "label": "ベニギキョウ"
+        },
+        {
+          "id": "rosea1",
+          "kind": "flower",
+          "at": [
+            0.8174,
+            0.6426
+          ],
+          "radius": 0.0629,
+          "label": "モモイロギキョウ"
+        },
+        {
+          "id": "rosea2",
+          "kind": "flower",
+          "at": [
+            0.8813,
+            0.7224
+          ],
+          "radius": 0.0568,
+          "label": "モモイロギキョウ"
+        },
+        {
+          "id": "campanula",
+          "kind": "flower",
+          "at": [
+            0.4655,
+            0.6956
+          ],
+          "radius": 0.07,
+          "label": "ツリガネソウ"
+        },
+        {
+          "id": "folium",
+          "kind": "leaf",
+          "at": [
+            0.8114,
+            0.8374
+          ],
+          "radius": 0.0751,
+          "label": "葉"
+        },
+        {
+          "id": "hedera1",
+          "kind": "leaf",
+          "at": [
+            0.2606,
+            0.9118
+          ],
+          "radius": 0.07,
+          "label": "ツタバギキョウの葉"
+        },
+        {
+          "id": "hedera2",
+          "kind": "leaf",
+          "at": [
+            0.4097,
+            0.9509
+          ],
+          "radius": 0.0588,
+          "label": "ツタバギキョウの葉"
+        },
+        {
+          "id": "gemma",
+          "kind": "bud",
+          "at": [
+            0.8012,
+            0.2247
+          ],
+          "radius": 0.0527,
+          "label": "蕾"
+        }
+      ]
+    }
+  ],
+  "gemma": {
+    "organ": "bellflowers/gemma",
+    "openImage": "gemma_open.webp",
+    "rect": [
+      804.4,
+      406.0,
+      117.7,
+      126.2
+    ]
+  }
+}

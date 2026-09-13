@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 一枚の葉と茎。銅版画調に合わせて線は細く。 -->
+    <path
+        android:pathData="M54,84 C54,66 54,52 54,40"
+        android:strokeColor="#3A362C"
+        android:strokeWidth="2"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M54,58 C42,58 34,52 30,42 C42,38 52,44 54,58 Z"
+        android:fillColor="#6E8A4E"
+        android:strokeColor="#3A362C"
+        android:strokeWidth="1.4" />
+    <path
+        android:pathData="M54,48 C66,48 74,42 78,32 C66,28 56,34 54,48 Z"
+        android:fillColor="#4E6B3C"
+        android:strokeColor="#3A362C"
+        android:strokeWidth="1.4" />
+    <path
+        android:pathData="M54,40 m-7,0 a7,7 0 1,0 14,0 a7,7 0 1,0 -14,0"
+        android:fillColor="#A33B2E"
+        android:strokeColor="#3A362C"
+        android:strokeWidth="1.4" />
+</vector>

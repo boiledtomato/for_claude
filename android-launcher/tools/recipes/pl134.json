@@ -1,0 +1,193 @@
+{
+  "_note": "Anne Pratt 系 Pl.134 Bell Flowers。source は align_crops.py で合成した高精細版。座標はその画像の画素。",
+  "source": "tools/work/bells_hi.png",
+  "assetsDir": "app/src/main/assets/plate",
+  "bouquet": {
+    "box": [
+      26,
+      26,
+      1012,
+      1330
+    ],
+    "feather": 46,
+    "image": "bouquet.webp",
+    "quality": 90
+  },
+  "gemmaOpen": {
+    "box": [
+      739,
+      552,
+      836,
+      663
+    ],
+    "image": "gemma_open.webp",
+    "cut": "crimson",
+    "organ": "gemma",
+    "grow": 1.15
+  },
+  "plate": {
+    "width": 1100,
+    "height": 1760,
+    "number": "Pl. 134.",
+    "paper": "#F2ECE2",
+    "paperDeep": "#E9E0D0",
+    "frame": false
+  },
+  "layer": {
+    "id": "bellflowers",
+    "latin": "Campanula — Bell Flowers",
+    "rect": [
+      30,
+      160,
+      1040,
+      1376
+    ],
+    "pivot": [
+      0.36,
+      0.98
+    ],
+    "bend": {
+      "amplitude": 17,
+      "speed": 1,
+      "phase": 0.0
+    }
+  },
+  "organs": [
+    [
+      "latifolia",
+      "flower",
+      509,
+      217,
+      77,
+      "オオホタルブクロ"
+    ],
+    [
+      "patula",
+      "flower",
+      161,
+      383,
+      85,
+      "ヒロハホタルブクロ"
+    ],
+    [
+      "persicifolia",
+      "flower",
+      302,
+      297,
+      62,
+      "モモバギキョウ"
+    ],
+    [
+      "nigra",
+      "flower",
+      191,
+      524,
+      54,
+      "クロホタルブクロ"
+    ],
+    [
+      "pallida",
+      "flower",
+      151,
+      645,
+      67,
+      "シロバナギキョウ"
+    ],
+    [
+      "stellata",
+      "flower",
+      111,
+      751,
+      58,
+      "ムラサキギキョウ"
+    ],
+    [
+      "pendula",
+      "flower",
+      247,
+      778,
+      62,
+      "ウナヅキギキョウ"
+    ],
+    [
+      "magna",
+      "flower",
+      524,
+      605,
+      79,
+      "オオギキョウ"
+    ],
+    [
+      "rubra1",
+      "flower",
+      625,
+      502,
+      52,
+      "ベニギキョウ"
+    ],
+    [
+      "rubra2",
+      "flower",
+      758,
+      564,
+      50,
+      "ベニギキョウ"
+    ],
+    [
+      "rosea1",
+      "flower",
+      806,
+      838,
+      62,
+      "モモイロギキョウ"
+    ],
+    [
+      "rosea2",
+      "flower",
+      869,
+      942,
+      56,
+      "モモイロギキョウ"
+    ],
+    [
+      "campanula",
+      "flower",
+      459,
+      907,
+      69,
+      "ツリガネソウ"
+    ],
+    [
+      "folium",
+      "leaf",
+      800,
+      1092,
+      74,
+      "葉"
+    ],
+    [
+      "hedera1",
+      "leaf",
+      257,
+      1189,
+      69,
+      "ツタバギキョウの葉"
+    ],
+    [
+      "hedera2",
+      "leaf",
+      404,
+      1240,
+      58,
+      "ツタバギキョウの葉"
+    ],
+    [
+      "gemma",
+      "bud",
+      790,
+      293,
+      52,
+      "蕾"
+    ]
+  ]
+}
