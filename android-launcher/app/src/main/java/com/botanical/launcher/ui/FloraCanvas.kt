@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.text.AnnotatedString
@@ -25,6 +26,7 @@ import com.botanical.launcher.pencil.cubicAngle
 import com.botanical.launcher.pencil.cubicAt
 import com.botanical.launcher.pencil.pencilOutline
 import com.botanical.launcher.pencil.pencilStroke
+import com.botanical.launcher.pencil.offsetPoly
 import com.botanical.launcher.pencil.polar
 import com.botanical.launcher.pencil.smooth
 import kotlin.math.roundToInt
@@ -67,24 +69,20 @@ fun FloraCanvas(
 
         val bent = flora.stems.associate { it.id to Wind.bend(it, ph, flora.width) }
 
+        // 根。土の中なので動かない。焼いた 1 枚をそのまま置く。
+        flora.roots?.bitmap?.let { bmp ->
+            val screen = transform.toScreen(flora.roots.off)
+            matrix.setScale(spriteScale, spriteScale)
+            matrix.postTranslate(screen.x, screen.y)
+            drawContext.canvas.nativeCanvas.drawBitmap(bmp, matrix, paint)
+        }
+
         // 茎。形が毎フレーム変わるので線を引く。
         for (stem in flora.stems) {
             val p = bent[stem.id] ?: continue
             val pts = (0..36).map { transform.toScreen(cubicAt(p, it / 36f)) }
-            val w0 = stem.w0 * transform.scale
-            val w1 = stem.w1 * transform.scale
-            pencilStroke(
-                pts = pts, sid = stem.id.hashCode(), boil = bl, color = GRAPHITE,
-                widthAt = { t -> w0 - (w0 - w1) * t },
-                tone = stem.tone, jitter = 0.9f, passes = 1,
-                taperHead = 0.03f, taperTail = 0.12f, grain = 0.22f,
-            )
-            pencilStroke(
-                pts = pts, sid = stem.id.hashCode() + 1, boil = bl, color = GRAPHITE,
-                widthAt = { t -> (w0 - (w0 - w1) * t) * 0.52f },
-                tone = stem.tone * 0.58f, jitter = 1.5f, passes = 1,
-                taperHead = 0.03f, taperTail = 0.12f, grain = 0.3f,
-            )
+            drawStem(pts, stem.w0 * transform.scale, stem.w1 * transform.scale,
+                stem.tone, stem.id.hashCode(), bl, flora.paper, transform.scale)
         }
 
         // 葉と花。焼いた画像を付け根を軸に回して置く。
@@ -134,6 +132,7 @@ fun FloraCanvas(
 
         reach()?.let { drawReach(it, transform, bl, reachGrow(), reachBloom(), appsByKey) }
 
+        drawCaption(measurer, transform, flora)
         if (showLabels) drawLabels(measurer, transform, flora, bindings, appsByKey)
         if (showHitAreas) {
             for (t in flora.tapTargets) {
@@ -146,6 +145,51 @@ fun FloraCanvas(
             }
         }
     }
+}
+
+/**
+ * 茎。輪郭 2 本のあいだに縦の調子を入れた筒として描く。
+ *
+ * 太い 1 本の線で引くと黒い棒になり、それだけで植物画に見えなくなる。
+ * 左上からの光なので、影になる側の輪郭だけを太く濃くすると丸みが出る。
+ */
+private fun DrawScope.drawStem(
+    pts: List<Offset>, w0: Float, w1: Float, tone: Float,
+    sid: Int, boil: Int, paper: Color, scale: Float,
+) {
+    val half = { t: Float -> (w0 - (w0 - w1) * t) * 0.5f }
+    val left = offsetPoly(pts, 90f, half)
+    val right = offsetPoly(pts, -90f, half)
+
+    // 筒の中を紙色で伏せる。透けると後ろの葉と線が絡んで網になる。
+    val path = Path()
+    path.moveTo(left[0].x, left[0].y)
+    for (i in 1 until left.size) path.lineTo(left[i].x, left[i].y)
+    for (i in right.indices.reversed()) path.lineTo(right[i].x, right[i].y)
+    path.close()
+    drawPath(path, paper)
+
+    // 内側の縦の調子。
+    val inner = listOf(0.62f to 0.30f, 0.18f to 0.18f, -0.34f to 0.10f)
+    for ((i, fv) in inner.withIndex()) {
+        val (f, tn) = fv
+        pencilStroke(
+            pts = offsetPoly(pts, -90f) { half(it) * f },
+            sid = sid + 17 * (i + 1), boil = boil, color = GRAPHITE,
+            widthAt = { 0.9f * scale }, tone = tn * tone, jitter = 0.8f, passes = 1,
+            taperHead = 0.1f, taperTail = 0.3f, grain = 0.3f,
+        )
+    }
+    pencilStroke(
+        pts = right, sid = sid, boil = boil, color = GRAPHITE,
+        widthAt = { 1.7f * scale }, tone = 1.02f * tone, jitter = 0.7f, passes = 1,
+        taperHead = 0.03f, taperTail = 0.12f, grain = 0.22f,
+    )
+    pencilStroke(
+        pts = left, sid = sid + 1, boil = boil, color = GRAPHITE,
+        widthAt = { 1.2f * scale }, tone = 0.56f * tone, jitter = 0.7f, passes = 1,
+        taperHead = 0.03f, taperTail = 0.12f, grain = 0.22f,
+    )
 }
 
 /** 伸びる蔓と、その先で開く花。中にアプリが現れる。 */
@@ -219,6 +263,32 @@ private fun DrawScope.drawPaper(flora: Flora) {
             radius = maxOf(size.width, size.height) * 0.72f,
         ),
     )
+}
+
+private val captionStyle = TextStyle(
+    fontFamily = FontFamily.Serif,
+    fontSize = 19.sp,
+    fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
+    color = Color(0xB33A362C),
+)
+
+private val plateNoStyle = TextStyle(
+    fontFamily = FontFamily.Serif,
+    fontSize = 11.sp,
+    letterSpacing = 3.sp,
+    color = Color(0x803A362C),
+)
+
+/** 図版名。参照した図版はどれも余白の下に学名が入る。ここが無いと標本画に見えない。 */
+private fun DrawScope.drawCaption(measurer: TextMeasurer, t: SceneTransform, flora: Flora) {
+    if (flora.caption.isEmpty()) return
+    var y = t.toScreen(Offset(0f, flora.height * 0.926f)).y
+    for ((text, style) in listOf(flora.caption to captionStyle, flora.plateNo to plateNoStyle)) {
+        if (text.isEmpty()) continue
+        val layout = measurer.measure(AnnotatedString(text), style, maxLines = 1)
+        drawText(layout, topLeft = Offset(size.width / 2f - layout.size.width / 2f, y))
+        y += layout.size.height * 1.15f
+    }
 }
 
 private val labelStyle = TextStyle(

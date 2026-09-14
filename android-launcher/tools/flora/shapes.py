@@ -96,9 +96,10 @@ def _spline(ts, vs, t):
 
 
 # 釣鐘の半幅プロファイル（幅に対する割合）。
-# ふくらんで → 少しすぼまって → 口で開く、が釣鐘に見える条件。
-BELL_TS = [0.0, 0.16, 0.38, 0.58, 0.74, 0.88, 1.0]
-BELL_RS = [0.05, 0.21, 0.38, 0.46, 0.44, 0.40, 0.50]
+# 萼から細く出て → ふくらんで → わずかにすぼまって → 口で開く。
+# 根元から一気に開くと釣鐘ではなく傘（パラソル）に見える。そこが分かれ目。
+BELL_TS = [0.0, 0.10, 0.26, 0.46, 0.66, 0.86, 1.0]
+BELL_RS = [0.06, 0.20, 0.35, 0.44, 0.49, 0.46, 0.52]
 
 
 def bell(base, d, length, width, lobes=5, lip=0.34, tooth=0.42, throat=False,
@@ -130,12 +131,14 @@ def bell(base, d, length, width, lobes=5, lip=0.34, tooth=0.42, throat=False,
 
     outline = left + near[1:] + right[::-1][1:]
 
+    # 裂片の稜。付け根まで引かない。一点に集めると傘の骨に見える。
     ribs = []
     for i in range(lobes):
         t = (i + 0.5) / lobes
         target = near[min(int(t * m), m)]
-        mid = polar(polar(base, d, length * 0.58), d + (t - 0.5) * 46, width * 0.12)
-        ribs.append(quad(base, mid, target, 14))
+        start = polar(polar(base, d, length * 0.30), d + (t - 0.5) * 70, width * 0.16)
+        mid = polar(polar(base, d, length * 0.68), d + (t - 0.5) * 54, width * 0.24)
+        ribs.append(quad(start, mid, target, 14))
 
     # 面の流れ線。左右の輪郭を補間すると、釣鐘の丸みをそのままなぞる線束になる。
     # 付け根から放射させると根元に束が寄って本体が白く抜けてしまう。
@@ -159,11 +162,26 @@ def bell(base, d, length, width, lobes=5, lip=0.34, tooth=0.42, throat=False,
         cross.append(quad(polar(on, d - 90, r), on, polar(on, d + 90, r), 8))
 
     out = {"outline": outline, "near": near, "ribs": ribs, "flow": flow,
-           "cross": cross, "mouth": mouth, "axis": d, "length": length, "width": width}
+           "cross": cross, "mouth": mouth, "base": base, "axis": d,
+           "length": length, "width": width}
     if throat:
-        far = quad(ml, polar(mouth, d, -rw * lip * 0.7), mr, m)
+        # 口の奥。手前の縁（near）と向こう側の縁（far）にはさまれた面で、
+        # 覗き込んでいるぶんいちばん暗い。ここを紙のまま残すと花に穴が空く。
+        # 口は楕円に見える。向こう側の縁も手前と同じ向きに弓なりで、
+        # 弓の深さだけが浅い。逆向きに張ると口が縦に広がって帯に見える。
+        far = quad(ml, polar(mouth, d, rw * lip * 0.62), mr, m)
         out["far"] = far
         out["throat"] = far + near[::-1][1:]
+        out["throat_flow"] = [quad(far[i], polar(mouth, d, rw * lip * 0.2),
+                                   near[i], 7)
+                              for i in range(1, m, 2)]
+        sinus = []
+        for i in range(int(visible_lobes) + 1):
+            t = i / visible_lobes
+            j = min(int(t * m), m)
+            sinus.append([near[j], (lerp(near[j][0], far[j][0], 0.55),
+                                    lerp(near[j][1], far[j][1], 0.55))])
+        out["sinus"] = sinus
     return out
 
 
@@ -202,7 +220,7 @@ def bud(base, d, length, width, ridges=4):
         t = lerp(-0.62, 0.62, i / (ridges - 1))
         c = polar(polar(base, d, length * 0.45), d + 90, width * t * 1.5)
         lines.append(quad(base, c, apex, 16))
-    return {"outline": outline, "ridges": lines, "apex": apex,
+    return {"outline": outline, "ridges": lines, "apex": apex, "base": base,
             "axis": d, "length": length, "width": width}
 
 
@@ -211,4 +229,22 @@ def sepals(base, d, size, count=3, spread=52):
     for i in range(count):
         a = d + lerp(-spread, spread, i / (count - 1)) if count > 1 else d
         out.append(leaf(base, a, size, size * 0.30, bend=(a - d) / 90))
+    return out
+
+
+def offset(pts, rel_deg, dist):
+    """折れ線を、進行方向に対して [rel_deg] の向きへ [dist] ずらす。
+
+    茎を「太い 1 本の線」ではなく「輪郭 2 本の筒」として描くのに使う。
+    図版の茎は必ず筒として描かれていて、そこに調子が入っている。
+    dist は t を受ける関数でもよい（根元が太く先が細い茎のため）。
+    """
+    n = len(pts)
+    out = []
+    for i, p in enumerate(pts):
+        a = pts[min(i + 1, n - 1)]
+        b = pts[max(i - 1, 0)]
+        ang = math.degrees(math.atan2(a[1] - b[1], a[0] - b[0]))
+        dd = dist(i / max(n - 1, 1)) if callable(dist) else dist
+        out.append(polar(p, ang + rel_deg, dd))
     return out

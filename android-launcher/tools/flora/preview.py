@@ -12,6 +12,8 @@ import math
 import os
 from PIL import Image, ImageDraw
 import numpy as np
+import random
+import render as R
 from pencil import Pencil
 
 A = "assets"
@@ -26,6 +28,8 @@ def load():
         cache[o["id"]] = Image.open(f"{A}/{o['image']}").convert("RGBA")
     for i, fr in enumerate(m["gemma"]["frames"]):
         cache[f"bloom{i}"] = Image.open(f"{A}/{fr['image']}").convert("RGBA")
+    if m.get("roots"):
+        cache["roots"] = Image.open(f"{A}/{m['roots']['image']}").convert("RGBA")
     return m, cache
 
 
@@ -82,20 +86,17 @@ def place(dst, sprite, off, pivot, new_pivot, angle_deg):
 def frame(m, cache, phase, bloom=0.0, boil=0):
     W, H = m["plate"]["width"], m["plate"]["height"]
     img = paper((W, H)).convert("RGBA")
-    pen_layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    pen = Pencil(ImageDraw.Draw(pen_layer, "RGBA"), None, GRAPHITE)
-    pen.rng = __import__("random").Random(boil * 7919 + 3)
-
+    if "roots" in cache:
+        ro = m["roots"]["off"]
+        img.alpha_composite(cache["roots"], (int(ro[0]), int(ro[1])))
     bent = {s["id"]: bend_stem(s, phase, W) for s in m["stems"]}
 
     # 茎（毎フレーム形が変わるので直に引く）
     for s in m["stems"]:
         p = bent[s["id"]]
         pts = [cubic_at(p, i / 40) for i in range(41)]
-        for wmul, tmul, jit in ((1.0, 1.0, 0.9), (0.52, 0.58, 1.5)):
-            pen.stroke(pts, width=lambda t, m_=wmul, s_=s: (s_["w0"] - (s_["w0"] - s_["w1"]) * t) * m_,
-                       tone=s["tone"] * tmul, jitter=jit, passes=1, taper=(0.03, 0.12))
-    img.alpha_composite(pen_layer)
+        R.stem(img, pts, s["w0"], s["w1"], s["tone"],
+               random.Random(boil * 7919 + 3))
 
     # 器官（焼いた画像を付け根で回して置く）
     for o in sorted(m["organs"], key=lambda x: x["z"]):
@@ -118,6 +119,7 @@ def frame(m, cache, phase, bloom=0.0, boil=0):
     flutter = sw["amp"] * math.sin(phase * sw["speed"] + sw["phase"])
     place(img, cache[f"bloom{idx}"], gm["frames"][idx]["off"], gm["pivot"], at,
           (ang - gm["restAngle"]) + flutter)
+    R.caption(ImageDraw.Draw(img, "RGBA"), random.Random(9))
     return img.convert("RGB")
 
 

@@ -132,7 +132,7 @@ class Pencil:
             if gradient:
                 # 形の中心からの、光の向きに沿った位置を 0..1 に
                 t = ((mx - cx) * gx + (my - cy) * gy) / (diag + 1e-6)
-                f = lo + (hi - lo) * max(0.0, min(1.0, t * 0.5 + 0.5))
+                f *= lo + (hi - lo) * max(0.0, min(1.0, t * 0.5 + 0.5))
             if f <= 0.04:
                 continue
             self.stroke([a, b],
@@ -148,7 +148,7 @@ class Pencil:
                             jitter=jitter, passes=1, taper=(0.2, 0.2), grain=0.46)
 
     def hatch_curves(self, curves, tone=0.45, width=1.25, jitter=0.7,
-                     gradient=None, span=(0.05, 1.0), cross_at=0.58):
+                     gradient=None, span=(0.05, 1.0), cross_at=0.58, weights=None):
         """曲線の束に沿って引くハッチング。
 
         平行線だと曲面が平らに見える。面の流れ（釣鐘なら稜、葉なら側脈）に
@@ -163,7 +163,7 @@ class Pencil:
             cx, cy = (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2
             reach = max(1e-6, max(math.hypot(p[0] - cx, p[1] - cy)
                                   for c in curves for p in c))
-        for c in curves:
+        for ci, c in enumerate(curves):
             if len(c) < 2:
                 continue
             a = self.rng.uniform(span[0], span[0] + 0.18)
@@ -171,11 +171,13 @@ class Pencil:
             i0 = int(a * (len(c) - 1))
             i1 = max(i0 + 2, int(b * (len(c) - 1)))
             seg = c[i0:i1 + 1]
-            f = 1.0
+            # weights は曲線 1 本ごとの濃さ。光の向きの一次勾配だけでは
+            # 円筒の丸み（両縁が暗く中ほどが明るい）が作れない。
+            f = 1.0 if weights is None else weights[ci]
             if gradient:
                 mid = seg[len(seg) // 2]
                 t = ((mid[0] - cx) * gx + (mid[1] - cy) * gy) / reach
-                f = lo + (hi - lo) * max(0.0, min(1.0, t * 0.5 + 0.5))
+                f *= lo + (hi - lo) * max(0.0, min(1.0, t * 0.5 + 0.5))
             if f <= 0.04:
                 continue
             self.stroke(seg, width=width, tone=tone * f * self.rng.uniform(0.72, 1.1),

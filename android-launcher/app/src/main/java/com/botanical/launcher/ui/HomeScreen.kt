@@ -164,7 +164,12 @@ fun HomeScreen() {
     }
 
     fun assign(target: TapTarget) {
-        drawerMode = DrawerMode.Assign(target.id, target.label, bindings[target.id].orEmpty())
+        // 部位そのものの絵を渡す。「どこに登録しているか」は名前より絵が早い。
+        val sprite = flora.organs.firstOrNull { it.id == target.id }?.bitmap
+            ?: flora.gemma?.frames?.lastOrNull()?.bitmap
+        drawerMode = DrawerMode.Assign(
+            target.id, target.label, bindings[target.id].orEmpty(), sprite,
+        )
     }
 
     fun activate(target: TapTarget) {

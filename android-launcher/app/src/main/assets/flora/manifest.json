@@ -2,2272 +2,817 @@
  "plate": {
   "width": 1100,
   "height": 1800,
-  "paper": "#F6F3EC"
+  "paper": "#F6F3EC",
+  "caption": "Campanula latifolia",
+  "plateNo": "PL. I"
  },
  "stems": [
   {
-   "id": "a",
+   "id": "main",
    "p": [
     [
-     195,
-     1640
+     548,
+     1520
     ],
     [
-     216.30148630539136,
-     1258.995004388156
+     532.1074470377667,
+     1106.3051526060028
     ],
     [
-     108.86800706455878,
-     881.6758478111296
+     465.4756547755545,
+     696.1227443087918
     ],
     [
-     415.38639226682506,
-     603.163543222166
+     568.0702674028761,
+     370.17515057015
+    ]
+   ],
+   "w0": 12.0,
+   "w1": 3.4,
+   "tone": 1.0,
+   "depth": 1.0,
+   "sway": {
+    "amp": 63.25,
+    "speed": 2,
+    "phase": 5.975
+   }
+  },
+  {
+   "id": "side",
+   "p": [
+    [
+     398,
+     1536
+    ],
+    [
+     319.9016702344626,
+     1280.551873587154
+    ],
+    [
+     165.4821374713278,
+     1055.013699566092
+    ],
+    [
+     281.92562694014873,
+     803.1352512784077
+    ]
+   ],
+   "w0": 9.48,
+   "w1": 2.686,
+   "tone": 0.798,
+   "depth": 0.58,
+   "sway": {
+    "amp": 40.81,
+    "speed": 2,
+    "phase": 2.065
+   }
+  },
+  {
+   "id": "base",
+   "p": [
+    [
+     716,
+     1528
+    ],
+    [
+     777.5638362694627,
+     1351.2127434915435
+    ],
+    [
+     899.3387497248203,
+     1201.561241808912
+    ],
+    [
+     806.2970523868038,
+     1015.8999684336518
     ]
    ],
    "w0": 8.040000000000001,
    "w1": 2.278,
-   "tone": 0.669536,
+   "tone": 0.683,
    "depth": 0.34,
-   "sway": {
-    "amp": 58.3,
-    "speed": 2,
-    "phase": 3.278
-   }
-  },
-  {
-   "id": "c",
-   "p": [
-    [
-     545,
-     1730
-    ],
-    [
-     496.6808562206983,
-     1177.7096593779363
-    ],
-    [
-     363.9041730664891,
-     636.0887872101923
-    ],
-    [
-     518.1232940865834,
-     190.2345494591575
-    ]
-   ],
-   "w0": 11.399999999999999,
-   "w1": 3.23,
-   "tone": 0.9329599999999999,
-   "depth": 0.9,
-   "sway": {
-    "amp": 84.7,
-    "speed": 2,
-    "phase": 2.631
-   }
-  },
-  {
-   "id": "d",
-   "p": [
-    [
-     860,
-     1690
-    ],
-    [
-     848.7416523072575,
-     1229.3375535088308
-    ],
-    [
-     971.6761571806062,
-     775.1912790548112
-    ],
-    [
-     659.7638847485046,
-     425.75892403822354
-    ]
-   ],
-   "w0": 10.080000000000002,
-   "w1": 2.8560000000000003,
-   "tone": 0.829472,
-   "depth": 0.68,
-   "sway": {
-    "amp": 70.4,
-    "speed": 2,
-    "phase": 0.188
-   }
-  },
-  {
-   "id": "b",
-   "p": [
-    [
-     370,
-     1700
-    ],
-    [
-     448.27782949392235,
-     1216.698084620265
-    ],
-    [
-     622.1147281578504,
-     753.8124901237107
-    ],
-    [
-     464.8688042920103,
-     343.3128916466392
-    ]
-   ],
-   "w0": 9.36,
-   "w1": 2.652,
-   "tone": 0.773024,
-   "depth": 0.56,
-   "sway": {
-    "amp": 74.8,
-    "speed": 2,
-    "phase": 2.658
-   }
-  },
-  {
-   "id": "e",
-   "p": [
-    [
-     985,
-     1630
-    ],
-    [
-     955.4784568723592,
-     1278.4373192567748
-    ],
-    [
-     1050.4219303800328,
-     927.4394467198217
-    ],
-    [
-     747.9165423123255,
-     679.1101882495235
-    ]
-   ],
-   "w0": 7.800000000000001,
-   "w1": 2.21,
-   "tone": 0.6507200000000001,
-   "depth": 0.3,
-   "sway": {
-    "amp": 53.9,
-    "speed": 2,
-    "phase": 0.604
-   }
-  },
-  {
-   "id": "f",
-   "p": [
-    [
-     215,
-     1748
-    ],
-    [
-     248.79318399090485,
-     1563.875420663734
-    ],
-    [
-     185.23406859777214,
-     1374.7851164171532
-    ],
-    [
-     426.5030543994161,
-     1272.9563620258475
-    ]
-   ],
-   "w0": 7.08,
-   "w1": 2.006,
-   "tone": 0.594272,
-   "depth": 0.18,
    "sway": {
     "amp": 28.6,
     "speed": 2,
-    "phase": 0.096
-   }
-  },
-  {
-   "id": "g",
-   "p": [
-    [
-     775,
-     1752
-    ],
-    [
-     735.8423547940537,
-     1554.239440681603
-    ],
-    [
-     795.2585090900831,
-     1349.3092590964538
-    ],
-    [
-     547.2274798775518,
-     1240.4145437201435
-    ]
-   ],
-   "w0": 7.32,
-   "w1": 2.074,
-   "tone": 0.6130880000000001,
-   "depth": 0.22,
-   "sway": {
-    "amp": 30.8,
-    "speed": 2,
-    "phase": 1.202
-   }
-  },
-  {
-   "id": "h",
-   "p": [
-    [
-     455,
-     1752
-    ],
-    [
-     455.0,
-     1582.8
-    ],
-    [
-     416.105268273214,
-     1415.842656120826
-    ],
-    [
-     504.12837773579713,
-     1284.5747091769115
-    ]
-   ],
-   "w0": 6.840000000000001,
-   "w1": 1.9380000000000002,
-   "tone": 0.5754560000000001,
-   "depth": 0.14,
-   "sway": {
-    "amp": 25.85,
-    "speed": 2,
-    "phase": 4.489
+    "phase": 4.944
    }
   }
  ],
  "organs": [
   {
-   "id": "a.leaf0",
-   "stem": "a",
-   "t": 0.0623,
-   "image": "organs/a.leaf0.webp",
+   "id": "main.leaf0",
+   "stem": "main",
+   "t": 0.0609,
+   "image": "organs/main.leaf0.webp",
    "off": [
-    6.0,
-    1396.6
+    225.9,
+    1201.6
    ],
    "pivot": [
-    197.6,
-    1568.9
+    544.6,
+    1444.5
    ],
-   "restAngle": -88.89,
+   "restAngle": -92.95,
    "sway": {
-    "amp": 6.66,
+    "amp": 5.66,
     "speed": 8,
     "phase": 1.563
    },
    "hit": {
     "at": [
-     127.4,
-     1488.4
+     423.4,
+     1332.2
     ],
-    "r": 71.2
+    "r": 135.0
    },
    "z": 1
   },
   {
-   "id": "a.leaf1",
-   "stem": "a",
-   "t": 0.1826,
-   "image": "organs/a.leaf1.webp",
+   "id": "main.leaf1",
+   "stem": "main",
+   "t": 0.1966,
+   "image": "organs/main.leaf1.webp",
    "off": [
-    183.1,
-    1348.2
+    518.4,
+    1139.1
    ],
    "pivot": [
-    197.1,
-    1432.2
+    534.4,
+    1277.0
    ],
-   "restAngle": -91.16,
+   "restAngle": -93.82,
    "sway": {
-    "amp": 6.83,
+    "amp": 5.83,
     "speed": 8,
     "phase": 0.878
    },
-   "hit": {
-    "at": [
-     281.4,
-     1406.4
-    ],
-    "r": 58.8
-   },
+   "hit": null,
    "z": 2
   },
   {
-   "id": "a.leaf2",
-   "stem": "a",
-   "t": 0.3017,
-   "image": "organs/a.leaf2.webp",
+   "id": "main.leaf2",
+   "stem": "main",
+   "t": 0.3197,
+   "image": "organs/main.leaf2.webp",
    "off": [
-    11.5,
-    1226.6
+    253.5,
+    980.4
    ],
    "pivot": [
-    194.0,
-    1298.8
+    524.4,
+    1127.0
    ],
-   "restAngle": -91.08,
+   "restAngle": -93.67,
    "sway": {
-    "amp": 7.99,
+    "amp": 5.74,
     "speed": 8,
-    "phase": 5.542
+    "phase": 1.942
    },
-   "hit": {
-    "at": [
-     119.6,
-     1281.0
-    ],
-    "r": 51.0
-   },
+   "hit": null,
    "z": 3
   },
   {
-   "id": "a.leaf3",
-   "stem": "a",
-   "t": 0.4156,
-   "image": "organs/a.leaf3.webp",
+   "id": "main.leaf3",
+   "stem": "main",
+   "t": 0.4153,
+   "image": "organs/main.leaf3.webp",
    "off": [
-    173.2,
-    1040.2
+    501.7,
+    932.7
    ],
    "pivot": [
-    193.8,
-    1173.8
+    517.7,
+    1012.2
    ],
-   "restAngle": -88.73,
+   "restAngle": -92.9,
    "sway": {
-    "amp": 10.1,
-    "speed": 13,
-    "phase": 5.108
+    "amp": 10.52,
+    "speed": 8,
+    "phase": 2.718
    },
    "hit": null,
    "z": 4
   },
   {
-   "id": "a.leaf4",
-   "stem": "a",
-   "t": 0.5468,
-   "image": "organs/a.leaf4.webp",
+   "id": "main.leaf4",
+   "stem": "main",
+   "t": 0.5589,
+   "image": "organs/main.leaf4.webp",
    "off": [
-    99.8,
-    923.5
+    344.5,
+    643.8
    ],
    "pivot": [
-    203.2,
-    1033.9
+    512.2,
+    843.8
    ],
-   "restAngle": -83.0,
+   "restAngle": -90.58,
    "sway": {
-    "amp": 6.3,
-    "speed": 13,
-    "phase": 2.354
+    "amp": 7.43,
+    "speed": 8,
+    "phase": 3.497
    },
    "hit": null,
    "z": 5
   },
   {
-   "id": "a.leaf5",
-   "stem": "a",
-   "t": 0.661,
-   "image": "organs/a.leaf5.webp",
+   "id": "main.leaf5",
+   "stem": "main",
+   "t": 0.6983,
+   "image": "organs/main.leaf5.webp",
    "off": [
-    211.2,
-    829.6
+    496.1,
+    542.5
    ],
    "pivot": [
-    225.2,
-    916.8
+    515.4,
+    686.0
    ],
-   "restAngle": -75.23,
+   "restAngle": -86.82,
    "sway": {
-    "amp": 6.35,
-    "speed": 8,
-    "phase": 4.939
+    "amp": 8.33,
+    "speed": 9,
+    "phase": 1.571
    },
    "hit": null,
    "z": 6
   },
   {
-   "id": "a.leaf6",
-   "stem": "a",
-   "t": 0.7577,
-   "image": "organs/a.leaf6.webp",
+   "id": "main.flos0",
+   "stem": "main",
+   "t": 0.56,
+   "image": "organs/main.flos0.webp",
    "off": [
-    171.5,
-    722.5
+    393.0,
+    755.4
    ],
    "pivot": [
-    257.8,
-    821.7
+    512.2,
+    842.5
    ],
-   "restAngle": -66.76,
+   "restAngle": -90.56,
    "sway": {
-    "amp": 11.5,
-    "speed": 11,
-    "phase": 1.072
-   },
-   "hit": null,
-   "z": 7
-  },
-  {
-   "id": "a.flos0",
-   "stem": "a",
-   "t": 0.7,
-   "image": "organs/a.flos0.webp",
-   "off": [
-    121.4,
-    728.2
-   ],
-   "pivot": [
-    236.6,
-    877.9
-   ],
-   "restAngle": -72.0,
-   "sway": {
-    "amp": 10.35,
-    "speed": 5,
-    "phase": 4.731
+    "amp": 7.66,
+    "speed": 7,
+    "phase": 3.632
    },
    "hit": {
     "at": [
-     219.7,
-     835.9
+     488.8,
+     851.9
     ],
-    "r": 72.5
+    "r": 94.9
+   },
+   "z": 7
+  },
+  {
+   "id": "main.flos1",
+   "stem": "main",
+   "t": 0.66,
+   "image": "organs/main.flos1.webp",
+   "off": [
+    497.5,
+    660.7
+   ],
+   "pivot": [
+    513.5,
+    728.7
+   ],
+   "restAngle": -88.02,
+   "sway": {
+    "amp": 9.44,
+    "speed": 6,
+    "phase": 4.676
+   },
+   "hit": {
+    "at": [
+     639.3,
+     753.3
+    ],
+    "r": 75.6
    },
    "z": 8
   },
   {
-   "id": "a.flos1",
-   "stem": "a",
-   "t": 0.75,
-   "image": "organs/a.flos1.webp",
+   "id": "main.flos2",
+   "stem": "main",
+   "t": 0.76,
+   "image": "organs/main.flos2.webp",
    "off": [
-    240.7,
-    713.9
+    434.5,
+    546.0
    ],
    "pivot": [
-    254.6,
-    829.1
+    520.4,
+    618.3
    ],
-   "restAngle": -67.49,
+   "restAngle": -84.62,
    "sway": {
-    "amp": 13.21,
-    "speed": 6,
-    "phase": 3.976
-   },
-   "hit": {
-    "at": [
-     294.9,
-     808.1
-    ],
-    "r": 72.7
-   },
-   "z": 9
-  },
-  {
-   "id": "a.flos2",
-   "stem": "a",
-   "t": 0.8,
-   "image": "organs/a.flos2.webp",
-   "off": [
-    169.3,
-    617.8
-   ],
-   "pivot": [
-    276.8,
-    781.4
-   ],
-   "restAngle": -62.63,
-   "sway": {
-    "amp": 9.81,
+    "amp": 8.81,
     "speed": 7,
     "phase": 6.197
    },
    "hit": {
     "at": [
-     266.7,
-     736.1
+     511.6,
+     625.4
     ],
-    "r": 74.2
+    "r": 77.9
+   },
+   "z": 9
+  },
+  {
+   "id": "main.flos3",
+   "stem": "main",
+   "t": 0.86,
+   "image": "organs/main.flos3.webp",
+   "off": [
+    518.3,
+    465.7
+   ],
+   "pivot": [
+    534.3,
+    511.8
+   ],
+   "restAngle": -80.29,
+   "sway": {
+    "amp": 11.8,
+    "speed": 6,
+    "phase": 3.045
+   },
+   "hit": {
+    "at": [
+     644.4,
+     540.1
+    ],
+    "r": 80.0
    },
    "z": 10
   },
   {
-   "id": "a.flos3",
-   "stem": "a",
-   "t": 0.85,
-   "image": "organs/a.flos3.webp",
+   "id": "side.leaf0",
+   "stem": "side",
+   "t": 0.0791,
+   "image": "organs/side.leaf0.webp",
    "off": [
-    293.2,
-    627.1
+    125.1,
+    1416.2
    ],
    "pivot": [
-    303.6,
-    734.8
+    378.2,
+    1475.9
    ],
-   "restAngle": -57.55,
+   "restAngle": -109.32,
    "sway": {
-    "amp": 12.35,
-    "speed": 7,
-    "phase": 4.308
+    "amp": 10.84,
+    "speed": 11,
+    "phase": 5.055
    },
    "hit": {
     "at": [
-     346.8,
-     721.2
+     265.7,
+     1498.0
     ],
-    "r": 72.5
+    "r": 93.8
    },
    "z": 11
   },
   {
-   "id": "a.flos4",
-   "stem": "a",
-   "t": 0.9,
-   "image": "organs/a.flos4.webp",
+   "id": "side.leaf1",
+   "stem": "side",
+   "t": 0.2318,
+   "image": "organs/side.leaf1.webp",
    "off": [
-    255.0,
-    545.2
+    280.6,
+    1141.2
    ],
    "pivot": [
-    335.3,
-    689.6
+    335.7,
+    1362.5
    ],
-   "restAngle": -52.38,
+   "restAngle": -111.19,
    "sway": {
-    "amp": 9.28,
-    "speed": 6,
-    "phase": 6.034
+    "amp": 7.42,
+    "speed": 8,
+    "phase": 3.405
    },
-   "hit": {
-    "at": [
-     333.7,
-     650.9
-    ],
-    "r": 61.9
-   },
+   "hit": null,
    "z": 12
   },
   {
-   "id": "a.flos5",
-   "stem": "a",
-   "t": 0.95,
-   "image": "organs/a.flos5.webp",
+   "id": "side.leaf2",
+   "stem": "side",
+   "t": 0.3717,
+   "image": "organs/side.leaf2.webp",
    "off": [
-    364.5,
-    561.4
+    84.1,
+    1167.9
    ],
    "pivot": [
-    372.4,
-    645.7
+    297.1,
+    1260.6
    ],
-   "restAngle": -47.24,
+   "restAngle": -109.82,
    "sway": {
-    "amp": 8.35,
-    "speed": 7,
-    "phase": 1.916
+    "amp": 8.52,
+    "speed": 13,
+    "phase": 1.397
    },
-   "hit": {
-    "at": [
-     410.4,
-     640.8
-    ],
-    "r": 61.2
-   },
+   "hit": null,
    "z": 13
   },
   {
-   "id": "a.flos6",
-   "stem": "a",
-   "t": 1.0,
-   "image": "organs/a.flos6.webp",
+   "id": "side.leaf3",
+   "stem": "side",
+   "t": 0.5213,
+   "image": "organs/side.leaf3.webp",
    "off": [
-    350.7,
-    462.2
+    233.7,
+    1024.0
    ],
    "pivot": [
-    415.4,
-    603.2
+    262.8,
+    1152.9
    ],
-   "restAngle": -42.26,
+   "restAngle": -104.81,
    "sway": {
-    "amp": 13.68,
-    "speed": 5,
-    "phase": 1.014
+    "amp": 8.59,
+    "speed": 13,
+    "phase": 0.337
    },
-   "hit": {
-    "at": [
-     420.4,
-     566.3
-    ],
-    "r": 59.5
-   },
+   "hit": null,
    "z": 14
   },
   {
-   "id": "c.leaf0",
-   "stem": "c",
-   "t": 0.0577,
-   "image": "organs/c.leaf0.webp",
+   "id": "side.leaf4",
+   "stem": "side",
+   "t": 0.6933,
+   "image": "organs/side.leaf4.webp",
    "off": [
-    95.5,
-    1300.1
+    121.2,
+    919.8
    ],
    "pivot": [
-    535.9,
-    1634.6
+    241.2,
+    1029.1
    ],
-   "restAngle": -95.89,
+   "restAngle": -94.05,
    "sway": {
-    "amp": 9.26,
-    "speed": 9,
-    "phase": 1.413
+    "amp": 6.27,
+    "speed": 13,
+    "phase": 2.233
    },
-   "hit": {
-    "at": [
-     392.9,
-     1496.1
-    ],
-    "r": 119.4
-   },
+   "hit": null,
    "z": 15
   },
   {
-   "id": "c.leaf1",
-   "stem": "c",
-   "t": 0.2483,
-   "image": "organs/c.leaf1.webp",
+   "id": "side.flos0",
+   "stem": "side",
+   "t": 0.56,
+   "image": "organs/side.flos0.webp",
    "off": [
-    519.4,
-    1081.8
+    137.9,
+    1066.5
    ],
    "pivot": [
-    499.1,
-    1321.8
+    256.0,
+    1125.1
    ],
-   "restAngle": -97.09,
+   "restAngle": -102.86,
    "sway": {
-    "amp": 10.95,
-    "speed": 9,
-    "phase": 3.479
+    "amp": 8.34,
+    "speed": 7,
+    "phase": 5.643
    },
    "hit": {
     "at": [
-     663.9,
-     1240.7
+     220.2,
+     1151.0
     ],
-    "r": 110.2
+    "r": 96.0
    },
    "z": 16
   },
   {
-   "id": "c.leaf2",
-   "stem": "c",
-   "t": 0.4106,
-   "image": "organs/c.leaf2.webp",
+   "id": "side.flos1",
+   "stem": "side",
+   "t": 0.71,
+   "image": "organs/side.flos1.webp",
    "off": [
-    43.6,
-    927.9
+    224.5,
+    952.7
    ],
    "pivot": [
-    468.5,
-    1060.9
+    240.5,
+    1017.0
    ],
-   "restAngle": -95.94,
+   "restAngle": -92.72,
    "sway": {
-    "amp": 10.92,
-    "speed": 11,
-    "phase": 3.756
+    "amp": 12.99,
+    "speed": 5,
+    "phase": 3.368
    },
    "hit": {
     "at": [
-     315.4,
-     1050.5
+     345.4,
+     1025.5
     ],
-    "r": 92.1
+    "r": 75.0
    },
    "z": 17
   },
   {
-   "id": "c.leaf3",
-   "stem": "c",
-   "t": 0.6085,
-   "image": "organs/c.leaf3.webp",
+   "id": "side.flos2",
+   "stem": "side",
+   "t": 0.86,
+   "image": "organs/side.flos2.webp",
    "off": [
-    443.3,
-    540.9
+    191.5,
+    851.1
    ],
    "pivot": [
-    446.7,
-    752.9
+    248.0,
+    907.5
    ],
-   "restAngle": -91.53,
+   "restAngle": -79.08,
    "sway": {
-    "amp": 11.58,
-    "speed": 9,
-    "phase": 3.849
+    "amp": 13.91,
+    "speed": 6,
+    "phase": 2.119
    },
-   "hit": null,
+   "hit": {
+    "at": [
+     244.5,
+     910.4
+    ],
+    "r": 78.0
+   },
    "z": 18
   },
   {
-   "id": "c.leaf4",
-   "stem": "c",
-   "t": 0.7647,
-   "image": "organs/c.leaf4.webp",
+   "id": "base.leaf0",
+   "stem": "base",
+   "t": 0.0421,
+   "image": "organs/base.leaf0.webp",
    "off": [
-    157.3,
-    368.5
+    654.6,
+    1320.2
    ],
    "pivot": [
-    452.1,
-    519.7
+    724.1,
+    1505.8
    ],
-   "restAngle": -85.33,
+   "restAngle": -69.25,
    "sway": {
-    "amp": 9.11,
+    "amp": 6.22,
     "speed": 8,
-    "phase": 1.206
-   },
-   "hit": null,
-   "z": 19
-  },
-  {
-   "id": "c.flos0",
-   "stem": "c",
-   "t": 0.7,
-   "image": "organs/c.flos0.webp",
-   "off": [
-    241.8,
-    358.9
-   ],
-   "pivot": [
-    446.8,
-    615.1
-   ],
-   "restAngle": -88.21,
-   "sway": {
-    "amp": 11.15,
-    "speed": 6,
-    "phase": 5.374
-   },
-   "hit": {
-    "at": [
-     400.9,
-     556.8
-    ],
-    "r": 118.7
-   },
-   "z": 20
-  },
-  {
-   "id": "c.flos1",
-   "stem": "c",
-   "t": 0.76,
-   "image": "organs/c.flos1.webp",
-   "off": [
-    359.3,
-    308.2
-   ],
-   "pivot": [
-    451.5,
-    526.6
-   ],
-   "restAngle": -85.55,
-   "sway": {
-    "amp": 11.17,
-    "speed": 6,
-    "phase": 1.654
-   },
-   "hit": {
-    "at": [
-     496.2,
-     481.1
-    ],
-    "r": 102.0
-   },
-   "z": 21
-  },
-  {
-   "id": "c.flos2",
-   "stem": "c",
-   "t": 0.82,
-   "image": "organs/c.flos2.webp",
-   "off": [
-    275.1,
-    189.2
-   ],
-   "pivot": [
-    460.6,
-    439.8
-   ],
-   "restAngle": -82.49,
-   "sway": {
-    "amp": 10.36,
-    "speed": 6,
-    "phase": 1.327
-   },
-   "hit": {
-    "at": [
-     422.6,
-     380.3
-    ],
-    "r": 113.0
-   },
-   "z": 22
-  },
-  {
-   "id": "c.flos3",
-   "stem": "c",
-   "t": 0.88,
-   "image": "organs/c.flos3.webp",
-   "off": [
-    399.4,
-    160.8
-   ],
-   "pivot": [
-    474.4,
-    354.7
-   ],
-   "restAngle": -79.02,
-   "sway": {
-    "amp": 8.19,
-    "speed": 6,
-    "phase": 4.46
-   },
-   "hit": {
-    "at": [
-     518.8,
-     318.7
-    ],
-    "r": 91.4
-   },
-   "z": 23
-  },
-  {
-   "id": "c.flos4",
-   "stem": "c",
-   "t": 0.94,
-   "image": "organs/c.flos4.webp",
-   "off": [
-    361.6,
-    72.9
-   ],
-   "pivot": [
-    493.4,
-    271.5
-   ],
-   "restAngle": -75.16,
-   "sway": {
-    "amp": 14.95,
-    "speed": 5,
     "phase": 4.886
    },
    "hit": {
     "at": [
-     470.7,
-     223.2
+     712.8,
+     1427.0
     ],
-    "r": 85.4
+    "r": 67.2
    },
-   "z": 24
+   "z": 19
   },
   {
-   "id": "c.flos5",
-   "stem": "c",
-   "t": 1.0,
-   "image": "organs/c.flos5.webp",
+   "id": "base.leaf1",
+   "stem": "base",
+   "t": 0.2795,
+   "image": "organs/base.leaf1.webp",
    "off": [
-    458.0,
-    7.7
+    759.7,
+    1346.9
    ],
    "pivot": [
-    518.1,
-    190.2
+    775.7,
+    1384.8
    ],
-   "restAngle": -70.92,
+   "restAngle": -66.12,
    "sway": {
-    "amp": 11.19,
-    "speed": 5,
-    "phase": 5.447
-   },
-   "hit": {
-    "at": [
-     564.8,
-     162.3
-    ],
-    "r": 87.1
-   },
-   "z": 25
-  },
-  {
-   "id": "d.leaf0",
-   "stem": "d",
-   "t": 0.046,
-   "image": "organs/d.leaf0.webp",
-   "off": [
-    593.9,
-    1558.5
-   ],
-   "pivot": [
-    859.2,
-    1626.5
-   ],
-   "restAngle": -90.01,
-   "sway": {
-    "amp": 7.62,
-    "speed": 11,
-    "phase": 5.904
-   },
-   "hit": {
-    "at": [
-     747.8,
-     1605.9
-    ],
-    "r": 75.5
-   },
-   "z": 26
-  },
-  {
-   "id": "d.leaf1",
-   "stem": "d",
-   "t": 0.1561,
-   "image": "organs/d.leaf1.webp",
-   "off": [
-    848.4,
-    1320.7
-   ],
-   "pivot": [
-    862.4,
-    1475.1
-   ],
-   "restAngle": -87.89,
-   "sway": {
-    "amp": 6.49,
+    "amp": 7.4,
     "speed": 8,
-    "phase": 3.934
-   },
-   "hit": {
-    "at": [
-     960.2,
-     1397.1
-    ],
-    "r": 83.4
-   },
-   "z": 27
-  },
-  {
-   "id": "d.leaf2",
-   "stem": "d",
-   "t": 0.2703,
-   "image": "organs/d.leaf2.webp",
-   "off": [
-    731.4,
-    1117.5
-   ],
-   "pivot": [
-    869.0,
-    1319.8
-   ],
-   "restAngle": -87.49,
-   "sway": {
-    "amp": 10.93,
-    "speed": 13,
-    "phase": 0.783
-   },
-   "hit": {
-    "at": [
-     818.3,
-     1232.1
-    ],
-    "r": 67.6
-   },
-   "z": 28
-  },
-  {
-   "id": "d.leaf3",
-   "stem": "d",
-   "t": 0.3486,
-   "image": "organs/d.leaf3.webp",
-   "off": [
-    858.6,
-    1054.7
-   ],
-   "pivot": [
-    873.0,
-    1214.8
-   ],
-   "restAngle": -88.3,
-   "sway": {
-    "amp": 9.03,
-    "speed": 9,
-    "phase": 4.928
+    "phase": 2.689
    },
    "hit": null,
-   "z": 29
+   "z": 20
   },
   {
-   "id": "d.leaf4",
-   "stem": "d",
-   "t": 0.4448,
-   "image": "organs/d.leaf4.webp",
+   "id": "base.leaf2",
+   "stem": "base",
+   "t": 0.4557,
+   "image": "organs/base.leaf2.webp",
    "off": [
-    669.4,
-    1029.1
+    737.6,
+    1181.9
    ],
    "pivot": [
-    874.5,
-    1087.9
+    811.6,
+    1297.3
    ],
-   "restAngle": -90.59,
-   "sway": {
-    "amp": 9.98,
-    "speed": 9,
-    "phase": 1.033
-   },
-   "hit": null,
-   "z": 30
-  },
-  {
-   "id": "d.leaf5",
-   "stem": "d",
-   "t": 0.5657,
-   "image": "organs/d.leaf5.webp",
-   "off": [
-    852.7,
-    862.4
-   ],
-   "pivot": [
-    866.7,
-    932.3
-   ],
-   "restAngle": -95.62,
-   "sway": {
-    "amp": 6.4,
-    "speed": 9,
-    "phase": 1.059
-   },
-   "hit": null,
-   "z": 31
-  },
-  {
-   "id": "d.leaf6",
-   "stem": "d",
-   "t": 0.6756,
-   "image": "organs/d.leaf6.webp",
-   "off": [
-    680.5,
-    714.7
-   ],
-   "pivot": [
-    845.5,
-    795.5
-   ],
-   "restAngle": -102.42,
-   "sway": {
-    "amp": 7.73,
-    "speed": 9,
-    "phase": 3.113
-   },
-   "hit": null,
-   "z": 32
-  },
-  {
-   "id": "d.leaf7",
-   "stem": "d",
-   "t": 0.7701,
-   "image": "organs/d.leaf7.webp",
-   "off": [
-    798.2,
-    576.4
-   ],
-   "pivot": [
-    812.9,
-    682.2
-   ],
-   "restAngle": -109.9,
-   "sway": {
-    "amp": 11.34,
-    "speed": 13,
-    "phase": 1.531
-   },
-   "hit": null,
-   "z": 33
-  },
-  {
-   "id": "d.flos0",
-   "stem": "d",
-   "t": 0.7,
-   "image": "organs/d.flos0.webp",
-   "off": [
-    680.7,
-    622.3
-   ],
-   "pivot": [
-    838.4,
-    765.9
-   ],
-   "restAngle": -104.22,
-   "sway": {
-    "amp": 8.51,
-    "speed": 6,
-    "phase": 5.696
-   },
-   "hit": {
-    "at": [
-     799.4,
-     737.7
-    ],
-    "r": 77.1
-   },
-   "z": 34
-  },
-  {
-   "id": "d.flos1",
-   "stem": "d",
-   "t": 0.75,
-   "image": "organs/d.flos1.webp",
-   "off": [
-    762.7,
-    527.4
-   ],
-   "pivot": [
-    821.1,
-    705.9
-   ],
-   "restAngle": -108.2,
-   "sway": {
-    "amp": 14.75,
-    "speed": 7,
-    "phase": 1.671
-   },
-   "hit": {
-    "at": [
-     839.5,
-     659.8
-    ],
-    "r": 79.5
-   },
-   "z": 35
-  },
-  {
-   "id": "d.flos2",
-   "stem": "d",
-   "t": 0.8,
-   "image": "organs/d.flos2.webp",
-   "off": [
-    637.4,
-    519.0
-   ],
-   "pivot": [
-    799.3,
-    647.2
-   ],
-   "restAngle": -112.53,
-   "sway": {
-    "amp": 14.45,
-    "speed": 7,
-    "phase": 3.971
-   },
-   "hit": {
-    "at": [
-     758.2,
-     625.8
-    ],
-    "r": 74.1
-   },
-   "z": 36
-  },
-  {
-   "id": "d.flos3",
-   "stem": "d",
-   "t": 0.85,
-   "image": "organs/d.flos3.webp",
-   "off": [
-    704.7,
-    426.5
-   ],
-   "pivot": [
-    772.7,
-    589.7
-   ],
-   "restAngle": -117.16,
-   "sway": {
-    "amp": 9.66,
-    "speed": 5,
-    "phase": 3.42
-   },
-   "hit": {
-    "at": [
-     782.5,
-     546.6
-    ],
-    "r": 70.8
-   },
-   "z": 37
-  },
-  {
-   "id": "d.flos4",
-   "stem": "d",
-   "t": 0.9,
-   "image": "organs/d.flos4.webp",
-   "off": [
-    589.4,
-    431.4
-   ],
-   "pivot": [
-    740.9,
-    533.6
-   ],
-   "restAngle": -121.98,
-   "sway": {
-    "amp": 10.63,
-    "speed": 5,
-    "phase": 1.932
-   },
-   "hit": {
-    "at": [
-     701.8,
-     520.9
-    ],
-    "r": 65.7
-   },
-   "z": 38
-  },
-  {
-   "id": "d.flos5",
-   "stem": "d",
-   "t": 0.95,
-   "image": "organs/d.flos5.webp",
-   "off": [
-    622.7,
-    320.1
-   ],
-   "pivot": [
-    703.4,
-    478.9
-   ],
-   "restAngle": -126.88,
-   "sway": {
-    "amp": 14.17,
-    "speed": 5,
-    "phase": 0.221
-   },
-   "hit": {
-    "at": [
-     705.7,
-     435.8
-    ],
-    "r": 69.2
-   },
-   "z": 39
-  },
-  {
-   "id": "d.flos6",
-   "stem": "d",
-   "t": 1.0,
-   "image": "organs/d.flos6.webp",
-   "off": [
-    518.1,
-    346.0
-   ],
-   "pivot": [
-    659.8,
-    425.8
-   ],
-   "restAngle": -131.75,
-   "sway": {
-    "amp": 10.46,
-    "speed": 7,
-    "phase": 3.09
-   },
-   "hit": {
-    "at": [
-     622.8,
-     420.4
-    ],
-    "r": 59.8
-   },
-   "z": 40
-  },
-  {
-   "id": "b.leaf0",
-   "stem": "b",
-   "t": 0.0404,
-   "image": "organs/b.leaf0.webp",
-   "off": [
-    111.7,
-    1542.9
-   ],
-   "pivot": [
-    379.9,
-    1641.6
-   ],
-   "restAngle": -79.96,
-   "sway": {
-    "amp": 7.14,
-    "speed": 11,
-    "phase": 4.629
-   },
-   "hit": {
-    "at": [
-     271.4,
-     1593.2
-    ],
-    "r": 79.2
-   },
-   "z": 41
-  },
-  {
-   "id": "b.leaf1",
-   "stem": "b",
-   "t": 0.1611,
-   "image": "organs/b.leaf1.webp",
-   "off": [
-    399.5,
-    1405.4
-   ],
-   "pivot": [
-    413.5,
-    1468.1
-   ],
-   "restAngle": -78.36,
-   "sway": {
-    "amp": 8.13,
-    "speed": 9,
-    "phase": 5.9
-   },
-   "hit": {
-    "at": [
-     519.9,
-     1450.2
-    ],
-    "r": 71.9
-   },
-   "z": 42
-  },
-  {
-   "id": "b.leaf2",
-   "stem": "b",
-   "t": 0.2551,
-   "image": "organs/b.leaf2.webp",
-   "off": [
-    240.3,
-    1182.3
-   ],
-   "pivot": [
-    441.5,
-    1334.7
-   ],
-   "restAngle": -78.09,
-   "sway": {
-    "amp": 7.37,
-    "speed": 13,
-    "phase": 2.377
-   },
-   "hit": {
-    "at": [
-     360.9,
-     1267.7
-    ],
-    "r": 69.8
-   },
-   "z": 43
-  },
-  {
-   "id": "b.leaf3",
-   "stem": "b",
-   "t": 0.352,
-   "image": "organs/b.leaf3.webp",
-   "off": [
-    455.6,
-    1134.8
-   ],
-   "pivot": [
-    469.6,
-    1198.7
-   ],
-   "restAngle": -78.73,
-   "sway": {
-    "amp": 11.15,
-    "speed": 13,
-    "phase": 0.073
-   },
-   "hit": null,
-   "z": 44
-  },
-  {
-   "id": "b.leaf4",
-   "stem": "b",
-   "t": 0.4454,
-   "image": "organs/b.leaf4.webp",
-   "off": [
-    305.5,
-    936.4
-   ],
-   "pivot": [
-    493.8,
-    1069.3
-   ],
-   "restAngle": -80.26,
-   "sway": {
-    "amp": 6.18,
-    "speed": 13,
-    "phase": 0.81
-   },
-   "hit": null,
-   "z": 45
-  },
-  {
-   "id": "b.leaf5",
-   "stem": "b",
-   "t": 0.5506,
-   "image": "organs/b.leaf5.webp",
-   "off": [
-    501.0,
-    874.9
-   ],
-   "pivot": [
-    515.0,
-    925.6
-   ],
-   "restAngle": -83.15,
-   "sway": {
-    "amp": 11.09,
-    "speed": 11,
-    "phase": 3.337
-   },
-   "hit": null,
-   "z": 46
-  },
-  {
-   "id": "b.leaf6",
-   "stem": "b",
-   "t": 0.673,
-   "image": "organs/b.leaf6.webp",
-   "off": [
-    363.8,
-    693.5
-   ],
-   "pivot": [
-    527.8,
-    761.7
-   ],
-   "restAngle": -88.23,
-   "sway": {
-    "amp": 9.21,
-    "speed": 8,
-    "phase": 4.422
-   },
-   "hit": null,
-   "z": 47
-  },
-  {
-   "id": "b.leaf7",
-   "stem": "b",
-   "t": 0.761,
-   "image": "organs/b.leaf7.webp",
-   "off": [
-    512.7,
-    596.8
-   ],
-   "pivot": [
-    526.7,
-    646.2
-   ],
-   "restAngle": -93.08,
-   "sway": {
-    "amp": 6.26,
-    "speed": 11,
-    "phase": 3.006
-   },
-   "hit": null,
-   "z": 48
-  },
-  {
-   "id": "b.flos0",
-   "stem": "b",
-   "t": 0.7,
-   "image": "organs/b.flos0.webp",
-   "off": [
-    476.5,
-    666.1
-   ],
-   "pivot": [
-    528.5,
-    726.0
-   ],
-   "restAngle": -89.61,
-   "sway": {
-    "amp": 10.57,
-    "speed": 5,
-    "phase": 0.049
-   },
-   "hit": {
-    "at": [
-     494.0,
-     684.3
-    ],
-    "r": 86.7
-   },
-   "z": 49
-  },
-  {
-   "id": "b.flos1",
-   "stem": "b",
-   "t": 0.775,
-   "image": "organs/b.flos1.webp",
-   "off": [
-    540.6,
-    565.1
-   ],
-   "pivot": [
-    525.6,
-    628.0
-   ],
-   "restAngle": -93.95,
-   "sway": {
-    "amp": 10.44,
-    "speed": 5,
-    "phase": 5.348
-   },
-   "hit": {
-    "at": [
-     558.0,
-     583.5
-    ],
-    "r": 88.1
-   },
-   "z": 50
-  },
-  {
-   "id": "b.flos2",
-   "stem": "b",
-   "t": 0.85,
-   "image": "organs/b.flos2.webp",
-   "off": [
-    464.8,
-    484.5
-   ],
-   "pivot": [
-    514.7,
-    531.5
-   ],
-   "restAngle": -99.02,
-   "sway": {
-    "amp": 8.29,
-    "speed": 6,
-    "phase": 5.894
-   },
-   "hit": {
-    "at": [
-     481.5,
-     502.6
-    ],
-    "r": 70.4
-   },
-   "z": 51
-  },
-  {
-   "id": "b.flos3",
-   "stem": "b",
-   "t": 0.925,
-   "image": "organs/b.flos3.webp",
-   "off": [
-    497.4,
-    377.0
-   ],
-   "pivot": [
-    494.8,
-    436.5
-   ],
-   "restAngle": -104.74,
-   "sway": {
-    "amp": 9.01,
-    "speed": 5,
-    "phase": 3.439
-   },
-   "hit": {
-    "at": [
-     514.1,
-     395.8
-    ],
-    "r": 72.0
-   },
-   "z": 52
-  },
-  {
-   "id": "b.flos4",
-   "stem": "b",
-   "t": 1.0,
-   "image": "organs/b.flos4.webp",
-   "off": [
-    414.8,
-    305.6
-   ],
-   "pivot": [
-    464.9,
-    343.3
-   ],
-   "restAngle": -110.96,
-   "sway": {
-    "amp": 8.13,
-    "speed": 7,
-    "phase": 0.667
-   },
-   "hit": {
-    "at": [
-     430.9,
-     324.5
-    ],
-    "r": 62.1
-   },
-   "z": 53
-  },
-  {
-   "id": "e.leaf0",
-   "stem": "e",
-   "t": 0.049,
-   "image": "organs/e.leaf0.webp",
-   "off": [
-    782.4,
-    1475.1
-   ],
-   "pivot": [
-    981.5,
-    1578.3
-   ],
-   "restAngle": -93.03,
-   "sway": {
-    "amp": 8.62,
-    "speed": 13,
-    "phase": 0.02
-   },
-   "hit": null,
-   "z": 54
-  },
-  {
-   "id": "e.leaf1",
-   "stem": "e",
-   "t": 0.1925,
-   "image": "organs/e.leaf1.webp",
-   "off": [
-    964.1,
-    1307.1
-   ],
-   "pivot": [
-    978.1,
-    1427.8
-   ],
-   "restAngle": -90.16,
-   "sway": {
-    "amp": 11.22,
-    "speed": 8,
-    "phase": 3.355
-   },
-   "hit": null,
-   "z": 55
-  },
-  {
-   "id": "e.leaf2",
-   "stem": "e",
-   "t": 0.3367,
-   "image": "organs/e.leaf2.webp",
-   "off": [
-    850.4,
-    1139.5
-   ],
-   "pivot": [
-    977.6,
-    1279.0
-   ],
-   "restAngle": -90.82,
-   "sway": {
-    "amp": 10.57,
-    "speed": 8,
-    "phase": 4.253
-   },
-   "hit": null,
-   "z": 56
-  },
-  {
-   "id": "e.leaf3",
-   "stem": "e",
-   "t": 0.4892,
-   "image": "organs/e.leaf3.webp",
-   "off": [
-    955.9,
-    1051.5
-   ],
-   "pivot": [
-    969.9,
-    1126.4
-   ],
-   "restAngle": -95.71,
-   "sway": {
-    "amp": 10.49,
-    "speed": 8,
-    "phase": 0.678
-   },
-   "hit": null,
-   "z": 57
-  },
-  {
-   "id": "e.leaf4",
-   "stem": "e",
-   "t": 0.6366,
-   "image": "organs/e.leaf4.webp",
-   "off": [
-    806.0,
-    917.0
-   ],
-   "pivot": [
-    945.3,
-    985.6
-   ],
-   "restAngle": -104.94,
-   "sway": {
-    "amp": 9.46,
-    "speed": 13,
-    "phase": 3.782
-   },
-   "hit": null,
-   "z": 58
-  },
-  {
-   "id": "e.leaf5",
-   "stem": "e",
-   "t": 0.7809,
-   "image": "organs/e.leaf5.webp",
-   "off": [
-    868.2,
-    751.1
-   ],
-   "pivot": [
-    895.0,
-    856.1
-   ],
-   "restAngle": -118.0,
-   "sway": {
-    "amp": 10.74,
-    "speed": 9,
-    "phase": 3.896
-   },
-   "hit": null,
-   "z": 59
-  },
-  {
-   "id": "e.flos0",
-   "stem": "e",
-   "t": 0.7,
-   "image": "organs/e.flos0.webp",
-   "off": [
-    866.0,
-    882.1
-   ],
-   "pivot": [
-    927.0,
-    927.6
-   ],
-   "restAngle": -110.26,
-   "sway": {
-    "amp": 9.46,
-    "speed": 6,
-    "phase": 2.294
-   },
-   "hit": {
-    "at": [
-     882.9,
-     902.4
-    ],
-    "r": 81.3
-   },
-   "z": 60
-  },
-  {
-   "id": "e.flos1",
-   "stem": "e",
-   "t": 0.8,
-   "image": "organs/e.flos1.webp",
-   "off": [
-    877.1,
-    776.9
-   ],
-   "pivot": [
-    885.9,
-    839.6
-   ],
-   "restAngle": -119.95,
-   "sway": {
-    "amp": 9.39,
-    "speed": 5,
-    "phase": 1.566
-   },
-   "hit": {
-    "at": [
-     893.3,
-     798.0
-    ],
-    "r": 67.7
-   },
-   "z": 61
-  },
-  {
-   "id": "e.flos2",
-   "stem": "e",
-   "t": 0.9,
-   "image": "organs/e.flos2.webp",
-   "off": [
-    775.8,
-    728.5
-   ],
-   "pivot": [
-    827.3,
-    756.6
-   ],
-   "restAngle": -130.44,
-   "sway": {
-    "amp": 14.08,
-    "speed": 6,
-    "phase": 5.209
-   },
-   "hit": {
-    "at": [
-     791.5,
-     750.6
-    ],
-    "r": 58.0
-   },
-   "z": 62
-  },
-  {
-   "id": "e.flos3",
-   "stem": "e",
-   "t": 1.0,
-   "image": "organs/e.flos3.webp",
-   "off": [
-    726.5,
-    624.0
-   ],
-   "pivot": [
-    747.9,
-    679.1
-   ],
-   "restAngle": -140.62,
-   "sway": {
-    "amp": 11.74,
-    "speed": 7,
-    "phase": 5.956
-   },
-   "hit": {
-    "at": [
-     741.9,
-     647.1
-    ],
-    "r": 52.1
-   },
-   "z": 63
-  },
-  {
-   "id": "f.leaf0",
-   "stem": "f",
-   "t": 0.0552,
-   "image": "organs/f.leaf0.webp",
-   "off": [
-    26.7,
-    1518.0
-   ],
-   "pivot": [
-    219.8,
-    1717.5
-   ],
-   "restAngle": -82.5,
-   "sway": {
-    "amp": 11.9,
-    "speed": 11,
-    "phase": 3.679
-   },
-   "hit": null,
-   "z": 64
-  },
-  {
-   "id": "f.leaf1",
-   "stem": "f",
-   "t": 0.4164,
-   "image": "organs/f.leaf1.webp",
-   "off": [
-    217.7,
-    1411.3
-   ],
-   "pivot": [
-    235.6,
-    1522.1
-   ],
-   "restAngle": -82.57,
-   "sway": {
-    "amp": 6.77,
-    "speed": 9,
-    "phase": 2.851
-   },
-   "hit": null,
-   "z": 65
-  },
-  {
-   "id": "f.leaf2",
-   "stem": "f",
-   "t": 0.7561,
-   "image": "organs/f.leaf2.webp",
-   "off": [
-    214.5,
-    1251.6
-   ],
-   "pivot": [
-    298.5,
-    1361.7
-   ],
-   "restAngle": -50.01,
-   "sway": {
-    "amp": 9.94,
-    "speed": 13,
-    "phase": 0.624
-   },
-   "hit": null,
-   "z": 66
-  },
-  {
-   "id": "g.leaf0",
-   "stem": "g",
-   "t": 0.0356,
-   "image": "organs/g.leaf0.webp",
-   "off": [
-    582.5,
-    1619.5
-   ],
-   "pivot": [
-    771.2,
-    1730.8
-   ],
-   "restAngle": -99.36,
-   "sway": {
-    "amp": 11.77,
-    "speed": 11,
-    "phase": 1.641
-   },
-   "hit": null,
-   "z": 67
-  },
-  {
-   "id": "g.leaf1",
-   "stem": "g",
-   "t": 0.4192,
-   "image": "organs/g.leaf1.webp",
-   "off": [
-    667.7,
-    1360.5
-   ],
-   "pivot": [
-    747.8,
-    1507.1
-   ],
-   "restAngle": -98.53,
-   "sway": {
-    "amp": 6.61,
-    "speed": 11,
-    "phase": 2.03
-   },
-   "hit": null,
-   "z": 68
-  },
-  {
-   "id": "g.leaf2",
-   "stem": "g",
-   "t": 0.7604,
-   "image": "organs/g.leaf2.webp",
-   "off": [
-    569.5,
-    1267.8
-   ],
-   "pivot": [
-    678.1,
-    1333.8
-   ],
-   "restAngle": -129.78,
-   "sway": {
-    "amp": 7.28,
-    "speed": 8,
-    "phase": 2.246
-   },
-   "hit": null,
-   "z": 69
-  },
-  {
-   "id": "h.leaf0",
-   "stem": "h",
-   "t": 0.0375,
-   "image": "organs/h.leaf0.webp",
-   "off": [
-    295.1,
-    1569.2
-   ],
-   "pivot": [
-    454.8,
-    1733.0
-   ],
-   "restAngle": -90.91,
-   "sway": {
-    "amp": 8.93,
-    "speed": 8,
-    "phase": 4.473
-   },
-   "hit": null,
-   "z": 70
-  },
-  {
-   "id": "h.leaf1",
-   "stem": "h",
-   "t": 0.4226,
-   "image": "organs/h.leaf1.webp",
-   "off": [
-    433.8,
-    1437.8
-   ],
-   "pivot": [
-    446.7,
-    1541.2
-   ],
-   "restAngle": -91.16,
-   "sway": {
-    "amp": 6.16,
-    "speed": 8,
-    "phase": 3.922
-   },
-   "hit": null,
-   "z": 71
-  },
-  {
-   "id": "h.leaf2",
-   "stem": "h",
-   "t": 0.7614,
-   "image": "organs/h.leaf2.webp",
-   "off": [
-    388.1,
-    1288.0
-   ],
-   "pivot": [
-    460.5,
-    1384.2
-   ],
-   "restAngle": -75.86,
+   "restAngle": -70.24,
    "sway": {
     "amp": 10.85,
-    "speed": 9,
-    "phase": 5.74
+    "speed": 13,
+    "phase": 5.733
    },
    "hit": null,
-   "z": 72
+   "z": 21
   },
   {
-   "id": "h.flos0",
-   "stem": "h",
-   "t": 0.7,
-   "image": "organs/h.flos0.webp",
+   "id": "base.leaf3",
+   "stem": "base",
+   "t": 0.681,
+   "image": "organs/base.leaf3.webp",
    "off": [
-    346.4,
-    1262.0
+    822.7,
+    1144.2
    ],
    "pivot": [
-    454.7,
-    1411.4
+    838.7,
+    1184.6
    ],
-   "restAngle": -79.85,
+   "restAngle": -84.59,
    "sway": {
-    "amp": 11.42,
+    "amp": 5.7,
+    "speed": 9,
+    "phase": 3.381
+   },
+   "hit": null,
+   "z": 22
+  },
+  {
+   "id": "base.flos0",
+   "stem": "base",
+   "t": 0.56,
+   "image": "organs/base.flos0.webp",
+   "off": [
+    746.6,
+    1163.9
+   ],
+   "pivot": [
+    827.8,
+    1245.4
+   ],
+   "restAngle": -75.57,
+   "sway": {
+    "amp": 7.87,
+    "speed": 5,
+    "phase": 0.463
+   },
+   "hit": {
+    "at": [
+     817.8,
+     1238.0
+    ],
+    "r": 102.3
+   },
+   "z": 23
+  },
+  {
+   "id": "base.flos1",
+   "stem": "base",
+   "t": 0.86,
+   "image": "organs/base.flos1.webp",
+   "off": [
+    817.5,
+    1031.9
+   ],
+   "pivot": [
+    833.5,
+    1091.9
+   ],
+   "restAngle": -102.22,
+   "sway": {
+    "amp": 7.9,
     "speed": 7,
-    "phase": 2.881
+    "phase": 6.183
    },
    "hit": {
     "at": [
-     434.8,
-     1376.7
+     908.9,
+     1084.1
     ],
-    "r": 64.1
+    "r": 72.9
    },
-   "z": 73
-  },
-  {
-   "id": "h.flos1",
-   "stem": "h",
-   "t": 0.85,
-   "image": "organs/h.flos1.webp",
-   "off": [
-    431.5,
-    1227.7
-   ],
-   "pivot": [
-    472.5,
-    1345.9
-   ],
-   "restAngle": -69.19,
-   "sway": {
-    "amp": 9.51,
-    "speed": 7,
-    "phase": 3.762
-   },
-   "hit": {
-    "at": [
-     502.1,
-     1329.4
-    ],
-    "r": 54.2
-   },
-   "z": 74
-  },
-  {
-   "id": "h.flos2",
-   "stem": "h",
-   "t": 1.0,
-   "image": "organs/h.flos2.webp",
-   "off": [
-    445.4,
-    1169.8
-   ],
-   "pivot": [
-    504.1,
-    1284.6
-   ],
-   "restAngle": -56.16,
-   "sway": {
-    "amp": 11.25,
-    "speed": 6,
-    "phase": 3.972
-   },
-   "hit": {
-    "at": [
-     501.1,
-     1256.4
-    ],
-    "r": 45.3
-   },
-   "z": 75
+   "z": 24
   }
  ],
  "gemma": {
   "id": "gemma",
-  "stem": "c",
+  "stem": "main",
   "t": 1.0,
   "pivot": [
-   518.1,
-   190.2
+   568.1,
+   370.2
   ],
-  "restAngle": -70.92,
+  "restAngle": -72.53,
   "frames": [
    {
     "image": "bloom/00.webp",
     "off": [
-     455.3,
-     54.0
+     532.2,
+     251.2
     ]
    },
    {
     "image": "bloom/01.webp",
     "off": [
-     455.9,
-     52.2
+     529.2,
+     248.8
     ]
    },
    {
     "image": "bloom/02.webp",
     "off": [
-     457.7,
-     47.9
+     519.3,
+     241.8
     ]
    },
    {
     "image": "bloom/03.webp",
     "off": [
-     454.4,
-     41.7
+     499.4,
+     232.5
     ]
    },
    {
     "image": "bloom/04.webp",
     "off": [
-     417.1,
-     34.2
+     465.3,
+     219.4
     ]
    },
    {
     "image": "bloom/05.webp",
     "off": [
-     379.3,
-     24.2
+     426.1,
+     204.6
     ]
    },
    {
     "image": "bloom/06.webp",
     "off": [
-     349.2,
-     14.3
+     393.0,
+     189.8
     ]
    },
    {
     "image": "bloom/07.webp",
     "off": [
-     333.1,
-     5.4
+     373.6,
+     176.1
     ]
    },
    {
     "image": "bloom/08.webp",
     "off": [
-     332.2,
-     -2.1
+     370.4,
+     164.5
     ]
    },
    {
     "image": "bloom/09.webp",
     "off": [
-     337.1,
-     -7.6
+     368.3,
+     155.6
     ]
    },
    {
     "image": "bloom/10.webp",
     "off": [
-     326.3,
-     -11.1
+     355.1,
+     150.0
     ]
    },
    {
     "image": "bloom/11.webp",
     "off": [
-     322.7,
-     -12.3
+     350.6,
+     148.0
     ]
    }
   ],
   "hit": {
    "at": [
-    541.7,
-    122.2
+    591.8,
+    294.6
    ],
-   "r": 114.0
+   "r": 125.4
   },
   "sway": {
    "amp": 9.0,
    "speed": 6,
    "phase": 0.7
   }
+ },
+ "roots": {
+  "image": "roots.webp",
+  "off": [
+   158,
+   1500
+  ]
  }
 }

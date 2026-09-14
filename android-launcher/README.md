@@ -33,8 +33,10 @@ android-launcher/
 └── tools/flora/                 # 素材づくり（Python）
     ├── pencil.py                #   鉛筆の線
     ├── leaves.py                #   葉の型（披針・広卵・羽状複葉・掌状）
-    ├── shapes.py                #   釣鐘・星形・蕾
-    ├── plate.py                 #   版面の構図
+    ├── shapes.py                #   釣鐘・星形・蕾・茎の筒
+    ├── layout.py                #   配置。どこに何が生えるか（唯一の出どころ）
+    ├── render.py                #   描き方。器官 1 つを描く手順（版面と共用）
+    ├── plate.py                 #   版面を 1 枚絵に起こす
     ├── build_assets.py          #   器官を 1 つずつ焼いて manifest を書く
     └── preview.py               #   端末に入れる前に動きを確かめる
 ```
@@ -120,8 +122,25 @@ python3 preview.py --seconds 6 --out motion.gif
 python3 preview.py --seconds 5 --bloom --out bloom.gif
 ```
 
-`build_assets.py` の出力先を `app/src/main/assets/flora/` に置き換えれば反映される。
-構図は `plate.py` の `STEMS`（根元の位置、角度、丈、葉の型、花序）で決まる。
+`tools/flora/assets/` に出るので、`app/src/main/assets/flora/` へ丸ごと置き換えれば
+反映される（古い器官が残らないよう、消してから入れ替える）。
+
+構図は `layout.py` の `STEMS`（根元の位置、角度、丈、奥行、花数、葉数、葉の型）と
+`ROOTS`・`CAPTION` で決まる。`plate.py`（版面）と `build_assets.py`（実機用の素材）は
+どちらも `layout.build()` が返した配置だけを見て、器官は `render.py` の同じ関数で描く。
+以前は同じ計算を両方に書き写していて、片方だけ直すと版面と実機で草の生え方がずれた。
+
+### 触れる部位は少なく、大きく
+
+タップ対象は葉が株ごとに 1 枚、花が全部、それと先端の蕾で 13 か所。判定の円は
+`layout.separate()` が中心間距離の半分まで詰めるので、どこを押しても一意に決まる。
+対象を増やすと一つひとつが小さくなり、複数アプリを登録したときに押し分けられない。
+
+### 標本画であって、生け垣ではない
+
+参照した19世紀の図版は、画面を葉で埋めていない。一株を根から花まで描き切り、
+たっぷりの余白の中央に据え、下に学名を入れている。密度は「画面を埋めること」
+ではなく「一株を完全に描き切ること」で出す。
 
 ## ビルドと配布
 

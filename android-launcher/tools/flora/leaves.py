@@ -7,6 +7,15 @@ import math
 from shapes import polar, quad, lerp
 
 
+def _noise(seed, i):
+    """位置だけで決まる擬似乱数。乱数生成器を持ち回ると版面と実機で
+    値がずれるので、座標から決める。0..1 を返す。"""
+    h = (int(seed * 7919) ^ (i * 2654435761)) & 0xFFFFFFFF
+    h = (h ^ (h >> 15)) * 2246822519 & 0xFFFFFFFF
+    h = (h ^ (h >> 13)) * 3266489917 & 0xFFFFFFFF
+    return ((h ^ (h >> 16)) & 0xFFFF) / 65535.0
+
+
 def _blade(attach, d, length, width, bend=0.0, teeth=0, waist=0.36, tip_sharp=1.0):
     """1 枚の葉身。waist を上げると卵形、下げると披針形。"""
     tip = polar(attach, d + bend * 16, length)
@@ -17,26 +26,40 @@ def _blade(attach, d, length, width, bend=0.0, teeth=0, waist=0.36, tip_sharp=1.
     e2 = quad(tip, right, attach, 20)
 
     if teeth:
-        def serrate(edge, outdeg):
+        # 鋸歯。等間隔・等高さにすると型で抜いた飾り縁になる。実物は
+        # 大小が混じり、ところどころ歯が飛ぶ。そこを崩すだけで手描きに寄る。
+        seed = attach[0] * 0.37 + attach[1] * 0.11 + d * 0.017
+
+        def serrate(edge, outdeg, off):
             out = []
             for i, p in enumerate(edge):
                 t = i / (len(edge) - 1)
-                amp = width * 0.085 * (math.sin(math.pi * t) ** 0.55)
-                out.append(polar(p, outdeg, amp) if i % 2 else p)
+                n = _noise(seed + off, i)
+                if i % 2 == 0 or n < 0.18:
+                    out.append(p)
+                    continue
+                amp = width * 0.058 * (0.55 + 0.9 * n) * (math.sin(math.pi * t) ** 0.55)
+                out.append(polar(p, outdeg + (n - 0.5) * 40, amp))
             return out
-        e1 = serrate(e1, d - 90)
-        e2 = serrate(e2, d + 90)
+        e1 = serrate(e1, d - 90, 0.0)
+        e2 = serrate(e2, d + 90, 3.5)
 
     outline = e1 + e2[1:]
     midrib = quad(attach, polar(attach, d + bend * 8, length * 0.5), tip, 14)
     veins, flow = [], []
+    vseed = attach[0] * 0.23 + attach[1] * 0.41 + d * 0.013
     for i in range(1, 5):
-        t = i / 5
-        on = midrib[int(t * 14)]
-        span = width * 2 * t * (1 - t) * 0.82
+        # 側脈は左右で高さがずれ、角度も一本ずつ違う。左右対称に並べると
+        # 魚の骨に見える。
         for sd in (-1, 1):
-            veins.append(quad(on, polar(on, d + sd * 40, span * 0.6),
-                              polar(on, d + sd * 62, span), 7))
+            n = _noise(vseed, i * 2 + (sd > 0))
+            t = (i + (n - 0.5) * 0.55) / 5
+            t = min(max(t, 0.08), 0.94)
+            on = midrib[int(t * 14)]
+            span = width * 2 * t * (1 - t) * 0.82
+            a = 40 + (n - 0.5) * 18
+            veins.append(quad(on, polar(on, d + sd * a, span * 0.6),
+                              polar(on, d + sd * (a + 22), span), 7))
     # ハッチングの向きは側脈に沿わせる（主脈から縁へ）。
     #
     # 葉の長手方向に走らせると木目や段ボールに見える。銅版画の葉は必ず

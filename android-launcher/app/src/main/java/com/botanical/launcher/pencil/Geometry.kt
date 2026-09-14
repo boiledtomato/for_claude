@@ -122,3 +122,23 @@ fun bloomPetals(
         bladeOutline(polar(centre, a, hub), a, ln, wd)
     }
 }
+
+/**
+ * 折れ線を、進行方向に対して [relDeg] の向きへずらす。
+ *
+ * 茎を「太い 1 本の線」ではなく「輪郭 2 本の筒」として描くのに使う。図版の
+ * 茎は必ず筒として描かれていて、そこに縦の調子が入っている。太い線で引くと
+ * ただの黒い棒になり、それだけで植物画には見えなくなる。
+ */
+fun offsetPoly(pts: List<Offset>, relDeg: Float, dist: (Float) -> Float): List<Offset> {
+    val n = pts.size
+    if (n < 2) return pts
+    return pts.mapIndexed { i, p ->
+        val a = pts[(i + 1).coerceAtMost(n - 1)]
+        val b = pts[(i - 1).coerceAtLeast(0)]
+        val ang = Math.toDegrees(
+            kotlin.math.atan2((a.y - b.y).toDouble(), (a.x - b.x).toDouble())
+        ).toFloat()
+        polar(p, ang + relDeg, dist(i / (n - 1f)))
+    }
+}

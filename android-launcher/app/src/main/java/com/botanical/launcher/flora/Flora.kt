@@ -22,6 +22,9 @@ data class Flora(
     val stems: List<Stem>,
     val organs: List<Organ>,
     val gemma: Gemma?,
+    val roots: Roots?,
+    val caption: String,
+    val plateNo: String,
 ) {
     val stemById: Map<String, Stem> = stems.associateBy { it.id }
 
@@ -38,7 +41,8 @@ data class Flora(
     fun target(id: String): TapTarget? = tapTargets.firstOrNull { it.id == id }
 
     companion object {
-        val Empty = Flora(1100f, 1800f, Color(0xFFF6F3EC), emptyList(), emptyList(), null)
+        val Empty = Flora(1100f, 1800f, Color(0xFFF6F3EC), emptyList(), emptyList(),
+            null, null, "", "")
     }
 }
 
@@ -79,6 +83,11 @@ data class Organ(
 }
 
 data class BloomFrame(val imagePath: String, val off: Offset) {
+    var bitmap: Bitmap? = null
+}
+
+/** 根。土の中なので風では動かない。1 枚に焼いてそのまま置く。 */
+data class Roots(val imagePath: String, val off: Offset) {
     var bitmap: Bitmap? = null
 }
 
@@ -166,6 +175,10 @@ fun parseFlora(json: String): Flora {
         )
     }
 
+    val roots = root.optJSONObject("roots")?.let {
+        Roots(it.getString("image"), it.getJSONArray("off").offset())
+    }
+
     val paperHex = plate.optString("paper", "#F6F3EC").removePrefix("#")
     return Flora(
         width = plate.getDouble("width").toFloat(),
@@ -174,5 +187,8 @@ fun parseFlora(json: String): Flora {
         stems = stems,
         organs = organs,
         gemma = gemma,
+        roots = roots,
+        caption = plate.optString("caption", ""),
+        plateNo = plate.optString("plateNo", ""),
     )
 }
