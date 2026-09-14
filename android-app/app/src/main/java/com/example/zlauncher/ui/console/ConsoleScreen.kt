@@ -173,12 +173,14 @@ fun ConsoleScreen(
                 title = when {
                     selected is ConsolePane.Insights -> "Web Insights"
                     selected is ConsolePane.Widgets -> "Widgets"
+                    selected is ConsolePane.Auth -> "Auth"
                     selectedCategory != null -> selectedCategory.category.name
                     else -> "Overview"
                 },
                 subtitle = when {
                     selected is ConsolePane.Insights -> "Per-category traffic log"
                     selected is ConsolePane.Widgets -> "Placed on this screen"
+                    selected is ConsolePane.Auth -> "One-time codes · kept on this phone"
                     selectedCategory != null -> "${selectedCategory.apps.size} apps"
                     else -> "Live · updated ${formatClock(snapshot.metrics.sampledAtMillis)}"
                 },
@@ -225,6 +227,8 @@ fun ConsoleScreen(
                         widgetHost = widgetHost,
                         onAddWidget = onAddWidget,
                     )
+
+                    ConsolePane.Auth -> AuthPane(viewModel = viewModel)
 
                     is ConsolePane.Category -> {
                         val pane = categories.firstOrNull { it.id == target.id }
@@ -432,6 +436,14 @@ private fun ConsoleRail(
             selected = selected is ConsolePane.Widgets,
             indicator = { RailFrame(ZColors.AccentSoft) },
             onClick = { onSelect(ConsolePane.Widgets) },
+        )
+
+        // 認証コード。認証アプリを開かずに済ませるための面
+        RailItem(
+            label = "Auth",
+            selected = selected is ConsolePane.Auth,
+            indicator = { RailKey(ZColors.AccentSoft) },
+            onClick = { onSelect(ConsolePane.Auth) },
         )
 
         // Overview / Insights は据え置きの機能、以下は自分で作った URL カテゴリー。
@@ -823,6 +835,21 @@ private fun RailFrame(color: Color) {
         contentAlignment = Alignment.Center,
     ) {
         Box(Modifier.width(8.dp).height(1.5.dp).background(color))
+    }
+}
+
+/** 認証コードの印。鍵の形を単純化したもの（丸と短い軸） */
+@Composable
+private fun RailKey(color: Color) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Box(
+            Modifier
+                .size(9.dp)
+                .clip(CircleShape)
+                .border(2.dp, color, CircleShape)
+        )
+        Box(Modifier.width(7.dp).height(2.dp).background(color))
+        Box(Modifier.width(2.dp).height(5.dp).background(color))
     }
 }
 

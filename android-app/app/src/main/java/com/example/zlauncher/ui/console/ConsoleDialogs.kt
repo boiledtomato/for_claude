@@ -24,6 +24,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
@@ -58,7 +59,7 @@ fun CategoryEditDialog(
     onConfirm: (String, Int) -> Unit,
 ) {
     var name by remember { mutableStateOf(initialName) }
-    var colorIndex by remember { mutableStateOf(initialColorIndex) }
+    var colorIndex by remember { mutableIntStateOf(initialColorIndex) }
 
     Dialog(onDismissRequest = onDismiss) {
         Column(

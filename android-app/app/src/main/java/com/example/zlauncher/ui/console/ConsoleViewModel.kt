@@ -29,14 +29,20 @@ import com.example.zlauncher.domain.model.CardSpan
 import com.example.zlauncher.domain.model.CatalogDiff
 import com.example.zlauncher.domain.model.CatalogPick
 import com.example.zlauncher.domain.model.UrlCategoryGroup
+import com.example.zlauncher.core.otp.OtpDraft
+import com.example.zlauncher.core.otp.Totp
+import com.example.zlauncher.data.otp.OtpRepository
 import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.domain.model.WidgetPlacement
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -53,6 +59,7 @@ class ConsoleViewModel @Inject constructor(
     private val classifier: AppClassifier,
     private val catalogUpdater: CatalogUpdater,
     private val widgetRepository: WidgetRepository,
+    private val otpRepository: OtpRepository,
     installedApps: InstalledAppRepository,
     metricsRepository: DeviceMetricsRepository,
 ) : ViewModel() {
@@ -215,6 +222,66 @@ class ConsoleViewModel @Inject constructor(
 
     fun setPinned(slot: Int, packageName: String?) = viewModelScope.launch {
         categoryRepository.setPinned(slot, packageName)
+    }
+
+    // ---- 認証コード（TOTP） -------------------------------------------------
+
+    /**
+     * 1 秒ごとの時刻。コードと残り秒はここから計算する。
+     *
+     * **Auth ペインを開いているときだけ流れる**（`WhileSubscribed`）。ホームに居る間ずっと
+     * 毎秒 HMAC を回す理由は無い。
+     */
+    private val otpTicker: Flow<Long> = flow {
+        while (true) {
+            emit(System.currentTimeMillis())
+            delay(1_000)
+        }
+    }
+
+    val otpStatus: StateFlow<OtpRepository.Status> = otpRepository.status
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), OtpRepository.Status.EMPTY)
+
+    val otpCodes: StateFlow<List<OtpCodeUi>> =
+        combine(otpRepository.entries, otpTicker) { entries, now ->
+            entries.mapIndexed { index, entry ->
+                OtpCodeUi(
+                    id = entry.id,
+                    issuer = entry.issuer,
+                    account = entry.account,
+                    grouped = Totp.group(
+                        Totp.code(entry.secret, now, entry.periodSeconds, entry.digits, entry.algorithm)
+                    ),
+                    raw = Totp.code(entry.secret, now, entry.periodSeconds, entry.digits, entry.algorithm),
+                    secondsRemaining = Totp.secondsRemaining(now, entry.periodSeconds),
+                    fraction = Totp.remainingFraction(now, entry.periodSeconds),
+                    colorIndex = index,
+                )
+            }
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(2_000), emptyList())
+
+    fun loadOtp() = viewModelScope.launch { otpRepository.ensureLoaded() }
+
+    /** 面を閉じたら鍵をメモリから落とす */
+    fun unloadOtp() = viewModelScope.launch { otpRepository.unload() }
+
+    /** 読めなくなった保管庫を捨てて作り直す。確認を取ってから呼ぶこと */
+    fun discardOtpVault() = viewModelScope.launch { otpRepository.discardUnreadable() }
+
+    fun addOtp(drafts: List<OtpDraft>, onDone: (Int) -> Unit = {}) = viewModelScope.launch {
+        onDone(otpRepository.add(drafts))
+    }
+
+    fun renameOtp(id: String, issuer: String, account: String) = viewModelScope.launch {
+        otpRepository.rename(id, issuer, account)
+    }
+
+    fun removeOtp(ids: Collection<String>) = viewModelScope.launch {
+        otpRepository.remove(ids)
+    }
+
+    fun moveOtp(fromIndex: Int, toIndex: Int) = viewModelScope.launch {
+        otpRepository.move(fromIndex, toIndex)
     }
 
     // ---- ウィジェット -------------------------------------------------------

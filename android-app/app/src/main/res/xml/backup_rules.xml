@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 11 以前のバックアップ設定。allowBackup="false" にしてあるので実際には使われないが、
+  「保管庫は持ち出さない」という意図を両方の時代のルールに書いておく。
+-->
+<full-backup-content>
+    <exclude domain="file" path="otp_vault.bin" />
+    <exclude domain="file" path="otp_vault.bin.tmp" />
+</full-backup-content>

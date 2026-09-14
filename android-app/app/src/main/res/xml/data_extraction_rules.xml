@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  端末の引っ越し（Android 12 以降の device-to-device）で何を持っていくか。
+
+  クラウドバックアップは android:allowBackup="false" で丸ごと止めてあるが、引っ越しは
+  それとは別の経路なので、ここで明示的に外す。**認証コードの保管庫は持っていかない** —
+  鍵は Keystore にあって端末から出ないので、ファイルだけ移しても復号できず、
+  「移ったのに使えないコードが並ぶ」状態になる。移行はエクスポートからやり直す。
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="file" path="otp_vault.bin" />
+        <exclude domain="file" path="otp_vault.bin.tmp" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="file" path="otp_vault.bin" />
+        <exclude domain="file" path="otp_vault.bin.tmp" />
+    </device-transfer>
+</data-extraction-rules>

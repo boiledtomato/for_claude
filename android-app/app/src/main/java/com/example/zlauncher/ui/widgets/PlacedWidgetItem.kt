@@ -155,6 +155,8 @@ fun PlacedWidgetItem(
  * これが無いと、ウィジェットのビューがタップを先に取って提供元アプリが開いてしまう。
  * 選択のタップと長押しの並べ替えはここで受ける（本体には一切渡さない）。
  */
+// 掴む口は「中身にかぶせた膜」に付けるので、枠とは別の Modifier を受け取る
+@Suppress("ModifierParameter")
 @Composable
 private fun EditVeil(
     selected: Boolean,
@@ -186,7 +188,7 @@ private fun WidthHandle(
     modifier: Modifier = Modifier,
 ) {
     val density = LocalDensity.current
-    var dragged by remember { mutableStateOf(0f) }
+    var dragged by remember { mutableFloatStateOf(0f) }
     var active by remember { mutableStateOf(false) }
     val stepPx = with(density) { columnWidth.toPx() }.coerceAtLeast(1f)
 
