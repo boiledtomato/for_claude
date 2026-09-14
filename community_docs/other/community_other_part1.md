@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — その他 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-07 05:39 UTC
-Posts in this file: 719
+Generated: 2026-09-14 05:45 UTC
+Posts in this file: 720
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -14819,4 +14819,21 @@ Workaround is hit back and try again but that is annoying to see this.
 - Note: 回答本文は UI API では取得できないため未収録。
 
 <p>ZCC directly removed via script which is avalible over the internet i just want to know why this is happen between mac machine only and whats the reason behind it</p>
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012MQ7U0AW/inquiry-about-discounts-for-zdte-certification","lastmod":"2026-09-13T00:40:31.000Z","id":"0D5PJ000012MQ7U0AW"} -->
+## Inquiry About Discounts for ZDTE certification
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000012MQ7U0AW/inquiry-about-discounts-for-zdte-certification
+- Type: Q&A
+- Posted: 2026-09-10T09:13:17.000Z
+- Last activity: 2026-09-13T00:40:31.000Z
+- Answers: 0
+- Likes: 1
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+- Note: 回答本文は UI API では取得できないため未収録。
+
+<p>I am interested in pursuing my first Zscaler certification. Could you please let me know if there are any discount coupons or promotional vouchers available for first-time certification candidates?</p>
 <!-- /ZS-POST -->

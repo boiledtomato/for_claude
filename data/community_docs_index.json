@@ -1,6 +1,6 @@
 {
  "fetch_mode": "api",
- "generated_at": "2026-09-07T05:39:56Z",
+ "generated_at": "2026-09-14T05:45:57Z",
  "posts": {
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
    "category": "zcc",
@@ -18617,9 +18617,16 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000011vRiL0AU/zcc-vs-gre-performance-for-zia": {
    "category": "zcc",
-   "hash": "6d1dab4ccabc73d1",
-   "lastmod": "2026-09-03T04:58:30.000Z",
+   "hash": "72dbe74ce5194e5c",
+   "lastmod": "2026-09-13T12:50:32.000Z",
    "title": "ZCC vs GRE performance for ZIA",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000012MQ7U0AW/inquiry-about-discounts-for-zdte-certification": {
+   "category": "other",
+   "hash": "9ada6c6614ce04de",
+   "lastmod": "2026-09-13T00:40:31.000Z",
+   "title": "Inquiry About Discounts for ZDTE certification",
    "type": "question"
   }
  },
@@ -19384,6 +19391,9 @@
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000etV0AQ/zdta-exam-resources": "2026-09-02T17:53:54.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000ewj0AA/learning-zpa-from-scratch-a-beginner-friendly-guide": "2026-09-02T17:53:51.000Z",
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000fET0AY/zia-proxychaining-explained-in-30-seconds": "2026-09-02T17:53:23.000Z",
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000fXp0AI/demystifying-zpa-establishing-a-zero-trust-journey-from-device-to-destination": "2026-09-08T14:13:07.000Z",
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000fnx0AA/a-leaders-guide-to-ai-security-why-our-new-workshop-matters-now": "2026-09-09T18:22:18.000Z",
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000fpZ0AQ/coming-soon-a-new-era-of-learning-at-zscaler": "2026-09-10T16:47:58.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": "2025-04-28T14:39:01.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000005aCX0AY/how-to-access-your-cases-in-the-zscaler-customer-support-portal": "2025-09-25T16:40:36.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000005aMD0AY/how-to-access-customer-support-portal-csp-and-view-the-service-status-section": "2025-10-09T07:00:19.000Z",
@@ -19785,6 +19795,7 @@
   "https://community.zscaler.com/s/Guides/aSoPJ0000006eSb0AI/redeploying-virtual-branch-connector": "2026-08-30T17:28:10.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006exF0AQ/redeploying-cloud-connectors": "2026-09-01T18:20:49.000Z",
   "https://community.zscaler.com/s/Guides/aSoPJ0000006gML0AY/redeploying-hardware-branch-connector-onearmedmode-nongateway-mode": "2026-09-03T16:46:09.000Z",
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006h8j0AA/app-behavior-when-same-domain-is-in-vpn-gateway-bypass-and-zpa-app-segment": "2026-09-10T11:41:48.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evml4CAA/new-community-signups-welcome-picturespictures": "2023-07-06T12:57:39.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmvxCAA/guide-deploy-zscaler-client-connector-with-intune-ios-android": "2023-07-06T13:02:32.000Z",
   "https://community.zscaler.com/s/question/0D54u00009evmwrCAA/guide-integrate-zscaler-with-azure-sentinel": "2023-07-06T13:03:45.000Z",
