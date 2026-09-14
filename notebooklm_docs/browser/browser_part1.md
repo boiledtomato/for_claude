@@ -1,7 +1,7 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 53
 
 ---
@@ -202,13 +202,13 @@ On the Root Certificates page (Zero Trust Browser > Browser Isolation Private Ap
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-sandbox-integration-zero-trust-browser","lastmod":"2026-09-04T07:31Z","nid":"1463131"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-sandbox-integration-zero-trust-browser","lastmod":"2026-09-11T11:58Z","nid":"1463131"} -->
 ## About Sandbox Integration with Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-sandbox-integration-zero-trust-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Policy Management > About Sandbox Integration with Zero Trust Browser
-- Last modified: 2026-09-04T07:31Z
+- Last modified: 2026-09-11T11:58Z
 - Summary: Information about Zscaler's Sandbox integration with Zscaler Zero Trust Browser (formerly Zscaler Isolation)
 
 Sandboxing is a method of protecting your organization from file-based zero-day threats. Internet & SaaS (ZIA) provides admins with the ability to define advanced [sandbox policies](https://help.zscaler.com/zia/configuring-sandbox-policy). For example, a file with active content can be downloaded to the sandbox for analysis and only viewed or downloaded by the user if the defined policy approves it. While analyzing the file in the sandbox, based on the policy defined, Internet & SaaS can quarantine the file so the user sees a temporary quarantine page. The analysis of the file can take anywhere between 5 to 10 minutes. If the sandbox environment determines that the file is malicious, it blocks the file download. To learn more, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox) and [Configuring the Sandbox Policy](https://help.zscaler.com/zia/configuring-sandbox-policy).
@@ -222,14 +222,14 @@ To allow sandboxing files for isolation users, enable this feature through the i
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-multiple-sessions-isolation","lastmod":"2026-07-10T21:06Z","nid":"1417561"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-multiple-sessions-isolation","lastmod":"2026-09-08T14:34Z","nid":"1417561"} -->
 ## Accessing Multiple Sessions In Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/accessing-multiple-sessions-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Accessing Multiple Sessions In Isolation
-- Last modified: 2026-07-10T21:06Z
-- Summary: An article about the capability for Zero Trust Browser users to enter multiple isolation sessions at once.
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Accessing Multiple Sessions In Isolation
+- Last modified: 2026-09-08T14:34Z
+- Summary: Information about the capability for Zero Trust Browser users to enter multiple isolation sessions at once.
 
 [Watch a video about accessing multiple sessions in isolation (shows legacy UI).](https://fast.wistia.net/embed/iframe/fdy8wmrk1q)
 
@@ -237,7 +237,7 @@ Users can access multiple active isolation sessions at a time, using multiple in
 
 To access another isolation session using the same type of browser, an incognito mode window is required. For example, if a user has a Chrome browser window open with an isolation session, opening a second Chrome browser window continues that same isolation session.
 
-If the [Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zia) or [Private Access (ZPA)](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zpa) isolation profile has the Cookie Persistence setting enabled in Security Controls, then the cookies migrate from existing or previous sessions to new sessions. However, this only applies to the same browser window type. So, existing isolation sessions in Chrome browsers share cookie data with additional isolation sessions in Chrome browsers, but they cannot migrate the data to additional isolated sessions in Firefox browser windows.
+If the [Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) or [Private Access (ZPA)](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) isolation profile has the Cookie Persistence setting enabled in Security Controls, then the cookies migrate from existing or previous sessions to new sessions. However, this only applies to the same browser window type. So, existing isolation sessions in Chrome browsers share cookie data with additional isolation sessions in Chrome browsers, but they cannot migrate the data to additional isolated sessions in Firefox browser windows.
 
 There is a limit of 10 active sessions per user at a time. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 <!-- /ZS-ARTICLE -->
@@ -448,13 +448,13 @@ The page refreshes, and the new root certificate displays in the page list.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/bookmarking-web-pages-isolation","lastmod":"2026-06-30T21:06Z","nid":"1412801"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/bookmarking-web-pages-isolation","lastmod":"2026-09-08T14:43Z","nid":"1412801"} -->
 ## Bookmarking Web Pages in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/bookmarking-web-pages-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Bookmarking Web Pages in Isolation
-- Last modified: 2026-06-30T21:06Z
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Bookmarking Web Pages in Isolation
+- Last modified: 2026-09-08T14:43Z
 - Summary: How to bookmark web pages in isolation.
 
 Users can access bookmarks from their original browser while in an isolated session. The URL of the bookmarked web page appears as an isolation URL in the isolated browser during the session.
@@ -1084,14 +1084,14 @@ You can enable this feature per Private Access isolation profile. To learn more,
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/mobile-user-experience-isolation","lastmod":"2026-07-10T21:06Z","nid":"1471036"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/mobile-user-experience-isolation","lastmod":"2026-09-09T13:55Z","nid":"1471036"} -->
 ## Mobile User Experience in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/mobile-user-experience-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Mobile User Experience in Isolation
-- Last modified: 2026-07-10T21:06Z
-- Summary: An article about Mobile User Experience in isolation.
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Mobile User Experience in Isolation
+- Last modified: 2026-09-09T13:55Z
+- Summary: Information about Mobile User Experience in isolation.
 
 Zero Trust Browser is supported on iOS and Android mobile platforms. When traffic is generated from a mobile browser and triggers a policy on Private Access (ZPA) that has the action as Isolate, that traffic is isolated. Isolation is only intended to work on mobile browser-based applications, not native mobile applications.
 
@@ -1103,7 +1103,7 @@ When in the mobile experience, some functions are in different places, but are s
 
 See image.
 
-All user functions available in the desktop experience of isolation are also available in the mobile experience. You can use the [isolation menu](https://help.zscaler.com/zero-trust-browser/using-isolation-menu-native-browser-experience), enable [different user experience modes](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation), access [network latency information](https://help.zscaler.com/zero-trust-browser/accessing-network-latency-isolation), and use the [Original URL feature](https://help.zscaler.com/zero-trust-browser/original-url-isolation).
+All user functions available in the desktop experience of isolation are also available in the mobile experience. You can use the [Zero Trust Mode menu](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience), enable [different user experience modes](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation), access [network latency information](https://help.zscaler.com/zero-trust-browser/accessing-network-latency-isolation), and use the [Original URL feature](https://help.zscaler.com/zero-trust-browser/original-url-isolation).
 
 The same isolation profile configurations apply to both mobile and desktop isolation experiences. If you experience different capabilities for your profile when in mobile isolation, contact Zscaler Support. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Creating Isolation Profiles for Private Access.](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access)
 
@@ -1112,13 +1112,13 @@ The same isolation profile configurations apply to both mobile and desktop isola
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/original-url-isolation","lastmod":"2026-07-10T21:06Z","nid":"1377401"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/original-url-isolation","lastmod":"2026-09-08T14:43Z","nid":"1377401"} -->
 ## Original URL for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/original-url-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Original URL for Isolation
-- Last modified: 2026-07-10T21:06Z
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Original URL for Isolation
+- Last modified: 2026-09-08T14:43Z
 - Summary: Information about Original URL for Zero Trust Browser.
 
 [Watch a video about Original URL in isolation (shows legacy UI).](https://fast.wistia.net/embed/iframe/gf9ktk3dss)
@@ -1132,14 +1132,14 @@ Admins can enable the Original URL option per Internet & SaaS isolation profile.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/read-only-mode-isolation","lastmod":"2026-08-05T07:52Z","nid":"1412836"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/read-only-mode-isolation","lastmod":"2026-09-08T14:28Z","nid":"1412836"} -->
 ## Read-Only Mode in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/read-only-mode-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Read-Only Mode in Isolation
-- Last modified: 2026-08-05T07:52Z
-- Summary: How to use Read-Only Mode in isolation.
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Read-Only Mode in Isolation
+- Last modified: 2026-09-08T14:28Z
+- Summary: Information on using Read-Only Mode in isolation.
 
 Read-only mode in isolation is a setting admins can enable per isolation profile in their organization. This setting restricts the function of a user's keystrokes while in isolation. Isolation profiles with this setting enabled cannot enter text anywhere on the page, paste copied text into text fields, or use virtual keyboards to insert text. The user can still navigate within an isolated web page using other command keys (`Enter`, `Escape`, and `the arrow keys`).
 
@@ -1151,8 +1151,8 @@ To enable read-only mode in isolation, see the following articles:
 
 - [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas)
 - [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access)
-- [Editing Your Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-internet-and-saas)
-- [Editing Your Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-private-access)
+- [Editing an Isolation Profile for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas)
+- [Editing an Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-private-access)
 
 If you have read-only mode enabled for your isolation profile and think it is a mistake, contact your Zscaler admin.
 
@@ -1219,13 +1219,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/step-step-configuration-guide-cloud-browser","lastmod":"2026-09-04T07:53Z","nid":"1529970"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/step-step-configuration-guide-cloud-browser","lastmod":"2026-09-09T06:38Z","nid":"1529970"} -->
 ## Step-by-Step Configuration Guide for Cloud Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/step-step-configuration-guide-cloud-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Step-by-Step Configuration Guide for Cloud Browser
-- Last modified: 2026-09-04T07:53Z
+- Last modified: 2026-09-09T06:38Z
 - Summary: Information on the configuration tasks an organization must complete to begin using Cloud Browser for Zero Trust Browser (formerly Zscaler Isolation).
 
 This guide takes you step by step through the configuration tasks you must complete to use the Cloud Browser for Zero Trust Browser (formerly Zscaler Isolation) for your organization. The steps reflect the process for configuring Cloud Browser for either Internet & SaaS (ZIA) or Private Access (ZPA). To learn more, see [Understanding the Zscaler Cloud Architecture for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) and [What Is Zscaler Private Access?](https://help.zscaler.com/zpa/what-zscaler-private-access)
@@ -1414,13 +1414,13 @@ To print from your isolated browser:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-browser-extension","lastmod":"2026-09-04T07:55Z","nid":"1535457"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-browser-extension","lastmod":"2026-09-09T06:40Z","nid":"1535457"} -->
 ## Understanding Browser Extension
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-browser-extension
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Browser Extension > Understanding Browser Extension
-- Last modified: 2026-09-04T07:55Z
+- Last modified: 2026-09-09T06:40Z
 - Summary: Information about Browser Extension for Zero Trust Browser.
 
 Browser Extension for Zero Trust Browser is a lightweight solution providing seamless and secure enterprise access from any browser.
@@ -1442,13 +1442,13 @@ To get Browser Extension, contact Zscaler Support. For deployment information, r
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-cloud-browser","lastmod":"2026-09-04T07:53Z","nid":"1542917"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-cloud-browser","lastmod":"2026-09-09T06:39Z","nid":"1542917"} -->
 ## Understanding Cloud Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-cloud-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Understanding Cloud Browser
-- Last modified: 2026-09-04T07:53Z
+- Last modified: 2026-09-09T06:39Z
 - Summary: Information about Cloud Browser for Zero Trust Browser (formerly Zscaler Isolation), including traffic flow, architecture, as well as integrations with Internet & SaaS and Private Access.
 
 Zero Trust Browser (formerly Zscaler Isolation) provides the Cloud Browser to isolate users from potentially harmful content on the internet. This is done by loading the accessed web page on a remote browser in any one of the many Zscaler data centers across the globe, and streaming the rendered content as a stream of pixels of Web Graphic Library (WebGL) instructions to the user's native browser.
@@ -1478,13 +1478,13 @@ Each user redirected to Cloud Browser is allocated an endpoint container, and al
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-enterprise-browser","lastmod":"2026-09-04T07:57Z","nid":"1541211"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-enterprise-browser","lastmod":"2026-09-09T06:42Z","nid":"1541211"} -->
 ## Understanding Enterprise Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-enterprise-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Enterprise Browser > Understanding Enterprise Browser
-- Last modified: 2026-09-04T07:57Z
+- Last modified: 2026-09-09T06:42Z
 - Summary: Information about Enterprise Browser for Zero Trust Browser.
 
 Enterprise Browser for [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) is a dedicated, hardened Chromium browser that protects users from everyday browser-based threats and allows them to securely access SaaS applications and private web, Remote Desktop Protocol (RDP), SSH, and Virtual Network Computing (VNC) applications.
@@ -1583,14 +1583,14 @@ Admins can enable translation services for their users per isolation profile. To
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-turbo-mode-isolation","lastmod":"2026-07-10T21:06Z","nid":"1506406"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-turbo-mode-isolation","lastmod":"2026-09-08T14:40Z","nid":"1506406"} -->
 ## Understanding Turbo Mode for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-turbo-mode-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Understanding Turbo Mode for Isolation
-- Last modified: 2026-07-10T21:06Z
-- Summary: An article with details about understanding Turbo Mode for isolation.
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Understanding Turbo Mode for Isolation
+- Last modified: 2026-09-08T14:40Z
+- Summary: Information about the Turbo Mode feature for isolation.
 
 Turbo Mode is an alternative to pixel streaming. It allows the transfer of rendered information from an isolated browser to a local browser as an instruction set. This method of rendering is much faster and much less bandwidth intensive than pixel streaming. It also promises a higher frame rate, ensuring a smooth isolated browsing experience. The capability provides a near-native experience.
 
@@ -1629,13 +1629,13 @@ For the complete procedure on how to configure Votiro and Zero Trust Browser for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/user-experience-modes-isolation","lastmod":"2026-08-05T07:54Z","nid":"1386596"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/user-experience-modes-isolation","lastmod":"2026-09-08T14:27Z","nid":"1386596"} -->
 ## User Experience Modes in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > User Experience Modes in Isolation
-- Last modified: 2026-08-05T07:54Z
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > User Experience Modes in Isolation
+- Last modified: 2026-09-08T14:27Z
 - Summary: Information about the types of user experience modes in isolation.
 
 [Watch a video about user experience modes in isolation (shows legacy UI).](https://fast.wistia.net/embed/iframe/l066po6aes)
@@ -1664,7 +1664,7 @@ Browser-in-Browser Experience is not available if the admin selects Original URL
 
 ## Selecting an Isolation Experience for Users
 
-Admins can choose the isolation experience for users within individual isolation profiles. This option is available when [creating](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zia) and [editing](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-zia) Internet & SaaS isolation profiles, as well as when [creating](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zpa) and [editing](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-zpa) Private Access isolation profiles.
+Admins can choose the isolation experience for users within individual isolation profiles. This option is available when [creating](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [editing](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas) Internet & SaaS isolation profiles, as well as when [creating](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) and [editing](https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-private-access) Private Access isolation profiles.
 
 See image.
 
@@ -1736,14 +1736,14 @@ To end a debug mode session:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-persistent-state-isolation","lastmod":"2026-07-10T21:06Z","nid":"1516786"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-persistent-state-isolation","lastmod":"2026-09-08T14:21Z","nid":"1516786"} -->
 ## Using Persistent State for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-persistent-state-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Using Persistent State for Isolation
-- Last modified: 2026-07-10T21:06Z
-- Summary: An article with information about using the persistent state feature for Zero Trust Browser.
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using Persistent State for Isolation
+- Last modified: 2026-09-08T14:21Z
+- Summary: Information about using the Persistent State feature for Zero Trust Browser.
 
 The key benefit of Zero Trust Browser is that it provides users with the ability to access the internet within Chromium-based browsers that are in a sandboxed environment. The temporary format of this container is made possible by the idle timeout restriction, which causes the isolated browser to expire and close after 10 minutes of user inactivity. By default, all the data in that expired isolated browser is purged, along with all the isolated web content and the associated state. However, admins can enable a persistent state of the isolated browser. To ensure an intuitive browsing experience, isolation profiles with this feature enabled have sessions restored automatically upon user access.
 
@@ -1758,13 +1758,13 @@ If a user attempts to restore a session three or more times without success, or 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-redactive-sensitive-text-isolation","lastmod":"2026-07-03T07:06Z","nid":"1530774"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-redactive-sensitive-text-isolation","lastmod":"2026-09-08T14:23Z","nid":"1530774"} -->
 ## Using Redactive Sensitive Text for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-redactive-sensitive-text-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Using Redactive Sensitive Text for Isolation
-- Last modified: 2026-07-03T07:06Z
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using Redactive Sensitive Text for Isolation
+- Last modified: 2026-09-08T14:23Z
 - Summary: Information about using the Redactive Sensitive Text feature for Zero Trust Browser.
 
 [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) is a capability that organizations use to provide access to critical applications for users. It gives admins the ability to enforce security controls on multiple levels, such as:
@@ -1775,7 +1775,7 @@ If a user attempts to restore a session three or more times without success, or 
 
 In this way, Zero Trust Browser helps an organization ensure that critical data does not get exposed. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention).
 
-Enabling redactive sensitive text on your [Internet & SaaS isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zia) or [Private Access isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-zpa) allows you to manage which sensitive information from which Internet & SaaS DLP engines is redacted for users during isolation. This information can include Social Security numbers, financial information, and other personal, private data that you want extra protection for.
+Enabling redactive sensitive text on your [Internet & SaaS isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) or [Private Access isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) allows you to manage which sensitive information from which Internet & SaaS DLP engines is redacted for users during isolation. This information can include Social Security numbers, financial information, and other personal, private data that you want extra protection for.
 
 When you enable redaction, you configure an isolation profile to hide certain text data. During an isolated session, the sensitive data on a web page is replaced with password-blocking symbols (e.g., ●●●●●) in real time. Printing is also subject to redaction. If a user tries to print sensitive data, Zero Trust Browser replaces the text with the password-blocking symbols.
 
@@ -1784,18 +1784,18 @@ Enabling redaction does not impact files, meaning that images, PDFs, or uploaded
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-right-click-menu-isolation","lastmod":"2026-07-10T21:06Z","nid":"1392986"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-right-click-menu-isolation","lastmod":"2026-09-09T13:51Z","nid":"1392986"} -->
 ## Using the Right-Click Menu in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-right-click-menu-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Using the Right-Click Menu in Isolation
-- Last modified: 2026-07-10T21:06Z
-- Summary: An article describing how to use the Right-Click Menu in isolation.
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using the Right-Click Menu in Isolation
+- Last modified: 2026-09-09T13:51Z
+- Summary: How to use the right-click menu in isolation.
 
 The right-click menu in isolation replicates the typical menu of functions that users normally see in a standard browser window. Depending on where a user is on a web page and which capabilities have been enabled for their isolation profile, different options display in the right-click menu.
 
-The right-click menu is available in both Native Browser Experience Mode and Browser-in-Browser Experience Mode. The right-click menu is different from [the isolation bar](https://help.zscaler.com/zero-trust-browser/using-isolation-menu-native-browser-experience), which displays only in Browser-in-Browser Experience Mode. To learn more, see [User Experience Modes in Isolation](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation).
+The right-click menu is available in both Native Browser Experience Mode and Browser-in-Browser Experience Mode. The right-click menu is different from [Zero Trust Mode menu](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience), which displays only in Browser-in-Browser Experience Mode. To learn more, see [User Experience Modes in Isolation](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation).
 
 ## Right-Click Menu Options by Web Page Location
 
@@ -1807,9 +1807,7 @@ When right-clicking anywhere on an isolated web page, you can:
 
 - Reload
 - Print
-- Translate
-
-If printing is disabled for your isolation profile, you cannot print the web page or document that is rendered in isolation. You cannot see the print option from the right-click menu, or the print button in the isolation bar. If you try to select the option of File > Print from the browser menu, or enter the key command `CTRL/CMD+P` shortcut, a message appears noting it is disabled by policy.
+- Translate If printing is disabled for your isolation profile, you cannot print the web page or document that is rendered in isolation. You cannot see the print option from the right-click menu, or the print button in the isolation bar. If you try to select the option of File > Print from the browser menu, or enter the key command `CTRL/CMD+P` shortcut, a message appears noting it is disabled by policy.
 
 See image.
 
@@ -1958,13 +1956,13 @@ To access the Zero Trust Mode menu:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-09-04T07:58Z","nid":"1447296"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-09-09T06:36Z","nid":"1447296"} -->
 ## What Is Zero Trust Browser?
 
 - Source: https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > What Is Zero Trust Browser?
-- Last modified: 2026-09-04T07:58Z
+- Last modified: 2026-09-09T06:36Z
 - Summary: Information about Zscaler Zero Trust Browser (formerly Zscaler Isolation) and its three components: Cloud Browser, Browser Extension, and Enterprise Browser.
 
 Zero Trust Browser (formerly Zscaler Isolation) is a secure platform that protects organizations against web-based threats while enabling high-performance access to the internet, SaaS applications, and private web, Remote Desktop Protocol (RDP), SSH, and Virtual Network Computing (VNC) applications.
@@ -1988,13 +1986,13 @@ The platform consists of the following components:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/zero-trust-browser-reports-in-internet-and-saas","lastmod":"2026-09-03T07:15Z","nid":"1477996"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/zero-trust-browser-reports-in-internet-and-saas","lastmod":"2026-09-10T09:53Z","nid":"1477996"} -->
 ## Interactive Reports for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/zero-trust-browser-reports-in-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Analytics > Interactive Reports for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-09-03T07:15Z
+- Last modified: 2026-09-10T09:53Z
 - Summary: Information about Zero Trust Browser reports for Internet & SaaS.
 
 Internet & SaaS (ZIA) provides data reports for admins who use Zero Trust Browser (formerly Zscaler Isolation) within their organization. Any organization that uses Zero Trust Browser automatically sees these default reports for Internet & SaaS.
@@ -2018,9 +2016,9 @@ The reports provide data for the following metrics:
   - **Overall Traffic Trend in Isolation**: This widget shows the overall trendfor web traffic.
   - **Overall Data Volume**: This widget shows the volume of data accessed by users.
   - **Isolated Data Volume**: This widget shows the volume of data accessed via the isolation container.
-  - **Unique Isolated Users**: This widget shows discrepancies between types of users.
-  - **Policy Reason**: This widget shows which policy enforced isolation.
-- **Isolation Traffic Summary Overview**: This report shows an overview of the web traffic being isolated for your organization and includes the following widgets:: See image.
+  - **Unique Isolated Users**: This widget shows the number of unique users in isolation.
+  - **Policy Reason**: This widget shows which policies enforced isolation.
+- **Isolation Traffic Summary Overview**: This report shows an overview of the web traffic being isolated for your organization and includes the following widgets: See image.
   - **Top URL Supercategories in Isolation**: This widget shows the most commonly accessed web pages based on popular content.
   - **Top URL Categories in Isolation**: This widget shows the most commonly accessed web pages based on general content.
   - **Cloud Applications in Isolation**: This widget shows which cloud-based applications are accessed via isolation.
@@ -2028,14 +2026,14 @@ The reports provide data for the following metrics:
   - **Top Users Using Isolation**: This widget shows the top users of isolation based on the bandwidth utilized.
   - **Top Departments in Isolation**: This widget shows the top departments of isolation based on the bandwidth utilized.
   - **Top Locations in Isolation**: This widget shows the locations from which traffic is redirected to isolation.
-- **Security Overview**: This report shows an overview of the security events and trends that were detected in the isolated web traffic for your organization and includes the following widgets:: See image.
+- **Security Overview**: This report shows an overview of the security events and trends that were detected in the isolated web traffic for your organization and includes the following widgets: See image.
   - **Weekly Top Threats in Isolation This Week**: This widget shows the most common threats detected within isolation on a weekly basis.
   - **Monthly Top Advanced Threats in Isolation This Month**: This widget shows the most common advanced threats detected within isolation on a monthly basis.
   - The **Sandbox in Isolation This Month**: This widget shows how many users' isolation environments were sandboxed on a monthly basis.
   - The **Sandbox Action in Isolation This Month**: This widget shows what actions were taken when users' isolation environments were sandboxed on a monthly basis.
-- **File and Document in Isolation**: This report shows an overview of the files that users in the organization uploaded, downloaded, or viewed while using Zero Trust Browser and includes the following widgets:: See image.
-  - **Files Uploaded from Isolation**: This widget shows the types and quantities of files that were uploaded by users within isolation.
-  - **Files Downloaded to Isolation**: This widget shows the types and quantities of files that were downloaded by users within isolation.
+- **File and Document in Isolation**: This report shows an overview of the files that users in the organization uploaded, downloaded, or viewed while using Zero Trust Browser and includes the following widgets: See image.
+  - **Files Uploaded from Isolation**: This widget shows the types and quantities of files that users uploaded within isolation.
+  - **Files Downloaded to Isolation**: This widget shows the types and quantities of files that users downloaded within isolation.
 
 [Image: The Interactive Reports show data for Consumption, Isolation Traffic Summary Overview, Security Overview, and File and Document in Isolation]
 

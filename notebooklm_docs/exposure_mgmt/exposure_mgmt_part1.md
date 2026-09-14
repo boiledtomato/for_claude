@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 201
 
 ---
@@ -1075,13 +1075,13 @@ This article provides a summary of all new features and enhancements for Asset E
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-08-31T07:45Z","nid":"1534298"} -->
+<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-09-08T11:45Z","nid":"1534298"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/aem/release-upgrade-summary-2026
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-31T07:45Z
+- Last modified: 2026-09-08T11:45Z
 - Summary: Asset Exposure Management Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Asset Exposure Management.
@@ -2732,14 +2732,14 @@ On the Cloud Accounts page (Administration> Account Onboarding), you can do the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-data-sensitivity","lastmod":"2026-06-10T21:06Z","nid":"1540838"} -->
-## About Data Sensitivity
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-data-classification","lastmod":"2026-09-09T21:23Z","nid":"1540838"} -->
+## About Data Classification
 
-- Source: https://help.zscaler.com/ai-asset-mgmt/about-data-sensitivity
+- Source: https://help.zscaler.com/ai-asset-mgmt/about-data-classification
 - Product: AI Asset Management
-- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Sensitivity Settings > About Data Sensitivity
-- Last modified: 2026-06-10T21:06Z
-- Summary: Information about the data sensitivity settings in the AI Security Admin Portal and how the DLP engines are used for data classification.
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Classification > About Data Classification
+- Last modified: 2026-09-09T21:23Z
+- Summary: Information about data classification in the AI Security Admin Portal and how the DLP engines are used for data classification.
 
 Sensitive data is confidential information such as personally identifiable information (PII), social security numbers, credit card information, financial data, login credentials, etc., that must be protected with strong security controls to prevent data breaches.
 
@@ -2749,30 +2749,29 @@ AI Security supports data classification by using robust DLP engines and diction
 
 You can only view the DLP engines in the AI Security Admin Portal. You can add or modify a DLP engine in Internet & SaaS if you have the necessary permissions. When configuring a predefined or custom engine, you can also combine dictionaries with Boolean operators to create logical expressions.
 
-Defining the data sensitivity provides the following benefits and enables you to:
+Defining the data classification provides the following benefits and enables you to:
 
 - Classify sensitive data based on the level of sensitivity and risk.
 - View the DLP engines and dictionaries that are used by AI Security for data classification.
 - Manage the sensitivity setting for DLP engines.
 
-## About the Data Classification Settings Page
+## About the Data Classification Page
 
-On the Data Classification Settings page (Administration > Data Sensitivity), you can do the following:
+On the Data Classification page (Administration > Data Classification), you can do the following:
 
-1. Create and manage DLP Engines. This option is visible to users with permissions to view or edit the DLP Dictionaries & Engines.
-2. View the list of DLP engines that are synced from Internet & SaaS. For each DLP engine, you can view:
+1. View the list of DLP engines that are synced from Internet & SaaS. For each DLP engine, you can view:
   1. **DLP Engine Name**: The name of the DLP engine.
   2. **Description**: The description of the DLP engine.
   3. **Engine Type**: The type (Predefined or Custom) of DLP engine.
   4. **Last Modified**: The date and time the DLP engine was last modified.
   5. **Enabled**: The toggle that indicates whether the DLP engine is active.
   6. **Sensitive**: The sensitivity setting (enabled or disabled) for the DLP engine. By default, the sensitivity setting is enabled for all DLP engines.
-3. Disable the sensitivity setting for all DLP engines.
-4. Sort the column data.
-5. Disable the DLP engine.
-6. Enable or disable the sensitivity setting for a specific DLP engine
-7. [Show or hide the columns in the table](https://help.zscaler.com/unified/using-tables).
-8. Search for a specific DLP engine.
+2. Disable the sensitivity setting for all DLP engines.
+3. Sort the column data.
+4. Disable the DLP engine.
+5. Enable or disable the sensitivity setting for a specific DLP engine
+6. [Show or hide the columns in the table](https://help.zscaler.com/ai-asset-mgmt/using-tables).
+7. Search for a specific DLP engine.
 
 [Image: The data sensitivity settings page]
 <!-- /ZS-ARTICLE -->
@@ -7448,13 +7447,13 @@ Run the following commands:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/disabling-sensitivity-settings-dlp-engines","lastmod":"2026-06-10T21:06Z","nid":"1540839"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/disabling-sensitivity-settings-dlp-engines","lastmod":"2026-09-09T21:27Z","nid":"1540839"} -->
 ## Disabling the Sensitivity Settings for DLP Engines
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/disabling-sensitivity-settings-dlp-engines
 - Product: AI Asset Management
-- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Sensitivity Settings > Disabling the Sensitivity Settings for DLP Engines
-- Last modified: 2026-06-10T21:06Z
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Classification > Disabling the Sensitivity Settings for DLP Engines
+- Last modified: 2026-09-09T21:27Z
 - Summary: How to disable the data sensitivity for DLP engines in the AI Security Admin Portal.
 
 Data sensitivity determines how susceptible the data is along with the level of risk associated with it, which could lead to data breaches. For example, the sensitivity level is high for personally identifiable information (PII) or credit card numbers, moderate for email addresses, and low for data that does not have any sensitive or confidential information.
@@ -7465,8 +7464,8 @@ If you disable the sensitivity setting for all DLP engines, any new DLP engine t
 
 To disable the sensitivity setting:
 
-1. Go to **Administration**> **Data Sensitivity**.
-2. Disable the sensitivity setting for all DLP engines.
+1. Go to **Administration**> **Data Classification**.
+2. On the **Data Classification** page, disable the sensitivity setting for all DLP engines.
 3. Read the confirmation message that appears, then click **Disable**.
 4. Disable the data sensitivity setting for a specific DLP engine.
 5. Read the confirmation message that appears, then click **Disable**.
@@ -10567,13 +10566,13 @@ To onboard an AWS account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-08-31T08:00Z","nid":"1539122"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-09-06T23:19Z","nid":"1539122"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-31T08:00Z
+- Last modified: 2026-09-06T23:19Z
 - Summary: AI Asset Management Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for AI Asset Management.
@@ -11223,16 +11222,29 @@ To learn more, refer to the [AWS CloudTrail documentation](https://docs.aws.amaz
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-dlp-engines-and-dictionaries","lastmod":"2026-06-10T21:06Z","nid":"1540850"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-dlp-engines-and-dictionaries","lastmod":"2026-09-08T00:38Z","nid":"1540850"} -->
 ## Understanding DLP Engines and Dictionaries
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/understanding-dlp-engines-and-dictionaries
 - Product: AI Asset Management
-- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Sensitivity Settings > Understanding DLP Engines and Dictionaries
-- Last modified: 2026-06-10T21:06Z
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Classification > Understanding DLP Engines and Dictionaries
+- Last modified: 2026-09-08T00:38Z
 - Summary: Information about the DLP engines and dictionaries that are used in AI Security to scan and detect sensitive data.
 
 A DLP engine is a security solution that comprises a collection of one or more DLP dictionaries. A DLP dictionary contains a set of patented algorithms that are designed to detect specific types of information in your cloud resources, users' traffic, and activities. DLP engines are used to identify sensitive data and prevent data breaches. By using a DLP engine, you can create policy rules to detect content that encompasses more than one dictionary. For example, if your organization wants to protect personally identifiable information (PII) and credit card numbers, you can create a rule using a DLP engine that contains the PII and Credit Cards dictionaries. The Zscaler service provides predefined DLP engines and supports custom DLP engines.
+
+Only DLP engines assigned to the AI Security channel in Internet & SaaS (ZIA) are displayed and available for selection. To learn more, see [Editing Predefined DLP Engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines) and [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine).
+
+To learn more, see:
+
+- [About DLP Engines](https://help.zscaler.com/zia/about-dlp-engines)
+- [Understanding DLP Engines](https://help.zscaler.com/zia/understanding-dlp-engines)
+- [About DLP Dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries)
+- [Understanding Predefined DLP Dictionaries](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries)
+- [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine)
+- [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+- [Editing Predefined DLP Engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines)
+- [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries)
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11505,6 +11517,104 @@ The private key is updated for the selected service account.
 [Image: Browse JSON Private Key]
 
 [Image: Update Private Key Drop-down]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/using-tables","lastmod":"2026-09-09T21:21Z","nid":"1545386"} -->
+## Using Tables
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/using-tables
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Getting Started > Using Tables
+- Last modified: 2026-09-09T21:21Z
+- Summary: How to use tables in the AI Security Admin Portal.
+
+In the AI Security Admin Portal, some of the data is organized and displayed in tables. You can modify the default settings for each table. Every time you make a change, the settings are stored in your browser's local storage so that your changes are preserved the next time you log on. If you clear your cache or use a different browser, your settings are lost.
+
+Not all settings are available for all tables.
+
+You can do the following:
+
+- Expand data in the table
+- Filter data in the table
+- Hide columns
+- Reorder columns
+- Reset table to default settings
+- Resize columns
+- Search tables
+- Sort the column data
+
+Some tables have rows that can expand to show more detail. Click the Expand icon in the first column within a table to expand it. To expand all rows in a table, click **Expand All**. After a row is expanded, additional details are provided. After a row is expanded, you can view or edit a resource.
+
+To view or edit a resource, click the name of the resource within the expanded row of the table to view or edit the resource.
+
+You can filter the information shown in some tables. To filter the data in the table:
+
+1. Click a filter (e.g., **Name**, **Created By**).
+2. Select or enter values.
+3. (Optional) Click **Apply**if available for the table**.**
+4. (Optional) Select from the following options, if available for the table:
+  - **Clear**to remove selections
+  - **Reset** to undo applied filters
+  - **Filter** icon to hide the filters
+
+On certain pages, you can select the following additional functions:
+
+- Save and manage applied filters
+- Switch between applied filters
+
+To save and manage applied filters:
+
+1. Click the **Menu**icon.
+2. Click **Save Applied Filter**. The **Save Applied Filter** window appears.
+3. In the **Save Applied Filter** window, give the filter a name.
+4. Click **Save**.
+
+After applying filters, you can switch between applied filters by clicking the filter name next to the **Filter**icon. You can also delete a saved filter with the **Delete**icon.
+
+If you modify a saved filter, click the **Menu**icon, and then click **Save Changes** (or **Discard Changes**). An Information icon next to the filter name indicates unsaved changes.
+
+You can select and hide columns in some tables. The hide function is useful when you don't need to view all the columns. You can select the columns that you don't want to view.
+
+To hide a column, hover over the **Column Menu** icon on the top right of the table, or click the **Gear**icon, and uncheck the column names you wish to hide. After you click on a checkbox, the table refreshes and displays only the checked columns.
+
+For some tables, you must have at least one column visible at all times. For example, for Insight log tables, you can **Deselect All** columns and render the table empty.
+
+[Image: Screenshot of hiding columns for Zscaler tables]
+
+You can reorder columns in many tables. When the option is available, you can reorder columns in the following ways:
+
+- From the Table
+- From the Column Menu settings
+
+For some tables, when you hover over a column header in the table, a **Move** cursor appears. To reorder, drag and drop the column to the desired location. An arrow indicates where the column is placed after the drop.
+
+After you have dragged the column to the desired location, the table refreshes and displays data in the new column order.
+
+The column menu settings also change to reflect the new order.
+
+For some tables, when you hover over a listed column name in the settings, a **Move** cursor appears. Drag and drop the column to the desired position. After you drop the column name, the table refreshes and displays the data in the new column order.
+
+For some tables, when you make changes to the columns, you can revert to the default settings by clicking on the **Reset** icon.
+
+Resetting columns to default settings does not affect sort order.
+
+[Image: Screenshot of Reset icon for Zscaler tables]
+
+For some tables, when the data in a column takes up more space than the viewing area allows, it gets clipped. You can view the clipped data in the tooltip. For many tables, you can also increase the column width.
+
+To increase the column width, hover over the right border of the column. A resize icon appears. Drag and drop to the desired column width.
+
+You can use the search field to filter data in tables. The table displays the rows containing your search term.
+
+The search results display the applicable rows even if the term is in a hidden column.
+
+For some tables, there is also a search field that you can access even with the hiding or showing columns option. The menu displays the column names containing your search term.
+
+For some tables, you can sort data. Sort is indicated by an arrow icon. When you hover over a column header, you see the arrow icon. You can sort data in ascending or descending order.
+
+To sort a column, click the arrow in the table column header.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15273,13 +15383,13 @@ On the Tenants page (Identities > Tenants), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/managing-itdr-configurations","lastmod":"2026-05-01T07:06Z","nid":"1538791"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/managing-itdr-configurations","lastmod":"2026-09-07T03:55Z","nid":"1538791"} -->
 ## Managing ITDR Configurations
 
 - Source: https://help.zscaler.com/identity-protection/managing-itdr-configurations
 - Product: Identity Protection
-- Path: Identity Protection Help > Settings > Managing ITDR Configurations
-- Last modified: 2026-05-01T07:06Z
+- Path: Identity Protection Help > Managing ITDR Configurations
+- Last modified: 2026-09-07T03:55Z
 - Summary: How to manage ITDR Configurations from the Zscaler Security Operations (SecOps) platform.
 
 You can access the ITDR settings for Identity Protection within the Zscaler Security Operations (SecOps) platform (Identities > ITDR Config). While the ITDR Config page is available on the SecOps platform, the detailed configuration is managed in the legacy Zscaler ITDR Admin Portal.
@@ -15548,139 +15658,4 @@ Identity Protection consists of the core capabilities:
 - **Data Ingestion via Connectors:**Identity Protection uses connectors to ingest data from sources such as posture scans, change detections, alerts, and identity records. These connectors also integrate with identity providers like Okta and Microsoft Entra, enabling the system to consume identity data directly from the customer's IdP and bring it into the protection framework.
 - **Data Fabric as the Backbone:**Data Fabric is the backbone of the SecOps platform. It ensures that all incoming identity signals are normalized, correlated, and enriched. This allows the platform to unify disparate data streams and provide security teams with a coherent view of identity-related risks across the environment.
 - **Custom Configuration:** Manage and fine-tune identity protection through the SecOps platform. Within the Settings page, you can adjust scan configurations and review clear explanations for each option. When deeper configuration is required, certain links redirect you to the legacy ITDR experience, ensuring continuity for advanced tasks while maintaining a modern interface for routine adjustments.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/risk360/about-alerts","lastmod":"2024-12-16T06:06Z","nid":"1483176"} -->
-## About Alerts
-
-- Source: https://help.zscaler.com/risk360/about-alerts
-- Product: Risk360
-- Path: About Alerts
-- Last modified: 2024-12-16T06:06Z
-- Summary: Information on Alerting in the Risk360 Admin Portal.
-
-Alerting helps you meet your security compliance requirements and reduce potential financial losses by getting timely notifications when the configured criteria in the alert rule are met. This also helps take swift action towards events impacting your organization's risk exposure.
-
-Alerts provide the following benefits and enable you to:
-
-- Configure alert rules that help trigger alerts when an alert rule is activated.
-- Configure rules for various criteria (i.e., change in risk score at the organization, factor group, and factor levels, and change in potential financial loss).
-- Receive triggered notifications sent via emails and webhooks.
-- Get actionable recommendations as part of alerts to tackle security events.
-
-## How Alerting Works
-
-1. When the alert rule's criteria is satisfied for the throttling period defined in the alert rule, the alert becomes an ongoing alert and starts to get displayed on the Ongoing Alerts tab.
-2. The users receive an alert notification in the form of an email and webhook, depending on the configured delivery method.
-3. The Started On field in the alert notification shows the date and time when the alert started and the Ended On field shows Ongoing because the alert is still persisting.
-4. Users receive a daily alert notification as long as the alert criteria are true and until the alert rule is not modified, disabled, deleted, or muted.
-  - Disabling an alert rule causes the alerting engine not to evaluate the alert criteria. However, the alert rule stays configured on the Alert Rules tab. You can enable the alert at a later time based on your alert requirement.
-  - Deleting an alert removes the alert rule from the Alert Rules page.
-  - Muting an ongoing alert stops sending alert notifications. However, it doesn't impact the evaluation of the alert, and you can still track the ongoing alert on the Ongoing Alerts tab.
-5. When the criteria of the alert are no longer satisfied, the alert stops and is listed under the Alert History tab. Subsequently, the users receive an alert notification with the Ended On field in the notification showing the date and time when the alert ended.
-
-## About the Alerts Page
-
-The Alerts page contains the following 4 tabs to manage various alerting stages:
-
-- Ongoing Alerts
-- Alerts History
-- Alert Rules
-- Webhooks
-
-The Ongoing Alerts tab (Alerts > Ongoing Alerts) shows alerts that are currently being triggered and persisting. On this page, you can do the following:
-
-1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
-2. Filter the ongoing alerts by Severity or Rule Name.
-3. View a list of ongoing alerts. For each alert, you can view:
-  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
-  - **Rule Name**: The name of the rule.
-  - **Alert ID**: The unique ID assigned to the alert.
-  - **Criteria**: The criteria added in the rule that triggers the rule.
-  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
-    - Organization
-    - Category
-    - Factor group
-    - Factor
-  - **Throttling**: The time frame during which the criteria in the rule persisted.
-  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-  - **Muted?**: Whether the alert is currently on mute or not.
-  - **Started On**: The date and time when the alert started. Click an alert to view the following information in the drawer view.
-    - Drawer
-
-The Alert History tab (Alerts > Alert History) shows all the historically configured alerts. On this page, you can do the following:
-
-1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
-2. Filter completed alerts by Severity, Rule Name, or Status.
-3. View a list of completed alerts. For each alert, you can view:
-  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
-  - **Rule Name**: The name of the rule.
-  - **Criteria**: The criteria added in the rule that triggers the rule.
-  - **Alert ID**: The unique ID assigned to the alert.
-  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
-    - Organization
-    - Category
-    - Factor group
-    - Factor
-  - **Throttling**: The time frame during which the criteria in the rule persisted.
-  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-  - **Started On**: The date and time when the alert started.
-  - **Ended On**: The date and time when the alert ended. Click an alert to view the following information in the drawer view.
-    - Drawer
-
-The Alert Rules tab (Alerts > Alert Rules) shows all the configured alerts. On this page, you can do the following:
-
-1. Filter the alerts by Severity or Rule Name.
-2. [Add an alert rule](https://help.zscaler.com/risk360/configuring-alert-rule).
-3. View a list of alerts. For each alert, you can view:
-  - **Rule Name**: The name of the rule.
-  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
-  - **Criteria**: The criteria added in the rule that triggers the rule alert.
-  - **Throttling**: The time frame during which the criteria in the rule were satisfied.
-  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-  - **Status**: The status of the alert, whether enabled or disabled.
-4. Edit a rule.
-5. Mute or unmute notifications from an alert rule. This ensures the rule is enabled, but no notification is initiated when the alert is triggered.
-6. Delete an alert rule or clone the rule to configure a new alert rule.
-
-The Webhook tab (Alerts > Webhook) shows all the configured webhook integrations. You can use integrations into an alert rule from the third-party provider to receive alerts. On this page, you can do the following:
-
-1. Filter the ongoing alerts by Name, Authentication Type, or Status.
-2. [Add webhook](https://help.zscaler.com/risk360/configuring-webhooks).
-3. View a list of configured integrations. For each integration, you can view:
-  - **Name**: The name of the integration.
-  - **URL**: The URL of the integration.
-  - **Authentication Type**: The authentication type configured for the integration (Basic or Token).
-  - **Authentication Status**: This shows the integration authentication status (Active, Error, or In Progress). Fix the configuration if the field displays an error.
-  - **Alert Status**: The status of the alert, whether enabled or disabled.
-4. Edit an integration.
-5. Delete an integration.
-
-The drawer consists of the following two tabs:
-
-### Details
-
-The Details tab shows the following information about the alert:
-
-- **Alert ID**: The unique ID assigned to the alert.
-- **Criteria**: The criteria added in the rule that triggers the alert.
-- **Throttling**: The time frame during which the criteria in the rule persisted.
-- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
-
-### Alert Cause History
-
-The Alert Cause History tab shows the history of whenever the alert is triggered for the change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor). The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. Click the dropdowns to view the change cause for that date.
-
-See image.
-
-The drawer shows the following information about the alert:
-
-- **Alert ID**: The unique ID assigned to the alert.
-- **Criteria**: The criteria added in the rule that triggers the alert.
-- **Throttling**: The time frame during which the criteria in the rule persisted.
-- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
 <!-- /ZS-ARTICLE -->

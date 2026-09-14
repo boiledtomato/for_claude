@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 297
 
 ---
@@ -15815,13 +15815,13 @@ The illusionblack.com cloud represents all clouds, and updates to specific cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-08-31T08:00Z","nid":"1540673"} -->
+<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-09-08T09:45Z","nid":"1540673"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/deception/release-upgrade-summary-2026
 - Product: Deception
 - Path: Deception Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-31T08:00Z
+- Last modified: 2026-09-08T09:45Z
 - Summary: Zscaler Deception release summary for updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Deception.

@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 88
 
 ---
@@ -2880,13 +2880,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-08-10T07:06Z","nid":"1400476"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-09-12T07:06Z","nid":"1400476"} -->
 ## API Rate Limit Summary
 
 - Source: https://help.zscaler.com/legacy-apis/api-rate-limit-summary
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > API Rate Limit Summary
-- Last modified: 2026-08-10T07:06Z
+- Last modified: 2026-09-12T07:06Z
 - Summary: Summarization of Zscaler's API resources and their rate limits for each method.
 
 The following table summarizes the Zscaler Internet Access (ZIA) API resources and their rate limits for each method.
@@ -9801,13 +9801,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-09-06T07:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-09-13T07:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-09-13T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 

@@ -1,18 +1,18 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 80
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-dashboard","lastmod":"2026-08-03T13:50Z","nid":"1541822"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-dashboard","lastmod":"2026-09-08T12:30Z","nid":"1541822"} -->
 ## About AI Guard Dashboard
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-dashboard
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Monitoring > About AI Guard Dashboard
-- Last modified: 2026-08-03T13:50Z
+- Last modified: 2026-09-08T12:30Z
 - Summary: Learn how to view information on the AI Guard dashboard.
 
 The AI Guard dashboard provides a high-level overview of all AI applications AI Guard manages. This includes information such as the number of apps, number of policy detections, and number of AI bot transactions.
@@ -38,9 +38,10 @@ On the AI Guard **Dashboard** page (AI Guard > Dashboard), you can do the follow
   2. **Number of LLMs**: The total number of LLMs.
   3. **Number of Detections**: The total number of policy detections.
   4. **Number of Transactions**: The total number of transactions.
-8. View dashboard entries as individual prompt transactions, or view multi-prompt AI interactions as a single, connected conversation thread. This functionality is exclusive to DAS/API mode and will not appear if using Proxy mode.
+8. View dashboard entries as individual prompt transactions, or view multi-prompt AI interactions as a single, connected conversation thread. Conversation grouping respects existing session boundary logic.
   - With **Conversations** selected, you will see a message icon next to a transaction's date, indicating the number of transactions in that conversation thread. Expand the entry to view details of the individual transactions. See image.
-9. View a list of all transactions. For each transaction, you can see the following:
+  - Clicking a conversation opens the **Transaction Details** page. View prompt details by clicking **Reveal Prompt**, which shows a full back-and-forth, chat-style layout. See image.
+9. View a list of all transactions. On the **Transaction Details** page, you can see the following:
   - **Date and Time**: The date and time of the transaction.
   - **App**: The name of the app.
   - **Policy Name**: The name of the policy associated with this transaction.
@@ -53,6 +54,8 @@ On the AI Guard **Dashboard** page (AI Guard > Dashboard), you can do the follow
   - **Details**: Clicking the **Details** icon opens a window showing detailed information in the following sections: **Overview**, **Detection Summary**, **Performance & Network Stats**, **Custom Request Headers**, and **Prompt Details**. See image.
 
 [Image: AI Guard Dashboard Details window showing Overview, Detection Summary, Performance & Network Stats, Custom Request Headers, and Prompt Details.]
+
+[Image: Conversation Details showing chat-style prompt and response logs]
 
 [Image: AI Guard Dashboard page with annotations highlighting each section]
 
@@ -2134,13 +2137,13 @@ This chat type enables communication with a specific Glean Agent within your org
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-ai-guard-log-exports","lastmod":"2026-08-11T10:04Z","nid":"1541825"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-ai-guard-log-exports","lastmod":"2026-09-08T09:24Z","nid":"1541825"} -->
 ## Managing AI Guard Log Exports
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-log-exports
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > General > Managing AI Guard Log Exports
-- Last modified: 2026-08-11T10:04Z
+- Last modified: 2026-09-08T09:24Z
 - Summary: Learn to manage and configure third-party integrations to export incident data from AI Guard.
 
 The AI Guard **Log Exports** page allows you to manage and configure third-party integrations to export incident data. You can do this through either Amazon Web Services (AWS), CrowdStrike (CRWD), AWS S3, or Splunk event exporting.
@@ -2161,13 +2164,33 @@ To add an ADX event export instance:
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **Azure ADX Event Export Integrations** page opens. Your integration appears on this page.
 
-## CRWD Event Export
+## CRWD SIEM Direct Export
+
+Use the CRWD integration to direct export event metadata to CrowdStrike HTTP Event Collector (HEC).
+
+To add a CRWD event export instance:
+
+1. Under **CRWD SIEM Direct Export**, click **Add Instance**. The **Add Integration** window appears. See image.
+2. In the **Add Integration** window:
+  - **Name**: Enter a name for your event export instance.
+  - **Enabled**: Select this option to activate the event report functionality.
+  - **CrowdStrike Metadata HEC Bearer Token**: The bearer token used to authenticate to the CrowdStrike HEC for the tenant's events.
+  - **CrowdStrike Metadata HEC URL**: The URL of the CrowdStrike HEC (raw endpoint) where tenant's events will be posted.
+  - **CrowdStrike HEC Bearer Token**: (Optional) Enter the bearer token to authenticate the CrowdStrike HEC.
+  - **CrowdStrike HEC URL**: (Optional) Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
+  - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
+  - **Export Blocked Prompts**: Select to export blocked prompts.
+  - **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
+3. Click **Validate Connection** to check whether the information you entered is accurate and working.
+4. Click **Save Integration**. The **CRWD Event Export Integrations** page opens. Your integration appears on this page.
+
+## CRWD SIEM Export (via S3)
 
 Use the CRWD integration to export event metadata to CrowdStrike HTTP Event Collector (HEC) and event contents to AWS S3.
 
 To add a CRWD event export instance:
 
-1. Under **CRWD Event Export**, click **Add Instance**. The **Add Integration** window appears. See image.
+1. Under **CRWD SIEM Export (via S3)**, click **Add Instance**. The **Add Integration** window appears. See image.
 2. In the **Add Integration** window:
   - **Name**: Enter a name for your event export instance.
   - **Enabled**: Select this option to activate the event report functionality.
@@ -2175,8 +2198,6 @@ To add a CRWD event export instance:
   - **Bucket Key Prefix**: (Optional) Enter the key prefix for objects created in the S3 bucket.
   - **Tags**: (Optional) Click **Add Tag** to enter the tag key and value to apply to the object put in the S3 bucket. To use this feature, the IAM role requires permissions for the "s3:PutObjectTagging" action.
   - **Region of Bucket**: Enter the region of the bucket.
-  - **IAM Cross-Account Role ARN**: Enter the Amazon Resource Name (ARN) of the IAM cross-account role created in the tenant's AWS account.
-  - **IAM Cross-Account Role External ID**: The external ID of the IAM cross-account role which is created in the tenant's AWS account. It should be filled in automatically.
   - **CrowdStrike HEC Bearer Token**: Enter the bearer token to authenticate the CrowdStrike HEC.
   - **CrowdStrike HEC URL**: Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
@@ -2225,6 +2246,8 @@ To add an S3 event export instance:
 4. Click **Save Integration**. The **Splunk Export Integrations** page opens. Your integration appears on this page.
 
 [Image: AI Guard Add Integration window for CRWD]
+
+[Image: Crowdstrike Direct]
 
 [Image: AI Guard Add Integration window for S3]
 
@@ -3240,13 +3263,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-09-04T15:29Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-09-08T11:30Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-04T15:29Z
+- Last modified: 2026-09-08T11:30Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -5219,13 +5242,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-09-02T09:35Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-09-09T16:04Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-09-02T09:35Z
+- Last modified: 2026-09-09T16:04Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -5259,7 +5282,7 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   | Grok (xAI) | Web Browsers | `*.grok.com` |
   | Lovable | Web Browsers | `api.lovable.dev` |
   | MaxAI | Web Browsers | `*.api.maxai.me` |
-  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot.com (Web Browser); Copilot in Word (Desktop App and Web Browser); Copilot in Excel; Copilot in Outlook (Web Browser) | `substrate.office.com` `substrate.svc.cloud.microsoft` `copilot.microsoft.com` `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` `augloop.office.com` www.`copilot.com` |
+  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot.com (Web Browser); Copilot in Word (Desktop App and Web Browser); Copilot in Excel (Web Browser); Copilot in Outlook (Web Browser) | `substrate.office.com` `substrate.svc.cloud.microsoft` `copilot.microsoft.com` `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` `augloop.office.com` `www.copilot.com` |
   | Mistral AI | Mistral Vibe (formerly Le Chat) backend | `*.mistral.ai` |
   | Napkin AI | Web Browsers | `*.app.napkin.ai` |
   | NotebookLM | Web Browsers | `*.notebooklm.google.com` |
@@ -5371,13 +5394,13 @@ For traffic forwarding to work, users must have signed in to ZIA through mechani
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-log-exports","lastmod":"2026-08-11T10:02Z","nid":"1540889"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-log-exports","lastmod":"2026-09-08T09:22Z","nid":"1540889"} -->
 ## Managing AI Guard Log Exports
 
 - Source: https://help.zscaler.com/secure-ai-users/managing-ai-guard-log-exports
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Managing AI Guard Log Exports
-- Last modified: 2026-08-11T10:02Z
+- Last modified: 2026-09-08T09:22Z
 - Summary: Learn to manage and configure third-party integrations to export incident data from AI Guard.
 
 The AI Guard **Log Exports** page allows you to manage and configure third-party integrations to export incident data. You can do this through either Amazon Web Services (AWS), CrowdStrike (CRWD), Splunk, or AWS S3 event exporting.
@@ -5398,7 +5421,27 @@ To add an ADX event export instance:
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **Azure ADX Event Export Integrations** page opens. Your integration appears on this page.
 
-## CRWD Event Export
+## CRWD SIEM Direct Export
+
+Use the CRWD integration to direct export event metadata to CrowdStrike HTTP Event Collector (HEC).
+
+To add a CRWD event export instance:
+
+1. Under **CRWD SIEM Direct Export**, click **Add Instance**. The **Add Integration** window appears. See image.
+2. In the **Add Integration** window:
+  1. **Name**: Enter a name for your event export instance.
+  2. **Enabled**: Select this option to activate the event report functionality.
+  3. **CrowdStrike Metadata HEC Bearer Token**: The bearer token used to authenticate to the CrowdStrike HEC for the tenant's events.
+  4. **CrowdStrike Metadata HEC URL**: The URL of the CrowdStrike HEC (raw endpoint) where tenant's events will be posted.
+  5. **CrowdStrike HEC Bearer Token**: (Optional) Enter the bearer token to authenticate the CrowdStrike HEC.
+  6. **CrowdStrike HEC URL**: (Optional) Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
+  7. **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
+  8. **Export Blocked Prompts**: Select to export blocked prompts.
+  9. **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
+3. Click **Validate Connection** to check whether the information you entered is accurate and working.
+4. Click **Save Integration**. The **CRWD Event Export Integrations** page opens. Your integration appears on this page.
+
+## CRWD SIEM Export (via S3)
 
 Use the CRWD integration to export event metadata to CrowdStrike HTTP Event Collector (HEC) and event contents to AWS S3.
 
@@ -5412,8 +5455,6 @@ To add a CRWD event export instance:
   - **Bucket Key Prefix**: (Optional) Enter the key prefix for objects created in the S3 bucket.
   - **Tags**: (Optional) Click **Add Tag** to enter the tag key and value to apply to the object put in the S3 bucket. To use this feature, the IAM role requires permissions for the "s3:PutObjectTagging" action.
   - **Region of Bucket**: Enter the region of the bucket.
-  - **IAM Cross-Account Role ARN**: Enter the Amazon Resource Name (ARN) of the IAM cross-account role created in the tenant's AWS account.
-  - **IAM Cross-Account Role External ID**: The external ID of the IAM cross-account role which is created in the tenant's AWS account. It should be filled in automatically.
   - **CrowdStrike HEC Bearer Token**: Enter the bearer token to authenticate the CrowdStrike HEC.
   - **CrowdStrike HEC URL**: Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
@@ -5464,6 +5505,8 @@ To add a Splunk event export instance:
 4. Click **Save Integration**. The **Splunk Export Integrations** page opens. Your integration appears on this page.
 
 [Image: AI Guard Add Integration window for CRWD]
+
+[Image: CRWD Direct image.]
 
 [Image: AI Guard Add Integration window for S3]
 
@@ -6199,13 +6242,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-04T15:28Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-08T11:35Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-04T15:28Z
+- Last modified: 2026-09-08T11:35Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.

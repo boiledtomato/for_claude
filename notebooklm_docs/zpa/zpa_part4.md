@@ -1,8 +1,241 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 42
+Generated: 2026-09-14 03:38 UTC
+Articles in this file: 43
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-app-connectors-dashboard","lastmod":"2026-06-29T10:06Z","nid":"1484596"} -->
+## Viewing the App Connectors Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-app-connectors-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > App Connector Monitoring > Viewing the App Connectors Dashboard
+- Last modified: 2026-06-29T10:06Z
+- Summary: Information on the App Connectors dashboard and widgets accessible within the Zscaler Admin Console.
+
+The App Connectors dashboard provides information about the App Connectors for your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > App Connectors.
+
+See image.
+
+## Dashboard Tools
+
+The App Connectors dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View user data over a period between **30 Mins** to **14 Days**, or select **Custom Range** to specify a custom start and end date. If you use **Custom Range**, the start date can be within the last 14 days. This filter applies to all widgets on the dashboard. By default, the dashboard displays information for events that occurred in the last 30 minutes.
+
+Due to the way data is aggregated for different time period filters, the same point in time in an [Activity Monitor widget](https://help.zscaler.com/zpa/viewing-app-connectors-dashboard#activitywidgets) may show slightly different values depending on the time chosen. For example, the data with the **30 mins** time period filter at 3:00 PM may not match the data with the **14 Days** time period filter for the same date at 3:00 PM.
+
+- **Refresh Icon**: Refresh the dashboard to reflect the most current information. The dashboard displays the most recent information from the last five minutes.
+- **Chart Selection**: Select the charts you want to display or hide on the dashboard. A minimum of 4 charts and a maximum of 8 charts can be selected.
+
+See image.
+
+## Top App Connector Widgets
+
+The Top App Connector widgets provide an overview of the peak or top metrics for the relevant App Connectors in the selected time range.
+
+Four widgets are selected automatically when you access the dashboard. At least four widgets must be selected for the widgets to display, and no more than 8 widgets are available to view at one time.
+
+View the widgets.
+
+Clicking on any of the App Connectors in the widgets takes you to the [User Activity Diagnostic logs page](https://help.zscaler.com/zpa/accessing-user-activity-diagnostics) filtered for this App Connector.
+
+## Activity Monitor Widgets
+
+The Activity Monitor widgets provide trend information about selected App Connectors in the selected time range. If no App Connectors are selected, the top App Connectors from the Peak Memory Utilization widget are selected by default.
+
+Three widgets are selected automatically when you access the dashboard. At least three widgets must be selected for the widgets to display, and no more than 6 widgets are available to view at one time.
+
+View the widgets.
+
+Widgets may show solid lines or dashed lines. Solid lines represent actual data for the time period. Dashed lines indicate the expected trajectory of the data, but it isn't actual data. You can select a point on the lines in a widget to see the exact date, time, and relevant numbers for the App Connectors as related to the particular widget. You can also click **View Logs** to see the [User Activity Diagnostic logs page](https://help.zscaler.com/zpa/accessing-user-activity-diagnostics) filtered for the App Connectors in the widget.
+
+See image.
+
+Select a part of the chart to zoom in for greater detail. A blue box shows the chosen portion of the widget, and the widget shows this selected smaller time period.
+
+See image.
+
+Click **Zoom Out** to view the original widget.
+
+See image.
+
+For each widget, you can deselect the listed App Connectors to change what items are tracked within the widget. You can also search within the widget to reduce the listed App Connectors that appear in the widget. To search, enter part or all of an App Connector name or use the following search query options with >, <, or = operators:
+
+- name: The name of the App Connector (e.g., name = MyAppConnector).
+- value: A numerical value specific to the widget (e.g., value < 40).
+
+See image.
+
+### Filtering App Connectors
+
+You can filter the Activity Monitor charts and App Connector Details table by selecting the App Connectors you want to review. The available filters are **App Connectors** and **App Connector Groups**.
+
+See image.
+
+When filtering by App Connectors and App Connector groups, the selected App Connectors and App Connectors within the selected App Connectors groups are shown.
+
+- Click here to view an example.
+
+The filters between App Connectors and App Connector groups use the OR operator, instead of AND, to help compare App Connectors in App Connector groups.
+
+There is a limit of 25 App Connectors you can select at one time. If you haven't selected any App Connectors and select an App Connector group that contains more than 25 App Connectors, then the first 25 App Connectors for the selected App Connector group are used in the filter. If you select App Connectors and then select App Connector groups in a way that exceeds the limit, you see an error message and need to adjust your selection.
+
+Within the **App Connector Group** filter, you can see the number of App Connectors associated with the App Connector group.
+
+See image.
+
+If no App Connectors are selected, the top App Connectors from the **Peak Memory Utilization** chart are selected by default.
+
+## App Connector Details
+
+The App Connector Details table provides information about the App Connectors selected in the Activity Monitor section. If no App Connectors are selected, the top App Connectors from the **Peak Memory Utilization** widget are selected by default.
+
+The table covers:
+
+- **App Connector**: The name of the App Connector.
+- **App Connector Group**: The name of the group the App Connector is included in.
+- **Location**: The city and country that the App Connector is connecting from.
+- **Actions**:
+  - **View**: View the App Connector Details and App Connector Latency pages.
+  - **Edit**: Edit the App Connector.
+  - **Logs**: View the [User Activity Diagnostic logs page](https://help.zscaler.com/zpa/about-user-activity-diagnostics) filtered for this App Connector.
+
+See image.
+
+### Evaluating Individual App Connector Details and Latency
+
+For each App Connector, you can click the View icon for an App Connector in the App Connector Details table. For each App Connector, you can view:
+
+- Details
+- Latency
+
+The Details tab is automatically selected.
+
+See image.
+
+- **Top Errors**: Displays up to the top 100 App Connectors that had the most errors in the selected time range. This widget displays automatically when first accessing the dashboard.
+- **Peak Active Application Tunnel Count**: Displays up to the top 10 App Connectors that have the highest active connections to applications in the selected time range. This widget displays automatically when first accessing the dashboard.
+- **Peak Active Connections to Private Service Edges**: Displays up to the top 10 App Connectors with the highest active connections to Private Service Edges for Private Access (ZPA) in the selected time range.
+- **Peak Active Connections to Public Service Edges**: Displays up to the top 10 App Connectors with the highest active connections to Public Service Edges for Private Access in the selected time range.
+- **Minimum Available Disk Space**: Displays up to the top 10 App Connectors has the least disk space available in the selected time frame. This is not the average disk space used over the time frame.
+- **Peak Application Reachability**: Displays up to the top 10 App Connectors monitoring the most application targets in the selected time range. This widget displays automatically when first accessing the dashboard.
+- **Peak CPU Utilization**: Displays up to the top 10 App Connectors using the most CPU in the selected time frame. This is not the average CPU used over the time frame.
+- **Peak Memory Utilization**: Displays up to the top 10 App Connectors using the most memory in the selected time frame. This is not the average memory used over the time frame. This widget displays automatically when first accessing the dashboard.
+- **Peak TCP Port Utilization**: Displays up to the top 10 App Connectors using the most TCP ports for IPv4 in the selected time frame. This is not the average TCP ports used over the time frame, and it does not show App Connectors using TCP ports for IPv6.
+- **Peak UDP Port Utilization**: Displays up to the top 10 App Connectors using the most UDP ports for IPv4 in the selected time frame. This is not the average UDP ports used over the time frame, and it does not show App Connectors using UDP ports for IPv6.
+- **Peak File Descriptor Utilization**: Displays up to the top 10 App Connectors using the most file descriptors in the selected time frame. This is not the average file descriptors used over the time frame.
+- **Total Application Tunnel Count**: Displays up to the top 10 App Connectors that have the highest cumulative connections to applications in the selected time range.
+- **Total Bytes Received from Public Service Edges**: Displays up to the top 10 App Connectors that have the highest cumulative received bytes from Public Service Edges in the selected time range.
+- **Total Bytes Transmitted to Public Service Edges**: Displays up to the top 10 App Connectors that have the highest cumulative transmitted bytes to Public Service Edges in the selected time range.
+- **Peak Inspection Tunnel Count in Past 14 Days**: Displays up to the top 10 App Connectors that have the highest connections to AppProtection in the past 14 days.
+
+- **Active Application Tunnel Count**: The number of active connections the App Connector had to applications for the point in time listed. This widget displays automatically when first accessing the dashboard.
+- **Active Connections to Private Service Edges**: The number of active connections the App Connector had to Private Service Edges in the selected time range.
+- **Active Connections to Public Service Edges**: The number of active connections the App Connector had to Public Service Edges in the selected time range.
+- **Available Disk Space**: Displays the amount of disk space that is available to an App Connector at different points during the selected time range.
+- **Rate of Bits Received from Public Service Edge**: The number of bits received per second by the App Connector from Public Service Edges in the selected time range. The rate is measured by taking the total bytes (b) for two points in time counted in seconds (t): rate= (b2-b1) */(t2-t1). For example, there are 100 total bytes at 7:00, and 1000 total bytes at 7:05. The rate is 24 bits per second ((1000-100)*8 / 300 = 24 bits/second).
+- **Application Reachability**: Displays the number of application targets for an App Connector at different points during the selected time range. This widget displays automatically when first accessing the dashboard.
+- **CPU Utilization**: Displays the amount of CPU used by an App Connector at different points during the selected time range.
+- **Memory Utilization**: Displays the amount of memory used by an App Connector at different points during the selected time range. This widget displays automatically when first accessing the dashboard.
+- **TCP Port Utilization**: Displays the number of TCP ports for IPv4 used by an App Connector at different points during the selected time range. It does not show App Connectors using TCP ports for IPv6.
+- **UDP Port Utilization**: Displays the number of UDP ports for IPv4 used by an App Connector at different points during the selected time range. It does not show App Connectors using UDP ports for IPv6.
+- **File Descriptor Utilization**: Displays the number of file descriptors used by an App Connector at different points during the selected time range.
+- **Rate of Bits Transmitted to Public Service Edges**: The number of bits transmitted per second by the App Connector to Public Service Edges during the selected time range. The rate is measured by taking the total bytes (b) for two points in time counted in seconds (t): rate= (b2-b1) */(t2-t1). For example, there are 100 total bytes at 7:00, and 1000 total bytes at 7:05. The rate is 24 bits per second ((1000-100)*8 / 300 = 24 bits/second).
+- **Application Tunnel Creation Rate**: Compare the rate of application tunnels interacting with App Connectors for application connections in the selected time range. The rate is measured by taking the total application tunnels (a) for two points in time counted in seconds (t): rate= (a2-a1) / (t2-t1). For example, there are 100 total application tunnels at 7:00, and 400 total application tunnels at 7:05. The rate is one tunnel per second ((400-100) / 300 = 1 tunnel/second).
+
+[Image: App Connector dashboard tools in the Zscaler Admin Console]
+
+[Image: App Connectors dashboard tools]
+
+[Image: Select a point or view logs for part of a chart on the App Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Select a part of a chart on the Zscaler Admin Console Dashboard in the Zscaler Admin Console]
+
+[Image: Zoom Out of a chart on the App Connector in the Zscaler Admin Console]
+
+[Image: Search and Deselect App Connectors in Widgets on the App Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Actions for the App Connector Details table on the App Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Filter App Connectors on the App Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Number of App Connectors in an App Connector group in the App Connector Groups filter on the App Connector Dashboard in the Zscaler Admin Console]
+
+The Details page provides information about the selected App Connector. It is divided into three sections:
+
+- General Information
+- App Connector Information
+- Activity Monitor Widgets
+
+The general information available about the App Connector:
+
+- **App Connector Group**: The name of the group the App Connector is included in.
+- **Location**: The city and country that the App Connector is connecting from.
+- **Enabled**: Identifies if the App Connector is enabled or disabled.
+- **Session Status**: The status of the App Connector session during the time range. The potential session statuses are:
+  - **Authenticated**: The App Connector successfully authenticated.
+  - **Authentication Failed**: The App Connector was unable to authenticate to the Zscaler cloud.
+  - **Disconnected**: The App Connector successfully disconnected.
+- **Periodic Software Update On**: The date and time of the next periodic software update for the App Connector.
+- **Last Software Update On**: The date and time of the last software update for the App Connector.
+- **Scheduled Software Version**: The next App Connector software version that the App Connector upgrades to.
+- **Current Software Version**: The current App Connector software version during the time range.
+- **Connection Status**: The connection status of the App Connector during the time range. The potential session statuses are:
+  - **Connected**: The App Connector is up during the time range.
+  - **Disconnected**: The App Connector is down during the time range.
+
+[Image: General information for an App Connector on the App Connector Dashboard in the Zscaler Admin Console.]
+
+The values and percentages for each item in this section are initially based on the most recent data available as noted by the point in time listed on the right side of this section. The values and percentages change based on selections made in the Activity Monitor widgets below this section. The time also adjusts.
+
+[Image: Time Selection for Individual App Connector Details on the App Connector Dashboard in the Zscaler Admin Console]
+
+The information available about the App Connector includes:
+
+- **Active Application Tunnel Count**: The number of active connections the App Connector had to applications for the point in time listed.
+- **Active Connections to Private Service Edges**: The number of active connections the App Connector had to Private Service Edges for the point in time listed.
+- **Active Connections to Public Service Edges**: The active connection the App Connector had to Public Service Edges for the point in time listed.
+- **Available Disk Space**: The number of bytes available to the App Connector for the point in time listed.
+- **Rate of Bits Received from Public Service Edge**: The number of bits received by the App Connector from Public Service Edges for the point in time listed.
+- **Application Reachability**: The number of application targets the App Connector is monitoring for the point in time listed.
+- **CPU Utilization**: The highest CPU used by the App Connector for the past 5 minutes.
+- **Memory Utilization**: The highest memory used by the App Connector for the past 5 minutes.
+- **TCP Port Utilization**: The number of TCP ports for IPv4 used by the App Connector for the point in time listed. It does not show App Connectors using TCP ports for IPv6.
+- **UDP Port Utilization**: The number of UDP ports for IPv4 used by the App Connector for the point in time listed. It does not show App Connectors using UDP ports for IPv6.
+- **File Descriptor Utilization**: The file descriptors used by the App Connector for the point in time listed.
+- **Rate of Bits Transmitted to Public Service Edges**: The number of bits transmitted per second by the App Connector to Public Service Edges for the point in time listed.
+
+The Activity Monitor section displays the same widgets with the same functionality as seen in the [Activity Monitor section](https://help.zscaler.com/zpa/about-app-connector-dashboard#activitywidgets) above. Three widgets are selected automatically. They are:
+
+- Active Application Tunnel Count
+- Application Reachability
+- Memory Utilization
+
+The latency monitor widgets in the Latency tab show the latency trend from an App Connector to Public Service Edges in the selected time range. The time range for the Latency tab is different from the rest of the App Connector Dashboard. It is limited to data over a period between **30 Mins** to **24 Hours**, or you can select **Custom Range** to specify a custom start and end date. If you use **Custom Range**, the start date can be within the last 24 hours. This filter applies to all widgets in the Latency tab, and the default time is 30 minutes.
+
+The widgets available are:
+
+- App Connector To Service Edge TCP Latency
+- App Connector To Service Edge Latency
+
+Each widget shows the Public Service Edges that interacted with the selected App Connector during the time range. The widgets have the same functionality as seen in the [Activity Monitor section](https://help.zscaler.com/zpa/about-app-connector-dashboard#widgetfunctions).
+
+For each widget, you can search by entering part or all of a Public Service Edge name or by using the following search query options with >, <, or = operators:
+
+- location: The location of the Public Service Edge (e.g., location < San Jose).
+- name: The name of the Public Service Edge (e.g., name = sj_serviceedge).
+- value: A numerical value specific to the widget (e.g., value < 40).
+
+[Image: Latency Tab on the App Connector Dashboard in the Zscaler Admin Console]
+
+[Image: Details and Latency tabs for App Connectors on the App Connector Dashboard in the Zscaler Admin Console]
+
+- Let's say there is App Connector group 1, which contains App Connectors A and B, and then App Connector group 2, which contains App Connectors C and D.
+- If App Connector group 1 and App Connector C are selected, the dashboard shows App Connectors A, B, and C, rather than showing no App Connectors because C is not part of App Connector group 1.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -177,20 +410,20 @@ If you exclude items, then the sunburst chart, selection filter, and list adjust
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-map","lastmod":"2026-02-24T06:06Z","nid":"1534383"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-map","lastmod":"2026-09-11T07:17Z","nid":"1534383"} -->
 ## Viewing the Application Map
 
 - Source: https://help.zscaler.com/zpa/viewing-application-map
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Application Map
-- Last modified: 2026-02-24T06:06Z
-- Summary: How to view the Application Map for Microsegmentation in the ZPA Admin Portal.
+- Last modified: 2026-09-11T07:17Z
+- Summary: How to view the Application Map for Microsegmentation in the Zscaler Admin Console.
 
 The Application Map provides graphed visualizations of network data in your organization. It gives a high-level view of how resource groups and their connected resources are performing, and allows the option to view granular details for each widget of information.
 
-To view the Application Map, go to **Microsegmentation** > **Dashboard** > **Application Map**.
+To view the Application Map, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation** **Application Map**.
 
-[Image: A GIF of the Network Viz dashboard.]
+[Image: The Application Map]
 
 ## Dashboard Tools
 
@@ -668,16 +901,16 @@ The widget displays the top 10 profile violations within the selected time frame
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-bgp-peers-dashboard","lastmod":"2026-06-30T07:06Z","nid":"1534094"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-bgp-peers-dashboard","lastmod":"2026-09-10T12:19Z","nid":"1534094"} -->
 ## Viewing the BGP Peers Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-bgp-peers-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the BGP Peers Dashboard
-- Last modified: 2026-06-30T07:06Z
+- Last modified: 2026-09-10T12:19Z
 - Summary: Information about the BGP Peers dashboard in the Zscaler Admin Console.
 
-The BGP Peers dashboard provides information about the Border Gateway Protocol (BGP) peers for your organization. To view the dashboard in the Zscaler Admin Console, go to Infrastructure > Private Access > Component > VPN BGP Peers.
+The BGP Peers dashboard provides information about the Border Gateway Protocol (BGP) peers for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > VPN (for Legacy Apps) > Dashboard > VPN BGP Peers.
 
 ## Dashboard Tools
 
@@ -781,13 +1014,13 @@ The table covers:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-configuration-graphs","lastmod":"2026-09-04T15:03Z","nid":"1516601"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-configuration-graphs","lastmod":"2026-09-10T12:13Z","nid":"1516601"} -->
 ## Viewing Configuration Graphs
 
 - Source: https://help.zscaler.com/zpa/viewing-configuration-graphs
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Viewing Configuration Graphs
-- Last modified: 2026-09-04T15:03Z
+- Last modified: 2026-09-10T12:13Z
 - Summary: Information on how to view the configuration graphs in the Zscaler Admin Console.
 
 Configuration graphs are graphical representations of how configuration objects are connected to each other (e.g., how an application segment is connected to a server group and server groups). They are helpful in determining when and where you might need to fix configuration requisites to get them working together again.
@@ -875,34 +1108,36 @@ This widget displays the IPSec tunnels connected to extranet resources with the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-flow-dashboard","lastmod":"2025-08-22T11:44Z","nid":"1498176"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-flow-dashboard","lastmod":"2026-09-11T07:12Z","nid":"1498176"} -->
 ## Viewing the Flow Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-flow-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Flow Dashboard
-- Last modified: 2025-08-22T11:44Z
-- Summary: How to view the Flow Dashboard for Microsegmentation in the ZPA Admin Portal.
+- Last modified: 2026-09-11T07:12Z
+- Summary: How to view the Flow dashboard for Microsegmentation in the Zscaler Admin Console.
 
 The Flow dashboard provides information about agent flows and connections in your organization. You can see a maximum of 10 top metrics for each category.
 
-To view the Flow dashboard, go to **Microsegmentation**> **Dashboard**> **Flow**.
-
-[Image: A view of the Flow dashboard.]
+To view the Flow dashboard, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation** **Flow**.
 
 ## Dashboard Tools
 
 The Flow dashboard displays the following information and functionality:
 
 - **Time Range Filter**: View flow data from 1 Hour to 14 Days.
-- **Refresh icon**: Refresh the dashboard to reflect the most current information.
+- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
 - **Top Permitted Talkers**: The allowed resources and IP addresses sending out the number of flows in the network (Source IP and Protocol). These resources send the most outbound flows and initiate the connection to a given protocol.
 - **Top Blocked Talkers**: The blocked resources and IP addresses sending out the number of flows in the network (Source IP and Protocol). These resources send the most outbound flows and initiate the connection to a given protocol.
 - **Top Permitted Listeners**: The allowed resources and port combinations receiving the number of flows in the network (IP, Protocol, and Listening Port).
 - **Top Blocked Listeners**: The blocked resources and port combinations receiving the number of flows in the network (IP, Protocol, and Listening Port).
 - **Top Permitted Agent-to-Agent Flows**: The flows between multiple agents.
 - **Top Permitted Flows Between Agent and Non-Agent**: The flows between agents and resources not connected to any agents.
-- **Source Information**: Hover over one of the port data lines to display its Resource Name, Resource ID, IP Address, Protocol, and Count.
+- **Source Information**: Hover over one of the port data lines to display its Resource Name, Resource ID, IP Address, Protocol, and Count. See image.
+
+[Image: The Flow dashboard]
+
+[Image: Source Information]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1072,16 +1307,16 @@ For each Private Service Edge, you can view more information about it by hoverin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-network-connectors-dashboard","lastmod":"2026-06-29T07:06Z","nid":"1525456"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-network-connectors-dashboard","lastmod":"2026-09-10T12:16Z","nid":"1525456"} -->
 ## Viewing the Network Connectors Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-network-connectors-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the Network Connectors Dashboard
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-09-10T12:16Z
 - Summary: Information about the Network Connectors dashboard and widgets available in the Zscaler Admin Console.
 
-The Network Connectors Dashboard provides information about the Network Connectors for your organization. To view the dashboard in the Zscaler Admin Console, go to Infrastructure > Private Access > Component > Network Connectors Dashboard.
+The Network Connectors Dashboard provides information about the Network Connectors for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > VPN (for Legacy Apps)> Dashboard > VPN Dashboard.
 
 [Image: View of the Network Connectors dashboard in the Zscaler Admin Console]
 
@@ -1187,26 +1422,35 @@ The table includes:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-overview-dashboard","lastmod":"2025-08-22T11:42Z","nid":"1531939"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-overview-dashboard","lastmod":"2026-09-11T07:16Z","nid":"1531939"} -->
 ## Viewing the Overview Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-overview-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Overview Dashboard
-- Last modified: 2025-08-22T11:42Z
-- Summary: How to view the Overview Dashboard for Microsegmentation in the ZPA Admin Portal.
+- Last modified: 2026-09-11T07:16Z
+- Summary: How to view the Overview dashboard for Microsegmentation in the Zscaler Admin Console.
 
-The Overview dashboard displays widgets that provide information about the status of agents and resource protection in your organization. To view the Overview dashboard, go to **Microsegmentation**> **Dashboard**> **Overview**.
+The Overview dashboard provides information about the status of agents and resource protection in your organization.
 
-The dashboard contains the following widgets:
+To view the Overview dashboard, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation** **Overview**.
 
-- **ML Resource Group Recommendations**: Shows how many machine learning (ML) recommendations for resource groups have been found, and allows you to review them.
-- **Agent Status**: Shows how many agents are **Connected**, **Disconnected**, or in **Error** state.
-- **Agent Version**: Shows how many agents are using which type of agent version.
+## Dashboard Tools
+
+The Overview dashboard displays the following information and functionality:
+
+- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
+- **Agent Licensing**: Shows how many agents are licensed and actively connected.
+- **ML Resource Group Recommendations**: Shows how many machine learning (ML) recommendations for resource groups have been found and allows you to review them.
+- **ML Tag Recommendations**: Shows how many ML tag recommendations for resource groups have been found and allows you to review them.
+- **Host Agent Status**: Shows how many agents are **Connected** or **Disconnected**, or in **Error** state.
+- **Host Agent Version**: Shows how many agents are using which agent version.
+- **Kubernetes Agent Status**: Shows how many agents are **Connected** or **Disconnected**,
+- **Kubernetes Agent Version**: Shows how many agents are using which agent version.
 - **Resource Protection Status**: Shows how many resources are **Protected**or **Unprotected**. You can also download a CSV file of this information.
 - **Resource Group Protection Status**: Shows how many resource groups are **Protected**or **Unprotected**. You can also download a CSV file of this information.
 
-[Image: A view of the Agent dashboard chart data.]
+[Image: The Overview dashboard]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2463,13 +2707,13 @@ Zero trust has become a popular model for secure user access to applications and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-09-04T11:10Z","nid":"1485956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-09-11T08:00Z","nid":"1485956"} -->
 ## App Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Software by Platform
-- Last modified: 2026-09-04T11:10Z
+- Last modified: 2026-09-11T08:00Z
 - Summary: The current App Connector software downloads by platform.
 
 App Connectors are supported on [many different platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms). Each supported platform has an App Connector image you can use to deploy App Connectors on that platform. To learn more, see [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -2765,13 +3009,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-09-04T13:48Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-09-11T08:53Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-09-04T13:48Z
+- Last modified: 2026-09-11T08:53Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.

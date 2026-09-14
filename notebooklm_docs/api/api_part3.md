@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 151
+Generated: 2026-09-14 03:38 UTC
+Articles in this file: 152
 
 ---
 
@@ -4046,13 +4046,13 @@ Retrieves the count of traffic forwarding rules available in the Cloud & Branch 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/policy-resources","lastmod":"2026-01-27T04:27Z","nid":"1528426"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/policy-resources","lastmod":"2026-09-09T03:07Z","nid":"1528426"} -->
 ## Policy Resources
 
 - Source: https://help.zscaler.com/legacy-apis/policy-resources
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Cloud & Branch Connector API > API Developer & Reference Guide > Reference Guide > Policy Resources
-- Last modified: 2026-01-27T04:27Z
+- Last modified: 2026-09-09T03:07Z
 
 **Servers:** `https://{host}:{port}/wapi/v1`, `https://{host}:{port}/api/v1`
 
@@ -4531,6 +4531,66 @@ Updates the list of network service groups.
 - Operation ID: `NetworkServiceGroupZResource_addCustomNetworkServiceGroup`
 
 **Request body:** `application/json` → NetworkServiceGroup
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /networkServiceGroups/{serviceGroupId}`
+
+Retrieves the network service group based on the service group ID.
+
+- Operation ID: `NetworkServiceGroupZResource_getNetworkServiceGroupById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `serviceGroupId` | path | yes | integer(int32) | The ID of the network service group. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `PUT /networkServiceGroups/{serviceGroupId}`
+
+Creates a network service group based on the service group ID.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `NetworkServiceGroupZResource_editNetworkServiceGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `serviceGroupId` | path | yes | integer(int32) | The ID of the network service group. |
+
+**Request body:** `application/json` → NetworkServiceGroup
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `DELETE /networkServiceGroups/{serviceGroupId}`
+
+Deletes the network service group based on the service group ID.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `NetworkServiceGroupZResource_deleteCustomNetworkServiceGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `serviceGroupId` | path | yes | integer(int32) | The ID of the network service group. |
 
 **Responses:**
 
@@ -18903,13 +18963,13 @@ Application profile API resources allow you to configure application and forward
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zscaler-cloud-branch-connector-api","lastmod":"2026-04-17T07:06Z","nid":"1447251"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zscaler-cloud-branch-connector-api","lastmod":"2026-09-08T22:45Z","nid":"1447251"} -->
 ## Understanding the Zscaler Cloud & Branch Connector API
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-zscaler-cloud-branch-connector-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Cloud & Branch Connector API > Understanding the Zscaler Cloud & Branch Connector API
-- Last modified: 2026-04-17T07:06Z
+- Last modified: 2026-09-08T22:45Z
 - Summary: Information about the Zscaler Cloud & Branch Connector API
 
 The Zscaler Cloud & Branch Connector API gives you programmatic access to the following Zscaler Cloud & Branch Connector features:
@@ -18928,6 +18988,7 @@ The Zscaler Cloud & Branch Connector API gives you programmatic access to the fo
 - Policy Resources
 - Provisioning
 - Workload Groups
+- Zero Trust Gateway
 
 Prior to using the API, Zscaler recommends that you review [Getting Started](https://help.zscaler.com/cloud-branch-connector/getting-started-api) for information regarding prerequisites, authentication, and making API calls.
 
@@ -19003,6 +19064,11 @@ Log and Control Forwarding API resources allow you to retrieve the list of forwa
 Workload groups API resources allow you to retrieve the list of workload groups. To learn more, see:
 
 - [Reference Guide > Workload Groups](https://help.zscaler.com/legacy-apis/workload-groups-0)
+
+Zero Trust Gateway (ZTGW) APIs allow you to create or update ZTGWs, retrieve ZTGWs, configuration status, number of ZTGWs per organization, etc. To learn more, see:
+
+- [Reference Guide > Zero Trust Gateway](https://help.zscaler.com/legacy-apis/zero-trust-gateway)
+- [What Are Zero Trust Gateways?](https://help.zscaler.com/cloud-branch-connector/what-zero-trust-gateways)
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -21968,6 +22034,812 @@ Share a ZDX Snapshot for a given user ID to monitor user details (i.e., device a
 | 400 |  |
 | 401 |  |
 | 403 |  |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/zero-trust-gateway","lastmod":"2026-09-08T22:26Z","nid":"1545353"} -->
+## Zero Trust Gateway
+
+- Source: https://help.zscaler.com/legacy-apis/zero-trust-gateway
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Cloud & Branch Connector API > API Developer & Reference Guide > Reference Guide > Zero Trust Gateway
+- Last modified: 2026-09-08T22:26Z
+
+**Servers:** `https://{host}:{port}/wapi/v1`, `https://{host}:{port}/api/v1`
+
+### `GET /ztGateway`
+
+Retrieve list of Zero Trust Gateways
+
+- Operation ID: `ZTGatewayZResource_getZTGateways`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `platform` | query | no | string (enum: AWS, AZURE, GCP, CENTOS, REDHAT_LINUX, VMWARE_ESXI, MICROSOFT_HYPER_V) | Platform of Cloud or Branch Connector group |
+| `search` | query | no | string | The search string used to match against the policies |
+| `region` | query | no | string | The region where the ZT gateway is deployed |
+| `page` | query | no | integer(int32) | Specifies the page offset |
+| `pageSize` | query | no | integer(int32) | Specifies the page size |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `POST /ztGateway`
+
+Creates a Zero Trust Gateway based on the specified parameters
+
+- Operation ID: `ZTGatewayZResource_createZTGateway`
+
+**Request body:** `application/json` → ZTGatewayRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `PUT /ztGateway/analytic/metrics/{id}`
+
+Updates the Zero Trust Gateway based on the specified ID
+
+- Operation ID: `ZTGatewayZResource_getZTGatewayMetrics`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | Unique identifier of the Zero Trust Gateway |
+
+**Request body:** `application/json` → ZTGatewayMetrics
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/config/compare/{id}`
+
+Retrieves the list of Zero Trust Gateways with Internet & SaaS configuration versions that have been activated
+
+- Operation ID: `ZTGatewayZResource_getZTGatewayConfigComparison`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | Unique identifier of the gateway |
+| `action` | query | no | string |  |
+| `version1` | query | no | string | The first version of the configuration selected for comparison |
+| `version2` | query | no | string | The second version of the configuration selected for comparison |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/config/status/{id}`
+
+Retrieves the Zero Trust gateway configuration status based on the gateway ID
+
+- Operation ID: `ZTGatewayZResource_getZTGatewayConfigStatus`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | Unique identifier of the Zero Trust gateway |
+| `action` | query | no | string | The actions available for ZT gateway (Status and compare) |
+| `size` | query | no | string | The number of configurations returned per page |
+| `token` | query | no | string | Pagination cursor passed in the subsequent request when additional configs are available |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/count`
+
+Retrieves the total number of existing Zero Trust Gateways per organization
+
+- Operation ID: `ZTGatewayZResource_getZTGatewaysCount`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `platform` | query | no | string (enum: AWS, AZURE, GCP, CENTOS, REDHAT_LINUX, VMWARE_ESXI, MICROSOFT_HYPER_V) | The cloud service provider used to deploy the gateway |
+| `search` | query | no | string | The search string used to match against the policies |
+| `region` | query | no | string | The region where the ZT gateway is deployed |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/events/{id}`
+
+Retrieves the list of events that occurred based on the ZT gateway resource ID
+
+- Operation ID: `ZTGatewayZResource_getZTGatewayEvents`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The ZT gateway resource ID |
+| `size` | query | no | string | The number of events returned per page. The default is 25 |
+| `ntoken` | query | no | string | The default is 25 |
+| `begin` | query | no | string | Timestamp when the event started |
+| `end` | query | no | string | Timestamp when the event ended |
+| `category` | query | no | string | The category of the event |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/licenseInfo`
+
+Retrieves license details of ZT Gateway
+
+- Operation ID: `ZTGatewayZResource_getZTGatewaysLicenseInfo`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `platform` | query | no | string (enum: AWS, AZURE, GCP, CENTOS, REDHAT_LINUX, VMWARE_ESXI, MICROSOFT_HYPER_V) | The cloud service provider used to deploy the gateway |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | default response |
+
+### `GET /ztGateway/lite`
+
+Retrieves the list of ID and name of existing Zero Trust Gateways
+
+- Operation ID: `ZTGatewayZResource_getZTGatewaysLite`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `platform` | query | no | string (enum: AWS, AZURE, GCP, CENTOS, REDHAT_LINUX, VMWARE_ESXI, MICROSOFT_HYPER_V) | The cloud service provider used to deploy the gateway |
+| `search` | query | no | string | The search string used to match against the policies |
+| `region` | query | no | string | The region where the ZT gateway is deployed |
+| `page` | query | no | integer(int32) | Specifies the page offset |
+| `pageSize` | query | no | integer(int32) | Specifies the page size |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/status/{id}`
+
+Retrieves the status of the ZT gateway based on the ID
+
+- Operation ID: `ZTGatewayZResource_getZTGatewayStatus`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The ZT gateway resource ID |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/supportedRegions`
+
+Retrieves the list of ZT gateway supported regions
+
+- Operation ID: `ZTGatewayZResource_getZTGatewaySupportedRegions`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `platform` | query | no | string (enum: AWS, AZURE, GCP, CENTOS, REDHAT_LINUX, VMWARE_ESXI, MICROSOFT_HYPER_V) | The platform of Cloud or Branch Connector group |
+| `search` | query | no | string | The search string used to match against the policies |
+| `page` | query | no | integer(int32) | Specifies the page offset |
+| `pageSize` | query | no | integer(int32) | Specifies the page size |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/trafficTest`
+
+Retrieves the list of traffic tests created
+
+- Operation ID: `ZTGatewayZResource_getTrafficTests`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `POST /ztGateway/trafficTest`
+
+Create a traffic test environment
+
+- Operation ID: `ZTGatewayZResource_createTrafficTest`
+
+**Request body:** `application/json` → TrafficTest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `DELETE /ztGateway/trafficTest/env/{id}`
+
+Delete the traffic test based on the ID
+
+- Operation ID: `ZTGatewayZResource_deleteTrafficTestEnvironment`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The ID of the traffic test |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/trafficTest/env/{id}`
+
+Retrieve traffic test environment details based on the ZT gateway resource ID
+
+- Operation ID: `ZTGatewayZResource_getTrafficTestEnvironment`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The ZT gateway resource ID |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `POST /ztGateway/trafficTest/env/{id}`
+
+Create a traffic test environment
+
+- Operation ID: `ZTGatewayZResource_createTrafficTestEnvironment`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The ZT gateway resource ID |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `DELETE /ztGateway/trafficTest/{testId}`
+
+Delete the traffic test based on the traffic test ID
+
+- Operation ID: `ZTGatewayZResource_deleteTrafficTest`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `testId` | path | yes | string | The traffic test ID |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/trafficTest/{testId}`
+
+Retrieve the traffic test details based on test ID
+
+- Operation ID: `ZTGatewayZResource_getTrafficTestById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `testId` | path | yes | string | The traffic test ID |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `PUT /ztGateway/trafficTest/{testId}`
+
+Update the traffic test based on the test ID
+
+- Operation ID: `ZTGatewayZResource_updateTrafficTest`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `testId` | path | yes | string | The traffic test ID |
+
+**Request body:** `application/json` → TrafficTest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `POST /ztGateway/{gwId}/trafficTest/run`
+
+Run a traffic test based on the gateway ID
+
+- Operation ID: `ZTGatewayZResource_runTrafficTest`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `gwId` | path | yes | integer(int32) | The ZT gateway resource ID |
+
+**Request body:** `application/json` → TrafficRunTest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `DELETE /ztGateway/{id}`
+
+Delete a ZT gateway based on the ZT gateway ID
+
+- Operation ID: `ZTGatewayZResource_deleteZTGateway`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The ZT gateway ID |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `GET /ztGateway/{id}`
+
+Retrieves the ZT gateway details based on the gateway ID
+
+- Operation ID: `ZTGatewayZResource_getZTGatewayById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The ZT gateway ID |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### `PUT /ztGateway/{id}`
+
+Update ZT gateway based on the ZT gateway ID
+
+- Operation ID: `ZTGatewayZResource_updateZTGateway`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | integer(int32) | The ZT gateway ID |
+
+**Request body:** `application/json` → ZTGatewayRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| default | default response |
+
+### Schemas
+
+**`ZTGatewayResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `availabilityZoneIds` | array<string> | no |
+| `createTime` | integer(int32) | no |
+| `egressIPs` | object | no |
+| `healthStatus` | string | no |
+| `id` | integer(int32) | no |
+| `lastModTime` | integer(int32) | no |
+| `lastModUid` | RequestResponseEntity | no |
+| `name` | string | no |
+| `platform` | string (enum: AWS, AZURE, GCP, CENTOS, REDHAT_LINUX, VMWARE_ESXI, MICROSOFT_HYPER_V) | no |
+| `provData` | object | no |
+| `region` | string | no |
+
+**`ZTGatewayRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `availabilityZoneIds` | array<string> | yes |
+| `name` | string | yes |
+| `platform` | string (enum: AWS, AZURE, GCP, CENTOS, REDHAT_LINUX, VMWARE_ESXI, MICROSOFT_HYPER_V) | yes |
+| `provData` | object | yes |
+| `region` | string | yes |
+
+**`ZTGatewayMetrics`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `endTime` | string | no |
+| `period` | string | no |
+| `startTime` | string | no |
+| `stat` | string | no |
+| `type` | string | no |
+
+**`ZeroTrustGatewayMetrics`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `statusCode` | string | no |
+| `timestamps` | array<integer(int64)> | no |
+| `values` | array<number(double)> | no |
+
+**`ZeroTrustGatewayConfigCompare`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `dataAfter` | object | no |
+| `dataBefore` | object | no |
+
+**`ZeroTrustGatewayConfigStatus`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `configs` | array<Config> | no |
+| `nextToken` | string | no |
+| `syncStatus` | string | no |
+
+**`ZTGatewayEventsMessage`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `events` | array<Event> | no |
+| `nextToken` | string | no |
+| `resourceId` | string | no |
+
+**`ZTGatewayDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filteredDeployedAZs` | integer(int32) | no |
+| `healthyAZs` | integer(int32) | no |
+| `licenseCount` | integer(int32) | no |
+| `totalDeployedAZs` | integer(int32) | no |
+| `unhealthyAZs` | integer(int32) | no |
+| `ztGateways` | array<UnifiedZTGatewayResponse> | no |
+
+**`EntityResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+
+**`ZeroTrustGatewayStatus`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `serviceStatus` | array<ServiceStatus> | no |
+
+**`SupportedRegion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `regionName` | string | no |
+| `cloudType` | string (enum: AWS, AZURE, GCP) | no |
+
+**`TestInfo`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `description` | string | no |
+| `headers` | string | no |
+| `id` | string | no |
+| `name` | string | no |
+| `options` | array<string> | no |
+| `type` | string | no |
+| `url` | string | no |
+
+**`TrafficTest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `description` | string | no |
+| `headers` | string | no |
+| `name` | string | no |
+| `options` | array<string> | no |
+| `type` | string | no |
+| `url` | string | no |
+
+**`TrafficTestEnvironmentMessage`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `environment` | Environment | no |
+| `resourceId` | string | no |
+
+**`TrafficRunTest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `testId` | string | no |
+
+**`TrafficRunResponseMessage`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `testDetail` | TestDetail | no |
+
+**`AwsZTGatewayResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `endpointServiceName` | string | no |
+| `endpoints` | array<object> | no |
+| `endpointsCount` | string | no |
+
+**`GcpZTGatewayResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `interceptDeploymentGroup` | string | no |
+| `interceptEndpointGroups` | array<object> | no |
+| `interceptEndpointGroupsCount` | string | no |
+
+**`RequestResponseEntity`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `deleted` | boolean | no |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+
+**`AwsZTGatewayContentResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `accountGroups` | array<RequestResponseEntity> | no |
+| `additionalAwsAccounts` | array<string> | no |
+| `allowedAccounts` | array<RequestResponseEntity> | no |
+| `drTestingMode` | boolean | no |
+| `globalProfile` | RequestResponseEntity | no |
+| `locationName` | string | no |
+| `locationTemplate` | LocationTemplate | no |
+
+**`LocationTemplate`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `name` | string | no |
+| `desc` | string | no |
+| `template` | LocationTemplateDetails | no |
+| `editable` | boolean | no |
+| `lastModUid` | object | no |
+| `lastModTime` | integer(int32) | no |
+
+**`LocationTemplateDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `templatePrefix` | string | no |
+| `xffForwardEnabled` | boolean | no |
+| `authRequired` | boolean | no |
+| `cautionEnabled` | boolean | no |
+| `aupEnabled` | boolean | no |
+| `aupTimeoutInDays` | integer(int32) | no |
+| `ofwEnabled` | boolean | no |
+| `ipsControl` | boolean | no |
+| `enforceBandwidthControl` | boolean | no |
+| `upBandwidth` | integer(int32) | no |
+| `dnBandwidth` | integer(int32) | no |
+| `displayTimeUnit` | string (enum: MINUTE, HOUR, DAY) | no |
+| `idleTimeInMinutes` | integer(int32) | no |
+| `surrogateIPEnforcedForKnownBrowsers` | boolean | no |
+| `surrogateRefreshTimeUnit` | string (enum: MINUTE, HOUR, DAY) | no |
+| `surrogateRefreshTimeInMinutes` | integer(int32) | no |
+| `surrogateIP` | boolean | no |
+
+**`EntityReference`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+| `isNameL10nTag` | boolean | no |
+| `extensions` | object | no |
+| `deleted` | boolean | no |
+| `externalId` | string | no |
+| `associationTime` | integer(int32) | no |
+
+**`GcpZTGatewayContentResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `drTestingMode` | boolean | no |
+| `globalProfile` | RequestResponseEntity | no |
+| `iamPrincipals` | array<IAMPrincipal> | no |
+| `locationName` | string | no |
+| `locationTemplate` | LocationTemplate | no |
+
+**`IAMPrincipal`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `addedOn` | integer(int64) | no |
+| `type` | string (enum: USER, GROUP, SERVICE_ACCOUNT) | no |
+| `value` | string | no |
+
+**`AwsZTGatewayContentRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `accountGroups` | array<RequestResponseEntity> | no |
+| `additionalAwsAccounts` | array<string> | no |
+| `allowedAccounts` | array<RequestResponseEntity> | no |
+| `drTestingMode` | boolean | no |
+| `globalProfile` | RequestResponseEntity | no |
+| `locationName` | string | no |
+| `locationTemplate` | RequestResponseEntity | yes |
+
+**`GcpZTGatewayContentRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `drTestingMode` | boolean | no |
+| `globalProfile` | RequestResponseEntity | no |
+| `iamPrincipals` | array<IAMPrincipal> | no |
+| `locationName` | string | no |
+| `locationTemplate` | RequestResponseEntity | yes |
+
+**`Config`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `appliedOn` | string | no |
+| `configState` | string | no |
+| `reason` | string | no |
+| `status` | string | no |
+| `version` | string | no |
+
+**`Event`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `category` | string | no |
+| `info` | string | no |
+| `status` | string | no |
+| `timestamp` | string | no |
+| `type` | string | no |
+
+**`UnifiedZTGatewayResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `availabilityZoneIds` | array<string> | no |
+| `createTime` | integer(int32) | no |
+| `egressIPs` | object | no |
+| `endpointServiceName` | string | no |
+| `endpoints` | array<object> | no |
+| `endpointsCount` | string | no |
+| `geoLocation` | GeoLocation | no |
+| `healthStatus` | string | no |
+| `id` | integer(int32) | no |
+| `interceptDeploymentGroup` | string | no |
+| `interceptEndpointGroups` | array<object> | no |
+| `interceptEndpointGroupsCount` | string | no |
+| `lastModTime` | integer(int32) | no |
+| `lastModUid` | RequestResponseEntity | no |
+| `name` | string | no |
+| `platform` | string (enum: AWS, AZURE, GCP, CENTOS, REDHAT_LINUX, VMWARE_ESXI, MICROSOFT_HYPER_V) | no |
+| `provData` | UnifiedZTGatewayContentResponse | no |
+| `region` | string | no |
+
+**`GeoLocation`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `cityGeoId` | integer(int32) | no |
+| `cityName` | string | no |
+| `countryCode` | string | no |
+| `countryName` | string | no |
+| `longitude` | integer(int32) | no |
+| `latitude` | integer(int32) | no |
+| `stateGeoId` | integer(int32) | no |
+| `stateName` | string | no |
+| `continentCode` | string | no |
+
+**`UnifiedZTGatewayContentResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `accountGroups` | array<RequestResponseEntity> | no |
+| `additionalAwsAccounts` | array<string> | no |
+| `allowedAccounts` | array<RequestResponseEntity> | no |
+| `drTestingMode` | boolean | no |
+| `globalProfile` | RequestResponseEntity | no |
+| `iamPrincipals` | array<IAMPrincipal> | no |
+| `locationName` | string | no |
+| `locationTemplate` | LocationTemplate | no |
+
+**`ServiceStatus`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `availabilityZoneId` | string | no |
+| `internet` | string | no |
+| `localEgress` | string | no |
+| `privateApplications` | string | no |
+
+**`Environment`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `endTime` | string | no |
+| `id` | string | no |
+| `status` | string | no |
+
+**`TestDetail`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `result` | string | no |
+| `status` | string | no |
+| `testId` | string | no |
 <!-- /ZS-ARTICLE -->
 
 ---

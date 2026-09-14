@@ -1,48 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 123
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-firewall-policies","lastmod":"2026-08-31T23:31Z","nid":"1399871"} -->
-## Configuring Firewall Policies
-
-- Source: https://help.zscaler.com/zia/configuring-firewall-policies
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Configuring Firewall Policies
-- Last modified: 2026-08-31T23:31Z
-- Summary: How to configure Zscaler Firewall policies, configure resources that policies reference, define rules for each policy, and enable the firewall per location.
-
-[Watch a video about Firewall Policies](https://fast.wistia.net/embed/iframe/67lc77bxsf) (shows legacy UI).
-
-Configuring Firewall policies requires configuring the following policies as applicable: Firewall Filtering, NAT Control, and DNS Control policies. For FTP Control settings within Firewall, see [Understanding FTP Control](https://help.zscaler.com/zia/understanding-ftp-control).
-
-Advanced Firewall is required to configure and apply policies based on users, groups, departments, or network applications.
-
-To configure Firewall policies:
-
-1. Configure the resources that the policies reference:
-  - Users, Groups, Departments, Locations, and Sublocations for your Firewall policies.
-  - Time Intervals.
-  - Network Applications. You can create network application groups as needed.
-  - Network Services. You can modify network services to edit services, add custom services, and create groups.
-  - Source and Destination IPv4 Groups.
-  - [IPv6 Configuration](https://help.zscaler.com/zia/understanding-ipv6-support)
-2. Define the rules for each policy:
-  - [Firewall Filtering Policy](https://help.zscaler.com/zia/configuring-firewall-filtering-policy)
-  - [NAT Control Policy](https://help.zscaler.com/zia/configuring-nat-control-policy)
-  - [DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy)
-3. By default, the Zscaler service *listens to* the following ports: If your organization uses other or additional ports for these types of traffic, you can configure the service to use [custom ports](https://help.zscaler.com/zia/configuring-custom-ports) for these services.
-  - Port 80 for HTTP traffic
-  - Port 443 for HTTPS traffic
-  - Port 53 for DNS traffic
-  - Port 21 for FTP traffic
-  - Port 554 for RTSP traffic
-  - Port 1723 for PPTP traffic
-4. [Enable the firewall per location.](https://help.zscaler.com/zia/enabling-firewall-locations)
-<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -670,13 +630,13 @@ For more information about getting started on the Zscaler service, see [Getting 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-gre-tunnels","lastmod":"2026-05-26T22:52Z","nid":"1399096"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-gre-tunnels","lastmod":"2026-09-08T05:43Z","nid":"1399096"} -->
 ## Configuring GRE Tunnels
 
 - Source: https://help.zscaler.com/zia/configuring-gre-tunnels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > Configuring GRE Tunnels
-- Last modified: 2026-05-26T22:52Z
+- Last modified: 2026-09-08T05:43Z
 - Summary: How to configure GRE tunnels from the corporate network to the Zscaler service.
 
 The following diagram is an example GRE tunnel configuration.
@@ -690,7 +650,7 @@ To configure GRE tunnels from your corporate network to the Zscaler service:
 - 3. Log in to the Zscaler Admin Console and add your gateway location.
 - 4. Configure your router or firewall to allow the GRE tunnel.
 
-You can go to **Logs**>**Insights**> **Internet & SaaS**- **Tunnel Insights** to see data, as well as monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Explorer**>**Tunnel Insights**to see data, as well as monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 - Zscaler recommends configuring two separate GRE tunnels to two Public Service Edges for Internet & SaaS (ZIA) that are each located in a different data center for high availability. If the primary GRE tunnel or an intermediate connection goes down, all traffic is then rerouted through the backup GRE tunnel to the secondary Public Service Edge. Ensure that if the primary tunnel goes down, the router detects it and changes the routing table or routing instance so that the secondary tunnel is used for traffic forwarding and vice versa.
 - Use the GRE tunnel to forward internet traffic to the service. If supported, use policy-based routing (PBR) to ensure that only internet-bound traffic is sent through the GRE tunnel. PBR is a mechanism that enables a router to determine where to forward packets based on configured policies. When you configure a GRE tunnel, you can use PBR to ensure that only internet-bound traffic is sent through the tunnel. A policy typically includes match criteria and the action that the router takes on the traffic. Match criteria can include the source and destination IP addresses and ports, and the protocol, such as HTTP or HTTPS. The action specifies the nexthop of the packets. When a packet arrives at a router with PBR enabled, it determines if the packet matches a configured policy and then routes it accordingly. PBR enables packets to take different paths based on the match criteria.
@@ -730,7 +690,7 @@ When Zscaler assigns the VIP addresses, the Zscaler service binds the source and
 
 After your IP addresses have been provisioned on the Zscaler service, log in to the Zscaler Admin Console and define your organization’s gateway location as follows:
 
-1. Go to **Infrastructure** > **Locations > Legacy Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Location Management** **> Legacy Locations**.
 2. Click **Add Location**.
 3. Enter general information about the location:
   - **Name**: Enter a name for the location.
@@ -849,13 +809,13 @@ It is also recommended that you create a minimal set of root CA certificates for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-09-06T07:06Z","nid":"1443226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-09-13T07:06Z","nid":"1443226"} -->
 ## Configuring the Index Tool with Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-amazon-web-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Amazon Web Services
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 Before you can create index templates for DLP dictionaries (i.e.,[Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Amazon Web Services (AWS), Azure, or VMware.
@@ -1093,13 +1053,13 @@ sudo zadp start
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-09-06T07:06Z","nid":"1467486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-09-13T07:06Z","nid":"1467486"} -->
 ## Configuring the Index Tool with Azure
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-azure-vms
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Azure
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool VM in Azure. The Index Tool is used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 To create index templates for DLP dictionaries (i.e., [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Azure, Amazon Web Services (AWS), or VMware.
@@ -1474,13 +1434,13 @@ sudo zadp start
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-09-06T07:06Z","nid":"1400651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-09-13T07:06Z","nid":"1400651"} -->
 ## Configuring the Index Tool with VMware
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-vmware
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with VMware
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 New or clean deployment of Index Tool requires VM image running on Zscaler OS version 24.
@@ -2142,27 +2102,30 @@ Configure the `${Gateway_Host}` variable, which is a Zscaler-specific variable, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-large-files-bandwidth-class","lastmod":"2026-07-01T10:22Z","nid":"1398941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-large-files-bandwidth-class","lastmod":"2026-09-07T22:42Z","nid":"1398941"} -->
 ## Configuring the Large Files Bandwidth Class
 
 - Source: https://help.zscaler.com/zia/configuring-large-files-bandwidth-class
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Configuring the Large Files Bandwidth Class
-- Last modified: 2026-07-01T10:22Z
+- Last modified: 2026-09-07T22:42Z
 - Summary: How to configure the Large Files tab in the Bandwidth Classes page in the ZIA Admin Portal.
 
 [Watch a video about Bandwidth Classes, including the Large Files bandwidth class](https://fast.wistia.net/embed/iframe/jjpc536mhm) (shows legacy UI).
 
-[Bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes) identify the [URL categories](https://help.zscaler.com/zia/about-url-categories) and [cloud applications](https://help.zscaler.com/zia/about-cloud-app-control) to which the service allocates bandwidth. You can group URL categories or applications into bandwidth classes, and then reference them in [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy rules.
-
-From the Large Files tab, you can choose the minimum file size for this bandwidth class. The service enforces bandwidth throttling when users attempt to download or upload files that are equal to or greater than the size specified.
+The Large Files page allows you to configure the minimum file size for bandwidth classes. The service enforces bandwidth throttling when users attempt to download or upload files that are equal to or greater than the specified file size. To learn more, see [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes).
 
 To specify the minimum file size:
 
-1. Go to **Infrastructure** > **Internet & SaaS**> **Network Policies** > **Classes** to [manage bandwidth classes](https://help.zscaler.com/zia/adding-bandwidth-classes).
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources**> **Bandwidth Classes**.
 2. Go to the **Large Files** tab.
-3. Select a minimum file size from the drop-down menu.
-4. Click **Save**and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+3. Click **Edit** to set the minimum file size. See image The **Edit** drawer appears.
+4. In the **Edit**drawer, for the **Large Files** section, select a minimum file size from the drop-down menu. See image.
+5. Click **Save**and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: The Large Files tab with the Edit icon in the Bandwidth Classes page]
+
+[Image: The Edit drawer for setting the minimum file size in the Large Files tab]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2375,13 +2338,13 @@ To edit or delete a manual location group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-09-06T07:06Z","nid":"1492736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-09-13T07:06Z","nid":"1492736"} -->
 ## Configuring Microsoft Exchange for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Configuring Microsoft Exchange for Zscaler Outbound Email DLP
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: Information on how to configure Microsoft Excchange for Zscaler Outbound Email Data Loss Prevention (DLP).
 
 Zscaler Outbound Email Data Loss Prevention (DLP) allows you to establish a connection between your Exchange server and Zscaler's cutting-edge Data Loss Prevention (DLP) tools to prevent the exfiltration of sensitive data in outbound emails sent to external domains. To do so, you must configure connectors to allow bidirectional communication between your Exchange server and the Zscaler smart host, and you must configure mail flow rules (also known as transport rules) to determine how mail flows from your Exchange server to the Zscaler service, and vice versa.
@@ -3172,39 +3135,39 @@ In an alternative scenario, if the location of the user changed from San Jose to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-network-application-groups","lastmod":"2026-06-04T19:06Z","nid":"1399941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-network-application-groups","lastmod":"2026-09-10T21:27Z","nid":"1399941"} -->
 ## Configuring Network Application Groups
 
 - Source: https://help.zscaler.com/zia/configuring-network-application-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring Network Application Groups
-- Last modified: 2026-06-04T19:06Z
-- Summary: How to group network applications together for use in Internet & SaaS (ZIA) Firewall policy rules.
+- Last modified: 2026-09-10T21:27Z
+- Summary: How to group network applications together to use them as rule criteria in Internet & SaaS (ZIA) Firewall policy rules.
 
-To group together applications that you want to control in a Firewall policy rule, create a network application group:
+To group together applications that you want to manage in a Firewall policy rule, create a network application group:
 
 You can create a maximum of 126 network application groups and add up to 8,000 network applications to a group. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
-1. Go to **Policies**> **Access Control** > **Firewall** >**Network Application Groups**.
-2. Click **Add Network Application Group**. The **Add Network Application Group** window appears.
-3. In the **Add Network Application Group** window: See image.
-  - **Name**: Enter a name for the network application group. It can include any character and spaces.
-  - **Applications**: Click the drop-down menu, select the network applications you want to include in the group, and click **Done**. You can select any number of network applications and also search for applications. To deselect any added network applications, use the **Remove** icon displayed for each item, or click **Clear Selection** to remove all items at once.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet & SaaS**> **Resources** >**Network Application Groups**.
+2. Click **Add Network Application Group**. The **Add Application Group** drawer appears.
+3. In the **Add Application Group** drawer: See image.
+  - **Name**: Enter a name for the network application group.
+  - **Application Group**: Click the drop-down menu and select the network applications you want to include in the group. You can select any number of network applications and also search for applications. To deselect any added network applications, use the **Remove** icon displayed for each item, or click **Remove All** to clear all items at once.
   - **Description**: (Optional) Enter any additional notes or information about the group. The description cannot exceed 10,240 characters. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
-4. Click **Save** and[activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Add a network application group by adding a description and the different available applications]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-network-service-groups","lastmod":"2026-06-04T19:04Z","nid":"1399976"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-network-service-groups","lastmod":"2026-09-11T02:06Z","nid":"1399976"} -->
 ## Configuring Network Service Groups
 
 - Source: https://help.zscaler.com/zia/configuring-network-service-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring Network Service Groups
-- Last modified: 2026-06-04T19:04Z
+- Last modified: 2026-09-11T02:06Z
 - Summary: How to create network service groups in the Zscaler Admin Console.
 
 [Watch a video about Network Services, including how to add a network service group](https://fast.wistia.net/embed/iframe/fa5a6c5wtm) (shows legacy UI).
@@ -3213,11 +3176,11 @@ To create a network services group:
 
 You can create a maximum of 121 network service groups and add up to 8,000 network services to a group. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
-1. Go to **Policies**> **Access Control** > **Firewall** >**Network Services**.
-2. Go to the **Service Groups** tab and click **Add Network Service Group**. The **Add Network Service Group** window appears.
-3. In the **Add Network Service Group** window: See image.
-  - **Name**: Provide a name for the network services group. It can include any character and spaces.
-  - **Services**: Click the drop-down menu, select the required network services you want to include in the group, and click **Done**. You can select any number of custom and predefined services. You can search for network services and also add new ones using the **Add** icon. To deselect any added network services, use the **Remove** icon displayed for each item, or click **Clear Selection** to remove all items at once.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources** >**Network Services**.
+2. Go to the **Service Groups** tab and click **Add Network Service Group**. The **Add Network Service Group** drawer appears.
+3. In the **Add Network Service Group** drawer: See image.
+  - **Name**: Provide a name for the network services group.
+  - **Services**: Click the drop-down menu and select the required network services you want to include in the group. You can select any number of custom and predefined services. You can also search for network services. To deselect any added network services, use the **Remove** icon displayed for each item, or click **Remove All** to clear all items at once.
   - **Description**: (Optional) Provide any additional notes or information about the group. The description cannot exceed 10,240 characters. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -3226,44 +3189,48 @@ You can create a maximum of 121 network service groups and add up to 8,000 netwo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-network-services","lastmod":"2026-05-22T03:55Z","nid":"1400131"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-network-services","lastmod":"2026-09-10T06:40Z","nid":"1400131"} -->
 ## Configuring Network Services
 
 - Source: https://help.zscaler.com/zia/configuring-network-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring Network Services
-- Last modified: 2026-05-22T03:55Z
+- Last modified: 2026-09-10T06:40Z
 - Summary: How to add a custom network service in the Zscaler Admin Console to use them in Firewall, DNS and NAT policies.
 
 [Watch a video about Network Services, including how to add a network service](https://fast.wistia.net/embed/iframe/fa5a6c5wtm) (shows legacy UI).
 
-You can define custom network services to add to the [Firewall](https://help.zscaler.com/zia/about-firewall-filtering), [DNS](https://help.zscaler.com/zia/about-dns-control) and [NAT](https://help.zscaler.com/zia/about-nat-control) policies. Additionally, you can define custom services that include [custom ports](https://help.zscaler.com/zia/configuring-custom-ports) for HTTP, HTTPS, DNS, FTP, RTSP, or PPTP.
+A custom network service is defined as a combination of protocols and ports used at the source and destination. Custom network services allow you to define your own protocol and port combinations so you can apply precise Firewall, DNS, and NAT policies to non-standard or specialized traffic that is not covered by predefined services. For example, you can create custom services that include custom ports for HTTP, HTTPS, DNS, FTP, RTSP, and PPTP for additional control over how these applications are handled in your policies.
 
-Custom network services can be defined as a combination of protocols and ports used at the source and destination. These are the available combination of protocols and ports:
+You can configure the following protocol-port combinations:
 
-- TCP Source Ports
-- UDP Source Ports
-- TCP Destination Ports
-- UDP Destination Ports
+- TCP source ports
+- UDP source ports
+- TCP destination ports
+- UDP destination ports
 
-When defining a custom network service, these protocol-port combinations are associated using implicit logical relationships based on source and destination, explained as follows:
+When you define a custom network service, these protocol-port combinations are evaluated using implicit logical relationships between source and destination, shown as follows: (TCP Source Ports `OR` UDP Source Ports) `AND` (TCP Destination Ports `OR` UDP Destination Ports)
 
-[(TCP Source Ports `OR` UDP Source Ports) `AND` (TCP Destination Ports `OR` UDP Destination Ports)]
+Within the source or destination, all entities have an `OR` relationship. Between source and destination, the relationship is `AND`. Let's say you configure a network service with the following configuration:
 
-All source and destination entities have an `OR` relationship within them and a combination of source and destination entities have an `AND` relationship. For example, if you have configured a network service with TCP Destination Port 444, UDP Destination Port 333, and TCP Source Port 111, the traffic is identified with the network service only if it originates from port 111 over TCP *and*is destined to either TCP 444 *or*UDP 333 port.
+- TCP source port 111
+- TCP destination port 444
+- UDP destination port 333
+
+In this case, traffic matches this network service only if it originates from TCP port 111 and is destined to either TCP port 444 or UDP port 333.
 
 To add a custom network service:
 
-1. Go to **Policies**> **Access Control** > **Firewall** >**Network Services**.
-2. On the **Services** tab, click **Add Network Service**. The **Add Network Service** window appears.
-3. In the **Add Network Service** window: To enter multiple items for the ports, press `Enter` after entering each port and click **Add Items**. You can search for and also remove items as needed by using the **Delete** icon. To remove multiple items at once, click the **Remove** drop-down menu and select **Remove All** or **Remove Page** and approve your selected action in the confirmation window that appears. The **Remove Page** option removes all items from the current page, and a maximum of 500 items are displayed on a page. See image.
-  - **Name**: Enter a name for the application layer service that you want to control. It can include any character and spaces.
-  - **Definition**: The service displays **Custom** to indicate that this is an admin-defined service.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources** >**Network Services**.
+2. On the **Services** tab, click **Add Network Service**. The **Add Network Service** drawer appears.
+3. In the **Add Network Service** drawer: To add multiple entries, press `Enter` after entering each port value or click **Add**. A maximum of 8 entries is allowed for each port. The values added for each port appear in a paginated list. You can also search for and remove items as needed by using the **Delete** icon. To remove multiple entries at once, click **Remove All**. See image.
+  - **Name**: Enter a name for the application layer service that you want to manage using policies.
+  - **Definition**: **Custom** is automatically populated for admin-defined services.
   - **Description**: Optionally, enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **TCP Source Ports**: Enter the port number (e.g., 50) or port number range (e.g., 1000–1050), if any, that is used by the network service. You can add up to 8 ports.
-  - **TCP Destination Ports**: Enter the port number (e.g., 50) or port number range (e.g., 1000–1050), if any, that is used by the network service. You can add up to 8 ports.
-  - **UDP Source Ports**: Enter the port number (e.g., 50) or port number range (e.g., 1000–1050), if any, that is used by the network service. You can add up to 8 ports.
-  - **UDP Destination Ports**: Enter the port number (e.g., 50) or port number range (e.g., 1000–1050), if any, that is used by the network service. You can add up to 8 ports.
+  - **TCP Source Ports**: Enter the port number (e.g., 50) or range (e.g., 1000–1050) used by the network service.
+  - **TCP Destination Ports**: Enter the port number or range used by the network service.
+  - **UDP Source Ports**: Enter the port number or range used by the network service.
+  - **UDP Destination Ports**: Enter the port number or range used by the network service.
 4. Click **Save** and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 
 [Image: Add a network service by adding a description and the different available ports]
@@ -4913,20 +4880,20 @@ To configure the Smart Browser Isolation policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-software-protection-intermediate-ca-certificate","lastmod":"2026-08-11T21:30Z","nid":"1402641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-software-protection-intermediate-ca-certificate","lastmod":"2026-09-09T04:29Z","nid":"1402641"} -->
 ## Configuring Software Protection Intermediate CA Certificate
 
 - Source: https://help.zscaler.com/zia/configuring-software-protection-intermediate-ca-certificate
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Configuring Software Protection Intermediate CA Certificate
-- Last modified: 2026-08-11T21:30Z
+- Last modified: 2026-09-09T04:29Z
 - Summary: How to configure or add an intermediate CA certificate from the Zscaler Admin Console for Zscaler traffic.
 
-Zscaler allows you to create two software intermediate CA certificates with the enabled status that can be used for SSL/TLS inspection.
+Zscaler allows you to create two software intermediate CA certificates with the enabled status that can be used for SSL/TLS Inspection.
 
 To configure a Software Protection certificate for your organization during SSL/TLS negotiations:
 
-1. Go to **Policies** > **Common Configuration** > **SSL/TLS Inspection** >**SSL/TLS Inspection Intermediate Certificate**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Internet Access** > **Resources** >**SSL Intermediate Certificate**.
 2. On the **Intermediate CA Certificates** page, click **Add Intermediate CA Certificate**> **Software Protection**.
 3. In the**Add Software Intermediate CA Certificate**window, under the **General** tab, complete the following sections:
   - **Name**: Enter a name for the certificate.
@@ -5100,13 +5067,13 @@ To create a custom group for source IPv4 addresses:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-ssltls-inspection-policy","lastmod":"2026-08-11T21:35Z","nid":"1401851"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-ssltls-inspection-policy","lastmod":"2026-09-09T03:07Z","nid":"1401851"} -->
 ## Configuring SSL/TLS Inspection Policy
 
 - Source: https://help.zscaler.com/zia/configuring-ssltls-inspection-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Configuring SSL/TLS Inspection Policy
-- Last modified: 2026-08-11T21:35Z
+- Last modified: 2026-09-09T03:07Z
 - Summary: How to configure or add an SSL/TLS Inspection rule from the Zscaler Admin Console for Zscaler traffic.
 
 You can configure Secure Sockets Layer (SSL)/Transport Layer Security (TLS) Inspection policies to perform scanning of the SSL/TLS traffic based on the source and destination of the traffic. Using these policies, you can simplify the deployment and ongoing operations of SSL/TLS Inspection and address the compliance and operational environmental requirements. To learn more, see [About SSL/TLS Inspection Policy](https://help.zscaler.com/zia/about-ssltls-inspection-policy).
@@ -5119,7 +5086,7 @@ Source IP Groups (`AND`) [URL Categories (`OR`) Cloud Applications (`OR`) Destin
 
 To configure an SSL/TLS Inspection rule:
 
-1. Go to **Policies** > **Common Configuration** > **SSL/TLS Inspection** > **SSL/TLS Inspection Policy**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Internet Access**> **Policy** > **SSL/TLS Inspection**.
 2. Click **Add Rule**. The**Add Rule** page appears. See image.
 3. On the **Add Rule** page, you can configure the following sections:
   - SSL/TLS Inspection Rule
@@ -8044,52 +8011,58 @@ To verify the connections:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-voip-applications-bandwidth-class","lastmod":"2026-07-01T10:21Z","nid":"1398951"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-voip-applications-bandwidth-class","lastmod":"2026-09-07T22:41Z","nid":"1398951"} -->
 ## Configuring the VoIP Applications Bandwidth Class
 
 - Source: https://help.zscaler.com/zia/configuring-voip-applications-bandwidth-class
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Configuring the VoIP Applications Bandwidth Class
-- Last modified: 2026-07-01T10:21Z
+- Last modified: 2026-09-07T22:41Z
 - Summary: How to configure the VoIP Applications tab in the Bandwidth Classes page in the ZIA Admin Portal.
 
 [Watch a video about Bandwidth Classes, including about the VoIP Applications bandwidth class](https://fast.wistia.net/embed/iframe/jjpc536mhm) (shows legacy UI).
 
-[Bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes) identify the [URL categories](https://help.zscaler.com/zia/about-url-categories) and [cloud applications](https://help.zscaler.com/zia/about-cloud-app-control) to which the service allocates bandwidth. You can group URL categories or applications into bandwidth classes, and then reference them in [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy rules.
+The VoIP Applications page allows you to enable or disable Voice over Internet Protocol (VoIP) applications. When configuring, it displays a list of VoIP applications that can be included in this class. To learn more, see [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes).
 
-The VoIP Applicationstab lists the Voice over Internet Protocol (VoIP) applications that can be included in this class.
+To manage applications that belong to this class:
 
-To specify the applications that belong to this class:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources**> **Bandwidth Classes**.
+2. Go to the **VoIP Applications** tab.
+3. Click **Edit** to enable or disable VoIP applications. See image The **Edit** drawer appears.
+4. In the **Edit**drawer, for the **VoIP Applications** section, enable or disable applications as necessary. See image.
+5. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-1. Go to **Infrastructure** >**Internet & SaaS**> **Network Policies** > **Classes** to [manage bandwidth classes](https://help.zscaler.com/zia/adding-bandwidth-classes).
-2. Go to the **VoIP Applications**tab.
-3. You can enable or disable applications as necessary.
-4. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+[Image: The Edit icon in the VoIP Applications tab]
+
+[Image: The Edit drawer to enable or disable the VoIP Applications]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-web-conferencing-applications-bandwidth-class","lastmod":"2026-07-01T10:20Z","nid":"1398946"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-web-conferencing-applications-bandwidth-class","lastmod":"2026-09-07T22:40Z","nid":"1398946"} -->
 ## Configuring the Web Conferencing Applications Bandwidth Class
 
 - Source: https://help.zscaler.com/zia/configuring-web-conferencing-applications-bandwidth-class
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Configuring the Web Conferencing Applications Bandwidth Class
-- Last modified: 2026-07-01T10:20Z
+- Last modified: 2026-09-07T22:40Z
 - Summary: How to configure the Web Conferencing Applications tab in the Bandwidth Classes page in the ZIA Admin Portal.
 
 [Watch a video about Bandwidth Classes, including about the Web Conferencing Applications bandwidth class](https://fast.wistia.net/embed/iframe/jjpc536mhm) (shows legacy UI).
 
-[Bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes) identify the [URL categories](https://help.zscaler.com/zia/about-url-categories) and [cloud applications](https://help.zscaler.com/zia/about-cloud-app-control) to which the service allocates bandwidth. You can group URL categories or applications into bandwidth classes, and then reference them in [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy rules.
+The Web Conferencing Applications page allows you to enable or disable web conferencing applications. When configuring, it displays a list of web conferencing applications that can be included in this class. To learn more, see [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes).
 
-The Web Conferencing Applications tab lists the web conferencing applications that can be included in this class.
+To manage applications that belong to this class:
 
-To specify the applications that belong to this bandwidth class:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources** > **Bandwidth** **Classes**.
+2. Go to the**Web Conferencing Applications**tab.
+3. Click **Edit** to enable or disable web conferencing applications. See image The **Edit** drawer appears.
+4. In the **Edit**drawer, for the **Web Conferencing Applications** section, enable or disable applications as necessary. See image.
+5. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-1. Go to **Infrastructure** >**Internet & SaaS**> **Network Policies** > **Classes** to [manage bandwidth classes](https://help.zscaler.com/zia/adding-bandwidth-classes).
-2. Go to the **Web Conferencing Applications**tab.
-3. Enable or disable applications as necessary.
-4. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+[Image: The Edit icon in the Web Conferencing Applications tab]
+
+[Image: The Edit drawer to enable or disable the Web Conferencing Applications]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10051,13 +10024,13 @@ If your organization requires you to update your SSH key, upgrade to the ED25519
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/connecting-your-platforms-3rd-party-app-governance","lastmod":"2026-06-08T07:26Z","nid":"1450341"} -->
+<!-- ZS-ARTICLE {"url":"/zia/connecting-your-platforms-3rd-party-app-governance","lastmod":"2026-09-09T00:04Z","nid":"1450341"} -->
 ## Connecting Your Platforms to 3rd-Party App Governance
 
 - Source: https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Connecting Your Platforms to 3rd-Party App Governance
-- Last modified: 2026-06-08T07:26Z
+- Last modified: 2026-09-09T00:04Z
 - Summary: How to connect your platforms to 3rd-Party App Governance
 
 You can connect your platforms to Zscaler 3rd-Party App Governance to gain continuous visibility and governance for the applications and third-party add-ons installed in your environment, take remediation actions, and automate your vetting and governance processes. You can also configure outbound integrations to receive alerts and notifications. To learn more, see [Adding Outbound Integrations](https://help.zscaler.com/zia/adding-outbound-integrations).
@@ -10083,6 +10056,7 @@ See image.
 You can connect the following platforms to 3rd-Party App Governance:
 
 - [Atlassian](https://help.zscaler.com/zia/integrating-with-atlassian)
+- [Databricks](https://help.zscaler.com/zia/integrating-3rd-party-app-governance-databricks)
 - [GitHub](https://help.zscaler.com/zia/integrating-github)
 - [Google Workspace](https://help.zscaler.com/zia/integrating-with-google-workspace)
 - [Microsoft Azure](https://help.zscaler.com/zia/integrating-with-microsoft-azure)
@@ -10252,13 +10226,13 @@ When you copy a report, it’s added to the **Custom Reports** tab. You can do t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-09-06T07:06Z","nid":"1400656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-09-13T07:06Z","nid":"1400656"} -->
 ## Creating an Exact Data Match Template
 
 - Source: https://help.zscaler.com/zia/creating-exact-data-match-template
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > Creating an Exact Data Match Template
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: How to create, modify, or delete an Exact Data Match index template using the Zscaler Index Tool for Data Loss Prevention (DLP).
 
 [Watch a video on Exact Data Match](https://fast.wistia.net/embed/iframe/5jnzyl383a) (shows legacy UI).
@@ -12580,13 +12554,13 @@ Accessing the internet from China is a well-known issue for many organizations. 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/deployment-scenarios-ssltls-inspection","lastmod":"2026-04-15T23:41Z","nid":"1401941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/deployment-scenarios-ssltls-inspection","lastmod":"2026-09-09T04:38Z","nid":"1401941"} -->
 ## Deployment Scenarios for SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/deployment-scenarios-ssltls-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Deployment Scenarios for SSL/TLS Inspection
-- Last modified: 2026-04-15T23:41Z
+- Last modified: 2026-09-09T04:38Z
 - Summary: Information on various deployment scenarios for SSL/TLS Inspection using the Zscaler Admin Console.
 
 Zscaler's SSL/TLS Inspection can be deployed in different scenarios. The following scenarios show how the service applies SSL/TLS Inspection based on traffic source and whether authentication or other features are enabled.
@@ -12617,7 +12591,7 @@ Whether SSL/TLS traffic should be inspected or not is something that can be defi
 
 However, if the first transaction from a user is from an unregistered IP and is an HTTPS request, the identity of the user is unknown and to accept the traffic the transaction needs to be authenticated. This is to ensure Zscaler is not used as an open proxy by unauthorized users.
 
-If the organization has Show Notifications enabled under Policies > Common Configuration > SSL/TLS Inspection > SSL/TLS Inspection Policy in the Zscaler Admin Console, then the transaction is intercepted and checked for a valid authentication cookie. If the cookie is not present, the user is redirected for authentication. After authentication, the traffic is accepted by Zscaler and appropriate policies applied.
+If the organization has Show Notifications enabled under Internet Access > Policy > SSL/TLS Inspection in the Zscaler Admin Console, then the transaction is intercepted and checked for a valid authentication cookie. If the cookie is not present, the user is redirected for authentication. After authentication, the traffic is accepted by Zscaler and appropriate policies applied.
 
 The user would need to have appropriate root certificates installed on the user’s browsers to avoid certificate warnings.
 
@@ -12639,7 +12613,7 @@ Remote users might forward traffic to Zscaler on ports 80/443/9400 and 9480. How
 
 ## TCP Port 8800
 
-Remote users might use port 8800 to forward traffic to Zscaler, and Public Service Edges attempt to authenticate the user using the Kerberos method of authentication. The organization might choose to inspect HTTPS traffic by enabling Enable SSL/TLS Inspection for Remote Users with Kerberos under Policies > Common Configuration > SSL/TLS Inspection > SSL/TLS Inspection Policy.
+Remote users might use port 8800 to forward traffic to Zscaler, and Public Service Edges attempt to authenticate the user using the Kerberos method of authentication. The organization might choose to inspect HTTPS traffic by enabling Enable SSL/TLS Inspection for Remote Users with Kerberos under Interner Access > Policy > SSL/TLS Inspection.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14082,4 +14056,29 @@ See image.
 [Image: CSV File Download Tab]
 
 This CSV file can't be used to [import users](https://help.zscaler.com/zia/importing-user-information-csv-file) because it uses a different format. If you need to import a CSV file to make modifications to users, use the same format as the **Sample Import CSV file** provided by Zscaler.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas","lastmod":"2026-07-31T10:30Z","nid":"1398926"} -->
+## Downloading Virtual Service Edge Certificates for Internet & SaaS
+
+- Source: https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates for Internet & SaaS
+- Last modified: 2026-07-31T10:30Z
+- Summary: Information on how to download Virtual Service Edge certificates for Internet & SaaS (ZIA), which are used to validate Virtual Service Edge instances within the Zscaler cloud.
+
+Downloading a Virtual Service Edge certificate for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters for production. To learn more, see [Configuring Virtual Service Edge Clusters for Internet & SaaS](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters-internet-saas).
+
+The Virtual Service Edge certificate is used to authenticate each Virtual Service Edge instance to the Zscaler cloud. You must download the certificate for each Virtual Service Edge instance that you added. For example, if your cluster has two Virtual Service Edges, you'll need to download two certificates. You will upload each certificate to the appropriate vSphere client. To learn more, see [Adding Virtual Service Edge Instances for Internet & SaaS](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas).
+
+To download a Virtual Service Edge certificate:
+
+1. Go to **Infrastructure**> **Internet & SaaS** > **Traffic Forwarding** >**Virtual Service Edges**.
+2. In the**SSL Certificate** column, click **Download** for the [Virtual Service Edge](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas) that you added previously, and then save the certificate. See image.
+
+If you're downloading multiple certificates, you might want to change the certificate name so that you can differentiate between them. For example, if the Virtual Service Edge instances in a cluster are called VSE1 and VSE2, you can rename the certificate's ZIP files to VSE1.zip and VSE2.zip.
+
+[Image: SSL Certificate column and download link on the Virtual Service Edges page]
 <!-- /ZS-ARTICLE -->

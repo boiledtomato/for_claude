@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 131
 
 ---
@@ -97,18 +97,18 @@ On the Administrators page (Administration > Admin Management > Role Based Acces
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-alerts","lastmod":"2026-07-10T09:56Z","nid":"1364426"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-alerts","lastmod":"2026-09-10T17:38Z","nid":"1364426"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/zdx/about-alerts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > About Alerts
-- Last modified: 2026-07-10T09:56Z
-- Summary: Information on alerts for ZDX.
+- Last modified: 2026-09-10T17:38Z
+- Summary: Information on alerts for Digital Experience (ZDX).
 
 [Watch a video about Alerts in ZDX.](https://fast.wistia.net/embed/iframe/q2kipsz543)
 
-Alerts provide a primary and timely source of information to monitor device, application, network performance, and ZDX Score on the Alerts page so that you can analyze and remediate issues.
+Digital Experience (ZDX) Alerts provide a primary and timely source of information to monitor device, application, network performance, and ZDX Score on the Alerts Overview page so that you can analyze and remediate issues.
 
 Alerts provide the following benefits and enable you to:
 
@@ -116,11 +116,11 @@ Alerts provide the following benefits and enable you to:
 - Create configurable alert rules that are triggered when a preset threshold is reached for different types of events.
 - Receive triggered alert details that are sent via email or webhook.
 
-For ZDX, you can view alerts triggered over the past two weeks. You can select options from 2 hours to 14 days in the time range filter to view triggered alerts in the Alert History tab. To learn more, see [Triggering an Alert](https://help.zscaler.com/zdx/triggering-alert).
+You can view alerts triggered over the past two weeks. You can select options from 2 hours to 14 days in the time range filter to view triggered alerts in the Alert History tab. To learn more, see [Triggering an Alert](https://help.zscaler.com/zdx/triggering-alert).
 
 The alerts triggered have a display delay of 30 minutes.
 
-The Alerts page shows the following functionality:
+The Alerts Overview page shows the following functionality:
 
 - Alert Rules, Impacted Devices and Impacted Applications filters: Apply filters to drill down further into the data. By default, all filters are applied and the values are set to All.
 - Time Range filter: At the top of the page, select the time (2 Hours to 14 Days) from the drop-down menu. This filter applies to the Alert History tab, which shows historical details over the time selected. The default time range is 2 Hours.
@@ -128,35 +128,37 @@ The Alerts page shows the following functionality:
 
 If you configure an alert rule by ZDX Score, depending on how you choose to group the scoring, these filters and icons are displayed. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/zdx/configuring-alert-rule).
 
-## About the Alerts Page
+## About the Alerts Overview Page
 
-On the Alerts page (Analytics > Digital Experience > Alerts > Ongoing Alerts), you can do the following:
+On the Alerts page (Digital Experience > Alerts Overview), you can do the following:
 
-1. Use the time range filter to help narrow your scope of information. Time range options are available in increments from the previous 2 Hours to 48 Hours, or a Custom range within the last 14 Days.
-2. Use the filters to sort and view alerts. You can hide the filters bar if you do not want the filters displayed.
-3. View the overall metrics for alerts:
+1. Use the filters to sort and view alerts. Time range options are available in increments from the previous 2 Hours to 48 Hours, or a Custom range within the last 14 Days.
+2. View the overall metrics for alerts:
   - **Ongoing Alerts**: The number of ongoing alerts.
   - **Alert History**: The number of completed alerts.
   - **Impacted Devices**: The number of impacted devices.
   - **Impacted Geolocations**: The number of impacted geolocations.
   - **Impacted Applications**: The number of impacted applications.
-4. Switch the view to see **Ongoing Alerts** or **Alert History**.
-5. Search and select for which columns to display. Click **Apply** to confirm the columns to display. See image.
-6. View details of the alerts triggered for ZDX. The Ongoing Alerts tab displays ongoing alerts, and the Alert History tab displays historical alert details over the time selected. You can view the following for all the configured alerts: By default, the Alerts are sorted by the **Started On** column, but you can sort any of the columns by clicking the arrows next to them.
-  - **Severity**: The severity of the event. Red indicates High severity, orange is Medium severity, and green indicates Low severity.
-  - **Alert Rule**: The name entered for this rule from configuration.
-  - **Monitoring**: The type of monitoring for this rule. End User indicates the alert rule was created by the user. Hosted indicates the alert rule was created for Hosted Monitoring.
-  - **Type**: The type is Application, Network, or Device.
-  - **Impacted Application**: The number of applications impacted by this alert.
-  - **Impacted Geolocation**: The number of geolocations impacted by this alert.
-  - **Impacted Devices / Users**: Depending on the type of alert rule, you see the number of impacted devices or users.
-  - **Started On**: The date and time this alert was triggered.
-  - **Ended On**: The date and time this alert ended. This column is on the Alert History tab.
-  - **Status**: The status of the alert. To learn more, see [Understanding the Alert Status](https://help.zscaler.com/zdx/understanding-alert-status).
-7. View details about an alert by clicking the **View** icon. To learn more, see [Evaluating Individual Alert Details](https://help.zscaler.com/zdx/evaluating-individual-alert-details).
+3. Switch the view to see **Ongoing Alerts** or **Alert History**.
+4. Search and select for which columns to display. Click **Apply** to confirm the columns to display. See image.
+5. View details of the alerts triggered for ZDX. The Ongoing Alerts tab displays ongoing alerts, and the Alert History tab displays historical alert details over the time selected. You can view the following for all the configured alerts: By default, the Alerts are sorted by the **Started On** column, but you can sort any of the columns by clicking the arrows next to them.
+  - Alert Details
+6. View alert details in a window by clicking the **View** icon. To learn more, see [Evaluating Individual Alert Details](https://help.zscaler.com/zdx/evaluating-individual-alert-details).
+7. Configure the number of alerts to display per page or navigate through the alert pages.
 8. Go to the [Rules](https://help.zscaler.com/zdx/about-rules) page to view the alert rules or access the [Templates](https://help.zscaler.com/zdx/about-templates) page.
 
 [Image: Search and select which columns to display]
+
+- **Severity**: The severity of the event. Red indicates High severity, orange is Medium severity, and green indicates Low severity.
+- **Alert Rule**: The name entered for this rule from configuration.
+- **Monitoring**: The type of monitoring for this rule. End User indicates the alert rule was created by the user. Hosted indicates the alert rule was created for Hosted Monitoring.
+- **Type**: The type is Application, Network, or Device.
+- **Impacted Application**: The number of applications impacted by this alert.
+- **Impacted Geolocation**: The number of geolocations impacted by this alert.
+- **Impacted Devices / Users**: Depending on the type of alert rule, you see the number of impacted devices or users.
+- **Started On**: The date and time this alert was triggered.
+- **Ended On**: The date and time this alert ended. This column is on the Alert History tab.
+- **Status**: The status of the alert. To learn more, see [Understanding the Alert Status](https://help.zscaler.com/zdx/understanding-alert-status).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4363,13 +4365,13 @@ By default, the lists are sorted by the Start Time, displaying the session with 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/evaluating-individual-alert-details","lastmod":"2026-07-10T09:57Z","nid":"1414451"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/evaluating-individual-alert-details","lastmod":"2026-09-11T16:50Z","nid":"1414451"} -->
 ## Evaluating Individual Alert Details
 
 - Source: https://help.zscaler.com/zdx/evaluating-individual-alert-details
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Evaluating Individual Alert Details
-- Last modified: 2026-07-10T09:57Z
+- Last modified: 2026-09-11T16:50Z
 - Summary: Information on individual alert details where you can view the impacted devices and their respective departments and locations.
 
 Individual alert details provide in-depth information about the impacted devices and their respective departments and locations.
@@ -4386,9 +4388,9 @@ See image.
 
 If an alert was configured to monitor end users, the Alert Details page shows the following:
 
-- **Impacted Departments**: The number of devices by department and the total number of impacted devices. Click **View All** to view all the impacted departments in a dialog window. See image.
-- **Impacted Geolocations**: The number of devices by geolocation and the total number of impacted geolocations. Click **View All** to view all the impacted geolocations in a dialog window. See image.
-- **Impacted Zscaler Locations**: The number of devices by location and the total number of impacted Zscaler locations. Click **View All** to view all impacted locations in a dialog window. See image.
+- **Impacted Departments**: The number of devices by department and the total number of impacted devices. Click **View All** to view all the impacted departments in a dialog window.
+- **Impacted Geolocations**: The number of devices by geolocation and the total number of impacted geolocations. Click **View All** to view all the impacted geolocations in a dialog window.
+- **Impacted Zscaler Locations**: The number of devices by location and the total number of impacted Zscaler locations. Click **View All** to view all impacted locations in a dialog window.
 - **Expression Triggers**: The alert rule's expression triggers as well as the average and maximum values for the time period.
 
 The maximum number of devices displayed on the Alert Details page is 128 devices. In the View All dialog window, the maximum number of devices displayed is 6,000 devices.
@@ -4432,19 +4434,19 @@ If you are monitoring end users, and you configured an alert rule with Network I
 
 See image.
 
-## Hosted Monitoring
+## Managed Monitoring
 
-If an alert was configured using a hosted probe, the Alert Details page shows the following:
+If an alert was configured using a managed probe, the Alert Details page shows the following:
 
 - Alert Details include the following information:
   - **Status**: The status of the alert. To learn more, see [Understanding the Alert Status](https://help.zscaler.com/zdx/understanding-alert-status).
   - **Severity**: The severity level of the event. Red indicates High severity, orange is Medium severity, and green indicates Low severity.
-  - **Monitoring Type**: The type of monitoring for this rule. End User indicates the alert rule was created by the user. Hosted indicates the alert rule was created for Zscaler Hosted Monitoring.
+  - **Monitoring Type**: The type of monitoring for this rule. End User indicates the alert rule was created by the user. Managed indicates the alert rule was created for [Managed Monitoring](https://help.zscaler.com/zdx/understanding-managed-monitoring).
   - **Probe**: The name of the probe.
   - **Criteria**: The selected criteria for the alert rule.
   - **Started On**: The date and time this alert was triggered.
   - **Ended On**: The date and time this alert ended.
-- Depending on the selected criteria for the alert, you can view the associated details such as latency, number of hops, packet loss, or DNS Time from the selected Zscaler Hosted probe. To learn more, see [Understanding Zscaler Hosted Monitoring](https://help.zscaler.com/zdx/understanding-zscaler-hosted-monitoring).
+- Depending on the selected criteria for the alert, you can view the associated details such as latency, number of hops, packet loss, or DNS Time from the selected managed probe.
 
 See image.
 
@@ -4455,25 +4457,31 @@ Dynamic alerting provides the ability to auto-baseline by referring to historica
 After an alert rule is created and completed with the ZDX Score Drops as the criteria, you can see the ZDX Score Drops of the impacted device.
 
 - The dotted line indicates the reference line for threshold sensitivity based on your criteria.
-- The gradient line indicates the ZDX Score over time.
+- The blue line indicates the ZDX Score over time.
 - The shaded region indicates when the ZDX Score Drops are below the reference line.
 
 See image.
 
 [Image: Select an alert to view individual alert details]
 
+[Image: Viewing the Alert Details page]
+
+[Image: Click View All to open a dialog window]
+
+[Image: Managed Monitoring Alert Details]
+
 [Image: View a network intelligence alert to analyze details about users and ISPs]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-08-24T17:24Z","nid":"1391316"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-09-10T17:11Z","nid":"1391316"} -->
 ## Evaluating User Details
 
 - Source: https://help.zscaler.com/zdx/evaluating-user-details
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Users > Evaluating User Details
-- Last modified: 2026-08-24T17:24Z
+- Last modified: 2026-09-10T17:11Z
 - Summary: Information about the user details page, accessed from the Users Dashboard.
 
 To better understand the digital experience for a user, view the user details page for user and device metrics.
@@ -5114,13 +5122,13 @@ On the Labels page (Policies > Digital Experience Monitoring > Labels):
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-08-20T16:13Z","nid":"1526076"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-09-11T15:52Z","nid":"1526076"} -->
 ## Managing Scripts
 
 - Source: https://help.zscaler.com/zdx/managing-scripts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Managing Scripts
-- Last modified: 2026-08-20T16:13Z
+- Last modified: 2026-09-11T15:52Z
 - Summary: Configuration steps on remote scripts for remediation.
 
 Scripts are a great way to automate PowerShell scripts for specific device tasks. Zscaler provides predefined scripts to help you get started.
@@ -5145,7 +5153,7 @@ On the **Scripts** page (Policies > Digital Experience Monitoring > Scripts), yo
 
 Predefined scripts are useful because they are certified and ready for use script templates. Zscaler recommends testing the script prior to deploying production to devices.
 
-Predefined scripts are found on the Scripts Templates page (Policies > Digital Experience Monitoring > Scripts > View Script Templates). For each predefined script, you see:
+Predefined scripts are found on the Scripts Templates page (Digital Experience > Scripts > View Script Templates). For each predefined script, you see:
 
 - **Name**: The name of the predefined script.
 - **Description**: The description of the predefined script.
@@ -5910,63 +5918,179 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-applications-overview","lastmod":"2026-08-27T09:53Z","nid":"1355811"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-applications-overview","lastmod":"2026-09-10T17:48Z","nid":"1355811"} -->
 ## Monitoring the Applications Overview
 
 - Source: https://help.zscaler.com/zdx/monitoring-applications-overview
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Applications > Monitoring the Applications Overview
-- Last modified: 2026-08-27T09:53Z
+- Last modified: 2026-09-10T17:48Z
 - Summary: Information on the Applications Overview and widgets accessible within the ZDX Admin Portal.
 
-The Applications Overview provides information about the applications users are accessing and the impact of those applications on your organization's digital experience. If you have [Real User Monitoring (RUM)](https://help.zscaler.com/zdx/understanding-real-user-monitoring) enabled for an application, then you can view RUM metrics (e.g., RUM Users, application details specific to RUM).
+The Performance Dashboard provides an overview about the Zscaler Digital Experience (ZDX) for your organization.
 
 See image.
 
-## Overview Tools
+## Dashboard Tools
 
-The Applications Overview allows you to:
+The Performance Dashboard allows you to:
 
-- **View performance data over time**: Use the Time Range filter to choose a specific time range to view data. The selected period applies to all data within the overview. The default time range is **2 Hours**.
+- **View performance data over time**: Use the Time Range filter to choose a specific time range to view data. The selected period applies to all data within the dashboard. The default time range is**2 Hours**.
   - **Current**: View the most current ZDX Score captured within the previous 30 minutes.
   - **2 Hours** to **48 Hours**: Specify a time interval between 2 hours and 48 hours as shown in the drop-down menu.
   - **Custom**: Specify a custom time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments.
-- **Filter data**: Click the filters to select options for Departments, Zscaler Locations, User Groups, Geolocations, Location Groups, Last Mile ISPs, Operating Systems, and Monitoring Type. Each filter allows you to include or exclude individual options. Click **Select All Displayed** to select all options at once. See image.
-- **Share a ZDX Snapshot**: Click **Share Snapshot**to capture a snapshot of the current state of the Applications Overview page. Share it with other ZDX users or admins for view-only access. To learn more, see [Sharing ZDX Snapshots](https://help.zscaler.com/zdx/sharing-zdx-snapshots).
-- **Compare Applications**: Click the **Open in a New Tab** icon next to the application name to open the application page in a new tab. You can use this icon to open multiple applications and compare their details.
+- **Filter data**: Click the filters to select options for Departments, Zscaler Locations, User Groups, Geolocations, Location Groups, Last Mile ISPs, Operating System, and Zscaler Data Centers. Each filter allows you to include or exclude individual options. Click **Select All Displayed** to select all options at once. See image.
+
+Click the drop-down menu option to choose locations in the **Geolocations** filter. This hierarchical display includes the continent, country, states, and cities within the US, while non-US geolocations show the continent, countries, and then cities. Click **Reset** on the right side of the page to reset your selection.
+
+See image.
 
 ### Filtering
 
 To configure filters:
 
 1. Determine which options to include or exclude from each of the filter drop-down menus:
-  - **Departments**: Your departments, as defined in ZDX. To learn more, see [About Departments](https://help.zscaler.com/zdx/about-departments).
-  - **Zscaler Locations**: The Zscaler locations where your devices are connected to the application.
+  - **Departments**: Your departments, as defined in Internet & SaaS. To learn more, see [About Departments](https://help.zscaler.com/zia/about-departments).
+  - **Zscaler Locations**: Your locations, as defined in Internet & SaaS. To learn more, see [About Locations](https://help.zscaler.com/zia/about-locations).
   - **User Groups**: The names of user groups in your organization.
-  - **Geolocations**: The geographic area where users accessed the applications.
+  - **Geolocations**: The geographic areas where your users are located.
   - **Location Groups**: The names of groups based on location in your organization.
   - **Last Mile ISPs**: The Internet Service Providers (ISPs) to which your users are connecting.
   - **Operating Systems**: The operating system versions installed on user devices in your organization.
-  - **Monitoring Type**: The type of application monitoring to which your users are connecting.
+  - **Zscaler Data Centers:** The data centers that the users were connected through.
 2. Click **Apply** after completing your selections.
 
-You can adjust the filters as needed, or remove all of your filter selections by clicking **Reset**.
+You can adjust the filters as needed or remove all of your filter selections by clicking **Reset**.
 
-## Applications List
+## Widgets
 
-The table displays the following information about applications and the impact they have to the digital experience:
+The Performance Dashboard provides the following widgets:
 
-- **Application**: These names are defined when you configure the application. To learn more, see [About Applications](https://help.zscaler.com/zdx/about-applications). Any disabled applications are shown in gray, and deleted applications are indicated with a strikethrough on the application name. Click a name to see more information about [each application](https://help.zscaler.com/zdx/evaluating-application-details).
-- **ZDX Score**: The application's ZDX Score from 1 to 100, with 1 being the lowest and 100 being the highest. To learn more, see [About the ZDX Score](https://help.zscaler.com/zdx/about-zdx-score).
-- **Active Users**: The number of active users accessing the application.
-- **RUM Users**: The number of RUM users accessing the RUM-enabled application.
-- **Impacted Geolocations**: The geolocation most impacted by the application. These areas are where users are accessing the application. ZDX uses a device's location service to determine a user's location. It takes the longitude and latitude coordinates from the location service and compares them to Zscaler's geographic IP database. That information is then listed, by corresponding major cities and towns, in the ZDX Admin Portal. If a user's latitude and longitude are closer to the center of another city, instead of their own city, the user's location might be misidentified as connecting from the neighboring city. If the location service is not enabled on the device, then ZDX uses the device's IP address to determine the location. ZDX currently supports Windows, macOS, Android, Android on ChromeOS, and iOS devices only.
-- **Impacted Zscaler Locations**: The Zscaler location most impacted by the application.
-- **Impacted Departments**: The department most impacted by the application.
+- Most Impacted Applications
+- Regions by ZDX Score
+- ZDX Score
+- Page Fetch Time
+- Page Views and Load Time Trend
 
-[Image: View the Applications Overview page]
+The dashboard preselects the application with the lowest score, and the rest of the page automatically tracks information based on that application. By selecting another application, the page adjusts to reflect information based on the newly selected application.
 
-[Image: Filter drop-down in the Applications Dashboard]
+Each application shows:
+
+- **Synthetic Monitoring** (blue) or **Real-User Monitoring** (orange): Synthetic monitoring indicates the application is not enabled for [Real-User Monitoring (RUM)](https://help.zscaler.com/zdx/understanding-real-user-monitoring). Real-User monitoring indicates the application is enabled for RUM.
+- **Score Trend**: The score trend of the application for the selected time period that is dependent on the type of monitoring (Synthetic Monitoring or Real-User Monitoring). The trend can be one of the following:
+  - If the application is disabled for RUM and uses only Synthetic Monitoring, then the Score Trend is based on ZDX Scores.
+  - If the application is enabled for RUM and uses only Real-User Monitoring, then the Score Trend is based on Real-User Scores.
+  - If the application is enabled for RUM and uses both Synthetic Monitoring and Real-User Monitoring, the Score Trend includes both ZDX Scores and Real-User Scores.
+- **Score**: If the application does not have RUM enabled and uses synthetic monitoring, then the score is the ZDX Score. The ZDX Score represents the total experience of all users in your organization for all locations during the selected time period. The ZDX Score is based on a scale of 1 (lowest) to 100 (highest), with the lowest numbers indicating a poor score and highest numbers indicating a good score. To learn more, see [About the ZDX Score](https://help.zscaler.com/zdx/about-zdx-score). If the application has RUM enabled, then the score is the **Real-User Score**. The Real-User Score represents the experience of all users accessing the RUM-enabled application across all locations during the selected time period. The Real-User Score uses a similar scale and categories to the ZDX Score.
+- Viewing the application: Click the **Open in New Tab** icon to view the application details. To learn more, see [Evaluating Application Details](https://help.zscaler.com/zdx/evaluating-application-details).
+
+You can use the following actions on the Most Impacted Applications menu:
+
+- Search for an application.
+- Click the **Sort** button to filter and sort applications. See image.
+- Collapse the menu.
+
+The **Regions by ZDX Score** map takes the geographic locations of all users accessing the selected application and organizes the data for the score down to the city level for major cities around the world. This information is displayed in a map. You can zoom in and out of the map to better view regions of interest.
+
+ZDX uses a device's location service to determine a user's location. It takes the longitude and latitude coordinates from the location service and compares it to Zscaler's geographic IP database. That information is then displayed in the Zscaler Admin Console in a map with major cities and towns.
+
+If a user's latitude and longitude are closer to the center of another city, instead of their own city, the user's location might be misidentified as connecting from the neighboring city. If the location service is not enabled on the device, then ZDX uses the device's IP address to determine the location.
+
+ZDX currently supports Windows, macOS, Android, Android on ChromeOS, and iOS devices only.
+
+For each marked location on the map, you can see the name of the city, the ZDX Score, and the number of users while hovering the mouse over the marked spot. Click the **Details**icon ([Image: Details icon within tooltip]) to view user information in the Users Overview specific to the location.
+
+[Image: City information in tooltip of the Regions by ZDX Score map]
+
+The ZDX Score falls into one of three classifications: Good, Okay, or Poor.
+
+To see more about a city or a set of cities, you can set up a fence on the map. To learn more, see Drawing a Fence.
+
+### Drawing a Fence
+
+Within the **Regions by ZDX Score** map, you can filter the data seen on the map by creating a fence.
+
+To draw a fence:
+
+1. Adjust the map to an area you want to view, and click **Draw Fence**.
+2. Select a portion of the map. A window with the number of locations selected appears. See image.
+3. Click **Filter Selection**. A list of the locations within the fence appears at the bottom of the map.
+4. (Optional) Deselect any locations in the **Custom fence** table you do not want to use in a filter.
+5. Click **View in Users Page** to see data filtered by these locations. The [Users Overview](https://help.zscaler.com/zdx/monitoring-users-dashboard) appears with data relevant only to those locations. After applying the fence, you can also go to the [Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-dashboard) or return to the Performance Dashboard and the location fence remains as part of your filters.
+
+To redraw the fence, click **Clear Selection** in the map or **Clear Fence** at the bottom of the **Regions by ZDX Score**map. To move the map and select another region, click **Reset** above the map.
+
+See image.
+
+### Unknown Locations
+
+The Unknown Locations widget is visible in the bottom-left corner of the map when a user location is determined to be unknown. Use this widget to filter the users from unknown locations and view their details. If there are no users from unknown locations, this widget is not visible.
+
+[Image: Map shows widget for Unknown Locations]
+
+To use the Unknown Locations widget:
+
+1. Click **Filter Unknown Locations**. A **Custom fence** table appears that lists the unknown locations, the users, and their ZDX Scores. Click **Clear Fence**to clear the filter.
+2. Select the unknown locations as desired and then click **View in Users Page** to apply the **Unknown Locations** filter.
+3. The number of users from unknown locations and their ZDX Scores are visible in the Users Overview and Applications Overview.
+
+### Map Functionality
+
+The following is the functionality in the **Regions by ZDX Score**map in the Performance Dashboard:
+
+| Map Interaction | Results |
+| --- | --- |
+| Mouse over a pin | View a tooltip that shows the geolocation, ZDX Score, and number of users. Click the **Details**icon ([Image: Details icon within tooltip]) to view user and location information in the Users Overview. |
+| Zoom in/out on a pin | Zoom closer to or farther from the city/region/state/country. |
+| Double-click a pin | Zoom into the city level of a region/state/country. |
+| Drag the map | Data is displayed per the map boundary. No additional interaction or data is loaded. |
+| Draw a fence around a pin and then click **Filter Selection** | View a table that shows the location, users, and ZDX Score. |
+
+The **ZDX Score**graph shows how the ZDX Score trends over the selected time period.
+
+The overall score tracks as a line across the graph. Scores fall into three classifications:
+
+- **Good**: The score is above an acceptable threshold and ranges from 66–100. The color for this range is green.
+- **Okay**: The score is acceptable and ranges from 34–65. The color for this range is amber.
+- **Poor**: The score is below an acceptable threshold and ranges from 0–33. The color for this range is red.
+
+The graph also tracks the score of the most impacted application, as determined by the applied filters, for comparison. This lets you view the application's impact on the overall score.
+
+For comparison, you can select up to four additional applications by clicking **Add Another Application** in the application selector below the graph. In the drop-down menu, select the additional applications to view. The ZDX Score for the selected applications is displayed. Clicking a point in the graph displays the ZDX Score for the selected applications at that time; you can also click the arrow within the display to go to that application page. To remove an application, deselect it in the application selector. Selections made in the application selector for the ZDX Score are also reflected in the Page Fetch Time graph.
+
+[Image: Example of ZDX Score graph]
+
+The **Page Fetch Time** graph tracks how long it takes the selected application to transfer the fetched page to the user during the selected time period. The time is tracked in milliseconds.
+
+A line runs across the graph that indicates the 95th percentile, as identified by **P95**. It indicates that 95 percent of the fetch time is below this amount.
+
+You can select a point on the graph to see the exact date and time, the application's fetch time at that point, and the 95th percentile fetch time for comparison. To explore more about the application, click **Analyze** to view the Applications Overview and filter by the application. To learn more, see [Monitoring the Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-dashboard#indivapp).
+
+For comparison, you can select up to four additional applications by clicking **Add Another Application** in the application selector below the graph. In the drop-down menu, select the additional applications to view. The Page Fetch Time for the selected applications is displayed. Clicking a point in the graph displays the Page Fetch Time for the selected applications at that time; you can also click the arrow within the display to go to that application page. To remove an application, deselect it in the application selector. Selections made in the application selector for the Page Fetch Time are also reflected in the ZDX Score graph.
+
+See image.
+
+If the selected application has RUM enabled, then the Page Views and Load Time trend are displayed. The graph captures the amount of page views and page load times across the selected time period.
+
+A line runs across the graph that indicates the 95th percentile, as identified by **P95**. It indicates that 95 percent of the page loading time is below this amount.
+
+See image.
+
+[Image: Performance Dashboard]
+
+[Image: Example of drawing a fence on the ZDX Score map]
+
+[Image: Shows buttons to clear fence in a Regions by  ZDX Score map]
+
+[Image: Example of Page Fetch Time graph]
+
+[Image: View the Page Views and Load Time Trend]
+
+[Image: Example of Geolocations filter drop-down menu in Performance Dashboard]
+
+[Image: Filter drop-down menu in Performance Dashboard]
+
+[Image: Filter or sort the most impacted applications]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6012,13 +6136,13 @@ Only the Super Admin, or the admin who created the view, can edit or delete a co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-devices-overview","lastmod":"2026-08-27T15:30Z","nid":"1529520"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-devices-overview","lastmod":"2026-09-10T15:13Z","nid":"1529520"} -->
 ## Monitoring the Devices Overview
 
 - Source: https://help.zscaler.com/zdx/monitoring-devices-overview
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Devices Overview
-- Last modified: 2026-08-27T15:30Z
+- Last modified: 2026-09-10T15:13Z
 - Summary: Information on devices and their Device Health Score to determine the overall device health across an organization.
 
 The Devices overview uses existing user and device data to create a comprehensive device health scoreboard that monitors the performance of Windows and macOS devices. The dashboard provides useful data in evaluating trends to identify and understand the root causes of poor-performing devices. Then you can proactively collect device data and identify which devices require an IT admin's attention to remedy the device's poor performance (e.g., high CPU usage). With a dedicated dashboard, you can target hardware upgrades based on the device's usage for greater cost-effectiveness.
@@ -6243,20 +6367,17 @@ The Utilization Profile Calculation calculates and categorizes based on the devi
 
 See image.
 
-## Caveat
+## Multiple Users for a Single Device
 
-ZDX collects data for single-user access per device. If there are multiple users on a device, then ZDX collects data for each user and the associated device. This scenario increases the device data aggregation.
+When a device is shared between multiple users, the user count is higher than the device count.
 
 For example:
 
 - User A is on Device X.
 - User B is also on Device X.
-- User A and User B access Device X at different times.
+- Therefore, User A and User B access Device X at different times.
 
-In this scenario, ZDX collects two separate device data when:
-
-- User A is on Device X.
-- User B is on Device X.
+In this scenario, there are two users and one device.
 
 [Image: View the Summary tab]
 
@@ -6554,16 +6675,16 @@ In order to be considered an incident, the following must be considered to categ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-network-intelligence-dashboard","lastmod":"2026-08-28T14:52Z","nid":"1529289"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-network-intelligence-dashboard","lastmod":"2026-09-10T17:23Z","nid":"1529289"} -->
 ## Monitoring the Network Intelligence Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-network-intelligence-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Network Intelligence Dashboard
-- Last modified: 2026-08-28T14:52Z
+- Last modified: 2026-09-10T17:23Z
 - Summary: Information on the Network Intelligence Dashboard and accessible data within the Zscaler Admin Console.
 
-Network Intelligence provides end-to-end multi-path network visibility from Last Mile Internet Service Providers (ISPs) to Zero Trust Exchange to applications. ZDX runs Cloud Path probes to gather network metrics (e.g., network latency, packet loss) to establish a baseline for network latency and compares the network performance against the baseline. ZDX detects and analyzes network anomalies to create a deep analysis and allows you to investigate root causes. You can analyze and pinpoint Last Mile or Intermediate ISP issues, understand root causes, and assess their impact on end users using ML-based algorithms to extract patterns and identify anomalies, and then you can observe and determine the most optimal routing paths to data centers. With all this knowledge at your disposal, you can take proactive measures to resolve network issues to improve the overall organization's digital experience.
+Network Intelligence provides end-to-end multi-path network visibility from Last Mile Internet Service Providers (ISPs) to Zero Trust Exchange (ZTE) to applications. Zscaler Digital Experience (ZDX) runs Cloud Path probes to gather network metrics (e.g., network latency, packet loss) to establish a baseline for network latency and compares the network performance against the baseline. ZDX detects and analyzes network anomalies to create a deep analysis and allows you to investigate root causes. You can analyze and pinpoint Last Mile or Intermediate ISP issues, understand root causes, and assess their impact on end users using ML-based algorithms to extract patterns and identify anomalies, and then you can observe and determine the most optimal routing paths to data centers. With all this knowledge at your disposal, you can take proactive measures to resolve network issues to improve the overall organization's digital experience.
 
 ## Prerequisites
 
@@ -6592,7 +6713,7 @@ Interactions in these widgets do not apply to global filters. Use the map or fil
 
 To adjust your Network Intelligence Dashboard view, you can:
 
-- Filter by **Zero Trust Exchange,** **Application**, **Zscaler Locations**, or **Geolocations**. When you select the **Application** filter, the map displays all geolocations where users are accessing the selected application and does not contain flickering anomalies. Instead, anomalies are detected at runtime and you must select a geolocation on the map to populate the anomaly data.
+- Filter by **Zscaler Data Centers,** **Application**, **Zscaler Locations**, or **Geolocations**. When you select the **Application** filter, the map displays all geolocations where users are accessing the selected application and does not contain flickering anomalies. Instead, anomalies are detected at runtime and you must select a geolocation on the map to populate the anomaly data.
 - Select a time range (**2 Hours**, **4 Hours**, **6 Hours**, **12 Hours**, **24 Hours**, **48 Hours**, **Current**, **Custom**).
 
 You can view the total of each impacted geolocation when the network latency deviates from the baseline and is considered an anomaly.
@@ -6715,7 +6836,7 @@ Click a pathway to view the ISP's ASN Details.
 
 See image.
 
-[Image: Image of ASN details from selecting the ASN links]
+[Image: Image of ASN details when selecting the ASN links]
 
 ##### IP View
 
@@ -6770,7 +6891,7 @@ See image.
 
 [Image: Configure the ISP or ASN View]
 
-[Image: View Comparisons between 2 time ranges or locations]
+[Image: View Comparisons between two time ranges or locations]
 
 [Image: IP Details in the IP by ASN View]
 
@@ -7021,24 +7142,24 @@ Click the username in the notifications table to view the related event in the *
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-users-overview","lastmod":"2026-04-03T09:00Z","nid":"1355791"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-users-overview","lastmod":"2026-09-10T17:39Z","nid":"1355791"} -->
 ## Monitoring the Users Overview
 
 - Source: https://help.zscaler.com/zdx/monitoring-users-overview
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Users > Monitoring the Users Overview
-- Last modified: 2026-04-03T09:00Z
+- Last modified: 2026-09-10T17:39Z
 - Summary: Information on the Users Overview and widgets accessible within the Zscaler Admin Console.
 
 The Users Overview provides information about the digital experience of users in your organization during the selected time frame. By default, the Active User Details are displayed in the overview without a selected application.
 
 See image.
 
-If the application has [Real User Monitoring](https://help.zscaler.com/zdx/understanding-real-user-monitoring) enabled, then the Real User Monitoring (RUM) User Details are also displayed.
+If the application has [Real-User Monitoring](https://help.zscaler.com/zdx/understanding-real-user-monitoring) enabled, then the Real-User Monitoring (RUM) User Details are also displayed.
 
 See image.
 
-If the application does not have Real User Monitoring enabled, then RUM User details are not displayed.
+If the application does not have Real-User Monitoring enabled, then RUM User details are not displayed.
 
 See image.
 
@@ -7049,7 +7170,7 @@ The Users Overview allows you to:
   - **Current**: View the most current ZDX Score captured within the previous 30 minutes.
   - **2 Hours**to **48 Hours**: Specify a time interval between 2 hours and 48 hours as shown in the drop-down menu.
   - **Custom**: Specify a custom time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments.
-- Filter data: Click the filters to select options for Applications, Departments, Zscaler Locations, Geolocations, User Groups, Users, Location Groups, Last Mile ISPs, and Operating System. Each filter allows you to include or exclude individual options. Click **Select All Displayed** to select all options at once. These filters apply to only this page and do not apply to the Probes configuration page. Any disabled applications in the Applications filter are shown in gray, and deleted applications are indicated with a strikethrough on the application name. See image.
+- Filter data: Click the filters to select options for Applications, Departments, Zscaler Locations, Geolocations, User Groups, Users, Location Groups, Last Mile ISPs, Operating System, and Zscaler Data Centers. Each filter allows you to include or exclude individual options. Click **Select All Displayed** to select all options at once. These filters apply to only this page and do not apply to the Probes configuration page. Any disabled applications in the Applications filter are shown in gray, and deleted applications are indicated with a strikethrough on the application name. See image.
 - Understand user digital experience: Click the table cell for User or Devices in the User list table to view a page with details about the user's digital experience.
 
 To view user information using filters:
@@ -7064,6 +7185,7 @@ To view user information using filters:
   - **Location Groups**: The names of groups based on location in your organization.
   - **Last Mile ISPs**: The Internet Service Providers (ISPs) to which your users are connecting.
   - **Operating System**: The operating system versions installed on user devices in your organization.
+  - **Zscaler Data Centers:**The data centers that the users were connected through.
 2. Click **Apply**after completing your selections.
 3. You can select other options in the Time Range filter to view data over a time period.
 
@@ -7082,26 +7204,17 @@ The User list displays up to 100 users in the **Poor**, **Okay**, or **Good**ZDX
 
 The **Download** icon ([Image: Using the download CSV icon for current table view]) allows you to download the current table view of listed users in CSV format for each ZDX Score category. If no users are listed for any ZDX Score category, the icon does not appear.
 
-To further sort user information, use the filters on the page. You can also use the Search functionality to search for a specific user. To learn more, see [Using Search in the ZDX Admin Portal](https://help.zscaler.com/zdx/using-user-search-zdx-admin-portal).
+To further sort user information, use the filters on the page. You can also use the Search functionality to search for a specific user. To learn more, see [Searching in the Zscaler Admin Console](https://help.zscaler.com/unified/searching-zscaler-admin-console).
 
 The table displays the following information about users and their digital experience:
 
 - User
 - ZDX Score
-- Real User Score
+- Real-User Score
 - Geolocations
 - Zscaler Locations
 - Device Count
-- [Start Diagnostics](https://help.zscaler.com/zdx/starting-new-diagnostics-session)
-
-In the Users list, you can:
-
-- Compare user details: Click the **Open in a New Tab** icon ( [Image: Open in a New Tab Icon]) to open the user page in a new tab. You can compare multiple users using this option.
-- View user details: Click a user name to go to the user page and view user details.
-- View device details: Click the Device Count icon () and then click the device name to view device details.
-- Start a Diagnostics session: Click the **Diagnostics** icon ( [Image: Using the Diagnostics icon to start a session]) to start a session for a user.
-
-To learn more about user and device details, see [Evaluating User Details](https://help.zscaler.com/zdx/evaluating-user-details).
+- Users List
 
 View the number of active users for a selected time period:
 
@@ -7111,7 +7224,7 @@ View the number of active users for a selected time period:
 If the applications have RUM enabled, then you can view the number of active RUM users for a selected time period:
 
 - A percentage indicates how the number of RUM users has increased or decreased for the selected time period.
-- A distribution of how many users have a **Poor**, **Okay**, or **Good** Real User Score in the selected time period.
+- A distribution of how many users have a **Poor**, **Okay**, or **Good** Real-User Score in the selected time period.
 
 The **User** column provides a list of users by their name. These names come from your identity providers configured in Internet & SaaS. To learn more, see [About Identity Providers](https://help.zscaler.com/zia/about-identity-providers).
 
@@ -7119,13 +7232,13 @@ You can click a name to see more information about each user. To learn more, see
 
 The **ZDX Score**column shows the user's ZDX Score from 1–100, with 1 being the lowest and 100 being the highest. It is an average score for the selected time period. To learn more, see [About the ZDX Score](https://help.zscaler.com/zdx/about-zdx-score).
 
-The **Real User Score** column shows the user's Real User Score from 1–100, with 1 being the lowest and 100 being the highest. It is an average score for the selected time period. It uses similar categories to the ZDX Score.
+The **Real-User Score** column shows the user's Real-User Score from 1–100, with 1 being the lowest and 100 being the highest. It is an average score for the selected time period. It uses similar categories to the ZDX Score.
 
 The **Zscaler Locations** column provides a list of the locations where the user accessed their device. These locations are defined in ZIA. To learn more, see [About Locations](https://help.zscaler.com/zia/about-locations).
 
 The **Geolocations** column lists all the areas where users accessed their devices for the selected time period.
 
-ZDX uses a device's location service to determine a user's location. It takes the longitude and latitude coordinates from the location service and compares them to Zscaler's geographic IP database. That information is then listed, by corresponding major cities and towns, in the ZDX Admin Portal.
+ZDX uses a device's location service to determine a user's location. It takes the longitude and latitude coordinates from the location service and compares them to Zscaler's geographic IP database. That information is then listed, by corresponding major cities and towns, in the Zscaler Admin Console.
 
 If a user's latitude and longitude are closer to the center of another city, instead of their own city, the user's location might be misidentified as connecting from the neighboring city. If the location service is not enabled on the device, then ZDX uses the device's IP address to determine the location.
 ZDX currently supports Windows, macOS, Android, Android on ChromeOS, and iOS devices only.
@@ -7133,6 +7246,15 @@ ZDX currently supports Windows, macOS, Android, Android on ChromeOS, and iOS dev
 The **Device Count** column lists the total number of devices associated with the user.
 
 Click the device name to view detailed information about the user's device. To learn more, see [Evaluating User Details](https://help.zscaler.com/zdx/evaluating-user-details).
+
+In the Users list, you can:
+
+- Compare user details: Click the **Open in a New Tab** icon ( [Image: Open in a New Tab Icon]) to open the user page in a new tab. You can compare multiple users using this option.
+- View user details: Click a user name to go to the user page and view user details.
+- View device details: Click the Device Count icon () and then click the device name to view device details.
+- [Start a Diagnostics session](https://help.zscaler.com/zdx/starting-new-diagnostics-session): Click the **Diagnostics** icon ( [Image: Using the Diagnostics icon to start a session]) to start a session for a user.
+
+To learn more about user and device details, see [Evaluating User Details](https://help.zscaler.com/zdx/evaluating-user-details).
 
 [Image: View Users Overview of a selected application]
 
@@ -8067,13 +8189,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-09-04T08:15Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-09-11T06:46Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-04T08:15Z
+- Last modified: 2026-09-11T06:46Z
 - Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -11456,13 +11578,13 @@ You can delete to cancel or abort a job on any table.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-device-events-reports","lastmod":"2026-09-03T16:30Z","nid":"1529314"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-device-events-reports","lastmod":"2026-09-10T13:16Z","nid":"1529314"} -->
 ## Viewing Device Events Reports
 
 - Source: https://help.zscaler.com/zdx/viewing-device-events-reports
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Viewing Device Events Reports
-- Last modified: 2026-09-03T16:30Z
+- Last modified: 2026-09-10T13:16Z
 - Summary: Provide details about viewing device events in the Zscaler Admin Console.
 
 Device events are captured in the Zscaler Admin Console to provide aggregated insights into common system and software crashes that impact users and their devices. You can analyze system crashes and software crashes across your organization or drill down into the user details page to understand the specific device event's information. You can then plan your next course of action to remediate the crashes.

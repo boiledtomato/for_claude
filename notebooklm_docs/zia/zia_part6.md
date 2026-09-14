@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 130
 
 ---
@@ -6045,13 +6045,13 @@ Zscaler recommends that you configure the following [Malware Protection policy](
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/recommended-mobile-app-store-control-policy","lastmod":"2026-05-01T21:06Z","nid":"1398781"} -->
+<!-- ZS-ARTICLE {"url":"/zia/recommended-mobile-app-store-control-policy","lastmod":"2026-09-11T09:41Z","nid":"1398781"} -->
 ## Recommended Mobile App Store Control Policy
 
 - Source: https://help.zscaler.com/zia/recommended-mobile-app-store-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Mobile Security > Mobile App Store Control > Recommended Mobile App Store Control Policy
-- Last modified: 2026-05-01T21:06Z
+- Last modified: 2026-09-11T09:41Z
 - Summary: View the Mobile App Store Control policy configuration Zscaler recommends.
 
 Zscaler recommends that you [configure](https://help.zscaler.com/zia/configuring-mobile-app-store-control-policy) the following [Mobile App Store Control](https://help.zscaler.com/zia/about-mobile-app-store-control) policy.
@@ -6059,13 +6059,15 @@ Zscaler recommends that you [configure](https://help.zscaler.com/zia/configuring
 - **Admin Rank**: 1
 - **Rule Status**: Enabled
 - **App Stores**: Any
-- **Users**: Any
 - **Groups**: Any
-- **Departments**: Any
 - **Locations**: Any
+- **Time Window**: Always
+- **Users**: Any
+- **Departments**: Any
 - **Location Groups**: Any
-- **Time**: Always
 - **Application Download**: Allow
+
+[Image: Recommended Mobile App Control Policy]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6510,13 +6512,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-09-04T06:29Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-09-11T10:22Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-04T06:29Z
+- Last modified: 2026-09-11T10:22Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -6639,36 +6641,31 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/retrieving-mip-labels-microsoft-zscaler","lastmod":"2026-08-20T03:01Z","nid":"1402396"} -->
+<!-- ZS-ARTICLE {"url":"/zia/retrieving-mip-labels-microsoft-zscaler","lastmod":"2026-09-09T00:40Z","nid":"1402396"} -->
 ## Retrieving MIP Labels from Microsoft to the MIP Account
 
 - Source: https://help.zscaler.com/zia/retrieving-mip-labels-microsoft-zscaler
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Retrieving MIP Labels from Microsoft to the MIP Account
-- Last modified: 2026-08-20T03:01Z
+- Last modified: 2026-09-09T00:40Z
 - Summary: How to retrieve MIP labels from Microsoft to the MIP account.
 
 After you create an MIP account in the Zscaler Admin Console and it is validated successfully, you need to change the Label Retrieval field for the MIP account in the Zscaler Admin Console to Activate for the service to scan and retrieve the published MIP labels from Microsoft. The MIP labels need to be published in Microsoft before the service can retrieve them. The first scan and retrieval of the MIP labels takes a few minutes. After that, the scan and retrieval of the MIP labels occurs automatically every 12 hours. To learn more about creating and publishing MIP labels in Microsoft, refer to the [Microsoft Documentation](https://docs.microsoft.com/en-us/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide).
 
 After the MIP labels are added to the Zscaler Admin Console, you can use them with the [inline web Data Loss Prevention (DLP) policies](https://help.zscaler.com/zia/about-data-loss-prevention).
 
-To retrieve MIP labels from Microsoft to the MIP account:
-
-1. Go to **Policies** > **Data Protection** > **Common Resources** > **MIP Labels**.
-2. On the **Microsoft Information Protection (MIP) Labels** tab, locate the MIP account for which you want to retrieve the MIP labels from Microsoft.
-3. Click **Edit** next to the MIP account.
-
-The **Edit MIP Account** window appears.
-
-1. On the **Edit MIP Account** window, click **Next**.
-2. Change **Label Retrieval** to **Activate**if this is the first time retrieving the MIP labels from Microsoft. If you have previously disabled the retrieval of the MIP tags, change the field from **Disable** to **Activate** if you want to resume the scanning and retrieval of the MIP labels.
-3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-The scan and retrieval of the MIP labels from Microsoft is initiated. The retrieved MIP labels are added to the MIP account.
-
 The MIP labels that are associated with the different MIP accounts are displayed when configuring an inline web DLP policy.
 
-Disabling the **Label Retrieval** field for the MIP account stops the scan and retrieval of the MIP labels from Microsoft.
+To retrieve MIP labels from Microsoft to the MIP account:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Common Resources** > **MIP Labels**.
+2. On the **Microsoft Information Protection (MIP) Labels** page, locate the MIP account for which you want to retrieve the MIP labels from Microsoft.
+3. Click the **Edit** icon next to the MIP account. The **Edit MIP Account** window appears.
+4. On the **Edit MIP Account** page, click **Next**.
+5. Change **Label Retrieval** to **Activate**if this is the first time retrieving the MIP labels from Microsoft. If you have previously disabled the retrieval of the MIP tags, change the field from **Disable** to **Activate** if you want to resume the scanning and retrieval of the MIP labels. Disabling the **Label Retrieval** field for the MIP account stops the scan and retrieval of the MIP labels from Microsoft.
+6. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+The scan and retrieval of the MIP labels from Microsoft is initiated. The retrieved MIP labels are added to the MIP account.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10146,13 +10143,13 @@ If you don't follow the best practice settings for all other areas, your grade f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/self-provisioning-gre-tunnels","lastmod":"2026-05-26T13:46Z","nid":"1401931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/self-provisioning-gre-tunnels","lastmod":"2026-09-08T05:43Z","nid":"1401931"} -->
 ## Self-Provisioning of GRE Tunnels
 
 - Source: https://help.zscaler.com/zia/self-provisioning-gre-tunnels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > Self-Provisioning of GRE Tunnels
-- Last modified: 2026-05-26T13:46Z
+- Last modified: 2026-09-08T05:43Z
 - Summary: How to self-provision GRE tunnels using the Zscaler Admin Console.
 
 [Watch a video about GRE Tunnels and Static IP Addresses.](https://fast.wistia.net/embed/iframe/vmf3zi7h8b)
@@ -10163,7 +10160,7 @@ Self-provisioning of GRE tunnels towards Private Service Edge for Internet & Saa
 
 To configure the self-service GRE tunnels from the Zscaler Admin Console:
 
-1. Go to **Infrastructure > Locations > Static IPs & GRE Tunnel > GRE Tunnels**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Location Management** > **Static IPs & GRE Tunnel > GRE Tunnels**.
 2. Click **Add GRE Tunnel**. The**Add GRE Tunnel Configuration** wizard opens. If you edit an existing configuration, the **Edit GRE Tunnel Configuration** wizard opens.
 3. On the **Source IP** tab:
   - **Static IP Address**: Select an available static IP address that you want to map to your GRE tunnel. You can map only one static IP address with a GRE tunnel. You cannot modify this field if you are editing an existing configuration. A static IP address that is already mapped with a location is not available for mapping with a GRE tunnel and therefore does not appear in the drop-down menu.
@@ -10747,13 +10744,13 @@ To learn more, see [About Insights Logs](https://help.zscaler.com/zia/about-insi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-client-connector-based-euns","lastmod":"2026-08-27T01:42Z","nid":"1529295"} -->
+<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-client-connector-based-euns","lastmod":"2026-09-11T04:31Z","nid":"1529295"} -->
 ## Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs
-- Last modified: 2026-08-27T01:42Z
+- Last modified: 2026-09-11T04:31Z
 - Summary: Step-by-step guide for configuring Zscaler Client Connector-based end user notifications in the Zscaler Admin Console
 
 This guide describes the configuration steps for displaying notifications to users through Zscaler Client Connector when the user activity triggers Internet & SaaS (ZIA) policy actions. You can customize these notifications and associate them with individual policy rules as explained in the following steps. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
@@ -10805,7 +10802,7 @@ Configure an [App Profile](https://help.zscaler.com/zscaler-client-connector/con
 
 Configure an [App Profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) for your devices (Windows only) and enable the **Zscaler Notification Framework** Framework option. Additionally, you must select a [Notification Template](https://help.zscaler.com/zscaler-client-connector/configuring-notification-templates-zscaler-client-connector) for your App Profile that has **IPS** and **IPS Popup Notifications** options enabled.
 
-You can modify the default messages provided by Zscaler and additionally create custom notification messages. You can customize the message component of the notification in [multiple languages](https://help.zscaler.com/zia/multiple-language-support-zscaler-client-connector-based-euns) supported and choose to include additional details about the traffic and policy conditions. You can create multiple, distinct notification messages for each policy and its subcategories (referred to as "channels").
+The Zscaler service provides a default notification message for each policy. Additionally, you can create custom notification messages in [multiple supported languages](https://help.zscaler.com/zia/multiple-language-support-zscaler-client-connector-based-euns) to associate specific, contextual messages with individual policy rules.
 
 To learn more, see:
 
@@ -12251,31 +12248,31 @@ The following are some potential causes and solutions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-virtual-service-edges-internet-saas","lastmod":"2026-08-17T14:11Z","nid":"1401261"} -->
+<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-virtual-service-edges-internet-saas","lastmod":"2026-09-11T09:23Z","nid":"1401261"} -->
 ## Troubleshooting Virtual Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/troubleshooting-virtual-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Troubleshooting Virtual Service Edges for Internet & SaaS
-- Last modified: 2026-08-17T14:11Z
+- Last modified: 2026-09-11T09:23Z
 - Summary: Provides console commands to troubleshoot configured Virtual Service Edge for Internet & SaaS (ZIA) VMs.
 
 You can use the following commands within the virtual machine (VM) console to configure and troubleshoot Virtual Service Edges. By default, root login is not permitted, so admins must use the sudo utility to run a command with higher privileges.
 
-- To start the Virtual Service Edge service, use the following command: `sudo vzen start`This command displays the process identifier (PID) for the services it started.
+- To start the Virtual Service Edge service, use the following command: `sudo vzen start`This command displays a process identifier (PID) for each service it started.
 - To start the Virtual Service Edge instance, use the following command: `sudo vzen start sme`This command displays the PID for the SME instance it started.
-- To start the load balancer service, use the following command: `sudo vzen start smlb`This command displays the PID only for the LB cluster.
+- To start the load balancer (LB) service, use the following command: `sudo vzen start smlb`This command displays the PID only for the LB cluster.
 - To stop the Virtual Service Edge service, use the following command: `sudo vzen stop`
 - To restart the Virtual Service Edge service, use the following command: `sudo vzen restart`This command stops the service and then starts the service again. It also displays the PID for the services it started.
 - To perform a graceful reboot, run the following commands: `sudo vzen stop sudo reboot`
 - To shut down the operating system, use the following command: `sudo vzen halt`
 - To view the configured values of the Virtual Service Edge, use the following command: `sudo vzen dump-config`This command displays the following configured values of the Virtual Service Edge:
-  - `CloudName`: Name of the cloud in which the Virtual Service Edge is configured.
-  - `nameserver`: The primary DNS IP configured for the Virtual Service Edge.
-  - `Mgmt IP`: The management IP configured for the Virtual Service Edge.
-  - `Default gateway for Mgmt IP`: The default gateway configured for the management IP.
-  - `Service IP`: The service IP configured for the Virtual Service Edge.
-  - `Default gateway for Service IP`: The default gateway configured for the service IP.
+  - `CloudName`: Name of the cloud in which the Virtual Service Edge is configured
+  - `nameserver`: The primary DNS IP configured for the Virtual Service Edge
+  - `Mgmt IP`: The management IP configured for the Virtual Service Edge
+  - `Default gateway for Mgmt IP`: The default gateway configured for the management IP
+  - `Service IP`: The service IP configured for the Virtual Service Edge
+  - `Default gateway for Service IP`: The default gateway configured for the service IP
 - To start the Virtual Service Edge service automatically after a reboot, use the following command: `sudo vzen enable-autostart`
 - To disable the automatic start of the Virtual Service Edge service after a reboot, use the following command: `sudo vzen disable-autostart`
 - To remove a previous installation of the Virtual Service Edge service, use the following command: `sudo cd /home/zsroot``sudo vzen stop``sudo vzen cleanup`
@@ -12283,7 +12280,7 @@ You can use the following commands within the virtual machine (VM) console to co
 - To check the latest available software version of the Virtual Service Edge, use the following command: `sudo vzen checkversion`This command displays the update server's IP address, the currently installed software version, and the latest available software version of the Virtual Service Edge.
 - To check the Virtual Service Edge status, use the following command: `sudo vzen status`This command displays the following status for the respective services:
   - Either running or stopped with its PID for SME.
-  - Either running or stopped with its PID for CDSC.
+  - Either running or stopped with its PID for Central Directory Service Client (CDSC).
   - Either running or stopped with its PID for an LB cluster and not installed for a standalone LB.
 - To check the Virtual Service Edge cluster configuration and status, use the following command: `sudo /sc/smlb/bin/smmgr -ys show=smlbclusters`Sample output of this command.
 - To generate Virtual Service Edge diagnostic information, use the following command: `sudo vzen collect-diagnostics`This command collects the configuration, vital statistics regarding the health of the Virtual Service Edge instance, and error statistics. It then downloads the data to a local file (.tgz) in the /sc/sme/log/ folder. If you uncompress the .tgz file, the following data files are available: Email the .tgz file to Zscaler Support for troubleshooting purposes.
@@ -12292,15 +12289,15 @@ You can use the following commands within the virtual machine (VM) console to co
   - vzen.upgrade.log
   - vzensmesmmgr.log
   - vzensmlbsmmgr.log
-- To check the firewall configuration, use the following command: `sudo vzen test-firewall`This command probes active firewall configuration by attempting to resolve the DNS names and establishing outbound connections to the Zscaler cloud. Ensure to run this command on the ESXi console to avoid SSH connection disruption.
+- To check the firewall configuration, use the following command: `sudo vzen test-firewall`This command probes active firewall configuration by attempting to resolve the DNS names and establishing outbound connections to the Zscaler cloud. Ensure that you run this command on the ESXi console to avoid SSH connection disruption.
 - To change the network configuration (i.e., IP addresses and gateway information) for the service, use the following command: `sudo vzen configure-network`
 - To show the active connections on the service IP address, use the following command: `sudo vzen troubleshoot netstat`The output is similar to that of the netstat utility.
 - To show the ports on which the Zscaler services listen, use the following command: `sudo vzen troubleshoot netstat listen`Sample output of this command.
 - To show the connections and their statuses, use the following command: `sudo vzen troubleshoot connection`This command probes the connection for some time and displays one of the following connection statuses for cloud-config, log-stream, SMBA (if configured), and LB Status: Sample output of this command.
-  - `Stable`: Indicates that the connections are stable.
-  - `Suspicious`: Indicates that there was at least one disconnection to the Zscaler CA in the last two hours. To troubleshoot the disconnection to the CA, contact Zscaler Support.
-  - `Not present`: Indicates that there is no connectivity.
-- To check the status of the Virtual Service Edge connectivity to Zscaler CA, use the following command: `sudo ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys show=auth`Sample output of this command.
+  - `Stable`: Indicates that the connections are stable
+  - `Suspicious`: Indicates that there was at least one disconnection to the Zscaler Central Authority (CA) in the last two hours. To troubleshoot the disconnection to the CA, contact Zscaler Support.
+  - `Not present`: Indicates that there is no connectivity
+- To check the status of the Virtual Service Edge connectivity to CA, use the following command: `sudo ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys show=auth`Sample output of this command.
 - To check the TCP connectivity to the destination server or establish a connection to a website, use the following command: `sudo ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys host=<Domain Name> -ys port=80 -ys waittime=15 -ys connect=tcp`Sample output of this command. The following error messages appear for the respective scenario: Failed to resolve <Domain Name> if the domain name is invalid.; Connection timed out to <Domain Name>(Resolution):<Port> if the TCP connection is not established.
 - To ping a public IP address, use the following command: `sudo ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys smnet='ping <IP address or Domain Name>'`
 - To check the Virtual Service Edge interface status, use the following command: `sudo ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys smnet=ifconfig`
@@ -12544,13 +12541,13 @@ Following are the tunnel log filters you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-admin-rank","lastmod":"2026-08-28T13:44Z","nid":"1399726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-admin-rank","lastmod":"2026-09-11T21:06Z","nid":"1399726"} -->
 ## Understanding Admin Rank
 
 - Source: https://help.zscaler.com/zia/understanding-admin-rank
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Understanding Admin Rank
-- Last modified: 2026-08-28T13:44Z
+- Last modified: 2026-09-11T21:06Z
 - Summary: Information on admin rank and how it's used when creating roles in the Zscaler Admin Console.
 
 [Watch a video about Admin Rank and how to configure Admin Rank](https://fast.wistia.net/embed/iframe/zm3n7kynyx) (shows legacy UI).
@@ -15459,18 +15456,18 @@ The following are a few benefits of using a GeoIP address:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-global-public-service-edges-internet-saas","lastmod":"2026-08-18T15:46Z","nid":"1400866"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-global-public-service-edges-internet-saas","lastmod":"2026-09-11T09:58Z","nid":"1400866"} -->
 ## Understanding Global Public Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-global-public-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Public Service Edge > Understanding Global Public Service Edges for Internet & SaaS
-- Last modified: 2026-08-18T15:46Z
+- Last modified: 2026-09-11T09:58Z
 - Summary: Information on Global Public Service Edges for Internet & SaaS (ZIA).
 
-Zscaler has configured several Global, or Ghost, Public Service Edges for Internet & SaaS (ZIA) across its clouds. These Public Service Edges addresses do not listen for traffic but are dummy addresses that every Public Service Edges knows about. They can be useful when working in no default route environments. To learn more, see [Implementing Zscaler in No Default Route Environments](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments).
+Zscaler has configured several Global, or Ghost, Public Service Edges for Internet & SaaS (ZIA) across its clouds. The addresses of these Public Service Edges do not listen for traffic but are dummy addresses that every Public Service Edges know about. They can be useful when working in no default route environments. To learn more, see [Implementing Zscaler in No Default Route Environments](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments).
 
-You can use the following IPs as Global Public Service Edge IP addresses:
+You can use the following as Global Public Service Edge IP addresses:
 
 - 185.46.212.88
 - 185.46.212.89
@@ -15483,7 +15480,7 @@ You can use the following IPs as Global Public Service Edge IP addresses:
 
 ## No Default Route Example
 
-In order to send packets to a Global Public Service Edge (185.46.212.88), a user's traffic with PAC configured will first resolve their PAC server address to http://pac.<Zscaler Cloud Name>.net/<your organization's domain>/No-Default-Route. Because the user is coming from a Public Service Edge IP via a tunnel, the PAC server returns the Zscaler Global IP.
+In order to send packets to a Global Public Service Edge (185.46.212.88), a user's traffic with PAC configured first resolves their PAC server address to http://pac.<Zscaler Cloud Name>.net/<your organization's domain>/No-Default-Route. Because the user is coming from a Public Service Edge IP via a tunnel, the PAC server returns the Zscaler Global IP.
 
 You can find the <Zscaler Cloud Name> in the [Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings) menu. To learn more about Zscaler cloud names, see [Understanding Zscaler Cloud Names.](https://help.zscaler.com/unified/understanding-zscaler-cloud-names) ​​​​​​
 
@@ -15495,13 +15492,13 @@ Ensure that you route the traffic destined to the Global Public Service Edge IP 
 
 [Image: Diagram of using Global Service Edges for Internet & SaaS with no default route environments with DNAT]
 
-If the user is outside the corporate network coming from a non-Zscaler Public Service Edge IP and non-customer public IP, then the PAC file uses the "${GATEWAY_FX}" variable instead.
+If the user is outside the corporate network and is coming from a non-Zscaler Public Service Edge IP and non-customer public IP, then the PAC file uses the "${GATEWAY_FX}" variable instead.
 
 [Image: Diagram showing how to use Global Service Edges for Internet & SaaS in no default route environments as a remote user]
 
-In the above solution, each of the customer location configurations will remain the same, providing a simple method of deploying configuration without differences between locations. This minimizes configuration and deployment complexity. In addition, both internal and external scenarios can be accommodated by a single PAC.
+In the above solution, each of the customer location configurations remain the same, providing a simple method of deploying configuration without differences between locations. This minimizes configuration and deployment complexity. In addition, a single PAC can accommodate both internal and external scenarios.
 
-Customers can also detect whether the user is present on-premises (by resolving an internal domain) and then return the Global Public Service Edge IP. A sample PAC file is given below:
+You can also detect whether the user is present on premises (by resolving an internal domain) and then return the Global Public Service Edge IP. A sample PAC file is given below:
 
 ```
 var egressip = "${SRCIP}";

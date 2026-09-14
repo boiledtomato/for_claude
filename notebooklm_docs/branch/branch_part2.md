@@ -1,8 +1,218 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 111
+Generated: 2026-09-14 03:38 UTC
+Articles in this file: 112
+
+---
+
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets","lastmod":"2026-09-04T07:06Z","nid":"1528441"} -->
+## Understanding Cloud Connector Deployments with Azure Virtual Machine Scale Sets
+
+- Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for Azure > Understanding Cloud Connector Deployments with Azure Virtual Machine Scale Sets
+- Last modified: 2026-09-04T07:06Z
+- Summary: Information about Azure Virtual Machine Scale Sets (VMSS) deployment with Zscaler Cloud Connector
+
+An Azure Virtual Machine Scale Sets (VMSS) deployment dynamically adds Cloud Connector virtual machines (VMs) to a scale set to meet the current load when it increases, and it removes Cloud Connector VMs from the scale set when the load decreases. For example, consider an Azure Virtual Desktop deployment, where users log in to their own virtual workstations at the beginning of the work day and log out at the end of the day. This causes fluctuations in the number of users and the amount of traffic flow during these periods.
+
+VMSS also constantly monitors the health of each VM in the scale set. It removes unhealthy VMs from the scale set and replaces them with healthy ones. If someone manually terminates a VM that is part of a scale set from the Azure portal, the VMSS likewise replaces the VM.
+
+Stopping or rebooting a VM that is part of a scale set from the Azure portal could cause the VM to be terminated.
+
+VMSS provides the following benefits:
+
+- Dynamically scales the number of VMs in the scale set to match demand.
+- Automatically removes unhealthy VMs and replaces them with healthy ones.
+- Deploys VMs across availability zones for high availability. The Internal Load Balancer (ILB) distributes traffic among the VMs.
+
+This article describes VMSS and how it works in a Cloud Connector deployment. The deployment template prompts you to configure certain VMSS settings mentioned in this article. For information about the deployment template and the deployment steps, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#azure-terraform) and [Deploying Zscaler Cloud Connector with Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure). For comprehensive VMSS information, refer to the [Azure product documentation](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/).
+
+## Topology
+
+The following sections provide a diagram depicting the topology of a VMSS deployment and a description of its components and flow.
+
+- Topology diagram
+- Topology details
+
+[Image: Diagram showing a Cloud Connector Virtual Machine Scale Sets (VMSS) deployment in Azure]
+
+- The security stack is deployed into its own Security Resource Group to simplify the management of resources. Zscaler recommends that you deploy the security stack into its own Security VNet and that you peer Workload VNets with it. After the security stack is deployed, route tables in the Workload VNets should have a user-defined route steering traffic to the ILB in front of the Cloud Connectors.
+- An Internal Load Balancer (ILB) is deployed in front of the Cloud Connectors and is the entry point for the security stack.
+- A VMSS is created in each configured zone to provide high availability across zones.
+- A NAT Gateway (NATGW) used for outbound traffic from the Cloud Connectors is deployed in each configured zone and has a dedicated IP address associated with it.
+- There are two Azure functions: The Azure Functions communicate with the Cloud Connector API server via REST APIs. Azure Functions do not communicate directly with Cloud Connectors. The Azure Functions app contains Azure Functions and runs a ZIP file to start them. It finds the ZIP file in a new storage account that is created at runtime or from an existing storage account that you specify during deployment.
+  - **Health Monitoring**: Uses the custom metrics published by each Cloud Connector to determine whether there are any unhealthy Cloud Connectors that need to be replaced. The function terminates an unhealthy instance and immediately replaces it with a new one. This function runs at one-minute intervals.
+  - **Resource Sync**: Ensures that the VMs in a Cloud Connector Group on the Zscaler Admin Console match the VMs in your VMSS. If the function finds a Cloud Connector in the Cloud Connector Group that is not in the VMSS, it cleans up that instance in the Cloud Connector Group to ensure that the two entities are in sync. This function runs at 30-minute intervals.
+
+## Scale-Out and Scale-In
+
+Each Cloud Connector independently reports custom CPU utilization metrics to the Azure Monitor Service at one-minute intervals to advertise the load it is handling. VMSS uses the aggregate CPU utilization of all VMs in the scale set to determine when to trigger scale-out and scale-in events and how aggressively to do so.
+
+Custom CPU metrics provide more detailed information about CPU usage, so Cloud Connector publishes them instead of VM-level metrics.
+
+- Scaling Rules
+- Scheduled Scaling
+
+Scaling rules define the parameters for triggering scale-out and scale-in events. Zscaler recommends the following default thresholds and values:
+
+| Parameter | Description | Scale-Out Rule | Scale-In Rule |
+| --- | --- | --- | --- |
+| CPU utilization threshold | The aggregate percentage of CPU utilization for the VMs in the scale set. | 70% | 50% |
+| Duration | The number of consecutive minutes after the threshold is crossed before a scale-out or scale-in event is triggered. | 10 | 10 |
+| Cooldown | The number of minutes to wait before triggering another scale-out or scale-in event. Metrics continue to be monitored and reported during the cooldown period. This gives the VMSS time to stabilize and determine how the updated number of VMs impacts the CPU utilization. | 15 | 15 |
+| Instance count | The number of VMs to remove or add for a single scale-out or scale-in event. | 1 | 1 |
+
+Examples:
+
+- There are 4 VMs in a scale set. The VMs report CPU utilization of 80%, 60%, 75%, and 90%, so the aggregated CPU utilization for the scale set is 76.25%. The CPU utilization remains higher than the scale-out threshold for 10 consecutive minutes, so a scale-out event adds one VM to the scale set, bringing the number of VMs to 5.
+- There are three VMs in a scale set. The VMs report CPU utilization of 50%, 40%, and 35%, so the aggregated CPU utilization for the scale set is 41.7%. The aggregate CPU utilization remains lower than the scale-in threshold for 10 consecutive minutes, so a scale-in event removes one VM from the scale set, bringing the number to two. During the cooldown period, a traffic spike brings the aggregated CPU utilization to 83%, so when the cooldown period ends, a scale-out event adds one VM to the scale set, bringing the number of VMs back to three.
+- There are two VMs in a scale set. The VMs report CPU utilization of 65% and 55%, so the aggregated CPU utilization for the VMSS is 60%. No scale-out or scale-in event is triggered because the aggregated CPU utilization remains within the scale-out and scale-in thresholds for 10 consecutive minutes.
+
+In logs and reports, the CPU utilization metric is displayed as `smedge_cpu_utilization`.
+
+If you have predictable load patterns, you can define a schedule for scale-out and scale-in events. This ensures that enough VMs are provisioned before the predicted spike. For example, if a batch job runs every Saturday at 6:00 PM, you could preemptively schedule a scale-out event for 5:45 PM. You can define the following parameters during deployment:
+
+- **Minimum instances**: The minimum number of VMs in the scaling set during the scheduled scaling event.
+- **Days of week**: The days of the week when the schedule takes effect.
+- **Start time**: The time in hours and minutes to start the scheduled scaling event.
+- **End time**: The time in hours and minutes to end the scheduled scaling event.
+
+## Cloud Connector Health Monitoring
+
+Health monitoring includes the following entities:
+
+- **Custom Metric Publishing**: Each Cloud Connector publishes a VM-level custom health metric at one-minute intervals. This metric value is 0 for an unhealthy VM or 100 for a healthy VM.
+- **Health Monitoring**: The Health Monitoring function consumes the health metric at one-minute intervals and initiates the termination of a VM that it determines is unhealthy.
+
+In logs and reports, the health metric is displayed as `cloud_connector_aggr_health`.
+
+- Grace Period
+- Terminating Unhealthy VMs
+
+A grace period allows a Cloud Connector to boot up before its health is evaluated, and it is potentially terminated. The grace period lasts until one of the following events occurs:
+
+- The VM has been alive for more than 30 minutes.
+- The VM reports at least one healthy metric.
+
+After the grace period ends, a Cloud Connector is considered unhealthy if the custom health metric is reported as either:
+
+- **None**or **0** for 7 out of the last 10 samples, starting with the first healthy sample
+- **None**or **0** for 5 consecutive samples, starting with the first healthy sample
+
+The Health Monitoring function determines whether a VM is unhealthy. This function terminates an unhealthy VM after the grace period ends and the unhealthy criteria are met. The VM is replaced immediately.
+
+Unhealthy instances are terminated in iterations. In a single iteration, a VMSS can terminate 20% of the instances, or one instance, whichever is greater. The instance to terminate is based on which instance has the most healthy statuses over a 10-sample stretch. If multiple instances have the same number of unhealthy statuses, the instances to terminate are chosen randomly.
+
+## Viewing Metrics and Logs
+
+You can view the following metrics and logs in the [Azure portal](https://portal.azure.us/).
+
+- Metrics
+- Functions App Logs
+
+- Cloud Connector Metrics
+- VMSS Metrics
+
+- Recent Invocations
+- Log Streaming in Real Time
+- Application Insights
+
+Cloud Connectors publish health metrics at one-minute intervals and are managed by Application Insights.
+
+To display the metrics:
+
+1. Navigate to **Resource Groups** > <Resource Group> > <VMSS> > <VM> > **Monitoring**> **Metrics**.
+2. On the **Metrics**page, click **Add metric**.
+3. Select the following parameters:
+  - Scope: <VM name>
+  - Metric Namespace: **zscaler/cloudconnectors**
+  - Metric: **cloud_connector_aggr_health**
+  - Aggregation: **Avg** (average)
+
+[Image: Graph showing query for Cloud Connector metrics where you use the Scope, Metric Namespace, Metric, and Aggregation drop-down menus to specify query parameters]
+
+Cloud Connectors in a scale set publish scaling metrics to the Health Monitoring function at one-minute intervals. VMSS consumes metrics from Azure Monitor for scaling decisions. The scaling metrics include `smedge_cpu_utilization`, `smedge_mem_utilization`, `smedge_bytes_in`, and `smedge_bytes_out`. The scaling rules compare the `smedge_cpu_utilization` value with the defined threshold.
+
+To display the VMSS metrics:
+
+1. Navigate to **Resource groups** > <Resource Group> > <VMSS> > <VM> > **Monitoring**> **Metrics**.
+2. On the **Metrics**page, click **Add metric**.
+3. Select the following parameters:
+  - **Scope**: VMSS name
+  - **Metric Namespace**: **zscaler/cloudconnectors**
+  - **Metric**: **smedge_metrics**
+  - **Aggregation**: **Avg** (average)
+4. Click **Add filter**.
+5. Select the following parameters:
+  - **Property**: **metric_name**
+  - **Operator**:**=**
+  - **Values**: **smedge_cpu_utilization**
+
+[Image: Graph showing query for VMSS metrics where you use the Scope, Metric Namespace, Metric, and Aggregation drop-down menus to specify query parameters]
+
+An Azure invocation is logged each time an Azure function is executed.
+
+To view recent invocations:
+
+1. Go to **Resource groups** > <Resource Group>. The **Resource group** page appears.
+2. In the **Name**column on the **Resource**tab, find the Functions App and click it. The **Functions App** page appears.
+3. On the **Functions**tab, click the function in the **Name**column. The details page for the Functions app appears.
+4. Click the **Invocations**tab and then click the invocation in the **Date**column.
+
+[Image: Viewing recent App Function Invocations in Azure Portal]
+
+You can view logs in real time for functions that are executing.
+
+To view real-time logs:
+
+1. Go to **Resource groups** > <Resource Group>. The **Resource group** page appears.
+2. In the **Name**column on the **Resources**tab, find the Functions App and click it in the **Name**column. The **Functions App** page appears.
+3. On the **Functions**tab, click the function in the **Name**column. The details page for the Functions app appears.
+4. Click the **Logs**tab.
+
+[Image: Viewing real-time App Function logs in the Azure Portal]
+
+The Application Insights feature allows you to perform queries to view specific log messages, executions, time frames, and so on. For example, you can view Health Monitoring function logs that report that the VMSS found no instances to terminate. A specific message is defined when querying the logs, which allows you to refine your search instead of manually going through each invocation or continuously watching the real-time streaming of logs.
+
+To view logs through Application Insights:
+
+1. Go to **Resource groups** > <Resource Group>.
+2. On the **Application Insights** page, click **Logs**.
+3. Enter a query and then click **Run**. For example, the following query would show you when there are no instances to terminate. `union traces | union exceptions | where timestamp > ago(1d) | where customDimensions['Category'] == 'Function.healthMonitor.User' or customDimensions['Category'] == 'Function.healthMonitor' | where message contains "No instances to terminate on this iteration." | order by timestamp asc | project timestamp, message = iff(message != '', message, iff(innermostMessage != '', innermostMessage, customDimensions.['prop__{OriginalFormat}']))`
+
+[Image: Viewing Health Monitor function logs through Application Insights]
+
+## Access to Azure Resources
+
+Managed identities provide granular access control for Azure resources, which eliminates the need to explicitly store secret credentials within the Azure environment.
+
+Azure Key Vault securely manages credentials for external services such as the Zscaler Admin Console.
+
+Two user-assigned managed identities are required to perform Azure operations:
+
+- Cloud Connector
+- Functions App
+
+This managed identity allows Cloud Connectors to perform Azure operations such as network interface discovery and metric publishing. It needs the following roles:
+
+- Network Contributor
+- Monitoring Metrics Publisher
+- Storage Queue Data Contributor
+
+This managed identity allows the Azure Functions App to make API calls to perform operations such as instance termination, instance replacement, and metric reading. It needs the following roles:
+
+- Network Contributor
+- Virtual Machine Contributor
+- Monitoring Contributor
+- Managed Identity Operator
+- Storage Blob Data Reader
+
+User-assigned managed identities allow access to different entities in a VMSS deployment. Ensure that Cloud Connector is not assigned an Azure System-Assigned Managed Identity, because that identity overrides the deployment requirements.
+
+For information about creating managed identities and assigning roles, see [Deploying Zscaler Cloud Connector with Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -1024,13 +1234,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-08-27T14:34Z","nid":"1534300"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-09-08T09:45Z","nid":"1534300"} -->
 ## Zscaler Client Connector for VDI Release Summary (2026)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector VDI Release Notes (per OS) > Zscaler Client Connector for VDI Release Summary (2026)
-- Last modified: 2026-08-27T14:34Z
+- Last modified: 2026-09-08T09:45Z
 - Summary: Zscaler Client Connector for VDI release summary for updates deployed, per OS and version, in 2026 on Zscaler Cloud & Branch Connector.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector for VDI on Zscaler Cloud & Branch Connector.
@@ -1114,13 +1324,13 @@ To learn more, see [Configuring Airgap-Lite Mode for Assets](https://help.zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/about-integrations","lastmod":"2026-09-02T21:59Z","nid":"1532892"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/about-integrations","lastmod":"2026-09-08T19:29Z","nid":"1532892"} -->
 ## About Integrations
 
 - Source: https://help.zscaler.com/zero-trust-branch/about-integrations
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > About Integrations
-- Last modified: 2026-09-02T21:59Z
+- Last modified: 2026-09-08T19:29Z
 - Summary: Information on different types of third-party integrations supported by Zero Trust Branch.
 
 Zero Trust Branch integrates with third-party and Zscaler services to extend visibility, automate response workflows, and enrich analytics across your enterprise systems. You can integrate Zero Trust Branch with other tools from a centralized interface in the Zscaler Admin Console. The supported integrations include tools for monitoring, security orchestration, IT service management, and analytics.
@@ -1308,13 +1518,13 @@ To add a BGP configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-hub","lastmod":"2026-07-15T16:26Z","nid":"1525471"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-hub","lastmod":"2026-09-11T13:36Z","nid":"1525471"} -->
 ## Adding a Hub
 
 - Source: https://help.zscaler.com/zero-trust-branch/adding-hub
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Adding a Hub
-- Last modified: 2026-07-15T16:26Z
+- Last modified: 2026-09-11T13:36Z
 - Summary: Adding a hub in Zero Trust Branch.
 
 In Zero Trust Branch, a hub enables site-to-site communication. To learn more, see [Configuring Zero Trust Branch Site-to-Site Connectivity Over Routed Tunnels](https://help.zscaler.com/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels).
@@ -1323,7 +1533,7 @@ In Zero Trust Branch, a hub enables site-to-site communication. To learn more, s
 
 To add a hub:
 
-1. In the Zscaler Admin Console, go to **Infrastructure**> **Connectors**> **Edge**> **Hubs**.
+1. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Deployments**> **Hubs**.
 2. Click **Add On-Prem Hub**in the upper-right corner. See image.
 3. In the **Add On-Prem Hub**drawer:
   1. To add another gateway to an existing hub: See image.
@@ -1956,13 +2166,13 @@ To verify whether SIEM integration works as expected:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-site-dns-policies","lastmod":"2026-07-16T11:08Z","nid":"1531196"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-site-dns-policies","lastmod":"2026-09-11T13:50Z","nid":"1531196"} -->
 ## Configuring Site DNS Policies
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-site-dns-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Site DNS Policies > Configuring Site DNS Policies
-- Last modified: 2026-07-16T11:08Z
+- Last modified: 2026-09-11T13:50Z
 - Summary: How to configure DNS policies in Zero Trust Branch.
 
 You can configure a site to manage DNS queries with the DNS policy engine. Zscaler provides several preconfigured DNS gateways, or you can create custom domain and DNS gateway objects as described in [Managing Objects](https://help.zscaler.com/zero-trust-branch/managing-objects).
@@ -1971,9 +2181,9 @@ To learn more about site DNS policies, see [What Are Site DNS Policies?](https:/
 
 To configure a site for DNS policies:
 
-1. Go to **Deployment > Sites**.
+1. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Deployment** > **Sites**.
 2. In the**Site Name** column, click the name of the site that you want to configure for DNS routing. See image.
-3. On the site details page, click the **DNS Policies**tab. See image.
+3. Click the **DNS Policies**tab. See image.
 4. To add a new DNS policy:
   1. On the **DNS Policies** tab, click **Configure**, then click **Add Policy**. The **Add Policy** panel appears. See image.
   2. In the **Add Policy** panel, enter the following information: See image.
@@ -2250,13 +2460,13 @@ Proxmox simulates endpoints that are microsegmented by the ZT800 appliance and c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels","lastmod":"2026-07-15T16:26Z","nid":"1532667"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels","lastmod":"2026-09-11T13:58Z","nid":"1532667"} -->
 ## Configuring Zero Trust Branch Site-to-Site Connectivity Over Routed Tunnels
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Configuring Zero Trust Branch Site-to-Site Connectivity Over Routed Tunnels
-- Last modified: 2026-07-15T16:26Z
+- Last modified: 2026-09-11T13:58Z
 - Summary: Information about configuring legacy applications running in branches for direct site-to-site connectivity.
 
 Routed tunnels provide a secure way to connect branch locations over IP networks. Some applications, like VoIP phones, TACACS+, and Active FTP running in branches require direct source IP address visibility. Zscaler Zero Trust Branch supports remote site connectivity over Zero Trust Branch Routed Tunnels (RTs) and preserves the IP addresses required for these applications to function. The applications are deployed in a hub-and-spoke architecture, where a physical or virtual Zero Trust Branch appliance in a data center (the hub) and Zero Trust Branch appliances in the branch offices (the spokes) connect via the RTs. RTs use state cryptography to secure connections and are easy to implement.
@@ -2403,20 +2613,20 @@ This method uses the URL that you saved during the [Adding a Site](https://help.
 
 [Image: Diagram showing a laptop directly connected to the GE1 management port on the appliance and the appliance connected to the internet via the GE3 WAN port. The laptop receives the 192.168.0.0/24 address from the appliance.]
 
-To view the hubs and the activated gateways, go to **Infrastructure** > **Connectors** > **Edge**> **Hubs.**
+In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch**> **Deployments**> **Hubs** to view the hubs and the activated gateways.
 
 See image.
 
 To identify the spokes:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge**> **Sites**.
+1. Go to **Zero Trust Branch**> **Deployments**> **Sites**.
 2. Note the pods in the **Site Name** column. In this example, Pod30 and Pod50 are the spokes that BGP advertises over the routed tunnel. See image.
 
 Configure the RT from each spoke, terminating at the primary and secondary hubs.
 
 To configure the routed tunnels:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge**> **Sites** and select the first spoke.
+1. Go to **Zero Trust Branch**> **Deployments**> **Sites** and select the first spoke.
 2. Click **Settings**> **Routed Tunnel (RT)**.
 3. Select the primary and secondary hubs and the WAN interfaces used to reach them. See image
 4. Enable **Connect To Hub**.
@@ -2429,18 +2639,18 @@ Spokes enable sharing over RTs at the virtual LAN (VLAN) level. These encrypted 
 - To assign a VLAN for the source IP address of the DNS proxy:
 - To enable sharing over RTs for a static route:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge**> **Sites**.
+1. Go to **Zero Trust Branch**> **Deployments**> **Sites**.
 2. In the **Site Name** column, click the name of the site you want to configure.
-3. Click the **Settings** tab, then click **Static Routes**.
-  - Enable **Share Over RT**. See image.
+3. Click the **Routing** tab, then click **Static Routes**.
   - Click **Add route** for the site. To learn more, see [Managing Sites](https://help.zscaler.com/zero-trust-branch/managing-sites).
+  - Enable **Share Over RT**. See image.
 
-1. Go to **Infrastructure** > **Connectors** > **Edge**> **Sites**.
+1. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch**> **Deployments**> **Sites**.
 2. In the **Site Name** column, click the name of the site you want to configure. See image.
   1. Click the **VLANs** tab.
   2. Click the **Gear** icon of the desired VLAN at the end of the row, and select **Use for DNS Proxy**. This ensures that DNS queries sent over the RT use the IP address of this specific VLAN as the source.
 
-1. Go to **Infrastructure** > **Connectors** > **Edge**> **Sites** and select the first spoke.
+1. Go to **Zero Trust Branch**> **Deployments**> **Sites** and select the first spoke.
 2. Do one of the following, depending on your Zero Trust Branch version:
   - Click **VLANs**and enable **Share Over RT**. See image.
   - Click **VLANs**, click the **Gear** icon, then select **Share on Routed Tunnel**. See image.
@@ -2450,10 +2660,10 @@ Configure a policy-based routing (PBR) rule on each spoke to direct traffic over
 
 To configure a policy-based rule:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge**> **Sites**and select the first spoke.
+1. Go to **Zero Trust Branch**> **Deployments**> **Sites**and select the first spoke.
 2. Do one of the following:
-  - If you are adding a new route, click **Routing Policy** > **Configure**> **Add Route**.
-  - If you are editing an existing rule, click **Routing Policy**, click the **Gear**icon at the end of the row, and then click the **Edit** icon.
+  - If you are adding a new route, click **Routing** > **Static Routes**> **Add Route**.
+  - If you are editing an existing rule, click **Routing** > **Static Routes**, click the **Gear**icon at the end of the row, and then click the **Edit** icon.
 3. Complete the **Add Routing Rule** or **Edit Routing Rule** panel, being sure to select **VPN**as the **Nexthop Interface Type**. See image.
 4. Click **Save**.
 5. Repeat these steps for the second spoke, if that spoke initiates traffic. See image.
@@ -2596,7 +2806,7 @@ To verify that the hubs established BGP peering with spokes over site-to-site GR
 ```
 user-test--pod-40-hubA--pod-40-hubA:~$ docker exec vyos_container su - vyos sh -c 'ip neighbor | grep s2s'
 100.64.219.144 dev s2s_overlay0 1laddr 100.64.174.92 PERMANENT
-                                                                                                                                                                                                                            100.64.233.132 dev s2s_overlay0 1laddr 100.64.141.18 PERMANENT
+                                                                                                                                                                                                                                                100.64.233.132 dev s2s_overlay0 1laddr 100.64.141.18 PERMANENT
 ```
 
 ```
@@ -2807,15 +3017,15 @@ user-test--Pod30--pod30-gw-st:~$ ip rule
 2001:   from all lookup local
 2100:   from all fwmark 0x800 lookup 500
 3000:   from all fwmark 0x1000 lookup 300
-                                                                                                                                                                                                                                                                                                                    ...
+                                                                                                                                                                                                                                                                                                                                                ...
 ```
 
 ```
 user-test--Pod50--pod50-gw-st:~$ ip rule
-                                                                                                                                                                                                                                                                                        1000:   from all lookup [13mdev-table]
-                                                                                                                                                                                                                                                                                        1999:   from all got 2001
-                                                                                                                                                                                                                                                                                        2000:   from all lookup [13mdev-table]
-                                                                                                                                                                                                                                                                                        2001:   from all lookup local
+                                                                                                                                                                                                                                                                                                                    1000:   from all lookup [13mdev-table]
+                                                                                                                                                                                                                                                                                                                    1999:   from all got 2001
+                                                                                                                                                                                                                                                                                                                    2000:   from all lookup [13mdev-table]
+                                                                                                                                                                                                                                                                                                                    2001:   from all lookup local
 2100:   from all fwmark 0x800 lookup 500
 3000:   from all fwmark 0x1000 lookup 300
 ...
@@ -2978,7 +3188,7 @@ PING
 
 To verify that traffic is sent over the routed tunnel:
 
-1. In the Zscaler Admin Console, go to **Monitoring & Logs** > **Flow Logs**.
+1. In the Zscaler Admin Console, go to **Zero Trust Branch** > **Flow Logs**.
 2. View the highlighted information in the following excerpts from the flow log. See image.
 
 [Image: Tab on the site details page that opens the Zscaler Admin Console]
@@ -3459,13 +3669,13 @@ Configure VRRP at the site level to select which interface to use for HA synchro
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-device-using-zero-touch-provisioning","lastmod":"2026-09-03T14:33Z","nid":"1529033"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-device-using-zero-touch-provisioning","lastmod":"2026-09-09T13:47Z","nid":"1529033"} -->
 ## Deploying an Appliance Using Zero Touch Provisioning
 
 - Source: https://help.zscaler.com/zero-trust-branch/deploying-device-using-zero-touch-provisioning
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment > Deploying an Appliance Using Zero Touch Provisioning
-- Last modified: 2026-09-03T14:33Z
+- Last modified: 2026-09-09T13:47Z
 - Summary: Overview of Zero Trust Branch Zero Touch Provisioning in the Zscaler Admin Console.
 
 Zero Touch Provisioning (ZTP) automates onboarding for Zero Trust Branch appliances. When a new appliance is powered on and connected, it securely identifies itself to the Zscaler ZTP service and automatically retrieves its configuration. This automated, zero-touch deployment eliminates the need for manual configuration.
@@ -3513,9 +3723,9 @@ Refer to the following table to determine which templates you can use for your a
 
 To add a site with ZTP:
 
-1. From the navigation menu, go to **Zero Trust Branch > Deployments** >**Sites**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch > Deployments** >**Sites**.
 2. On the **Sites** page, click **Add Site** >**New Site**.
-3. Follow the steps in [Adding a Site](https://help.zscaler.com/zero-trust-branch/managing-sites/#adding-a-site), using the following settings to ensure ZTP:
+3. Follow the steps in [Adding a Site](https://help.zscaler.com/zero-trust-branch/managing-sites#adding-a-site), using the following settings to ensure ZTP:
   - **Serial Number**:Select the serial number, which must be available in the inventory. To learn more, including what to do if a serial number is missing, see Appliance Inventory.
   - **WAN Interface**: Select the interface matching the previously listed ZTP-enabled WAN port for initial onboarding.
   - **Use DHCP for IP Address**: Enable this option. ZTP does not work with static IP addresses.
@@ -3526,7 +3736,7 @@ See image.
 
 Use the command line interface for your newly added site to verify the authentication state and hardware identity using the following steps:
 
-1. From the navigation menu, go to **Zero Trust Branch** > **Deployments** > **Sites** > **[Site Name]** > **Troubleshooting** > **Appliance Admin Console** > **Connect**.
+1. Go to **Zero Trust Branch** > **Deployments** > **Sites** > **[Site Name]** > **Troubleshooting** > **Appliance Admin Console** > **Connect**.
 2. To confirm the authentication state, ZTP device, ZTP server, appliance serial number, and TPM serial number, use the command `show ztp activation-state`. If your appliance is configured correctly, the command output displays the following information:
   - **Authentication State**: true
   - **ZTP Device**: true
@@ -4169,13 +4379,13 @@ Follow these steps to configure the integration between Zero Trust Branch and Ar
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-crowdstrike-zero-trust-branch","lastmod":"2026-08-28T03:35Z","nid":"1534196"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-crowdstrike-zero-trust-branch","lastmod":"2026-09-10T21:22Z","nid":"1534196"} -->
 ## Integrating CrowdStrike with Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/integrating-crowdstrike-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Integrating CrowdStrike with Zero Trust Branch
-- Last modified: 2026-08-28T03:35Z
+- Last modified: 2026-09-10T21:22Z
 - Summary: How to integrate CrowdStrike with Zero Trust Branch.
 
 Zscaler Zero Trust Branch integrates with CrowdStrike Falcon to deliver endpoint-aware zero trust security across branches. By combining Zscaler's zero trust enforcement with CrowdStrike’s endpoint risk insights, organizations gain unified, adaptive access control for both on-premises and remote users. Organizations can dynamically adapt access based on device posture while extending Zscaler policies to remote endpoints through CrowdStrike Falcon, ensuring consistent zero trust protection across all environments.
@@ -4820,13 +5030,13 @@ To configure route preference:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-09-03T14:45Z","nid":"1525146"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-09-09T13:47Z","nid":"1525146"} -->
 ## Managing Sites
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-sites
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Sites > Managing Sites
-- Last modified: 2026-09-03T14:45Z
+- Last modified: 2026-09-09T13:47Z
 - Summary: How to add new sites, manage site-specific DNS configurations, and configure static routes in Zero Trust Branch.
 
 Sites are where Zero Trust Branch appliances are deployed. From the Zscaler Admin Console, you can add new sites, manage site-specific DNS configurations, and configure static routes. To learn more about templates, see [Managing Templates](https://help.zscaler.com/zero-trust-branch/managing-templates).
@@ -4842,7 +5052,7 @@ The example shown in this procedure uses a custom standalone template, a new Int
 
 To add a site, complete the following steps in the Zscaler Admin Console:
 
-1. From the navigation menu, go to **Zero Trust Branch**> **Deployments** >**Sites**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch**> **Deployments** >**Sites**.
 2. On the **Sites** page, click **Add Site** >**New Site**. See image.
 3. In the **Add Site**drawer: See image.
   - **Name**: Enter a name to identify the site.
@@ -4874,7 +5084,7 @@ You can view and manage the DNS configuration for an existing site.
 
 To review and configure the DNS servers:
 
-1. From the navigation menu, go to **Zero Trust Branch** > **Deployments**>**Sites**.
+1. Go to **Zero Trust Branch** > **Deployments**>**Sites**.
 2. In the **Site Name** column, click the name of the site you want to manage.
 3. Click **Settings** in the left-side navigation, then click the **DNS** tab.
 4. View or edit the following fields: See image.
@@ -4896,7 +5106,7 @@ You can add static routes to define manual paths for network traffic and choose 
 
 To configure static routes for a site:
 
-1. From the navigation menu, go to **Zero Trust Branch** > **Deployments**>**Sites**.
+1. Go to **Zero Trust Branch** > **Deployments**>**Sites**.
 2. In the **Site Name** column, click the name of the site you want to configure.
 3. Click **Routing**in the left-side navigation, then click the **Static Routes** tab.
 4. Click **Add route**. See image.
@@ -4933,13 +5143,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-snmp-configurations","lastmod":"2026-09-02T21:31Z","nid":"1532443"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-snmp-configurations","lastmod":"2026-09-08T19:27Z","nid":"1532443"} -->
 ## Managing SNMP Configurations
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-snmp-configurations
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Analytics & Monitoring > Managing SNMP Configurations
-- Last modified: 2026-09-02T21:31Z
+- Last modified: 2026-09-08T19:27Z
 - Summary: Managing SNMP Configurations in Zero Trust Branch.
 
 Zero Trust Branch supports the Simple Network Management Protocol (SNMP) standard for network monitoring and management. You can use the following standard management information bases (MIBs):
@@ -5195,13 +5405,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-09-04T09:37Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-09-10T14:22Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-04T09:37Z
+- Last modified: 2026-09-10T14:22Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -6877,18 +7087,18 @@ To access the traffic flow chart:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/what-site-dns-policies","lastmod":"2026-08-20T09:41Z","nid":"1531224"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/what-site-dns-policies","lastmod":"2026-09-11T13:41Z","nid":"1531224"} -->
 ## What Are Site DNS Policies?
 
 - Source: https://help.zscaler.com/zero-trust-branch/what-site-dns-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Site DNS Policies > What Are Site DNS Policies?
-- Last modified: 2026-08-20T09:41Z
+- Last modified: 2026-09-11T13:41Z
 - Summary: Introductory information, key features, and benefits of DNS policies used for Zero Trust Branch sites.
 
 The DNS is a key part of the internet, offering the power of quickly translating between the human language of FQDNs and the computer language of IP addresses.
 
-Within Zero Trust Branch, you can use DNS policies to define rules that control DNS requests and responses to your Zero Trust Branch sites. To see site DNS policies, go to Infrastructure > Connectors > Edge > Sites > [Site Name] > DNS Policy. To learn more about configuring site DNS policies, see [Configuring Site DNS Policies](https://help.zscaler.com/zero-trust-branch/configuring-site-dns-policies).
+Within Zero Trust Branch, you can use DNS policies to define rules that control DNS requests and responses to your Zero Trust Branch sites. To see site DNS policies, in the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to Zero Trust Branch > Deployments > Sites > [Site Name] > DNS Policy. To learn more about configuring site DNS policies, see [Configuring Site DNS Policies](https://help.zscaler.com/zero-trust-branch/configuring-site-dns-policies).
 
 ## Key Features and Benefits
 
@@ -6970,13 +7180,13 @@ Zero Trust Branch provides the following tagging options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-09-02T21:07Z","nid":"1529460"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-09-10T21:47Z","nid":"1529460"} -->
 ## Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
 
 - Source: https://help.zscaler.com/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Installation > Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
-- Last modified: 2026-09-02T21:07Z
+- Last modified: 2026-09-10T21:47Z
 - Summary: Instructions for wall and rack mounting the Zero Trust Branch appliances.
 
 After you receive the Zscaler Zero Trust Branch appliance, you can mount the Zero Trust Branch appliance as follows:
@@ -7052,7 +7262,7 @@ To rack mount the Zero Trust Branch ZT600:
 1. Align one rack mounting bracket to the screw holes on the side panel of the appliance and attach the bracket using three A screws. See image.
 2. Secure the other rack mounting bracket to the other side of the appliance.
 3. Ensure that the adapter's cable is connected and secured. See image.
-4. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. Hold the appliance and lift carefully to insert the appliance into the rack. See image.
+4. Hold the appliance and lift carefully to insert the appliance into the rack. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. See image.
 5. Connect the necessary cables to the designated ports of the appliance. To learn more, see [Zero Trust Branch Physical Port Mapping](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping#ZT600).
 
 - Package Contents
@@ -7161,7 +7371,7 @@ The following table provides the environmental and power specifications for Zero
 
 [Image: Zero Trust Branch appliance package contents]
 
-[Image: Attaching ear bracket to side panel of appliance]
+[Image: Securing rack mounting bracket to the side panel of the appliance]
 
 [Image: Securing the adapter cable in ZT600]
 
@@ -7183,7 +7393,7 @@ The following table provides the environmental and power specifications for Zero
 
 [Image: Locking four bracket screws into position]
 
-[Image: Securing ear bracket to the side panel of the appliance]
+[Image: Securing rack mounting bracket to the side panel of the appliance]
 
 [Image: Securing the adapter cable in ZT800]
 
@@ -7200,13 +7410,13 @@ The following table provides the environmental and power specifications for Zero
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-physical-port-mapping","lastmod":"2026-08-12T14:36Z","nid":"1532276"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-physical-port-mapping","lastmod":"2026-09-13T07:06Z","nid":"1532276"} -->
 ## Zero Trust Branch Physical Port Mapping
 
 - Source: https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Installation > Zero Trust Branch Physical Port Mapping
-- Last modified: 2026-08-12T14:36Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: A description of the physical ports on Zscaler Zero Trust Branch devices, and their interfaces, port types, and roles
 
 This article depicts the physical ports on Zero Trust Branch appliances and identifies their interface names, port types, and roles.
@@ -8106,13 +8316,13 @@ To view the details of a specific network event:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-sim-details","lastmod":"2026-09-01T00:34Z","nid":"1518126"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-sim-details","lastmod":"2026-09-09T22:12Z","nid":"1518126"} -->
 ## Viewing SIM Details
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-sim-details
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Viewing SIM Details
-- Last modified: 2026-09-01T00:34Z
+- Last modified: 2026-09-09T22:12Z
 - Summary: How to view details of each SIM card.
 
 You can access in-depth information about each SIM—both physical SIMs and eSIMs—provisioned to your organization. The SIM details page provides a comprehensive overview of a selected SIM's session activity, including its current status, historical data usage, key connectivity details, and location history.
@@ -8148,7 +8358,7 @@ To view the details of a SIM card:
   - **Date Range**: You can customize the chart by selecting a default date range (**Today**, **Yesterday**, **Last 7 Days**, **Last 30 Days**, **This Month**, or **Last Month**) or choosing **Custom Range**and selecting start and end dates to display usage details for the specific period. See image.
   - Option to view network events associated with the SIM. See image.
   - Option to update the [status](https://help.zscaler.com/zscaler-cellular/changing-status-zscaler-sims), [IMEI](https://help.zscaler.com/zscaler-cellular/changing-imei-association-zscaler-sims), and [tags](https://help.zscaler.com/zscaler-cellular/managing-tags-zscaler-sims) for the SIM card. See image.
-  - **Location History**: A widget that provides a detailed visual representation of your SIM’s movements across different locations and the network events that triggered those transitions. It helps you identify travel patterns, frequent activity areas, and connectivity changes. It shows: See image.
+  - **Location History**: A widget that provides a detailed visual representation of your SIM’s movements across different locations and the network events that triggered transitions. It helps you identify travel patterns, frequent activity areas, and connectivity changes. It shows: See image.
     - Map Indicators: Blue pins on the map represent SIM activity and movements. Hovering over a pin shows detailed information, including the event’s date and time, type of event, operator, Mobile Country Code (MCC), Mobile Network Code (MNC), and Cell ID.
     - Timeline Bar: The timeline bar displays the total number of SIM location events and allows you to move through them from the oldest to the newest. This gives you a quick, chronological view of activity over time.
 

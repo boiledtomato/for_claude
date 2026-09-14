@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 111
+Generated: 2026-09-14 03:38 UTC
+Articles in this file: 112
 
 ---
 
@@ -763,13 +763,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-08-26T10:53Z","nid":"1399011"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-09-09T21:06Z","nid":"1399011"} -->
 ## Adding Auditors
 
 - Source: https://help.zscaler.com/zia/adding-auditors
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Adding Auditors
-- Last modified: 2026-08-26T10:53Z
+- Last modified: 2026-09-09T21:06Z
 - Summary: How to add auditors in the Zscaler Admin Console.
 
 [Watch a video about Auditors](https://fast.wistia.net/embed/iframe/68fj7gj7xh) (shows legacy UI).
@@ -792,65 +792,13 @@ To add an auditor:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-bandwidth-classes","lastmod":"2026-07-01T10:19Z","nid":"1399911"} -->
-## Adding Bandwidth Classes
-
-- Source: https://help.zscaler.com/zia/adding-bandwidth-classes
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Adding Bandwidth Classes
-- Last modified: 2026-07-01T10:19Z
-- Summary: How to add bandwidth classes by editing the predefined classes or by adding new ones in the Zscaler Admin Portal.
-
-[Watch a video about Bandwidth Classes](https://fast.wistia.net/embed/iframe/jjpc536mhm) (shows legacy UI).
-
-Bandwidth classes identify the URL categories and applications to which the service allocates bandwidth. You must configure the bandwidth classes before you can reference them in the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy rules. To configure bandwidth classes, you can edit the predefined bandwidth classes or add new bandwidth classes, then group URL categories, applications, or domains into the bandwidth classes.
-
-On the Cloud Applicationstab:
-
-- Add up to 245 custom bandwidth classes.
-- You can have up to 8 bandwidth classes with custom domains.
-- Add up to 25,000 domains across all bandwidth classes (including URL categories).
-
-The tab also lists predefined bandwidth classes to which you can add domains. The predefined bandwidth classes cannot be deleted. You can also add your own custom domains. For more information about predefined bandwidth classes, see [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes).
-
-If you have created a custom bandwidth class that isn't being used in any policies for a location, then the custom class is added to the location’s default Bandwidth Control rule. The default rule includes all internet traffic not covered by other rules. By default, it's not guaranteed any bandwidth, but it can consume up to 100% of the bandwidth when available. These bandwidth settings can be changed by editing the default rule.
-
-To add a new bandwidth class:
-
-1. Go to **Infrastructure** > **Internet & SaaS** > **Network Policies** > **Classes** to manage bandwidth classes.
-2. Go to the **Cloud Applications** tab.
-3. Click **Add Bandwidth Class**.
-
-The **Add Bandwidth Class** window appears.
-
-1. In the **Add Bandwidth Class** window:
-
-- **Name:**Enter a name for the class.
-- **URL Categories:**Select [URL categories](https://help.zscaler.com/zia/about-url-categories) to add to the bandwidth class.
-- **Cloud Applications:** Select [cloud applications](https://help.zscaler.com/zia/understanding-cloud-app-categories) to add to the bandwidth class. You can select cloud application categories or individual cloud applications.
-
-By default, this field displays the first 100 cloud applications. The subsequent 100 cloud applications are displayed when you click the **Click to see more**link at the bottom of the list. You can repeat this process to view the remaining cloud applications.
-
-See image.
-
-- **Domains:**Enter the URLs that you want to include in the bandwidth class and click **Add Items**. You can enter multiple entries. Press `Enter` after each entry. You can add domains for up to 8 individual bandwidth classes. For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove the first 25,000 items from the list (**Remove 25K Items**) or only items from a specific page (**Remove Page**). If you select **Remove 25K Items** or **Remove Page**, a confirmation window appears.
-
-Click **Save**.
-
-1. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Add Bandwidth Class with Click to See More in the Cloud Applications Field]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-application-instance","lastmod":"2026-05-25T22:54Z","nid":"1403156"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-application-instance","lastmod":"2026-09-09T03:40Z","nid":"1403156"} -->
 ## Adding a Cloud Application Instance
 
 - Source: https://help.zscaler.com/zia/adding-cloud-application-instance
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud Application Instances > Adding a Cloud Application Instance
-- Last modified: 2026-05-25T22:54Z
+- Last modified: 2026-09-09T03:40Z
 - Summary: Information on how to add a Cloud Application Instance in the Zscaler Admin Console.
 
 The cloud application instances feature allows you to create instances for cloud applications where you can add specific instance identifiers (e.g., domains). The feature consists of two parts:
@@ -860,18 +808,23 @@ The cloud application instances feature allows you to create instances for cloud
 
 To add a cloud application instance:
 
-1. Go to **Policies**>**Access Control**>**Internet & SaaS**>**SaaS Applications**>**Instances**.
-2. Click **Add Cloud Application Instance**. The **Add Cloud Application Instance**window appears.
-3. In the **Add Cloud Application Instance**window: To add multiple instance identifiers or keywords, click **+ Add More** after each entry. You can remove the identifiers using the **Trash** icon. You can add a maximum of 1,024 instance identifiers per cloud application instance. For guidance on entering URLs, see the [URL Format Guidelines](https://help.zscaler.com/zia/url-format-guidelines). See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS Applications**.
+2. Select the **Instances**tab.
+3. Click **Add Cloud Application Instance**. The **Add Cloud Application Instance**page appears.
+4. On the **Add Cloud Application Instance**page:
   - **Cloud Application Instance Name**: Enter the name of the cloud application instance. This is displayed when configuring the Cloud App Control policy rules and DLP policy rules.
-  - **Instance Type**: Select a parent cloud application for which you want to add instances. For cloud applications, if you allow access to an instance and block the rest using the Cloud App Control policy rule, the service blocks the main URLs (e.g., www.box.com, www.okta.com, etc.). In such a situation, you must use the corporate instance URL (e.g., www.zscaler.app.box.com/login, www.zscaler.okta.com/login, etc.) to log in instead of using the main URL (e.g., www.box.com, www.okta.com, etc.).; For the **GitHub** instance type, you can add keywords as instance identifiers in addition to URLs. Organizations following a similar naming convention through a single keyword can use the keyword instance identifier to identify a large number of GitHub repositories.
-  - **Name**: Enter the name of the instance identifier.
-  - **Instance Identifier**: Enter the URL of the instance identifier. The URL formats for the **Bitbucket** and **GitHub**instance types are as follows, respectively: `.bitbucket.org/<organization name>/<repository name>/ .github.com/<organization name>/<repository name>/`
-  - **Name**: (Optional) Enter the name of the keyword. This field is applicable only to the **GitHub** instance type.
-  - **Keyword**: (Optional) Enter the keyword. This field is applicable only to the **GitHub** instance type.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+  - **Instance Type**: Select a parent cloud application for which you want to add instances. For cloud applications, if you allow access to an instance and block the rest using the Cloud App Control policy rule, the service blocks the main URLs (e.g., www.box.com, www.okta.com). In such a situation, you must use the corporate instance URL (e.g., www.zscaler.app.box.com/login, www.zscaler.okta.com/login) to log in instead of using the main URL (e.g., www.box.com, www.okta.com).; For the **GitHub** instance type, you can add keywords as instance identifiers in addition to URLs. Organizations following a similar naming convention through a single keyword can use the keyword instance identifier to identify a large number of GitHub repositories.
+5. Click **Add**to add an instance identifier. The **Add Instance Identifier** drawer appears.
+6. In the **Add Instance Identifier** drawer: To add multiple instance identifiers or keywords, click **Add** after each entry. You can remove the identifiers using the **Trash** icon or remove all the identifiers using **Delete All Identifiers**. You can add a maximum of 1,024 instance identifiers per cloud application instance. For guidance on entering URLs, see the [URL Format Guidelines](https://help.zscaler.com/zia/url-format-guidelines). See image.
+  1. Enter the following information:
+    - **Name**: Name of the instance identifier.
+    - **Instance Identifier**: URL for the instance identifier. The URL formats for the **Bitbucket** and **GitHub**instance types are as follows, respectively: `.bitbucket.org/<organization name>/<repository name>/ .github.com/<organization name>/<repository name>/`
+    - **Name**: (Optional) Name of the keyword. This field is applicable only to the **GitHub** instance type.
+    - **Keyword**: (Optional) Keyword for the instance identifier. This field is applicable only to the **GitHub** instance type.
+  2. Click **Save**.
+7. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: Add Cloud Application Instance Window]
+[Image: Add Cloud Application Instance page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -932,35 +885,29 @@ To add a cloud application risk profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-application-tag","lastmod":"2026-07-01T12:25Z","nid":"1452281"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-application-tag","lastmod":"2026-09-07T08:20Z","nid":"1452281"} -->
 ## Adding a Cloud Application Tag
 
 - Source: https://help.zscaler.com/zia/adding-cloud-application-tag
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding a Cloud Application Tag
-- Last modified: 2026-07-01T12:25Z
+- Last modified: 2026-09-07T08:20Z
 - Summary: Information on how to add a cloud application tag in the Zscaler Admin Console.
 
-Zscaler's cloud application tag allows you to logically group cloud applications based on your organization's requirements. This provides access control for specific cloud applications belonging to custom and/or predefined categories.
+Zscaler's cloud application tag allows you to logically group cloud applications based on your organization's requirements. This provides access control for specific cloud applications belonging to custom or predefined categories or both.
 
 You can create a maximum of 16 tags. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To add a cloud application tag:
 
-1. Go to **Policies**> **Access Control** >**Internet & SaaS** > **Application Tags**.
-2. Click **Add Cloud Application Tag**.
-
-The **Add Cloud Application Tag** window appears.
-
-1. In the**Add Cloud Application Tag** window, enter a name for the cloud application tag in the **Tag Name** field.
-
-See image.
-
-1. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Inline CASB** >**Application Tags**.
+2. Click **Add Cloud Application Tag**. The **Add Cloud Application Tag** drawer appears.
+3. In the**Add Cloud Application Tag** drawer, enter a name for the cloud application tag in the **Tag Name** field. See image.
+4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 The cloud application tag is created in the Zscaler Admin Console. You can [edit or delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a cloud application tag.
 
-[Image: Add Cloud Application Tag window.]
+[Image: Add Cloud Application Tag drawer.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3125,30 +3072,30 @@ REQUESTS_CA_BUNDLE=/home/cert/Zscaler_Root_CA.crt
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-cloud-applications","lastmod":"2026-05-25T05:59Z","nid":"1442796"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-cloud-applications","lastmod":"2026-09-09T03:27Z","nid":"1442796"} -->
 ## Adding a Custom Cloud Application
 
 - Source: https://help.zscaler.com/zia/adding-custom-cloud-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud Applications > Adding a Custom Cloud Application
-- Last modified: 2026-05-25T05:59Z
+- Last modified: 2026-09-09T03:27Z
 - Summary: Information on how to add custom cloud applications in the Zscaler Admin Console.
 
 Adding custom cloud applications provides greater flexibility when creating rules to control access to custom applications. This feature consists of two parts:
 
-1. Adding an application if it's not already present in Zscaler for discovery and usage metrics (e.g., number of users, bytes uploaded or downloaded, etc.).
+1. Adding an application if it's not already present in Zscaler for discovery and usage metrics (e.g., number of users, bytes uploaded or downloaded).
 2. Associating the application with the [Custom Applications for Cloud App Control](https://help.zscaler.com/zia/adding-custom-applications-rule-cloud-app-control) rule.
 
 - Risk attributes for custom cloud applications are not captured.
-- The SSL inspection must be enabled for the custom cloud application lookup.
+- SSL/TLS Inspection must be enabled for the custom cloud application lookup.
 - If Zscaler creates a predefined cloud application with the URL used in a custom cloud application, then the predefined cloud application takes precedence over the custom application. Hence, the rules created with the custom cloud application are ineffective. Zscaler regularly notifies customers about this categorization change via Trust Posts and potential impact.
 - To enable Custom Applications, contact Zscaler Support.
 
 To add a custom cloud application:
 
-1. Go to **Policies**>**Access Control**>**Internet & SaaS**>**SaaS Applications**.
-2. Click **Add Custom Cloud Application**. The **Add Custom Cloud Application**window appears.
-3. In the **Add Custom Cloud Application**window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS Applications**.
+2. Click **Add Custom Cloud Application**. The **Add Custom Cloud Application**drawer appears.
+3. In the **Add Custom Cloud Application**drawer: See image.
   - **Cloud Application Name**: Enter the name of the custom cloud application. This is displayed when configuring the Custom Applications for Cloud App Control rules.
   - **Application Category**: The field displays **Custom Applications**. By default, all the custom applications are placed in the **Custom Applications** category, which is independent of other categories and hence cannot be edited.
   - **Application Status**: Select the application status. You can select either **Sanctioned** or **Unsanctioned**. To learn more, see [About Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications).
@@ -3157,17 +3104,19 @@ To add a custom cloud application:
   - **URLs**: Enter the URLs or IP addresses you want to add to this custom cloud application and click **Add Items**.
   - **Description**: (Optional) Enter any additional comments or information. The description cannot exceed 10,240 characters.
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: The Add Custom Cloud Application drawer showing the required fields]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-09-06T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-09-13T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
@@ -4207,34 +4156,34 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-09-06T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-09-13T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
-The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under SaaS Security API DLP and Malware policies into categories based on the sensitivity of the email data.
+The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under the Data at Rest Scanning policy into categories based on the sensitivity of the email data.
 
 The email labels serve as indications to the users about the email content and do not relate to any policy directly.
 
-The Zscaler service automatically creates an email label in the users' accounts if it hasn't already been created. By creating these labels, you can categorize sensitive data or unsafe attachments and take necessary actions based on it. If the label gets deleted for some reason, you can create the label again. The following examples show email labels generated for SaaS Security API DLP and Malware policies in a user's email account.
+The Zscaler service automatically creates an email label in the users' accounts if it hasn't already been created. By creating these labels, you can categorize sensitive data or unsafe attachments and take necessary actions based on it. If the label gets deleted for some reason, you can create the label again. The following example shows an email label generated for the Data at Rest Scanning policy in a user's email account.
 
 See image.
 
 To add an email label:
 
-1. Go to **Policies**> **Common Configuration** > **Out-of-Band CASB** > **Email Labels**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Email DLP** > **Email Labels**.
 2. Click **Add Email Label**.
 
-The **Add Email Label** window appears.
+The **Add Email Label** drawer opens.
 
-1. In the**Add Email Label** window:
+1. In the**Add Email Label** drawer:
 
 - **Label Name**: Enter a name for the email label.
-- **Label Value**: Enter a value for the email label.
+- **Label Description**: Enter a description for the email label.
 - **Label Color**: From the drop-down menu, choose a color to apply to the email label.
 
 See image.
@@ -4243,26 +4192,22 @@ See image.
 
 The email label is created in the Zscaler Admin Console. You can [edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items)an email label at any time.
 
-[[Image: Edit DLP Rule Page in the Zscaler Admin Console]](https://help.zscaler.com/downloads/zia/policies/data-loss-prevention/labels-and-tags/adding-email-label/ZIA-Edit-DLP-Rule-PG.png)
+[Image: Edit DLP Rule Page in the Zscaler Admin Console]
 
-[[Image: Viewing the Email Labels in an Email Account]](https://help.zscaler.com/downloads/zia/policies/data-loss-prevention/labels-and-tags/adding-email-label/ZIA-Email-Account-Sensitive-Information-LBL.png)
+[Image: Viewing the Email Labels in an Email Account]
 
-[[Image: Edit Malware Detection Rule page in the Zscaler Admin Console]](https://help.zscaler.com/downloads/zia/policies/data-loss-prevention/labels-and-tags/adding-email-label/ZIA-Edit-Malware-Detection-Rule-PG.png)
-
-[[Image: Viewing the Email Labels in an Email Account]](https://help.zscaler.com/downloads/zia/policies/data-loss-prevention/labels-and-tags/adding-email-label/ZIA-Email-Account-Malware-Attack-LBL.png)
-
-[Image: Add Email Label Window]
+[Image: Add Email Label drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-profiles","lastmod":"2026-08-26T09:42Z","nid":"1492726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-profiles","lastmod":"2026-09-09T21:06Z","nid":"1492726"} -->
 ## Adding Email Profiles
 
 - Source: https://help.zscaler.com/zia/adding-email-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Email Profiles
-- Last modified: 2026-08-26T09:42Z
+- Last modified: 2026-09-09T21:06Z
 - Summary: How to add email profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
 Zscaler's email profiles allow you to make custom sets of email domains and recipient profiles that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
@@ -6634,58 +6579,42 @@ java -version
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-mip-account","lastmod":"2026-08-21T05:55Z","nid":"1402391"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-mip-account","lastmod":"2026-09-09T00:39Z","nid":"1402391"} -->
 ## Adding an MIP Account
 
 - Source: https://help.zscaler.com/zia/adding-mip-account
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an MIP Account
-- Last modified: 2026-08-21T05:55Z
+- Last modified: 2026-09-09T00:39Z
 - Summary: How to add an MIP account.
 
 Add a Microsoft Information Protection (MIP) account in the Zscaler Admin Console to enable the scan and retrieval of the MIP labels from Microsoft to the Zscaler Admin Console. After the MIP account has been successfully validated, the service can scan and retrieve the MIP labels from Microsoft for the MIP account in the Zscaler Admin Console. For the service to scan and retrieve the MIP labels from Microsoft, you need to change the status on the MIP account from Validation Successful to Active using the Edit MIP Account window. To stop the scan and retrieval of these MIP labels from Microsoft, change the status of the MIP account to Tenant Inactive. To learn more, see [Retrieving MIP Labels from Microsoft to the MIP Account](https://help.zscaler.com/zia/retrieving-mip-labels-microsoft-zscaler).
 
 To add an MIP account:
 
-1. Go to **Policies** > **Data Protection** > **Common Resources** > **MIP Labels**.
-2. On the **Microsoft Information Protection (MIP) Labels** tab, click **Add MIP Account.**
-
-The **Add MIP Account**window appears.
-
-See image.
-
-1. In the **Add MIP Account** window, select a **SaaS Connector** option. A Zscaler-defined connector grants the Zscaler service full administrator privileges to the application, whereas a custom connector grants only necessary permissions.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Common Resources** > **MIP Labels**.
+2. On the **Microsoft Information Protection (MIP) Labels** page, click **Add MIP Account.** The **Add MIP Account**page appears. See image.
+3. On the **Add MIP Account** page, select a **SaaS Connector** option. A Zscaler-defined connector grants the Zscaler service full administrator privileges to the application, whereas a custom connector grants only necessary permissions. The **Add MIP Account** window reappears, displaying the next window for account details.
   - Zscaler Defined
   - Custom
-
-The **Add MIP Account** window reappears, displaying the next window for account details.
-
-1. In the **Add MIP Account** window, under **Account Name**, enter a name you want to associate with the Microsoft account. It must be unique.
-2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+4. In the **Add MIP Account** window, under **Account Name**, enter a name you want to associate with the Microsoft account. It must be unique.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 The MIP account is added to the Zscaler Admin Console. The MIP account displays a status of **Validation Successful**if the MIP account is authorized. It displays a status of **Validation Failed** if the MIP account is not authorized. If the status on the MIP account is **Validation Failed**, you can try the authorization process again by clicking **Reauthorize** in the **Edit MIP Account** window.
 
-1. Click **Authorize**.
-
-The Microsoft Portal appears.
-
-1. Choose an account and log in to the Microsoft Portal.
-
-A Microsoft window appears listing the permissions requested by the Zscaler service.
-
-See image.
-
-1. Review the required permissions for the Internet & SaaS (ZIA) service to access the Microsoft account and click **Accept**.
+1. Click **Authorize**. The Microsoft Portal appears.
+2. Choose an account and log in to the Microsoft Portal. A Microsoft window appears listing the permissions requested by the Zscaler service. See image.
+3. Review the required permissions for the Internet & SaaS (ZIA) service to access the Microsoft account and click **Accept**.
 
 To create a custom MIP connector, you must first configure permissions in Azure so that you can provide the **Client ID**, **Client Secret**, and **Tenant ID** for the MIP account in the Zscaler Admin Console. To learn more, see [Authorizing a Custom Zscaler Connector for Microsoft Applications](https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications).
 
-See Image.
+See image.
 
-[Image: Authorizing the MIP account]
+[Image: Authorizing the MIP account on the Add MIP Account page]
 
 [Image: Required Microsoft Permissions Window]
 
-[Image: Custom window of adding an MIP account]
+[Image: Custom option for adding an MIP account]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7296,13 +7225,13 @@ If the number of restore points reaches a limit of 12, you cannot add a new rest
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-root-certificates","lastmod":"2026-04-01T09:46Z","nid":"1450026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-root-certificates","lastmod":"2026-09-07T06:39Z","nid":"1450026"} -->
 ## Adding Root Certificates
 
 - Source: https://help.zscaler.com/zia/adding-root-certificates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Certificates > Adding Root Certificates
-- Last modified: 2026-04-01T09:46Z
+- Last modified: 2026-09-07T06:39Z
 - Summary: Information on how to add a root certificate in the Zscaler Admin Console.
 
 This article describes adding a custom root certificate for a third-party proxy-chaining service or isolation profile in the Zscaler Admin Console. The Root Certificates page already carries the default Zscaler Root Certificate, which cannot be edited. You can add up to 10 root certificates for your organization. To learn about downloading certificates for SSL/TLS Inspection, see [Choosing the CA Certificate for SSL/TLS Inspection](https://help.zscaler.com/zia/choosing-ca-certificate-ssl-inspection).
@@ -7314,15 +7243,15 @@ If your upstream proxy (third-party proxy service) is performing SSL/TLS Inspect
 
 To add a root certificate for proxy chaining:
 
-1. Go to **Infrastructure** > **Internet & SaaS** > **Network Policies** > **Root Certificates**.
-2. Click **Add Root Certificates**.
-3. In the **Add Root Certificates** window: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Root Certificates**.
+2. Click **Add Root Certificates**. The **Add Root Certificates** drawer appears.
+3. In the **Add Root Certificates** drawer: See image.
   - **Name**: Enter a name for your certificate.
   - **Type**: Select **Proxy Chaining** from the drop-down menu.
-  - **Content:**Browse and select the required root certificate (PEM file) from your system.
-4. Click **Save**.
+  - **File (.pem)**: Drag & drop the file, or browse and select the required root certificate (PEM file) from your system.
+4. Click **Add**.
 
-[Image: Adding Proxy Chaining Root Certificate in the Zscaler Admin Console]
+[Image: Adding Proxy Chaining Root Certificate]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9871,13 +9800,13 @@ Choose to isolate all the traffic that matches the cloud app control rule throug
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-08-27T16:24Z","nid":"1400626"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-09-10T21:06Z","nid":"1400626"} -->
 ## Adding SD-WAN Partner API Clients
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding SD-WAN Partner API Clients
-- Last modified: 2026-08-27T16:24Z
+- Last modified: 2026-09-10T21:06Z
 - Summary: How to add and remove SD-WAN partner API clients for the Zscaler service.
 
 To add an SD-WAN partner API client:
@@ -11380,36 +11309,36 @@ To configure a TCP NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tenant-profiles","lastmod":"2026-09-02T22:19Z","nid":"1401746"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tenant-profiles","lastmod":"2026-09-07T08:29Z","nid":"1401746"} -->
 ## Adding Tenant Profiles
 
 - Source: https://help.zscaler.com/zia/adding-tenant-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Tenant Restriction > Adding Tenant Profiles
-- Last modified: 2026-09-02T22:19Z
+- Last modified: 2026-09-07T08:29Z
 - Summary: Information on how to add a tenant profile in the Zscaler Admin Console.
 
 Zscaler's tenancy restriction feature allows you to restrict access either to personal accounts, business accounts, or both for certain cloud applications. The feature consists of two parts: creating [tenant profiles](https://help.zscaler.com/zia/about-tenant-profiles) and associating the profiles with the [Cloud App Control policy rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy).
 
 To add a tenant profile:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Tenant Profiles**.
-2. Click **Add Tenant Profile**. The **Add Tenant Profile** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **Tenant Profiles**.
+2. Click **Add Tenant Profile**. The **Add Tenant Profile** drawer appears.
 3. In the **Cloud Application** field, select one of the following applications and configure it accordingly: Allowing a specific tenant automatically blocks other tenants for most of the cloud applications, and subsequent policies are not evaluated. However, for YouTube and Amazon Web Services, subsequent policies are evaluated, so an explicit block policy is required to block other tenants for them.; Ensure to select these cloud applications as a criterion in an SSL/TLS Inspection rule if their tenant profiles are associated with a cloud application rule. In the SSL/TLS Inspection rule, for the following cloud applications, do as follows:**Office 365**:Select **Microsoft Login Services** as the cloud application with a rule order higher than Office 365 One Click Rule.; **Google Apps**:Select **Google Login Services** as the cloud application.; **Webex Teams/Webex Meetings**: Select **Webex Login Services** as the cloud application. See image.
-  - YouTube
-  - Google Apps
-  - Microsoft Login Services
-  - Slack
   - Amazon Web Services
-  - Dropbox
-  - Webex Login Services
-  - Zoho Login Services
-  - Google Cloud Platform
-  - Zoom
-  - IBM SmartCloud
-  - GitHub
   - ChatGPT
   - Claude
+  - Dropbox
+  - GitHub
+  - Google
+  - Google Cloud Platform
+  - IBM Smart Cloud
+  - Microsoft Login Services
+  - Slack
+  - Webex Login Services
+  - YouTube
+  - Zoho Login Services
+  - Zoom
 4. In the **Tenant Profile Name** field, enter a unique name for the tenant profile. This name is displayed while configuring the respective Cloud App Control policy rules.
 5. **Description**: (Optional) Enter any additional comments or information. The description cannot exceed 10,240 characters.
 6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -11516,7 +11445,7 @@ The **Tenant Directory ID** and **Policy ID**are GUIDs from your tenant on the A
 - **Tenant Directory ID**: Log in as an administrator to the Azure Active Directory portal, select **Azure Active Directory**, and then select **Properties**.
 - **Policy ID**: Call the following API endpoint: `/crosstenantaccesspolicy/default`. Use the `id` field value in the Response preview. See image.
 
-[Image: Screenshot of Azure Active Directory XTAP API Response]
+[Image: Azure Active Directory XTAP API Response]
 
 To configure the tenant profile for Slack:
 
@@ -11667,7 +11596,7 @@ The service intercepts requests related to claude.ai and its subdomain (claude.a
 
 To learn more about associating Claude tenant profiles with the Cloud App Control policy rule, see [Adding an AI & ML Applications Rule for Cloud App Control](https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control).
 
-[Image: Add Tenant Profile window.]
+[Image: Add Tenant Profile drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11693,4 +11622,74 @@ To add a custom threat category,
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Adding a custom threat category by specifying name and description]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-04-24T03:21Z","nid":"1399311"} -->
+## Adding URLs to the Allowlist
+
+- Source: https://help.zscaler.com/zia/adding-urls-allowlist
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
+- Last modified: 2026-04-24T03:21Z
+- Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
+
+There might be trusted websites of partners or vendors whose webmail or file downloads might otherwise be blocked due to anti-virus, anti-spyware, anti-malware, or URL filtering policies. You can exempt URLs from security scans, URL filtering, or both.
+
+The allowlist applies to [Malware Protection](https://help.zscaler.com/zia/about-malware-protection), [Advanced Threat Protection](https://help.zscaler.com/zia/about-advanced-threat-protection), [Sandbox](https://help.zscaler.com/zia/about-sandbox), and [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policies. To learn more about how security exceptions impact policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/how-does-zscaler-service-enforce-policies).
+
+You can allowlist URLs completely by exempting them from security scans and URL filtering.
+
+## Adding URLs to Allowlist for Security Scans
+
+Adding URLs to the allowlist for security scans allows users to download content from these URLs without inspecting the traffic.
+
+To add URLs to the allowlist for security policies:
+
+1. Go to one of the following pages:
+  - **Policies**> **Cybersecurity**> **Inline Security**> **Malware Protection**.
+  - **Policies**>**Cybersecurity**> **Inline Security**> **Advanced Threat Protection**
+2. Click the **Security Exceptions** tab.
+3. In **Do Not Scan Content from these URLs**, enter the URLs you want to allowlist and click **Add Items**. You can enter multiple entries by pressing `Enter` after each entry. You can add up to 1,024 URLs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+This allowlist also applies to the [Sandbox](https://help.zscaler.com/zia/about-sandbox) policy.
+
+1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+## Adding URLs to Allowlist for URL Filtering
+
+Adding URLs to the allowlist for URL filtering allows access to the content without being blocked by other URL Filtering policy rules.
+
+To add URLs to allowlist for URL Filtering policy:
+
+1. Add the URLs you want to allowlist to a [custom URL category](https://help.zscaler.com/zia/adding-custom-url-categories).
+2. [Configure a URL Filtering rule](https://help.zscaler.com/zia/configuring-url-filtering-policy) to allow the custom URL category.
+
+Ensure that the rule order of this rule is higher than the URL Filtering rule that blocks these URLs.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-urls-denylist","lastmod":"2026-07-02T05:05Z","nid":"1398821"} -->
+## Adding URLs to the ATP URL Allowlist or Denylist
+
+- Source: https://help.zscaler.com/zia/adding-urls-denylist
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Adding URLs to the ATP URL Allowlist or Denylist
+- Last modified: 2026-07-02T05:05Z
+- Summary: How to place URLs on the allowlist and denylist using the Zscaler Advanced Threats Protection policy.
+
+Manage URLs by adding them to the allowlist or denylist with the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy). You can grant specific URLs permissions to access designated websites, browsers, or applications by adding them to the allowlist. URLs that have been added to the allowlist are accessible even if they would otherwise be blocked by other security measures or policies. You can also add specific URLs to the denylist to block access to these URLs and prevent users from accessing potentially malicious content.
+
+To add a URL to the allowlist or denylist:
+
+1. Go to **Policies** > **Cybersecurity** > **Inline Security** > **Advanced Threat Protection**.
+2. On the **Advanced Threats Policy**page, under **Blocked Malicious URLs**, enter the URLs you want to block for your organization. See image. You can view the list of blocked malicious URLs on the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#Malicious) page. Also, you can see the blocked URLs accessed by the users on the [Insights Logs](https://help.zscaler.com/zia/about-insights-logs) page. If you need further assistance, contact Zscaler Support.
+3. Optional: To add a comment to a URL, enter two forward slashes (//) after each URL entry. Separate each entry by pressing `Shift+Enter`.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
+
+[Image: Add URLs you Blocked Malicious URLs list in Advanced Threat Protection]
 <!-- /ZS-ARTICLE -->

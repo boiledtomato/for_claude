@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 203
 
 ---
@@ -1787,16 +1787,16 @@ On the App Profiles page (Infrastructure > Connectors > Client > *OS Name*), you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-zscaler-client-connector-app-store","lastmod":"2026-07-01T15:57Z","nid":"1317641"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-zscaler-client-connector-app-store","lastmod":"2026-09-09T10:11Z","nid":"1317641"} -->
 ## About the Zscaler Client Connector App Store
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Store Settings > About the Zscaler Client Connector App Store
-- Last modified: 2026-07-01T15:57Z
+- Last modified: 2026-09-09T10:11Z
 - Summary: Information on where to configure update settings for Zscaler Client Connector or download the Windows, macOS, Android, or Linux versions of the app.
 
-[Watch a video about best practices for updating Zscaler Client Connector](https://fast.wistia.net/embed/iframe/y5kg0profi) (shows Legacy UI).
+[Watch a video about the Zscaler Client Connector App Store including configuring an app update.](https://fast.wistia.net/embed/iframe/fwtpemu3u9)
 
 In the Zscaler Admin Console on the Zscaler Client Connector App Store page, you can control which version (if any) of Zscaler Client Connector is available when end users manually update the app or when you configure automatic app updates. You can also download Zscaler Client Connector from this page.
 
@@ -2984,16 +2984,16 @@ Roll out a [supported version](https://help.zscaler.com/eos-eol/supported-versio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/best-practices-updating-latest-version-zscaler-client-connector-application","lastmod":"2026-06-03T11:43Z","nid":"1360301"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/best-practices-updating-latest-version-zscaler-client-connector-application","lastmod":"2026-09-09T08:33Z","nid":"1360301"} -->
 ## Best Practices for Updating Latest Versions of Zscaler Client Connector Application
 
 - Source: https://help.zscaler.com/zscaler-client-connector/best-practices-updating-latest-version-zscaler-client-connector-application
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Best Practices for Updating Latest Versions of Zscaler Client Connector Application
-- Last modified: 2026-06-03T11:43Z
+- Last modified: 2026-09-09T08:33Z
 - Summary: Best practices for deploying and testing version updates of Zscaler Client Connector for an organization.
 
-[Watch a video about best practices for updating Zscaler Client Connector](https://fast.wistia.net/embed/iframe/y5kg0profi) (shows Legacy UI).
+[Watch a video about Best Practices for Updating Zscaler Client Connector.](https://fast.wistia.net/embed/iframe/fwtpemu3u9)
 
 Before deploying the latest version of Zscaler Client Connector to all the user groups in your organization, Zscaler recommends you first test the latest versions of the app on specific user groups (e.g., Early Adopter user group), before deploying it to all your user groups. By doing this, you can prevent auto-updates and control deployment of the app to your organization's user groups.
 
@@ -4246,13 +4246,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-09-02T13:25Z","nid":"1535130"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-09-11T17:06Z","nid":"1535130"} -->
 ## Client Connector App Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Release Notes (per OS) > Client Connector App Release Summary (2026)
-- Last modified: 2026-09-02T13:25Z
+- Last modified: 2026-09-11T17:06Z
 - Summary: Zscaler Client Connector app release summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector app. To successfully update to the latest version of Zscaler Client Connector, see [Best Practices for Updating Latest Versions of Zscaler Client Connector Application](https://help.zscaler.com/zscaler-client-connector/best-practices-updating-latest-version-zscaler-client-connector-application).
@@ -4291,14 +4291,16 @@ To learn more about other Zscaler Client Connector Notifications features, see [
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store","lastmod":"2026-08-17T11:04Z","nid":"1285441"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store","lastmod":"2026-09-09T08:43Z","nid":"1285441"} -->
 ## Configuring an App Update in the Zscaler Client Connector App Store
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Store Settings > Configuring an App Update in the Zscaler Client Connector App Store
-- Last modified: 2026-08-17T11:04Z
+- Last modified: 2026-09-09T08:43Z
 - Summary: How to control which Zscaler Client Connector version is available for download, configure auto-update options for PCs, or make no versions available for download.
+
+[Watch a video about Configuring an App Update in the Zscaler Client Connector App Store.](https://fast.wistia.net/embed/iframe/fwtpemu3u9)
 
 Zscaler regularly releases new versions of Zscaler Client Connector. As an admin, you can decide what app version is used by your organization by configuring a Zscaler Client Connector app update. You can configure an app update to control which version (if any) is available when the app is automatically updated or when end users manually update the app.
 
@@ -9216,16 +9218,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/deploying-zscaler-client-connector-jamf-pro-macos","lastmod":"2026-07-24T16:40Z","nid":"1450836"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/deploying-zscaler-client-connector-jamf-pro-macos","lastmod":"2026-09-09T15:29Z","nid":"1450836"} -->
 ## Deploying Zscaler Client Connector with Jamf Pro for macOS
 
 - Source: https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-jamf-pro-macos
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Deploying Zscaler Client Connector with Jamf Pro > Deploying Zscaler Client Connector with Jamf Pro for macOS
-- Last modified: 2026-07-24T16:40Z
+- Last modified: 2026-09-09T15:29Z
 - Summary: How to deploy the macOS version of Zscaler Client Connector with Jamf Pro.
 
-This guide is for admins only. If you are an end user, contact your organization’s administrator for deployment-related details.
+This guide is for admins only. If you are an end user, contact your organization's administrator for deployment-related details.
 
 With Jamf Pro, you can deploy Zscaler Client Connector for your macOS devices. Before deploying Zscaler Client Connector from the Jamf Pro web application (Jamf Pro), download the .pkg file from the Zscaler Client Connector App Store first.
 
@@ -9375,7 +9377,7 @@ Transparent Proxy-based Interception is supported on Zscaler Client Connector ve
 | [Private Access VPN (for Legacy Apps)](https://help.zscaler.com/zpa/vpn-legacy-apps) | Supported on Zscaler Client Connector version 4.8 and later |
 | [Zscaler Client Connector Firewall](https://help.zscaler.com/zscaler-client-connector/blocking-lan-access-windows-and-configuring-zscaler-client-connector-firewall-macos) | Supported on Zscaler Client Connector version 4.7 and later |
 | [Private Access Machine Tunnel](https://help.zscaler.com/zscaler-client-connector/about-machine-tunnels) | Not supported |
-| ICMP Interception | Not supported |
+| ICMP Interception | Supported on Zscaler Client Connector version 4.5.2.355 and later, 4.7.0.351 and later, and 4.8.0.252 and later |
 | Incompatible macOS applications | Some macOS applications have known compatibility issues with Apple's Network Extensions and you might experience interoperability issues. To learn more, see the Known Issues List on the Zscaler Support Portal. |
 
 When configuring Zscaler Client Connector with Transparent Proxy-based Interception, bypass video and audio UDP streams from collaboration applications which rely on STUN (e.g., Slack, WebEx) along with STUN using Predefined IP-Based Application Bypass, Custom IP-Based Application Bypass, or IP Exclusions in [app profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles). You can bypass STUN protocol by specifying TCP and UDP port 3478.
@@ -9454,7 +9456,7 @@ You can configure the following tunnel parameters for Zscaler Client Connector w
 
 This configuration setting is only supported with Route-based Traffic Interception and is not compatible with Transparent Proxy-based Traffic Interception.
 
-You can use a property list (PLIST) file to set tunnel parameters, allowing DNS caching to be cleared from users’ devices. To configure tunnel parameters in Jamf Pro:
+You can use a property list (PLIST) file to set tunnel parameters, allowing DNS caching to be cleared from users' devices. To configure tunnel parameters in Jamf Pro:
 
 1. In Jamf Pro, go to **Computers** > **Configuration Profiles**.
 2. In **General**, select **New** to create a new profile and enter a name for the profile.
@@ -9669,7 +9671,7 @@ Where:
 - `UBF8T346G9` is the Team ID
 - `com.microsoft.teams` is the Bundle ID
 
-To enter multiple processes or applications, you can add all the bundle identifiers using an array. As an example, to bypass all Zoom processes, modify the downloaded mobileconfig file’s `BypassAppProcesses` key with the following:
+To enter multiple processes or applications, you can add all the bundle identifiers using an array. As an example, to bypass all Zoom processes, modify the downloaded mobileconfig file's `BypassAppProcesses` key with the following:
 
 ```
 <key>BypassAppProcesses</key>
@@ -10501,13 +10503,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/deploying-zscaler-client-connector-microsoft-intune-macos","lastmod":"2026-07-24T15:10Z","nid":"1397411"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/deploying-zscaler-client-connector-microsoft-intune-macos","lastmod":"2026-09-09T15:33Z","nid":"1397411"} -->
 ## Deploying Zscaler Client Connector with Microsoft Intune for macOS
 
 - Source: https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-microsoft-intune-macos
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Deploying Zscaler Client Connector with Microsoft Intune > Deploying Zscaler Client Connector with Microsoft Intune for macOS
-- Last modified: 2026-07-24T15:10Z
+- Last modified: 2026-09-09T15:33Z
 - Summary: How to deploy the macOS version of Zscaler Client Connector with Microsoft Intune.
 
 With Microsoft Intune, you can deploy Zscaler Client Connector for your macOS devices. Before deploying Zscaler Client Connector from the Microsoft Intune admin center, download the .pkg file from the Zscaler Client Connector App Store first. The version used for the following steps is Microsoft Intune Service release version 2507.
@@ -10688,7 +10690,7 @@ Transparent Proxy-based Interception is supported on Zscaler Client Connector ve
 | [Private Access VPN (for Legacy Apps)](https://help.zscaler.com/zpa/vpn-legacy-apps) | Supported on Zscaler Client Connector version 4.8 and later |
 | [Zscaler Client Connector Firewall](https://help.zscaler.com/zscaler-client-connector/blocking-lan-access-windows-and-configuring-zscaler-client-connector-firewall-macos) | Supported on Zscaler Client Connector version 4.7 and later |
 | [Private Access Machine Tunnel](https://help.zscaler.com/zscaler-client-connector/about-machine-tunnels) | Not supported |
-| ICMP Interception | Not supported |
+| ICMP Interception | Supported on Zscaler Client Connector version 4.5.2.355 and later, 4.7.0.351 and later, and 4.8.0.252 and later |
 | Incompatible macOS applications | Some macOS applications have known compatibility issues with Apple's Network Extensions and you might experience interoperability issues. To learn more, see the Known Issues List on the Zscaler Support Portal. |
 
 When configuring Zscaler Client Connector with Transparent Proxy-based Interception, you should bypass video and audio UDP streams from collaboration applications which rely on STUN (e.g., Slack, WebEx) along with STUN using Predefined IP-Based Application Bypass, Custom IP-Based Application Bypass, or IP Exclusions in [app profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles). You can bypass STUN protocol by specifying TCP and UDP port 3478.
@@ -10746,7 +10748,7 @@ You can configure the following tunnel parameters for Zscaler Client Connector w
 
 This configuration setting is only supported with Route-based Traffic Interception and is not compatible with Transparent Proxy-based Traffic Interception.
 
-You can use a property list (PLIST) file to set tunnel parameters, allowing DNS caching to be cleared from users’ devices. To configure tunnel parameters in the Microsoft Intune admin center:
+You can use a property list (PLIST) file to set tunnel parameters, allowing DNS caching to be cleared from users' devices. To configure tunnel parameters in the Microsoft Intune admin center:
 
 1. In the Microsoft Intune admin center, go to **Devices** > **Configuration**.
 2. Click **Create**.
@@ -11018,7 +11020,7 @@ Where:
 - `UBF8T346G9` is the Team ID
 - `com.microsoft.teams` is the Bundle ID
 
-To enter multiple processes or applications, you can add all the bundle identifiers using an array. As an example, to bypass all Zoom processes, modify the downloaded mobileconfig file’s `BypassAppProcesses` key with the following:
+To enter multiple processes or applications, you can add all the bundle identifiers using an array. As an example, to bypass all Zoom processes, modify the downloaded mobileconfig file's `BypassAppProcesses` key with the following:
 
 ```
 <key>BypassAppProcesses</key>
@@ -13641,13 +13643,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/release-upgrade-summary-2026","lastmod":"2026-09-04T08:00Z","nid":"1534303"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/release-upgrade-summary-2026","lastmod":"2026-09-11T06:47Z","nid":"1534303"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/release-upgrade-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Portal Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-04T08:00Z
+- Last modified: 2026-09-11T06:47Z
 - Summary: Zscaler Client Connector Portal Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Client Connector Portal. Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).

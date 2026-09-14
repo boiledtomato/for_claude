@@ -1,33 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 132
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas","lastmod":"2026-07-31T10:30Z","nid":"1398926"} -->
-## Downloading Virtual Service Edge Certificates for Internet & SaaS
-
-- Source: https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates for Internet & SaaS
-- Last modified: 2026-07-31T10:30Z
-- Summary: Information on how to download Virtual Service Edge certificates for Internet & SaaS (ZIA), which are used to validate Virtual Service Edge instances within the Zscaler cloud.
-
-Downloading a Virtual Service Edge certificate for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters for production. To learn more, see [Configuring Virtual Service Edge Clusters for Internet & SaaS](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters-internet-saas).
-
-The Virtual Service Edge certificate is used to authenticate each Virtual Service Edge instance to the Zscaler cloud. You must download the certificate for each Virtual Service Edge instance that you added. For example, if your cluster has two Virtual Service Edges, you'll need to download two certificates. You will upload each certificate to the appropriate vSphere client. To learn more, see [Adding Virtual Service Edge Instances for Internet & SaaS](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas).
-
-To download a Virtual Service Edge certificate:
-
-1. Go to **Infrastructure**> **Internet & SaaS** > **Traffic Forwarding** >**Virtual Service Edges**.
-2. In the**SSL Certificate** column, click **Download** for the [Virtual Service Edge](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas) that you added previously, and then save the certificate. See image.
-
-If you're downloading multiple certificates, you might want to change the certificate name so that you can differentiate between them. For example, if the Virtual Service Edge instances in a cluster are called VSE1 and VSE2, you can rename the certificate's ZIP files to VSE1.zip and VSE2.zip.
-
-[Image: SSL Certificate column and download link on the Virtual Service Edges page]
-<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -77,13 +52,13 @@ To download the ZAB VM:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-default-executive-insights-app-role","lastmod":"2026-08-28T14:36Z","nid":"1401186"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-default-executive-insights-app-role","lastmod":"2026-09-11T21:06Z","nid":"1401186"} -->
 ## Editing the Default Executive Insights App Role
 
 - Source: https://help.zscaler.com/zia/editing-default-executive-insights-app-role
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Editing the Default Executive Insights App Role
-- Last modified: 2026-08-28T14:36Z
+- Last modified: 2026-09-11T21:06Z
 - Summary: How to edit the default Executive Insights App role in the Zscaler Admin Console.
 
 The Executive Insights App admin role is one of the default roles Zscaler provides. It gives the admin the permissions and scope required to access the Executive Insights App, but not the Zscaler Admin Console. If you want to give an admin other permissions and functional scopes in the Zscaler Admin Console along with access to the Executive Insights App, you can create an [admin role](https://help.zscaler.com/zia/adding-admin-roles) with **Executive Insights App Access** enabled, and then assign the new role to the admin.
@@ -201,6 +176,50 @@ You can duplicate policy rules in the Zscaler Admin Console by clicking the **Du
 If you duplicate a rule, the newly created rule is identical to the existing one, with the exception of the value in the Rule Order field. The new rule shows the next available rule order value.
 
 The process for duplicating (cloning) DLP dictionaries is different. To learn more, see [Cloning Predefined DLP Dictionaries](https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries) and [Cloning DLP Engines](https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/editing-deleting-root-certificates","lastmod":"2026-09-07T06:43Z","nid":"1450031"} -->
+## Editing and Deleting the Root Certificates
+
+- Source: https://help.zscaler.com/zia/editing-deleting-root-certificates
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Certificates > Editing and Deleting the Root Certificates
+- Last modified: 2026-09-07T06:43Z
+- Summary: Information on how to edit a custom root certificate on the Root Certificates page in the Zscaler Admin Console.
+
+You can edit or delete a custom root certificate added to your organization at any time, even while it's associated with an isolation profile or a proxy service. The only certificate you cannot edit is the default Zscaler Root Certificate. 
+Also, if a root certificate is associated with an isolation profile, you cannot delete it. You must first disable the certificate from the isolation profile before deleting it. To learn more, see [About Root Certificates](https://help.zscaler.com/zia/about-root-certificates).
+
+## Editing a Root Certificate
+
+To edit a root certificate:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Root Certificates**.
+2. Click the **Edit** icon next to the certificate. See image. The **Edit Root Certificate** drawer appears.
+3. In the **Edit Root Certificate** drawer: See image.
+  1. Edit the **Name** of the root certificate. The PEM file in the certificate cannot be changed. To use a different PEM file, you must [add a new root certificate](https://help.zscaler.com/zia/adding-root-certificates).
+  2. Edit the **Type** of the root certificate. Use the drop-down menu to change the type of the certificate.
+  3. Click **Save**.
+
+## Deleting a Root Certificate
+
+To delete a root certificate:
+
+1. Go to **Internet Access** > **Resources** > **Root Certificates**.
+2. Click the **Delete**icon next to the certificate. See image. The **Delete Root Certificates** drawer appears.
+3. In the **Delete Root Certificates** drawer: See image.
+  1. Enter `CONFIRM` to delete the root certificate.
+  2. Click **Delete**.
+
+[Image: Root Certificates page in the  Zscaler Admin Console]
+
+[Image: The Edit Root Certificate window with Delete button]
+
+[Image: The Edit icon next to a certificate on the Root Certificates page]
+
+[Image: Edit the Root Certificate Type-dropdown]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -533,13 +552,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-email-profiles","lastmod":"2026-08-26T09:39Z","nid":"1492731"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-email-profiles","lastmod":"2026-09-09T21:06Z","nid":"1492731"} -->
 ## Editing Email Profiles
 
 - Source: https://help.zscaler.com/zia/editing-email-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Email Profiles
-- Last modified: 2026-08-26T09:39Z
+- Last modified: 2026-09-09T21:06Z
 - Summary: How to edit email profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
 Zscaler's email profiles allow you to make custom sets of email domains and recipient profiles that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
@@ -1106,36 +1125,6 @@ To access this feature, contact your Zscaler Account team.
 [Image: The Edit Tag - Applications window for Endpoint DLP and Endpoint Context]
 
 [Image: The Edit Tag - Applications window for Endpoint DLP and Endpoint Context]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/editing-root-certificates","lastmod":"2026-04-01T09:37Z","nid":"1450031"} -->
-## Editing Root Certificates
-
-- Source: https://help.zscaler.com/zia/editing-root-certificates
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Certificates > Editing Root Certificates
-- Last modified: 2026-04-01T09:37Z
-- Summary: Information on how to edit a custom root certificate on the Root Certificates page in the Zscaler Admin Console.
-
-You can edit a custom root certificate added to your organization at any time, even while it's associated with an isolation profile or a proxy service. The only certificate you cannot edit is the default Zscaler Root Certificate. To learn more, see [About Root Certificates](https://help.zscaler.com/zia/about-root-certificates).
-
-To edit a root certificate:
-
-1. Go to **Infrastructure** > **Internet & SaaS** > **Network Policies** > **Root Certificates**.
-2. Click the **Edit** icon next to the certificate. See image. The **Edit Root Certificate** window appears.
-3. In the **Edit Root Certificate** window: See image.
-  1. Edit the **Name** for the root certificate. The PEM file in the certificate cannot be changed. To use a different PEM file, you must [add a new root certificate](https://help.zscaler.com/zia/adding-root-certificates). See image.
-  2. Edit the **Type** of the root certificate. Use the drop-down menu to change the type of the certificate.
-  3. Click **Done**.
-4. Click **Save**.
-
-[Image: ZIA Root Certificates page in the Zscaler Admin Console]
-
-[Image: The Edit Root Certificate window]
-
-[Image: Edit the Root Certificate Type from the dropdown menu]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2992,24 +2981,24 @@ Following are the Extranet Insights Log filters that you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments","lastmod":"2026-08-10T21:06Z","nid":"1400466"} -->
+<!-- ZS-ARTICLE {"url":"/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments","lastmod":"2026-09-11T04:37Z","nid":"1400466"} -->
 ## Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments
 
 - Source: https://help.zscaler.com/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-09-11T04:37Z
 - Summary: Instructions and requirements for properly configuring your corporate firewall and Zscaler PAC files for Private Service Edge for Internet & SaaS deployments.
 
-Your organization must configure your corporate firewall to allow for remote access:
+Your organization must configure your corporate firewall to allow for remote access if:
 
-- If the Private Service Edges for Internet & SaaS are deployed in the DMZ of your organization or behind the network firewall. To learn more, see [Deploying Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/deploying-private-service-edge).
-- If your organization uses PAC files to forward traffic from your internal network to the Private Service Edges.
+- The Private Service Edges for Internet & SaaS are deployed in the DMZ of your organization or behind the network firewall. To learn more, see [Deploying Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/deploying-private-service-edge).
+- Your organization uses PAC files to forward traffic from your internal network to the Private Service Edges.
 
 To review your firewall configuration requirements, as well as cloud enforcement node ranges:
 
 1. Go to [https://config.zscaler.com/](https://config.zscaler.com/)
-2. In the**Cloud** drop-down menu, ensure your appropriate Zscaler cloud is selected (e.g., zscaler.net).
+2. In the**Cloud** drop-down menu, ensure that the appropriate Zscaler cloud is selected (e.g., zscaler.net).
 3. Review the **Firewall Config Requirements**and **Cloud Enforcement Node Ranges** sections.
 
 <p class="rteindent1"><meta charset="utf-8" />For the list of PAC IP address ranges, go to <strong>Zscaler Hub IP Addresses</strong>. Alternatively, this information could be taken from either config.zscaler.com/<span style="color:#fd4239;">&lt;Zscaler Cloud Name&gt;</span>/zia-sedge or config.zscaler.com/<span style="color:#fd4239;">&lt;Zscaler Cloud Name&gt;</span>/pzr.</p>
@@ -4139,13 +4128,13 @@ Based on the use case, the following results are possible:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/gre-configuration-example-cisco-881-isr","lastmod":"2026-05-25T06:57Z","nid":"1399121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/gre-configuration-example-cisco-881-isr","lastmod":"2026-09-08T05:44Z","nid":"1399121"} -->
 ## GRE Configuration Guide for Cisco 881 ISR
 
 - Source: https://help.zscaler.com/zia/gre-configuration-example-cisco-881-isr
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > GRE Configuration Guide for Cisco 881 ISR
-- Last modified: 2026-05-25T06:57Z
+- Last modified: 2026-09-08T05:44Z
 - Summary: How to configure a GRE tunnel between a Cisco 881 ISR and Public Service Edges for Internet & SaaS with a sample illustration.
 
 The illustration provided in this article uses sample values for the IP addresses. Replace these values with the actual IP addresses that are used in your deployment.
@@ -4345,7 +4334,7 @@ track 1
 
 ## Verifying GRE Tunnel Configuration on Cisco 881 ISR
 
-In the Zscaler Admin Console, you can go to **Logs > Insights > Internet & SaaS - Tunnel Insights** to see data as well as monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Explorer**>**Tunnel Insights** to see data as well as monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 On the Cisco router, you can perform the following verification steps to monitor and troubleshoot the GRE tunnels. These steps are applicable to both iOS 12.2.X and 15.X.
 
@@ -4587,13 +4576,13 @@ Go to [ip.zscaler.com](http://ip.zscaler.com)to verify the data center that rece
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/gre-configuration-example-juniper-srx","lastmod":"2026-05-25T06:43Z","nid":"1399131"} -->
+<!-- ZS-ARTICLE {"url":"/zia/gre-configuration-example-juniper-srx","lastmod":"2026-09-08T05:44Z","nid":"1399131"} -->
 ## GRE Configuration Guide for Juniper SRX
 
 - Source: https://help.zscaler.com/zia/gre-configuration-example-juniper-srx
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > GRE Configuration Guide for Juniper SRX
-- Last modified: 2026-05-25T06:43Z
+- Last modified: 2026-09-08T05:44Z
 - Summary: How to configure a GRE tunnel between a Juniper SRX and Public Service Edges for Internet & SaaS (ZIA) in the Zscaler service.
 
 This guide provides examples for configuring a GRE tunnel between a Juniper SRX300 running Junos OS version 19.2R2.7 and Public Service Edges for Internet & SaaS (ZIA) in the Zscaler service.
@@ -4807,7 +4796,7 @@ from-zone trust to-zone untrust {
 
 ## Verifying the GRE Tunnel Configuration
 
-In the Zscaler Admin Console, you can go to **Logs > Insights > Internet & SaaS - Tunnel Insights** to see data and monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Explorer**>**Tunnel Insights** to see data and monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 In Junos OS, you can use the following commands to monitor and troubleshoot the GRE tunnels.
 
@@ -5440,20 +5429,20 @@ This CSV file cannot be used to import custom IPS signature rules because the im
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-gre-tunnels-csv-file","lastmod":"2026-05-13T06:52Z","nid":"1447906"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-gre-tunnels-csv-file","lastmod":"2026-09-08T05:43Z","nid":"1447906"} -->
 ## Importing GRE Tunnels from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-gre-tunnels-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > Importing GRE Tunnels from a CSV File
-- Last modified: 2026-05-13T06:52Z
+- Last modified: 2026-09-08T05:43Z
 - Summary: Information on how to add new GRE tunnels, edit existing GRE tunnels, and delete GRE tunnels with a CSV file.
 
 This article describes how to add, edit, or delete multiple GRE tunnels by importing a CSV file. You can add up to 3,000 GRE tunnels. For a complete list of ranges and limits, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To import a CSV file:
 
-1. Go to **Infrastructure > Locations > Static IPs & GRE Tunnel**>**GRE Tunnels**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Location Management** > **Static IPs & GRE Tunnel**>**GRE Tunnel**.
 2. Click **Sample Import CSV file** to download the GRE tunnels template.
 3. Enter your GRE tunnels in the CSV file template in the following format so that the Zscaler service successfully imports the CSV file:
   - **Action**:Enter + or - to indicate whether you want to add or delete a GRE tunnel.
@@ -5876,6 +5865,48 @@ The following items are not included, but are required:
 1. Connect the power cables according to your internal specifications. Private Service Edge uses universal power supply adapters. The Private Service Edge powers on automatically and the LED light at the front of the box turns green. If the Private Service Edge does not power on, press the power button on the front panel. If the unit still does not power on, or the power light is yellow or red, contact the Zscaler Cloud Operations project manager for assistance.
 
 [Image: Diagram of the Service Edge 10 ports]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/integrating-3rd-party-app-governance-databricks","lastmod":"2026-09-08T23:57Z","nid":"1543192"} -->
+## Integrating 3rd-Party App Governance with Databricks
+
+- Source: https://help.zscaler.com/zia/integrating-3rd-party-app-governance-databricks
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating 3rd-Party App Governance with Databricks
+- Last modified: 2026-09-08T23:57Z
+- Summary: How to connect Databricks to 3rd-Party App Governance
+
+You can connect your Databricks organization to Zscaler 3rd-Party App Governance to gain continuous visibility and governance for third-party apps installed in the Databricks environment.
+
+## Prerequisite
+
+A user with Account Admin privileges is required to connect 3rd-Party App Governance to your Databricks organization.
+
+## Connecting Databricks to 3rd-Party App Governance
+
+To connect your Databricks organization to 3rd-Party App Governance:
+
+1. Click **Connect** in the upper-right corner of the**App Dashboard**.
+
+See image.
+
+1. From the drop-down menu, select **Databricks**. See image. The**Add Integration** window appears. See image.
+2. (Optional) In the **Add Integration** window, enter the **Tenant name.**
+3. Enter your **Databricks Account ID**. To learn how to locate your account ID, refer to the [Databricks documentation](https://docs.databricks.com/aws/en/admin/account-settings/#locate-your-account-id).
+4. Create an account-level service principal. To learn more, refer to the [Databricks documentation](https://docs.databricks.com/aws/en/admin/users-groups/manage-service-principals#add-sp).
+5. Assign the Account Admin role to the service principal. To learn more, refer to the [Databricks documentation](https://docs.databricks.com/aws/en/admin/users-groups/manage-service-principals#assign-a-service-principal-to-a-workspace).
+6. Enter the **Client ID** and **Client secret**. To learn how to generate the client ID and client secret, refer to the [Databricks documentation](https://docs.databricks.com/aws/en/dev-tools/auth/oauth-m2m#prerequisites).
+7. Click **Connect** to complete the integration.
+
+Your Databricks organization is now connected. After a connection is achieved, it might take a while to pull and ingest all relevant application data depending on the size of your tenant. During this time, a message displays indicating that the tenant is still being processed. After integration is completed, a success message appears, and the tenant details are updated on the [Settings](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance) page. You then receive an email from Zscaler when the integration is ready for further review.
+
+[Image: Connect Button allows you to add new integration]
+
+[Image: Add Databricks Integration]
+
+[Image: Connect Drop-Down Menu showing the integration options]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6505,13 +6536,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-cloud-app-security","lastmod":"2026-08-07T07:06Z","nid":"1398656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-cloud-app-security","lastmod":"2026-09-08T07:06Z","nid":"1398656"} -->
 ## Integrating with Microsoft Cloud App Security
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Cloud App Security
-- Last modified: 2026-08-07T07:06Z
+- Last modified: 2026-09-08T07:06Z
 - Summary: How to integrate Zscaler service with Microsoft Cloud App Security (MCAS) to discover and sync cloud apps.
 
 This article provides configuration steps and examples for integrating Zscaler and Microsoft Cloud App Security (MCAS) (i.e., Microsoft Defender for Cloud Apps).
@@ -12241,16 +12272,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/maintenance-support-virtual-service-edge-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1417031"} -->
+<!-- ZS-ARTICLE {"url":"/zia/maintenance-support-virtual-service-edge-internet-saas","lastmod":"2026-09-11T02:37Z","nid":"1417031"} -->
 ## Maintenance Support for Virtual Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/maintenance-support-virtual-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Maintenance Support for Virtual Service Edge for Internet & SaaS
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-09-11T02:37Z
 - Summary: Support information for ongoing Virtual Service Edge for Internet & SaaS (ZIA) maintenance in the Zscaler cloud.
 
-Virtual Service Edge for Internet & SaaS (ZIA) are installed in an organization’s data center and are dedicated to the organization’s traffic, but they are managed and maintained by Zscaler Cloud Operations. Zscaler maintains the Virtual Service Edges with a near zero touch needed from your organization.
+Virtual Service Edges for Internet & SaaS (ZIA) are installed in an organization’s data center and are dedicated to the organization’s traffic, but they are managed and maintained by Zscaler Cloud Operations. Zscaler maintains the Virtual Service Edges with almost no action needed from your organization.
 
 The Zscaler Operations team performs the following tasks on an organization's Virtual Service Edges:
 
@@ -12268,7 +12299,7 @@ For Zscaler Operations to service, manage, and maintain the Service Edges and en
 - Provide a continuous, uninterrupted, and suitable power supply to the host that is running the VM.
 - Ensure that each Service Edge has internet connectivity.
 - Notify Zscaler of any maintenance or scheduled periods that could impact the ability of Zscaler to establish connectivity to the Service Edge.
-- Ensure that Virtual Service Edge has sufficient compute and memory resources allocated to it, as notified by Zscaler.
+- Ensure that each Virtual Service Edge has sufficient compute and memory resources allocated to it, as notified by Zscaler.
 - Ensure that only Zscaler staff access or service the Virtual Service Edge. The organization or any third party should refrain from making any repair attempts or other changes to the Virtual Service Edge unless they have explicit approval from Zscaler.
 - Ensure that someone can respond 24/7 to requests from Zscaler, in case there is an issue with your organization's data center.
 - Manage all network-related issues.
@@ -15319,18 +15350,18 @@ To configure rules for this scenario:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/monitoring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-08-10T21:06Z","nid":"1398876"} -->
+<!-- ZS-ARTICLE {"url":"/zia/monitoring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-09-11T07:27Z","nid":"1398876"} -->
 ## Monitoring Virtual Service Edge Clusters for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Monitoring Virtual Service Edge Clusters for Internet & SaaS
-- Last modified: 2026-08-10T21:06Z
+- Last modified: 2026-09-11T07:27Z
 - Summary: Information on how to monitor a Virtual Service Edge cluster for Internet & SaaS (ZIA) with a management system that supports SNMPv3. Listed are MIB objects queried to retrieve Virtual Service Edge cluster information.
 
-If you configure a GRE tunnel or L2 forwarding from your router to a Virtual Service Edge for Internet & SaaS (ZIA), you can enable IPSLAs to monitor the tunnels. Additionally, Virtual Service Edges support NET-SNMP, a collection of applications that are used to implement the SNMP protocol. To learn more about NET-SNMP and the MIB files distributed with NET-SNMP, refer to the [NET-SNMP documentation](http://net-snmp.sourceforge.net/).
+If you configure a GRE tunnel or Layer 2 forwarding from your router to a Virtual Service Edge for Internet & SaaS (ZIA), you can enable IPSLAs to monitor the tunnels. Additionally, Virtual Service Edges support NET-SNMP, a collection of applications that are used to implement the SNMP protocol. To learn more about NET-SNMP and the Management Information Base (MIB) files distributed with NET-SNMP, refer to the [NET-SNMP documentation](http://net-snmp.sourceforge.net/).
 
-You can use a management system that supports SNMPv3 to monitor a Virtual Service Edge cluster. Virtual Service Edge clusters include an SNMP agent that collects data and stores them as objects in Management Information Bases (MIBs). To learn more about accessing Zscaler SNMP MIBs, see [Accessing the Zscaler SNMP MIBs](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs). You can query the objects in the MIBs to retrieve information about the Virtual Service Edge. The SNMP agent can also send traps (or notifications) to alert you when certain events occur on the network or in the Virtual Service Edge.
+You can use a management system that supports SNMPv3 to monitor a Virtual Service Edge cluster. Virtual Service Edge clusters include an SNMP agent that collects data and stores them as objects in MIBs. To learn more about accessing Zscaler SNMP MIBs, see [Accessing the Zscaler SNMP MIBs](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs). You can query the objects in the MIBs to retrieve information about the Virtual Service Edge. The SNMP agent can also send traps (or notifications) to alert you when certain events occur on the network or in the Virtual Service Edge.
 
 ## Enabling SNMP for Virtual Service Edge
 
@@ -15338,25 +15369,25 @@ To enable SNMP for Virtual Service Edge:
 
 1. Edit the `rc.conf` file: vi /etc/rc.conf
 2. Set the following setting to `YES`: snmpd_enable="YES"By default, this entry is set to `NO`.
-3. Ensure the path of the `snmp.conf` file is as follows: snmpd_conffile="/usr/local/etc/snmpd.conf"
-4. Save the`rc.conf` file.
+3. Ensure that the path of the `snmp.conf` file is as follows: snmpd_conffile="/usr/local/etc/snmpd.conf"
+4. Save the `rc.conf` file.
 5. Start the SNMP agent daemon (snmpd) service: service snmpd start
 6. Restart the Virtual Service Edge: sudo vzen restart
 
-## Zscaler Recommended MIBs for Monitoring Virtual Service Edges
+## Zscaler-Recommended MIBs for Monitoring Virtual Service Edges
 
-The following are the Zscaler recommended MIB objects for monitoring Virtual Service Edges:
+The following are the Zscaler-recommended MIB objects for monitoring Virtual Service Edges:
 
 | VSE-MIB ( .1.3.6.1.4.1.46262) |  |
 | --- | --- |
 | Object | Description |
 | VSE-MIB::vseName ( .1.3.6.1.4.1.46262.9.2) | The name of the Virtual Service Edge. |
-| VSE-MIB::ca_connectivity (.1.3.6.1.4.1.46262.9.2.1.5) | The Virtual Service Edge connection to Zscaler Central Authority (CA). It's set to 3 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler Central Authority (CA) if one of the following values is returned: 0: Virtual Service Edge is not authenticated.; 1: Virtual Service Edge authentication is bypassed.; 2: Virtual Service Edge authentication is bypassed with probe.; 4: Virtual Service Edge is down. |
-| VSE-MIB::smsm_connectivity (.1.3.6.1.4.1.46262.9.2.1.6) | The Virtual Service Edge connection to Zscaler log and reporting infrastructure. It's set to 4 or 5 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler log and reporting infrastructure if one of the following values is returned: 2: Initiated logging server connection.; 3: Waiting for the logging server to connect to Virtual Service Edge.; 6: Closing logging server connection.; 7: Closed logging server connection. |
-| VSE-MIB::cpu_percentage (.1.3.6.1.4.1.46262.4.2.1.12.1) | The CPU usage percentage. It's in integer values (e.g., 5,000); divide the integer value with 100 to get a percentage value (e.g., 5,000/100 = 50%). A CPU usage percentage less than 90% is acceptable. If the CPU usage percentage is more than 90%, an alert must be triggered. |
-| VSE-MIB::swapinfo (.1.3.6.1.4.1.46262.6.2.1.11) | The swap memory usage percentage. It's in integer values (e.g., 3,500); divide the integer value with 100 to get a percentage value (e.g., 3,500/100 = 35%). A swap memory usage percentage less than 50% is acceptable. If the swap memory usage percentage is more than 50%, an alert must be triggered. |
+| VSE-MIB::ca_connectivity (.1.3.6.1.4.1.46262.9.2.1.5) | The Virtual Service Edge connection to Zscaler Central Authority (CA). It's set to 3 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler Central Authority (CA) if one of the following values is returned: 0: Virtual Service Edge is not authenticated; 1: Virtual Service Edge authentication is bypassed; 2: Virtual Service Edge authentication is bypassed with probe; 4: Virtual Service Edge is down |
+| VSE-MIB::smsm_connectivity (.1.3.6.1.4.1.46262.9.2.1.6) | The Virtual Service Edge connection to Zscaler log and reporting infrastructure. It's set to 4 or 5 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler log and reporting infrastructure if one of the following values is returned: 2: Initiated logging server connection; 3: Waiting for the logging server to connect to Virtual Service Edge; 6: Closing logging server connection; 7: Closed logging server connection |
+| VSE-MIB::cpu_percentage (.1.3.6.1.4.1.46262.4.2.1.12.1) | The CPU usage percentage. It's in integer values (e.g., 5,000); divide the integer value by 100 to get a percentage value (e.g., 5,000/100 = 50%). A CPU usage percentage less than 90% is acceptable. If the CPU usage percentage is more than 90%, an alert must be triggered. |
+| VSE-MIB::swapinfo (.1.3.6.1.4.1.46262.6.2.1.11) | The swap memory usage percentage. It's in integer values (e.g., 3,500); divide the integer value by 100 to get a percentage value (e.g., 3,500/100 = 35%). A swap memory usage percentage of less than 50% is acceptable. If the swap memory usage percentage is more than 50%, an alert must be triggered. |
 
-The following OIDs generate SNMP alert traps by default:
+The following Object Identifiers (OIDs) generate SNMP alert traps by default:
 
 - Process Monitoring – UCD-SNMP-MIB::prTable (.1.3.6.1.4.1.2021.2)
 - Disk Monitoring – UCD-SNMP-MIB::dskTable (.1.3.6.1.4.1.2021.9)
@@ -15365,25 +15396,25 @@ The following OIDs generate SNMP alert traps by default:
 
 ## SNMP MIB Objects
 
-The following are the MIB objects that can be queried to retrieve information about the Virtual Service Edge cluster. To learn more about the objects, see [NET-SNMP documentation](http://www.net-snmp.org/docs/mibs/ucdavis.html).
+The following are the MIB objects that can be queried to retrieve information about the Virtual Service Edge cluster. To learn more about the objects, refer to the [NET-SNMP documentation](http://www.net-snmp.org/docs/mibs/ucdavis.html).
 
 | UCD-SNMP-MIB (.1.3.6.1.4.1.2021) |  |
 | --- | --- |
 | Object | Description |
 | UCD-SNMP-MIB::prTable (.1.3.6.1.4.1.2021.2) | A table containing information on running programs/daemons configured for monitoring in the snmpd.conf file of the agent. Processes violating the number of running processes required by the agent's configuration file are flagged with numerical and textual errors. |
-| UCD-SNMP-MIB::prNames | The process name we're counting or checking on. |
+| UCD-SNMP-MIB::prNames | The process name you're counting or checking on. |
 | UCD-SNMP-MIB::prCount | The number of current processes running with the name in question. |
 | UCD-SNMP-MIB::prErrorFlag | An error flag to indicate trouble with a process. It goes to 1 if there is an error, 0 if there is no error. |
 | UCD-SNMP-MIB::prErrMessage | An error message describing the problem (if one exists). |
-| UCD-SNMP-MIB::dskTable (.1.3.6.1.4.1.2021.9) | Disk watching information. Partitions to be watched are configured by the snmpd.conf file of the agent. |
+| UCD-SNMP-MIB::dskTable (.1.3.6.1.4.1.2021.9) | Disk-watching information. Partitions to be watched are configured by the snmpd.conf file of the agent. |
 | UCD-SNMP-MIB::dskPath | Path where the disk is mounted. |
 | UCD-SNMP-MIB::dskDevice | Path of the device for the partition. |
 | UCD-SNMP-MIB::dskMinPercent | Percentage of minimum space required on the disk before the errors are triggered. |
 | UCD-SNMP-MIB::dskTotal | Total size of the disk or partition (kBytes). For large disks (>2Tb), this value latches at INT32_MAX (2147483647). |
-| UCD-SNMP-MIB::dskAvail | Available space on the disk. For large lightly-used disks (>2Tb), this value latches at INT32_MAX (2147483647). |
+| UCD-SNMP-MIB::dskAvail | Available space on the disk. For large lightly used disks (>2Tb), this value latches at INT32_MAX (2147483647). |
 | UCD-SNMP-MIB::laTable (.1.3.6.1.4.1.2021.10) | Load average information. |
-| UCD-SNMP-MIB::laLoad | The 1,5 and 15-minute load averages (one per row). |
-| UCD-SNMP-MIB::laErrorFlag | An error flag to indicate the load average has crossed its threshold value defined in the snmpd.conf file. It is set to 1 if the threshold is crossed, 0 otherwise. |
+| UCD-SNMP-MIB::laLoad | The 1, 5, and 15-minute load averages (one per row). |
+| UCD-SNMP-MIB::laErrorFlag | An error flag to indicate that the load average has crossed its threshold value defined in the snmpd.conf file. It is set to 1 if the threshold is crossed, 0 if not. |
 | UCD-SNMP-MIB::laErrMessage | An error message describing the load average and its surpassed watch-point value. |
 | UCD-SNMP-MIB::systemStats (.1.3.6.1.4.1.2021.11) | System statistics. |
 | UCD-SNMP-MIB::memory (.1.3.6.1.4.1.2021.4) | Memory-related information. |
@@ -15394,20 +15425,20 @@ The following are the MIB objects that can be queried to retrieve information ab
 | IF-MIB::interfaces (.1.3.6.1.2.1.2) | Information about the interfaces. |
 | IF-MIB::ifNumber (.1.3.6.1.2.1.2.1) | The number of network interfaces (regardless of their current state) present on this system. |
 | IF-MIB::ifTable - (.1.3.6.1.2.1.2.2) | A list of interface entries. The number of entries is given by the value of ifNumber. |
-| IF-MIB::ifDescr | A textual string containing information about the interface. This string should include the name of the manufacturer, the product name and the version of the interface hardware or software. |
+| IF-MIB::ifDescr | A textual string containing information about the interface. This string should include the name of the manufacturer, the product name, and the version of the interface hardware or software. |
 | IF-MIB::ifType | The type of interface. Additional values for ifType are assigned by the Internet Assigned Numbers Authority (IANA), through updating the syntax of the IANAifType textual convention. |
-| IF-MIB::ifMtu | The size of the largest packet which can be sent or received on the interface, specified in octets. |
+| IF-MIB::ifMtu | The size of the largest packet that can be sent or received on the interface, specified in octets. |
 | IF-MIB::ifPhysAddress | The interface's address at its protocol sublayer. For example, for an 802.x interface, this object normally contains a MAC address. The interface's media-specific MIB must define the bit and byte ordering and the format of the value of this object. |
-| IF-MIB::ifAdminStatus | The desired state of the interface. The testing(3) state indicates that no operational packets can be passed. When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state. As a result of either explicit management action or per configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state). |
-| IF-MIB::ifOperStatus | The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed. If ifAdminStatus is down(2) then ifOperStatus should be down(2). If ifAdminStatus is changed to up(1), then ifOperStatus should change to up(1) if the interface is ready to transmit and receive network traffic; it should change to dormant(5) if the interface is waiting for external actions (such as a serial line waiting for an incoming connection); it should remain in the down(2) state if and only if there is a fault that prevents it from going to the up(1) state; it should remain in the notPresent(6) state if the interface has missing (typically, hardware) components. |
+| IF-MIB::ifAdminStatus | The desired state of the interface. The testing(3) state indicates that no operational packets can be passed. When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state. As a result of either explicit management action or per-configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state). |
+| IF-MIB::ifOperStatus | The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed. If ifAdminStatus is down(2), then ifOperStatus should be down(2). If ifAdminStatus is changed to up(1), then ifOperStatus changes to up(1) if the interface is ready to transmit and receive network traffic. It changes to dormant(5) if the interface is waiting for external actions (such as a serial line waiting for an incoming connection). It remains in the down(2) state if and only if there is a fault that prevents it from going to the up(1) state. It remains in the notPresent(6) state if the interface has missing (typically, hardware) components. |
 | IF-MIB::ifInOctets | The total number of octets received on the interface, including framing characters. |
 | IF-MIB::ifInUcastPkts | The number of packets, delivered by this sublayer to a higher sublayer, which were not addressed to a multicast or broadcast address at this sublayer. |
 | IF-MIB::ifOutOctets | The total number of octets transmitted out of the interface, including framing characters. |
 | IF-MIB::ifOutUcastPkts | The total number of packets that higher-level protocols requested be transmitted, and which were not addressed to a multicast or broadcast address at this sublayer, including those that were discarded or not sent. |
 | IF-MIB::ifOutNUcastPkts | The total number of packets that higher-level protocols requested be transmitted, and which were addressed to a multicast or broadcast address at this sublayer, including those that were discarded or not sent. |
-| IF-MIB::ifPromiscuousMode | This object has a value of false(2) if this interface only accepts packets/frames that are addressed to this station. This object has a value of true(1) when the station accepts all packets or frames transmitted on the media. |
-| IF-MIB::linkDown  (.1.3.6.1.6.3.1.1.5.3) | The interface link down. |
-| IF-MIB::linkUp  (.1.3.6.1.6.3.1.1.5.4) | The interface link up. |
+| IF-MIB::ifPromiscuousMode | This object has a value of false(2) if this interface only accepts packets/frames that are addressed to this station. This object has a value of true(1) if the station accepts all packets or frames transmitted on the media. |
+| IF-MIB::linkDown  (.1.3.6.1.6.3.1.1.5.3) | The interface link is down. |
+| IF-MIB::linkUp  (.1.3.6.1.6.3.1.1.5.4) | The interface link is up. |
 
 | HOST-RESOURCES-MIB (.1.3.6.1.2.1.25) |  |
 | --- | --- |
@@ -15428,15 +15459,15 @@ The following are the MIB objects that can be queried to retrieve information ab
 | --- | --- |
 | Object | Description |
 | SNMPv2-MIB::sysContact | The textual identification of the contact person for this managed node, together with information on how to contact this person. If no contact information is known, the value is the zero-length string. |
-| SNMPv2-MIB::sysName | An administratively assigned name for this managed node. By convention, this is the node's fully qualified domain name. If the name is unknown, the value is the zero-length string. |
-| SNMPv2-MIB::sysLocation | The physical location of this node (e.g., 'telephone closet, 3rd floor'). If the location is unknown, the value is the zero-length string. |
-| SNMPv2-MIB::sysServices | A value which indicates the set of services that this entity may potentially offer. The value is a sum. This sum initially takes the value 0. Then, for each layer, L, in the range 1 through 7, that this node performs transactions for, 2 raised to (L - 1) is added to the sum. For example, a node which performs only routing functions would have a value of 4 (2^(3-1)). In contrast, a node which is a host offering application services would have a value of 72 (2^(4-1) + 2^(7-1)). In the context of the internet suite of protocols, values should be calculated accordingly: **Layer** **Functionality** 1 physical (e.g., repeaters) 2 datalink/subnetwork (e.g., bridges) 3 internet (e.g., supports IP) 4 end-to-end (e.g., supports TCP) 7 applications (e.g., supports SMTP) For systems including OSI protocols, layers 5 and 6 may also be counted. |
-| SNMPv2-MIB::snmpEnableAuthenTraps | Indicates whether the SNMP entity is permitted to generate authenticationFailure traps. The value of this object overrides any configuration information; as such, it provides a means whereby all authenticationFailure traps might be disabled. |
+| SNMPv2-MIB::sysName | An administratively assigned name for this managed node. By convention, this is the node's FQDN. If the name is unknown, the value is the zero-length string. |
+| SNMPv2-MIB::sysLocation | The physical location of this node (e.g., "telephone closet, 3rd floor"). If the location is unknown, the value is the zero-length string. |
+| SNMPv2-MIB::sysServices | A value that indicates the set of services that this entity may potentially offer. The value is a sum. This sum initially takes the value 0. Then, for each layer, L, in the range 1 through 7, that this node performs transactions for, 2 raised to (L - 1) is added to the sum. For example, a node that performs only routing functions has a value of 4 (2^(3-1)). In contrast, a node that is a host offering application services has a value of 72 (2^(4-1) + 2^(7-1)). In the context of the internet suite of protocols, values should be calculated accordingly: **Layer** **Functionality** 1 physical (e.g., repeaters) 2 datalink/subnetwork (e.g., bridges) 3 internet (e.g., supports IP) 4 end-to-end (e.g., supports TCP) 7 applications (e.g., supports SMTP) For systems including OSI protocols, Layers 5 and 6 can also be counted. |
+| SNMPv2-MIB::snmpEnableAuthenTraps | Indicates whether the SNMP entity is permitted to generate authenticationFailure traps. The value of this object overrides any configuration information; as such, it provides a means whereby you can disable all authenticationFailure traps. |
 | SNMPv2-MIB::snmpInPkts | The total number of messages delivered to the SNMP entity from the transport service. |
-| SNMPv2-MIB::snmpOutPkts | The total number of SNMP Messages which were passed from the SNMP protocol entity to the transport service. |
-| SNMPv2-MIB::snmpInGetRequests | The total number of SNMP Get-Request PDUs which have been accepted and processed by the SNMP protocol entity. |
-| SNMPv2-MIB::snmpOutGetResponses | The total number of SNMP Get-Request PDUs which have been generated by the SNMP protocol entity. |
-| SNMPv2-MIB::snmpOutTraps | The total number of SNMP Trap PDUs which have been generated by the SNMP protocol entity. |
+| SNMPv2-MIB::snmpOutPkts | The total number of SNMP messages that were passed from the SNMP protocol entity to the transport service. |
+| SNMPv2-MIB::snmpInGetRequests | The total number of SNMP Get-Request PDUs that the SNMP protocol entity has accepted and processed. |
+| SNMPv2-MIB::snmpOutGetResponses | The total number of SNMP Get-Request PDUs that the SNMP protocol entity has generated. |
+| SNMPv2-MIB::snmpOutTraps | The total number of SNMP Trap PDUs that the SNMP protocol entity has generated. |
 
 | TCP-MIB (.1.3.6.1.2.1.6) |  |
 | --- | --- |
@@ -15445,7 +15476,7 @@ The following are the MIB objects that can be queried to retrieve information ab
 | TCP-MIB::tcpPassiveOpens | The number of times TCP connections have made a direct transition to the SYN-RCVD state from the LISTEN state. |
 | TCP-MIB::tcpCurrEstab | The number of TCP connections for which the current state is either ESTABLISHED or CLOSE-WAIT. |
 | TCP-MIB::tcpConnectionTable | A table containing information about existing TCP connections. |
-| TCP-MIB::tcpListenerTable | A table containing information about TCP listeners. A listening application can be represented in three possible ways: An application that is willing to accept both IPv4 and IPv6 datagrams is represented by a tcpListenerLocalAddressType of unknown (0) and a tcpListenerLocalAddress of ''h (a zero-length octet-string).; An application that is willing to accept only IPv4 or IPv6 datagrams is represented by a tcpListenerLocalAddressType of the appropriate address type and a tcpListenerLocalAddress of '0.0.0.0' or '::' respectively.; An application that is listening for data destined only to a specific IP address, but from any remote system, is represented by a tcpListenerLocalAddressType of an appropriate address type, with tcpListenerLocalAddress as the specific local address.The address type in this table represents the address type used for the communication, irrespective of the higher-layer abstraction. For example, an application using IPv6 'sockets' to communicate via IPv4 between ::ffff:10.0.0.1 and ::ffff:10.0.0.2 would use InetAddressType ipv4(1))." |
+| TCP-MIB::tcpListenerTable | A table containing information about TCP listeners. A listening application can be represented in three possible ways: An application that is willing to accept both IPv4 and IPv6 datagrams is represented by a tcpListenerLocalAddressType of unknown (0) and a tcpListenerLocalAddress of ''h (a zero-length octet-string).; An application that is willing to accept only IPv4 or IPv6 datagrams is represented by a tcpListenerLocalAddressType of the appropriate address type and a tcpListenerLocalAddress of '0.0.0.0' or '::' respectively.; An application that is listening for data destined only to a specific IP address, but from any remote system, is represented by a tcpListenerLocalAddressType of an appropriate address type, with tcpListenerLocalAddress as the specific local address.The address type in this table represents the address type used for the communication, irrespective of the higher-layer abstraction. For example, an application using IPv6 sockets to communicate via IPv4 between ::ffff:10.0.0.1 and ::ffff:10.0.0.2 would use InetAddressType ipv4(1))." |
 
 ## Virtual Service Edge Traps
 
@@ -15454,7 +15485,7 @@ The Virtual Service Edge SNMP agent generates traps when the following events oc
 ### Process Monitoring
 
 - The snmpd restarts
-- The SME goes down - The link to the Zscaler cloud becomes inactive
+- The SME goes down and the link to the Zscaler cloud becomes inactive
 - The number of mountd processes is more than 1
 - The number of ntalkd processes goes out of range (0–4)
 - The number of sendmail processes goes out of range (1–10)
@@ -15471,11 +15502,11 @@ The Virtual Service Edge SNMP agent generates traps when the following events oc
 
 ### Interface events
 
-- The link goes down or comes up
+The link goes down or comes up
 
 ## Virtual Service Edge Health Monitoring
 
-Zscaler performs ICMP and HTTP monitoring from the Load Balancer (LB) to the Virtual Service Edge in order to monitor the health of the instance and ensure that traffic is distributed appropriately. If you wish to perform this monitoring yourself, you can enable an HTTP server on a Virtual Service Edge by implementing the following commands:
+The Zscaler service performs ICMP and HTTP monitoring from the Load Balancer (LB) to the Virtual Service Edge in order to monitor the health of the instance and ensure that traffic is distributed appropriately. If you want to perform this monitoring yourself, you can enable an HTTP server on a Virtual Service Edge by implementing the following commands:
 
 1. Go to the /sc/sme/conf folder: cd /sc/sme/conf
 2. Create a custom configuration file (e.g., vzen_custom.conf): touch vzen_custom.conf
@@ -15483,8 +15514,8 @@ Zscaler performs ICMP and HTTP monitoring from the Load Balancer (LB) to the Vir
 4. Enter the following port in the vzen_custom.conf file and save: [SME] serv_port=3128 [-end-of-SME-]
 5. Ensure that the entries are saved in the vzen_custom.conf file: cat vzen_custom.conf
 6. Restart the SME instance: /sc/update/vzen stop sme /sc/update/vzen start sme
-7. Ensure that the SME is running: vzen statusYou can check if the Virtual Service Edge is listening to port 3128 using the following command: ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys smnet="netstat" | grep LISTEN | grep 3128
-8. Enter the following command prompt: curl -v http://<Virtual Service Edge IP>:3128/index.html?=100The number 100 represents the size of the response sent back to the client making the cURL request. This means that if the monitoring tool makes a request to the URL http://< Virtual Service Edge IP>:3128/index.html?=100, the Virtual Service Edge responds back with a 200 OK and a payload size of 100 bytes.
+7. Ensure that the SME is running: vzen statusYou can check whether the Virtual Service Edge is listening to port 3128 using the following command: ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys smnet="netstat" | grep LISTEN | grep 3128
+8. Enter the following command prompt: curl -v http://<Virtual Service Edge IP>:3128/index.html?=100The number 100 represents the size of the response sent back to the client making the cURL request. Therefore, if the monitoring tool makes a request to the URL http://<Virtual Service Edge IP>:3128/index.html?=100, the Virtual Service Edge responds with a 200 OK and a payload size of 100 bytes.
 
 After the commands have been applied, you can use the LB to fetch the page and investigate the availability of a particular Virtual Service Edge. This does not include ICMP monitoring.
 <!-- /ZS-ARTICLE -->
