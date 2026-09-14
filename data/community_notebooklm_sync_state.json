@@ -26,8 +26,8 @@
   },
   "community_other_part1.md": {
    "rel": "other/community_other_part1.md",
-   "sha256": "fe3a9d46422e7318f0dec1740bb9353a1287c1370b2454d873273bc1d0048ea8",
-   "source_id": "0a86e2f6-b310-4345-a28d-a5dc94429d78"
+   "sha256": "8d4812b2ebb46919c652a4e6a23eb449a55ac5a2043a95807d7340aa67003817",
+   "source_id": "4ee864ac-ff50-42c6-875e-9ea8ae1c6c03"
   },
   "community_platform_part1.md": {
    "rel": "platform/community_platform_part1.md",
@@ -36,8 +36,8 @@
   },
   "community_zcc_part1.md": {
    "rel": "zcc/community_zcc_part1.md",
-   "sha256": "938cbcd01d8328abbe0af6aa2760c5efeb2961eed4ddb08d623b59eadd8b93ef",
-   "source_id": "369277e6-72f8-44f3-9dda-15526c1dcc9f"
+   "sha256": "078cd93c37dc0fcfe38104dcd616bd017196a84ef9756ed115253e83e55e24e4",
+   "source_id": "584eb0fd-b972-4ffe-969d-b4e9c1e8e7fe"
   },
   "community_zdx_part1.md": {
    "rel": "zdx/community_zdx_part1.md",
@@ -55,5 +55,5 @@
    "source_id": "ea51b554-a6ff-4681-b3ea-a46ba22632a7"
   }
  },
- "synced_at": "2026-09-07T05:41:10Z"
+ "synced_at": "2026-09-14T05:46:22Z"
 }
