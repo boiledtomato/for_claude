@@ -237,7 +237,7 @@ shell for `/s/` and for an individual question are byte-identical.
 
 **Two fetch modes** (`--fetch-mode`), because neither is strictly better:
 
-- **`api`** (default) — calls the Aura endpoint `/s/sfsites/aura` as a guest, the
+- **`api`** — calls the Aura endpoint `/s/sfsites/aura` as a guest, the
   same API the SPA uses. `fwuid` is re-read from the shell on every run because it
   changes with each Salesforce release; hardcoding it breaks silently.
   **Hard limits, all verified against the live site:**
@@ -249,12 +249,17 @@ shell for `/s/` and for an individual question are byte-identical.
 
   So this mode yields **question bodies and metadata only** — no answers, no
   articles/guides/blogs. Those are counted and reported as "本文取得不可".
-- **`prerender`** — reads the server-side-rendered page Salesforce returns to
+- **`prerender`** (default) — reads the server-side-rendered page Salesforce returns to
   search engines, which contains the question, every answer (with author role and
   date), and the custom-object bodies. It is only returned to recognised crawler
   UAs (Googlebot/bingbot verified; Chrome and a custom UA both get the empty
-  shell), so using it means **claiming to be Googlebot**. Off by default; the
-  script prints a warning when it is enabled.
+  shell), so using it means **claiming to be Googlebot**. The script prints a
+  warning on every run. It is the default because `api` mode collects no answer
+  text at all: when a reply lands, the incremental run refetches the thread and
+  the only thing that changes in the part file is `Answers: 2` → `Answers: 3`.
+
+  **Do not flip the default back to `api` casually.** A `--fetch-mode` change is
+  treated as a full refetch, so the next run would discard every prerendered body.
 
 **TLS gotcha:** `community.zscaler.com` serves its leaf certificate without the
 DigiCert intermediate. Browsers recover via AIA fetching; `requests`/OpenSSL do
@@ -531,7 +536,12 @@ Commit bodies may be written in Japanese.
   `FeedComment` and the custom objects' body fields from guest access. A question
   block will show `Answers: 5` with no answer text. This is a platform limit, not a
   bug; only `--fetch-mode prerender` closes it, at the cost of presenting a crawler
-  User-Agent.
+  User-Agent. `prerender` is therefore the default.
+- **Article/Guide/Blog pages return a generic `<title>`** (`Article Details`), so the
+  real title has to be read out of the rendered body — the line two after
+  `posted an Article`. Falling back to the slug loses Japanese titles.
+- **Sitemap slugs are percent-encoded** — `unquote()` them or Japanese titles arrive as
+  `%E5%B9%B4…` and neither `CATEGORIES` nor `EXCLUDE_PATTERNS` match them.
 - **`community.zscaler.com` omits its TLS intermediate** — certifi alone fails with
   `unable to get local issuer certificate`, in CI as well as locally. The fix is the
   committed `scripts/certs/community-zscaler-chain.pem`; do not work around it by
