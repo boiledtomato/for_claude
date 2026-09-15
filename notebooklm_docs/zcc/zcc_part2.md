@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 52
 
 ---
@@ -216,13 +216,13 @@ This widget displays the number of devices with the top 10 failed device posture
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uninstalling-zscaler-client-connector","lastmod":"2025-10-06T13:45Z","nid":"1285486"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uninstalling-zscaler-client-connector","lastmod":"2026-08-27T15:45Z","nid":"1285486"} -->
 ## Uninstalling Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/uninstalling-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Uninstalling Zscaler Client Connector
-- Last modified: 2025-10-06T13:45Z
+- Last modified: 2026-08-27T15:45Z
 - Summary: Information on various methods of uninstalling Zscaler Client Connector from a device.
 
 This article is for Zscaler Client Connector admin use only. If you are not a Zscaler Client Connector admin, contact your organization's support team about uninstalling Zscaler Client Connector.
@@ -336,9 +336,9 @@ To uninstall Zscaler Client Connector via PowerShell from your user's device:
 
 1. To set the variable to your <uninstall password>, enter the following: [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User')Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings.
 2. To confirm the variable is set correctly, enter the following: [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User')The `<uninstall password>` is returned.
-3. To start the uninstall process, enter the following. Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe"--mode unattended"You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
+3. To start the uninstall process, enter the following. Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" "--mode unattended"You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
 
-1. In NotePad, create a PowerShell script with the following script. [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User') [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User') Start-Process FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" -ArgumentList "--mode unattended"Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings. You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
+1. In NotePad, create a PowerShell script with the following script. [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User') [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User') Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" -ArgumentList "--mode unattended"Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings. You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
 2. Save it as `test.ps1`.
 3. Return to PowerShell to enter the following to start uninstallation. .\test.ps1
 <!-- /ZS-ARTICLE -->
@@ -735,16 +735,16 @@ To enable WebView2 authentication in the Zscaler Admin Console:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-admin-console-identity-provider","lastmod":"2026-05-05T12:43Z","nid":"1285431"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-admin-console-identity-provider","lastmod":"2026-08-05T08:51Z","nid":"1285431"} -->
 ## Using the Zscaler Admin Console as an Identity Provider
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-admin-console-identity-provider
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Using the Zscaler Admin Console as an Identity Provider
-- Last modified: 2026-05-05T12:43Z
+- Last modified: 2026-08-05T08:51Z
 - Summary: How to configure the Zscaler Admin Console to function as an identity provider for the Zscaler service.
 
-If you are a Authentication Service user, see [Using Authentication Service](https://help.zscaler.com/zidentity/using-zslogin-identity-provider)[with Zscaler Client Connector Device Tokens](https://help.zscaler.com/zidentity/using-zidentity-with-zscaler-client-connector-device-tokens).
+If you are a Authentication Service user, see [Using Authentication Service](https://help.zscaler.com/authentication-service/using-authentication-service-with-zscaler-client-connector-device-tokens)[with Zscaler Client Connector Device Tokens](https://help.zscaler.com/zidentity/using-zidentity-with-zscaler-client-connector-device-tokens).
 
 This information applies to Internet & SaaS only. The Zscaler Admin Console can function as an identity provider (IdP) for the Zscaler service. With this feature, users do not need to be tied to your organization’s standard IdP in order to authenticate to the Zscaler service. Instead, if your organization uses SAML-based single sign-on (SSO), Zscaler Client Connector can use a device token to auto-provision and silently authenticate users and devices for the Zscaler service.
 
@@ -1098,13 +1098,13 @@ To enable the Zscaler Notification Framework on macOS devices:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/verifying-access-applications","lastmod":"2026-06-02T15:57Z","nid":"1514426"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/verifying-access-applications","lastmod":"2026-08-05T17:12Z","nid":"1514426"} -->
 ## Verifying Access to Applications
 
 - Source: https://help.zscaler.com/zscaler-client-connector/verifying-access-applications
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide > Verifying Access to Applications
-- Last modified: 2026-06-02T15:57Z
+- Last modified: 2026-08-05T17:12Z
 - Summary: How to verify access with additional authentication
 
 Your organization can require additional levels of authentication to access specific applications (e.g., your default access requires only a username and password, but an application with sensitive financial information requires multi-factor authentication). If you try to access an application that requires additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access.
@@ -1184,13 +1184,13 @@ If you want to delay a rollout beyond the 180-day maximum (e.g., you encountered
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-06-12T09:38Z","nid":"1317631"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-08-18T11:31Z","nid":"1317631"} -->
 ## Viewing Device Fingerprint for an Enrolled Device
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Viewing Device Fingerprint for an Enrolled Device
-- Last modified: 2026-06-12T09:38Z
+- Last modified: 2026-08-18T11:31Z
 - Summary: How to view device fingerprint information for enrolled devices in the Zscaler Client Connector Portal.
 
 From the Zscaler Admin Console, you can view device fingerprint information for [enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices).
@@ -1239,7 +1239,7 @@ See image.
 See image.
 
 - Under **Service Status**:
-  - **ZIA Enabled**: Displays **True**if the user is entitled for the Internet & SaaS service in Zscaler Client Connector. Displays **False**if the user is not entitled for the Internet & SaaS service in Zscaler Client Connector.
+  - **ZIA Enabled**: Displays **True**if the user is entitled for the Internet & SaaS (ZIA) service in Zscaler Client Connector. Displays **False**if the user is not entitled for the Internet & SaaS service in Zscaler Client Connector.
   - **ZIA Health**:Displays **Active**if Zscaler Client Connector is connected to Internet & SaaS. Displays **Inactive**if Zscaler Client Connector is not connected to Internet & SaaS.
   - **Last Seen Connected to ZIA**:The last known date and time of connection to Internet & SaaS.
   - **ZPA Enabled**: Displays **True**if the user is entitled for the Private Access service in Zscaler Client Connector. Displays **False**if the user is not entitled for the Private Access service in Zscaler Client Connector.
@@ -1263,7 +1263,7 @@ See image.
   - **Configuration Download Count**: The total number of times the app profile was updated since enrollment.
   - **One-Time Password**: Displays a temporary password for login.
   - **Logout, Disable, Uninstall Password**: The password associated with the device’s app profile. Applies to Zscaler Client Connector version 4.0 for Windows and Zscaler Client Connector version 4.1 for macOS. To learn more, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-  - For Zscaler Client Connector version 4.0 and later for Windows and Zscaler Client Connector version 4.1 and later for macOS, the following optional one-time passwords (OTPs) listed are associated with the device’s app profile and are configured in [app profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles): Click the **Copy** icon to copy the password to your clipboard.
+  - For Zscaler Client Connector version 4.0 and later for Windows, Zscaler Client Connector version 4.1 and later for macOS, and Zscaler Client Connector version 4.2.1 and later for Linux, you can view and copy the following one-time passwords (OTPs) for each enrolled device. You can use these passwords in place of passwords defined in [app profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles). To learn more, see [Accessing One-Time Passwords for Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/about-one-time-passwords-enrolled-devices). Click the **Copy** icon to copy the password to your clipboard.
     - **Logout OTP**: The password users must enter to log out of Zscaler Client Connector.
     - **Revert OTP**: The password users must enter to revert to the previous Zscaler Client Connector version.
     - **Uninstall OTP**: The password users must enter to uninstall Zscaler Client Connector.
@@ -1271,9 +1271,10 @@ See image.
     - **Disable ZIA OTP**: The password users must enter to disable the Internet & SaaS service.
     - **Disable ZPA OTP**: The password users must enter to disable the Private Access service.
     - **Disable ZDX OTP**: The password users must enter to disable the ZDX service.
-    - **Disable Endpoint DLP OTP**: The password users must enter to disable data protection in Zscaler Client Connector.
+    - **Deception Settings OTP**: The password users must enter to disable the Deception service. Applies to Zscaler Client Connector version 4.0 and later for Windows.
+    - **Disable Anti-Tampering OTP**: The password used to disable anti-tampering protection. Applies to Zscaler Client Connector version 4.1 and later for Windows.
+    - **Disable Endpoint DLP OTP**: The password users must enter to disable data protection in Zscaler Client Connector. Applies to Zscaler Client Connector version 4.3 and later for Windows and Zscaler Client Connector version 4.2 and later for macOS.
   - **Device Trust Level**: Displays the device trust level based on the configured levels in [Internet & SaaS posture profiles](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles). Trust levels are **Low**, **Medium**, **High**, or **Unknown**.
-  - **Disable Anti-Tampering OTP**: The password used to disable anti-tampering protection. This option is available for Zscaler Client Connector version 4.1 and later for Windows.
   - **Anti-Tampering Status**: Displays whether anti-tampering is enabled or disabled.
 
 See image.
@@ -1311,7 +1312,7 @@ See image.
 
 See image.
 
-- Under **ZPA Partner Logins**: Displays partner logins that logged in to a device’s tenant. To learn more, see [Enabling Private Access Partner Logins](https://help.zscaler.com/zscaler-client-connector/enabling-private-access-partner-logins).
+- Under **ZPA Partner Logins**: Displays Private Access (ZPA) partner logins that logged in to a device’s tenant. To learn more, see [Enabling Private Access Partner Logins](https://help.zscaler.com/zscaler-client-connector/enabling-private-access-partner-logins).
 
 See image.
 
@@ -2435,13 +2436,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-07-22T09:55Z","nid":"1534304"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-09-08T12:15Z","nid":"1534304"} -->
 ## ZDX Module Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zdx-module-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector - ZDX Module Release Notes (per OS) > ZDX Module Release Summary (2026)
-- Last modified: 2026-07-22T09:55Z
+- Last modified: 2026-09-08T12:15Z
 - Summary: Zscaler Client Connector ZDX module summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Digital Experience (ZDX) Module in the Zscaler Client Connector app.
@@ -2467,13 +2468,13 @@ If the you installed Charles Proxy on a user's device before installing Zscaler 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-app-registry-keys","lastmod":"2026-07-29T16:49Z","nid":"1358826"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-app-registry-keys","lastmod":"2026-07-29T17:15Z","nid":"1358826"} -->
 ## Zscaler Client Connector: Windows Registry Keys
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-app-registry-keys
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Troubleshooting > Zscaler Client Connector: Windows Registry Keys
-- Last modified: 2026-07-29T16:49Z
+- Last modified: 2026-07-29T17:15Z
 - Summary: Information on Zscaler Client Connector registry keys with a list of all possible values and their explanation.
 
 This article defines the values for the `ZNW_State`, `ZPA_State`, `ZWS_State`, and `ZPA_AuthState` registry keys. You can navigate to Zscaler Client Connector registry keys by using the following path: `HKEY_CURRENT_USER\Software\Zscaler\App`.
@@ -2648,13 +2649,13 @@ You can temporarily resolve the issue by restarting the application (terminate t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-errors","lastmod":"2026-07-16T21:06Z","nid":"1285866"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-errors","lastmod":"2026-08-27T16:47Z","nid":"1285866"} -->
 ## Zscaler Client Connector Errors
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-errors
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Troubleshooting > Zscaler Client Connector Errors
-- Last modified: 2026-07-16T21:06Z
+- Last modified: 2026-08-27T16:47Z
 - Summary: Information on the error messages that Zscaler Client Connector might display while it is in use.
 
 The following tables provide lists of error messages your user might see on Zscaler Client Connector while the app is in use:
@@ -2730,8 +2731,9 @@ The following tables provide lists of error messages your user might see on Zsca
 | 1017 | LDAP Authentication Failed, Please Contact Administrator. | This error is triggered when the cloud fails to communicate with LDAP. | Verify the LDAP configuration and ensure network connectivity. |
 | 1018 | LDAP Authentication Failed, Please Contact Administrator. | This error is triggered when the cloud fails to communicate with LDAP. | Verify the LDAP configuration and ensure network connectivity. |
 | 1019 | Failed to Authenticate, Credentials are not Valid. | This error occurs when the user enters the incorrect credentials. | Verify the user’s credentials. |
+| 1060 | Internal Error: Contact Administrator | This error occurs when a required Zscaler Client Connector driver or service is missing or failed to install after a partial install or upgrade. | Repair or reinstall Zscaler Client Connector to restore the driver. |
 | 10060 | Network Connection Failed: Check Your Network. | This error occurs when Zscaler Client Connector fails to connect to your network. | Check network connectivity. |
-| 10101 | Failed to Discover Service for Given User. | This error occurs when Zscaler Client Connector fails to fetch user cloud information. | Verify that the user's credentials. Verify that the user exists in the user authentication source. Verify your company name is provisioned correctly. |
+| 10101 | Failed to Discover Service for Given User. | This error occurs when Zscaler Client Connector fails to fetch user cloud information. | Verify the user's credentials. Verify that the user exists in the user authentication source. Verify your company name is provisioned correctly. |
 | 10104 | Service Configuration not Found. | This error occurs when Zscaler Client Connector fails to fetch the policy. | Export logs and contact Zscaler Support. |
 | 10108 | Failed to Enroll Device. | This error occurs when the device registration fails either due to an inability to reach the server or an error response from the server. This applies to Internet & SaaS and Private Access. | Check network connectivity. Check if there is a trust post for the cloud status. |
 | 10110 | Username not valid. | This error occurs when the user enters a username that cannot be found. | Verify that the user is entering the correct username. Verify that the user exists in the user authentication source. |
@@ -2960,13 +2962,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-07-29T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-09-13T07:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.

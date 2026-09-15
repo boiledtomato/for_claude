@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 13:44 UTC
-Articles in this file: 182
+Generated: 2026-09-14 03:38 UTC
+Articles in this file: 201
 
 ---
 
@@ -170,426 +170,6 @@ On the Violation Tickets page (Assets > Violation Tickets), you can do the follo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/accessing-and-navigating-zscaler-security-operations-secops-platform","lastmod":"2025-10-31T12:44Z","nid":"1532869"} -->
-## Accessing and Navigating the Zscaler Security Operations (SecOps) Platform
-
-- Source: https://help.zscaler.com/aem/accessing-and-navigating-zscaler-security-operations-secops-platform
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Admin Portal > Accessing and Navigating the Zscaler Security Operations (SecOps) Platform
-- Last modified: 2025-10-31T12:44Z
-- Summary: How to sign in to and navigate the Zscaler SecOps platform.
-
-This article covers the following topics to help you get started with the Security Operations Platform (SecOps Platform):
-
-- Signing In to the SecOps Platform
-- Accessing the Admin Settings
-- Navigating within the SecOps Platform
-
-After your organization is provisioned for the SecOps Platform, you receive an email with a username (this is your registered email address) and a password to sign in to the SecOps Platform. Go to the login page provided in the email (app.avalor.io).
-
-If your account is configured without single sign-on (SSO):
-
-1. Enter your email address.
-2. Click **Continue**. The **Login**page appears.
-3. Enter your email address and password.
-4. Click **Sign In**.
-
-If your account is configured to use SSO:
-
-1. Enter your email address.
-2. Click **Continue**. You are redirected to your IdP's login page.
-3. Log in with your credentials. If you are logged in successfully, you are redirected to the SecOps Platform.
-
-The SecOps Platform account admin can configure SSO, user management, and email notifications for data processing failures in the account.
-
-To access the Account Settings:
-
-1. Click the **Profile**menu in the top-right corner of the page.
-2. Click **Account Settings**. See image.
-3. In the left-side navigation:
-  - Click **Settings**to configure and manage SSO (e.g., Okta).
-  - Click **User Management**to configure and manage [users](https://help.zscaler.com/uvm/creating-managing-users).
-  - Click **Permissions**to configure and manage [roles permissions](https://help.zscaler.com/uvm/managing-system-and-custom-roles), [content permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions) and [email notifications](https://help.zscaler.com/uvm/enabling-email-notifications-source-run-failures).
-
-[Image: Account Settings page in the Security Operations Platform]
-
-The SecOps Platform has the following items in the top navigation bar:
-
-- Search
-- Apps
-- Explore
-- Configure
-- Knowledge Center
-- Support
-- Profile Menu
-
-You can click the Zscaler logo in the top left of the navigation bar to return to the main dashboard.
-
-The left-side navigation changes dynamically based on your current location within the SecOps Platform, and can be collapsed or expanded. To set the mode, hover over the menu and click the arrow icon.
-
-[Image: Security Operations Platform top navigation bar]
-
-You can search to locate pages, features, or tools within the SecOps Platform. Press `Ctrl+K` (Windows) or `Cmd+K` (Mac) to open the search bar, then enter keywords to find relevant results.
-
-Click the **Profile**menu to access various settings and account management options.
-
-To learn more about each component, see the following:
-
-Profile Settings >
-
-- Personal Info: Update personal details associated with your account.
-- [Content Permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions)
-- [Email Notifications](https://help.zscaler.com/uvm/enabling-email-notifications-source-run-failures)
-
-Account Settings >
-
-- [Authenticate](https://help.zscaler.com/uvm/generating-saml-details)
-- [AI Capabilities](https://help.zscaler.com/uvm/managing-ai-capabilities-secops-platform)
-- [Audit Logs Export](https://help.zscaler.com/uvm/viewing-audit-logs)
-- [Zscaler Gateway](https://help.zscaler.com/uvm/configuring-zscaler-secops-platform-gateway)
-- [User Management](https://help.zscaler.com/uvm/creating-managing-users)
-- Permissions >
-  - [Roles](https://help.zscaler.com/uvm/managing-system-and-custom-roles)
-  - [Content](https://help.zscaler.com/uvm/creating-managing-content-permissions)
-
-Click **Log Out**to log out of the SecOps Platform. You can enable automatic logout after a period of inactivity in Account Settings > Authenticate, after an email domain is added.
-
-Click the **Contact Support**icon for assistance with technical issues, account configurations, or general inquiries regarding the SecOps Platform.
-
-Click the **Knowledge Center**icon to access the SecOps Platform's knowledge base directly within the interface, featuring resources such as configuration guides, deployment guides, and FAQs.
-
-Click **Configure**to access settings for customizing and managing the data in the SecOps Platform.
-
-To learn more about each component, see the following:
-
-- [Sources](https://help.zscaler.com/uvm/creating-data-sources)
-- [Authentications](https://help.zscaler.com/uvm/configuring-authentications)
-- [Outegrations](https://help.zscaler.com/uvm/creating-outegrations)
-- [Unification](https://help.zscaler.com/uvm/what-data-unification) >
-  - [Entities](https://help.zscaler.com/uvm/configuring-entity-unification)
-  - [Fields](https://help.zscaler.com/uvm/configuring-field-unification)
-- [Asset Aging](https://help.zscaler.com/uvm/aging-assets)
-
-Click **Explore**to access various data analysis and visualization tools.
-
-To learn more about each component, see the following:
-
-- [Entity Explorer](https://help.zscaler.com/uvm/using-entity-explorer)
-- [Logs](https://help.zscaler.com/uvm/building-queries-searching-logs)
-- [Reports](https://help.zscaler.com/uvm/creating-reports)
-- [Dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards)
-
-Click the **App Menu**icon to access SecOps applications included in your license, such as Unified Vulnerability Management (UVM) and Asset Exposure Management (AEM).
-
-To pin an app to the top navigation bar, click the **App Menu** icon, then click the **Add to Favorite** icon ([Image: app menu add to favorite star icon]) next to the app.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/assigning-content-permissions","lastmod":"2025-11-04T11:13Z","nid":"1532930"} -->
-## Assigning Content Permissions
-
-- Source: https://help.zscaler.com/aem/assigning-content-permissions
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Assigning Content Permissions
-- Last modified: 2025-11-04T11:13Z
-- Summary: How to assign content permissions to users.
-
-Content permissions control access to data within the platform. To create content permission sets, see [Creating & Managing Content Permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions). After [creating users](https://help.zscaler.com/uvm/creating-managing-users) in your account, you can assign content permissions to define the data they can access.
-
-Content permissions can only be assigned after a user is created and saved.
-
-## Assigning Content Permissions to Users
-
-To assign content permission sets to a single user:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Hover over the user, and click the **Edit** icon. The **Edit User** page appears.
-4. In the **Content Permissions** section, select the role permission sets you want to assign from the drop-down menu. To learn more, see [Creating & Managing Content Permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions).
-5. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
-
-To assign content permissions to multiple users:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Select users from the list.
-4. Click **Edit Permission Sets** at the top of the page. See image.
-5. Click **Add Permission Set/s**.
-6. Select the permission sets you want to assign to the selected users.
-7. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
-
-## Removing Content Permission Sets
-
-Removing content permission sets from users removes their access limit from the defined data. That means they'll no longer be limited to viewing only the data configured in the permission set.
-
-To remove a single user's content permissions:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Hover over the user and click the **Edit** icon. The **Edit User** page appears.
-4. In the **Content Permissions** section, select the role permission sets you want to remove from the drop-down menu.
-5. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
-
-To remove multiple users' content permissions:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Select the users from the list.
-4. Click **Edit Permission Sets** at the top of the page. See image.
-5. Click **Remove Permission Set/s**.
-6. Select the permission sets you want to remove from the selected users.
-7. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/building-queries-and-searching-logs","lastmod":"2025-11-11T14:26Z","nid":"1533683"} -->
-## Building Queries and Searching Logs
-
-- Source: https://help.zscaler.com/aem/building-queries-and-searching-logs
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Data Exploration > Building Queries and Searching Logs
-- Last modified: 2025-11-11T14:26Z
-- Summary: How to build queries and search for logs in the SecOps platform.
-
-You can search logs to view data collected by the Zscaler Security Operations (SecOps) platform before it's processed and analyzed. This helps you to understand the raw data that's pulled from connected sources and subsequently pushed into the data model. You can search logs by building and using queries.
-
-## Building a Query
-
-To create a query using the basic query builder:
-
-1. In the SecOps platform, go to **Explore > Logs**. [Image: Build a basic query to search the logs] If you have not previously created a query, you can select from a list of prebuilt queries to get started. You can also select a saved query from the Queries Library. See image.
-2. Click the **+** icon to add a new query. A new query tab appears.
-3. Click the **Search Logs** box to open the query builder. [Image: Build a query]
-4. Select a field or enter a field name manually.
-5. Select an operator (e.g., **Equals**, **Contains**, **Starts With**, etc.).
-6. Enter or select the value you want to filter by.
-7. (Optional) Use **AND** or **OR** operators to add conditions to the query.
-8. (Optional) Click **Save**to save your query.
-9. Click **Search**. Log data appears.
-10. Use the time filter to filter results to a specific time frame. To learn more, see [Using Filters](https://help.zscaler.com/uvm/using-filters). The selected time frame is not saved as part of the query, and must be configured for every result.
-
-Click **Export as CSV** at the top right of the logs table to export the data as a CSV file.
-See image.
-
-[Image: Select a prebuilt query to search for the logs]
-
-[Image: Export logs as CSV]
-
-To create an advanced query, you can use QL syntax in the advanced query editor. Click **Advanced**and enter values as necessary.
-
-[Image: Build an advanced query]
-
-The basic query builder and the advanced query editor are completely independent, even when they are within the same query. If you make changes to one, the other remains unchanged.
-
-### Adding a Query to the Queries Library
-
-You can save queries and add them to the Queries Library for quick access.
-
-To add a query to the Queries Library:
-
-1. Click **Save**at the top right of the page. [Image: Save the created query] The **Edit Detail** page appears.
-2. Enter a name for the query.
-3. Click **Save**. The query is saved to the library. [Image: View all the saved queries]
-
-Use the **Save As New** option to save a modified version of the current query to your library.
-[Image: Save a modified version of the query to the library]
-
-Click **Library** to access your saved queries.
-[Image: Click Library to access saved queries]
-
-## Searching Logs
-
-After you configure and run your query, a Logs table appears. Click a log in the table to open its drawer. You can search within the log using the search field, and copy the log using the Copy icon in the top-right corner of the drawer.
-[Image: Search for the logs]
-
-Hover over a field in the drawer to display the following icons:
-
-- **Breakdown By Field**: Use the selected field as the breakdown by field in the pie chart pane.
-- **Exclude**: Add a Not Equal filter to the query builder to return all logs for which the field's value is different from the value of the current log.
-- **Add to Search**: Add a filter to the basic query builder to return all logs for which the field's value is equal to the value in the current log.
-- **Add/Remove Column**: Add or remove a column in the log table.
-- **Copy Value**: Copy the value of the field.
-
-## Analyzing the Data
-
-You can filter and analyze the retrieved log data using the Time Series chart or a pie chart.
-
-### Time Series Chart
-
-The Time Series chart shows the number of logs (on the y-axis) that match the query conditions, retrieved from your sources within the time frame selected in the time filter.
-
-[Image: Number of logs that match the query conditions on the Time Series chart]
-
-You can click and drag the time filter to select a portion of the chart to define your desired time frame. This updates the table view as shown in the following image.
-
-[Image: Click and drag the time filter to view an updated view based on the desired time frame]
-
-The selected time filter is not saved as part of the query, and must be configured each time.
-
-### Pie Chart
-
-The pie chart displays all logs filtered by your query. Use the**Breakdown by** drop-down menu to select the field you want the logs to be grouped in, and the number of top values you want to be presented in the legend.
-
-[Image: Logs filtered by the query displayed on the Pie Chart]
-
-Select any number of slices to filter by their value. This also adds your selection as a filter in the table of logs.
-
-[Image: Filter the pie chart by the selected value]
-
-To remove a value from the filter created by the pie chart, deselect the slice on the chart itself or click the remove slicericon under the chart.
-
-[Image: Deselect a slice using the Remove Slicer icon in the Pie Chart]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-apache-kafka-outegration","lastmod":"2026-06-29T07:06Z","nid":"1540206"} -->
-## Configuring the Apache Kafka Outegration
-
-- Source: https://help.zscaler.com/aem/configuring-apache-kafka-outegration
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring the Apache Kafka Outegration
-- Last modified: 2026-06-29T07:06Z
-- Summary: How to configure the Apache Kafka outegration to dispatch tickets.
-
-The Apache Kafka outegration is used to publish entity data from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to an external Kafka topic, ensuring a secure and reliable data flow.
-
-This article is a step-by-step guide to configuring the Kafka outegration.
-
-## Prerequisites
-
-Before configuring the outegration, make sure you have met the following prerequisites:
-
-- Create a Kafka topic.
-- Configure mTLS for authentication.
-- Configure the isolation level.
-- Enable ACL rules.
-- Configure the port in Internet & SaaS (ZIA).
-
-A Kafka topic must be previously created and configured for each outegration.
-
-Authentication is handled via Mutual TLS (mTLS), where the SecOps platform and Kafka broker verify each other's certificates. To set up mTLS authentication, ensure that you retrieve the following to enter them in the corresponding fields during the outegration setup:
-
-- Client Private Key: Generate an RSA-2048 private key (size must be exactly 2048 bits) or ECDSA (size can be 256, 384, and 521 bits) in PEM format. This key can be optionally encrypted.
-- Key Password: Obtain the password to decrypt the private key. This is required only if the generated client private key is encrypted.
-- Client Certificate Chain: Create the complete certificate chain (client certificate followed by any intermediate Certificate Authorities) in PEM format.
-- Broker CA Certificate: Obtain the Kafka broker's Certificate Authority (CA) certificate in PEM format. This is necessary if your broker uses a private CA.
-
-To learn more, refer to the [Kafka documentation](https://docs.confluent.io/platform/current/kafka/configure-mds/mutual-tls-auth-rbac.html).
-
-Kafka outegration ensures exactly-once behavior by publishing via transactions. For consistent behavior, the isolation level must be explicitly configured with `isolation.level=read_committed`. Failure to set this property potentially results in consumers reading messages from rolled-back transactions, which can compromise data integrity.
-
-Ensure that the Kafka cluster allows the transaction ID `zscaler-producer-transactional` in the ACL rules.
-
-```
-ACL Rules:
-kafka-acls.sh --bootstrap-server <your-broker-address>:<port> --add \
-     --allow-principal 'User:provider-test-client' \
-     --operation WRITE --operation DESCRIBE \
-     --transactional-id 'zscaler-producer-transactional'
-
-kafka-acls.sh --bootstrap-server <your-broker-address>:<port> --add \
-   --allow-principal 'User:provider-test-client' \
-   --operation IDEMPOTENT_WRITE \
-   --cluster
-```
-
-In Internet & SaaS network configuration, port 9094 is the only authorized port open to all IP addresses for Kafka traffic. To request the opening of any new or additional ports, contact Zscaler Support.
-
-## Configuring the Kafka Outegration
-
-To configure the Kafka outegration, complete the following steps:
-
-- Step 1: Authenticate the Kafka Connection (Connect)
-- Step 2: Configure the Outegration Visibility and Behavior (Settings)
-- Step 3: Map the Outegration Fields (Mapping)
-
-To establish a secure connection with the Kafka cluster, you need to authenticate with the security certificates you previously generated.
-
-1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
-2. Click **Create** and select **Kafka**. The **Connect**step appears.
-3. In the **Details** section: See image.
-  1. **Display Name**: Enter a name for the outegration.
-  2. **Active**: Enable to activate the Kafka outegration.
-  3. **Bootstrap Servers**: Enter the bootstrap endpoint in `host:port` format (e.g., `kafka-broker1:9092`, `kafka-broker2:9092`).
-  4. **Topic**: Enter the name of the Kafka topic for publishing ticket details.
-  5. **Authentication**: Select an existing authentication ID, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. See image.
-4. Click **Test** in the bottom-right corner of the page to verify the connection.
-5. After the connection is verified, click **Next**to proceed to the **Settings**step.
-
-[Image: List of outegrations]
-
-[Image: Kafka outegration setup details]
-
-[Image: Kafka outegration authentication setup]
-
-In the Settings step of the outegration setup wizard, configure Kafka outegration's visibility and behavior within the SecOps platform. In this step, you'll set the SecOps entity that triggers the Kafka dispatch (e.g., ticket, policy violation).
-
-To configure the outegration's visibility and behavior, in the **Advanced Settings** section, from the **Create Kafka item from**drop-down menu, select the entity that you want to configure the outegration for.
-
-See image.
-
-[Image: Advanced Settings options]
-
-In the Mapping step, configure the field mapping between your SecOps ticket fields and Kafka record value fields.
-
-The main objective of the mapping process is to map source fields with their corresponding Kafka record value fields. To do this, specify the source field on the left and the Kafka record value field on the right.
-
-### Creating a New Mapping
-
-To create a new mapping from a SecOps ticket to Kafka:
-
-1. Configure the source field value (left):
-  1. Click**Mapping**.
-  2. Click **Add value** on the left. See image.
-  3. The **Field Editor** appears. In the **Field Editor**, select one of the following methods to configure the value of the field:
-    - Field (Dictionary)
-    - Expression
-2. Enter a value in the Kafka field (right). See image.
-
-Repeatthe mapping process for any Kafka field you want to map.
-
-You can also set a SecOps ticket field as mandatory by selecting the **Set as Mandatory**checkbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
-
-See image.
-
-Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
-
-### Previewing the Ticket to Kafka Mapping
-
-After completing the field mappings from SecOps ticket to Kafka record value fields dispatch mapping, preview the mapping to review the configuration. This helps ensure that ticket dispatch is behaving as expected and that the Kafka record fields are populated correctly.
-
-To preview the mapping, click **Preview**on the bottom right of the data mapping fields. The Mapping Preview window appears. In the left of the Mapping Preview window, tickets in your account are listed and organized by ticket ID. You can select, filter, or search for tickets and preview the mapping to their corresponding Kafka record value fields. You can also open the actual ticket in a new tab for a more in-depth review.
-
-See image.
-
-For use cases that require more advanced configuration, you can use the Expression Editor to configure the field value to be mapped to the target field.
-
-[Image: Expression Editor]
-
-[Image: Mapping fields to populate on the right]
-
-[Image: Mapping fields to populate on the left]
-
-The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left.
-
-Kafka outegration does not support the dictionary feature.
-
-See image.
-
-[Image: Create mappings between specific values from the field on the right and values from the field on the left]
-
-[Image: Mapping Preview details]
-
-[Image: Select the Set as Mandatory checkbox to set a SecOps ticket field as mandatory]
-
-When the outegration setup is complete, you can begin dispatching SecOps alerts and events to Kafka. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/configuring-asset-compliance-policies","lastmod":"2025-11-11T14:07Z","nid":"1533688"} -->
 ## Configuring Asset Compliance Policies
 
@@ -732,608 +312,6 @@ In the **Policy Violation Findings**section, set the title and description of th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/configuring-authentications","lastmod":"2025-11-10T12:57Z","nid":"1533646"} -->
-## Configuring Authentications
-
-- Source: https://help.zscaler.com/aem/configuring-authentications
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Authentications > Configuring Authentications
-- Last modified: 2025-11-10T12:57Z
-- Summary: How to configure API authentications for connecting data sources and outegrations.
-
-The Zscaler Security Operations (SecOps) platform supports integration with a wide variety of third-party tools and services, and enables secure data exchange such as retrieving findings from external scanners or sending tickets to work management systems. To connect these tools, you must first configure API authentications. Authentication ensures the SecOps platform can access external resources using valid credentials with the necessary permissions, supporting uninterrupted automation and continuous data flow.
-
-You can create a new authentication during the setup of a [data source](https://help.zscaler.com/uvm/creating-data-sources) or [outegration](https://help.zscaler.com/uvm/creating-outegrations), or directly from the Authentications page.
-
-- When setting up a source, the Authentication drop-down menu appears in the Retrieval section. See image.
-- When configuring an outegration, the Authentication drop-down menu appears in the Details section of the Connect step. See image.
-
-[Image: Authentication dropdown in source setup page with CrowdStrike options]
-
-## Creating Authentications
-
-Before creating a new authentication, check whether a valid authentication method already exists for the third-party data source or outegration you plan to integrate.
-
-For access to Authentications, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Authentications resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users). 
-See image.
-
-To create an authentication:
-
-1. Go to **Configure**>**Authentications**. A list of all existing authentications appears.
-2. Click **Create**to add a new authentication.
-3. Select the vendor for which you want to configure authentication. You can also search for a vendor in the search field. The <Vendor Name> **Authentication** window appears.
-4. In the <Vendor Name> **Authentication** window:
-  1. **Name**: Enter an informativename for your authentication. This is the name displayed on the integration setup page, so it should clearly identify the specific authentication instance for the selected vendor. For example, enter `CrowdStrike Vulnerabilities` when creating an authentication for CrowdStrike to be used in the Vulnerabilities stream.
-  2. **Credentials**: Enter the required credentialsfor the API authentication. Each source or outegration has its own unique set of required parameters that must carry the appropriate scopes and permissions to ensure successful integration. Each vendor requires specific parameters with appropriate scopes and permissions. Refer to the vendor's [Sources Configuration Guide](https://help.zscaler.com/uvm/administration/connectors/sources/source-configuration-guides) or [Outegration Configuration Guide](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides) for the exact requirements. If you plan to use the same authentication for multiple integrations (e.g., both Assets and Vulnerabilities streams for CrowdStrike), ensure that the provided credentials have all necessary permissions. Missing or insufficient scopes can result in failed authentication or incomplete data ingestion.
-5. Click **Create** to save the authentication.
-
-The newly created authentication appears in the Authentication drop-down menu on the corresponding vendor's data source or outegration setup page. You can reuse an authentication across multiple integrations, as long as it has the required access permissions.
-
-After authentications are created, ongoing management of them are done through the Authentications page. To learn more, see [Managing Authentications](https://help.zscaler.com/uvm/managing-authentications).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-azure-devops-outegration","lastmod":"2025-11-10T14:25Z","nid":"1533653"} -->
-## Configuring Azure DevOps Outegration
-
-- Source: https://help.zscaler.com/aem/configuring-azure-devops-outegration
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring Azure DevOps Outegration
-- Last modified: 2025-11-10T14:25Z
-- Summary: How to configure the Azure DevOps outegration to dispatch tickets.
-
-The Azure DevOps outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Azure DevOps project, enabling you to track and assign tickets to a specific team for analysis and remediation.
-
-This article is a step-by-step guide to configuring the Azure DevOps work management outegration.
-
-Each Azure DevOps ticket type (e.g., Bug, Task, Feature) requires a separate outegration configuration.
-
-## Prerequisites
-
-Before configuring the outegration, ensure that you complete the authentication and retrieve the Client ID, Client Secret, Tenant ID, organization name, and project name.
-
-- Authentication Workflow
-
-1. Log in to the [Azure portal.](https://portal.azure.com/#home)
-2. Go to **App registrations**. See image.
-3. Create a new application. The **Overview**page appears when the application is created. If you have already registered an application, then proceed to create the client secret.
-  1. On the **Register an application** page, enter a name for the application.
-  2. Select **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)**.
-  3. Click **Register**. See image.
-4. Copy and save the **Application (client) ID** and **Directory (tenant) ID**. See image.
-5. In the left-side navigation, go to **Manage**> **Authentication**.
-6. Click **Add a Platform**and select **Web**.
-7. Under **Configure Web**, enter `https://app.avalor.io/oauth` as the application's redirect URI. See image.
-8. Click **Configure**.
-9. In the left-side navigation, go to **Manage**> **API Permissions**.
-10. Click **Add a permission**and add the following permissions:
-  - Azure DevOps: vso.project_manage
-  - Azure DevOps: vso.work_write
-  - Microsoft Graph: offline_access
-  - Microsoft Graph: User.Read
-11. In the left-side navigation, go to **Manage**> **Certificates & Secrets**.
-12. Create a new client secret, select an expiration time, and save the value. See image.
-13. Enter all the retrieved credentials (client ID, tenant ID, and client secret) in the **Authentication**section on the Create Azure DevOps Outegration page. A unique**Authentication ID**is generated when the authentication is successful. See image.
-14. On the Azure DevOps dashboard, copy your organization's name displayed at the top of the left-side navigation.
-15. On the **Projects** tab, copy the project name. See image.
-
-[Image: Details to add a client secret]
-
-[Image: Organization and project names in the Azure DevOps portal]
-
-[Image: The unique authentication ID generated]
-
-[Image: App Registration option in Azure portal]
-
-[Image: Application ID and Directory ID details]
-
-[Image: Redirect URI on Configure Web page]
-
-[Image: The page to register a new application]
-
-## Configuring the Azure DevOps Outegration
-
-To configure the Azure DevOps outegration, complete the following steps:
-
-- Step 1: Authenticate the Azure DevOps Connection (Connect)
-- Step 2: Configure the Outegration Visibility and Behavior (Settings)
-- Step 3: Map the Outegration Fields (Mapping)
-- Step 4: Configure the Azure DevOps Webhook
-
-To establish a secure connection with the Azure DevOps project, you need to authenticate with the client ID, tenant ID, and client secret you previously saved.
-
-1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
-2. Click **Create** and select **Azure DevOps**.
-3. In the **Details** section: See image.
-  1. **Display Name**: Enter a name for your outegration from the Azure DevOps dashboard.
-  2. **Organization**: Enter the name of your organization from the Azure DevOps dashboard.
-  3. **Project**: Enter the name of the project.
-  4. **Authentication**: Select an existing authentication ID, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. See image.
-  5. (Optional) **Refresh Token** and **Access Token**: Enter the values if required.
-4. Click **Test** in the bottom-right corner of the page to verify the connection. If the credentials are invalid, an error message is displayed along with the remediation steps to resolve the issue.
-5. After the connection is verified, click **Next**to proceed to the **Settings**step.
-
-[Image: List of outegrations]
-
-[Image: Azure DevOps outegration setup details]
-
-[Image: Azure DevOps outegration authentication setup]
-
-In this step, you need to set the SecOps entity that triggers the Azure DevOps ticket dispatch, the Azure DevOps ticket type that the SecOps ticket should be dispatched to, and when the Create Azure DevOps Ticket button should appear in the application. The Create Azure DevOps Ticket button allows users with access to SecOps tickets to dispatch these tickets to an Azure DevOps project directly from the SecOps ticket drawer or from the SecOps tickets page.
-
-1. In the **Advanced Settings** section:
-  1. **Create Azure DevOps item from**:Select the entity that you want to configure the outegration for. This selection affects the view you configure in the <Entity> **View**step (e.g., selecting Ticket displays the Tickets View setting). Other entity types might be visible depending on the apps enabled in your account. See image.
-    - **UVM**: Select **Ticket**.
-    - **AEM**: Select **Policy Violation** or **Violation Ticket**.
-  2. **Work Item Type**:Select the work item. The schema associated with the selected work item is retrieved from your Azure DevOps project and made available for mapping in the Mapping step. See image.
-2. In the <Entity> **View** section, select how the SecOps ticket should display the **Create Azure DevOps**button. This setting can be modified at any time. See image. The **Create****Azure DevOps****Ticket**button appears at two locations:
-  - **Always**: Select to display the button on all tickets, allowing users to dispatch all tickets to an Azure DevOps issue.
-  - **Never**: Select to hide the button in all tickets. This is useful during the outegrationsetup process to hide the button from users while still keeping the outegration active.
-  - **For specific tickets**: Display the button for specific tickets. For example, if your organization uses multiple ticketing systems, you can display the button only to users who work with Azure DevOps, while excluding those using other ticketing systems (e.g., ServiceNow).
-  - In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/uvm/managing-violation-tickets-aem)). See image.
-  - On the entity page in the relevant application (e.g., on the [Tickets page](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, on the [Violation Tickets page](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM). See image.
-3. Click **Map**to proceed to the **Mapping** step.
-
-[Image: Advanced Settings options]
-
-[Image: List of work item types]
-
-[Image: Tickets View details]
-
-[Image: Create Azure DevOps Ticket button in a ticket]
-
-[Image: Create Azure DevOps button on the Tickets page]
-
-Map the SecOps and Azure DevOps tickets to enable exchange of data.
-
-The objective of the mapping process is to map SecOps ticket fields (left) to Azure DevOps fields (right). To map values to fields, configure values on the left to populate the fields selected on the right.
-
-See image.
-
-There are three mapping components:
-
-- Tickets initially dispatched to Azure DevOps: Map SecOps ticket fields (left) to Azure DevOps fields (right) for the initial dispatch of a ticket to an Azure DevOps issue. You can also add an attachment to your Azure DevOps issue. Commonly mapped fields include Summary, Description, Assignee, Priority, Due Date, and Status.
-- (Optional) Sync from ticket to Azure DevOps: Map SecOps ticket fields (left) to Azure DevOps fields (right) for syncing ticket updates to Azure DevOps, including configuring comments and adding an attachment to your Azure DevOps ticket. Commonly mapped fields include Status and Due Date.
-- (Optional) Sync from Azure DevOps to ticket: Map Azure DevOps fields (left) to SecOps ticket fields (right) for syncing Azure DevOps updates to tickets. This step also requires setting up an Azure DevOps webhook. Commonly mapped fields include Ticket Status and Ticket SLA.
-
-The initial Azure DevOps outegration mapping includes preconfigured default mappings for each part, based on common use cases and industry best practices. These defaults can be modified and customized as needed.
-
-### Creating a New Mapping
-
-To create a new mapping from a SecOps ticket to an Azure Devops ticket:
-
-1. Select a field (right): See image.
-  1. Click**Mapping**.
-  2. Select a field on the right. The field's schema details open on the right of the page. The schema lists the Azure DevOps fields that can be used for mapping. This is the list of fields configured in your Azure DevOps project for the Work Item Type selected in the Settings step (e.g., Bug). See image. The following details are specified for fields, when available:
-    - Required
-    - Input Type
-    - Available Options
-2. Configure the field value (left):
-  1. Click **Add value** on the left. The **Field Editor** appears.
-  2. In the **Field Editor**, select one of the following methods to configure the value of the field:
-    - Field (Dictionary)
-    - Smart Text
-    - Script
-
-Repeatthe mapping process for all required Azure DevOps fields and for any other fields you want to map.
-
-In addition to the mapping of fields on the right to fields on the left, you can perform a set of actions when setting up the Azure DevOps outegration mapping, each relevant to a specific part of the mapping.
-
-- Set a ticket field as mandatory.
-- Add attachments to the ticket dispatch.
-- Configure comments synchronization.
-
-### Mapping Ticket Title to Summary
-
-To illustrate the mapping process, consider the mapping of the required Azure DevOps Summary field. The final result of the mapping process should show the Summary field on the right, and the Ticket Title field on the left.
-
-[Image: Mapping ticket title to summary]
-
-To map the Ticket Title field to the Summary field:
-
-1. Select **Summary**as the Azure DevOps field on the right. See image. Selecting the Azure DevOps Summary field opens the field's details in the schema. The schema specifies that the field is required and thus must be mapped before the outegration can be saved, and that the field expects a TEXT input type. Therefore, the field for which a value is being configured must also be of TEXT type. See image.
-2. Select the **Ticket Title**field on the left: See image.
-  1. Click**Add Value**.
-  2. Under the **Field** tab, select the **Ticket Title** field, which is the equivalent to the Azure DevOps **Summary**field.
-
-### Previewing the Ticket to Azure DevOps Mapping
-
-After completing the SecOps ticket to Azure DevOps dispatch mapping, preview the mapping to review the configuration. This helps ensure that ticket dispatch is behaving as expected and that the Azure DevOps issue fields are populated correctly.
-
-To preview the mapping, click **Preview**on the bottom right of the ticket initially dispatched to Azure DevOps section. The Mapping Preview window appears. On the left of the Mapping Preview window, there is a sample of the tickets in your account, organized by ticket ID. You can select, filter, or search tickets and preview the mapping to their corresponding Azure DevOps issue. You can also open the actual ticket in a new tab for a more in-depth review.
-
-See image.
-
-### Common Mapping Examples
-
-These mapping examples highlight commonly used field configurations in your outegration. While some might be preconfigured by default, Zscaler recommends reviewing and customizing them to ensure they align with your workflow.
-
-- Ticket to Azure DevOps Description
-- Ticket SLA to Azure DevOps Due Date Sync
-- Azure DevOps to Ticket Status Sync
-
-[Image: Mapping fields to populate on the right]
-
-[Image: Outegration schema field options]
-
-The Required attribute is TRUE if a field is required by Azure DevOps. If a field is not required, the attribute is not displayed. A required Azure DevOps field is also indicated by a red asterisk (*) on the Azure DevOps field in the first mapping step.
-
-Required Azure DevOps fields must be mapped before saving the outegration.
-
-The Input Type specifies the data type of the Azure DevOps field, such as TEXT (e.g., Summary), DATE (e.g., Due Date), or NUMBER (e.g., Risk Score). This indicates the format that the selected source field must match to successfully map to the Azure DevOps field.
-
-For Azure DevOps fields with fixed values, the Available Options column displays the available values. For example, if the Azure DevOps field Priority is configured to include the following fixed values—High, Low, Medium, Lowest, Highest—the corresponding values in the Ticket Severity field can be mapped to these values.
-
-[Image: Data Mapping details]
-
-[Image: Field details in the schema]
-
-Select a field on the left to populate the field on the right.
-
-The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left. To use the dictionary, you must first select a field on the right and a field to populate it with on the left.
-
-For example, if your Azure DevOps Priority field includes the following fixed values—Highest, High, Medium, Low, Lowest—you can use the dictionary to map the corresponding Ticket Severity values to each of the Priority field values.
-
-See image.
-
-[Image: Create mappings between specific values from the field on the right and values from the field on the left]
-
-Configure the field value using free text, or create a template using a combination of free text and selected fields. This allows you to dynamically insert specific field values (e.g., Ticket SLA, Ticket Assignee, or Asset Name) into customized free text sentences or paragraphs.
-
-To add a Smart Text field, enclose it in double curly brackets (e.g., `{{Ticket Assignee}}`). The field's display name automatically translates to its system name.
-
-This option is commonly used to configure the value of fields like Ticket Title and Ticket Description.
-
-See image.
-
-[Image: Adding a Smart Text field]
-
-For use cases that require more advanced configuration than either of the previous two methods, you can use Python scripts to configure the field value to be mapped to the target field.
-
-[Image: Define the Ticket Title field using the Field Editor]
-
-When dispatching tickets to Azure DevOps, map the Azure DevOps Description field with a summary of the Ticket content to provide remediation teams with a brief overview of the ticket.
-
-To configure the Ticket to Azure DevOps Description mapping:
-
-1. Click**Mapping**.
-2. Select**Description** as the field on theright.
-3. Click **Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Smart Text**.
-5. Enter a ticket description, including dynamic fields (e.g., `{{SLA}}`).
-
-Tickets dispatched to Azure DevOps will now include the configured description.
-
-In the Ticket to Azure DevOps sync, map the Azure DevOps Due Date field to keep timelines in sync with Ticket SLA changes.
-
-To configure the Ticket SLA to Azure Devops Due Date mapping:
-
-1. Click**Mapping**.
-2. Select**Due Date** as the field on the right.
-3. Click**Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Field**, and select **Ticket SLA** as the field on the left.
-
-Ticket SLA changes will now automatically update Azure DevOps issue due dates.
-
-In the Azure DevOps to Ticket sync, map the Ticket Status field to ensure it's updated when remediation teams change the Azure DevOps Issue Status.
-
-To configure the Azure DevOps to Ticket Status mapping:
-
-1. Click**Mapping**.
-2. Select**Ticket Status** as the field on the right.
-3. Click**Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Field**, and select **Status** as the field on the left. Use the dictionary to map your Azure DevOps **Status** types to **Ticket Status** types.
-
-Azure DevOps issue Status changes will now automatically update the Ticket Status.
-
-[Image: Mapping Preview details]
-
-You can set a SecOps ticket field as mandatory by selecting the **Set as Mandatory**checkbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
-
-See image.
-
-Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched, so Azure DevOps tickets are always actionable for your remediation teams. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
-
-Required fields are defined by your Azure DevOps schema, whereas mandatory fields are for SecOps ticket dispatch.
-
-[Image: Select the Set as Mandatory checkbox to set a SecOps ticket field as mandatory]
-
-You can create a file attachment that summarizes your ticket content and set the trigger to automatically add it to your Azure DevOps issue. Adding an attachment to your Azure DevOps issue simplifies the review and management of findings dispatched from a ticket.
-
-You can configure file attachments in two of the mapping steps:
-
-- Initial ticket dispatch See image.
-- Sync from ticket to Azure DevOps See image.
-
-When configured in the ticket to the Azure DevOps sync section, the attachment is included in the Azure DevOps issue alongside existing attachments as a downloadable file in the selected format.
-
-Use the **File Format** drop-down menu on the top left of the attachment page to select from the available formats (**CSV**, **PDF**, **JSONL**, **Excel**).
-
-See image.
-
-To provide your Azure DevOps remediation teams with a comprehensive view of the findings in the ticket, consider including the following fields in your attachment:
-
-- Finding Severity
-- Finding Title
-- Finding CVE
-- Component Name
-- Asset Name
-- Asset Operating System
-- Finding Optimal Fix
-- Finding Description
-- Finding Sources
-
-[Image: Field details of the ticket dispatched to Azure DevOps]
-
-[Image: Sync update details]
-
-[Image: List of file formats to add an attachment]
-
-In the Ticket to Azure DevOps sync step, you can configure how ticket comments are synchronized with Azure DevOps issue comments. To configure comments, click **Comment Sync**.
-
-See image.
-
-#### Sync Comments
-
-Enable **Sync Comments**to automatically push comments from the ticket's Comments tab to the corresponding Azure DevOps issue.
-
-See image.
-
-#### Trigger Comments
-
-Enable **Sync Trigger Comments**and set conditions to trigger a comment when specific fields are modified. Syncing trigger comments is useful when you want to be notified of important changes to tickets without updating the corresponding Azure DevOps issue. For example, you can configure a trigger to post a comment in Azure DevOps when the Ticket Severity changes from Medium to Critical.
-
-See image.
-
-To add a trigger condition:
-
-1. Select the field you want to monitor (e.g., **Severity**).
-2. Set the value change that should trigger the comment:
-  - **From**: Select the original value.
-  - **To**: Select the updated value.
-
-When the specified change occurs in the ticket, a comment is automatically created and added to the Azure DevOps issue. The following is an example of a trigger comment:
-
-```
-Linked UVM ticket updated:
-Ticket severity changed from: MEDIUM to: CRITICAL
-<URL to ticket>
-```
-
-[Image: Sync ticket comments to Azure DevOps issue comments]
-
-[Image: Enable ticket comments to push to Azure DevOps issue]
-
-[Image: Enable to trigger comments when fields are modified]
-
-[Image: Azure DevOps Mapping]
-
-The Azure DevOps outegration webhook enables automatic syncing of Azure DevOps issue updates (e.g., Status or SLA changes) to their corresponding tickets, reducing the need for manual changes. This step is required when configuring the Azure DevOps to Ticket mapping to keep issues and tickets in sync. To learn more, see [Configuring the Azure Outegration Webhook.](https://help.zscaler.com/uvm/configuring-azure-devops-outegration-webhook)
-
-See image.
-
-An Azure DevOps webhook is only needed to sync updates from Azure DevOps to the ticket. It is not required for the initial ticket dispatch or for syncing updates from the ticket to Azure DevOps.
-
-[Image: Sync update details]
-
-When the outegration setup is complete, you can begin dispatching SecOps tickets using the Create Azure DevOps Ticket button that appears in the Create Ticket menu within individual tickets, as well as in the Create Issue menu in the Tickets View. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-azure-devops-outegration-webhook","lastmod":"2025-11-10T14:50Z","nid":"1533654"} -->
-## Configuring the Azure DevOps Outegration Webhook
-
-- Source: https://help.zscaler.com/aem/configuring-azure-devops-outegration-webhook
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring the Azure DevOps Outegration Webhook
-- Last modified: 2025-11-10T14:50Z
-- Summary: How to configure the Azure DevOps outegration webhook for automatic syncing of tickets.
-
-The Azure DevOps outegration webhook enables automatic syncing of Azure DevOps ticket updates such as Status or SLA changes to their corresponding Zscaler SecOps tickets, reducing the need for manual changes. This step is required when configuring the Azure DevOps to SecOps ticket mapping to keep the tickets in the two systems in sync. To learn more, see [Configuring the Azure DevOps Outegration.](https://help.zscaler.com/uvm/configuring-azure-devops-outegration)
-
-See image.
-
-## Configuring the Azure DevOps Webhook
-
-To set up your Azure DevOps webhook:
-
-1. Log in to the [Azure Portal.](https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?redirect_uri=https%3A%2F%2Fportal.azure.com%2Fsignin%2Findex%2F&response_type=code%20id_token&scope=https%3A%2F%2Fmanagement.core.windows.net%2F%2Fuser_impersonation%20openid%20email%20profile&state=OpenIdConnect.AuthenticationProperties%3DZVjiwziwkqMm09ulCtjcFHak_lElmz1-GR3JLeWLxQsF7QjBNKvv9QvLEFH2HcEndSvxqwH8TYIz05Rs-KLkXn5DBfmJfiZ9aE2z3zu7Op006IlpU9ju4tkaKXkLjVtymohcjPOPwTCbV0AO-wSe_IcmX-SWqpR8VrT9TqiH-dKSpSt3Ors_jAkH4T7FhpT-_mDwOdyu6j1x8jas38xjKGG__EjqIp_1RCpWSEvyj4W2WsNVmo4WJHF201lUOCruzvvvkLQWVlJgCNeSPAED_sNLW0UgWO6h18vBbJAT1zaiGvOs98n5J279Fr2jEe3ubIBwpaPdljHfGmjY_3bAHUNZ1-9_Yj1mho1-kuG6Db6arWKhCzvWGeYfiM5_8dBI6io5UiU12LzaXKm8BnkFsfZ5TkLknok2_a0CCDsjB5Io_KV9PkOoCWUwmjg0Glsk-pQc9kTdIdhT_xZE4O4c4NLUlpHVyFfIDBjFOWENYUs&response_mode=form_post&nonce=638943031944613686.MDNjY2Q4MDUtMDU1OC00ZTdkLWI2NjAtMzRkNGEyOTgwMTRjNzU1ZGVkOGEtNzljYy00YWFiLWEwNWYtZWE2ZDQzMDA4MTNm&client_id=c44b4083-3bb0-49c1-b47d-974e53cbdf3c&site_id=501430&instance_aware=true&client-request-id=4632ec44-3590-4f2c-97ca-ccbf3b65c19a&x-client-SKU=ID_NET472&x-client-ver=8.3.0.0)
-2. Go to **Organization**>**Projects** and select a project. The project page appears. See image.
-3. Click **Project Settings** in the bottom-left corner. The **Project details**page appears. See image.
-4. In the left-side navigation, go to **General**> **Service Hooks**.
-5. Click **Create subscription**. The **Service**page appears.
-6. On the **Service**page, select **Web Hooks**.
-7. Click **Next**. The **Trigger**page appears.
-8. Select an event to trigger and configure filters. Select the options based on the work item that you are configuring the outegration for. See image.
-9. Click **Next**. The **Action**page appears.
-10. For **URL,**enter `https://webhook.avalor.io/integration/{avalor-account-id}/azure_DevOps`. See image.
-11. Click **Test**.
-12. Click **Finish**if the test is successful.
-
-After your webhook is set up, configured triggers for field updates in your Azure DevOps outegration mapping automatically sync changes made to Azure DevOps tickets with their corresponding SecOps tickets.
-
-[Image: Shows the details on sync changes made from Azure DevOps to Zscaler SecOps ticket]
-
-[Image: Shows the projects in the Azure DevOps portal]
-
-[Image: Select the event to trigger and configure the filters]
-
-[Image: Select and configure the action to perform on the Action page]
-
-[Image: Shows the project settings page in the Azure DevOps portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-custom-dashboards","lastmod":"2026-03-16T07:06Z","nid":"1533676"} -->
-## Configuring Custom Dashboards
-
-- Source: https://help.zscaler.com/aem/configuring-custom-dashboards
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Configuring Custom Dashboards
-- Last modified: 2026-03-16T07:06Z
-- Summary: How to configure custom dashboards, including adding and configuring widgets in the dashboard.
-
-Custom dashboards allow you to organize and display relevant data in a way that is meaningful to your organization. While the platform comes equipped with built-in dashboards that provide powerful and ready-to-use insights, custom dashboards give you the flexibility to tailor your view, selecting specific measurements and dimensions that matter most to you. This article provides step-by-step instructions on how to create and configure custom dashboards. For details on how to manage existing dashboards, see [Managing Custom Dashboards](https://help.zscaler.com/uvm/managing-custom-dashbords).
-
-## Creating a Custom Dashboard
-
-You can create a custom dashboard from scratch or start with a preconfigured template. In the Zscaler Security Operations (SecOps) platform, go to Explore > Dashboards > Template Gallery to browse and select from a variety of dashboard templates.
-
-To create a custom dashboard:
-
-1. Go to **Explore** > **Dashboards**. A list of the private and public dashboards that you have access to appears. See image.
-2. Click **New**. The **Create New Dashboard** window appears.
-3. In the **Create New Dashboard** window: See image.
-  1. **Name**: Enter a unique name for the dashboard.
-  2. **Description**: (Optional) Enter a short description of the dashboard’s purpose.
-  3. **Viewers**: Set the dashboard's viewer access. To set the dashboard as private and only visible to you, leave the **Viewers** drop-down menu blank.
-    1. **Public**: Select this option to grant view access to all users in the account.
-    2. **Selected Users**: Select users from the list to set them as viewers of the dashboard.
-  4. **Editors**: Set the dashboard's editor access. To set the dashboard as private and editable only by you, leave the **Editors** drop-down menu blank.
-    1. **Public**: Select this option to grant edit access to all users in the account.
-    2. **Selected Users:** Select users from the list to set them as editors of the dashboard. Users designated as editors override the **Viewers** setting.
-  5. **Pin to Apps**: (Optional) Select the application to which you want to pin the dashboard. This allows you to easily find the dashboard under **My Dashboards** on the app.
-4. Click **Create**. The **Create New Widget** page appears, and you can start adding widgets to visualize your data.
-
-[Image: All Dashboards page]
-
-[Image: Create New Dashboard window]
-
-## Adding Widgets to Dashboards
-
-Each custom dashboard is made up of dynamic widgets that you can drag and drop into a layout that fits your needs. Widgets can be configured to display the measurements and dimensions most relevant to you. As you configure a widget, a live preview appears to the right of the settings panel, allowing you to track and review changes in real time.
-
-To configure widgets in a dashboard:
-
-1. Click the **Edit**icon for an existing dashboard.
-2. Click the **Edit Dashboard**icon at the top of the page, and then click **Widget**. See image. The **Create New Widget**window appears.
-3. In the **Create New Widget**window:
-  1. Select a widget type in the left pane (e.g., **Bar**, **Line**, **Pie**). The widget type affects the number of measurements and dimensions you can add to the widget.
-  2. In the right pane, replace **Widget Title (Optional)**with a custom title.
-  3. On the **Filters** tab, select a **Timeframe** option: See image.
-    - **Current**: Shows the current data. This is the default setting.
-    - **Historical**: Select to track over-time behavior in your organization. Specify the desired date range.
-  4. Customize the widget's displayed data, filters, style, and interactivity.
-    - Configure the data displayed in the widget.
-    - (Optional) Apply filters to the widget.
-    - (Optional) Set the widget style.
-    - (Optional) Configure the widget drilldown.
-  5. (Optional) Enable **Table View**to display the data in a table format.
-  6. Click **Save** on the bottom right of the widget to save your widget.
-4. Click **Save** on the top right of the dashboard to add the widget to the dashboard.
-
-You can repeat this process to add as many widgets as needed.
-
-[Image: Edit a dashboard widget]
-
-[Image: Timeframe filter options]
-
-On the **Data** tab:
-
-1. Select the **Main Entity** type. Measurements and dimensions are dynamically displayed based on the selected entity type.
-2. Add measurements and dimensions to the widget. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions). See image.
-  - Click the **Measurements**icon to view the list of available measurements.
-  - Click the **Dimensions**icon to view the list of available dimensions.
-
-The selected measurements and dimensions appear in the left pane, where you can rearrange them by dragging them to the desired position.
-
-See image.
-
-[Image: Measurements icon and Dimensions icon]
-
-[Image: Rearrange measurements and dimensions]
-
-On the **Filters** tab, customize and refine the data displayed and the way in which it's displayed, including date filtering, sorting and ordering, limiting the display to top results, and applying specific filter conditions.
-
-- Date
-- Sort & Top
-- Conditions Filters
-
-When creating historical widgets, you can set date filters for the timeframe and granularity that your widget should display.
-
-1. On the **Filters**tab, select **Historical** for the **Timeframe** setting. Switching to the historical data type might remove some of the selected measurements or dimensions that are not supported in historical mode.
-2. In the **Date Range** drop-down menu, select the range of the data that the widget should display. You can choose either a fixed range (e.g., **Last 30 Days**) or a dynamic range that updates based on the current date. To learn more, see [Using Filters](https://help.zscaler.com/uvm/operational-views-filters).
-3. (Optional) In the **Break down by**drop-down menu, select a time interval to set a time-based granularity (e.g., **Day**, **Week**, or **Month**). This selection adds a time dimension to your widget, which counts toward the total number of dimensions. If you do not make a selection for **Break down by**, the widget will not include a time dimension. See image.
-
-[Image: Configure the time range of a dimension]
-
-To configure the sorting and ordering of the data included in the widget, do the following:
-
-- **Sort By**: Select the measurement or dimension for sorting the data in the widget. If the widget includes a measurement, the measurement is used as the default for sorting.
-- **Order**: Set the data's display order to either descending (down arrow) or ascending (up arrow).
-- **Show Top**: Select the maximum number of values that the widget should display. Select the **Group Others** checkbox to group the remaining results into one segment titled **Other**.
-- **Exclude Zero Values**: Set whether empty values should be displayed or excluded from the widget display.
-
-To apply condition filters:
-
-1. **Select Field**: Select the field you want to filter by from the drop-down menu.
-2. **Select Operator**: Select an operator that defines the relationship between the field and its value. The available operators vary depending on the selected field type. Repeated field filters include **All** and **Any** operators that you can use to evaluate multiple values within a single field. To learn more, see [Using Filters](https://help.zscaler.com/uvm/filtering-operational-views).
-3. **Type Value**: Enter the field value against which the filter is evaluated.
-
-Use the **AND**/**OR** operators and repeat this process to add multiple condition filters to your widget. For example, you can add a condition to your widget, filtering to include only active tickets assigned to teams with either R&D or DEV in their name.
-
-See image.
-
-To remove a filter condition, click the **Delete** icon located to the right of the condition.
-
-[Image: Filters conditions]
-
-On the **Style** tab, you can determine how the data is displayed within the widget.
-
-For example, you can configure the legend display for pie charts. The available options include:
-
-- **Table**: Displays the legend in a tabular format adjacent to the chart. See image.
-- **Aside**: Displays the legend in lines extending from each chart segment. See image.
-- **Basic**: Displays dimension values above the chart and measurement values when hovering over a segment. See image.
-- **Off**: Hides the legend entirely.
-
-For the **Table** and **Aside** options, you can enable or disable **Show Values** and **Show Percentage** to control the display of corresponding measurements.
-
-See image.
-
-Enable **Show Totals** to display aggregated totals, where applicable.
-
-Apply formatting rules to set color-coded thresholds for measurements and dimensions, providing clear visual indicators in widgets. To learn more, see [Creating Formatting Rules](https://help.zscaler.com/uvm/creating-formatting-rules).
-
-[Image: Table style for a chart legend]
-
-[Image: Aside legend for table data]
-
-[Image: Basic legend and hover data for a chart]
-
-[Image: Style tab Legend options]
-
-On the **Interactions** tab, you can configure drill down interactivity, which allows you to explore data at a more granular level by clicking elements in a widget to reveal additional dimensions.
-
-Drilldown is available for **Bar**, **Pie**, and **Table** widgets that are configured with exactly one dimension.
-
-To set up a drilldown hierarchy in your widget:
-
-1. Click the **Interactions** tab. See image.
-2. Click **Add Level** to add the next dimension in the drill down hierarchy. You can add up to three drill down levels.
-
-After the drill down hierarchy is configured, clicking a segment within the widget reveals the interactions menu, where you can either view items or drill down into the next level. To learn more, see [Viewing Items in a Widget Segment](https://help.zscaler.com/uvm/viewing-items-widget-segment).
-
-When drilling down, the widget updates to display the data broken down by the next defined dimension. You can navigate back up the hierarchy using the breadcrumbs bar at the top of the widget.
-
-[Image: Interactions tab]
-
-After adding widgets, you can apply dashboard-wide filters using the filter bar in the top-left corner of the dashboard view.
-
-Saved dashboards appear on the Dashboards page, where they can be accessed in View Dashboard mode with all applied configurations.
-
-See image.
-
-To view existing filters for a widget, hover over the Filter icon. When editing a dashboard, you can click the Filter icon to open the widget configuration page, where you can edit the applied filters.
-
-[Image: View Dashboard icon and Filter icon]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/configuring-discovery-settings","lastmod":"2026-05-17T07:06Z","nid":"1538687"} -->
 ## Configuring Discovery Settings
 
@@ -1434,449 +412,6 @@ After scanning is completed, you can view the ingested assets on the [Assets](ht
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/configuring-freshservice-outegration","lastmod":"2026-01-25T06:06Z","nid":"1534277"} -->
-## Configuring the Freshservice Outegration
-
-- Source: https://help.zscaler.com/aem/configuring-freshservice-outegration
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring the Freshservice Outegration
-- Last modified: 2026-01-25T06:06Z
-- Summary: How to configure the Freshservice outegration for disptaching SecOps tickets to the Freshservice work management system.
-
-The Freshservice outegration is used to dispatch tickets from Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Freshservice tickets, creating a Freshservice ticket that can then be tracked, assigned, and managed by your remediation teams working with Freshservice.
-
-This article is a step-by-step guide to setting up the Freshservice work management outegration. The process involves setting up authentication, outegration visibility in the platform, outegration mapping, and when relevant, configuring a Freshservice webhook to enable bidirectional synchronization.
-
-## Prerequisites
-
-Retrieve the required authentication parameters and enter them in the corresponding fields during the Connect step of the outegration setup wizard.
-
-- API Key
-- Domain
-
-## Configuring the Freshservice Outegration
-
-To configure the Freshservice outegration, complete the following steps:
-
-- Step 1: Authenticate the Freshservice Connection (Connect)
-- Step 2: Configure the Outegration Visibility and Behavior (Settings)
-- Step 3: Map the Outegration Fields (Mapping)
-- (Optional) Step 4: Configure the Freshservice Webhook
-
-To authenticate the Freshservice outegration, you need to provide a Freshservice API key.
-
-To retrieve the Freshservice API key:
-
-1. In the Freshservice portal, click the **Profile**menu on the top right of the page.
-2. Click **Profile settings**. See image.
-3. Copy the API key that appears under the **Delegate Approvals**section. See image.
-
-[Image: Freshservice Profile Settings]
-
-[Image: API key in the Freshservice portal]
-
-Make sure you have the domain of your Freshservice tenant (e.g., `acme.Freshservice.com`).
-
-The first step in setting up your Freshservice outegration is to authenticate using valid credentials to establish a secure connection with your Freshservice instance. With the required parameters retrieved in the prerequisites, you can begin the Freshservice outegration setup in the SecOps platform.
-
-To create the outegration:
-
-1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
-2. Click **Create**, then select **Freshservice**. The **Connect** step appears. See image.
-3. In the **Details** section:
-  1. **Display Name**: Enter a name for the outegration.
-  2. **Active**: Enable to activate the Freshservice outegration.
-  3. **Domain**: Enter the domain of your Freshservice tenant.
-  4. **Authentication**: Select an existing authentication, or click **Create New** to set up a new authentication, and enter the required parameters you retrieved earlier into the corresponding fields. To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications).
-4. Click **Test** in the bottom-right corner of the screen to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
-5. After the test passes, click **Next**to advance to the **Settings**step.
-
-[Image: The Outegrations page in the Zscaler SecOps platform]
-
-[Image: Edit Freshservice Outegration page]
-
-In the Settings step of the outegration setup wizard, configure your Freshservice outegration's visibility and behavior within the relevant application in the SecOps platform (e.g., UVM, AEM). In this step, you'll set the SecOps entity that triggers the Freshservice ticket dispatch (e.g., ticket, violation ticket) and when the Create Freshservice Ticket button should appear in the application. The Create Freshservice Ticket button allows end users with access to SecOps tickets to dispatch these tickets to Freshservice directly from the SecOps ticket drawer or from the SecOps tickets page.
-
-To configure the outegration's visibility and behavior:
-
-1. In the **Advanced Settings** section, for **Create Freshservice item from**, select the entity that you want to configure the outegration for. This selection affects the view you'll configure in the <Entity> **View**step (e.g., selecting Ticket displays the Tickets View setting). Other entity types might be visible depending on the apps enabled in your account. See image.
-  - **UVM**: Select **Ticket**.
-  - **AEM**: Select **Violation Ticket**.
-2. In the <Entity> **View** section, select how the SecOps ticket should display the **Create Freshservice Ticket**button. This setting can be modified at any time. See image.
-  - **Always**: Select to display the button in all tickets, allowing users to dispatch tickets to a Freshservice ticket without exception.
-  - **Never**: Select to hide the button in all tickets. This is useful during the outegrationsetup process to hide the button from users while still keeping the outegration active.
-  - **For specific tickets**: Define custom conditions to control when the button is displayed, allowing you to target specific tickets. For example, if your organization uses multiple ticketing systems, you can grant access to the button only to users who work with Freshservice, while excluding those who use other ticketing systems (e.g., Jira).
-3. Click **Map**to advance to the **Mapping** step.
-
-The **Create Freshservice Ticket**button appears in two locations:
-
-- In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/viewing-managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/aem/viewing-violation-tickets-aem)). See image.
-- On the entity page in the relevant application (e.g., on the [Tickets page](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, on the [Violation Tickets page](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM). See image.
-
-[Image: Select an entity from the Create Freshservice Item drop-down menu]
-
-[Image: Tickets View setting]
-
-[Image: Create Freshservice Ticket Button in Ticket]
-
-[Image: Create Freshservice Ticket Button on Tickets Page]
-
-The third step in setting up your Freshservice outegration is configuring the field mapping between your SecOps tickets and Freshservice tickets. This defines how data is exchanged and synchronized between the two systems upon initial dispatch and subsequent updates. The SecOps platform's unique mapping capabilities allow for flexible mapping of any custom field or logic to any field in your Freshservice fields, facilitating highly customized workflows that align with your organization's requirements.
-
-The main objective of the mapping process is to map values to fields. To map values to fields, configure values on the left to populate the fields selected on the right.
-
-See image.
-
-There are three mapping components:
-
-- Tickets initially dispatched to Freshservice: Map SecOps ticket fields (left) to Freshservice fields (right) for the initial dispatch of a ticket to a Freshservice ticket. You can also add an attachment to your Freshservice ticket. Commonly mapped fields include priority, email, status, subject, and description.
-- (Optional) Sync from ticket to Freshservice: Map SecOps ticket fields (left) to Freshservice fields (right) for syncing ticket updates to Freshservice, including configuring comments and adding an attachment to your Freshservice ticket. Commonly mapped fields include status and due by.
-- (Optional) Sync from Freshservice to ticket: Map Freshservice fields (left) to SecOps ticket fields (right) for syncing Freshservice updates to SecOps tickets. This step also requires setting up a [Freshservice webhook](https://help.zscaler.com/uvm/configuring-freshservice-outegration#step4-freshservice-webhook). Commonly mapped fields include Ticket Status and Ticket SLA.
-
-### Creating a New Mapping
-
-In each of the three mapping components, you'll need to select a field on the right, and then configure the corresponding field value on the left.
-
-To create a new mapping:
-
-1. Select a field (right):
-  1. Click**Mapping**.
-  2. Select a field on the right. See image. The field's schema details open on the right of the page. The schema lists available Freshservice fields to be used during mapping. This is the list of fields configured for tickets in your Freshservice account. See image. The following details are specified for fields, when available:
-    - Input Type
-    - Available Options
-2. Configure the field value (left):
-  1. Click **Add Value** on the left. See image. The editor dialog appears.
-  2. In the editor dialog, select one of the following methods to configure the value of the field:
-    - Field (Dictionary)
-    - Smart Text
-    - Script
-
-Repeatthe mapping process for all Freshservice fields that you want to map.
-
-In addition to the mapping of fields on the right to fields on the left, you can perform a set of actions when setting up the Freshservice outegration mapping, each relevant to a specific part of the mapping.
-
-- Set a ticket field as mandatory.
-- Add attachments to the ticket dispatch.
-- Configure comments synchronization.
-
-### Mapping Ticket Title to Subject
-
-To illustrate the mapping process, consider the mapping of the Freshservice subject field. The final result of the mapping process should show the subject field on the right, and the Ticket Title field on the left.
-
-[Image: Ticket Title to Subject Mapping]
-
-To map the Ticket Title field to the subject field:
-
-1. Select **subject**as the Freshservice field on the right. See image. Selecting the Freshservice subject field opens the field's details in the schema. The schema specifies that the field expects a TEXT input type. Therefore, the field for which a value is being configured must also be of TEXT type. See image.
-2. Select the **Ticket Title**field on the left: See image.
-  1. Click**Add Value**.
-  2. Choose the **Field** method.
-  3. From the drop-down menu, select the **Ticket Title**field, which corresponds to the Freshservice **subject**field.
-
-### Previewing the Ticket to Freshservice Mapping
-
-After completing the SecOps ticket to Freshservice dispatch mapping, you can preview the mapping to review the configuration. This helps ensure that SecOps ticket dispatch is behaving as expected and that the Freshservice ticket fields are populated correctly.
-
-To preview the mapping, click **Preview**on the bottom right of the ticket initially dispatched to the Freshservice section. The Mapping Preview window appears. In the left pane, the SecOps tickets in your account are listed and organized by ticket ID. You can select, filter, or search tickets and preview the mapping to their corresponding Freshservice ticket. You can also open the actual SecOps ticket in a new tab for a more in-depth review.
-
-See image.
-
-### Common Mapping Examples
-
-These mapping examples highlight commonly used field configurations in your outegration. While some might be preconfigured by default, Zscaler recommends reviewing and customizing them to ensure they align with your workflow.
-
-- Ticket to Freshservice Description
-- Ticket SLA to Freshservice Due By Sync
-
-[Image: Freshservice Outegration Mapping]
-
-[Image: Freshservice Priority Field]
-
-[Image: Freshservice Outegration Schema]
-
-[Image: Click Add Value to configure the left field]
-
-The Input Type specifies the data type of the Freshservice field, such as TEXT (e.g., description), DATE (e.g., due by), or NUMBER (e.g., status). This indicates the format that the selected source field must match in order to successfully map to the Freshservice field.
-
-For Freshservice fields with fixed values, the Available Options column displays the available values. For example, if the Freshservice field status is configured to include the following fixed values—Scheduled, Closed, Resolved, Pending, Open—the corresponding values in the Ticket Status field can be mapped to these values.
-
-[Image: Freshservice Outegration Mapping the Subject Field]
-
-[Image: Freshservice Outegration Subject Field Schema]
-
-In the **Field Editor**dialog, select a field from the drop-down menu to populate the field you chose on the right.
-
-#### Dictionary
-
-The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left. To enable the dictionary, make sure you have a field selected on the right, and then select a field from the drop-down menu on the left.
-
-For example, if your Freshservice priority field includes the following fixed values—Urgent, High, Medium, Low—you can use the dictionary to map the corresponding Ticket Severity values to each of the Freshservice priority field values.
-
-See image.
-
-[Image: Freshservice Outegration Ticket Severity to Priority Dictionary Mapping]
-
-Configure the field value using free text, or create a template using a combination of free text and selected fields. This allows you to dynamically insert specific field values (e.g., Ticket SLA, Ticket Assignee, or Asset Name) into customized free text sentences or paragraphs.
-
-To add a Smart Text field, enclose it in double curly brackets (e.g., `{{Ticket Assignee}}`). The field's display name automatically translates to its system name.
-
-This option is commonly used to configure the value of fields like Ticket Title and Ticket Description.
-
-See image.
-
-[Image: Freshservice Outegration Description Field Smart Text Mapping]
-
-For use cases that require more advanced configuration than either of the previous two methods, you can use Python scripts to configure the source field value to be mapped to the target field.
-
-[Image: Mapping the Ticket Title field to the Freshservice subject field]
-
-When dispatching tickets to Freshservice, map the Freshservice Description field with a summary of the Ticket content to provide remediation teams with a brief overview of the ticket.
-
-To configure the Ticket to Freshservice Description mapping:
-
-1. Click**Mapping**.
-2. Select**Description** as the field on the right.
-3. Click **Add Value** on the left. The editor dialog appears.
-4. In the editor dialog, select **Smart Text**.
-5. Enter a ticket description, including dynamic fields (e.g., `{{SLA}}`).
-
-Tickets dispatched to Freshservice will now include the configured description.
-
-In the Ticket to Freshservice sync, map the Freshservice Due By field to keep timelines in sync with Ticket SLA changes.
-
-To configure the Ticket SLA to Freshservice Due By mapping:
-
-1. Click**Mapping**.
-2. Select**Due Date** as the field on the right.
-3. Click**Add Value** on the left. The editor dialog appears.
-4. In the editor dialog, select **Field**, and select **Ticket SLA** as the field on the left.
-
-Ticket SLA changes will now automatically update Freshservice ticket due dates.
-
-[Image: Freshservice Outegration Mapping Preview]
-
-You can set a SecOps ticket field as mandatory, by selecting the **Set as Mandatory**checkbox in the Column Menu to the right of the mapping.
-
-See image.
-
-Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched to Freshservice, so Freshservice tickets are always actionable for your remediation teams. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
-
-[Image: Freshservice Outegration Set As Mandatory]
-
-You can create a file attachment that summarizes your ticket content and set the trigger to automatically add it to your Freshservice ticket. Adding an attachment to your Freshservice ticket simplifies the review and management of findings dispatched from a ticket.
-
-You can configure file attachments in two of the mapping steps:
-
-- Initial ticket dispatch See image.
-- Sync from Ticket to Freshservice See image.
-
-When configured in the Ticket to Freshservice sync section, the attachment is included in the Freshservice ticket alongside existing attachments as a downloadable file in the selected format.
-
-Use the **File Format** drop-down menu on the top left of the attachment page to select from the available formats (**CSV**, **PDF**, **JSONL**, **Excel**).
-
-See image.
-
-To provide your Freshservice remediation teams with a comprehensive view of the findings in the ticket, consider including the following fields in your attachment:
-
-- Finding Severity
-- Finding Title
-- Finding CVE
-- Component Name
-- Asset Name
-- Asset Operating System
-- Finding Optimal Fix
-- Finding Description
-- Finding Sources
-
-[Image: Freshservice Outegration Initial Dispatch Attachment]
-
-[Image: Freshservice Outegration Sync Attachment]
-
-[Image: Select a file format from the File Format drop-down menu]
-
-In the Ticket to Freshservice sync step, you can configure how ticket comments are synchronized with Freshservice ticket notes. To configure comments, click **Comment Sync**.
-
-See image.
-
-#### Sync Comments
-
-Enable **Sync Comments**to automatically push comments from the ticket's Comments tab to the corresponding Freshservice ticket.
-
-See image.
-
-#### Trigger Comments
-
-Enable **Sync Trigger Comments**and set conditions to trigger a comment when specific fields are modified. Syncing trigger comments is useful when you want to be notified of important changes to tickets without updating the corresponding Freshservice ticket. For example, you can configure a trigger to post a comment in Freshservice when the Ticket Severity changes from Medium to Critical.
-
-See image.
-
-To add a trigger condition:
-
-1. Select the field you want to monitor (e.g., **Severity**).
-2. Set the value change that should trigger the comment:
-  - **From**: Select the original value.
-  - **To**: Select the updated value.
-
-When the specified change occurs in the ticket, a comment is automatically created and added to the Freshservice ticket. The following is an example of a trigger comment:
-
-```
-Linked UVM ticket updated:
-Ticket severity changed from: MEDIUM to: CRITICAL
-<URL to ticket>
-```
-
-[Image: Freshservice Outegration Comments Sync Button]
-
-[Image: Freshservice Outegration Sync Comments]
-
-[Image: Freshservice Outegration Sync Trigger Comments]
-
-The Freshservice outegration webhook enables automatic syncing of Freshservice ticket updates (e.g., Status or SLA changes) to their corresponding SecOps tickets, reducing the need for manual changes. This step is required when configuring the Freshservice to SecOps ticket mapping to keep the tickets in the two systems in sync. To learn more, see [Configuring the Freshservice Outgeration Webhook](https://help.zscaler.com/uvm/configuring-freshservice-outegration-webhook).
-
-A Freshservice webhook is only needed to sync updates from Freshservice to the ticket. It is not required for the initial ticket dispatch or for syncing updates from the ticket to Freshservice.
-
-When the outegration setup is complete, you can begin dispatching SecOps tickets using the Create Freshservice Ticket button that appears in the Create Ticket menu within individual tickets, as well as in the Create Issue menu in the Tickets View. To learn more, see [Creating & Managing Third Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-freshservice-outegration-webhook","lastmod":"2026-02-17T06:06Z","nid":"1534278"} -->
-## Configuring the Freshservice Outegration Webhook
-
-- Source: https://help.zscaler.com/aem/configuring-freshservice-outegration-webhook
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring the Freshservice Outegration Webhook
-- Last modified: 2026-02-17T06:06Z
-- Summary: How to configure the Freshservice outegration webhook for bidirectional sync when setting up the Freshservice outegration.
-
-The Freshservice outegration workflow webhook enables automatic syncing of Freshservice ticket updates such as Status or SLA changes to their corresponding tickets, reducing the need for manual changes. This step is required when configuring the Freshservice to ticket mapping to keep Freshservice tickets and SecOps tickets in sync. To learn more, see [Configuring the Freshservice Outegration](https://help.zscaler.com/uvm/configuring-freshservice-outegration).
-
-See image.
-
-To set up your Freshservice workflow webhook:
-
-1. In the Freshservice portal, go to **Admin** > **Workflow Automator**. See image.
-2. From the **New Automator** drop-down menu, select **Ticket**. See image. The**New Ticket Automator**window appears.
-3. In the **New Ticket Automator** window: See image.
-  1. **Title**: Enter a title for the workflow webhook.
-  2. **Description**: (Optional) Enter a description of the workflow webhook.
-4. Click **Create**. The **Event**drawer appears.
-5. In the **Event**drawer: See image.
-  1. Select **Ticket is**,and then select **updated**.
-  2. Click **Add New Event**.
-  3. Select **Ticket is**,and then select **deleted**.
-  4. Update the title to **Ticket is updated/deleted**.
-  5. Click **Done**.
-6. Drag the **Action**icon into the diagram to add an action to the workflow. See image. The **Action**drawer appears.
-7. In the **Action**drawer:
-  1. Enter or select **Trigger Webhook**in the field.
-  2. **Request Typ**e: Select **POST**.
-  3. **Callback URL**: Paste the following URL into the field: `https://webhook.avalor.io/integration/``<Account ID>``/Freshservice`. Replace `<Account ID>` with your account ID.
-  4. **Credentials**: Leave the drop-down menu empty.
-  5. **Encoding**: Make sure **JSON**and **Simple**are selected.
-  6. **Content**: Select the following fields:
-    - Ticket ID
-    - Ticket ID (numeric)
-    - Subject
-    - Description
-    - Group
-    - Priority
-    - Urgency
-    - Impact
-    - Status
-  7. Click **Done**. See image.
-8. Click **Activate** on the top right of the **Workflow Automator**page. See image.
-
-After your webhook is set up, configured triggers for field updates in your Freshservice outegration mapping automatically sync changes made to Freshservice tickets with their corresponding SecOps tickets.
-
-[Image: Freshservice Webhook Sync]
-
-[Image: Freshservice Webhook Workflow Automator]
-
-[Image: Freshservice Webhook New Automator Menu]
-
-[Image: Freshservice Webhook New Ticket Automator]
-
-[Image: Freshservice Webhook Event Drawer]
-
-[Image: Freshservice Workflow Automator Drag an Action]
-
-[Image: Freshservice Webhook Action Drawer]
-
-[Image: Freshservice Webhook Activate]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-google-cloud-storage-outegration","lastmod":"2026-06-09T22:24Z","nid":"1541147"} -->
-## Configuring Google Cloud Storage Outegration
-
-- Source: https://help.zscaler.com/aem/configuring-google-cloud-storage-outegration
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring Google Cloud Storage Outegration
-- Last modified: 2026-06-09T22:24Z
-- Summary: How to configure Google Cloud Storage outegration in the Zscaler SecOps platform.
-
-The Google Cloud Platform (GCP) Storage outegration is used as a report delivery method to dispatch files from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Google Cloud Storage bucket.
-
-This article is a step-by-step guide to configuring Google Cloud Storage as a storage outegration.
-
-## Prerequisites
-
-Before you configure the outegration, ensure the following requirements are met:
-
-- Service Account
-- Service Account Permissions
-- JSON Keys
-- Google Cloud Storage Bucket Name
-- Google Cloud Storage Bucket's Project ID
-
-To retrieve the Google Cloud Storage bucket's Project ID, use the Google Cloud console, the command line, or the Storage API. To learn more, refer to the [Google Cloud documentation](https://docs.cloud.google.com/storage/docs/bucket-metadata).
-
-To retrieve the Google Cloud Storage's bucket name from the Google Cloud console, go to the Cloud Storage Buckets page and view the list of available buckets for your project. To learn more, refer to the [Google Cloud documentation](https://docs.cloud.google.com/storage/docs/listing-buckets).
-
-Create a new service account or select an existing one dedicated to report delivery in the Google Cloud console. To learn more, refer to the [Google Cloud documentation](https://docs.cloud.google.com/iam/docs/service-accounts-create).
-
-To grant the service account the permission to write objects to a Google Cloud Storage bucket, you need to assign it the Storage Object Creator role and Storage Legacy Bucket Reader role for that specific bucket. To learn more, refer to the [Google Cloud documentation](https://docs.cloud.google.com/storage/docs/access-control/iam-roles).
-
-If the service account requires write access across multiple buckets within a single project, assign the role at the project level.
-
-To generate a JSON key file, go to the Service Accounts page in the Google Cloud console. To learn more, refer to the [Google Cloud documentation](https://docs.cloud.google.com/iam/docs/keys-create-delete#iam-service-account-keys-create-console).
-
-## Creating a Google Cloud Storage Outegration
-
-To configure the Google Cloud Storage outegration:
-
-1. In the SecOps platform, go to **Configure**> **Outegrations**. See image.
-2. Click **Create**and select **GCP Storage**.
-3. In the **Details**section: See image.
-  1. **Display Name**: Enter a name for your outegration.
-  2. **Bucket**: Enter the name of the Google Cloud Storage bucket where report files are to be delivered.
-  3. **Project ID**: Enter the unique identifier of the GCP project associated with the Google Cloud Storage bucket.
-  4. **Path**: (Optional) Enter the folder path to organize and separate the reports within the Google Cloud Storage bucket.
-  5. **Authentication**: Select an existing authentication ID, or click **Create New** to set up a new authentication, and enter parameters from the Prerequisites section. See image.
-4. Click **Test**in the bottom-right corner of the page to verify the connection. If the credentials are invalid, an error message is displayed along with the remediation steps to resolve the issue.
-5. After the connection is verified, click **Finish**.
-
-When the outegration setup is complete, you can begin using the GCP Storage outegration as a delivery method for your reports.
-
-[Image: Create an outegration]
-
-[Image: Create a GCP storage outegration]
-
-[Image: Create a Google Cloud platform authentication]
-
-## Using Google Cloud Storage in Report Export
-
-After you create a Google Cloud Storage outegration, the outegration name appears in each report's Delivery Method drop-down menu. To learn more, see [Scheduling Reports to Export](https://help.zscaler.com/uvm/scheduling-reports-export).
-
-See image.
-
-[Image: Select GCP Storage outegration]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/configuring-grouping-rules-aem","lastmod":"2026-02-17T06:06Z","nid":"1534045"} -->
 ## Configuring Grouping Rules in AEM
 
@@ -1964,1641 +499,6 @@ You can repeat the process to add as many grouping rules as required.
 The rules within a grouping rule set are run sequentially by their order of appearance. A policy violation is aggregated into a violation ticket according to the first rule that applies to it. If no rule applies to the policy violation, it's aggregated by the default fallback rule. You can adjust the order of rules by dragging the rules to your desired order. After rearranging the rule order, click **Save**to apply your changes.
 
 [Image: Order of rules within a grouping rule set]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-jira-outegration","lastmod":"2025-11-10T15:05Z","nid":"1533655"} -->
-## Configuring the Jira Outegration
-
-- Source: https://help.zscaler.com/aem/configuring-jira-outegration
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring the Jira Outegration
-- Last modified: 2025-11-10T15:05Z
-- Summary: How to configure the Jira outegration for disptaching tickets to the Jira Data Center or Jira Cloud work management systems.
-
-The Jira outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Jira project, creating a Jira issue that can then be tracked, assigned, and managed by your remediation teams working with Jira.
-
-This article is a step-by-step guide to setting up the Jira work management outegration. The process involves setting up authentication, outegration visibility in the platform, outegration mapping, and when relevant, configuring a Jira webhook to enable bidirectional synchronization.
-
-Each Jira issue type (e.g., Bug, Task, Feature) requires a separate outegration configuration.
-
-## Prerequisites
-
-Before getting started, identify the Jira platform your organization uses: Jira Cloud or Jira Data Center. While the setup process for both Jira outegrations is mostly similar, Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Zscaler SecOps Platform Gateway](https://help.zscaler.com/uvm/configuring-zscaler-secops-platform-gateway).
-
-Retrieve the required authentication parameters based on your Jira deployment type (i.e., Jira Cloud or Jira Data Center), and enter them in the corresponding fields during the Connect step of the outegration setup wizard.
-
-- Jira Cloud
-- Jira Data Center
-
-## Creating the Jira Outegration
-
-To configure the Jira outegration, complete the following steps:
-
-- Step 1: Authenticate the Jira Connection (Connect)
-- Step 2: Configure the Outegration Visibility and Behavior (Settings)
-- Step 3: Map the Outegration Fields (Mapping)
-- Step 4: Configure the Jira Webhook
-
-Obtain the following required parameters for the Jira Cloud outegration:
-
-- Jira Organization Domain
-- Project Key
-- Choose one of the following authentication methods and retrieve the necessary parameters:
-  - Email Password Domain
-  - API Key Domain
-
-The Jira organization domain is the unique domain that identifies your organization's Jira instance, in the format `<Domain Name>``.atlassian.net`. For example, if your Jira Cloud URL is `https://``acme``.atlassian.net`, then your Jira organization domain is `acme.atlassian.net`.
-
-See image.
-
-Your Jira project key is the shortened version of the Jira project name that you want the platform to dispatch tickets to.
-
-Your project key can be found in the following locations:
-
-- All Projects list:The Key column displays the project key for each of your projects.
-- Jira Issue ID Prefix:The project key is often used as a prefix for issue IDs (e.g., `PROJ-123`).
-- Project URL:The project key is included in the URL of your project, after `/projects/`. For example, the project key in the URL `https://acme.atlassian.net/projects/PROJ/summary` is `PROJ`.
-
-For the Email Password Domain authentication method, you’ll need to provide the email and password (API Token) associated with a Jira user account. This account is used to authenticate with Jira and will be displayed as the issue reporter in Jira by default, unless an alternative reporter is specified in the Jira mapping.
-
-For the API Key Domain authentication method, you’ll need to provide the Jira API key that was generated using a Jira user account. To learn more, refer to the [Jira Atlassian documentation](https://support.atlassian.com/statuspage/docs/create-and-manage-api-keys/).
-
-To generate an API key:
-
-1. Log in to your Jira instance using an admin account.
-2. Click your avatar in the bottom left of the management interface.
-3. Click**API info**.
-4. Click **Create key**.
-5. Enter a key name that clearly indicates its association with the SecOps platform application (e.g., UVM, AEM).
-6. Click**Confirm**.
-7. Copy and securely save the key to be used in the Connect step.
-
-Before proceeding, make sure a Zscaler Gateway has been configured. To learn more, see [Configuring the Zscaler SecOps Platform Gateway](https://help.zscaler.com/uvm/configuring-zscaler-secops-platform-gateway).
-
-Obtain the following required parameters for the Jira Data Center outegration:
-
-- Jira Organization Domain
-- Project Key
-- Choose one of the following authentication methods and retrieve the necessary parameters:
-  - Email Password Domain
-  - API Key Domain
-- Gateway
-
-The Jira organization domain is the unique domain that identifies your organization's Jira instance, typically the domain name or host name of your Jira server. For example, if your Jira Data Center URL is `https://jira.acme.com`, your Jira organization domain is `jira.acme.com`.
-
-See image.
-
-The domain for Jira Data Center can vary depending on how your Jira instance is configured and hosted.
-
-Your Jira project key is the shortened version of the Jira project name that you want the platform to dispatch tickets to.
-
-Your project key can be found in the following locations:
-
-- All Projects list:The Key column displays the project key for each of your projects.
-- Jira Issue ID Prefix:The project key is often used as a prefix for issue IDs (e.g., `PROJ-123`).
-- Project URL:The project key is included in the URL of your project, after `/projects/`. For example, the project key in the URL `https://acme.atlassian.net/projects/PROJ/summary` is `PROJ`.
-
-For the Email Password Domain authentication method, you’ll need to provide the email and password (API Token) associated with the Jira admin account. This account is used to authenticate with Jira and will be displayed as the issue reporter in Jira by default, unless an alternative reporter is specified in the Jira mapping.
-
-For the API Key Domain authentication method, you’ll need to provide the Jira API key that was generated using a Jira admin account. To learn more, refer to the [Jira Atlassian documentation](https://support.atlassian.com/statuspage/docs/create-and-manage-api-keys/).
-
-To generate an API key:
-
-1. Log in to your Jira account as an admin.
-2. Click your avatar in the bottom left of the management interface.
-3. Click**API info**.
-4. Click **Create key**.
-5. Enter a key name that clearly indicates its association with the SecOps platform application (e.g., UVM, AEM).
-6. Click**Confirm**.
-7. Copy and securely save the key to be used in the Connect step.
-
-Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Zscaler Gateway](https://help.zscaler.com/uvm/configuring-zscaler-gateway).
-
-If you already have a gateway configured, select the gateway from the drop-down menu.
-
-The first step in setting up your Jira outegration is to authenticate using valid credentials to establish a secure connection with your Jira project. With the required parameters retrieved in the prerequisites, you can begin the Jira outegration setup in the SecOps platform.
-
-To create an outegration:
-
-1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
-2. Click **Create**, then select either **Jira Cloud** or **Jira Data Center**, depending on your organization's Jira deployment. The **Connect** step appears. See image.
-3. In the **Details** section:
-  1. **Display Name**: Enter a name for your outegration.
-  2. **Active**: Enable to activate the Jira outegration.
-  3. **Project Key**: Enter the key of the Jira project where the tickets should be created.
-  4. **Authentication**: Select an existing authentication, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications).
-4. Click **Test** in the bottom-right corner of the page to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
-5. After the test passes, click **Next**to advance to the **Settings**step.
-
-[Image: create jira cloud outegration page connect step]
-
-In the Settings step of the outegration setup wizard, configure your Jira outegration's visibility and behavior within the relevant application in the SecOps platform (e.g., UVM, AEM). In this step, you'll set the SecOps entity that triggers the Jira issue dispatch (e.g., ticket, violation ticket), the Jira Issue Type that the SecOps ticket should be dispatched to, and when the Create Jira Ticket button should appear in the application. The Create Jira Ticket button allows end users with access to SecOps tickets to dispatch these tickets to a Jira project directly from the SecOps ticket drawer or from the SecOps tickets page.
-
-To configure the outegration's visibility and behavior:
-
-1. In the **Advanced Settings** section:
-  1. **Create Jira item from**:Select the entity that you want to configure the outegration for. This selection affects the view you'll configure in the <Entity> **View**step (e.g., selecting Ticket displays the Tickets View setting). Other entity types might be visible depending on the apps enabled in your account. See image.
-    - **UVM**: Select **Ticket**.
-    - **AEM**: Select **Violation Ticket**.
-  2. **Issue Type**:Select the Jira issue type that the ticket should be dispatched to (e.g., **Task**, **Bug**). The schema associated with the selected issue type will be retrieved from your Jira project and made available for mapping in the Mapping step. See image.
-2. In the <Entity> **View** section, select how the SecOps ticket should display the **Create Jira Ticket** button. This setting can be modified at any time. See image.
-  - **Always**: Select to display the button in all tickets, allowing users to dispatch tickets to a Jira issue without exception.
-  - **Never**: Select to hide the button in all tickets. This is useful during the outegrationsetup process to hide the button from users while still keeping the outegration active.
-  - **For specific tickets**: Define custom conditions to control when the button is displayed, allowing you to target specific tickets. For example, if your organization uses multiple ticketing systems, you can grant access to the button only to users who work with Jira, while excluding those who use other ticketing systems (e.g., ServiceNow).
-3. Click **Map**to advance to the **Mapping** step.
-
-The **Create Jira Ticket**button appears in two locations:
-
-- In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/uvm/managing-violation-tickets-aem)). See image.
-- On the entity page in the relevant application (e.g., on the [Tickets page](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, on the [Violation Tickets page](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM). See image.
-
-The third step in setting up your Jira outegration is configuring the field mapping between your SecOps tickets and Jira issues. This defines how data is exchanged and synchronized between the two systems upon initial dispatch and subsequent updates. The SecOps platform's unique mapping capabilities allow for flexible mapping of any custom field or logic to any field in your Jira projects, facilitating highly customized workflows that align with your organization's requirements.
-
-The main objective of the mapping process is to map values to fields. To map values to fields, configure values on the left to populate the fields selected on the right.
-
-See image.
-
-There are three mapping components:
-
-- Tickets initially dispatched to Jira: Map SecOps ticket fields (left) to Jira fields (right) for the initial dispatch of a ticket to a Jira issue. You can also add an attachment to your Jira issue. Commonly mapped fields include Summary, Description, Assignee, Priority, Due Date, and Status.
-- (Optional) Sync from ticket to Jira: Map SecOps ticket fields (left) to Jira fields (right) for syncing ticket updates to Jira, including configuring comments and adding an attachment to your Jira issue. Commonly mapped fields include Status and Due Date.
-- (Optional) Sync from Jira to ticket: Map Jira fields (left) to SecOps ticket fields (right) for syncing Jira updates to tickets. This step also requires setting up a Jira webhook. Commonly mapped fields include Ticket Status and Ticket SLA.
-
-The initial Jira outegration mapping includes preconfigured default mappings for each part, based on common use cases and industry best practices. These defaults can be modified and customized as needed.
-
-### Creating a New Mapping
-
-In each of the three mapping components, you’ll need to select a field on the right, and then configure the corresponding field value on the left.
-
-To create a new mapping:
-
-1. Select a field (right):
-  1. Click**Mapping**.
-  2. Select a field on the right. The field's schema details open on the right of the page. The schema lists available Jira fields to be used during mapping. This is the list of fields configured in your Jira project for the Issue Type selected in the Settings step (e.g., Bug). See image. The following details are specified for fields, when available:
-    - Required
-    - Input Type
-    - Available Options
-2. Configure the field value (left):
-  1. Click **Add value** on the left. The **Field Editor** appears.
-  2. In the **Field Editor**, select one of the following methods to configure the value of the field:
-    - Field (Dictionary)
-    - Smart Text
-    - Script
-
-Repeatthe mapping process for all required Jira fields and for any other fields you want to map.
-
-In addition to the mapping of fields on the right to fields on the left, you can perform a set of actions when setting up the Jira outegration mapping, each relevant to a specific part of the mapping.
-
-- Set a ticket field as mandatory.
-- Add attachments to the ticket dispatch.
-- Configure comments synchronization.
-
-### Mapping Ticket Title to Summary
-
-To illustrate the mapping process, consider the mapping of the required Jira Summary field. The final result of the mapping process should show the Summary field on the right, and the Ticket Title field on the left.
-
-To map the Ticket Title field to the Summary field:
-
-1. Select **Summary**as the Jira field on the right. See image. Selecting the Jira Summary field opens the field's details in the schema. The schema specifies that the field is required and thus must be mapped before the outegration can be saved, and that the field expects a TEXT input type. Therefore, the field for which a value is being configured must also be of TEXT type. See image.
-2. Select the **Ticket Title**field on the left: See image.
-  1. Click**Add Value**.
-  2. Under the **Field** tab, select the **Ticket Title** field, which is the equivalent to the Jira **Summary**field.
-
-### Previewing the Ticket to Jira Mapping
-
-After completing the SecOps ticket to Jira dispatch mapping, preview the mapping to review the configuration. This helps ensure that SecOps ticket dispatch is behaving as expected and that the Jira issue fields are populated correctly.
-
-To preview the mapping, click **Preview**on the bottom right of the ticket initially dispatched to Jira section. The Mapping Preview window appears. On the left of the Mapping Preview window, there is a sample of the SecOps tickets in your account, organized by ticket ID. You can select, filter, or search tickets and preview the mapping to their corresponding Jira issue. You can also open the actual SecOps ticket in a new tab for a more in-depth review.
-
-See image.
-
-### Common Mapping Examples
-
-These mapping examples highlight commonly used field configurations in your outegration. While some might be preconfigured by default, Zscaler recommends reviewing and customizing them to ensure they align with your workflow.
-
-- Ticket to Jira Description
-- Ticket SLA to Jira Due Date Sync
-- Jira to Ticket Status Sync
-
-The Required attribute is TRUE if a field is required by Jira. If a field is not required, the attribute is not displayed. A required Jira field is also indicated by a red asterisk (*) on the Jira field in the first mapping step.
-
-Required Jira fields must be mapped before saving the outegration.
-
-The Input Type specifies the data type of the Jira field, such as TEXT (e.g., Summary), DATE (e.g., Due Date), or NUMBER (e.g., Risk Score). This indicates the format that the selected source field must match in order to successfully map to the Jira field.
-
-For Jira fields with fixed values, the Available Options column displays the available values. For example, if the Jira field Priority is configured to include the following fixed values—High, Low, Medium, Lowest, Highest—the corresponding values in the Ticket Severity field can be mapped to these values.
-
-Select a field on the left to populate the field on the right.
-
-#### Dictionary
-
-The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left. To use the dictionary, you must first select a field on the right and a field to populate it with on the left.
-
-For example, if your JiraPriority field includes the following fixed values—Highest, High, Medium, Low, Lowest—you can use the dictionary to map the corresponding Ticket Severity values to each of the Priority field values.
-
-See image.
-
-Configure the field value using free text, or create a template using a combination of free text and selected fields. This allows you to dynamically insert specific field values (e.g., Ticket SLA, Ticket Assignee, or Asset Name) into customized free text sentences or paragraphs.
-
-To add a Smart Text field, enclose it in double curly brackets (e.g., `{{Ticket Assignee}}`). The field's display name automatically translates to its system name.
-
-This option is commonly used to configure the value of fields like Ticket Title and Ticket Description.
-
-See image.
-
-For use cases that require more advanced configuration than either of the two methods above, you can use Python scripts to configure the field value to be mapped to the target field.
-
-When dispatching tickets to Jira, map the Jira Description field with a summary of the Ticket content to provide remediation teams with a brief overview of the ticket.
-
-To configure the Ticket to Jira Description mapping:
-
-1. Click**Mapping**.
-2. Select**Description** as the field on theright.
-3. Click **Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Smart Text**.
-5. Enter a ticket description, including dynamic fields (e.g., `{{SLA}}`).
-
-Tickets dispatched to Jira will now include the configured description.
-
-In the Ticket to Jira sync, map the Jira Due Date field to keep timelines in sync with Ticket SLA changes.
-
-To configure the Ticket SLA to Jira Due Date mapping:
-
-1. Click**Mapping**.
-2. Select**Due Date** as the field on the right.
-3. Click**Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Field**, and select **Ticket SLA** as the field on the left.
-
-Ticket SLA changes will now automatically update Jira issue due dates.
-
-In the Jira to Ticket sync, map the Ticket Status field to ensure it's updated when remediation teams change the Jira Issue Status.
-
-To configure the Jira to Ticket Status mapping:
-
-1. Click**Mapping**.
-2. Select**Ticket Status** as the field on the right.
-3. Click**Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Field**, and select **Status** as the field on the left. Use the **Dictionary** to map your Jira**Status** types to **Ticket Status** types.
-
-Jira issue Status changes will now automatically update the Ticket Status.
-
-You can set a SecOps ticket field as mandatory, by selecting the Set as Mandatorycheckbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
-
-See image.
-
-Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched to Jira, so Jira issues are always actionable for your remediation teams. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
-
-Required fields are defined by your Jira schema, whereas Mandatory fields are mandatory for SecOps ticket dispatch.
-
-You can create a file attachment that summarizes your ticket content and set the trigger to automatically add it to your Jira issue. Adding an attachment to your Jira issue simplifies the review and management of findings dispatched from a ticket.
-
-You can configure file attachments in two of the mapping steps:
-
-- Initial ticket dispatch See image.
-- Sync from Ticket to Jira See image.
-
-When configured in the Ticket to Jira sync section, the attachment is included in the Jira issue alongside existing attachments as a downloadable file in the selected format.
-
-Use the **File Format** drop-down menu on the top left of the attachment page to select from the available formats (**CSV**, **PDF**, **JSONL**, **Excel**).
-
-See image.
-
-To provide your Jira remediation teams with a comprehensive view of the findings in the ticket, consider including the following fields in your attachment:
-
-- Recommended Attachment Fields
-
-- Finding Severity
-- Finding Title
-- Finding CVE
-- Component Name
-- Asset Name
-- Asset Operating System
-- Finding Optimal Fix
-- Finding Description
-- Finding Sources
-
-In the Ticket to Jira sync step, you can configure how ticket comments are synchronized with Jira issue comments. To configure comments, click **Comment Sync**.
-
-See image.
-
-### Sync Comments
-
-Enable **Sync Comments**to automatically push comments from the ticket's Comments tab to the corresponding Jira issue.
-
-See image.
-
-### Trigger Comments
-
-Enable **Sync Trigger Comments**and set conditions to trigger a comment when specific fields are modified. Syncing trigger comments is useful when you want to be notified of important changes to tickets without updating the corresponding Jira issue. For example, you can configure a trigger to post a comment in Jira when the Ticket Severity changes from Medium to Critical.
-
-See image.
-
-To add a trigger condition:
-
-1. Select the field you want to monitor (e.g., **Severity**).
-2. Set the value change that should trigger the comment:
-  - **From**: Select the original value.
-  - **To**: Select the updated value.
-
-When the specified change occurs in the ticket, a comment is automatically created and added to the Jira issue. The following is an example of a trigger comment:
-
-```
-Linked UVM ticket updated:
-Ticket severity changed from: MEDIUM to: CRITICAL
-<URL to ticket>
-```
-
-[Image: jira outegration mapping]
-
-The Jira outegration webhook enables automatic syncing of Jira issue updates (e.g., Status or SLA changes) to their corresponding SecOps tickets, reducing the need for manual changes. This step is required when configuring the Jira to Ticket mapping to keep issues and tickets in sync. To learn more, see [Configuring the Jira Outegration Webhook](https://help.zscaler.com/uvm/configuring-jira-outegration-webhook).
-
-See image.
-
-A Jira webhook is only needed to sync updates from Jira to the ticket. It is not required for the initial ticket dispatch or for syncing updates from the ticket to Jira.
-
-When the outegration setup is complete, you can begin dispatching SecOps tickets using the Create Jira Ticket button that appears in the Create Ticket menu within individual tickets, as well as in the Create Issue menu in the Tickets View. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-jira-outegration-webhook","lastmod":"2025-11-10T15:08Z","nid":"1533656"} -->
-## Configuring the Jira Outegration Webhook
-
-- Source: https://help.zscaler.com/aem/configuring-jira-outegration-webhook
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring the Jira Outegration Webhook
-- Last modified: 2025-11-10T15:08Z
-- Summary: How to configure the Jira outegration webhook for bidirectional sync when setting up the Jira outegration.
-
-The Jira outegration webhook enables automatic syncing of Jira issue updates such as Status or SLA changes to their corresponding tickets, reducing the need for manual changes. This step is required when configuring the Jira to ticket mapping to keep issues and tickets in sync. To learn more, see [Configuring the Jira Outegration](https://help.zscaler.com/uvm/configuring-jira-outegration).
-
-See image.
-
-This article provides instructions for setting the Jira webhook and applies to both Jira Cloud and Jira Data Center. To learn more, refer to the [Atlassian documentation](https://developer.atlassian.com/server/jira/platform/webhooks/#registering-a-webhook).
-
-To set up your Jira webhook:
-
-1. Log in to your Jira console as a user with the **Administer Jira**global permission. To learn more, refer to the [Atlassian documentation](https://support.atlassian.com/jira-cloud-administration/docs/manage-global-permissions/).
-2. Go to **Settings** > **System**. See image.
-3. Select the **Webhooks** tab.
-4. Click **Create a WebHook**. See image.
-5. In the dialog window:
-  1. **Name**: Enter a name for the webhook.
-  2. **Status**: Select **Enabled**.
-  3. **URL**: Paste the following URL into the field: `https://webhook.avalor.io/integration/``<Account ID>``/jira`. Replace `<Account ID>` with your account ID. See image.
-  4. In the **Issue related event**s section:
-    1. **Filter**: Configure a filter to send updates from the relevant project only. The filter format is `project =``<Your Project Key>`.
-    2. **Issue**: Select the **updated** and **deleted** checkboxes. See image.
-6. Click **Create**.
-
-After your webhook is set up, configured triggers for field updates in your Jira outegration mapping automatically sync changes made to Jira issues with their corresponding tickets.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-microsoft-entra-id-sso","lastmod":"2025-10-31T13:54Z","nid":"1532883"} -->
-## Configuring Microsoft Entra ID SSO
-
-- Source: https://help.zscaler.com/aem/configuring-microsoft-entra-id-sso
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring Microsoft Entra ID SSO
-- Last modified: 2025-10-31T13:54Z
-- Summary: How to configure Microsoft Entra ID (formerly Azure AD) SSO account authentication.
-
-You can configure Microsoft Entra ID (formerly Azure AD) single sign-on (SSO) as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through the Microsoft Entra ID SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Microsoft Entra ID. Each user must have an account with the same email address in both the platform and Microsoft Entra ID. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure Microsoft Entra ID SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Register an Application in Microsoft Entra ID
-- Step 3: Share Metadata With Zscaler
-
-To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-After generating SAML details (Entity ID and Reply URL), you can proceed to registering a Microsoft Entra ID application and assigning users to the new application.
-
-To register a Microsoft Entra ID application:
-
-1. Sign in to the Azure portal.
-2. Select the **Microsoft Entra ID**service.
-3. In the left-side navigation, go to **Manage** > **Enterprise applications**.
-4. Click **New application**.
-5. On the **Browse Microsoft Entra Gallery** page, click**Create your own application**. The **Create your own application** drawer appears.
-6. In the **Create your own application** drawer:
-  1. **Name**: Enter a name for the application.
-  2. **What are you looking to do with your application?**: Select **Integrate any other application you don’t find in the gallery (Non-gallery)**.
-  3. Click **Create** to complete the initial app registration.
-7. The app registration's **Overview** page appears.
-8. In the **Getting Started** section, locate the**Set up single sign on** tile and click **Get Started**. The **Single sign-on** page appears.
-9. On the **Single sign-on** page, select **SAML**as the single sign-on method. The **SAML-based Sign-on** page appears.
-10. On the **Basic SAML Configuration** tile, click **Edit**. See image.
-11. In the **Basic SAML Configuration** drawer:
-  1. **Identifier (Entity ID)**: Click **Add Identifier** and paste the **Entity ID** copied from Zscaler.
-  2. **Reply URL (Assertion Consumer Service URL)**: Click **Add reply URL** and paste the **Reply URL** copied from Zscaler.
-  3. **Sign on URL**: (Optional) Enter `https://app.avalor.io`. See image.
-12. Click **Save**.
-13. On the **Attributes & Claims** tile, click **Edit**.
-14. Click **Add a group claim**.
-15. In the **Group Claims** drawer:
-  1. Select **Groups assigned to the application**.
-  2. **Source Attribute**: Select **Group ID**from the drop-down menu. See image.
-16. Click **Save**.
-17. Close the**Attributes & Claims** page to return to the **Set up Single Sign-on with SAML**page.
-
-After registering the Microsoft Entra ID application, you can assign users to the new app.
-
-To assign users to the app:
-
-1. In the left-side navigation, click **Users and groups.** See image.
-2. Click **Add user/group**.
-3. Add the relevant user in your organization.
-4. Click **Assign**.
-
-After creating a Microsoft Entra ID app, share XML metadata with your Zscaler Account team.
-
-To retrieve the XML metadata:
-
-1. Sign in to the Azure portal, and select the **Microsoft Entra ID**service.
-2. Open the application you created.
-3. In the left-side navigation, select **Single sign-on**. See image.
-4. Scroll down to the **SAML Signing Certificate** section and copy the **App Federation Metadata URL**. See image.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-okta-sso","lastmod":"2025-10-31T13:55Z","nid":"1532884"} -->
-## Configuring Okta SSO
-
-- Source: https://help.zscaler.com/aem/configuring-okta-sso
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring Okta SSO
-- Last modified: 2025-10-31T13:55Z
-- Summary: How to configure Okta SSO account authentication.
-
-You can configure Okta single sign-on (SSO) as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through your Okta SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Okta. Each user must have an account with the same email address in both the platform and in Okta. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure Okta SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Create a Bookmark App
-- Step 3: Create an App Integration
-- Step 4: Share Metadata With Zscaler
-
-To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-The SecOps platform doesn't natively support identity provider (IdP)-initiated login. Instead, implement the following process using a Bookmark app that redirects to app.avalor.io.
-
-To configure a Bookmark app:
-
-1. Sign in to the Okta Admin Center.
-2. Go to the **Applications** page and click **Browse App Catalog.**
-3. Search for and add **Bookmark App**. See image.
-4. In the **General Settings**section:
-  1. **Application label**: Enter a name for the Bookmark app.
-  2. **URL**: Enter `https://app.avalor.io?domain=``<Your Org Domain>`, replacing `<Your Org Domain>` with your actual organization domain.
-  3. **Application Visibility**: Leave the checkbox unselected so the **Bookmark**app isn't hidden. See image.
-  4. Click **Done**.
-5. Click the **Edit** icon on the logo to add Zscaler's logo: [Download Logo](https://help.zscaler.com/downloads/uvm/administration/account-management/admin-configuration-and-deployment/configuring-okta-sso/LOGO.png) See image.
-6. Click **Done**.
-
-To enable SAML-based authentication with Okta, you need to create and configure a new app integration.
-
-To create an app integration:
-
-1. Sign in to the Okta Admin Console.
-2. In the navigation menu, expand **Applications**, and then select **Applications**.
-3. Click **Create App Integration**.
-4. In the **Create a New Application Integration** window, select **SAML 2.0**as the **Sign on method**, and then click **Create**. See image.
-5. On the **Create SAML Integration** page:
-  1. On the **General Settings**tab:
-    1. **App name**: Enter a name for the app integration.
-    2. **App Visibility**: Select **Do not display application icon to users**.
-    3. Click **Next**.
-  2. On the **Configure SAML**tab:
-    1. **Single sign on URL**: Paste the **Reply URL** copied from Zscaler.
-    2. **Audience URI (SP Entity ID)**: Paste the **Entity ID** copied from Zscaler.
-    3. **Name ID format**: Enter `EmailAddress`.
-    4. **Application username**: Select **Okta username**.
-    5. In the **Attribute Statements (optional)** section:
-      1. **Name:** Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-      2. **Value**: Enter `user.email`. See image.
-      3. Click **Next**.
-  3. On the **Feedback** tab, select **I'm an Okta customer adding an internal app**. See image.
-  4. Click **Finish**.
-6. Assign users or groups to authenticate using Okta:
-  1. Go to the **Assignments** tab of the application you added.
-  2. Click **Assign**.
-  3. Select **Assign to People**or **Assign to Groups**.
-  4. Enter the people or groups that you want to authenticate with the Okta IdP.
-  5. Click **Assign**.
-  6. Verify the attributes, and click **Save and Go Back**.
-7. Click **Done**.
-
-After creating a Bookmark App and an app integration, share XML metadata with your Zscaler Account team. To learn more, refer to the [Okta documentation](https://support.okta.com/help/s/article/Location-to-download-Okta-IDP-XML-metadata-for-a-SAML-app-in-the-new-Admin-User-Interface?language=en_US).
-
-To retrieve the XML metadata:
-
-1. In the Okta console, click the **Sign On** tab of the SAML application.
-2. Scroll down and click **View SAML setup instructions**. In the new tab that opens, all the required values are displayed.
-3. Copy the metadata from the **Optional** section. See image.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-
-[Image: Okta Metadata XML]
-
-**[Image: SAML XML Metadata field]**
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-pingfederate-sso","lastmod":"2025-10-31T13:53Z","nid":"1532882"} -->
-## Configuring PingFederate SSO
-
-- Source: https://help.zscaler.com/aem/configuring-pingfederate-sso
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring PingFederate SSO
-- Last modified: 2025-10-31T13:53Z
-- Summary: How to configure PingFederate SSO account authentication.
-
-You can configure PingFederate single sign-on (SSO) as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through your PingFederate SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingFederate. Each user must have an account with the same email address in both the platform and PingFederate. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure PingFederate SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Register an Application in PingFederate
-- Step 3: Share Metadata With Zscaler
-
-To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-After generating SAML details (Entity ID and Reply URL), you can register a PingFederate application. The app registration process assumes you already have an IdP Adapter in place. To learn more, refer to the [PingFederate documentation](https://docs.pingidentity.com/integrations/azure/azure_ad_and_office_365_integration_guide/pf_azuread_office365_integration_create_an_idp_adapter.html).
-
-To register a PingFederate application:
-
-1. Sign in to the PingFederate Admin console.
-2. Go to **Identity Provider** > **SP Connections**.
-3. Click **Create Connection**. See image.
-4. On the **Connection Template** step, select **DO NOT USE A TEMPLATE FOR THIS CONNECTION** and click **Next**. See image.
-5. On the **Connection Type** step:
-  1. Select the **BROWSER SSO PROFILES**checkbox.
-  2. Select **SAML 2.0** from the **PROTOCOL** drop-down menu.
-  3. Click **Next**. See image.
-6. On the **Connection Options**step, select the **BROWSER SSO** checkbox and click **Next**. See image.
-7. On the **Import Metadata** step, select **None** for **METADATA** and click **Next**. See image.
-8. On the **General Info** step:
-  1. **Partner's Entity ID**: Paste the **Entity ID** copied from Zscaler.
-  2. **Connection Name**: Enter a name for the application.
-  3. **Base URL**: Leaveempty.
-  4. Click **Next**.
-9. On the **Browser SSO** step, click **Configure Browser SSO**.
-  1. On the **SAML Profiles** tab, under **Single Sign-On (SSO) Profiles**, select the **SP-INITIATED SSO**checkbox, and then click **Next**. IdP-initiated SSO is not supported. See image.
-  2. On the **Assertion Lifetime** tab, leave the settings as is and click **Next**.
-10. On the **Assertion Creation** step, click **Configure Assertion Creation**. Select **STANDARD**, andclick **Next**. See image.
-11. On the **Attribute Contract** step, under **Extend the Contract**, enter `email`, and then click **Add**. See image.
-12. Click **Next**.
-13. On the **Authentication Source Mapping** step, click **Map New Adapter Instance.**
-  1. On the **Adapter Instance** tab, select the **Adapter Instance** for this app, and click **Next**.
-  2. On the **Mapping Method** tab, leave the settings as is and click **Next**.
-  3. On the **Attribute Contract Fulfillment** tab, configure the Attribute Contracts: **SAML SUBJECT** and **email**. For each:
-    1. Select **Adapter** from the **Source** drop-down menu.
-    2. Select **Email**from the **Value**drop-down menu.
-  4. On the **Issuance Criteria** tab, click **Next**.
-  5. On the **Summary**tab, review your entries, and then click **Done**.
-14. On the **Authentication Source Mapping** step, click **Next**.
-  1. On the **Summary** tab, review your entries, and then click **Done**.
-15. On the **Assertion Creation** step, click **Next**.
-  1. On the**Protocol Settings** tab, click **Configure Protocol Settings**.
-  2. On the **Assertion Consumer Service URL** tab, select the **Default**checkbox.
-    1. **Binding**: Select **POST** from the drop-down menu.
-    2. **EndpointUrl**: Paste the **Reply URL** copied from Zscaler.
-    3. Click **Add**, and then click **Next**. See image.
-  3. On the **Allowable SAML Bindings** tab, select the **POST**and **REDIRECT**checkboxes and click **Next**. See image.
-  4. On the **Signature Policy** tab, select **Always Sign Assertion** and click **Next**.
-  5. On the **Encryption Policy** tab, select **None**. Click **Next**.
-  6. On the **Summary** tab, review your entries, and then click **Done**.
-  7. On the **Protocol Settings** tab, click **Next**.
-  8. On the **Summary** tab, review your entries, and then click **Done**.
-16. On the **Browser SSO** step, click **Next**.
-17. On the **Credentials** step, click **Configure Credentials**, select the signature on the SAML, and click **Next**.
-18. On the **Summary** tab, review your entries, and then click **Done**.
-19. On the **Credentials** tab, click **Next**.
-20. On the **Activation & Summary** step, scroll to the bottom and click **Save**.
-
-After registering the SAML app in PingFederate, you are redirected to the SP Connections page, where you can copy your application's metadata to be used in the next step.
-
-After registering an app in PingFederate, share XML metadata with your Zscaler Account team.
-
-To retrieve the XML metadata:
-
-1. On the **SP Connections**page of the application you registered, click **Select Action** > **Export Metadata**. See image.
-2. Select the signing certificate and click **Next**.
-3. Scroll to the bottom of the page and click **Export**. The signing certificate file is saved to your computer.
-4. Click **Done**.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-
-**[Image: SAML XML metadata field]**
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-pingone-sso","lastmod":"2026-01-12T06:06Z","nid":"1534070"} -->
-## Configuring PingOne SSO
-
-- Source: https://help.zscaler.com/aem/configuring-pingone-sso
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring PingOne SSO
-- Last modified: 2026-01-12T06:06Z
-- Summary: How to configure PingOne SSO account authentication.
-
-You can configure PingOne SSO as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through your PingOne SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingOne. Each user must have an account with the same email address in both the platform and PingOne. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure PingOne SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Create an Application Portal Link
-- Step 3: Register an Application
-- Step 4: Share Metadata with Zscaler
-
-To set up SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-The SecOps platform doesn't natively support identity provider (IdP)-initiated login. Instead, implement the following process using an Application Portal Link app that redirects to app.avalor.io.
-
-1. Log in to the Ping Identity admin center.
-2. In the **Applications**menu, click **Application Portal**. See image.
-3. On the **Application Portal** page, click the **Add**icon to add a new link. See image.
-4. In the **Add Link** window: See image.
-  1. **Link Name**: Enter a name for the application portal.
-  2. **Description**: Add a description.
-  3. **Icon**: Upload a logo from your system.
-  4. **URL**: Enter `https://app.avalor.io?domain=<Your Org Domain>`, replacing `<Your Org Domain>` with your actual organization domain.
-5. Click **Save**.
-
-[Image: Application Portal in the Ping Identity admin center]
-
-[Image: Page to add links to applications]
-
-**[Image: Profile details needed to add an application]**
-
-After generating SAML details, you can register an application in the Ping Identity admin center to define how your application interacts with the platform. The application registration process is performed within the centralized PingOne admin center.
-
-1. Log in to the Ping Identity admin center.
-2. In the **Applications**menu, click **Applications**. See image.
-3. On the **Applications**page, click the + icon. See image.
-4. In the **Application Name**field, enter `SecOps Platform- Authentication Only`.
-5. Use the attached SecOps platform's logo as the application icon.
-6. Under **Choose Application Type**, select **SAML Application**. See image.
-7. In the**SAML Application** window, click **Configure**. See image. The **SAML Configuration** page appears.
-8. On the **SAML Configuration**page: See image.
-  1. Under **Provide Application Metadata**, select **Manually Enter**.
-  2. Under **ACS URLs**, enter the **Reply URL** you copied from the SecOps platform.
-  3. For **Entity ID**, enter the **Entity ID** you copied from the SecOps platform.
-9. Click **Save**.
-10. Go to the **Attribute Mappings** tab. See image.
-11. Click the **Edit**icon next to **Attributes**. The **Edit Attribute Mappings** page appears.
-12. On the **Edit Attribute Mappings** page: See image.
-  1. Under **Attributes**, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-  2. From the **PingOne Mappings**drop-down menu, select **Email Address**.
-  3. Select the **Required**checkbox.
-13. Click **Save**.
-14. Go to the **Access** tab. See image.
-15. Click the **Edit**icon next to **Attributes**.
-16. On the **Edit Access**page, deselect **Display this application in the Application Portal**. See image.
-17. Click **Save**.
-
-[Image: Applications under Connections]
-
-**[Image: Add a new application]**
-
-[Image: Application type of the application to be registered]
-
-[Image: Configurations required to create a SAML application]
-
-[Image: Application metadata required for SAML configuration]
-
-[Image: Attribute mapping details]
-
-[Image: Edit Attribute Mappings]
-
-[Image: Access details of the SAML application]
-
-[Image: Edit the Access tab details]
-
-After registering an app in the Ping Identity admin center, share XML metadata with your Zscaler Account team.
-
-1. Go to the **Configuration** tab. See image.
-2. Click **Download Metadata**.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-
-[Image: Configuration details of the application]
-
-**[Image: Add the SAML XML link in the SecOps platform]**
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-secureauth-sso","lastmod":"2026-01-12T06:06Z","nid":"1534073"} -->
-## Configuring SecureAuth SSO
-
-- Source: https://help.zscaler.com/aem/configuring-secureauth-sso
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring SecureAuth SSO
-- Last modified: 2026-01-12T06:06Z
-- Summary: How to configure SecureAuth SSO account authentication.
-
-You can configure SecureAuth SSO as the authentication method for the Zscaler Security Operations (SecOps) platform, allowing users to sign in through your SecureAuth SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through SecureAuth. Each user must have an account with the same email address in both the platform and SecureAuth. After SSO is enabled for a domain, it becomes the only authentication method for the platform.
-
-To configure SecureAuth SSO, complete the following steps:
-
-- Step 1: Generate SAML Details
-- Step 2: Create an App Integration
-- Step 3: Share Metadata with Zscaler
-
-To set up SecureAuth SSO account authentication, you must generate a SAML Entity ID and Reply URL within the SecOps platform. To learn more, see [Generating SAML Details](https://help.zscaler.com/uvm/generating-saml-details).
-
-To enable SAML-based authentication with SecureAuth, you need to create and configure a new app integration.
-
-To create an app integration:
-
-1. Log in to the SecureAuth Identity Platform.
-2. In the left-side navigation, go to **New Experience**> **SecureAuth IdP**.
-3. Click **Application Manager**. See image.
-4. Click **Add an Application** to open the application template library.
-5. Select **SAML Application** from the library. See image.
-6. On the **Applications Details**page: See image.
-  1. **Application Name:** Enter the SecOps platform name.
-  2. **Application Description**: Enter a description for the application.
-  3. **Upload**: Upload a logo from your system.
-  4. **Data Stores:** Enter the data stores to authenticate and allow user access.
-  5. **Groups:** Enter the groups allowed to access the application. You can also enable **Allow users from every group in your selected data stores access to this application**.
-7. Click **Continue.** The **Connection Settings**page appears.
-8. On the **Connection Settings** page:
-  1. In the **Configure Connection**section: See image.
-    1. Select **SP Initiated** from the **Connection Type** drop-down menu.
-    2. Select **By Redirect**.
-  2. In the **User ID Mapping**section: See image.
-    1. **User ID Profile Field:** Select the relevant user ID from the drop-down menu.
-    2. **Name ID Format:** The format is selected by default.
-  3. In the**SAML Assertion**section: See image.
-    1. **​​IdP Issuer:** Enter the entity ID from Step 1.
-    2. **Assertion Consumer Service (ACS):** Enter the Reply URL from Step 1.
-    3. **SP Login URL:** Enter the URL `https://app.avalor.io?domain=<your domain>`.
-    4. **Assertion will be valid for:** Select an appropriate value.
-    5. **Encrypt SAML Assertion:** Disable the toggle. All the remaining settings should be set to default.
-  4. In the **SAML Attributes** section, click **Add SAML Attribute**: See image.
-    1. **Attribute Name:** Enter the attribute name.
-    2. **Data Store Property:** Choose the value that represents the user's email (**Email**).
-    3. **Namespace (1.1)**: Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
-9. Click **Add Application**. The **Information for Service Providers** page appears. See image.
-10. Click **Download Metadata**. You will need this information for the next step.
-11. Enter the SecureAuth IdP appliance URL or IP address as the domain name (e.g., `https://secureauth.company.com or https://111.222.33.44`). See image.
-12. Click **Download**to download the metadata.
-
-**[Image: Add an application]**
-
-[Image: Select the SAML application from the library]
-
-[Image: Enter all the application details]
-
-[Image: Add the configuration connection details]
-
-[Image: Add the user ID mapping details]
-
-[Image: Enter the SAML assertion details]
-
-[Image: Enter the SAML attribute details]
-
-[Image: Information for Service Providers page]
-
-After registering an app in the SecureAuth Identity Platform, share XML metadata with your Zscaler Account team.
-
-To share metadata with Zscaler:
-
-1. In the SecOps platform, click the **Profile** menu on the top right of the page and select **Account Settings**.
-2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
-
-[Image: Enter the domain name details to download the metadata file]
-
-[Image: Add the SAML XML link in the SecOps platform]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-servicenow-cmdb-outegration","lastmod":"2026-01-23T06:06Z","nid":"1534010"} -->
-## Configuring ServiceNow CMDB Outegration
-
-- Source: https://help.zscaler.com/aem/configuring-servicenow-cmdb-outegration
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring ServiceNow CMDB Outegration
-- Last modified: 2026-01-23T06:06Z
-- Summary: How to configure ServiceNow CMDB outegration.
-
-The ServiceNow CMDB outegration enables updates to CMDB records, such as adding missing assets, and maintaining an accurate and up-to-date CMDB. This is critical for improving operational efficiency, and strengthening policy compliance and audit readiness.
-
-This article is a step-by-step guide to configuring the ServiceNow CMDB outegration.
-
-## Prerequisites
-
-Before configuring the outegration, make sure you have met the following prerequisites:
-
-- Configure the ServiceNow Assets Connector. To learn more, see [Configuring the ServiceNow Connectors.](https://help.zscaler.com/uvm/configuring-servicenow-connectors)
-- Ensure that you retrieve the authentication parameters based on the selected authentication method to enter them in the corresponding fields during the outegration setup:
-  - OAuth 2.0
-  - User Name Password Client ID Client Secret
-  - Basic Authentication (Username and Password)
-  - JWT OAuth2
-
-## Configuring the ServiceNow CMDB Outegration
-
-To configure the ServiceNow CMDB outegration, complete the following steps:
-
-- Step 1: Authenticate the ServiceNow CMDB Connection (Connect)
-- Step 2: Configure the Outegration Visibility and Behavior (Settings)
-- Step 3: Map the Outegration Fields (Mapping)
-
-Obtain the following parameters:
-
-- Instance Name
-- Client ID and Client Secret
-- Refresh Token and Access Token
-
-The ServiceNow CMDB instance name is the name of the hosted ServiceNow instance found in the URL in the format `https://``<Instance Name>``.service-now.com`. For example, if your URL is `https://``acme``.service-now.com/`, then the instance name is `acme`.
-
-If the ServiceNow CMDB instance is not hosted on the ServiceNow domain, the instance name is the full domain name.
-
-To obtain the client ID and client secret:
-
-1. Log in to ServiceNow and access the relevant instance as an admin user.
-2. Go to **System OAuth**> **Application Registry**.
-3. Click **New**to create a new application registry.
-4. On the interceptor page, click **Create an OAuth API endpoint for external clients**. The **Application Registries** window appears.
-5. In the **Application Registries** window: See image.
-  1. **Name**: Enter a name for the platform using the OAuth endpoint.
-  2. **Client ID**:The ID is automatically generated by the instance. Copy this value and save it.
-  3. **Client Secret**:The client secret is generated by the instance after you submit the form.
-  4. **Refresh Token Lifespan**: Enter8,640,000 seconds (100 days). The value can be increased.
-  5. **Access Token Lifespan**: Enter1,800 seconds (30 minutes). The value can be increased.
-6. Click **Submit**. The client secret is generated and displayed within the created record.
-
-To generate the refresh token for the ServiceNow CMDB outregation, make a curl request to the ServiceNow OAuth token endpoint.
-
-To make the curl request, prepare the OAuth 2.0 credentials by inserting the following details:
-
-- `<Instance Name>`: Enter the retrieved instance name.
-- `grant_type`: Set to `password`.
-- `<Client ID>`: The client ID of your OAuth application.
-- `<Client Secret>`: The client secret of your OAuth application.
-- `<Username>`: Your ServiceNow user account name that authorizes the access token request.
-- `<Password>`: The password for the ServiceNow user account that authorizes the access token request.
-
-To generate the refresh token, launch your terminal or an API platform (e.g., Postman) and run the following command:
-
-```
-curl --location 'https://
-<Instance Name>
-.service-now.com/oauth_token.do' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=
-password
-' \
---data-urlencode 'client_id=
-<Client ID>
-' \
---data-urlencode 'client_secret=
-<Client Secret>
-' \
---data-urlencode 'username=
-<Username>
-' \
---data-urlencode 'password=
-<Password>
-'
-```
-
-The curl request returns an access token and a refresh token.
-
-Enter the refresh token in the mandatory **Refresh Token** field in the outegration authentication step. The access token is optional, and is automatically generated if left blank.
-
-[Image: Generate the client ID and client secret]
-
-Obtain the following parameters for the **Username Password Client ID Client Secret**authentication method:
-
-- Instance Name
-- Username and Password
-- Client ID and Client Secret
-
-The ServiceNow CMDB instance name is the name of the hosted ServiceNow instance found in the URL in the format `https://``<Instance Name>``.service-now.com`. For example, if your URL is `https://``acme``.service-now.com/`, then the instance name is `acme`.
-
-The email and password associated with a ServiceNow`Security Admin`user and permissions to access the relevant table. To learn more, refer to the [ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-administration/page/administer/roles/reference/r_BaseSystemRoles.html).
-
-For the username password client credentials authentication method, you need to provide ServiceNow client credentials that were generated using a ServiceNow admin account.
-
-1. Log in to ServiceNow and access the required instance as an admin user.
-2. Go to **System OAuth**> **Application Registry**.
-3. Click **New**.
-4. On the interceptor page, click **Create an OAuth API endpoint for external clients**. The **Application Registries** window appears.
-5. In the **Application Registries** window: See image.
-  1. **Name**: Enter a name for the platform using the OAuth endpoint.
-  2. **Client ID**: The ID is automatically generated by the instance. Copy this value and save it.
-  3. **Client Secret**: The client secret is generated by the instance after you submit the form.
-  4. **Refresh Token Lifespan**: Enter 8,640,000 seconds (100 days). The value can be increased.
-  5. **Access Token Lifespan**: Enter 1,800 seconds (30 minutes). The value can be increased.
-6. Click **Submit**.
-
-[Image: Generate the client ID and client secret]
-
-- Instance Name
-- Username and Password
-
-The ServiceNow CMDB instance name is the name of the hosted ServiceNow instance found in the URL in the format `https://``<Instance Name>``.service-now.com`. For example, if your URL is `https://``acme``.service-now.com/`, then the instance name is `acme`.
-
-The email and password associated with a ServiceNow user with the `ITIL` role or higher and permissions to access the relevant table. To learn more, refer to the [ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-administration/page/administer/roles/reference/r_BaseSystemRoles.html).
-
-- Instance Name
-- Client ID and Client Secret
-- Key ID
-- Subject
-
-To learn more, refer to the [ServiceNow documentation](https://www.servicenow.com/docs/bundle/yokohama-platform-security/page/administer/security/task/create-jwt-endpoint.html).
-
-### Adding a Certificate in JWT OAuth2
-
-When authenticating using the JWT OAuth2 method, a dialog window appears containing a certificate after entering the parameters and successfully creating the authentication.
-
-See image.
-
-To complete the authentication process:
-
-1. Copy the certificate from the dialog window that appears.
-2. In the ServiceNow portal, go to **System Definition**> **Certificates**.
-3. Click **New**.
-4. Enter a name, and enter the certificate in the **PEM Certificate** field.
-5. Click **Submit**.
-6. Link the certificate in the **Application Registry**by updating the **Verifier Map**field to reference the new entry in `Sys_certificate`.
-7. Click **Test**in the bottom-right corner of the page to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
-8. After the test passes, click **Next**to advance to the **Settings**step.
-
-The ServiceNow CMDB instance name is the name of the hosted ServiceNow instance found in the URL in the format `https://``<Instance Name>``.service-now.com`. For example, if your URL is `https://``acme``.service-now.com/`, then the instance name is `acme`.
-
-For the JWT OAuth2 authentication method, you'll need to provide ServiceNow client credentials that were generated using a ServiceNow admin account.
-
-1. Log in to ServiceNow and access the required instance as an admin user.
-2. Go to **System OAuth**> **Application Registry**.
-3. Click **New**.
-4. On the interceptor page, click **Create an OAuth JWT API endpoint for external clients**. The **New Record** window appears.
-5. In the **New Record** window: See image.
-  1. **Name:** Enter a name for the platform using the OAuth JWT API endpoint.
-  2. **Client ID**: The ID is automatically generated by the instance. Copy this value and save it.
-  3. **Client Secret**:The ID is automatically generated by the instance after you submit the form.
-  4. **User Field**: The field in the User (`sys_user`) table that the system uses to match the value of the subject claim in the JWT is set to **Email**by default.
-  5. **Access Token Lifespan**: The value is set to1,800 seconds (30 minutes) by default. The value can be increased.
-  6. **Clock skew**: The value is set to 300 seconds (5 minutes) by default. The value can be increased.
-6. Click **Submit**.
-
-[Image: Client credentials that were generated using a ServiceNow admin account]
-
-For the JWT auth method, you'll need to provide a Key ID (Kid), which is generated when creating a new verifier map.
-
-See image.
-
-[Image: Key ID generated when creating a verifier map]
-
-The JWT OAuth2 authentication method requires the subject (`sub`) field for authenticating with ServiceNow. This value is used to identify the user in the `sys_user` table. If the User field in the JWT authentication profile is left as the default (i.e., **Email**), the Subject must match the user's email address. If the User field was changed (e.g., to `user_name`), the Subject must instead match the value in that specified field.
-
-To establish a secure connection with the ServiceNow CMDB instance, you need to authenticate with the parameters you previously saved.
-
-1. In the Zscaler Security Operations (SecOps), go to **Configure** > **Outegrations**. See image.
-2. Click **Create** and select **ServiceNow CMDB**.
-3. In the **Details** section:
-  1. **Display Name**: Enter a name for your outegration.
-  2. **Active**: Enable to activate the ServiceNow outegration.
-  3. **Instance Name**: Enter the name of the hosted ServiceNow CMDB instance where the asset details should be added. If the ServiceNow CMDB instance is not hosted on the ServiceNow domain, the instance name is the full domain name.
-  4. **Authentication**: Select an existing authentication ID, or click **Create New** to set up a new authentication, and enter the required parameters you retrieved earlier into the corresponding fields. See image.
-4. Click **Test**in the bottom-right corner of the page to verify the connection. If the credentials are invalid, an error message is displayed along with the remediation steps to resolve the issue. See image.
-5. After the connection is verified, click **Next**to proceed to the **Settings**step.
-
-[Image: Outegrations page in the SecOps platform]
-
-[Image: Authentication details for ServiceNow outegration setup]
-
-[Image: ServiceNow CMDB outegration details]
-
-[Image: JWT OAuth2 certificate created]
-
-In this step, you need to set the CMDB entity for which you want to configure the outegration, the ServiceNow CMDB Table where the asset details will be dispatched to, and when the Create ServiceNow Ticket button should appear in the violation ticket.
-
-1. In the **Advanced Settings** section:
-  1. **Create ServiceNow CMDB item from**: By default,**Violation Ticket** is selected.
-  2. **Table**:Select the ServiceNow CMDB table that the asset should be dispatched to. The schema associated with the selected table will be retrieved from your ServiceNow CMDB table and made available for mapping in the Mapping step. Each ServiceNow CMDB Table Type (e.g., CMDB CI Server) requires a separate outegration configuration. See image.
-2. In the **Violation Ticket View**section, select how the violation ticket should display the **ServiceNow CMDB**button. Select **For specific violation ticket**to define the custom conditions that control when the button is displayed, allowing you to target specific violation tickets. See image.
-  - **Field Name**: Select**Violation Ticket** Type.
-  - **Field Value**: Select **CMDB Hygiene**.
-3. Click **Map**to advance to the **Mapping** step.
-
-The **ServiceNow CMDB**button appears in the relevant violation ticket.
-
-See image.
-
-[Image: ServiceNow CMDB button in the violation ticket]
-
-[Image: ServiceNow CMDB table that the assets data should be dispatched to]
-
-[Image: Violation Ticket View selection]
-
-The objective of the mapping process is to map SecOps fields (left) to ServiceNow CMDB fields (right). To map values to fields, configure values on the left to populate the fields selected on the right.
-
-See image.
-
-### Creating a New Mapping
-
-To create a new mapping from SecOps to ServiceNow CMDB:
-
-1. Select a field (right): See image.
-  1. Click**Mapping**.
-  2. Select a field on the right. The field's schema details open on the right of the page. The schema lists the ServiceNow CMDB fields that can be used for mapping. See image. The following details are specified for fields, when available:
-    - Required
-    - Input Type
-    - Available Options
-2. Configure the field value (left):
-  1. Click **Add value** on the left. The **Field Editor** appears.
-  2. In the **Field Editor**, select one of the following methods to configure the value of the field:
-    - Field (Dictionary)
-    - Expression
-
-Repeatthe mapping process for all required ServiceNow CMDB fields and for any other fields you want to map. Ensure that fields that you want to add are up to date.
-
-To preview the mapping, click **Preview**on the bottom right of the ticket initially dispatched to the ServiceNow CMDB section. The Mapping Preview window appears. On the left of the Mapping Preview window, there is a sample of the assets in your account, organized by asset ID. You can select, filter, or search the assets and preview the mapping. You can also open the asset details in a new tab for a more in-depth review.
-
-[Image: Mapping fields to populate on the right]
-
-[Image: Outegration schema field options]
-
-The Required attribute is TRUE if a field is required by ServiceNow CMDB. If a field is not required, the attribute is not displayed. A required ServiceNow CMDB field is also indicated by a red asterisk (*) on the ServiceNow CMDB field in the first mapping step.
-
-Required ServiceNow CMDB fields must be mapped before saving the outegration.
-
-The Input Type specifies the data type of the ServiceNow CMDB field, such as TEXT (e.g., Attested), DATE (e.g., Start Date), or NUMBER (e.g., Attestation Score). This indicates the format that the selected source field must match to successfully map to the ServiceNow CMDB field.
-
-For ServiceNow CMDB fields with fixed values, the Available Options column displays the available values. For example, if the ServiceNow CMDB field Attestation Status is configured to include the following fixed values—Attested, Not Yet Reviewed, Rejected—the corresponding values in the field can be mapped to these values.
-
-Select a field on the left to populate the field on the right.
-
-The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left. To use the dictionary, you must first select a field on the right and a field to populate it with on the left.
-
-See image.
-
-[Image: Create mappings between specific values from the field on the right and values from the field on the left]
-
-For use cases that require more advanced configuration, you can use the Expression Editor to configure the field value to be mapped to the target field.
-
-[Image: Expression Editor]
-
-[Image: ServiceNow CMDB data mapping]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-servicenow-outegration","lastmod":"2025-11-10T15:10Z","nid":"1533657"} -->
-## Configuring the ServiceNow Outegration
-
-- Source: https://help.zscaler.com/aem/configuring-servicenow-outegration
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring the ServiceNow Outegration
-- Last modified: 2025-11-10T15:10Z
-- Summary: How to configure the ServiceNow outegration for disptaching SecOps tickets to the ServiceNow work management system.
-
-The ServiceNow outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your ServiceNow tables, creating a ServiceNow ticket that can then be tracked, assigned, and managed by your remediation teams working with ServiceNow.
-
-This article is a step-by-step guide to setting up the ServiceNow work management outegration. The process involves setting up authentication, outegration visibility in the platform, outegration mapping, and when relevant, configuring a ServiceNow webhook to enable bidirectional synchronization.
-
-Each ServiceNow Table Type (e.g., Remediation Task, Incident) requires a separate outegration configuration.
-
-## Prerequisites
-
-Retrieve the required authentication parameters based on your selected authentication method (e.g., Username and Password, OAuth 2.0), and enter them in the corresponding fields during the Connect step of the outegration setup wizard.
-
-- OAuth 2.0
-- User Name Password Client ID Client Secret
-- Basic Authentication (Username and Password)
-- Jwt OAuth2
-
-## Creating the ServiceNow Outegration
-
-To configure the ServiceNow outegration, complete the following steps:
-
-- Step 1: Authenticate the ServiceNow Connection (Connect)
-- Step 2: Configure the Outegration Visibility and Behavior (Settings)
-- Step 3: Map the Outegration Fields (Mapping)
-- (Optional) Step 4: Configure the ServiceNow Webhook
-
-Obtain the following required parameters for the OAuth 2.0 authentication:
-
-- Instance Name
-- Client ID and Client Secret
-- Refresh Token and Access Token
-
-The ServiceNow instance name is the name of the hosted ServiceNow instance found in the URL in the format `https://``<Instance Name>``.service-now.com`. For example, if your URL is `https://``acme``.service-now.com/`, then the instance name is `acme`.
-
-For the OAuth 2.0 authentication method, you'll need to provide ServiceNow client credentials that were generated using a ServiceNow admin account.
-
-To create a client ID and client secret:
-
-1. Log in to ServiceNow as an admin user.
-2. In the relevant instance, go to **System OAuth**> **Application Registry**.
-3. Click **New**.
-4. On the interceptor page, click **Create an OAuth API endpoint for external clients**. The **Application Registries** window appears.
-5. In the **Application Registries** window: See image.
-  1. **Name**: Enter a name that identifies the platform.
-  2. **Client ID**:Automatically generated by the instance.
-  3. **Client Secret**:Automatically generated by the instance after you submit the form.
-  4. **Refresh Token Lifespan**: Enter8,640,000 seconds (100 days). This can be increased.
-  5. **Access Token Lifespan**: Enter1,800 seconds (30 minutes). This can be increased.
-6. Click **Submit**.
-
-Generating the refresh token for your ServiceNow outegration involves making a curl request to the ServiceNow OAuth token endpoint. To make the curl request, insert the following OAuth 2.0 credentials into the command:
-
-- `<Instance Name>`: Enter the instance name previously retrieved (e.g., `acme`).
-- `grant_type`: Set to `password`.
-- `<Client ID>`: The client ID of your OAuth application previously generated.
-- `<Client Secret>`: The client secret of your OAuth application previously generated.
-- `<Username>`: Your ServiceNow user account name that authorizes the access token request.
-- `<Password>`: The password for the ServiceNow user account that authorizes the access token request.
-
-To generate the refresh token, launch your terminal or an API platform (e.g., Postman) and run the following command:
-
-```
-curl --location 'https://
-<Instance Name>
-.service-now.com/oauth_token.do' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=
-password
-' \
---data-urlencode 'client_id=
-<Client ID>
-' \
---data-urlencode 'client_secret=
-<Client Secret>
-' \
---data-urlencode 'username=
-<Username>
-' \
---data-urlencode 'password=
-<Password>
-'
-```
-
-The curl request returns an access token and a refresh token. Make sure to enter the refresh token in the mandatory Refresh Token field in the outegration authentication. The access token is optional, and is automatically generated if left blank.
-
-Obtain the following required parameters for the username password client ID client secret authentication method:
-
-- Instance Name
-- Username and Password
-- Client ID and Client Secret
-
-The ServiceNow instance name is the name of the hosted ServiceNow instance found in the URL in the format `https://``<Instance Name>``.service-now.com`. For example, if your URL is `https://``acme``.service-now.com/`, then the instance name is `acme`.
-
-The email and password associated with a ServiceNow`Security Admin`user and permissions to access the relevant table. To learn more, refer to the [ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-administration/page/administer/roles/reference/r_BaseSystemRoles.html).
-
-For the username password client credentials authentication method, you'll need to provide ServiceNow client credentials that were generated using a ServiceNow admin account.
-
-To create client ID and client secret:
-
-1. Log in to ServiceNow with an admin user.
-2. In the relevant instance, go to **System OAuth**> **Application Registry**.
-3. Click **New**.
-4. On the interceptor page, click **Create an OAuth API endpoint for external clients**. The **Application Registries** window appears.
-5. In the **Application Registries** window: See image.
-  1. **Name:** Enter a name that identifies the platform.
-  2. **Client ID**:Automatically generated by the instance.
-  3. **Client Secret**:Automatically generated by the instance after you submit the form.
-  4. **Refresh Token Lifespan**: Enter8,640,000 seconds (100 days). This can be increased.
-  5. **Access Token Lifespan**: Enter1,800 seconds (30 minutes). This can be increased.
-6. Click **Submit**.
-
-Obtain the following required parameters for the basic authentication method (i.e., username and password):
-
-- Instance Name
-- Username and Password
-
-The ServiceNow instance name is the name of the hosted ServiceNow instance found in the URL in the format `https://``<Instance Name>``.service-now.com`. For example, if your URL is `https://``acme``.service-now.com/`, then the instance name is `acme`.
-
-The email and password associated with a ServiceNow user with the ITIL role or higher and permissions to access the relevant table. To learn more, refer to the [ServiceNow documentation](https://docs.servicenow.com/bundle/utah-platform-administration/page/administer/roles/reference/r_BaseSystemRoles.html).
-
-Obtain the following required parameters for the Jwt OAuth 2 authentication method:
-
-- Instance Name
-- Client ID and Client Secret
-- Key ID
-- Subject
-
-To learn more, refer to the [ServiceNow documentation](https://www.servicenow.com/docs/bundle/yokohama-platform-security/page/administer/security/task/create-jwt-endpoint.html).
-
-The ServiceNow instance name is the name of the hosted ServiceNow instance found in the URL in the format `https://``<Instance Name>``.service-now.com`. For example, if your URL is `https://``acme``.service-now.com/`, then the instance name is `acme`.
-
-For the Jwt OAuth2 authentication method, you'll need to provide ServiceNow client credentials that were generated using a ServiceNow admin account.
-
-To create client ID and client secret:
-
-1. Log in to ServiceNow with an admin user.
-2. In the relevant instance, go to **System OAuth**> **Application Registry**.
-3. Click **New**.
-4. On the interceptor page, click **Create an OAuth JWT API endpoint for external clients**. The **New Record** window appears.
-5. In the **New Record** window: See image.
-  1. **Name:** Enter a name that identifies the platform.
-  2. **Client ID**:Automatically generated by the instance.
-  3. **Client Secret**:Automatically generated by the instance after you submit the form.
-  4. **User field**: The field in the User (sys_user) table that the system uses to match the value of the subject claim in the JWT. By default, set to **Email**.
-  5. **Access Token Lifespan**: By default, set to1,800 seconds (30 minutes). This can be increased.
-  6. **Clock skew**: By default, set to 300 seconds (5 minutes). This can be increased.
-6. Click **Submit**.
-
-[Image: creating the snow jwt oauth2 client credentials form]
-
-For the JWT auth method, you'll need to provide a Key ID (or KID), which is generated when creating a new verifier map.
-
-See image.
-
-[Image: snow jwt key id]
-
-The Jwt OAuth2 authentication method requires the subject (`sub`) field for authenticating with ServiceNow. This value is used to identify the user in the `sys_user` table. If the User field in the JWT authentication profile is left as the default (i.e., email), the Subject must match the user's email address. If the User field was changed (e.g., to `user_name`), the Subject must instead match the value in that specified field.
-
-The first step in setting up your ServiceNow outegration is to authenticate using valid credentials to establish a secure connection with your ServiceNow instance. With the required parameters retrieved in the prerequisites, you can begin the ServiceNow outegration setup in the SecOps platform.
-
-To create an outegration:
-
-1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
-2. Click **Create**, then select **ServiceNow**. The **Connect** step appears. See image.
-3. In the **Details** section:
-  1. **Display Name**: Enter a name for your outegration.
-  2. **Active**: Enable to activate the ServiceNow outegration.
-  3. **Instance Name**: Enter the name of the hosted ServiceNow instance where the tickets should be created.
-  4. **Authentication**: Select an existing authentication, or click **Create New** to set up a new authentication, and enter the required parameters you retrieved earlier into the corresponding fields. To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications).
-4. Click **Test** in the bottom-right corner of the screen to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
-5. After the test passes, click **Next**to advance to the **Settings**step.
-
-### Adding a Certificate in Jwt OAuth2
-
-When authenticating using the Jwt OAuth2 method, a dialog window appears containing a certificate after entering the parameters and successfully creating the authentication.
-
-See image.
-
-To complete the authentication process:
-
-1. Copy the certificate from the window.
-2. In the ServiceNow portal, go to **System Definition**> **Certificates**.
-3. Click **New**.
-4. Fill in the entry details, and paste the certificate in the **PEM Certificate**field.
-5. Click **Submit**.
-6. Link the certificate in the **Application Registry**by updating the **Verifier Map**field to reference the new entry in `Sys_certificate`.
-7. Click **Test**in the bottom-right corner of the page to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
-8. After the test passes, click **Next**to advance to the **Settings**step.
-
-[Image: snow outegration connect step]
-
-[Image: jwt oauth 2 certificate]
-
-In the Settings step of the outegration setup wizard, configure your ServiceNow outegration's visibility and behavior within the relevant application in the SecOps platform (e.g., UVM, AEM). In this step, you'll set the SecOps entity that triggers the ServiceNow ticket dispatch (e.g., ticket, violation ticket), the ServiceNow table that the SecOps ticket should be dispatched to, and when the Create ServiceNow Ticket button should appear in the application. The Create ServiceNow Ticket button allows end users with access to SecOps tickets to dispatch these tickets to a ServiceNow table directly from the SecOps ticket drawer or from the SecOps tickets page.
-
-To configure the outegration's visibility and behavior:
-
-1. In the **Advanced Settings** section:
-  1. **Create ServiceNow item from**:Select the entity that you want to configure the outegration for. This selection affects the view you'll configure in the <Entity> **View**step (e.g., selecting Ticket displays the Tickets View setting). Other entity types might be visible depending on the apps enabled in your account. See image.
-    - **UVM**: Select **Ticket**.
-    - **AEM**: Select **Violation Ticket**.
-  2. **Table**:Select the ServiceNow table that the SecOps ticket should be dispatched to. The schema associated with the selected table will be retrieved from your ServiceNow table and made available for mapping in the Mapping step. See image.
-2. In the <Entity> **View** section, select how the SecOps ticket should display the **Create ServiceNow Ticket**button. This setting can be modified at any time. See image.
-  - **Always**: Select to display the button in all tickets, allowing users to dispatch tickets to a ServiceNow ticket without exception.
-  - **Never**: Select to hide the button in all tickets. This is useful during the outegrationsetup process to hide the button from users while still keeping the outegration active.
-  - **For specific tickets**: Define custom conditions to control when the button is displayed, allowing you to target specific tickets. For example, if your organization uses multiple ticketing systems, you can grant access to the button only to users who work with ServiceNow, while excluding those who use other ticketing systems (e.g., Jira).
-3. Click **Map**to advance to the **Mapping** step.
-
-The **Create ServiceNow Ticket**button appears in two locations:
-
-- In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/uvm/managing-violation-tickets-aem)). See image.
-- On the entity page in the relevant application (e.g., on the [Tickets page](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, on the [Violation Tickets page](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM). See image.
-
-The third step in setting up your ServiceNow outegration is configuring the field mapping between your SecOps tickets and ServiceNow tickets. This defines how data is exchanged and synchronized between the two systems upon initial dispatch and subsequent updates. The SecOps platform's unique mapping capabilities allow for flexible mapping of any custom field or logic to any field in your ServiceNow tables, facilitating highly customized workflows that align with your organization's requirements.
-
-The main objective of the mapping process is to map values to fields. To map values to fields, configure values on the left to populate the fields selected on the right.
-
-See image.
-
-There are three mapping components:
-
-- Tickets initially dispatched to ServiceNow: Map SecOps ticket fields (left) to ServiceNow fields (right) for the initial dispatch of a ticket to a ServiceNow ticket. You can also add an attachment to your ServiceNow ticket. Commonly mapped fields include Short Description, Description, Assignment Group, Priority, Due Date, and Status.
-- (Optional) Sync from ticket to ServiceNow: Map SecOps ticket fields (left) to ServiceNow fields (right) for syncing ticket updates to ServiceNow, including configuring comments and adding an attachment to your ServiceNow ticket. Commonly mapped fields include Status and Due Date.
-- (Optional) Sync from ServiceNow to ticket: Map ServiceNow fields (left) to SecOps ticket fields (right) for syncing ServiceNow updates to SecOps tickets. This step also requires setting up a [ServiceNow webhook](https://help.zscaler.com/uvm/configuring-servicenow-outegration-webhook). Commonly mapped fields include Ticket Status and Ticket SLA.
-
-The initial ServiceNow outegration mapping includes preconfigured default mappings for each part, based on common use cases and industry best practices. These defaults can be modified and customized as needed.
-
-### Creating a New Mapping
-
-In each of the three mapping components, you'll need to select a field on the right, and then configure the corresponding field value on the left.
-
-To create a new mapping:
-
-1. Select a field (right):
-  1. Click**Mapping**.
-  2. Select a field on the right. The field's schema details open on the right of the page. The schema lists available ServiceNow fields to be used during mapping. This is the list of fields configured in your ServiceNow table for the Table selected in the Settings step (e.g., Task). See image. The following details are specified for fields, when available:
-    - Required
-    - Input Type
-    - Available Options
-2. Configure the field value (left):
-  1. Click **Add value** on the left. The **Field Editor** appears.
-  2. In the **Field Editor**, select one of the following methods to configure the value of the field:
-    - Field (Dictionary)
-    - Smart Text
-    - Script
-
-Repeatthe mapping process for all required ServiceNow fields and for any other fields you want to map.
-
-In addition to the mapping of fields on the right to fields on the left, you can perform a set of actions when setting up the ServiceNow outegration mapping, each relevant to a specific part of the mapping.
-
-- Set a ticket field as mandatory.
-- Add attachments to the ticket dispatch.
-- Configure comments synchronization.
-
-### Mapping Ticket Title to Short Description
-
-To illustrate the mapping process, consider the mapping of the required ServiceNow Short Description field. The final result of the mapping process should show the Short Description field on the right, and the Ticket Title field on the left.
-
-To map the Ticket Title field to the Short Description field:
-
-1. Select **Short Description**as the ServiceNow field on the right. See image. Selecting the ServiceNow Short Description field opens the field's details in the schema. The schema specifies that the field is required and thus must be mapped before the outegration can be saved, and that the field expects a TEXT input type. Therefore, the field for which a value is being configured must also be of TEXT type. See image.
-2. Select the **Ticket Title**field on the left: See image.
-  1. Click**Add Value**.
-  2. Under the **Field** tab, select the **Ticket Title** field, which is the equivalent to the ServiceNow **Short Description**field.
-
-### Previewing the Ticket to ServiceNow Mapping
-
-After completing the SecOps ticket to ServiceNow dispatch mapping, preview the mapping to review the configuration. This helps ensure that SecOps ticket dispatch is behaving as expected and that the ServiceNow ticket fields are populated correctly.
-
-To preview the mapping, click **Preview**on the bottom right of the ticket initially dispatched to ServiceNow section. The Mapping Preview window appears. On the left of the Mapping Preview window, there is a sample of the SecOps tickets in your account, organized by ticket ID. You can select, filter, or search tickets and preview the mapping to their corresponding ServiceNow ticket. You can also open the actual SecOps ticket in a new tab for a more in-depth review.
-
-See image.
-
-### Common Mapping Examples
-
-These mapping examples highlight commonly used field configurations in your outegration. While some might be preconfigured by default, Zscaler recommends reviewing and customizing them to ensure they align with your workflow.
-
-- Ticket to ServiceNow Description
-- Ticket SLA to ServiceNow Due Date Sync
-
-[Image: snow outegration mapping right left]
-
-The Required attribute is TRUE if a field is required by ServiceNow. If a field is not required, the attribute is not displayed. A required ServiceNow field is also indicated by a red asterisk (*) on the ServiceNow field in the first mapping step.
-
-Required ServiceNow fields must be mapped before saving the outegration.
-
-The Input Type specifies the data type of the ServiceNow field, such as TEXT (e.g., Short Description), DATE (e.g., Due Date), or NUMBER (e.g., Reassignment Count). This indicates the format that the selected source field must match in order to successfully map to the ServiceNow field.
-
-For ServiceNow fields with fixed values, the Available Options column displays the available values. For example, if the ServiceNow field Priority is configured to include the following fixed values—1 - Critical, 2 - High, 3 - Moderate, 4 - Low, None—the corresponding values in the Ticket Severity field can be mapped to these values.
-
-Select a field on the left to populate the field on the right.
-
-#### Dictionary
-
-The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left. To use the dictionary, you must first select a field on the right and then a field to populate it with on the left.
-
-For example, if your ServiceNowPriority field includes the following fixed values—1 - Critical, 2 - High, 3 - Moderate, 4 - Low, None—you can use the dictionary to map the corresponding Ticket Severity values to each of the Priority field values.
-
-See image.
-
-Configure the field value using free text, or create a template using a combination of free text and selected fields. This allows you to dynamically insert specific field values (e.g., Ticket SLA, Ticket Assignee, or Asset Name) into customized free text sentences or paragraphs.
-
-To add a Smart Text field, enclose it in double curly brackets (e.g., `{{Ticket Assignee}}`.) The field's display name automatically translates to its system name.
-
-This option is commonly used to configure the value of fields like Ticket Title and Ticket Description.
-
-See image.
-
-For use cases that require more advanced configuration than either of the two methods above, you can use Python scripts to configure the source field value to be mapped to the target field.
-
-When dispatching tickets to ServiceNow, map the ServiceNow Description field with a summary of the Ticket content to provide remediation teams with a brief overview of the ticket.
-
-To configure the Ticket to ServiceNow Description mapping:
-
-1. Click**Mapping**.
-2. Select**Description** as the field on the right.
-3. Click **Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Smart Text**.
-5. Enter a ticket description, including dynamic fields (e.g., `{{SLA}}`).
-
-Tickets dispatched to ServiceNow will now include the configured description.
-
-In the Ticket to ServiceNow sync, map the ServiceNow Due Date field to keep timelines in sync with Ticket SLA changes.
-
-To configure the Ticket SLA to ServiceNow Due Date mapping:
-
-1. Click**Mapping**.
-2. Select**Due Date** as the field on the right.
-3. Click**Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Field**, and select **Ticket SLA** as the field on the left.
-
-Ticket SLA changes will now automatically update ServiceNow ticket due dates.
-
-You can set a SecOps ticket field as mandatory, by selecting the Set as Mandatorycheckbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
-
-See image.
-
-Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched to ServiceNow, so ServiceNow tickets are always actionable for your remediation teams. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
-
-Required fields are defined by your ServiceNow schema, whereas Mandatory fields are mandatory for SecOps ticket dispatch.
-
-You can create a file attachment that summarizes your ticket content and set the trigger to automatically add it to your ServiceNow ticket. Adding an attachment to your ServiceNow ticket simplifies the review and management of findings dispatched from a ticket.
-
-You can configure file attachments in two of the mapping steps:
-
-- Initial ticket dispatch See image.
-- Sync from Ticket to ServiceNow See image.
-
-When configured in the Ticket to ServiceNow sync section, the attachment is included in the ServiceNow ticket alongside existing attachments as a downloadable file in the selected format.
-
-Use the **File Format** drop-down menu on the top left of the attachment page to select from the available formats (**CSV**, **PDF**, **JSONL**, **Excel**).
-
-See image.
-
-To provide your ServiceNow remediation teams with a comprehensive view of the findings in the ticket, consider including the following fields in your attachment:
-
-- Recommended Attachment Fields
-
-- Finding Severity
-- Finding Title
-- Finding CVE
-- Component Name
-- Asset Name
-- Asset Operating System
-- Finding Optimal Fix
-- Finding Description
-- Finding Sources
-
-In the Ticket to ServiceNow sync step, you can configure how ticket comments are synchronized with ServiceNow ticket comments. To configure comments, click **Comment Sync**.
-
-See image.
-
-### Sync Comments
-
-Enable **Sync Comments**to automatically push comments from the ticket's Comments tab to the corresponding ServiceNow ticket.
-
-See image.
-
-### Trigger Comments
-
-Enable **Sync Trigger Comments**and set conditions to trigger a comment when specific fields are modified. Syncing trigger comments is useful when you want to be notified of important changes to tickets without updating the corresponding ServiceNow ticket. For example, you can configure a trigger to post a comment in ServiceNow when the Ticket Severity changes from Medium to Critical.
-
-See image.
-
-To add a trigger condition:
-
-1. Select the field you want to monitor (e.g., **Severity**).
-2. Set the value change that should trigger the comment:
-  1. **From**: Select the original value.
-  2. **To**: Select the updated value.
-
-When the specified change occurs in the ticket, a comment is automatically created and added to the ServiceNow ticket. The following is an example of a trigger comment:
-
-```
-Linked UVM ticket updated:
-Ticket severity changed from: MEDIUM to: CRITICAL
-<URL to ticket>
-```
-
-The ServiceNow outegration webhook enables automatic syncing of ServiceNow ticket updates (e.g., Status or SLA changes) to their corresponding SecOps tickets, reducing the need for manual changes. This step is required when configuring the ServiceNow to SecOps ticket mapping to keep the tickets in the two systems in sync. To learn more, see [Configuring the ServiceNow Outgeration Webhook](https://help.zscaler.com/uvm/configuring-servicenow-outegration-webhook).
-
-A ServiceNow webhook is only needed to sync updates from ServiceNow to the ticket. It is not required for the initial ticket dispatch or for syncing updates from the ticket to ServiceNow.
-
-When the outegration setup is complete, you can begin dispatching SecOps tickets using the Create ServiceNow Ticket button that appears in the Create Ticket menu within individual tickets, as well as in the Create Issue menu in the Tickets View. To learn more, see [Creating & Managing Third Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/configuring-servicenow-outegration-webhook","lastmod":"2025-11-10T15:11Z","nid":"1533658"} -->
-## Configuring the ServiceNow Outegration Webhook
-
-- Source: https://help.zscaler.com/aem/configuring-servicenow-outegration-webhook
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Outegrations > Outegration Configuration Guides > Configuring the ServiceNow Outegration Webhook
-- Last modified: 2025-11-10T15:11Z
-- Summary: How to configure the ServiceNow outegration webhook for bidirectional sync when setting up the ServiceNow outegration.
-
-The ServiceNow outegration webhook enables automatic syncing of ServiceNow ticket updates such as Status or SLA changes to their corresponding SecOps tickets, reducing the need for manual changes. This step is required when configuring the ServiceNow to SecOps ticket mapping to keep the tickets in the two systems in sync. To learn more, see [Configuring the ServiceNow Outegration](https://help.zscaler.com/uvm/configuring-servicenow-outegration).
-
-See image.
-
-## Prerequisite
-
-To set up the ServiceNow webhook, you need Zscaler API token credentials (i.e., Client ID and Client Secret) and your account ID. To obtain these, submit a support ticket in the SecOps platform requesting the necessary credentials.
-
-## Configuring the ServiceNow Webhook
-
-To set up your ServiceNow webhook:
-
-1. In the ServiceNow console, go to **Activity Subscription**>**Business Rules**. See image.
-2. Click **New**. The **Business Rule** page appears.
-3. On the **Business Rule** page:
-  1. **Name**: Enter a namefor the business rule.
-  2. **Table**: From the drop-down menu, select one of the following ServiceNow tables to trigger the platform on update:
-    - For the **Incidents** table, select **Incident [incident]**.
-    - For the **Requests** table, select **Requested Item [sc_req_item]**.
-    - For the **Exceptions** table, select **Policy Exception [sn_compliance_policy_exception]**.
-    - For any other table, select the relevant table name based on your use case.
-  3. Select the **Advanced** checkbox. See image.
-  4. On the **When to run**tab: See image.
-    - From the **When** drop-down menu, select **after**.
-    - Select the **Update** and **Delete** checkboxes.
-  5. On the **Advanced**tab, copy and paste the following script: Make the following changes to the script:
-    - See script.
-    - In the `getAvalorJWT()` function, replace the `<Client ID>`and`<Client Secret>` variables that appear in red.
-    - In the `sendWebhookRequest()` function, replace the `<Account ID>` variable that appears in red. You can find your Account ID in your platform URL, or contact Zscaler Support for assistance.
-4. Click **Submit**.
-
-After your webhook is set up, configured triggers for field updates in your ServiceNow outegration mapping automatically sync changes made to ServiceNow tickets with their corresponding SecOps tickets.
-
-```
-function getAvalorJWT(){
-   var url='
-https://auth.us01.app.avalor.io/oauth2/token
-';
-var restMessage = new sn_ws.RESTMessageV2();
-   restMessage.setEndpoint(url);
-   restMessage.setHttpMethod('POST');
-   restMessage.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-   restMessage.setRequestHeader('Accept', 'application/json');
-   var payload = "grant_type=
-client_credentials
-&client_id=
-<Client ID>
-&client_secret=
-<Client Secret>
-";
-   restMessage.setRequestBody(payload);
-   var response = restMessage.execute();
-   var responseBody = response.getBody();
-   var statusCode = response.getStatusCode();
-   if (statusCode !== 200) {
-       gs.error('Failed to get access. Status code: ' + statusCode + ', Response body: ' + responseBody);
-   }
-   var jsonResponse = JSON.parse(responseBody);
-   return jsonResponse.access_token;
-}
-function sendWebhookRequest(sysId, displayKey, changedFields, isDeleted) {
-   var jwt = getAvalorJWT();
-   var url = 'https://webhook.avalor.io/integration/inbound/
-<Account ID>
-/servicenow';
-   var restMessage = new sn_ws.RESTMessageV2();
-   var payload = {};
-   payload.sysId = sysId;
-   payload.displayKey = displayKey;
-   payload.changedFields = changedFields;
-   payload.isDeleted = isDeleted;
-   restMessage.setEndpoint(url);
-   restMessage.setHttpMethod('POST');
-   restMessage.setRequestHeader('Content-Type', 'application/json');
-   restMessage.setRequestHeader('Authorization', 'Bearer ' + jwt);
-   restMessage.setRequestBody(JSON.stringify(payload));
-   var response = restMessage.execute();
-   var responseBody = response.getBody();
-   var statusCode = response.getStatusCode();
-   if (statusCode !== 200) {
-       gs.error('Failed to send webhook request. Status code: ' + statusCode + ', Response body: ' + responseBody);
-   }
-}
-(function executeRule(current, previous /*null when async*/ ) {
-   if (current.operation() === 'delete') {
-       sendWebhookRequest(current.sys_id.getDisplayValue(), current.number.getDisplayValue(), {}, true);
-   }
-   if (current.operation() === 'update') {
-       var changedFields = {};
-       var fieldNames = current.getFields().toArray().map(function(field) {
-           return field.getName();
-       });
-       fieldNames.forEach(function(fieldName) {
-           if (current.getValue(fieldName) != previous.getValue(fieldName)) {
-               changedFields[fieldName] = current.getDisplayValue(fieldName);
-           }
-       });
-       sendWebhookRequest(current.getValue('sys_id'), current.getValue('number'), changedFields, false);
-   }
-})(current, previous);
-```
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3778,859 +678,6 @@ To configure automated rules for creating third-party work management items and 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/configuring-zscaler-secops-platform-gateway","lastmod":"2025-10-31T13:46Z","nid":"1532877"} -->
-## Configuring the Zscaler SecOps Platform Gateway
-
-- Source: https://help.zscaler.com/aem/configuring-zscaler-secops-platform-gateway
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > Admin Configuration and Deployment > Configuring the Zscaler SecOps Platform Gateway
-- Last modified: 2025-10-31T13:46Z
-- Summary: How to configure the Zscaler SecOps platform gateway to connect on-prem sources and outegrations.
-
-The Zscaler Security Operations (SecOps) platform supports connecting on-premises outegrations and data sources through the Zscaler gateway at the account level, allowing for seamless onboarding of customers with on-premises installations for their vendors. In this guide, the resource you intend to connect is referred to as the on-premises service. The objective is to make the on-premises service accessible through the SecOps platform. This article outlines a recommended setup using a virtual machine (VM).
-
-The SecOps gateway setup process begins with creating a VM and generating a public SSH key. You then share the public key along with the VM's public IP address and gateway IP addresses with Zscaler. Using this information, Zscaler creates a representative VM instance and notifies you when the setup is complete. You then establish a reverse SSH tunnel and inform Zscaler. Upon confirmation, Zscaler completes the gateway configuration and notifies you. At this point, the Zscaler gateway is fully operational and ready for use.
-
-[Image: Architecture of the Zscaler gateway configuration]
-
-You should receive this guide and the zscaler-gateway.sh script file after communication with Zscaler Support. If you have not received the script, contact Zscaler Support or your Zscaler Account team for assistance with setting up a gateway for your account.
-
-## Using the Zscaler Gateway
-
-The Zscaler gateway is used in one of the following configuration processes:
-
-- When [creating a data source](https://help.zscaler.com/uvm/creating-data-sources), select the relevant gateway in the Retrieval section of the source setup page.
-- When [configuring the Jira Data Center outegration](https://help.zscaler.com/uvm/configuring-jira-outegration), select the relevant gateway in the Details section.
-
-## Prerequisites
-
-For this setup, you must create or use a VM dedicated to running a reverse SSH tunnel. Do not use your local computer.
-
-Ensure that you have the following requirements for the VM:
-
-- Connectivity:Deploy the instance in a private subnet with a dedicated virtual network interface (vNIC) for secure communication within the private network. Ensure that the on-premises service is accessible from the VM you intend to use. It is crucial to test this connectivity before proceeding.
-- Operating System:Your VM should be set up with one of the supported Linuxdistributions:
-  - Ubuntu
-  - Red Hat Enterprise Linux (RHEL)
-  - Centos
-  - Amazon-Linux
-- Instance Specification:
-  - Use small instance types with at least 2 vCPUs and 4 GB of RAM.
-  - The instance size should be flexible and might vary based on traffic patterns. Ensure the chosen instance type supports scalability (both vertical and horizontal scaling) to handle workload fluctuations.
-  - Select instance resources based on expected traffic volume, with the ability to adjust instance sizing dynamically depending on actual usage.
-- Network Configuration: The VM must be configured to listen on port 22 for incoming SSH connections.
-
-## Configuring the Zscaler Gateway
-
-This guide accompanies the zscaler-gateway.sh script. The script first checks for an existing SSH key pair. If none are found, it creates one and displays the public key for you to send to Zscaler. Next, it verifies whether autossh is installed and attempts to install it if necessary. Finally, the script configures a service to establish the reverse SSH tunnel.
-
-- Step 1: Generate the SSH Key Pair
-- Step 2: Request the VM Instance Creation
-- Step 3: Zscaler Creates a Representative Instance for the Gateway
-- Step 4: Rerun the Script to Establish the Reverse SSH Tunnel
-- Step 5: Zscaler Sets Up the Gateway in the Platform
-
-The first step in configuring the gateway involves running the script, which installs autossh and generates the public key to send to Zscaler.
-
-### Prerequisite
-
-Before running the script, make sure your user account has root privileges, but is not logged in as the root user. You can verify this by running the `sudo -v` command. If you encounter an error such as `Sorry, user <username> may not run sudo on <hostname>`, switch to a different user with root access.
-
-### Copying the Script
-
-To copy the script to your server, you can either use the Secure Copy Protocol (`scp`) command or copy the script manually.
-
-- Copy the Script Using the scp Command (Recommended)
-- Copy the Script Manually
-
-### Running the Script
-
-After transferring the script content either via `scp` or manual copy, run the script using the following command, as a user with root privileges (but not as the root user):
-
-```
-bash zscaler-gateway.sh
-```
-
-After running the script:
-
-1. Select **No** if prompted to create an SSH tunnel to the Zscaler gateway; the tunnel is established later.
-2. Copy and save the newly generated public key displayed in yellow between the `Start copy` and `End copy` prompts to send to Zscaler in the next step.
-3. Ensure that the autossh package was installed, as this is essential for establishing the tunnel. If the installation fails, manually install autossh using the link provided in the script output, and then rerun the script.
-
-The tunnel is not active at this stage.
-
-Copy the script to the server on which you want to configure the tunnel, using the `scp` command:
-
-```
-scp /
-<Path>
-/zscaler-gateway.sh
-<User>
-@
-<Server IP>
-:/
-<Destination Path>
-/
-```
-
-Replace the following variables:
-
-- Replace `<Path>` with the local path to the script.
-- Replace `<User>` with your username.
-- Replace `<Server IP>` with your server IP address.
-- Replace `<Destination Path>` with the destination directory on the server.
-
-If `scp` is unavailable, you can manually create a new file on the server and paste the script contents. Manual copying can be prone to errors, so use this method with caution and only when necessary.
-
-To copy the script manually:
-
-1. Connect to the server where you want to configure the tunnel.
-2. Create a new file using the following command: `touch zscaler-gateway.sh`
-3. Open the file in your text editor. The following instructions are for Vim:
-  1. Run the following command: vim zscaler-gateway.sh
-  2. Press `i` to enter edit mode.
-  3. Copy and paste the content of the downloaded script into the new file.
-  4. Verify that the file starts with `#!/bin/bash` and ends with `# End of file`.
-4. To save and exit edit mode, press `Esc`, then enter `:wq` and press `Enter`.
-
-After you create the SSH key pair, [submit a support ticket](https://help.zscaler.com/uvm/accessing-and-navigating-security-operations-secops-platform#support-portal) to Zscaler Support to provision a VM with the following details:
-
-- The Public SSH key that was previously generated.
-- Gateway IP address(es):The public IP address that the VM will use to access the external network.
-  - If your VM is configured with a public IP address, include that IP address.
-  - If your VM only has a private IP address, provide the full list of possible gateway IP addresses.
-
-This information is essential for allowlisting access to the Zscaler instance, ensuring that only your VM can connect.
-
-In this step, your Zscaler Account team team provisions the representative instance based on the information you provided in Step 2. When the setup is complete, Zscaler Support contacts you to confirm that the tunnel is ready to be established.
-
-If the your Zscaler Account team team encounters issues in this step, you might be asked to provide logs from your server to assist with troubleshooting. You can do this by running the following command:
-
-```
-journalctl -u avalor-tunnel | tail -n
-30
-```
-
-The number `30` indicates the number of lines to return. You can increase or decrease this number to adjust the number of log lines returned.
-
-Rerun the script from Step 1 (provided again here). Select **Yes**when prompted to create the tunnel (you can skip displaying the existing key).
-
-```
-bash zscaler-gateway.sh
-```
-
-When complete, notify Zscaler Support by [submitting a support ticket](https://help.zscaler.com/uvm/accessing-and-navigating-security-operations-secops-platform#support-portal).
-
-After you inform Zscaler Support that the tunnel was successfully established, your Zscaler Account team proceeds with configuring the gateway on the platform. You receive confirmation from Zscaler Support when the setup is complete.
-
-## Troubleshooting
-
-During the Zscaler gateway setup process, you might encounter an error message such as `May 06 08:53:28 xxxxxxxx autossh[392026]: Host key verification failed`. This typically means that the remote server (Zscaler gateway) has not yet been authorized for its initial SSH connection.
-
-To resolve the authorization issue:
-
-1. Determine which user created the service under `/etc/systemd/system/`. In the example below, the user is `root`. `ls -la /etc/systemd/system/zscaler-gateway -rw-r--r-- 1 root root 0 May 7 14:41 zscaler-gateway`
-2. Authorize the server from the appropriate user (e.g., `root`) by running the following command. The variables needed for this command are defined in the script provided by Zscaler Support. `ssh -i $<Key Path> -o StrictHostKeyChecking=no $<Gateway User>@$<Gateway Public DNS Name> "exit"`
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-custom-roles","lastmod":"2026-05-22T07:06Z","nid":"1532924"} -->
-## Creating Custom Roles
-
-- Source: https://help.zscaler.com/aem/creating-custom-roles
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Creating Custom Roles
-- Last modified: 2026-05-22T07:06Z
-- Summary: How to create custom role permissions in the Zscaler SecOps platform.
-
-User roles control access to features and actions within the platform. After [creating users](https://help.zscaler.com/uvm/creating-managing-users) in your account, you can [assign roles](https://help.zscaler.com/uvm/assigning-roles-users) to define their access and permissions. You can choose from [predefined system roles](https://help.zscaler.com/uvm/understanding-system-roles), or the account admin can create and assign custom roles. Custom roles are configured to reflect your internal policies or workflows.
-
-When new platform features are released, related permissions must be manually added to your custom roles.
-
-To create a custom role:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **Permissions**> **Roles**.
-3. On the **Roles**page, you can create a custom role in the following ways:
-  - Click **Create**.
-  - Duplicate an existing role by hovering over the role in the list and clicking the **Duplicate** icon (), or selecting the role and clicking **Duplicate**. The duplicated role is added to the list of roles. You can't duplicate the system Admin role.
-4. On the **New Role** page:
-  1. **Role Name**: Enter a unique name for the role.
-  2. **Resource**: Select the relevant permissions (e.g., **Read**, **Create**, **Edit**, **Delete**, **Audit**) for each resource. To apply the same permission to all items in a category, select the checkbox at the top of the category. Selecting a higher-level permission (e.g., **Edit**) automatically enables required lower-level permissions (e.g., **Read**). See image.
-5. Click **Next**. The **Add Users** window appears.
-6. Select the users you want to assign to the role.
-7. Click **Add**.
-8. You can continue to manage users after clicking **Add**:
-  - To add more users, click **Add Users**.
-  - To remove users, select them and click **Remove From Role**.
-9. Click **Finish**.
-
-After changes are saved, the selected users' roles are updated immediately.
-
-## Resources
-
-Role permissions are organized into distinct categories, each representing a group of related system resources. Within each category, you can select permissions (i.e., Read, Create, Edit, Delete, and Audit) for custom roles to control access and operations on those resources. These assignments form a permissions matrix for the custom roles that are subsequently assigned to users.
-
-### Platform
-
-The following table outlines key platform resources and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Model Management | Manage data model entities and their fields |
-| Data Source Mapping | View and manage data source mapping |
-| Data Source | View, create, and manage data sources |
-| User Saved Views | View, create, and manage user-saved views across the platform |
-| Outegrations | View and manage outegrations |
-| Authentications | View and manage authentications |
-
-### Explore
-
-The following table outlines key analytics resources and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Search | View and search logs |
-| Reports & Dashboards | View and manage custom dashboards and reports |
-
-### Vulnerabilities App (UVM)
-
-The following table outlines key resources of the UVM application and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Dashboards & Analytics | Built-in vulnerability dashboard and analytics |
-| Tickets Page | View and manage tickets |
-| Tickets Settings | Ticket scoring, grouping rules, and life-cycle customization |
-| Findings Page | View and manage findings |
-| Assets Page | View and manage assets |
-| Exceptions Page | View and manage exceptions |
-| Exceptions Settings | Exceptions form, assignment rules, and notification customization |
-
-### Assets App (AEM)
-
-The following table outlines key resources of the AEM application and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Violations Tickets | View and manage policy violations |
-| Policy Violations | Violation ticket grouping rules and life-cycle customization |
-| Policy Violations Outegrations | Trigger third-party outegrations from policy violations |
-| Policy Rule | View and manage policy rules |
-| Analytics & Insights | Built-in vulnerability dashboard and analytics |
-| Assets Page | View and manage assets |
-| Asset Outegrations | Trigger third-party outegrations from assets |
-
-### SOC Workbench
-
-The following table outlines key resources of the SOC Workbench application and the specific types of access that can be granted to users through custom roles:
-
-| **Resource** | **Access Granted** |
-| --- | --- |
-| Dashboards & Analytics | View and manage built-in SOC Workbench dashboards and analytics |
-| Incidents Page | View and manage incidents |
-| Incident Settings | Incident scoring, grouping rules, and life-cycle customization |
-| Alerts Page | View and manage alerts |
-
-[Image: new role page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-formatting-rules","lastmod":"2026-03-16T07:06Z","nid":"1532875"} -->
-## Creating Formatting Rules
-
-- Source: https://help.zscaler.com/aem/creating-formatting-rules
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Admin Portal > Creating Formatting Rules
-- Last modified: 2026-03-16T07:06Z
-- Summary: How to create and apply formatting rules to visually distinguish measurements using color-coded thresholds.
-
-Formatting rules allow you to apply coloring rules to [measurements](https://help.zscaler.com/aem/understanding-measurements-dimensions) and [dimensions](https://help.zscaler.com/aem/understanding-measurements-dimensions), making data interpretation clear and intuitive. These rules help emphasize key measurements, highlight data based on dimension values, and track trends across dashboards and compliance policies.
-
-## Creating Formatting Rules
-
-To create a formatting rule:
-
-1. In the Zscaler Security Operations (SecOps) platform, go to **Configure**> **Formatting Rules**. The **Formatting Rules**page appears. See image.
-2. Click **New Rule**. The **Create Formatting Rule**drawer appears. See image.
-3. In the **Create Formatting Rule** drawer:
-  1. **Name**: Enter a name (e.g., Policy Compliance Threshold).
-  2. **Type**: Select the rule type:
-    - Numeric Rules
-    - Dimension-Based Rules
-  3. In the **Fallback Formatting Rule Logic** section, select the rule logic when data does not meet the defined conditions:
-    - **Back to Default**: Restores the default color assigned to the rule.
-    - **Customize**: Select a color for values that do not meet the conditions.
-  4. (Optional) Click **Reset to Default** to clear all custom inputs and revert the rule configuration to its original state.
-  5. Click **Save**.
-
-You can apply formatting rules to compliance policies or custom dashboards. To learn more, see [Configuring Asset Compliance Policies](https://help.zscaler.com/aem/configuring-asset-compliance-policies)and [Configuring Custom Dashboards](https://help.zscaler.com/aem/configuring-custom-dashboards).
-
-Numeric rules allow you to define custom coloring rules for measurements.
-
-1. Define the conditions:
-  1. Select an operator (e.g., **>**, **<**, **=**, **Between**).
-  2. Enter a threshold value for the condition. The **Between**operator requires both a starting and ending value for the numerical range.
-2. Assign a color for the condition (e.g., red for <25%).
-3. (Optional) Click the **Trash Can** icon to delete a rule. See image.
-4. (Optional) Click **Add**to add a new rule. See image.
-
-See image.
-
-Numeric rules are evaluated in the order they appear (from top to bottom). When there is an overlap between conditions, the color of the top condition takes priority.
-
-Dimension-based rules allow you to define custom coloring rules for dimensions. This is an effective way to visualize good versus bad indicators, such as Severity Levels or risk-based metrics like Asset Criticality.
-
-1. Select a value from the Dimension drop-down menu. The dimension values appear. See image. Rules can be configured for the top 25 dimension values.
-2. Assign a color to each dimension value.
-
-See image.
-
-- This rule applies only to pie, bar, and table charts.
-- [Repeated fields](https://help.zscaler.com/uvm/using-filters) are not currently supported.
-
-[Image: Create dimension-based rule]
-
-[Image: Delete icon]
-
-[Image: Add a new rule]
-
-[Image: List of dimension values]
-
-[Image: Create Formatting Rule drawer]
-
-[Image: Create Formatting Rule Drawer]
-
-[Image: Formatting Rules Page]
-
-## Applying Formatting Rules to a Widget
-
-To apply a formatting rule to a widget:
-
-1. In the SecOps platform, go to **Explore**> **Dashboards**. The **All Dashboards**page appears. See image.
-2. Click the dashboard you want to edit. The selected dashboard appears. See image.
-3. Click the **Edit Dashboard**icon.
-4. Hover over the desired widget, and click the **Edit**icon. See image.
-5. Click the **Style**tab. See image.
-6. Select a formatting rule from the **Formatting Rules**drop-down menu. See image. You can also click **New Rule** to create a new formatting rule.
-7. Click **Save**.
-8. Click **Save**on the dashboard to apply formatting rules to the widget.
-
-## Applying Formatting Rules to a Policy
-
-To apply a formatting rule (numeric rule) to an Asset Exposure Management (AEM) policy:
-
-1. Click **Assets**(the AEM app) in the top navigation bar.
-2. In the left-side navigation, click **Policies**. The **Policies**page appears. See image.
-3. Hover over the policy, and click the **Edit**icon. See image. The **Edit Policy**page appears. See image.
-4. In the **Formatting Rule**section, select the relevant formatting rule. You can also click **New Rule** to create a new formatting rule.
-5. Click **Save** to apply the rule to the policy.
-
-[Image: Policies page]
-
-[Image: Select the policy to edit]
-
-[Image: Edit the policy]
-
-[Image: All Dashboards page]
-
-[Image: Edit the dashboard]
-
-[Image: Edit the widget]
-
-[Image: Style Tab]
-
-[Image: Select a formatting rule from the Formatting Rules drop-down menu]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-managing-content-permissions","lastmod":"2025-11-04T11:08Z","nid":"1532929"} -->
-## Creating & Managing Content Permissions
-
-- Source: https://help.zscaler.com/aem/creating-managing-content-permissions
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Creating & Managing Content Permissions
-- Last modified: 2025-11-04T11:08Z
-- Summary: How to create and manage content permission sets.
-
-Admins can configure content permission sets using specific data attributes that can be assigned to users to specify the data they can access. While role permissions dictate the actions the user can perform (e.g., create a dashboard, merge tickets), content permissions limit the scope of data the user can view and is authorized to perform those actions on. For example, a user might be assigned a role allowing them to create reports, but limited by content permissions, they’ll only see data relating to their team (e.g., the team responsible for all Linux assets). To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles).
-
-After content permissions are created, you can assign permission sets to users. When assigned, access changes take effect on the user's next browser refresh. To learn more, see [Assigning Content Permissions](https://help.zscaler.com/uvm/assigning-content-permissions).
-
-## Creating Content Permission Sets
-
-To create a content permission set:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **Permissions**> **Content**.
-3. Click **Create**. The **Create new permission set** drawer appears.
-4. In the **Create new permission set** drawer:
-  1. **Name**: Enter a unique name for the permission set.
-  2. **Rule**: Define filter conditions for the permission set. Conditions define the data included in the permission set (i.e., what data should be included in the user's access).
-    1. Select a field that the condition should be based on.
-    2. Select an operator (e.g., **Equals**, **Contains**). Available operators vary depending on the selected field type, indicated to the left of the field name.
-    3. Enter the value that the rule should apply to. See image. To apply content permissions to users, without having to manually enter unique identifiers, you can add a user's email as a dynamic value.
-    4. (Optional) Use **AND**/**OR** logic to define compound rules.
-      - **AND** applies the content permissions to users only if all conditions in the rule are met.
-      - **OR** applies the content permissions to users if any of the conditions in the rule are met.
-5. Click **Save** to create the permission set.
-
-After saving the permission set, you can assign it to users on the User Management page. The newly assigned permission set is applied on the user's next browser refresh. To learn more, see [Assigning Content Permissions](https://help.zscaler.com/uvm/assigning-content-permissions).
-
-### Scope of Content Permissions
-
-Content permissions only apply to an account's mapped data, so they won't restrict access to unmapped data across the platform. For example, if a user's role grants them access to Logs or Data Mapping, their content permissions won't apply to those resources.
-
-Additionally, content restrictions for scheduled reports and custom dashboard exports conform to the permission set of the user that created the report or the dashboard. The permission set of the receiver is not taken into account, so the delivered report can include data that the receiver can't access by their own permissions if they are also a user in the system.
-
-### Setting a Dynamic Value
-
-You can grant dynamic access based on the email address of the current user to avoid the need to create a separate condition for each individual user email address. For example, to grant access to all Linux Team users to the tickets assigned to each individual team member, you can add a condition to the Linux Team permission set, selecting the Assignee Email field and entering the dynamic `{user_email}` value.
-
-To create dynamic rule conditions:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **Permissions**> **Content**.
-3. Click **Create**. The **Create new permission set** drawer appears.
-4. In the **Create new permission set** drawer:
-  1. **Name**: Enter a unique name for the permission set.
-  2. **Rule**: Define filter conditions for the permission set. Conditions define the data included in the permission set (i.e., what data should be included in the user's access).
-    1. Select the relevant field from the list that contains your users' email address information (e.g., **Assignee Email**).
-    2. Select the **Equals**operator. Only the Equals operator is supported, as the field's value should be a unique identifier.
-    3. Enter the `{user_email}` value. See image.
-    4. (Optional) Use **AND**/**OR** logic to define compound rules.
-      - **AND** applies the content permissions to users only if all conditions in the rule are met.
-      - **OR** applies the content permissions to users if any of the conditions in the rule are met.
-5. Click **Save** to create the permission set.
-
-After saving the permission set, you can assign it to users on the User Management page. The newly assigned permission set is applied on the user's next browser refresh. To learn more, see [Assigning Content Permissions](https://help.zscaler.com/uvm/assigning-content-permissions).
-
-## Managing Content Permission Sets
-
-After creating content permission sets, you can can manage and monitor them from the Content page. This page provides a centralized view of all configured content permission sets in your account.
-
-Go to **Account Settings** > **Permissions**> **Content**to perform the following actions:
-
-- Edit a Permission Set
-- Delete a Permission Set
-
-You can edit any of your existing permission sets on the Content Permissions page.
-
-To edit a permission set:
-
-1. Hover over the permission set you want to edit and click the **Edit**icon, or select the permission set and click **Edit**at the top of the page.
-2. Adjust the permission set as needed.
-3. Click **Save** to apply the changes to the set.
-
-Adjustments to permission sets apply on the user's next login or on browser refresh.
-
-You can delete a permission set that is no longer necessary in your account. This removes the data access restrictions from users that were assigned the deleted set.
-
-This action is irreversible and will delete the permission set immediately.
-
-To delete a permission set:
-
-1. Select the permission sets you want to delete.
-2. Click **Delete**. See image.
-
-Adjustments to permission sets apply on the user's next login or on browser refresh.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-managing-saved-views","lastmod":"2025-10-31T13:01Z","nid":"1532873"} -->
-## Creating & Managing Saved Views
-
-- Source: https://help.zscaler.com/aem/creating-managing-saved-views
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Admin Portal > Creating & Managing Saved Views
-- Last modified: 2025-10-31T13:01Z
-- Summary: How to create and manage saved views for operational views and system dashboards.
-
-Saved views are configurable, reusable views that apply filters, grouping, sorting, and field selections to data. They improve data exploration and analysis by allowing users to return to specific data configurations without reapplying settings each time.
-
-Saved views are available in the following areas of the Zscaler Security Operations (SecOps) platform:
-
-- Entity pages
-  - UVM: [Tickets](https://help.zscaler.com/uvm/about-tickets), [Findings](https://help.zscaler.com/uvm/about-findings-operational-view-uvm), [Assets](https://help.zscaler.com/uvm/about-assets-operational-view-uvm), and [Exceptions](https://help.zscaler.com/uvm/understanding-exception-requests)
-  - AEM: Assets and [Policy Violations](https://help.zscaler.com/aem/about-policy-violations)
-- System dashboards
-  - UVM: [Risk](https://help.zscaler.com/uvm/viewing-risk-dashboard) and [Remediation History](https://help.zscaler.com/uvm/viewing-remediation-history-dashboard)
-  - AEM: Policy Compliance and Coverage and Gap
-- When [viewing items in a dashboard widget](https://help.zscaler.com/uvm/viewing-items-widget-segment)
-
-Your account is equipped with system-saved views, which are configured to reflect common use cases. You can create additional custom views that reflect your organization's specific workflows, investigation patterns, and reporting needs.
-
-Saved views are located in the drop-down menu above the entity table.
-
-See image.
-
-When managing saved views, you can perform the following actions:
-
-- Reset the Default View
-- Favorite Views
-- Create a New View
-- Edit Views
-- Delete Views
-
-[Image: Saved views drop-down menu]
-
-Your default view determines what you first see when opening a particular page. For example, the default view of the Tickets page in the UVM app is Active, which is set to display only active tickets.
-
-You can customize the default view at two levels:
-
-- Personal default view: In the saved views drop-down menu, click the **Set as my default view** icon next to the view name. This sets the selected view as the default for you only. See image.
-- Set the account-wide default view: In the saved views drop-down menu, click the **Set as Account Default View** icon next to the view name. This sets the selected view as the default for all users in the account. See image.
-
-[Image: Set My Default View icon]
-
-[Image: Set as Account Default View icon]
-
-To access frequently used views, you can add views to the favorites list. Favorited views are displayed at the top of the saved views list.
-
-To add a view to the favorites list, click the **Add to Favorite** icon next to the view name.
-
-See image.
-
-[Image: Add to Favorite icon]
-
-You can create a custom view by adjusting filters, displayed fields, grouping, and sorting.
-
-To create a new saved view:
-
-1. Apply filters, sorting, and other settings to the table.
-2. Click **Save as View**at the top-right corner of the page. See image.
-3. In the dialog window: See image.
-  - **View Name**: Enter a name for the view.
-  - **View Permissions**: Set to either **Public** (i.e., visible to all users in the account) or **Private** (i.e., visible only to you).
-  - **Set as Account Default View**: Select the checkbox to set this view as the default view for all users in the account.
-4. Click **Save**.
-
-[Image: Save as View option]
-
-[Image: Save as new view window]
-
-You can edit custom views that you created to update the view's settings (i.e., the view's name and permissions).
-
-You can't edit system views and views that were created by other users.
-
-To edit a custom saved view:
-
-1. Select the view from the saved views drop-down menu.
-2. Hover over the view and click the **Edit**icon. The **Edit Current View** window appears.
-3. In the**Edit Current View** window, apply your changes.
-4. Click **Save**.
-
-To edit the view's configuration (e.g., filtering, displayed fields, grouping), adjust the view as needed and click **Save View** at the top-right of the page.
-
-You can delete custom views that you created to remove them from the available saved views.
-
-You can't delete system views and views that were created by other users.
-
-To delete a custom saved view:
-
-1. Select the view from the saved views drop-down menu.
-2. Hover over the view and click the **Delete**icon.
-
-The view is deleted immediately.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-managing-third-party-tickets","lastmod":"2025-10-31T13:03Z","nid":"1532874"} -->
-## Creating & Managing Third-Party Tickets
-
-- Source: https://help.zscaler.com/aem/creating-managing-third-party-tickets
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Admin Portal > Creating & Managing Third-Party Tickets
-- Last modified: 2025-10-31T13:03Z
-- Summary: How to create and manage third-party tickets in the SecOps platform applications.
-
-Third-party outegrations allow organizations to create third-party tickets in external work management systems directly from the Zscaler Security Operations (SecOps) applications' tickets (e.g., Tickets in UVM, Violation Tickets in AEM) to facilitate a streamlined workflow. After a work management outegration is created and configured, third-party tickets can be dispatched and managed directly from the SecOps application's tickets to external systems (e.g., [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration), [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration), and other supported outegrations). To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-
-## Creating Third-Party Tickets
-
-To create a third-party ticket:
-
-1. Go to the SecOps app's tickets page (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, [Violation Tickets](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM).
-2. Click the ticket you want to dispatch to the external system. The ticket drawer appears.
-3. In the ticket drawer, click **Create**<Vendor> **Ticket**in the bottom-right corner. The SecOps ticket is dispatched to the external system, and is populated according to the mapping configuration you set up for the outegration.
-
-To create multiple third-party tickets:
-
-1. Select the checkboxes of the tickets you want to dispatch from the tickets table.
-2. Click **Create 3rd Party Issue**. See image. The SecOps tickets are dispatched to the external system, and are populated according to the mapping configuration you set up for the outegration.
-
-When dispatching multiple tickets in bulk, a separate external ticket is created for each SecOps ticket. The external ticket is created and populated based on the field mappings defined during the outegration setup. To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-
-SecOps tickets cannot be dispatched in bulk to different outegrations (e.g., Jira Bugs and Jira Tasks). Each ticket must be dispatched individually to ensure compatibility with their respective outegration configurations.
-
-If two-way sync from the external system to the SecOps platform is configured, creating a third-party ticket triggers the sync and updates the SecOps ticket based on the outegration's settings set by your account admin.
-
-## Managing Third-Party Tickets
-
-You can manage the connection between third-party tickets and SecOps tickets, including unlinking or manually linking tickets. To filter your tickets by whether they're linked to third-party tickets, you can add the Ticket External Issue Type field to the filters and select the desired integrations, or Empty to display tickets with no linked third-party tickets. To learn more, see [Using Filters](https://help.zscaler.com/uvm/using-filters).
-
-### Linking Existing Third-Party Tickets
-
-To link an existing third-party ticket to a SecOps ticket:
-
-1. Click the SecOps ticket you want to link. The ticket drawer opens.
-2. In the ticket drawer, click the **Create <**Outegration**> Ticket** drop-down menu, and select **Manually connect <**Outegration**>**. See image.
-3. Enter the third-party ticket ID. Enter only the third-party ticket ID (e.g., `INC0012345` for a ServiceNow ticket ID), not the ticket's URL or link.
-4. Click **Apply**.
-
-A third-party ticket can only be linked to one SecOps ticket.
-
-If two-way sync from the external system to SecOps is configured, linking a third-party ticket triggers the sync and updates the SecOps ticket based on the outegration's settings set by your account admin. To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-
-### Unlinking Third-Party Tickets
-
-To unlink a third-party ticket from the SecOps ticket:
-
-1. Click the SecOps ticket you want to unlink. The ticket drawer opens.
-2. Click the **Create <**Outegration**> Ticket** drop-down menu, and select **Unlink <**Outegration**>**. See image.
-
-After the tickets are unlinked, updates between the third-party ticket and the SecOps ticket no longer sync.
-
-[Image: bulk create third party ticket button]
-
-[Image: create outegration dropdown menu open]
-
-[Image: unlink outegration dropdown menu open]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-managing-users","lastmod":"2025-11-04T11:03Z","nid":"1532926"} -->
-## Creating & Managing Users
-
-- Source: https://help.zscaler.com/aem/creating-managing-users
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Creating & Managing Users
-- Last modified: 2025-11-04T11:03Z
-- Summary: How to create and manage users in the account.
-
-Admins can create and manage all users in your organization's Zscaler Security Operations (SecOps) account. Managing users includes defining their access and permissions by assigning role permissions (RBAC - Role-Based Access Control), optionally assigning content permissions (ABAC - Attribute-Based Access Control), and deactivating or deleting users.
-
-Only users with admin privileges can create and manage users.
-
-## Creating Users
-
-Admins can create new users by filling out basic information and assigning a user role.
-
-To create a user:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings** > **User Management**.
-3. Click **Create**. The **Create User** page appears.
-4. On the **Create User** page:
-  1. **Email**: Enter the user's organization email.
-  2. **First Name**: Enter the user's first name.
-  3. **Last Name**: Enter the user's last name.
-  4. **Main Account**: (Optional) If you have more than one account, set the user's default account.
-  5. **Role**: Select a role for the user. If you don’t, the user is assigned the default **No Access** role. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users). See image.
-5. Click **Save**. The new user appears in the User Management list.
-
-## Managing Users
-
-As an admin, you can manage your account's users (e.g., adding and deleting users, assigning user roles, and applying content permissions).
-
-To manage users, go to **Account Settings** > **User Management** to access the list of existing users. On the User Management page, you can use the column sort and filters to navigate the users list.
-
-- To sort the users list in ascending or descending order by a specific column,hover over the header of the column you want to sort by and click the arrow icon.
-- To filter the users list, hover over theheader of the column you want to filter by and click the Filter icon. You can select the users you want to filter by, or create a Condition filter. See image.
-
-When managing users, you can perform the following actions:
-
-- Assign User Roles and Content Permissions
-- Deactivate Users
-- Delete Users
-
-You can assign users roles and content permission sets to control user access to features and data.
-
-Every new user is assigned a system role or a custom role when created, and you can change this role at any time. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles), [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles), and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users).
-
-In addition to roles, you can assign content permission sets to control the data users can access. For example, you might want a Vulnerabilities Admin to see only the data related to their team, rather than all data in the account. To learn more, see [Creating & Managing Content Permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions).
-
-Content permissions can only be assigned after a user is created and saved, not during the user creation process. To learn more, see [Assigning Content Permissions](https://help.zscaler.com/uvm/assigning-content-permissions).
-
-You can deactivate users in your organization's account to revoke their access to the system, without removing their user information. You can only deactivate one user at a time.
-
-Deactivating users doesn't remove data associated with the user's account (e.g., reports or dashboards they created).
-
-To deactivate a user:
-
-1. Click the **Profile**menu on the top right of the page.
-2. Go to **Account Setting** > **User Management**.
-3. Hover over the user you want to deactivate, and click the **Edit** icon. The **Edit User** page appears.
-4. In the **Personal Info** section, disable**Active** to the right of the user’s email.
-5. Click **Save**.
-
-You can delete users from your organization's account to fully remove their information from the system and revoke their access to the system.
-
-Deleting users doesn't remove data associated with the user's account (e.g., reports or dashboards they created).
-
-To delete a single user:
-
-1. Click the **Profile**menu on the top right of the page.
-2. Go to **Account Setting** > **User Management**.
-3. Hover over the user you want to delete, and click the **Delete**icon. The **Confirm Deletion** window appears.
-4. Click **Delete**.
-
-To delete multiple users:
-
-1. Click the **Profile**menu on the top right of the page.
-2. Go to **Account Setting** > **User Management**.
-3. From the users list, select the users that you want to delete.
-4. Click **Delete** at the top of the page. The **Confirm Deletion** window appears.
-5. Click **Delete**.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/creating-reports","lastmod":"2025-11-11T12:02Z","nid":"1533679"} -->
-## Creating Reports
-
-- Source: https://help.zscaler.com/aem/creating-reports
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Reports > Creating Reports
-- Last modified: 2025-11-11T12:02Z
-- Summary: How to create and configure reports by adding measurements and dimensions and applying filters.
-
-Reports provide a structured way to analyze and present data in the SecOps platform. You can create reports focused on key entities, such as tickets, assets, and findings, customizing them with relevant measurements and dimensions to highlight specific trends or areas of concern. Reports can be processed manually or scheduled for automatic delivery, helping you track progress, support audits, and keep stakeholders informed.
-
-To create a report:
-
-1. Go to **Explore** > **Reports**. A list of your private reports and public reports you have access to appears. See image.
-2. Click **New**. A new report page appears.
-3. In the top-left corner of the report, click the **Edit** icon. The **Edit Report Details** window appears.
-4. In the **Edit Report Details** window:
-  1. **Name**: Enter a unique name for the report.
-  2. **Viewers**: Set the report's viewer access. To set the report as private and only visible to you, leave the **Viewers** drop-down menu blank.
-    1. **Public**: Select this option to grant view access to all users in the account.
-    2. **Selected Users**: Select users from the list to set them as viewers of the report.
-  3. **Editors**: Set the report's editor access. To set the report as private and editable only by you, leave the **Editors** drop-down menu blank.
-    1. **Public**: Select this option to grant edit access to all users in the account.
-    2. **Selected Users:** Select users from the list to set them as editors of the report. Users designated as editors override the **Viewers** setting.
-  4. **Pin to Apps**: (Optional) Select the application to which you want to pin the report. This allows you to easily find the report under **My Reports** on the app.
-  5. Close the window.
-5. Select the data type for your report.
-  1. On the top of the page, set the date filter to either **Current** or **History**. See image.
-  2. For historicalreports, click the date filter to specify the desired date range. You can select a preconfigured range, create a custom range, or set a dynamic range. To learn more about historical data and dynamic range filters, see [Using Filters](https://help.zscaler.com/uvm/filtering-operational-views). See image.
-6. Customize the report's displayed data and filters.
-  - Configure the data displayed in the report.
-  - (Optional) Apply filters to the report.
-7. Save the report in one of the following ways:
-  - Click **Done**to save and close the report, redirecting you to the **Reports**page.
-  - Click **Save**to save the report. If scheduled, the report exports at the set time.
-  - From the **Save**drop-down menu, click **Save & Run**to save the report and immediately apply export settings, if configured.
-  - From the **Save**drop-down menu, click **Save As New**to save your changes as a new report.
-
-Your saved report is accessible on the Explore > Reports page, where it can be accessed, viewed, and exported with all applied configurations.
-
-You can take the following actions with reports:
-
-- View reports directly in the SecOps platform.
-- [Manually download reports](https://help.zscaler.com/uvm/manually-exporting-reports) as a file.
-- [Schedule reports](https://help.zscaler.com/uvm/scheduling-reports-export) for automated delivery.
-- [Trigger report exports](https://help.zscaler.com/uvm/triggering-report-export-through-api) programmatically through an API.
-
-[Image: explore > reports]
-
-[Image: date filter current > history toggle]
-
-1. Select the **Main Entity** type.
-2. From the list on the left, select the dimensions and measurements to include in the report. To remove fields, either deselect them from the list or click the **Remove** icon next to the field name in the report. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions). After adding measurements and dimensions to the report, changing the main entity type or the data type (i.e., from **Current** to **History**) resets and discards your selections.
-3. (Optional) Adjust the table columns and sorting. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
-
-[Image: date filter for historical data]
-
-You can add filters to your report to customize it to your needs. The available filters vary depending on the report's **Main Entity**.
-
-1. Click **Add Filters**(if no filters are active) or **More**(if filters are already applied) at the top of the report and select the filter fields. You can use the search bar to refine the list.
-2. Filter options change according to the filter type (e.g., string, number, or date). To learn more, see [Using Filters](https://help.zscaler.com/uvm/filtering-operational-views).
-3. To remove a specific filter's values, click the filter field and click **Clear Selection**. See image.
-4. To remove all filters, click **Clear Filters**. See image.
-
-[Image: clear selection for a specific filter field]
-
-**[Image: clear all filters]**
-
-## Reporting Examples
-
-The following examples illustrate different types of reports you can create to support operational visibility, risk management, and data validation. Each report highlights a specific use case and suggests relevant fields to include.
-
-- Tickets Approaching SLA
-- Ticket Remediation Rate by Application
-- Asset Information and Tag Validation
-
-To monitor tickets nearing their service level agreement (SLA) deadlines, create a report with the following fields:
-
-- **Dimensions**: Ticket ID, Ticket Title, Ticket Severity
-- **Measurements**: Ticket Severity Score, Ticket Status
-
-Apply a filter on the **Ticket SLA** field and select the **Next 7 Days** option to focus on tickets at risk of breaching their SLA within the upcoming week.
-
-See image.
-
-[Image: next seven days dynamic filter for tickets approaching SLA example report]
-
-To track the remediation rate across business applications, set up a report with the following fields:
-
-- **Dimension**: Asset Business Application
-- **Measurements**: New Tickets Last 7 Days, Undetected Tickets Last 7 Days, Closed Tickets Last 7 Days
-
-This configuration provides insight into ticket volume and remediation activity for each application over the past week.
-
-To validate asset data and ensure critical asset tags are accurate, set the **Main Entity** to **Asset** and include the following dimensions:
-
-- Asset Is Crown Jewel
-- Asset Is Publicly Accessible
-- Asset Owner ID
-
-This report helps confirm whether asset tagging is complete and aligned with your organization's classification and ownership requirements.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/enabling-email-notifications-failures","lastmod":"2026-02-17T06:06Z","nid":"1533629"} -->
-## Enabling Email Notifications for Failures
-
-- Source: https://help.zscaler.com/aem/enabling-email-notifications-failures
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Sources > Enabling Email Notifications for Failures
-- Last modified: 2026-02-17T06:06Z
-- Summary: How to enable outegration failure email notifications.
-
-You can enable email notifications to receive alerts on errors for outegration workflows, source run failures, and issues with Extract, Transform, and Load (ETL) and data pipeline. This enables you to proactively resolve issues and minimize disruptions.
-
-To enable email notifications, your assigned role must include the Edit permissions under the Platform - Outegrations resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/aem/creating-custom-roles) and [Assigning Roles to Users](https://help.zscaler.com/aem/assigning-roles-users).
-
-To enable an email notification:
-
-1. In the Zscaler Security Operations (SecOps) platform, click the **Profile**menu in the top right of the navigation bar, and click **Profile Settings**. See image. The **Settings**page appears. See image.
-2. In the **Email Notifications**section, select **Enable failure alert notifications**.
-3. In the**Email Notifications**settings:
-  1. **Select alert type**: Select the options that you want to set the alert for:
-    - **Source Runs**:Source runs fail for various reasons, including API rate limits, expired or invalid credentials, schema changes, or upstream outages. Select this option to receive notifications and reduce the need to manually check the status.
-    - **ETL & Data Pipeline**: ETL and data pipeline processes can fail when data manipulation encounters errors such as data type mismatches, out-of-range values, invalid values, etc.
-    - **Outegrations**: Failures can occur during third-party outegrations. For example, expired tokens for Jira can stop tickets from being created.
-  2. **Select accounts**: Select the accounts for which you want to enable email notifications.
-  3. **Frequency**: The default setting is **Daily**. This setting cannot be modified.
-  4. **Time**: Set the local time you want the email delivered (based on your time zone).
-4. Click **Save**. Emails are sent at the configured time to the email address associated with the admin who enabled the notifications.
-
-[Image: Account name in the SecOps platform]
-
-[Image: Email Notifications settings]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/exporting-reports-discovery-profiles","lastmod":"2026-05-22T07:06Z","nid":"1538690"} -->
 ## Exporting Reports for Discovery Profiles
 
@@ -4656,65 +703,6 @@ To export a report:
 [Image: Exporting report for discovery profile from the EASM Settings page]
 
 [Image: Exporting report for EASM discovery profile]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/generating-saml-details","lastmod":"2025-10-31T13:51Z","nid":"1532881"} -->
-## Generating SAML Details
-
-- Source: https://help.zscaler.com/aem/generating-saml-details
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > Admin Configuration and Deployment > Generating SAML Details
-- Last modified: 2025-10-31T13:51Z
-- Summary: How to generate SAML details to be used in setting SSO for the platform.
-
-Setting up single sign-on (SSO) account authentication requires generating a SAML Entity ID and Reply URL in the Zscaler Security Operations (SecOps) platform.
-
-If you don't have access to this feature, contact your Zscaler Account team or Zscaler Support for assistance.
-
-To generate SAML details:
-
-1. In the SecOps platform, click the **Profile**menu on the top right of the navigation bar.
-2. Select **Account Settings**.
-3. In the **Authenticate** section:
-  1. **Email Domain**: Enter your organization's email domain including the suffix (e.g., `gmail.com`).
-  2. **Authentication Type**: Select SAML from the drop-down menu. If the **Authentication Type**drop-down menu is disabled, enter an email domain name and save your changes to enable it.
-  3. **Identity Provider Name**: Select the identity provider your organization uses (e.g., **Okta**).
-4. Click **Generate SAML Details**.
-5. Copy the **Entity ID** and **Reply URL**. See image.
-
-Use the Entity ID and Reply URL to configure your SSO, following the setup steps provided by your SSO provider.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/grouping-data-entity-pages","lastmod":"2025-10-31T12:59Z","nid":"1532872"} -->
-## Grouping Data on Entity Pages
-
-- Source: https://help.zscaler.com/aem/grouping-data-entity-pages
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Admin Portal > Grouping Data on Entity Pages
-- Last modified: 2025-10-31T12:59Z
-- Summary: How to group data on entity pages by key attributes.
-
-You can use the grouping feature to organize the data on pages (e.g., Tickets, Assets, Findings for UVM; Assets, Violation Tickets, Violation Findings for AEM). Grouping your view creates collapsible sections based on the field you select. For example, grouping the UVM Tickets view by Ticket Severity categorizes the tickets into the different severity values (i.e., Critical, High, Medium, Low, Info).
-
-To add grouping to a page:
-
-1. Go to the SecOps app's entity page (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) or [Findings](https://help.zscaler.com/uvm/about-findings-operational-view-uvm) in UVM, [Violation Tickets](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) or [Policy Violations](https://help.zscaler.com/uvm/about-policy-violations-operational-view-aem) in AEM).
-2. Click the **Group By**drop-down menu. See image.
-3. Select the field you want to group the view by (e.g., **Assignee Tags**, **Assignee ID**, etc.).
-
-The view is updated by your selected grouping. To remove the grouping, click **Clear Selection**at the bottom of the **Group By**drop-down menu.
-
-See image.
-
-Your grouping preferences can be saved as a set view. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/uvm/creating-managing-saved-views).
-
-[Image: operational views group by]
-
-[Image: group by clear selection]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4788,123 +776,6 @@ To manually process a policy:
 2. Choose one of the following options:
   - To process a single policy, hover over the policy and click the **Process Now** icon.
   - To process multiple policies, select the policies from the table and click **Process**. The policy processes and updates the data in your AEM app.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/managing-authentications","lastmod":"2025-11-10T13:01Z","nid":"1533647"} -->
-## Managing Authentications
-
-- Source: https://help.zscaler.com/aem/managing-authentications
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Authentications > Managing Authentications
-- Last modified: 2025-11-10T13:01Z
-- Summary: How to manage configured authentications, including editing and deleting authentications.
-
-After [creating an authentication](https://help.zscaler.com/uvm/configuring-authentications), you can manage and monitor it from the Authentications page. This page provides a centralized view of all configured authentications and their usage across data sources and outegrations. To learn more, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources) and [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-
-Authentication is critical to maintaining stable data connections and access control. Manage authentications cautiously to avoid service disruptions, failed data ingestion, or unintended access issues.
-
-[Image: The authentications page displaying the table of authentications with their details.]
-
-For each authentication, you can see:
-
-- **Authentication Name**: The name of the authentication.
-- **Vendor**: The name of the third-party vendor for which the authentication was created.
-- **In Use**: The number of data Sources or Outegrations using the authentication. Hovering over the value displays additional details on the specific sources and outegrations that are using the authentication.
-- **Created By**: The user who created the authentication.
-- **Last Update**: The time and date when the authentication was last updated.
-- **Updated By**: The user who last updated the authentication.
-
-You can modify or remove authentications as needed directly from the Authentications page (Configure > Authentications).
-
-For access to Authentications, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Authentications resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users). 
-See image.
-
-- Edit Authentications
-- Delete Authentications
-
-You can edit an authentication to update expired credentials, adjust access permissions for new integrations, or rename it for easier identification.
-
-To edit an authentication:
-
-1. Hover over the authentication you want to modify, and click the **Edit**icon.
-2. Update the necessary details.
-3. Click **Save**to apply changes to the authentication.
-
-If the authentication is currently in use by sources or outegrations, a confirmation message appears to ensure you're aware of the impact your changes might have.
-
-- Click **Continue** to apply the changes to the existing authentication.
-- Click **Save as New**to create a new authentication instance while preserving the original.
-
-See image.
-
-You can delete an authentication that is no longer in use. This might be the case if the source or outegration it was created for now uses a different authentication, or if your organization no longer works with the associated vendor.
-
-Authentications currently in use by data sources or outegrations cannot be deleted. If your goal is to stop data ingestion from a third-party vendor, consider deactivating the relevant data source instead. To learn more, see [Managing Data Sources](https://help.zscaler.com/uvm/managing-data-sources).
-
-To delete a specific authentication:
-
-1. Hover over the authentication you want to delete, and click the **Delete**icon. A warning message appears. See image.
-2. Click **Delete**.
-
-To delete multiple authentications:
-
-1. Select the checkboxes for the authentications that you want to delete.
-2. Click the **Delete** button at the top of the page. A warning message appears.
-3. Click **Delete**.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/managing-custom-dashboards","lastmod":"2025-11-11T11:56Z","nid":"1533677"} -->
-## Managing Custom Dashboards
-
-- Source: https://help.zscaler.com/aem/managing-custom-dashboards
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Managing Custom Dashboards
-- Last modified: 2025-11-11T11:56Z
-- Summary: How to manage existing dashboards, including editing the dashboard, pinning it to an app, and accessing pinned dashboards.
-
-You can view and manage the dashboards that you have access to. To view dashboards, go to Explore > Dashboards.
-
-When managing dashboards, you can perform the following actions:
-
-- Edit a Dashboard
-- Edit a Dashboard's Details
-- Pin a Dashboard to an App
-- Access Pinned Dashboards
-
-To edit a dashboard:
-
-1. Go to **Explore** > **Dashboards**.
-2. Hover over the dashboard and click the **Edit** icon.
-3. Make your changes to the dashboard widgets, and click **Save**.
-
-You can edit the dashboard's details, including the dashboard name, access permissions, and the apps to which it's pinned.
-
-There are two ways to access the dashboard details window:
-
-- On the **Dashboards** page, hover over the dashboard and click the **Edit Details** icon.
-- At the top of the dashboard, click the **Edit Dashboard**icon, then click the **Edit Dashboard Details**icon next to the dashboard's name.
-
-After updating the dashboard's details, click **Save**to apply the changes.
-
-For quick and easy access to your dashboards, you can pin them to an app. Pinned dashboards are listed on the app's My Dashboards page.
-
-To pin a dashboard to an app:
-
-1. Go to the dashboard details window using one of the following options: The dashboard details window appears.
-  - On the **Dashboards** page, hover over the dashboard you want to pin and click the **Edit Details** icon.
-  - At the top of the dashboard, click the **Edit Dashboard**icon, then click the **Edit Dashboard Details** icon next to the dashboard's name.
-2. In the **Pin to Apps**drop-down menu, select the apps that you want to pin to the dashboard. See image.
-
-To access a pinned dashboard in the app:
-
-1. Go to the app where the dashboard is pinned (e.g., **Vulnerabilities**).
-2. In the left-side navigation, click **My Dashboards**. You can view the full list of the dashboards pinned to this app. See image.
-
-[Image: My Dashboards page in Vulnerabilities]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5086,194 +957,6 @@ To delete a rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/managing-system-and-custom-roles","lastmod":"2025-11-04T11:02Z","nid":"1532925"} -->
-## Managing System and Custom Roles
-
-- Source: https://help.zscaler.com/aem/managing-system-and-custom-roles
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Managing System and Custom Roles
-- Last modified: 2025-11-04T11:02Z
-- Summary: How to manage role permissions, including system roles and custom roles.
-
-You can manage and monitor roles from the Roles page, where you'll find a centralized view of all configured system roles and custom roles in your account. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles). To assign roles to users, see [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users).
-
-To manage roles, go to **Account Settings** > **Permissions** > **Roles** to access the list of existing roles.
-
-When managing roles, you can perform the following actions:
-
-- Edit Users in the Role
-- Duplicate a Role
-- Edit a Custom Role
-- Delete a Role
-
-You can edit users assigned a role to add or remove access permissions defined by the role. To learn more, see [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users).
-
-You can duplicate an existing role, including system roles or custom roles, to create a custom role with similar configuration.
-
-The system Admin role can't be duplicated.
-
-To duplicate a role:
-
-1. Hover over the role you want to duplicate, and click the **Duplicate**icon. The role is duplicated and appears in the list of roles. It has the same name as the original role from which it was duplicated, followed by (copy).
-2. Edit the duplicated role as needed, including updating the role's name.
-3. Click **Save**.
-
-You can edit a custom role to update its name or the resources it grants access to.
-
-System roles can't be edited.
-
-To edit a role:
-
-1. Hover over the role you want to edit, and click the **Edit** icon. The **Edit Role** page appears.
-2. On the **Edit Role** page, make the necessary changes to the role.
-3. Click **Save**.
-
-You can delete a custom role that is no longer needed.
-
-System roles can't be deleted.
-
-To delete a specific role, hover over the role you want to delete and click the **Delete** icon.
-
-To delete multiple roles:
-
-1. From the roles list, select the roles that you want to delete.
-2. Click the **Delete** button at the top of the page. The role is deleted immediately.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/managing-table-columns","lastmod":"2025-10-31T12:54Z","nid":"1532871"} -->
-## Managing Table Columns
-
-- Source: https://help.zscaler.com/aem/managing-table-columns
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Admin Portal > Managing Table Columns
-- Last modified: 2025-10-31T12:54Z
-- Summary: How to adjust the displayed columns in tables across the platform, including Operational Views, Reports, and Runs.
-
-You can customize the displayed columns and their sorting settings in tables throughout the platform. This article explains how to add and remove the displayed columns, which include measurements (quantitative fields) and dimensions (categorical fields). The Tickets page in the Vulnerabilities app is shown as an example.
-
-To view the available fields that can be displayed as columns, click the **Settings** icon at the top right of the table. The **Manage Table Columns** window appears, displaying columns currently in use on the right, and columns that can be added on the left.
-
-See image.
-
-[Image: Managing table columns on the Tickets page]
-
-## Adding and Removing Columns
-
-To add and remove columns from the table:
-
-1. To add a column, click the **+** icon on the field you want to add. See image.
-2. To remove a column, click the **X** icon on the field you want to remove. See image.
-3. Click **Apply**after you add or remove a column to save the change.
-
-[Image: Add a column to display]
-
-[Image: Remove a currently displayed column]
-
-You can also add or remove columns by dragging and dropping them in the window.
-
-- To add a field, drag it to the **IN USE** list.
-- To remove a field, drag it back to the **AVAILABLE** list.
-
-See image.
-
-[Image: Drag and drop to add or remove columns]
-
-Use the search box to find specific columns that you want to add or remove.
-
-See image.
-
-[Image: Search for a field]
-
-## Arranging Columns
-
-To arrange the displayed columns to your desired order:
-
-1. In the **IN USE** list, drag the columns in the order you want them to appear. See image.
-2. Click **Apply**to save your changes.
-
-To sort a table by a column, click the column header you want to sort by. An arrow icon appears next to the column name, indicating the current sort direction (ascending or descending). Click the column header again to change the sort direction.
-
-[Image: Arrange the order of columns to be displayed]
-
-## Resetting to Default
-
-To undo the changes and revert to the default display, click **Reset to Default**and then click **Apply**.
-
-See image.
-
-[Image: Reset columns to their default order]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/managing-user-roles","lastmod":"2026-02-08T04:19Z","nid":"1532928"} -->
-## Managing User Roles
-
-- Source: https://help.zscaler.com/aem/managing-user-roles
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Managing User Roles
-- Last modified: 2026-02-08T04:19Z
-- Summary: How to assign and manage user roles.
-
-User roles control access to features and actions within the platform. After [creating users](https://help.zscaler.com/uvm/creating-managing-users) in your account, you can assign roles to define their access and permissions within the system.
-
-You can assign either system roles or custom roles:
-
-- System roles are predefined by the platform and cannot be modified. These roles are maintained by the system and are updated automatically when new features are introduced. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles).
-- Custom roles are created and managed by the account admin. These are roles configured specifically in your account to meet organizational requirements. When new system features are introduced, related permissions must be added to custom roles manually. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-managing-custom-roles).
-
-When managing roles, you can perform the following actions:
-
-- Assign Roles to Users
-- Edit Roles
-- Remove Roles
-
-You can assign a role to users to grant them specific permissions and access within the system.
-
-To assign a role to users:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Select **Account Settings**.
-3. On the left-hand navigation, go to **Permissions**> **Roles**.
-4. Hover over the role and click the **Edit Users** icon (). The **Edit Role** page appears with a list of all users that are assigned the role.
-5. On the **Edit Role** page, click **Add** **Users**. The **Add Users** window appears.
-6. In the **Add Users** window, select the users you want to assign the role to, then click **Add**.
-7. Click **Save**. Assigned roles are applied on the user's next browser refresh.
-
-You can edit a user's role to update their permissions and access, either individually or for multiple users at once.
-
-To edit a single user's role:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Click the user whose role you want to update.
-4. In the **Roles** section, select the role you want to assign from the drop-down menu.
-5. Click **Save**.
-
-To edit multiple users' roles:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Select the users from the list.
-4. Click **Edit Role** at the top of the page.
-5. Select the role you want to assign to the selected users. Assigned roles are applied on the user's next browser refresh.
-
-You can remove a user from a role to revoke their associated permissions while maintaining their access to the system.
-
-To remove a user from the role:
-
-1. Click the **Profile** menu on the top right of the page.
-2. Go to **Account Settings**> **User Management**.
-3. Select the user and then click **Remove** **From** **Role**.
-4. Click **Save**.
-
-When removing a user's role without assigning them a new role, the user is automatically assigned the default role. While the default role grants no permissions within the account, it preserves the user's access to the system, enabling the option to assign a new role in the future.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/managing-violation-ticket-statuses-aem","lastmod":"2026-05-17T07:06Z","nid":"1539573"} -->
 ## Managing Violation Ticket Statuses in AEM
 
@@ -5378,126 +1061,6 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/managing-widgets","lastmod":"2026-01-17T06:06Z","nid":"1534134"} -->
-## Managing Widgets
-
-- Source: https://help.zscaler.com/aem/managing-widgets
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Managing Widgets
-- Last modified: 2026-01-17T06:06Z
-- Summary: How to manage existing widgets, including editing, duplicating, and deleting widgets.
-
-Each custom dashboard in the Zscaler Security Operations (SecOps) platform includes dynamic widgets that can be configured to display relevant measurements and dimensions. You can drag and drop the widgets into a layout that fits your needs. To learn more, see [Configuring Custom Dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), [Managing Custom Dashboards](https://help.zscaler.com/uvm/managing-custom-dashboards), and [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions).
-
-After saving a widget, you can edit, duplicate, delete, and rearrange widgets in a dashboard. To view or manage widgets, go to Explore > Dashboards.
-
-When managing widgets, you can perform the following actions:
-
-- Edit a Widget
-- Duplicate a Widget
-- Delete a Widget
-- Adjust Widget Size and Position
-
-Edit widgets to adjust the displayed data, or update their configurations to better fit the purpose of your dashboard.
-
-To edit a widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Hover over the widget you want to edit, and click the **Edit Widget**icon. See image. The widget configuration page appears.
-4. Make the necessary adjustments to the appearance, filters, measurements, or dimensions.
-5. Click **Save** to apply the changes to the widget. Saving the widget redirects you to the dashboard.
-6. Click **Save**to apply the changes to the dashboard.
-
-[Image: Editing a widget]
-
-Duplicate widgets to reuse configurations when you need similar data visualizations on the same dashboard.
-
-To duplicate a widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Hover over the widget you want to edit, and click the **More Options**icon.
-4. Click **Duplicate**. The duplicated widget appears on the dashboard.
-5. (Optional) Edit the widget as needed and save the changes.
-6. Click **Save**to apply the changes to the dashboard.
-
-Delete widgets that are no longer relevant to keep your dashboard up to date.
-
-To delete a widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Hover over the widget you want to edit, and click the **More Options**icon. See image.
-4. Click **Delete**. The widget is removed from the dashboard.
-5. Click **Save**to apply the changes to the dashboard.
-
-[Image: Deleting a widget]
-
-Resize or move widgets on the dashboard to improve layout usability or emphasize specific data visualizations.
-
-To adjust the size of a widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Use the widget borders to resize it. See image.
-4. Click **Save**to apply the changes to the dashboard.
-
-To reposition the widget:
-
-1. Go to **Explore**> **Dashboards**.
-2. Hover over the dashboard, and click the **Edit**icon.
-3. Click and drag the widget to the desired location.
-4. Click **Save**to apply the changes to the dashboard.
-
-[Image: Adjusting widget size and position]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/manually-exporting-reports","lastmod":"2025-11-11T12:04Z","nid":"1533680"} -->
-## Manually Exporting Reports
-
-- Source: https://help.zscaler.com/aem/manually-exporting-reports
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Reports > Manually Exporting Reports
-- Last modified: 2025-11-11T12:04Z
-- Summary: How to manually download reports and export them from the Reports page.
-
-After [creating a report](https://help.zscaler.com/uvm/creating-reports), you can access the saved report on the Explore > Reports page. From there, you can manually export the report by downloading it directly from the Reports page. Manually downloading reports can be useful for quick reviews, one-time analyses, or sharing data without setting up automation. For details on automated exporting methods, see [Scheduling Reports to Export](https://help.zscaler.com/uvm/scheduling-reports-export) and [Triggering Report Export Through an API](https://help.zscaler.com/uvm/triggering-report-export-through-api).
-
-There are two methods for manually downloading the report:
-
-- Exporting as CSV
-- Downloading the Report
-
-You can export reports directly within the report page by clicking the **Export as CSV** icon, located at the top right of the report.
-
-See image.
-
-This method is ideal for smaller datasets. There is a limit of 100K rows; reports with more than 100K rows export only the first 100K. For larger datasets, consider the Download Report File option.
-
-[Image: Export as CSV icon located at the top right of the report]
-
-To export reports with over 100K rows of data, or to export reports in one of the three available formats (CSV, JSONL, EXCEL):
-
-1. Schedule the report, or locate an existing scheduled report.
-2. On the **Reports** page, hover over the report and click the **See Runs** icon. See image.
-3. Click the latest run.
-4. Click **Download Report File**.This downloads the report in the format configured in the scheduled report. See image.
-
-You must run the report at least once before the download option is available. To run the report, hover over the report and click the **Rerun** icon. 
-See image.
-
-[Image: See Runs icon when hovering on a report]
-
-**[Image: Download Report File button in the report's expanded run]**
-
-[Image: Rerun icon when hovering on a report]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2025","lastmod":"2026-07-22T10:45Z","nid":"1532347"} -->
 ## Release Upgrade Summary (2025)
 
@@ -5512,269 +1075,16 @@ This article provides a summary of all new features and enhancements for Asset E
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-07-22T11:00Z","nid":"1534298"} -->
+<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-09-08T11:45Z","nid":"1534298"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/aem/release-upgrade-summary-2026
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-22T11:00Z
+- Last modified: 2026-09-08T11:45Z
 - Summary: Asset Exposure Management Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Asset Exposure Management.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/scheduling-reports-export","lastmod":"2026-07-10T07:06Z","nid":"1533681"} -->
-## Scheduling Reports to Export
-
-- Source: https://help.zscaler.com/aem/scheduling-reports-export
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Reports > Scheduling Reports to Export
-- Last modified: 2026-07-10T07:06Z
-- Summary: How to schedule reports to be delivered automatically to your email or AWS S3 bucket.
-
-After [creating a report](https://help.zscaler.com/uvm/creating-reports), you can schedule the report to be automatically delivered to a specified email address, Google Cloud Storage, or S3 bucket at regular intervals. This helps automate reporting workflows and ensures timely data delivery without manual effort. You can configure the report format, delivery frequency, recipients, and other delivery details as necessary. For details on additional methods for exporting reports, see [Manually Exporting Reports](https://help.zscaler.com/uvm/manually-exporting-reports) and [Triggering Report Export through an API](https://help.zscaler.com/uvm/triggering-report-export-through-api).
-
-Newly created reports must be saved before they can be scheduled. To create a new report, see [Creating Reports](https://help.zscaler.com/uvm/creating-reports).
-
-To schedule automatic report delivery:
-
-1. Open the desired report and click the **Schedule Export** icon ([Image: Scheduling Reports Icon]) in the top-right corner of the page. The **Schedule Export Details** window appears.
-2. In the **Schedule Export Details** window: See image.
-  1. **Export Format**: Select the export format (**CSV**, **JSONL**, or **Excel**).
-  2. **Active**: Enable to activate the scheduled export.
-  3. **Compression**: From the drop-down menu, select a compression option (**None**, **ZIP File**, **ZST File**).
-  4. **Delivery Method**: Select the delivery method for the report.
-    - **Email**: Enter one or more recipient email addresses (press `Enter` after each entry). Customize the email **Title** and **Message**content.
-    - **S3 - AWS S3**: Enter your connection credentials and destination path.
-    - **Slack**: Configure delivery settings (i.e., **Title**, **Channel Type**, **Channel**, and **Message**content).
-    - **GCP Storage - GCP Storage**: Enter the Google Cloud Storage's bucket name and project ID.
-  5. **Frequency and Time**: Set how often and when the report should run (**Daily**, **Weekly**, **Monthly**, or **Custom**).
-  6. Click **Save**.
-
-After saving the export settings, save the report to complete the process in one of the following ways:
-
-- Click **Save**to save the report. The report will be exported on schedule.
-- From the **Save**drop-down menu, click **Save & Run**to save the report and immediately export it.
-- From the **Save**drop-down menu, click **Save As New**to save your changes as a new report.
-
-## Troubleshooting Scheduled Reports
-
-To monitor the progress and status of scheduled reports, on the Reports screen, hover over the relevant report and click the See Runs icon ([Image: See Runs Icon]). The report's Runs page appears, where each row represents an individual report run.
-
-You can customize the displayed columns to add relevant details for troubleshooting. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
-
-From the Runs page, you can also hover over a run to [download the generated report file](https://help.zscaler.com/uvm/manually-exporting-reports), if available. Reviewing this file can help you verify the exported data and troubleshoot issues related to report output or configuration.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/supported-browsers-zscaler-secops","lastmod":"2025-10-30T13:22Z","nid":"1532846"} -->
-## Supported Browsers for Zscaler SecOps
-
-- Source: https://help.zscaler.com/aem/supported-browsers-zscaler-secops
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Supported Browsers for Zscaler SecOps
-- Last modified: 2025-10-30T13:22Z
-- Summary: Information on browser compatibility with the Zscaler SecOps platform.
-
-Zscaler actively tests browser compatibility with the Zscaler Security Operations (SecOps) platform.
-
-The Zscaler SecOps platform supports the following browsers:
-
-- Apple Safari (two most recent versions)
-- Google Chrome (two most recent versions)
-- Microsoft Edge (two most recent versions)
-- Mozilla Firefox (two most recent versions)
-
-Older versions of these browsers should be compatible, but are no longer actively tested.
-
-Other browsers should be compatible, but are not actively tested.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/triggering-report-export-through-api","lastmod":"2025-11-11T12:09Z","nid":"1533682"} -->
-## Triggering Report Export Through an API
-
-- Source: https://help.zscaler.com/aem/triggering-report-export-through-api
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Reports > Triggering Report Export Through an API
-- Last modified: 2025-11-11T12:09Z
-- Summary: How to trigger a report to export through the Reporting API.
-
-After [creating a report](https://help.zscaler.com/uvm/creating-reports), you can trigger it to be exported programmatically using the Reporting API. For details on additional methods for exporting reports, see [Manually Exporting Reports](https://help.zscaler.com/uvm/manually-exporting-reports) and [Scheduling Reports to Export](https://help.zscaler.com/uvm/scheduling-reports-export).
-
-The Reporting API is a GraphQL-based interface that enables you to export data from the platform to an AWS S3 bucket, or to retrieve a downloadable link to the report data. This article provides a step-by-step guide to using the Reporting API, including example requests for each endpoint.
-
-## Prerequisites
-
-To get started with the Reporting API, you first need to define the data you want to export by creating a new report or using an existing report. In addition to defining the data for export, you need to contact your platform representative or support team to obtain API credentials (i.e., a client ID and client secret).
-
-- Creating a Report
-- Obtaining Client Credentials
-
-There are two methods available for retrieving the exported data:
-
-- Exporting the data to your S3 bucket using the [AWS S3 retrieval method](https://help.zscaler.com/uvm/anysource-aws-s3-method).
-- Getting a downloadable link to report data.
-
-The steps for using the Reporting API vary slightly depending on the method you choose.
-
-To create a report:
-
-1. Go to **Explore** > **Reports**.
-2. Click **New**to create a new report, or hover over an existing report and click the **Edit** icon.
-3. Set the report’s **Viewers** access and **Editors** access to **Public**. Only public reports can be accessed through the Reporting API.
-4. Configure the report to include the data you want to export.
-5. Click **Save** to apply your changes.
-
-### Configuring AWS S3 Export Settings
-
-If you're exporting the report to an S3 bucket, you need to configure the destination settings of the exported report.
-
-To configure the report's destination settings:
-
-1. Click the **Schedule Export** icon located at the top right of the report. See image.
-2. In the **Schedule Export Details** window:
-  1. **Export Format**: Select the format for the exported report. If you request the report using the pre-signed URL, the scheduling configuration is ignored, and the report is generated in the default CSV format.
-  2. **Delivery Method**: Select **S3 - AWS S3**.
-  3. **AWS S3 Details**: Enter your connection credentials and destination path. The integration uses role-based authentication. To learn more, see [Connecting AnySource Using AWS S3](https://help.zscaler.com/uvm/connecting-anysource-using-aws-s3#create-a-role-for-the-platform).
-  4. **Frequency and Time**: Set how oftenandwhen the report should run.
-  5. **Active**: Enable if you want the export to run on a schedule. If you prefer to run the export manually, you can skip the scheduling settings and leave the **Active** toggle disabled.
-3. Click **Save** to apply the schedule settings.
-
-[Image: Report's Schedule Export icon on the top right]
-
-The Reporting API uses token-based authentication with client credentials. To authenticate API requests, you must first obtain client credentials (client ID and client secret) from your platform representative or support team.
-
-## Using the API
-
-After completing the prerequisites, you can begin using the Reporting API. Start by authenticating your application—use the client ID and client secret you obtained earlier to request an access token. When authenticated, you can submit API requests to initiate a report and poll for its status.
-
-- Generating a Token
-- Making the API Request
-
-Using your client ID and client secret, access the `oauth2/token` endpoint to generate a token. The token is valid for one hour only.
-
-Insert the following details in the script below:
-
-- `URL`
-  - For US: `https://auth.us01.app.avalor.io/oauth2/token`
-  - For EU: `https://auth.eu.app.avalor.io/oauth2/token`
-- `client ID`
-- `client secret`
-
-To generate a token, run the following command:
-
-```
-curl --location '
-<URL>
-' \
---header 'accept: application/json' \
---header 'content-type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=
-client_credentials
-' \
---data-urlencode 'client_id=
-<client ID>
-' \
---data-urlencode 'client_secret=
-<client secret>
-'
-```
-
-This API uses GraphQL as its query language to execute requests and retrieve data.
-
-To use the API, review and prepare the following details:
-
-- **Required Headers**: Each request must include the following headers:
-  - **Authorization**: The access token obtained in the Generating a Token step.
-  - **accountId**: Your account ID found in the URL of your platform instance (i.e., `https://app.io/``<Account ID>``/platform`).
-- **Report ID**: The report ID from the report editing page URL (i.e., `.../explore/reports/edit/``<Report ID>`).
-- **GraphQL API Endpoint**:
-  - For US: `https://api.us01.app.avalor.io/api/graphql`
-  - For EU: `https://api.eu.app.avalor.io/api/graphql`
-
-### API Endpoints
-
-The following API endpoints allow you to interact with the report processing system. Use these endpoints to initiate report processing, check the status of a report, and optionally retrieve a downloadable link to the report.
-
-- processReport
-- getReportRunStatus
-
-Run a report by providing a report ID.
-
-Insert the following details in the script below:
-
-- `URL`
-  - For US: `https://api.us01.app.avalor.io/api/graphql`
-  - For EU: `https://api.eu.app.avalor.io/api/graphql`
-- `account ID`
-- `bearer token`
-- `report ID`
-
-```
-curl --location '
-<URL>
-' \\
---header 'Content-Type: application/json' \\
---header 'accountId:
-<Account ID>
-' \\
---header 'graphqlname: processReport' \\
---header 'Authorization: Bearer
-<Bearer Token>
-' \\
---data '{"query":"mutation ($id: String!) {processReport(id:$id,
-isPresignedUrl: true
-)}","variables":{"id":"
-<Report ID>
-"}}'
-```
-
-The `isPresignedUrl` parameter is only required if you want to generate a downloadable link for the report. If you configured the report to export to an S3 bucket, you can omit this parameter. The report that is generated with this method is exported in the format configured in the report scheduling settings.
-
-Response fields include the `runId` of the execution to be used in the `getReportRunStatus` endpoint.
-
-Retrieve the status of the specific report run. If you include the `isPresignedUrl` parameter, this endpoint also returns the downloadable link for the report data.
-
-Insert the following details in the script below:
-
-- `URL`
-  - For US: `https://api.us01.app.avalor.io/api/graphql`
-  - For EU: `https://api.eu.app.avalor.io/api/graphql`
-- `account ID`
-- `bearer token`
-- `report ID`
-- `run ID`: Found in the response to the `processReport` request.
-
-```
-curl --location '
-<URL>
-' \
---header 'Content-Type: application/json' \
---header 'accountId:
-<Account ID>
-' \
---header 'graphqlname: getReportRunStatus' \
---header 'Authorization: Bearer
-<Bearer Token>
-' \
---data '{"query":"query ($reportId: String, $runId: String) { getReportRunStatus(reportId: $reportId, runId: $runId) }","variables":{"reportId":"
-<report ID>
-", "runId":"
-<Run ID>
-"}}'
-```
-
-Response fields include:
-
-- The current `status` of the report run (e.g., **Running,** **Completed**, **Failed**).
-- If the report was exported to an S3 bucket, the `resultFilePath` field is returned with the S3 path where the file was saved, including the file name.
-- If the `isPresignedUrl` was included in the `processReport` request, the `presignedUrl` field returns the downloadable link of the report.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5819,526 +1129,6 @@ The following key steps outline the asset discovery and risk identification proc
 Seed assets are configured using [discovery profiles](https://help.zscaler.com/uvm/configuring-discovery-settings). You can create distinct discovery profiles for different business entities (e.g., parent companies, subsidiaries), allowing organizations to have granular control over how they manage their external attack surface.
 
 To learn how to set up asset discovery for EASM, see [Configuring Discovery Settings](https://help.zscaler.com/uvm/configuring-discovery-settings).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/understanding-dashboard-widget-types","lastmod":"2026-02-17T06:06Z","nid":"1534135"} -->
-## Understanding Dashboard Widget Types
-
-- Source: https://help.zscaler.com/aem/understanding-dashboard-widget-types
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Understanding Dashboard Widget Types
-- Last modified: 2026-02-17T06:06Z
-- Summary: Information about widget types for presenting data in custom dashboards.
-
-When adding widgets to your [custom dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), you can choose a widget type that is appropriate for presenting the measurements and dimensions of the data you want to view. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions).
-
-See image.
-
-The following widget types are available for creating custom dashboards:
-
-- Bar
-- Line
-- Pie
-- Table
-- Tile
-
-Bar widgets are effective for visualizing data and comparing measurement values across different dimensions.
-
-Bar widgets include the following variations:
-
-- Vertical and horizontal bars
-- Vertical and horizontal stacked bars
-- Vertical and horizontal 100% stacked bars
-
-In a standard bar chart, the height (for vertical bars) or length (for horizontal bars) represents the quantity of the measurement. For stacked or 100% stacked bar charts, the height of each segment within the bar represents the quantity of a subcategory, allowing you to analyze how subcategories contribute to the overall total. This makes stacked charts useful for showing detailed breakdowns within categories.
-
-The choice between horizontal and vertical orientation, as well as the use of stacking, depends on the type of data and the questions being addressed.
-
-## Configuration Requirements
-
-When building bar widgets, you must include:
-
-- Dimensions: 1 to 2
-- Measurements: 1 to 5
-
-## Example Bar Widget
-
-The following image shows the number of Total Tickets by Ticket Severity, where each bar represents a severity (Critical, High, Medium). Using stacked bars, you can display the total tickets assigned to each team, with the segments within each bar representing ticket severities. The x-axis represents the teams assigned to resolve the tickets, and the height of each bar indicates the total number of tickets for that team.
-
-See image.
-
-**[Image: Total Tickets by Ticket Severity Bar Widget]**
-
-Line widgets are effective for visualizing data trends and progression over time. They enable you to display changes in a continuous data set for tracking historical patterns, correlations, or behaviors.
-
-Line widgets include the following variations:
-
-- Line charts (straight segments)
-- Spline charts (smooth continuous curves)
-
-In a line chart, the x-axis typically represents the dimension of time, and the y-axis represents the measurement. Each line connects a set of data points, highlighting trends or patterns. While classic line charts are best for discrete data with distinct changes between points, spline charts are ideal for continuous data, emphasizing smooth trends and gradual progression. Multiple lines can be displayed on the same chart to allow for comparisons across multiple dimensions.
-
-Line widgets are especially effective for displaying historical data. They also allow the use of the Breakdown By feature (e.g., Day, Week, Month) for further granularity, which can be set during configuration. To learn more, see [Understanding Historical Data](https://help.zscaler.com/uvm/understanding-historical-data) and [Using Filters](https://help.zscaler.com/uvm/using-filters).
-
-## Configuration Requirements
-
-When building line widgets, you must include:
-
-- Dimensions: 1 The Date Breakdown setting in historical data (i.e., Day, Week, Month) is not mandatory, but counts as a dimension.
-- Measurements: 1 to 5
-
-## Example Line Widget
-
-The following image shows the trend of Open Tickets by Severity over 3 months. The x-axis shows time broken down by month, with each line representing a severity level (Critical, High, Medium), and the y-axis shows the number of Open Tickets for each severity level within the selected time frame.
-
-See image.
-
-[Image: Open Tickets by Severity Over Time Spline Widget]
-
-Pie widgets are designed to visualize proportions of a measurement within a dimension, showing how individual components contribute to the total. They represent data in a circular format, where the chart is split into slices, with each slice representing a category's proportion of a whole.
-
-Pie widgets include the following variations:
-
-- Pie chart (standard)
-- Donut chart
-
-Pie charts are most effective with a small number of categories per dimension. If the data includes too many categories or similar values, the visualization can become cluttered or difficult to interpret. For datasets with larger or more complex categories, consider alternative chart types (e.g., bar or stacked bar charts).
-
-## Configuration Requirements
-
-When building pie widgets, you must include:
-
-- Dimensions: 0 to 1
-- Measurements: 1
-
-## Example Pie Widget
-
-The following image shows the proportion of Total Open Tickets by Asset Type, where each slice represents an Asset Type. The size of the slice corresponds to the number of open tickets for that asset type. This highlights which asset types require the most attention and helps prioritize security efforts accordingly.
-
-See image.
-
-[Image: Total Open Tickets by Asset Type Pie Widget]
-
-Table widgets display data in a structured grid format using rows and columns. They are effective for showcasing detailed datasets, representing non-numerical data, combining multiple dimensions and measurements, and presenting precise numerical values.
-
-Table widgets include the following variations:
-
-- Table (standard)
-- Pivot table
-
-While the standard table displays data in a simple grid, where every row represents a unique combination of measurements and dimensions, a pivot table allows you to arrange data by assigning one dimension to rows and another to columns, and filling the intersections with the measurement values.
-
-In addition to functioning as standalone visualizations, all other widget types can be previewed as a table by enabling Table View on the top right of the widget in configuration mode, or by clicking the Table View icon on a saved widget.
-
-## Configuration Requirements
-
-Standard table widgets can include any number of measurements and dimensions.
-
-When building pivot table widgets, you must include:
-
-- Row Dimensions: 1
-- Column Dimensions: 1
-- Measurements: 0 to 5
-
-## Example Table Widget
-
-Examples of table widgets include:
-
-- Displaying active CVEs in a standard table, with columns such as CVE Name, Impact Severity, Description, Affected Asset, and Resolution Status. See image.
-- Displaying tickets by severity and status, where the row dimension is set to Ticket Severity (i.e., Critical, High, Medium, Low), the column dimension is set to Ticket Status (e.g., Opened, Remediated, Closed), and the measurements display Total Active Findings (i.e., the total number of active findings in the ticket) and Active Findings (i.e., the percentage of active findings as a proportion of the total findings). See image.
-
-[Image: CVE Description Table Widget]
-
-[Image: Widgets Pivot Table Example]
-
-Tile widgets display a single data point or measurement. They are designed to act as key performance indicator (KPI) highlights, providing teams with quick, high-level visibility into critical metrics.
-
-## Tile
-
-The standard tile widget displays a single measurement of interest (i.e., a single data point), such as counts, percentages, or totals.
-
-For example, you can create a tile widget to display measurements such as Total Critical Tickets or Tickets Over SLA. These measurements calculate the total number of tickets that meet their respective conditions (e.g., tickets marked as critical or tickets exceeding SLA thresholds), and the resulting count is displayed in the tile widget.
-
-See image.
-
-## Trend
-
-The trend widget is used to display a measurement with its directional trend over time, showing how the value has changed or progressed. The widget includes both the data point and a trend indicator (e.g., arrows or percentage change).
-
-Trend widgets are only available when displaying historical data.
-
-For example, you can use a trend widget to track the percentage change in Total Active Findings over the last week, displaying the current count alongside the percentage increase, such as 120 Active Findings (+15%). Similarly, a trend widget can be used to show the reduction in open tickets over the past month, with the count and percentage decrease displayed, such as 70 Open Tickets (↓-10%). This format provides not only the key measurement but also context on how it has changed over time.
-
-## Text
-
-Text widgets can add context or annotations to complement visualizations. They are useful for adding descriptions or instructions for the data displayed on the dashboard, or for embedding small snippets of code or images for additional clarity.
-
-## Configuration Requirements
-
-When building tile and trend widgets, you must include:
-
-- Dimensions: None (tile widgets cannot include dimensions)
-- Measurements: Exactly 1
-
-Text widgets are manually configured using free text input (e.g., context descriptions, goals), links, code, or images.
-
-[Image: Tile Widgets for Tickets]
-
-The following table summarizes dimension and measurement specifications per widget type:
-
-| Widget Type | Allowed Dimensions | Allowed Measurements | Common Use |
-| --- | --- | --- | --- |
-| Bar | 1 to 2 | 1 to 5 | Comparative analysis across dimensions |
-| Line | 1 | 1 to 5 | Time-based trends and progression |
-| Pie | 0 to 1 | 1 | Proportional distribution of data |
-| Table | No limit | No limit | Detailed tabular data |
-| Pivot Table | 1 row dimension 1 column dimension | 0 to 5 | Detailed tabular data |
-| Tile and Trend | 0 | 1 | Highlighting single metrics or KPIs |
-
-[Image: Creating Custom Dashboard Widgets Types]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/understanding-historical-data","lastmod":"2026-02-17T06:06Z","nid":"1534131"} -->
-## Understanding Historical Data
-
-- Source: https://help.zscaler.com/aem/understanding-historical-data
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Understanding Historical Data
-- Last modified: 2026-02-17T06:06Z
-- Summary: Information about historical data in the Zscaler SecOps platform and how it's calculated.
-
-The Zscaler Security Operations (SecOps) platform captures the historical state of each entity at every point in time, allowing flexible reporting of over-time behavior based on change logs saved in the platform. You can filter this historical data to detail your performance in different time frames. This enables you to monitor trends, verify the impact of configuration changes, and track progress on security and operational initiatives over time.
-
-Historical data is available in dashboards and reports across the platform. Charts and reports that display historical data are marked with the Historical Data icon ([Image: Historical data icon]). The historical view has two controls: time granularity and a time filter.
-
-Time granularity sets the level at which data is broken down in a chart or report (month, week, or day). For example, when granularity is set to Week, measurements are grouped by the selected dimensions and by week (e.g., Assignee and Week).
-
-See image.
-
-The time filter in the date selector sets the date range for the displayed data. While time granularity controls how the data is bucketed, the time filter controls the scope of the data included. For example, if the time filter is set to Last 3 Months, data outside that range is not displayed. With time granularity, the data within that 3-month period is broken down by day, week, or month.
-
-See image.
-
-The time filter always takes precedence over granularity. For example, if the date range selected is Last 3 Days and the granularity is Month, the Month bucket includes only those 3 days that fall within the selected range, and not the entire month. The same applies to any partial period: when the selected range covers only part of a week or month, the corresponding week or month bucket includes only the days within the selected range.
-
-This article explains different capabilities and nuances of historical analytics across different pages on the platform.
-
-[Image: Table displaying historical data of ticket SLA by week and assignee]
-
-[Image: The date selector set to display historical data of the last three months by week]
-
-## Historical Data in System Dashboards
-
-System dashboards displaying historical data have a date selector at the top right of the page (e.g., the Remediation History dashboard in UVM and the Policy Compliance dashboard in AEM). The date selector allows users to:
-
-- Adjust the date range to filter the scope of displayed data.
-- Specify the data granularity—day, week, or month—to adjust how the historical data is broken down within the selected date range.
-
-See image.
-
-Historical system dashboards can include widgets displaying current data. To distinguish between these widgets, those representing historical data are marked with the Historical Data icon.
-
-Other system dashboards do not have a date selector to filter historical data, but they can still include specific widgets to display this data. These widgets explicitly state the set historical filter applied and are similarly marked with the Historical Data icon.
-
-See image.
-
-[Image: The Policy Compliance page displaying compliance percentages over time and date selector to filter historical data]
-
-[Image: Historical data widgets on the Risk page in the Vulnerabilities app]
-
-## Historical Data in Custom Dashboards
-
-By default, widgets in custom dashboards display current data. When creating custom dashboards, you can also create historical widgets to visualize over-time trends and performance. To learn more, see [Configuring Custom Dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards).
-
-When configuring historical widgets, in addition to selecting the measurements and dimensions that determine the type of data and how it is grouped or categorized, you need to set a time filter to define the date range of the displayed data (e.g., Last 30 Days, Last 6 Months).
-
-You can also set the time granularity (i.e., the date breakdown) as a dimension. This allows you to break the historical data into day, week, or month intervals for more granular insights.
-
-Historical widgets in custom dashboards are also marked with the Historical Data icon to help distinguish them from widgets displaying current data. When a widget is configured for historical data, certain measurements and dimensions that are not supported in historical views might not be available.
-
-## Historical Data in Reports
-
-By default, reports display current data. You can configure reports that display historical data by enabling History mode in the date selector.
-
-When configuring historical reports, in addition to selecting the measurements and dimensions that determine the type of data and how it is grouped or categorized, you need to set a time filter to define the date range of the displayed data (e.g., Last 30 Days, Last 6 Months).
-
-You can also set the time granularity (i.e., the date breakdown) as a dimension. This allows you to break the historical data into day, week, or month intervals for more granular insights.
-
-When configuring historical reports, certain measurements and dimensions that are not supported in historical views might not be available.
-
-## Understanding Measurements in Historical Data
-
-To maximize the value of historical data, it is essential to understand the different types of measurements available and how they behave. Each measurement type is calculated differently and, as a result, reflects different information about the entity. Additionally, not all measurements are supported in the historical data view.
-
-This section explains the 4 key types of measurements and uses an example of Ticket ID 123 to demonstrate how each type behaves over time.
-
-Ticket ID 123 progresses through various statuses across three months:
-
-- January: Ticket 123 is opened, remediated, and subsequently reopened by the end of the month.
-- February: The ticket turns from open to remediated, and it is closed before the end of the month.
-- March: The ticket is closed.
-
-Based on the progression of Ticket ID 123, different measurement types capture its historical data accordingly.
-
-[Image: Historical Data Example]
-
-### Types of Measurement in Historical Data
-
-Different measurements behave in distinct ways when applied to historical data. These behaviors depend on how the data is calculated and what aspects of the entities or conditions the measurement is focusing on.
-
-There are 4 key types of measurements:
-
-#### Was at Measurements
-
-Was at measurements count entities when they meet a condition at any point during the selected time range, regardless of whether they later changed. For example, the Total Open Tickets measurement counts all tickets that were open at any point during the time range set in the historical date selector, including those subsequently closed. Similarly, Total Closed Tickets counts all tickets marked as closed at any time during the period.
-
-The following table shows the output of Ticket ID 123:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| **Total Open Tickets** | 1 | 1 | 0 |
-| **Total Closed Tickets** | 0 | 1 | 1 |
-
-#### Last at Measurements
-
-Last at measurements reflect whether the entity met the measurement's condition on the last day of the specified time range. These measurements provide a snapshot view of conditions as they were at the end of the period.
-
-For example, the Active Findings measurement counts the number of findings still active on the final day of the time range. Similarly, the Max Finding Severity Score measurement captures the highest severity score observed on the last day of the period.
-
-The following table shows the output data if Ticket ID 123 started off with 300 active findings, but by the end of January only had 25 active findings, and the highest severity score of the findings is 8.8:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| **Active Findings** | 25 | 0 | 0 |
-| **Max Finding Severity Score** | 8.8 | - | - |
-
-#### Turn to Measurements
-
-Turn to measurements count entities that transitioned to a specific condition during a given time period. These metrics highlight the transition or the change that occurred during the period. For example, the Opened Tickets measurement counts tickets first opened during the time range, the Remediated Tickets measurement counts tickets that were remediated (moved to the Remediated status) during the period, and the Closed Tickets measurement counts tickets that were closed during the period.
-
-The following table shows the measurement output of Ticket ID 123:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| **Opened Tickets** | 1 | 0 | 0 |
-| **Remediated Tickets** | 1 | 1 | 0 |
-| **Closed Tickets** | 0 | 1 | 0 |
-
-#### Mean time to (MTTX) Measurements
-
-Mean time to (MTTX) measurements calculate the average number of days it takes for an entity to transition from one condition to another. For example, Ticket Mean Time to Remediate measures the average duration (in days) it takes for a ticket to transition from the Active to the Inactive state. The key difference between current and historical data for MTTX measurements is that in current data, only the most recent remediation period (the time from when the ticket is open to when it's remediated) is considered, while in historical data, every remediation period within the time range is captured, displaying separate values for each.
-
-The following table shows the output data if the first remediation period for Ticket ID 123 lasted 20 days in January, and the second remediation period lasted 15 days in February:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| **Ticket Mean Time to Remediate** | 10 | 15 | - |
-
-## Understanding Dimensions in Historical Data
-
-Dimensions in historical data allow you to categorize and group measurements based on specific attributes, such as assignee, team, or status, helping you track shifts and transitions over time.
-
-To illustrate how dimensions behave and interact with measurements in historical data, consider again the following example of Ticket ID 123:
-
-[Image: Historical data example with assignee]
-
-Ticket ID 123 progresses through various statuses across three months:
-
-- January: Ticket 123 is opened, remediated, and subsequently reopened by the end of the month.
-- February: The ticket turns from open to remediated, and it is closed before the end of the month.
-- March: The ticket is closed.
-
-Additionally in February, Ticket ID 123 changed assignee from Team 1 to Team 5.
-
-When viewing the historical data for this ticket and adding the Assignee dimension to the table, the data is broken down by both assignees—Team 1 and Team 5—and the respective measurements are displayed for each, as shown in the following table:
-
-|  | January | February | March |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- |
-| Assignee | Total Open Tickets | Closed Tickets | Total Open Tickets | Closed Tickets | Total Open Tickets | Closed Tickets |
-| **Team 1** | 1 | 0 | 1 | 0 | 0 | 0 |
-| **Team 5** | 0 | 0 | 1 | 1 | 0 | 0 |
-
-Adding the Assignee dimension creates another level of granularity in addition to the time granularity, so the selected measurements are further broken down by the selected dimension:
-
-- Total Open Tickets (Was at): As a Was at measurement, the Total Open Tickets measurement represents all tickets that were open at any point during the time period, regardless of their status at the end of that period. For Team 1, the ticket is counted during its assignment to them in January and February. For Team 5, it is counted during its reassignment in February.
-- Closed Tickets (Turn to): As a Turn to measurement, Closed Tickets represent tickets that transitioned into the Closed status during the time period. For Team 1, no tickets were closed while assigned to them. In contrast, after being reassigned to Team 5 in February, the ticket transitioned to Closed and is therefore counted once in January. Although it was still Closed in March, it did not turn to Closed in March, and is thus not counted for Team 5 in that month.
-
-Let's assume Ticket ID 123 started with 300 active findings at the beginning of January. In that month, Team 1 remediated all but 25 findings. In February, Team 1 remediated an additional 12 findings before the ticket was reassigned to Team 5, at which point the remaining findings were remediated, and the ticket was closed. The output of the data is as follows:
-
-| Measurement | January | February | March |
-| --- | --- | --- | --- |
-| Assignee | Active Findings | Active Findings | Active Findings |
-| **Team 1** | 25 | 13 | 0 |
-| **Team 5** | 0 | 0 | 0 |
-
-Since Active Findings is a Last at measurement, it reflects the last recorded state of findings for each dimension and time interval:
-
-- Team 1: In January, the ticket ended the month with 25 active findings still assigned to Team 1. In February, this number was reduced to 13 active findings on the last day the ticket was assigned to them. By March, Team 1 no longer had data for this ticket, as it had been reassigned.
-- Team 5: After the ticket was reassigned in February, no findings remained active by the time Team 5 assumed responsibility for the ticket. Therefore, Active Findings = 0 for Team 5 in both February and March.
-
-In other words, for January, the Active Findings measurement displays the findings still active on the final day of the month under Team 1. For February, Active Findings displays the remaining findings on the last day that the ticket was assigned to Team 1. For Team 5, the findings had already been resolved by the end of February, resulting in 0 Active Findings at the team's final state in February.
-
-## Applying Filters to Historical Data
-
-When applying filters to historical data, the platform evaluates entities based on their current state to determine if they meet the filter criteria, and only entities that match the filter condition in their current state have their historical data displayed. This means that even if an entity matched the filter at some point in the past, it is not included in the results unless it still matches the filter criteria today.
-
-[Image: Historical data example with assignee]
-
-Using the Ticket ID 123 example that progresses through various statuses across three months:
-
-- January: Ticket 123 is opened, remediated, and subsequently reopened by the end of the month. The ticket is assigned to Team 1.
-- February: The ticket turns from open to remediated, and it is closed before the end of the month. The ticket is reassigned to Team 5.
-- March: The ticket is closed. The ticket remains assigned to Team 5.
-
-We want to view all tickets in the month of January only, so we apply the filter Assignee = Team 1 to view tickets assigned to Team 1.
-
-Here's how the filter behaves:
-
-- Ticket ID 123: Was assigned to Team 1 in January, but is now assigned to Team 5.
-- Ticket ID 456: Is currently assigned to Team 1 and has been throughout the selected time range.
-
-With the filter Assignee = Team 1:
-
-- Ticket ID 123 will not appear in the results, even though it was assigned to Team 1 in January, because it is no longer assigned to Team 1 today.
-- Ticket ID 456 will appear, and all of its historical January data will be displayed because it is currently assigned to Team 1.
-
-## Technical Considerations
-
-The platform stores historical data in a separate dataset designed to capture all changes made to entities over time. This dataset is distinct from the one used for current data, which only retains the most recent version of the data. While the historical dataset enables detailed insights and flexible over-time analysis, it comes with the following considerations:
-
-- Retrieving historical data can result in slower performance compared to current data. This is because the platform processes and queries large volumes of data to ensure all the relevant changes, transitions, and activity are included. Performance slowdowns are most noticeable when analyzing extended time ranges or applying detailed filters and dimensions.
-- Historical data is updated in periodic processing intervals, typically every 4 hours. As a result, new changes might not appear in the historical view until the next processing cycle. This can lead to temporary discrepancies between historical data and current data, which is updated in real time.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/understanding-measurements-dimensions","lastmod":"2025-11-11T11:47Z","nid":"1533675"} -->
-## Understanding Measurements & Dimensions
-
-- Source: https://help.zscaler.com/aem/understanding-measurements-dimensions
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Understanding Measurements & Dimensions
-- Last modified: 2025-11-11T11:47Z
-- Summary: Information on measurements and dimensions and examples of each used in the SecOps platform and its apps (e.g., UVM, AEM).
-
-The Zscaler SecOps platform's analytic capabilities enable you to view and [filter](https://help.zscaler.com/uvm/using-filters) data by measurements and dimensions.
-
-- Measurements
-- Dimensions
-
-A measurement is a quantitative field that represents a calculated value. Common calculation types include sums, averages, and maximums. Measurements are typically used to track or assess numerical aspects of the data. Measurements are calculated for the dataset currently in view and are updated dynamically based on the dimensions and filters applied.
-
-Examples of measurements include:
-
-- Total Undetected Findings: The number of findings in a ticket that have not been detected, and are thus considered remediated.
-- Ticket Mean Time to Remediate: The average time it takes to remediate tickets.
-
-A dimension is a categorical field used to group and segment data. When a dimension is added, the measurements are organized according to the unique values of that dimension. Examples of dimensions include Asset Type, Source, and Severity Level.
-
-Using dimensions, you can explore how a measurement varies across its different categories. For example, viewing the Total Tickets measurement by Severity Level can help you understand how ticket volume is distributed across severity categories.
-
-Adding multiple dimensions increases the granularity of the analysis. For example, adding Ticket Assignee as a dimension along with the % Active Findings measurement shows the percentage of active findings per assignee. Adding Ticket Severity as an additional dimension recalculates the same measurement for each unique combination of Ticket Assignee and Ticket Severity.
-
-See image.
-
-Measurements and dimensions are entity specific and dynamically displayed based on the selected Main Entity type, which also determines which records are included in the results. For example, when Ticket is the main entity, only assets linked to tickets are displayed. In contrast, selecting Asset as the main entity shows all assets, including those without any associated tickets or findings (such as assets imported from a CMDB).
-
-Additionally, when searching for measurements, the timeframe of the element you're configuring (i.e., current versus historical) can affect the available measurements. For example, the % Vulnerable Assets measurement is only available when viewing historical data.
-
-## Navigating Measurements and Dimensions
-
-Measurements and dimensions are used across the SecOps platform to configure and adjust the displayed data (e.g., when applying [filters](https://help.zscaler.com/uvm/using-filters) in [reports](https://help.zscaler.com/uvm/creating-reports) and [custom dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), or when [creating saved views](https://help.zscaler.com/uvm/creating-managing-saved-views)).
-
-Dimensions are grouped by entity type (e.g., Ticket, Asset), and measurements appear at the bottom of the dimensions list.
-
-In measurement and dimension lists, you can adjust the displayed fields:
-
-- Click the **Measurements**icon to view the list of available measurements.
-- Click the **Dimensions**icon to view the list of available dimensions.
-- Click **In Use**to display the fields currently in use.
-- Use the search bar to locate specific fields.
-
-See image.
-
-[Image: an example of adding a dimension]
-
-[Image: measurements and dimensions filters]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/understanding-source-configuration-guides","lastmod":"2025-12-04T11:07Z","nid":"1533767"} -->
-## Understanding Source Configuration Guides
-
-- Source: https://help.zscaler.com/aem/understanding-source-configuration-guides
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Connectors > Sources > Understanding Source Configuration Guides
-- Last modified: 2025-12-04T11:07Z
-- Summary: How to access the source configuration guides in the Zscaler Security Operations (SecOps) platform.
-
-The Zscaler Security Operations (SecOps) platform collects and correlates security findings and business context from a wide range of external tools, such as vulnerability scanners, asset inventories, and cloud providers. To begin ingesting this data into your environment, you must first connect the relevant [sources](https://help.zscaler.com/aem/creating-data-sources) to your account. Every source has particular requirements that you must configure before you can begin ingesting data.
-
-The source configuration guides provide the requirements for each source. Establishing these connections ensures that the platform can continuously retrieve and normalize data for analysis, prioritization, and remediation workflows. To learn more, see the [Source Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/sources/source-configuration-guides).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/understanding-system-roles","lastmod":"2026-05-01T07:06Z","nid":"1532923"} -->
-## Understanding System Roles
-
-- Source: https://help.zscaler.com/aem/understanding-system-roles
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Administration > Account Management > User Management > Understanding System Roles
-- Last modified: 2026-05-01T07:06Z
-- Summary: Information about the different system roles in the Zscaler SecOps platform.
-
-System roles are predefined, built-in roles that grant users specific permissions through established access levels. These roles simplify user management by providing a consistent way to assign the necessary privileges for users to perform their tasks while maintaining the platform's security and operational integrity.
-
-The set of available system roles depends on the applications installed within the platform (e.g., UVM, AEM, SOC Workbench), with each application offering roles specific to its features and workflows. To assign and manage roles, see [Managing User Roles](https://help.zscaler.com/uvm/managing-user-roles) and [Managing System and Custom Roles](https://help.zscaler.com/uvm/managing-system-and-custom-roles).
-
-System roles are ideal for standard use cases where common permission sets suffice. When your access requirements extend beyond the system roles, you can create custom roles and configure the access granted to users assigned to those roles. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles).
-
-The following system roles apply per application:
-
-- Unified Vulnerability Management (UVM)
-- Asset Exposure Management (AEM)
-- SOC Workbench
-
-To view the specific permissions assigned to a role, click the role name on the Roles page. This opens the role's matrix, where you can view the detailed actions the role can perform. To learn more, see [Managing System and Custom Roles](https://help.zscaler.com/uvm/managing-system-and-custom-roles).
-
-The following table details the different system roles for the UVM app and the actions each role allows users to perform:
-
-| **Role** | **Permissions** |
-| --- | --- |
-| Admin | Manage data model entities and their fields; View and manage data source mapping; View, create, and manage data sources; View, create, and manage user-saved views across the platform; View and manage outegrations; View and search logs; View and manage custom dashboards and reports; View and manage built-in vulnerability dashboard and analytics; View and manage tickets; View and manage ticket scoring, grouping rules, and life-cycle customization; View and manage findings; View and manage assets; Trigger third-party outegration from tickets |
-| Vulnerabilities Admin | View all built-in dashboards; Manage and view custom dashboards and reports; Create and configure integrations; Run search queries; View, create, and edit tickets (split and merge); Edit and view ticket settings; View assets and findings |
-| Vulnerabilities Editor | View all built-in dashboards; Manage and view custom dashboards and reports; Run search queries; View, create, and edit tickets (split and merge); View ticket settings; View assets and findings |
-| Vulnerabilities Reader | View all built-in dashboards; View custom reports and dashboards; View tickets and ticket settings; View findings; View tickets |
-
-The following table details the different system roles for the AEM app and the actions each role allows users to perform:
-
-| **Role** | **Permissions** |
-| --- | --- |
-| Admin | Manage data model entities and their fields; View and manage data source mapping; View, create, and manage data sources; View, create, and manage user-saved views across the platform; View and manage outegrations; View and search logs; View and manage custom dashboards and reports; View and manage built-in dashboards and analytics; View and manage violation tickets; View and manage violation ticket scoring, grouping rules, and life-cycle customization; View and manage policy violations; View and manage assets; Trigger third-party outegration from violation tickets |
-| Assets Admin | View all built-in dashboards; Manage and view custom dashboards and reports; Create and configure outegrations; Run search queries; View, create, and edit violation tickets (split and merge); Edit and view violation ticket settings; View assets and policy violations |
-| Assets Editor | View all built-in dashboards; Manage and view custom dashboards and reports; Run search queries; View, create, and edit violation tickets (split and merge); View violation ticket settings; View assets and policy violations |
-| Assets Reader | View all built-in dashboards; View custom reports and dashboards; View violation tickets and violation ticket settings; View policy violations; View violation tickets |
-
-The following table details the different system roles for the SOC Workbench app and the actions each role allows users to perform:
-
-| **Role** | **Permissions** |
-| --- | --- |
-| Admin | Manage data model entities and their fields; Trigger third-party outegration from incidents; View and manage assets; View and manage custom dashboards and reports; View and manage data source mapping; View and manage alerts; View and manage incidents; View and manage outegrations; View and manage incident scoring, grouping rules, and life-cycle customization; View and search logs; View built-in threats dashboard and analytics; View, create, and manage data sources; View, create, and manage user-saved views across the platform; View and manage users |
-| SOC Workbench Admin | View and manage alerts; View and manage assets; View and manage custom dashboards and reports; View and manage data source mapping; View and manage incident settings; View and manage incidents; View and manage outegrations; View and search logs; View built-in threats dashboard and analytics; View, create, and manage data sources; View and manage users |
-| SOC Workbench Analyst | View and manage alerts; View assets; View and manage incident settings; View and manage incidents; View and search logs; View built-in threats dashboard and analytics; View custom dashboards and reports; View data sources and data source mapping; View outegrations; View users |
-| SOC Workbench Compliance | View alerts; View assets; View and manage custom dashboards and reports; View and search logs; View built-in threats dashboard and analytics; View data sources and data source mapping; View incident settings; View incidents; View outegrations; View users |
-| SOC Workbench Manager | View and manage alerts; View assets; View and manage incident settings; View and manage incidents; View and search logs; View built-in threats dashboard and analytics; View custom dashboards and reports; View data sources and data source mapping; View outegrations; View users |
-| SOC Workbench Security Engineer | View and manage alerts; View assets; View and manage data source mapping; View and manage incident settings; View and manage incidents; View and manage outegrations; View and search logs; View built-in threats dashboard and analytics; View custom dashboards and reports; View, create, and manage data sources; View users |
-| SOC Workbench Viewer | View alerts; View assets; View and search logs; View built-in threats dashboard and analytics; View custom dashboards and reports; View data sources and data source mapping; View incident settings; View incidents; View outegrations; View users |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6474,233 +1264,6 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/using-dashboard-templates","lastmod":"2026-02-17T06:06Z","nid":"1534133"} -->
-## Using Dashboard Templates
-
-- Source: https://help.zscaler.com/aem/using-dashboard-templates
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Using Dashboard Templates
-- Last modified: 2026-02-17T06:06Z
-- Summary: How to use dashboard templates to create a custom dashboard.
-
-When [configuring custom dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), you can save time and effort by starting with preconfigured system dashboards from the template gallery. These templates include preconfigured widgets designed to address common use cases, which you can customize to meet your specific requirements.
-
-To access the dashboard template gallery:
-
-1. In the SecOps Platform Admin Portal, go to **Explore**> **Dashboards**. See image.
-2. Click the **Template Gallery** tab. A list of all available templates appears. You can view the template name, description, and associated app (e.g., **Vulnerabilities**, **Assets**).
-3. Click a template to open it and view its components.
-
-To create a custom version of a template:
-
-1. In the SecOps Platform Admin Portal, go to **Explore**> **Dashboards**.
-2. Click the **Template Gallery** tab.
-3. In the **Template Gallery**, locate the template you want to copy, and choose one of the following options:
-  - Edit an existing template.
-  - Duplicate an existing template.
-
-To learn more, see [Configuring Custom Dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards), [Managing Custom Dashboards](https://help.zscaler.com/uvm/managing-custom-dashboards), and [Managing Widgets](https://help.zscaler.com/uvm/managing-widgets).
-
-[Image: All Dashboards page displaying list of all dashboards created across apps]
-
-1. Click the template you want to edit.
-2. Click the **Edit Dashboard**icon. See image.
-3. Make changes to the dashboard widgets as necessary.
-4. Click **Save As**. The **Save as a New Dashboard**window appears.
-5. In the **Save as a New Dashboard** window:
-  1. **Name**: Edit the dashboard's name.
-  2. **Description**: (Optional) Edit the existing description, or enter a new description.
-  3. **Viewers**: Set the dashboard's viewer access. To set the dashboard as private and only visible to you, leave the **Viewers**drop-down menu blank.
-    - Select **Public**to grant view access to all users in the account.
-    - Select specific users from the list to set them as viewers of the dashboard.
-  4. **Editors**: Set the dashboard's editor access. To set the dashboard as private and editable only by you, leave the **Editors**drop-down menu blank.
-    - Select **Public**to grant edit access to all users in the account.
-    - Select specific users from the list to set them as editors of the dashboard. Users designated as editors override the **Viewers**setting.
-  5. **Pin to Apps**: (Optional) Select the application that you want to pin the dashboard to. This allows you to easily find the dashboard under **My Dashboards**in the app.
-6. Click **Save**. The modified dashboard appears on the **My Dashboards**tab.
-
-Use one of the following methods to duplicate a template:
-
-- Select the checkbox next to the template, then click **Duplicate**above the table.
-- Hover over the template, and click the **Duplicate Dashboard**icon.
-
-Duplicating a template creates a new dashboard entry on the **My Dashboards**tab. You can customize the duplicated dashboard as necessary.
-
-[Image: Edit Dashboard Icon]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/using-entity-explorer","lastmod":"2026-01-12T06:06Z","nid":"1534074"} -->
-## Using the Entity Explorer
-
-- Source: https://help.zscaler.com/aem/using-entity-explorer
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Data Exploration > Using the Entity Explorer
-- Last modified: 2026-01-12T06:06Z
-- Summary: How to use Entity Explorer to view and investigate data in the SecOps platform.
-
-Entity Explorer in the Zscaler Security Operations (SecOps) platform allows you to display all relevant data by entity, where you can explore and inspect it. Unlike an entity-specific view (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets), [Findings](https://help.zscaler.com/uvm/about-findings-operational-view-uvm), [Assets](https://help.zscaler.com/uvm/about-assets-operational-view-uvm)) which displays active components, Entity Explorer displays all relevant information, both active and inactive.
-
-## Viewing Entity Data
-
-To view entity data:
-
-1. In the SecOps platform, go to **Explore** > **Entities**.
-2. Select the entity type for which you want to view data. See image. You can change the fields displayed in the table, apply filters, and create custom views according to your needs, similar to the other entity views.
-3. To export the data as a CSV file, click the **Export As CSV** icon. See image.
-
-[Image: Select an entity type]
-
-[Image: Export entity data as a CSV]
-
-## Investigating the Data
-
-Entity Explorer allows you to investigate the relationships between your source data and the uploaded data enriched by the SecOps platform.
-
-To enable Investigate mode, click **Investigate**in the top-right corner of the page. The table displays source fields next to the platform fields.
-
-See image.
-
-[Image: Investigate mode on the Entity Explorer page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/using-filters","lastmod":"2025-10-31T12:51Z","nid":"1532870"} -->
-## Using Filters
-
-- Source: https://help.zscaler.com/aem/using-filters
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Admin Portal > Using Filters
-- Last modified: 2025-10-31T12:51Z
-- Summary: How to use filters to adjust the displayed data by the relevant scope.
-
-You can use filters to adjust and refine the data displayed in views across the platform, from dashboards and reports to operational views (e.g., Tickets, Assets). By applying filters, you can focus on specific information relevant to your current task, such as reviewing vulnerabilities on a particular asset, addressing critical policy violations, or identifying high-priority tickets discovered in the last week. This helps security teams efficiently prioritize their workload and focus on the most critical risks in their environment.
-
-Filters are applied using available fields, including measurements (e.g., counts, averages) and dimensions (e.g., Status or Severity categories). The specific fields available for filtering depend on where you are in the platform. For example, dashboards with data from multiple entities support filtering by dimensions but not measurements, while operational views typically allow filtering by both. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions).
-
-## Adding Filters
-
-Different fields have filtering options that vary according to the field type (e.g., Boolean, Text, Number, Date, IP) and whether it can contain multiple values (i.e., repeated fields).
-
-To add a filter:
-
-1. At the top of the page, click **Add Filters** (if no filters are active) or **More**(if filters are already applied) to open the list of available fields for filtering in the current page. See image.
-2. Search for and select the field you want to filter by. Selecting a field adds it to the list of filters.
-3. Select the checkbox for the field you want to filter by. The field's filter dialog window appears.
-4. In the field's filter dialog window, set the values you want to filter the field by:
-  - List
-  - Date Selector
-  - Condition
-
-Applying filters adjusts the displayed data to what is included in the filter's scope. This resets when you leave the page. Your applied filters can be saved as a set view. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/uvm/creating-managing-saved-views).
-
-## Filtering Repeated Fields
-
-Repeated fields are fields that can store multiple values, such as the Asset or the Ticket Sources field. Filters applied to these fields allow you to focus on your data by including or excluding records based on one or more of the field's values.
-
-### Repeated Fields in List Filters
-
-When filtering repeated fields from the list of the field's values, selecting one or more values returns records containing at least one of the selected values.
-
-See image.
-
-For example, to view assets retrieved from specific sources, such as Qualys Vulns and ServiceNow Assets, select these values from the field filter drop-down menu. This returns assets that include either of these as a source, and not necessarily both. To exclude assets retrieved exclusively from a specific source (e.g., ServiceNow Assets), select all other values except the one you want to exclude. This excludes assets that list ServiceNow Assets as their only source, and includes assets that contain at least one of the selected sources (e.g., Qualys Vulns).
-
-Filtering repeated fields using the list of values functions similarly to the `Equals (Any)` operator in conditional filtering, checking the filter against any of the field's values.
-
-### Repeated Fields in Conditional Filters
-
-For more granular filtering, you can configure conditional filters on repeated fields to define specific rules for their values. When configuring conditional filters for these fields, you can specify whether the filter should be checked against any or against all the field's values.
-
-- All Operator
-- Any Operator
-
-The `Is Empty` and `Is Not Empty` operators are Boolean filters and do not have All or Any variations. These operators check whether a repeated field contains any values (i.e., `Is Not Empty`) or has no values at all (i.e., `Is Empty`). Unlike other conditional operators on repeated fields that evaluate individual values within the field, these operators apply to the field as a whole, making the distinction between All and Any unnecessary.
-
-## Managing Filters
-
-Filters can be adjusted, cleared, or reset as needed. When managing filters, you can perform the following actions:
-
-- To clear the values from an applied filter field without removing the field itself, click the field in the filters bar and click **Clear Selection**.
-- To remove a field from the filters bar, open the **More**drop-down menu and deselect the field from the list of active filters.
-- To reset the filters, click **Clear All Filters**. This removes all active filters and displays all available data.
-
-For fields with a set list of values (e.g., **Status**or **Severity**, or Boolean fields), select one or more options in the filter dialog window. For example, select **Opened** or **In Progress**for the **Status**filter to focus on active tickets. Use the search bar to locate values in long lists.
-
-See image.
-
-Multiple selections apply a logical OR (e.g., selecting **Opened** and **In Progress**shows items matching either value). If no values are selected, the filter will show all data for that field.
-
-[Image: tickets more filters dialog open]
-
-[Image: filters list status field]
-
-You can define time ranges or conditions in the date selector window to filter data. For example, you can filter records to display only upcoming deadlines within the next month, or identify entries that lack assigned dates.
-
-See image.
-
-Date filters can be configured using the following methods:
-
-- **Date Range**: Choose a method to filter records based on specific timeframes.
-  - **Preconfigured**: Select a preset option on the left to filter records based on common timeframes (e.g., **Last 7 Days**, **Next 14 Days**).
-  - **Custom**: Define a range to include only records within specific timeframes.
-    - **Fixed Date Range**: Select a fixed start and end date using the calendar display, or manually enter dates in the date field at the bottom left of the filter dialog window.
-    - **Dynamic Date Range**: Define relative timeframes that automatically update based on the current date (e.g., **Last 7 Days** or **Next 1 Month**).
-      1. Select a timeframe from the drop-down menu:
-        - **Next**: Displays records from today forward (e.g., **Next 1 Month**includes today + 31 days; **Next 1 Day**includes today + 1 day). This timeframe is often used for SLA and due-date fields. **Next**is not available for historical data.
-        - **Last**: Displays records from the start of the current time unit (calendar Month, Week, Day) to today (e.g., **Last 1 Month**includes the 1st of the current month to today, including today; **Last 1 Day**includes today).
-        - **Previous**: Displays records from the full previous time unit (calendar Month, Week, Day), not including the current time unit (e.g., **Previous 1 Month**in July includes the entire month of June; **Previous 1 Day**includes yesterday).
-        - **Before**: Displays all records up to and including the selected date (the default selected date is today).
-      2. Enter a value for the time unit.
-      3. Select a time unit (i.e., **Day**, **Week**, **Months**) from the drop-down menu to define how the range is calculated. Weekly filters follow a Monday-to-Sunday format.
-- **Is Empty**: Display records with no date assigned (e.g., records missing SLA deadlines).
-- **Is Not Empty**: Display records with a date assigned.
-
-[Image: filters date picker]
-
-Use conditional filters to apply rules that filter your data based on field values. Conditional filters are available depending on the field and the view you're filtering in, and are not available for Boolean and Date fields. You can combine multiple conditions using AND or OR to create compound filtering rules for more granular control.
-
-See image.
-
-To apply conditional filters:
-
-1. In the filter dialog window of the field you are filtering by, select **Condition**.
-2. Configure the filter conditions:
-  1. Select an operator (e.g., **Equals**, **>**). Available operators vary depending on the field type (i.e., Text, Number).
-  2. Enter the value that the rule should apply to. Filter conditions are case sensitive.
-  3. (Optional) Use **AND**/**OR**logic to define compound rules:
-    - **AND**includes records only if they meet all conditions in the rule.
-    - **OR**includes records if they meet any conditions in the rule.
-3. Click **Apply**.
-
-The following examples show conditional filters:
-
-- Ticket Severity Score: Filter tickets based on their severity score to focus on high-risk issues. For example, to view tickets with a severity score between 7 and 10, add the Ticket Severity Score field to the filters, and configure the conditional filter `>= 7`.
-- Asset Type: Filter assets by type to focus on related data and streamline your analysis. For example, to exclude Container assets, add the Asset Type to the filters, and configure the conditional filter `Not Equals Container`. This helps you concentrate on non-containerized assets, such as virtual machines or databases, when assessing infrastructure-level risks or vulnerabilities.
-
-[Image: filters conditions]
-
-[Image: filters list repeated fields asset sources]
-
-The All operator returns records only if all the values in the field meet the filter condition.
-
-Examples:
-
-- To include assets retrieved exclusively from the sources Qualys Assets and Wiz Assets, use the `Equals (All)` operator (i.e., `Asset Sources Equals (All) Qualys Assets AND Wiz Assets`). This displays assets where all listed sources are Qualys Assets and Wiz Assets, excluding any records with additional sources (e.g., ServiceNow Assets).
-- To exclude all assets retrieved from the ServiceNow Assets source, even if they were retrieved by other sources, use the `Not Equals (All)` operator (i.e., `Asset Sources Not Equals (All) ServiceNow Assets`). This excludes all assets retrieved from ServiceNow Assets, even those retrieved by additional sources (e.g., an asset retrieved by ServiceNow Assets and Qualys Assets is excluded).
-
-The Any operator returns records if at least one (i.e., any) value in the field meets the filter condition.
-
-Examples:
-
-- To view all assets retrieved from ServiceNow Assets, even if they were retrieved by additional sources, use the `Equals (Any)` operator (i.e., `Asset Sources Equals (Any) ServiceNow Assets`). Assets retrieved from ServiceNow Assets are retrieved, including those retrieved by other sources (e.g., an asset retrieved by ServiceNow Assets and Qualys Assets is included).
-- To exclude records retrieved only from ServiceNow Assets (and no other sources), use the `Not Equals (Any)` operator (i.e., `Asset Sources Not Equals (Any) ServiceNow Assets`). Assets retrieved from ServiceNow Assets but also from other sources are not excluded (e.g., an asset retrieved by ServiceNow Assets and Qualys Assets is not excluded).
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/using-os-end-life-policy","lastmod":"2026-02-24T06:06Z","nid":"1533693"} -->
 ## Using the OS End of Life Policy
 
@@ -6772,128 +1335,6 @@ Each option targets a specific stage of the OS lifecycle, requiring a separate p
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/using-queries-library","lastmod":"2026-02-17T06:06Z","nid":"1534132"} -->
-## Using the Queries Library
-
-- Source: https://help.zscaler.com/aem/using-queries-library
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Data Exploration > Using the Queries Library
-- Last modified: 2026-02-17T06:06Z
-- Summary: How to use and manage queries in the Queries Library.
-
-The Queries Library allows you to save and later access multiple queries when viewing and analyzing your [logs](https://help.zscaler.com/uvm/building-queries-searching-logs).
-
-To access the Queries Library:
-
-1. In the Zscaler Security Operations (SecOps) platform, go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library** appears. See image.
-3. You can view the following information for each query:
-  - **Name**: The name of the query.
-  - **Query Type**: Whether the query was built using the basic or advanced query builder.
-  - **Category**: The category of the query, if assigned.
-  - **Description**: The description of the query.
-  - **Updated At**: The latest date that the query was saved.
-  - **Updated By**: The last person to update the query.
-
-[Image: Queries Library Button]
-
-## Managing Saved Queries
-
-After [saving a query](https://help.zscaler.com/uvm/building-queries-searching-logs), you can manage it from the Queries Library. Click a query in the list to expand and view its contents.
-
-See image.
-
-When managing saved queries, you can perform the following actions:
-
-- Categorize Saved Queries
-- Edit Saved Queries
-- Delete Saved Queries
-
-[Image: Expanded Query in Query Library]
-
-You can organize saved queries by assigning them categories.
-
-To categorize saved queries:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. Select the queries you want to categorize from the list.
-4. Click **Category**.
-5. Select a category from the menu to assign it to the selected queries. The category is assigned immediately.
-
-You can edit queries to update their settings or adjust their configurations.
-
-To edit a saved query:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. Choose one of the following methods:
-  - Hover over the query, and click the **Edit**icon.
-  - Select the query from the list, and click **Edit**on the toolbar.
-4. Make the necessary changes to the query.
-5. Save the query in one of the following ways:
-  - Click **Save**to override the saved query configuration with the edited version.
-  - From the **Save**drop-down menu, click **Save As New**to save your changes as a new query.
-
-You can delete saved queries that you no longer use.
-
-Deleting a query doesn't trigger a warning message and deletes the query immediately.
-
-To delete saved queries:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. Choose one of the following methods: The query is deleted and removed from the library.
-  - To delete a single query, hover over the query, and click the **Delete**icon.
-  - To delete multiple queries, select the checkboxes of the queries you want to delete, and click **Delete**on the toolbar.
-
-## Managing Query Categories
-
-You can categorize queries saved in the Queries Library to maintain an organized and easily accessible list.
-
-When managing query categories, you can perform the following actions:
-
-- Add a Category
-- Edit a Category
-- Delete a Category
-
-You can create categories to organize your saved queries for easier management.
-
-To create a new category for saved queries:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. Click **New Category**. An untitled category is added to the left-side navigation. See image.
-4. Enter a name for the category and click outside the input field. The category can now be assigned to queries.
-
-[Image: New Category button in the Queries Library]
-
-You can edit query category names to keep them relevant and descriptive.
-
-To edit a category name:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. In the left-side navigation, hover over the query category that you want to edit, and click the **Edit**icon.
-4. Edit the query name and click outside the input field.
-
-You can delete categories to remove unused or redundant query categories.
-
-To delete a category:
-
-1. Go to**Explore**> **Logs**.
-2. Click **Library**. The **Queries Library**window appears.
-3. In the left-side navigation, hover over the query category that you want to delete, and click the **Delete**icon. The **Delete**window appears.
-4. Select a deletion option: See image.
-  - **Delete only the folder**: Delete the category, but not the queries saved to it.
-  - **Delete all**: Delete the selected category and all queries saved to it.
-5. Click **Delete**.
-
-[Image: Delete Queries window]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/aem/using-tool-coverage-policy","lastmod":"2025-11-11T14:13Z","nid":"1533691"} -->
 ## Using the Tool Coverage Policy
 
@@ -6929,118 +1370,6 @@ For more complex policy scenarios not supported by the template, use the Advance
 [Image: aem policies tool coverage asset population]
 
 [Image: aem policies tool coverage policy scenario]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/viewing-audit-logs","lastmod":"2026-05-23T07:06Z","nid":"1539933"} -->
-## Viewing Audit Logs
-
-- Source: https://help.zscaler.com/aem/viewing-audit-logs
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Admin Portal > Viewing Audit Logs
-- Last modified: 2026-05-23T07:06Z
-- Summary: How to view and export audit logs in the Zscaler Security Operations platform.
-
-Audit logs track user-initiated actions within the Zscaler Security Operations (SecOps) platform. This enables you to monitor configuration changes, such as updates to reports, data source instances, and outegrations. You can download specific audit logs for immediate review, and schedule automated exports to an external destination such as an Amazon S3 bucket.
-
-Audit logs track key events including:
-
-- Configuration of grouping rules and rule sets.
-- Configuration of severity, score, and SLA settings.
-- Creating, managing, and assigning roles and content permissions.
-- Configuring field unification rule set.
-- Configuring UI configurations.
-- Updates to account settings and user settings.
-- Management of data source mapping, data source instances, and data source scheduling.
-- Configuration and mapping of outegrations.
-- Changes to dashboards and reports.
-
-## Viewing the Audit Logs Page
-
-To view the Audit Logs page:
-
-1. Go to a configuration page to: The configuration page for a user is provided here as an example. See image.
-  - For a user: Click the profile menu in the top navigation bar, then click **Profile Settings**.
-  - For an account: Click the profile menu in the top navigation bar, then click **Account Settings**.
-  - For a source: Go to **Configure** > **Sources**, then click a source.
-  - For an outegration: Go to **Configure**> **Outegrations**, then click an outegration.
-  - For a report: Go to an app (**Vulnerabilities**, **Assets**, etc.), click **My Reports**, and click a report.
-2. Click the **More**menu, and click **Audit Logs**. The **Audit Logs** page appears.
-3. On the **Audit Logs** page for a user, you can do the following: See image.
-  - Filter and sort the logs by operation, type, and user name.
-  - Download the logs as a CSV file.
-  - View additional information by clicking the arrow icon. See image.
-
-Audit logs are retained for 90 days. To extend the retention period and to maintain a long-term history, you can export the logs to an Amazon S3 bucket or any other configured log destination.
-
-[Image: Configuration Page of a User]
-
-## Configuring Audit Log Export
-
-You can schedule audit logs to be sent on a daily or hourly basis via an S3 outegration.
-
-To configure automated audit log export for a user:
-
-1. Click the profile menu in the top navigation bar, then click **Account Settings**. The **Settings**page appears.
-2. Click the **Audit Logs Export** drop-down menu. See image.
-3. Select **Enable Scheduling**, then select the following options: See image.
-  1. **Included Entities**: Select the entity types to be included in the audit log (e.g., **Severity Score Settings**, **UI Configuration**).
-  2. **Frequency**: Define the time interval for the audit log export (e.g., **Daily**or **Hourly**).
-  3. **Select S3 Outegration**: Select **AWS S3**. To create an AWS S3 outegration, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-4. Click **Save**. Audit logs are automatically exported to the designated AWS S3 bucket based on the defined scheduling frequency.
-
-[Image: Audit Logs Page]
-
-[Image: Additional Details]
-
-[Image: Account Settings Page]
-
-[Image: Audit Logs Export Drop-Down Menu]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/viewing-items-widget-segment","lastmod":"2025-11-11T11:57Z","nid":"1533678"} -->
-## Viewing Items in a Widget Segment
-
-- Source: https://help.zscaler.com/aem/viewing-items-widget-segment
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Analytics > Dashboards > Viewing Items in a Widget Segment
-- Last modified: 2025-11-11T11:57Z
-- Summary: How to view and configure the display for specific items in dashboard widgets.
-
-You can view detailed data associated with a specific segment in a widget (e.g., a slice of a pie chart, or a bar in a bar chart) by clicking the segment. Viewing a segment's items opens a table view that displays the data for the selected segment.
-
-Viewing items is distinct from widget drilldown, which enables users to explore additional dimensions set in the widget configuration. Viewing items displays the underlying data for a specific segment of a widget, while drilling down displays additional dimensions that are configured in the drilldown hierarchy. For example, a drilldown on open tickets can further break down the data by severity or ticket status.
-
-Clicking a segment of a widget displays the items that make up that segment. For example, in a pie chart showing open tickets by asset type, clicking the Linux segment opens a table listing all tickets assigned to Linux.
-
-See image.
-
-If you configure drilldown in the widget when [adding widgets to the dashboard](https://help.zscaler.com/uvm/configuring-custom-dashboards#adding-widgets-to-dashboards), an Interactions menu appears, allowing you to either click through to a table detailing the individual items that make up the measurement's value or to drill down into additional dimensions.
-
-## Customizing and Saving the View Items Table
-
-When you click a segment to view its items, the initial columns displayed in the table that appears are those defined in the entity's default saved view in the relevant app (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets) in UVM, [Violation Tickets](https://help.zscaler.com/uvm/about-violation-tickets) in AEM). The default view is indicated by the Set as Account Default View icon in the saved view's drop-down menu on the entity's page.
-
-See image.
-
-You can customize the displayed columns and save the view, making it accessible in the saved views drop-down menu across all widgets and dashboards referencing the same entity. For example, the Total Assets and the Vulnerable Assets measurements share the same list of saved views. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/uvm/creating-managing-saved-views#create-new-view).
-
-[Image: Widget View Items in a Widget Linux Example]
-
-[Image: Default Entity View]
-
-## Exporting the Table
-
-To export the data shown in the table as a CSV file, click the Export as CSV icon located in the top-right corner of the table.
-
-See image.
-
-The data is exported based on the currently displayed columns.
-
-[Image: Export as CSV Icon]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7127,13 +1456,13 @@ Clicking a ticket opens its drawer. To return to the asset drawer, click the ass
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-os-end-life-dashboard","lastmod":"2026-03-19T07:06Z","nid":"1535440"} -->
+<!-- ZS-ARTICLE {"url":"/aem/viewing-os-end-life-dashboard","lastmod":"2026-08-07T05:17Z","nid":"1535440"} -->
 ## Viewing the OS End of Life Dashboard
 
 - Source: https://help.zscaler.com/aem/viewing-os-end-life-dashboard
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > Analyze for AEM > Viewing the OS End of Life Dashboard
-- Last modified: 2026-03-19T07:06Z
+- Last modified: 2026-08-07T05:17Z
 - Summary: How to view the OS End of Life dashboard in the Zscaler Security Operations (SecOps) platform.
 
 The OS End of Life dashboard provides visibility into assets running operating systems that have reached or are approaching End-of-Life (EOL) or End-of-Support (EOS) status. The dashboard includes summary tiles, charts, and tables that provides details of the EOL and EOS status of OS assets.
@@ -7144,7 +1473,7 @@ Identifying high-risk assets helps organizations:
 - Strengthen regulatory and internal compliance posture.
 - Minimize operational disruptions due to outdated OS versions.
 
-To create an OS EOL dashboard from a preconfigured template, go to Explore > Dashboards > Template Gallery > OS End of Life. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/aem/using-dashboard-templates).
+To create an OS EOL dashboard from a preconfigured template, go to Explore > Dashboards > Template Gallery > OS End of Life. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).
 
 ## Top Assets
 
@@ -7356,6 +1685,83 @@ On the **Asset Info**tab, you can view:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/aem/viewing-tool-coverage-and-gap-dashboard","lastmod":"2026-08-26T23:16Z","nid":"1542198"} -->
+## Viewing the Tool Coverage and Gap Dashboard
+
+- Source: https://help.zscaler.com/aem/viewing-tool-coverage-and-gap-dashboard
+- Product: Asset Exposure Management
+- Path: Asset Exposure Management (AEM) Help > Analyze for AEM > Viewing the Tool Coverage and Gap Dashboard
+- Last modified: 2026-08-26T23:16Z
+- Summary: How to view and interpret the Tool Coverage and Gap dashboard in Asset Exposure Management (AEM).
+
+The Tool Coverage and Gap dashboard provides a consolidated view of asset discovery across integrated asset sources in Asset Exposure Management (AEM). You can identify coverage gaps, compare asset discovery between sources, and understand where multiple sources detect the same assets.
+
+You can use the Tool Coverage and Gap dashboard to:
+
+- Identify assets that are not discovered by a specific asset source.
+- Compare asset coverage across integrated asset sources.
+- Identify sources that provide unique asset visibility and sources with overlapping coverage.
+- Evaluate whether additional asset sources are needed to improve overall asset coverage.
+
+To access the dashboard in the Security Operations Platform, go to **Assets**> **Coverage And Gap**.
+
+See image.
+
+You can apply filters to view specific data on the dashboard and save a filtered view. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters) and [Creating & Managing Saved Views](https://help.zscaler.com/unified/creating-managing-saved-views).
+
+The dashboard includes the following widgets:
+
+- Find Coverage Gap
+- Explore Coverage Overlaps
+- Asset Coverage
+
+This widget displays assets that were not discovered by the selected asset source during a specified time period. You can review the graph to identify assets that were discovered by other sources.
+
+- Asset source: Select the asset source to evaluate.
+- Time range: Enter the number of days to analyze asset discovery.
+
+See image.
+
+This widget displays and compares asset discovery across multiple asset sources. You can review the graph to determine the asset's discovery by multiple sources and assets unique to individual sources.
+
+See image.
+
+Add up to three asset sources to compare using one of the following methods:
+
+- If no sources are added, click **Sources**and select sources from the list. See image.
+- Click the **+** icon and select sources. See image.
+
+This table shows a summary of the number of assets discovered by each integrated source, and whether the assets are unique to that source or shared with other sources.
+
+See image.
+
+For each asset, you can see:
+
+- **Source Name**: The integrated asset source such as **ITDR Identity AD Computer**, **ITDR Change Detection AD**, etc. Click a source row to display the combinations of sources that discovered the same assets. For example, expanding the **ITDR Identity AD Computer** source displays combinations of **ITDR Identity AD Computer**,**ITDR Posture Identity AD Issues**, and **ITDR Change Detection AD**. See image.
+- **Total Assets**: The total number of assets discovered by the source. See image.
+  - **Unique bar**: Assets discovered only by the selected asset source.
+  - **Overlap bar**: Assets that were discovered by more than one asset source.
+  - **View asset details**: Click the total asset number to display the corresponding assets. The asset table lists all assets discovered by the selected source combination. To learn more, see [About Assets](https://help.zscaler.com/aem/about-assets-aem).
+
+[Image: Tool Coverage And Gap report]
+
+[Image: Find Coverage Gap widget in Tool Coverage and Gap report]
+
+[Image: Explore Coverage Overlaps widget in Tool Coverage and Gap report]
+
+[Image: Asset Coverage table displaying overlap and unique assets]
+
+[Image: Asset sources combination]
+
+[Image: Add sources to compare in Explore Coverage Overlaps widget]
+
+[Image: Add sources to compare in Explore Coverage Overlaps widget]
+
+[Image: Unique assets bar in Total Assets]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/aem/viewing-violation-tickets-aem","lastmod":"2026-02-17T06:06Z","nid":"1533685"} -->
 ## Viewing Violation Tickets in AEM
 
@@ -7424,18 +1830,18 @@ On the **Assets**tab, you can view the list of assets affected by the policy vio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-violation-tickets-dashboard","lastmod":"2026-06-29T07:06Z","nid":"1540176"} -->
+<!-- ZS-ARTICLE {"url":"/aem/viewing-violation-tickets-dashboard","lastmod":"2026-08-07T05:17Z","nid":"1540176"} -->
 ## Viewing the Violation Tickets Dashboard
 
 - Source: https://help.zscaler.com/aem/viewing-violation-tickets-dashboard
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > Analyze for AEM > Viewing the Violation Tickets Dashboard
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-08-07T05:17Z
 - Summary: How to view the Violation Tickets Dashboard in the Zscaler Security Operations (SecOps) platform.
 
 The Violation Tickets Dashboard in the Zscaler Security Operations (SecOps) platform offers visibility into your team's progress in identifying, managing, and resolving violation tickets. This dashboard enables you to view open violation tickets by severity, monitor ticket trends over time, track remediation efforts by the team, and ensure compliance goals are met.
 
-To create this dashboard from a template, go to Explore > Dashboards > Template Gallery > Violation Tickets Dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/aem/using-dashboard-templates).
+To create this dashboard from a template, go to Explore > Dashboards > Template Gallery > Violation Tickets Dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).
 
 ## Widgets
 
@@ -7507,133 +1913,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-zscaler-secops-status-board","lastmod":"2025-10-30T13:35Z","nid":"1532848"} -->
-## Viewing the Zscaler SecOps Status Board
-
-- Source: https://help.zscaler.com/aem/viewing-zscaler-secops-status-board
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Viewing the Zscaler SecOps Status Board
-- Last modified: 2025-10-30T13:35Z
-- Summary: How to view information in the Zscaler SecOps status board.
-
-To view the Zscaler Security Operations (SecOps) status board, refer to the [status page](https://avalorstatus.statuspage.io/). The status board presents historic and current incidents in the SecOps platform.
-
-On the status board, you can perform the following actions:
-
-- Report Issues
-- Subscribe to Updates and Feeds
-- View Current Status
-- View Incident History and Historical Uptime
-
-If you're a SecOps user and you've encountered an issue with the platform or one of its apps, you can report it to the SecOps team.
-
-To report an issue, click **Submit a request** at the top right of the page.
-
-You can subscribe to incident updates by email, phone, and Slack, and to the status board's Atom and RSS feeds.
-
-To subscribe to updates:
-
-1. Click **Subscribe to Updates**at the top right of the page.
-2. Click the icon of your preferred update method, and follow the onscreen instructions. See image.
-
-The SecOps platform's current status presents incidents in the last 90 days by region (US, EU), and each region is broken down into additional components:
-
-- Platform
-- Data Ingestion
-- Query Engine
-- UVM App
-- Detections App (only for US)
-
-The SecOps platform reports past incidents and historical uptime.
-
-## Incidents
-
-You can view past incident descriptions in 90-day increments.
-
-To view incident history, choose one of the following methods:
-
-- On the **Current Status** page, scroll to the bottom of the page and click **Incident History**.
-- On the **Uptime** page, click the **Incident**tab.
-
-## Uptime
-
-You can view historical uptime in 90-day increments and by one of the following components:
-
-- Platform
-- Data Ingestion
-- Query Engine
-- UVM App
-- Detections App (only for US)
-
-To view uptime history, choose one of the following methods:
-
-- On the **Current Status** page, click **View historical uptime** in the top right.
-- On the **Incidents** page, click the **Uptime**tab.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/what-zscaler-security-operations","lastmod":"2026-05-01T07:06Z","nid":"1532845"} -->
-## What Is Zscaler Security Operations?
-
-- Source: https://help.zscaler.com/aem/what-zscaler-security-operations
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > What Is Zscaler Security Operations?
-- Last modified: 2026-05-01T07:06Z
-- Summary: Information on the Zscaler Security Operations (SecOps) platform.
-
-Zscaler Security Operations (SecOps) is a unified approach to security that integrates proactive and reactive measures to enhance an organization's overall security posture. It focuses on bridging the gap between traditional exposure management and threat management, creating a cohesive strategy for identifying, prioritizing, and responding to cyber risks. This comprehensive view helps accelerate incident response, improve operational efficiency, and simplify compliance efforts.
-
-## Key Features and Benefits
-
-Zscaler SecOps provides the following benefits and enables you to:
-
-- Integrate Zscaler SecOps and third-party data for rich context, providing a comprehensive view of your security landscape.
-- Offer automated workflows for remediation and updates.
-- Provide real-time visibility into security posture and metrics.
-
-There are two applications in the Zscaler SecOps platform:
-
-- Asset Exposure Management (AEM) enables organizations to collect and manage asset data from various sources to track asset inventory and coverage. It allows organizations to understand their attack surface, create policies, and track and remediate policy violations to reduce overall risk.
-- Unified Vulnerability Management (UVM) provides a single platform for managing vulnerabilities, simplifying the process of identifying and remediating security risks.
-
-The Zscaler SecOps platform natively integrates External Attack Surface Management (EASM) capabilities to automatically discover, inventory, and monitor internet-facing assets and detect their associated risk findings. This scanned asset and finding information is automatically merged with the context-rich data and capabilities of AEM and UVM to provide comprehensive asset visibility and enriched security insights, helping organizations secure their assets and remediate risks.
-
-## How Does Zscaler SecOps Work?
-
-Zscaler SecOps operates on a robust data fabric for security that centralizes and transforms disparate security data. Supported by machine learning and AI, the fabric harmonizes, deduplicates, correlates, and enriches information from various sources, including Zscaler telemetry and third-party tools. The clean, contextualized data leads to more accurate and informative security outcomes. These insights power exposure management solutions, such as AEM and UVM, enabling organizations to understand and address asset risk, prioritize vulnerabilities, and effectively quantify overall cyber risk.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/aem/zscaler-secops-public-ip-addresses","lastmod":"2025-10-30T13:25Z","nid":"1532847"} -->
-## Zscaler SecOps Public IP Addresses
-
-- Source: https://help.zscaler.com/aem/zscaler-secops-public-ip-addresses
-- Product: Asset Exposure Management
-- Path: Asset Exposure Management (AEM) Help > Getting Started > Zscaler SecOps Public IP Addresses
-- Last modified: 2025-10-30T13:25Z
-- Summary: A list of public IP addresses used by the Zscaler Security Operations platform and its applications (e.g., UVM, AEM) for allowlisting when configuring integrations with the platform.
-
-To ensure seamless connectivity and uninterrupted access to essential resources, you can allowlist the public IP addresses used by outgoing traffic from the Zscaler Security Operations (SecOps) platform and its applications (e.g., UVM, AEM). These IP addresses serve as the source for all egress traffic originating from the Zscaler tenant.
-
-Add the following IP addresses associated with your instance's region to your firewall's allowlist to ensure uninterrupted access to the required resources.
-
-| **Region** | **IP Addresses** |
-| --- | --- |
-| **US** | 3.137.47.190/32 3.15.110.62/32 3.129.232.141/32 |
-| **EU** | The recommended IP addresses listed in [Zscaler Hub IP Addresses](https://config.zscaler.com/zscalertwo.net/hubs) |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-account-onboarding","lastmod":"2026-07-10T09:54Z","nid":"1541174"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-account-onboarding","lastmod":"2026-08-29T07:06Z","nid":"1541174"} -->
 ## About Account Onboarding
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/about-account-onboarding
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > About Account Onboarding
-- Last modified: 2026-07-10T09:54Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information about onboarding accounts in the AI Security Admin Portal.
 
 Account onboarding in AI Security enables organizations to establish a secure, governed foundation for managing and monitoring AI application usage. By integrating user identities, cloud environments, and security policies from the outset, organizations gain immediate visibility and control over how AI tools are accessed and used across the enterprise.
@@ -7788,13 +2074,13 @@ Use this tab to view a list of issues that were discovered. For each issue, you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-ai-assets-mcp-servers","lastmod":"2026-07-10T05:29Z","nid":"1540822"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-ai-assets-mcp-servers","lastmod":"2026-08-11T07:06Z","nid":"1540822"} -->
 ## About AI Assets - MCP Servers
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/about-ai-assets-mcp-servers
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Asset Discovery > AI Assets > About AI Assets - MCP Servers
-- Last modified: 2026-07-10T05:29Z
+- Last modified: 2026-08-11T07:06Z
 - Summary: Information about the AI Assets - MCP Servers in the AI Security Admin Portal.
 
 The AI Assets MCP Servers page in AI Security Admin Portal provides a centralized inventory of discovered Model Context Protocol (MCP) server instances so you can understand where MCP is present in your environment and assess the potential security exposure introduced by server capabilities (e.g., file system access, network access, code execution) and other risk indicators. At a high level, it shows each MCP instance’s resource name, where it was detected (resource types such as VMs or containers and the resource path), programming language, and an overall risk score and risk level. It also includes a governance-style status, e.g., Approved, Disapproved, or Pending Review.
@@ -7883,13 +2169,13 @@ Use this tab to view prompt information. In an MCP setup, prompts are the instru
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-ai-assets-models","lastmod":"2026-07-10T03:45Z","nid":"1540775"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-ai-assets-models","lastmod":"2026-08-11T07:06Z","nid":"1540775"} -->
 ## About AI Assets - Models
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/about-ai-assets-models
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Asset Discovery > AI Assets > About AI Assets - Models
-- Last modified: 2026-07-10T03:45Z
+- Last modified: 2026-08-11T07:06Z
 - Summary: Information about the AI Assets - Models in the AI Security Admin Portal.
 
 The AI Assets Models page in AI Security Admin Portal is a centralized model inventory that provides a unified view of all custom, managed, and unmanaged models across your environments, enabling standardized governance through clear classification and sanctioning. By surfacing benchmark-based risk signals and sensitive data exposure indicators, it allows teams to prioritize remediation and make informed data protection decisions. This shared visibility streamlines investigation and triage via granular search and filters, ensuring that security, governance, and engineering teams remain aligned on approved models and operational actions.
@@ -8246,6 +2532,51 @@ Use this tab to view a list of issues that were discovered. For each issue, you 
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-ai-resources-identities","lastmod":"2026-07-30T03:50Z","nid":"1540215"} -->
+## About AI Resources - Identities
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/about-ai-resources-identities
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Asset Discovery > AI Resources > About AI Resources - Identities
+- Last modified: 2026-07-30T03:50Z
+- Summary: Information about the Identities in the AI Resources page in the AI Security Admin Portal, which lists all identities within the cloud environment, along with details about the type and number of data stores that a user has access to.
+
+An identity represents a user, device, application, or service that can access data stores containing sensitive data in the cloud environment. While securing sensitive data, it is crucial to control and manage the permissions assigned to identities, as excessive permissions and insecure configurations could lead to security breaches. AI Security detects identities in all the onboarded cloud accounts (AWS, Azure, and GCP), including managed and unmanaged databases, and Snowflake.
+
+The AI Assets - Identities Page provides the following benefits and enables you to:
+
+- View the identities that can access resources containing sensitive data within your cloud environment.
+- View the data stores accessed by an identity.
+- View the type of sensitive data accessed by each identity.
+- View the security posture of the identity.
+
+## About the AI Resources - Identities Page
+
+On the AI Resources Identities page (AI Infrastructure > AI Resources > Identities), you can do the following:
+
+1. Filter by **Business Units**.
+2. View the following widgets for a quick, at-a-glance summary of your identities:
+  - **Identities by Type**: Distribution of identity types that access AI resources, eg., AWS IAM User, AWS IAM Role, AWS IAM Policy, GCP Service Account, Azure, etc.
+  - **Identities by Status**: Distribution of the software libraries by their governance status, e.g., **Sanctioned**(reviewed and approved), **Unsanctioned**(reviewed and not approved), or **Pending**(awaiting review).
+  - **Identities by Risk Posture**: Distribution of identities by security posture risk category, e.g., privileged access, Inactive Certificate, MFA disabled, or Dual Authentication Disabled.
+3. Search for specific data in the searchable columns.
+4. Apply [filters](https://help.zscaler.com/ai-asset-mgmt/using-filters) to view specific data.
+5. View the list of identities. For each identity, you can see:
+  - **Name**: The name of the entity. Click the entity name to view additional details.
+  - **Environment**: The cloud service provider in which the identity is present.
+  - **Access Type**: The permission level granted to the entity for the selected resource, e.g., **Read**, **Edit**, or **Full Access**.
+  - **Source**: Resource type.
+  - **Status**: Governance status of the identity.
+  - **Risk Posture**: The security posture assigned to the identity (Dormant Identity, MFA Disabled, etc.). Hover over the label to see the description of each posture.
+  - **Last Discovered**: Timestamp when the asset was last updated.
+
+- **General Information:** Information such as type, Source, Account ID, Account Name, Asset Risk, etc. Click **More Details** to view a graphical summary.
+- **Lifecycle:** Timeline of key milestones from discovery to deployment, monitoring, and updates.
+- **Graph View:** The graphs consist of interactive nodes that provide contextual information, e.g., cloud account name, region, type, account ID, account name, file path, risk score, about the primary AI identity and the associated secondary resources. The graphs also include attack paths that show how the resource is compromised either through public exposure, malware, by an IAM entity (user, service, role) with access privileges, vulnerabilities, etc. This information helps you analyze the issues in detail and remediate them immediately. Click the nodes to view additional details of each entity.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-ai-security-dashboard","lastmod":"2026-06-05T21:06Z","nid":"1540778"} -->
 ## About AI Security Dashboard
 
@@ -8401,14 +2732,14 @@ On the Cloud Accounts page (Administration> Account Onboarding), you can do the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-data-sensitivity","lastmod":"2026-06-10T21:06Z","nid":"1540838"} -->
-## About Data Sensitivity
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-data-classification","lastmod":"2026-09-09T21:23Z","nid":"1540838"} -->
+## About Data Classification
 
-- Source: https://help.zscaler.com/ai-asset-mgmt/about-data-sensitivity
+- Source: https://help.zscaler.com/ai-asset-mgmt/about-data-classification
 - Product: AI Asset Management
-- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Sensitivity Settings > About Data Sensitivity
-- Last modified: 2026-06-10T21:06Z
-- Summary: Information about the data sensitivity settings in the AI Security Admin Portal and how the DLP engines are used for data classification.
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Classification > About Data Classification
+- Last modified: 2026-09-09T21:23Z
+- Summary: Information about data classification in the AI Security Admin Portal and how the DLP engines are used for data classification.
 
 Sensitive data is confidential information such as personally identifiable information (PII), social security numbers, credit card information, financial data, login credentials, etc., that must be protected with strong security controls to prevent data breaches.
 
@@ -8418,30 +2749,29 @@ AI Security supports data classification by using robust DLP engines and diction
 
 You can only view the DLP engines in the AI Security Admin Portal. You can add or modify a DLP engine in Internet & SaaS if you have the necessary permissions. When configuring a predefined or custom engine, you can also combine dictionaries with Boolean operators to create logical expressions.
 
-Defining the data sensitivity provides the following benefits and enables you to:
+Defining the data classification provides the following benefits and enables you to:
 
 - Classify sensitive data based on the level of sensitivity and risk.
 - View the DLP engines and dictionaries that are used by AI Security for data classification.
 - Manage the sensitivity setting for DLP engines.
 
-## About the Data Classification Settings Page
+## About the Data Classification Page
 
-On the Data Classification Settings page (Administration > Data Sensitivity), you can do the following:
+On the Data Classification page (Administration > Data Classification), you can do the following:
 
-1. Create and manage DLP Engines. This option is visible to users with permissions to view or edit the DLP Dictionaries & Engines.
-2. View the list of DLP engines that are synced from Internet & SaaS. For each DLP engine, you can view:
+1. View the list of DLP engines that are synced from Internet & SaaS. For each DLP engine, you can view:
   1. **DLP Engine Name**: The name of the DLP engine.
   2. **Description**: The description of the DLP engine.
   3. **Engine Type**: The type (Predefined or Custom) of DLP engine.
   4. **Last Modified**: The date and time the DLP engine was last modified.
   5. **Enabled**: The toggle that indicates whether the DLP engine is active.
   6. **Sensitive**: The sensitivity setting (enabled or disabled) for the DLP engine. By default, the sensitivity setting is enabled for all DLP engines.
-3. Disable the sensitivity setting for all DLP engines.
-4. Sort the column data.
-5. Disable the DLP engine.
-6. Enable or disable the sensitivity setting for a specific DLP engine
-7. [Show or hide the columns in the table](https://help.zscaler.com/unified/using-tables).
-8. Search for a specific DLP engine.
+2. Disable the sensitivity setting for all DLP engines.
+3. Sort the column data.
+4. Disable the DLP engine.
+5. Enable or disable the sensitivity setting for a specific DLP engine
+6. [Show or hide the columns in the table](https://help.zscaler.com/ai-asset-mgmt/using-tables).
+7. Search for a specific DLP engine.
 
 [Image: The data sensitivity settings page]
 <!-- /ZS-ARTICLE -->
@@ -8490,46 +2820,6 @@ On the Integrations page (Administration > External Integrations), you can view 
 5. [Edit or delete a cloud storage integration.](https://help.zscaler.com/ai-asset-mgmt/editing-or-deleting-external-integrations)
 
 [Image: View the cloud storage integrations describing the page details.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-investigation","lastmod":"2026-06-05T21:06Z","nid":"1540792"} -->
-## About Investigation
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/about-investigation
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > About Investigation
-- Last modified: 2026-06-05T21:06Z
-- Summary: Information about the investigation feature in AI Security.
-
-Your cloud resources containing data might be located in different regions. Depending on the number of cloud accounts you have onboarded, AI Security offers insights by identifying sensitive data, vulnerabilities, or any other risks in your resources.
-
-You might want to obtain certain information related to the security posture of your cloud resources without having to create alerts or filter information on the dashboard. For example, you want to look at all S3 buckets that were scanned in the past week and check what type of sensitive data is stored in these S3 buckets. You can leverage AI Security's Investigation feature to effectively parse such information, and based on the result, save the investigation or create a custom security policy.
-
-The Investigation feature provides the following benefits and enables you to:
-
-- Run queries on cloud resources and gain more insight into the security posture of your data.
-- Customize queries, run them multiple times, inspect results, and then discard or save the queries, either as investigation queries or custom security policies.
-
-## About the Investigation Page
-
-On the Investigation page (AI Infrastructure > Investigation), you can do the following:
-
-1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific information.
-2. [Add a new investigation](https://help.zscaler.com/ai-asset-mgmt/creating-new-investigation).
-3. View the investigation queries that you've created. For each investigation, you can see:
-  - **Cloud**: The name of the cloud service provider (AWS, Azure, or GCP).
-  - **Query**: The query string.
-  - **Resource Type**: The type of resource on which the query is run.
-4. View the list of saved investigation queries.
-5. Search for a query in the searchable columns.
-6. [Show or hide columns](https://help.zscaler.com/unified/using-tables).
-7. Click the **Actions** icon to run, save, or [edit](https://help.zscaler.com/ai-asset-mgmt/editing-or-deleting-investigation) a query. When you run a query, the investigation results are displayed. See image. Click the resource name to view the resource details.
-
-[Image: Create a new investigation and view the previously created queries]
-
-[Image: Investigation query results for an EC2 instance]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8583,13 +2873,13 @@ On the Issues View page (AI Infrastructure > Issues > Issues View), you can see 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-public-ai-inventory-embedded-ai","lastmod":"2026-07-10T10:17Z","nid":"1541556"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-public-ai-inventory-embedded-ai","lastmod":"2026-08-29T07:06Z","nid":"1541556"} -->
 ## About Public AI Inventory - Embedded AI
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/about-public-ai-inventory-embedded-ai
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Asset Discovery > About Public AI Inventory - Embedded AI
-- Last modified: 2026-07-10T10:17Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information about the Public AI Inventory Embedded AI apps and its features in the AI Security Admin Portal.
 
 As organizations rapidly adopt AI capabilities embedded within everyday SaaS applications, maintaining visibility into enterprise AI usage has become increasingly challenging. Zscaler AI Security expands the AI Asset Management platform to automatically discover and identify Embedded AI applications accessed across your organization.
@@ -9044,13 +3334,13 @@ On the **Download Model Scanner** tab, you can view the list of available AI mod
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-system-logs-ai-infra-scanning","lastmod":"2026-07-10T07:22Z","nid":"1541582"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-system-logs-ai-infra-scanning","lastmod":"2026-08-29T07:06Z","nid":"1541582"} -->
 ## About System Logs - AI Infra Scanning
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/about-system-logs-ai-infra-scanning
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Monitoring & Investigation > About System Logs - AI Infra Scanning
-- Last modified: 2026-07-10T07:22Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information about the System Logs in the AI Security Admin Portal.
 
 The System Logs page with AI Infra Scanning tab in AI Security gives administrators a unified, filterable view of every AI infrastructure scan event generated across their AWS, Azure, and GCP environments. The page displays scan outcomes, including successes, failures, and detailed error messages so administrators can quickly triage scan health, identify misconfigurations, and audit the inventory pipeline over time.
@@ -9246,6 +3536,44 @@ To delete a custom role:
 [Image: The Access Roles page with the list of predefined and custom roles and annotation around Add Role.]
 
 [Image: The Permissions section with the list of global modules.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/adding-azure-target-subscriptions","lastmod":"2026-08-31T22:18Z","nid":"1542948"} -->
+## Adding Azure Target Subscriptions
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/adding-azure-target-subscriptions
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Adding Azure Target Subscriptions
+- Last modified: 2026-08-31T22:18Z
+- Summary: Information on how to add Azure target subscriptions.
+
+The target subscriptions in AI Security refer to the Azure subscriptions that AI Security must monitor. You can add new target subscriptions to the existing onboarded Azure account. AI Security monitors and scans the data stores within the onboarded subscriptions to identify sensitive data, misconfigurations, and vulnerabilities.
+
+## Prerequisites
+
+You must be assigned either an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions) or a custom role with the Configure Monitoring Scope permission in the AI Security Admin Portal.
+
+## Adding Target Subscriptions
+
+To add Azure target subscriptions:
+
+1. In the Zscaler Admin Console, go to **Administration** > **Account Onboarding**. The **Cloud Accounts**page appears.
+2. In the **Configured Integrations**section, select the onboarded account for which you want to add new subscriptions.
+3. Click **Manage**and select **Add Target Subscriptions** from the drop-down menu. See image. The **Add Target Subscriptions** window appears.
+4. In the **Add Target Subscriptions** window, enter the following information and click **Save**: See image.
+  - **Subscription ID**: Enter the subscription ID.
+  - **Subscription Name (Optional)**: Enter the subscription name.
+  - **Business Unit**: Select a business unit for the subscription.
+  - Click **+ Add Subscription** to add more subscriptions.
+5. On the **Roles and Templates** tab, click **Download Template** to download and [deploy the template](https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription). See image.
+
+[Image: The Manage actions drop-down menu with annotation around Add Target Subscriptions]
+
+[Image: The Add Target Subscriptions window with the list of target subscriptions]
+
+[Image: The Roles and Templates tab with annotation around Azure Onboarding template]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9642,13 +3970,73 @@ Update the following downloaded files:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/changing-gcp-orchestrator-account","lastmod":"2026-07-22T06:38Z","nid":"1541388"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/changing-client-secret-azure-application","lastmod":"2026-08-31T23:43Z","nid":"1542946"} -->
+## Changing Client Secret for Azure Application
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/changing-client-secret-azure-application
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Changing Client Secret for Azure Application
+- Last modified: 2026-08-31T23:43Z
+- Summary: Information on how to change the client secret ID for an Azure application.
+
+You can update the client secret for the application you created while [onboarding an Azure subscription](https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription). The client secret ID in Microsoft Azure is a confidential string that is used as a password for the application. It comes with an expiration date and must be renewed for the application to retain AI Security's access.
+
+## Prerequistes
+
+Make sure the following prerequisites are met:
+
+- You must be assigned either an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions) or any role with Change Application Details permissions in the AI Security Admin Portal.
+- Add a new client secret for the application in the Microsoft Entra tenant. See instructions.
+
+## Changing the Client Secret
+
+To change the client secret:
+
+1. Go to **Administration**> **Accounts Onboarding**.
+2. Select the subscription for which you want to update the client secret.
+3. Click **Manage**and then select **Change Application Details**. See image. The **Change Application Details**window appears.
+4. In the **Change Application Details** window, for **Client Secret**, paste the string copied from the Microsoft Entra tenant. See image.
+5. Click **Validate**. AI Security validates the updated client secret by verifying it against the application ID. If the validation is successful, a message appears indicating that the connection is established. If the client secret is invalid, or it does not match the application, an error is displayed.
+6. Click **Done**. The client secret is updated for the application.
+
+To add a new client secret:
+
+1. Sign in to the [Microsoft Azure portal](https://portal.azure.com/) and go to **Microsoft Entra ID**.
+2. In the left-side navigation, select **App registrations**. See image. The **App registrations page** appears.
+3. On the **App registrations page**, select the **Owned applications** tab.
+4. Search for and select the [application](https://help.zscaler.com/dspm/onboarding-azure-subscription)you created while onboarding.
+5. In the left-side navigation, select **Certificates & secrets**. See image. The **Certificates & secrets**page appears.
+6. On the **Certificates & secrets**page, under **Client secrets** tab, click **+ New client secret**. See image. The **Add a client secret** page appears.
+7. On the **Add a client secret** page: See image.
+  - **Description**: Enter a description for the client secret.
+  - **Expires**: Select the expiration date from the drop-down menu.
+8. Click **Add**.
+9. In the **Client secrets** table, under **Value**, click the **Copy**icon to copy the string to the clipboard. See image.
+
+[Image: Left-side navigation of Entra ID and annotation around App registrations]
+
+[Image: The App registrations page with annotation around Certificates & secrets]
+
+[Image: The Certificates & secrets page with annotation around New client secret]
+
+[Image: Add a client secret page]
+
+[Image: The Client secrets tab with annotation around client secret value]
+
+[Image: The Manage actions drop-down menu with annotation around Change Application Details]
+
+[Image: The Change Application Details window with application ID and client secret]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/changing-gcp-orchestrator-account","lastmod":"2026-08-05T21:06Z","nid":"1541388"} -->
 ## Changing a GCP Orchestrator Account
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/changing-gcp-orchestrator-account
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Changing a GCP Orchestrator Account
-- Last modified: 2026-07-22T06:38Z
+- Last modified: 2026-08-05T21:06Z
 - Summary: Information on how to change an orchestrator account to a different one for GCP in the AI Security Admin Portal.
 
 AI Security regularly scans the data stores of the target projects by leveraging the [orchestrator template](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator) deployed in the GCP orchestrator project while onboarding.
@@ -10578,13 +4966,13 @@ Add the following inbound and outbound security rules for the worker plane netwo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-gcp-network","lastmod":"2026-07-22T23:28Z","nid":"1541997"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-gcp-network","lastmod":"2026-08-06T21:06Z","nid":"1541997"} -->
 ## Configuring the GCP Network
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/configuring-gcp-network
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Custom Network Configuration > Configuring the GCP Network
-- Last modified: 2026-07-22T23:28Z
+- Last modified: 2026-08-06T21:06Z
 - Summary: How to configure the GCP network and allow DSPM to scan data in the GCP resources.
 
 AI Security requires a specific network configuration to be able to access the GCP services, scan the resources, compute, and report the findings. You must configure a custom network in your organization by creating the following virtual private cloud (VPC) in the [orchestrator project](https://help.zscaler.com/dspm/onboarding-gcp-organization):
@@ -10916,86 +5304,6 @@ If a full scan is already initiated or completed, the bucket or folder is exclud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-aws-databricks","lastmod":"2026-06-05T21:06Z","nid":"1540174"} -->
-## Configuring Scan Rule for AWS Databricks
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-aws-databricks
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Databricks
-- Last modified: 2026-06-05T21:06Z
-- Summary: How to configure the scan rule for AWS Databricks workspaces in the AI Security Admin Portal.
-
-You can configure the scan rule to scan AWS Databricks workspace or accounts. AI Security scans these resources for any sensitive data and vulnerabilities and displays the scan results.
-
-## Prerequisites
-
-Before configuring the scan rule, you need to configure the Databricks workspace or accounts. To learn more, contact Zscaler Support.
-
-## Configuring Scan Rule
-
-To configure a scan rule for Databricks workspace or accounts, complete the following steps in the AI Security Admin Portal:
-
-- 1. Provide the general information.
-- 2. Select the cloud and resource type.
-- 3. Select the resources that must be scanned.
-- 4. Select the scan type.
-- 5. Set up the scan schedule.
-- 6. Select the scan scope.
-- 7. Review and complete the configuration.
-
-Enable the scan rule on the [Scan Settings](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings) page to initiate scheduled or on-demand scans.
-
-1. Go to **Administration** > **Scan Settings**.
-2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
-3. Click **Add Scan Rule**. See image. The **General Information** page appears.
-4. On the **General Information**page: See image.
-  1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
-  2. **Scan Rule Description (Optional)**: Enter a description of the scan rule (maximum 500 characters).
-5. Click **Next**.
-
-1. On the **Select Cloud and Resource Type** page:
-  - **Cloud Type**: Select **AWS**.
-  - **Resource Category**: Select **Database**.
-  - **Resource Type**: Select **Databricks**.
-2. Click **Next**.
-
-1. On the **Select Resources to Scan** page, choose one of the following options: See image.
-  - **Scan All Resources**: Scan all the resources across all the registered workspace or accounts.
-  - **Scan Specific Resources**: Select the checkbox for specific resources that must be scanned.
-2. Click **Next**.
-
-1. On the **Scan Type** page, select **Data Sampling Scan** to scan a sample of recent data in the workspace or accounts. AI Security cannot detect files that are deleted from the Databricks workspace or accounts. See image.
-2. Click **Next**.
-
-1. On the **Scan Schedule** page: See image. Select the local timezone for the scan schedule. The scan schedule is displayed in the local timezone.
-  - **On-Demand Scan** (Default): The scan runs only when it is initiated manually by the user. **Daily**: Scan the data daily at the specified time (e.g., 11:59 PM). **Weekly**: Scan the data once a week. Select the day from the drop-down menu and specify the time (e.g., Tuesday at 11:59 PM). **Monthly**: Scan the data once a month. Select the day of the month from the drop-down menu and specify the time (e.g., the 24th at 11:59 PM).
-2. Click **Next**.
-
-1. On the **Scan Scope** page, choose a scan scope from the drop-down menu. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/ai-asset-mgmt/configuring-scan-scope). See image.
-2. Click **Next**.
-
-[Image: The scan type selection page with Data Sampling option selected.]
-
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
-
-1. Review the scan settings. Click the **Edit** icon to change any values, if needed. See image.
-2. Click **Finish**.
-
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
-
-[Image: The Scan Settings page with an annotation around the Add New button.]
-
-[Image: The Select Resources to Scan page with selected Databricks workspaces.]
-
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
-
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
-
-[Image: General Information page to set the scan rule name and an optional description field.]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-aws-ecr-repositories","lastmod":"2026-06-05T21:06Z","nid":"1540273"} -->
 ## Configuring Scan Rule for AWS ECR Repositories
 
@@ -11270,86 +5578,6 @@ If a full scan is already initiated or completed, the DynamoDB tables are exclud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-aws-unmanaged-databases","lastmod":"2026-06-05T21:06Z","nid":"1540277"} -->
-## Configuring Scan Rule for AWS Unmanaged Databases
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-aws-unmanaged-databases
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Unmanaged Databases
-- Last modified: 2026-06-05T21:06Z
-- Summary: How to configure the scan rule for AWS unmanaged databases in the AI Security Admin Portal.
-
-You can configure the scan rule to scan AWS unmanaged database servers. AI Security scans the databases for any sensitive data and vulnerabilities.
-
-You can configure the scan rule after onboarding the AWS accounts. To learn more, see [About Cloud Accounts](https://help.zscaler.com/ai-asset-mgmt/about-cloud-accounts).
-
-To configure a scan rule for AWS unmanaged databases, complete the following steps in the AI Security Admin Portal:
-
-- 1. Provide the general information.
-- 2. Select the cloud and resource type.
-- 3. Select the resources that must be scanned.
-- 4. Select the scan type.
-- 5. Set up the scan schedule.
-- 6. Select the scan scope.
-- 7. Review and complete the configuration.
-
-1. Go to **Administration** > **Scan Settings**.
-2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
-3. Click **Add Scan Rule**. See image. The **General Information** page appears.
-4. On the **General Information**page: See image.
-  1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
-  2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
-5. Click **Next**.
-
-1. On the **Select Cloud Type and Resource Type** page:
-  - For **Cloud Type**: Select **AWS**.
-  - For **Resource Category**: Select **Database**.
-  - For **Resource Type**: Select **Unmanaged Database**.
-2. Click **Next**.
-
-1. On the **Select the Resources to Scan** page, choose one of the following options:
-  - **Scan All Resources**: Scan all the supported database resources across all onboarded accounts. See image.
-  - **Scan Specific Resources**: Select the checkbox for the specific resources that must be scanned. See image.
-2. Click **Next**.
-
-1. On the **Scan Type** page: AI Security cannot detect files that are deleted from the unmanaged database server. See image.
-  - **Data Sampling Scan**: Scan a sample of recent data in the database.
-2. Click **Next**.
-
-1. On the**Scan Schedule** page, select the scan frequency: See image.
-  - **On-Demand Scan** (Default): The scan runs only when it is initiated manually by the user.
-  - **Daily**: Scan the data daily at the specified time (e.g., 11:59 PM).
-  - **Weekly**: Scan the data once a week. Select the day from the drop-down menu and specify the time (e.g., Tuesday at 11:59 PM).
-  - **Monthly**: Scan the data once a month. Select the day of the month from the drop-down menu and specify the time (e.g., the 24th at 11:59 PM).
-2. Click **Next**.
-
-1. On the**Scan Scope**page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/ai-asset-mgmt/configuring-scan-scope). See image.
-2. Click **Next**.
-
-[Image: The Scan Type page with the Data Sampling Scan selected.]
-
-[Image: Select Scan Scope]
-
-1. Review the scan rule. Click the **Edit** icon to change any values, if needed. See image.
-2. Click **Finish**.
-
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
-
-[Image: The Scan Settings page with an annotation around the Add New button.]
-
-[Image: The Select Resources to Scan page with selected unmanaged database servers.]
-
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
-
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
-
-[Image: General Information page to set the scan rule name and an optional description field.]
-
-[Image: Select Resources to Scan page with Scan All Accounts option is selected.]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-aws-virtual-machines","lastmod":"2026-06-05T21:06Z","nid":"1540275"} -->
 ## Configuring Scan Rule for AWS Virtual Machines
 
@@ -11466,13 +5694,13 @@ On the **Exclude Virtual Machines (Optional)** page, you can specify the VMs tha
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-azure-acr-repositories","lastmod":"2026-07-15T23:26Z","nid":"1541564"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-azure-acr-repositories","lastmod":"2026-08-11T07:06Z","nid":"1541564"} -->
 ## Configuring Scan Rule for Azure Container Registry (ACR) Repositories
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-azure-acr-repositories
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure Container Registry (ACR) Repositories
-- Last modified: 2026-07-15T23:26Z
+- Last modified: 2026-08-11T07:06Z
 - Summary: How to configure the scan rule for Azure ECR container image repositories in the AI Security Admin Portal.
 
 You can configure the scan rule to discover vulnerabilities and software packages within your container images stored in Azure Container Registry (ACR). AI Security detects vulnerabilities, AI Models, AI Packages, and MCP servers.
@@ -11948,86 +6176,6 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-azure-unmanaged-databases","lastmod":"2026-06-05T21:06Z","nid":"1540306"} -->
-## Configuring Scan Rule for Azure Unmanaged Databases
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-azure-unmanaged-databases
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure Unmanaged Databases
-- Last modified: 2026-06-05T21:06Z
-- Summary: How to configure the scan rule for Azure unmanaged databases in the AI Security Admin Portal.
-
-You can configure the scan rule to scan Azure unmanaged database servers. AI Security scans the databases for any sensitive data and vulnerabilities.
-
-You can configure the scan rule after onboarding the Azure accounts. To learn more, see [About Cloud Accounts](https://help.zscaler.com/ai-asset-mgmt/about-cloud-accounts).
-
-To configure a scan rule for Azure unmanaged databases, complete the following steps in the AI Security Admin Portal:
-
-- 1. Provide the general information.
-- 2. Select the cloud and resource type.
-- 3. Select the resources that must be scanned.
-- 4. Select the scan type.
-- 5. Set up the scan schedule.
-- 6. Select the scan scope.
-- 7. Review and complete the configuration.
-
-1. Go to **Administration** > **Scan Settings**.
-2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
-3. Click **Add Scan Rule**. See image. The **General Information** page appears.
-4. On the **General Information**page: See image.
-  1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
-  2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
-5. Click **Next**.
-
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
-
-[Image: General Information page to set the scan rule name and an optional description field.]
-
-1. On the **Select Cloud and Resource Type** page:
-  - For **Cloud Type**, select **Azure**.
-  - For **Resource Category**, select **Database**.
-  - For **Resource Type**, select **Unmanaged Database**.
-2. Click **Next**.
-
-1. On the **Select Resources to Scan**page, choose one of the following options:
-  - **Scan All Resources**: Scan all the supported database resources across all onboarded accounts. See image.
-  - **Scan Specific Resources**: Select the checkbox for the specific resources that must be scanned. See image.
-2. Click **Next**.
-
-[Image: Select Resources to Scan page with Scan All Accounts option is selected.]
-
-1. On the **Scan Type** page: AI Security cannot detect files that are deleted from the unmanaged database server. See image.
-  - **Data Sampling Scan**: Scan a sample of recent data in the database.
-2. Click **Next**.
-
-1. On the **Scan Schedule** page, select the scan frequency: See image.
-  - **On-Demand Scan** (Default): The scan runs only when it is initiated manually by the user.
-  - **Daily**: Scan the data daily at the specified time (e.g., 11:59 PM).
-  - **Weekly**: Scan the data once a week. Select the day from the drop-down menu and specify the time (e.g., Tuesday at 11:59 PM).
-  - **Monthly**: Scan the data once a month. Select the day of the month from the drop-down menu and specify the time (e.g., the 24th at 11:59 PM).
-2. Click **Next**.
-
-1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/ai-asset-mgmt/configuring-scan-scope). See image.
-2. Click **Next**.
-
-[Image: The scan type selection page with Data Sampling option selected.]
-
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
-
-1. Review the scan rule. Click the **Edit** icon to change any values, if needed. See image.
-2. Click **Finish**.
-
-[Image: The Scan Settings page with an annotation around the Add New button.]
-
-[Image: The Select Resources to Scan page with selected unmanaged database servers.]
-
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
-
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-azure-virtual-machines","lastmod":"2026-06-05T21:06Z","nid":"1540304"} -->
 ## Configuring Scan Rule for Azure Virtual Machines
 
@@ -12152,13 +6300,13 @@ On the **Exclude Virtual Machines (Optional)** page, you can specify the VMs tha
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-github","lastmod":"2026-07-14T21:33Z","nid":"1541470"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-github","lastmod":"2026-08-29T07:06Z","nid":"1541470"} -->
 ## Configuring Scan Rule for GitHub
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-github
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for SaaS > Configuring Scan Rule for GitHub
-- Last modified: 2026-07-14T21:33Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: How to configure the scan rule for GitHub resources in the AI Security Admin Portal.
 
 You can configure the scan rule to scan GitHub resources and repositories after onboarding the GitHub repositories. To learn more, see [Onboarding GitHub Tenant](https://help.zscaler.com/ai-asset-mgmt/onboarding-github-tenant).
@@ -12536,164 +6684,6 @@ The Has Data predicate can be used to check if the resource contains sensitive d
 [Image: Query result]
 
 [Image: Add the remediation steps]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/creating-new-investigation","lastmod":"2026-06-05T21:06Z","nid":"1540794"} -->
-## Creating a New Investigation
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/creating-new-investigation
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > Creating a New Investigation
-- Last modified: 2026-06-05T21:06Z
-- Summary: How to create a new investigation in the AI Security Admin Portal.
-
-You can choose to investigate a resource when required. For example, you might want to investigate publicly accessible virtual machines that have admin permissions or EC2 instances that contain sensitive data. To learn more, see [About Investigation](https://help.zscaler.com/ai-asset-mgmt/about-investigation).
-
-To create a new investigation:
-
-1. Go to **AI Infrastructure**>**Investigation**.
-2. On the **Investigation** page, click **New Investigation**. See image.
-3. On the**New Investigation** page, select the cloud type (AWS, Azure, or GCP).
-4. Build the investigation query by adding the required predicates.
-  - View the list of predicates and operators
-5. Click **Run Query** to see the results. See image.
-  - Click the **Resource Name** to view additional details in the drawer. See image.
-  - Click **Save as Policy** if you want to convert this query into a custom policy. You are directed to the **Create Policy** page. Add additional predicates, as required, and save the policy. To learn more, see [Creating Custom Policies](https://help.zscaler.com/ai-asset-mgmt/creating-custom-policies). See image.
-  - Click **Export** to export the data and download the report as an Excel file. See image.
-6. Click **Save Investigation**.
-7. In the **Save Investigation** window, enter a name for the investigation. See image.
-8. Click **Save**. The investigation is displayed on the **Saved** tab. See image.
-
-Primary resources are the main data stores that AI Security scans for sensitive data. You can build investigation queries and custom policies to identify what type of secondary resources and entities (users, services, roles, databases, virtual machines, etc.) have access to the primary resource and how they are associated with the primary resource. You can also query if there are vulnerabilities in the primary and secondary resources and evaluate their security posture. The investigation results enable you to evaluate and remediate the issues and ensure the resources and sensitive data are secure.
-
-AI Security offers predicates and operators in the following categories to build highly contextual queries:
-
-- Property
-- Access
-- Relationship
-- Entitlement
-- Data
-- Vulnerability
-- Posture
-
-- The combination of predicates and operators is specific to each primary resource.
-- You can select multiple values when using the Like (%), Not Like !(%), iLike (i%), and Not iLike !(i%) operators.
-
-See image.
-
-You can use various attributes to identify what type of entities are associated with the primary resource. You can use a combination of operators and conditions to build the query.
-
-| Resource Property Predicates | Description | Operators |
-| --- | --- | --- |
-| Resource ID | Returns the resource ID of the primary resource. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| Resource Name | The name of the resource, as defined by the cloud service provider (CSP). | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-| Resource Property | Search the resource metadata (JSON file) for the attributes mentioned. | = : IsTrue; False; ≠ : Is not ⊆ : Included In True; False; Doesn't Exist; NullYou can select multiple values. For example, ⊆ (Included In) [Value 1] OR [Value 2] OR [Doesn't Exist].; ⊈ : Not Included In; <= : Less or equal; >= : Greater or equal; < : Less than; > : Greater than; = : On date; \|… : After date; …\| : Before date; \|...\| : Between; ∋ : Contains; ∌ : Doesn't Contain; [≠] : Is not (No match for all array records.); [⊈] : Not included in (No match for all array records.); ∅ : Null; O : Not Null; × : Doesn't exist; (%) : Like; !(%) : Not Like; [!(%)] : Not Like (No match for all array records.); i% : iLike; !(i%) : Not iLike (Applicable only for Azure resources.); And: Use this operator to select the object's multiple attributes when the resource metadata property is part of an array of multiple objects (e.g., In AWS, find Resources Where Primary Resource Type == "EC2 Instance", Resource Property "EC2 Instance".Instance.BlockDeviceMappings[*] .Ebs.Status == Enabled And .Ebs.VolumeID == ID123456789).; List: Select a set of values (e.g., Regions (List) includes a list of regions that can be queried for sensitive data.) |
-| Tags | The tags associated with the resource. You can select multiple keys. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Region | The region where the resource is located. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; ∌ : Doesn't Contain; !(%) : Not Like |
-| Account | The account in which the resource is stored. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| MFA required for login | Whether MFA is required for login. | True; False |
-| Data Store | The main data store type. | **=** : Is |
-
-Access predicates define the network access levels for the resource.
-
-| Access Predicates | Description | Operators |
-| --- | --- | --- |
-| Publicly Accessible | Returns "true" if the resource can be accessed from the internet. | True; False |
-| Public Exposure Details | Returns a JSON object that contains the details of the public exposure. For example, in case of a network level exposure, the object contains the exposed ports and IP ranges. | Enter key and value |
-
-Use the relationship predicates to identify the secondary resources that are associated with or can access the primary resource, check the security posture of the primary resource, whether the primary resource has vulnerabilities, malware, etc.
-
-| Relationship Predicates | Description | Additional Predicates | Operators/Conditions/Resource Types |
-| --- | --- | --- | --- |
-| Has Package | The package installed in the resource. | Package Name; Package Version |  |
-| Has Data | Check the type of the detected data. | You can use the following predicates to identify the specific data types: Is Sensitive: Returns "true" if the resource contains sensitive data.; DLP Engine: Describes the DLP engines.; Dictionary: Describes the dictionaries.; Document Type: Select the required document type.; Document Category: Describes the document category.; Sensitive Data Triggers: Enter the number of DLP trigger matches that the resource permits.; Sensitive Data Matches: Enter the number of sensitive files/tables that the resource permits.; Sensitive Data Volume: Enter the permitted file size value of the files containing sensitive information (in KB).; Last Completed Scan: Returns the time stamp when the resource was last scanned successfully. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal; = On date; \|... Before date; ...\| After date; \|...\| Between; < Less than; > More than |
-| Has Vulnerability | Check for the specific vulnerability details. | CVE ID: Returns the CVE ID as defined in the [National Vulnerability Database (NVD)](https://nvd.nist.gov/). You can select a predefined list of vulnerabilities, allowing you to query multiple values at the same time.; CVSS Score: Returns the numeric open industry standard for assessing the severity of the vulnerability.; CVE Severity: Returns the CVE severity as defined in the NVD.; Age of CVE: Returns the age of the vulnerability discovery as defined in the NVD.; Package Name: Search for a specific package name that is affected by a vulnerability.; Package Version: Search for a specific package version that is affected by a vulnerability.; Fix Available: Returns "true" if a fix is available as defined in the NVD. |  |
-| Has Access to | The secondary resources that can access the primary resource. You can select multiple resource types. |  |  |
-| Associated with | The relationship between this resource and another associated resource. You can select multiple resource types. |  |  |
-| Has Password | Whether the resource is password protected or not. |  |  |
-| Can be accessed by | IAM entities can be a service, user, or a role that can access the primary resource. | You can use the following additional predicates and operators, allowing you to build the query with more granularity: Entity ID: Enter the entity ID.; Account: Select the account that is associated with the entity.; Region: Select the region where the account is located.; Tags: Select the tags associated with the entity.; Action over Parent Resource: Define the actions that the accessing resource can apply to the parent resource.; Access Level over Parent Resource: Define the access level (Full Access, Edit, Read) that the accessing resource can apply to the parent resource.; Has Access To: Relationship to another resource that can be accessed by the current resource.; Via Role: The entity accesses the primary resource via a role that is assigned to another entity.The following additional predicates are available only for GCP resources: Has Service Account Keys: The service account keys associated with the resource. The following sub-predicates are available:Expiry: The date when the service account key expires.; Created On: The date when the service account key was created.; Type: Classification of key types, whether they are user-managed or system-managed.This predicate is not available for the unmanaged Azure Microsoft SQL server and unmanaged Azure PostgreSQL server. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Has Entitlement | Relationship to all entitlements granted to the resource. | When you select this predicate, the following additional conditions are available: Access Level: Check the access level (Full Access, Read, Edit) of the entity.; Allowed Action: Define the action that the entitlement permits.; Over Resource: The primary resource has entitlement over another resource. | This predicate is shown only for the following resource types: **AWS** EC2 Instance; Lambda Function; IAM User; IAM External User; IAM Unmanaged User; Organizations Account; External Account; IAM Role; IAM External Role; IAM Federated User**Azure** Virtual Machine; Azure App Service; User; Service Principals; Applications (App Registrations); Managed Identities (User Assigned or System Assigned); IAM Roles**GCP** Virtual Machine; App Engine; Users; Service Accounts; IAM Roles |
-| Has Access Keys | Whether the resource has access keys and whether it is rotated or not. |  |  |
-| Has Malware | Whether the resource contains malware. Malware is detected in AWS S3 buckets, Azure virtual machines and storage accounts, and GCP storage buckets. | When you select this predicate, the following predicates are available: Is Malware: Check if the resource contains malware.; Malware Category: Check if the resource contains malware of a [specific category](https://threatlibrary.zscaler.com/).; Malware Name: Check if the resource contains malware with a specific name.; Detection Accuracy Level: Check the accuracy level to determine if this is malware. | = : Is; ⊆ : Included In; (%) : Like |
-| Has Models | Whether the AI deployment instance or resource contains the AI model or not. This predicate is available only for AI-related resource types, such as AWS Bedrock, Azure AI Foundry, and vertex AI resources. | Model Name: Search for specific models either in AI deployment instances or resources.; LLM Safety Risk: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; LLM Risk Score: Check the risk score calculated for the AI model.; Model Origin: Search for the organization that developed the AI model.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Status: Check the approval state of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; LLM Risk Assessment Results: Check the risks associated with the LLM deployment. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Has AI Package | Whether the resource contains AI/ML package or not. | Package Name: Search for the name of the AI package.; Package Publisher URL: Search for link to the package homepage where the package is published.; Package Type: Search for the type of AI package.; Package Language: Search for the language of the AI package.; Package Version: Search for the version of the AI package.; Package Has Vulnerability: Check for vulnerability in the AI package.; Package Status: Check for the approval status of the AI package. The following sub-predicates are available:Sanctioned: The AI package is approved for use.; Unsanctioned: The AI package is not approved for use.; Pending: The AI package is under review awaiting approval.; Package Last Updated: Check the date and time the AI package was last modified.; Package License Type: Check the software license terms (e.g., MIT, Apache-2.0) governing the AI package.; Package Access Type: Check the access level (e.g., public) of the AI package.; Package Supply Chain Risk Level: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI package.; Package Risk Score: Check the risk score calculated for the AI package.; Package Risk Assessment Results: Check the risks associated with deploying the AI package. | < Less than; > More than; = : Is; (%) : Like; i% : iLike |
-| Has AI Model | Whether the resource contains the AI model or not. | Model Name: Search for the name of the AI model.; Model Publisher URL: Search for a link to the homepage where the AI model is published.; Model Platform: Search for the AI model platform (e.g., Ollama, Hugging Face); Model Path: Search for the file system path where the AI model is detected.; Multi-Modal: Returns true if the AI model is multi-modal and returns false if not.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Vendor: Search for the AI model vendor (e.g., Google, Meta).; Number of Downloads: Check the number of times the model was downloaded.; Model Status: Check the approval status of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; Model Last Updated: Check the date and time the AI model was last modified.; Open Source ML Risk Score: Check the risk score calculated for the AI model.; Open Source ML Risk Severity: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; Risk Factors Properties: Check the risks associated with deploying the AI model. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-
-Use the entitlement predicates to identify the secondary resource's access level and the type of actions it can perform on the primary resource.
-
-| Entitlement Predicates | Description | Additional Predicates | Operators |
-| --- | --- | --- | --- |
-| Has Access to | Access to all entitlements granted to the resource. | Access Level: Full Access, Read, or Edit.; Allowed Action: Define the action that the entitlement permits. | = : Is; ≠ : Is not; ⊆ : Included In; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-
-Use the vulnerability predicate to check if the resource contains vulnerabilities.
-
-| Vulnerability Predicate | Description | Operator |
-| --- | --- | --- |
-| Is Vulnerable | Check if the resource contains packages with vulnerabilities. | True; False |
-
-Use the posture predicates to check if security policies are enabled or disabled for resources.
-
-- AWS
-- Azure
-- GCP
-- Snowflake
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | AWS Managed Keys; Customer Managed Keys; Encrypted; Not Encrypted; Platform Managed Keys |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Data Logs; Flow Logs; Management Logs; Enabled; Disabled; Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Guardrails | Check if Guardrails is enabled or not for an AWS Bedrock Agent. |  | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Platform Managed Keys; Customer Managed Keys; Platform and Customer Managed Keys (managed disk only); Encrypted; Not Encrypted |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Enabled; DisabledUnmanaged PostgreSQL Server: Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Exposed to AI service | Returns "true" if the resource is exposed to an AI service, such as Azure AI Foundry. | **=** : Is | true; false |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Customer Managed Keys; Platform Managed Keys |
-| Logging | The date the resource was created in the cloud environment. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | All logs; Data Access Admin Read; Data Access Read; Data Access WriteGCP Cloud SQL Instance: Enabled; DisabledGCP Compute Instance: All logs; Data Access Admin Read; Data Access Read; Data Access Write; Ops Agent Logs |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Backup | The data backup policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Is Dormant | Check if the user has logged in over the last 90 days. |  | true; false |
-| Stale Access Keys | Check if the access keys have been rotated in the last 90 days. | = : Is | true; false |
-
-The Has Data predicate can be used to check if the resource contains sensitive data, document types, document categories, and identify the DLP engines and dictionaries that match the content in the resource, check for the volume of sensitive data, and more.
-
-| Predicate | Description | Operators |
-| --- | --- | --- |
-| Is Sensitive | Check if the resource contains sensitive data or not. | **=** : Is |
-| Dictionary | Dictionaries matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| DLP Engine | DLP engines matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Type | The document type matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Category | The document category matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Sensitive Data Triggers | The number of DLP trigger matches. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Matches | The number of matched sensitive data or tables. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Volume | The volume of sensitive data found in the data store and the size (in KB) of the file containing sensitive data. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Last Completed Scan | The date when the data store was last scanned successfully. | Select a date from the calendar |
-
-[Image: Add a new investigation]
-
-[Image: Provide a name for the investigation]
-
-[Image: View the resource details]
-
-[Image: View the saved investigations]
-
-[Image: Save the query as a policy]
-
-[Image: Export the data]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13457,13 +7447,13 @@ Run the following commands:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/disabling-sensitivity-settings-dlp-engines","lastmod":"2026-06-10T21:06Z","nid":"1540839"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/disabling-sensitivity-settings-dlp-engines","lastmod":"2026-09-09T21:27Z","nid":"1540839"} -->
 ## Disabling the Sensitivity Settings for DLP Engines
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/disabling-sensitivity-settings-dlp-engines
 - Product: AI Asset Management
-- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Sensitivity Settings > Disabling the Sensitivity Settings for DLP Engines
-- Last modified: 2026-06-10T21:06Z
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Classification > Disabling the Sensitivity Settings for DLP Engines
+- Last modified: 2026-09-09T21:27Z
 - Summary: How to disable the data sensitivity for DLP engines in the AI Security Admin Portal.
 
 Data sensitivity determines how susceptible the data is along with the level of risk associated with it, which could lead to data breaches. For example, the sensitivity level is high for personally identifiable information (PII) or credit card numbers, moderate for email addresses, and low for data that does not have any sensitive or confidential information.
@@ -13474,8 +7464,8 @@ If you disable the sensitivity setting for all DLP engines, any new DLP engine t
 
 To disable the sensitivity setting:
 
-1. Go to **Administration**> **Data Sensitivity**.
-2. Disable the sensitivity setting for all DLP engines.
+1. Go to **Administration**> **Data Classification**.
+2. On the **Data Classification** page, disable the sensitivity setting for all DLP engines.
 3. Read the confirmation message that appears, then click **Disable**.
 4. Disable the data sensitivity setting for a specific DLP engine.
 5. Read the confirmation message that appears, then click **Disable**.
@@ -13483,13 +7473,13 @@ To disable the sensitivity setting:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/downloading-reports","lastmod":"2026-07-10T07:24Z","nid":"1541616"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/downloading-reports","lastmod":"2026-08-23T07:06Z","nid":"1541616"} -->
 ## Downloading Reports
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/downloading-reports
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Monitoring & Investigation > Report Management > Downloading Reports
-- Last modified: 2026-07-10T07:24Z
+- Last modified: 2026-08-23T07:06Z
 - Summary: Information on viewing and downloading reports in the Zscaler Admin Console.
 
 You can download reports and assess AI Security's performance in proactively monitoring and detecting sensitive data in your cloud resources.
@@ -13508,66 +7498,6 @@ To download the reports:
 3. Click the **Download** icon for the required report and save the file on your local system.
 
 [Image: Report Management page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/editing-or-deleting-investigation","lastmod":"2026-06-03T21:06Z","nid":"1540834"} -->
-## Editing or Deleting an Investigation
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/editing-or-deleting-investigation
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > Editing or Deleting an Investigation
-- Last modified: 2026-06-03T21:06Z
-- Summary: How to edit or delete and investigations in the AI Security Admin Portal.
-
-You can edit an existing or a saved query. But you can delete only saved investigation queries.
-
-## Editing an Investigation
-
-To edit an investigation query:
-
-1. Go to **AI Infrastructure**> **Investigation**.
-2. You can edit the investigation by using any of these options:
-  - On the **History** tab:
-    - Click the **Query** to view the drawer, then click the **Edit** icon in the top-right corner. See image.
-    - Click the **Actions** icon () and select **Open in Editor**. See image.
-  - On the **Saved** tab:
-    - Click the **Actions**icon () and select **Edit Query**. See image.
-3. Edit the query by adding or removing predicates, as required.
-4. Click **Run Query** to view the results. See image.
-5. Click **Save Investigation** to save the query.
-6. Enter a name for the query. See image.
-7. Click **Save**.
-
-## Deleting an Investigation
-
-You can delete only those investigations that you've saved.
-
-To delete an investigation:
-
-1. Go to **Logs**>**Insights**> **Investigation**.
-2. On the **Investigation** page, select the**Saved** tab. See image.
-3. You can do the following:
-  - Click the **Actions**icon () and select **Delete**. See image.
-  - Click the **Name** or **Query** to view the drawer, then click the **Delete** icon. See image.
-4. Read the confirmation message, then click **Delete**. See image. The query is deleted.
-
-[Image: Open the query in the editor]
-
-[Image: Click the Edit icon to modify the query]
-
-[Image: Edit a saved query]
-
-[Image: Save the investigation]
-
-[Image: View the saved investigations]
-
-[Image: Delete a query]
-
-[Image: Select the Delete option]
-
-[Image: Delete an investigation query]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13706,13 +7636,13 @@ The scan rule is enabled or disabled per its status.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-aws","lastmod":"2026-07-20T02:15Z","nid":"1539939"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-aws","lastmod":"2026-09-03T04:26Z","nid":"1539939"} -->
 ## IAM Roles and Permissions for AWS
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/iam-roles-and-permissions-aws
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > IAM Roles and Permissions for AWS
-- Last modified: 2026-07-20T02:15Z
+- Last modified: 2026-09-03T04:26Z
 - Summary: Information about the roles created and permissions while onboarding AWS accounts.
 
 As part of the [onboarding](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization) process, you need to deploy the AI Security templates that create roles and permissions in the AWS organization. These templates create multiple IAM roles with the required permissions to establish a trust relationship between AI Security, the [orchestrator account](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator), and target accounts. Each role has permissions for various services and actions such as resource discovery, CloudTrail log collection, etc.
@@ -13955,13 +7885,13 @@ The Get Evidence role is required for AI Security to retrieve evidence data snip
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-gcp","lastmod":"2026-07-22T23:10Z","nid":"1541473"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-gcp","lastmod":"2026-08-06T21:06Z","nid":"1541473"} -->
 ## IAM Roles and Permissions for GCP
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/iam-roles-and-permissions-gcp
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > IAM Roles and Permissions for GCP
-- Last modified: 2026-07-22T23:10Z
+- Last modified: 2026-08-06T21:06Z
 - Summary: Information about the roles created and permissions assigned while onboarding GCP organizations.
 
 As part of the onboarding process, you need to deploy AI Security templates in the Google Cloud Platform (GCP) project. These templates create service accounts and access management (IAM) roles that AI Security requires to connect to the GCP project, discover the resources, and scan data. Each role has permissions for various services and actions, such as resource discovery, data scanning, etc.
@@ -14290,6 +8220,118 @@ You can integrate AI Security with the following cloud storage services:
 - [Amazon S3](https://help.zscaler.com/ai-asset-mgmt/integrating-amazon-s3)
 - [Azure Blob Storage](https://help.zscaler.com/ai-asset-mgmt/integrating-azure-blob-storage)
 - [Amazon Security Lake](https://help.zscaler.com/ai-asset-mgmt/integrating-amazon-security-lake)
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/integrating-ai-security-servicenow","lastmod":"2026-08-09T23:28Z","nid":"1541827"} -->
+## Integrating AI Security with ServiceNow
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/integrating-ai-security-servicenow
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Administration > External Integrations > ITSM Tools > Integrating AI Security with ServiceNow
+- Last modified: 2026-08-09T23:28Z
+- Summary: How to integrate AI Security with ServiceNow and send issue notifications.
+
+AI Security discovers and monitors AI resources across your cloud environments, including models, agents, data stores, workloads, and guardrails. The ServiceNow integration lets you push these discovered assets and their associated security issues into ServiceNow, so your IT, security, and risk teams can manage AI resources within the same governance and compliance workflows they already use.
+
+Ensure that your ServiceNow instance is online.
+
+## Prerequisites
+
+Ensure you do the following before you integrate AI Security with ServiceNow:
+
+- 1. Create a ServiceNow User.
+- 2. Create an Inbound Integration.
+
+## Integrating with ServiceNow
+
+To integrate AI Security with ServiceNow:
+
+1. Go to **Administration > External Integrations**.
+2. Under **ITSM Integrations**, click **Add**. See image.
+3. In the **Integration Details** section, do the following:
+  1. **Integration Name:** Enter a unique name for the integration.
+  2. **IT Service:** Select **ServiceNow**. See image.
+  3. Click **Next**.
+4. In the **ITSM Details** section, do the following:
+  1. **ServiceNow Hostname:**Enter the ServiceNow hostname.
+  2. **Authentication Method:** OAuth 2.0 is selected by default.
+  3. **Client ID:** Enter the Client ID created in the prerequisites section.
+  4. **Client Secret:** Enter the Client ID created in the prerequisites section.
+  5. Click **Test Connection** to validate the ServiceNow connection. A confirmation message appears if the connection is successful. If not, then check the previous steps and try again.
+  6. Click **Next**. See image.
+5. In the **AI Infrastructure & Issues** section, do the following:
+  1. Select one of the following:
+    - **AI Assets types:**Tosync asset types such as Agents, Data stores, MCP servers, Guardrails, Models, Workloads, Software Libraries, Code Repositories and Identities with ServiceNow.
+    - **Select All:**To sync all available asset types.
+  2. **Issues:** Enable the **Issues** toggle to push findings to ServiceNow.
+  3. Select the method to determine how the discovered issues must be routed:
+    - **Create Ticket:** Push issues to the ServiceNow Import Set (staging) table.
+    - **Import Set Table:** Push issues directly to the ServiceNow Incident table.
+  4. Click **Next**.
+6. In the **Import Set Tables**section, do the following:
+  1. **Table Prefix:** Enter a table prefix for the import set tables to be created in ServiceNow and click **Check Tables**.
+  2. **Generated Table Names:** Displays a preview of the Import Set table names that are created in your ServiceNow instance, based on the prefix you entered.
+  3. **Provision Tables:** Download the creation script to run it in ServiceNow.
+    1. Click **Download Script** to download the JavaScript setup script.
+    2. Open the downloaded script file and copy all the content.
+    3. Log in to your **ServiceNow** instance and open the JavaScript console.
+    4. Paste the copied script into the console and click **Run Script**.
+    5. The script automatically creates the required import set tables and the necessary roles. See image.
+  4. Click **Validate**to validate the setup. See image.
+7. Return to the AI Security Admin Portal platform and click **Check Tables**. Ensure that the user account configured for the inbound integration has the required ServiceNow roles to access the tables. Table validation may fail even if the tables exist, if the user lacks sufficient permissions.
+8. Verify that the tables are successfully created, a green indicator confirms the setup is complete.
+9. Click **Save**to finalize the integration. After saving, the integration appears on the **Integrations** page. Allow up to an hour for the data to be pushed into the ServiceNow tables.
+
+To create a ServiceNow user, do the following:
+
+1. Log in to your **ServiceNow**instance.
+2. Navigate to **User Administration > Users**.
+3. Click**New.**
+4. Enter all the relevant fields to create a new user and click **Submit**.
+5. To assign roles to the created user, go to **User Administration** **> Users**.
+6. Select the user that you would like to assign the role to.
+7. Add the following roles to the user:
+  - import_admin
+  - import_set_loader
+  - import_transformer See image.
+8. Click **Save**.
+
+To create an inbound integration, do the following:
+
+1. Navigate to **Inbound Integrations** in your **ServiceNow**instance.
+2. Click **New Integration**. See image.
+3. Select **OAuth – Client Credential Grant** as the authentication type. See image.
+4. In the **New record** page, enter the following details for the connection:
+  1. **Name:** Enter a name for the record.
+  2. **Provider name:** Select the provider name from the drop-down menu.
+  3. **OAuth application user:** Enter the user name you created in Create a ServiceNow User step.
+  4. **Client ID:** Copy the generated Client ID to a secure location. These credentials are required to complete the integration.
+  5. **Client Secret:** Copy the generated Client secret to a secure location. These credentials are required to complete the integration.
+5. In the **Configure auth scopes** section, enter:
+  1. **Auth scope:**Select the auth scope from the drop-down menu.
+  2. Limit Authorization to the following APIs:
+    - Table API
+    - Import Set API
+  3. Enable **Allow access only to APIs in selected scope**.
+6. Click **Save**.
+
+[Image: Add a ServiceNow integration]
+
+[Image: Select ServiceNow in the Integration Details section.]
+
+[Image: Configure ServiceNow details in the ITSM Details section.]
+
+[Image: Enter a Table Prefix for the import set tables to be created in ServiceNow.]
+
+[Image: Setup Complete Message on the ServiceNow.]
+
+[Image: Creating a New Integration in the ServiceNow portal.]
+
+[Image: Select OAuth Client credentials grant as the application connection type.]
+
+[Image: Select roles from the collection column to add to the roles list]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14847,13 +8889,13 @@ Review the list of OUs that you selected for autodetection.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/managing-monitoring-scope-gcp","lastmod":"2026-07-22T23:42Z","nid":"1539958"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/managing-monitoring-scope-gcp","lastmod":"2026-08-06T21:06Z","nid":"1539958"} -->
 ## Managing Monitoring Scope for GCP
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/managing-monitoring-scope-gcp
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Managing Monitoring Scope for GCP
-- Last modified: 2026-07-22T23:42Z
+- Last modified: 2026-08-06T21:06Z
 - Summary: Information on how to manage the monitoring scope for GCP in the AI Security Admin Portal.
 
 The monitoring scope refers to the GCP projects that are [onboarded](https://help.zscaler.com/ai-asset-mgmt/onboarding-gcp-organization). When new projects are created in your GCP organization, you can onboard and add new projects to the monitoring scope.
@@ -15213,13 +9255,13 @@ AI Security supports the vulnerability scanning of Azure accounts located in the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-aws-organization","lastmod":"2026-07-28T23:52Z","nid":"1539734"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-aws-organization","lastmod":"2026-08-20T04:54Z","nid":"1539734"} -->
 ## Onboarding an AWS Organization
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Onboarding an AWS Organization
-- Last modified: 2026-07-28T23:52Z
+- Last modified: 2026-08-20T04:54Z
 - Summary: Information on how to onboard an AWS organization in the AI Security Admin Portal.
 
 You can onboard an AWS organization and its associated accounts. AI Security monitors and [scans](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings) the [data stores](https://help.zscaler.com/ai-asset-mgmt/supported-data-stores-file-types-and-regions) (e.g., S3, EC2 instances, RDS instances and clusters) in the onboarded accounts to identify sensitive data and vulnerabilities.
@@ -15337,13 +9379,404 @@ To create the AWSCloudFormationStackSetExecutionRole role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-gcp-organization","lastmod":"2026-07-22T05:09Z","nid":"1539955"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-08-31T22:10Z","nid":"1542892"} -->
+## Onboarding an Azure Subscription
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Onboarding an Azure Subscription
+- Last modified: 2026-08-31T22:10Z
+- Summary: Information on how to onboard a single Azure subscription.
+
+You can onboard a single Azure subscription for AI Security to monitor and scan the data stores to identify sensitive data, misconfigurations, and vulnerabilities.
+
+## Prerequisites
+
+Before onboarding an Azure subscription, ensure you have completed the following:
+
+- Create the following in the Microsoft Entra ID:
+  1. Azure application or service principal: To provide AI Security access to the resources within the target subscriptions. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser). See instructions.
+  2. Client secret: A confidential string that is used as a password for the application created. See instructions.
+  3. API permissions: Add API permissions and grant admin consent to the application to access resources within the subscription. See instructions.
+- Identify an Azure subscription as the orchestrator account. The AI Security template is deployed in this account to scan the data in the target accounts.
+- Assign the User Access Administrator role to the created application or service principal on the orchestrator and target subscriptions. This is required for the application to manage user permissions and role assignments for Azure resources. See instructions.
+- You must have the following roles to deploy the templates:
+  | Scope | Role |
+  | --- | --- |
+  | Orchestrator subscription | User Access Administrator; Contributor; Key Vault Administrator |
+  | Target subscriptions | User Access Administrator |
+  | Storage account | Storage Account Contributor |
+  | Microsoft Entra ID | Application Administrator |
+- Install the latest versions of Terraform and Azure CLIs to run the templates. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Identify the storage containers where Terraform state files must be stored. The state files are required to manage resources created by the AI Security Terraform templates and to [upgrade to new templates](https://help.zscaler.com/dspm/viewing-roles-and-templates). You can also create the following new storage containers to store the state files:
+  - Resource Group
+  - Storage Account
+  - Storage Account Container
+
+## Onboarding a Single Azure Subscription
+
+To onboard an Azure subscription:
+
+- 1. Select Azure subscription.
+- 2. Register an Azure application.
+- 3. Add orchestrator details and select the network configuration.
+- 4. Select services to monitor.
+- 5. Select regions to monitor.
+- 6. Configure diagnostic logs.
+- 7. Configure evidence.
+- 8. Select the target subscription to monitor.
+- 9. Configure resource tags (optional).
+- 10. Deploy orchestrator.
+
+After completing the onboarding process, you can configure the scan settings. To learn more, see [About Scan Settings](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings).
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, click **+ New registration**. The **Register an application** page appears.
+4. On the **Register an application** page, provide the following details and click **Register**.
+  - **Name**: Enter a unique name for the application.
+  - **Supported account types**: Select the subscription.
+
+The application is created in the Entra ID. Copy the **Application (client) ID** and save them on your system as this is required while onboarding.
+
+See image.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **Certificates & Secrets**.
+5. On the **Client secrets** tab, click **+ New client secret**. See image. The **Add a client secret** drawer appears.
+6. In the **Add a client secret** drawer:
+  - **Description**: Enter a description for the client secret.
+  - **Expires**: Select the expiration date from the drop-down menu.
+7. Click **Add**.
+8. In the **Client secrets** table, under **Value**, click the **Copy**icon to copy the string to the clipboard. See image.
+
+1. Sign in to the Azure portal and go to **Subscriptions**. The **Subscriptions**page with the list of subscriptions appears.
+2. On the **Subscriptions**page, select the subscription you want AI Security to monitor.
+3. In the left-side navigation, go to **Access control (IAM)**. The **Access control (IAM)**page appears.
+4. On the **Access control (IAM)**page, click **+ Add** and select **Add role assignment**. The **Add role assignment**page appears.
+5. On the **Add role assignment**page, under the **Role**tab, select the **Privileged administrator roles**tab.
+6. Search for and select the **User Access Administrator** role and click **Next**. See image.
+7. On the **Members**tab: See image.
+  1. **Assign access to**: Select **User, group, or service principal**.
+  2. **Members**: Click **+ Select members**. The **Select members**drawer appears.
+  3. In the **Select members**drawer, search and select the applicationyou created and click **Select**. See image.
+  4. Click **Next**.
+8. On the **Conditions**tab, for **What users can do**, select **Allow user to assign all roles (highly privileged)**and click **Review + assign**. See image.
+
+Repeat this for all the subscriptions that you want AI Security to monitor.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **API permissions**.
+5. Click **+ Add a permissions**. The **Request API permissions** drawer appears.
+6. On the **Request API permissions** drawer, select **Microsoft Graph** and add the following permissions: See image. Entitlements are affected if the optional API permissions are not configured.
+  | API or Permissions Name | State | Type | Description |
+  | --- | --- | --- | --- |
+  | Application.Read.All | Mandatory | Application | Read all applications |
+  | User.Read | Mandatory | Delegated | Sign in and read user profile |
+  | AuditLog.Read.All | Optional | Application | Read all audit log data |
+  | Directory.Read.All | Optional | Application | Read directory data |
+  | Organization.Read.All | Optional | Application | Read organization information |
+  | Reports.Read.All | Optional | Application | Read all usage reports |
+  | RoleManagement.Read.Directory | Optional | Application | Read all directory RBAC settings |
+  | RoleManagementPolicy.Read.Directory | Optional | Application | Read all policies for privileged role assignments of your company's directory |
+  | UserAuthenticationMethod.Read.All | Optional | Application | Read all users' authentication methods |
+7. On the **API permissions** page, click **Grant admin consent for <application name>**.
+8. In the **Grand admin consent confirmation** window, click **Yes**.
+
+Resource groups are logical containers that comprises a group of Azure resources. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal).
+
+To create a resource group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Resource groups**.
+2. Click **+Create**. See image. The **Create a resource group** drawer appears
+3. In the **Create a resource group** drawer, on the **Basics** tab:
+  1. **Subscription**: Select the orchestrator subscription from the drop-down menu.
+  2. **Resource group**: Enter a unique name for the resource group.
+  3. **Region**: Select a region where the resource group must be created.
+4. Click **Review + create**. See image.
+
+Storage accounts store data objects such as files, queues, tables, and Terraform state files. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
+
+To create a storage account:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Click **+Create**. See image. The **Create a storage account** drawer appears.
+3. In the **Create a storage account** window, on the **Basics** tab:
+  1. **Subscription**: Select your Azure subscription.
+  2. **Resource group**: Select the resource group that you created.
+  3. **Storage account name**: Enter a unique name for the storage account.
+  4. **Region**: Select location where the storage account must be created.
+4. Click **Review + create**. See image.
+
+A storage account container is a set of blobs similar to a directory in a file system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+
+To create a storage account container:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Locate the storage account you created and click the storage account.
+3. In the left-side navigation, under **Data storage**, select **Containers**. See image.
+4. Click **+Container**. See image.
+5. In the **New container** drawer: See image.
+  1. **Name**: Enter a unique name for the container.
+  2. **Anonymous access level**: Select the access level for the container.
+6. Click **Create**.
+
+| Environment | Terraform Version | Azure CLI Version | PowerShell or Bash Version |
+| --- | --- | --- | --- |
+| Mac | v1.10.3 | 2.65.0 | version 3.2.57(1)-release (arm64-apple-darwin23) |
+| Cloud Shell - Bash | v1.9.5 | 2.65.0 | version 5.1.8(1)-release (x86_64-pc-linux-gnu) |
+| Cloud Shell - PowerShell | v1.9.5 | 2.65.0 | 7.4.5 |
+| Windows - Command line | v1.7.5 | 2.67.0 | NA |
+| Windows - PowerShell | v1.9.8 | 2.67.0 | 7.4.6 |
+
+1. In the Zscaler Admin Console, go to **Administration**> **Account Onboarding**.
+2. Click **Add New**.
+3. In the **Select Cloud Provider** window: See image.
+  1. For **Select Cloud Type**, click the**Azure** tile.
+  2. For **Select Onboarding Type**, click the **Subscription**tile.
+4. Click **Next**.
+
+Provide the following details to register an Azure application for AI Security to connect to the Azure subscription and click **Apply**.
+
+- **AI Security Alias**: Enter a user-friendly name for the subscription.
+- **Azure AD Tenant ID**: Enter the Microsoft Entra tenant ID. You can find the tenant ID in the Azure portal in multiple ways. For example:
+  1. Sign in to the Azure portal.
+  2. On the top right, select your account and then click **Switch directory**.
+  3. On the **Portal Settings | Directories + subscriptions** page, under **All Directories**, copy the **Directory ID** of the corresponding tenant that you want to onboard.
+- **Custom Role Name Prefix**: Enter a unique role name. This role name is added as a prefix to all the custom roles that are created during the onboarding process.
+- **Application ID**: Enter the application or client ID.
+- **Client Secret**: Enter the client secret.
+- **Notification Emails (Optional)**: Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded tenant. You can add up to 30 email addresses to receive notifications about the issues. You can also add email addresses after completing the onboarding process.
+
+See image.
+
+In the **Orchestrator Configuration** section, provide the following Azure subscription details to deploy the AI Security orchestrator scanner and click **Apply**.
+
+- **Orchestrator Subscription ID**: Enter the subscription ID.
+- **Select the Orchestrator Region**: Select the region.
+- **Network Configuration**: Select one of the following:
+  - **Custom**: Select to use your organization's resources to deploy the orchestrator.
+    - **Subnet ID**: Enter the subnet where the orchestrator instances must be launched.
+    - **Network Security Group ID**: Enter the network security group for the orchestrator instance.
+  - **Zscaler**: Select to use Zscaler resources to deploy the orchestrator.
+
+See image.
+
+In the **Configure Services** section, select the services that AI Security must monitor and click **Apply**. AI Security permissions are restricted to monitor and scan the data only in the selected services.
+
+See image.
+
+Select the regions that AI Security must monitor and enter the following details for each selected region. AI Security creates and deploys resources required for scanning only in the selected regions.
+
+- **Subnet ID**: Enter the subnet where the scanner instances must be launched.
+- **Network Security Group ID**: Enter the network security group for the scanner instance.
+- **Postgres Delegated Subnet ID**: (Optional) Enter the Postgres subnet ID for the scanner instance. This option is available only if the database is selected on the **Configure Services** section.
+
+See image.
+
+Diagnostic logs are used to identify new, modified, or deleted files from monitored storage accounts. If not configured, only [full scans](https://help.zscaler.com/dspm/about-scan-settings) are supported.
+
+Enter an existing storage account name or account resource ID in each region of the target subscription to store the scanning logs and click **Apply**.
+
+See image.
+
+AI Security discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing storage account container or add a new one to store these evidence snippets. In the **Evidence**section, select one of the following and click **Apply**.
+
+- **Custom**: Use an existing storage account container to configure evidence data.
+  - **Storage Account ID**: The resource ID of the storage account.
+  - **Container Name**: The name of the container.
+- **Automated**: AI Security creates a storage container in the orchestrator account to upload the snippet of evidence data.
+
+See image.
+
+In the **Add Target Subscriptions** section, add the target subscriptions that you want AI Security to monitor:
+
+1. Click **Add Target Subscriptions**.
+2. In the **Add Target Subscriptions** window, enter the following information:
+  - **Subscription ID**: Enter the subscription ID.
+  - **Subscription Name** **(Optional)**: Enter the subscription name.
+  - **Business Unit**: Select a business unit to the subscription.
+3. Click **+ Add Subscription** to add more subscriptions to monitor. See image.
+4. Click **Save**.
+
+In the **Resource Tags** section, configure custom tags to identify the resources created by AI Security.
+
+1. Click **Add Custom Tags**. The **Add Custom Tags** window appears.
+2. In the **Add Custom Tags** window, enter a key and value pair for the tag.
+3. Click **Add Tag**, and enter key-value pairs to add more tags. See image.
+4. Click **Done**.
+
+Download and deploy the orchestrator templates. Orchestrator template includes policies and permissions to create custom roles that provide AI Security with access to the resources in the tenant.
+
+To deploy the templates:
+
+- a. Download and modify the template.
+- b. Initialize the template.
+- c. Deploy the template.
+- d. Validate the template.
+
+1. In the **Deploy Orchestrator** section, click **Evidence**or **Azure Onboarding** to download the template as a ZIP file. Extract the file to your local system and create a new folder to store the extracted files. The ZIP file contains multiple Terraform files.
+2. Update the following details in the `backend.tf` file: See image.
+  - **resource_group_name**: Enter the resource group name.
+  - **storage_account_name**: Enter the storage account name.
+  - **container_name**: Enter the container name where the Terraform state files are stored.
+
+Use any of the following methods:
+
+- Cloud Shell
+- Command Prompt
+
+1. Sign in to the Azure portal, and click **Cloud Shell**.
+2. In the **Welcome to Azure Cloud Shell** window, choose **Bash**or **PowerShell**, as required. See image.
+3. In the **Getting started** window: See image.
+  1. Select **Mount storage account**.
+  2. Select the storage account subscription from the list.
+  3. Click **Apply**.
+4. In the **Mount storage account** window, choose **Select existing storage account**and click **Next**.
+5. In the **Select storage account** window: See image.
+  1. **Subscription**: Select the subscription where the storage account is created.
+  2. **Resource group**: Select the resource group from the list.
+  3. **Storage account name**: Select the storage account.
+  4. **File share**: Click **Create a file share**and enter a name for the new file.
+  5. Click **Select**.
+6. Use any of the following:
+  - Azure PowerShell
+  - Bash
+
+1. Run the following commands to prepare the PowerShell environment:
+  1. To switch to the clouddrive folder: `cd clouddrive`
+  2. To create a AI Security folder within the clouddrive folder and switch to the newly created AI Security folder: `md ai-security_onboarding cd ai-security_onboarding`
+  3. To create the logs and tree discovery folders: `md logs md tree discovery`
+  4. To verify if all the folders are created: `ls`
+  5. To switch to the newly created tree discovery folder: `cd tree discovery`
+2. Zip the modified template and upload the folder:
+  1. Click **Manage files** and select **Upload**.
+  2. Browse for the template and click **Open**.
+3. Run the following commands :
+  1. To extract the ZIP folder: `expand -archive -path <folder name.zip>`
+  2. To switch to the folder within the ZIP folder: `cd ./<folder name>/ai-security-azure/`
+
+1. Run the following commands to prepare the Bash environment:
+  1. To switch to the clouddrive folder: `cd clouddrive`
+  2. To create a AI Security folder within the clouddrive folder and switch to the newly created AI Security folder: `mkdir ai-security_onboarding cd ai-security_onboarding`
+  3. To create the logs and tree discovery folders: `mkdir logs mkdir tree discovery`
+  4. To verify if all the folders are created: `ls`
+  5. To switch to the newly created folder: `cd tree discovery`
+2. Zip the modified template and upload the folder:
+  1. Click **Manage files** and select **Upload**.
+  2. Browse for the template and click **Open**.
+3. Run the following commands:
+  1. To extract the ZIP folder: `unzip <folder name.zip>`
+  2. To switch to the folder within the ZIP folder: `cd ./<folder name>/ai-security-azure/`
+
+Run the following commands:
+
+1. To set the subscription where the storage containers containing the Terraform state files are stored: `az account set --subscription <subscription ID>`
+2. (Optional) To verify if the subscription is accurately set: `az account show`
+3. To update the Terraform configuration to use the latest Azure and Terraform versions: `terraform init -upgrade`
+4. To initialize the working directory and apply Terraform configuration: `terraform init`See image.
+5. To verify the changes in the Terraform configuration: `terraform plan`
+6. To apply the configuration and deploy the resources: `terraform apply`
+
+Respond to the following prompts while running the commands:
+
+1. **Enter the IPv4 address from which terraform is being run from**: Enter the public IP address of the system on which you are running the template, and press `Enter`. See image.
+2. **Do you want to perform these actions?**: Enter `yes` and then press `Enter`. See image.
+
+1. Open the Command Prompt or any other CLI app in your local system.
+2. Switch to the directory containing the downloaded Terraform file.
+3. Connect to the Microsoft Entra tenant by running the following command: `az login --tenant <tenant ID>`See image. You are directed to a web browser to authorize the Microsoft Entra tenant. Select your account to confirm the authorization. See image. The command output returns the subscriptions available.
+
+AI Security validates the template deployment every hour by checking the roles created and permissions granted.
+
+Click **Validate** to verify if the template is deployed. This process takes a couple of minutes to complete.
+
+If the templates are successfully deployed, you are directed to the [Overview](https://help.zscaler.com/dspm/viewing-onboarding-status)page to view the status of the onboarded subscription.
+
+[Image: Welcome to Azure Cloud Shell window with Bash and PowerShell options]
+
+[Image: The Getting started window in the Azure portal to select a subscription and storage account]
+
+[Image: Select storage account window to select the subscription, resource group, storage account name, and create a file share]
+
+[Image: The output of Terraform apply command to confirm the IP address]
+
+[Image: The output of Terraform apply command to confirm the actions]
+
+[Image: The command prompt with az login command annotated]
+
+[Image: The Azure Authorization page with list of accounts to select from]
+
+[Image: Resource groups page showing a list of resource groups and an annotation around the Create option]
+
+[Image: Create a resource group page showing the Basics tab with annotation around Review + create button]
+
+[Image: Storage accounts page showing a list of storage accounts and an annotation around the Create option]
+
+[Image: Create a storage account page showing the Basics tab with annotation around Review + create button]
+
+[Image: A storage account page with the left-side navigation that shows an annotation around the Containers page]
+
+[Image: A storage account page with the annotation around the Container option]
+
+[Image: New container drawer with fields filled out]
+
+[Image: The app registrations page with annotation around Application ID]
+
+[Image: The Certificate and Secrets page with annotations around New client secret]
+
+[Image: The Client secrets page with annotation around value]
+
+[Image: The Azure Application Registration section to enter the application details]
+
+[Image: Select Cloud and Onboarding Type]
+
+[Image: The Request API permissions drawer with the list of Application permissions]
+
+[Image: The Orchestrator Configuration section to provide orchestrator subscription details]
+
+[Image: The Configure Services section to select Azure services to monitor]
+
+[Image: The Configure Regions section to select Azure regions to monitor]
+
+[Image: The Diagnostic Logs section to enter the storage account ID for each selected region]
+
+[Image: The Evidence section to add storage account ID to store evidence data]
+
+[Image: The Add Target Subscriptions window with the list of Azure subscriptions added]
+
+[Image: The Add Custom Tags window with the list of tags that must be attached to the resources created by DSPM]
+
+[Image: The backend.tf file opened in visual studio code with annotation around resource group name, storage account name, and container name]
+
+[Image: The command prompt section with the output of terraform init command]
+
+[Image: The output of Terraform apply command to confirm the IP address]
+
+[Image: The output of Terraform apply command to confirm the actions]
+
+[Image: The Add role assignment page with Members tab selected]
+
+[Image: The Select members drawer with the application selected for User Access Administrator role]
+
+[Image: The Add role assignment page with Conditions tab selected]
+
+[Image: The Add role assignment page with the Role tab selected]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-gcp-organization","lastmod":"2026-07-30T09:34Z","nid":"1539955"} -->
 ## Onboarding a GCP Organization
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-gcp-organization
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Onboarding a GCP Organization
-- Last modified: 2026-07-22T05:09Z
+- Last modified: 2026-07-30T09:34Z
 - Summary: Information about how to onboard a GCP organization in the Zscaler Admin Console.
 
 You can onboard a Google Cloud Platform (GCP) account and its associated projects to AI Security. AI Security monitors and scans the Cloud Storage buckets in the onboarded projects to identify sensitive data, misconfigurations, vulnerabilities, and more.
@@ -15358,7 +9791,7 @@ Before onboarding the GCP organization, ensure you have completed the following:
   - gcloud CLI to connect to the Google Cloud project and deploy the template using gcloud CLI. To learn more, refer to the [Google Cloud documentation](https://cloud.google.com/sdk/docs/install).
   - Terraform CLI v1.7.5 or later to run the Terraform on a Windows system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/developer/terraform/quickstart-configure).
 - Enable debug logging (optional but recommended for troubleshooting). Click to view the instructions.
-- Create a Custom Role in Google admin console. Click to view the instructions.
+- Create a custom role in the Google Admin console to assign permissions to user, group, and domain resources. This is an optional step. If skipped, AI Security cannot gain read-only access to this resource data. Click to view the instructions.
 - Override the service account key creation policy. Click to view the instructions.
 - Identify a GCP project that has the required roles and which is linked to a billing account to deploy the orchestrator template.
 - Enable the required GCP APIs in the selected GCP project. Click to view the list of required APIs.
@@ -15466,7 +9899,7 @@ Download and deploy the tree discovery template on the project to create a role 
 - a. Download and modify the tree discovery template.
 - b. Deploy the tree discovery template.
 - c. Initialize the tree discovery template.
-- d. Add a service account.
+- d. (Optional) Add a service account.
 - e. Validate the deployment in AI Security.
 
 1. In the Zscaler Admin Console, under the **Connect to the Organization** section, click **Tree Discovery** to download the template as a ZIP file and extract it to a folder on your system.
@@ -15677,13 +10110,13 @@ Run the following commands to initialize the template. This is required to manag
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-github-tenant","lastmod":"2026-07-28T01:09Z","nid":"1541396"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-github-tenant","lastmod":"2026-08-15T07:06Z","nid":"1541396"} -->
 ## Onboarding GitHub Tenant
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-github-tenant
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Code Repository Onboarding > Onboarding GitHub Tenant
-- Last modified: 2026-07-28T01:09Z
+- Last modified: 2026-08-15T07:06Z
 - Summary: Information about adding GitHub tenant and select repositories in the AI Security Admin Portal.
 
 Onboarding a GitHub tenant to AI Security Admin Portal connects your organization’s GitHub environment (enterprise, organizations, and repositories) to the AI Security Admin Portal. This connection enables AI Security to discover, assess, and help you govern AI-related activity and risks across your codebase and developer workflows. The system checks for new repositories twice daily, at 12:00 AM and 12:00 PM UTC.
@@ -15719,13 +10152,13 @@ To onboard a GitHub tenant, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-microsoft-copilot-studio-tenant","lastmod":"2026-07-10T09:57Z","nid":"1541053"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-microsoft-copilot-studio-tenant","lastmod":"2026-08-29T07:06Z","nid":"1541053"} -->
 ## Onboarding Microsoft Copilot Studio Tenant
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-microsoft-copilot-studio-tenant
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > SaaS Platforms Onboarding > Microsoft Copilot Studio > Onboarding Microsoft Copilot Studio Tenant
-- Last modified: 2026-07-10T09:57Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: Information about adding Microsoft Copilot Studio tenant details in the AI Security Admin Portal.
 
 Microsoft Copilot Studio onboarding in AI Security lets you quickly connect your Microsoft tenant so AI Security can discover and inventory Copilot Studio–related AI assets and surface security relevant findings in a centralized view. Using Account Onboarding, you authorize access to your Copilot Studio environment, assign a friendly tenant alias for identification, and complete the integration so AI Security can begin discovering agents and associated resources for monitoring and investigation.
@@ -16133,142 +10566,13 @@ To onboard an AWS account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/query-builder-policies-and-investigation","lastmod":"2026-06-05T21:06Z","nid":"1540793"} -->
-## Query Builder for Policies and Investigation
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/query-builder-policies-and-investigation
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Investigation > Query Builder for Policies and Investigation
-- Last modified: 2026-06-05T21:06Z
-- Summary: Information about queries for creating investigations and custom policies in the AI Security Admin Portal.
-
-Primary resources are the main data stores that AI Security scans for sensitive data. You can build investigation queries and custom policies to identify what type of secondary resources and entities (users, services, roles, databases, virtual machines, etc.) have access to the primary resource and how they are associated with the primary resource. You can also query if there are vulnerabilities in the primary and secondary resources and evaluate their security posture. The investigation results enable you to evaluate and remediate the issues and ensure the resources and sensitive data are secure.
-
-AI Security offers predicates and operators in the following categories to build highly contextual queries:
-
-- Property
-- Access
-- Relationship
-- Entitlement
-- Data
-- Vulnerability
-- Posture
-
-- The combination of predicates and operators is specific to each primary resource.
-- You can select multiple values when using the Like (%), Not Like !(%), iLike (i%), and Not iLike !(i%) operators.
-
-See image.
-
-You can use various attributes to identify what type of entities are associated with the primary resource. You can use a combination of operators and conditions to build the query.
-
-| Resource Property Predicates | Description | Operators |
-| --- | --- | --- |
-| Resource ID | Returns the resource ID of the primary resource. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| Resource Name | The name of the resource, as defined by the cloud service provider (CSP). | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-| Resource Property | Search the resource metadata (JSON file) for the attributes mentioned. | = : IsTrue; False; ≠ : Is not ⊆ : Included In True; False; Doesn't Exist; NullYou can select multiple values. For example, ⊆ (Included In) [Value 1] OR [Value 2] OR [Doesn't Exist].; ⊈ : Not Included In; <= : Less or equal; >= : Greater or equal; < : Less than; > : Greater than; = : On date; \|… : After date; …\| : Before date; \|...\| : Between; ∋ : Contains; ∌ : Doesn't Contain; [≠] : Is not (No match for all array records.); [⊈] : Not included in (No match for all array records.); ∅ : Null; O : Not Null; × : Doesn't exist; (%) : Like; !(%) : Not Like; [!(%)] : Not Like (No match for all array records.); i% : iLike; !(i%) : Not iLike (Applicable only for Azure resources.); And: Use this operator to select the object's multiple attributes when the resource metadata property is part of an array of multiple objects (e.g., In AWS, find Resources Where Primary Resource Type == "EC2 Instance", Resource Property "EC2 Instance".Instance.BlockDeviceMappings[*] .Ebs.Status == Enabled And .Ebs.VolumeID == ID123456789).; List: Select a set of values (e.g., Regions (List) includes a list of regions that can be queried for sensitive data.) |
-| Tags | The tags associated with the resource. You can select multiple keys. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Region | The region where the resource is located. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; ∌ : Doesn't Contain; !(%) : Not Like |
-| Account | The account in which the resource is stored. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| MFA required for login | Whether MFA is required for login. | True; False |
-| Data Store | The main data store type. | **=** : Is |
-
-Access predicates define the network access levels for the resource.
-
-| Access Predicates | Description | Operators |
-| --- | --- | --- |
-| Publicly Accessible | Returns "true" if the resource can be accessed from the internet. | True; False |
-| Public Exposure Details | Returns a JSON object that contains the details of the public exposure. For example, in case of a network level exposure, the object contains the exposed ports and IP ranges. | Enter key and value |
-
-Use the relationship predicates to identify the secondary resources that are associated with or can access the primary resource, check the security posture of the primary resource, whether the primary resource has vulnerabilities, malware, etc.
-
-| Relationship Predicates | Description | Additional Predicates | Operators/Conditions/Resource Types |
-| --- | --- | --- | --- |
-| Has Package | The package installed in the resource. | Package Name; Package Version |  |
-| Has Data | Check the type of the detected data. | You can use the following predicates to identify the specific data types: Is Sensitive: Returns "true" if the resource contains sensitive data.; DLP Engine: Describes the DLP engines.; Dictionary: Describes the dictionaries.; Document Type: Select the required document type.; Document Category: Describes the document category.; Sensitive Data Triggers: Enter the number of DLP trigger matches that the resource permits.; Sensitive Data Matches: Enter the number of sensitive files/tables that the resource permits.; Sensitive Data Volume: Enter the permitted file size value of the files containing sensitive information (in KB).; Last Completed Scan: Returns the time stamp when the resource was last scanned successfully. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal; = On date; \|... Before date; ...\| After date; \|...\| Between; < Less than; > More than |
-| Has Vulnerability | Check for the specific vulnerability details. | CVE ID: Returns the CVE ID as defined in the [National Vulnerability Database (NVD)](https://nvd.nist.gov/). You can select a predefined list of vulnerabilities, allowing you to query multiple values at the same time.; CVSS Score: Returns the numeric open industry standard for assessing the severity of the vulnerability.; CVE Severity: Returns the CVE severity as defined in the NVD.; Age of CVE: Returns the age of the vulnerability discovery as defined in the NVD.; Package Name: Search for a specific package name that is affected by a vulnerability.; Package Version: Search for a specific package version that is affected by a vulnerability.; Fix Available: Returns "true" if a fix is available as defined in the NVD. |  |
-| Has Access to | The secondary resources that can access the primary resource. You can select multiple resource types. |  |  |
-| Associated with | The relationship between this resource and another associated resource. You can select multiple resource types. |  |  |
-| Has Password | Whether the resource is password protected or not. |  |  |
-| Can be accessed by | IAM entities can be a service, user, or a role that can access the primary resource. | You can use the following additional predicates and operators, allowing you to build the query with more granularity: Entity ID: Enter the entity ID.; Account: Select the account that is associated with the entity.; Region: Select the region where the account is located.; Tags: Select the tags associated with the entity.; Action over Parent Resource: Define the actions that the accessing resource can apply to the parent resource.; Access Level over Parent Resource: Define the access level (Full Access, Edit, Read) that the accessing resource can apply to the parent resource.; Has Access To: Relationship to another resource that can be accessed by the current resource.; Via Role: The entity accesses the primary resource via a role that is assigned to another entity.The following additional predicates are available only for GCP resources: Has Service Account Keys: The service account keys associated with the resource. The following sub-predicates are available:Expiry: The date when the service account key expires.; Created On: The date when the service account key was created.; Type: Classification of key types, whether they are user-managed or system-managed.This predicate is not available for the unmanaged Azure Microsoft SQL server and unmanaged Azure PostgreSQL server. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Has Entitlement | Relationship to all entitlements granted to the resource. | When you select this predicate, the following additional conditions are available: Access Level: Check the access level (Full Access, Read, Edit) of the entity.; Allowed Action: Define the action that the entitlement permits.; Over Resource: The primary resource has entitlement over another resource. | This predicate is shown only for the following resource types: **AWS** EC2 Instance; Lambda Function; IAM User; IAM External User; IAM Unmanaged User; Organizations Account; External Account; IAM Role; IAM External Role; IAM Federated User**Azure** Virtual Machine; Azure App Service; User; Service Principals; Applications (App Registrations); Managed Identities (User Assigned or System Assigned); IAM Roles**GCP** Virtual Machine; App Engine; Users; Service Accounts; IAM Roles |
-| Has Access Keys | Whether the resource has access keys and whether it is rotated or not. |  |  |
-| Has Malware | Whether the resource contains malware. Malware is detected in AWS S3 buckets, Azure virtual machines and storage accounts, and GCP storage buckets. | When you select this predicate, the following predicates are available: Is Malware: Check if the resource contains malware.; Malware Category: Check if the resource contains malware of a [specific category](https://threatlibrary.zscaler.com/).; Malware Name: Check if the resource contains malware with a specific name.; Detection Accuracy Level: Check the accuracy level to determine if this is malware. | = : Is; ⊆ : Included In; (%) : Like |
-| Has Models | Whether the AI deployment instance or resource contains the AI model or not. This predicate is available only for AI-related resource types, such as AWS Bedrock, Azure AI Foundry, and vertex AI resources. | Model Name: Search for specific models either in AI deployment instances or resources.; LLM Safety Risk: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; LLM Risk Score: Check the risk score calculated for the AI model.; Model Origin: Search for the organization that developed the AI model.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Status: Check the approval state of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; LLM Risk Assessment Results: Check the risks associated with the LLM deployment. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Has AI Package | Whether the resource contains AI/ML package or not. | Package Name: Search for the name of the AI package.; Package Publisher URL: Search for link to the package homepage where the package is published.; Package Type: Search for the type of AI package.; Package Language: Search for the language of the AI package.; Package Version: Search for the version of the AI package.; Package Has Vulnerability: Check for vulnerability in the AI package.; Package Status: Check for the approval status of the AI package. The following sub-predicates are available:Sanctioned: The AI package is approved for use.; Unsanctioned: The AI package is not approved for use.; Pending: The AI package is under review awaiting approval.; Package Last Updated: Check the date and time the AI package was last modified.; Package License Type: Check the software license terms (e.g., MIT, Apache-2.0) governing the AI package.; Package Access Type: Check the access level (e.g., public) of the AI package.; Package Supply Chain Risk Level: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI package.; Package Risk Score: Check the risk score calculated for the AI package.; Package Risk Assessment Results: Check the risks associated with deploying the AI package. | < Less than; > More than; = : Is; (%) : Like; i% : iLike |
-| Has AI Model | Whether the resource contains the AI model or not. | Model Name: Search for the name of the AI model.; Model Publisher URL: Search for a link to the homepage where the AI model is published.; Model Platform: Search for the AI model platform (e.g., Ollama, Hugging Face); Model Path: Search for the file system path where the AI model is detected.; Multi-Modal: Returns true if the AI model is multi-modal and returns false if not.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Vendor: Search for the AI model vendor (e.g., Google, Meta).; Number of Downloads: Check the number of times the model was downloaded.; Model Status: Check the approval status of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; Model Last Updated: Check the date and time the AI model was last modified.; Open Source ML Risk Score: Check the risk score calculated for the AI model.; Open Source ML Risk Severity: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; Risk Factors Properties: Check the risks associated with deploying the AI model. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-
-Use the entitlement predicates to identify the secondary resource's access level and the type of actions it can perform on the primary resource.
-
-| Entitlement Predicates | Description | Additional Predicates | Operators |
-| --- | --- | --- | --- |
-| Has Access to | Access to all entitlements granted to the resource. | Access Level: Full Access, Read, or Edit.; Allowed Action: Define the action that the entitlement permits. | = : Is; ≠ : Is not; ⊆ : Included In; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-
-Use the vulnerability predicate to check if the resource contains vulnerabilities.
-
-| Vulnerability Predicate | Description | Operator |
-| --- | --- | --- |
-| Is Vulnerable | Check if the resource contains packages with vulnerabilities. | True; False |
-
-Use the posture predicates to check if security policies are enabled or disabled for resources.
-
-- AWS
-- Azure
-- GCP
-- Snowflake
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | AWS Managed Keys; Customer Managed Keys; Encrypted; Not Encrypted; Platform Managed Keys |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Data Logs; Flow Logs; Management Logs; Enabled; Disabled; Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Guardrails | Check if Guardrails is enabled or not for an AWS Bedrock Agent. |  | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Platform Managed Keys; Customer Managed Keys; Platform and Customer Managed Keys (managed disk only); Encrypted; Not Encrypted |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Enabled; DisabledUnmanaged PostgreSQL Server: Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Exposed to AI service | Returns "true" if the resource is exposed to an AI service, such as Azure AI Foundry. | **=** : Is | true; false |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Customer Managed Keys; Platform Managed Keys |
-| Logging | The date the resource was created in the cloud environment. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | All logs; Data Access Admin Read; Data Access Read; Data Access WriteGCP Cloud SQL Instance: Enabled; DisabledGCP Compute Instance: All logs; Data Access Admin Read; Data Access Read; Data Access Write; Ops Agent Logs |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Backup | The data backup policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Is Dormant | Check if the user has logged in over the last 90 days. |  | true; false |
-| Stale Access Keys | Check if the access keys have been rotated in the last 90 days. | = : Is | true; false |
-
-The Has Data predicate can be used to check if the resource contains sensitive data, document types, document categories, and identify the DLP engines and dictionaries that match the content in the resource, check for the volume of sensitive data, and more.
-
-| Predicate | Description | Operators |
-| --- | --- | --- |
-| Is Sensitive | Check if the resource contains sensitive data or not. | **=** : Is |
-| Dictionary | Dictionaries matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| DLP Engine | DLP engines matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Type | The document type matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Category | The document category matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Sensitive Data Triggers | The number of DLP trigger matches. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Matches | The number of matched sensitive data or tables. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Volume | The volume of sensitive data found in the data store and the size (in KB) of the file containing sensitive data. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Last Completed Scan | The date when the data store was last scanned successfully. | Select a date from the calendar |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-07-28T10:00Z","nid":"1539122"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-09-06T23:19Z","nid":"1539122"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-28T10:00Z
+- Last modified: 2026-09-06T23:19Z
 - Summary: AI Asset Management Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for AI Asset Management.
@@ -16297,13 +10601,13 @@ To reset the configured subscriptions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/resolving-configuration-issues-gcp","lastmod":"2026-07-22T05:56Z","nid":"1539957"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/resolving-configuration-issues-gcp","lastmod":"2026-08-03T03:19Z","nid":"1539957"} -->
 ## Resolving Configuration Issues for GCP
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/resolving-configuration-issues-gcp
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Resolving Configuration Issues for GCP
-- Last modified: 2026-07-22T05:56Z
+- Last modified: 2026-08-03T03:19Z
 - Summary: Information on the issues encountered while onboarding and troubleshooting for GCP.
 
 The following error messages are displayed in the CLI app if there are issues while onboarding accounts: AI Security Admin Portal
@@ -16315,7 +10619,7 @@ The following error messages are displayed in the CLI app if there are issues wh
 | `Error: Failed to query available provider packages Could not retrieve the list of available versions for provider hashicorp/google: locked provider registry.terraform.io/hashicorp/google 5.40.0 does not match configured version constraint 6.0.0; must use terraform init -upgrade to allow selection of new versions To see which modules are currently depending on hashicorp/google and what versions are specified, run the following command: terraform providers` | Run the `terraform init -upgrade` command to allow the selection of new versions. This command updates the locked provider version to match the configured version. |
 | `Error waiting for updating managed group instances: Networks specified in new and old network interfaces must be the same.` `Error waiting for Updating managed group instances: Networks specified in new and old network interfaces must be the same. Expected: projects/devrnd1/global/networks/dev-byon-controlplane-vpc Actual: projects/devrnd1/global/networks/dev-byon-workerplane-vpc with module.control-plane.module.instance_group_manager.google_compute_instance_group_manager.instance_group_manager, on modules/sub-modules/instance-group-manager/instance_group.tf line 3, in resource "google_compute_instance_group_manager" "instance_group_manager": 3: resource "google_compute_instance_group_manager" "instance_group_manager" {`Cause: The issue is due to a mismatch between the network interfaces specified in the old and new configurations for the managed instance group. | In the Google Cloud console, go to the [VM instances](https://console.cloud.google.com/compute/instances) page.; Identify and open the impacted VM instance.; Identify and open the orchestrator instance group to which the VM is integrated.; Stop the VM instance and delete the associated template.; Delete the instance group.; [Download and redeploy the template.](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates) |
 | Attempt to delete a Logging Bucket Config that is not in the ACTIVE state. `│ Error deleting Logging Bucket Config "projects/cwpalpha-f1-proj-1/locations/us-west4/buckets/zscaler-intrelonedotnine-rsninemar11": googleapi: Error 400: Only buckets in state ACTIVE can be deleted` | [Change the orchestrator](https://help.zscaler.com/dspm/configuring-gcp-orchestrator-account) in the AI Security Admin Portal.; [Download and deploy the new GCP template](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates). |
-| Creating a duplicate KeyRing resource with the specified name results in a conflict. `│ Error creating KeyRing: googleapi: Error 409: KeyRing projects/cwpalpha-f1-proj-1/locations/us-central1/keyRings/z-dspm-worker-e2dde520-705463f8-worker-crypto-key-ring already exists. │ │ with module.worker-plane.module.crypto_key["us-central1"].google_kms_key_ring.keyring, │ on modules/sub-modules/crypto-key/crypto_key.tf line 3, in resource "google_kms_key_ring" "keyring": │ 3: resource "google_kms_key_ring" "keyring" {` | [Change the orchestrator](https://help.zscaler.com/ai-asset-mgmt/changing-gcp-orchestrator-account) in the AI Security Admin Portal.; [Download and deploy the new GCP template](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates). |
+| Creating a duplicate KeyRing resource with the specified name results in a conflict. `│ Error creating KeyRing: googleapi: Error 409: KeyRing projects/cwpalpha-f1-proj-1/locations/us-central1/keyRings/z-ai-sec-worker-e2dde520-705463f8-worker-crypto-key-ring already exists. │ │ with module.worker-plane.module.crypto_key["us-central1"].google_kms_key_ring.keyring, │ on modules/sub-modules/crypto-key/crypto_key.tf line 3, in resource "google_kms_key_ring" "keyring": │ 3: resource "google_kms_key_ring" "keyring" {` | [Change the orchestrator](https://help.zscaler.com/ai-asset-mgmt/changing-gcp-orchestrator-account) in the AI Security Admin Portal.; [Download and deploy the new GCP template](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates). |
 | Error while creating the instance template: `│ Error creating instance template: googleapi: Error 404: The resource <resource_path> was not found, notFound │ │ with module.control-plane.module.instance_template.google_compute_instance_template.instance_template, │ on modules/sub-modules/instance-template/template.tf line 16, in resource "google_compute_instance_template" "instance_template": │ 16: resource "google_compute_instance_template" "instance_template" {`Cause: Specified network resource does not exist. | Verify the existence of the specified network resource.; Update the network resource reference in the instance template configuration.; [Download and deploy the new GCP template](https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates). |
 | Unable to Remove Service Networking Connection `Error: Unable to remove Service Networking Connection, err: Error waiting for Delete Service Networking Connection: Error code 3, message: There is a peering operation in progress on the local or peer network. Try again later. │ Help Token: <token-id>`Cause: Unable to remove the Service Networking Connection because of an ongoing operation. | Rerun the template. |
 | Error while executing the local-exec provisioner in a Terraform module. `Error: local-exec provisioner error with module.test-connectivity.terraform_data.check_connectivity, on modules/sub-modules/test-connectivity/test-connectivity.tf line 120, in resource "terraform_data" "check_connectivity": 120: provisioner "local-exec" { Error running command ' TEST_NAME=<test-name> PROJECT="<project-name>" connection_status=$(gcloud network-management connectivity-tests describe "$TEST_NAME" --project="$PROJECT" --format="get(reachabilityDetails.result)") if [[ "$connection_status" == "REACHABLE" ]]; then echo "Connectivity test succeeded" else echo "Connectivity test failed" exit 1 fi echo "{\"status\": \"$connection_status\",\"testName\": \"$TEST_NAME\"}" > ./output.json ': exit status 1. Output: Connectivity test failed` | Rerun the template. |
@@ -16403,97 +10707,6 @@ To run an On-Demand scan, complete the following steps in the AI Security Admin 
 [Image: Scan rule page with an annotation for On-Demand Scan action.]
 
 [Image: Confirmation window to confirm the on-demand scan.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/selecting-aws-orchestrator-and-monitoring-scope","lastmod":"2026-07-22T23:50Z","nid":"1539925"} -->
-## Selecting the AWS Orchestrator and Monitoring Scope
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/selecting-aws-orchestrator-and-monitoring-scope
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Selecting the AWS Orchestrator and Monitoring Scope
-- Last modified: 2026-07-22T23:50Z
-- Summary: Information about how to select the network configuration, AWS orchestrator account, and AWS target accounts that must be monitored.
-
-After deploying the [tree discovery](https://help.zscaler.com/ai-asset-mgmt/deploying-aws-tree-discovery-template) template for the [onboarding process](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization), select the network configuration, orchestrator, and monitoring scope in the AI Security Admin Portal.
-
-Under the **Orchestrator & Monitoring Scope** section:
-
-- 1. Select the network configuration.
-- 2. Configure the orchestrator.
-- 3. Set a monitoring scope.
-
-To modify the configured accounts, click **Reset.**
-
-When you have configured the network and scopes successfully, you are directed to the Additional Configuration section.
-
-In the **Additional Configuration**section, you can configure custom tags, evidence storage, and data events. Click **Skip This Step** to configure the additional details after completing the onboarding process and go to the [Grant Permissions section](https://help.zscaler.com/ai-asset-mgmt/deploying-orchestrator-and-monitoring-scope-templates).
-
-- Custom Tags
-- Evidence Storage
-
-After the configuration is completed, you are directed to the [Grant Permissions](https://help.zscaler.com/ai-asset-mgmt/deploying-orchestrator-and-monitoring-scope-templates) section to deploy the orchestrator and monitoring scope templates.
-
-You can choose any of the following network configurations:
-
-- **Zscaler**: Use Zscaler resources to deploy the orchestrator and monitoring scope.
-- **Custom**: Use your organization's resources to deploy the orchestrator and monitoring scope.
-
-By default, the custom configuration is selected. Changing the network configuration resets the existing configurations.
-
-To configure the orchestrator, click **Configure Orchestrator**.
-
-The orchestrator configuration depends on the network configuration you chose earlier.
-
-- If you selected the Zscaler network configuration
-- If you selected the custom network configuration
-
-1. On the **Configure an Orchestrator Account** page, select an account and the primary region where you want to deploy the orchestrator template and click **Next**. You need to specify this primary region while creating the StackSets.
-2. On the **Select which services to monitor** page, select the services that AI Security must monitor. By default, all the services are selected. AI Security permissions are restricted to monitor and scan the data only in the selected services. The Unmanaged Database service is disabled for Zscaler network configuration.; AI Security automatically excludes Amazon S3 buckets used for storing logs.
-3. On the **Configure Regions** **for monitoring and scanner's configuration**page, select the regions that AI Security must monitor. AI Security creates and deploys resources required for scanning only in the selected regions. You need to specify these regions while deploying the orchestrator template.
-4. Click **Done**.
-
-1. On the **Configure an Orchestrator Account** page, select an account and the primary region where you want to deploy the orchestrator template, and then provide the following details for that selected region: You need to specify this primary region while creating StackSets.
-  1. **Subnet ARN**: Enter the private subnet ARN for the orchestrator instance.
-  2. **Security Group ID**: Enter the secruity group ID for the orchestrator instance.
-2. Click **Next**.
-3. On the **Select which services to monitor** page, select the services that AI Security must monitor. By default, all the services are selected. AI Security permissions are restricted to monitor and scan the data only in the selected services. AI Security automatically excludes Amazon S3 buckets used for storing logs.
-4. On the **Configure regions for monitoring and scanner configuration** page, select the regions that AI Security must monitor, and enter the following for each selected region: You need to specify these regions while deploying the orchestrator template.
-  1. **Subnet ARN**: Enter the subnet where the scanner instances must be launched.
-  2. **Security Group ID**: Enter the ID of the security group that controls network traffic to and from the scanner instances.
-  3. **DB Subnet Group ARN**: Enter the ARN of the database subnet group. This is required for AI Security to scan the RDS databases.
-5. Click **Done**.
-
-1. Click **Set Monitoring Scope**.
-2. On the **Configure Monitoring Scope** page, select the target accounts that AI Security must monitor, then click **Next**. If you want all the accounts in an organizational unit (OU) to be scanned, select the OU. An OU is a logical group of accounts that perform similar or related functions. To learn more about OUs, refer to the [AWS documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html). Select **Autodetection** at the OU level if you want AI Security to automatically include and scan new accounts that are added to the OU in the future. This eliminates the need to manually onboard the new accounts. You must activate automatic deployment in AWS to automatically deploy stack instances for newly added accounts in the future.
-3. On the **Assign Business Units** page, assign a business unit to the OU. All the accounts in the OU are mapped to the selected business unit. The default business unit is assigned to the OU. You can change the business units for the OU if required, after completing the onboarding process.
-4. Click **Done.**
-
-AI Security discovers files and tables containing sensitive data and generates evidence data to investigate and validate the findings. You can choose an existing S3 bucket or configure a new one to store these evidence snippets.
-
-1. Click **Add Evidence Storage**.
-2. On the **Evidence Configuratio**n, select one of the following: When configured, the S3 bucket cannot be modified. You can only enable or disable the evidence configuration.
-  - Custom S3 bucket
-  - Zscaler Managed S3 bucket
-3. Click **Done**.
-
-Custom tags are attached to the resources created by AI Security that enable you to distinguish resources in the organization.
-
-To add custom tags:
-
-1. Click **Add Custom Tags**.
-2. On the **Add Custom Tags** page, enter a key and value pair for the tag. Ensure to follow the guidelines while entering key-value pairs for custom tags.
-3. Click **Add More**, and enter key-value pairs to add more tags.
-4. Click **Done**.
-
-You can use an existing S3 bucket to configure evidence data. AI Security uploads the classified data into the specified S3 bucket.
-
-- **S3 Bucket Name**: The name of the S3 bucket name.
-- **S3 Bucket Account ID**: The 12-digit account ID.
-- **KMS Key ARN**: The KMS key ARN. This key is used to encrypt the evidence data in the S3 bucket.
-
-AI Security creates an S3 bucket in the orchestrator account to upload the classified data.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16979,4 +11192,4470 @@ AI Security provides the following benefits to help alleviate the challenges:
 - Stronger governance and control: Identity and guardrail visibility supports access reviews and policy alignment.
 - Improved operational readiness: Software library and resource inventories help identify dependencies and reduce blind spots.
 - Continuous posture validation: Red teaming insights help validate defenses and measure improvements over time.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-aws-cloudtrail","lastmod":"2026-05-12T23:08Z","nid":"1539952"} -->
+## Understanding AWS CloudTrail
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-aws-cloudtrail
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > Cloud Trail > Understanding AWS CloudTrail
+- Last modified: 2026-05-12T23:08Z
+- Summary: Information about what is AWS CloudTrail.
+
+AWS CloudTrail is a service that records activities as events. Any activity in your AWS account performed by a user, role, or an AWS service is recorded as a CloudTrail event. These CloudTrail events provide visibility into the AWS account (e.g., who took the action, when the event occurred, which resources were impacted). This helps in analyzing, troubleshooting, and maintaining the security posture of the AWS account.
+
+There are three ways to record CloudTrail events:
+
+1. **Event History**: Records all activities within a single AWS account for the last 90 days.
+2. **CloudTrail Lake**: Records user and API activities within an AWS account or AWS organization.
+3. **Trails**: Records specific AWS activities that you want to monitor within an AWS account or organization and sends these logs to the Amazon S3 bucket.
+
+AI Security uses trails to analyze the logs and perform incremental scans on the S3 buckets.
+
+You can create trails for a single AWS account or multiple AWS accounts using organizations. When you create a trail using organization, a trail is created in each member account of the organization. The events are logged in each trail of the member account and are delivered to the S3 bucket. This enables centralized logging and monitoring of API activities across all accounts within an AWS organization. It allows you to aggregate CloudTrail logs from multiple accounts and regions into a single S3 bucket, making it easier to manage and analyze the logs for compliance, security, and operational purposes. This centralized logging capability provides better visibility and control over your cloud resources.
+
+To learn more, refer to the [AWS CloudTrail documentation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-dlp-engines-and-dictionaries","lastmod":"2026-09-08T00:38Z","nid":"1540850"} -->
+## Understanding DLP Engines and Dictionaries
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-dlp-engines-and-dictionaries
+- Product: AI Asset Management
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > Data Classification > Understanding DLP Engines and Dictionaries
+- Last modified: 2026-09-08T00:38Z
+- Summary: Information about the DLP engines and dictionaries that are used in AI Security to scan and detect sensitive data.
+
+A DLP engine is a security solution that comprises a collection of one or more DLP dictionaries. A DLP dictionary contains a set of patented algorithms that are designed to detect specific types of information in your cloud resources, users' traffic, and activities. DLP engines are used to identify sensitive data and prevent data breaches. By using a DLP engine, you can create policy rules to detect content that encompasses more than one dictionary. For example, if your organization wants to protect personally identifiable information (PII) and credit card numbers, you can create a rule using a DLP engine that contains the PII and Credit Cards dictionaries. The Zscaler service provides predefined DLP engines and supports custom DLP engines.
+
+Only DLP engines assigned to the AI Security channel in Internet & SaaS (ZIA) are displayed and available for selection. To learn more, see [Editing Predefined DLP Engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines) and [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine).
+
+To learn more, see:
+
+- [About DLP Engines](https://help.zscaler.com/zia/about-dlp-engines)
+- [Understanding DLP Engines](https://help.zscaler.com/zia/understanding-dlp-engines)
+- [About DLP Dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries)
+- [Understanding Predefined DLP Dictionaries](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries)
+- [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine)
+- [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary)
+- [Editing Predefined DLP Engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines)
+- [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries)
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-orchestrator","lastmod":"2026-08-04T21:41Z","nid":"1539731"} -->
+## Understanding Orchestrator
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Understanding Orchestrator
+- Last modified: 2026-08-04T21:41Z
+- Summary: Information about an orchestrator in the AI Security Admin Portal.
+
+As organizations transition to the public cloud to maintain their cloud infrastructure, ensuring data security becomes a critical concern due to several factors like shared infrastructure, risk of data breaches, compliance requirements such as GDPR and HIPAA, potential data loss, etc. It is essential for organizations to prioritize robust security measures, including encryption, regular audits, and data loss prevention scans to protect against unauthorized access and safeguard sensitive information.
+
+To achieve maximum protection for sensitive data in the public cloud, it is essential to perform posture assessments and data scans regularly. Traditionally, these scans were performed on the data after moving them out of the organization's cloud environment. This approach leads to multiple challenges such as data privacy concerns, cost associated with data transfer, preferences to keep the data within the organization, etc.
+
+To overcome these challenges, Zscaler provides a local scanner platform called orchestrator, a cloud security solution deployed in your organization that performs data scanning within the organization's public cloud environment. The local scanner platform architecture consists of an orchestrator instance and scanner instances. An orchestrator instance is an EC2 instance, virtual machine, or a cloud storage that organizes the data scanning across the selected regions of AWS, Azure, and GCP. The [scanner instances](https://help.zscaler.com/ai-asset-mgmt/understanding-scanner-instances) are created by the orchestrator instance and are launched in the respective regions where AI Security performs data scanning of the resources.
+
+The orchestrator instance includes tags that should not be deleted or tampered with. The image required to set up the orchestrator instance is a property of Zscaler and is shared with the customer's orchestrator account.
+
+You need to choose an account in your environment and the primary region in which Zscaler's AI Security orchestrator template is deployed. This account is referred to as the orchestrator account. AI Security leverages the template deployed in the orchestrator account to scan the data stores (S3 bucket, EC2 workloads, etc.) of the target accounts. The orchestrator instance is moved to the selected primary region where it organizes the data scan. The orchestrator instance is backed by an autoscaler that ensures at least one orchestrator is running. The target account might have data stores across multiple regions. The scanner instances are launched with a unique identity in the corresponding regions of the orchestrator account where the target data stores are available. The data from the target account's data stores is moved to the scanner instances in the corresponding regions of the orchestrator account. After the scan is complete, the scanner instances are terminated. For example, if the target account has data stores in 5 regions, then scanner instances are launched in those same 5 regions of the orchestrator account. The data is then moved to these 5 scanner instances to be scanned for sensitive data. This ensures data scanning within your public cloud environment and avoids interregional data transfer costs.
+
+- The orchestrator instance requires only outbound internet access to communicate with AI Security. Outbound connections from the orchestrator instance to download scanner images and upload results and logs to AI Security cloud are limited to the following specific service IPs for US Cluster and FQDNs.
+- AI Security supports scanning of data stores present in all global regions of AWS, Azure, and GCP.
+
+The supported orchestrator instance types and configurations are as follows:
+
+| Cloud Service Provider | Instance Type | Instance Configuration | Disk Configuration |
+| --- | --- | --- | --- |
+| AWS | t3.large | 2 core vCPUs and 8 GiB Memory | Root Disk: 20 GB GP3; Data Disk: 16 GB GP3 |
+| Azure | Standard_D2s_V3 | 2 core vCPUs and 8 GiB Memory | Root Disk: 30 GB Standard HDD LRS; Data Disk: 10 GB Standard HDD LRS |
+| GCP | e2-standard-2 | 2 core vCPUs and 8 GiB Memory | Root Disk: 20 GB Standard persistent disk; Data Disk: 10 GB Standard persistent disk |
+
+- 35.164.218.12
+- 34.208.206.171
+- 52.42.215.70
+- 35.84.226.159
+- 52.40.209.233
+- 54.191.175.18
+
+- `api.aisecurity.zscaler.com`
+- `gateway-us.ops.aisecurity.zscaler.com`
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-scanner-instances","lastmod":"2026-07-31T08:08Z","nid":"1539732"} -->
+## Understanding Scanner Instances
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-scanner-instances
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Understanding Scanner Instances
+- Last modified: 2026-07-31T08:08Z
+- Summary: Information about the AI Security scanner instance that is used to scan data and display the scan results in the AI Security Admin Portal.
+
+AI Security creates transitory scanner instances in the respective regions to perform data scanning on different data stores such as storage, compute, and databases. The orchestrator instance creates the scanner instances with a unique identity. Zscaler's applications are installed in these scanner instances to perform data scanning. For each data store, AI Security creates up to a maximum of 10 scanner instances each with a configuration of 16 vCPU and 32 GiB memory, depending upon the number of data stores that must be scanned.
+
+You need to ensure that sufficient vCPU quotas are enabled in the [orchestrator](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator) account. Such high configurations are required as AI Security scans huge amounts of data, and a high configuration of scanner instances ensures data scans are completed faster than the lower configuration instances that take a longer duration to perform a data scan. The scanner instance automatically pushes the data scan results to AI Security.
+
+All scanner instances are created with tags and the tags must not be deleted or tampered with. The image required to launch the scanner instance is property of Zscaler and it is shared with the customer’s orchestrator account for data scanning purposes. Inbound access to scanner instances is restricted only from the orchestrator instance.
+
+The following tags are added to the scanner instances. You can enable these tags in AWS to track the cost allocation for AI Security. To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html).
+
+- z-ais-resource = true
+- z-ais-scanner-resource= true
+- z-ais-tenant-id = <tenant_id>
+- z-ais-tenant-name = <tenant_name>
+- z-ais-scan-id = <scan_id>
+
+## Default Scanner Instances
+
+The scanner instances for the following cloud types:
+
+- AWS
+- Azure
+- GCP
+
+| Data Store Type | Scan Type | Instance Type | Instance Configuration | Disk Configuration |
+| --- | --- | --- | --- | --- |
+| S3 | Full | c5a.4xlarge | 16 core vCPUs and 32 GiB Memory | Root Disk: 20 GB GP3 |
+| S3 | Incremental | t3.xlarge | 4 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+| EC2 | Full | c6in.4xlarge | 16 core vCPUs and 32 GiB Memory | Root Disk: 20 GB GP3 |
+| RDS | Full | c5a.4xlarge db.r6g.large | 16 core vCPUs and 32 GiB Memory | Root Disk: 20 GB GP4 |
+| RDS | Sampling | t3.medium db.r6g.large | 2 core vCPUs and 4 GiB Memory 2 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+| DynamoDB | Full | t3.xlarge | 4 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+| DynamoDB | Sampling | t3.xlarge | 4 core vCPUs and 16 GiB Memory | Root Disk: 20 GB GP3 |
+
+| Data Store Type | Scan Type | Instance Type | Instance Configuration | Disk Configuration |
+| --- | --- | --- | --- | --- |
+| Blob Container | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| Blob Container | Incremental | Standard_D4s_v3 | 4 core vCPUs and 16 GiB Memory | 30 GB GP5 |
+| Virtual Machine | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| File Share | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| File Share | Incremental | Standard_D4s_v3 | 4 core vCPUs and 16 GiB Memory | 30 GB Premium SSD LRS |
+| SQL Server PostgreSQL-Flexible Server | Full | Standard_F16s_v2 | 16 core vCPUs and 32 GiB Memory | 30 GB Premium SSD LRS |
+| SQL Server PostgreSQL-Flexible Server | Sampling | Standard_B2ls_v2 | 2 core vCPUs and 4 GiB Memory | 30 GB Premium SSD LRS |
+| Azure Cosmos DB for NoSQL | Sampling | Standard_B2ls_v2 | 2 core vCPUs and 4 GiB Memory | 30 GB Premium SSD LRS |
+
+| Data Store Type | Scan Type | Instance Type | Instance Configuration | Disk Configuration |
+| --- | --- | --- | --- | --- |
+| Cloud Storage Bucket | Full | e2-standard-16 | 16 core vCPUs and 64 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Storage Bucket | Incremental | e2-standard-8 | 4 core vCPUs and 16 GiB Memory | 20 GB GP6 |
+| Cloud Platform Compute | Full | e2-standard-16 | 16 core vCPUs and 32 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Platform Cloud SQL | Full | e2-standard-16 | 16 core vCPUs and 32 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Platform Cloud SQL | Sampling | e2-standard-2 | 2 core vCPUs and 4 GiB Memory | 20 GB Standard persistent disk |
+| Cloud Platform BigQuery | Sampling | e2-standard-2 | 2 core vCPUs and 4 GiB Memory | 20 GB Standard persistent disk |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-threat-categories","lastmod":"2026-06-10T21:06Z","nid":"1540842"} -->
+## Understanding Threat Categories
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-threat-categories
+- Product: AI Asset Management
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > AI Posture Policies > Understanding Threat Categories
+- Last modified: 2026-06-10T21:06Z
+- Summary: Information about the various threat categories defined in AI Security.
+
+AI Security groups common threats into different categories. The [policy violations](https://help.zscaler.com/ai-asset-mgmt/about-ai-posture-policies) are associated with a specific threat category and a severity level, allowing you to analyze the issue and take the necessary action.
+
+AI Security defines the following threat categories:
+
+| **Threat Category** | **Description** |
+| --- | --- |
+| AI Data Exposure | Exposes AI data resources. |
+| AI Governance | AI breach due to misconfigurations or vulnerabilities (e.g., encryption or logging is disabled on the resource, backup feature disabled). |
+| AI Safety | Exposure of unsafe responses to users (e.g., instructions about self harm). |
+| Model Lifecycle Risk | Improperly configured or risky model issues that can lead to vulnerabilities. |
+| Risky Access | User credentials are not secure (e.g., users without MFA). |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/understanding-zscaler-ai-security-api","lastmod":"2026-08-11T09:51Z","nid":"1542069"} -->
+## Understanding Zscaler AI Security API
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/understanding-zscaler-ai-security-api
+- Product: AI Asset Management
+- Path: AI Asset Management Help > API > Understanding Zscaler AI Security API
+- Last modified: 2026-08-11T09:51Z
+- Summary: This article provides information about how to use the Zscaler AI Security APIs.
+
+The Zscaler AI Security API provides programmatic access to the AI asset inventory, resource metadata, and governance data collected by the Zscaler AI Security. Using these RESTful APIs, you can integrate Zscaler's AI discovery and classification data directly into your existing security and governance workflows without relying solely on the AI Security Admin Portal.
+
+AI Security continuously discovers, classifies, and monitors AI assets including models, agents, datasets, and compute resources across AWS, Azure, and GCP environments. The API surfaces this data to external consumers such as SIEMs, SOARs, ITSM platforms, and custom dashboards, enabling security and compliance teams to build automated, machine-readable workflows around their AI asset inventory.
+
+## Key AI Security API Capabilities
+
+The following are the key capabilities of AI Security APIs:
+
+- Retrieve detailed information about models, agents, datasets, and identities across your cloud environments.
+- Integrate AI asset and risk data with SIEM, CMDB, and other governance or reporting platforms.
+
+## Authentication
+
+All API access is authenticated via API keys issued and managed through the Authentication Service (ZID) platform. API keys are scoped to roles and Business Units to enforce least-privilege access across your organization. To learn more, see [AI Security API](https://automate.zscaler.com/docs/docs/api-reference-and-guides/api-reference/ai-security).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/updating-gcp-service-account","lastmod":"2026-08-06T21:06Z","nid":"1541386"} -->
+## Updating the GCP Service Account
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/updating-gcp-service-account
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Updating the GCP Service Account
+- Last modified: 2026-08-06T21:06Z
+- Summary: Information on updating the GCP project service accounts in the AI Security Admin Portal.
+
+While onboarding a GCP organization, a service account is created within the GCP organization. The service account defines the policies and permissions required for AI Security to access specific resources within the onboarded GCP organization.
+
+If the service account is accidentally deleted, AI Security's access to the onboarded organization is impacted, and all the onboarded projects within the organization move to the [Needs Attention](https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-status) state. To restore access, you must update the service account details.
+
+## Prerequisites
+
+You must be assigned either an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions) or any role with permission to add accounts in the Zscaler Admin Console.
+
+## Updating Service Account
+
+To update the service account:
+
+1. Go to **Administration > Account Onboarding**.
+2. Select the GCP cloud account for which you want to update the service account.
+3. Click **Manage**, and then select **Update Service Account** from the drop-down menu.
+4. Download and run the **Tree Discovery** template:
+  - a. In the AI Security Admin Portal
+  - b. On the Local System
+  - c. In the AI Security Admin Portal
+5. On the **Roles and Templates** tab, download and run the **GCP Onboarding** template:
+  - a. In the AI Security Admin Portal
+  - b. On the Local System
+
+After the template is successfully deployed, AI Security's access to the GCP organization is restored, and the onboarded projects move to the Successfully Configured state.
+
+In the **Roles and Templates** tab, click **GCP Onboarding** to download the template as a ZIP file.
+
+Update and run the template in the gcloud using the CLI app:
+
+1. Extract the downloaded ZIP file to a local directory on your system.
+2. Locate the `backend.tf` file within the extracted folder and open it in a text editor.
+3. Update the file by adding the name of the storage bucket and a preferred prefix where you would like to store the Terraform state files, and then, save and close the `backend.tf` file.
+4. Open the Command Prompt or any other CLI app on your local system.
+5. Switch to the directory containing the downloaded Terraform file.
+6. Run the following commands:
+  1. To initialize the working directory and apply the Terraform configuration: `terraform init`
+  2. To verify the changes in the Terraform configuration: `terraform plan`For **Enter a value**, enter the regions where you want AI Security to monitor and scan data in the following format: `["region name1", "region name2", "region name3", and so on.]`AI Security creates resources required for data scanning only in these specified regions.
+  3. To run the Terraform script: `terraform apply`For **Enter a value**, enter the regions where you want to deploy the template in the following format: `["region name1", "region name2", "region name3", and so on.]`For **Do you want to perform these actions?**, enter `yes` and then press `Enter`.
+
+In the **Update Service Account** section, click **Tree Discovery** to download the template as a ZIP file.
+
+Enter the JSON output generated while running the Terraform apply command, and validate the template deployment.
+
+1. In the **Update Service Account**window, paste the JSON output into the **Generated JSON** text field.
+2. Click **Validate**. AI Security verifies the JSON input and validates the template deployment. If the validation is successful, a message appears indicating that the service account was updated.
+3. Click **Done**.
+
+Update and run the template in the gcloud using the CLI app:
+
+1. Extract the downloaded ZIP file to a local directory on your system.
+2. Locate the `backend.tf` file within the extracted folder and open it in a text editor. Update the file by adding the name of the storage bucket and a preferred prefix where you would like to store the Terraform state files, then save and close the `backend.tf` file.
+3. Launch the installed Google Cloud SDK on your local system.
+4. Run the following command to connect to the GCP console: `gcloud auth application-default login`You are redirected to a browser to authorize access to the Google Auth Library. Log in to your GCP account to confirm authorization and close it after you have authorized access. After successful authentication, the Google Cloud SDK displays a confirmation message, indicating that your credentials have been saved to a file. These credentials are used by any library that requests Application Default Credentials (ADC).
+5. Open the Command Prompt or any other CLI app in your local system.
+6. Switch to the directory containing the downloaded Terraform file.
+7. Run the following commands:
+  1. To initialize the working directory and apply Terraform configuration: `terraform init`
+  2. To verify the changes in the Terraform configuration: `terraform plan`
+  3. To run the Terraform script: `terraform apply`The command returns a JSON output that includes the project ID, private key ID, private key, client email address, and other credentials to connect the AI Security with the GCP organization.
+  4. To access the JSON data later, copy it to a text file and note the `client email` which is part of the JSON output.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/updating-private-key-gcp","lastmod":"2026-08-06T21:06Z","nid":"1541472"} -->
+## Updating the Private Key for GCP
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/updating-private-key-gcp
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Updating the Private Key for GCP
+- Last modified: 2026-08-06T21:06Z
+- Summary: Information on how to update the private key for GCP in the AI Security Admin Portal.
+
+The private key is a confidential string associated with a GCP service account, which is necessary to access the service account from outside the Google Cloud environment, such as on other platforms or on-premises infrastructure. During the GCP account onboarding process, a private key is generated in JSON format when you apply the tree discovery template, which is then provided to AI Security as part of the account onboarding process.
+
+If your service account keys need to be updated or have expired, you can update your service account key at any time.
+
+## Prerequisite
+
+You must be assigned either an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions) or any role with permission to add accounts in the AI Security Admin Portal.
+
+Download a private key for your service account in JSON format from the Google Cloud Console. To learn more on downloading a private key for a service account, refer to the [Google Cloud documentation](https://cloud.google.com/iam/docs/keys-create-delete#creating).
+
+## Updating the Private Key
+
+To update the private key, on the AI Security Admin Portal:
+
+1. Go to **Administration >** **Account Onboarding**.
+2. Select the GCP cloud account for which you want to update the service account.
+3. Click **Manage**, and then select **Update Private Key** from the drop-down menu. See image.
+4. In the **Update Private Key** window, upload the downloaded JSON file to the AI Security Admin Portal by either dragging and dropping the file, or clicking **or click to browse** to select the file from your computer. See image.
+5. Click **Apply**. See image. AI Security validates the updated private key by verifying it against the service account. If the validation is successful, a message appears indicating that the connection is established. If the private key is invalid, or it does not match the service account, an error is displayed.
+6. Click **Done**.
+
+The private key is updated for the selected service account.
+
+[Image: Upload JSON Private Key]
+
+[Image: Browse JSON Private Key]
+
+[Image: Update Private Key Drop-down]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/using-tables","lastmod":"2026-09-09T21:21Z","nid":"1545386"} -->
+## Using Tables
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/using-tables
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Getting Started > Using Tables
+- Last modified: 2026-09-09T21:21Z
+- Summary: How to use tables in the AI Security Admin Portal.
+
+In the AI Security Admin Portal, some of the data is organized and displayed in tables. You can modify the default settings for each table. Every time you make a change, the settings are stored in your browser's local storage so that your changes are preserved the next time you log on. If you clear your cache or use a different browser, your settings are lost.
+
+Not all settings are available for all tables.
+
+You can do the following:
+
+- Expand data in the table
+- Filter data in the table
+- Hide columns
+- Reorder columns
+- Reset table to default settings
+- Resize columns
+- Search tables
+- Sort the column data
+
+Some tables have rows that can expand to show more detail. Click the Expand icon in the first column within a table to expand it. To expand all rows in a table, click **Expand All**. After a row is expanded, additional details are provided. After a row is expanded, you can view or edit a resource.
+
+To view or edit a resource, click the name of the resource within the expanded row of the table to view or edit the resource.
+
+You can filter the information shown in some tables. To filter the data in the table:
+
+1. Click a filter (e.g., **Name**, **Created By**).
+2. Select or enter values.
+3. (Optional) Click **Apply**if available for the table**.**
+4. (Optional) Select from the following options, if available for the table:
+  - **Clear**to remove selections
+  - **Reset** to undo applied filters
+  - **Filter** icon to hide the filters
+
+On certain pages, you can select the following additional functions:
+
+- Save and manage applied filters
+- Switch between applied filters
+
+To save and manage applied filters:
+
+1. Click the **Menu**icon.
+2. Click **Save Applied Filter**. The **Save Applied Filter** window appears.
+3. In the **Save Applied Filter** window, give the filter a name.
+4. Click **Save**.
+
+After applying filters, you can switch between applied filters by clicking the filter name next to the **Filter**icon. You can also delete a saved filter with the **Delete**icon.
+
+If you modify a saved filter, click the **Menu**icon, and then click **Save Changes** (or **Discard Changes**). An Information icon next to the filter name indicates unsaved changes.
+
+You can select and hide columns in some tables. The hide function is useful when you don't need to view all the columns. You can select the columns that you don't want to view.
+
+To hide a column, hover over the **Column Menu** icon on the top right of the table, or click the **Gear**icon, and uncheck the column names you wish to hide. After you click on a checkbox, the table refreshes and displays only the checked columns.
+
+For some tables, you must have at least one column visible at all times. For example, for Insight log tables, you can **Deselect All** columns and render the table empty.
+
+[Image: Screenshot of hiding columns for Zscaler tables]
+
+You can reorder columns in many tables. When the option is available, you can reorder columns in the following ways:
+
+- From the Table
+- From the Column Menu settings
+
+For some tables, when you hover over a column header in the table, a **Move** cursor appears. To reorder, drag and drop the column to the desired location. An arrow indicates where the column is placed after the drop.
+
+After you have dragged the column to the desired location, the table refreshes and displays data in the new column order.
+
+The column menu settings also change to reflect the new order.
+
+For some tables, when you hover over a listed column name in the settings, a **Move** cursor appears. Drag and drop the column to the desired position. After you drop the column name, the table refreshes and displays the data in the new column order.
+
+For some tables, when you make changes to the columns, you can revert to the default settings by clicking on the **Reset** icon.
+
+Resetting columns to default settings does not affect sort order.
+
+[Image: Screenshot of Reset icon for Zscaler tables]
+
+For some tables, when the data in a column takes up more space than the viewing area allows, it gets clipped. You can view the clipped data in the tooltip. For many tables, you can also increase the column width.
+
+To increase the column width, hover over the right border of the column. A resize icon appears. Drag and drop to the desired column width.
+
+You can use the search field to filter data in tables. The table displays the rows containing your search term.
+
+The search results display the applicable rows even if the term is in a hidden column.
+
+For some tables, there is also a search field that you can access even with the hiding or showing columns option. The menu displays the column names containing your search term.
+
+For some tables, you can sort data. Sort is indicated by an arrow icon. When you hover over a column header, you see the arrow icon. You can sort data in ascending or descending order.
+
+To sort a column, click the arrow in the table column header.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/validating-cloud-accounts","lastmod":"2026-06-29T21:06Z","nid":"1540297"} -->
+## Validating Cloud Accounts
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/validating-cloud-accounts
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Validating Cloud Accounts
+- Last modified: 2026-06-29T21:06Z
+- Summary: Information on how to validate target accounts in the AI Security.
+
+AI Security validates the cloud accounts every hour to check if the onboarding templates are deployed successfully and roles and permissions are configured for each account. You can also run an on-demand validation without waiting for AI Security's hourly validations.
+
+## Validating a Single Account
+
+To validate a single account:
+
+1. Go to **Administration** > **Cloud Accounts**.
+2. Select the cloud account.
+3. Select the **Accounts**tab for AWS, **Subscriptions**tab for Azure, or **Projects**tab for GCP. The tab name varies depending on the selected cloud account.
+4. Click the **Actions**icon for the account you want to validate, and click **On Demand Validation**.
+5. In the **On Demand Validation** window, click **Confirm**.
+
+## Validating all Accounts in the Organization
+
+To validate all accounts in the organization:
+
+1. Go to **Administration** > **Cloud Accounts**.
+2. Select the cloud account.
+3. Click **Manage**, and then select **On Demand Validation** from the drop-down menu.
+4. In the **On Demand Validation** window, click **Confirm**.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-issue-details","lastmod":"2026-06-05T21:06Z","nid":"1540789"} -->
+## Viewing Issue Details
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-issue-details
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Monitoring & Investigation > Issues > Viewing Issue Details
+- Last modified: 2026-06-05T21:06Z
+- Summary: Information about viewing AI Security alert details.
+
+You can view additional details of issues such as issue summaries, descriptions, why issues are in a specific status, etc. This information allows you to investigate the issues in detail and learn how to remediate the issue.
+
+To view the issue details:
+
+1. Go to **AI Infrastructure**> **Issues**> **Issues View**.
+2. Select the **All Issues** tab.
+3. Click the **Issue ID**. The individual issue's page appears with the following tabs:
+  - Issue Details
+  - Remediation
+
+On the **Issue Details** tab, you can view:
+
+- **Summary**: The [policy](https://help.zscaler.com/ai-asset-mgmt/about-ai-posture-policies) for which the issue was generated.
+- **Description**: A brief explanation of what the policy detects.
+- **Created Date**: The date and time the issue was created.
+- **Last Updated**: The date and time the issue was last updated.
+- **Issue Age**: The number of days the issue was in an open state. When an issue is generated or reset, its age is calculated from zero. For example, if an issue is generated on November 1st, the issue age is 0. On November 5th, the issue age becomes 4.
+- **MITRE ATT&CK**: The MITRE ATT&CK technique and ID (e.g., **Vulnerability Scanning (T1595)**, **Data Destruction (T1485)**). Click the number to view all the associated MITRE techniques. See image.
+- **Policy ID**: The unique identifier of the policy. Click to view the [policy details](https://help.zscaler.com/ai-asset-mgmt/viewing-policy-details).
+- **Policy Severity**: The severity (**Critical**, **High**, **Medium**, or **Low**) of the policy.
+- **Resource Name**: The name of the resource. Click to view additional details of the resource in the resource drawer. By default, you are directed to the Risk Explorer tab to view the Resource Inventory graph.
+- **Policy Category**: The threat category (e.g., **Data Loss**, **Public Exposure**) to which the policy belongs.
+- **Compliance Benchmark**: The compliance benchmark (e.g., **GDPR**, **HIPAA**) associated with the policy. Click the number to view all the associated compliance benchmarks.
+- **Compliance Category**: The compliance categories (e.g., **Data Protection (3)**, **Data Recovery (11)**) associated with the policy. Click the number to view all the associated compliance categories.
+- The graphical representation of the issue.
+
+On the **Remediation** tab, you can view the remediation steps to resolve the issue in the cloud service provider (CSP).
+
+[Image: List of MITRE techniques with technique ID displayed after clicking on the numbers.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-onboarded-account-details","lastmod":"2026-06-04T21:06Z","nid":"1540294"} -->
+## Viewing the Onboarded Account Details
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-onboarded-account-details
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Onboarded Account Details
+- Last modified: 2026-06-04T21:06Z
+- Summary: Information about the Cloud Accounts page and the actions available in the AI Security Admin Portal.
+
+After onboarding the accounts successfully, you can view the details of all the onboarded accounts on the Cloud Accounts page.
+
+To view the onboarded account details:
+
+1. Go to **Administration** > **Account Onboarding**.
+2. Click the required cloud account (AWS, Azure, or GCP).
+3. Select the **Accounts** tab for AWS, **Subscriptions** tab for Azure, and **Projects** tab for GCP. The tab name varies depending on the selected cloud account.
+
+In this article, the **Subscriptions** tab is shown as an example. On the **Subscriptions** tab, you can do the following:
+
+1. Select different actions from the **Manage** drop-down menu. To learn more, see [About Cloud Accounts](https://help.zscaler.com/ai-asset-mgmt/about-cloud-accounts).
+2. Add filters to view specific accounts.
+3. Search for a specific account in the searchable columns.
+4. For each subscription, you can see:
+  - **Subscription Name:** The name of the subscription. Click the name to view additional details:
+    - Details
+    - Issues
+  - **Subscription ID:**The unique identifier of the subscription.
+  - **Business Unit:** The business unit assigned to the account.
+  - **Status:** The status of the scan configuration (Successfully Configured, Pending Configuration, Needs Attention).
+  - **Last Validated**: The date and time when the account is validated to check all configurations.
+5. Select multiple accounts and perform the same action on all of them at the same time, like changing the business unit or deleting the onboarded accounts.
+6. Modify the table and its columns.
+7. Click the **Action** icon to change the business unit or delete a subscription.
+
+- **Status:** The [status of the scan configuration](https://help.zscaler.com/ai-asset-mgmt/viewing-orchestrator-status) (Successfully Configured, Pending Configuration, Needs Attention) for the account.
+- **Business Unit:** The business unit assigned with the account.
+- **Onboarding Date:** The date and time the account was onboarded
+- **CloudTrail**: Cloud Trail details are displayed only for AWS accounts.
+  - **Bucket Name**: The name of the S3 bucket associated with CloudTrail.
+  - **Prefix**: The prefix specified in the CloudTrail bucket path.
+  - **Bucket Account ID**: The AWS account ID where the CloudTrail S3 bucket is present.
+
+- View the configuration issues that occurred while onboarding the account along with the resolution steps. To learn more, see [Viewing Onboarding Issues](https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-issues).
+- From the **Actions** drop-down menu, you can change the business unit or delete an onboarded account.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-onboarding-issues","lastmod":"2026-07-23T00:45Z","nid":"1540295"} -->
+## Viewing Onboarding Issues
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-issues
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing Onboarding Issues
+- Last modified: 2026-07-23T00:45Z
+- Summary: Information about how to resolve issues in the cloud account.
+
+AI Security detects issues in the [onboarded AWS organization](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization), GCP organization, or [Azure tenant](https://help.zscaler.com/ai-asset-mgmt/onboarding-microsoft-entra-tenant) and lists them on the Issues tab. You can also view the resolution steps to resolve the issue.
+
+If the issues are not addressed, they might impact the [scanning of the data stores](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings).
+
+The following issues might occur while onboarding accounts:
+
+| AWS | Microsoft Azure | GCP |
+| --- | --- | --- |
+| Role not found in the orchestrator or target accounts | Role not present or misconfigured in the Microsoft Entra tenant | Missing permissions in the target project |
+| Missing permissions in the orchestrator or target accounts | Admin consent not granted | Missing permissions in the Orchestrator project |
+| Configuration issues in the orchestrator account | Client Secret is invalid | Missing permissions in the service account |
+| Configuration issues in the CloudTrail or incorrect CloudTrail configuration | Application object unavailable | Missing resources in the Orchestrator project |
+| Orchestrator validation is pending | Role not found or misconfigured in the orchestrator subscription. | Orchestrator validation is pending |
+| Orchestrator unable to communicate with AI Security | Onboarded account is currently suspended. | Orchestrator is unable to communicate with the AI Security |
+| Resources missing in the orchestrator account | Onboarded account is deleted | Onboarded account is deleted |
+| Onboarded account is currently suspended | Onboarded account is currently suspended | Onboarded account is currently suspended |
+
+If an issue is detected in the target accounts, or projects, the status of the target accounts or projects moves to the **Needs Attention** state until the issue is resolved.
+
+To view the onboarding issues:
+
+1. Go to **Administration** > **Account Onboarding**.
+2. Select the organization, project, or tenant from the list.
+3. Select the **Issues** tab to view the list of issues along with the resolution steps.
+4. Click **See Accounts** to view the list of affected accounts, projects, or subscriptions.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-onboarding-status","lastmod":"2026-06-04T21:06Z","nid":"1540292"} -->
+## Viewing the Onboarding Status
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-status
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Onboarding Status
+- Last modified: 2026-06-04T21:06Z
+- Summary: How to view the onboarding status for a cloud account in the AI Security Admin Portal.
+
+AI Security runs a health validation service to check if the onboarding templates are deployed successfully and roles and permissions are configured for each account. After the validation is completed, the onboarding status of the target accounts and [orchestrator accounts](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator) are displayed on the Overview tab.
+
+In this article, an AWS account's status is shown as an example.
+
+The field names vary depending on the cloud account: **Account**for AWS, **Subscription**for Azure, and **Project**for GCP.
+
+On the **Overview**tab, you can view the following details:
+
+1. **New template available for deployment** (Optional): A notification banner is displayed if a new template (e.g., Tree Discovery, Onboarding) is available for deployment. AI Security releases new templates that include additional functionalities for scanning and collecting metadata. Click **See Details** to view the available templates on the Roles and Templates tab. If you close the notification banner, it is removed only for the current session. The message is displayed when you log in again.
+2. **Account Status**: The number of accounts configured for [data scan](https://help.zscaler.com/ai-asset-mgmt/about-scan-settings) versus the total number of accounts in the organization displayed in the donut chart. You can see the following statuses:
+  - **Successfully Configured**: The number of accounts that are configured and validated successfully.
+  - **Needs Attention**: The number of accounts that have [misconfigurations or permission issues](https://help.zscaler.com/ai-asset-mgmt/resolving-onboarding-issues).
+  - **Pending Configuration**: The number of accounts for which the roles and permissions are yet to be configured and validated.
+  - **Monitored Regions**: The list of regions where the target accounts are located.
+  - The list of services selected for monitoring and scanning.
+3. **Orchestrator Details**: The details about the [orchestrator account](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator) in which the AI Security's orchestrator template is deployed. You can see:
+  - **Account Name**: The account name.
+  - **Account ID**: The account ID.
+  - **Custom Tags**: The number of custom tags added.
+  - **Region**: The primary region selected while onboarding.
+  - **Network Type**: The network configuration used for onboarding the account or organization.
+  - **AI Security Connection Status**: The connection status (**Successful** or **Failed**) of the orchestrator instance with AI Security.
+  - **Configuration Status**: The configuration status (**Successful**, **Warning**, **Failed**, or **Pending Validation**) indicating whether all accounts are available and permissions are configured correctly in the orchestrator subscription.
+  - **Last Connected**: The last time the orchestrator instance was successfully connected with AI Security.
+4. **CloudTrail**: The details of the [organization CloudTrail](https://help.zscaler.com/ai-asset-mgmt/understanding-aws-cloudtrail) provided while [onboarding](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization). You can see: This field is available only for AWS organizations.
+  - **CloudTrail Bucket Name**: The name of the S3 bucket where the CloudTrail events are logged.
+  - **Prefix**: The prefix specified in the CloudTrail bucket path.
+  - **Bucket Account ID**: The AWS account ID where the CloudTrail S3 bucket is present.
+  - **Status**: The status (**Enabled** or **Failed**) of the CloudTrail configuration.
+5. **Evidence**: The details of the S3 bucket where the evidence data is stored.
+  - **S3 Bucket Name**: The S3 bucket name.
+  - **Storage Type**: The storage type (**Zscaler** or **Custom**).
+  - **S3 Bucket Account ID**: The S3 bucket account ID.
+6. **Data Events**: The details of the CloudTrail where the data events are stored. You can see: This field is available only for AWS organizations.
+  - **CloudTrail Bucket Name**: The name of the S3 bucket where the data events are stored.
+  - **Prefix**: The prefix specified in the CloudTrail bucket path.
+  - **Bucket Account ID**: The AWS account ID where the S3 bucket is present.
+  - **Status**: The status (**Enabled** or **Failed**) of the CloudTrail configuration.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-orchestrator-status","lastmod":"2026-06-04T21:06Z","nid":"1540293"} -->
+## Viewing Orchestrator Status
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-orchestrator-status
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing Orchestrator Status
+- Last modified: 2026-06-04T21:06Z
+- Summary: Information about the orchestrator status in the AI Security Admin Portal.
+
+AI Security regularly scans the data stores (databases, virtual machines, etc.) within your target accounts by leveraging the [orchestrator](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator)that is deployed in your account during the onboarding process. The orchestrator instance launches [scanner instances](https://help.zscaler.com/ai-asset-mgmt/understanding-scanner-instances) in the regions where the target account data stores exist and scans the data.
+
+On the **Overview** tab, you can view the following status types for the orchestrator connection and configuration:
+
+- **AI Security Connection Status**: The connection status between the orchestrator and AI Security.
+  - **Successful**: The orchestrator instance is connected to AI Security successfully.
+  - **Failed**: The orchestrator instance is unable to establish a connection with AI Security.
+  - **Waiting for connection**: The orchestrator template is not yet deployed in the cloud service provider (CSP).
+- **Configuration Status**:Indicates whether all resources are available and permissions are configured in the orchestrator account. The configuration status can be one of the following:
+  - **Successful**: All resources are successfully deployed and permissions are configured in the orchestrator account.
+  - **Warning**: Some resources or permissions are unavailable, tampered with, or not visible.
+  - **Failed**: The orchestrator instance cannot launch scanner instances, or some roles and permissions are missing in the orchestrator account.
+  - **Pending**: The orchestrator account has changed or the template is yet to be deployed in the CSP.
+- **Last Connected**: The last time the orchestrator instance was successfully connected with AI Security.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-policy-details","lastmod":"2026-06-18T03:28Z","nid":"1540862"} -->
+## Viewing Policy Details
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-policy-details
+- Product: AI Asset Management
+- Path: AI Asset Management Help > AI Posture Policies & Data Classification > AI Posture Policies > Viewing Policy Details
+- Last modified: 2026-06-18T03:28Z
+- Summary: Information about the data posture policy details in the AI Security Admin Portal.
+
+AI posture policies are queries that looks for vulnerabilities or misconfigurations in the data stores and detect any potential possibilities of a data breach. You can view the details of policies that are used to query data stores in AWS, Azure, and GCP cloud resources. You can see the policy description, the query used to define the policy, remediation steps, and options to disable or clone the policy. To learn more, see [About AI Posture Policies](https://help.zscaler.com/ai-asset-mgmt/about-ai-posture-policies).
+
+To view the policy details:
+
+1. Go to **Policies & Control**> **AI Posture Policies**.
+2. Under the **Policy Name** column, click any policy. See image. The Policy page appears with the following tabs:
+  - Policy Overview
+  - Remediation
+3. Click the **Actions** menu and choose to disable or clone a policy. See image.
+
+On the **Policy Overview** tab, you can view:
+
+- **Policy Details**:
+  - **Policy Rationale**: A brief explanation about what the policy detects.
+  - **MITRE**: The MITRE techniques that are related to the detected issue. Click the number to view all the associated MITRE techniques. See image.
+  - **Policy ID**: The unique identifier for the policy.
+  - **Policy Category**: The threat category to which the policy belongs.
+  - **Resource Type**: The type of data store (EC2, Storage Account, RDS Instance, etc.)
+  - **Compliance Framework**: The list of compliance frameworks that are applicable for this policy.
+- **Policy Query**: The details of the query used to create this policy. You cannot view policies that are temporarily hidden. See image.
+
+See image.
+
+On the **Remediation** tab, you can see the remediation steps to resolve the issue detected in the resource.
+
+See image.
+
+[Image: The policy rationale for an Azure virtual machine]
+
+[Image: Remediation steps to resolve the misconfiguration in the Azure virtual machine]
+
+[Image: Select to disable or clone the policy]
+
+[Image: Click any policy name to view the policy details]
+
+[Image: List of MITRE techniques that are applicable for the policy]
+
+[Image: The Policy Overview tab with information at the end about why a query for the policy is temporarily hidden.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-roles-and-templates","lastmod":"2026-08-05T21:06Z","nid":"1541961"} -->
+## Viewing the Roles and Templates
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-roles-and-templates
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Roles and Templates
+- Last modified: 2026-08-05T21:06Z
+- Summary: Information on how to view roles and download onboarding templates in the Zscaler Admin Console.
+
+AI Security creates IAM or custom roles in the cloud accounts, and these roles are assigned with various permissions that allow AI Security to connect to the cloud account and discover resources for data scanning. You can view these roles on the Roles and Templates tab, copy them and verify if they are the same in the respective cloud account, in case of any [issues](https://help.zscaler.com/ai-asset-mgmt/viewing-onboarding-issues).
+
+To view the roles or download the templates:
+
+1. Go to **Administration > Account Onboarding**.
+2. Select the cloud account from the list.
+3. Select the **Roles and Templates** tab. You can view the templates and the corresponding roles created for the organization. The file name of the downloaded template includes the template version number.
+  - AWS
+  - Microsoft Azure
+  - GCP
+
+## Availability of New Templates
+
+AI Security releases new templates that include additional functionalities for scanning and collecting metadata. A notification banner is displayed on the **Roles and Templates** tab whenever a new template is available.
+
+You can download the template to review the changes. If you click **Acknowledge**, the new template overrides the existing template, and AI Security validations and health checks are then performed on the new template upon deployment. If not acknowledged, AI Security validations and health checks continue on the existing template.
+
+- You can acknowledge the template only if you are assigned an [Administrator role](https://help.zscaler.com/ai-asset-mgmt/predefined-ai-security-roles-and-permissions). If you have a role with the View Cloud Accounts permission, you can only view or download the templates, but you cannot acknowledge them.
+- If you acknowledge the new template for one organization or tenant, it is updated for all the onboarded organizations or tenants.
+
+## Redeploying Templates
+
+You can redeploy the AI Security templates in the following scenarios:
+
+- Upgrade to a new template
+- Experience issues with custom roles that are created during onboarding
+- Modify or delete a role
+
+Download either the CloudFormation or Terraform template to your local system, extract the ZIP file, and run it on the AWS organization.
+
+- Tree Discovery
+- Orchestrator
+- Monitoring Scope
+- Evidence
+
+You can view and copy the external ID, an optional identifier that is attached to the role. AWS recognizes this external ID and allows AI Security to access the AWS resources. To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html).
+
+Download the following templates to your local system, extract the ZIP file, and run it on the Azure tenant.
+
+- Tree Discovery
+- Azure Onboarding
+- Evidence
+
+Download the following templates to your local system, extract the ZIP file, and run it on the GCP organization.
+
+- Tree Discovery
+- GCP Onboarding
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/viewing-scan-results-ai-models","lastmod":"2026-06-01T21:06Z","nid":"1540791"} -->
+## Viewing Scan Results for AI Models
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/viewing-scan-results-ai-models
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Monitoring & Investigation > Model Scan Findings > Viewing Scan Results for AI Models
+- Last modified: 2026-06-01T21:06Z
+- Summary: How to view security scan findings for AI Models in the AI Security Admin Portal.
+
+AI Security scans AI models to identify security risks and vulnerabilities. To view the scan details, go to **AI Infrastructure** > **Issues** > **Model Scan Findings**.
+
+On the Model Scan Findings page, you can:
+
+1. Filter your view to see findings grouped by model or to see all findings:
+  - Group by Model ID
+  - All Findings
+2. Apply filters to view specific data.
+
+- **Model ID**: The unique identifier of the AI model.
+- **Findings**: The number of security risks detected. Click the number to view additional details on the **All Findings** tab, pre-filtered for the specific model ID. See image.
+- **Severity**: The severity level (Critical, High, Medium, or Low) of the risk.
+- **Risk Score**: The overall risk score assigned to the AI model.
+- **Scan Date**: The date and time the AI model was last scanned.
+
+See image.
+
+- **Scan ID**: The unique identifier for the scan. Click the scan ID to view additional details.
+- **Integration Name**: The name of the integration.
+- **Model ID**: The unique identifier of the AI model.
+- **Host**: The host name or IP address where the AI model is located.
+- **Severity**: The severity level (Critical, High, Medium, or Low) of the risk.
+- **Scan Date**: The date and time the AI model was last scanned.
+- **Scan Summary**: A brief description of the scan result.
+
+See image.
+
+Click the **Action**icon to archive a specific scan instance from the all findings list.
+
+See image.
+
+- General Information
+- Vulnerabilities
+
+- **Risk Score**: The chart visually represents the overall risk score assigned for the AI model. The following are the risk score ranges:
+  - **Low**: 0–25
+  - **Medium**: 26–50
+  - **High**: 51–75
+  - **Critical**: 76–100
+- Scan information such as scan ID, integration name, model ID, host, scan date, scan duration, files scanned, frameworks detected, and vulnerabilities.
+
+See image.
+
+- **Vulnerability**: The name of the vulnerability (e.g., GCP Service Account Private Key).
+- **ID**: The unique identifier for the detection logic used to identify the vulnerability (e.g., Z-AISPM-SEC-014).
+- **Severity**: The severity level (Critical, High, Medium, or Low) assigned to the vulnerability.
+- **Category**: The classification of the vulnerability (e.g., code_execution)
+- **File**: The file path where the vulnerability is detected.
+- **Artifact Type**: The format of the file where the vulnerability is detected (e.g., raw_text).
+- **Remediation**: The recommended steps to remediate the detected vulnerability.
+
+See image.
+
+[Image: General details of the findings related to AI model]
+
+[Image: View vulnerability details related to the AI model]
+
+[Image: View Group By Model ID tab]
+
+[Image: View All Findings tab]
+
+[Image: Click the Archive icon to hide the scan instance]
+
+[Image: View the list of all the findings]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-dashboard","lastmod":"2026-04-18T04:43Z","nid":"1518451"} -->
+## About the Dashboard
+
+- Source: https://help.zscaler.com/breach-predictor/about-dashboard
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About the Dashboard
+- Last modified: 2026-04-18T04:43Z
+- Summary: Information about the Zscaler Breach Predictor Dashboard.
+
+The Zscaler Breach Predictor MITRE ATT&CK Overview Dashboard is designed as a starting point in the Breach Predictor Portal, providing high-level information about your organization's current risk of a data breach. The Dashboard is divided into two main areas: the Overall Breach Probability score, and the MITRE ATT&CK Overview charts and graphs. Within the Dashboard, you can use various charts and graphs to better understand your Overall Breach Probability score and to assess your organization’s placement within the MITRE ATT&CK framework during a specified period.
+
+Breach Predictor’s preemptive vision of security starts with the main Dashboard page, which contains the Overall Breach Probability score, prioritized policy recommendations to triage the biggest threats to your organization, and high-level charts and graphs to give you an instant read on the likelihood of a breach that can exfiltrate your organization's data. The score factors in your organization's placement in the MITRE ATT&CK matrix, as well as the number of affected users. A higher Overall Breach Probability score indicates a higher risk of a data breach. The Sankey chart gives you quick visibility across users, stages, categories, and threat families.
+
+See image.
+
+If your organization is secured and no users are at risk during the specified time period, Breach Predictor shows a link to the Threat Landscape page so that you can see cutting-edge threat information curated by Zscaler ThreatLabz. The Threat Landscape page provides an overview of the top threats affecting organizations across the globe. To learn more, see [Analyzing Findings](https://help.zscaler.com/breach-predictor/analyzing-findings).
+
+See image.
+
+The Breach Predictor Dashboard provides the following benefits and enables you to:
+
+- See a high-level overview of your organization's current risk of a data breach.
+- View your organization's Overall Breach Probability score and a prioritized list of policy recommendations to remediate threats to your organization.
+- Use various charts and graphs to understand how various malware threats are affecting your organization.
+
+To learn more, see [Analyzing the Dashboard](https://help.zscaler.com/breach-predictor/analyzing-dashboard).
+
+## About the MITRE ATT&CK Overview Dashboard Page
+
+Use the charts and graphs in the Observed Users views on the Dashboard page (Breach Predictor Portal > Dashboard) to see patterns for groups of at-risk users, organized by MITRE ATT&CK stage, malware category, and malware family. You can click the left and right arrows to toggle between Observed Users views to see the different charts and graphs that are available. Additionally, you can click Explore to open the Findings page to better understand which malware families are impacting your environment. To learn more, see [About the Threat Landscape](https://help.zscaler.com/breach-predictor/about-threat-landscape).
+
+- Observed Users View 1
+- Observed Users View 2
+- Threat Overview
+
+[Image: The Main Dashboard Page in Zscaler Breach Predictor src=]
+
+[Image: Breach Probability Score with No Threats Identified in Zscaler Breach Predictor]
+
+The Sankey chart in the first Observed Users view uses a horizontal layout to present threat activity across users, stages, categories, and malware families.
+
+In the Sankey chart within the Observed Users view 1, you can do the following:
+
+1. In the **Users** column, see an overview for the total users in your organization, as well as the number of users at risk of a data breach.
+2. In the **Stages** column, see the attack stage locations of the malware families affecting your users.
+3. In the **Category** column, see the classification groups for the malware families affecting your users.
+4. In the **Malware Family** column, see the names of the malware families affecting your users, as well as the severity score for each family.
+
+[Image: Observed Users View 1 in Zscaler Breach Predictor]
+
+The Sankey chart in the second Observed Users view uses a vertical layout to present threat activity across users, stages, categories, and malware families.
+
+In the Sankey chart within the Observed Users view 2, you can do the following:
+
+1. In the **Total Users** column, see an overview for the total users in your organization, as well as the percentage change in users at risk of a data breach.
+2. In the **Events allowed** row, see the attack stage locations of the malware families affecting your users. Attack stages that have not been reached are not interactive.
+3. In the **Threat Category** row, see the classification groups for the malware families affecting your users.
+4. In the bottom row, see the names of the malware families affecting your users, as well as the number of users affected by each family.
+
+[Image: Observed Users View 2 in Zscaler Breach Predictor]
+
+The charts and graphs in the Threat Overview view present even more granular data about the threat families affecting your organization.
+
+In the Sankey chart within the Threat Overview, you can do the following:
+
+1. In the **Top Users Impacted By Threats** Sankey chart, see the top users affected by the top malware threat. You can click user names or threat family names to see more detailed information.
+2. In the **Top Threats Across Attack Stages** radial chart, see the main attack stages for the threats affecting your users. You can click chart data to see more detailed information.
+3. In the **Allowed Policies over time** bar chart, see main policies that allowed the malware threats affecting your users. You can hover over chart data to see more detailed information.
+4. In the **Threats over time** bar chart, see the threat families that have affected your users during the selected period. You can hover over chart data to see more detailed information.
+
+[Image: Threat Overview in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-events","lastmod":"2025-06-06T07:06Z","nid":"1518461"} -->
+## About Events
+
+- Source: https://help.zscaler.com/breach-predictor/about-events
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Events
+- Last modified: 2025-06-06T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Events page.
+
+Breach Predictor Events help to keep you from getting lost in granular data so that you can maintain a clear view of the bigger security picture. You can use the Events page to filter and analyze all the allowed events that have affected your organization during a particular time period. Much like the [Findings page for a threat family](https://help.zscaler.com/breach-predictor/about-findings), the Events page gives you a high-level overview for all threats, and it allows you to drill down to see individual threats, individual users, and granular detail about each threat event. You can also adjust the time frame to gain more insight into how various threat families have affected your organization over time.
+
+Events provide the following benefits and enable you to:
+
+- Monitor the allowed events that have affected your organization over time.
+- Use multiple filters to get a more granular view of threats affecting your organization.
+
+## About the Events Page
+
+On the Events page (Breach Predictor Portal > Events), you can do the following:
+
+1. Filter results by threat family.
+2. Filter results by users in your organization.
+3. Change the time frame for the results shown on the page.
+4. Filter the results by MITRE ATT&CK tactic.
+5. See a visual representation via bar chart of the events for the chosen time frame.
+6. Search for events in the list.
+7. Download a CSV file that contains information about each threat event.
+8. View details of the filtered events that have affected your organization. You can sort each column. For each event, you can see:
+  - **Date/Time**: The date and time (GMT) of the threat activity.
+  - **Policy Status**: Whether the event was allowed or blocked by policy.
+  - **User Name**: The name of the user in your organization affected by the threat event.
+  - **Threat Name**: The name of the threat family associated with each event.
+  - **Threat Type**: The type of threat associated with each event.
+  - **Tactic**: The MITRE ATT&CK tactic associated with each event.
+  - **URL**: The URL associated with each event.
+  - **Client Ip**: The IP address for the client that experienced the threat event.
+9. Modify the columns available in the table.
+10. Specify the number of items to show per page.
+11. Go through the pages in the list of threat events.
+
+[Image: The Events Page in Zscaler Breach Predictor]
+
+As you go through the list of threat events, you can select an item in the list to see specific details about the event:
+
+[Image: The Event Detail Panel in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-findings","lastmod":"2025-08-09T07:06Z","nid":"1518456"} -->
+## About Findings
+
+- Source: https://help.zscaler.com/breach-predictor/about-findings
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Findings
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Findings page, which provides specific information about all malware families affecting your organization.
+
+Breach Predictor Findings provide a high-level overview of all threat families affecting your organization, while also allowing you to drill down to get specific information about each threat family. The basic idea with Breach Predictor Findings is to quickly determine where each threat family sits on the MITRE ATT&CK matrix, and then to use attack-path data to help you interpret what your threat placement means. As a result, you can determine whether a threat has already achieved a particular technique, or whether Breach Predictor is predicting its advancement. Some events are identified as "possible," meaning that they might have happened but were not captured as part of Breach Predictor's threat detection. Focusing on the attack path also lets you see how a particular threat is affecting groups of users at each stage of the MITRE ATT&CK matrix (i.e., that groups of users have been exposed at a particular URL).
+
+Breach Predictor uses its Findings to make specific policy update recommendations. In the Threat section, you can create Jira tickets so that Zscaler Support can make policy updates to remediate the threats affecting your organization.
+
+To learn more, see [Analyzing Findings](https://help.zscaler.com/breach-predictor/analyzing-findings) and [Requesting Updates in Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor).
+
+Findings provide the following benefits and enable you to:
+
+- See a high-level overview of all malware threat families affecting your organization.
+- See specific information about each threat family, including attack path, affected users, and associated events.
+- Create Jira tickets to make policy updates based on Breach Predictor recommendations.
+
+## About the Findings Page
+
+The Findings page (Breach Predictor Portal > Findings) contains the following sub-pages:
+
+- MITRE ATT&CK Mapping Page
+- Threat Page
+
+On the MITRE ATT&CK Mapping page, you can do the following:
+
+1. Filter by attack stage (e.g., **Discover Attack**, **Compromise**, **Lateral Movement**, and **Data Loss**).
+2. Specify the time frame for the data on the page.
+3. Search for malware families or users in your organization to filter the results in the table.
+4. View a list of all malware families affecting your organization and quickly determine where each threat sits on the MITRE ATT&CK matrix. For malware families, you can see:
+  - **Threat**: The name of the malware family. You can sort this column.
+  - **Severity Score**: The threat score (0 to 10) assigned to each malware family by Zscaler ThreatLabz. The higher the score, the more damage a malware family can cause to your organization. You can sort this column.
+  - **Stage and technique**: The matrix is organized by threat stage (e.g., **Discover Attack**, **Compromise**, etc.) and by MITRE ATT&CK technique (e.g., **Reconnaissance**, **Resource Development**, etc.). The threat for a data breach increases as a malware family moves further to the right on the matrix. To learn more, see [What Is Zscaler Breach Predictor?](https://help.zscaler.com/breach-predictor/what-zscaler-breach-predictor)
+
+[Image: The MITRE ATT&CK  Matrix in Zscaler Breach Predictor]
+
+When you click the name of a malware family on the MITRE ATT&CK Mapping page, the Threat page for the malware family opens. The Threat page contains the following tabs:
+
+- Attack path
+- Users
+- Events
+
+On the Attack path tab, you can do the following:
+
+1. Select a different threat family from the drop-down menu.
+2. Specify the time frame for the data on the page.
+3. See high-level information about the selected threat family.
+4. See high-level information about the policy recommendation for the threat.
+5. Click **Update Policy** to see specific Breach Predictor recommendations for policy updates, and [create a Jira ticket](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor) to update the policy.
+6. Go to the **Users** tab to see data about users affected by the threat.
+7. Go to the **Events** tab to see all events related to the threat.
+8. See a generative AI summary of the malware family, including information about its lateral movement in your organization, recommendations for remediation, and information about any related threats.
+9. View the attack path data for the malware family. For the attack path, you can see:
+  - How the malware family has moved or is expected to move through your organization. The chart is organized by threat stage (e.g., **Discover Attack**, **Compromise**, etc.) and by MITRE ATT&CK technique (e.g., **Reconnaissance**, **Resource Development**, etc.). The threat for a data breach increases as a malware family moves further to the right on the matrix. Use the **Event key** to determine the status of the threat's advancement to a particular technique (e.g., **Observed**, **Possible**, or **Predicted**).
+  - You can click **Observed** events to see specific information (e.g., which URLs exposed users to the threat).
+
+[Image: The Attack Path Tab in Zscaler Breach Predictor]
+
+On the Users tab, you can do the following:
+
+1. Go to the **Attack path** tab to see where the threat has moved and is expected to move.
+2. Go to the **Events** tab to see all events related to the threat.
+3. Search for users in your organization to filter the list of users.
+4. View the MITRE ATT&CK data for the users affected by the malware family. For users, you can see:
+  - **User Impacted**: The list of users affected by the selected malware family, including the total number of users affected. Select a user from the list to view all events for the malware family associated with that user. You can sort this column.
+  - **Stage and technique**: The matrix is organized by threat stage (e.g., **Discover Attack**, **Compromise**, etc.) and by MITRE ATT&CK technique (e.g., **Reconnaissance**, **Resource Development**, etc.). The threat for a data breach increases as a malware family moves further to the right on the matrix. To learn more, see [What Is Zscaler Breach Predictor?](https://help.zscaler.com/breach-predictor/what-zscaler-breach-predictor)
+
+[Image: The Users Tab in Zscaler Breach Predictor]
+
+The data presented on the Events tab is nearly identical to the data presented on the Events page. The primary difference between the two is that the Events tab focuses on a single threat, whereas the Events page lets you look at data across multiple threats. The Events tab also provides more information about why Breach Predictor is recommending particular policy updates.
+
+To learn more, see [About Events](https://help.zscaler.com/breach-predictor/about-events).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-profiles","lastmod":"2025-08-02T07:06Z","nid":"1518471"} -->
+## About Profiles
+
+- Source: https://help.zscaler.com/breach-predictor/about-profiles
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Profiles
+- Last modified: 2025-08-02T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor My Profile page.
+
+You can use your profile in the Breach Predictor Portal to see basic information about your username, subscription, organization ID, and the Zscaler Internet Access (ZIA) instance that Breach Predictor is connected to. Additionally, you can integrate Breach Predictor with other applications to expand the functionality available to your organization.
+
+Your profile provides the following benefits and enables you to:
+
+- View basic user and organizational profile information.
+- Integrate Breach Predictor with other applications.
+
+## About the My Profile Page
+
+On the My Profile page (Breach Predictor Portal > My Profile), you can do the following:
+
+- View Basic User and Organizational Information
+- View and Create Integrations with Various Applications
+
+On the **User Detail** tab, you can do the following:
+
+1. Switch to the **Integration** tab.
+2. Log out of the Breach Predictor Portal.
+3. See basic user and organizational information.
+
+[Image: The User Detail Tab in Zscaler Breach Predictor]
+
+On the **Integration** tab, you can do the following:
+
+1. Switch to the **User Detail** tab.
+2. Log out of the Breach Predictor Portal.
+3. See which applications are available for integration with Breach Predictor and configure them.
+
+[Image: The Integration Tab in Zscaler Breach Predictor]
+
+To learn more, see [Integrating Applications with Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-threat-landscape","lastmod":"2025-08-09T07:06Z","nid":"1518466"} -->
+## About the Threat Landscape
+
+- Source: https://help.zscaler.com/breach-predictor/about-threat-landscape
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About the Threat Landscape
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Threat Landscape report.
+
+The Zscaler Breach Predictor Threat Landscape is designed to provide comprehensive information about the wider threat landscape affecting organizations across the globe. The information provided on the Threat Landscape page comes from cutting-edge [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) data and includes millions of results that are maintained in the [Zscaler Threat Library](https://threatlibrary.zscaler.com/).
+
+The Threat Landscape provides the following benefits and enables you to:
+
+- See comprehensive information about the wider threat landscape affecting organizations across the globe.
+- Access the Zscaler Threat Library, which contains millions of results from cutting-edge research by Zscaler ThreatLabz.
+
+## About the Threat Landscape Page
+
+On the Threat Landscape page (Breach Predictor Portal > Threat Landscape), you can do the following:
+
+1. Specify the time frame for the threat data on the page.
+2. Open the **AI Assist** dashboard.
+3. View information about the overall breach probability for your organization.
+4. View a prioritized list of policy recommendations.
+5. View basic information about the threats that [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) has identified as the biggest threats across the globe. Click the name of the threat on any of the tiles to see more detailed information from the [Zscaler Threat Library](https://threatlibrary.zscaler.com/).
+6. Filter the results on the page by the severity of the threat, the policy engine related to the threat, and the product whose logs identified the threat.
+7. Search to filter by threat name or by the signature ID.
+
+[Image: The Threat Landscape View in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-tickets","lastmod":"2025-08-09T07:06Z","nid":"1518476"} -->
+## About Tickets
+
+- Source: https://help.zscaler.com/breach-predictor/about-tickets
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Tickets
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to find tickets and get more information on the Breach Predictor Tickets page.
+
+Tickets let you track requests (known as Request tickets) filed by your organization to make policy updates based on recommendations from Breach Predictor. Additionally, you can use Support tickets to suggest improvements or log software bugs. To see the tickets filed by your organization, you must integrate Breach Predictor with Jira or ServiceNow. To learn more, see [Integrating Applications with Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor).
+
+Tickets provide the following benefits and enable you to:
+
+- Track Request tickets filed with Zscaler Support for policy updates based on Breach Predictor findings and recommendations.
+- Track and log Support tickets filed with Zscaler Support for general improvements and software bugs.
+
+## About the Tickets Page
+
+On the Tickets page (Breach Predictor Portal > Tickets), you can do the following:
+
+- View Request Tickets Logged to Make Policy Updates
+- View and Log Support Tickets Filed by Your Organization
+
+To learn more, see [Requesting Updates in Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor).
+
+On the **Request** tab, you can do the following:
+
+1. Switch to the **Support** tab.
+2. Search for Request tickets in the list.
+3. View details of the Request tickets filed by your organization. For each ticket, you can see:
+  - **Ticket ID**: The Jira number of the Request ticket. You can sort this column.
+  - **Priority**: The ticket priority assigned by Zscaler Support.
+  - **Assignee**: The person to whom the ticket is currently assigned.
+  - **Created Date**: The date the ticket was created.
+  - **Ticket Name**: The unique name of the ticket.
+  - **Status**: The current workflow status of the ticket.
+
+[Image: The Request Tab in Zscaler Breach Predictor]
+
+On the **Support** tab, you can do the following:
+
+1. Switch to the **Request** tab.
+2. Search for Support tickets in the list.
+3. Create a request for a new Support ticket.
+4. View details of the Support tickets filed by your organization. For each ticket, you can see:
+  - **Ticket ID**: The Jira number of the Support ticket.
+  - **Requested**: The date the ticket was requested.
+  - **Description**: The description of the Support ticket.
+  - **Created Date**: The date the Support ticket was created by Zscaler Support.
+  - **Status**: The current workflow status of the ticket.
+
+[Image: The Support Tab in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/about-users","lastmod":"2025-08-09T07:06Z","nid":"1529936"} -->
+## About Users
+
+- Source: https://help.zscaler.com/breach-predictor/about-users
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > About Users
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Users page, which provides specific information about all users affected by malware in your organization.
+
+The Breach Predictor User Threat Profilepage provides a threat profile for the users in your organization. At a high level, the Breach Predictor User Threat Profilepage is designed to give you an overview of how threats are affecting users across your organization, broken down by MITRE ATT&CK stage, department, threat type, and geography. As with other areas in the Breach Predictor Portal, you can easily move from a broad view of groups of users to a more narrow view of individual users.
+
+On the User Threat Profilepage, the Overviewtab lets you quickly see how threats are affecting users at a macro level. You can then use the Users List tab to examine how the threats are affecting individual users. On each tab, you can filter by users and threats.
+
+To learn more, see [Using Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/using-zscaler-breach-predictor).
+
+The User Threat Profile page provides the following benefits and enables you to:
+
+- See a high-level overview of how threats affect the users across your organization.
+- Drill down to see how individual users are affected by each threat.
+
+## About the User Threat Profile Page
+
+The User Threat Profile page (Breach Predictor Portal > Users) contains the following tabs:
+
+- Overview Tab
+- Users List Tab
+
+On the Overview tab, you can do the following:
+
+1. Filter results by **User**and **Threat**.
+2. Specify the time frame for the data on the page.
+3. Open the **AI Assist** dashboard.
+4. Open the **Users List** tab.
+5. View the number of users affected at each stage of the MITRE ATT&CK matrix.
+6. View the number of users at risk in each department.
+7. View the number of users affected by each threat type.
+8. View the number of users at risk by region.
+
+[Image: The Overview Tab on the User Threat Profile Page in Zscaler Breach Predictor]
+
+On the Users List tab, you can do the following:
+
+1. Filter results by **User**and **Threat**.
+2. Specify the time frame for the data on the page.
+3. Open the **AI Assist** dashboard.
+4. Open the **Overview**tab.
+5. Filter the results by country, threat, threat type, and tactic.
+6. Search for users in your organization to filter the results in the table.
+7. View a list of all affected users in your organization and quickly determine high-level details about each threat. You can sort each column in the table, and you can specify the number of results displayed on each page. For users, you can see:
+  - **User**: The name and email address for each affected user.
+  - **Department**: The department to which each affected user belongs.
+  - **Location**: The geographic location of each affected user.
+  - **Device/IP Address**: The device and IP address where each threat was identified.
+  - **Threat**: The name of the threat family affecting each user.
+  - **Threat Type**: The type of threat affecting each user.
+  - **Tactic**: The MITRE ATT&CK tactic achieved or predicted for each affected user.
+
+[Image: The Users List Tab on the User Threat Profile Page in Zscaler Breach Predictor]
+
+You can click the name of any user on the table to open the **User Detail** panel, which contains detailed information about how and when the threat affected each user.
+
+See image.
+
+[Image: The User Detail Panel on the User Threat Profile Page in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/accessing-and-navigating-zscaler-breach-predictor","lastmod":"2025-08-09T07:06Z","nid":"1500441"} -->
+## Accessing and Navigating Zscaler Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Breach Predictor Portal > Accessing and Navigating Zscaler Breach Predictor
+- Last modified: 2025-08-09T07:06Z
+- Summary: Information on Zscaler Breach Predictor and how admins can sign in to and navigate the portal.
+
+This article covers the following topics:
+
+- Completing Prerequisite Tasks
+- Accessing the Zscaler Breach Predictor Portal
+- Navigating the Breach Predictor UI
+- Understanding Maintenance and Upgrades
+
+To learn more about how to use Breach Predictor, see [Using Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/using-zscaler-breach-predictor).
+
+1. License Breach Predictor: Zscaler Breach Predictor is a standalone product that is licensed separately from other parts of the Zscaler ecosystem. To learn more about getting Breach Predictor for your organization, contact your Zscaler Account team.
+2. [Configure Zscaler Internet Access (ZIA)](https://help.zscaler.com/zia/step-step-configuration-guide-zia): To ensure that Zscaler Internet Access (ZIA) logs are available for Breach Predictor, ZIA must be fully configured for your organization. If your organization already uses ZIA, no extra configuration is required for Breach Predictor to access ZIA logs.
+3. [Integrate with third-party applications](https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor): Breach Predictor lets you expand functionality by integrating with multiple third-party applications. For example, you can integrate with Zscaler Sandbox for log data, with Splunk and CrowdStrike Next-Gen SIEM to send event data to your SIEM, or with Jira and ServiceNow to log tickets for policy changes.
+
+1. Sign in to the Authentication Service Landing Page.
+2. Click the **Breach Predictor** tile to access the Breach Predictor Portal. See image.
+
+You are redirected to the Breach Predictor Portal.
+
+Based on your organization's [authentication preference](https://help.zscaler.com/authentication-service/configuring-multi-factor-authentication), sign in to Authentication Service using one of the following methods:
+
+- Password
+- Email One-Time Password (OTP)
+- Security Key or Biometric
+
+1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**. See image.
+2. Click**Next**.
+3. Enter your **Password**and click **Sign In**. See image.
+4. Based on your organization's multi-factor authentication policy, two-factor authentication (2FA) is required. Complete your 2FA to access the Authentication Service landing page. If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+
+If your account is configured with MFA, you can sign in using an email OTP:
+
+1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
+2. Click**Next** and then click **Other Sign-in Options**. See image. The **Sign-in Options** window appears.
+3. In the **Sign-in Options** window, click **Email OTP**. See image.
+4. Enter the OTP sent to your email address and click **Sign In**. The OTP expires after 15 minutes. If the OTP expires or you don't receive an OTP, click **Resend**to receive another OTP after 60 seconds. See image.
+
+1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
+2. Select **Sign-in using Security Key or Biometric**. See image.
+3. Click**Next**.
+4. Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page. If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+
+[Image: Authentication Service login page with blurred Login ID and Remember Me option selected.]
+
+[Image: A screenshot with blurred login ID and displaying password field.]
+
+[Image: A screenshot with blurred login ID, displaying password field and highlighted Other Sign-in Options.]
+
+[Image: Sign-in options window with blurred login ID and highlighted Email OTP option.]
+
+[Image: Login using Email Code window with blurred login ID and displaying placeholder to enter OTP.]
+
+[Image: Authentication Service login page with blurred login ID and Remember Me and Sign-in using Security Key or Biometric options selected.]
+
+[Image: The Authentication Service Landing Page with the Breach Predictor Tile]
+
+From the left-side navigation, you can access the following areas of Breach Predictor:
+
+- Dashboard
+- Findings
+- Users
+- Events
+- Threat Landscape
+- Profile
+- Tickets
+- Theme
+
+From the **Dashboard**, you can use various charts and tables to better understand your Overall Breach Probability score and to assess your organization’s placement within the MITRE ATT&CK framework during a specified period.
+
+To learn more, see [About the Dashboard](https://help.zscaler.com/breach-predictor/about-dashboard).
+
+The **Findings** page provides an overview of the threats that are affecting your organization as a whole. You can see user data by threat stage, department, threat type, and region. You can also drill down to see information about activity by individual users.
+
+To learn more, see [About Users](https://help.zscaler.com/breach-predictor/about-users).
+
+On the **User Threat Profile** page, you can view prioritized data across the MITRE ATT&CK matrix presented in the different tables. As you work with Findings data, you should always work from right to left in the MITRE ATT&CK matrix; as a threat moves further to the right in the matrix, your organization is at a higher risk of a data breach.
+
+To learn more, see [About Findings](https://help.zscaler.com/breach-predictor/about-findings).
+
+The **Events** page provides a view across time of all tracked events in your organization. On the **Events** page, you can use a number of filters (e.g., time frame, threat family, and user) to get a more granular view of the events affecting your organization.
+
+To learn more, see [About Events](https://help.zscaler.com/breach-predictor/about-events).
+
+The **Threat Landscape** page provides an overview of the biggest current security threats according to Zscaler ThreatLabz, the security research arm of Zscaler.
+
+To learn more, see [About the Threat Landscape](https://help.zscaler.com/breach-predictor/about-threat-landscape).
+
+Click **Profile** to see basic information about your username, your license, the Zscaler cloud to which Breach Predictor is connected, and the organization ID for your organization's instance of Zscaler Internet Access (ZIA). Additionally, you can see the various integrations available in your organization (e.g., Jira, CrowdStrike Next-Gen SIEM, and Splunk). You can also log out of Breach Predictor.
+
+To learn more, see [About Profiles](https://help.zscaler.com/breach-predictor/about-profiles).
+
+To specify the UI theme (i.e., dark mode or light mode), click the
+
+**Theme**
+
+toggle.
+
+Because Breach Predictor doesn’t require configuration for new data visibility (e.g., new logs, data sources, etc.), your organization automatically benefits from added functionality. You can stay up to date with Breach Predictor enhancements by tracking [release notes updates](https://help.zscaler.com/breach-predictor/release-notes).
+
+The **Tickets** page lets you view the Jira and ServiceNow tickets that have been created for your organization. The tickets you create are grouped into two categories: Request tickets and Support tickets. Request tickets are created based on the policy recommendations that Breach Predictor provides. Support tickets are created for other improvements that do not involve policy updates.
+
+To learn more, see [About Tickets](https://help.zscaler.com/breach-predictor/about-tickets).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/analyzing-dashboard","lastmod":"2025-08-09T07:06Z","nid":"1518481"} -->
+## Analyzing the Dashboard
+
+- Source: https://help.zscaler.com/breach-predictor/analyzing-dashboard
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Analyzing the Dashboard
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor Dashboard.
+
+The Breach Predictor Dashboard is designed to present the vast amounts of data that Breach Predictor analyzes in an easy-to-understand format so that you have visibility into patterns for the threat activity in your organization. As a result, you're better able to spot trends that are affecting groups of users, instead of focusing on individual user logs. The Dashboard page is meant to be a jumping-off point in the Breach Predictor Portal, providing you a high-level understanding of your organization's overall chances of a security breach.
+
+When you first log in to the Breach Predictor Portal, the Dashboard page is the first thing you see. It consists of the Overall Breach Probability score, prioritized policy recommendations, as well as Observed Users views and a Threat Overview, designed to provide you with an interactive overview of the threats affecting the users in your organization.
+
+To learn more, see [About the Dashboard](https://help.zscaler.com/breach-predictor/about-dashboard).
+
+Data about the malware families affecting your organization is divided into two main sub-pages on the Findings page, designed to provide a progressively greater level of detail:
+
+- Analyzing the Overall Breach Probability Score
+- Analyzing Data in the Observed Users Views
+
+The Overall Breach Probability score is designed to give you an instant read on the likelihood of a breach that can exfiltrate your organization's data. The score factors in your organization's placement in the MITRE ATT&CK matrix, as well as the number of affected users. A higher Overall Breach Probability score indicates a higher risk of a data breach.
+
+As soon as you've determined your Overall Breach Probability score, you can use the charts on the Dashboard page to examine which malware families are affecting the users in your organization.
+
+See image.
+
+[Image: Overall Breach Probability Score in Zscaler Breach Predictor]
+
+The Dashboard consists of two Observed Users views and a Threat Overview view, which provide various charts and graphs of the malware threats affecting your organization. You can specify the time frame for the data you see in the Sankey charts and graphs in each of the available views. As a general rule, you should use the following basic order of operations to examine the chart data. As you gather general information, keep in mind that Breach Predictor provides multiple options to [drill down for more information](https://help.zscaler.com/breach-predictor/analyzing-mitre-attckr-mapping-report).
+
+- Analyzing Data in Observed Users View 1
+- Analyzing Data in Observed Users View 2
+- Analyzing Data in the Threat Overview View
+
+1. In the first **Observed Users** Sankey chart, observe how many users are at risk vs. the total number of users in your organization.
+
+See image.
+
+1. From there, you can click each indicated stage to see how each malware family and malware category maps to each stage. Additionally, the listing for each malware family indicates the number of users affected by that family.
+
+See image.
+
+1. Click the arrow next to the **Observed Users** label to open the second **Observed Users** view.
+
+[Image: Observed Users View 1 in Zscaler Breach Predictor]
+
+[Image: Observed Users View 1 Animated GIF in Zscaler Breach Predictor]
+
+1. In the second **Observed Users** Sankey chart, observe how many users are at risk in your organization, as well as any trends in the number of affected users.
+
+See image.
+
+1. From there, you can click the various data points in the chart to how the stages map to categories, and how categories map to threat families. You can also click the name of a threat family to see the attack path for that family.
+
+See image.
+
+1. Click the arrow next to the **Observed Users** label to open the third **Observed Users** view.
+
+[Image: Observed Users View 2 in Zscaler Breach Predictor]
+
+[Image: Observed Users View 2 Animated GIF in Zscaler Breach Predictor]
+
+1. In the **Threat Overview** view, you see charts and graphs that show more granular detail for the threats affecting your organization.
+
+See image.
+
+1. In each of the charts and graphs, you can click or hover your cursor to see details about each data point. You can click the data in the Sankey and radial charts to open more detailed information in other areas of the Breach Predictor Portal.
+
+See image.
+
+[Image: Observed Users View 3 in Zscaler Breach Predictor]
+
+[Image: Threat Overview View Animated GIF in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/analyzing-events","lastmod":"2025-07-01T14:30Z","nid":"1518491"} -->
+## Analyzing Events
+
+- Source: https://help.zscaler.com/breach-predictor/analyzing-events
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Analyzing Events
+- Last modified: 2025-07-01T14:30Z
+- Summary: How to analyze data and get more information on the Breach Predictor Events page.
+
+Breach Predictor provides multiple options for viewing and analyzing data around the threat events affecting your organization. For policy update recommendations, Breach Predictor shows you the events associated with individual threat families so that you have complete visibility across the MITRE ATT&CK matrix and can anticipate next moves. For that granular view, use the [Findings page](https://help.zscaler.com/breach-predictor/about-findings) to drill down and focus on the events around a particular threat family, and to see the policy updates that Breach Predictor recommends for mitigating each threat.
+
+For a more macro view of threat events, you can use the [Events page](https://help.zscaler.com/breach-predictor/about-events) so that you have visibility across time for multiple threat families simultaneously. By default, Breach Predictor shows events for all threat families and all users. At the top right of the page, you can use the drop-down menu to filter by time period.
+
+See image.
+
+At the top left of the page, you can use the Threat drop-down menu to filter by one or more threat families, and you can use the Users drop-down menu to filter by one or more users in your organization.
+
+See image.
+
+As you select multiple threat families or users, you can hover over each drop-down menu to see the list of options in your filter.
+
+See image.
+
+As you filter by threat family and user, the By Tactics options update to indicate the MITRE ATT&CK tactics associated with the selected threat families. Select a tactic to update the results on the page.
+
+See image.
+
+The Events allowed over time bar chart shows you a high-level view of the threat events that Zscaler identified for each day during the selected time period. To see the total number of events on a particular day, hover over the bar for the day. You can also use the handle on either end of the chart to adjust the events shown on the page.
+
+See image.
+
+In the Events table, you can see basic information for the filtered events during the selected time period. You can also click the column headers to sort the results.
+
+See image.
+
+To see more detailed information about a particular event, click an event in the table to open the Event Detail panel.
+
+See image.
+
+[Image: The Time Frame Drop-Down Menu in Zscaler Breach Predictor]
+
+[Image: The Threat and Users Drop-Down Menus in Zscaler Breach Predictor]
+
+[Image: Selections in the Threat Drop-Down Menu in Zscaler Breach Predictor]
+
+[Image: Filtering Events by Tactic in Zscaler Breach Predictor]
+
+[Image: The Events Allowed Over Time Chart in Zscaler Breach Predictor]
+
+[Image: The Events Table in Zscaler Breach Predictor]
+
+[Image: The Event Detail Panel in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/analyzing-findings","lastmod":"2025-08-09T07:06Z","nid":"1518486"} -->
+## Analyzing Findings
+
+- Source: https://help.zscaler.com/breach-predictor/analyzing-findings
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Analyzing Findings
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to interpret data and get more information on the Breach Predictor MITRE ATT&CK  Mapping Findings.
+
+After you've examined your organization's threat information on the [Dashboard](https://help.zscaler.com/breach-predictor/analyzing-dashboard), you can use the MITRE ATT&CK Mapping Findings page to take a deeper look into specific information about the malware families affecting your users. On the Findings page, you can see detailed information about each malware family affecting your organization, including location on the MITRE ATT&CK matrix, specific users affected by each malware family, and, most importantly, the achieved and expected attack for each malware family.
+
+To open the **Findings** page, click **Findings**in the left-side navigation, or click the **Explore**button on the **Dashboard**page.
+
+To learn more, see [About Findings](https://help.zscaler.com/breach-predictor/about-findings) and [Evaluating a Security Issue with Breach Predictor](https://help.zscaler.com/breach-predictor/evaluating-security-issue-breach-predictor).
+
+Data about the malware families affecting your organization is divided into two main sub-pages on the Findings page, designed to provide a progressively greater level of detail:
+
+- Analyzing Data on the MITRE ATT&CK Mapping Page
+- Analyzing Data on the Threat Page
+
+The MITRE ATT&CK Mapping matrix is the first thing you’ll see on the Findings page. It’s designed to give you insight into all the malware families affecting your organization, and to specifically let you know which families pose the biggest threat. You can use the various toggles and filters to limit the information you see in the MITRE ATT&CK Mapping view. As a general rule, you should use the following basic order of operations to triage the malware family threats in your organization. As you triage threats, Breach Predictor provides multiple options to drill down for more information:
+
+1. Look at results across time: Use the drop-down menu in the upper right of the **Findings**page to specify a time period for the data you see. Start small to check more immediate threats and then expand the search.
+2. Pay close attention to placement on the MITRE ATT&CK matrix: Scroll through the list of malware families and look for indicators that one has moved to the far-right side of the matrix, focusing especially on the techniques in the Lateral Movement and Data Loss stages. If you see an indicator of lateral movement, you can drill down for more information.
+3. Focus on the severity score for each malware family: The score ranges from 1 to 10 and is assigned by [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) to indicate how much harm a malware family can do to your organization. Start with the malware families that have higher severity scores.
+4. Monitor the total number of malware families: After you have triaged the most urgent malware families, work to reduce the total number of malware families affecting your organization.
+
+When you click the name of a threat family in the list on the MITRE ATT&CK Mapping page, the Threat page opens to provide granular detail on the selected threat. The Threat page contains the Attack path, Users, and Events tabs. Perhaps most importantly, the Threat page is where Breach Predictor provides policy update recommendations to preemptively eliminate attack paths in your organization.
+
+- Analyzing Data on the Attack Path Tab
+- Analyzing Data on the Users Tab
+- Analyzing Data on the Events Tab
+
+The Attack path tab is at the heart of Breach Predictor’s advanced visibility and predictive modeling. In this view, you can quickly see the actual lateral movement that a malware family has achieved, as well as where the threat is expected to move next. For stages that a threat family has achieved, you can see at a glance the source of the threat data (e.g., threats identified from CrowdStrike logs are identified by the CrowdStrike logo, threats identified from Zscaler logs are identified by the Zscaler logo, etc.).
+
+See image.
+
+You can use the various toggles and filters to limit the information you see on the page. As a general rule, you should use the following basic order when addressing attack-path data for a malware family:
+
+1. Focus on advanced stages: Determine whether a technique has actually been reached, or whether Breach Predictor is predicting its advancement. Some events are identified as "possible," meaning that they might have happened but were not captured as part of Breach Predictor's threat detection. For threats that have achieved an advanced stage, you must act with urgency to bring the appropriate teams across your organization together to address the issues.
+2. Use the threat source information that Breach Predictor provides to determine which policy updates are necessary: For each attack stage, Breach Predictor provides information about where users encountered the threat. Click **Update Policy** to open the **Recommendation** panel and [create a Jira ticket for policy updates](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor).
+
+See image.
+
+1. Click **AI Assist** to see generative AI information about the threat: The threat summary includes general information from Zscaler ThreatLabz, as well as specific information from Breach Predictor's analysis of the threats posed at each attack stage, including the log source for the threat data.
+
+See image.
+
+[Image: Attack Path Information in Zscaler Breach Predictor]
+
+[Image: Policy Recommendations in Zscaler Breach Predictor]
+
+[Image: AI Assist Option in Zscaler Breach Predictor]
+
+The Users tab is designed to give you a quick overview of all users affected by the selected threat in your organization. Specifically, the Users tab lets you see where the threat is moving or has moved for each affected user:
+
+1. Pay close attention to placement on the MITRE ATT&CK matrix: The **Users**view shows the most advanced MITRE ATT&CK technique either predicted or achieved by the malware family for each affected user. To determine actual MITRE ATT&CK data, look at the attack path. The idea is to focus on the MITRE ATT&CK placement for each user so that you can anticipate and prevent lateral movement to the next technique.
+2. Look at individual data as needed: Click the name of a user in the list to open the **Events** tab to see all events related to the selected threat for the user.
+
+You can use various toggles and filters to limit the information you see on the tab. In this view, you see the events for a particular time frame for a single threat as it relates to a single user. For a broader view of threat activity in your organization, you can open the [Events page](https://help.zscaler.com/breach-predictor/about-events). Breach Predictor provides an easy way to view individual logs, but you should focus on the attack-path data so that you can anticipate and prevent lateral movement to the next MITRE ATT&CK technique. As a general rule, you should use the following basic order of operations to examine user data for a particular malware family:
+
+1. Pay close attention to trends for the user: The **Events**table provides high-level data about each threat event for the selected user. In the table, you can see important information, such as which MITRE ATT&CK technique was achieved, and which URL exposed the user to the threat.
+2. Look at granular data as needed: By clicking an event in the table, you can open the **Event Detail** panel to see specific information about the threat. You can also download the data for the event.
+
+See image.
+
+[Image: An Individual User Log in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/evaluating-security-issue-breach-predictor","lastmod":"2025-06-29T07:06Z","nid":"1500466"} -->
+## Evaluating a Security Issue with Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/evaluating-security-issue-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Evaluating a Security Issue with Breach Predictor
+- Last modified: 2025-06-29T07:06Z
+- Summary: An overview of actions to take when Breach Predictor identifies a threat in your organization.
+
+By analyzing huge amounts of data, Zscaler Breach Predictor can eliminate blind spots and give you a clear picture of the threat landscape across your organization. More importantly, it’s designed to proactively anticipate potential threats, helping to eliminate the noise associated with reactive tools. With Breach Predictor’s early warnings, you can anticipate lateral threat movement before it happens. So it’s important to pay close attention to your organization’s placement on the [MITRE ATT&CK matrix](https://help.zscaler.com/breach-predictor/what-zscaler-breach-predictor#enhanced-attack-visibility).
+
+As you explore Breach Predictor findings, keep in mind that the idea is always the same: work from right to left on the MITRE ATT&CK matrix. As a threat moves further to the right in the matrix, your organization is at a higher risk of a data breach. More specifically, as threats move to the Lateral Movement and Data Loss stages, quick action becomes more essential. You can easily determine whether a technique has actually been reached, or whether Breach Predictor is predicting its advancement. Some events are identified as "possible," meaning that they might have happened but were not captured as part of Breach Predictor's threat detection.
+
+To better understand your company’s placement on the MITRE ATT&CK matrix, see [Analyzing the MITRE ATT&CK Mapping Findings](https://help.zscaler.com/breach-predictor/analyzing-mapping-findings).
+
+The following sections provide general guidance on what to do when Breach Predictor identifies threats in your organization, as well as an overview for each of the major stages of the MITRE ATT&CK framework:
+
+- Basic Steps When a Threat Is Identified at Any Stage
+- Overview: Discover Attack
+- Overview: Compromise
+- Overview: Lateral Movement
+- Overview: Data Loss
+
+1. Look at the Overall Breach Probability score. A higher Overall Breach Probability score indicates movement into critical stages by threat actors, as well as a high number of users who are affected.
+2. Focus attention on the data on the **Attack path** tab on the **Findings** page. Instead of focusing on granular data from individual user logs, maintain a clear view of the bigger security picture by tracking the attack path of each malware family. Use the [Events page](https://help.zscaler.com/breach-predictor/about-events) to gain insight into how multiple threat families are affecting your organization. See image. See image.
+  1. On the **MITRE ATT&CK Mapping** page, look at where the malware family sits on the matrix. In the following example, the smashbrowser malware family shows activity at the **Initial Access** technique in the **Discover Attack** stage.
+  1. Click the **Attack path** tab to determine whether the technique has been observed, or whether it's possible or predicted. In this example, Breach Predictor shows that the smashbrowser malware family has achieved the **Resource Development** and **Initial Access** techniques; however, Breach Predictor predicts the path the smashbrowser malware family is likely to take into other MITRE ATT&CK techniques.
+  1. In this scenario, click the name of the malware family, then click the **Users** tab to open a page that shows specific information about the users affected by the malware family.
+
+See image.
+
+1. Click **Update Policy** to update your policies. With the recommendations that Breach Predictor provides, you can file [Jira Request tickets](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor) for policy updates.
+
+See image.
+
+[Image: Attack Path Data in Zscaler Breach Predictor]
+
+[Image: Malware Family Affected Users in Zscaler Breach Predictor]
+
+[Image: Malware Family Example in Zscaler Breach Predictor]
+
+[Image: The Update Policy Option in Zscaler Breach Predictor]
+
+Placement in the Discover Attack stage indicates that threat actors are surveilling your system by gathering information, scanning systems, and developing resources to infiltrate your network.
+
+The Discover Attack stage includes these MITRE ATT&CK techniques:
+
+- [Reconnaissance](https://attack.mitre.org/tactics/TA0043/)
+- [Resource Development](https://attack.mitre.org/tactics/TA0042/)
+
+Placement in the Compromise stage indicates that threat actors have gained an initial foothold within your network. From there, they can execute code, persist through attempted interruptions, gain root access, and use multiple methods to evade detection.
+
+The Compromise stage includes these MITRE ATT&CK techniques:
+
+- [Initial Access](https://attack.mitre.org/tactics/TA0001/)
+- [Execution](https://attack.mitre.org/tactics/TA0002/)
+- [Persistence](https://attack.mitre.org/tactics/TA0003/)
+- [Privilege Escalation](https://attack.mitre.org/tactics/TA0004/)
+- [Defense Evasion](https://attack.mitre.org/tactics/TA0005/)
+
+Placement in the Lateral Movement stage indicates that a threat actor is actively attempting to gain access to account names and passwords, is performing different types of discovery on your network, might start moving more rapidly laterally to later techniques, and has begun to collect data from your network and resources. When threat actors have achieved this stage, your organization is dangerously close to a full data breach.
+
+The Lateral Movement stage includes these MITRE ATT&CK techniques:
+
+- [Credential Access](https://attack.mitre.org/tactics/TA0006/)
+- [Discovery](https://attack.mitre.org/tactics/TA0007/)
+- [Lateral Movement](https://attack.mitre.org/tactics/TA0008/)
+- [Collection](https://attack.mitre.org/tactics/TA0009/)
+
+When your organization is identified as being in the Data Loss stage, you are in danger of a data breach and must take action immediately. At this stage, threat actors are trying to communicate with compromised systems, steal data, and control or destroy your systems and data.
+
+The Data Loss stage includes these MITRE ATT&CK techniques:
+
+- [Command and Control](https://attack.mitre.org/tactics/TA0011/)
+- [Exfiltration](https://attack.mitre.org/tactics/TA0010/)
+- [Impact](https://attack.mitre.org/tactics/TA0040/)
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/integrating-applications-zscaler-breach-predictor","lastmod":"2025-08-09T07:06Z","nid":"1518496"} -->
+## Integrating Applications with Zscaler Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Administration > Integrating Applications with Zscaler Breach Predictor
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to integrate applications to gain more functionality in Zscaler Breach Predictor.
+
+Breach Predictor uses integrations with various applications to provide added functionality and visibility. To integrate an application with Breach Predictor:
+
+1. [Access the Breach Predictor Portal](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor#signing-in-breach-predictor).
+2. Go to **Profile** > **Integration**.
+3. Select an integration type:
+  - SIEM Integrations
+  - Ticketing Integrations
+  - Zscaler Integrations
+4. Click **Connect**.
+
+You can send event data from Breach Predictor to security information and event management (SIEM) applications (e.g., CrowdStrike Next-Gen SIEM and Splunk) to remediate threats. Because Breach Predictor ingests and analyzes vast amounts of Zscaler and third-party data, sending event data from Breach Predictor to your SIEM application lets you take direct action on threats with a holistic view of your organization's threat landscape.
+
+You can share Breach Predictor data with the following SIEM applications:
+
+- CrowdStrike Next-Gen SIEM
+- Splunk
+
+With the integration configured, every new event that occurs on the tenant is sent automatically to your SIEM application.
+
+- Jira
+- ServiceNow
+
+- Sandbox
+
+Upon successful integration, Breach Predictor sends all available event data to your SIEM provider. Because the default data-retention period for CrowdStrike Next-Gen SIEM ranges from 7 to 14 days, any event data sent from Breach Predictor that is outside of the retention period will not be available in CrowdStrike Next-Gen SIEM. To increase the data-retention period, you must contact your CrowdStrike account team.
+
+To integrate Breach Predictor with CrowdStrike Next-Gen SIEM, you need to create a connector with a JSON parser that allows Breach Predictor to share event data:
+
+1. Log in to CrowdStrike Falcon using your admin credentials.
+2. In the left-side navigation, go to **Next-Gen SIEM** > **Data onboarding**.
+
+See image.
+
+The **Connections** page opens.
+
+1. On the **Connections** page, click **Add connection**.
+
+See image.
+
+The **Data connectors** window opens.
+
+1. In the **Data connectors** window, click **Configure**.
+
+See image.
+
+1. Configure the connection settings as needed, ensuring that you select **json (Generic Source)** as the **Parser** type, then click **Create connection**.
+
+The **Connections** page opens and the new connection appears in the list.
+
+1. Locate the new connection in the list and open the **Actions** menu in the **Actions** column.
+2. Select **Generate API key** from the list.
+
+See image.
+
+The **Connection setup** window opens.
+
+1. In the **Connection setup** window, copy the **API key** and **API URL** values separately and save them for later use.
+
+See image.
+
+1. In the Breach Predictor Portal, click **Profile** > **Integration**.
+
+The **Integration** page opens.
+
+1. On the tile for CrowdStrike Next-Gen, click **Connect**.
+
+The **Integrate CrowdStrike Next-Gen** window opens.
+
+1. In the **Integrate CrowdStrike Next-Gen** window:
+  - **URL**: Enter the **API URL** value you copied earlier.
+  - **Token**: Enter the **API key** value you copied earlier.
+
+[Image: Selecting the Data Onboarding Option in CrowdStrike Falcon]
+
+[Image: Selecting the Add Connection Option in CrowdStrike Falcon]
+
+[Image: Selecting the Configure Option for a New Connector in CrowdStrike Falcon]
+
+[Image: Selecting the Generate API Key Option in CrowdStrike Falcon]
+
+[Image: Copying the API Key and API URL on the Connection Setup in CrowdStrike Falcon]
+
+To integrate Breach Predictor with Splunk, you need to create a custom index and an HTTP Event Collector (HEC) token to allow Breach Predictor to share event data. Creating a custom index to hold Breach Predictor data is a best practice that allows for better search results and more efficient data retrieval. If you don't create and specify an index, Splunk will use a pre-existing index to hold Breach Predictor data.
+
+To integrate Breach Predictor with Splunk:
+
+1. Log in to your Splunk Enterprise tenant as an administrator.
+2. Click **Settings** > **Indexes**.
+
+See image.
+
+The **Indexes** page opens.
+
+1. On the **Indexes** page, click **New Index**.
+
+The **New Index** window opens.
+
+1. In the **New Index** window:
+  - **Index Name**: Specify a unique name for the index (i.e., `breachpredictorevents`).
+  - **Index Data Type**: Select **Events**.
+  - Configure other settings as needed. To learn more, refer to the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/9.4.2/Indexer/Setupmultipleindexes#Create_events_indexes_2).
+2. Click **Save**.
+
+See image.
+
+1. Click **Settings** > **Data Inputs** > **HTTP Event Collector**.
+
+The **HTTP Event Collector** page opens.
+
+1. On the **HTTP Event Collector** page, click **New Token**.
+
+The **Add Data** page opens.
+
+1. On the **Add Data** > **Select Source** page, specify a unique name for the token, as well as other settings as needed, then click **Next**.
+2. On the **Add Data** > **Input Settings** page, select the index you created earlier, then click **Review**.
+3. On the **Add Data** > **Review** page, review the settings for the token and then click **Submit**.
+
+The **New Search** page opens with the information for the token.
+
+1. Click **Settings** > **Data Inputs** > **HTTP Event Collector**.
+
+The **HTTP Event Collector** page opens.
+
+1. In the **Token Value** column, click **Copy** for the HEC you created. Save this value for later use in the Breach Predictor Portal.
+2. In the Breach Predictor Portal, click **Profile** > **Integration**.
+
+The **Integration** page opens.
+
+1. On the tile for Splunk, click **Connect**.
+
+See image.
+
+The **Integrate Splunk** window opens.
+
+1. In the **Integrate Splunk** window:
+  - **URL**: Enter the URL for your Splunk tenant. Because Breach Predictor shares event data in JSON format, you must append an endpoint parameter to the URL so that Splunk can properly receive JSON-formatted events (e.g., `/services/collector/event`). To learn more, refer to the [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/9.4.2/Data/UsetheHTTPEventCollector#Send_data_to_HTTP_Event_Collector_on_Splunk_Cloud_Platform).
+  - **Token**: Enter the token value for the HEC that you copied earlier.
+  - **Index**: Enter the unique name of the index you created earlier.
+
+[Image: Selecting the Indexes Option in Splunk Web]
+
+[Image: Selecting the Connect Option on the Splunk Integration Tile in Breach Predictor]
+
+[Image: Configuring a New Index in Splunk Web]
+
+1. On the **Jira** tile, click **Connect**.
+
+The **Integrate Jira** window appears.
+
+1. In the **Integrate Jira** window: See image.
+  - **Domain Key**: Enter the Jira domain assigned to your organization.
+  - **Token Key**: Enter the Jira token that allows Breach Predictor to access the Jira domain assigned to your organization.
+
+To receive the **Domain Key** and **Token Key** for your organization, contact your Zscaler Account team.
+
+[Image: The Integrate Jira Window in Zscaler Breach Predictor]
+
+1. On the **Sandbox** tile, click **Connect**.
+
+The **Integrate Sandbox** window appears.
+
+1. In the **Integrate Sandbox** window, enter the **Secret Key**. This token allows Breach Predictor to access the Zscaler Sandbox tenant assigned to your organization.
+
+See image.
+
+To receive the **Secret Key** for your organization, contact your Zscaler Account team.
+
+[Image: The Integrate Sandbox Window in Zscaler Breach Predictor]
+
+1. On the **ServiceNow** tile, click **Connect**.
+
+The **Integrate ServiceNow** window appears.
+
+1. In the **Integrate ServiceNow** window: See image.
+  - **Domain Key**: Enter the ServiceNow domain assigned to your organization.
+  - **Token Key**: Enter the ServiceNow token that allows Breach Predictor to access the ServiceNow domain assigned to your organization.
+
+To receive the **Domain Key** and **Token Key** for your organization, contact your Zscaler Account team.
+
+[Image: The Integrate ServiceNow Window in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/release-upgrade-summary-2025","lastmod":"2025-02-03T12:20Z","nid":"1516011"} -->
+## Release Upgrade Summary (2025)
+
+- Source: https://help.zscaler.com/breach-predictor/release-upgrade-summary-2025
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Release Notes > Release Upgrade Summary (2025)
+- Last modified: 2025-02-03T12:20Z
+- Summary: Breach Predictor Release Upgrade Summary for service updates deployed in 2025.
+
+This article provides a summary of all new features and enhancements for Breach Predictor.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/requesting-updates-zscaler-breach-predictor","lastmod":"2025-08-02T07:06Z","nid":"1518501"} -->
+## Requesting Updates in Zscaler Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Administration > Requesting Updates in Zscaler Breach Predictor
+- Last modified: 2025-08-02T07:06Z
+- Summary: How to create Jira and ServiceNow tickets for updates to Zscaler Breach Predictor.
+
+You can create two types of tickets in Breach Predictor: Request tickets and Support tickets. Request tickets are based on Breach Predictor policy update recommendations and are created from the [Findings page](https://help.zscaler.com/breach-predictor/about-findings). Breach Predictor uses its extensive threat information to analyze your existing policies (i.e., File Type Control, SSL Inspection, URL Filtering, etc.) and suggests policy updates based on that analysis. Breach Predictor automatically populates the ticket request with specific information about the threat family involved, its placement on the MITRE ATT&CK matrix, and the policies that require updates.
+
+Support tickets cover updates that don't involve policy changes (i.e., suggestions or problems with the software). You can create a request for a Support ticket directly from the Support tab on the Tickets page, and Zscaler Support uses the information you provide to create a ServiceNow ticket as needed.
+
+Ticket creation in Breach Predictor requires that you [integrate Breach Predictor with Jira and ServiceNow](https://help.zscaler.com/breach-predictor/integrating-applications-zscaler-breach-predictor). After integration, you can access instances of Jira and ServiceNow where you can see more specific details about each ticket. The Breach Predictor Tickets page provides high-level details about each ticket, with a link that opens your instance of Jira or ServiceNow in a separate browser tab.
+
+- Creating a Request Ticket for a Policy Update
+- Submitting Information for a Support Ticket
+
+You can view any Request or Support tickets that have been opened for your organization on the [Tickets page](https://help.zscaler.com/breach-predictor/about-tickets).
+
+1. Go to **Breach Predictor Portal** > **Findings**.
+2. On the **Findings** page, on the **MITRE ATT&CK Mapping** page, click the name of a threat family.
+
+See image.
+
+The **Threat** page opens.
+
+1. On the **Threat** page, click **Update Policy**.
+
+See image.
+
+The **Recommendation** panel opens.
+
+1. In the **Recommendation** panel, review the policy recommendations, then click **Create Ticket**.
+
+See image.
+
+The **Create New Ticket from policy recommendation** panel opens.
+
+1. In the **Create New Ticket from policy recommendation** panel, review the policy recommendations, select the policies to update, provide a name and details for the ticket, then click **Create**.
+
+See image.
+
+1. In the **Confirm Update** window, click **Confirm**.
+
+See image.
+
+The ticket is created and you can track its progress on the **Request** tab on the **Tickets** page.
+
+[Image: A Threat Name in Zscaler Breach Predictor]
+
+[Image: The Update Policy Option in Zscaler Breach Predictor]
+
+[Image: Creating a Jira Ticket in Zscaler Breach Predictor]
+
+[Image: Policy Recommendation Details in Zscaler Breach Predictor]
+
+[Image: The Confirm Option for a Support Ticket in Zscaler Breach Predictor]
+
+1. Go to **Breach Predictor Portal** > **Tickets**.
+2. On the **Tickets** page, on the **Support** tab, click **Create**.
+
+See image.
+
+The **Create New Ticket** panel opens.
+
+1. In the **Create New Ticket** panel, in the **Describe your issue** field, enter information about the update you're requesting.
+
+See image.
+
+1. Click **Submit**.
+
+The ticket information appears in the table. A Zscaler Support team member will follow up with more information and a ticket number if a ticket is created.
+
+[Image: Creating a Support Ticket in Zscaler Breach Predictor]
+
+[Image: The Describe Your Issue Field for a Support Ticket in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/understanding-breach-predictor","lastmod":"2025-08-09T07:06Z","nid":"1500436"} -->
+## Understanding Zscaler Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/understanding-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Understanding Zscaler Breach Predictor
+- Last modified: 2025-08-09T07:06Z
+- Summary: A high-level explanation of how Zscaler Breach Predictor works.
+
+Zscaler Breach Predictor represents a fundamental shift in approach, from a security posture focused on alerts and reactivity to one focused on proactively addressing threats based on predictability of attacks. Breach Predictor is designed to supplement, rather than replace, reactive security tools.
+
+Reactive tools provide necessary urgency for imminent threats. But one of the main problems with a reactive approach is that you’re typically responding to multiple alerts from multiple products, all based on an event that’s already happened. By that point, the threat has already moved ahead to other stages. With Breach Predictor’s predictive intelligence, you can shore up your problem policies now so that threats don't move to the next stage.
+
+Fundamentally, Breach Predictor is designed to give your organization more time to make informed decisions, instead of being pressured to act quickly based on an accumulation of alerts. Breach Predictor provides threat context and information about the specific policies that enabled the activity to occur, enabling Security Operations Center (SOC) teams to make changes based on policy visibility and recommendations.
+
+Breach Predictor works by consuming and analyzing vast amounts of data from multiple sources and then using that analysis to provide visibility, recommendations, and reduced remediation time to improve your overall security posture. The following illustration provides a high-level overview of how Breach Predictor works:
+
+See image.
+
+At a high level, Breach Predictor uses the following basic workflow to identify and map threats:
+
+- 1. Track substantial amounts of data from multiple sources.
+- 2. Use generative AI to analyze data.
+- 3. Draw conclusions to provide visibility and guidance.
+
+Breach Predictor’s intuitive UI presents a large amount of data in an easy-to-understand format, from the Overall Breach Probability score to provide an immediate assessment of your organization’s threat landscape, to Sankey charts and MITRE ATT&CK findings tables to provide specific information about user vulnerability and the malware families present in your organization.
+
+To learn more about how to navigate the different areas of Breach Predictor, see [Accessing and Navigating Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor).
+
+To achieve its predictive intelligence, Breach Predictor examines a large amount of data from an array of sources:
+
+- Logs from Zscaler Internet Access (ZIA), Zscaler Sandbox, and CrowdStrike
+- Threat intelligence from [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) that is focused on building attack indicators
+- Existing policy recommendations based on peers and best practices
+
+[Image: Illustration of How Zscaler Breach Predictor Works]
+
+Breach Predictor uses generative AI to analyze vast amounts of data to determine patterns and behaviors, recognizing new threats and Indicators of Compromise (IoCs) emerging in your environment. It also provides probability for where threats will move so that you can take meaningful action to stop threats and prevent future attacks.
+
+Breach Predictor is designed to provide easy-to-understand visibility and guidance based on its analysis of disparate data sources, providing clarity at a level that might otherwise be missed.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/using-ai-assist-dashboard","lastmod":"2025-08-09T07:06Z","nid":"1529941"} -->
+## Using the AI Assist Dashboard
+
+- Source: https://help.zscaler.com/breach-predictor/using-ai-assist-dashboard
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Alerts & Remediation > Using the AI Assist Dashboard
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to analyze data and get more information on the Breach Predictor AI Assist Dashboard.
+
+To learn more about getting access to this feature, contact your Zscaler Account team.
+
+The Breach Predictor AI Assist dashboard provides a flexible and intuitive way to gain insight into your organization's threat landscape. Powered by multiple Breach Predictor AI agents, the AI Assist dashboard draws on AI and machine learning analysis of vast amounts of data from multiple log sources, peer best practices, current policy settings, third-party integrations, and cutting-edge threat data from [Zscaler ThreatLabz](https://threatlabz.zscaler.com/), the security research arm of Zscaler.
+
+The AI Assistdashboard is a dynamic piece of the Breach Predictor Portal, and the information available to you is customized specifically for your organization. This article walks you through a basic use case for analyzing information provided on the dashboard.
+
+On any screen in the Breach Predictor Portal, you can click AI Assist to open the dashboard:
+
+See image.
+
+At the top of the AI Assist dashboard, you see the status of the Breach AI Agents that are actively monitoring and analyzing threats across your organization:
+
+See image.
+
+The agents monitor specific areas across your organization:
+
+- **Detection**: This agent detects threats across your organization.
+- **Context**: This agent provides additional details about specific threats (e.g., affected users, assets, etc.).
+- **Triage**: This agent triages the threats in your organization to provide an initial verdict and confidence level for each threat.
+- **Response**: This agent responds to each threat, and provides next steps to address threats.
+- **Third-Party Integrations**: This agent monitors the third-party applications you've integrated with Breach Predictor and helps you perform tasks based on those integrations (e.g., log a policy update ticket in Jira, etc.).
+
+The AI Assist dashboard greets you with customized recommendations to address the most urgent security threats facing your organization.
+
+See image.
+
+On each recommendation, you can drill down to see more information. For example, you can click the Top Response Actions tile to see a prioritized list of recommended policy updates from the Response Agent.
+
+See image.
+
+To return to the AI Assist splash page, click the + icon in the left-side navigation:
+
+See image.
+
+On each of the pages in the AI Assist dashboard, you can click one of the suggested prompts to get more information, or you can enter your own question in the text box. The prompts change dynamically based on the current screen you're viewing and the primary AI agent being engaged. You can also provide feedback (i.e., thumbs up and thumbs down) to help Breach Predictor's AI agents learn more and refine their responses.
+
+See image.
+
+Additionally, many pages in the AI Assist dashboard contain links to other areas of the Breach Predictor Portal that let you drill down to find details about a user, activity, or threat. In the following example, a request for AI triage information about the CobaltStrike threat family provides extensive evidence and justification about Breach Predictor's findings for the threat, as well as a link to the Findings page in the Breach Predictor Portal to find even more information about CobaltStrike.
+
+See image.
+
+To learn more about how Breach Predictor identifies threats, see [Understanding Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/understanding-breach-predictor). To learn more about how to navigate the Breach Predictor Portal, see [Accessing and Navigating Zscaler Breach Predictor.](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor)
+
+[Image: The AI Assist Button in Zscaler Breach Predictor]
+
+[Image: The Breach AI Agents Bar in Zscaler Breach Predictor]
+
+[Image: The Splash Page of the AI Assist Dashboard in Zscaler Breach Predictor]
+
+[Image: Top Response Actions in the Zscaler Breach Predictor AI Assist Dashboard]
+
+[Image: The Return button on the Zscaler Breach Predictor AI Assist Dashboard]
+
+[Image: The prompts available on the Zscaler Breach Predictor AI Assist Dashboard]
+
+[Image: Triage information in the Zscaler Breach Predictor AI Assist Dashboard with a link to the Findings page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/using-zscaler-breach-predictor","lastmod":"2025-08-09T07:06Z","nid":"1500446"} -->
+## Using Zscaler Breach Predictor
+
+- Source: https://help.zscaler.com/breach-predictor/using-zscaler-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > Using Zscaler Breach Predictor
+- Last modified: 2025-08-09T07:06Z
+- Summary: How to use Zscaler Breach Predictor to prevent data breaches in your organization.
+
+This guide takes you through the basic high-level steps for how to use Zscaler Breach Predictor and provides links to more information. Because Breach Predictor uses data from other Zscaler tools, you should familiarize yourself with how Zscaler Internet Access (ZIA) and Zscaler Sandbox work so that you can better understand the log data that Breach Predictor uses to identify threats to your organization. Additionally, as a major part of its predictive intelligence, Breach Predictor relies on the MITRE ATT&CK framework to give you a clear picture of your overall security posture. Zscaler recommends reading the following articles before you begin using Breach Predictor:
+
+- [Understanding the ZIA Cloud Architecture](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture)
+- [About Sandbox](https://help.zscaler.com/zia/about-sandbox)
+- [Integrating with CrowdStrike](https://help.zscaler.com/zia/integrating-crowdstrike)
+- [MITRE ATT&CK Overview](https://attack.mitre.org/)
+
+To use Zscaler Breach Predictor, complete the following steps:
+
+- Step 1: Ensure Completion of Prerequisite Tasks
+- Step 2: Assess the Security Threats to Your Organization
+- Step 3: Use Breach Predictor Findings to Remediate with Policy Recommendations
+
+Before using Breach Predictor, ensure that you've completed prerequisite tasks and that you can log in to the Breach Predictor Portal. To learn more, see [Accessing and Navigating Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor).
+
+Breach Predictor uses easy-to-understand charts and tables to give you visibility into vast amounts of threat data across your organization. As you navigate the Breach Predictor Portal, you can use the interconnected data points to easily switch from macro to micro views of the data (e.g., clicking a threat family name on the **Dashboard** page takes you to the **Events** page with information about that particular threat family). You can use the following basic workflow to assess your threat risk:
+
+- Evaluate Your Overall Breach Probability Score and Prioritized Recommendations
+- Determine How Far Attacks Have Progressed
+- Examine Data from Users at Risk
+- Determine the Attack Path for Malware Families Present in Your Organization
+- Use ThreatLabz Research to Assess the Overall Threat Landscape
+
+To learn more, see [Accessing and Navigating Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/accessing-and-navigating-zscaler-breach-predictor).
+
+After you've examined the Breach Predictor data for your organization, you might need to remediate policies (e.g., File Type Control, SSL Inspection, URL Filtering, etc.). As you plan for remediation, you should always work from right to left in the MITRE ATT&CK matrix. As a threat moves further to the right in the matrix, your organization is at a higher risk of a data breach. Use the policy recommendations provided by Breach Predictor to log Jira tickets for policy updates.
+
+To learn more, see [Requesting Updates in Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/requesting-updates-zscaler-breach-predictor) and [Evaluating a Security Issue with Breach Predictor](https://help.zscaler.com/breach-predictor/evaluating-security-issue-breach-predictor).
+
+On the **Dashboard** page, use the Overall Breach Probability score for an instant determination of the overall likelihood of a breach in your environment. Additionally, Breach Predictor provides a list of the highest-value policy updates based on imminent threats to your organization.
+
+On the **Dashboard**page, use the various charts and tables to assess your organization’s placement within the MITRE ATT&CK framework during the period you specify.
+
+To learn more, see [Analyzing the Dashboard](https://help.zscaler.com/breach-predictor/analyzing-dashboard).
+
+On the **Findings** page, you can see information about the malware families affecting your organization, as well as information about each user affected by each family. On the **Users** page, you can see the overall user information by department, threat type, and region. You can also drill down to see data for each user.
+
+Also on the **Findings** page, use attack-path data to help you interpret what your threat placement means, and to determine whether a threat has already achieved a particular technique or whether its movement to that technique is probable or just possible.
+
+On the **Threat Landscape** page, view cutting-edge data from [Zscaler ThreatLabz](https://threatlabz.zscaler.com/) about the biggest current security threats affecting customers across the globe.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/breach-predictor/what-zscaler-breach-predictor","lastmod":"2025-08-02T07:06Z","nid":"1500431"} -->
+## What Is Zscaler Breach Predictor?
+
+- Source: https://help.zscaler.com/breach-predictor/what-zscaler-breach-predictor
+- Product: Breach Predictor
+- Path: Breach Predictor Help > Getting Started > What Is Zscaler Breach Predictor?
+- Last modified: 2025-08-02T07:06Z
+- Summary: How Zscaler Breach Predictor works and fits in with other products in the Zscaler ecosystem.
+
+The average time it takes a threat actor to move laterally beyond the point of compromise decreases every year. As a result, reactive breach response is no longer a practical strategy. To combat data breaches, Security Operations Center (SOC) teams must be proactive and have the ability to understand how threats propagate so that threat actors can be stopped preemptively. Breach Predictor is an essential part of your overall security ecosystem, anticipating threats, providing you context about those threats, and helping prevent threat actors from accessing sensitive data in your organization.
+
+Breach Predictor protects your organization by providing:
+
+- Enhanced Attack Visibility
+- Proactive Breach Risk Reduction
+- Improved Security Posture
+
+In fact, Breach Predictor not only simplifies your toolset, but it is specifically designed to take pressure off of your SOC teams and your organization as a whole by predicting where threats will move so that you aren't addressing incidents and vulnerabilities after they've happened, and by giving you comprehensive visibility across your security landscape.
+
+The following illustration provides a high-level look at the value Breach Predictor brings to your organization:
+
+See image.
+
+To learn more about how to use Breach Predictor, see [Using Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/using-zscaler-breach-predictor) and [Understanding Zscaler Breach Predictor](https://help.zscaler.com/breach-predictor/understanding-breach-predictor).
+
+[Image: Illustration of the Zscaler Breach Predictor Value Proposition]
+
+Breach Predictor leverages the power of machine learning to bring real-time insights into threat activity impacting users in your organization, mapped to the MITRE Adversarial Tactics, Techniques, and Common Knowledge (ATT&CK) framework techniques. Breach Predictor ingests and analyzes vast amounts of Zscaler and third-party data to provide actionable insights.
+
+The Breach Predictor Dashboard uses various charts and graphs to give you a high-level overview, with options to drill down to see log information on individual user activities as part of a larger whole. The main Sankey chart focuses on how many of your users are at risk, and tells you which threats are affecting them and which stage of an attack they are likely in (Discover Attack, Compromise, Lateral Movement, or Data Loss).
+
+The most prominent part of the Breach Predictor Dashboard is the Overall Breach Probability score, which gives you instant insight into your organization’s security posture. The score takes into account the number of observed malware families, their location on the MITRE ATT&CK matrix, and the number of affected users. A higher score indicates a higher probability that a breach will occur in your organization. To learn more, see [About the Dashboard](https://help.zscaler.com/breach-predictor/about-dashboard).
+
+On the Findings page, you can quickly see all threats affecting your organization, placed in the MITRE ATT&CK Mapping matrix. Breach Predictor uses the MITRE ATT&CK framework to provide a more granular set of techniques that fit within the traditional 4 stages of attack. This framework lets you see more precisely your current attack stage location, as well as where a threat is expected to move. The basic idea is that the further right you move on the MITRE ATT&CK matrix, the closer you are to a data breach. Breach Predictor lets you see the current position of a threat, as well as where it’s headed, so that you can preemptively fix policy issues. To learn more, see [About Findings](https://help.zscaler.com/breach-predictor/about-findings).
+
+The following table shows how MITRE ATT&CK techniques map to the 4 main stages of attack:
+
+| Attack Stages | MITRE ATT&CK Techniques |
+| --- | --- |
+| Discover Attack | [Reconnaissance](https://attack.mitre.org/tactics/TA0043/) [Resource Development](https://attack.mitre.org/tactics/TA0042/) |
+| Compromise | [Initial Access](https://attack.mitre.org/tactics/TA0001/) [Execution](https://attack.mitre.org/tactics/TA0002/) [Persistence](https://attack.mitre.org/tactics/TA0003/) [Privilege Escalation](https://attack.mitre.org/tactics/TA0004/) [Defense Evasion](https://attack.mitre.org/tactics/TA0005/) |
+| Lateral Movement | [Credential Access](https://attack.mitre.org/tactics/TA0006/) [Discovery](https://attack.mitre.org/tactics/TA0007/) [Lateral Movement](https://attack.mitre.org/tactics/TA0008/) [Collection](https://attack.mitre.org/tactics/TA0009/) |
+| Data Loss | [Command and Control](https://attack.mitre.org/tactics/TA0011/) [Exfiltration](https://attack.mitre.org/tactics/TA0010/) [Impact](https://attack.mitre.org/tactics/TA0040/) |
+
+Breach Predictor leverages AI-powered breach probability scoring and policy recommendations to preemptively eliminate attack paths, lowering your organization’s overall risk. It lets you quickly and easily analyze vast amounts of data from multiple log sources, peer best practices, current policy settings, and cutting-edge threat data from [Zscaler ThreatLabz](https://threatlabz.zscaler.com/), the security research arm of Zscaler.
+
+When Breach Predictor identifies a problem, the interface lets you address the issue more effectively by focusing on the attack path instead of on individual users. That way, you don’t get bogged down in granular data and can make adjustments that protect your organization as a whole. For example, suppose a large number of users are accessing a suspect URL. Instead of focusing on individual data because of individual alerts, Breach Predictor identifies the attack path and aggregates all users impacted by the attack and exposed at a particular URL.
+
+See image.
+
+[Image: Illustration of Proactive Breach Reduction in Zscaler Breach Predictor]
+
+Breach Predictor eases burdens on SOC workflows by providing context for each threat, how many users the threat has impacted, and any updates that might need to be made to your organization's existing policies. Breach Predictor isn’t meant to replace reactive security tools; instead, it’s designed to work in tandem with those tools to improve visibility and communication across your organization.
+
+Perhaps your SOC team doesn’t normally focus on security issues at a policy level, opting instead to concentrate on higher-level operations activities so that engineering can focus on policy work. However, adversaries don't confine themselves to specific boundaries, and the ever-evolving security landscape requires that security teams take the same approach. Bad actors are looking for any vulnerability to exploit, so your security tools must give you a complete view across your organization.
+
+By linking predictive modeling with policy visibility and recommendations, Breach Predictor helps bridge the gap between operations and engineering, encouraging improved communication with fewer silos. With traditional detection, you respond to an intruder who is already in your environment. With Breach Predictor, your team won’t spend as much time reacting to individual alerts; instead, you can focus on proactively anticipating and cutting off your adversaries’ next moves. Breach Predictor can help your SOC team develop an overarching strategy to avoid reactivity and deal with issues at the root level so that operational solutions are more effective.
+
+See image.
+
+[Image: Illustration of Improved Security Posture in Zscaler Breach Predictor]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/about-asset-inventory","lastmod":"2024-11-29T06:06Z","nid":"1503566"} -->
+## About Asset Inventory
+
+- Source: https://help.zscaler.com/easm/about-asset-inventory
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Inventory > About Asset Inventory
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on Asset Inventory in Zscaler External Attack Surface Management (EASM), including asset discovery, risk assessment, and inventory management features.
+
+Asset Discovery and Inventory are core functionalities of EASM that enable scanning the internet for identifying exposed assets and inventorying them periodically to provide actionable insights into the organization's external attack surface. The scanning process starts with one or more legitimate assets of the organization configured as seeds. The initial scan of the seeds brings up assets that are directly associated with the seeds, forming the first level of connections. Then the first level of connections are scanned to discover the second level of linked assets, and so on. This process of recursively scanning assets from each level of connection to the seed leads to the discovery of exposed assets sprawling up to the periphery of the organization's asset infrastructure with the seed at the center of the web of connections, ultimately mapping the attack surface of the organization. To learn more, see [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery).
+
+Asset Inventory provides the following benefits and enables you to:
+
+- Continuously scan and index internet-facing assets to maintain a detailed inventory of your organization's external attack surface, enabling proactive identification and monitoring of potentially vulnerable assets.
+- Leverage risk insights associated with each discovered asset to prioritize risk mitigation efforts, ensuring that your organization addresses the most critical vulnerabilities effectively and efficiently.
+
+All assets discovered through the scanning process are indexed, inventoried, and populated on the Assets page. Following the discovery process, the assets are investigated to identify the risks and vulnerabilities associated with them, and these risk insights are populated for the respective assets for further examination and risk mitigation. Furthermore, the assets are continuously monitored through periodic scans, and any changes in the asset's status and risk exposure are reflected on the Assets page.
+
+## About the Assets Page
+
+On the Assets page, you can do the following:
+
+1. View the list of assets discovered by EASM for your organization. For each asset, you can view:
+  - **Name**: An identifier for the asset sourced from the scan. Depending on the type of asset, this field might contain a domain name, host name, IP address or IP block, web page URL, autonomous system number (ASN), or certificate ID.
+  - **Type**: The type of the asset classified as Domain, Host, Web Page, Certificate, ASN, IP Address, or IP Block.
+  - **Risk Level**: The risk level assigned to the asset from Minimum, Low, Medium, High, and Critical.
+  - **Findings Count**: The number of risk findings that are identified and tracked for the asset.
+  - **Status**: The status of the asset represented by the values Approved, Candidate, and Archived, indicating the relationship status between the asset and the organization for determining whether the asset must be included in subsequent scans.
+  - **First Seen**: The timestamp when the asset was first discovered in a scan.
+  - **Last Seen**: The timestamp when the asset was last observed in a scan.
+  - **UUID**: A Universally Unique Identifier (UUID) generated and assigned to the asset by EASM.
+2. [Click an asset record to view comprehensive details about the asset and its associated risk insights](https://help.zscaler.com/easm/understanding-asset-details).
+3. [Filter the asset data based on specific parameters such as Status, Risk Level, Last Seen, and Type](https://help.zscaler.com/easm/filtering-customizing-assets-page).
+4. [Modify the table and its columns](https://help.zscaler.com/easm/filtering-customizing-assets-page).
+5. [Download the list of all assets for the selected organization into a CSV file](https://help.zscaler.com/easm/downloading-assets).
+6. Search for an asset by name.
+7. Select a different organization for which you want to view the asset inventory details. The default organization is automatically selected when the Assets page is accessed.
+8. View the timestamp when the asset inventory details were last updated.
+
+[Image: The Assets page in EASM showing the assets discovered and inventoried for the selected organization]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/about-discovery-profiles","lastmod":"2024-11-29T06:06Z","nid":"1503556"} -->
+## About Discovery Profiles
+
+- Source: https://help.zscaler.com/easm/about-discovery-profiles
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Discovery > About Discovery Profiles
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on Discovery Profiles in Zscaler External Attack Surface Management (EASM) to control asset discovery and manage organizational attack surfaces.
+
+EASM requires you to configure seed assets to initiate the scan for discovering your internet-facing assets. The seeds are known legitimate assets of your organization that are used as the first and central node in a series of asset connections that are discovered across your online asset infrastructure using recursive scanning, including assets that might otherwise be unknown or left unmonitored. While setting up asset discovery, EASM allows you to configure seeds by creating a discovery profile. A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. To learn more, see [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery).
+
+Discovery profiles provide the following benefits and enable you to:
+
+- Configure discovery profiles with specific seed assets to tailor your attack surface mapping, ensuring all internet-facing assets—including those that might be overlooked—are identified and monitored effectively.
+- Manage discovery and asset inventory for different entities within your organization (such as subsidiaries or business verticals) separately, allowing for more organized and efficient management of each entity’s unique attack surface.
+
+In addition, EASM allows you to set up [organizations](https://help.zscaler.com/easm/creating-managing-organizations) to help keep your attack surface discovery and inventory management separate for distinct entities, such as parent companies, subsidiaries, acquisitions, or business verticals that are part of your business enterprise. For each organization, you can configure distinct discovery profiles by configuring seeds using known legitimate assets of that specific organization.
+
+## About the Discovery Profiles Page
+
+On the Discovery Profiles page (Administration > Organization > [Organization Name]), you can do the following:
+
+1. [Create a new discovery profile.](https://help.zscaler.com/easm/creating-managing-discovery-profiles) Currently, only one discovery profile can be configured for an organization. When a discovery profile is added, the **Add New Discovery** button disappears.
+2. View the list of discovery profiles configured for the organization. For each discovery profile, you can see:
+  - **Name**: The name of the discovery profile.
+  - **Included Seeds**: The seeds that are included in the asset scan performed via the discovery profile.
+  - **Last Scan**: The timestamp when the last scan was performed via the discovery profile.
+  - **Duration**: The time taken for the last discovery scan to run to completion.
+  - **Frequency**: The frequency of asset scan.
+  - **Status**: The status of the discovery profile indicating whether it is enabled or disabled.
+3. [Edit a discovery profile or modify its status.](https://help.zscaler.com/easm/creating-managing-discovery-profiles)
+4. [Delete a discovery profile that has already been disabled.](https://help.zscaler.com/easm/creating-managing-discovery-profiles)
+5. Modify the table and its columns.
+6. Go to the **Included Seeds** tab.
+
+[Image: The Discovery Profile page with a list of discovery profiles added for an organization in EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/about-findings","lastmod":"2024-11-29T06:06Z","nid":"1503591"} -->
+## About Findings
+
+- Source: https://help.zscaler.com/easm/about-findings
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Findings > About Findings
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on Risk Findings in Zscaler External Attack Surface Management (EASM), including identifying vulnerabilities, tracking risks, and accessing detailed insights.
+
+EASM scans the internet to identify and track your organization's internet-facing assets and the risks associated with them to provide a comprehensive view into your organization's external attack surface. Following the discovery process, the assets are investigated to identify the risks associated with them, such as undetected vulnerabilities, misconfigurations, and compliance violations. The risk parameters identified in the assets are populated in the EASM Admin Portal as findings along with actionable insights and recommendations for individual findings. This enables you to take corrective measures to eliminate threats and vulnerabilities by prioritizing risks that impact business-critical assets or operations.
+
+Findings provide the following benefits and enable you to:
+
+- Gain comprehensive insights on vulnerabilities, misconfigurations, and compliance violations associated with your internet-facing assets, allowing you to prioritize corrective actions for the most critical risks that could impact your organization's operations.
+- Access detailed insights, including risk scores, threat severity, and remediation recommendations, to effectively address vulnerabilities and strengthen your organization's security posture against potential threats.
+
+The findings include a range of asset-based risks and vulnerabilities. Examples of risk findings include but are not limited to Common Vulnerabilities and Exposures (CVEs), TLS/SSL misconfigurations or outdated versions, expired digital certificates, domain registration expiration, exposed VPN appliances, insecure HTTP headers, internet-facing sensitive services (e.g., RDP, VNC, SSH, Telnet, SNMP). EASM provides insightful information into these findings and how to remediate risks in the associated assets. In addition, it provides extensive information on vulnerabilities, such as the threat severity, likelihood of exploitation, a risk score computed for the finding, comprehensive details on the origin of the vulnerability, exploitation mechanisms, impact level, and recommendations for risk remediation obtained from multiple sources, and more. You can access all of this information centrally from the Findings page on the EASM Admin Portal.
+
+For a summary of your findings based on key metrics, see [Insights Overview dashboard](https://help.zscaler.com/accessing-interacting-insights-overview-dashboard).
+
+## About the Findings Page
+
+On the Findings page (Insights > Findings), you can do the following:
+
+1. View the list of risk findings associated with the assets inventoried for the selected organization. For each finding, you can view:
+  - **Name**: An identifier for the finding sourced from the scan or assigned by EASM in some cases. Depending on the type of finding, this field can contain a wide variety of identifiers, such as CVE ID, VPN, Self-Signed Certificate, etc.
+  - **Category**: The category assigned to the finding from Exposure, Misconfiguration, and Vulnerability.
+  - **Status**: The status assigned to the finding from Not Verified, Verified, Disputed, Risk Accepted, and Resolved.
+  - **Risk Score**: A computed risk score for the finding by Zscaler based on multiple vectors such as threat severity, likelihood, and impact.
+  - **Impacted Asset**: The asset in which the finding was detected during the scan.
+  - **First Seen**: The timestamp when the finding was first identified in a scan.
+  - **Last Seen**: The timestamp when the finding was last observed in a scan.
+2. [Click a finding record to view comprehensive details about the finding.](https://help.zscaler.com/easm/understanding-finding-details)
+3. [Filter the findings data based on specific parameters such as Status, Risk Level, Last Seen, Category, and Type.](https://help.zscaler.com/easm/filtering-customizing-findings-page)
+4. [Modify the table and its columns.](https://help.zscaler.com/easm/filtering-customizing-findings-page)
+5. [Download the list of all findings tracked in the assets associated with the selected organization into a CSV file.](https://help.zscaler.com/easm/downloading-findings)
+6. Search for a finding by name.
+7. Select a different organization for which you want to view the findings. The default organization is automatically selected when the Findings page is accessed.
+8. View the timestamp when the findings data was last updated.
+
+[Image: Findings page in EASM that shows a list of risk findings associated with the assets discovered as part of the organization's attack surface]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/about-findings-impact","lastmod":"2026-01-16T06:06Z","nid":"1534119"} -->
+## About Findings Impact
+
+- Source: https://help.zscaler.com/easm/about-findings-impact
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Findings > About Findings Impact
+- Last modified: 2026-01-16T06:06Z
+- Summary: Information on EASM findings' return of investment (ROI), asset impact, and asset coverage.
+
+EASM ascertains the risk impact and the associated financial implications for each finding and expresses it as the Return on Investment (ROI) score to help organizations prioritize findings with substantial financial benefits for risk remediation. The ROI score provides a quantifiable measure of risk reduction and cost savings that can be achieved by remediating high-priority threats and vulnerabilities. The ROI score is computed based on factors that can quickly and efficiently reduce the attack surface, such as the assets affected by a finding, their risk level, and asset coverage percentage, using techniques designed by Zscaler's security research team, Threatlabz.
+
+Findings impact assessment provides the following benefits and enables you to:
+
+- Identify and prioritize findings based on quantified financial impact to minimize breach risk and avoid associated costs.
+- Increase operational efficiency and support regulatory compliance by enabling proactive remediation of high-priority threats.
+
+Findings with the highest ROI scores are highlighted on the Insights dashboard for greater visibility. To learn more, see [Accessing & Interacting with the Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard).
+
+## About the Findings Impact Page
+
+On the Findings Impact page (Insights > Findings Impact), you can do the following:
+
+1. View the timestamp of when the findings data was last updated.
+2. Select the organization for which you want to view the findings and their ROI scores. The default organization is automatically selected when you access this page.
+3. Search for a finding by name.
+4. View the list of risk findings and their computed ROI scores. For each finding, you can view: You can sort the table entries by the **Finding Name** and **ROI** columns.
+  - **Finding Name**: An identifier for the finding obtained from the asset scan or, in some cases, assigned by EASM. Depending on the type of finding, this field can contain a variety of identifiers, such as CVE ID, VPN name, certificate number, or HTTP header vulnerability names.
+  - **ROI**: The ROI calculated for the finding, on a scale of 1 to 10 (a higher ROI indicates that the risk remediation must be prioritized immediately).
+  - **Impacted Assets**: The number of assets that are affected by this finding.
+  - **Coverage**: The percentage of overall assets in the network that are affected by this finding.
+5. Click a finding name to view comprehensive information about the finding on the [Finding Details page](https://help.zscaler.com/easm/understanding-finding-details).
+
+[Image: Findings Impact page with Return on Investment (ROI) score, impacted assets, and asset coverage.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/about-lookalike-domains","lastmod":"2025-12-16T06:14Z","nid":"1508141"} -->
+## About Lookalike Domains
+
+- Source: https://help.zscaler.com/easm/about-lookalike-domains
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Lookalike Domains > About Lookalike Domains
+- Last modified: 2025-12-16T06:14Z
+- Summary: Information about lookalike or phishing domains detected for an organization's legitimate domains by EASM.
+
+As part of the asset discovery process that maps out your organization's digital attack surface, EASM identifies and tracks lookalike domains that are fraudulent or fake domains intentionally created by threat actors to mimic your legitimate domains. These domains, often used in phishing and other malicious activities, leverage domain-spoofing techniques to act under the guise of being a trusted source and deceive users into downloading malware or revealing sensitive information. EASM detects domains that resemble the seed domains that you configured via a [discovery profile](https://help.zscaler.com/easm/about-discovery-profiles).
+
+Lookalike domain detection provides the following benefits and enables you to:
+
+- Identify lookalike or phishing domains associated with your organization's legitimate domains and implement threat mitigation controls.
+- Safeguard your customers and employees from phishing domains and other forms of cyberattack, protect your brand identity, and prevent financial loss from cyberattacks.
+
+## About the Lookalike Domains Page
+
+On the Lookalike Domains page (Insights > Lookalike Domains), you can do the following:
+
+1. View the timestamp when the lookalike domain data was last updated.
+2. Select the required organization from the drop-down menu to view the lookalike domains detected for the organization. The default organization is automatically selected when you access the Lookalike Domains page.
+3. [Filter the lookalike domain data based on specific parameters such as Status, Exposure Score, Risk Category, and Deception Method.](https://help.zscaler.com/easm/filtering-customizing-lookalike-domains-page)
+4. Search for a lookalike domain by name.
+5. [Download the list of all lookalike domains tracked for your seed domains associated with the selected organization into a CSV file.](https://help.zscaler.com/easm/downloading-lookalike-domains)
+6. View the list of lookalike domains that are detected for your seed domains configured for the selected organization. For each lookalike domain, you can view:
+  - **Lookalike Domain**: The lookalike domain name.
+  - **Original Domain**: The legitimate domain impersonated by the lookalike domain.
+  - **Risk Category**: The risk categorization of the lookalike domain. Categories are Verified Phishing, Registered Lookalike, and Preventative Lookalike.
+  - **Risk Score**: A risk score computed for the lookalike domain on a scale of 1 to 100 (a higher score represents higher risk) based on various factors, such as the deception method used, graphical similarity between the original and lookalike domain, domain registration status, and identification of malicious and potentially phishing domain.
+  - **Deception Method**: The deception tactic used in the lookalike domain name to impersonate a legitimate domain. Examples of deception techniques include the use of homograph (i.e., by exploiting similar-looking characters or homoglyphs), substituting letters with numbers, hyphenation, intentional typos, or transposing letters.
+  - **Status**: The status assigned to the lookalike domain entry. Statuses are Not Verified, Verified, Risk Accepted, Resolved, and Disputed.
+  - **First Seen**: The timestamp when the lookalike domain was first identified in a scan.
+  - **Last Seen**: The timestamp when the lookalike domain was last observed in a scan.
+  - **Registered**: The registration status of the lookalike domain through a domain name registrar.
+  - **Registered By**: An individual or entity responsible for registering the lookalike domain, if available.
+7. [Modify the table and its columns.](https://help.zscaler.com/easm/filtering-customizing-lookalike-domains-page)
+8. [Click a lookalike domain record to view comprehensive details about the entity.](https://help.zscaler.com/easm/understanding-lookalike-domain-details)
+
+When EASM detects phishing lookalike domains, an alert icon appears on the Lookalike Domains tab in the left-side navigation. See image.
+
+[Image: The Lookalike Domains page in the EASM Admin Portal]
+
+[Image: Phishing lookalike domain alert displayed in the left-side navigation]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/about-role-management","lastmod":"2025-04-22T22:16Z","nid":"1503616"} -->
+## About Role Management
+
+- Source: https://help.zscaler.com/easm/about-role-management
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Administration > About Role Management
+- Last modified: 2025-04-22T22:16Z
+- Summary: Information on Role Management in Zscaler External Attack Surface Management (EASM) for assigning user roles and managing access permissions.
+
+EASM supports role-based access control (RBAC), allowing you to assign specific permissions and privileges to users for managing [EASM organizations](https://help.zscaler.com/easm/creating-managing-organizations) according to their roles. You can create tailored administrator roles with the necessary access permissions for specific EASM organizations and assign these roles to designated users.
+
+Role Management provides the following benefits and enables you to:
+
+- Enhance security with RBAC by granting users access only to the specific data and features needed for their roles, minimizing the risk of unauthorized access and ensuring compliance with security policies.
+- Simplify and streamline user permission management by enabling administrators to quickly create, assign, and customize roles, ensuring that access levels are consistently aligned with organizational requirements.
+
+While role management is supported in the EASM Admin Portal, role assignment to users takes place in Zscaler's centralized identity management platform, ZIdentity. To learn more, see [Managing Entitlements](https://help.zscaler.com/zidentity/managing-entitlements) and [Assigning Entitlements to Users and User Groups](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups#admin-entitlements).
+
+## About the Role Management Page
+
+On the Role Management page (Administration > Role Management), you can do the following:
+
+1. [Add an administrator role.](https://help.zscaler.com/easm/creating-managing-roles)
+2. View the list of administrator roles configured. For each role, you can view the following information:
+  - **Name**: The name of the administrator role.
+  - **Permissions**: The permissions to the EASM Admin Portal (Full Access or View Only) configured for the role.
+  - **Organizations**: The list of custom EASM organizations that are within the scope of the role.
+  - **Description**: Additional information about the role.
+3. [Edit or delete configured administrator roles.](https://help.zscaler.com/easm/creating-managing-roles) If you have view-only permission to the organization, a **View** icon appears instead.
+4. Search for an administrator role.
+
+[Image: Role management page in EASM]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/accessing-and-navigating-easm-admin-portal","lastmod":"2024-11-29T06:06Z","nid":"1503626"} -->
+## Accessing and Navigating the EASM Admin Portal
+
+- Source: https://help.zscaler.com/easm/accessing-and-navigating-easm-admin-portal
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Getting Started > Admin Portal > Accessing and Navigating the EASM Admin Portal
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to sign in to the EASM Admin Portal and navigate the features and functionalities.
+
+This article covers the following topics:
+
+- Signing in to the EASM Admin Portal
+- Accepting the End User Subscription Agreement (EUSA)
+- Navigating within the EASM Admin Portal
+
+When an EASM tenant is provisioned for your organization, a user account with the super admin role is created. This account allows you to access all functionalities and features in the EASM Admin Portal. Zscaler sends you an email with details such as the URL to access the EASM Admin Portal along with your login ID. Use the details in the email to complete your account registration. The registration process involves accessing the EASM Admin Portal through the provided link and configuring the authentication credentials for your account. This authentication flow also applies to the other administrator users that are configured with access to the EASM Admin Portal.
+
+You must complete the registration within the stipulated time mentioned in your email.
+
+The following steps are required to sign in to the EASM Admin Portal for all administrators added to the portal.
+
+To sign in to the EASM Admin Portal for the first time and complete your account registration:
+
+1. Click the Setup link sent via the email. This takes you to a password creation page served by Authentication Service, Zscaler's unified identity service that centralizes identity management, user authentication, and entitlement assignment for users to Zscaler services.
+2. On the **Create a Password** page: See image. This password is configured for Authentication Service through which you can centrally access all the supported Zscaler services.
+  1. **New Password**: Enter a password.
+  2. **Confirm New Password**: Re-enter the password to confirm.
+3. Click **Next** to continue.
+4. On the **Multi-Factor Authentication** page, select one of the following authentication methods as your second factor of authentication, then click **Set Up**: See image. Optionally, you can skip configuring MFA if your Authentication Service configuration allows it until a period of time and enroll later using the **Enroll Second Factor** button on the Welcome page. However, Zscaler recommends that all user accounts are enrolled for MFA for enhanced security. Your account is created, and the account details are displayed as shown in the following image. See image.
+  - Security Key or Biometric
+  - Google Authenticator
+  - Phone OTP
+  - Email OTP
+5. Click **Continue**. The Authentication Service Landing Page appears.
+6. On the Authentication Service Landing Page, click the **External Attack Surface Management** tile to access the EASM Admin Portal. See image.
+
+To sign in to the EASM Admin Portal subsequently after the initial login:
+
+1. Go to the [Authentication Service Landing page](https://help.zscaler.com/zidentity/accessing-and-navigating-zidentity-landing-page).
+2. Enter your login ID. Select the **Remember me** checkbox if you want the service to autofill your login ID information in subsequent sessions from the same device. See image.
+3. Click **Next**.
+4. Enter your password and click **Sign In**. See image.
+5. Depending on the second method of authentication configured, you are prompted to enter one of the following credentials to complete the sign-in process:
+  - Security Key or Biometric
+  - Google Authenticator
+  - Phone OTP
+  - Email OTP
+
+If you want to use a temporary alternative method to sign in without having to enter a password or the second factor authentication details, click **Other Sign-in Options** on the Password screen and select **Email OTP**. An OTP is sent to the email address configured for your account. Enter the OTP and click **Verify** to sign in your account. This option is supported only if you have configured MFA.
+
+See image.
+
+If you want to reset your password, click **Having trouble signing in?** > **Reset Password** to receive a password reset email. To configure a different method of authentication for MFA, click **Having trouble signing in?** > **Reset Second Factor** to receive an email with instructions to reset your second method of authentication a. The reset link within the email expires after 5 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/zidentity/resetting-login-credentials-or-mfa).
+
+See image.
+
+When administrators log in to the EASM Admin Portal for the first time, an EUSA is displayed. You need to accept the EUSA to start using the features in the EASM Admin Portal.
+
+You can access the EUSA anytime on the [Zscaler website](https://www.zscaler.com/legal/end-user-subscription-agreement).
+
+The EASM Admin Portal contains the following items in the left-side navigation:
+
+- Dashboard
+- Insights
+- Assets
+- Administration
+- Log Out
+
+See image.
+
+To configure a security key or biometric:
+
+1. When you click **Set Up**, a list of all Fast Identity Online 2 (FIDO2) supported methods available for your devices is displayed. FIDO2 is a set of protocols developed by the FIDO Alliance to provide the most secure passwordless authentication methods. The services, such as Windows Hello, YubiKey, etc., register and certify their security devices with FIDO2 to cater to their customers.
+2. Select one of the methods from the list to set up a security key or biometric authentication.
+3. Follow the instructions displayed on your screen to complete the set up.
+
+To set up Google Authenticator:
+
+1. Follow the steps shown on the screen and then click **Next**.
+2. In the **Google Authenticator Verification Code** field, enter the verification code that you see in the Google Authenticator and click **Verify**.
+
+To set up SMS one-time password (OTP):
+
+1. **Country**: Select the country of your phone number.
+2. **Phone Number**: Enter the phone number on which you want to receive the OTP and click **Send OTP via SMS**.
+3. **Enter SMS OTP**: Enter the OTP received on your phone and click **Verify**. The OTP is valid for two minutes. If it expires, click **Back** and then **Send OTP via SMS** to request a new one.
+
+You also have the option to go back and modify your number before verification. Currently, the SMS OTP option is only supported for phone numbers from India and the USA.
+
+Your second-factor authentication is configured as **Email OTP** as soon as you click **Set Up**. An email OTP is sent to your official email address during your login attempts as part of your secondary authentication.
+
+See image.
+
+Enter your security key or complete the biometric authentication.
+
+Enter the one-time verification code generated and shown on your Google Authenticator.
+
+Enter the **Country** and **Phone Number** and click **Request Code**. Enter the one-time password (OTP) received on your phone number and click **Verify**. The OTP expires after two minutes. If the OTP expires or if you don't receive an OTP, click **Resend** to receive another OTP after 60 seconds.
+
+Enter the OTP received at your email address and click **Verify**. The OTP expires after two minutes. If the OTP expires or if you don't receive an OTP, click **Resend** to receive another OTP after 60 seconds.
+
+Click the **Dashboard** drop-down menu to select between **Insights Overview** and **Assets Overview**. These dashboards provide a high-level summary of your organization's risk findings and asset inventory in graphical representations for a quick and easy interpretation of the data by adjusting the parameters as needed.
+
+To learn more, see [Understanding Dashboards](https://help.zscaler.com/easm/understanding-dashboards).
+
+Click the **Insights** drop-down menu to select between **Findings** and **Lookalike Domains**. The **Findings** page provides a cataloged list of risk findings associated with the assets attributed to your organization through EASM's discovery and inventory processes, along with critical information about the findings. The **Lookalike Domains** page provides a tabulated list of phishing domains detected for your legitimate domains. You can access detailed information about individual risk findings and lookalike domains from the repective pages.
+
+To learn more, see [About Findings](https://help.zscaler.com/easm/about-findings) and [About Lookalike Domains](https://help.zscaler.com/easm/about-lookalike-domains).
+
+Click **Assets** to view a tabulated list of all the internet-exposed assets linked to your organization along with critical information about each asset, such as the asset type, risk level, number of risk findings detected in the asset, when the asset was first and last seen, and more. You can access detailed information about each asset and its risk findings from this page.
+
+To learn more, see [About Asset Inventory](https://help.zscaler.com/easm/about-asset-inventory).
+
+Click the **Administration** drop-down menu to select from the following menu items displayed:
+
+- **Organization**: Add your organization and set up a discovery profile to scan and inventory the internet-facing assets that are linked to your organization. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
+- **Role Management**: Configure role-based access control to assign specific access permissions and privileges for users to organizations. To learn more, see [About Role Management](https://help.zscaler.com/easm/about-role-management).
+
+Click **Log Out** to sign out of the EASM Admin Portal. Users are automatically logged out of the portal after 1 hour of inactivity.
+
+[Image: Setting up EASM account by creating a password]
+
+[Image: Configure multi-factor authentication (MFA) for EASM account for enhanced security)]
+
+[Image: EASM account details displayed after completing authentication setup]
+
+[Image: EASM account sign-in page with login ID entered]
+
+[Image: EASM account sign-in process using password]
+
+[Image: EASM account sign-in using email OTP]
+
+[Image: EASM account additional sign-in options]
+
+[Image: EASM account authentication credentials reset]
+
+[Image: ZIdentity landing page to access EASM]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/accessing-interacting-assets-overview-dashboard","lastmod":"2024-11-29T06:06Z","nid":"1503536"} -->
+## Accessing & Interacting with the Assets Overview Dashboard
+
+- Source: https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Dashboards & Analytics > Accessing & Interacting with the Assets Overview Dashboard
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on interacting with the Assets Overview Dashboard in Zscaler External Attack Surface Management (EASM), including accessing and using widgets to monitor and manage asset risks and vulnerabilities.
+
+The Assets Overview dashboard has a collection of interactive widgets that present information on the assets based on various parameters, such as risk level, risk score, trend, distribution across geographic locations, sensitive information exposure via hostnames, distribution of SSL/TLS versions on the assets, etc. using appropriate graphical visualizations. It provides a consolidated view of your organization's exposed assets, highlighting the most vulnerable and risky assets to help you prioritize safeguarding business-critical assets and taking appropriate risk remediation steps. In addition to interacting with the widgets to visualize the data in the desired representation, you can click on individual data points to examine them in depth.
+
+## Accessing the Dashboard
+
+To access the Assets Overview dashboard, go to Dashboard > Assets Overview Dashboard in the EASM Admin Portal. The information presented in the Assets Overview dashboard corresponds to your organization selected on the top-right corner. You can use this drop-down menu to select the organization for which you want to view the dashboard. You can also see the timestamp when the current data displayed on the dashboard has been updated.
+
+## Interacting with Dashboard Widgets
+
+The Assets Overview dashboard includes the following widgets:
+
+- Asset Count by Type
+- Assets by Risk Level
+- Assets Over Time by Risk Level
+- Top Locations by Assets
+- Top 5 Assets by Revealing Hostnames
+- Top 5 Assets by Risk Level
+- Distribution of SSL/TLS Versions
+
+This widget provides information about the different classifications of assets used by Zscaler EASM and the asset distribution across the classifications. The following asset classifications are available:
+
+- Domains
+- Hosts
+- Web Pages
+- Certificates
+- ASNs
+- IP Addresses
+- IP Blocks
+
+For each asset type, you can view the number of assets within that type. You can click the count for a specific asset type to get a filtered, tabulated view of the corresponding assets on the [Assets page](https://help.zscaler.com/easm/about-asset-inventory), where you can drill down on each asset for detailed information.
+
+See image.
+
+This widget provides information on how the assets are distributed across different risk levels such as minimal, low, medium, high, and critical. The categorization of assets based on risk levels enables you to efficiently handle risk remediation by prioritizing the assets based on criticality and allocating appropriate resources. It also helps you quickly assess the overall level of risk exposure based on the volume of assets across risk levels. The risk level assigned to an asset is based on the risk score generated for the asset.
+
+Mapping Between Risk Level and Risk Score
+
+This widget includes a bar chart that plots the number of assets against risk levels. You can hover over each bar to view the number of assets assigned with a specific risk level. Furthermore, you can click each bar to get a filtered, tabulated view of the corresponding assets on the [Assets page](https://help.zscaler.com/easm/about-asset-inventory), where you can drill down on each asset for detailed information.
+
+See image.
+
+| Risk Level | Risk Score Range |
+| --- | --- |
+| Minimal | 0 |
+| Low | 1–39 |
+| Medium | 40–69 |
+| High | 70–89 |
+| Critical | 90–100 |
+
+This widget provides information about the trends of asset exposure over a specific period of time using a line graph that plots the number of assets against specific timelines. You can customize the information shown by this graph using the following options:
+
+- Select the time frame for which the trend is shown using the time filter on the top-right corner of the widget from last 7 days, last 30 days, last 90 days, and last 180 days.
+- Select a risk level using the checkbox at the bottom to view the trend of the assets assigned with that specific risk level. You can select multiple risk levels simultaneously to view the corresponding trends together.
+
+When customizing the graph for a time frame greater than the last 7 days, you can view the assets count for specific days by hovering over the line to the specific day.
+
+See image.
+
+This widget provides a worldwide proportional symbols map that plots the geographical regions or countries with the number of exposed assets attributed to your organization. The size of each circle visually represents the number of assets in each region relative to others; larger circles indicate more assets compared to regions represented by smaller circles.
+
+You can view the exact number of assets in a specific region by hovering over or clicking the region or the country on the map. In addition, the list of countries where the assets are located along with the number of assets for each country is shown on the left pane of the widget.
+
+See image.
+
+This widget provides the list of top 5 assets with hostnames containing revealing information that might inadvertently benefit attackers by exposing valuable information about your asset infrastructure. For example, hosts with names that are revealing of the asset's functionality or purpose, exposing the network topology, describing the application type, indicating static IP addresses, etc. might all be valuable information to a bad actor potentially looking to exploit an organization's exposed assets.
+
+The data in this widget is presented in a tabular form and the following information is available for each asset:
+
+- **Name**: The name of the asset with potentially revealing information.
+- **Impact Level**: The impact level of the information revealed in the hostname, which correlates with potential disclosed functionality of the asset. The top 5 assets are determined based on the highest level of impact and are listed on a decreasing order of magnitude.
+
+You can click an entry to view the asset and its related discoveries on the [Assets page](https://help.zscaler.com/easm/about-asset-inventory). For example, if you click a domain named `api.unlockedai.com`, any subdomains identified for the domain would also be listed on the Assets page. Also, if the domain is classified as both a web page and a host, both entries would be listed on the Assets page, and you can drill down on each entry to view detailed information about the asset and the specifics related to the asset type. You can also click **View All Assets** on the top-right corner of the widget to view the complete list of assets on the Assets page.
+
+See image.
+
+This widget provides the list of top 5 assets with the highest risk score. The data is presented in a tabular form and the following information is available for each asset:
+
+- **Name**: The name of the asset.
+- **Risk Score**: A risk score computed for the asset based on the findings that are associated with the asset.
+
+You can click an entry to view the asset and its related discoveries on the [Assets page](https://help.zscaler.com/easm/about-asset-inventory). For example, if you click a domain named `api.unlockedai.com`, any subdomains identified for the domain would also be listed on the Assets page. Also, if the domain is classified as both a web page and a host, both entries would be listed on the Assets page, and you can drill down on each entry to view detailed information about the asset and the specifics related to the asset type. To view the complete list of all assets, click **View All Assets** on the top-right corner of the widget and this takes you to the Assets page.
+
+See image.
+
+This widget provides a donut chart representing the percentage of SSL/TLS versions distributed across the assets discovered.
+
+Connections are only tested for the following SSL/TLS versions:
+
+- **SSL Versions**: 2.0 and 3.0
+- **TLS Versions**: 1.0, 1.1, 1.2, and 1.3
+
+You can hover over a specific area to view the number of connections using that specific SSL/TLS version, with the total number of connections shown in the center of the chart.
+
+See image.
+
+[Image: A widget providing information about the different classifications of assets in EASM's Assets Overview dashboard]
+
+[Image: A widget provides information on how the assets are distributed across different risk levels in EASM's Assets Overview dashboard]
+
+[Image: A widget providing information about the trends of asset exposure over time in EASM's Assets Overview dashboard]
+
+[Image: A widget showing a map of top locations with assets attributed to your organization in EASM's Assets Overview dashboard]
+
+[Image: A widget showing the list of top 5 assets with hostnames containing revealing information in EASM's Assets Overview dashboard]
+
+[Image: A widget providing the top 5 assets with the highest risk score in EASM's Assets Overview dashboard]
+
+[Image: A donut chart representing the percentage of SSL/TLS versions distributed across the assets discovered in EASM's Assets Overview dashboard]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/accessing-interacting-insights-overview-dashboard","lastmod":"2025-12-16T06:17Z","nid":"1503526"} -->
+## Accessing & Interacting with the Insights Overview Dashboard
+
+- Source: https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Dashboards & Analytics > Accessing & Interacting with the Insights Overview Dashboard
+- Last modified: 2025-12-16T06:17Z
+- Summary: Information on the Insights Overview Dashboard in Zscaler EASM, including accessing and utilizing interactive widgets to monitor risk findings and vulnerabilities.
+
+The Insights Overview dashboard has a collection of interactive widgets that present information on risk findings based on various parameters, such as their risk level, exposure, trend, type, distribution across geographic locations, certificate expiration, etc. using appropriate graphical visualizations. This dashboard provides a consolidated view of the risk findings and lookalike domains for your organization, highlighting the most critical and sensitive findings to enable you to identify them easily and take necessary action. In addition to interacting with the widgets to visualize the data in the desired representation, you can click on individual data points to examine them in depth.
+
+## Accessing the Dashboard
+
+To access the Insights Overview dashboard, go to Dashboard > Insights Overview Dashboard in the EASM Admin Portal. The information consolidated on the dashboard corresponds to your organization selected in the top-right corner. You can use this drop-down menu to select the organization for which you want to view the dashboard. You can also see the timestamp when the current data displayed on the dashboard has been updated.
+
+## Interacting with Dashboard Widgets
+
+The Insights Overview dashboard includes the following widgets:
+
+- Top 5 Findings by ROI
+- Distribution of Findings by Risk Level
+- Findings Over Time by Risk Level
+- Findings Percentage by Category
+- Top 5 Lookalike Domains by Exposure
+- Top 5 Exposed VPN Appliances
+- Top Locations by Findings
+- Top 5 Findings by Risk Level
+- Exposed Sensitive Services
+- SSL/TLS Certificate Expiration
+- Domain Registration Expiration
+
+This widget provides a list of the top 5 risk findings for an organization that have the highest Return on Investment (ROI) score. EASM ascertains the risk impact and the associated financial implications for each finding and expresses these factors as the Return on Investment (ROI) score. The ROI score provides a quantifiable measure of risk reduction and cost savings to help organizations prioritize findings for risk remediation. The ROI score is computed based on factors that can quickly and efficiently reduce the attack surface, such as the assets affected by a finding, their risk level, and asset coverage percentage.
+
+The data is presented in a tabular form, and the following information is available for each finding:
+
+- **Finding Name**: The name of the risk finding.
+- **ROI**: The ROI score calculated for the finding, on a scale of 1 to 10 (a higher ROI indicates that the risk remediation must be prioritized immediately).
+- **Impacted Assets**: The number of assets that are affected by this finding.
+
+You can click **View All Findings Impact**in the top-right corner of the widget to go to the [Findings Impact page](https://help.zscaler.com/easm/about-findings-impact). You can click a finding name in the table to go to the corresponding entry on the [Findings page](https://help.zscaler.com/easm/about-findings). On either page, you can further access detailed information about the findings by clicking a finding name.
+
+See image.
+
+This widget provides information on how risk findings are distributed across risk levels such as low, medium, high, and critical. The categorization of findings based on risk levels enables you to efficiently handle risk remediation by prioritizing the findings based on their criticality and allocating appropriate resources. It also helps you quickly assess the overall level of risk exposure based on the volume of findings across risk levels. This widget includes a single stacked bar chart that uses color coding to indicate the volume of findings in each risk level and a numerical representation of the data with a breakdown of the count of findings in each risk level. You can also view the number of findings present in each risk level by hovering over the respective color-coded bar in the stacked bar graph.
+
+You can click the number of findings in each risk level to get a filtered, tabulated view of the corresponding findings on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each finding for detailed information.
+
+See image.
+
+This widget provides information about the trends of risk findings over a specific period of time using a line graph that plots the number of findings against specific timelines. You can customize the information shown by this graph using the following options:
+
+- Select the time frame for which the trend is shown using the time filter in the top-right corner of the widget from last 7 days, last 30 days, last 90 days, and last 180 days.
+- Select a risk level using the checkbox at the bottom to view the trend of the findings assigned with that specific risk level. You can select multiple risk levels simultaneously to view the corresponding trends together.
+
+When customizing the graph for a time frame greater than the last 7 days, you can view the findings count for specific days by hovering over the line to the specific day.
+
+See image.
+
+This widget provides a donut chart representing the percentage of risk findings that are grouped within different categories:
+
+- **Exposure**: Shows the percentage of business-critical services, such as SSH, FTP, Telnet, and VPN services, MySQL data stores, revealing hostnames, etc.
+- **Misconfiguration**: Shows the percentage of outdated SSL/TLS versions, SSL/TLS certificate expiration, domain registration expiration, usage of self-signed certificates, and absence of common security headers in HTTP requests including but not limited to HTTP Strict Transport Security (HSTS), X-XSS-Protection, Set-Cookie, Cross-Origin-Opener-Policy (COOP), Permissions-Policy, etc.
+- **Vulnerability**: Shows the percentage of vulnerabilities that are part of the Common Vulnerabilities and Exposures (CVE) database.
+
+You can hover over a specific area to view the number of risk findings grouped within the corresponding category. Furthermore, you can click on a specific area of the chart to get a filtered, tabulated view of the corresponding risk findings on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each finding for detailed information.
+
+See image.
+
+This widget provides the list of the top 5 exposed VPN appliances linked to your organization with the highest risk scores. The data is presented in a tabular form and the following information is available for each VPN appliance:
+
+- **Name**: The name of the risk finding.
+- **Version**: The version number associated with the identified VPN application.
+- **CVE**: The CVE IDs of any publicly known vulnerabilities that are identified in the appliance.
+- **Known Exploits**: A Boolean value that indicates if the vulnerability identified in the appliance is recognized in the [Known Exploited Vulnerabilities (KEV) Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) maintained by the [CISA](https://www.cisa.gov/).
+- **Impacted Asset**: The name of the asset in which the finding was discovered.
+- **Risk Score**: A risk score computed for the finding based on multiple vectors such as threat severity, likelihood, and impact using a combination of open industry standard risk scoring systems; public, governmental, and threat intelligence sources on vulnerability risk computation; and Zscaler's proprietary computation method.
+
+You can click a specific VPN appliance finding in the table to go to the corresponding entry on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can click the entry to view more detailed information about the finding. You can also click the **View All VPN Appliances** button in the top-right corner of the widget to get a filtered view of all VPN appliances on the [Findings page](https://help.zscaler.com/easm/about-findings).
+
+See image.
+
+This widget provides a worldwide proportional symbols map that plots the geographical regions or countries with the number of risk findings detected as part of your attack surface. The size of each circle visually represents the number of risk findings in each region relative to others; larger circles indicate more findings compared to regions represented by smaller circles.
+
+You can view the exact number of findings in a specific region by hovering over or clicking the region or the country on the map. In addition, the list of countries where the findings are located along with the number of findings for each country is shown on the left pane of the widget.
+
+See image.
+
+This widget provides the list of top 5 findings with the highest risk levels. The data is presented in a tabular form and the following information is available for each finding:
+
+- **Name**: The name of the risk finding.
+- **Impacted Asset**: The name of the asset in which the finding was discovered.
+- **Risk Level**: The risk level assigned to the finding is based on the risk score generated for the finding. Mapping Between Risk Level and Risk Score
+
+You can also click the **View All Findings** button in the top-right corner of the widget to go to the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each finding for detailed information.
+
+See image.
+
+| Risk Level | Risk Score Range |
+| --- | --- |
+| Low | 1–39 |
+| Medium | 40–69 |
+| High | 70–89 |
+| Critical | 90–100 |
+
+This widget provides information about specific internet-exposed, business-critical services and the risk findings associated with these services using a bar chart. Examples of sensitive services include SSH, FTP, Telnet, VNC, TFTP (UDP), SNMP (UDP), databases such as MySQL, MongoDB and Redis, and other services such as Elasticsearch. This bar graph shows the sensitive services plotted against the number of risk findings identified in each of the services.
+
+You can hover over each bar to view the number of risk findings identified in a service. You can click a bar chart to get a filtered view of the risk findings for that specific service on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each finding for detailed information. Alternatively, you can click the **View All Exposed Services** button in the top-right corner of the widget to get a filtered view of all exposed services on the [Findings page](https://help.zscaler.com/easm/about-findings).
+
+See image.
+
+This widget provides information about SSL/TLS certificates detected in the assets attributed to your organization that are already expired or are nearing expiration. The certificates are categorized based on their expiration status and this widget provides a count breakdown for the following:
+
+- Certificates that are already expired
+- Certificates expiring in the next 30 days
+- Certificates with a validity period longer than the next 30 days
+
+You can click each of the counts to get a filtered, tabulated view of the corresponding certificates on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each certificate for detailed information.
+
+See image.
+
+This widget provides information about the domains that are attributed to your organization, categorized based on their expiration status. This widget provides a count breakdown for the following:
+
+- Domains that are already expired
+- Domains expiring in the next 30 days
+- Domains with a validity period longer than the next 30 days
+- Domains for which the validity period is unknown
+
+You can click each of the counts to get a filtered, tabulated view of the corresponding domains on the [Findings page](https://help.zscaler.com/easm/about-findings), where you can drill down on each domain for detailed information.
+
+See image.
+
+This widget provides the list of top 5 lookalike domains linked to the legitimate domains of your organization based on their exposure score. The data is presented in a tabular form and the following information is available for each finding:
+
+- **Original Domain**: The legitimate domain linked to your organization for which a lookalike domain has been identified.
+- **Lookalike Domain**: The lookalike domain identified based on your original domain linked to your organization.
+- **Risk Category**: The category assigned to the lookalike domain from Verified Phishing, Registered Lookalike, and Preventative Lookalike.
+- **Exposure Score**: The risk score computed for the lookalike domain.
+
+You can click the View **All Lookalike Domains** button in the top-right corner of the widget to go to the [Lookalike Domains page](https://help.zscaler.com/easm/about-lookalike-domains), where you can drill down on each entry for detailed information.
+
+See image.
+
+When EASM detects phishing lookalike domains, an alert appears on this widget with a link to the [Lookalike Domains page](https://help.zscaler.com/easm/understanding-lookalike-domain-details) with the appropriate filters selected (Risk Category is Phishing Lookalike and Status includes Verified and Not Verified). See image.
+
+You can block these domains for your organization users via Zscaler Internet Access (ZIA) by configuring URL Filtering policy rules using custom URL categories. To learn how to configure this policy, see [Configuring the URL Filtering Policy](https://help.zscaler.com/zia/configuring-url-filtering-policy).
+
+[Image: A widget providing information on how risk findings are distributed across risk levels in EASM's Insights Overview dashboard]
+
+[Image: A widget providing information about risk finding trends over time in EASM's Insights Overview dashboard]
+
+[Image: A donut chart widget representing the percentage of risk findings within categories in EASM's Insights Overview dashboard]
+
+[Image: A widget providing the list of top 5 lookalike domains in EASM's Insights Overview dashboard]
+
+[Image: A widget providing the list of the top 5 exposed VPN appliances in EASM's Insights Overview dashboard]
+
+[Image: A widget using a map that plots the geographical regions or countries with the number of risk findings detected in EASM's Insights Overview dashboard]
+
+[Image: A widget providing the list of top 5 findings with the highest risk levels in EASM's Insights Overview dashboard]
+
+[Image: A widget providing information about specific internet-exposed, business-critical services in EASM's Insights Overview dashboard]
+
+[Image: A widget providing information about SSL/TLS certificates detected in the assets attributed to your organization in EASM's Insights Overview dashboard]
+
+[Image: A widget providing information about the domains that are attributed to your organization in EASM's Insights Overview dashboard]
+
+[Image: Interacting with the Findings by ROI widget in the Insights Overview dashboard]
+
+[Image: Alert for phishing lookalike domain detection with a link to the corresponding Lookalike Domains page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/configuring-jira-integration","lastmod":"2026-02-17T06:06Z","nid":"1534124"} -->
+## Configuring the Jira Integration
+
+- Source: https://help.zscaler.com/easm/configuring-jira-integration
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Integrations > Configuring the Jira Integration
+- Last modified: 2026-02-17T06:06Z
+- Summary: Information on how to configure Jira integration with EASM organizations to facilitate Jira ticket creation and tracking for findings.
+
+You can connect your Jira instance with EASM to seamlessly create and track Jira tickets for your [findings](https://help.zscaler.com/easm/about-findings) directly from the EASM Admin Portal during the remediation process. EASM allows you to integrate Jira with individual EASM organizations as needed. After Jira is integrated with an EASM organization, admins with full access to the organization can create and view tickets for the corresponding findings.
+
+You can create Jira tickets for different projects and different issue types (e.g., Task, Story, and Bug) that exist in your Jira environment. When creating the tickets, you can fill out a set of predefined Jira fields, such as Project, Issue Type, Component, Priority, and Assignee. After you create the ticket, the record is added to Jira along with the finding details and any file attachments from EASM. The Jira ticket ID and status are reflected in EASM immediately. The ticket record details automatically synchronize between Jira and EASM.
+
+## Prerequisites
+
+Before configuring the Jira integration, ensure that you have:
+
+- Admin privileges to the EASM organization for which you want to enable the Jira integration.
+- User permission in Jira to create a personal access token, which is required for authenticating the integration.
+
+## Configuring the Jira Integration
+
+To set up the Jira integration, complete the following steps:
+
+- Step 1: Generate a personal access token in Jira.
+- Step 2: Authenticate the Jira connection in EASM.
+
+The first step in setting up this integration is generating a personal access token in Jira, which you can then use to authenticate the Jira connection in EASM.
+
+To create a personal access token:
+
+1. In the Jira application, go to **Profile picture** > **Manage account**> **Personal access tokens**.
+2. Click **Create token**.
+3. Enter a name for the token (e.g., `EASM-Jira Integration`).
+4. Set the token permissions to restrict the token only to specific, required activities. The token's permissions are set at your current level of access by default. Depending on your Jira configurations, you might not be able to modify the default permissions. To learn more, refer to the [Jira documentation](https://confluence.atlassian.com/jira).
+5. You can set the token to automatically expire after a specific time period. Setting an expiration period can be required or optional based on your admin configurations.
+6. Click **Create**. See image. Jira generates and displays an access token. The token displays only once and cannot be viewed again after you click **Close**. Ensure that you copy the token and store it securely.
+
+The personal access token must be valid at the time of configuring Jira integration in EASM, and subsequently, when admins create Jira tickets from EASM.
+
+The next step is establishing a secure connection with the Jira application using the personal access token you retrieved from Jira. To authenticate the Jira integration for an organization in EASM:
+
+1. In the EASM Admin Portal, go to **Administration** > **Organization**. The **Organization** window appears.
+2. In the **Organization** window: See image. The **Integrate Jira** window appears.
+  1. Locate and click the organization for which you want to enable the Jira integration.
+  2. Click **Integrations**.
+  3. In the Jira tile, click **Connect**.
+3. In the **Integrate Jira** window: See image.
+  1. Enter your organization's domain used in Jira. You can obtain this value from your Jira site URL (e.g., https://<your company domain>.atlassian.net or from a custom domain configured).
+  2. Enter your personal access token generated in Jira.
+  3. Click **Connect**.
+
+If the Jira connection is successfully established, a **Connected** badge and the token expiration time are displayed in the tile.
+
+You can edit the domain and personal access token details using the Edit button. The connection is re-established when you save the changes. To revoke the connection, use the vertical ellipses icon in the Jira tile and click **Disconnect**. In the confirmation prompt that appears, click **Disconnect** again to remove the integration.
+
+See image.
+
+After the integration is configured, admins can create Jira tickets for the findings associated with the organization. To learn more, see [Creating Jira Tickets for Findings](https://help.zscaler.com/easm/creating-jira-tickets-findings). Admins can create Jira tickets and the ticket synchronization takes place between Jira and EASM until the Jira token expires. When the token expires, you need to reconfigure the integration using a new token generated in Jira.
+
+[Image: Creating a personal access token in Jira]
+
+[Image: Configuring Jira integration in EASM]
+
+[Image: Configuring Jira integration in EASM]
+
+[Image: Finished setup of EASM-Jira integration]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/creating-jira-tickets-findings","lastmod":"2026-02-17T06:06Z","nid":"1534125"} -->
+## Creating Jira Tickets for Findings
+
+- Source: https://help.zscaler.com/easm/creating-jira-tickets-findings
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Findings > Creating Jira Tickets for Findings
+- Last modified: 2026-02-17T06:06Z
+- Summary: Information on how to create and view Jira tickets for EASM findings.
+
+You can integrate your Jira instance with one or more EASM organizations to create and track Jira tickets for the organization's [findings](https://help.zscaler.com/easm/about-findings) directly from the EASM Admin Portal. Admins with full permission to the organization can create Jira tickets for different projects and different issue types (e.g., Task, Story, and Bug) that exist in your Jira environment. To learn how to set up this integration, see [Configuring the Jira Integration](https://help.zscaler.com/easm/configuring-jira-integration). After an authenticated connection is established between an EASM organization and Jira through a valid personal access token (retrieved from Jira), admins can start creating Jira tickets for the corresponding findings.
+
+When creating the tickets, you can fill out a set of predefined Jira fields, such as Project, Issue Type, Component, Priority, and Assignee. After you create the ticket, the record is added to Jira along with data fetched from EASM such as the finding details and any attachment files present for the finding. The ticket details automatically synchronize between Jira and EASM until token expiration.
+
+To create Jira tickets for your findings:
+
+1. Go to **Insights** > **Findings** from the left-side navigation.
+2. Select the required organization using the drop-down menu in the top-right corner.
+3. Locate the finding for which you want to create a Jira ticket and click the finding. The **Finding Details** drawer appears.
+4. In the **Finding Details** drawer, click **Tickets**. Alternatively, you can click **View more details** on the drawer to go to the **Finding Details** page and then click the **Tickets** tab. The **Create Jira Ticket** window appears.
+5. In the **Create Jira Ticket** window, provide information for the following fields that correspond to Jira: Fields that have predefined values are automatically populated from Jira. See image.
+  1. **Ticket Name**: Enter a name that identifies your ticket.
+  2. **Project**: Select the Jira project to which the ticket must be added.
+  3. **Issue Type**: Select the issue type from the drop-down menu.
+  4. **Component**: Select the component that you want to associate with the ticket.
+  5. **Assignee**: Enter the name or email address of the Jira user who you want to assign to the ticket. As you type, EASM suggests matching user results, and you can select the required user from the populated list.
+  6. **Priority**: Select a priority for the ticket from the drop-down menu.
+  7. **Description**: Enter a description for the ticket.
+6. Click **Create**.
+
+The Jira ticket is created, and the record is added to Jira along with the finding details and any attachment files present for the finding in EASM. On the **Tickets** tab, the newly created ticket is listed. This tabulated list includes additional information about the ticket fetched from Jira, such as the ticket ID (labeled as **ID**), status (e.g., Open), and created and updated times. You can click the Jira ID to access the ticket details page in Jira.
+
+See image.
+
+Admins can create Jira tickets and the ticket records are synchronized between Jira and EASM until the Jira token expires. When the token expires, you need to [reconfigure the integration](https://help.zscaler.com/easm/configuring-jira-integration) using a new token generated in Jira.
+
+[Image: Adding Jira ticket in the EASM Admin Portal]
+
+[Image: Jira ticket listing in EASM for associated finding]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/creating-managing-discovery-profiles","lastmod":"2024-11-29T06:06Z","nid":"1503561"} -->
+## Creating & Managing Discovery Profiles
+
+- Source: https://help.zscaler.com/easm/creating-managing-discovery-profiles
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Discovery > Creating & Managing Discovery Profiles
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to create and manage discovery profiles in Zscaler EASM Admin Portal.
+
+While setting up asset discovery, EASM allows you to configure seeds by creating a discovery profile. A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. For each custom organization that you add, you can configure discovery profiles by adding seeds. To learn more, see [About Discovery Profiles](https://help.zscaler.com/easm/about-discovery-profiles).
+
+Only admins with full access permissions can create and manage discovery profiles. To learn more, see [Creating and Managing Roles](https://help.zscaler.com/easm/creating-and-managing-roles).
+
+The following sections explain how you can create and manage discovery profiles in the EASM Admin Portal. To learn how to configure and initiate asset discovery in EASM, see [Setting Up Asset Discovery](https://help.zscaler.com/easm/setting-up-asset-discovery).
+
+## Creating a Discovery Profile
+
+1. Go to **Administration** > **Organizations**. The **Organization** window appears.
+2. In the **Organization**window:
+  1. Locate and click the organization for which you want to create a discovery profile on the left pane.
+  2. Click the **Add Discovery Profile** button. See image. The **Profile Details** window appears.
+3. In the **Profile Details** window:
+  1. **Name**: Enter a name for the discovery profile.
+  2. **Description**: Enter a brief description for the profile.
+  3. The **Scan Frequency** is automatically set to **Weekly** and is non-editable.
+  4. Under **Manage Seeds** section:
+    - Select the type of the seed asset by clicking the respective tab. Currently, you can configure domains, IP addresses, and IP blocks as seed assets.
+    - When you are in the respective tab for adding seeds of a specific asset type, you can add seeds for that particular asset type. To add the list of seeds that must be included in the discovery profile, enter the seed name in the text box provided under the **Include** section. To add multiple seeds manually, press `Enter` or click **Add** after specifying each item. Alternatively, you can import a list of seeds from a CSV file by using the **Upload File** option. When you add the seeds manually, the seeds are displayed in a list under the **Include** section. To remove any seeds from the list, use the **Delete** icon that appears next to the seed name.
+4. Click **Save**. See image.
+
+The discovery profile is saved and displayed under a new **Discovery Profile** tab created for the organization. Additionally, an **Included Seeds**tab, appears for the organization where you can view the list of seeds configured for the entire organization. You can view the list of seeds along with their name, domain type, and the discovery profile to which they are mapped.
+
+See image.
+
+When you submit the discovery profile, EASM starts scanning the internet for asset connections using the seeds to map your organization’s attack surface and build an inventory of the internet-exposed assets. This process typically takes 24–48 hours and then you can view the asset inventory and the associated risks identified for the assets within the EASM Admin Portal.
+
+## Managing a Discovery Profile
+
+You can perform actions such as editing, disabling or enabling, and deleting discovery profiles within an organization. You can disable a discovery profile if you no longer want to monitor the inventoried assets or continue mapping the attack surface for a specific set of seeds. When a discovery profile is disabled, periodic scans for the inventoried assets are discontinued and the asset data and the associated risk information are no longer updated. Also, the asset discovery process using the seeds and their connections is suspended and no new asset links in the attack surface are identified.
+
+After disabling a discovery profile, you can still view the asset and findings data reported henceforth via the discovery profile in the EASM Admin Portal. However, you cannot perform any actions on the data (e.g., changing asset status) or modify the discovery profile configuration, including the seeds.
+
+If you no longer require the assets and findings data reported via a disabled discovery profile, you can take a further step to delete the discovery profile if needed. However, this action of deleting a discovery profile requires careful consideration about data backup and restoration before implementation. EASM allows you to download the list of assets and findings for an organization on the respective [Assets](https://help.zscaler.com/easm/about-asset-inventory) and [Findings](https://help.zscaler.com/easm/about-findings) page.
+
+Zscaler recommends exercising great caution when disabling or deleting a discovery profile for the following reasons:
+
+- If you disable a discovery profile, all scans defined within the profile are disabled. Only an admin user can re-enable the discovery profile.
+- If you delete a discovery profile, all associated assets and findings data are permanently removed. This action cannot be reversed and the deleted data cannot be restored.
+
+### Editing a Discovery Profile
+
+To edit a discovery profile:
+
+1. Go to **Administration** > **Organizations**. The **Organization** window appears.
+2. In the **Organization** window, under the **Discovery Profile** tab:
+  1. Locate the discovery profile that you want to modify and click the **Edit** icon displayed under the **Actions** column.
+  2. Under **Profile Details**, you can make changes to the **Name** and **Description** fields as needed.
+  3. Under **Manage Seeds**, you can select the respective tab for the seeds that you want to modify to add or remove seeds. To learn more about how to perform these actions, see Creating a Discovery Profile.
+3. Click **Save**.
+
+### Deleting a Discovery Profile
+
+Exercise caution when deleting a discovery profile because this permanently deletes all associated components, including the historical assets and findings discovered and inventoried via the discovery profile. This action cannot be reversed and the deleted data cannot be restored.
+
+You can delete only discovery profiles that have been disabled.
+
+To delete a discovery profile:
+
+1. Go to **Administration** > **Organizations**. The **Organization** window appears.
+2. In the **Organization** window under the **Discovery Profile** tab, locate the discovery profile that you want to delete and click the **Delete** icon displayed under the **Actions** column.
+
+[Image: The Add Discovery Profile button is annotated in EASM Admin Portal]
+
+[Image: The discovery profile configuration details in EASM Admin Portal]
+
+[Image: The discovery profile list view with discovery profile configuration details in EASM]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/creating-managing-organizations","lastmod":"2024-11-29T06:06Z","nid":"1503551"} -->
+## Creating & Managing Organizations
+
+- Source: https://help.zscaler.com/easm/creating-managing-organizations
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Discovery > Creating & Managing Organizations
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to create and manage organizations in Zscaler EASM Admin Portal.
+
+EASM allows you to add custom organizations to help keep your attack surface discovery and inventory management separate for distinct entities, subsidiaries, or business verticals that are part of your company. For each custom organization, you can configure distinct discovery profiles by adding seeds, which are known legitimate assets belonging to that specific organization. A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. To learn more, see [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery).
+
+EASM provides a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, Risk360, and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM. To learn more, see [What is Risk360?](https://help.zscaler.com/risk360/what-risk360)
+
+Only super admins can create and manage organization-specific configurations.
+
+The following sections explain how you can add and manage organizations in the EASM Admin Portal. To learn more about how to configure asset discovery in EASM, see [Setting Up Asset Discovery](https://help.zscaler.com/easm/setting-up-asset-discovery).
+
+## Adding an Organization
+
+To add a new organization:
+
+1. Go to **Administration** > **Organizations**. The **Organization** window appears.
+2. In the **Organization** window: A new organization is added with options to configure the discovery profile and other details for the organization shown on the right side. By default, the organization is enabled and this is required to initiate the asset discovery scan. To learn about discovery profiles, see [About Discovery Profiles](https://help.zscaler.com/easm/about-discovery-profiles). See image.
+  1. Click the **Add** icon on the left pane. If this is your first organization, you can alternatively use the **Add Organization** button. A text box to enter the name for the organization appears on the left pane.
+  2. Enter a name for the organization in the text box and click the **Tick** icon. See image.
+
+## Managing an Organization
+
+You can perform actions such as editing, disabling or enabling, and deleting the organizations added to the EASM Admin Portal. You can disable an organization if you no longer want to monitor the inventoried assets or continue mapping the organization's attack surface. When an organization is disabled:
+
+- all discovery profiles configured for the organization are disabled.
+- periodic scans for the inventoried assets performed via the discovery profiles are also discontinued and the asset data and the associated risk information are no longer updated.
+- the asset discovery process using the seeds within the discovery profiles and their connections is suspended, and no new asset links in the organization’s attack surface are identified.
+
+After disabling an organization, you can still view the assets and findings data reported henceforth for the organization in the EASM Admin Portal. However, you cannot perform any actions on the data (e.g., changing asset status) or modify any organization details. If you want to disable scans performed through specific discovery profiles, you can disable that discovery profile instead. To learn more, see [Creating & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
+
+If you no longer require the historical assets and findings data reported for a disabled organization, you can take a further step to delete the organization if needed. However, this action of deleting an organization requires careful consideration about data backup and restoration before implementation. EASM allows you to download the list of assets and findings for an organization on the respective [Assets](https://help.zscaler.com/easm/about-asset-inventory) and [Findings](https://help.zscaler.com/easm/about-findings) pages.
+
+Zscaler recommends exercising great caution when disabling or deleting an organization for the following reasons:
+
+- If you disable an organization, all associated discovery profile scans are disabled and the admins are locked out of the organization.
+- If you delete an organization, all associated components, including the historical assets and findings that were discovered and inventoried for that organization, are permanently removed. This action cannot be reversed and the deleted data cannot be restored.
+
+### Editing an Organization
+
+To modify the name or the status of an organization:
+
+1. Go to **Administration** > **Organizations**. The **Organization** window appears.
+2. In the Organization window, locate and click the organization for which you want to make changes.
+3. You can make the following changes to the organization:
+  - To modify the name of the organization, click the **Edit** icon, modify the name in the text box, and click the **Tick** icon to save the changes.
+  - To disable or re-enable the organization, use the **Enabled** slider provided and confirm your action in the confirmation pop-up window.
+
+### Deleting an Organization
+
+Exercise caution when deleting an organization because this would permanently delete all associated components, including historical assets and findings discovered and inventoried for the organization. This action cannot be reversed and the data deleted cannot be restored.
+
+You can only delete organizations that have been disabled. To delete an organization:
+
+1. Go to **Administration** > **Organizations**. The **Organization** window appears.
+2. In the Organization window, locate and click the organization for which you want to make changes.
+3. Click the **More** icon on the top-right corner of the page and click **Delete**. A confirmation window appears.
+4. In the confirmation window, click **Delete**.
+
+[Image: Add EASM organization for attack surface discovery and management]
+
+[Image: EASM organization added for attack surface discovery and management]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/downloading-assets","lastmod":"2024-12-02T06:06Z","nid":"1503581"} -->
+## Downloading Assets
+
+- Source: https://help.zscaler.com/easm/downloading-assets
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Inventory > Downloading Assets
+- Last modified: 2024-12-02T06:06Z
+- Summary: How to download the list of assets from the Assets page in Zscaler EASM Admin Portal.
+
+You can download the list of all assets that are part of your organization's external attack surface from the [Assets page](https://help.zscaler.com/easm/about-asset-inventory) as a CSV file. The data captured in the file directly replicates the table as it is displayed on the Assets page, reflecting any customization made through sorting, filtering, and selecting columns. This ensures that the downloaded file precisely mirrors the current view of the assets as seen on the page.
+
+To download a list of assets in the CSV format:
+
+1. Go to the **Assets** page.
+2. To customize the asset list:
+  - Apply filters to display the assets that must be downloaded.
+  - Select the required columns from the **Column Chooser** to include the respective data of the assets in the downloaded file.
+  - Sort the list of asset records by a specific column using the **Sorting** icon in the column header.
+3. Click the **Download** icon on the top-right corner of the page. The assets are downloaded as a CSV file.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/downloading-findings","lastmod":"2024-12-02T06:06Z","nid":"1503606"} -->
+## Downloading Findings
+
+- Source: https://help.zscaler.com/easm/downloading-findings
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Findings > Downloading Findings
+- Last modified: 2024-12-02T06:06Z
+- Summary: Information on how to download the list of findings from the Findings page in Zscaler EASM Admin Portal.
+
+You can download the list of all findings that are tracked in the discovered assets as part of your organization's external attack surface from the [Findings page](https://help.zscaler.com/easm/about-findings) as a CSV file. The data captured in the file directly replicates the table as it is displayed on the Findings page, reflecting any customization made through sorting, filtering, and selecting columns. This ensures that the downloaded file precisely mirrors the current view of the findings as seen on the page.
+
+To download a list of findings in the CSV format:
+
+1. Go to **Insights**> **Findings**.
+2. Customize the list as required using the following options:
+  - Apply filters to display the findings that must be downloaded.
+  - Select the required columns from the **Column Chooser** to include the respective data of the findings in the downloaded file.
+  - Sort the list of finding records by a specific column using the **Sorting** icon in the column header.
+3. Click the **Download**icon on the top-right corner of the page. The findings are downloaded as a CSV file.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/downloading-lookalike-domains","lastmod":"2024-12-19T06:06Z","nid":"1508156"} -->
+## Downloading Lookalike Domains
+
+- Source: https://help.zscaler.com/easm/downloading-lookalike-domains
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Downloading Lookalike Domains
+- Last modified: 2024-12-19T06:06Z
+- Summary: Information on how to download lookalike domains detected for an organization as a CSV file in the EASM Admin Portal.
+
+You can download the list of all lookalike domains that are tracked for your seed domains as a CSV file from the [Lookalike Domains](https://help.zscaler.com/easm/about-lookalike-domains) page. The data captured in the file directly replicates the table as it is displayed on the Lookalike Domains page, reflecting any customization made through sorting, filtering, and selecting columns. This ensures that the downloaded file precisely mirrors the current view of the lookalike domains as seen on the page.
+
+To download a list of lookalike domains in the CSV format:
+
+1. Go to **Insights** > **Lookalike Domains**.
+2. Customize the list as required using the following options:
+  - Apply filters to display the lookalike domains that must be downloaded.
+  - Select the required columns from the **Column Chooser** to include the respective data of the lookalike domains in the downloaded file.
+  - Sort the list of lookalike domain records by a specific column using the **Sorting** icon in the column header.
+3. Click the **Download** icon on the top-right corner of the page. The lookalike domains are downloaded as a CSV file.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/filtering-customizing-assets-page","lastmod":"2024-11-29T06:06Z","nid":"1503586"} -->
+## Filtering & Customizing the Assets Page
+
+- Source: https://help.zscaler.com/easm/filtering-customizing-assets-page
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Inventory > Filtering & Customizing the Assets Page
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to download the list of inventoried assets from the Assets page in Zscaler EASM Admin Portal.
+
+The [Assets page](https://help.zscaler.com/easm/about-asset-inventory) includes a set of filtering options that allows you to view a subset of data that matches specified criteria. You can set the criteria based on specific parameters of assets such as risk level, last seen, and type. These parameters can be applied individually or together to the Assets table to filter the data. After building a search query using the filters, you can optionally save the query as a custom filter to reuse it in the future for routine tasks. In addition, you can customize the table columns by choosing to show or hide specific columns from the table and by reordering and sorting the columns.
+
+The following sections describe how to apply filters on assets and how to customize the Assets table columns.
+
+The data on the Assets page corresponds to your organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
+
+## Applying Filters
+
+On the Assets page, you can select the required filters and select appropriate values to apply the filters. The mode of selection varies across the filters with some filters using a single select drop-down, while other filters support multiple select drop-downs from a predefined set of options. Some filters also support the use of logical operators to build more specific queries by manually entering the required values for match criteria.
+
+The following filters are available:
+
+- **Status**: Filters the assets based on their status. This filter allows you to select multiple values simultaneously by using the respective checkboxes. The following statuses are available for assets: Approved, Candidate, and Archived.
+- **Risk Level**: Filters the assets based on their criticality into Minimal, Low, Medium, High, and Critical risk levels, depending on the values chosen. This filter allows you to select multiple values simultaneously by using the respective checkboxes. The risk level assigned to an asset is based on the dynamic risk score generated for the asset. Mapping between Risk Level and Risk Score
+- **Last Seen**: Filters the assets based on when they were last detected in the EASM asset scan. This filter allows you to obtain the list of exposed assets that were observed in the most recent scans (within the last 7 days or 30 days) to a much greater range of timeline of 1 year. This filter supports single value selection using a drop-down menu and comes with the following options: Within 7 Days, Within 30 Days, Within 90 Days, and Within 1 Year.
+- **Type**: Filters the assets based on the type into which the asset is classified by EASM. The assets are classified into one or more of the following types: This filter allows you to select multiple values simultaneously by using the respective checkboxes.
+  - Domains
+  - Hosts
+  - Web Pages
+  - Certificates
+  - ASNs
+  - IP Addresses
+  - IP Blocks
+
+See image.
+
+## Customizing Table Columns
+
+You can customize the columns that appear within the Assets table by using the following options on the Assets page:
+
+- Select the columns that must be shown within the table by clicking the **Settings** icon in the top-right corner. In the **Column Chooser** window that appears, you can select or deselect columns by clicking on them to add or remove them from the table respectively. The table refreshes and displays the new column set. The **Name** column is always shown and cannot be modified.
+- Sort the list by a specific column in an alphabetical or numerical order by using the **Sort** icon shown in the column header. The sorting option is available only for specific columns, indicated by the **Sort** icon displayed next to the column name. To appropriately sort the columns, ensure that only one column is sorted at a time and deselect the Sort icon for other columns which use the functionality simultaneously.
+
+| Risk Level | Risk Score Range |
+| --- | --- |
+| Minimal | 0 |
+| Low | 1–39 |
+| Medium | 40–69 |
+| High | 70–89 |
+| Critical | 90–100 |
+
+[Image: Asset filters in EASM to view a subset of the asset data]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/filtering-customizing-findings-page","lastmod":"2024-11-29T06:06Z","nid":"1503611"} -->
+## Filtering & Customizing the Findings Page
+
+- Source: https://help.zscaler.com/easm/filtering-customizing-findings-page
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Findings > Filtering & Customizing the Findings Page
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to filter findings data and customize the Findings page in Zscaler EASM Admin Portal.
+
+The [Findings page](https://help.zscaler.com/easm/about-findings) includes a set of filtering options that allows you to view a subset of data that match a specified criteria. You can set the criteria based on specific parameters of findings such as risk level, last seen, category, and type. These parameters can be applied individually or together to the Findings table to filter the data. After building a search query using the filters, you can optionally save the query as a custom filter to reuse it in the future for routine tasks. In addition, you can customize the table columns by choosing to show or hide specific columns in the table and by reordering and sorting the columns.
+
+The following sections describe how to apply filters on findings and how to customize the Findings table columns.
+
+The data on the Findings page corresponds to your organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
+
+## Applying Filters
+
+On the Findings page (Insights > Findings), you can select the required filters and select appropriate values to apply the filters. The mode of selection varies across the filters with some filters using single select drop-down, while other filters support multiple select drop-down from a predefined set of options. Some filters also support the use of logical operators to build more specific queries by manually entering the required values for match criteria.
+
+The following filters are available:
+
+- **Status**: Filters the findings based on their status. This filter allows you to select multiple values simultaneously by using the respective checkboxes. The following statuses are available for findings: Not Verified, Verified, and Risk Accepted, Resolved, and Disputed.
+- **Risk Level**: Filters the findings based on their criticality into Low, Medium, High, and Critical risk levels, depending on the values chosen. This filter allows you to select multiple values simultaneously by using the respective checkboxes. The risk level assigned to a finding is based on the dynamic risk score generated for the finding. Mapping between Risk Level and Risk Score
+- **Last Seen**: Filters the findings based on when they were last detected in the EASM asset scan. This filter allows you to obtain the list of findings that were observed in the most recent scans (within the last 7 days or 30 days) to a much greater range of timeline of 1 year. This filter supports single value selection using a drop-down menu and comes with the following options: Within 7 Days, Within 30 Days, Within 90 Days, and Within 1 Year.
+- **Category**: Filters the findings based on the category assigned to them by EASM, allowing you to view the findings based on context. For example, you can get a list of all findings classified as vulnerabilities or misconfigurations using this filter. The categories available are: This filter supports single value selection using a drop-down menu.
+  - **Exposure**: Shows the percentage of business-critical services, such as SSH, FTP, Telnet, and VPN services, MySQL data stores, revealing hostnames, etc.
+  - **Misconfiguration**: Shows the percentage of outdated SSL/TLS versions, SSL/TLS certificate expirations, domain registration expiration, usage of self-signed certificates, absence of common security headers in HTTP requests including but not limited to HTTP Strict Transport Security (HSTS), X-XSS-Protection, Set-Cookie, Cross-Origin-Opener-Policy (COOP), Permissions-Policy, etc.
+  - **Vulnerability**: Shows the percentage of vulnerabilities that are part of the CVE database.
+- **Type**: Filters the findings based on the type into which the finding is classified by EASM. While Categories are broader classifications of findings, Types are sub-classifications of findings within specific Categories which enables a more specific categorization of findings. For example, if you want to view misconfigurations of a specific kind, such as expired SSL/TLS certificate, you can simply choose the type filter as Expired SSL/TLS Certificate. Zscaler uses a number of types to classify the findings, and this list is constantly updated based on new vulnerability and exploit discoveries and threat intelligence information. You can view the current list of filtering options available within Type by clicking this filter on the Findings page of the EASM Admin Portal.
+
+See image.
+
+## Customizing Table Columns
+
+You can customize the columns that appear within the Findings table by using the following options:
+
+- Choose the columns that must be shown within the table by clicking the **Settings** icon in the top-right corner. In the **Column Chooser** window that appears, you can click on the columns to add or remove them from the table. The table refreshes and displays the new column set. The **Name** column is always shown and cannot be modified.
+- Sort the list by a specific column in an alphabetical or numerical order by using the **Sort** icon shown in the column header. The sorting option is available only for specific columns, indicated by the **Sort** icon displayed next to the column name. To appropriately sort the columns, ensure that only one column is sorted at a time and deselect the **Sort** icon for other columns which use the functionality simultaneously.
+
+| Risk Level | Risk Score |
+| --- | --- |
+| Low | 1–39 |
+| Medium | 40–69 |
+| High | 70–89 |
+| Critical | 90–100 |
+
+[Image: Finding filters to view a subset of findings data in the EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/filtering-customizing-lookalike-domains-page","lastmod":"2024-11-29T06:06Z","nid":"1508161"} -->
+## Filtering & Customizing the Lookalike Domains Page
+
+- Source: https://help.zscaler.com/easm/filtering-customizing-lookalike-domains-page
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Filtering & Customizing the Lookalike Domains Page
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to filter lookalike domain data and customize the Lookalike Domains page in Zscaler EASM Admin Portal.
+
+The [Lookalike Domains](https://help.zscaler.com/easm/about-lookalike-domains) page includes a set of filtering options that allows you to view a subset of data that matches specified criteria. You can set the criteria based on specific parameters of lookalike domains such as status, exposure score, risk category, and deception method. These parameters can be applied individually or together to the Lookalike Domains table to filter the data. You can customize the table columns by choosing to show or hide specific columns in the table and by reordering and sorting the columns.
+
+The following sections describe how to apply filters on lookalike domains and how to customize the Lookalike Domains table columns.
+
+The data on the Lookalike Domains page corresponds to your organization selected on the top-right corner.
+
+## Applying Filters
+
+On the Lookalike Domains page (Insights > Lookalike Domains), you can select one or more filters along with appropriate values and apply the filters.
+
+The following filters are available:
+
+- **Status**: Filters the lookalike domains based on their [status](https://help.zscaler.com/easm/modifying-lookalike-domain-status). This filter allows you to select multiple values simultaneously by using the respective checkboxes. The following statuses are available for lookalike domains: Not Verified, Verified, and Risk Accepted, Resolved, and Disputed.
+- **Exposure Score**: Filters the lookalike domains based on their exposure score and categorization into Low, Medium, High, and Critical, depending on the values chosen. This filter allows you to select multiple values simultaneously by using the respective checkboxes.
+- **Risk Category**: Filters the lookalike domains based on the risk category assigned. This filter allows you to select multiple values simultaneously by using the respective checkboxes. Available Risk Categories
+- **Deception Method**: Filters the lookalike domains based on the deception tactic used in the domain name. Examples of deception techniques include the use of homograph (i.e., by exploiting similar-looking characters or homoglyphs), substituting letters with numbers, hyphenation, intentional typos, adding, removing, or transposing letters, etc. This filter allows you to select multiple values simultaneously by using the respective checkboxes.
+
+See image.
+
+## Customizing Table Columns
+
+You can customize the columns that appear within the Lookalike Domains table by using the following options:
+
+- Choose the columns that must be shown within the table by clicking the **Settings** icon on the top-right corner. In the **Column Chooser** window that appears, you can select or deselect the columns by clicking on them to add or remove them from the table respectively. The table refreshes and displays the new column set. The **Lookalike Domain** column is always shown and cannot be modified.
+- Sort the list by a specific column in an alphabetical or numerical order by using the **Sort** icon shown in the column header. The sorting option is available only for specific columns, indicated by the **Sort** icon displayed next to the column name. To appropriately sort the columns, ensure that only one column is sorted at a time and deselect the **Sort** icon for other columns which use the functionality simultaneously.
+
+- **Verified Phishing**: Indicates that the domain is verified to be a phishing site by Zscaler's web risk analyzer service.
+- **Registered Lookalike**: Indicates that the domain is registered through an internet company that provides domain registration services (i.e., registrar).
+- **Preventative Lookalike**: Indicates that the domain is not registered with a registrar.
+
+[Image: Applying filters on the lookalike domains list to view a subset of data in EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/generating-reports","lastmod":"2026-02-17T06:06Z","nid":"1534364"} -->
+## Generating Reports
+
+- Source: https://help.zscaler.com/easm/generating-reports
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Dashboards & Analytics > Generating Reports
+- Last modified: 2026-02-17T06:06Z
+- Summary: Information on how to generate reports for EASM organizations, presenting key aggregated data and insights into the organization's external security posture.
+
+EASM allows you to generate reports aggregating key analytic data and insights into an organization's exposure to cyber risk. You can generate reports for individual EASM organizations in the PPTX format, translating real-time technical security data from automated discovery findings into actionable strategic insights for diverse stakeholders. These reports consolidate critical asset findings along with their mitigation strategies, which helps organizations assess the resulting business and financial impact and focus on high-impact risk remediation. The report data varies across EASM organizations depending on the available discoveries, and some key metrics included are known vulnerabilities, exposed servers and public cloud instances, outdated SSL/TLS, domain expiration, and registered lookalike domains, emphasizing phishing domains for virtual takedown.
+
+These presentations can be used in executive- and board-level communication to report on the organization's external posture across dimensions, such as vulnerabilities, exposures, and compliance, aiding in key business decision-making and strategic management and governance. They can also be used in mergers and acquisitions to summarize the inherited risks of a target company, providing visibility into vulnerabilities and misconfigurations without requiring invasive internal scans. These reports also serve auditing purposes to demonstrate continuous monitoring and adherence to regulatory frameworks.
+
+Admins require full permission to an EASM organization to generate reports.
+
+To generate a report:
+
+1. Go to **Administration** > **Organization**.
+2. Select the required organization from the left pane. The organization page appears.
+3. On the organization page, click **Generate Report** displayed in the top-right corner. See image. The report is generated and downloaded to your system as a PPTX file.
+
+[Image: Generating reports for EASM organizations]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/modifying-asset-status","lastmod":"2025-10-23T03:52Z","nid":"1503576"} -->
+## Modifying Asset Status
+
+- Source: https://help.zscaler.com/easm/modifying-asset-status
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Inventory > Modifying Asset Status
+- Last modified: 2025-10-23T03:52Z
+- Summary: Information on how to change the asset status in Zscaler EASM Admin Portal.
+
+When your organization's assets are discovered, EASM maps them to your external attack surface by assigning the Approved status to the assets. The asset status allows you to manage your external attack surface by reviewing whether the assets should be included as part of the particular organization's external attack surface. Additionally, EASM offers a distinct advantage by uniquely monitoring and processing assets across various statuses. This enables your organization to maintain clear visibility into the most critical assets that are directly under your responsibility. The following three statuses are supported for assets, and assets can be transitioned from one status to any other status depending on the requirements:
+
+- Approved
+- Candidate
+- Archived
+
+You can view and manage all assets across all statuses from the Assets page. By default, the assets page is filtered to show only the approved assets. You can use the Status filter to include Candidate and Archived assets. To learn more, see [Filtering & Customizing the Assets Page](https://help.zscaler.com/easm/filtering-customizing-assets-page). You can modify the status of individual assets from the Asset Details drawer or the Asset Details page.
+
+To modify the status of an asset:
+
+The data on the Assets page corresponds to your organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
+
+1. Go to the **Assets** page.
+2. Click the asset record for which you want to modify the status. The Asset Details drawer opens on the right side.
+3. In the Asset Details drawer, under the **Asset Details** tab, you can modify the asset's status by using the **Status** drop-down menu. Alternatively, you can click the **View More Details** button to go to the asset details page and modify the status from there. See image. A **Status Update Confirmation** window appears.
+4. In the **Status Update Confirmation** window, enter the reason for modifying the asset's status which can be useful for auditing trails and general tracking purposes.
+5. Click **Accept**.
+
+**Approved**: Indicates that the asset comes under the responsibility or management of your organization. Assets in this state are periodically scanned to update their inventory details and their connections are also scanned. After assets are attributed to your organization through the discovery process, they are validated by EASM and the verified assets are marked with this status. Approved assets that are identified as forming your external attack surface are closely monitored and are given higher visibility in the EASM Admin Portal to help you easily identify, prioritize, and manage them. This is reflected in the [Assets Overview dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard), which provides insights into critical assets on the attack surface by highlighting key metrics on approved assets and the [Assets page](https://help.zscaler.com/easm/about-asset-inventory) that lists the approved assets by default.
+
+All seed assets are marked as approved by default.
+
+**Candidate**: Indicates that the asset needs further review and investigation into whether it comes under your organization's responsibility. This is the default status for all attributed assets before they are validated and marked as approved. Attributed assets are automatically validated by EASM after discovery. However, specific assets that are not validated by EASM need to be manually verified by admins. Additionally, you can review approved assets and manually change the status to Candidate if you want to investigate the asset's link to your organization or if the asset is not established to have a strong connection with your organization. Candidate assets are not included in periodic scans and are no longer part of the discovery chain that's established by its initial connection to the seed. Scanning of assets in this state is temporarily suspended, and the asset's successive connections are also not scanned.
+
+**Archived**: Assets that are reviewed confirmed to have no relationship with your organization or that no longer require monitoring can be marked as Archived. Assets in this state and their successive connections are removed from the scanning process. Archived assets are also not included in scanning and are not part of the discovery chain established by their original connection to the seed. Archived assets and their successive connections are permanently removed from the scanning process.
+
+[Image: Asset status change from Asset Details drawer and Asset Details page in EASM]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/modifying-finding-status","lastmod":"2024-11-29T06:06Z","nid":"1503601"} -->
+## Modifying Finding Status
+
+- Source: https://help.zscaler.com/easm/modifying-finding-status
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Findings > Modifying Finding Status
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to change the finding status in Zscaler EASM Admin Portal.
+
+[Findings](https://help.zscaler.com/easm/about-findings) offer deeper insights into your external attack surface, enabling you to identify, prioritize, and remediate business-critical risks and vulnerabilities. EASM supports various statuses for findings to help you effectively manage findings from discovery to closure, with different types of processing and management options based on the findings' statuses. For example, only findings in specific statuses relevant to the management of risks are highlighted on the [Insights Overview dashboard](https://help.zscaler.com/accessing-interacting-insights-overview-dashboard).
+
+When the risk parameters are initially detected in assets, they are populated in the EASM Admin Portal, automatically tagged with the label "Not Verified". You can validate the findings reported by EASM individually and mark them as "Verified" if they need to be managed as risks. The available finding statuses are:
+
+- **Not Verified**: All the risk findings identified by EASM in your organization's attack surface are tagged with the label "Not Verified".
+- **Verified**: Risk findings are investigated manually and it's verified that the risk is present (e.g., verifying an open port flagged on a host).
+- **Risk Accepted**: Represents risk findings that are deemed acceptable. For example, a jump server with port 22 open and exposed to the internet might be for intended use.
+- **Resolved**: Risk findings for which remediation steps are taken or are planned can be marked as resolved. With the previous example, if the server is decided to be moved behind Zscaler Private Access (ZPA) for example, then it could be marked as resolved. However, if the finding is discovered again in a subsequent scan, then it is marked as "Not Verified".
+- **Disputed**: If the manual verification of the finding turns out differently from the risk finding, the finding can be moved to the Disputed status, indicating that it might be a false positive.
+
+The Insights Overview dashboard focuses on findings that are in Not Verified and Verified statuses, highlighting risks that need immediate attention to prevent threats and penetration by bad actors into your network. Findings that are in Risk Accepted, Resolved, or Disputed statuses are excluded from the dashboard, as these risks are considered as not requiring any further actions from your security team. However, risks in these statuses can be moved to Not Verified or Verified if they require further examination.
+
+To modify the status of a finding:
+
+The data on the Findings page is specific to the organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
+
+1. Go to the **Findings** page.
+2. Click the finding record for which you want to modify the status. The **Finding Details** drawer opens on the right side.
+3. In the **Finding Details** drawer, under the **Finding Details** tab, you can modify the finding's status by using the **Status** drop-down menu. Alternatively, you can click the **View More Details** button to go to the finding details page and modify the status from there. See image. A **Status Update Confirmation** window appears.
+4. In the **Status Update Confirmation** window, enter the reason for modifying the finding's status which can be useful for auditing trails and general tracking purposes.
+5. Click **Accept**.
+
+[Image: Changing finding status from Finding Details drawer and Finding Details page in EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/modifying-lookalike-domain-status","lastmod":"2024-11-29T06:06Z","nid":"1508151"} -->
+## Modifying Lookalike Domain Status
+
+- Source: https://help.zscaler.com/easm/modifying-lookalike-domain-status
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Modifying Lookalike Domain Status
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to change the status of lookalike domains in the EASM Admin Portal.
+
+EASM supports various statuses for [lookalike domains](https://help.zscaler.com/easm/about-lookalike-domains) to help you effectively track and manage these domains and gain visibility into the threats posed by phishing domains detected for your legitimate domains. The following statuses are supported for lookalike domains:
+
+- **Not Verified**: All lookalike domains initially detected by EASM for your legitimate seed domains are automatically tagged with the label "Not Verified".
+- **Verified**: Lookalike domains are manually investigated and verified for risks. An example could be a high-risk domain that is verified to be a phishing site.
+- **Risk Accepted**: Represents that the risk is deemed acceptable. An example could be a domain that is not registered yet and can be put on the watchlist.
+- **Resolved**: Lookalike domains for which remediation steps are taken or are planned can be marked as resolved. For example, if a fake domain is taken offline or suspended by the registrar after reporting and the threat is eliminated, it can be marked as resolved. However, if the lookalike domain is discovered again in a subsequent scan, then it is marked as "Not Verified".
+- **Disputed**: If the manual verification of a lookalike domain turns out differently from the original detection, the lookalike domain can be moved to the Disputed status, indicating that it might be a false positive.
+
+To modify the status of a lookalike domain:
+
+The data on the Lookalike Domains page is specific to the organization selected on the top-right corner. Before you begin, ensure that the desired organization is selected.
+
+1. Go to the Lookalike Domains page.
+2. Click the lookalike domain record for which you want to modify the status. The **Lookalike Domain Details** drawer opens on the right side.
+3. In the **Lookalike Domain Details** drawer, you can modify the domain's status by using the **Status** drop-down menu. See image. A **Status Update Confirmation** window appears.
+4. In the **Status Update Confirmation** window, enter the reason for modifying the lookalike domain's status which can be useful for auditing trails and general tracking purposes.
+5. Click **Accept**.
+
+[Image: Changing lookalike domain status in the EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/release-upgrade-summary-2025","lastmod":"2026-01-04T00:33Z","nid":"1516016"} -->
+## Release Upgrade Summary (2025)
+
+- Source: https://help.zscaler.com/easm/release-upgrade-summary-2025
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Release Notes > Release Upgrade Summary (2025)
+- Last modified: 2026-01-04T00:33Z
+- Summary: EASM Release Upgrade Summary for service updates deployed in 2025.
+
+This article provides a summary of all new features and enhancements for EASM.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/setting-up-asset-discovery","lastmod":"2024-11-29T06:06Z","nid":"1503546"} -->
+## Setting Up Asset Discovery
+
+- Source: https://help.zscaler.com/easm/setting-up-asset-discovery
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Discovery > Setting Up Asset Discovery
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to configure and initiate the Asset Discovery process in Zscaler External Attack Surface Management (EASM).
+
+Asset Discovery, a core function of EASM, enables an organization to identify and inventory all their internet-facing assets and gain insights into an organization's external attack surface. To initiate a scan and discover assets, EASM requires seeds. A seed is a known legitimate asset of your organization. Domains, IP addresses, and IP blocks are assets that can be configured as seeds. While setting up asset discovery, EASM allows you to configure seeds by creating a [discovery profile](https://help.zscaler.com/easm/about-discovery-profiles). A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. In addition, EASM allows you to set up [organizations](https://help.zscaler.com/easm/creating-managing-organizations) to help keep your attack surface discovery and inventory management separate for distinct entities, such as parent companies, subsidiaries, or acquisitions that are part of your company. For each organization, you can configure distinct discovery profiles with seeds for known legitimate assets of that specific organization.
+
+When a discovery profile is created and submitted, EASM initially scans the configured seeds to discover assets that are immediately connected to the seeds. Then the first level of connections are scanned further to discover a second level of connected assets, followed by each consecutive level of connections being recursively scanned, leading up to the formation of a discovery chain and ultimately mapping the organization's attack surface. The assets discovered in each level of connections are evaluated to determine if their relationship with the previous seed is strong enough before being recursively scanned to discover subsequent connections. This recursive scanning continues until the weak links exposed in your online infrastructure, including unknown and unmonitored assets, are discovered. The scanning stops when all the internet-facing assets which your organization is responsible for managing are identified and tracked.
+
+After discovering and inventorying the assets, EASM investigates a number of asset parameters to identify the associated risks, such as known vulnerabilities, misconfigurations, exposed credentials, sensitive enterprise information, etc. that can be potentially exploited as attack vectors. EASM continuously monitors the discovered assets and the changing attack landscape using periodic scans to provide real-time visibility into the risk exposure of your internet-facing asset infrastructure and to help prioritize risks with contextual and actionable information for risk remediation.
+
+You need to complete the following steps to enable EASM to start discovering your internet-facing assets and building visibility into the attack surface:
+
+- 1. Set up an organization.
+- 2. Create a discovery profile for the organization by including seeds.
+
+EASM provides a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, [Risk360](https://help.zscaler.com/risk360/what-risk360), and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM. You can also add custom organizations per your requirements.
+
+To add a custom organization:
+
+Only super admins can create and manage organization-specific configurations.
+
+1. Go to **Administration** > **Organizations**. The Organization window appears.
+2. In the **Organization** window: A new organization is added with options to configure the discovery profile and other details for the organization shown on the right side. By default, the organization is enabled and this is required to initiate the asset discovery scan. See image.
+  1. Click the **Add** icon on the left pane. If this is your first organization, you can alternatively use the **Add Organization** button. A text box to enter the name for the organization appears on the left pane.
+  2. Enter a name for the organization in the text box and click the **Tick** icon. See image.
+
+After creating an organization, you can set up a discovery profile for the organization. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-organizations).
+
+To create a discovery profile for an organization:
+
+Only admins with full access permission to the target organization can perform this action.
+
+1. Go to **Administration** > **Organizations**. The **Organization** window appears.
+2. In the **Organization** window:
+  1. Locate and click the organization for which you want to create a discovery profile on the left pane.
+  2. Click the **Add Discovery Profile** button. See image. The **Profile Details** window appears.
+3. In the **Profile Details** window:
+  1. **Name**: Enter a name for the discovery profile.
+  2. **Description**: Enter a brief description for the profile.
+  3. The **Scan Frequency** is automatically set to **Weekly** and is non-editable.
+  4. Under **Manage Seeds** section:
+    1. Select the type of the seed asset by clicking the respective tab. Currently, you can configure domains, IP addresses, and IP blocks as seed assets.
+    2. When you are in the respective tab for adding seeds of a specific asset type, you can add seeds for that particular asset type. To add the list of seeds that must be included in the discovery profile, enter the seed name in the text box provided under the **Include** section. To add multiple seeds manually, press `Enter` or click **Add** after specifying each item. Alternatively, you can import a list of seeds from a CSV file by using the **Upload File** option. When you add the seeds manually, the seeds are displayed in a list under the **Include**section. To remove any seeds from the list, use the **Delete** icon that appears next to the seed name.
+4. Click **Save**. See image.
+
+When you save the discovery profile, EASM starts scanning the internet for asset connections using the seeds to map your organization's attack surface and build an inventory of the internet-exposed assets. This process typically takes 24–48 hours and then you can view the asset inventory and the associated risks identified for the assets within the EASM Admin Portal.
+
+The discovery profile is saved and displayed under a new **Discovery Profile** tab created for the organization. Additionally, an **Included Seeds** tab appears for the organization where you can view the list of seeds configured for the entire organization. To learn more, see [Configuring & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
+
+See image.
+
+[Image: Adding a new organization for attack surface discovery and management]
+
+[Image: New organization added for attack surface discovery and management]
+
+[Image: The Add Discovery Profile button is annotated]
+
+[Image: Creating discovery profile by configuring seeds in EASM]
+
+[Image: Discovery profile details in EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/step-step-configuration-guide-easm","lastmod":"2024-11-29T06:06Z","nid":"1503641"} -->
+## Step-by-Step Configuration Guide for EASM
+
+- Source: https://help.zscaler.com/easm/step-step-configuration-guide-easm
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Getting Started > Step-by-Step Configuration Guide for EASM
+- Last modified: 2024-11-29T06:06Z
+- Summary: A step-by-step guide to set up and configure Zscaler EASM for your organization.
+
+This guide takes you through the configuration steps you need to complete to begin using EASM for your organization. Each step guides you through essential tasks, ensuring you are fully equipped to start securing and monitoring your external attack surface efficiently.
+
+Zscaler recommends reviewing the following articles to learn more about the EASM configuration:
+
+- [What is Zscaler EASM?](https://help.zscaler.com/easm/what-zscaler-easm)
+- [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery)
+- [Accessing and Navigating the EASM Admin Portal](https://help.zscaler.com/easm/accessing-navigating-easm-admin-portal)
+
+## Configuring EASM
+
+To configure EASM, complete the following steps:
+
+- Step 1: Set Up Your Account
+- Step 2: Create Your Organization
+- Step 3: Configure a Discovery Profile
+- Step 4: Get Your Asset Inventory Information
+- Step 5: Monitor Your Attack Surface Using Dashboards
+
+After Zscaler provisions an EASM tenant for your organization, an email with instructions to complete your account registration is sent to you. To gain access to the EASM Admin Portal, you need to complete the account registration process by following the instructions in the email. To learn more, see [Accessing and Navigating the EASM Admin Portal](https://help.zscaler.com/easm/accessing-and-navigating-easm-admin-portal).
+
+Following your account setup, you can provision users on Authentication Service, Zscaler's centralized identity management platform, to provide them access to EASM. To do this, ensure that you have Authentication Service enabled for your organization. After provisioning is complete, you can assign roles to users to manage controlled access to specific organizations within the EASM Admin Portal. To learn more, see [Creating & Managing Roles](https://help.zscaler.com/easm/creating-managing-roles).
+
+The first step in setting up your attack surface discovery is to create an organization and configure a discovery profile for the organization. EASM offers a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, [Risk360](https://help.zscaler.com/risk360/what-risk360), and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM.
+
+In addition, you can create new organizations to discover and distinctly monitor the attack surface associated with different entities of your enterprise. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-organizations).
+
+To begin the discovery process for your internet-facing assets, EASM requires a known, legitimate asset from your organization, referred to as a "seed". This seed acts as the central node to discover connected assets in your digital asset infrastructure that are exposed to the internet, using various open-source intelligence (OSINT) methods employed by EASM. A discovery profile allows you to group multiple seeds and submit them for scanning. You can configure different types of assets as seeds, including domains, IP addresses, and IP blocks. To learn more, see [Creating & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
+
+After the initial scan, EASM compiles extensive data on the internet-facing assets that are discovered and inventoried as part of your organization's digital attack surface. This asset inventory consists of a vast amount of data that includes critical information such as asset details, key insights into vulnerabilities and risks, and the asset's relationship to your organization. The asset inventory is continuously updated through periodic scans, ensuring it reflects your evolving digital landscape with the latest data in the EASM Admin Portal.
+
+To get a high-level view of your threat landscape and assess your organization's security posture, you can start with the key metrics presented in EASM's dashboards. These dashboards summarize key information about your digital attack surface in highly interactive, visual representations that are easy to understand. Using these dashboards, you can identify the most critical threats in your asset infrastructure and then drill down on the individual assets or risk findings for further analysis. The dashboards essentially serve as the starting points for understanding your asset infrastructure, identifying key areas of concerns, and efficiently planning risk-mitigation strategies. To learn more, see [Accessing & Interacting with Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard) and [Accessing & Interacting with Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
+
+To analyze the individual assets in your inventory, EASM offers a customizable, tabulated list of the assets on the Assets page. You can customize the list by using filters to view specific asset data and further access detailed information to investigate each asset from this page. To learn more, see [About Asset Inventory](https://help.zscaler.com/easm/about-asset-inventory) and [Understanding Assets Details](https://help.zscaler.com/easm/understanding-asset-details).
+
+EASM also catalogs the risk findings discovered for the assets in a separate, highly customizable Findings page (Insights > Findings). This page provides essential information to help you assess the severity of risks, prioritize them, and plan mitigation strategies. To learn more, see [About Findings](https://help.zscaler.com/easm/about-findings) and [Understanding Finding Details](https://help.zscaler.com/easm/understanding-finding-details).
+
+EASM continuously monitors your asset infrastructure through periodic scans, ensuring your asset inventory is always up to date with the latest information. These scans can detect changes such as new assets detected in your attack surface through connections to existing assets or removal of previously discovered assets. You can track and monitor these changes in your digital attack surface and take remediation actions by using the key metrics presented on assets and risk findings in EASM's dashboards. To learn more, see [Accessing & Interacting with Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard) and [Accessing & Interacting with Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-asset-details","lastmod":"2025-10-23T03:47Z","nid":"1503571"} -->
+## Understanding Asset Details
+
+- Source: https://help.zscaler.com/easm/understanding-asset-details
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Inventory > Understanding Asset Details
+- Last modified: 2025-10-23T03:47Z
+- Summary: Information on understanding and analyzing asset inventory details in Zscaler External Attack Surface Management (EASM).
+
+The assets discovered as part of your digital attack surface are automatically added to your inventory and appear on the Assets page. These assets are continuously monitored through periodic scans, and they are subsequently used as targets to identify other linked assets that can be attributed to your organization. This process involves scanning across the internet recursively to uncover connected assets. Your external attack surface is constantly monitored and any changes to the attack surface, including new assets discovered and changes in the inventoried assets and their risk associations, are promptly reflected on the Assets page.
+
+The Assets page offers a highly customizable, tabulated list of assets, where you can click on each record to access detailed information and perform specific actions on a per-asset basis. The asset details consist of contextual information tailored to each asset type, helping you understand key aspects such as the technologies and services running on the asset, SSL/TLS certificates used, the asset's risk score and risk level, vulnerabilities and risks associated with the asset, and the asset's relationship to your organization through the discovery chain. The vulnerabilities and risks are evaluated based on a wide range of factors, including the technologies and services running on the asset, digital certificates used by the asset, domain registration, host names, HTTP headers used, other exposures, etc. The assets are mapped to their risk findings in a many-to-many relationship (i.e., one asset can have multiple risk findings and vice-versa). The discovered assets are categorized into one or more of the following types, with the details varying across asset types to ensure relevant and actionable insights for each category.
+
+- Domain
+- Host
+- Web Page
+- Certificate
+- ASN
+- IP Address
+- IP Block
+
+The asset details are presented in two different views, offering users the flexibility to drill down on the asset details as required. When you click on a row of the assets table, a right-side drawer referred to as the Asset Details drawer, opens, providing a quick overview of essential information. This drawer features a tabbed interface for the asset details and its associated findings. To further drill down on the asset information, from the Asset Details drawer, you can access a comprehensive, full-page view, referred to as the Asset Details page. This page offers more extensive details compared to the Asset Details drawer. To access the full-page view, click the View More Details button on the Asset Details tab of the Asset Details drawer.
+
+See image.
+
+The Asset Details page provides extensive information about the asset and also mirrors the tabbed interface for the asset details and findings, as seen in the Asset Details drawer. The Asset Details drawer serves as a streamlined, condensed version of the Asset Details page, allowing you to quickly switch between different assets to view their details from the list view with ease. On the other hand, the Asset Details page is designed for deeper analysis of a specific asset, offering full access to the complete data set available. This makes it particularly useful when a more thorough examination of the asset details is required. When you are in the Asset Details page, you can go back to the assets list view to access details of other assets.
+
+See image.
+
+The following sections provide a detailed overview of all the asset details that are available, following the presentation layout and the comprehensive information tracked in the Asset Details page. On the Asset Details page (Insights > [Asset record] > Asset Details > View More Details), the asset name is displayed at the top along with the asset's overview, details, and risks.
+
+Some of the following documented fields under each section are exclusive to the Asset Details page and might not appear in the Asset Details drawer and vice-versa. Additionally, the content organization differs between the two views to optimize the user experience for each.
+
+## Asset Overview
+
+This section provides the following high-level information about the asset:
+
+- **Type**: The type of the asset categorized into Domain, Host, Web Page, Certificate, ASN, IP Address, or IP Block. Depending on the type, the asset details presented in the inventory differ.
+- **Risk Level**: The risk level quantifies the amount of risk posed by an asset, and it is derived from the risk score calculated for the associated findings. The risk level ranges from Minimum to Critical, giving users an immediate sense of asset's criticality and providing guidance in prioritizing business-critical or concerning assets. For example, a critical or high risk level indicates that an asset poses significant risk without mitigation controls, whereas a low risk level might indicate an acceptable risk or commonly found issues. A medium risk level might indicate that the asset should be safeguarded but might have a lower priority compared to higher-risk assets. Available risk levels: Minimum, Low, Medium, High, and Critical.
+- **ID**: A Universally Unique Identifier (UUID) generated and assigned to the asset by EASM.
+- **First Seen**: The timestamp when the asset was first discovered in a scan.
+- **Last Seen**: The timestamp when the asset was last observed in a scan.
+- **Status**: Indicates the status of the asset's relationship with your organization and allows you to review and determine whether an asset must be included in the inventory. You can modify the status of the asset using the drop-down menu. The following three statuses are supported for assets, and assets can be transitioned from one status to any other status depending on the requirements: Available Statuses
+
+See image.
+
+## Asset Details
+
+On the Details tab, you can access extensive information including the asset metadata, comprehensive information about the asset registry obtained from the Whois database, technologies and services observed to be running on the asset, and the digital certificates associated with it. This tab includes the following sections:
+
+- **General Information**: This section provides basic information about the asset, which varies across the different types of asset, as captured in the following table. Available Fields for Each Asset Type
+- **Whois**: The Whois protocol is a query-and-response system used to retrieve registration and ownership data of internet resources. EASM uses this protocol to provide detailed information about the registry of an asset using Whois for different types of assets including domains, hosts, web pages, ASNs, IP addresses, and IP blocks. Available Fields
+- **Discovery Chain**: This section presents the full path of asset discovery in a sequential link chain, originating from the seed asset and interconnected to a series of assets identified in the subsequent mapping, leading up to the discovery of the current asset. It enables asset source traceability and provides attestation of auto-attributed assets based on a seed, allowing you to self-validate your assets using the investigative trail provided. The discovery path is presented as a link chain, featuring the seed asset, intermediate nodes, and the current asset in a sequence, along with the services and attributes used to identify assets in each discovery hop as applicable. See Examples The following actions are supported: When an asset is discovered in more than one way, the discovery path with the highest confidence is shown.
+  - Each asset node in the discovery chain is clickable and takes you to the corresponding asset page for further investigation.
+  - To view the asset link with more contextual text, you can turn off the toggle button on the top right of this section. This displays the asset links in a series of steps with additional information about each asset node.
+  - You can zoom in and out of the discovery chain when viewing it in the link chain view and move it around the canvas.
+- **Technologies**: This section provides a tabulated list of technologies used on the asset and their associated details, such as the version number, CVE ID for any associated vulnerabilities or exploits, and more. This data highlights risky technologies used on the asset, such as those with known vulnerabilities or deprecated technologies (e.g., ISC BIND, Apache HTTP Server, etc.). This data helps you quickly identify potential weakness in your external attack surface.
+- **Services**: This section provides a tabulated list of services that are observed to be running on the asset. It includes details such as open ports and their associated services, allowing you to identify any risky or unsecured ports that should not be accessible from the internet (e.g., insecure remote services commonly targeted by attackers). Information such as port number, protocol, and dates when the open port was first and last observed is available.
+- **SSL/TLS Certificates**: This section provides a tabulated list of SSL/TLS certificates used by the asset, highlighting old or outdated certificate versions that are often targeted by nefarious actors or versions that can be reverted to a previous version. The information provided includes SSL/TLS version, the server name protected by the certificate, issued date and expiration date for the certificate, and dates when the certificate was first and last observed in a scan.
+
+See image.
+
+## Risk Insights
+
+On the Risk tab, you can access information about the vulnerabilities and risks identified in the asset. This information helps you identify and remediate these issues by applying patches to mitigate the CVEs, retiring old technologies and services that are not in commission anymore, and adopting an access solution that can avoid exposure to unauthorized parties.
+
+This tab includes an overview of the asset's risk metrics and a list of risk findings associated with the asset, as explained in the following sections:
+
+- **Findings by Risk Level**: The findings associated with the asset plotted against risk levels in a bar graph, providing an overview of the distribution of findings across the risk levels. You can hover over each bar to view the number of findings marked with that specific risk level.
+- **Findings**: A tabulated list of all risk findings identified in the asset along with the number of findings indicated in the table header. This information provides visibility into all vulnerabilities, misconfigurations, and exposures detected in the asset, helping you assess the asset's potential threat vectors and address the issues. Available Fields
+
+You can use the **Settings** icon to select the columns that must be shown or hidden from the asset table. In addition, you can sort the list by specific table columns using the **Sort** icon that appears in the column header.
+
+See image.
+
+- **Approved**: Indicates that the asset comes under your organization's responsibility or management. Assets in this state are periodically scanned to update their inventory details and their connections are also scanned. After assets are attributed to your organization through the discovery process, they are validated by EASM and the verified assets are marked with this status. All seed assets are marked as Approved by default.
+- **Candidate**: Indicates that the asset needs further investigation into whether it comes under the responsibility of your organization. This is the default status for all attributed assets before they are validated and marked as Approved. Attributed assets are automatically validated by EASM after discovery. However, specific assets that are not validated by EASM need to be manually verified by admins. Additionally, if an asset's connection with your organization needs to be reviewed, you can change the asset's status to Candidate. Scanning of assets in this state is temporarily suspended, and the asset's successive connections are also not scanned.
+- **Archived**: Indicates that the assets are reviewed and are confirmed to have no link to your organization, or can be permanently removed from scanning for other reasons. Assets in this state and their successive connections are removed from the scanning process.
+
+See image.
+
+Approved assets are continuously monitored and are given higher visibility in the EASM Admin Portal to help you easily identify, prioritize, and manage them. This is reflected in the [Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard) that highlights key metrics on approved assets and the Assets page that lists the approved assets by default.
+
+- **Name**: An identifier for the finding sourced from the scan or assigned by EASM. Depending on the type of finding, this field can contain a wide variety of identifiers, such as CVE ID, VPN, Self-Signed Certificate, etc.
+- **Risk Level**: The amount of risk quantified for the finding using one of the following values: Low, Medium, High, and Critical.
+- **Category**: The classification of the finding as Exposure, Vulnerability, or Misconfiguration, which provides context about the finding instantly.
+- **Scan Type**: The scanning service that was used to uncover the risk finding. The available scan types are Web, Network, Certificate, and DNS scans.
+- **First Seen**: The timestamp when the finding was first detected in the asset.
+- **Last Seen**: The timestamp when the finding was last observed in the asset.
+
+You can access detailed information about each finding from the Findings page. To learn more, see [Understanding Finding Details](https://help.zscaler.com/easm/understanding-finding-details).
+
+| Asset Type | Field Name | Description |
+| --- | --- | --- |
+| **Domain** | No of Subdomains | The number of subdomains associated with the asset. |
+| Registration Expiration | The date when the asset's registration expires. |  |
+| WHOIS Registrar | The registrar listed in the Whois record. |  |
+| **Host** | Revealing Hostname | A Boolean value indicating whether the hostname exposes sensitive information about your asset infrastructure. |
+| TLS Versions Supported | The TLS versions supported by the asset. |  |
+| Country | The country of origin detected for the asset. |  |
+| IP Address | The IP address detected for the asset. |  |
+| **Web Page** | Revealing Hostname | A Boolean value indicating whether the hostname exposes sensitive information about your asset infrastructure. |
+| TLS Versions Supported | The TLS versions supported by the asset. |  |
+| **Certificate** | Certificate Issued | The date when the certificate was issued. |
+| Certificate Expires | The date when the certificate expires. |  |
+| Issuer Organization Name | The name of the entity (i.e., Certificate Authority) that was responsible for issuing the certificate. |  |
+| Country | The country where the subject's organization is located. |  |
+| Signature Algorithm | The signature key algorithm used to encrypt the certificate. |  |
+| Subject Common Name | The server name protected by the SSL certificate. |  |
+| Subject Organization Name | The name of the organization to which the certificate is issued. |  |
+| **ASN** | Allocation Date | The date when the Internet Assigned Numbers Authority (IANA) allocated an Autonomous System Number (ASN). |
+| Registry | The IANA registry which is responsible for overseeing the global coordination of the internet's unique identifiers, such as IP addresses, domain names, and protocol parameters. |  |
+| IPv4 Addresses | The IPv4 address space controlled by the AS. |  |
+| IPv6 Prefixes | The IPv6 prefix owned by the AS. |  |
+| Registrant Organization | The organization that owns the registered entity. |  |
+| AS Full Name | The full name of ASN. |  |
+| **IP Address** | Country | The country of origin detected for the asset. |
+| ASN | The ASN associated with the asset. |  |
+| WHOIS Registrant Organization | The organization that owns the registered entity as listed in the Whois record. |  |
+| WHOIS Registrar | The internet company whose service was used to register the entity as listed in the Whois record. |  |
+
+- **Registrant Organization**: The organization that owns the registered entity.
+- **Registrant Email**: Any contact email addresses provided by the registrant.
+- **Registrar**: The internet company that was used to register the asset. Popular registrars include GoDaddy, Namecheap, Bluehost, Domain.com, etc.
+
+These fields are available for all asset types except for certificates.
+
+- **Web Page**: In this example, the source is a seed domain configured by the admin. A Whois query for the registrant organization reveals a domain, and subsequently, a web page is discovered via the HTTP header for URL redirection. See image.
+- **IP Address**: The source is a seed domain. The domain host is identified, and the IP address is obtained using DNS records. See image.
+- **TLS Certificate**: The source is a seed domain. The domain host is identified, and then the host certificate is obtained through TLS discovery. See image.
+
+[Image: Accessing asset details page from the list view in EASM]
+
+[Image: Going back to the list view from asset details page in EASM]
+
+[Image: Asset overview section providing general information]
+
+[Image: Asset details tab providing extensive information about the asset in EASM]
+
+[Image: Risk findings associated with asset in EASM]
+
+[Image: Asset status change from the asset details page in EASM]
+
+[Image: Asset discovery chain for a web page]
+
+[Image: Asset discovery chain for an IP address]
+
+[Image: Asset discovery chain for a TLS certificate]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-asset-discovery","lastmod":"2024-11-29T06:06Z","nid":"1503541"} -->
+## Understanding Asset Discovery
+
+- Source: https://help.zscaler.com/easm/understanding-asset-discovery
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Discovery > Understanding Asset Discovery
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on Zscaler EASM asset discovery, its features, benefits and use cases for securing internet-facing assets.
+
+In the modern digital landscape, organizations deal with increasingly complex external attack surfaces, driven by their expanding online presence. As organizations expand digitally, their attack surfaces grow, introducing new potential vulnerabilities. Unknown or unmonitored assets are particularly dangerous because they might not be regularly updated or secured, leaving them exposed to attacks. This expansion includes assets resulting from mergers and acquisitions or third-party services that were once used but have since been forgotten.
+
+Asset discovery, a core function of EASM, helps organizations identify, inventory, and continuously monitor their internet-facing assets. This capability provides critical visibility into risks and potential vulnerabilities. Asset discovery involves identifying and inventorying all internet-facing assets an organization owns or manages. These assets include domains, hosts, web pages, certificates, ASNs, IP addresses, and IP blocks exposed to the public internet. In EASM, asset discovery provides organizations with a clear view of their external attack surface by mapping out these assets and any risks associated with them. The discovery process ensures that even unknown, unmanaged, or forgotten assets—often referred to as "shadow IT"—are identified and brought under security management.
+
+Effective asset discovery enables organizations to:
+
+- **Gain Visibility**: Establish a complete inventory of all internet-facing assets, which is critical for managing external threats.
+- **Identify Risks**: Proactively uncover and address risks from both known and unknown assets.
+- **Prioritize Remediation**: Prioritize actions to mitigate vulnerabilities, based on the risks associated with each asset.
+- **Monitor Changes**: Continuously track changes in the asset inventory, allowing security teams to respond quickly to new risks.
+
+To learn more about the use cases of EASM, see [What is Zscaler EASM?](https://help.zscaler.com/easm/what-zscaler-easm)
+
+## How Asset Discovery Works in EASM
+
+EASM's asset discovery process starts with the use of seeds. A seed is a legitimate asset provided by the organization, such as a known domain, IP address, or IP block, which serves as the starting point for discovery. EASM then uses this seed to begin mapping the organization’s external attack surface through a recursive process.
+
+Seeds are part of the discovery profile and EASM allows you to create distinct discovery profiles for different business entities (e.g., parent companies, subsidiaries), allowing organizations to have granular control over how they manage their attack surface.
+
+The following sections outline the key steps in EASM's asset discovery and monitoring process:
+
+1. **Seed-based Scanning**: EASM starts by scanning the seed, mapping its direct connections and discovering related assets.
+2. **Discovery Chain**: When the first level of assets connected to the seed is found, EASM recursively scans subsequent levels of connections, ultimately building a comprehensive map of the organization's attack surface.
+3. **Risk Evaluation**: After assets are discovered, EASM evaluates each asset against a set of risk parameters. This includes identifying known vulnerabilities, misconfigurations, and exposed sensitive services. Risks are continuously monitored as part of the asset inventory to provide real-time updates on the organization's external exposure.
+4. **Automated Monitoring**: After the discovery process is complete, EASM continues to monitor the organization's external attack surface through periodic scans. This ensures that any new risks are detected promptly and that any changes to existing assets are tracked.
+
+To learn how to set up asset discovery in EASM, see [Step-by-Step Configuration Guide for EASM](https://help.zscaler.com/easm/step-step-configuration-guide-easm).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-dashboards","lastmod":"2025-01-28T00:36Z","nid":"1503521"} -->
+## Understanding Dashboards
+
+- Source: https://help.zscaler.com/easm/understanding-dashboards
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Dashboards & Analytics > Understanding Dashboards
+- Last modified: 2025-01-28T00:36Z
+- Summary: Information on dashboards in Zscaler External Attack Surface Management (EASM), their features, and how they help in monitoring digital assets and assessing risk insights.
+
+Dashboards are essential tools for presenting key information from related data sources in a format that is easy to interpret, using various data visualization elements, such as graphs, tables, and charts. Zscaler EASM provides two dynamic and interactive dashboards, namely Assets Overview and Insights Overview. The Assets Overview dashboard provides a summary of the approved asset inventory that constitutes your organization's external attack surface, while the Insights Overview dashboard provides information on the vulnerabilities and risks associated with those assets. These dashboards are designed to aggregate and display key metrics related to assets and risk insights, helping you quickly identify areas of concern. By offering a near real-time view of your organization's evolving attack surface, these dashboards enable you to prioritize and address business-critical vulnerabilities, ensuring the protection of your internet-exposed asset infrastructure from potential threats.
+
+The Assets Overview and Insights Overview dashboards serve as valuable starting points for identifying and understanding the threat landscape of your digital assets. Each dashboard features a collection of widgets specifically designed to present key metrics relating to assets or risk findings. These dashboards are highly interactive, allowing you to perform various actions within each widget, such as adjusting time frames, hovering over data points to view detailed information, and clicking on specific data points to access a filtered view of relevant entities on a different page in EASM. After identifying the most critical threats in your infrastructure using the information presented on the dashboard, you can drill down on the assets or risk findings for further analysis.
+
+The following sections provide a detailed breakdown of each dashboard.
+
+## Insights Overview Dashboard
+
+The Insights Overview dashboard provides a comprehensive summary of risk findings within your organization's digital attack surface, using clear graphical representations to highlight critical risk metrics. These findings include undetected vulnerabilities, misconfigurations, and compliance violations across your internet-exposed digital assets, which have been discovered and inventoried by EASM.
+
+The dashboard presents key metrics across various parameters, such as risk trends, distribution of findings by risk levels and predefined categories, and the top locations with the highest concentration of risks. Additionally, it summarizes critical findings in specific areas, such as exposed sensitive services, VPN appliances, and risks associated with SSL/TLS certificate expiration and domain registration expiration. Specific examples of risk findings include Common Vulnerabilities and Exposures (CVEs), SSL/TLS misconfigurations or outdated versions, expired digital certificates, domain registration expiration, insecure HTTP headers, exposed VPN appliances, and sensitive services such as RDP, SSH, VNC, Telnet, and SNMP.
+
+The dashboard also monitors lookalike domains—fraudulent domains created by bad actors to resemble legitimate domain names associated with your organization, which are often used to deceive users into downloading malware, divulging sensitive information, and perpetrating other forms of cyberattacks.
+
+Each of these key metrics is displayed within an interactive widget on the dashboard, allowing you to drill down into specific data points for further analysis. You can easily switch between different EASM organizations by selecting the desired organization within the user interface, enabling you to effectively monitor and address the most critical threats to your infrastructure.
+
+See image.
+
+To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard).
+
+## Assets Overview Dashboard
+
+The Assets Overview dashboard provides a comprehensive summary of your organization's internet-facing digital assets, which have been verified as part of your digital infrastructure. This dashboard offers visibility into your external attack surface, presenting key metrics related to the risks and vulnerabilities associated with these assets. EASM uses advanced scanning techniques and intelligence-gathering tools to identify and analyze exposed assets across the internet, including unknown or forgotten assets. When discovered, these assets are inventoried, classified, and monitored through periodic scans. The latest data is then presented on the Assets Overview dashboard using graphical representations.
+
+This dashboard allows you to quickly assess the security posture of your asset infrastructure, providing real-time updates on vulnerabilities, misconfigurations, and compliance violations. By offering a high-level view of your organization's external attack surface, the dashboard enables timely identification of business-critical assets and the remediation of vulnerabilities, helping to prevent potential exploits.
+
+See image.
+
+To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
+
+[Image: Insights Overview dashboard that provides a summary of risks and vulnerabilities discovered in the digital attack surface]
+
+[Image: Assets Overview dashboard that provides a summary of most concerning assets discovered in the digital attack surface]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-finding-details","lastmod":"2025-12-16T03:22Z","nid":"1503596"} -->
+## Understanding Finding Details
+
+- Source: https://help.zscaler.com/easm/understanding-finding-details
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Findings > Understanding Finding Details
+- Last modified: 2025-12-16T03:22Z
+- Summary: Information on understanding and analyzing finding details in Zscaler External Attack Surface Management (EASM), including risk assessment, impacted assets, and remediation insights.
+
+EASM investigates the security risks (or findings) that are uncovered in your organization's digital attack surface and catalogs them on the [Findings page](https://help.zscaler.com/easm/about-findings) (Insights > Findings). This page features a highly customizable, tabulated list of findings, allowing you to click each record to access detailed information about the finding and perform specific actions on a per-finding basis. The details provided for each finding are crucial for assessing the severity of risks, prioritizing them, and planning mitigation strategies. Additionally, each finding is also mapped to the assets affected by the finding in a many-to-many relationship (i.e., one finding can impact multiple assets and vice-versa).
+
+The finding details are presented in two distinct views, offering users the flexibility to drill down on the finding details as required. When you click a row in the findings table, a quick view of essential information about the finding opens in a right-side drawer (referred to as "Finding Details drawer" henceforth). This drawer features a tabbed interface for finding details, impacted assets, status change history, and Jira tickets. To view more detailed finding information, from the Finding Details drawer, you can access a full-page view of comprehensive details about the finding (referred to as "Finding Details page" henceforth). To do this, you need to click the View More Details button on the Finding Details tab of the Finding Details drawer.
+
+See image.
+
+The Finding Details page provides extensive information about the finding and also mirrors the tabbed interface for finding details, impacted assets, and tickets as seen in the Finding Details drawer. The Finding Details drawer is essentially a limited version of the Finding Details page and allows you to easily switch between different findings to view their details from the list view. On the other hand, the Finding Details page is more useful when analyzing a specific finding, and you need to access the complete data available for the finding. When you are on the Finding Details page, you can go back to the findings list view to access details of other findings.
+
+See image.
+
+The next sections cover all the finding details that are available, following the presentation layout and the comprehensive information tracked on the Finding Details page. On the Finding Details page (Insights > [Finding] > Finding Details > View More Details), the finding name is displayed at the top along with the finding's overview, details, and impacted assets.
+
+Some of the following documented fields are only available on the Finding Details page and are not present in the Finding Details drawer. Additionally, the organization of the content differs between the two views.
+
+## Finding Overview
+
+This section contains high-level information about the finding to help users get a baseline of the finding at a glance. This section includes:
+
+- **Category/Type**: The classification of the finding as **Exposure**, **Vulnerability**, or **Misconfiguration**, which provides context about the finding instantly. Each category of findings is uniquely processed and has slightly varying information presented for the findings within that category based on relevance. For example, the NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are all most relevant to vulnerability findings rather than exposures or misconfigurations.
+- **Risk Level**: The risk level quantifies the amount of risk associated with a finding, and it is derived from the risk score computed for the finding. The risk level ranges from **Low**, **Medium**, **High**, and **Critical**. Risk levels help you with instant information about prioritizing business-critical findings. For example, a critical or high risk level indicates that the finding poses significant risk without mitigation controls, whereas a low risk level might indicate an acceptable risk. A medium risk level might indicate that the issue needs to be resolved to improve your security defenses but might have a lower priority compared to serious risks.
+- **Impacted Asset**: The asset impacted by the risk finding. Assets and findings can have many-to-many relationships (i.e., one finding can impact multiple assets and an asset can have multiple findings), and the complete list of assets impacted by the finding is listed under the **Other Impacted Assets** tab along with the count of assets displayed in the tab name.
+- **First Seen**: The timestamp of when the finding was first detected during scanning, adding more context to understanding the interaction with the finding.
+- **Last Seen**: The timestamp when the finding was last detected during scanning, adding more context to understanding the interaction with the finding.
+- **Finding Age**: The number of days elapsed since the first encounter with the finding until it was last seen, indicating how long the finding has been present in your asset infrastructure.
+- **Status**: Indicates the current stage in which the finding is present from discovery to closure. You can modify the status of the finding using the drop-down menu. List of Available Statuses
+
+See image.
+
+## Finding Details
+
+On the Details tab, you can find crucial information about the finding that provides more context about the finding to help you understand and analyze the finding more in depth. This section includes:
+
+- **Finding Risk Score**: A risk score computed for the finding based on multiple vectors such as threat severity, likelihood, and impact using a combination of open source intelligence (OSINT) on vulnerability risk computation and Zscaler's proprietary risk computation techniques. The risk score is a numerical value ranging from 1 to 100. The risk score is shown in a half donut chart with the risk score and risk level presented at the center and an indicator used to point towards the color-coded risk score meter in the donut chart.
+- **Scan Type**: The scanning service that was used to uncover the risk. The available scan types are **Web**, **Network**, **Certificate**, and **DNS** scans. For example, domain expiration is likely to be detected in a DNS scan, SSL/TLS outdated version might be detected in a web scan, and a CVE vulnerability might be detected in a web, DNS, or network scan.
+- **NVD CVSS Severity**: The Common Vulnerability Scoring System (CVSS) score that indicates the qualitative measure of severity of a vulnerability using a numerical value ranging from 1 to 10, if applicable.
+- **CISA KEV Likelihood**: Indicates whether a vulnerability is listed in the [Known Exploited Vulnerabilities (KEV) catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) using a Boolean value, if applicable.
+- **EPSS Likelihood**: The Exploit Prediction Scoring System (EPSS) likelihood indicates the probability that a vulnerability can be exploited in the wild, if applicable. The value is represented in a percentage.
+- **Description**: A detailed description of the finding gathered from an open-source intelligence, such as [National Vulnerability Database (NVD)](https://nvd.nist.gov/), and Zscaler's research team.
+- **[Scan Output]**: This section contains the complete output of the scan that was used to identify the finding. This section is labeled differently for assets depending on their type and the corresponding scan performed (e.g., HTTP Response, Nmap Response, and Certificate Response).
+- **Matched Evidence**: This section contains specific portions of the scan results that attest to the finding. This information provides attestation of detected findings and enables organizations to self-validate their findings using the investigative trail provided.
+
+See image.
+
+Specific finding details, such as NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are only applicable to vulnerability findings which group Common Vulnerabilities and Exposures (CVE). CVE is a list of publicly disclosed vulnerabilities maintained by MITRE.
+
+## Impacted Assets
+
+On the **Other Impacted Assets** tab, you can access the list of all assets that are impacted by the risk, excluding the asset that's already displayed in the Overview section. This section provides visibility into how widely the risk is spread within your asset infrastructure by aggregating the risk impact. The assets are tabulated, and the following information is available for each asset.
+
+Available Fields
+
+The number of assets that are impacted by the risk is included in the tab name. You can use the **Settings** icon to select the columns that must be shown or hidden from the asset table. In addition, you can sort the list by specific table columns using the **Sort** icon that appears in the column header.
+
+See image.
+
+## Tickets
+
+This tab is available if [Jira integration is enabled](https://help.zscaler.com/easm/configuring-jira-integration) for the organization with the finding is associated. On this tab, you can create and view Jira tickets for this finding. When creating the tickets, you can fill out a set of predefined Jira fields, such as Project, Issue Type, Component, Priority, and Assignee.
+
+Jira ticket creation in EASM and ticket synchronization between Jira and EASM requires an active connection established between your Jira instance and EASM organization through a valid personal access token retrieved from Jira.
+
+To add a new ticket, click **Create**, provide the required information, and submit the details. To learn more, see [Creating Jira Tickets for Findings](https://help.zscaler.com/easm/creating-jira-tickets-findings). After the ticket is created, the record is added to Jira along with data fetched from EASM such as the finding details and any attachment files. The Jira ticket ID and status are reflected in EASM immediately along with other information submitted. The ticket record details automatically synchronize between Jira and EASM.
+
+See image.
+
+- **Not Verified**: All the risk findings identified by EASM in your organization's attack surface are tagged with the label, Not Verified.
+- **Verified**: Risk findings are investigated manually and are verified to be present (e.g., verifying an open port flagged on a host).
+- **Risk Accepted**: Represents risk findings that are deemed acceptable. For example, a jump server with port 22 open and exposed to the internet might be for intended use.
+- **Resolved**: Risk findings for which remediation steps are taken or are planned can be marked as resolved. With the previous example, if the server is planned to be moved behind Zscaler Private Access (ZPA) as a resolution, then it could be marked as resolved. However, if the finding is discovered again in a subsequent scan, then it is marked as Not Verified.
+- **Disputed**: If the manual verification of the finding turns out different from the risk finding, the finding can be moved to the Disputed status, indicating that it might be a false positive.
+
+See image.
+
+The Insights Overview dashboard presents data on findings that are in Not Verified and Verified statuses to highlight risks that need to be addressed to eliminate threats and penetration by bad actors into your network. Findings that are in Risk Accepted, Resolved, or Disputed statuses are not presented in the dashboard, as these risks are considered as not requiring any further actions from your security team. However, risks in these statuses can be moved to Not Verified or Verified if they require further examination. To learn more, see [Modifying Finding Status](https://help.zscaler.com/easm/modifying-finding-status).
+
+- **Name**: The name of the asset.
+- **Risk Level**: The risk level assigned to the asset.
+- **Scan Type**: The type of scan through which the asset was discovered, such as Web, DNS, or Network type scans.
+- **Status**: The [status](https://help.zscaler.com/easm/changing-asset-status) of the asset from Approved, Candidate, or Archived.
+- **First Seen**: The timestamp when the finding was first detected in the asset.
+- **Last Seen**: The timestamp when the finding was last observed in the asset.
+
+You can access detailed information about each asset from the Assets page. To learn more, see [Understanding Asset Details](https://help.zscaler.com/easm/understanding-asset-details).
+
+[Image: Accessing finding details page from list view in EASM]
+
+[Image: Navigating to findings list view from details page in the EASM Admin Portal]
+
+[Image: Finding overview section in EASM showing basic information about the finding]
+
+[Image: Finding status drop-down menu in the finding details page in EASM Admin Portal]
+
+[Image: Finding details tab in EASM Admin Portal showing key information about the finding]
+
+[Image: List of assets impacted by a finding shown in the EASM Admin Portal]
+
+[Image: Creating and linking Jira ticket with EASM finding from the EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-lookalike-domain-details","lastmod":"2024-11-29T06:06Z","nid":"1508146"} -->
+## Understanding Lookalike Domain Details
+
+- Source: https://help.zscaler.com/easm/understanding-lookalike-domain-details
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Understanding Lookalike Domain Details
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on lookalike or phishing domains along with their details populated in EASM which can be analyzed for enforcing threat mitigation controls.
+
+The lookalike domains that are detected for your seed domains are investigated and cataloged on the [Lookalike Domains page](https://help.zscaler.com/easm/about-lookalike-domains) (Insights > Lookalike Domains). This page provides a customizable, tabulated list where you can click each domain entry to access more detailed information and take specific actions. The lookalike domain details consist of contextual information, helping you understand key aspects, such as the original domain forged by the lookalike domain, domain registration details, risk category and risk score, deception tactics used in the domain name, domain detection timeline, and status.
+
+To view comprehensive information about a lookalike domain, click on an entry in the table. A right-side drawer referred to as the Lookalike Domain Details drawer opens. In this drawer, you can access the following information about the lookalike domain:
+
+- **Original Domain**: The legitimate domain mimicked by the lookalike domain.
+- **Lookalike Domain Annotation**: A label for the lookalike domain.
+- **Risk Category**: The risk categorization of the lookalike domain. Available Risk Categories
+- **Risk Score**: A risk score assigned for the lookalike domain.
+- **Deception Method**: The deception tactic used in the lookalike domain name to impersonate a legitimate domain. Examples of deception techniques include the use of homograph (i.e., by exploiting similar-looking characters or homoglyphs), substituting letters with numbers, hyphenation, intentional typos, adding, removing, or transposing letters, etc.
+- **Lookalike Domain Registrar**: The internet company that was used to register the domain, if available. Popular registrars include GoDaddy, Namecheap, Bluehost, Domain.com, etc.
+- **Lookalike Domain Registered**: Indicates whether the domain is registered with a registrar or not.
+- **Lookalike Registrant Organization**: An individual or entity that owns the registered domain, if available.
+- **Lookalike Registration Expiration**: The domain registration expiration date, if available.
+- **First Seen**: The timestamp when the lookalike domain was first identified in a scan.
+- **Last Seen**: The timestamp when the lookalike domain was last observed in a scan.
+- **Status**: The status assigned to the lookalike domain entry from Not Verified, Verified, Risk Accepted, Resolved, and Disputed. You can modify the status using the drop-down menu as needed. Available Statuses
+- **Description**: A description of the lookalike domain, why it is suspicious, and the deception tactics used.
+
+See image.
+
+- **Verified Phishing**: Indicates that the domain is verified to be a phishing site by Zscaler's web risk analyzer service.
+- **Registered Lookalike**: Indicates that the domain is registered through an internet company that provides domain registration services (i.e., registrar).
+- **Preventative Lookalike**: Indicates that the domain is not registered with a registrar.
+
+- **Not Verified**: All lookalike domains initially detected by EASM for your legitimate seed domains are automatically tagged with the label "Not Verified".
+- **Verified**: Lookalike domains are manually investigated and verified for risks. An example could be a high-risk domain that is verified to be a phishing site.
+- **Risk Accepted**: Represents that the risk is deemed acceptable. An example could be a domain that is not registered yet and can be put on the watch list.
+- **Resolved**: Lookalike domains for which remediation steps are taken or are planned can be marked as resolved. For example, if a fake domain is taken offline or suspended by the registrar after reporting and the threat is eliminated, it can be marked as resolved. However, if the lookalike domain is discovered again in a subsequent scan, then it is marked as "Not Verified".
+- **Disputed**: If the manual verification of a lookalike domain turns out differently from the original detection, the lookalike domain can be moved to the Disputed status, indicating that it might be a false positive.
+
+See image.
+
+[Image: Lookalike domain details page showing key information in the EASM Admin Portal]
+
+[Image: Lookalike domain status change in the EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/what-zscaler-easm","lastmod":"2025-01-06T23:56Z","nid":"1503636"} -->
+## What Is Zscaler EASM?
+
+- Source: https://help.zscaler.com/easm/what-zscaler-easm
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Getting Started > What Is Zscaler EASM?
+- Last modified: 2025-01-06T23:56Z
+- Summary: Information on Zscaler External Attack Surface Management (EASM), its features, benefits, and use cases for securing internet-facing assets.
+
+In today's digital landscape, organizations face an ever-expanding attack surface due to rapid cloud adoption, the proliferation of shadow IT, and the continuous evolution of cyber threats. Zscaler External Attack Surface Management (EASM) addresses these challenges to help organizations gain visibility into and protect their internet-facing digital assets.
+
+External Attack Surface Management refers to the continuous discovery, inventory, classification, and monitoring of an organization's digital assets that are exposed to the internet. These assets include domains, IP addresses, subdomains, SSL/TLS certificates, and more. EASM tools are crucial because they provide a real-time view of the external attack surface, helping organizations identify and mitigate vulnerabilities before they can be exploited by malicious actors.
+
+Zscaler EASM distinguishes itself by integrating advanced scanning techniques and intelligence gathering with Zscaler's Zero Trust Exchange (ZTE) platform. This integration allows the tool to not only identify exposed assets but also prioritize vulnerabilities based on the likelihood of exploitation and the potential impact on the organization.
+
+## Key Features and Benefits
+
+The key features and benefits offered by EASM for managing and securing your external attack surface are as follows:
+
+- **Comprehensive Asset Discovery**: EASM uses both passive and active scanning methods to continuously discover and inventory all internet-facing assets. This includes not only known assets but also forgotten or unknown assets in your digital infrastructure that might have been overlooked.
+- **Risk-Based Prioritization**: Unlike traditional vulnerability management tools that focus solely on severity, EASM employs a risk-based approach. It considers factors such as exploit likelihood, derived from sources like the CISA KEV catalog, to prioritize remediation efforts.
+- **Real-Time Monitoring**: EASM continuously monitors the discovered assets for changes or new vulnerabilities, providing real-time alerts to security teams. This proactive approach ensures that organizations can respond swiftly to emerging threats.
+- **Actionable Insights**: EASM not only identifies vulnerabilities but also provides detailed remediation guidance. This includes suggestions for mitigating risks associated with misconfigurations, outdated software, and other security issues.
+
+## EASM Use Cases
+
+The following use cases highlight how EASM empowers organizations in different scenarios to enhance their security posture:
+
+- **Security Posture Management**: By providing a complete view of the external attack surface, EASM helps organizations manage their security posture effectively, ensuring that all internet-facing assets are secure and compliant.
+- **M&A Diligence**: During mergers and acquisitions, EASM can be used to assess the security posture of the target company's digital footprint, identifying any potential risks that need to be addressed.
+- **Continuous Compliance Monitoring**: EASM supports compliance efforts by continuously monitoring and reporting on the organization's external assets, helping to meet regulatory requirements.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-alerts","lastmod":"2026-07-12T07:06Z","nid":"1538787"} -->
+## About Alerts
+
+- Source: https://help.zscaler.com/identity-protection/about-alerts
+- Product: Identity Protection
+- Path: Identity Protection Help > Alerts > About Alerts
+- Last modified: 2026-07-12T07:06Z
+- Summary: Information on how the Alerts page in Identity Protection helps you monitor alert activity.
+
+Alerts are triggered to notify you about anomalous activities related to identities. Alerts provide details about the detected activity, associated user or entity, and the risk level. Alerts for similar kinds of anomalous activities are correlated and grouped into incidents to help security teams investigate potential threats and remediate issues. Alerts aggregate data from different sources such as [ITDR Change Detection AD](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [ITDR Change Detection Entra](https://help.zscaler.com/itdr/about-entra-id-change-detection).
+
+Alerts provide the following benefits and enable you to:
+
+- Review alerts aggregated from different sources to get in-depth insights about identity-related threats across your organization.
+- Review the alert details and remediate the issues.
+
+## About the Alerts Page
+
+On the Alerts page (Identities > Alerts), you can do the following:
+
+1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
+2. Search for an alert.
+3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
+4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the alert information.
+5. See the number of alerts triggered for each integrated product.
+6. View the distribution of alerts across different severity score ranges, and identify the overall risk level to prioritize high severity alerts and remediate the issue.
+7. View the number of alerts detected, the number of incidents created by grouping the alerts, and the number of active incidents. This overview depicts the alert volume versus the actual investigated incidents.
+8. Select alerts from the list, and click **Update**to change the following settings:
+  - **Severity**: Select the severity level for the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
+  - **Status**: Select the status for the alert (**Remediated**, **Acknowledged**, **Confirmed**, or **Discovered**).
+  - **Title**: Enter the title for the alert.
+  - **Verdict**: Select the verdict for the alert (**Accepted**, **Executed**, **Partial**, **Proposed**, **Scheduled**, **Success**, **Under Review**, or **Recommendation Status Unspecified**).
+9. Select alerts from the list, and click **Create Incident**to create an incident based on the selected alerts.
+10. Group the alerts by category (e.g., alert first seen, alert last seen, alert tags).
+11. Refresh the alerts table to reflect the most current information.
+12. Export the list of alerts and their associated details as a CSV file.
+13. Modify the columns displayed in the table.
+14. Click an alert to view its details. For each alert, you can see:
+  - **ID**: The unique identifier of the alert.
+  - **Severity**: The severity level of the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
+  - **Severity Score**: The severity score of the alert.
+  - **Title**: The title of the alert.
+  - **Created**: The date the alert was created.
+  - **Sources**: The source of the alert (e.g., alerts triggered by Zscaler have the Zscaler logo).
+  - **Tactic**: The MITRE ATT&CK tactic for which the alert is triggered.
+  - **Technique**: The MITRE ATT&CK technique for which the alert is triggered.
+
+[Image: The Alerts page in the Identities app]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-identity-findings","lastmod":"2026-05-17T07:06Z","nid":"1538792"} -->
+## About Identity Findings
+
+- Source: https://help.zscaler.com/identity-protection/about-identity-findings
+- Product: Identity Protection
+- Path: Identity Protection Help > Identity Findings > About Identity Findings
+- Last modified: 2026-05-17T07:06Z
+- Summary: Information about identity findings in Identity Protection.
+
+Identity Findings provide visibility into identity-related security issues detected across connected identity providers and directories. These findings highlight misconfigurations, insecure authentication methods, exposed credentials, and other identity risks that attackers could exploit. Security teams can review the security risks and prioritize remediation based on severity.
+
+Identity Findings provides the following benefits and enables you to:
+
+- Identify identity-related security risks such as exposed credentials, insecure authentication methods, and misconfigured settings.
+- Prioritize remediation based on severity.
+- Monitor identity security posture over time using severity trends and distribution insights.
+- Investigate affected identity entities such as users, groups, or applications associated with each finding.
+- Understand potential attack paths through mapped adversary tactics and techniques associated with identity risks.
+
+## About the Identity Findings Page
+
+On the Identity Findings page (Identities > Identity Findings), you can do the following:
+
+1. [Filter identity findings based on different parameters](https://help.zscaler.com/identity-protection/using-filters) (e.g., **Title**, **Tenant Name**, and **MITRE ATT&CK ID**).
+2. Search for an identity finding based on keywords.
+3. View the summary of identity findings in the following widgets:
+  - **Identity Findings Severity Over Time**: Displays the trend of identity findings across severity levels (**Critical**, **High**, **Medium**, or **Low**) over a period of time.
+  - **Identity Findings Severity**: Displays the distribution of identity findings by severity level (**Critical**, **High**, **Medium**, or **Low**).
+4. View the list of identity findings across tenants of identity providers and directories. For each finding, you can see:
+  - **ID:**The unique identifier for the identity finding.
+  - **Severity Score**: The risk level of the finding based on the severity score.
+  - **Title**: The title of the finding.
+  - **Tenant**: The tenant where the finding was detected.
+  - **Affected Entities**: The count and type of the impacted entities.
+  - **Vulnerability Exploit Ease**: How easily an attacker can exploit the vulnerability based on required skills, conditions, and available tools.
+  - **Techniques**: The relevant MITRE techniques associated with the risk.
+  - **Last Seen**: When the finding was first and most recently detected.
+  - **Vulnerability Remediate Ease**: How easily the vulnerability can be fixed based on required effort, changes, and potential impact on systems and operations.
+5. Group the list of identity findings based on specific parameters (e.g., **Identity Finding ID**, **Identity Finding First Seen**, **Identity Finding Last Seen**).
+6. Refresh the data in the identity findings list.
+7. Export the identity findings list as a CSV file.
+8. Customize the identity findings list by including or excluding specific columns.
+9. [View detailed information for each identity finding](https://help.zscaler.com/identity-protection/viewing-identity-finding-details).
+10. Display a different page of the identity findings list.
+
+[Image: About the Identity Findings page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-tenants","lastmod":"2026-05-17T07:06Z","nid":"1538950"} -->
+## About Tenants
+
+- Source: https://help.zscaler.com/identity-protection/about-tenants
+- Product: Identity Protection
+- Path: Identity Protection Help > Tenants > About Tenants
+- Last modified: 2026-05-17T07:06Z
+- Summary: Information on how the Tenants page helps you monitor a tenant's activity in Identity Protection.
+
+You can view a consolidated list of tenant accounts and their identities on the Tenants page. You can also review the [identity findings](https://help.zscaler.com/identity-protection/about-identity-findings) for each tenant and the total number of critical or high-severity findings so that you can take the necessary action. Only tenants in an active state are displayed on the Tenants page.
+
+Managing tenants provides the following benefits and enables you to:
+
+- Identify high-risk tenants and impacted identities.
+- View tenant details and identity findings for each tenant.
+
+## About the Tenants Page
+
+On the Tenants page (Identities > Tenants), you can do the following:
+
+1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
+2. Search for a tenant.
+3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
+4. Apply [filters](https://help.zscaler.com/identity-protection/using-filters) to view specific information.
+5. View the number of tenants grouped by severity level (**Critical**, **High**, **Medium**, and **Low**).
+6. View total identity findings across all tenants.
+7. View total active identity providers (IdP) with identity findings.
+8. Group tenants by category such as tenant first seen, tenant last seen, tenant tags, etc.
+9. Refresh the tenant table to reflect the most current information.
+10. Export the list of tenants and their associated details as a CSV file.
+11. Modify the columns displayed in the table.
+12. View the list of tenants. Click a tenant to [view detailed information](https://help.zscaler.com/identity-protection/viewing-tenant-details). For each tenant in the list, you can see:
+  - **ID**: The unique identifier of the tenant.
+  - **Name**: The name of the tenant.
+  - **Severity Score**: The severity score of the tenant.
+  - **Total Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the tenant.
+  - **Sources**: The source of the identity finding (e.g., **ITDR Change Detection AD**, **ITDR Domains AD**, etc.).
+  - **Last Seen**: The date of the most recent activity.
+  - **State**: The state of the tenant's account (**Active**or **Inactive**).
+  - **Identity Provider**: The IdP configured for the tenant (e.g., **AD**, **Entra ID**, etc.).
+  - **Next Scan**: The date and time of the next scan for a data sync.
+
+[Image: Tenants page in the Identities app.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/managing-itdr-configurations","lastmod":"2026-09-07T03:55Z","nid":"1538791"} -->
+## Managing ITDR Configurations
+
+- Source: https://help.zscaler.com/identity-protection/managing-itdr-configurations
+- Product: Identity Protection
+- Path: Identity Protection Help > Managing ITDR Configurations
+- Last modified: 2026-09-07T03:55Z
+- Summary: How to manage ITDR Configurations from the Zscaler Security Operations (SecOps) platform.
+
+You can access the ITDR settings for Identity Protection within the Zscaler Security Operations (SecOps) platform (Identities > ITDR Config). While the ITDR Config page is available on the SecOps platform, the detailed configuration is managed in the legacy Zscaler ITDR Admin Portal.
+
+The ITDR Config page is organized into the following sections:
+
+- ITDR Manage
+- ITDR Settings
+- Endpoint Settings
+- Server Agent Settings
+
+Configure identity scans and policies for posture, change detection, credential exposure, and identity threats across AD, Entra ID, and Okta.
+
+- **Active Directory (AD) Posture Scan**: You can configure AD posture scans by choosing attributes, selecting domain controllers, defining scan timeouts, and running scans on demand. To learn more, see [About Active Directory Posture Scan](https://help.zscaler.com/itdr/about-active-directory-posture-scan).
+- **Active Directory Privileged Account Tracking**: Track high-risk AD accounts by defining which privileged users to monitor for misuse and threats. This enables monitoring of sensitive accounts to detect suspicious activity or privilege abuse. To learn more, see [About Active Directory Privileged Account Tracking](https://help.zscaler.com/itdr/about-active-directory-privileged-account-tracking).
+- **Endpoint Credential Exposure Scan**: Scan endpoints for exposed credentials and secrets to uncover theft and privilege-escalation risks. This feature strengthens detection of credential harvesting from user systems. To learn more, see [About Endpoint Credential Exposure Scan](https://help.zscaler.com/itdr/about-endpoint-credential-exposure-scan).
+- **Entra ID Posture Scan**: Connect Entra ID tenants, deploy scanners, and run posture checks on identities and configurations. This provides visibility into misconfigurations and risky identity settings within Entra ID environments. To learn more, see [About Entra ID Posture Scan](https://help.zscaler.com/itdr/about-entra-id-posture-scan).
+- **Threat Detection Policies**: Configure and tune threat detection policies to monitor identity attacks, define detection scope, evaluate findings, and protect Active Directory. These policies determine how identity threats are identified and evaluated across the environment. To learn more, see [About Threat Detection Policies](https://help.zscaler.com/itdr/about-threat-detection-policies).
+- **Okta**: Integrate with Okta to enrich the identity metadata, identify real-time changes to an Okta identity, and perform actions on an Okta identity like activate user, suspend user, clear user sessions, etc. To learn more, see [Integrating with Okta](https://help.zscaler.com/itdr/integrating-itdr-okta).
+- **Active Directory Change Detection**: Configure and manage AD change detection policies to monitor critical directory changes and trigger security alerts. This helps track risky modifications in AD objects and configurations. To learn more, see [About Active Directory Change Detection Policies](https://help.zscaler.com/itdr/about-active-directory-change-detection-policies).
+- **Entra Change Detection**: Configure Entra ID change detection policies to track critical directory changes, apply custom rules, and trigger alerts on risky activities. This provides real-time visibility into high-impact changes within Entra ID. To learn more, see [About Entra ID Change Detection Policies](https://help.zscaler.com/itdr/about-entra-id-change-detection-policies).
+
+You can use the ITDR Settings section to configure safelists for AD and Entra ID issues and objects. Safelists allow you to exclude known, trusted, or accepted issues and objects from being accounted for risk scores and reduce alert noise.
+
+- **Active Directory Issue Safelist:** Exclude known, accepted AD issues from posture scans and alerts. To learn more, see [About the Active Directory Issue Safelist](https://help.zscaler.com/itdr/about-active-directory-issue-safelist).
+- **Active Directory Object Safelist**: Exclude trusted AD objects from identity issues, alerts, and posture findings. To learn more, see [About the Active Directory Object Safelist](https://help.zscaler.com/itdr/about-active-directory-object-safelist).
+- **Active Directory Change Detection Issue Safelist**: Add, view, and manage safelisted change-detection issues to suppress expected alerts and focus on real identity risks. To learn more, see [Adding a Change Detection Issue to the Safelist](https://help.zscaler.com/itdr/adding-change-detection-issue-safelist).
+- **Active Directory Change Detection Object Safelist**: Exclude specific AD objects from change detection issues to reduce alert noise. To learn more, see [About the AD Change Detection Object Safelist](https://help.zscaler.com/itdr/about-ad-change-detection-object-safelist).
+- **Entra ID Issue Safelist**: Suppress known Entra ID findings so change detection focuses on relevant identity risks. To learn more, see [About the Entra ID Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-issue-safelist).
+- **Entra ID Object Safelist**: Exclude known safe Entra ID objects from detection to reduce false positives. To learn more, see [About the Entra ID Object Safelist](https://help.zscaler.com/itdr/about-entra-id-object-safelist).
+- **Entra ID Change Detection Issue Safelist:** Suppress alerts for known Entra ID change-detection issues while maintaining visibility into real threats. To learn more, see [About the Entra ID Change Detection Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-issue-safelist).
+- **Entra ID Change Detection Object Safelist**: Exclude trusted objects from Entra ID change detection so expected changes do not trigger issues. To learn more, see [About the Entra ID Change Detection Object Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-object-safelist).
+
+You can use the Endpoint Settings section to configure and control endpoint agents, monitor user systems, run targeted scans, and detect identity threats.
+
+- Agents: Monitor and manage all endpoint agents. You can view device details, check policy status, review logs, and take action directly when needed.
+- Agent Configuration: Customize how agents behave by renaming services, adding descriptions, automatically cleaning up duplicates. This improves manageability of deployed agents.
+- Agent Update Groups: Control agent updates by, grouping endpoints, rolling out updates in phases, tracking update progress, and exporting update details. This allows controlled and phased deployment of endpoint agent updates.
+
+To learn more, see [About Endpoint Settings](https://help.zscaler.com/itdr/about-endpoint-settings).
+
+You can use the Server Agent Settings section to configure and control server agents, manage domain settings, monitor authentication activity, and detect identity threats.
+
+- **Domains**: Manage domains and controllers to track domain health, monitor logons, identify weak or compromised passwords. This provides centralized visibility into domain-level identity security.
+- **Agents**: Monitor and manage server agents. You can view system's status, review policies and logs, take action directly when needed.
+- **Agent Update Groups**: Control server agent updates by grouping servers, managing phased rollouts, monitoring update status, etc.
+- **Configuration**: Configure server agents to detect weak passwords, set custom keywords, simulate attacks, strengthen password security locally. This enhances detection capabilities within domain infrastructure.
+
+To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/about-server-agent-settings).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/understanding-identity-protection-architecture","lastmod":"2026-08-30T23:24Z","nid":"1539481"} -->
+## Understanding Identity Protection Architecture
+
+- Source: https://help.zscaler.com/identity-protection/understanding-identity-protection-architecture
+- Product: Identity Protection
+- Path: Identity Protection Help > Understanding Identity Protection Architecture
+- Last modified: 2026-08-30T23:24Z
+- Summary: Information about the Identity Protection architecture.
+
+Identity Protection is an effective identity threat detection and response solution (ITDR) integrated with the Zscaler Security Operations (SecOps) platform. Identity Protection protects users with continuous visibility into identity misconfigurations, risky permissions, and exposed credentials. It detects and stops identity-based attacks such as credential theft, multi-factor authentication bypass, privilege escalation, etc
+
+The Identity Protection architecture includes the following key components:
+
+[Image: Identity Protection Architecture]
+
+- **Identities App**: Built into the SecOps platform and serves as the central point of management and analysis for the Identity Protection service. To learn more, see [What Is Identity Protection?](https://help.zscaler.com/identity-protection/what-identity-protection)
+- **ITDR Connector**: The data connector that serves as the source stream from the ITDR solution to the data fabric.
+- **Data Fabric Cluster**: The entire data fabric cluster responsible for processing raw data from various sources.
+- **Zscaler Zero Trust Exchange (ZTE)**: Identity Protection leverages the ZTE platform to mitigate risk with access policy controls that block compromised users when an identity attack is detected. Integration with Internet & SaaS (ZIA) and Private Access (ZPA) provides better visibility, enrichment, and containment capabilities.
+- **Identity Posture Scan**: Identity Protection provides the ability to assess identity infrastructures, such as Active Directory (AD), Entra ID, Okta, etc. to obtain a comprehensive view of your identity posture, risky identities, misconfigurations, and vulnerabilities. A MITRE ATT&CK mapping helps you locate blind spots, prioritize where to focus, and remediate risks.
+  - **AD Posture Scan**: You can configure an AD scan by specifying the AD domain you want to assess. For assessing the AD domain, Zscaler Client Connector must be installed on a domain-joined Windows machine. Identity Protection audits an AD domain by running LDAP queries to build a map of schema, users, computers, OUs, and other objects in your identity store. It then runs checks against these objects to find misconfigurations and vulnerabilities that exist in your AD domains. After the assessment is complete, the results are available in the Identities app. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) and [About Active Directory Posture Scan](https://help.zscaler.com/itdr/about-active-directory-posture).
+  - **Entra ID Posture Scan**: You can connect your organization's Entra ID tenants with Identity Protection to assess the posture of your Entra ID. The posture checks for Entra ID include identifying misconfigurations and potential risks across Entra ID users, service principals, and roles. Identity Protection uses a deployment script to set up all necessary resources such as resource group, app, storage account, service principal, etc. in the Entra ID tenant. Diagnostic settings are also enabled by the deployment script to enable change detection using logs. The audit logs are analyzed, and the results are available in the Identities app. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) and [About Entra ID Posture Scan](https://help.zscaler.com/itdr/about-entra-id-posture-scan).
+  - **Okta Integration**: Identity Protection integrates with Okta to enrich the identity metadata, identify real-time changes on an Okta identity, and perform actions on an Okta identity like activate user, suspend user, clear user sessions, etc. To learn more, see [Integrating ITDR with Okta](https://help.zscaler.com/itdr/integrating-itdr-okta).
+- **Identity Change Detection**: After you have visibility of your identity attack surface, you can build identity hygiene. Identity Protection provides real-time monitoring of critical changes in your AD domains and Entra ID tenants that introduce new risks and open pathways for attackers to escalate privileges and move laterally. In addition to real-time alerting, you also get remediation guidance in the form of video tutorials, commands, and scripts that can be used to resolve issues. To learn more, see [About Active Directory Change Detection](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [About Entra ID Change Detection](https://help.zscaler.com/itdr/about-entra-id-change-detection).
+- **Credential Exposure Scan**: Identity Protection scans endpoints to check for risky identity material, such as usernames, passwords, API keys, SSH keys, certificate files, and other credentials stored locally on endpoints. In post-compromise scenarios, the presence of such credentials on an endpoint is a critical source of risk and enables adversaries to escalate privileges and access sensitive data and applications. The exploitation of these local credentials has been observed in several publicly reported breaches. Visibility into these credentials presents an opportunity to clean them up and enforce policies for securely storing them, thereby reducing the post-compromise attack surface available to an adversary. To learn more, see [About Endpoint Credential Exposure Scan](https://help.zscaler.com/itdr/about-endpoint-credential-exposure-scan).
+- **Identity Threat Detection**: Identity Protection has a threat detection capability that alerts security teams and threat hunters of malicious activities directed toward potentially malicious misuse and theft of identities. Identity threat detection is enabled as an endpoint policy on designated machines with Zscaler Client Connector installed. Security teams can enable detectors (DCSync, DCShadow, Kerberoasting, etc.) via policies on designated endpoints. If a pattern is noticed, Zscaler Client Connector sends signals to Identity Protection indicating that a threat has been detected. Identity Protection enriches the threat signal with information relevant to the security team to perform an investigation. The security team can configure orchestration capabilities to perform automated actions. To learn more, see [About Threat Detection Policies](https://help.zscaler.com/itdr/about-threat-detection-policies).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-identity-finding-details","lastmod":"2026-05-17T07:06Z","nid":"1538793"} -->
+## Viewing Identity Finding Details
+
+- Source: https://help.zscaler.com/identity-protection/viewing-identity-finding-details
+- Product: Identity Protection
+- Path: Identity Protection Help > Identity Findings > Viewing Identity Finding Details
+- Last modified: 2026-05-17T07:06Z
+- Summary: How to view details of identity findings.
+
+You can view detailed information about identity security risks detected in your environment on the Identity Findings page. These findings help security teams identify misconfigurations, exposed credentials, and other identity-related risks across connected identity sources such as Active Directory or Entra ID. Each identity finding includes contextual information such as the risk description, severity, affected tenants, MITRE ATT&CK mapping, and recommended remediation steps. This information helps you quickly understand the potential impact and take appropriate action to mitigate the risk.
+
+To access detailed identity finding information:
+
+1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**>**Identity Findings**. See image.
+2. On the **Identity Findings**page, click an identity finding to view its details. The identity finding details drawer appears.
+3. In the identity finding details drawer, you can access the following tabs:
+  - Details
+  - Affected Identities
+  - Affected Tenants
+  - Remediation
+
+The Details tab provides an overview of the identity risk and its security context, helping you to review and decide which identity environments require investigation and remediation.
+
+This section typically includes:
+
+- **Identity Finding**: The name of the detected identity risk.
+- **Last Seen**: When the finding was first and most recently detected.
+- **Tactics**: The relevant MITRE tactic associated with the risk.
+- **Type of Risk**: The classification of the detected issue.
+- **Techniques**: The relevant MITRE techniques associated with the risk.
+- **Vulnerability Exploit Ease**: Indicates how easily an attacker can exploit the vulnerability based on required skills, conditions, and available tools.
+- **Sub Techniques**: The relevant MITRE sub-techniques associated with the risk.
+- **Vulnerability Remediate** **Ease**: Indicates how easily the vulnerability can be fixed based on required effort, changes, and potential impact on systems and operations.
+- **Sources**: The identity systems where the risk was detected (e.g., Active Directory or Entra ID).
+
+In addition, you can view details about the type of finding, its impact, and related reference documentation.
+
+See image.
+
+The Affected Identities tab lists all identities impacted by the finding. You can review and decide which identity requires investigation and remediation.
+
+You can also apply filters, download the list of tenants as a CSV file, or customize the columns displayed in the table.
+
+See image.
+
+The Affected Tenants tab lists all tenants or identity environments impacted by the finding. You can review and decide which identity environments require investigation and remediation.
+
+You can also apply filters, download the list of tenants as a CSV file, or customize the columns displayed in the table.
+
+See image.
+
+The Remediation tab provides recommended steps to resolve the detected issue. Depending on the environment and configuration, the remediation guidance can include actions or a remediation workflow that helps you to understand the recommended steps to address the detected identity risk. The workflow guides you through possible actions, such as evaluating whether the configuration is required, implementing alternative security controls, removing insecure configurations, or applying appropriate mitigations.
+
+See image.
+
+For each action, you can view detailed information, including videos, script, etc. to accomplish the action.
+
+See image.
+
+If the configuration cannot be changed immediately, admins can choose to safelist the finding after evaluating the associated risk.
+
+See image.
+
+[Image: Identity Findings page with the navigation highlighted]
+
+[Image: Viewing the Details tab]
+
+[Image: Viewing Affected Identities tab]
+
+[Image: Viewing the Affected Tenants tab]
+
+[Image: Viewing the Remediation tab]
+
+[Image: Viewing various remediation steps]
+
+[Image: Adding an object to safelist]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-tenant-details","lastmod":"2026-05-17T07:06Z","nid":"1539030"} -->
+## Viewing Tenant Details
+
+- Source: https://help.zscaler.com/identity-protection/viewing-tenant-details
+- Product: Identity Protection
+- Path: Identity Protection Help > Tenants > Viewing Tenant Details
+- Last modified: 2026-05-17T07:06Z
+- Summary: How to view a tenant's detailed information in Identity Protection.
+
+You can view detailed information about tenants and identity findings. This helps security teams to review the severity level of each tenant and details of these findings to understand the potential security risks and remediate the issues.
+
+To view tenant details:
+
+1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**> **Tenants**. See image.
+2. On the **Tenants**page, click a tenant. A tenant details drawer appears.
+3. In the tenant details drawer, you can access the following tabs:
+  - Details
+  - Identity Findings
+  - Identities
+  - MITRE ATT&CK
+
+On the **Details**tab, you can view:
+
+- **Tenant ID**: The unique identifier of the tenant.
+- **Last Scan**: The date and time of the last scan for a data sync.
+- **Scan Frequency**: The frequency of the scan (e.g., **Daily**, **Weekly**, etc.).
+- **Source**: The source of the identity finding (e.g., **ITDR Change Detection AD**, **ITDR Domains AD**, etc.). Hover over each icon to view the source.
+- **Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the tenant. See image.
+
+On the **Identity Findings** tab, you can do the following:
+
+- Click the **Export as CSV**icon to export the identity findings list for a tenant to a CSV file.
+- Click the **Settings**icon to modify the columns displayed in the table.
+- Apply filters to the identity findings list (e.g., filtering the findings by a particular state, title, or severity score). To learn more, see [Using Filters](https://help.zscaler.com/identity-protection/using-filters).
+- View the identity findings details: See image.
+  - **Severity**: The severity level (**Critical**, **High**, **Medium**, or **Low**). The **Critical**and **High**severity findings are prioritized.
+  - **Name**: The name of the identity finding.
+  - **Type of Risk**: The type of risk (e.g., **Kerberos Abuse**, **Account Management**, **Credential Exposure**, etc.).
+  - **MITRE Tactics**: The [MITRE ATT&CK tactic](https://attack.mitre.org/tactics/) ID.
+  - **MITRE Techniques**: The [MITRE ATT&CK technique](https://attack.mitre.org/techniques/enterprise/) that the adversary used.
+
+On the **Identities**tab, you can do the following:
+
+- Click the **Export as CSV**icon to export the identity findings list for a user to a CSV file.
+- Click the **Settings**icon to modify the columns displayed in the table.
+- Apply filters to the identity findings list (e.g., filtering the findings by a particular state, title, or severity score). To learn more, see [Using Filters](https://help.zscaler.com/identity-protection/using-filters).
+- View the identities details: See image.
+  - **Name**: The name of the user.
+  - **Identity Type**: The type of identity (**User**, **Service Principa**l, or **Special Identities**).
+  - **Is Admin**: The user's admin role status. If the user is an admin, this field shows `true`.
+  - **Type**: The type of user (**Internal**or **External**).
+
+On the MITRE ATT&CK tab, you can view the identity findings categorized in [MITRE ATT&CK tactics](https://attack.mitre.org/tactics/). Hover over the tactic to see the **Read more** icon, and click the icon to go to the MITRE tactics web page.
+
+See image.
+
+[Image: Tenants page displaying configured tenants.]
+
+[Image: The Details tab on Tenants page]
+
+[Image: The Identity Findings tab on Tenants page]
+
+[Image: The Identities tab on Tenants page.]
+
+[Image: The MITRE ATT&CK tab on Tenants page.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/what-identity-protection","lastmod":"2026-08-30T23:23Z","nid":"1535399"} -->
+## What Is Identity Protection?
+
+- Source: https://help.zscaler.com/identity-protection/what-identity-protection
+- Product: Identity Protection
+- Path: Identity Protection Help > What Is Identity Protection?
+- Last modified: 2026-08-30T23:23Z
+- Summary: Information on what Identity Protection is and why it is used.
+
+Identity has become the new target for attackers because human and non-human identities have permissions to access critical applications, assets, and sensitive data. Security teams are overwhelmed by fragmented findings and disconnected tools, and risks are increasing faster than the time it takes to resolve them. When an identity is compromised, security teams need more details, such as who the identity is, what it can access, whether it is over-privileged, whether its credentials are weak or exposed, and whether its behavior deviates from normal. This information can help security teams to prioritize, take immediate action, and reduce the risks.
+
+Identity Protection helps organizations move from fragmented visibility to actionable identity security. It detects anomalous activities such as compromised credentials, suspicious logins, sensitive data theft, etc., and provides continuous and unified visibility into identity risks.
+
+Identity Protection is part of the Zscaler Security Operations (SecOps) platform and works alongside Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and Security Operations Center (SOC) Workbench to deliver a cohesive security operations experience. This allows you to unify disparate identity data from multiple systems to get a complete view of users, understand their posture, dynamically measure identity risks, and mitigate identity attacks.
+
+## Key Features and Benefits
+
+Identity Protection includes the following features and benefits:
+
+- **Detect Risks Associated with Identities**: Detect compromised accounts, suspicious sign‑ins, leaked credentials, and anomalies in authentication activities to stop threats before they escalate.
+- **Mitigate Identity Attacks**: Detect and contain identity-based attacks before they can cause harm.
+- **Strengthen Identity Posture**: Find and fix weak passwords, exposed credentials, and excessive privileges.
+- **Single Identity View**: Unify identity data from disparate sources into one view. Correlates signals from sign‑ins, credentials, permissions, and behavior to display findings related to identities.
+- **Drive Broader SecOps Outcomes**: Prioritize threats and exposures associated with risky identities to accelerate response and reduce future risk.
+- **Reports and Dashboards**: Custom dashboards and reports to view specific results as required.
+
+## How Does Identity Protection Work?
+
+Identity Protection takes a proactive and integrated approach to secure user identities.
+
+Identity Protection consists of the core capabilities:
+
+- **Identity Risk Detection**: Detect anomalies in authentication activity, suspicious sign‑ins, and compromised credentials. The correlated signals are mapped into the SecOps platform, providing visibility into risks across assets, vulnerabilities, and exposures.
+- **Data Ingestion via Connectors:**Identity Protection uses connectors to ingest data from sources such as posture scans, change detections, alerts, and identity records. These connectors also integrate with identity providers like Okta and Microsoft Entra, enabling the system to consume identity data directly from the customer's IdP and bring it into the protection framework.
+- **Data Fabric as the Backbone:**Data Fabric is the backbone of the SecOps platform. It ensures that all incoming identity signals are normalized, correlated, and enriched. This allows the platform to unify disparate data streams and provide security teams with a coherent view of identity-related risks across the environment.
+- **Custom Configuration:** Manage and fine-tune identity protection through the SecOps platform. Within the Settings page, you can adjust scan configurations and review clear explanations for each option. When deeper configuration is required, certain links redirect you to the legacy ITDR experience, ensuring continuity for advanced tasks while maintaining a modern interface for routine adjustments.
 <!-- /ZS-ARTICLE -->

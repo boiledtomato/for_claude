@@ -1,25 +1,10 @@
 {
- "checked_at": "2026-07-30T13:44:16Z",
- "total": 280,
+ "checked_at": "2026-08-17T01:14:12Z",
+ "total": 290,
  "articles": [
-  {
-   "title": "Configuring Google Cloud Storage Outegration",
-   "url": "/aem/configuring-google-cloud-storage-outegration",
-   "product": "Asset Exposure Management"
-  },
   {
    "title": "About Account Onboarding",
    "url": "/ai-asset-mgmt/about-account-onboarding",
-   "product": "AI Asset Management"
-  },
-  {
-   "title": "About AI Assets - MCP Servers",
-   "url": "/ai-asset-mgmt/about-ai-assets-mcp-servers",
-   "product": "AI Asset Management"
-  },
-  {
-   "title": "About AI Assets - Models",
-   "url": "/ai-asset-mgmt/about-ai-assets-models",
    "product": "AI Asset Management"
   },
   {
@@ -33,11 +18,6 @@
    "product": "AI Asset Management"
   },
   {
-   "title": "Configuring Scan Rule for Azure Container Registry (ACR) Repositories",
-   "url": "/ai-asset-mgmt/configuring-scan-rule-azure-acr-repositories",
-   "product": "AI Asset Management"
-  },
-  {
    "title": "Configuring Scan Rule for GitHub",
    "url": "/ai-asset-mgmt/configuring-scan-rule-github",
    "product": "AI Asset Management"
@@ -48,8 +28,8 @@
    "product": "AI Asset Management"
   },
   {
-   "title": "Onboarding GitHub Tenant",
-   "url": "/ai-asset-mgmt/onboarding-github-tenant",
+   "title": "Integrating AI Security with ServiceNow",
+   "url": "/ai-asset-mgmt/integrating-ai-security-servicenow",
    "product": "AI Asset Management"
   },
   {
@@ -58,9 +38,19 @@
    "product": "AI Asset Management"
   },
   {
-   "title": "Migrating End Users to Authentication Service",
-   "url": "/authentication-service/migrating-end-users-authentication-service",
-   "product": "Authentication Service"
+   "title": "About Google Cloud Platform Zero Trust Gateways",
+   "url": "/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways",
+   "product": "Cloud & Branch Connector"
+  },
+  {
+   "title": "Adding a Google Cloud Platform Zero Trust Gateway",
+   "url": "/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway",
+   "product": "Cloud & Branch Connector"
+  },
+  {
+   "title": "Analyzing Google Cloud Platform Zero Trust Gateway Details",
+   "url": "/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details",
+   "product": "Cloud & Branch Connector"
   },
   {
    "title": "Supported Regions for Zero Trust Gateways",
@@ -68,9 +58,14 @@
    "product": "Cloud & Branch Connector"
   },
   {
-   "title": "Configuring a Safe Process",
-   "url": "/deception/configuring-safe-process",
+   "title": "Configuring Browser Lures",
+   "url": "/deception/configuring-browser-lures",
    "product": "Deception"
+  },
+  {
+   "title": "About Alerts",
+   "url": "/dspm/about-alerts",
+   "product": "Data Security Posture Management (DSPM)"
   },
   {
    "title": "About Data Duplications",
@@ -93,8 +88,28 @@
    "product": "Data Security Posture Management (DSPM)"
   },
   {
+   "title": "Adding Azure Target Subscriptions",
+   "url": "/dspm/adding-azure-target-subscriptions",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Adding a Databricks Workspace or Account",
+   "url": "/dspm/adding-databricks-workspace-or-account",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
    "title": "Adding Organization Details",
    "url": "/dspm/adding-organization-details",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Changing Client Secret for Azure Application",
+   "url": "/dspm/changing-client-secret-azure-application",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Configuring the Workspace",
+   "url": "/dspm/configuring-workspace",
    "product": "Data Security Posture Management (DSPM)"
   },
   {
@@ -108,6 +123,11 @@
    "product": "Data Security Posture Management (DSPM)"
   },
   {
+   "title": "IAM Roles and Permissions for AWS",
+   "url": "/dspm/iam-roles-and-permissions-aws",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
    "title": "Managing Vulnerabilities in AWS Accounts",
    "url": "/dspm/managing-vulnerabilities-aws-accounts",
    "product": "Data Security Posture Management (DSPM)"
@@ -115,6 +135,11 @@
   {
    "title": "Onboarding an AWS Organization",
    "url": "/dspm/onboarding-aws-organization",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Onboarding an Azure Subscription",
+   "url": "/dspm/onboarding-azure-subscription",
    "product": "Data Security Posture Management (DSPM)"
   },
   {
@@ -138,8 +163,33 @@
    "product": "Data Security Posture Management (DSPM)"
   },
   {
-   "title": "Viewing the Data Inventory Details",
-   "url": "/dspm/viewing-data-inventory-details",
+   "title": "Understanding Predefined DLP Engines and Dictionaries",
+   "url": "/dspm/understanding-predefined-dlp-engines-and-dictionaries",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing Alerts Grouped by Policy",
+   "url": "/dspm/viewing-alerts-grouped-policy",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing Alerts Grouped by Resource",
+   "url": "/dspm/viewing-alerts-grouped-resource",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing and Managing Data Inventory Details",
+   "url": "/dspm/viewing-and-managing-data-inventory-details",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing the Graph for Databases",
+   "url": "/dspm/viewing-graph-databases",
+   "product": "Data Security Posture Management (DSPM)"
+  },
+  {
+   "title": "Viewing the SaaS Overview Dashboard",
+   "url": "/dspm/viewing-saas-overview-dashboard",
    "product": "Data Security Posture Management (DSPM)"
   },
   {
@@ -148,13 +198,13 @@
    "product": "Data Security Posture Management (DSPM)"
   },
   {
-   "title": "API Rate Limit Summary",
-   "url": "/legacy-apis/api-rate-limit-summary",
+   "title": "Branch Connectors",
+   "url": "/legacy-apis/branch-connectors",
    "product": "Legacy Zscaler APIs"
   },
   {
-   "title": "Azure Integration",
-   "url": "/legacy-apis/azure-integration",
+   "title": "Browser Profiles",
+   "url": "/legacy-apis/browser-profiles",
    "product": "Legacy Zscaler APIs"
   },
   {
@@ -163,13 +213,48 @@
    "product": "Legacy Zscaler APIs"
   },
   {
-   "title": "End User Notifications",
-   "url": "/legacy-apis/end-user-notifications",
+   "title": "Configuring Certificates Using API",
+   "url": "/legacy-apis/configuring-certificates-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tag Groups Using API",
+   "url": "/legacy-apis/configuring-tag-groups-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tag Key-Value Pairs Using API",
+   "url": "/legacy-apis/configuring-tag-key-value-pairs-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tag Namespaces Using API",
+   "url": "/legacy-apis/configuring-tag-namespaces-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tags and Tag Groups with Policy Rules Using API",
+   "url": "/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Configuring Tags for Application Segments Using API",
+   "url": "/legacy-apis/configuring-tags-application-segments-using-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Data Loss Prevention",
+   "url": "/legacy-apis/data-loss-prevention",
    "product": "Legacy Zscaler APIs"
   },
   {
    "title": "Endpoint Data Loss Prevention (DLP) Policy",
    "url": "/legacy-apis/endpoint-data-loss-prevention-dlp-policy",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Extranet",
+   "url": "/legacy-apis/extranet",
    "product": "Legacy Zscaler APIs"
   },
   {
@@ -185,11 +270,6 @@
   {
    "title": "Federating Partners Using API",
    "url": "/legacy-apis/federating-partners-using-api",
-   "product": "Legacy Zscaler APIs"
-  },
-  {
-   "title": "IPS Control Policy",
-   "url": "/legacy-apis/ips-control-policy",
    "product": "Legacy Zscaler APIs"
   },
   {
@@ -213,8 +293,23 @@
    "product": "Legacy Zscaler APIs"
   },
   {
-   "title": "SMPC Instance",
-   "url": "/legacy-apis/smpc-instance",
+   "title": "SaaS Security API",
+   "url": "/legacy-apis/saas-security-api",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Tag Group Management",
+   "url": "/legacy-apis/tag-group-management",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Tag Key Management",
+   "url": "/legacy-apis/tag-key-management",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Tag Namespace Management",
+   "url": "/legacy-apis/tag-namespace-management",
    "product": "Legacy Zscaler APIs"
   },
   {
@@ -238,6 +333,16 @@
    "product": "Legacy Zscaler APIs"
   },
   {
+   "title": "Workload Tags",
+   "url": "/legacy-apis/workload-tags",
+   "product": "Legacy Zscaler APIs"
+  },
+  {
+   "title": "Accessing and Navigating the Workflow Automation Admin Portal",
+   "url": "/legacy-workflow-automation/accessing-and-navigating-workflow-automation-admin-portal",
+   "product": "Legacy UI: Workflow Automation"
+  },
+  {
    "title": "Adding Email Notification Templates",
    "url": "/legacy-workflow-automation/adding-email-notification-templates",
    "product": "Legacy UI: Workflow Automation"
@@ -253,13 +358,13 @@
    "product": "Legacy UI: Workflow Automation"
   },
   {
-   "title": "Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver",
-   "url": "/legacy-workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver",
+   "title": "Managing Admin Assignments",
+   "url": "/legacy-workflow-automation/managing-admin-assignments",
    "product": "Legacy UI: Workflow Automation"
   },
   {
-   "title": "Managing Admin Assignments",
-   "url": "/legacy-workflow-automation/managing-admin-assignments",
+   "title": "Managing Incidents",
+   "url": "/legacy-workflow-automation/managing-incidents",
    "product": "Legacy UI: Workflow Automation"
   },
   {
@@ -338,9 +443,9 @@
    "product": "Legacy UI: Zscaler Client Connector"
   },
   {
-   "title": "End-of-Support for the Client Certificate Posture Type for All Android Devices",
-   "url": "/product-usage-terms/end-support-client-certificate-posture-type-all-android-devices",
-   "product": "Product Usage Terms & Policies"
+   "title": "Troubleshooting AI Red Teaming Broker Issues",
+   "url": "/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues",
+   "product": "Secure AI Apps & Infrastructure"
   },
   {
    "title": "SSL Inspection Policy [DOC-61890]",
@@ -468,8 +573,28 @@
    "product": "Zscaler Support Troubleshooting Runbooks"
   },
   {
+   "title": "About Dashboards",
+   "url": "/unified/about-dashboards",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Assigning Content Permissions",
+   "url": "/unified/assigning-content-permissions",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Configuring Custom Dashboards",
+   "url": "/unified/configuring-custom-dashboards",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Configuring Suppression Rules",
    "url": "/unified/configuring-suppression-rules",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Creating Custom Roles",
+   "url": "/unified/creating-custom-roles",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -478,8 +603,23 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Creating & Managing Content Permissions",
+   "url": "/unified/creating-managing-content-permissions",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Creating & Managing Users",
+   "url": "/unified/creating-managing-users",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Creating Outegrations",
    "url": "/unified/creating-outegrations",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Creating Reports",
+   "url": "/unified/creating-reports",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -498,6 +638,11 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Managing Custom Dashboards",
+   "url": "/unified/managing-custom-dashboards",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Managing Data Sources",
    "url": "/unified/managing-data-sources",
    "product": "Getting Started with Zscaler"
@@ -508,8 +653,28 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Managing Reports",
+   "url": "/unified/managing-reports",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Managing Source Mapping",
    "url": "/unified/managing-source-mapping",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Managing System and Custom Roles",
+   "url": "/unified/managing-system-and-custom-roles",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Managing User Roles",
+   "url": "/unified/managing-user-roles",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Managing Widgets",
+   "url": "/unified/managing-widgets",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -538,8 +703,38 @@
    "product": "Getting Started with Zscaler"
   },
   {
-   "title": "Understanding the ThreatLabz Source",
-   "url": "/unified/understanding-threatlabz-source",
+   "title": "Tracking Data Source Runs",
+   "url": "/unified/tracking-data-source-runs",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Understanding Dashboard Widget Types",
+   "url": "/unified/understanding-dashboard-widget-types",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Understanding Historical Data",
+   "url": "/unified/understanding-historical-data",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Understanding Measurements and Dimensions",
+   "url": "/unified/understanding-measurements-and-dimensions",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Understanding System Roles",
+   "url": "/unified/understanding-system-roles",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Understanding the ThreatLabz Data Source",
+   "url": "/unified/understanding-threatlabz-data-source",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Using Dashboard Templates",
+   "url": "/unified/using-dashboard-templates",
    "product": "Getting Started with Zscaler"
   },
   {
@@ -548,39 +743,59 @@
    "product": "Getting Started with Zscaler"
   },
   {
+   "title": "Viewing Best Practice Details",
+   "url": "/unified/viewing-best-practice-details",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Viewing Best Practices for Optimal Health",
+   "url": "/unified/viewing-best-practices-optimal-health",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "Viewing Connectors, Tunnels, & Zscaler Client Connector Health",
+   "url": "/unified/viewing-connectors-tunnels-zscaler-client-connector-health",
+   "product": "Getting Started with Zscaler"
+  },
+  {
    "title": "Viewing the Data Security Dashboard",
    "url": "/unified/viewing-data-security-dashboard",
    "product": "Getting Started with Zscaler"
   },
   {
-   "title": "Configuring the Axonius Connector",
-   "url": "/uvm/configuring-axonius-connector",
-   "product": "Unified Vulnerability Management (UVM)"
+   "title": "Viewing Executive Insights for Zscaler Services",
+   "url": "/unified/viewing-executive-insights-zscaler-services",
+   "product": "Getting Started with Zscaler"
   },
   {
-   "title": "Configuring the Black Duck SCA Connector",
-   "url": "/uvm/configuring-black-duck-sca-connector",
-   "product": "Unified Vulnerability Management (UVM)"
+   "title": "Viewing the Health360 Dashboard",
+   "url": "/unified/viewing-health360-dashboard",
+   "product": "Getting Started with Zscaler"
   },
   {
-   "title": "Configuring the Code42 Connector",
-   "url": "/uvm/configuring-code42-connector",
-   "product": "Unified Vulnerability Management (UVM)"
+   "title": "Viewing Items in a Widget Segment",
+   "url": "/unified/viewing-items-widget-segment",
+   "product": "Getting Started with Zscaler"
   },
   {
-   "title": "Configuring the Digital Shadows Connector",
-   "url": "/uvm/configuring-digital-shadows-connector",
-   "product": "Unified Vulnerability Management (UVM)"
+   "title": "Viewing Service Health for China Connectivity",
+   "url": "/unified/viewing-service-health-china-connectivity",
+   "product": "Getting Started with Zscaler"
   },
   {
-   "title": "Configuring the Flexera Assets Connector",
-   "url": "/uvm/configuring-flexera-assets-connector",
-   "product": "Unified Vulnerability Management (UVM)"
+   "title": "Viewing Zscaler Service Adoption",
+   "url": "/unified/viewing-zscaler-service-adoption",
+   "product": "Getting Started with Zscaler"
   },
   {
-   "title": "Configuring the Freshservice Connector",
-   "url": "/uvm/configuring-freshservice-connector",
-   "product": "Unified Vulnerability Management (UVM)"
+   "title": "Viewing Zscaler Service Adoption Details",
+   "url": "/unified/viewing-zscaler-service-adoption-details",
+   "product": "Getting Started with Zscaler"
+  },
+  {
+   "title": "What Is Health360?",
+   "url": "/unified/what-health360",
+   "product": "Getting Started with Zscaler"
   },
   {
    "title": "Configuring the GitHub Repositories Connector",
@@ -588,53 +803,8 @@
    "product": "Unified Vulnerability Management (UVM)"
   },
   {
-   "title": "Configuring Google Cloud Storage Outegration",
-   "url": "/uvm/configuring-google-cloud-storage-outegration",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Google Sheets Connector",
-   "url": "/uvm/configuring-google-sheets-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Halo Assets Connector",
-   "url": "/uvm/configuring-halo-assets-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Invicti Connector",
-   "url": "/uvm/configuring-invicti-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the JFrog XRay Connector",
-   "url": "/uvm/configuring-jfrog-xray-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Lacework Connector",
-   "url": "/uvm/configuring-lacework-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Legit Security Connector",
-   "url": "/uvm/configuring-legit-security-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the NetBox Connector",
-   "url": "/uvm/configuring-netbox-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Configuring the Tenable Nessus Connector",
-   "url": "/uvm/configuring-tenable-nessus-connector",
-   "product": "Unified Vulnerability Management (UVM)"
-  },
-  {
-   "title": "Scheduling Reports to Export",
-   "url": "/uvm/scheduling-reports-export",
+   "title": "Configuring the Jira Issues Connector",
+   "url": "/uvm/configuring-jira-issues-connector",
    "product": "Unified Vulnerability Management (UVM)"
   },
   {
@@ -663,8 +833,8 @@
    "product": "Workflow Automation"
   },
   {
-   "title": "Understanding Duplicate Incidents in Workflow Automation",
-   "url": "/workflow-automation/understanding-duplicate-incidents-workflow-automation",
+   "title": "Managing Incidents",
+   "url": "/workflow-automation/managing-incidents",
    "product": "Workflow Automation"
   },
   {
@@ -683,6 +853,16 @@
    "product": "Digital Experience Monitoring (ZDX)"
   },
   {
+   "title": "Supported Versions & Feature Compatibility",
+   "url": "/zdx/supported-versions-feature-compatibility",
+   "product": "Digital Experience Monitoring (ZDX)"
+  },
+  {
+   "title": "Understanding Managed Monitoring",
+   "url": "/zdx/understanding-managed-monitoring",
+   "product": "Digital Experience Monitoring (ZDX)"
+  },
+  {
    "title": "Understanding Probing Criteria Logic",
    "url": "/zdx/understanding-probing-criteria-logic",
    "product": "Digital Experience Monitoring (ZDX)"
@@ -698,8 +878,13 @@
    "product": "Zero Trust Branch"
   },
   {
-   "title": "Resolving Zero Trust Branch Configuration and Activation Issues",
-   "url": "/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues",
+   "title": "Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual",
+   "url": "/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual",
+   "product": "Zero Trust Branch"
+  },
+  {
+   "title": "Zero Trust Branch Physical Port Mapping",
+   "url": "/zero-trust-branch/zero-trust-branch-physical-port-mapping",
    "product": "Zero Trust Branch"
   },
   {
@@ -733,23 +918,13 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
+   "title": "About Firewall Filtering",
+   "url": "/zia/about-firewall-filtering",
+   "product": "Internet & SaaS (ZIA)"
+  },
+  {
    "title": "About the Index Tool",
    "url": "/zia/about-index-tool",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "About NSS Collector Servers",
-   "url": "/zia/about-nss-collector-servers",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "About NSS Servers",
-   "url": "/zia/about-nss-servers",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding Cloud NSS Feeds for 3rd-Party App Governance Logs",
-   "url": "/zia/adding-cloud-nss-feeds-3rd-party-app-governance-logs",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -770,11 +945,6 @@
   {
    "title": "Adding Cloud NSS Feeds for Firewall Logs",
    "url": "/zia/adding-cloud-nss-feeds-for-firewall-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding Cloud NSS Feeds for Posture Management Logs",
-   "url": "/zia/adding-cloud-nss-feeds-posture-management-logs",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -803,21 +973,6 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Adding HTTP NSS Feeds",
-   "url": "/zia/adding-http-nss-feeds",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding HTTP NSS Feeds for Admin Audit Logs",
-   "url": "/zia/adding-http-nss-feeds-admin-audit-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding HTTP NSS Feeds for Alerts",
-   "url": "/zia/adding-http-nss-feeds-alerts",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Adding HTTP NSS Feeds for DNS Logs",
    "url": "/zia/adding-http-nss-feeds-dns-logs",
    "product": "Internet & SaaS (ZIA)"
@@ -838,18 +993,8 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Adding HTTP NSS Feeds for SaaS Security Activity Logs",
-   "url": "/zia/adding-http-nss-feeds-saas-security-activity-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Adding HTTP NSS Feeds for SaaS Security Logs",
    "url": "/zia/adding-http-nss-feeds-saas-security-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding HTTP NSS Feeds for Sandbox Verdict Logs",
-   "url": "/zia/adding-http-nss-feeds-sandbox-verdict-logs",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -858,23 +1003,8 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Adding HTTP NSS Feeds for Web Logs",
-   "url": "/zia/adding-http-nss-feeds-web-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Adding MCAS NSS Feeds",
    "url": "/zia/adding-mcas-nss-feeds",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding NSS Collector Servers",
-   "url": "/zia/adding-nss-collector-servers",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Adding NSS Servers",
-   "url": "/zia/adding-nss-servers",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -918,11 +1048,6 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Configuring Application Service Groups",
-   "url": "/zia/configuring-application-service-groups",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Configuring DLP Policy Rules with Content Inspection",
    "url": "/zia/configuring-dlp-policy-rules-content-inspection",
    "product": "Internet & SaaS (ZIA)"
@@ -935,11 +1060,6 @@
   {
    "title": "Configuring DLP Policy Rules without Content Inspection",
    "url": "/zia/configuring-dlp-policy-rules-without-content-inspection",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Configuring the DNS Control Policy",
-   "url": "/zia/configuring-dns-control-policy",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -988,63 +1108,8 @@
    "product": "Internet & SaaS (ZIA)"
   },
   {
-   "title": "Integrating with Microsoft Cloud App Security",
-   "url": "/zia/integrating-microsoft-cloud-app-security",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
    "title": "Integrating with Microsoft Defender for Endpoint",
    "url": "/zia/integrating-microsoft-defender-endpoint",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "Migrating Applications from Customer-Managed to Zscaler-Managed Dedicated IPs",
-   "url": "/zia/migrating-applications-customer-managed-zscaler-managed-dedicated-ip",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Collector Deployment Guide for VMware vSphere",
-   "url": "/zia/nss-collector-deployment-guide-vmware-vsphere",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Amazon Web Services",
-   "url": "/zia/nss-deployment-guide-amazon-web-services",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Google Cloud Platform",
-   "url": "/zia/nss-deployment-guide-google-cloud-platform",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Hyper-V",
-   "url": "/zia/nss-deployment-guide-hyper-v",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Microsoft Azure",
-   "url": "/zia/nss-deployment-guide-microsoft-azure",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for Nutanix",
-   "url": "/zia/nss-deployment-guide-nutanix",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Deployment Guide for VMware vSphere",
-   "url": "/zia/nss-deployment-guide-vmware-vsphere",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Feed Output Format: 3rd-Party App Governance Logs",
-   "url": "/zia/nss-feed-output-format-3rd-party-app-governance-logs",
-   "product": "Internet & SaaS (ZIA)"
-  },
-  {
-   "title": "NSS Feed Output Format: Posture Management Logs",
-   "url": "/zia/nss-feed-output-format-posture-management-logs",
    "product": "Internet & SaaS (ZIA)"
   },
   {
@@ -1098,11 +1163,6 @@
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "About App Connectors",
-   "url": "/zpa/about-connectors",
-   "product": "Private Access (ZPA)"
-  },
-  {
    "title": "About Federated Partners",
    "url": "/zpa/about-federated-partners",
    "product": "Private Access (ZPA)"
@@ -1130,16 +1190,6 @@
   {
    "title": "About Privileged Remote Access Applications",
    "url": "/zpa/about-privileged-remote-access-applications",
-   "product": "Private Access (ZPA)"
-  },
-  {
-   "title": "About VPN Access Policy Data Diagnostics",
-   "url": "/zpa/about-vpn-access-policy-data-diagnostics",
-   "product": "Private Access (ZPA)"
-  },
-  {
-   "title": "About VPN Traffic Flow Logs Diagnostics",
-   "url": "/zpa/about-vpn-traffic-flow-logs-diagnostics",
    "product": "Private Access (ZPA)"
   },
   {
@@ -1183,11 +1233,6 @@
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "Configuring App Connectors",
-   "url": "/zpa/configuring-connectors",
-   "product": "Private Access (ZPA)"
-  },
-  {
    "title": "Configuring Defined Application Segments",
    "url": "/zpa/configuring-defined-application-segments",
    "product": "Private Access (ZPA)"
@@ -1200,11 +1245,6 @@
   {
    "title": "Configuring a Log Receiver",
    "url": "/zpa/configuring-log-receiver",
-   "product": "Private Access (ZPA)"
-  },
-  {
-   "title": "Configuring Microsegmentation Policies",
-   "url": "/zpa/configuring-microsegmentation-policies",
    "product": "Private Access (ZPA)"
   },
   {
@@ -1228,13 +1268,18 @@
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "Federating Defined Application Segments",
-   "url": "/zpa/federating-defined-application-segments",
+   "title": "Creating Certificate Signing Requests for Enrollment (CA) Certificates",
+   "url": "/zpa/creating-certificate-signing-requests-enrollment-ca-certificates",
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "Managing Deployed Software Components",
-   "url": "/zpa/managing-deployed-software-components",
+   "title": "Exporting Diagnostics Logs",
+   "url": "/zpa/exporting-diagnostics-logs",
+   "product": "Private Access (ZPA)"
+  },
+  {
+   "title": "Federating Defined Application Segments",
+   "url": "/zpa/federating-defined-application-segments",
    "product": "Private Access (ZPA)"
   },
   {
@@ -1255,11 +1300,6 @@
   {
    "title": "Network Connector Software by Platform",
    "url": "/zpa/network-connector-software-platform",
-   "product": "Private Access (ZPA)"
-  },
-  {
-   "title": "Private Cloud Controller Deployment Guide for Linux",
-   "url": "/zpa/private-cloud-controller-deployment-guide-linux",
    "product": "Private Access (ZPA)"
   },
   {
@@ -1303,7 +1343,7 @@
    "product": "Private Access (ZPA)"
   },
   {
-   "title": "Understanding Oauth Enrollment",
+   "title": "Understanding OAuth Enrollment",
    "url": "/zpa/understanding-oauth-enrollment",
    "product": "Private Access (ZPA)"
   },
@@ -1315,6 +1355,11 @@
   {
    "title": "Using Application Segment Multimatch",
    "url": "/zpa/using-app-segment-multimatch",
+   "product": "Private Access (ZPA)"
+  },
+  {
+   "title": "Using Application Scaling",
+   "url": "/zpa/using-application-scaling",
    "product": "Private Access (ZPA)"
   },
   {
@@ -1338,11 +1383,6 @@
    "product": "Zscaler Cellular"
   },
   {
-   "title": "Adding Process-Based Applications to Bypass Traffic",
-   "url": "/zscaler-client-connector/adding-process-based-applications-bypass-traffic",
-   "product": "Client Connector"
-  },
-  {
    "title": "Deploying Zscaler Client Connector with Jamf Pro for macOS",
    "url": "/zscaler-client-connector/deploying-zscaler-client-connector-jamf-pro-macos",
    "product": "Client Connector"
@@ -1353,14 +1393,14 @@
    "product": "Client Connector"
   },
   {
-   "title": "Deploying Zscaler Client Connector with Workspace ONE UEM for macOS",
-   "url": "/zscaler-client-connector/deploying-zscaler-client-connector-workspace-one-uem-macos",
-   "product": "Client Connector"
-  },
-  {
    "title": "Zscaler Client Connector: Windows Registry Keys",
    "url": "/zscaler-client-connector/zscaler-app-registry-keys",
    "product": "Client Connector"
+  },
+  {
+   "title": "Collaborating on UI Text and Presentation with Cross-Functional Teams",
+   "url": "/zscaler-tech-pubs-style-guide/collaborating-ui-text-and-presentation-cross-functional-teams",
+   "product": "Zscaler Tech Pubs Style Guide"
   },
   {
    "title": "Zscaler and Cimcor Deployment Guide",
@@ -1388,6 +1428,11 @@
    "product": "Zscaler Technology Partners"
   },
   {
+   "title": "Zscaler and Reach Security Deployment Guide",
+   "url": "/zscaler-technology-partners/zscaler-and-reach-security-deployment-guide",
+   "product": "Zscaler Technology Partners"
+  },
+  {
    "title": "Zscaler and SD-WAN Technology Partner Deployment Guides",
    "url": "/zscaler-technology-partners/zscaler-and-sd-wan-technology-partner-deployment-guides",
    "product": "Zscaler Technology Partners"
@@ -1401,6 +1446,11 @@
    "title": "Zscaler and Tines Deployment Guide",
    "url": "/zscaler-technology-partners/zscaler-and-tines-deployment-guide",
    "product": "Zscaler Technology Partners"
+  },
+  {
+   "title": "Understanding ZSDK Error Codes",
+   "url": "/zsdk/understanding-zsdk-error-codes",
+   "product": "Zscaler SDK for Mobile Apps"
   }
  ]
 }

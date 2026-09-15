@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-30 10:13 UTC
-Articles in this file: 85
+Generated: 2026-09-14 03:38 UTC
+Articles in this file: 88
 
 ---
 
@@ -1317,13 +1317,13 @@ Before sending this request, ensure that you generate a report using `POST /audi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/admin-role-management","lastmod":"2026-07-15T07:06Z","nid":"1402446"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/admin-role-management","lastmod":"2026-08-16T07:06Z","nid":"1402446"} -->
 ## Admin & Role Management
 
 - Source: https://help.zscaler.com/legacy-apis/admin-role-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Admin & Role Management
-- Last modified: 2026-07-15T07:06Z
+- Last modified: 2026-08-16T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -1628,19 +1628,81 @@ Before you can delete the admin privileges for a user, you need to obtain the ad
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/admin-single-sign-management","lastmod":"2026-01-06T23:49Z","nid":"1532086"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/admin-single-sign-management","lastmod":"2026-07-31T16:39Z","nid":"1532086"} -->
 ## Admin Single Sign-On Management
 
 - Source: https://help.zscaler.com/legacy-apis/admin-single-sign-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Admin Single Sign-On Management
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-07-31T16:39Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/{associationType}/usercodes`
+
+Adds a user code for the specified customer.
+
+- Operation ID: `verifyUserCodes`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `associationType` | path | yes | string | Specifies the provisioning key type for App Connectors, ZPA Private Service Edges, or Private Cloud Controllers. The supported values are CONNECTOR_GRP, NP_ASSISTANT_GRP, SITE_CONTROLLER_GRP, and SERVICE_EDGE_GRP. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → UserCodeVerificationRequestDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/{associationType}/usercodes/status`
+
+Adds a provisioning key for the specified customer.
+
+- Operation ID: `getUserCodeStatus`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `associationType` | path | yes | string | Specifies the provisioning key type for App Connectors, ZPA Private Service Edges, or Private Cloud Controller. The supported values are CONNECTOR_GRP, NP_ASSISTANT_GRP, SITE_CONTROLLER_GRP, and SERVICE_EDGE_GRP. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → UserStatusDtoString
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/v2/ssoLoginOptions`
 
-**Gets the single sign-on (SSO) login configuration details for the specified customer.**
+Gets the single sign-on (SSO) login configuration details for the specified customer.
 
 - Operation ID: `getSSOLogin_1`
 
@@ -1654,20 +1716,20 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 | Code | Description |
 | --- | --- |
+| 200 | OK |
 | 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
 | 409 | Conflict |
 | 415 | Unsupported Media Type |
-| 405 | Method Not Allowed |
-| 401 | Unauthorized |
-| 404 | Not Found |
-| 403 | Forbidden |
-| 503 | Service Unavailable |
 | 500 | Internal Server Error |
-| 200 | OK |
+| 503 | Service Unavailable |
 
 ### `POST /mgmtconfig/v1/admin/customers/{customerId}/v2/ssoLoginOptions`
 
-**Updates the SSO login configuration details for the specified customer.**
+Updates the SSO login configuration details for the specified customer.
 
 - Operation ID: `updateSSOLogin_1`
 
@@ -1683,18 +1745,30 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 | Code | Description |
 | --- | --- |
+| 204 | No Content |
 | 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
 | 409 | Conflict |
 | 415 | Unsupported Media Type |
-| 405 | Method Not Allowed |
-| 401 | Unauthorized |
-| 404 | Not Found |
-| 403 | Forbidden |
-| 503 | Service Unavailable |
 | 500 | Internal Server Error |
-| 204 | No Content |
+| 503 | Service Unavailable |
 
 ### Schemas
+
+**`UserCodeVerificationRequestDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `componentGroupId` | integer(int64) | yes |
+| `configCloudName` | string | no |
+| `enrollmentServer` | string | no |
+| `nonceAssociationType` | string (enum: ASSISTANT_GRP, NP_ASSISTANT_GRP, BROKER_GRP, ZNF_GRP, EDGE_CONNECTOR_GRP, MACHINE_GRP, BRANCH_CONNECTOR_GRP, SITE_CONTROLLER_GRP) | no |
+| `tenantId` | integer(int64) | no |
+| `userCodes` | array<string> | no |
+| `zcomponentId` | integer(int64) | yes |
 
 **`ZPathAPIError`**
 
@@ -1704,6 +1778,18 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `id` | string | no |
 | `params` | array<object> | no |
 | `hostname` | string | no |
+
+**`UserStatusDtoString`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `userCodes` | array<string> | no |
+
+**`UserStatusDtoUserCodeDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `userCodes` | array<UserCodeDto> | no |
 
 **`SSOLoginResource`**
 
@@ -2794,13 +2880,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-07-13T04:18Z","nid":"1400476"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-09-12T07:06Z","nid":"1400476"} -->
 ## API Rate Limit Summary
 
 - Source: https://help.zscaler.com/legacy-apis/api-rate-limit-summary
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > API Rate Limit Summary
-- Last modified: 2026-07-13T04:18Z
+- Last modified: 2026-09-12T07:06Z
 - Summary: Summarization of Zscaler's API resources and their rate limits for each method.
 
 The following table summarizes the Zscaler Internet Access (ZIA) API resources and their rate limits for each method.
@@ -3297,13 +3383,13 @@ Rate limits are subject to change. To learn more, see [Understanding Rate Limits
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary-workflow-automation-api","lastmod":"2026-06-10T03:32Z","nid":"1452126"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary-workflow-automation-api","lastmod":"2026-08-14T08:53Z","nid":"1452126"} -->
 ## API Rate Limit Summary
 
 - Source: https://help.zscaler.com/legacy-apis/api-rate-limit-summary-workflow-automation-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Workflow Automation API > API Developer & Reference Guide > Reference Guide > API Rate Limit Summary
-- Last modified: 2026-06-10T03:32Z
+- Last modified: 2026-08-14T08:53Z
 - Summary: Summary of Zscaler's Workflow Automation API resources and their rate limits for each method.
 
 The following table summarizes the Workflow Automation API resources and their rate limits for each API call.
@@ -3316,6 +3402,8 @@ Rate limits are subject to change. To learn more, see [Understanding API Rate Li
 | /dlp/v1/customer/audit | - | 20/min and 400/hr | - |
 | /dlp/v1/csv-user-data/{csv_user_data_uuid}/download | 30/min and 1,000/hr | - | - |
 | /dlp/v1/csv-user-data/import | - | 20/min and 400/hr | - |
+| /dlp/v1/incidents/{dlpIncidentId}/quarantine/release | - | 20/min and 400/hr | - |
+| /dlp/v1/incidents/{dlpIncidentId}/quarantine/status | 30/min and 1,000/hr | - | - |
 | /dlp/v1/incidents/transactions/{transactionId} | 30/min and 1,000/hr | - | - |
 | /dlp/v1/incidents/{dlpIncidentId} | 30/min and 1,000/hr | - | 30/min and 1,000/hr |
 | /dlp/v1/incidents/{dlpIncidentId}/change-history | 30/min and 1,000/hr | - | - |
@@ -3492,19 +3580,48 @@ The following HTTP status codes are returned by the API:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/app-connector-group-management","lastmod":"2026-01-06T23:49Z","nid":"1485261"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/app-connector-group-management","lastmod":"2026-07-30T16:29Z","nid":"1485261"} -->
 ## App Connector Group Management
 
 - Source: https://help.zscaler.com/legacy-apis/app-connector-group-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > App Connector Group Management
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-07-30T16:29Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/appConnectorGroup/{appConnectorGroupId}/sg`
+
+Gets App Connector group and server group details for the specified customer.
+
+- Operation ID: `getAssistantGroupWithSG_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `appConnectorGroupId` | path | yes | integer(int64) |  |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/appConnectorGroup/{appConnectorGroupId}`
 
-**Gets the App Connector group details for the specified ID.**
+Gets the App Connector group details for the specified ID.
 
 - Operation ID: `getAssistantGroup_2`
 
@@ -3514,7 +3631,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `appConnectorGroupId` | path | yes | integer(int64) | The unique identifier of the App Connector group. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -3533,7 +3650,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/appConnectorGroup/{appConnectorGroupId}`
 
-**Updates the App Connector group details for the specified ID.**
+Updates the App Connector group details for the specified ID.
 
 - Operation ID: `updateAssistantGroup_1`
 
@@ -3543,7 +3660,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `appConnectorGroupId` | path | yes | integer(int64) | The unique identifier of the App Connector group. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → AppConnectorGroup
 
@@ -3564,7 +3681,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/appConnectorGroup/{appConnectorGroupId}`
 
-**Deletes the App Connector group for the specified ID.**
+Deletes the App Connector group for the specified ID.
 
 - Operation ID: `deleteAssistantGroup_1`
 
@@ -3574,7 +3691,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `appConnectorGroupId` | path | yes | integer(int64) | The unique identifier of the App Connector group. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -3593,7 +3710,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/appConnectorGroup`
 
-**Gets all configured App Connector groups for the specified customer.**
+Gets all configured App Connector groups for the specified customer.
 
 - Operation ID: `getAssistantGroups_2`
 
@@ -3603,9 +3720,9 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `search` | query | no | string | The search string used to support search by features and fields for the API. |
-| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500. |
 | `page` | query | no | integer(int32) | Specifies the page number. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -3624,7 +3741,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `POST /mgmtconfig/v1/admin/customers/{customerId}/appConnectorGroup`
 
-**Adds a new App Connector group for the specified customer.**
+Adds a new App Connector group for the specified customer.
 
 - Operation ID: `addAssistantGroup_1`
 
@@ -3633,7 +3750,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → AppConnectorGroup
 
@@ -3642,6 +3759,37 @@ To access detailed ZPA API documentation, including references and use cases, re
 | Code | Description |
 | --- | --- |
 | 201 | Created |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/appConnectorGroup/summary`
+
+Gets a summary of App Connector groups for the specified customer.
+
+- Operation ID: `getAllAssistantGroupNameIds_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
 | 400 | Bad Request |
 | 401 | Unauthorized |
 | 403 | Forbidden |
@@ -3715,6 +3863,16 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `currentCount` | integer(int64) | no |
 | `totalCount` | integer(int64) | no |
 | `list` | array<AppConnectorGroup> | no |
+
+**`PageListNameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<NameIdDto> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
 
 **`Connector`**
 
@@ -3903,23 +4061,30 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `name` | string | yes |
 | `nameserverIps` | array<string> | yes |
 | `fqdn` | array<string> | yes |
+
+**`NameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/app-connector-management-api","lastmod":"2026-01-06T23:49Z","nid":"1485256"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/app-connector-management-api","lastmod":"2026-07-30T16:30Z","nid":"1485256"} -->
 ## App Connector Management API
 
 - Source: https://help.zscaler.com/legacy-apis/app-connector-management-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > App Connector Management API
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-07-30T16:30Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
 ### `POST /mgmtconfig/v1/admin/customers/{customerId}/connector/bulkDelete`
 
-**Bulk deletes the App Connectors for the specified customer.**
+Bulk deletes the App Connectors for the specified customer.
 
 - Operation ID: `bulkDeleteAssistant_1`
 
@@ -3928,7 +4093,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → BulkDeleteResource
 
@@ -3949,7 +4114,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/connector/{connectorId}`
 
-**Gets the App Connector details for the specified ID.**
+Gets the App Connector details for the specified ID.
 
 - Operation ID: `getAssistant_1`
 
@@ -3959,7 +4124,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `connectorId` | path | yes | integer(int64) | The unique identifier of the App Connector. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -3978,7 +4143,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/connector/{connectorId}`
 
-**Updates the App Connector details for the specified ID.**
+Updates the App Connector details for the specified ID.
 
 - Operation ID: `updateAssistant_1`
 
@@ -3988,7 +4153,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `connectorId` | path | yes | integer(int64) | The unique identifier of the App Connector. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → Connector
 
@@ -4009,7 +4174,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/connector/{connectorId}`
 
-**Deletes the App Connector for the specified ID.**
+Deletes the App Connector for the specified ID.
 
 - Operation ID: `deleteAssistant_1`
 
@@ -4019,7 +4184,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `connectorId` | path | yes | integer(int64) | The unique identifier of the App Connector. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -4038,7 +4203,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/connector`
 
-**Gets all configured App Connector details for the specified customer.**
+Gets all configured App Connector details for the specified customer.
 
 - Operation ID: `getAllAssistants_1`
 
@@ -4049,10 +4214,10 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `search` | query | no | string | The search string used to support search by features and fields for the API. |
 | `page` | query | no | integer(int32) | Specifies the page number. |
-| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500. |
 | `sortBy` | query | no | string | Indicates the parameter to sort by. |
 | `sortDir` | query | no | string | Specifies the sort direction (i.e., ascending or descending order). |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -4071,7 +4236,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/connectorSchedule/{id}`
 
-**Updates the Auto Delete frequency for the disconnected App Connector by the specified Auto Delete configuration ID.**
+Updates the Auto Delete frequency for the disconnected App Connector by the specified Auto Delete configuration ID.
 
 - Operation ID: `updateAssistantSchedule_1`
 
@@ -4081,7 +4246,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `id` | path | yes | integer(int64) | The unique identifier for the App Connector auto-deletion configuration for a customer. This field is only required for the PUT request to update the frequency of the App Connector settings. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → ScheduledConfigDTO
 
@@ -4102,7 +4267,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/connectorSchedule`
 
-**Gets the Auto Delete frequency of the App Connector for the specified customer.**
+Gets the Auto Delete frequency of the App Connector for the specified customer.
 
 - Operation ID: `getAssistantSchedule_1`
 
@@ -4111,7 +4276,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -4130,7 +4295,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `POST /mgmtconfig/v1/admin/customers/{customerId}/connectorSchedule`
 
-**Configures Auto Delete for the specified disconnected App Connector.**
+Configures Auto Delete for the specified disconnected App Connector.
 
 - Operation ID: `saveAssistantSchedule_1`
 
@@ -4139,9 +4304,38 @@ To access detailed ZPA API documentation, including references and use cases, re
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → ScheduledConfigDTO
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/connector/{connectorId}/update`
+
+Updates the App Connector configuration for the specified customer.
+
+- Operation ID: `restartAssistant_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `connectorId` | path | yes | integer(int64) | The unique identifier of the App Connector. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -4312,19 +4506,79 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/application-segment-management","lastmod":"2026-01-06T23:49Z","nid":"1485246"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/application-segment-management","lastmod":"2026-07-30T16:30Z","nid":"1485246"} -->
 ## Application Segment Management
 
 - Source: https://help.zscaler.com/legacy-apis/application-segment-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Application Segment Management
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-07-30T16:30Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}/mappings`
+
+Gets the application segment mapping details for the specified customer.
+
+- Operation ID: `getApplicationSegmentMappings_2`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `applicationId` | path | yes | integer(int64) | The unique identifier of the application segment. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}/tags`
+
+Updates tags for the inherited and shared application segment.
+
+- Operation ID: `updateTagsForInheritedAndSharedApplication_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `applicationId` | path | yes | integer(int64) | The unique identifier of the Application Segment. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → ApplicationTagsResource
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/application/getAppsByType`
 
-**Gets all configured application segments by application type (e.g., Browser Access, AppProtection, Privileged Remote Access) for the specified customer.**
+Gets all configured application segments by application type (e.g., Browser Access, AppProtection, Privileged Remote Access) for the specified customer.
 
 - Operation ID: `getAllBaOrInspectApps_2`
 
@@ -4335,10 +4589,10 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `search` | query | no | string | The search string used to support search by features and fields for the API. |
 | `page` | query | no | integer(int32) | Specifies the page number. |
-| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500. |
 | `expandAll` | query | no | boolean | If set to `true`, includes additional information related to the applications. |
 | `applicationType` | query | yes | string | Indicates the type of application. The supported values are:`INSPECT`: AppProtection; `SECURE_REMOTE_ACCESS`: Privileged Remote Access; `BROWSER_ACCESS`: Browser Access |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -4357,7 +4611,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/application`
 
-**Gets all configured application segments for the specified customer.**
+Gets all configured application segments for the specified customer.
 
 - Operation ID: `getAllApplications_1`
 
@@ -4368,8 +4622,8 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `search` | query | no | string | The search string used to support search by features and fields for the API. |
 | `page` | query | no | integer(int32) | Specifies the page number. |
-| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -4388,7 +4642,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `POST /mgmtconfig/v1/admin/customers/{customerId}/application`
 
-**Adds a new application segment for the specified customer.**
+Adds a new application segment for the specified customer.
 
 - Operation ID: `addApplication_1`
 
@@ -4397,7 +4651,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → ApplicationResource
 
@@ -4418,7 +4672,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}`
 
-**Gets the application segment details for the specified ID.**
+Gets the application segment details for the specified ID.
 
 - Operation ID: `getApplication_3`
 
@@ -4428,7 +4682,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `applicationId` | path | yes | integer(int64) | The unique identifier of the application segment. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -4447,7 +4701,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}`
 
-**Updates the application segment details for the specified ID.**
+Updates the application segment details for the specified ID.
 
 - Operation ID: `updateApplicationV2_1`
 
@@ -4457,7 +4711,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `applicationId` | path | yes | integer(int64) | The unique identifier of the application segment. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → ApplicationResource
 
@@ -4478,7 +4732,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}`
 
-**Deletes the application segment for the specified ID.**
+Deletes the application segment for the specified ID.
 
 - Operation ID: `deleteApplication_1`
 
@@ -4489,7 +4743,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `applicationId` | path | yes | integer(int64) | The unique identifier of the application segment. |
 | `forceDelete` | query | no | string | Set this field to `true` to delete the mapping between the application segment and segment group. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -4508,7 +4762,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}/share`
 
-**Shares the application segment to the Microtenant for the specified ID.**
+Shares the application segment to the Microtenant for the specified ID.
 
 - Operation ID: `shareApplicationToScopes_2`
 
@@ -4518,7 +4772,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `applicationId` | path | yes | integer(int64) | The unique identifier of the application segment. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → ApplicationShareResource
 
@@ -4537,9 +4791,38 @@ To access detailed ZPA API documentation, including references and use cases, re
 | 500 | Internal Server Error |
 | 503 | Service Unavailable |
 
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/application/validate`
+
+Update the domain names with wildcards for the specified customer. If the domain names are updated, the application segment is updated.
+
+- Operation ID: `validateWildCardDomainName_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+
+**Request body:** `application/json` → ApplicationResource
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/application/bulkUpdateMultiMatch`
 
-**Bulk updates application segment Multimatch in multiple applications.**
+Bulk updates application segment Multimatch in multiple applications.
 
 - Operation ID: `bulkUpdateMultimatchInApplications_2`
 
@@ -4548,7 +4831,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → BulkUpdateMultimatchResource
 
@@ -4556,20 +4839,104 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 | Code | Description |
 | --- | --- |
+| 204 | No Content |
 | 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
 | 409 | Conflict |
 | 415 | Unsupported Media Type |
-| 405 | Method Not Allowed |
-| 401 | Unauthorized |
-| 404 | Not Found |
-| 403 | Forbidden |
-| 503 | Service Unavailable |
 | 500 | Internal Server Error |
-| 204 | No Content |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/application/{appId}/getAppByType`
+
+Gets the application segment details based on application type (e.g., Browser Access, AppProtection, Privileged Remote Access) for the specified customer.
+
+- Operation ID: `getBaOrInspectApp_2`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `appId` | path | yes | integer(int64) | The unique identifier of the application segment. |
+| `applicationType` | query | yes | string | The type of application |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/application/configured/count`
+
+Gets the count of application segments for the specified customer based on the requested time range.
+
+- Operation ID: `getConfiguredApplicationCount_2`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/application/count/currentAndMaxLimit`
+
+Gets the current count and maximum count for application domains for a specified customer.
+
+- Operation ID: `getCurrentAndMaxCount_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}/weightedLbConfig`
 
-**Gets the application load balancing configuration of the application segment for the specified ID.**
+Gets the application load balancing configuration of the application segment for the specified ID.
 
 - Operation ID: `getWeightedLoadBalancerConfig_1`
 
@@ -4579,7 +4946,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `applicationId` | path | yes | integer(int64) | The unique identifier of the application segment. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Responses:**
 
@@ -4598,7 +4965,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}/weightedLbConfig`
 
-**Updates the application load balancing configuration of the application segment for the specified ID.**
+Updates the application load balancing configuration of the application segment for the specified ID.
 
 - Operation ID: `updateWeightedLoadBalancerConfig_1`
 
@@ -4608,7 +4975,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `applicationId` | path | yes | integer(int64) | The unique identifier of the application segment. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → WeightedLBConfigDTO
 
@@ -4627,9 +4994,40 @@ To access detailed ZPA API documentation, including references and use cases, re
 | 500 | Internal Server Error |
 | 503 | Service Unavailable |
 
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/application/summary`
+
+Gets a summary of application segments for the specified customer.
+
+- Operation ID: `getAllApplicationNameIds_2`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
 ### `POST /mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}/move`
 
-**Moves an application segment from one Microtenant to another Microtenant for the specified ID.**
+Moves an application segment from one Microtenant to another Microtenant for the specified ID.
 
 - Operation ID: `moveApplication_2`
 
@@ -4639,7 +5037,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `applicationId` | path | yes | integer(int64) | The unique identifier of the application segment. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → AppMoveDTO
 
@@ -4660,7 +5058,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `POST /mgmtconfig/v1/admin/customers/{customerId}/application/multimatchUnsupportedReferences`
 
-**Gets the application segments by domain that are incompatible for application segment Multimatch.**
+Gets the application segments by domain that are incompatible for application segment Multimatch.
 
 - Operation ID: `multimatchUnsupportedReferences_2`
 
@@ -4669,7 +5067,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
-| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained in the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
 
 **Request body:** `application/json` → array<string>
 
@@ -4677,27 +5075,55 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 | Code | Description |
 | --- | --- |
+| 200 | OK |
 | 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
 | 409 | Conflict |
 | 415 | Unsupported Media Type |
-| 405 | Method Not Allowed |
-| 401 | Unauthorized |
-| 404 | Not Found |
-| 403 | Forbidden |
-| 503 | Service Unavailable |
 | 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/application/export`
+
+Gets the export of the application segment details for the specified customer.
+
+- Operation ID: `exportApplication_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `single` | query | no | boolean |  |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
 | 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
 
 ### Schemas
 
-**`PageListBaseAppDto`**
+**`ApplicationMappingResource`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `totalPages` | integer(int32) | no |
-| `currentCount` | integer(int64) | no |
-| `totalCount` | integer(int64) | no |
-| `list` | array<BaseAppDto> | no |
+| `names` | array<string> | no |
+| `type` | string | no |
 
 **`ZPathAPIError`**
 
@@ -4707,6 +5133,27 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `id` | string | no |
 | `params` | array<object> | no |
 | `hostname` | string | no |
+
+**`ApplicationTagsResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `creationTime` | integer(int32) | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `tags` | array<TagValueSummary> | no |
+
+**`PageListBaseAppDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `totalPages` | integer(int32) | no |
+| `currentCount` | integer(int64) | no |
+| `totalCount` | integer(int64) | no |
+| `list` | array<BaseAppDto> | no |
 
 **`PageListApplicationResource`**
 
@@ -4786,6 +5233,31 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `matchStyle` | string (enum: EXCLUSIVE, INCLUSIVE) | no |
 | `applicationIds` | array<integer(int64)> | no |
 
+**`BaseAppDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+| `enabled` | boolean | no |
+| `description` | string | no |
+| `certificateId` | integer(int64) | no |
+| `certificateName` | string | no |
+| `applicationPort` | integer(int32) | no |
+| `applicationProtocol` | string (enum: HTTP, HTTPS, FTP, RDP, SSH, WEBSOCKET, VNC, REALVNC) | no |
+| `domain` | string | no |
+| `appId` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `inconsistentConfigDetails` | InconsistentConfigDetails | no |
+
+**`ConfiguredApplicationCount`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `configuredDateInEpochSeconds` | integer(int64) | no |
+| `appsConfigured` | integer(int32) | no |
+
 **`WeightedLBConfigDTO`**
 
 | Property | Type | Required |
@@ -4793,6 +5265,16 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `applicationId` | integer(int64) | no |
 | `weightedLoadBalancing` | boolean | no |
 | `applicationToServerGroupMappings` | array<ApplicationToGroupMappingDto> | no |
+
+**`PageListNameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<NameIdDto> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
 
 **`AppMoveDTO`**
 
@@ -4816,23 +5298,29 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `microtenantId` | string | no |
 | `microtenantName` | string | no |
 
-**`BaseAppDto`**
+**`TagValueSummary`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `namespace` | TagNamespaceKeyInfo | no |
+| `origin` | string (enum: CUSTOM, PREDEFINED, SEGMENTATION) | no |
+| `tagKey` | TagNamespaceKeyInfo | no |
+| `tagValue` | TagNameIdDto | no |
+
+**`TagNamespaceKeyInfo`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enabled` | boolean | no |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`TagNameIdDto`**
 
 | Property | Type | Required |
 | --- | --- | --- |
 | `id` | integer(int64) | no |
 | `name` | string | no |
-| `enabled` | boolean | no |
-| `description` | string | no |
-| `certificateId` | integer(int64) | no |
-| `certificateName` | string | no |
-| `applicationPort` | integer(int32) | no |
-| `applicationProtocol` | string (enum: HTTP, HTTPS, FTP, RDP, SSH, WEBSOCKET, VNC, REALVNC) | no |
-| `domain` | string | no |
-| `appId` | integer(int64) | no |
-| `microtenantId` | integer(int64) | no |
-| `microtenantName` | string | no |
-| `inconsistentConfigDetails` | InconsistentConfigDetails | no |
 
 **`InconsistentConfigDetails`**
 
@@ -5713,19 +6201,46 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/appprotection-profile-management","lastmod":"2026-01-06T23:49Z","nid":"1485366"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/appprotection-profile-management","lastmod":"2026-07-30T16:32Z","nid":"1485366"} -->
 ## AppProtection Profile Management
 
 - Source: https://help.zscaler.com/legacy-apis/appprotection-profile-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > AppProtection Profile Management
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-07-30T16:32Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/getDefaultInspectionProfile`
+
+Gets the default AppProtection profile for the specified customer.
+
+- Operation ID: `getDefaultInspectionProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/inspectionProfile/{inspectionProfileId}/dissociateAllPredefinedControls`
 
-**Updates the AppProtection profile for the specified ID and dissociates all predefined controls from a profile.**
+Updates the AppProtection profile for the specified ID and dissociates all predefined controls from a profile.
 
 - Operation ID: `dissociateAllPredefinedControls`
 
@@ -5753,7 +6268,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/inspectionProfile`
 
-**Gets all configured AppProtection profiles for the specified customer.**
+Gets all configured AppProtection profiles for the specified customer.
 
 - Operation ID: `getAllInspectionProfiles`
 
@@ -5764,7 +6279,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `search` | query | no | string | The search string used to support search by features and fields for the API. |
 | `page` | query | no | integer(int32) | Specifies the page number. |
-| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500. |
 
 **Responses:**
 
@@ -5783,7 +6298,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `POST /mgmtconfig/v1/admin/customers/{customerId}/inspectionProfile`
 
-**Adds a new AppProtection profile for the specified customer.**
+Adds a new AppProtection profile for the specified customer.
 
 - Operation ID: `addInspectionProfile`
 
@@ -5812,7 +6327,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/inspectionProfile/{inspectionProfileId}/associateAllPredefinedControls`
 
-**Updates the AppProtection profile for the specified ID and associates all predefined controls to a profile.**
+Updates the AppProtection profile for the specified ID and associates all predefined controls to a profile.
 
 - Operation ID: `associateAllPredefinedControls`
 
@@ -5841,7 +6356,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/inspectionProfile/{inspectionProfileId}`
 
-**Gets the AppProtection profile details for the specified ID.**
+Gets the AppProtection profile details for the specified ID.
 
 - Operation ID: `getInspectionProfile`
 
@@ -5869,7 +6384,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/inspectionProfile/{inspectionProfileId}`
 
-**Updates the AppProtection profile for the specified ID.**
+Updates the AppProtection profile for the specified ID.
 
 - Operation ID: `updateInspectionProfile`
 
@@ -5899,7 +6414,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/inspectionProfile/{inspectionProfileId}`
 
-**Deletes the AppProtection profile for the specified ID.**
+Deletes the AppProtection profile for the specified ID.
 
 - Operation ID: `deleteInspectionProfile`
 
@@ -5927,7 +6442,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PATCH /mgmtconfig/v1/admin/customers/{customerId}/inspectionProfile/{inspectionProfileId}/patch`
 
-**Updates the AppProtection profile and controls for the specified ID.**
+Updates the AppProtection profile and controls for the specified ID.
 
 - Operation ID: `patchInspectionProfile`
 
@@ -5957,7 +6472,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `PUT /mgmtconfig/v1/admin/customers/{customerId}/inspectionProfile/{inspectionProfileId}/deAssociateAllPredefinedControls`
 
-**Updates the AppProtection profile for the specified ID and dissociates all predefined controls from a profile. This API will be deprecated in a future release.**
+Updates the AppProtection profile for the specified ID and dissociates all predefined controls from a profile. This API will be deprecated in a future release.
 
 - Operation ID: `deAssociateAllPredefinedControls`
 
@@ -5985,24 +6500,6 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### Schemas
 
-**`ZPathAPIError`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `reason` | string | no |
-| `id` | string | no |
-| `params` | array<object> | no |
-| `hostname` | string | no |
-
-**`PageListInspectionProfile`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `totalPages` | integer(int32) | no |
-| `currentCount` | integer(int64) | no |
-| `totalCount` | integer(int64) | no |
-| `list` | array<InspectionProfile> | no |
-
 **`InspectionProfile`**
 
 | Property | Type | Required |
@@ -6028,6 +6525,24 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `predefinedADPControls` | array<InspectionPredefinedControl> | no |
 | `exceptionsVersion` | integer(int32) | no |
 | `apiProfile` | boolean | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`PageListInspectionProfile`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `totalPages` | integer(int32) | no |
+| `currentCount` | integer(int64) | no |
+| `totalCount` | integer(int64) | no |
+| `list` | array<InspectionProfile> | no |
 
 **`InspectionPredefinedControl`**
 
@@ -6124,7 +6639,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | Property | Type | Required |
 | --- | --- | --- |
 | `lhs` | string (enum: SIZE, VALUE) | no |
-| `op` | string (enum: RX, CONTAINS, STARTS_WITH, ENDS_WITH, EQ, LE, GE) | no |
+| `op` | string (enum: RX, CONTAINS, STARTS_WITH, ENDS_WITH, EQ, LE, GE, NOT_RX) | no |
 | `rhs` | string | no |
 
 **`InspectionZSDefinedControl`**
@@ -6575,13 +7090,13 @@ Retrieves organization's default authentication settings information.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/azure-integration","lastmod":"2026-06-19T00:29Z","nid":"1541305"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/azure-integration","lastmod":"2026-08-07T07:06Z","nid":"1541305"} -->
 ## Azure Integration
 
 - Source: https://help.zscaler.com/legacy-apis/azure-integration
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Azure Integration
-- Last modified: 2026-06-19T00:29Z
+- Last modified: 2026-08-07T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -6974,6 +7489,180 @@ Deletes a Bandwidth Control policy rule based on the specified ID
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/branch-connectors","lastmod":"2026-08-31T07:06Z","nid":"1542218"} -->
+## Branch Connectors
+
+- Source: https://help.zscaler.com/legacy-apis/branch-connectors
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Branch Connectors
+- Last modified: 2026-08-31T07:06Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/branchConnectorGroup/summary`
+
+Gets a summary of Branch Connector groups for the specified customer.
+
+- Operation ID: `getAllBranchConnectorGroupNameIds`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/branchConnector`
+
+Gets all Branch Connectors for the specified customer.
+
+- Operation ID: `getAllBranchConnectors`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/branchConnectorGroup`
+
+Get all configured Branch Connector groups.
+
+- Operation ID: `getBranchConnectorGroups`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`PageListNameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<NameIdDto> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`PageListConnectorResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<ConnectorResource> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`PageListObject`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<object> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`NameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ConnectorResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `branchConnectorGroupId` | string | no |
+| `branchConnectorGroupName` | string | no |
+| `creationTime` | integer(int32) | no |
+| `description` | string | no |
+| `edgeConnectorGroupId` | string | no |
+| `edgeConnectorGroupName` | string | no |
+| `enabled` | boolean | no |
+| `fingerprint` | string | no |
+| `id` | string | no |
+| `ipAcl` | array<string> | no |
+| `issuedCertId` | integer(int64) | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | no |
+| `enrollmentCert` | object | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/browser-control-policy","lastmod":"2026-07-17T07:06Z","nid":"1529818"} -->
 ## Secure Browsing
 
@@ -7074,6 +7763,251 @@ Gets a list of all the cloud browser isolation profiles in the Isolation Profile
 | Code | Description |
 | --- | --- |
 | 200 | Successful Operation |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/browser-profiles","lastmod":"2026-07-31T16:37Z","nid":"1542219"} -->
+## Browser Profiles
+
+- Source: https://help.zscaler.com/legacy-apis/browser-profiles
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Browser Profiles
+- Last modified: 2026-07-31T16:37Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/managedBrowserProfile/search`
+
+Gets a list of managed browser profiles for the specified customer.
+
+- Operation ID: `getAllManagedBrowserProfiles`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`PageListManagedBrowserProfileDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<ManagedBrowserProfileDTO> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`ManagedBrowserProfileDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `browserType` | string (enum: CHROME) | no |
+| `chromePostureProfile` | ChromePostureProfileDTO | no |
+| `creationTime` | integer(int32) | no |
+| `customerId` | integer(int64) | no |
+| `description` | string | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+
+**`ChromePostureProfileDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `browserType` | string (enum: CHROME) | no |
+| `creationTime` | integer(int32) | no |
+| `crowdStrikeAgent` | boolean | no |
+| `diskEncryption` | string (enum: DISK_ENCRYPTION_UNSPECIFIED, DISK_ENCRYPTION_UNKNOWN, DISK_ENCRYPTION_DISABLED, DISK_ENCRYPTION_ENCRYPTED) | no |
+| `id` | string | no |
+| `keyTrustLevel` | string (enum: KEY_TRUST_LEVEL_UNSPECIFIED, CHROME_OS_VERIFIED_MODE, CHROME_OS_DEVELOPER_MODE, CHROME_BROWSER_HW_KEY, CHROME_BROWSER_OS_KEY, CHROME_BROWSER_NO_KEY) | no |
+| `minBrowserVersion` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `operatingSystem` | string (enum: OPERATING_SYSTEM_UNSPECIFIED, CHROME_OS, CHROMIUM_OS, WINDOWS, MAC_OS_X, LINUX) | no |
+| `osFirewall` | string (enum: OS_FIREWALL_UNSPECIFIED, OS_FIREWALL_UNKNOWN, OS_FIREWALL_DISABLED, OS_FIREWALL_ENABLED) | no |
+| `profileId` | integer(int64) | no |
+| `safeBrowsingProtectionLevel` | string (enum: SAFE_BROWSING_PROTECTION_LEVEL_UNSPECIFIED, INACTIVE, STANDARD, ENHANCED) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `screenLockSecured` | string (enum: SCREEN_LOCK_SECURED_UNSPECIFIED, SCREEN_LOCK_SECURED_UNKNOWN, SCREEN_LOCK_SECURED_DISABLED, SCREEN_LOCK_SECURED_ENABLED) | no |
+| `secureBootMode` | string (enum: SECURE_BOOT_MODE_UNSPECIFIED, SECURE_BOOT_MODE_UNKNOWN, SECURE_BOOT_MODE_DISABLED, SECURE_BOOT_MODE_ENABLED) | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/browser-protection-profiles","lastmod":"2026-07-30T17:12Z","nid":"1542220"} -->
+## Browser Protection Profiles
+
+- Source: https://help.zscaler.com/legacy-apis/browser-protection-profiles
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Browser Protection Profiles
+- Last modified: 2026-07-30T17:12Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/activeBrowserProtectionProfile`
+
+Gets the active Browser Protection profile details for the specified customer.
+
+- Operation ID: `getActiveClientlessSessionProtectionProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/browserProtectionProfile`
+
+Gets a list of configured Browser Protection profiles for the specified customer.
+
+- Operation ID: `getClientlessSessionProtectionProfiles`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `sort` | query | no | string | The sort string used to support sorting on the given field for the API. |
+| `sortdir` | query | no | string (enum: ASC, DESC) | Specifies the sorting order (ascending/descending) for the search results. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/browserProtectionProfile/setActive/{browserProtectionProfileId}`
+
+Updates the Browser Protection profile for the specified customer.
+
+- Operation ID: `setActiveClientlessSessionProtectionProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `browserProtectionProfileId` | path | yes | integer(int64) | The ID of the Browser Protection profile. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`ClientlessSessionProtectionProfile`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `creationTime` | integer(int32) | no |
+| `criteria` | SessionManagementCriteria | no |
+| `criteriaFlagsMask` | integer(int64) | no |
+| `defaultCSP` | boolean | no |
+| `description` | string | no |
+| `id` | integer(int64) | no |
+| `modifiedBy` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `nameWithoutTrim` | string | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`PageListClientlessSessionProtectionProfile`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<ClientlessSessionProtectionProfile> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`SessionManagementCriteria`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `fingerPrintCriteria` | FingerPrintCriteria | no |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7384,13 +8318,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-app-control-policy","lastmod":"2026-05-31T07:06Z","nid":"1500121"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-app-control-policy","lastmod":"2026-08-14T02:39Z","nid":"1500121"} -->
 ## Cloud App Control Policy
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-app-control-policy
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud App Control Policy
-- Last modified: 2026-05-31T07:06Z
+- Last modified: 2026-08-14T02:39Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -7623,7 +8557,7 @@ Gets the backend keys that match the application type string.
 
 ### `GET /webApplicationRules/{rule_type}`
 
-Gets the list of cloud application rules by the type of rule.
+Retrieves the list of cloud application rules by the type of rule
 
 - Operation ID: `WebApplicationRuleResource_getRulesByType`
 
@@ -7631,8 +8565,8 @@ Gets the list of cloud application rules by the type of rule.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `rule_type` | path | yes | object | The rule type selected from the available options. |
-| `search` | query | no | object | The search string used to match against a rule type option. |
+| `rule_type` | path | yes | object | Filters based on rule type selected from the available options |
+| `search` | query | no | object | The search string used to match against a rule type option |
 
 **Responses:**
 
@@ -7642,7 +8576,7 @@ Gets the list of cloud application rules by the type of rule.
 
 ### `POST /webApplicationRules/{rule_type}`
 
-Adds a new cloud application rule.
+Adds a new cloud application rule
 
 - Operation ID: `WebApplicationRuleResource_addRule`
 
@@ -7650,8 +8584,31 @@ Adds a new cloud application rule.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `rule_type` | path | yes | object | The rule type selected from the available options. |
-| `body` | body | no | WebApplicationRule | The Cloud App Control policy rule information. |
+| `rule_type` | path | yes | object | The rule type selected from the available options |
+| `body` | body | no | WebApplicationRule | The Cloud App Control policy rule information |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `POST /webApplicationRules/{rule_type}/allAvailableActions`
+
+Retrieves all granular actions supported by the web applications, including default actions such as allow, block, caution, etc., not supported by the
+
+**/webApplicationRules/{rule_type}/availableActions**
+
+endpoint.
+
+- Operation ID: `WebApplicationRuleResource_getAllAvailableActions`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `rule_type` | path | yes | object | Filters based on the rule type selected from the available options |
+| `body` | body | no | WebApplicationTypeList | The Cloud App Control policy rule information |
 
 **Responses:**
 
@@ -7661,7 +8618,7 @@ Adds a new cloud application rule.
 
 ### `POST /webApplicationRules/{rule_type}/availableActions`
 
-Fetches the granular actions supported for the applications.
+Retrieves the granular actions supported by the web applications
 
 - Operation ID: `WebApplicationRuleResource_getAvailableActions`
 
@@ -7669,8 +8626,8 @@ Fetches the granular actions supported for the applications.
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `rule_type` | path | yes | object | The rule type selected from the available options. |
-| `body` | body | no | WebApplicationTypeList | The Cloud App Control policy rule information. |
+| `rule_type` | path | yes | object | Filters based on the rule type selected from the available options |
+| `body` | body | no | WebApplicationTypeList | The Cloud App Control policy rule information |
 
 **Responses:**
 
@@ -8629,19 +9586,79 @@ Deletes a VM based on the provided Cloud or Branch Connector native public cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-connector-groups","lastmod":"2026-01-06T23:49Z","nid":"1485276"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-connector-groups","lastmod":"2026-07-30T17:17Z","nid":"1485276"} -->
 ## Cloud Connector Groups
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-connector-groups
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Cloud Connector Groups
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-07-30T17:17Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/cloudConnectorGroup/summary`
+
+Gets a summary of Cloud Connector groups for the specified customer.
+
+- Operation ID: `getAllEdgeConnectorGroupNameIds`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/cloudConnector`
+
+Gets all Cloud Connector groups for the specified customer.
+
+- Operation ID: `getAllEdgeConnectors`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Indicates the page size. If not provided, the default page size is 20. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/cloudConnectorGroup/{id}`
 
-**Gets the Cloud Connector group details for the specified ID.**
+Gets the Cloud Connector group details for the specified ID.
 
 - Operation ID: `getEdgeConnectorGroup`
 
@@ -8669,7 +9686,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### `GET /mgmtconfig/v1/admin/customers/{customerId}/cloudConnectorGroup`
 
-**Gets all configured Cloud Connector groups for the specified customer.**
+Gets all configured Cloud Connector groups for the specified customer.
 
 - Operation ID: `getEdgeConnectorGroups`
 
@@ -8679,7 +9696,7 @@ To access detailed ZPA API documentation, including references and use cases, re
 | --- | --- | --- | --- | --- |
 | `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
 | `search` | query | no | string | The search string used to support search by features and fields for the API. |
-| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500. |
 | `page` | query | no | integer(int32) | Specifies the page number. |
 
 **Responses:**
@@ -8699,6 +9716,35 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ### Schemas
 
+**`PageListNameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<NameIdDto> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`PageListEdgeConnectorResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<CloudConnectorResource> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
 **`CloudConnectorGroupResource`**
 
 | Property | Type | Required |
@@ -8717,15 +9763,6 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `microtenantId` | integer(int64) | no |
 | `cloudConnectors` | array<Znf> | no |
 
-**`ZPathAPIError`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `reason` | string | no |
-| `id` | string | no |
-| `params` | array<object> | no |
-| `hostname` | string | no |
-
 **`PageListEdgeConnectorGroupResource`**
 
 | Property | Type | Required |
@@ -8734,6 +9771,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 | `currentCount` | integer(int64) | no |
 | `totalCount` | integer(int64) | no |
 | `list` | array<CloudConnectorGroupResource> | no |
+
+**`NameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
 
 **`Znf`**
 
@@ -8757,13 +9801,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-07-29T07:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-09-13T07:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-07-29T07:06Z
+- Last modified: 2026-09-13T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -10281,6 +11325,248 @@ To get the platform types for a customer:
 ```
 
 A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-and-managing-aws-accounts","lastmod":"2026-08-31T02:41Z","nid":"1542868"} -->
+## Configuring and Managing AWS Accounts
+
+- Source: https://help.zscaler.com/legacy-apis/configuring-and-managing-aws-accounts
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Cloud & Branch Connector API > API Developer & Reference Guide > Working with APIs > Configuring and Managing AWS Accounts
+- Last modified: 2026-08-31T02:41Z
+- Summary: Information about configuring and managing AWS accounts using APIs.
+
+This article provides information on configuring and managing Amazon Web Services (AWS) accounts using APIs. All APIs are rate limited. To learn more, see [API Rate Limit Summary](https://help.zscaler.com/legacy-apis/api-rate-limit-summary-1).
+
+## Prerequisites
+
+Before configuring and managing AWS accounts, make sure you've identified the access token required for authorization.
+
+## Creating an AWS Account
+
+To create an AWS account:
+
+1. Send a POST request to the following endpoint: `/publicCloudInfo`
+2. Include the request headers to provide information about the request context:
+  - **Content Type**: application/json
+  - **Authorization**: Bearer <access_token>
+3. Use the following JSON payload to create an AWS account and provide the following information: `publicCloudInfo`:
+  - (Required) `name` (String): The name of the AWS account.
+  - `accountDetails`:
+    - (Required) `awsAccountId` (String): The AWS account ID where workloads are deployed. The ID must be non-null, non-empty, and unique, and contain 12 digits.
+    - (Required) `awsRoleName` (String): The AWS trusting role in your account. The name must be non-null, non-empty, and 64 characters or fewer in length.
+  - `accountGroups`:
+    - `id` (Integer): An ID that uniquely identifies an entity.
+  - `cloudType` (String): The cloud type. The default value is AWS.
+  - `externalId` (String): A unique external ID for the AWS account.
+  - (Required) `supportedRegions`: Regions supported by the Zscaler Tag Discovery Service.
+    - `id` (Integer): The unique ID of the supported region.
+
+View a sample JSON payload:
+
+- Creating an AWS Account
+
+A successful response returns code 201, meaning the AWS account is created. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Getting Details for All AWS Accounts
+
+- To get details for all AWS accounts, send a GET request to the following endpoint: `/publicCloudInfo`
+- This API supports pagination. To get a paginated response, send a GET request to the following endpoint: `/publicCloudInfo?page=1&pagesize=2`
+
+View an example response:
+
+- Getting details for all AWS accounts
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Getting Details of a Specific AWS Account
+
+To get details for a particular AWS Account:
+
+1. Send a GET request to the following endpoint: `/publicCloudInfo/{id}`
+2. Provide the unique ID of the AWS account in the request endpoint. For example: `/publicCloudInfo/100`
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Updating a Specific AWS Account
+
+To update a specific AWS account:
+
+1. Provide the updated JSON payload from the Creating an AWS Account section and send a PUT request to the following endpoint: `/publicCloudInfo/{id}`
+2. Provide the unique ID of the AWS account, account groups, and region in the request payload.
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Deleting a Specific AWS Account
+
+To delete an AWS account:
+
+1. Send a DELETE request to the following endpoint: `/publicCloudInfo/{id}`
+2. Provide the unique ID of the AWS account in the request endpoint. For example: `/publicCloudInfo/100`
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/legacy-apis/api-response-codes-and-error-messages-2).
+
+## Additional APIs
+
+The following table provides details of additional AWS APIs that you can use to perform various operations:
+
+| Operation | API Endpoint |
+| --- | --- |
+| Retrieve a list of AWS supported regions | Send a GET request to `/publicCloudInfo/supportedRegions`. The GET request retrieves details such as cloud type, region ID, and region name. |
+| Retrieve the total number of AWS accounts. | Send a GET request to `/publicCloudInfo/count`. |
+| Create an external ID for an AWS account. | Send a POST request to `/publicCloudInfo/generateExternalId`. |
+| Retrieve basic information about the AWS cloud accounts. | Send a GET request to `/publicCloudInfo/lite`. |
+| Enable or disable a specific AWS account in all regions based on the provided ID. | Send a PUT request to `/publicCloudInfo/{id}/changeState`. Provide AWS account ID and enable (True) or disable (False) in the request payload. |
+| Retrieve the CloudFormation template URL | Send a GET request to `publicCloudInfo/cloudFormationTemplate`. |
+
+```
+{
+    "name": "aws-account-1",
+    "cloudType": "AWS", // optional
+    "externalId": "daba767765f2670722c4d68e8f81bf90", // optional
+    "accountDetails": {
+        "awsAccountId": "674109010822",
+        "awsRoleName": "role1"
+    },
+    "supportedRegions": [
+        {
+            "id": 456414
+        }
+    ],
+    // optional
+    "accountGroups": [
+        {
+            "id": 1090178
+        }
+    ]
+}
+```
+
+```
+[
+    {
+        "id": 2883305,
+        "name": "Dev-account",
+        "cloudType": "AWS",
+        "externalId": "daba767765f2670722c4d68e8f81bf90",
+        "accountDetails": {
+            "awsAccountId": "22333332123",
+            "awsRoleName": "role1",
+            "externalId": "daba767765f2670722c4d68e8f81bf90",
+            "eventBusName": "zscaler-bus-2212-zscaler.net",
+            "trustedAccountId": "275777770888",
+            "trustedRole": "arn:aws:iam::275777770888:role/ZscalerTagDiscoveryRole",
+            "troubleShootingLogging": true,
+            "cloudWatchGroupArn": "DISABLED"
+        },
+        "permissionStatus": {
+            "status": {
+                "assumeRole": "Allowed",
+                "describeVpcs": "Allowed",
+                "describeSubnets": "Allowed",
+                "describesInstances": "Allowed",
+                "describeVpcEndpoints": "Allowed",
+                "describeNetworkInterfaces": "Allowed",
+                "describeIamInstanceProfile": "Allowed"
+            },
+            "permission": {
+                "status": "Allowed",
+                "account": "22333332123",
+                "externalId": "daba767765f2670722c4d68e8f81bf90",
+                "discoveryRoleName": "role1"
+            }
+        },
+        "lastSyncTime": 1761777570,
+        "supportedRegions": [
+            {
+                "id": 228553,
+                "cloudType": "AWS",
+                "name": "US_WEST_1",
+                "regionName": "us-west-1"
+            },
+            {
+                "id": 228554,
+                "cloudType": "AWS",
+                "name": "US_EAST_1",
+                "regionName": "us-east-1"
+            }
+        ],
+        "lastModUser": {
+            "id": 61209299,
+            "name": "bac-admin@2212.zscaler.net"
+        },
+        "lastModTime": 1761777570,
+        "accountGroups": [],
+        "regionStatus": [
+            {
+                "id": 228553,
+                "cloudType": "AWS",
+                "name": "US_WEST_1",
+                "status": true
+            },
+            {
+                "id": 228554,
+                "cloudType": "AWS",
+                "name": "US_EAST_1",
+                "status": true
+            }
+        ]
+    },
+    {
+        "id": 5138887,
+        "name": "Prod-account",
+        "cloudType": "AWS",
+        "externalId": "cb5da6706cfd671223c4e68e8d51afc77",
+        "accountDetails": {
+            "awsAccountId": "877428091333",
+            "awsRoleName": "role101",
+            "externalId": "cb5da6706cfd671223c4e68e8d51afc77",
+            "eventBusName": "zscaler-bus-2212-zscaler.net",
+            "trustedAccountId": "275777770888",
+            "trustedRole": "arn:aws:iam::275777770888:role/ZscalerTagDiscoveryRole",
+            "troubleShootingLogging": true,
+            "cloudWatchGroupArn": "DISABLED"
+        },
+        "permissionStatus": {
+            "status": {
+                "reason": "An error occurred (AccessDenied) when calling the AssumeRole operation",
+                "assumeRole": "Denied"
+            },
+            "permission": {
+                "status": "Denied",
+                "account": "877428091333",
+                "externalId": "cb5da6706cfd671223c4e68e8d51afc77",
+                "discoveryRoleName": "role101"
+            }
+        },
+        "lastSyncTime": 1782954717,
+        "supportedRegions": [
+            {
+                "id": 228553,
+                "cloudType": "AWS",
+                "name": "US_WEST_1",
+                "regionName": "us-west-1"
+            }
+        ],
+        "lastModUser": {
+            "id": 61209299,
+            "name": "bac-admin@2212.zscaler.net"
+        },
+        "lastModTime": 1782954717,
+        "accountGroups": [],
+        "regionStatus": [
+            {
+                "id": 228553,
+                "cloudType": "AWS",
+                "name": "US_WEST_1",
+                "status": true
+            }
+        ]
+    }
+]
+```
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16998,126 +18284,18 @@ A successful response returns code 204, meaning the application segment is delet
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-certificates-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484831"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-certificates-using-api","lastmod":"2026-08-04T11:55Z","nid":"1484831"} -->
 ## Configuring Certificates Using API
 
 - Source: https://help.zscaler.com/legacy-apis/configuring-certificates-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Certificates Using API
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-08-04T11:55Z
 - Summary: Information about certificate use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information on managing Zscaler Private Access (ZPA) certificate use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
 
 ## Getting Details for All Issued Certificates
-
-This API is deprecated and will not be supported after January 27, 2023. To learn more, see Getting Details for All Issued Certificates V2.
-
-To get details for all certificates:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/clientlessCertificate/issued`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/clientlessCertificate/issued`.
-
-- View an example response
-
-```
-{
-  "totalPages": "6",
-  "list": [
-    {
-      "id": "217246660303022175",
-      "modifiedTime": "1524677325",
-      "creationTime": "1523662106",
-      "modifiedBy": "217246660302995849",
-      "name": "*.examplesl.com",
-      "description": "ff",
-      "cName": "*.examplesl.com",
-      "validFromInEpochSec": "1523661691",
-      "validToInEpochSec": "1555197691",
-      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDdTCCAl2gAwIBAgIIJCvWdDisi4QwDQYJKoZIhvcNAQELBQAwYTELMAkGA1UE\nBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEDAOBgNVBAo\n-----END CERTIFICATE-----\n",
-      "issuedTo": "CN=*.examplesl.com,O=Zscaler,ST=California,C=US",
-      "issuedBy": "CN=Testing Intermediate Certificate 2,O=Zscaler,ST=California,C=US",
-      "serialNo": "2606412604019346308",
-      "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw/Pqr3HUpwFPwqOc9/Md\nk++G2JLR9j5HqZVmkSOlUi5Q4ggHhZ8+r6AsMuLTmZUAP/62JD\n-----END PUBLIC KEY-----\n",
-      "certChain": "-----BEGIN CERTIFICATE-----\nMIIDkzCCAnugAwIBAgIJAKyRiWWvB6J6MA0GCSqGSIb3DQEBCwUAMF8xCzAJBgNV\nBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRAwDgYDVQQKD\n-----END CERTIFICATE-----\n"
-    },
-    {
-      "id": "217246660303022109",
-      "creationTime": "1520014170",
-      "modifiedBy": "217246660302995458",
-      "name": "CN=*.examples1.com,O=Zscaler,ST=California,C=US",
-      "cName": "*.chanak.com",
-      "validFromInEpochSec": "1519963049000",
-      "validToInEpochSec": "1551499049000",
-      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDdjCCAl6gAwIBAgIJALEcnE//uGOvMA0GCSqGSIb3DQEBCwUAMGExCzAJBgNV\nBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRAwDgYDVQQ\n-----END CERTIFICATE-----\n",
-      "issuedTo": "CN=*.examples1.com,O=Zscaler,ST=California,C=US",
-      "issuedBy": "CN=Testing Intermediate Certificate 2,O=Zscaler,ST=California,C=US",
-      "serialNo": "12762247311467766703",
-      "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxPNTlNYNr/3D3mRDhFyU\no4eYCAN3mVlxzG9lFfvOZgGWiFRzrdNNF2UnDJhjikCXSuTF/\n-----END PUBLIC KEY-----\n",
-      "certChain": "-----BEGIN CERTIFICATE-----\nMIIDkjCCAnqgAwIBAgIIR9bHk2qmqn8wDQYJKoZIhvcNAQELBQAwXzELMAkGA1UE\nBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEDAOBgNVBAoMB\n-----END CERTIFICATE-----\n"
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/clientlessCertificate/issued?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v2/admin/customers/144118148382064931/clientlessCertificate/issued?page=1&pagesize=2`.
-
-- View an example response
-
-```
-{
-  "totalPages": "2",
-  "list": [
-    {
-      "id": "144118148382064931",
-      "modifiedTime": "1648916882",
-      "creationTime": "1532110078",
-      "modifiedBy": "72057594037929181",
-      "name": "ADMIN",
-      "description": "desc",
-      "cName": "ak",
-      "validFromInEpochSec": "1530614700",
-      "validToInEpochSec": "1846233900",
-      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDsjCCApqgAwIBAgIBATANBgkqhkiG9w0BAQUFADBhMQswCQY\n-----END CERTIFICATE-----\n",
-      "issuedTo": "1.2.840.113549.1.9.1=#1602616b,CN=ak,OU=ak,O=ak,L=IN,ST=IN,C=IN",
-      "issuedBy": "1.2.840.113549.1.9.1=#1602616b,CN=ak,OU=ak,O=ak,L=IN,ST=IN,C=IN",
-      "serialNo": "1",
-      "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxEhVOulm9\n-----END PUBLIC KEY-----\n"
-    },
-    {
-      "id": "144118148382065029",
-      "modifiedTime": "1648916882",
-      "creationTime": "1532636586",
-      "modifiedBy": "72057594037929181",
-      "name": "Bitnami CRM cert",
-      "cName": "www.example.com",
-      "validFromInEpochSec": "1532538688",
-      "validToInEpochSec": "1847898688",
-      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDLjCCAhYCCQCSX0pPo6MXYDANBgkqhkiG9w0BA\n-----END CERTIFICATE-----\n",
-      "issuedTo": "CN=www.example.com,OU=Certificate generated at boot time,O=Bitnami",
-      "issuedBy": "CN=www.example.com,OU=Certificate generated at boot time,O=Bitnami",
-      "serialNo": "10547230558233237344",
-      "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgB\n-----END PUBLIC KEY-----\n"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details for All Issued Certificates V2
 
 To get details for all certificates:
 
@@ -17126,7 +18304,7 @@ To get details for all certificates:
   - `customerId`, the ZPA tenant ID of the customer, in the request endpoint.
   - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -17167,7 +18345,7 @@ This API supports pagination. To get a paginated response:
 
 For example: `/mgmtconfig/v2/admin/customers/144118148382064931/certificate/issued?microtenantId=0&page=1&pagesize=2`.
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -17221,7 +18399,7 @@ To get a list of all certificates:
   - `customerId`, the ZPA tenant ID of the customer,
   - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -17262,7 +18440,7 @@ This API supports pagination. To get a paginated response:
 
 For example: `/mgmtconfig/v1/admin/customers/73194682334576640/certificate?microtenantId=0&page=1&pagesize=2`.
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -17317,7 +18495,7 @@ This API supports a search option to search by features and fields. To search by
 
 For example: `/mgmtconfig/v1/admin/customers/73186051597795328/certificate&search=name%20LIKE%20client`.
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -17361,7 +18539,7 @@ To get details of a certificate:
 
 For example: `/mgmtconfig/v1/admin/customers/72057615512764416/clientlessCertificate/72057615512764448`.
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -17402,7 +18580,7 @@ To get details of a certificate:
 
 For example: `/mgmtconfig/v1/admin/customers/144118148382064640/certificate/144118148382064931?microtenantId=0`.
 
-- View an example response
+- View an example response.
 
 ```
 {
@@ -17447,7 +18625,7 @@ The `certBlob` field must be in string format and must include the certificate a
 
 - `name`: The name of the certificate.
 
-- View the entire JSON payload
+- View the entire JSON payload.
 
 ```
 {
@@ -17458,7 +18636,7 @@ The `certBlob` field must be in string format and must include the certificate a
 }
 ```
 
-- View the minimum criteria JSON payload
+- View the minimum criteria JSON payload.
 
 ```
 {
@@ -17467,7 +18645,7 @@ The `certBlob` field must be in string format and must include the certificate a
 }
 ```
 
-- View the sample JSON payload
+- View the sample JSON payload.
 
 ```
 {
@@ -17506,7 +18684,7 @@ lF/rrs19yfY4N+VuvVeJejL8vSL30SU/iIwiYq5OgM9p
 }
 ```
 
-- View the example response
+- View the example response.
 
 ```
 {
@@ -17530,6 +18708,18 @@ lF/rrs19yfY4N+VuvVeJejL8vSL30SU/iIwiYq5OgM9p
 }
 ```
 
+You cannot create a CSR with a canonical name (CNAME) that is a duplicate to a CNAME of another CSR. If the name of the CSR is updated, the CNAME remains the same. For example, if you create a CSR with the name `test`, the CNAME for the certificate is `{domain}/test.` If you rename this certificate to `test1`, the CNAME will not change (i.e., `{domain}/test`). If you try to create a new CSR with the name `test`, then the CNAME for the new certificate is `{domain}/test` and the CNAME doesn't change. Error code 400 is returned if you create a CSR with a duplicate CNAME.
+
+- View the error code response.
+
+```
+{
+   "reason": "CSR with same subject already exists",
+   "id": "cert.duplicate.csr",
+   "hostname": "localhost"
+}
+```
+
 A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
 ## Updating a Certificate
@@ -17549,7 +18739,7 @@ To update the name or description of a certificate:
   - `name`: The name of the certificate.
   - `description`: The description of the certificate.
 
-- View the JSON payload
+- View the JSON payload.
 
 ```
 {
@@ -17558,7 +18748,7 @@ To update the name or description of a certificate:
 }
 ```
 
-- View the sample JSON payload
+- View the sample JSON payload.
 
 ```
 {
@@ -28173,3028 +29363,1454 @@ A successful response yields code 204, meaning the server is deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-timeout-policies-using-api","lastmod":"2026-01-23T15:55Z","nid":"1484806"} -->
-## Configuring Timeout Policies Using API
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-groups-using-api","lastmod":"2026-08-04T13:23Z","nid":"1541728"} -->
+## Configuring Tag Groups Using API
 
-- Source: https://help.zscaler.com/legacy-apis/configuring-timeout-policies-using-api
+- Source: https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api
 - Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Timeout Policies Using API
-- Last modified: 2026-01-23T15:55Z
-- Summary: Information about the timeout policy use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tag Groups Using API
+- Last modified: 2026-08-04T13:23Z
+- Summary: Information on configuring tag groups using Zscaler Private Access (ZPA) cloud service API.
 
-This article provides information on managing Zscaler Private Access (ZPA) timeout policy use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+This article provides information on configuring ZPA [tag groups](https://help.zscaler.com/zpa/about-tag-management-application-segments) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
 
-## Prerequisite API Call
+## Adding a Tag Group
 
-To get the policySetId by policy type:
+To add a new tag group for the specified customer:
 
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policySet/policyType/{policyType}`.
-2. Provide the `policyType`, the value for differentiating the policy types, in the request endpoint. The supported values are:
-  - `ACCESS_POLICY` or `GLOBAL_POLICY` (i.e., access policy)
-  - `TIMEOUT_POLICY` or `REAUTH_POLICY` (i.e., timeout policy)
-  - `BYPASS_POLICY` or `CLIENT_FORWARDING_POLICY` (i.e., client forwarding policy)
-  - `INSPECTION_POLICY` (i.e., AppProtection policy)
-  - `ISOLATION_POLICY` (i.e., Isolation policy)
-  - `REDIRECTION_POLICY` (i.e., redirection policy)
-  - `CAPABILITIES_POLICY` (i.e., privileged capabilities policy)
-  - `CREDENTIAL_POLICY` (i.e., privileged credential policy)
-  - `CLIENTLESS_SESSION_PROTECTION_POLICY` (i.e., Browser Protection policy)
-  - `PRIVILEGED_PORTAL_POLICY` (i.e., privileged portal policy)
-
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/policySet/policyType/TIMEOUT_POLICY`.
-
-- View an example response
-
-```
-{
-  "id": "217246660303019912",
-  "modifiedTime": "1619407211",
-  "creationTime": "1474933642",
-  "modifiedBy": "217246660303024869",
-  "name": "ReAuth_Policy",
-  "enabled": true,
-  "description": "Re-Authentication policies.",
-  "policyType": "2"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policySet/rules/policyType/{policyType}?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `policyType`: The value for differentiating the policy types. The supported values are:
-  - `ACCESS_POLICY` or `GLOBAL_POLICY` (i.e., access policy)
-  - `TIMEOUT_POLICY` or `REAUTH_POLICY` (i.e., timeout policy)
-  - `BYPASS_POLICY` or `CLIENT_FORWARDING_POLICY` (i.e., client forwarding policy)
-  - `INSPECTION_POLICY` (i.e., AppProtection policy)
-  - `ISOLATION_POLICY` (i.e., Isolation policy)
-  - `REDIRECTION_POLICY` (i.e., redirection policy)
-  - `CAPABILITIES_POLICY` (i.e., privileged capabilities policy)
-  - `CREDENTIAL_POLICY` (i.e., privileged credential policy)
-  - `CLIENTLESS_SESSION_PROTECTION_POLICY` (i.e., Browser Protection policy)
-  - `PRIVILEGED_PORTAL_POLICY` (i.e., privileged portal policy)
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/policySet/rules/policyType/TIMEOUT_POLICY?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": "2",
-  "list": [
-    {
-      "id": "217246660303023272",
-      "modifiedTime": "1629497358",
-      "modifiedBy": "72057594037978891",
-      "name": "Test",
-      "ruleOrder": "1",
-      "priority": "4",
-      "policyType": "2",
-      "operator": "AND",
-      "conditions": [
-        {
-          "id": "506762",
-          "modifiedTime": "1629497328",
-          "creationTime": "1629497328",
-          "modifiedBy": "72057594037978891",
-          "operator": "OR",
-          "negated": false,
-          "operands": [
-            {
-              "id": "506763",
-              "creationTime": "1629497328",
-              "modifiedBy": "72057594037978891",
-              "objectType": "APP",
-              "lhs": "id",
-              "rhs": "217246660303022176",
-              "name": "testl.com"
-            },
-            {
-              "id": "506764",
-              "creationTime": "1629497328",
-              "modifiedBy": "72057594037978891",
-              "objectType": "APP_GROUP",
-              "lhs": "id",
-              "rhs": "217246660302996388",
-              "name": "Apps for All"
-            }
-          ]
-        },
-        {
-          "id": "506765",
-          "modifiedTime": "1629497328",
-          "creationTime": "1629497328",
-          "modifiedBy": "72057594037978891",
-          "operator": "OR",
-          "negated": false,
-          "operands": [
-            {
-              "id": "506766",
-              "creationTime": "1629497328",
-              "modifiedBy": "72057594037978891",
-              "objectType": "SAML",
-              "lhs": "217246660303022775",
-              "rhs": "testing",
-              "name": "test234324"
-            }
-          ]
-        },
-        {
-          "id": "506767",
-          "modifiedTime": "1629497328",
-          "creationTime": "1629497328",
-          "modifiedBy": "72057594037978891",
-          "operator": "OR",
-          "negated": false,
-          "operands": [
-            {
-              "id": "506768",
-              "creationTime": "1629497328",
-              "modifiedBy": "72057594037978891",
-              "objectType": "CLIENT_TYPE",
-              "lhs": "id",
-              "rhs": "zpn_client_type_zapp",
-              "name": "zpn_client_type_zapp"
-            }
-          ]
-        }
-      ],
-      "action": "RE_AUTH",
-      "reauthTimeout": "172800",
-      "reauthIdleTimeout": "600",
-      "customMsg": "timeout message",
-      "defaultRuleName": "Default_Rule",
-      "defaultRule": false
-    },
-    {
-      "id": "217246660303024789",
-      "modifiedTime": "1629497358",
-      "modifiedBy": "72057594037978891",
-      "name": "test_zapp_reauth",
-      "ruleOrder": "2",
-      "priority": "3",
-      "policyType": "2",
-      "operator": "AND",
-      "conditions": [
-        {
-          "id": "489501",
-          "modifiedTime": "1612834764",
-          "creationTime": "1612834764",
-          "modifiedBy": "217246660303023754",
-          "operator": "OR",
-          "negated": false,
-          "operands": [
-            {
-              "id": "489502",
-              "creationTime": "1612834764",
-              "modifiedBy": "217246660303023754",
-              "objectType": "SAML",
-              "lhs": "217246660303022795",
-              "rhs": "test@mockcompany.com",
-              "name": "login_Custom entityId IDP configuration - User sso - do NOT delete"
-            }
-          ]
-        }
-      ],
-      "action": "RE_AUTH",
-      "reauthTimeout": "2592000",
-      "reauthIdleTimeout": "3456000",
-      "defaultRuleName": "Default_Rule",
-      "defaultRule": false
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-### Get Required Details for the Timeout Policy
-
-Before creating a timeout rule, you must get the following required details needed for the policy criteria:
-
-- Application segment. To learn more, see [Configuring Application Segments Using API](https://help.zscaler.com/zpa/configuring-application-segments-using-api#getAppSegments).
-- Client types. To learn more, see Getting Details of All Client Types.
-- Cloud Connector Group. To learn more, see [Obtaining Cloud Connector Group Details Using API](https://help.zscaler.com/zpa/obtaining-cloud-connector-group-details-using-api).
-- IdP. To learn more, see [Obtaining IdP Configuration Details Using API](https://help.zscaler.com/zpa/obtaining-idp-configuration-details-using-api).
-- Machine Group. To learn more, see [Obtaining Machine Group Details Using API](https://help.zscaler.com/zpa/obtaining-machine-group-details-using-api).
-- Platform types. To learn more, see Getting Platform Types for a Customer.
-- Posture profile. To learn more, see [Obtaining Posture Profile Details Using API](https://help.zscaler.com/zpa/obtaining-posture-profile-details-using-api).
-- SAML attribute. To learn more, see [Obtaining SAML Attribute Details Using API](https://help.zscaler.com/zpa/obtaining-saml-attribute-details-using-api).
-- SCIM attribute. To learn more, see [Obtaining SCIM Attribute Details Using API](https://help.zscaler.com/zpa/obtaining-scim-attribute-details-using-api).
-- SCIM attribute value. To learn more, see [Obtaining SCIM Attribute Details Using API](https://help.zscaler.com/zpa/obtaining-scim-attribute-details-using-api).
-- SCIM Group. To learn more, see [Obtaining SCIM Group Details Using API](https://help.zscaler.com/zpa/obtaining-scim-group-details-using-api).
-- Segment Group. To learn more, see [Configuring Segment Group Details Using API](https://help.zscaler.com/zpa/configuring-segment-groups-using-api#getSegmentGroups).
-
-## Creating a New Timeout Policy Rule
-
-To add a new timeout rule for a given policy set and for a given customer:
-
-1. Send a `POST` request to the following endpoint `/mgmtconfig/v2/admin/customers/{customerId}/policySet/{policySetId}/rule`.
-2. Provide the following values in the request endpoint: For example: `/mgmtconfig/v2/admin/customers/72057615512764416/policySet/72057615512764594/rule`.
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/tagGroup?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/tagGroup?microtenantId=145260601092866314`.
   - `customerId`: The ZPA tenant ID of the customer.
-  - `policySetId`: The ID of the timeout policy set captured in the prerequisite API call.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
 3. Include the request headers to specify the following parameters about the request context:
   - Content-Type: `application/json`
   - Authorization: `Bearer <access_token>`
-4. Use the entire JSON payload and provide the policy criteria you want for creating a timeout policy rule with the specific SAML attributes as one of the criteria.
+4. Use the following JSON payload and provide the following:
+  - `name`: The name of the tag group. The string value must match the default name pattern.
+  - `tags[].namespace.id`: The unique identifier of the namespace for the tag. The integer is required and must be passed per item.
+  - `tags[].tagKey.id`: The unique identifier of the key for the tag. The integer is required and must be passed per item.
+  - `tags[].tagValue.id`: The unique identifier of the tag value. The integer is required and must be passed per item.
+  - `tags[].origin`: The origin of the tag. The supported enums are `CUSTOM` or `PREDEFINED`. This field is not required.
 
-- View the JSON payload
+- View the JSON payload.
 
 ```
 {
-    "policySetId": "<policySetId>",
-    "id": "<ruleId>",
-    "conditions": [
-        {
-            "operands": [
-                {
-                    "objectType": "APP",
-                    "values": [
-                        "<applicationId>",
-                        "<applicationId>",
-                        "<applicationId>"
-                    ]
-                },
-                {
-                    "objectType": "APP_GROUP",
-                    "values": [
-                        "<segmentGroupId>"
-                    ]
-                }
-            ]
-        }
-    ],
-    "name": "<Example Policy Rule Name>",
-    "description": "<Example Policy Rule Description>",
-    "action": "RE_AUTH",
-    "customMsg": "<Example Custom Message>",
-    "reauthTimeout": 172800,
-    "reauthIdleTimeout": 600
+  "name": "<tag group name>",
+  "description": "<tag group description>",
+  "tags": [
+    {
+      "namespace": { "id": "<namespace ID>", "name": "<namespace name>" },
+      "tagKey":    { "id": "<key ID>", "name": "<key name>" },
+      "tagValue":  { "id": "<value ID>", "name": "<value name>" },
+      "origin": "CUSTOM"
+    }
+  ]
 }
 ```
 
-- View an example response
+- View an example JSON payload.
 
 ```
 {
-  "id": "72057615512764641",
-  "creationTime": "1612891454",
-  "modifiedBy": "72057615512764638",
-  "name": "Test Timeout Policy",
-  "description": "Test Timeout Policy",
-  "ruleOrder": "7",
-  "priority": "1",
-  "policyType": "1",
-  "operator": "AND",
-  "action": "RE_AUTH",
-  "reauthTimeout": "172800",
-  "reauthIdleTimeout": "600",
-  "customMsg": "msg",
-  "auditMessage": "{\"idleConnectionTimeoutInSeconds\":\"600\",\"policyType\":\"Access Policy\",\"name\":\"Test Timeout Policy\",\"description\":\"Test Timeout Policy\",\"action\":\"RE_AUTH\",\"ruleOrder\":\"7\",\"messageToUser\":\"msg\",\"authenticationTimeoutInSeconds\":\"172800\"}"
+  "name": "Prod Access",
+  "description": "Tags used for production access",
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400", "name": "Environment" },
+      "tagKey":    { "id": "145260601092866401", "name": "Region" },
+      "tagValue":  { "id": "145260601092866402", "name": "us-east-1" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+- View an example response.
+
+```
+{
+  "id": "145260601092866500",
+  "modifiedTime": "1705617400",
+  "creationTime": "1705617400",
+  "modifiedBy": "145260601092866482",
+  "name": "Prod Access",
+  "description": "Tags used for production access",
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400", "name": "Environment", "enabled": true },
+      "tagKey":    { "id": "145260601092866401", "name": "Region", "enabled": true },
+      "tagValue":  { "id": "145260601092866402", "name": "us-east-1" },
+      "origin": "CUSTOM"
+    }
+  ],
+  "microtenantId": "145260601092866314"
 }
 ```
 
 A successful response returns code 201. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-## Adding Field Descriptions
+## Getting Details of All Tag Groups
 
-The following table includes descriptions of available fields you can use for the timeout policy use cases:
+To get details of all tag groups for the specified customer based on the given filter, sort, and pagination criteria:
 
-| Field | Description | Required | Value |
-| --- | --- | --- | --- |
-| name | This is the name of the timeout rule | Yes | String |
-| description | This is the description of the timeout rule | No | String |
-| action | This is for providing the rule action | Yes | Supported value: `RE_AUTH` |
-| customMsg | This is for providing a custom message for the user | No | String |
-| reauthTimeout | This denotes the authentication timeout | Yes | Provides the timeout value in seconds. The value `-1` denotes `Never`. |
-| reauthIdleTimeout | This denotes the idle connection timeout | Yes | Provides the timeout value in seconds. The value `-1` denotes `Default`. |
-| conditions | This is for providing the set of conditions for the policy | No | Array of operands. |
-| operands | This signifies the various policy criteria | No | Array of attributes (`objectType, lhs, rhs, name`). |
-| objectType | This is for specifying the policy criteria | No | Supported values: `APP`; `APP_GROUP`; `SAML`; `IDP`; `CLIENT_TYPE`; `POSTURE`; `SCIM`; `SCIM_GROUP` |
-| lhs | This signifies the key for the object type | No | String ID example: `id` |
-| rhs | This denotes the value for the given object type. Its value depends upon the key. | No | For `APP`, `APP_GROUP`, and `IDP`, the supported value is `entity id`. For `CLIENT_TYPE`, the supported values are: `zpn_client_type_zapp` for the Zscaler Client Connector, and `zpn_client_type_exporter` (for Clientless). |
-| operator | This denotes the operation type | No | Supported values:`AND, OR` |
-| microtenantId | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained in the [API Keys](https://help.zscaler.com/zpa/about-api-keys) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api). | No | Integer |
-
-For a comprehensive table of LHS and RHS values, see [Configuring Access Policies Using API](https://help.zscaler.com/zpa/configuring-access-policies-using-api#lhsandrhsvalues).
-
-## Getting Details for a Particular Timeout Rule
-
-To get details for a particular timeout rule:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policySet/{policySetId}/rule/{ruleId}`.
-2. Provide the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `policySetId`: The ID of the Timeout policy set captured in the prerequisite API call.
-- `ruleId`: The ID of the rule you created in the Creating a New Timeout Policy Rule section.
-
-For example: `/mgmtconfig/v1/admin/customers/72057615512764416/policySet/72057615512764594/rule/72057615512764641`.
-
-- View an example response
-
-```
-{
-  "id": "72057615512764641",
-  "creationTime": "1612891454",
-  "modifiedBy": "72057615512764638",
-  "name": "Test Timeout Policy",
-  "description": "Test Timeout Policy",
-  "ruleOrder": "7",
-  "priority": "1",
-  "policyType": "1",
-  "operator": "AND",
-  "action": "RE_AUTH",
-  "reauthTimeout": "172800",
-  "reauthIdleTimeout": "600",
-  "customMsg": "msg",
-  "auditMessage": "{\"idleConnectionTimeoutInSeconds\":\"600\",\"policyType\":\"Access Policy\",\"name\":\"Test Timeout Policy\",\"description\":\"Test Timeout Policy\",\"action\":\"RE_AUTH\",\"ruleOrder\":\"7\",\"messageToUser\":\"msg\",\"authenticationTimeoutInSeconds\":\"172800\"}",
-  "policySetId": "72057615512764421"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Updating a Timeout Policy Rule V2
-
-To update the details of a timeout policy rule in the policy set:
-
-1. Get the `policySetId` captured in the prerequisite API call.
-2. Use the entire JSON payload from the Creating a New Timeout Policy Rule section and send a `PUT` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/policySet/{policySetId}/rule/{ruleId}`.
-3. Provide the following values in the request endpoint: For example: `/mgmtconfig/v2/admin/customers/72057615512764416/policySet/72057615512764421/rule/72057615512764641`.
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/tagGroup/search?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/tagGroup/saerch?microtenantId=145260601092866314`.
   - `customerId`: The ZPA tenant ID of the customer.
-  - `policySetId`: The ID of the timeout policy set captured in the prerequisite API call.
-  - `ruleId`: The ID of the rule you created in Creating a New Timeout Policy Rule.
-
-- View the JSON payload
-
-```
-{
-    "policySetId": "<policySetId>",
-    "id": "<ruleId>",
-    "conditions": [
-        {
-            "operands": [
-                {
-                    "objectType": "APP",
-                    "values": [
-                        "<applicationId>",
-                        "<applicationId>",
-                        "<applicationId>"
-                    ]
-                },
-                {
-                    "objectType": "APP_GROUP",
-                    "values": [
-                        "<segmentGroupId>"
-                    ]
-                }
-            ]
-        }
-    ],
-    "name": "<Example Policy Rule Name>",
-    "description": "<Example Policy Rule Description>",
-    "action": "RE_AUTH",
-    "customMsg": "<Example Custom Message>",
-    "reauthTimeout": 172800,
-    "reauthIdleTimeout": 600
-}
-```
-
-A successful response returns code 204, meaning the timeout policy rule is updated. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Updating a Rule Order
-
-To update a rule order:
-
-1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policySet/{policySetId}/rule/{ruleId}/reorder/{newOrder}`.
-2. Provide the following parameters in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `policySetId`: The ID of the policy set.
-- `ruleId`: The ID of the rule.
-- `newOrder`: The new order of the rule.
-
-For example: `/mgmtconfig/v1/admin/customers/72057594037927936/policySet/72057594037938994/rule/72057615512764641/reorder/4`.
-
-A successful response returns code 204, meaning the rule order is updated. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-The ability to update the rule order for all rules in a policy set is also available. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/zpa/configuring-access-policies-using-api#bulkUpdatingRuleOrder).
-
-## Deleting a Timeout Policy Rule
-
-To delete a timeout rule:
-
-1. Send a `DELETE` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policySet/{policySetId}/rule/{ruleId}`.
-2. Provide the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `policySetId`: The ID of the timeout policy set captured in the prerequisite API call.
-- `ruleId`: The ID of the rule you created in the Create a New Timeout Rule section.
-
-For example: `/mgmtconfig/v1/admin/customers/72057615512764416/policySet/72057615512764421/rule/72057615512764641`.
-
-A successful response returns code 204, meaning the timeout rule is deleted. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details of All Client Types
-
-To get details of all client types:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/clientTypes`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/217246660302995456/clientTypes`.
-
-- View an example response
-
-```
-{
-  "zpn_client_type_exporter": "Web Browser",
-  "zpn_client_type_machine_tunnel": "Machine Tunnel",
-  "zpn_client_type_ip_anchoring": "ZIA Service Edge",
-  "zpn_client_type_edge_connector": "Cloud Connector",
-  "zpn_client_type_zapp": "Client Connector",
-  "zpn_client_type_slogger": "ZPA LSS"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Platform Types for a Customer
-
-To get the platform types for a customer:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/platform`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/217246660302995456/platform`.
-
-- View an example response
-
-```
-{
-"linux": "Linux",
-"android": "Android",
-"windows": "Windows",
-"ios": "iOS",
-"mac": "Mac"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-url-categories-using-api","lastmod":"2026-01-06T23:49Z","nid":"1400416"} -->
-## Configuring URL Categories Using API
-
-- Source: https://help.zscaler.com/legacy-apis/configuring-url-categories-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Working with APIs > Configuring URL Categories Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information on URL categories use cases applicable to Zscaler Internet Access (ZIA) cloud service API.
-
-Predefined and custom [URL categories](https://help.zscaler.com/zia/about-url-categories) provide a way to classify URLs for your organization. URL categories are primarily used in [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policy rules, and are useful when blocking or allowing web traffic. [TLD categories](https://help.zscaler.com/zia/about-tld-categories) are URL categories that allow you to group together top-level domains (TLDs). TLD categories are used in [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policies to control access to domains for a specific country, or to block access to TLDs that might be used solely for malicious purposes. You can configure and manage URL and TLD categories using the cloud service API. For detailed information about the API endpoints, see URL Categories in the [API Reference](https://help.zscaler.com/zia/url-categories).
-
-You can easily manage custom URL category updates using the Bulk URL Upload tool. To learn more, see [About Bulk URL Upload Tool](https://help.zscaler.com/zia/about-bulk-url-upload-tool).
-
-The following sections explain the various operations that you can perform using URL Categories endpoints, along with examples.
-
-After making any configuration changes, ensure that you activate them by sending a POST request to `/status`.
-
-## Getting Information about URL and TLD Categories
-
-To retrieve information for all predefined and custom URL categories, send a GET request to `/urlCategories`. For example, in Python:
-
-```
-conn.request("GET", "/api/v1/urlCategories", headers=headers)
-```
-
-Using the `customOnly` parameter, you can filter the information to retrieve only custom URL categories. For example:
-
-```
-conn.request("GET", "/api/v1/urlCategories?customOnly=true", headers=headers)
-```
-
-To retrieve information about TLD categories, send a GET request to `/urlCategories` with the `type` parameter set to `TLD_CATEGORY`. For example:
-
-```
-conn.request("GET", "/api/v1/urlCategories?type=TLD_CATEGORY", headers=headers)
-```
-
-If you only want a list of URL category IDs and names, send a GET request to `/urlCategories/lite` .
-
-## Adding Custom URL and TLD Categories
-
-To add a custom URL category:
-
-Send a POST request to `/urlCategories` by including all of the proper key-value pairs in the Body. The following information is required: `configuredName`, `urls` or `keywords`, and `superCategory`. Optionally, you can specify other details, such as `dbCategorizedUrls`, `keywordsRetainingParentCategory`, etc. that are applicable to URL categories.
-
-- See an example request to add a custom URL category and its response.
-
-To add a custom TLD category:
-
-Send a POST request to `/urlCategories` by including all of the proper key-value pairs in the Body. The following information is required: `type`, `configuredName`, `superCategory`, and `urls`. Optionally, you can specify `description` and `scopes` that are applicable to TLD categories.
-
-- See an example request to add a custom TLD category and its response.
-
-If the admin scope `Type` is not specified within the request Body, then it is set to `ANY` by default and any admin can manage the custom URL category. To learn more, see the Understanding RBAC and Admin Scope for Custom URL Categories section of this article.
-
-### Understanding RBAC and Admin Scope for Custom URL Categories
-
-With [role-based administration](https://help.zscaler.com/zia/about-administrators), an admin’s scope specifies which areas of the organization they can manage in the ZIA Admin Portal. To learn more, see [About Admin Scope](https://help.zscaler.com/zia/about-admin-scope).
-
-Using the cloud service API, you can retrieve the admin scope information for a custom URL category by sending a GET request to `/urlCategories?customOnly=true`. The admin scope is included in the response only if it's set to a `Type` other than `ANY` (i.e., ORGANIZATION, DEPARTMENT, LOCATION, LOCATION_GROUP).
-
-- See an example request with admin scope specified.
-
-As a best practice, you should always send a GET request before a PUT request to `/urlCategories/{categoryId}`. This helps avoid potentially missing updates between GET and PUT calls as well as ensure that you do not accidentally overwrite the admin scope for an existing custom URL category.
-
-## Updating URL and TLD Categories
-
-You can update URL categories (predefined or custom) and TLD categories by sending a PUT request to `/urlCategories/{categoryId}`. However, the attributes that you can modify using this request vary between URL and TLD categories.
-
-To update a URL or TLD category:
-
-1. (Optional) Get information about the category you want to modify by sending a GET request to `/urlCategories` or `/urlCategories/lite` with the right attributes set. To learn more, see the Getting Information About URL and TLD Categories. Sending a GET request before a PUT request to `/urlCategories/{categoryId}` helps avoid potentially missing updates between GET and PUT calls as well as ensure that you do not accidentally overwrite any information for an existing custom URL category.
-2. Modify the category's information by sending a PUT request to `/urlCategories/{categoryId}` and including all of the proper key-value pairs in the Body.
-
-When modifying custom URL categories, you must specify the `configuredName` and `superCategory` information in the request Body. These fields are not required for predefined URL categories. For custom TLD categories, `configuredName` is required.
-
-The list of URLs, IP addresses, or TLDs passed in the PUT request replaces the current list in the category. If you want to add or remove URLs, IP addresses, or TLDs within a category, include the `action` parameter and specify the value as `ADD_TO_LIST` or `REMOVE_FROM_LIST`, as explained in the following sections.
-
-Zscaler recommends always using the `ADD_TO_LIST` and `REMOVE_TO_LIST` parameters as a best practice when adding or removing URLs, IP addresses, or TLDs from a category. Using these parameters with your PUT request ensures that you obtain the best response times for your API calls.
-
-### Adding and Removing URLs or IP Addresses within a URL Category
-
-To add or remove a URL or an IP address from a category, send a PUT request to `/urlCategories/{categoryId}` with the `action` parameter set to `ADD_TO_LIST` or `REMOVE_FROM_LIST` and include all of the proper key-value pairs in the request Body. If you are modifying a custom URL category, this request must additionally specify the `configuredName` and `superCategory` information in the request Body.
-
-- See an example request to add URLs and IP addresses to a predefined URL category and its response.
-- See an example request to remove URLs and IP addresses from a custom URL category and its response.
-
-- The `action` parameter is only applicable to URLs or IP addresses. If a category has any existing keywords, then the keywords must be sent in the request payload.
-- When adding URLs to a URL category, if a single URL uses an invalid format, the request is rejected and produces an error code. A valid URL must meet the following requirements:
-  - The URL must use a standard URI format.
-  - The URL length cannot exceed 1024 characters.
-  - The URL cannot contain non-ASCII characters.
-  - The domain name before the colon (:) cannot exceed 255 characters.
-  - The domain name between periods (.) cannot exceed 63 characters.
-
-### Adding and Removing Top-level Domains within a TLD Category
-
-To add or remove TLDs from a custom TLD category, send a PUT request to `/urlCategories/{categoryId}` with the `action` parameter set to `ADD_TO_LIST` or `REMOVE_FROM_LIST` and include all of the proper key-value pairs in the request Body. You must also specify the `configuredName` information in the request Body.
-
-- See an example request to add TLDs to a TLD category and its response.
-
-## Deleting Custom URL and TLD Categories
-
-You can delete custom URL and TLD categories, but predefined URL categories cannot be deleted. If the custom category you are trying to delete is being used by a URL policy or NSS feed, the request fails.
-
-To delete a custom URL or TLD category, send a DELETE request to `/urlCategories/{categoryId}`.
-
-## Looking Up the Category for a URL
-
-To determine the categories to which a URL belongs, send a POST request to `/urlLookup` with the URLs in the request Body. You can look up to 100 URLs maximum per request, and a URL cannot exceed 1024 characters.
-
-Custom URL classification is not returned by this request. Any URLs that are not categorized under a predefined URL category returns a value of `MISCELLANEOUS_OR_UNKNOWN`.
-
-The `/urlLookup` endpoint returns a field called `SecurityAlert` whose possible values include, but are not limited to, the following:
-
-- `OTHER_THREAT`
-- `PHISHING`
-- `BOTNET`
-- `MALWARE_SITE`
-- `P2P`
-- `UNAUTHORIZED_COMMUNICATION`
-- `XSS`
-- `BROWSER_EXPLOIT`
-- `SUSPICIOUS_DESTINATION`
-- `SPYWARE_OR_ADWARE`
-- `WEB_SPAM`
-- `PAGE_RISK_INDEX`
-
-You can download a complete URL category list, which includes all predefined URL classes, super categories, and categories: [Download](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/policies/url-filtering/about-url-categories/ZIA-URLCategories-02-12-2025.csv)
-
-To learn more, see [About URL Categories](https://help.zscaler.com/zia/about-url-categories).
-
-## Determining the Custom URL Quota
-
-You can add up to 25K custom URLs (across all categories), and up to 64 custom categories. You can add up to 30 keywords per category, and up to 1,000 across all categories. To learn more, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations).
-
-If you have reached the maximum number of custom URLs for your organization, you get the following [`400` error code](https://help.zscaler.com/zia/api-response-codes-and-error-messages) response when you try to add another URL:
-
-```
-An organization can have a maximum of 25000 custom URLs. Currently
-{Custom URL Quota}
-are already provisioned for this organization.
-```
-
-For example:
-
-```
-An organization can have a maximum of 25000 custom URLs. Currently 1020 are already provisioned for this organization.
-```
-
-To avoid this message, check your organization's custom URL quota by sending a GET request to `/urlCategories/urlQuota`. The response includes how many unique URLs are already provisioned and how many URLs you can still create.
-
-In the following example, a POST request is sent to `/urlCategories` to add a new custom TLD category.
-
-```
-import http.client
-    import json
-    conn = http.client.HTTPSConnection("HOSTNAME")
-    payload = json.dumps({
-      "type": "TLD_CATEGORY",
-      "configuredName": "Sample TLD Category",
-      "superCategory": "USER_DEFINED",
-      "urls": [
-        ".academy"
-      ],
-      "scopes": [
-        {
-          "Type": "ORGANIZATION"
-        },
-        {
-          "Type": "DEPARTMENT",
-          "ScopeEntities": [
-            {
-              "id": 73965,
-              "name": "Training"
-            }
-          ]
-        }
-      ]
-    })
-    headers = {
-      'Content-Type': 'application/json',
-      'Cookie': 'JSESSIONID=xxxxxx'
-    }
-    conn.request("POST", "/api/v1/urlCategories", payload, headers)
-    res = conn.getresponse()
-    data = res.read()
-    print(data.decode("utf-8"))
-```
-
-The response would look similar to the following example:
-
-```
-{
-        "id": "CUSTOM_10",
-        "configuredName": "Sample TLD Category",
-        "superCategory": "USER_DEFINED",
-        "keywords": [],
-        "keywordsRetainingParentCategory": [],
-        "urls": [
-            ".academy"
-        ],
-        "dbCategorizedUrls": [],
-        "customCategory": true,
-        "scopes": [
-            {
-                "Type": "ORGANIZATION"
-            },
-            {
-                "Type": "DEPARTMENT",
-                "ScopeEntities": [
-                    {
-                        "id": 73965,
-                        "name": "Training"
-                    }
-                ]
-            }
-        ],
-        "editable": true,
-        "description": "CUSTOM_10_DESC",
-        "type": "TLD_CATEGORY",
-        "val": 137,
-        "customUrlsCount": 1,
-        "urlsRetainingParentCategoryCount": 0,
-        "customIpRangesCount": 0,
-        "ipRangesRetainingParentCategoryCount": 0
-    }
-```
-
-In the following example, a PUT request is sent to `/urlCategories/MUSIC?action=ADD_TO_LIST` in order to add `sampletest5.com`, `192.168.1.1`, and `test5.com` to the predefined `MUSIC` category:
-
-```
-import http.client
-    import json
-    conn = http.client.HTTPSConnection("HOSTNAME")
-    payload = {
-    "superCategory": "ENTERTAINMENT_AND_RECREATION",
-    	"urls":[
-    		"sampletest5.com",
-            "192.168.1.1"
-    	],
-    	"dbCategorizedUrls":[
-    		"test5.com"
-    	]
-    }
-    headers = {
-        'content-type': "application/json",
-        'cache-control': "no-cache",
-        'cookie': "JSESSIONID=xxxxxxx"
-        }
-    conn.request("PUT", "/api/v1/urlCategories/MUSIC?action=ADD_TO_LIST", json.dumps(payload), headers)
-    res = conn.getresponse()
-    data = res.read()
-    print(data.decode("utf-8"))
-```
-
-The response would look similar to the following example:
-
-```
-{
-        "id": "MUSIC",
-        "urls": [
-            "sampletest5.com",
-            "sampletest4.com",
-            "192.168.1.1"
-        ],
-        "dbCategorizedUrls": [
-            "test4.com",
-            "test5.com"
-        ],
-        "customCategory": false,
-        "editable": true,
-        "description": "MUSIC_DESC",
-        "val": 24
-    }
-```
-
-You can add IPv6 addresses (e.g., 2041:0000:140f:0000:0000:0000:875b:131b or 2041:0000:140f::875b:131b) to a category.
-
-In the following example, a PUT request is sent to `/urlCategories/CUSTOM_10?action=ADD_TO_LIST` to add `.com` and `.net` to a TLD category:
-
-```
-import http.client
-    import json
-    conn = http.client.HTTPSConnection("HOSTNAME")
-    payload = {
-    "superCategory": "USER_DEFINED",
-        "urls":[
-            ".com", ".net"
-        ],
-    }
-    headers = {
-        'content-type': "application/json",
-        'cache-control': "no-cache",
-        'cookie': "JSESSIONID=xxxxxxx"
-        }
-    conn.request("PUT", "/api/v1/urlCategories/CUSTOM_10?action=ADD_TO_LIST", json.dumps(payload), headers)
-    res = conn.getresponse()
-    data = res.read()
-    print(data.decode("utf-8"))
-```
-
-The response would look similar to the following example:
-
-```
-{
-        "id": "CUSTOM_10",
-        "configuredName": "Sample TLD Category",
-        "superCategory": "USER_DEFINED",
-        "keywords": [],
-        "keywordsRetainingParentCategory": [],
-        "urls": [
-            ".academy", ".net", ".com"
-        ],
-        "dbCategorizedUrls": [],
-        "customCategory": true,
-        "scopes": [
-            {
-                "Type": "ORGANIZATION"
-            },
-            {
-                "Type": "DEPARTMENT",
-                "ScopeEntities": [
-                    {
-                        "id": 73965,
-                        "name": "Training"
-                    }
-                ]
-            }
-        ],
-        "editable": true,
-        "description": "CUSTOM_10_DESC",
-        "type": "TLD_CATEGORY",
-        "val": 137,
-        "customUrlsCount": 3,
-        "urlsRetainingParentCategoryCount": 0,
-        "customIpRangesCount": 0,
-        "ipRangesRetainingParentCategoryCount": 0
-    }
-```
-
-In the following example, a POST request is sent to `/urlCategories` to add a new custom URL category:
-
-```
-import http.client
-    import json
-    conn = http.client.HTTPSConnection("HOSTNAME")
-    payload = json.dumps({
-      "configuredName": "Vlogs",
-      "superCategory": "ENTERTAINMENT", 
-      "keywords": [
-        "vlog"
-      ],
-      "urls": [
-        "livejournal.com"
-      ]
-    })
-    headers = {
-      'Content-Type': 'application/json',
-      'Cookie': 'JSESSIONID=xxxxxx'
-    }
-    conn.request("POST", "/api/v1/urlCategories", payload, headers)
-    res = conn.getresponse()
-    data = res.read()
-    print(data.decode("utf-8"))
-```
-
-The response would look similar to the following example:
-
-```
-{
-        "id": "CUSTOM_16",
-        "configuredName": "Vlogs",
-        "superCategory": "ENTERTAINMENT",
-        "keywords": [
-            "vlog"
-        ],
-        "keywordsRetainingParentCategory": [],
-        "urls": [
-            "livejournal.com"
-        ],
-        "dbCategorizedUrls": [],
-        "customCategory": true,
-        "editable": true,
-        "description": "CUSTOM_16_DESC",
-        "type": "URL_CATEGORY",
-        "val": 143,
-        "customUrlsCount": 1,
-        "urlsRetainingParentCategoryCount": 0,
-        "customIpRangesCount": 0,
-        "ipRangesRetainingParentCategoryCount": 0
-    }
-```
-
-```
-{
-        "id": "CUSTOM_02",
-        "configuredName": "demo",
-        "superCategory": "USER_DEFINED",
-        "urls": [
-            "abc.com"
-        ],
-        "dbCategorizedUrls": [],
-        "customCategory": true,
-        "scopes": [
-            {
-                "Type": "ORGANIZATION"
-            },
-            {
-                "Type": "DEPARTMENT",
-                "ScopeEntities": [
-                    {
-                        "id": 363517,
-                        "name": "Service Admin"
-                    }
-                ]
-            }
-        ],
-        "editable": true,
-        "val": 129
-    }
-```
-
-If `editable` is set to `true`, then admins with the proper admin scope are able to edit the custom URL category. An admin without this permission has read-only access.
-
-In the following example, a PUT request is sent to `/urlCategories/CUSTOM_05?action=REMOVE_FROM_LIST` in order to remove `example.com`and `192.168.1.3` from the CUSTOM_05 category:
-
-```
-import http.client
-    import json
-    conn = http.client.HTTPSConnection("HOSTNAME")
-    payload = json.dumps({
-      "configuredName": "Popular Media",
-      "superCategory":"NEWS_AND_MEDIA",
-      "urls": [
-        "example.com",
-        "192.168.1.3"          
-      ]
-    })
-    headers = {
-      'content-type': 'application/json',
-      'cache-control': "no-cache",
-      'cookie': 'JSESSIONID=xxxxxxx'
-      }
-    conn.request("PUT", "/api/v1/urlCategories/CUSTOM_05?action=REMOVE_FROM_LIST", payload, headers)                                                                                                                                 
-    res = conn.getresponse()
-    data = res.read()
-    print(data.decode("utf-8"))
-```
-
-So, the response would look similar to the following example:
-
-```
-{
-        "id": "CUSTOM_05",
-        "configuredName": "Popular Media",
-        "keywords": [],
-        "keywordsRetainingParentCategory": [],
-        "urls": [
-            "192.168.1.2",
-            "sample.com"
-        ],
-        "dbCategorizedUrls": [],
-        "customCategory": true,
-        "editable": true,
-        "description": "CUSTOM_05_DESC",
-        "type": "URL_CATEGORY",
-        "val": 132,
-        "customUrlsCount": 2,
-        "urlsRetainingParentCategoryCount": 0,
-        "customIpRangesCount": 0,
-        "ipRangesRetainingParentCategoryCount": 0
-    }
-```
-
-You can remove IPv6 addresses (e.g., 2041:0000:140f:0000:0000:0000:875b:131b or 2041:0000:140f::875b:131b) from a category.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-user-portal-links-using-api","lastmod":"2026-01-06T23:49Z","nid":"1530976"} -->
-## Configuring User Portal Links Using API
-
-- Source: https://help.zscaler.com/legacy-apis/configuring-user-portal-links-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring User Portal Links Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information on user portal links use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information on managing user portal links use cases using APIs. All APIs are rate limited. To learn more, see [About User Portal Links](https://help.zscaler.com/zpa/about-user-portal-links) and [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Prerequisite API Calls
-
-Before you create a user portal link or get details of user portal links, you must get the `portalId`, the unique identifier of the user portal. To learn more, see [Configuring User Portals Using API](https://help.zscaler.com/zpa/configuring-user-portals-using-api).
-
-## Getting Details of All User Portal Links
-
-To get details of all user portal links:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortalLink/?microtenantId={microtenantId}&page={page}&pagesize={pagesize}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortalLink/?microtenantId=0&page=1&pagesize=20`.
-  - `customerId`: The ZPA tenant ID of the customer.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-  - `page`: Specifies the page number.
-  - `pagesize`: Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500.
-
-- View an example response
-
-```
-{
-    "totalPages": "1",
-    "totalCount": "2",
-    "list": [
-        {
-            "id": "145283994705985846",
-            "modifiedTime": "1748372770",
-            "creationTime": "1748372770",
-            "modifiedBy": "72057594038779845",
-            "name": "test aneela1",
-            "microtenantName": "Default",
-            "enabled": true,
-            "link": "aneela.com",
-            "userPortals": [
-                {
-                    "id": "145283994705985838",
-                    "modifiedTime": "1747939958",
-                    "creationTime": "1747939958",
-                    "modifiedBy": "72057594038779845",
-                    "name": "test aneela",
-                    "enabled": true,
-                    "domain": "aneela-aneela-com.d.zscalerportal.net",
-                    "userNotificationEnabled": true,
-                    "extDomainTranslation": "aneela.com",
-                    "extLabel": "aneela"
-                }
-            ]
-        },
-        {
-            "id": "145283994705985863",
-            "modifiedTime": "1753247856",
-            "creationTime": "1753247856",
-            "modifiedBy": "72057594038779845",
-            "name": "test name",
-            "microtenantName": "Default",
-            "enabled": true,
-            "description": "test description",
-            "link": "aneela1.com",
-            "userPortals": [
-                {
-                    "id": "145283994705985838",
-                    "modifiedTime": "1747939958",
-                    "creationTime": "1747939958",
-                    "modifiedBy": "72057594038779845",
-                    "name": "test aneela",
-                    "enabled": true,
-                    "domain": "aneela-aneela-com.d.zscalerportal.net",
-                    "userNotificationEnabled": true,
-                    "extDomainTranslation": "aneela.com",
-                    "extLabel": "aneela"
-                }
-            ]
-        }
-    ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details for a Particular User Portal Link
-
-To get details for a particular user portal link:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortalLink/{id}?microtenantId={microtenantId}&page={page}&pagesize={pagesize}`.
-2. Provide the following in the request endpoint: For example `/mgmtconfig/v1/admin/customers/{customerId}/userPortalLink/{id}?microtenantId={microtenantId}&page={page}&pagesize={pagesize}`.
-  - `customerId`: The ZPA tenant ID of the customer.
-  - `id`: The unique identifier of the user portal link.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-  - `page`: Specifies the page number.
-  - `pagesize`: Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500.
-
-- View an example response
-
-```
-{
-    "id": "145283994705985846",
-    "modifiedTime": "1748372770",
-    "creationTime": "1748372770",
-    "modifiedBy": "72057594038779845",
-    "name": "test aneela1",
-    "microtenantName": "Default",
-    "enabled": true,
-    "link": "aneela.com",
-    "userPortals": [
-        {
-            "id": "145283994705985838",
-            "modifiedTime": "1747939958",
-            "creationTime": "1747939958",
-            "modifiedBy": "72057594038779845",
-            "name": "test aneela",
-            "enabled": true,
-            "domain": "aneela-aneela-com.d.zscalerportal.net",
-            "userNotificationEnabled": true,
-            "extDomainTranslation": "aneela.com",
-            "extLabel": "aneela"
-        }
-    ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting the User Portal Link Details by User Portal ID
-
-To get details of the user portal link by user portal ID:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortalLink/userPortal/{portalId}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortalLink/userPortal/145283994705985838`.
-  - `customerId`: The ZPA tenant ID of the customer.
-  - `portalId`: The unique identifier of the user portal. To learn more, see [Configuring User Portals Using API](https://help.zscaler.com/zpa/configuring-user-portals-using-api).
-
-- View an example response
-
-```
-{
-   "totalPages":"1",
-   "totalCount":"0",
-   "list":[
-      {
-         "id":"145283994705985864",
-         "modifiedTime":"1756929922",
-         "creationTime":"1753811234",
-         "modifiedBy":"72057594038779845",
-         "name":"aneela.com",
-         "enabled":true,
-         "description":"test",
-         "link":"aneela.com",
-         "iconText":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAgCAYAAAD5VeO1AAAHFklEQVR4AbSWe2yWVx3HP+c8T/uWltKWjZYNlkI3YSAMDPcUqDjRjE2Y6BYG20hxCfgHajQSUeOiJoozZkv4Y9lMdFOWLWGIS0TUxBXNNmcibsZyCQWBFZZCL2/79vJensvxe57CP9vfnJzvuf7uv9953tcunz3brW2d6Ta23eE+e1+ba1/8Cbdy0Xy3evEC1750UYaOFYvchlX3uY2rl7pNa5e5hzuWuS8Kj2xY7nbcv8rtfGCN2/Vgu9v9hfVuzxZha4fb86WOszZNU4wx+GYJMc6CM77jWxAEuNRgUqftJDyPhw4yOpckWH9lJmWFWKoEm5CQitE5R5UNsMYCEuaJgdRVtAPj9ykSYrA68XD4Q0eQ8fi1xXpDDVmziBA1q9lkEjyRDm50T+fhtzdnvxa57xlu7rP55iBi66TVKwtFZjK3vPD0BonLLLaZUoOnS+VhttDGGJ0xSaslRlxOMMavDDLYZddp5iJZM8ZfZmTaG9auWsa65Qs58Pyvee7Q68yZt4DpzXdIsdglQkTg8yRJntNIjYdFizA0hFUQyAifOKckpwIi3vjJWeSKQ4wN9XHomX386pnv8fievXzrxz+n86nd4nb4fHk5fKRlHiepxcsyVlUiAqcEe+M/t3gW/YUxLvdd48R7ZxkcHufs2QscO/Iab7z2Mp/f3inrjTiYVCDrvVEezqU++TJeFie68GRWCmxgqQ1DxqTkeiFitJgwv3U2Q4UJGB1hSfEqK0pXcPIs8TnIxPvBgazyRvpZkqVV5RiIKE0inICwatEcclXVNE3LUR1WqUxDqrVvq8+RsymBeHZu6sAo5k68Hvi1DJVWL1Q7bl2zVrFB7sfSnj0gpxfpQqbW5GSdpa5uCo0NdTQ2NtDaeic9pQrxXa3QdjfNs1vFaibjjTfWYa1F7mRQhCFxUJECJ0UN02qY2TyNXC5gSl0dUxun03B7M43NLazftJnHOr/Cp3ftY/2u/Rx44RXCtEKQvQPwxvl3YEyAMaESqgB5bcoDSWqY2TKDe+fNRSYIAYmIIhGHtbXcNmMGd86ZQ1V1PTaolbCUfYdPZjSopTLOy0KJlslkPqQy3akcrQ7Hi2UGVRWlOKSUWGJ5lcSGKEo50/1fGqa3ECUxpUqZ0z1X+N+FXomVGIxmJkfxyGYvHBRiUAWE+nBFZZgYSxkpJ0yUIqISjJeKFCsRtVMbGRsvcubsObq7T9P17inGRvoJbCxZqQShHGjOxAZYY4wODMYEOGuJjKWM5frwBPnhUfL5IYYG8/Re7aNvIM9b73bzxvF3OHrsbf7T3UN1KH/tFFLxG2MAkyXY5896D1DLZl06XaZClEBZ4YpvoKywXB8sZN5MKHTjxRKVKFLia2RUIAkf7zZREry+RKWYBiGxrI6U2ELRMDCeUFBo/Au9lq/Q9XY3H/SNcOnq9QxD+RGaVUVpdS6T7DS6NNU42W3kk6YyjJxUJBXSKCapJJSViGJcw7WJkIGohkJUTWJruHiln/GJiFIp5nLPORpnNFF/e4ukGRKNqQ8tKZFgW+9pm6wIeaBogC49CqWUohRUmEJkasDUUlAVOVNF76WLXDzfQ2OLeCMng1IQs1HcUWqtNRIhtM+tonP7A6xf0kp9XY7QFUlLef2aQqLfxihOiCqyJI5wCt1A34fU1k1lWkMj+/c+SuttKWP9V1C6JBbNFiNuD3v0zR5Gau7kzfd7GVCFFIZHmBgewpoYC1RZizERCP6BJKrv0dFhCqOqnPcvyfmAIC6hNOGMDMLgbsA6/bT94bcvkwt1o+5ApemwOo8m8liduzgmEEN1lVGt51i1Yinr1qzAlYc53+eo6H146U65k2RSDR5Wsm5Zt4nRI1Asx1NZLOu8a5pwxTxZhRULVKlEbVKkWqGp1zdm1oyQ2S0hTz76EFOn6D+LYqKiU+INPvYqKwmz2Ae/fD8bt+/gu794jo3bdrKkfR1zFy5gekMtM6cYyuMDuChPU0PI5fPdNKYf8tIvX+Lgs8/TsfJTtC+8m66Tl/jjP85x/J1zHP37aY6c+DdHut7DHnm9iyOHXmX/17/JwYMvcvh3f+IvXf/kbydPkR/s53Jvnt7LFzlz6lT2wRrJD5NERVIlMY7L8rBIHJUIVFlWFWXTWL+riRBjA4VEDmCwpPLJfwX90ye1DEYhJoxEFICnsIYJlSU+vfoUG2OIP5Y1f+DpQ+y9x99iS+dP2frk93nhN3/ma/tf5BHttz11gM2/P8ETe55l646f8I2nX2HLEz+kbfkOVm7YxZrP7GLugvXUTp9HyTVSTuupUEtsctm3xlmLbTp8itGojpGkiWN/7eZ87xiFco7xchVHPximf7yawZLlwtURuu+Zz3ee3s1dC9fRNGc1/zrxMzY/vJdtnd/mqz94lYce+xGbHz/AuUtX6RG8D9yq9n8AAAD//1Uj1yQAAAAGSURBVAMA7KFWRoEvvM4AAAAASUVORK5CYII=",
-         "protocol":"https://",
-         "userPortals":[
-            {
-               "id":"145283994705985838",
-               "modifiedTime":"1753811811",
-               "creationTime":"1747939958",
-               "modifiedBy":"72057594038779845",
-               "name":"test aneela updated 2",
-               "enabled":true,
-               "domain":"aneela-aneela-com.d.zscalerportal.net",
-               "userNotificationEnabled":true,
-               "extDomainTranslation":"aneela.com",
-               "extLabel":"aneela",
-               "extDomain":"aneela.com",
-               "extDomainName":"aneela-com.d.zscalerportal.net",
-               "microtenantName":"Default"
-            }
-         ]
-      },
-      {
-         "id":"145283994705985846",
-         "modifiedTime":"1748372770",
-         "creationTime":"1748372770",
-         "modifiedBy":"72057594038779845",
-         "name":"test aneela1",
-         "enabled":true,
-         "link":"aneela.com",
-         "userPortals":[
-            {
-               "id":"145283994705985838",
-               "modifiedTime":"1753811811",
-               "creationTime":"1747939958",
-               "modifiedBy":"72057594038779845",
-               "name":"test aneela updated 2",
-               "enabled":true,
-               "domain":"aneela-aneela-com.d.zscalerportal.net",
-               "userNotificationEnabled":true,
-               "extDomainTranslation":"aneela.com",
-               "extLabel":"aneela",
-               "extDomain":"aneela.com",
-               "extDomainName":"aneela-com.d.zscalerportal.net",
-               "microtenantName":"Default"
-            }
-         ]
-      }
-   ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Adding a User Portal Link
-
-To add a user portal link:
-
-1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortalLink?microtenantId={microtenantId}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortalLink?microtenantId=0`.
-  - `customerId`: The ZPA tenant ID of the customer.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-3. Include the request headers to provide information about the request context:
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
   - Content-Type: `application/json`
   - Authorization: `Bearer <access_token>`
 4. Use the following JSON payload and provide the following:
-  - `userPortalId`: The unique identifier of the user portal. To learn more, see [Configuring User Portals Using API](https://help.zscaler.com/zpa/configuring-user-portals-using-api).
-  - `name`: The name of the user portal link.
-  - `link`: The domain name of IP address for the application link.
+  - `sortBy.sortName`: Denotes the optional field name to sort by. The supported value is a string (e.g., `name`).
+  - `sortBy.sortOrder`: Denotes the optional field for sort direction, and sorts by ascending (`ASC`) or descending (`DESC`) order. The supported value is a string.
+  - `filterBy.operator`: Denotes the optional field for the logical operator that combines filter groups. The supported value is an enum (i.e., `AND` or `OR`).
+  - `filterBy.filterGroups[].operator`: Denotes the optional field for the logical operator that combines filters in the group. The supported value is an enum (i.e., `AND` or `OR`).
+  - `filterBy.filterGroups[].filters[].filterName`: Denotes the optional field for the field name to filter. The supported value is a string (e.g., `name`).
+  - `filterBy.filterGroups[].filters[].operator`: Denotes the optional field for the comparison operator. The supported values are a string (i.e., `EQ` and `LIKE`). The value `EQ` denotes the equals operator, and the value `LIKE` denotes the contains operator.
+  - `filterBy.filterGroups[].filters[].value`: Denotes the optional field for the value to compare against. The supported value is a string (e.g., `env`).
+  - `pageBy.page`: Specifies the page number. The supported value is an integer (e.g., `1`). The default value is `1`.
+  - `pageBy.pageSize`: Specifies the page size. The supported value is an integer (e.g., `20`). If not provided, the default page size is `20`. The maximum page size is `500`.
 
-- View the JSON payload
+- View the JSON payload.
 
 ```
 {
-  "enabled":true,
-  "name":"<example user portal link name>",
-  "link":"<exampleLink.com>",
-  "linkPath":"",
-  "description":"<example optional description>",
-  "logoFileName":"",
-  "userPortalId": <user portal ID>
+  "sortBy": { "sortName": "<sortName>", "sortOrder": "<sortOrder>" },
+  "filterBy": {
+    "operator": "<operator>",
+    "filterGroups": [
+      {
+        "operator": "<operator>",
+        "filters": [
+          { "filterName": "<filterName>", "operator": "<operator>", "value": "<value>" }
+        ]
+      }
+    ]
+  },
+  "pageBy": { "page": "<page>", "pageSize": "<pageSize>" }
 }
 ```
 
-- View an example JSON payload
+- View the sample JSON payload.
 
 ```
 {
-  "enabled":true,
-  "name":"test name 1",
-  "link":"aneela1.com",
-  "linkPath":"",
-  "description":"test description",
-  "logoFileName":"",
-  "userPortalId": 145283994705985838
+  "totalPages": "1",
+  "totalCount": "1",
+  "list": [
+    {
+      "id": "145260601092866500",
+      "name": "Prod Access",
+      "description": "Tags used for production access",
+      "microtenantId": "145260601092866314"
+    }
+  ]
 }
 ```
 
-- View an example response
+- View an example response.
 
 ```
 {
-  "id": "145283994705985874",
-  "modifiedTime": "1756940241",
-  "creationTime": "1756940241",
-  "modifiedBy": "145283994705985860",
-  "name": "test name 1",
+  "totalPages": "1",
+  "totalCount": "1",
+  "list": [
+    {
+      "id": "145260601092866401",
+      "name": "Region",
+      "enabled": true,
+      "origin": "CUSTOM",
+      "type": "STATIC",
+      "namespaceId": "145260601092866400",
+      "tagValues": [
+        { "id": "145260601092866402", "name": "us-east-1" }
+      ],
+      "scopeId": "145260601092866314"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details of a Tag Group
+
+To get the details of a tag group:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/tagGroup/{tagGroupId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/tagGroup/145260601092866500?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `tagGroupId`: The unique identifier of the tag group. To learn more, see Getting Details of All Tag Groups.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+
+- View an example response.
+
+```
+{
+  "id": "145260601092866500",
+  "modifiedTime": "1705617400",
+  "creationTime": "1705617400",
+  "modifiedBy": "145260601092866482",
+  "name": "Prod Access",
+  "description": "Tags used for production access",
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400", "name": "Environment", "enabled": true },
+      "tagKey":    { "id": "145260601092866401", "name": "Region", "enabled": true },
+      "tagValue":  { "id": "145260601092866402", "name": "us-east-1" },
+      "origin": "CUSTOM"
+    }
+  ],
+  "microtenantId": "145260601092866314"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Updating a Tag Group
+
+To update a tag group for the specified ID:
+
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/tagGroup/{tagGroupId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/tagGroup/145260601092866500?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `tagGroupId`: The unique identifier of the tag group. To learn more, see Getting Details of All Tag Groups.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following fields you want to update for the namespace:
+  - `name`: The name of the tag group.
+  - `description`: The description of the tag group.
+  - `tags[].namespace.id`: The unique identifier of the namespace for the tag. The integer is required and must be passed per item.
+  - `tags[].tagKey.id`: The unique identifier of the key for the tag. The integer is required and must be passed per item.
+  - `tags[].tagValue.id`: The unique identifier of the tag value. The integer is required and must be passed per item.
+  - `tags[].origin`: The origin of the tag. The supported enums are `CUSTOM` or `PREDEFINED`. This field is not required.
+
+- View the JSON payload.
+
+```
+{
+  "name": "<tag group name>",
+  "description": "<description>",
+  "tags": [
+    {
+      "namespace": { "id": "<namespace ID>" },
+      "tagKey":    { "id": "<tag key ID>" },
+      "tagValue":  { "id": "<tag value ID>" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+- View the sample JSON payload.
+
+```
+{
+  "name": "Prod Access",
+  "description": "Updated tag group",
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400" },
+      "tagKey":    { "id": "145260601092866401" },
+      "tagValue":  { "id": "145260601092866403" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Deleting a Tag Group
+
+To delete a tag group for the specified ID:
+
+1. Send a `DELETE` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/tagGroup/{tagGroupId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/tagGroup/145260601092866500?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `tagGroupId`: The unique identifier of the tag group. To learn more, see Getting Details of All Tag Groups.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Field Descriptions
+
+The following table includes available fields you can use for the tag key API use cases:
+
+| Field | Description | Required | Value |
+| --- | --- | --- | --- |
+| customerId | The ZPA tenant ID of the customer. | Yes | Integer |
+| description | The description of the key. | No | String |
+| enabled | Specifies if the key is enabled (`true`) or disabled (`false`). | No | Boolean |
+| microtenantId | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api). | No | Integer |
+| tags | The array of tag values that belong to the tag group (i.e., the `TagValueSummary` items). | No | Array |
+| tags[].namespace.id | The unique identifier of the namespace for the tag. The integer is required and must be passed per item. | Yes | Integer |
+| tags[].tagKey.id | The unique identifier of the key for the tag. The integer is required and must be passed per item. | Yes | Integer |
+| tags[].tagValue.id | The unique identifier of the tag value. The integer is required and must be passed per item. | Yes | Integer |
+| tags[].origin | The origin of the tag. The supported enums are `CUSTOM` or `PREDEFINED`. This field is not required. | No | Enum Supported values: `CUSTOM`: The custom tag.; `PREDEFINED`: The predefined tag. |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-key-value-pairs-using-api","lastmod":"2026-08-04T13:17Z","nid":"1541720"} -->
+## Configuring Tag Key-Value Pairs Using API
+
+- Source: https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tag Key-Value Pairs Using API
+- Last modified: 2026-08-04T13:17Z
+- Summary: Information on configuring tag key-value pairs using Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on configuring ZPA [tag key-value pairs](https://help.zscaler.com/zpa/about-tag-management-application-segments) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Adding a Key
+
+To add a new key for the specified namespace:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/tagKey?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/tagKey?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `name`: The name of the key. The value must match the key name pattern.
+  - `tagValues[].name`: The name of the tag value. The values must match the `tagValues` name pattern in the provided JSON payload, and the name of the tag value must be entered per tag item.
+
+- View the JSON payload.
+
+```
+{
+  "name": "<key name>",
+  "description": "<description>",
   "enabled": true,
-  "description": "test description",
-  "link": "aneela1.com"
+  "origin": "CUSTOM",
+  "type": "STATIC",
+  "tagValues": [
+    { "name": "<value name>" },
+    { "name": "<value name>" }
+  ]
+}
+```
+
+- View an example JSON payload.
+
+```
+{
+  "name": "Region",
+  "description": "Cloud region",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC",
+  "tagValues": [
+    { "name": "us-east-1" },
+    { "name": "us-west-2" }
+  ]
+}
+```
+
+- View an example response.
+
+```
+{
+  "id": "145260601092866401",
+  "name": "Region",
+  "description": "Cloud region",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC",
+  "namespaceId": "145260601092866400",
+  "tagValues": [
+    { "id": "145260601092866402", "name": "us-east-1" },
+    { "id": "145260601092866403", "name": "us-west-2" }
+  ],
+  "microtenantId": "145260601092866314"
 }
 ```
 
 A successful response returns code 201. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-## Adding a List of User Portal Links
+## Getting Details of All Keys
 
-To add a list of user portal links:
+To get details of all keys for the specified customer and namespace based on the given filter, sort, and pagination criteria:
 
-1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortalLink/bulk?microtenantId={microtenantId}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortalLink/bulk?microtenantId={microtenantId}`.
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/tagKey/search?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400/tagKey/?microtenantId=145260601092866314`.
   - `customerId`: The ZPA tenant ID of the customer.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-3. Include the request headers to provide information about the request context:
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
   - Content-Type: `application/json`
   - Authorization: `Bearer <access_token>`
 4. Use the following JSON payload and provide the following:
-  - `id`: The unique identifier of the user portal. To learn more, see [Configuring User Portals Using API](https://help.zscaler.com/zpa/configuring-user-portals-using-api).
-  - `name`: The name of the user portal link.
-  - `link`: The domain name of IP address for the application link.
+  - `sortBy.sortName`: Denotes the optional field name to sort by. The supported value is a string (e.g., `name`).
+  - `sortBy.sortOrder`: Denotes the optional field for sort direction, and sorts by ascending (`ASC`) or descending (`DESC`) order. The supported value is a string.
+  - `filterBy.operator`: Denotes the optional field for the logical operator that combines filter groups. The supported value is an enum (i.e., `AND` or `OR`).
+  - `filterBy.filterGroups[].operator`: Denotes the optional field for the logical operator that combines filters in the group. The supported value is an enum (i.e., `AND` or `OR`).
+  - `filterBy.filterGroups[].filters[].filterName`: Denotes the optional field for the field name to filter. The supported value is a string (e.g., `name`).
+  - `filterBy.filterGroups[].filters[].operator`: Denotes the optional field for the comparison operator. The supported values are a string (i.e., `EQ` and `LIKE`). The value `EQ` denotes the equals operator, and the value `LIKE` denotes the contains operator.
+  - `filterBy.filterGroups[].filters[].value`: Denotes the optional field for the value to compare against. The supported value is a string (e.g., `env`).
+  - `pageBy.page`: Specifies the page number. The supported value is an integer (e.g., `1`). The default value is `1`.
+  - `pageBy.pageSize`: Specifies the page size. The supported value is an integer (e.g., `20`). If not provided, the default page size is `20`. The maximum page size is `500`.
 
-- View the JSON payload
-
-```
-{
-   "userPortalLinks":[
-      {
-         "enabled":true,
-         "name":"<example name>",
-         "link":"<exampleLink.com>",
-         "linkPath":"",
-         "description":"<example description>",
-         "logoFileName":"",
-         "protocol":""
-      }
-   ],
-   "userPortals":[
-      {
-         "id":"<user portal ID>"
-      }
-   ]
-}
-```
-
-- View an example JSON payload
+- View the JSON payload.
 
 ```
 {
-   "userPortalLinks":[
+  "sortBy": { "sortName": "<sortName>", "sortOrder": "<sortOrder>" },
+  "filterBy": {
+    "operator": "<operator>",
+    "filterGroups": [
       {
-         "enabled":true,
-         "name":"test name",
-         "link":"aneela1.com",
-         "linkPath":"",
-         "description":"test description",
-         "logoFileName":"",
-         "protocol":""
+        "operator": "<operator>",
+        "filters": [
+          { "filterName": "<filterName>", "operator": "<operator>", "value": "<value>" }
+        ]
       }
-   ],
-   "userPortals":[
-      {
-         "id":"145283994705985838"
-      }
-   ]
+    ]
+  },
+  "pageBy": { "page": "<page>", "pageSize": "<pageSize>" }
 }
 ```
 
-- View an example response
+- View the sample JSON payload.
 
 ```
 {
-   "userPortalLinks":[
+  "sortBy": { "sortName": "name", "sortOrder": "ASC" },
+  "filterBy": {
+    "operator": "AND",
+    "filterGroups": [
       {
-         "id":"145283994705985863",
-         "name":"test name",
-         "enabled":true,
-         "description":"test description",
-         "link":"aneela1.com",
-         "userPortals":[
-            {
-               "id":"145283994705985838",
-               "enabled":true
-            }
-         ]
+        "operator": "OR",
+        "filters": [
+          { "filterName": "name", "operator": "LIKE", "value": "env" }
+        ]
       }
-   ],
-   "userPortals":[
-      {
-         "id":"145283994705985838",
-         "enabled":true
-      }
-   ]
+    ]
+  },
+  "pageBy": { "page": "1", "pageSize": "20" }
 }
 ```
 
-A successful response returns code 201. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+- View an example response.
 
-## Updating a User Portal Link
+```
+{
+  "totalPages": "1",
+  "totalCount": "1",
+  "list": [
+    {
+      "id": "145260601092866401",
+      "name": "Region",
+      "enabled": true,
+      "origin": "CUSTOM",
+      "type": "STATIC",
+      "namespaceId": "145260601092866400",
+      "tagValues": [
+        { "id": "145260601092866402", "name": "us-east-1" }
+      ],
+      "scopeId": "145260601092866314"
+    }
+  ]
+}
+```
 
-To update a user portal link:
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortalLink/{id}?microtenantId={microtenantId}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortalLink/145283994705985863?microtenantId=0`.
+## Getting Details of a Key
+
+To get the details of a key:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey/{tagKeyId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400/tagKeyId/145260601092866401?microtenantId=145260601092866314`.
   - `customerId`: The ZPA tenant ID of the customer.
-  - `id`: The unique identifier of the user portal link. To learn more, see Getting Details of All User Portal Links.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-3. Include the request headers to provide information about the request context:
+  - `tagKeyId`: The unique identifier of the key. To learn more, see Getting Details of All Keys.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+
+- View an example response.
+
+```
+{
+  "id": "145260601092866401",
+  "name": "Region",
+  "description": "Cloud region",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC",
+  "namespaceId": "145260601092866400",
+  "tagValues": [
+    { "id": "145260601092866402", "name": "us-east-1" },
+    { "id": "145260601092866403", "name": "us-west-2" }
+  ],
+  "microtenantId": "145260601092866314"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Updating a Key
+
+To update a key for the specified ID:
+
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey/{tagKeyId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400/tagKey/145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `tagKeyId`: The unique identifier of the key. To learn more, see Getting Details of All Keys.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
   - Content-Type: `application/json`
   - Authorization: `Bearer <access_token>`
-4. Use the following JSON payload and provide the following:
-  - `id`: The unique identifier of the user portal. To learn more, see [Configuring User Portals Using API](https://help.zscaler.com/zpa/configuring-user-portals-using-api).
-  - `name`: The name of the user portal link.
-  - `link`: The domain name of IP address for the application link.
+4. Use the following JSON payload and provide the following fields you want to update for the namespace:
+  - `name`: The name of the key.
+  - `description`: The description of the key.
+  - `enabled`: Specifies if the key is enabled (`true`) or disabled (`false`).
+  - `tagValues`: The array of tag values for the specified key. Each tag value has a name and an ID.
 
-- View the JSON payload
-
-```
-{
-   "enabled":true,
-   "id":"145283994705985863",
-   "modifiedTime":"1753247856",
-   "creationTime":"1753247856",
-   "modifiedBy":"72057594038779845",
-   "name":"<example user portal name>",
-   "microtenantName":"Default",
-   "description":"<example description>",
-   "link":"<exampleLink.com>",
-   "userPortals":[
-      {
-         "id":"<user portal ID>"
-      }
-   ],
-   "linkPath":"",
-   "logoFileName":"",
-   "protocol":""
-}
-```
-
-- View an example JSON payload
+- View the JSON payload.
 
 ```
 {
-   "enabled":true,
-   "id":"145283994705985863",
-   "modifiedTime":"1753247856",
-   "creationTime":"1753247856",
-   "modifiedBy":"72057594038779845",
-   "name":"test name updated",
-   "microtenantName":"Default",
-   "description":"test description",
-   "link":"aneela1.com",
-   "userPortals":[
-      {
-         "id":"145283994705985838"
-      }
-   ],
-   "linkPath":"",
-   "logoFileName":"",
-   "protocol":""
+  "name": "<key name>",
+  "description": "<key description>",
+  "enabled": true,
+  "tagValues": [
+    { "id": "<tag value ID>", "name": "<tag value name>" },
+    { "name": "<tag value name>" }
+  ]
 }
 ```
 
-A successful response returns code 204, meaning the user portal link is updated. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+- View the sample JSON payload.
 
-## Deleting a User Portal Link
+```
+{
+  "name": "Region",
+  "description": "Cloud region (updated)",
+  "enabled": true,
+  "tagValues": [
+    { "id": "145260601092866402", "name": "us-east-1" },
+    { "name": "eu-central-1" }
+  ]
+}
+```
 
-To delete a user portal link:
+You must pass the full list of tag values in the request payload when updating a key.
 
-1. Send a `DELETE` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortalLink{id}?microtenantId={microtenantId}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortalLink145283994705985863?microtenantId=0`.
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Deleting a Key
+
+To delete a key for the specified ID:
+
+1. Send a `DELETE` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey/{tagKeyId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400/tagKey/{tagKeyId}?microtenantId=145260601092866314`.
   - `customerId`: The ZPA tenant ID of the customer.
-  - `id`: The unique identifier of the user portal link. To learn more, see Getting Details of All User Portal Links.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+  - `tagKeyId`: The unique identifier of the key. To learn more, see Getting Details of All Keys.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
 
-A successful response returns code 204, meaning the user portal link is deleted. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-## Adding Field Descriptions
+## Bulk Enabling or Disabling Keys
 
-The following table includes descriptions of available fields you can use for the user portal link use cases:
+To bulk enable or disable keys for the specified customer:
+
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/tagKey/bulkUpdateStatus?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400/tagKey/145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `namespaceId`: The unique identifier of the namespace. To learn more, see Getting Details of All Keys.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following fields:
+  - `enabled`: Specifies if the keys are enabled (`true`) or disabled (`false`).
+  - `tagKeyIds`: The unique identifiers for the list of keys you want to update.
+
+- View the JSON payload.
+
+```
+{
+  "enabled": false,
+  "tagKeyIds": [ "<tag key ID>", "<tag key ID>" ]
+}
+```
+
+- View an example JSON payload.
+
+```
+{
+  "enabled": false,
+  "tagKeyIds": [ "145260601092866401", "145260601092866404" ]
+}
+```
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Field Descriptions
+
+The following table includes available fields you can use for the tag key API use cases:
 
 | Field | Description | Required | Value |
 | --- | --- | --- | --- |
-| iconText | The logo or favicon for the link | No | String |
-| link | The domain name of IP address for the application link | Yes | String |
-| linkPath | The specific path for the URL (e.g., entering `/preferences` creates a link pointing to `www.example.com/preferences`) | No | String |
-| logoFileName | The name for the logo or favicon | No | String |
-| protocol | The protocol for the user portal link. This is only supported for private applications where Browser Access is not enabled. For private applications where Browser Access is enabled, this field defaults to the protocol that was configured in the application segment, and cannot be changed. | No | String Supported values: `https://`; `http://` |
+| customerId | The ZPA tenant ID of the customer. | Yes | Integer |
+| description | The description of the key. | No | String |
+| enabled | Specifies if the key is enabled (`true`) or disabled (`false`). | No | Boolean |
+| microtenantId | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api). | No | Integer |
+| name | The name of the key. This value must match the key name pattern. | Yes | String |
+| namespaceId | This field is set automatically from the path and identifies the parent namespace. | No | Integer |
+| type | The type of the key. | No | Enum The supported value is `STATIC`. |
+| tagKeyIds | The unique identifiers for the list of keys you want to update. | Yes | Array of integers |
+| tagValues | The array of values for the key. Each tag value has a name and an ID. | No | Array |
+| tagValues[].name | The name of the tag value. The values must match the `tagValues` name pattern, and the name of the tag value must be entered per tag item. | Yes | String |
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-user-portals-using-api","lastmod":"2026-01-06T23:49Z","nid":"1530947"} -->
-## Configuring User Portals Using API
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-namespaces-using-api","lastmod":"2026-08-04T13:15Z","nid":"1541693"} -->
+## Configuring Tag Namespaces Using API
 
-- Source: https://help.zscaler.com/legacy-apis/configuring-user-portals-using-api
+- Source: https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api
 - Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring User Portals Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information on user portal use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tag Namespaces Using API
+- Last modified: 2026-08-04T13:15Z
+- Summary: Information on configuring tag namespaces using Zscaler Private Access (ZPA) cloud service API.
 
-This article provides information on managing Zscaler Private Access (ZPA) user portal use cases using APIs. All APIs are rate limited. To learn more, see [About User Portals](https://help.zscaler.com/zpa/about-user-portals) and [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+This article provides information on configuring ZPA [tag namespaces](https://help.zscaler.com/zpa/about-tag-management-application-segments) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
 
-## Prerequisite API Call
+## Adding a Namespace
 
-Before you create or update a user portal, you must get the certificate ID. To learn more, see [Configuring Certificates Using API](https://help.zscaler.com/zpa/configuring-certificates-using-api).
+To add a new namespace for the specified customer:
 
-## Creating a User Portal
-
-To create a user portal:
-
-1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortal?microtenantId={microtenantId}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortal?microtenantId=0`.
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace?microtenantId=145260601092866314`.
   - `customerId`: The ZPA tenant ID of the customer.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-3. Include the request headers to provide information about the request context:
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
   - Content-Type: `application/json`
   - Authorization: `Bearer <access_token>`
 4. Use the following JSON payload and provide the following:
-  - `managedByZs`: Indicates if the certificate type is Managed (`true`) or Custom (`false`).
-  - `domain`: Enter the full URL for the portal. This is the URL that users access to view the portal. The URL must use the HTTPS protocol and be a fully qualified domain name (FQDN). A user portal's FQDN cannot be configured as an application within an application segment. The `domain` field is only required if `managedByZs` is set to `false`.
-  - `certificateId`: The unique identifier of the certificate. To learn more, see [Configuring Certificates Using API](https://help.zscaler.com/zpa/configuring-certificates-using-api). The `certificateId` field is only required if `managedByZs` is set to `false`.
-  - `enabled`: Indicates if the user portal is enabled (`true`) or disabled (`false`). If disabled, the portal is inaccessible to users.
-  - `name`: The name of the user portal.
-  - `extLabel`: The authentication domain name prefix used for the portal URL. The supported string can include integers, lowercase characters, and hyphens (-). This field supports integers between 3 and 31. For example, `server-2`.
-  - `extDomain`: The authentication domain name prefix used for a Zscaler-managed certificates when [creating a privileged portal](https://help.zscaler.com/zpa/configuring-privileged-portals). If you are using Zscaler-managed certificates and pass the external domain name prefix, the `certificateId` field becomes null. Periods (.) are not supported since the FQDN includes a period as part of the suffix or top-level domain.
+  - `name`: The name of the namespace. The value must match the namespace name pattern.
+  - `origin`: The origin of the namespace. The supported value is `CUSTOM`.
 
-- View the JSON payload
+- View the JSON payload.
 
 ```
 {
-   "enabled":true,
-   "name":"<example name>",
-   "certManagedByZsRadio":"<string>",
-   "domain":"<string>",
-   "description":"<example description>",
-   "userNotificationEnabled":true,
-   "userNotification":"<example user notification>",
-   "certificateId":"<certificate ID>",
-   "managedByZs":true,
-   "extLabel":"<string>",
-   "extDomain":"<string>"
+  "name": "<name>",
+  "description": "<description>",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC"
 }
 ```
 
-- View an example JSON payload
+- View an example JSON payload.
 
 ```
 {
-   "enabled":true,
-   "name":"userportal name",
-   "certManagedByZsRadio":"managed",
-   "domain":"",
-   "description":"test description",
-   "userNotificationEnabled":true,
-   "userNotification":"test message text",
-   "certificateId":"",
-   "managedByZs":true,
-   "extLabel":"portalurl",
-   "extDomain":"aneela.com"
+  "name": "Environment",
+  "description": "Deployment environment tags",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC"
 }
 ```
 
-- View an example response
+- View an example response.
 
 ```
 {
-   "id":"145283994705985862",
-   "modifiedTime":"1753247369",
-   "creationTime":"1753247369",
-   "modifiedBy":"72057594038779845",
-   "name":"userportal name",
-   "enabled":true,
-   "description":"test description",
-   "domain":"portalurl-aneela-com.d.zscalerportal.net",
-   "userNotification":"test message text",
-   "userNotificationEnabled":true,
-   "extDomainTranslation":"aneela.com",
-   "extLabel":"portalurl",
-   "extDomain":"aneela.com"
+  "id": "145260601092866400",
+  "modifiedTime": "1705617359",
+  "creationTime": "1705617359",
+  "modifiedBy": "145260601092866482",
+  "name": "Environment",
+  "description": "Deployment environment tags",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC",
+  "microtenantId": "145260601092866314"
 }
 ```
 
 A successful response returns code 201. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-## Getting Details of All User Portals
+## Getting Details of All Namespaces
 
-To get details of all user portals for a given customer:
+To get details of all namespaces based on the given filter, sort, and pagination criteria:
 
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortal/?microtenantId={microtenantId}&page={page}&pagesize={pageSize}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortal/?microtenantId=0&page=1&pagesize=20`.
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/search?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400?microtenantId=145260601092866314`.
   - `customerId`: The ZPA tenant ID of the customer.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-  - `page`: Specifies the page number.
-  - `pagesize`: Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500.
-
-- View an example response
-
-```
-{
-    "totalPages": "1",
-    "totalCount": "1",
-    "list": [
-        {
-            "id": "145283994705985838",
-            "modifiedTime": "1747939958",
-            "creationTime": "1747939958",
-            "modifiedBy": "72057594038779845",
-            "name": "test user portal",
-            "scopeName": "Default",
-            "enabled": true,
-            "domain": "aneela-aneela-com.d.zscalerportal.net",
-            "userNotificationEnabled": true,
-            "extDomainTranslation": "aneela.com",
-            "extLabel": "aneela",
-            "extDomain": "aneela.com",
-            "extDomainName": "aneela-com.d.zscalerportal.net"
-        }
-    ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details of a Particular User Portal
-
-To get details of a particular user portal:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortal/{id}?microtenantId={microtenantId}&page={page}&pagesize={pageSize}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortal/145283994705985862?microtenantId=0&page=1&pagesize=20`.
-  - `customerId`: The ZPA tenant ID of the customer.
-  - `id`: The unique identifier of the user portal.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-  - `page`: Specifies the page number.
-  - `pagesize`: Specifies the page size. If not provided, the default page size is 20. The maximum page size is 500.
-
-- View an example response
-
-```
-{
-    "id": "145283994705985862",
-    "modifiedTime": "1753247369",
-    "creationTime": "1753247369",
-    "modifiedBy": "72057594038779845",
-    "name": "userportal name",
-    "scopeName": "Default",
-    "enabled": true,
-    "description": "test description",
-    "domain": "portalurl-aneela-com.d.zscalerportal.net",
-    "userNotification": "test message text",
-    "userNotificationEnabled": true,
-    "extDomainTranslation": "aneela.com",
-    "extLabel": "portalurl",
-    "extDomain": "aneela.com",
-    "extDomainName": "aneela-com.d.zscalerportal.net"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Updating a User Portal
-
-To update a user portal:
-
-1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortal/{Id}?microtenantId={microtenantId}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortal/145283994705985862?microtenantId=0`.
-  - `customerId`: The ZPA tenant ID of the customer.
-  - `id`: The unique identifier of the user portal.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-3. Include the request headers to provide information about the request context:
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
   - Content-Type: `application/json`
   - Authorization: `Bearer <access_token>`
 4. Use the following JSON payload and provide the following:
-  - `managedByZs`: Indicates if the certificate type is Managed (`true`) or Custom (`false`).
-  - `domain`: Enter the full URL for the portal. This is the URL that users access to view the portal. The URL must use the HTTPS protocol and be a fully qualified domain name (FQDN). A user portal's FQDN cannot be configured as an application within an application segment. The `domain` field is only required if `managedByZs` is set to `false`.
-  - `certificateId`: The unique identifier of the certificate. To learn more, see [Configuring Certificates Using API](https://help.zscaler.com/zpa/configuring-certificates-using-api). The `certificateId` field is only required if `managedByZs` is set to `false`.
-  - `enabled`: Indicates if the user portal is enabled (`true`) or disabled (`false`). If disabled, the portal is inaccessible to users.
-  - `name`: The name of the user portal.
-  - `extLabel`: The authentication domain name prefix used for the portal URL. The supported string can include integers, lowercase characters, and hyphens (-). This field supports integers between 3 and 31. For example, `server-2`.
-  - `extDomain`: The authentication domain name prefix used for a Zscaler-managed certificates when [creating a privileged portal](https://help.zscaler.com/zpa/configuring-privileged-portals). If you are using Zscaler-managed certificates and pass the external domain name prefix, the `certificateId` field becomes null. Periods (.) are not supported since the FQDN includes a period as part of the suffix or top-level domain.
+  - `sortBy.sortName`: Denotes the optional field name to sort by. The supported value is a string (e.g., `name`).
+  - `sortBy.sortOrder`: Denotes the optional field for sort direction, and sorts by ascending (`ASC`) or descending (`DESC`) order. The supported value is a string.
+  - `filterBy.operator`: Denotes the optional field for the logical operator that combines filter groups. The supported value is an enum (i.e., `AND` or `OR`).
+  - `filterBy.filterGroups[].operator`: Denotes the optional field for the logical operator that combines filters in the group. The supported value is an enum (i.e., `AND` or `OR`).
+  - `filterBy.filterGroups[].filters[].filterName`: Denotes the optional field for the field name to filter. The supported value is a string (e.g., `name`).
+  - `filterBy.filterGroups[].filters[].operator`: Denotes the optional field for the comparison operator. The supported values are a string (i.e., `EQ` and `LIKE`). The value `EQ` denotes the equals operator, and the value `LIKE` denotes the contains operator.
+  - `filterBy.filterGroups[].filters[].value`: Denotes the optional field for the value to compare against. The supported value is a string (e.g., `env`).
+  - `pageBy.page`: Specifies the page number. The supported value is an integer (e.g., `1`). The default value is `1`.
+  - `pageBy.pageSize`: Specifies the page size. The supported value is an integer (e.g., `20`). If not provided, the default page size is `20`. The maximum page size is `500`.
 
-- View the JSON payload
-
-```
-{
-   "enabled":true,
-   "id":"<id>",
-   "objectType":"UserPortals",
-   "action":"EDIT",
-   "modifiedTime":"1753247369",
-   "creationTime":"1753247369",
-   "modifiedBy":"72057594038779845",
-   "name":"<example user portal name>",
-   "scopeName":"Default",
-   "description":"<example description>",
-   "domain":"",
-   "userNotification":"<example user notification>",
-   "userNotificationEnabled":true,
-   "extDomainTranslation":"aneela.com",
-   "extLabel":"portalurl",
-   "extDomain":"aneela.com",
-   "extDomainName":"aneela-com.d.zscalerportal.net",
-   "hideInfoTooltip":true,
-   "restrictedEntity":false,
-   "certManagedByZsRadio":"managed",
-   "certificateId":"",
-   "managedByZs":true
-}
-```
-
-- View an example JSON payload
+- View the JSON payload.
 
 ```
 {
-   "enabled":true,
-   "id":"145283994705985862",
-   "objectType":"UserPortals",
-   "action":"EDIT",
-   "modifiedTime":"1753247369",
-   "creationTime":"1753247369",
-   "modifiedBy":"72057594038779845",
-   "name":"userportal name updated",
-   "scopeName":"Default",
-   "description":"test description updated",
-   "domain":"",
-   "userNotification":"test message text updated",
-   "userNotificationEnabled":true,
-   "extDomainTranslation":"aneela.com",
-   "extLabel":"portalurl",
-   "extDomain":"aneela.com",
-   "extDomainName":"aneela-com.d.zscalerportal.net",
-   "hideInfoTooltip":true,
-   "restrictedEntity":false,
-   "certManagedByZsRadio":"managed",
-   "certificateId":"",
-   "managedByZs":true
+  "sortBy": { "sortName": "<sortName>", "sortOrder": "<sortOrder>" },
+  "filterBy": {
+    "operator": "<operator>",
+    "filterGroups": [
+      {
+        "operator": "<operator>",
+        "filters": [
+          { "filterName": "<filterName>", "operator": "<operator>", "value": "<value>" }
+        ]
+      }
+    ]
+  },
+  "pageBy": { "page": "<page>", "pageSize": "<pageSize>" }
 }
 ```
 
-A successful response returns code 204, meaning the user portal is updated. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+- View the sample JSON payload.
 
-## Deleting a User Portal
+```
+{
+  "sortBy": { "sortName": "name", "sortOrder": "ASC" },
+  "filterBy": {
+    "operator": "AND",
+    "filterGroups": [
+      {
+        "operator": "OR",
+        "filters": [
+          { "filterName": "name", "operator": "LIKE", "value": "env" }
+        ]
+      }
+    ]
+  },
+  "pageBy": { "page": "1", "pageSize": "20" }
+}
+```
 
-To delete a user portal:
+- View an example response.
 
-1. Send a `DELETE` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/userPortal/{Id}?microtenantId={microtenantId}`.
-2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/145283994705985536/userPortal/145283994705985862?microtenantId=0`.
+```
+{
+  "totalPages": "1",
+  "totalCount": "1",
+  "list": [
+    {
+      "id": "145260601092866400",
+      "name": "Environment",
+      "enabled": true,
+      "origin": "CUSTOM",
+      "type": "STATIC",
+      "microtenantId": "145260601092866314"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details of a Namespace
+
+To get the details of a namespace:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400?microtenantId=145260601092866314`.
   - `customerId`: The ZPA tenant ID of the customer.
-  - `id`: The unique identifier of the user portal.
-  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+  - `namespaceId`: The unique identifier of the namespace. To learn more, see Getting Details of All Namespaces.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
 
-A successful response returns code 204, meaning the user portal is deleted. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+- View an example response.
+
+```
+{
+  "id": "145260601092866400",
+  "modifiedTime": "1705617359",
+  "creationTime": "1705617359",
+  "modifiedBy": "145260601092866482",
+  "name": "Environment",
+  "description": "Deployment environment tags",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC",
+  "microtenantId": "145260601092866314"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Updating a Namespace
+
+To update a namespace:
+
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `namespaceId`: The unique identifier of the namespace. To learn more, see Getting Details of All Namespaces.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following fields you want to update for the namespace:
+  - `name`: The name of the namespace.
+  - `description`: The description of the namespace.
+  - `enabled`: Specifies if the namespace is enabled (`true`) or disabled (`false`).
+
+- View the JSON payload.
+
+```
+{
+  "name": "<updated name>",
+  "description": "<updated description>",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC"
+}
+```
+
+- View the sample JSON payload.
+
+```
+{
+  "name": "Environment",
+  "description": "Updated description",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC"
+}
+```
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Deleting a Namespace
+
+To delete a namespace:
+
+1. Send a `DELETE` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `namespaceId`: The unique identifier of the namespace. To learn more, see Getting Details of All Namespaces.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Bulk Importing Tags
+
+To bulk import tags (including namespaces, keys, and values) for the specified customer:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/tags/import?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/tags/import?microtenantId=144118148382065713`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `duplicateResolutionStrategy`: This field is optional and resolves tags that already exist. The enum `MERGE` adds new values to existing keys or namespaces, while the enum `REPLACE_EXISTING` overwrites the existing definition.
+  - `data`: The nested map of tags to import. The key is by namespace name, then tag key name, whose value is the list of tag value names. The structure is as follows: `{ "namespaceName": { "tagKeyName": [ "tagValueName1", "tagValueName2" ] } }`
+
+- View an example JSON payload.
+
+```
+{
+  "duplicateResolutionStrategy": "MERGE",
+  "data": {
+    "Environment": {
+      "Region": [ "us-east-1", "us-west-2" ],
+      "Tier": [ "gold", "silver" ]
+    },
+    "Compliance": {
+      "Standard": [ "pci", "hipaa" ]
+    }
+  }
+}
+```
+
+A successful response returns code 200 with an empty response body. For example:
+
+```
+HTTP/1.1 200 OK
+(empty response body)
+```
+
+A partial or failed import returns the following error response:
+
+```
+HTTP/1.1 400 Bad Request
+
+{
+  "Environment": {
+    "Region": {
+      "errors": [
+        { "id": "invalid.tag.value.name", "params": [ "us east 1" ] }
+      ]
+    }
+  }
+}
+```
+
+To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Validating Bulk Imported Tags
+
+Zscaler recommends validating the tag namespaces, keys, and values before calling on a bulk import request to detect problems.
+
+To validate the bulk imported tags without persisting any changes:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/tags/import/validate?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/tags/import/validate?microtenantId=144118148382065713`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `duplicateResolutionStrategy`: This field is optional and resolves tags that already exist. The enum `MERGE` adds new values to existing keys or namespaces, while the enum `REPLACE_EXISTING` overwrites the existing definition.
+  - `data`: The nested map of tags to import. The key is by namespace name, then tag key name, whose value is the list of tag value names. The structure is as follows: `{ "namespaceName": { "tagKeyName": [ "tagValueName1", "tagValueName2" ] } }`
+
+- View an example JSON payload.
+
+```
+{
+  "duplicateResolutionStrategy": "MERGE",
+  "data": {
+    "Environment": {
+      "Region": [ "us-east-1", "us-west-2" ]
+    }
+  }
+}
+```
+
+A successful response returns code 204. For example:
+
+```
+HTTP/1.1 204 No Content
+(empty response body)
+```
+
+A failed validation returns code 400 with a nested error object identifying the offending namespace, key, or value. For example:
+
+```
+HTTP/1.1 400 Bad Request
+
+{
+  "Environment": {
+    "errors": [
+      { "id": "invalid.tag.namespace.name", "params": [ "Environment!" ] }
+    ]
+  }
+}
+```
+
+To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Enabling or Disabling a Predefined Namespace
+
+To enable or disable a predefined namespace for the specified customer:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/status?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400/status??microtenantId=144118148382065713`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `namespaceId`: The unique identifier of the namespace. To learn more, see Getting Details of All Namespaces.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the `enabled` field to specify if the predefined namespace is enabled (`true`) or disabled (`false`).
+
+- View the JSON payload.
+
+```
+{
+  "enabled": false
+}
+```
+
+A successful response returns code 204. For example:
+
+```
+HTTP/1.1 204 No Content
+(empty response body)
+```
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-vpn-credentials-ipsec-tunnels-using-api","lastmod":"2026-01-06T23:49Z","nid":"1400436"} -->
-## Configuring VPN Credentials for IPSec Tunnels Using API
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api","lastmod":"2026-08-04T13:28Z","nid":"1541752"} -->
+## Configuring Tags and Tag Groups with Policy Rules Using API
 
-- Source: https://help.zscaler.com/legacy-apis/configuring-vpn-credentials-ipsec-tunnels-using-api
+- Source: https://help.zscaler.com/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api
 - Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Working with APIs > Configuring VPN Credentials for IPSec Tunnels Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information on VPN Credentials use cases applicable to Zscaler Internet Access (ZIA) cloud service API.
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tags and Tag Groups with Policy Rules Using API
+- Last modified: 2026-08-04T13:28Z
+- Summary: Information on managing tags and tag groups for policy rules applicable to the Zscaler Private Access (ZPA) cloud service API.
 
-The Zscaler service inspects internal traffic within an organization's corporate network using ZIA Public Service Edges or secure web gateways. Traffic forwarding can be enabled through IPSec VPN tunneling, and requires that the proper user credentials are configured. To learn more, see [About VPN Credentials](https://help.zscaler.com/zia/about-vpn-credentials). For detailed information about the API endpoints used for configuring and managing VPN credentials, see [API Reference](https://help.zscaler.com/zia/traffic-forwarding-0).
-
-## Getting VPN Credentials for a Location
-
-To retrieve the VPN credentials for a location, send a GET request to `/vpnCredentials`. You can use the following parameters within the request:
-
-- `locationId`: Specify a location ID number, the request returns credentials for a specific location.
-- `search`: Specify a string, the request returns any VPN credentials with matching `commonName`, `fqdn`, `ipAddress`, `comments`, or `locationName` fields, including partial matches.
-- `type`: Specify a string, the request gets the credentials with the specified type.
-- `includeOnlyWithoutLocation`: When the Boolean for this parameter is set to `true`, the request gets VPN credentials that are not associated with any location.
-- `page`: Specify a page offset.
-- `pageSize`: Specify the page length, up to a limit of 1000.
-
-Zscaler recommends changing the `pageSize` query parameter to more than 100, or iterating through all results using the `page` query parameter, until the last page has less than 100 results.
-
-If you send a GET request to `/vpnCredentials`, the pre-shared key (PSK) is not included in the response for security reasons.
-
-## Getting Credentials for a Specific VPN ID
-
-To get the credentials for a specific VPN ID, send a GET request to `/vpnCredentials/{vpnId}`.
-
-## Updating Credentials for a Specific VPN ID
-
-To update the credentials for a specific VPN ID:
-
-1. Send a PUT request to `/vpnCredentials/{vpnId}`, and specify the following VPN parameters in the Body:
-  - `id`: Specify the VPN ID as an integer (e.g., "`72532`").
-  - `type`: Specify the authentication type as a string (e.g., "`UFQDN`").
-  - `fqdn`: This parameter is only required if you are using the `UFQDN` or `XAUTH` authentication type. Specify the fully qualified domain name as a string (e.g., "`testvpn.antest.com`").
-
-You cannot update the `fqdn` by sending a PUT request to `/vpnCredentials/{vpnId}`. If the `fqdn` is modified in the request, the change is ignored.
-
-- `comments`: Add comments as a string (e.g., "`created automatically`").
-- `pre-shared key`: This key is only required if you are using the `UFQDN` or `IP` authentication type (e.g., "`newPassword123!`").
-
-1. [Activate the changes to your configuration.](https://help.zscaler.com/zia/api-getting-started#ActivateChangestoYourConfiguration)
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-zpa-private-service-edge-groups-using-api","lastmod":"2026-01-06T23:49Z","nid":"1485016"} -->
-## Configuring ZPA Private Service Edge Groups Using API
-
-- Source: https://help.zscaler.com/legacy-apis/configuring-zpa-private-service-edge-groups-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring ZPA Private Service Edge Groups Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information on ZPA Private Service Edge groups applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information for managing Zscaler Private Access (ZPA) [Private Service Edge groups](https://help.zscaler.com/zpa/about-zpa-service-edge-groups) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+This article provides information for managing ZPA tags and tag groups for poicy rules using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
 
 ## Prerequisite API Calls
 
-Before creating a Private Service Edge Group, you must get the following required details:
+Before you manage tags and tag groups within policy rules, you must get the following required details:
 
-- All version profiles. To learn more, see [Obtaining Version Profile Details Using API](https://help.zscaler.com/zpa/obtaining-version-profile-details-using-api).
-- All trusted networks. To learn more, see [Obtaining Trusted Network Details Using API](https://help.zscaler.com/zpa/obtaining-trusted-network-details-using-api).
+- Tag key IDs and tag value IDs. To learn more, see [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api).
+- Tag group IDs. To learn more, see [Configuring Tag Groups Using API](https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api).
+- Policy set ID. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#Prereq).
 
-## Creating a Private Service Edge Group
+## Adding a Policy Rule with Tags and Tag Groups
 
-To create a Private Service Edge Group:
+To add a policy rule with tags and tag groups for the specified customer:
 
-1. Send a `POST` request to the following endpoint in the Private Service Edge Group Controller: `/mgmtconfig/v1/admin/customers/{customerId}/serviceEdgeGroup`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/217246660302995456/serviceEdgeGroup`.
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/policySet/{policySetId}/rule?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
 3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `name`: The name of the policy rule.
+  - `action`: The action of the rule for the policy type. The supported enum values are:
+    - `ALLOW`: Denotes the Allow Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).
+    - `DENY`: Denotes the Block Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).
+    - `INTERCEPT`: Denotes the Forward to ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `INTERCEPT_ACCESIBLE`: Denotes the Only Forward Allowed Applications action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `BYPASS`: Denotes the Bypass ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `RE_AUTH`: Denotes the action when [configuring a timeout policy](https://help.zscaler.com/zpa/configuring-timeout-policies).
+  - `conditions`: The set of conditions for the policy rule. Each set must have an operator and a list of operands. The entire set of conditions must be included for any add, update, or delete actions.
+  - `conditions[].operands[].objectType`: The policy criteria. The supported values are:
+    - `ENTITY_TAG_VAL`: The unique identifier of the tag value. To learn more, see [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api).
+    - `ENTITY_TAG_GRP`: The unique identifier of the tag group. To learn more, see [Configuring Tag Groups Using API](https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api).
+  - `conditions[].operands[].lhs`: The key for the object type.
+  - `conditions[].operands[].rhs`: The value for the given object type. It's value depends on the key.
+  - `operator`: The operation type. The supported values are `AND` or `OR`.
 
-- Content-Type: `application/json`
-- Authorization: `Bearer <access_token>`
-
-1. Use the following JSON payload to create a Private Service Edge Group and provide the following information about the Private Service Edge Group:
-
-- `name`: The name of the Private Service Edge Group.
-- `latitude`: The latitude of the Private Service Edge Group.
-- `longitude`: The longitude of the Private Service Edge Group.
-- `location`: The location of the Private Service Edge Group.
-- `upgradeDay`: The valid day (i.e., Sunday, Monday) for when the Private Service Edges in this group attempt to upgrade.
-- `upgradeTimeInSecs`: The integer in seconds (i..e, 66600) for how long the Private Service Edge Groups attempt to upgrade.
-
-- View the JSON payload
-
-```
-{
-   "name": "<Service Edge Group name>",
-   "description": "<Service Edge Group description>",
-   "upgradeDay": "<upgradeDay>",
-   "upgradeTimeInSecs": "<upgradeTimeInSecs>",
-   "latitude": "<latitude>",
-   "longitude": "<longitude>",
-   "location": "<location>",
-"graceDistanceEnabled": "false",
-"graceDistanceValue": 0,
-"graceDistanceValueUnit": "MILES",
-"altCloud": "<Sample Alt Cloud name>"
-}
-```
-
-- View the sample JSON payload
+- View the JSON payload.
 
 ```
 {
-  "name": "Service Edge Group",
-  "description": "Service Edge Group in San Jose",
-  "upgradeDay": "SUNDAY",
-  "upgradeTimeInSecs": "66600",
-  "latitude": "37.3382082",
-  "longitude": "-121.8863286",
-  "location": "San Jose, CA, USA",
-"graceDistanceEnabled": "false",
-"graceDistanceValue": 0,
-"graceDistanceValueUnit": "MILES",
-"altCloud": "Sample Alt Cloud name"
+  "name": "<policy rule name>",
+  "description": "<policy rule description>",
+  "action": "<ALLOW or DENY>",
+  "conditions": [
+    {
+      "operator": "<AND or OR>",
+      "operands": [
+        {
+          "objectType": "<object type>",
+          "lhs": "<LHS value>",
+          "rhs": "<RHS value>"
+        },
+        {
+          "objectType": "<object type>",
+          "rhs": "<RHS value>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
-- View an example response
+- View an example JSON payload.
 
 ```
 {
-"enabled": true,
-"isPublic": false,
-"location": "48960 Usansolo, Biscay, Spain",
-"dnsQueryType": "IPV4_IPV6",
-"overrideVersionProfile": true,
-"name": "test sg7",
-"description": "test sg description",
-"trustedNetworks": [
-{
-"id": "217306507451043634"
-}
-],
-"upgradeDay": "SUNDAY",
-"upgradeTimeInSecs": "70200",
-"latitude": "43.2187353",
-"longitude": "-2.8190749",
-"versionProfileId": "0",
-"graceDistanceEnabled": "false",
-"altCloud": "Sample Alt Cloud name"
+  "name": "tag-based-access",
+  "description": "Allow access based on tag value and tag group",
+  "action": "ALLOW",
+  "conditions": [
+    {
+      "operator": "AND",
+      "operands": [
+        {
+          "objectType": "ENTITY_TAG_VAL",
+          "lhs": "145260601092866401",
+          "rhs": "145260601092866402"
+        },
+        {
+          "objectType": "ENTITY_TAG_GRP",
+          "rhs": "145260601092866500"
+        }
+      ]
+    }
+  ]
 }
 ```
 
-A successful response returns code 201, meaning the Private Service Edge Group is created. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+- View an example response.
 
-You choose the Private Service Edge Group criteria you want to include in the JSON payload. Refer to the Adding Field Descriptions section for supported values.
+```
+{
+  "id": "145260601092866900",
+  "modifiedTime": "1705617600",
+  "creationTime": "1705617600",
+  "modifiedBy": "145260601092866482",
+  "name": "tag-based-access",
+  "action": "ALLOW",
+  "policySetId": "145256180497776773",
+  "conditions": [
+    {
+      "id": "145260601092866901",
+      "operator": "AND",
+      "operands": [
+        {
+          "id": "145260601092866902",
+          "objectType": "ENTITY_TAG_VAL",
+          "lhs": "145260601092866401",
+          "rhs": "145260601092866402",
+          "name": "us-east-1"
+        },
+        {
+          "id": "145260601092866903",
+          "objectType": "ENTITY_TAG_GRP",
+          "rhs": "145260601092866500",
+          "name": "Prod Access"
+        }
+      ]
+    }
+  ]
+}
+```
 
-## Adding Field Descriptions
+A successful response returns code 201. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-The following table includes descriptions of available fields you can use for the Private Service Edge Group use cases:
+## Updating a Policy Rule with Tags and Tag Groups
+
+To update a policy rule with tags and tag groups:
+
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policySet/{policySetId}/rule/{ruleId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/policySet/72057615512764474/rule/72057615512764645?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `policySetId`: The unique identifier of the global policy set. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#Prereq).
+  - `ruleId`: The unique identifier of the policy rule you want to update. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#Prereq).
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `name`: The name of the policy rule.
+  - `action`: The action of the rule for the policy type. The supported enum values are:
+    - `ALLOW`: Denotes the Allow Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).
+    - `DENY`: Denotes the Block Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).
+    - `INTERCEPT`: Denotes the Forward to ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `INTERCEPT_ACCESIBLE`: Denotes the Only Forward Allowed Applications action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `BYPASS`: Denotes the Bypass ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `RE_AUTH`: Denotes the action when [configuring a timeout policy](https://help.zscaler.com/zpa/configuring-timeout-policies).
+  - `conditions`: The set of conditions for the policy rule. Each set must have an operator and a list of operands. The entire set of conditions must be included for any add, update, or delete actions.
+  - `conditions[].operands[].objectType`: The policy criteria. The supported values are:
+    - `ENTITY_TAG_VAL`: The unique identifier of the tag value. To learn more, see [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api).
+    - `ENTITY_TAG_GRP`: The unique identifier of the tag group. To learn more, see [Configuring Tag Groups Using API](https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api).
+  - `conditions[].operands[].lhs`: The key for the object type.
+  - `conditions[].operands[].rhs`: The value for the given object type. It's value depends on the key.
+  - `operator`: The operation type. The supported values are `AND` or `OR`.
+
+- View the JSON payload.
+
+```
+{
+  "name": "<policy rule name>",
+  "description": "<policy rule description>",
+  "action": "<ALLOW or DENY>",
+  "conditions": [
+    {
+      "operator": "<AND or OR>",
+      "operands": [
+        {
+          "objectType": "<object type>",
+          "lhs": "<LHS value>",
+          "rhs": "<RHS value>"
+        },
+        {
+          "objectType": "<object type>",
+          "rhs": "<RHS value>"
+        }
+      ]
+    }
+  ]
+}
+```
+
+- View an example JSON payload.
+
+```
+{
+  "name": "tag-based-access",
+  "description": "Allow access based on tag value and tag group",
+  "action": "ALLOW",
+  "conditions": [
+    {
+      "operator": "AND",
+      "operands": [
+        {
+          "objectType": "ENTITY_TAG_VAL",
+          "lhs": "145260601092866401",
+          "rhs": "145260601092866402"
+        },
+        {
+          "objectType": "ENTITY_TAG_GRP",
+          "rhs": "145260601092866500"
+        }
+      ]
+    }
+  ]
+}
+```
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Field Descriptions
+
+The following table includes descriptions of available fields you can use for the tag and tag group policy rule use cases:
 
 | Field | Description | Required | Value |
 | --- | --- | --- | --- |
-| name | Name of the Private Service Edge Group | Yes | String |
-| description | Description of the Private Service Edge Group | No | String |
-| enabled | Whether this Private Service Edge Group is enabled or not | No | Default value: `true` Supported values: `true`, `false` |
-| latitude | Latitude for the Private Service Edge Group | Yes | Integer or decimal with values in the range of -90 to 90 |
-| longitude | Longitude for the Private Service Edge Group | Yes | Integer or decimal with values in the range of -180 to 180 |
-| location | Location for the Private Service Edge Group | Yes | String |
-| upgradeDay | Private Service Edges in this group attempt to update to a newer version of the software during this specified day | No | Default value: `SUNDAY` List of valid days (i.e., Sunday, Monday) |
-| upgradeTimeInSecs | Private Service Edges in this group attempt to update to a newer version of the software during this specified time | No | Default value: 66600 Integer in seconds (i..e, 66600). The integer must be greater than or equal to 0 and less than 86400, in 15 minute intervals |
-| isPublic | Enable or disable public access for the Private Service Edge Group. | No | Default value: `FALSE` Supported values: `DEFAULT`; `TRUE`; `FALSE` |
-| trustedNetworks | Trusted networks for this Private Service Edge Group. | No | List of trusted network objects |
-| overrideVersionProfile | Whether the default version profile of the App Connector Group is applied or overridden | No | Default: `true` Supported values: `true`, `false` |
-| versionProfileId | ID of the version profile. To learn more, see [Obtaining Version Profile Details Using API](https://help.zscaler.com/zpa/obtaining-version-profile-details-using-api). | Yes, if the value for `overrideVersionProfile` is set to true | Any long value in the version profile IDs |
-| MicrotenantId | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained in the [API Keys](https://help.zscaler.com/zpa/about-api-keys) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations are limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all Microtenants associated with the tenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api). | No | Integer |
-| useInDrMode | Whether or not the ZPA Private Service Edge group is designated for [disaster recovery](https://help.zscaler.com/zpa/understanding-disaster-recovery) | No | Default: `false` Supported values: `true`, `false` |
-| graceDistanceEnabled | If enabled, allows the ZPA Private Service Edge of the ZPA Private Service Edge Group within the specified distance to be prioritized over a closer ZPA Public Service Edge. To learn more, see [Configuring ZPA Private Service Edges](https://help.zscaler.com/zpa/configuring-service-edges#addgroup). | No | Default: `false` Supported values: `true`, `false` |
-| graceDistanceValue | Indicates the maximum distance in miles or kilometers to ZPA Private Service Edge groups that would override a ZPA Public Service Edge. The maximum limit for the distance is 25,000 miles, or 40,233.6 kilometers. | No | Float |
-| graceDistanceValueUnit | Indicates the grace distance unit of measure in miles or kilometers. This value is only required if `graceDistanceEnabled` is set to `true`. | No | Supported values: `MILES`; `KMS` |
-| altCloud | The alternative cloud domain that can override the default cloud name for the ZPA Private Service Edge Group it is assigned to | No | String |
+| name | The name of the policy rule. | Yes | String |
+| description | The description of the policy rule. | No | String |
+| action | The rule action. | Yes | String Supported values: `ALLOW`: Denotes the Allow Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).; `DENY`: Denotes the Block Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).; `INTERCEPT`: Denotes the Forward to ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).; `INTERCEPT_ACCESIBLE`: Denotes the Only Forward Allowed Applications action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).; `BYPASS`: Denotes the Bypass ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).; `RE_AUTH`: Denotes the action when [configuring a timeout policy](https://help.zscaler.com/zpa/configuring-timeout-policies). |
+| conditions | The set of conditions for the policy rule. Each set has an operator and a list of operands. | No | Array of operands |
+| conditions[].operands[].objectType | The policy criteria. | Yes (per operand) | Enum Supported values: `ENTITY_TAG_VAL`: The unique identifier of the tag value. To learn more, see [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api).; `ENTITY_TAG_GRP`: The unique identifier of the tag group. To learn more, see [Configuring Tag Groups Using API](https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api). |
+| conditions[].operands[].lhs | The key for the object type. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#lhsandrhsvalues). | Conditional | String (e.g., `"id"`) For `ENTITY_TAG_VAL`, provide the tag key ID. For example: `"operands": [ { "objectType": "ENTITY_TAG_VAL", "lhs": "145260601092866401", "rhs": "145260601092866402" },` |
+| conditions[].operands[].rhs | The value for the given object type. It's value depends on the key. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#lhsandrhsvalues). | Yes (per operand) | String For `ENTITY_TAG_VAL`, provide the tag value ID. For example: `"operands": [ { "objectType": "ENTITY_TAG_VAL", "lhs": "145260601092866401", "rhs": "145260601092866402" },`For `ENTITY_TAG_GRP`, provide the tag group ID. For example: `"operands": [ { "objectType": "ENTITY_TAG_VAL", "lhs": "145260601092866401", "rhs": "145260601092866402" }, { "objectType": "ENTITY_TAG_GRP", "rhs": "145260601092866500" } ]` |
+| operator | The operation type. |  | Supported values: `AND`: The AND logical operator.; `OR`: The OR logical operator. |
+<!-- /ZS-ARTICLE -->
 
-## Getting Details for All Private Service Edge Groups
+---
 
-To get details for all Private Service Edge Groups:
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tags-application-segments-using-api","lastmod":"2026-08-04T13:31Z","nid":"1541748"} -->
+## Configuring Tags for Application Segments Using API
 
-1. Send a `GET` request to the following endpoint in the Private Service Edge Group Controller: `/mgmtconfig/v1/admin/customers/{customerId}/serviceEdgeGroup`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/217246660302995456/serviceEdge`.
+- Source: https://help.zscaler.com/legacy-apis/configuring-tags-application-segments-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tags for Application Segments Using API
+- Last modified: 2026-08-04T13:31Z
+- Summary: Information on managing tags for application segments applicable to the Zscaler Private Access (ZPA) cloud service API.
 
-- View an example response
+This article provides information for managing Zscaler Private Access (ZPA) application segments with tags using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Prerequisite API Calls
+
+Before you manage tags within an application segment, you must get the following required details:
+
+- Details of the particular application segments you want to manage. To learn more, see [Configuring Application Segments Using API](https://help.zscaler.com/legacy-apis/configuring-application-segments-using-api).
+- Segment group IDs. To learn more, see [Configuring Segment Groups Using API](https://help.zscaler.com/zpa/configuring-segment-groups-using-api#getSegmentGroups).
+- Server Group IDs. To learn more, see [Configuring Server Groups Using API](https://help.zscaler.com/legacy-apis/configuring-server-groups-using-api).
+- Details of tags (including namespace, key, and value). To learn more, see:
+  - [Configuring Tag Namespaces Using API](https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api)
+  - [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
+
+## Adding an Application Segment with Tags
+
+To add an application segment with tags for the specified customer:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/application?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - The name of the application segment.
+  - The domains of the application.
+  - The TCP and UDP ports. You can provide multiple port ranges using the format in the JSON payload.
+  - The segment group and server group IDs.
+  - Tag namespace, key, and key-pair values. To learn more, see [Configuring Tag Namespaces Using API](https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api) and [Configuring Tag Key-Value Pairs Using API.](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
+
+- View the JSON payload.
 
 ```
 {
-  "totalPages": "17",
-  "list": [
+  "name": "<application segment name>",
+  "description": "<application segment description>",
+  "enabled": true,
+  "domainNames": [ "<domain name>" ],
+  "tcpPortRange": [ { "from": "443", "to": "443" } ],
+  "segmentGroupId": "<segment group ID>",
+  "serverGroups": [ { "id": "<server group ID>" } ],
+  "tags": [
     {
-      "id": "217246660303024722",
-      "modifiedTime": "1618444226",
-      "creationTime": "1607887129",
-      "modifiedBy": "72057594038006519",
-      "name": "1 mp pb group",
-      "enabled": true,
-      "isPublic": "FALSE",
-      "location": "120 Holger Way, San Jose, CA 95134, USA",
-      "upgradeTimeInSecs": "28800",
-      "upgradeDay": "MONDAY",
-      "latitude": "37.4181643",
-      "longitude": "-121.9531325",
-      "cityCountry": "San Jose, US",
-      "countryCode": "US",
-"altCloud": "Sample Alt Cloud",
-"graceDistanceEnabled": false,
-      "serviceEdges": [
-        {
-          "id": "217246660303024723",
-          "modifiedTime": "1607915744",
-          "creationTime": "1607887364",
-          "modifiedBy": "72057594037950342",
-          "name": "1 mp pb-1",
-          "fingerprint": "asbErAYZ7/mNUcQhRPd8XFMIRutWjMsWrfot1dDrOOY=",
-          "issuedCertId": "10591",
-          "enabled": true,
-          "listenIps": [
-            "192.168.255.2"
-          ],
-          "publishIps": [
-            "192.168.255.2"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303024723",
-            "modifiedTime": "1618419215",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.67.2-2-g1a8538e55-dirty",
-            "systemStartTime": "0",
-            "applicationStartTime": "1618248071",
-            "lastConnectTime": "1618417904046524",
-            "lastDisconnectTime": "1618419214878810",
-            "platform": "osx20",
-            "brokerId": "72057594037950451",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "192.168.255.1",
-            "publicIp": "192.168.255.1",
-            "loneWarrior": true,
-            "tunnelId": "m3JSAvHG72PIEWN18iXR",
-            "previousVersion": "21.26.0-91-g018c50e7f-dirty",
-            "lastUpgradedTime": "1617857786",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024725",
-          "modifiedTime": "1607918700",
-          "creationTime": "1607918700",
-          "modifiedBy": "3",
-          "name": "1 mp pb-2",
-          "fingerprint": "37As8jQglTtuEr5XXkb1MuMHXeYSLTG0+OLeJneupJE=",
-          "issuedCertId": "10593",
-          "enabled": true,
-          "privateBrokerVersion": {
-            "id": "217246660303024725",
-            "modifiedTime": "1607918775",
-            "creationTime": "1607918704",
-            "modifiedBy": "72057594037928167",
-            "expectedVersion": "20.40.2",
-            "currentVersion": "20.148.2-59-gb3abc04-asan",
-            "systemStartTime": "10790289",
-            "applicationStartTime": "1607918770",
-            "lastConnectTime": "1607918775548271",
-            "lastDisconnectTime": "1607918775572483",
-            "platform": "el7",
-            "platformDetail": "ESXi",
-            "brokerId": "72057594037937044",
-            "restartTimeInSec": "1607932800",
-            "upgradeStatus": "IN_PROGRESS",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "10.80.1.213",
-            "publicIp": "199.168.150.161",
-            "loneWarrior": true,
-            "tunnelId": "6ZFoRXycAivHanaOk3Ld",
-            "upgradeAttempt": "1",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024726",
-          "modifiedTime": "1607919146",
-          "creationTime": "1607919103",
-          "modifiedBy": "72057594037950342",
-          "name": "1 mp pb-3",
-          "fingerprint": "DvW3Bty5CmlRqI5n1pLGWCBRxZPIRMLu5GcRJn2sQpg=",
-          "issuedCertId": "10594",
-          "enabled": true,
-          "listenIps": [
-            "0.0.0.0"
-          ],
-          "publishIps": [
-            "broker1a.sjc5.prod.zpath.net"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303024726",
-            "modifiedTime": "1607920424",
-            "creationTime": "1607919107",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "20.148.2-60-gb16909d-asan",
-            "systemStartTime": "4551151",
-            "applicationStartTime": "1607920165",
-            "lastConnectTime": "1607920170963047",
-            "lastDisconnectTime": "1607920424100860",
-            "platform": "el7",
-            "platformDetail": "ESXi",
-            "brokerId": "72057594037937044",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "10.17.248.46",
-            "publicIp": "54.67.88.171",
-            "loneWarrior": true,
-            "tunnelId": "rrqb/ms0Obfoiknhk77j",
-            "previousVersion": "20.148.2-59-gb3abc04-asan",
-            "lastUpgradedTime": "1607920169",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024755",
-          "modifiedTime": "1611279015",
-          "creationTime": "1611279014",
-          "modifiedBy": "3",
-          "name": "1 mp pb-4",
-          "fingerprint": "jFgW0FtrX3BT5bQWRavNViwLLn1GzDxqKT9G3AAFfC0=",
-          "issuedCertId": "10630",
-          "enabled": true,
-          "privateBrokerVersion": {
-            "id": "217246660303024755",
-            "modifiedTime": "1611279174",
-            "creationTime": "1611279019",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.20.1-1-gb1bbb0d",
-            "systemStartTime": "40211",
-            "applicationStartTime": "1611279165",
-            "lastConnectTime": "1611279172008161",
-            "lastDisconnectTime": "1611279173985030",
-            "platform": "el7",
-            "brokerId": "72057594037937044",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "172.17.0.2",
-            "publicIp": "207.47.45.254",
-            "loneWarrior": true,
-            "tunnelId": "mPT1qthUYrTHFtxy2SYV",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024756",
-          "modifiedTime": "1611279972",
-          "creationTime": "1611279972",
-          "modifiedBy": "3",
-          "name": "1 mp pb-5",
-          "fingerprint": "C3jWKc1P340Gl9OPFCUiRUHMg5+0i6iQf0LYoT0fQ1w=",
-          "issuedCertId": "10631",
-          "enabled": true,
-          "privateBrokerVersion": {
-            "id": "217246660303024756",
-            "modifiedTime": "1611280009",
-            "creationTime": "1611279977",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.20.1-1-gb1bbb0d",
-            "systemStartTime": "41040",
-            "applicationStartTime": "1611279993",
-            "lastConnectTime": "1611280000504792",
-            "lastDisconnectTime": "1611280009428607",
-            "platform": "el7",
-            "brokerId": "72057594037937044",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "172.17.0.2",
-            "publicIp": "207.47.45.254",
-            "loneWarrior": true,
-            "tunnelId": "rjpt0rGVrXlVn/QYZVIn",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303025050",
-          "modifiedTime": "1621885476",
-          "creationTime": "1621885476",
-          "modifiedBy": "3",
-          "name": "1 mp pb-6",
-          "fingerprint": "mTjGKNLwROP/GAEiNSnNeZYU0bDdjxT5CFSShPVld+c=",
-          "issuedCertId": "10758",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        }
-      ]
-    },
-    {
-      "id": "217246660303025237",
-      "creationTime": "1627602372",
-      "modifiedBy": "72057594038008981",
-      "name": "example-pb-service-edge-gp",
-      "enabled": true,
-      "description": "pbroker service-edge group",
-      "isPublic": "FALSE",
-      "location": "British Columbia, Canada",
-      "upgradeTimeInSecs": "25200",
-      "upgradeDay": "MONDAY",
-      "latitude": "53.7266683",
-      "longitude": "-127.6476206",
-      "cityCountry": "Terrace, CA",
-"altCloud": "Sample Alt Cloud",
-      "countryCode": "CA",
-"graceDistanceEnabled": false,
-      "serviceEdges": [
-        {
-          "id": "217246660303025238",
-          "modifiedTime": "1627609436",
-          "creationTime": "1627602563",
-          "modifiedBy": "72057594038008981",
-          "name": "example-pb-provisioning-key-1",
-          "fingerprint": "y7wB7e9s0K0/s7Z0fisrThqXmM4iP0MaS6qRDZ/m8t8=",
-          "issuedCertId": "10817",
-          "enabled": true,
-          "listenIps": [
-            "192.168.97.1"
-          ],
-          "publishIps": [
-            "192.168.97.1"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303025238",
-            "modifiedTime": "1627669261",
-            "creationTime": "1627602572",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.172.1-1-g16b0894c0",
-            "systemStartTime": "0",
-            "applicationStartTime": "1627668835",
-            "lastConnectTime": "1627668837629824",
-            "lastDisconnectTime": "1627669260880099",
-            "platform": "osx20",
-            "brokerId": "72057594038008982",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "192.168.96.1",
-            "publicIp": "192.168.96.1",
-            "loneWarrior": true,
-            "tunnelId": "SCq71dN8T17K8sj4HitJ",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303025237"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6270"
-        },
-        {
-          "id": "217246660303025239",
-          "modifiedTime": "1627663848",
-          "creationTime": "1627663847",
-          "modifiedBy": "3",
-          "name": "example-pb-provisioning-key-2",
-          "fingerprint": "an0gBzUTPJJ69FEKDIvRSuP2//IlsCk4Skjd3Z5/xg8=",
-          "issuedCertId": "10818",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6270"
-        },
-        {
-          "id": "217246660303025271",
-          "modifiedTime": "1628031064",
-          "creationTime": "1628030993",
-          "modifiedBy": "72057594038008981",
-          "name": "example-pb-provisioning-key-3",
-          "fingerprint": "p15uKYw17cA4dOfxYaKf1Lm7LtfUS7M2y604/Ew8v4E=",
-          "issuedCertId": "10825",
-          "enabled": true,
-          "listenIps": [
-            "192.168.97.1"
-          ],
-          "publishIps": [
-            "192.168.97.1"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303025271",
-            "modifiedTime": "1628206738",
-            "creationTime": "1628031005",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.172.1-703-g4f9451e18",
-            "systemStartTime": "0",
-            "applicationStartTime": "1628205678",
-            "lastConnectTime": "1628205680713282",
-            "lastDisconnectTime": "1628206737965749",
-            "platform": "osx20",
-            "brokerId": "72057594038008982",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "192.168.96.1",
-            "publicIp": "192.168.96.1",
-            "loneWarrior": true,
-            "tunnelId": "l+UcOdrW/g106BD6v/qe",
-            "previousVersion": "21.172.1-704-g145e4251c-dirty",
-            "lastUpgradedTime": "1628190738",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303025237"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6270"
-        }
-      ]
+      "namespace": { "id": "<namespace ID>" },
+      "tagKey":    { "id": "<key ID>" },
+      "tagValue":  { "id": "<value ID>" },
+      "origin": "CUSTOM"
     }
   ]
 }
 ```
 
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/serviceEdgeGroup?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/serviceEdge?page=1&pagesize=2.`
-
-- View an example response
+- View an example JSON payload.
 
 ```
 {
-  "totalPages": "19",
-  "list": [
+  "name": "app-seg-tagged.com",
+  "description": "Application segment with tags",
+  "enabled": true,
+  "domainNames": [ "app-seg-tagged.com" ],
+  "tcpPortRange": [ { "from": "443", "to": "443" } ],
+  "segmentGroupId": "145260601092866600",
+  "serverGroups": [ { "id": "145260601092866700" } ],
+  "tags": [
     {
-      "id": "217246660303024722",
-      "modifiedTime": "1618444226",
-      "creationTime": "1607887129",
-      "modifiedBy": "72057594038006519",
-      "name": "Test Service Edge Group",
-      "enabled": true,
-      "versionProfileId": "0",
-      "overrideVersionProfile": false,
-      "versionProfileName": "default",
-      "versionProfileVisibilityScope": "ALL",
-      "upgradeTimeInSecs": "28800",
-      "upgradeDay": "MONDAY",
-      "isPublic": "FALSE",
-      "location": "120 Holger Way, San Jose, CA 95134, USA",
-      "latitude": "37.4181643",
-      "longitude": "-121.9531325",
-      "cityCountry": "San Jose, US",
-"altCloud": "Sample Alt Cloud",
-      "countryCode": "US",
-"graceDistanceEnabled": false,
-      "serviceEdges": [
-        {
-          "id": "217246660303024723",
-          "modifiedTime": "1607915744",
-          "creationTime": "1607887364",
-          "modifiedBy": "72057594037950342",
-          "name": "Test Service Edge Group",
-          "fingerprint": "asbErAYZ7/mNUcQhRPd8XFMIRutWjMsWrfot1dDrOOY=",
-          "issuedCertId": "10591",
-          "enabled": true,
-          "listenIps": [
-            "192.168.255.2"
-          ],
-          "publishIps": [
-            "191.144.215.2"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303024723",
-            "modifiedTime": "1618419215",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.67.2-2-g1a8538e55-dirty",
-            "systemStartTime": "0",
-            "applicationStartTime": "1618248071",
-            "lastConnectTime": "1618417904046524",
-            "lastDisconnectTime": "1618419214878810",
-            "platform": "osx20",
-            "platformDetail": "ESXi",
-            "brokerId": "72057594037950451",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "192.168.255.1",
-            "publicIp": "192.168.255.1",
-            "loneWarrior": true,
-            "tunnelId": "m3JSAvHG72PIEWN18iXR",
-            "previousVersion": "21.26.0-91-g018c50e7f-dirty",
-            "lastUpgradedTime": "1617857786",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024725",
-          "modifiedTime": "1607918700",
-          "creationTime": "1607918700",
-          "modifiedBy": "3",
-          "name": "Test Service Edge Group-2",
-          "fingerprint": "37As8jQglTtuEr5XXkb1MuMHXeYSLTG0+OLeJneupJE=",
-          "issuedCertId": "10593",
-          "enabled": true,
-          "privateBrokerVersion": {
-            "id": "217246660303024725",
-            "modifiedTime": "1607918775",
-            "creationTime": "1607918704",
-            "modifiedBy": "72057594037928167",
-            "expectedVersion": "20.40.2",
-            "currentVersion": "20.148.2-59-gb3abc04-asan",
-            "systemStartTime": "10790289",
-            "applicationStartTime": "1607918770",
-            "lastConnectTime": "1607918775548271",
-            "lastDisconnectTime": "1607918775572483",
-            "platform": "el7",
-            "brokerId": "72057594037937044",
-            "restartTimeInSec": "1607932800",
-            "upgradeStatus": "IN_PROGRESS",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "10.80.1.213",
-            "publicIp": "199.168.150.161",
-            "loneWarrior": true,
-            "tunnelId": "6ZFoRXycAivHanaOk3Ld",
-            "upgradeAttempt": "1",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024726",
-          "modifiedTime": "1607919146",
-          "creationTime": "1607919103",
-          "modifiedBy": "72057594037950342",
-          "name": "Test Service Edge Group-3",
-          "fingerprint": "DvW3Bty5CmlRqI5n1pLGWCBRxZPIRMLu5GcRJn2sQpg=",
-          "issuedCertId": "10594",
-          "enabled": true,
-          "listenIps": [
-            "0.0.0.0"
-          ],
-          "publishIps": [
-            "broker1a.sjc5.test.net"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303024726",
-            "modifiedTime": "1607920424",
-            "creationTime": "1607919107",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "20.148.2-60-gb16909d-asan",
-            "systemStartTime": "4551151",
-            "applicationStartTime": "1607920165",
-            "lastConnectTime": "1607920170963047",
-            "lastDisconnectTime": "1607920424100860",
-            "platform": "el7",
-            "platformDetail": "ESXi",
-            "brokerId": "72057594037937044",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "10.17.248.46",
-            "publicIp": "54.67.88.171",
-            "loneWarrior": true,
-            "tunnelId": "rrqb/ms0Obfoiknhk77j",
-            "previousVersion": "20.148.2-59-gb3abc04-asan",
-            "lastUpgradedTime": "1607920169",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024755",
-          "modifiedTime": "1611279015",
-          "creationTime": "1611279014",
-          "modifiedBy": "3",
-          "name": "Test Service Edge Group-4",
-          "fingerprint": "jFgW0FtrX3BT5bQWRavNViwLLn1GzDxqKT9G3AAFfC0=",
-          "issuedCertId": "10630",
-          "enabled": true,
-          "privateBrokerVersion": {
-            "id": "217246660303024755",
-            "modifiedTime": "1611279174",
-            "creationTime": "1611279019",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.20.1-1-gb1bbb0d",
-            "systemStartTime": "40211",
-            "applicationStartTime": "1611279165",
-            "lastConnectTime": "1611279172008161",
-            "lastDisconnectTime": "1611279173985030",
-            "platform": "el7",
-            "brokerId": "72057594037937044",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "172.17.0.2",
-            "publicIp": "207.47.45.254",
-            "loneWarrior": true,
-            "tunnelId": "mPT1qthUYrTHFtxy2SYV",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024756",
-          "modifiedTime": "1611279972",
-          "creationTime": "1611279972",
-          "modifiedBy": "3",
-          "name": "Test Service Edge Group-5",
-          "fingerprint": "C3jWKc1P340Gl9OPFCUiRUHMg5+0i6iQf0LYoT0fQ1w=",
-          "issuedCertId": "10631",
-          "enabled": true,
-          "privateBrokerVersion": {
-            "id": "217246660303024756",
-            "modifiedTime": "1611280009",
-            "creationTime": "1611279977",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.20.1-1-gb1bbb0d",
-            "systemStartTime": "41040",
-            "applicationStartTime": "1611279993",
-            "lastConnectTime": "1611280000504792",
-            "lastDisconnectTime": "1611280009428607",
-            "platform": "el7",
-            "brokerId": "72057594037937044",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "172.17.0.2",
-            "publicIp": "222.41.62.224",
-            "loneWarrior": true,
-            "tunnelId": "rjpt0rGVrXlVn/QYZVIn",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303025050",
-          "modifiedTime": "1621885476",
-          "creationTime": "1621885476",
-          "modifiedBy": "3",
-          "name": "Test Service Edge Group-6",
-          "fingerprint": "mTjGKNLwROP/GAEiNSnNeZYU0bDdjxT5CFSShPVld+c=",
-          "issuedCertId": "10758",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303025436",
-          "modifiedTime": "1630980984",
-          "creationTime": "1630980984",
-          "modifiedBy": "3",
-          "name": "Test Service Edge Group-7",
-          "fingerprint": "6vr06ZYlGlmJQUv2YojI8bqlBoRvdckip06bJoaMyqA=",
-          "issuedCertId": "10891",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        }
-      ]
-    },
-    {
-      "id": "217246660303025237",
-      "creationTime": "1627602372",
-      "modifiedBy": "72057594038008981",
-      "name": "Test Service Edge Group-8",
-      "enabled": true,
-      "description": "pbroker service-edge group",
-      "versionProfileId": "0",
-      "overrideVersionProfile": false,
-      "versionProfileName": "default",
-      "versionProfileVisibilityScope": "ALL",
-      "upgradeTimeInSecs": "25200",
-      "upgradeDay": "MONDAY",
-      "isPublic": "FALSE",
-      "location": "British Columbia, Canada",
-      "latitude": "53.7266683",
-      "longitude": "-127.6476206",
-      "cityCountry": "Terrace, CA",
-      "countryCode": "CA",
-"altCloud": "Sample Alt Cloud",
-"graceDistanceEnabled": false,
-      "serviceEdges": [
-        {
-          "id": "217246660303025271",
-          "modifiedTime": "1628031064",
-          "creationTime": "1628030993",
-          "modifiedBy": "72057594038008981",
-          "name": "Test-provisioning-key-3",
-          "fingerprint": "p15uKYw17cA4dOfxYaKf1Lm7LtfUS7M2y604/Ew8v4E=",
-          "issuedCertId": "10825",
-          "enabled": true,
-          "listenIps": [
-            "192.168.97.1"
-          ],
-          "publishIps": [
-            "112.124.97.5"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303025271",
-            "modifiedTime": "1628206738",
-            "creationTime": "1628031005",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.172.1-703-g4f9451e18",
-            "systemStartTime": "0",
-            "applicationStartTime": "1628205678",
-            "lastConnectTime": "1628205680713282",
-            "lastDisconnectTime": "1628206737965749",
-            "platform": "osx20",
-            "brokerId": "72057594038008982",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "192.168.96.1",
-            "publicIp": "196.158.92.1",
-            "loneWarrior": true,
-            "tunnelId": "l+UcOdrW/g106BD6v/qe",
-            "previousVersion": "21.172.1-704-g145e4251c-dirty",
-            "lastUpgradedTime": "1628190738",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303025237"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6270"
-        },
-        {
-          "id": "217246660303025434",
-          "modifiedTime": "1630626344",
-          "creationTime": "1630626286",
-          "modifiedBy": "72057594038041059",
-          "name": "Test-provisioning-key-4",
-          "fingerprint": "0gPXH0n/6PZv0D8aIg4qFo6sGf1T5hCx8ZyYazcflm0=",
-          "issuedCertId": "10890",
-          "enabled": true,
-          "listenIps": [
-            "10.80.1.75"
-          ],
-          "publishIps": [
-            "10.80.1.75"
-          ],
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6270"
-        },
-        {
-          "id": "217246660303025508",
-          "modifiedTime": "1633734936",
-          "creationTime": "1633734936",
-          "modifiedBy": "3",
-          "name": "Testp-provisioning-key-5",
-          "fingerprint": "8JUNBgu7051dUWuU8veNclocUBOdIo1d1n+kx79ws/Y=",
-          "issuedCertId": "10925",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6270"
-        },
-        {
-          "id": "217246660303025238",
-          "modifiedTime": "1627609436",
-          "creationTime": "1627602563",
-          "modifiedBy": "72057594038008981",
-          "name": "Test-provisioning-key-1",
-          "fingerprint": "y7wB7e9s0K0/s7Z0fisrThqXmM4iP0MaS6qRDZ/m8t8=",
-          "issuedCertId": "10817",
-          "enabled": true,
-          "listenIps": [
-            "192.168.97.1"
-          ],
-          "publishIps": [
-            "192.168.97.1"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303025238",
-            "modifiedTime": "1627669261",
-            "creationTime": "1627602572",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.172.1-1-g16b0894c0",
-            "systemStartTime": "0",
-            "applicationStartTime": "1627668835",
-            "lastConnectTime": "1627668837629824",
-            "lastDisconnectTime": "1627669260880099",
-            "platform": "osx20",
-            "brokerId": "72057594038008982",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "192.168.96.1",
-            "publicIp": "192.168.96.1",
-            "loneWarrior": true,
-            "tunnelId": "SCq71dN8T17K8sj4HitJ",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303025237"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6270"
-        },
-        {
-          "id": "217246660303025239",
-          "modifiedTime": "1627663848",
-          "creationTime": "1627663847",
-          "modifiedBy": "3",
-          "name": "Test-provisioning-key-2",
-          "fingerprint": "an0gBzUTPJJ69FEKDIvRSuP2//IlsCk4Skjd3Z5/xg8=",
-          "issuedCertId": "10818",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6270"
-        }
-      ]
+      "namespace": { "id": "145260601092866400" },
+      "tagKey":    { "id": "145260601092866401" },
+      "tagValue":  { "id": "145260601092866402" },
+      "origin": "CUSTOM"
     }
   ]
 }
 ```
 
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports a search option to search by features and fields. To search by features and fields:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/serviceEdgeGroup&search={searchString}`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `enabled%20EQ%20true` is supported for the **Enabled**filter, using the **Equals**(`EQ`) operator, for the filter value `true`.
-
-For example: `/mgmtconfig/v1/admin/customers/73186051597795328/serviceEdgeGroup&search=enabled%20EQ%20true`.
-
-- View an example response
+- View an example response.
 
 ```
 {
-  "totalPages": "9",
-  "totalCount": "9",
-  "list": [
+  "id": "145260601092866801",
+  "modifiedTime": "1705617500",
+  "creationTime": "1705617500",
+  "modifiedBy": "145260601092866482",
+  "name": "app-seg-tagged.com",
+  "enabled": true,
+  "domainNames": [ "app-seg-tagged.com" ],
+  "tags": [
     {
-      "id": "72057594038043580",
-      "modifiedTime": "1663345500",
-      "creationTime": "1626565185",
-      "modifiedBy": "72057594038078999",
-      "name": "example-serviceedge-group",
-      "enabled": true,
-      "versionProfileId": "0",
-      "overrideVersionProfile": false,
-      "versionProfileName": "default",
-      "versionProfileVisibilityScope": "ALL",
-      "upgradeTimeInSecs": "25200",
-      "upgradeDay": "MONDAY",
-      "isPublic": "FALSE",
-      "location": "San Jose, CA, USA",
-      "latitude": "37.3382082",
-      "longitude": "-121.8863286",
-      "cityCountry": "San Jose, US",
-      "countryCode": "US",
-"altCloud": "Sample Alt Cloud",
-"graceDistanceEnabled": false,
-      "useInDrMode": false,
-      "microtenantName": "Default",
-      "serviceEdges": [
-        {
-          "id": "72057594038079110",
-          "modifiedTime": "1668204817",
-          "creationTime": "1652812168",
-          "modifiedBy": "72057594038619644",
-          "name": "dsfsd-1652812168584",
-          "description": "test",
-          "fingerprint": "Test_128",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        },
-        {
-          "id": "72057594038079111",
-          "creationTime": "1652813096",
-          "modifiedBy": "3",
-          "name": "dsfsd-1652813096106",
-          "fingerprint": "Test_129",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        },
-        {
-          "id": "72057594038079622",
-          "creationTime": "1653054146",
-          "modifiedBy": "3",
-          "name": "dsfsd-1653054146462",
-          "fingerprint": "Test_130",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        },
-        {
-          "id": "72057594038079623",
-          "creationTime": "1653054380",
-          "modifiedBy": "3",
-          "name": "dsfsd-1653054380848",
-          "fingerprint": "Test_131",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        },
-        {
-          "id": "72057594038603657",
-          "creationTime": "1655123985",
-          "modifiedBy": "3",
-          "name": "dsfsd-1655123985977",
-          "fingerprint": "Test_199",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        },
-        {
-          "id": "72057594038603664",
-          "creationTime": "1655128698",
-          "modifiedBy": "3",
-          "name": "dsfsd-1655128694574",
-          "fingerprint": "Test_202",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        },
-        {
-          "id": "72057594038603668",
-          "creationTime": "1655129491",
-          "modifiedBy": "3",
-          "name": "dsfsd-1655129488391",
-          "fingerprint": "Test_203",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        },
-        {
-          "id": "72057594038603944",
-          "creationTime": "1655275522",
-          "modifiedBy": "3",
-          "name": "dsfsd-1655275522756",
-          "fingerprint": "Test_204",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        },
-        {
-          "id": "72057594038603945",
-          "creationTime": "1655275551",
-          "modifiedBy": "3",
-          "name": "dsfsd-1655275551449",
-          "fingerprint": "Test_205",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        },
-        {
-          "id": "72057594038603946",
-          "modifiedTime": "1655282990",
-          "creationTime": "1655276221",
-          "modifiedBy": "3",
-          "name": "dsfsd-1655276221504",
-          "fingerprint": "Test_206",
-          "issuedCertId": "28362",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "22603"
-        }
-      ]
+      "namespace": { "id": "145260601092866400", "name": "Environment" },
+      "tagKey":    { "id": "145260601092866401", "name": "Region" },
+      "tagValue":  { "id": "145260601092866402", "name": "us-east-1" },
+      "origin": "CUSTOM"
     }
   ]
 }
 ```
 
-If you use the ZPA API PortaI or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `enabled%20EQ%20true` is `enabled EQ true`.
+A successful response returns code 201. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+## Updating Tags for an Application Segment
 
-## Getting Details of a Particular Private Service Edge Group
+To update the tags for an application segment:
 
-To get details for a particular Private Service Edge Group:
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application/72057615512764474`.
+3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - The name of the application segment.
+  - The domains of the application.
+  - The TCP and UDP ports. You can provide multiple port ranges using the format in the JSON payload.
+  - The segment group and server group IDs.
+  - Tag namespace, key, and key-pair values. To learn more, see [Configuring Tag Namespaces Using API](https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api) and [Configuring Tag Key-Value Pairs Using API.](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
 
-1. Send a `GET` request to the following endpoint in the Private Service Edge Group Controller: `/mgmtconfig/v1/admin/customers/{customerId}/serviceEdgeGroup/{serviceEdgeGroupId}`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `serviceEdgeGroupId`: The unique identifier of the Private Service Edge Group.
-
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/serviceEdge/217246660303024722`.
-
-- View an example response
+- View the JSON payload.
 
 ```
 {
-  "totalPages": "33",
-  "list": [
+  "name": "<application segment name>",
+  "enabled": true,
+  "domainNames": [ "<domain>" ],
+  "tcpPortRange": [ { "from": "443", "to": "443" } ],
+  "segmentGroupId": "<segment group ID>",
+  "serverGroups": [ { "id": "<server group ID>" } ],
+  "tags": [
     {
-      "id": "217246660303024722",
-      "modifiedTime": "1618444226",
-      "creationTime": "1607887129",
-      "modifiedBy": "72057594038006519",
-      "name": "1 mp pb group",
-      "enabled": true,
-      "isPublic": "FALSE",
-      "location": "111 Example Way, San Jose, CA 95134, USA",
-      "upgradeTimeInSecs": "28800",
-      "upgradeDay": "MONDAY",
-      "latitude": "37.4181643",
-      "longitude": "-121.9531325",
-      "cityCountry": "San Jose, US",
-"altCloud": "Sample Alt Cloud",
-      "countryCode": "US",
-"graceDistanceEnabled": false,
-      "serviceEdges": [
-        {
-          "id": "217246660303024723",
-          "modifiedTime": "1607915744",
-          "creationTime": "1607887364",
-          "modifiedBy": "72057594037950342",
-          "name": "1 mp pb-1",
-          "fingerprint": "asbErAYZ7/mNUcQhRPd8XFMIRutWjMsWrfot1dDrOOY=",
-          "issuedCertId": "10591",
-          "enabled": true,
-          "listenIps": [
-            "192.111.111.2"
-          ],
-          "publishIps": [
-            "192.111.111.2"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303024723",
-            "modifiedTime": "1618419215",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.67.2-2-g1a8538e55-dirty",
-            "systemStartTime": "0",
-            "applicationStartTime": "1618248071",
-            "lastConnectTime": "1618417904046524",
-            "lastDisconnectTime": "1618419214878810",
-            "platform": "osx20",
-            "brokerId": "72057594037950451",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "192.111.255.1",
-            "publicIp": "192.111.255.1",
-            "loneWarrior": true,
-            "tunnelId": "m3JSAvHG72PIEWN18iXR",
-            "previousVersion": "21.26.0-91-g018c50e7f-dirty",
-            "lastUpgradedTime": "1617857786",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024725",
-          "modifiedTime": "1607918700",
-          "creationTime": "1607918700",
-          "modifiedBy": "3",
-          "name": "1 mp pb-2",
-          "fingerprint": "37As8jQglTtuEr5XXkb1MuMHXeYSLTG0+OLeJneupJE=",
-          "issuedCertId": "10593",
-          "enabled": true,
-          "privateBrokerVersion": {
-            "id": "217246660303024725",
-            "modifiedTime": "1607918775",
-            "creationTime": "1607918704",
-            "modifiedBy": "72057594037928167",
-            "expectedVersion": "20.40.2",
-            "currentVersion": "20.148.2-59-gb3abc04-asan",
-            "systemStartTime": "10790289",
-            "applicationStartTime": "1607918770",
-            "lastConnectTime": "1607918775548271",
-            "lastDisconnectTime": "1607918775572483",
-            "platform": "el7",
-            "brokerId": "72057594037937044",
-            "restartTimeInSec": "1607932800",
-            "upgradeStatus": "IN_PROGRESS",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "10.80.1.213",
-            "publicIp": "199.168.150.161",
-            "loneWarrior": true,
-            "tunnelId": "6ZFoRXycAivHanaOk3Ld",
-            "upgradeAttempt": "1",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024726",
-          "modifiedTime": "1607919146",
-          "creationTime": "1607919103",
-          "modifiedBy": "72057594037950342",
-          "name": "1 mp pb-3",
-          "fingerprint": "DvW3Bty5CmlRqI5n1pLGWCBRxZPIRMLu5GcRJn2sQpg=",
-          "issuedCertId": "10594",
-          "enabled": true,
-          "listenIps": [
-            "0.0.0.0"
-          ],
-          "publishIps": [
-            "broker1example.sjc5.example.net"
-          ],
-          "privateBrokerVersion": {
-            "id": "217246660303024726",
-            "modifiedTime": "1607920424",
-            "creationTime": "1607919107",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "20.148.2-60-gb16909d-asan",
-            "systemStartTime": "4551151",
-            "applicationStartTime": "1607920165",
-            "lastConnectTime": "1607920170963047",
-            "lastDisconnectTime": "1607920424100860",
-            "platform": "el7",
-            "brokerId": "72057594037937044",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "10.17.248.46",
-            "publicIp": "54.67.88.171",
-            "loneWarrior": true,
-            "tunnelId": "rrqb/ms0Obfoiknhk77j",
-            "previousVersion": "20.148.2-59-gb3abc04-asan",
-            "lastUpgradedTime": "1607920169",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024755",
-          "modifiedTime": "1611279015",
-          "creationTime": "1611279014",
-          "modifiedBy": "3",
-          "name": "1 mp pb-4",
-          "fingerprint": "jFgW0FtrX3BT5bQWRavNViwLLn1GzDxqKT9G3AAFfC0=",
-          "issuedCertId": "10630",
-          "enabled": true,
-          "privateBrokerVersion": {
-            "id": "217246660303024755",
-            "modifiedTime": "1611279174",
-            "creationTime": "1611279019",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.20.1-1-gb1bbb0d",
-            "systemStartTime": "40211",
-            "applicationStartTime": "1611279165",
-            "lastConnectTime": "1611279172008161",
-            "lastDisconnectTime": "1611279173985030",
-            "platform": "el7",
-            "brokerId": "72057594037937044",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "172.17.0.2",
-            "publicIp": "207.47.45.254",
-            "loneWarrior": true,
-            "tunnelId": "mPT1qthUYrTHFtxy2SYV",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303024756",
-          "modifiedTime": "1611279972",
-          "creationTime": "1611279972",
-          "modifiedBy": "3",
-          "name": "1 mp pb-5",
-          "fingerprint": "C3jWKc1P340Gl9OPFCUiRUHMg5+0i6iQf0LYoT0fQ1w=",
-          "issuedCertId": "10631",
-          "enabled": true,
-          "privateBrokerVersion": {
-            "id": "217246660303024756",
-            "modifiedTime": "1611280009",
-            "creationTime": "1611279977",
-            "modifiedBy": "72057594037928167",
-            "currentVersion": "21.20.1-1-gb1bbb0d",
-            "systemStartTime": "41040",
-            "applicationStartTime": "1611279993",
-            "lastConnectTime": "1611280000504792",
-            "lastDisconnectTime": "1611280009428607",
-            "platform": "el7",
-            "brokerId": "72057594037937044",
-            "ctrlChannelStatus": "ZPN_STATUS_DISCONNECTED",
-            "privateIp": "172.17.0.2",
-            "publicIp": "207.47.45.254",
-            "loneWarrior": true,
-            "tunnelId": "rjpt0rGVrXlVn/QYZVIn",
-            "upgradeAttempt": "0",
-            "serviceEdgeGroupId": "217246660303024722"
-          },
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        },
-        {
-          "id": "217246660303025050",
-          "modifiedTime": "1621885476",
-          "creationTime": "1621885476",
-          "modifiedBy": "3",
-          "name": "1 mp pb-6",
-          "fingerprint": "mTjGKNLwROP/GAEiNSnNeZYU0bDdjxT5CFSShPVld+c=",
-          "issuedCertId": "10758",
-          "enabled": true,
-          "upgradeAttempt": "0",
-          "provisioningKeyId": "6115"
-        }
-      ]
+      "namespace": { "id": "<namespace ID>" },
+      "tagKey":    { "id": "<key ID>" },
+      "tagValue":  { "id": "<value ID>" },
+      "origin": "CUSTOM"
     }
   ]
 }
 ```
 
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Updating a Private Service Edge Group
-
-To update a Private Service Edge Group:
-
-1. Provide the updated JSON payload from the Creating a Private Service Edge Group section and send a `PUT` request to the following endpoint in the Private Service Edge Group Controller: `/mgmtconfig/v1/admin/customers/{customerId}/serviceEdgeGroup/{serviceEdgeGroupId}`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `serviceEdgeGroupId`: The unique identifier of the Private Service Edge Group.
-
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/serviceEdge/217246660303025050`.
-
-- View the JSON payload
+- View an example JSON payload.
 
 ```
 {
-   "name": "<Service Edge Group name>",
-   "description": "<Service Edge Group description>",
-   "upgradeDay": "<upgradeDay>",
-   "upgradeTimeInSecs": "<upgradeTimeInSecs>",
-   "latitude": "<latitude>",
-   "longitude": "<longitude>",
-   "location": "<location>",
-"graceDistanceEnabled": "false",
-"graceDistanceValue": 0,
-"graceDistanceValueUnit": "MILES",
-"altCloud": "<Sample Alt Cloud name>",
+  "name": "app-seg-tagged.com",
+  "enabled": true,
+  "domainNames": [ "app-seg-tagged.com" ],
+  "tcpPortRange": [ { "from": "443", "to": "443" } ],
+  "segmentGroupId": "145260601092866600",
+  "serverGroups": [ { "id": "145260601092866700" } ],
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400" },
+      "tagKey":    { "id": "145260601092866401" },
+      "tagValue":  { "id": "145260601092866403" },
+      "origin": "CUSTOM"
+    }
+  ]
 }
 ```
 
-A successful response returns code 204, meaning the Private Service Edge Group is updated. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 
-## Deleting a Private Service Edge Group
+## Updating Tags for Inherited or Shared Application Segments
 
-To delete a Private Service Edge Group:
+To update the tags for inherited or shared application segments:
 
-1. Send a `DELETE` request to the following endpoint in the Private Service Edge Group Controller: `/mgmtconfig/v1/admin/customers/{customerId}/serviceEdgeGroup/{serviceEdgeGroupId}`.
-2. Provide the following in the request endpoint:
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application/72057615512764474?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to update data from the Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api). Passing `microtenantId` in the request endpoint updates tags for an inherited or shared application segment. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant.
+3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following in the tags model. The required fields are highlighted in red:
+  - `namespace.Id`: The unique identifier of the namespace. To learn more, see [Configuring Tag Namespaces Using API](https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api).
+  - `tagKey.Id`: The unique identifier of the key. To learn more, see [Configuring Tag Key-Value Pairs Using API.](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
+  - `tagValue.Id`: The unique identifier of the value. To learn more, see [Configuring Tag Key-Value Pairs Using API.](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
 
-- `customerId`: The ZPA tenant ID of the customer.
-- `serviceEdgeGroupId`: The unique identifier of the Private Service Edge Group.
+- View the JSON payload.
 
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/serviceEdge/217246660303025050`.
+```
+{
+  "tags": [
+    {
+"namespace": { "id": "<namespace ID>" },
+"tagKey":    { "id": "<key ID>" },
+"tagValue":  { "id": "<value ID>" },
+"origin": "CUSTOM"
+    }
+  ]
+}
+```
 
-A successful response returns code 204, meaning the Private Service Edge Group is deleted. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+- View an example JSON payload.
+
+```
+{
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400" },
+      "tagKey":    { "id": "145260601092866401" },
+      "tagValue":  { "id": "145260601092866402" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Deleting an Application
+
+To delete an application segment and remove the associated tags:
+
+1. Send a `DELETE` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}?forceDelete={true|false}&microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application/72057615512764474?forceDelete=true&microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `forceDelete`: Indicates if the mapping between the application segment and its segment group is deleted (`true`) or not (`false`). This field is optional and is set to `false` by default.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to update data from the Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api). Passing `microtenantId` in the request endpoint updates tags for an inherited or shared application segment. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant.
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 <!-- /ZS-ARTICLE -->

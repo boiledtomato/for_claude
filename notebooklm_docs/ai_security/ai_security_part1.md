@@ -1,18 +1,18 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-07-29 22:09 UTC
-Articles in this file: 70
+Generated: 2026-09-14 03:38 UTC
+Articles in this file: 80
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-dashboard","lastmod":"2026-07-24T10:52Z","nid":"1541822"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-dashboard","lastmod":"2026-09-08T12:30Z","nid":"1541822"} -->
 ## About AI Guard Dashboard
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-dashboard
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Monitoring > About AI Guard Dashboard
-- Last modified: 2026-07-24T10:52Z
+- Last modified: 2026-09-08T12:30Z
 - Summary: Learn how to view information on the AI Guard dashboard.
 
 The AI Guard dashboard provides a high-level overview of all AI applications AI Guard manages. This includes information such as the number of apps, number of policy detections, and number of AI bot transactions.
@@ -38,7 +38,10 @@ On the AI Guard **Dashboard** page (AI Guard > Dashboard), you can do the follow
   2. **Number of LLMs**: The total number of LLMs.
   3. **Number of Detections**: The total number of policy detections.
   4. **Number of Transactions**: The total number of transactions.
-8. View a list of all transactions. For each transaction, you can see the following:
+8. View dashboard entries as individual prompt transactions, or view multi-prompt AI interactions as a single, connected conversation thread. Conversation grouping respects existing session boundary logic.
+  - With **Conversations** selected, you will see a message icon next to a transaction's date, indicating the number of transactions in that conversation thread. Expand the entry to view details of the individual transactions. See image.
+  - Clicking a conversation opens the **Transaction Details** page. View prompt details by clicking **Reveal Prompt**, which shows a full back-and-forth, chat-style layout. See image.
+9. View a list of all transactions. On the **Transaction Details** page, you can see the following:
   - **Date and Time**: The date and time of the transaction.
   - **App**: The name of the app.
   - **Policy Name**: The name of the policy associated with this transaction.
@@ -52,7 +55,11 @@ On the AI Guard **Dashboard** page (AI Guard > Dashboard), you can do the follow
 
 [Image: AI Guard Dashboard Details window showing Overview, Detection Summary, Performance & Network Stats, Custom Request Headers, and Prompt Details.]
 
+[Image: Conversation Details showing chat-style prompt and response logs]
+
 [Image: AI Guard Dashboard page with annotations highlighting each section]
+
+[Image: AI Guard Dashboard, in DAS/API Mode, with  Conversation mode selected showing an open conversation transaction]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -197,6 +204,70 @@ On the AI Guard **Token Usage** page (AI Guard > Token Usage), you can do the fo
   4. **LLM Provider Distribution**: See LLM distribution information based on the level of granularity you have selected (Daily, Hourly, 5-min).
   5. **Top usage by app**: The 10 applications that used the most tokens. The label at the end of each bar shows when usage peaked.
   6. **Raw Data**: A quick total summary of prompts and responses by date. Data can be exported.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-red-teaming-onboarding-agent","lastmod":"2026-08-31T07:07Z","nid":"1542630"} -->
+## About AI Red Teaming Onboarding Agent
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/about-ai-red-teaming-onboarding-agent
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > About AI Red Teaming Onboarding Agent
+- Last modified: 2026-08-31T07:07Z
+- Summary: This article describes how to build a working proxy to bridge your AI Application to AI Security Admin Portal.
+
+During Red Teaming tests, AI Red Teaming acts as a client connecting to your application. Oftentimes, the application may be implemented in a non-standard way. In such cases, an intermediary layer is needed to perform this translation. This intermediary layer is what is known as a proxy in AI Red Teaming. Custom-built apps need custom-built proxies, and other apps can be connected with AI Security's prebuilt connectors.
+
+Building a proxy means collecting specific technical details about your target application: its connection protocol, authentication method, session behavior, message format, and rate limits. Many customers may not have the knowledge or resources to do this on their own, so it creates friction when adopting AI Red Teaming. To reduce this friction, it's now possible to create this proxy via the Onboarding Agent.
+
+Onboarding Agent is a chat-based assistant in the AI Security Admin Portal that guides you through this process with structured questions, adapts to your level of technical expertise, and generates a complete, ready-to-deploy Python project. Whether you are a developer building a production integration, a security analyst coordinating an onboarding, or a sales engineer demoing against a customer's live application, Onboarding Agent collects everything it needs in a single guided session and delivers a working proxy in minutes.
+
+The Onboarding Agent includes the following benefits and enables you to:
+
+- Build a working proxy without filing a request or waiting in the engineering queue, reducing integration timelines from weeks to a single session.
+- Get started without prior SDK knowledge. The assistant asks the right questions, offers predefined answer choices for technical fields, and explains unfamiliar concepts in plain language when you need it.
+- Download a complete, production-ready project, which includes `main.py`, a Dockerfile, environment configuration, a README with deployment instructions, and a VS Code debug config, ready to run locally or deploy to your infrastructure.
+- Iterate without starting over, refine your spec through conversation after generation, regenerate at any time, and access a full version history so you can roll back to any prior version.
+- Work in your preferred environment, use the platform chatbot in the browser, or install the agent skill to get the same guided experience directly inside Claude Code, Cursor, or your preferred local coding agent.
+
+## About Onboarding Agent Page
+
+On the Onboarding Agent page (AI Infrastructure > AI Red Teaming > Onboarding Agent), you can do the following:
+
+1. Click **+ New Session** to start a new session.
+2. Click **Download Skill.**
+
+1. In the **Start New Session** window, do the following:
+  1. **Session Name:** Enter a suitable name for the session.
+  2. **Session Type:** Select one of the following:
+    - **Private:**Accessible only to the user who creates it.
+    - **Public:** Visible and accessible to all users within the organization or tenant.
+      - **Business Unit:** Select the Business Unit.
+2. Click **Start New Session.**
+3. The agent automatically sends the first message and begins collecting information through a structured question flow. To get started, provide the following details about your application:
+  - **Connection type:** The protocol your application uses, such as REST, WebSocket, or SSE.
+  - **Base URL and endpoints:** The base URL of your application and the list of available endpoints.
+  - **Request and response format:** The structure of the request and response body.
+  - **Input type:**Whether your application supports multi-modal input or text only.
+  - **Authentication:** Whether your application requires authentication and how it is configured.
+  - **Rate limits:** Any rate limits or throughput constraints that apply.
+4. For each question, select a predefined answer option or type a custom response. If a question is unclear, type "what does this mean?" the agent explains it in plain language and re-asks the question.
+5. Monitor the spec completeness indicator after each exchange to track progress.
+6. After the spec reaches 100%, review the summary presented by the agent and confirm the details.
+7. Click **Generate Proxy** to trigger code generation.
+8. After generation, click **Download ZIP** to download the proxy project.
+9. Run the proxy locally or deploy it using the provided Dockerfile, then go to the [**Configure your connection**](https://help.zscaler.com/secure-ai-apps-infra/configuring-connection) page and create a new connection with type **Proxy SDK**, pointing to the proxy's URL. Ensure that the platform can reach the URL (public URL, IP whitelisting, or broker). You can delete the Onboarding Agent you created from the **Actions** tab in the **New Session** page.
+
+Skill is a downloadable package that users install in their local coding agent environment (such as Claude Code, Cursor, or Copilot) to run the same guided proxy-building experience locally on their machine without needing to use the AI Security Admin Portal.
+
+How it works:
+
+- Follows the same question-tree-driven spec collection as the platform chatbot.
+- Generates `main.py` and scaffolds the full project directory locally on spec confirmation.
+- Runs a bundled test script to validate the generated proxy endpoints.
+- Auto-fixes known issues or asks targeted follow-up questions if tests fail.
+- Assists with deployment stages such as Docker image build, registry push, and connecting the proxy to AI Red Teaming.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -632,13 +703,13 @@ To add or make changes to a DAS mode AI application's API key:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations","lastmod":"2026-07-22T13:24Z","nid":"1541884"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations","lastmod":"2026-08-06T15:09Z","nid":"1541884"} -->
 ## Adding and Managing AI Guard Policy Configurations
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Adding and Managing AI Guard Policy Configurations
-- Last modified: 2026-07-22T13:24Z
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > General > Adding and Managing AI Guard Policy Configurations
+- Last modified: 2026-08-06T15:09Z
 - Summary: Adding and Managing policy configurations for AI Guard.
 
 AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal. Every policy is a guardrail, and you can set up multiple policies, define and apply a policy per app, apply multiple policies to one app, or apply a policy to multiple apps.
@@ -721,6 +792,70 @@ To delete a policy configuration:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/adding-llm-provider-credentials-ai-guard","lastmod":"2026-08-06T14:37Z","nid":"1541886"} -->
+## Adding LLM Providers and Credentials in Proxy Mode
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/adding-llm-provider-credentials-ai-guard
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Proxy Mode > Adding LLM Providers and Credentials in Proxy Mode
+- Last modified: 2026-08-06T14:37Z
+- Summary: How to manage Large Language Model (LLM) provider credentials for AI Guard in Proxy mode.
+
+In AI Guard's Proxy mode, AI Guard acts as a reverse proxy for the LLM provider. As such, you must add the respective credentials to authenticate with your LLM providers.
+
+## Prerequisites
+
+Before managing LLM provider credentials, access your LLM provider and copy the keys or IAM roles from your LLM provider dashboard.
+
+## Adding LLM Providers
+
+Register the AI services your apps use: OpenAI, Anthropic, Azure OpenAI, and more.
+
+1. Go to **AI Security Admin Portal** > **AI Guard** > **LLMs** > **Providers**. See image.
+2. Click **Add More**. The **Add LLM Provider** window opens.
+3. Enter the following: See image.
+  1. **Provider Name**: Enter a name for your LLM provider.
+  2. **Providers Type**: Select the LLM provider you are using.
+  3. **Deployment**: Select **Public** or **Private**.
+4. Click **Submit**.
+
+## Adding LLM Provider Credentials
+
+To add the credentials for an LLM provider:
+
+1. In the AI Security Admin Portal left-side navigation, go to **AI Guard** > **LLMs.** Click the **Credentials** tab. See image.
+2. On the **Credentials** page, click **Add More**. The **Add LLM Credentials**window appears.
+3. In the **Add LLM Credentials** window: See image.
+  - **Name**: Enter the name for the credential.
+  - **LLM Provider**: From the drop-down menu, select the LLM provider to associate with this credential.
+  - **Expires At**:(Optional) Select the date when the credential expires.
+  - **API Key**: Enter the LLM provider credentials that you copied from your LLM provider dashboard.
+4. Click **Submit**.
+
+## Editing LLM Provider Credentials
+
+To edit the credentials for an LLM provider:
+
+1. In the AI Security Admin Portal left-side navigation, go to **AI Guard** > **LLMs.** Click the **Credentials** tab. See image.
+2. On the **Credentials** page, in the **Action** column next to a credential, click the **Edit** icon. The **Add LLM Credentials**window appears.
+3. In the **Add LLM Credentials** window, modify any of the credential information. See image.
+4. Click **Submit**.
+
+[Image: LLM providers page]
+
+[Image: Add LLM Provider window]
+
+[Image: LLM Provider Credentials page]
+
+[Image: LLM Provider Credentials page]
+
+[Image: Add LLM Provider window with Provider Name, Type, and Public/Private entered.]
+
+[Image: Add LLM Provider window with Provider Name, Type, and Public/Private entered.]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/agentforce","lastmod":"2026-07-21T23:06Z","nid":"1541838"} -->
 ## Agentforce
 
@@ -747,319 +882,6 @@ To obtain the required fields, refer to the [Salesforce documentation](https://d
 - **Organization Domain:**To get the Organization Domain, from the **Setup** menu in the top right corner of the Agentforce app, search for **My Domain** and copy the value shown in the **Current My Domain URL** field.
 - **Agent ID:** To obtain an Agent ID, follow instructions from [Get the Agent ID for an Agent](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-api-agent-id.html) section.
 - **Variables:**To obtain the variables, see the [Salesforce Variables documentation](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-api-variables.html).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/ai-guard-api-request-construction-guide","lastmod":"2026-07-22T13:26Z","nid":"1541881"} -->
-## AI Guard API Request Construction Guide
-
-- Source: https://help.zscaler.com/secure-ai-apps-infra/ai-guard-api-request-construction-guide
-- Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > AI Guard API Request Construction Guide
-- Last modified: 2026-07-22T13:26Z
-- Summary: Step-by-step guidance on how to construct requests for different AI providers in AI Guard.
-
-AI Guard offers seamless integration with leading Large Language Model (LLM) providers, leveraging state-of-the-art Zscaler AI guardrails to safeguard AI-driven applications with LLM-powered detectors. These advanced guardrails provide robust protection, ensuring secure, reliable, and efficient operations while delivering the power of AI innovation to enterprises.
-
-This article provides step-by-step guidance on constructing requests for different providers. Each provider’s request structure is explained in detail, breaking down fields and parameters for clarity. Follow these examples to quickly configure and interact with the APIs in your AI-based applications.
-
-Complete the specific request constructions for your chosen application:
-
-- Anthropic
-- Azure
-- Bedrock Anthropic
-- Bedrock Unified
-- Bedrock Agent
-- Gemini
-- OpenAI
-- Vertex AI
-
-For implementation assistance, contact Zscaler Support.
-
-### Request overview
-
-OpenAI's API allows you to interact with their GPT models to generate text responses through AI Guard.
-
-### cURL example
-
-```
-bash
-
-curl --location 'https://proxy.zseclipse.net/v1/chat/completions' \
---header 'X-ApiKey:
-<API Key>
-' \
---header 'Content-Type: application/json' \
---data '{
-    "model": "gpt-4o-mini",
-    "messages": [
-        {
-            "role": "user",
-            "content": "Generate a poem"
-        }]
-}'
-```
-
-### Fields explained
-
-- **URL**: `https://` `proxy.zseclipse.net` `/v1/chat/completions` (API endpoint)
-- **Headers**:
-  - **X-ApiKey**: The AI Guard application key which is mandatory for authentication.
-  - **Content-Type**: Specifies the request payload format (always JSON).
-- **Payload (--data)**:
-  - **Model**: The model to query, such as `"gpt-4o-mini"`.
-  - **Messages**: List of conversations containing:
-    - **Role**: The sender’s role. Options include: `"user"`, `"assistant"`, and `"system"`.
-    - **Content**: The actual content or query to be processed.
-
-### Request overview
-
-Azure integrates OpenAI capabilities on its cloud using endpoints matching data center locations.
-
-### cURL example
-
-```
-bash
-
-curl --location 'https://proxy.zseclipse.net/openai/v1/chat/completions' \
---header 'X-ApiKey:
-<API Key>
-' \
---header 'Content-Type: application/json' \
---data '{
-          "model": "gpt-4",
-          "messages": [
-            {
-              "role": "user",
-              "content": "Hey, generate 2 line French poem and c code"
-            }
-        ]
-}'
-```
-
-### Fields explained
-
-- **URL**: `https://` `proxy.zseclipse.net` `/v1/chat/completions` (API endpoint)
-- **Headers**:
-  - **X-ApiKey**: The AI Guard application key which is mandatory for authentication.
-  - **Content-Type**: Specifies the request payload format (always JSON).
-- **Payload (--data)**:
-  - **Model**: The model to query, such as `"``gpt-4``"`.
-  - **Messages**: List of conversations containing:
-    - **Role**: The sender’s role. Options include: `"user"`, `"assistant"`, and `"system"`.
-    - **Content**: The actual content or query to be processed.
-
-### Request overview
-
-Used to connect API interactions with Google's Gemini models.
-
-### cURL example
-
-```
-bash
-
-curl --location 'https://proxy.zseclipse.net/v1beta/models/
-<MODEL>
-:generateContent' \
---header 'X-ApiKey:
-<API Key>
-' \
---header 'Content-Type: application/json' \
---data '{"contents": [{"parts": [{"text": "give me python code for printing a string"}]}]}'
-```
-
-### Fields explained
-
-- **Model**: The model to query, such as `"gemini-2.5-flash"`.
-- **X-ApiKey**: The AI Guard application key which is mandatory for authentication.
-- **Content-Type**: Specifies the request payload format (always JSON).
-- **Contents**: Input structure to be processed. Contains an array of text parts:
-  - **Parts**: Includes an object with a key "text" for instructions for the Gemini model.
-
-### Request overview
-
-Google Vertex API interacts with Gemini models utilizing a Bearer token for authentication.
-
-### cURL example
-
-```
-bash
-
-curl --location 'https://proxy.zseclipse.net/v1/projects/<google-project>/locations/global/publishers/google/models/
-<MODEL>
-:generateContent' \
---header 'X-ApiKey:
-<API Key>
-' \
---header 'Authorization:
-<Bearer Access Token>
-' \
---header 'Content-Type: application/json' \
---data '{
-		"contents": [
-			{
-                           "role": "user",
-		           "parts": [
-				      {
-						"text": "Testing google vertex api gemini endpoint."
-				      }
-					]
-			}
-		]
-}'
-```
-
-### Fields explained
-
-- **Model**: The model to query, such as `"gemini-2.5-flash"`.
-- **X-ApiKey**: The AI Guard application key which is mandatory for authentication.
-- **Authorization**: Use the Google-generated Bearer token (`gcloud auth print-access-token`). JSON payload is split into input roles, parts, and text.
-- **Content-Type**: Specifies the request payload format (always JSON).
-- **Contents**: JSON payload is split into the following input**:**
-  - **Role**: The sender’s role. Options include: `"user"`, `"assistant"`, and `"system"`.
-  - **Parts**: Includes an object with a key `"text"` for instructions for the Gemini model.
-
-### Request overview
-
-Anthropic provides text-generation capabilities using conversational "Claude" models.
-
-### cURL example
-
-```
-bash
-
-curl --location 'https://proxy.zseclipse.net/v1/messages' \
---header 'X-ApiKey:
-<API Key>
-' \
---header 'anthropic-version: 2023-06-01' \
---header 'Content-Type: application/json' \
---data '{
-    "model": "claude-3-haiku-20240307",
-    "messages": [{"role": "user", "content": "hey, generate 2 line c code"}],
-    "max_tokens": 1024
-}'
-```
-
-### Fields explained
-
-- **URL**: `https://proxy.zseclipse.net/v1/messages` (Anthropic endpoint).
-- **Headers**:
-  - **X-ApiKey**: The AI Guard application key which is mandatory for authentication.
-  - **Anthropic-version**: API version in use (e.g., 2023-06-01).
-  - **Content-Type**: Specifies the request payload format (always JSON).
-- **Payload**:
-  - **Messages**: List of conversations containing:
-    - **Role**: Sender’s role. Options: `"user"`, `"assistant"`, `"system"`.
-    - **Content**: Actual content or query to be processed.
-  - **Max_tokens**: Maximum response token allowance.
-
-### Request overview
-
-Amazon Bedrock supports Anthropic Claude models via customizable endpoints.
-
-### cURL example
-
-```
-bash
-
-curl --location 'https://proxy.zseclipse.net/model/
-<MODEL>
-/invoke' \
---header 'X-ApiKey:
-<API Key>
-' \
---header 'Content-Type: application/json' \
---data '{
-  "anthropic_version": "bedrock-2023-05-31",
-  "max_tokens": 10,
-  "messages": [
-    {
-      "role": "user",
-      "content": "hello are you there detectors EAST??"
-    }
-  ]
-}'
-```
-
-### Fields explained
-
-- **Headers**:
-  - **Model**: The model to query, such as `"anthropic.claude-3-5-sonnet-20240620-v1:0"`.
-  - **X-ApiKey**: The AI Guard application key which is mandatory for authentication.
-  - **Content-Type**: Specifies the request payload format (always JSON).
-- **Payload**:
-  - **Anthropic-version**: API version in use (e.g., 2023-06-01).
-  - **Max_tokens**: Maximum response token allowance.
-  - **Messages**: List of conversations containing:
-    - **Role**: Sender’s role. Options: `"user"`, `"assistant"`, `"system"`.
-    - **Content**: Actual content or query to be processed.
-
-### Request overview
-
-Unified models on Bedrock operate on consistent message structures.
-
-### cURL example
-
-```
-bash
-
-curl --location 'https://proxy.zseclipse.net/model/
-<MODEL>
-/converse' \
---header 'X-ApiKey:
-<API Key>
-' \
-
---header 'Content-Type: application/json' \
-
---data '{ "messages": [ { "role": "user", "content": [ { "text": "Give me some code in 2 line python" } ] } ] }'
-```
-
-### Fields explained
-
-- **Model**: The model to query, such as `"meta.llama3-1-8b-instruct-v1:0"`.
-- **X-ApiKey**: The AI Guard application key which is mandatory for authentication.
-- **Content-Type**: Specifies the request payload format (always JSON).
-- **Messages**:
-  - **Role**: Sender’s role. Options: `"user"`, `"assistant"`, `"system"`.
-  - **Content**: The input message string inside an array-like structure.
-
-### Request overview
-
-Bedrock functionality that uses your agent in an application by making a request with a runtime endpoint.
-
-### cURL example
-
-```
-bash
-curl --location 'https://proxy.zseclipse.net/agents/
-<AGENT_ID>
-/agentAliases/
-<AGENT_ALIAS_ID>
-/sessions/
-<SESSION_ID>
-/text' \
-
---header 'X-ApiKey:
-<API Key>
-' \
-
---header 'Content-Type: application/json' \
-
---data '{"inputText": "What is the capital of Japan?","enableTrace": true}'
-```
-
-### Fields explained
-
-- **Agent_ID**: (Path Parameter) The unique identifier for the specific agent you wish to interact with.
-- **Agent_Alias_ID**: (Path Parameter) The unique identifier for the specific alias of the agent. Aliases often represent different versions or configurations of an agent.
-- **Session ID**: (Path Parameter) The unique identifier for the conversation session. This allows for maintaining context across multiple interactions.
-- **X-ApiKey**: The AI Guard application key which is mandatory for authentication.
-- **Content-Type**: Specifies the request payload format (always JSON).
-- **InputText**: The textual query or message to be processed by the agent.
-- **EnableTrace** **(Optional)**: A boolean flag. When set to true, the response will include detailed trace information regarding the agent's execution path.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1178,6 +1000,273 @@ To test an AI Guard policy:
 [Image: AI Guard Policy Testing page with an example prompt entered.]
 
 [Image: AI Guard Policy Testing page showing the results of an example prompt]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/amazon-bedrock-agentcore","lastmod":"2026-08-16T19:33Z","nid":"1542865"} -->
+## Amazon Bedrock AgentCore
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/amazon-bedrock-agentcore
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > Amazon Bedrock AgentCore
+- Last modified: 2026-08-16T19:33Z
+- Summary: Integration information for Amazon Bedrock AgentCore is provided in this article
+
+After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details.
+
+[Image: bedrock_agentcore]
+
+IMAGE PLACEHOLDER: Figure 1: Amazon Bedrock AgentCore Integration Example
+
+- **Agent Runtime ARN** - ARN (Amazon Resource Name) of the Bedrock AgentCore runtime you want to invoke.
+- **AWS Region** - AWS region where that runtime is deployed (for example: "us-east-1").
+- **AWS Access Key Id** - IAM (Identity and Access Management) access key used to sign Bedrock AgentCore API calls.
+- **AWS Secret Access Key** - IAM secret access key paired with the Access Key Id. Note that AWS **only shows secret keys at creation time**, so store it securely.
+- **Qualifier** - Optional runtime qualifier (for example a version or alias) used to route the invocation to a specific runtime revision. Leave it empty to use the runtime's default.
+- **Payload Template** - JSON payload sent to the AgentCore runtime on each invocation. Use placeholders to let the platform inject dynamic values:
+  - **{message}** - the current probe/test message.
+  - **{session_id}** - unique identifier for the conversation session (useful for multi-step tests).
+- **Response Path** - The JSON path pointing to the text response in the response.
+- **Image Response Path** - The JSON path pointing to generated **images** in the response (for example an array of base64 strings or URLs). Leave empty if your runtime does not return images.
+- **Audios Response Path** - The JSON path pointing to generated **audio** in the response. Leave empty if not applicable.
+- **Documents Response Path** - The JSON path pointing to generated **documents/files** in the response. Leave empty if not applicable.
+
+## Obtaining the Required Fields
+
+- Agent Runtime ARN
+- AWS Region
+- AWS Access Key Id/AWS Secret Access Keys
+- Qualifier
+- Payload Template
+- Response Path
+- Image Response Path
+- Audios Response Path
+- Documents Response Path
+
+To obtain the Agent Runtime ARN:
+
+1. Find the runtime in the AWS console where you manage your AgentCore runtime.
+2. Copy the resource **ARN** from the runtime details page.
+3. If you provisioned it via IaC (CloudFormation/Terraform/CDK), you can also use the output variable that contains the ARN.
+
+To obtain the AWS Region:
+
+1. Use the same region where the runtime lives.
+2. You can read it from the AWS console region selector or from the ARN itself.
+
+To obtain the AWS Access Key Id and AWS Secret Access Key:
+
+1. Create an access key for an IAM principal that has permission to invoke the runtime.
+2. IAM console path: **IAM** → **Users** → select user → **Security credentials** → **Access keys**.
+3. AWS docs: [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+
+To obtain the Qualifier:
+
+1. Only needed if your runtime supports routing by version or alias.
+2. Use the exact qualifier value your runtime expects. Otherwise leave it blank.
+
+To obtain the Payload Template:
+
+1. Use the request payload schema your runtime expects.
+2. Example: `{ "prompt": "{message}", "session": "{session_id}", "media": {"type": "image", "data": "{image_base64}"} }`
+3. Easiest way: run one test invocation from your app or SDK, then copy the JSON body and replace the user message with `**{message}**`.
+4. Add `**{session_id}**` if your runtime supports multi-turn sessions.
+
+| Placeholder | Description |
+| --- | --- |
+| {message} | Main text message |
+| {session_id} | Runtime session ID |
+| {image_url} | Image URL |
+| {image_base64} | Image as base64 data URL |
+| {audio_url} | Audio URL |
+| {audio_base64} | Audio as base64 data URL |
+| {document_url} | Document URL |
+| {document_base64} | Document as base64 data URL |
+
+To obtain the Response Path:
+
+1. Invoke the runtime once and inspect the raw JSON response.
+2. Set this to the JSON path pointing to the **text** content you want evaluated.
+3. If you're unsure about the JSON path format, see the definition used in the [REST API connection](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app).
+
+To obtain the Image Response Path:
+
+- JSON path to images in the response (array of base64 strings or URLs), if your runtime returns images.
+
+To obtain the Audios Response Path:
+
+- JSON path to audio in the response, if your runtime returns audio.
+
+To obtain the Documents Response Path:
+
+- JSON path to documents or files in the response, if your runtime returns documents.
+
+**Warning:** If you can't locate a field in the AWS console, it is likely that it's in **your runtime's request/response contract** (payload template and response paths) rather than AWS metadata.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/amazon-bedrock-agents","lastmod":"2026-08-17T20:46Z","nid":"1542890"} -->
+## Amazon Bedrock Agents
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/amazon-bedrock-agents
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > Amazon Bedrock Agents
+- Last modified: 2026-08-17T20:46Z
+- Summary: Integration Setup information for Amazon Bedrock Agents is provided in this article
+
+After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details.
+
+IMAGE PLACEHOLDER: Figure 1: Amazon Bedrock Agents
+
+- **Agent Id** - Unique identifier of the Bedrock Agent you want to invoke.
+- **Agent Alias Id** - Identifier of the **agent alias** to invoke. Aliases route traffic to a specific agent version.
+- **AWS Region** - AWS region where the agent is created (for example: "us-east-1").
+- **AWS Access Key Id** - IAM (Identity and Access Management) access key used to sign Bedrock Agent Runtime requests.
+- **AWS Secret Access Key** - IAM secret access key paired with the Access Key Id. AWS **only shows secret keys at creation time**, so store it securely.
+
+**Possible Internal Server Error When Rate Limit Is Exceeded (Code Interpreter Notice)**
+
+If your Bedrock Agent has **Code Interpreter enabled**, AWS enforces a limit on concurrent active sessions per account/region (minimum 25). When running scans with high concurrency, **this limit can be reached quickly, causing requests to fail.**
+
+To avoid this, we recommend adjusting the following in Target Configuration:
+
+- **Rate Limit** to a lower value (e.g. **20 or lower**) to control the number of messages per minute.
+- **Disable Parallel Requests** or keep concurrency low.
+
+## Obtaining the Required Fields
+
+- Agent Id
+- Agent Alias Id
+- AWS Region
+- AWS Access Key Id
+- AWS Secret Access Key
+
+To obtain the Agent Id:
+
+1. Open the AWS console and go to **Amazon Bedrock** → **Agents**.
+2. Select the agent you want to test.
+3. Copy the **Agent ID** from the agent details (or extract it from the agent ARN).
+
+To obtain the Agent Alias Id:
+
+1. Open the same agent in the AWS console.
+2. Go to **Aliases** and pick the alias you want to invoke (for example `prod` or `staging`).
+3. Copy the **Alias ID** (or extract it from the alias ARN).
+4. Ensure the alias points to the correct agent version you want to test.
+
+To obtain the AWS Region:
+
+1. Use the same region where you created the agent.
+2. Read it from the AWS console region selector (top bar).
+
+To obtain the AWS Access Key Id:
+
+1. Create an access key for an IAM principal that can invoke the Bedrock Agent Runtime.
+2. IAM console path: **IAM** → **Users** → select user → **Security credentials** → **Access keys**.
+3. AWS docs: [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+
+To obtain the AWS Secret Access Key:
+
+1. Generated together with the Access Key Id during access key creation.
+2. AWS shows the secret value only once. If you lost it, create a new access key.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/architecture-ai-guard-apps-proxy-das-api-mode","lastmod":"2026-08-12T10:00Z","nid":"1542640"} -->
+## Architecture of AI Guard for Apps in Proxy and DAS/API Modes
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/architecture-ai-guard-apps-proxy-das-api-mode
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Getting Started > Architecture of AI Guard for Apps in Proxy and DAS/API Modes
+- Last modified: 2026-08-12T10:00Z
+- Summary: Learn about the general architecture of AI Guard for Apps in Proxy and DAS/API mode and how it works with LLMs and generative AI (GenAI) applications.
+
+Zscaler AI Guard for Apps provides comprehensive runtime protection for AI applications by enforcing enterprise policies on prompts and responses between end users and Large Language Models (LLMs). It is designed to mitigate risks such as prompt injection, data leakage, and toxic content.
+
+The platform supports two primary deployment modes: Proxy Mode and Detection-as-a-Service (DAS/API) Mode.
+
+## Proxy Mode (Inline Reverse Proxy)
+
+In Proxy Mode, AI Guard acts as an inline reverse proxy situated between the AI application and the LLM provider.
+
+- How it Works
+- Best Use Cases
+- Step-by-Step Diagram
+
+## Detection-as-a-Service (DAS/API) Mode
+
+DAS Mode, also referred to as API or DAS/API Mode, operates out-of-band relative to the primary network path between the application and the LLM.
+
+- How it Works
+- Best Use Cases
+- Step-by-Step Diagram
+
+## Technical Comparison
+
+| Feature | Proxy Mode | DAS/API Mode |
+| --- | --- | --- |
+| Enforcement Type | Inline/Synchronous | Out-of-band |
+| Endpoint URL | `https://proxy.zseclipse.net` | `https://api.zseclipse.net` |
+| Credential Handling | AI Guard manages LLM credentials | App keeps direct LLM credentials |
+| Connectivity | Only support public LLM providers | Supports any provider (public/private) |
+| Integration Style | URL/Header override | API integration |
+
+## Multi-Mode Support
+
+Organizations do not have to choose a single mode for their entire environment. An AI Guard tenant can support multiple applications simultaneously, with some utilizing Proxy mode and others utilizing DAS mode based on their specific technical requirements.
+
+- **Endpoint Redirect**: The application developer modifies the application configuration to point to the Zscaler proxy URL (`https://proxy.zseclipse.net`) instead of the native LLM provider’s API endpoint. The following are endpoint redirect examples for Claude (Anthropic):
+  | Type | Endpoint URL |
+  | --- | --- |
+  | Native Anthropic API | `https://api.anthropic.com/v1/messages` |
+  | AI Guard Proxy API | `https://proxy.zseclipse.net/v1/messages` |
+- **Credential Management**: The application uses a Zscaler-specific API key to authenticate with AI Guard. AI Guard then uses the stored upstream LLM provider credentials to forward the request to the actual model.
+- **Synchronous Inspection**: All traffic flows through AI Guard in real-time. Prompts and responses are inspected, and based on configured policies, traffic can be allowed, blocked, or redacted.
+
+- **Public LLMs**: Ideal for providers like OpenAI, Anthropic, or Google Gemini that are reachable via the internet.
+- **Minimal Code Changes**: Best when the application framework or SDK allows for simple overrides of the base URL and headers.
+- **Fast Rollout**: Simplifies integration by following a common proxy pattern.
+
+The following is a visual representation and a step-by-step explanation of an example Proxy mode setup for AI Guard:
+
+[Image: AI Guard for users architecture diagram]
+
+1. **App Prompt**: A prompt is sent in the application. This can be public or private.
+2. **Backend Connection**: The application's front-end connects to the backend server.
+3. **Proxy Invocation**: The message route triggers code to send the prompt to AI Guard, acting as a proxy rather than connecting directly to the LLM.
+4. **Prompt Inspection**: AI Guard evaluates the prompt. If allowed, it forwards the request to the public AI endpoint, such as OpenAI (https://api.openai.com).
+5. **LLM Processing**: The public GenAI/LLM analyzes the prompt and returns the output to AI Guard.
+6. **Response Inspection**: AI Guard inspects the GenAI/LLM output. If allowed, it forwards the response to the backend server.
+7. **Server Routing**: The backend server receives the processed message and returns it to the AI application front-end.
+8. **Final Delivery**: The front-end delivers the final response back to the user, client, browser, or workload.
+
+- **Direct LLM Connection**: The application maintains its direct connection and native credentials with the LLM provider.
+- **Sidecar API Calls**: The application code is updated to make explicit, separate API calls to AI Guard (`https://api.zseclipse.net`) for every interaction.
+- **Policy Evaluation**: The application sends both prompt and response content to AI Guard, which responds with a "block" or "allow" message. The application then enforces this decision before proceeding with the LLM call or returning the response to the user.
+
+- **Private LLMs**: Required for models that are not internet-reachable or are hosted on-premises where a proxy cannot be easily inserted.
+- **Complex Routing**: Suitable for advanced agentic workflows where the application needs to maintain full control over the model connection.
+- **Universal Compatibility**: Works in almost all cases, regardless of whether the provider is public or private.
+
+The following is a visual representation and a step-by-step explanation of an example DAS/API mode setup for AI Guard:
+
+[Image: Diagram with each step of the DASS/API mode]
+
+1. **Request Initiation**: A prompt is made in an AI application. This can be public or private.
+2. **System Connectivity**: The frontend interface establishes a connection with the backend API server, where core logic and routing are managed.
+3. **Inbound Security Inspection**: The chat route triggers a validation process, forwarding the input prompt to the AI Guard Detection API for authorization.
+  1. **Inbound Policy Enforcement**: AI Guard evaluates the prompt. Unauthorized content is blocked immediately, preventing the request from reaching the LLM or agent.
+  2. **Prompt Processing**: Upon authorization, the backend API forwards the approved prompt to the private LLM for analysis.
+4. **Knowledge Retrieval**: The LLM analyzes the prompt, utilizing Retrieval-Augmented Generation (RAG) to query the internal knowledge base.
+5. **Data Integration**: The knowledge base returns the relevant data to the agent or LLM for response formulation.
+6. **Response Generation**: The agent or LLM transmits the generated output to the backend API server.
+7. **Outbound Security Inspection**: The backend API sends the generated response to the AI Guard Detection API for a final safety validation.
+  1. **Outbound Policy Enforcement**: AI Guard evaluates the response. If blocked, the system prevents the transmission of the response to the user.
+8. **Transmission to Frontend**: The backend API server relays the authorized response to the frontend application.
+9. **Final Delivery**: The frontend interface completes the process by delivering the response to the user.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1305,13 +1394,13 @@ If the Competition detector isn't triggering correctly, run through the followin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/best-practices-runbook-topicoff-topic-detectors","lastmod":"2026-07-24T11:51Z","nid":"1541798"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/best-practices-runbook-topicoff-topic-detectors","lastmod":"2026-08-25T13:56Z","nid":"1541798"} -->
 ## Best Practices Runbook: Topic/Off Topic Detectors
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/best-practices-runbook-topicoff-topic-detectors
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Best Practices > Best Practices Runbook: Topic/Off Topic Detectors
-- Last modified: 2026-07-24T11:51Z
+- Last modified: 2026-08-25T13:56Z
 - Summary: Learn the best practices for configuring the Topic and Off Topic prompt/response detectors for AI Guard as well as explanations on how it works, example customer scenarios, and troubleshooting.
 
 AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal.
@@ -1402,7 +1491,7 @@ After creating a policy and confirming it works as expected, the next step is to
 
 The **threshold** is a number between 0.0 and 1.0 that controls how confident the model must be before it calls a prompt a match. Similar to a volume knob; turning it up will trigger only very obvious mentions. Turn it down and more borderline cases trigger.
 
-The default is **0.75**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labelled prompts covering both real competitor mentions and tricky false-positive cases (city block, writer's block, out of stock, Times Square, Peter Pan, etc.).
+The default is **0.7**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labelled prompts covering both real competitor mentions and tricky false-positive cases (city block, writer's block, out of stock, Times Square, Peter Pan, etc.).
 
 Zscaler strongly recommends that you leave the threshold at **0.7**. We built and validated the detector around this default.
 
@@ -1619,13 +1708,13 @@ To configure a broker target, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/configuring-connection","lastmod":"2026-07-17T05:12Z","nid":"1540061"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/configuring-connection","lastmod":"2026-08-29T13:06Z","nid":"1540061"} -->
 ## Configuring a Connection
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/configuring-connection
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Configuring a Connection
-- Last modified: 2026-07-17T05:12Z
+- Last modified: 2026-08-29T13:06Z
 - Summary: Information about selecting connection types for connecting an AI application to AI Security Admin Portal.
 
 After you select the appropriate connection type on the [**Connect AI App**](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app) page, enter the required details in the **Configure your connection**tab. This tab is specific to the selected connection type.
@@ -1642,18 +1731,18 @@ REST API connection between your AI app and the AI Security.
 
 - [REST API](https://help.zscaler.com/secure-ai-apps-infra/rest-api)
 - [Proxy SDK](https://help.zscaler.com/secure-ai-apps-infra/proxy-sdk)
-- [OpenAI Compatible API](https://help.zscaler.com/secure-ai-apps-infra/openai-rest-api)
+- [OpenAI REST API](https://help.zscaler.com/secure-ai-apps-infra/openai-rest-api)
 
 Test runs are executed on chatbots that are accessible through external platforms (e.g., Slack, WhatsApp, Glean). Probe uses the platform’s APIs to interact with the chatbots.
 
 - [Copilot Studio](https://help.zscaler.com/secure-ai-apps-infra/copilot-studio)
-- Glean
-- Microsoft Teams
+- [Glean](https://help.zscaler.com/secure-ai-apps-infra/glean)
+- [Microsoft Teams](https://help.zscaler.com/secure-ai-apps-infra/microsoft-teams)
 - Slack
 - WhatsApp
-- Agentforce
-- Amazon Bedrock AgentCore
-- Amazon Bedrock Agents
+- [Agentforce](https://help.zscaler.com/secure-ai-apps-infra/agentforce)
+- [Amazon Bedrock AgentCore](https://help.zscaler.com/secure-ai-apps-infra/amazon-bedrock-agentcore)
+- [Amazon Bedrock Agents](https://help.zscaler.com/secure-ai-apps-infra/amazon-bedrock-agents)
 
 Tests are executed directly on the Large Language Model.
 
@@ -1818,13 +1907,13 @@ Public AI Apps are accessible over the public internet.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/copilot-studio","lastmod":"2026-06-29T03:45Z","nid":"1541104"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/copilot-studio","lastmod":"2026-08-14T18:13Z","nid":"1541104"} -->
 ## Copilot Studio
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/copilot-studio
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > Copilot Studio
-- Last modified: 2026-06-29T03:45Z
+- Last modified: 2026-08-14T18:13Z
 - Summary: Integration Setup information for Copilot Studio is provided in this article.
 
 After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details.
@@ -1893,12 +1982,12 @@ The following are the steps to obtain values in the auth mode:
 - 1. Create an Application Registration in Entra ID
 - 2. Set up and Publish the Copilot Studio agent
 
-1. Open the [Azure Portal](ttps://portal.azure.com) and go to **App registrations**.
+1. Open the [Azure Portal](https://portal.azure.com) and go to **App registrations**.
 2. Register an application
 3. Click **New registration.**
 4. Provide a name for the app.
 5. Under **Supported account types**, choose **Accounts in this organization directory only**.
-6. Under**Redirect URL**, choose **Single-page application (SPA)** as the platform. Set the URL to be: `{origin}/integrations/copilot-studio-redirect` Origin is the URL which you see in the browser for the AI Security Admin Portal.
+6. Under**Redirect URL**, choose **Single-page application (SPA)** as the platform. Set the URL to be: `https://copilot-studio-auth.splx.ai/integrations/copilot-studio-redirect` Origin is the URL which you see in the browser for the AI Security Admin Portal.
 7. Open your newly created application.
   1. Search for your application under **App registrations > All applications**.
 8. On the **Overview**page, copy and paste the following information into the AI Security Admin Portal:
@@ -1979,13 +2068,82 @@ To delete a test run, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-ai-guard-log-exports","lastmod":"2026-07-22T13:28Z","nid":"1541825"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/glean","lastmod":"2026-08-10T22:59Z","nid":"1541107"} -->
+## Glean
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/glean
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > Platform > Glean
+- Last modified: 2026-08-10T22:59Z
+- Summary: Integration Setup information for Glean is provided in this article.
+
+After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details.
+
+Enter the required details based on the **Glean Type** you select in the **Send Message** window:
+
+- Chat
+- Agent
+
+## Obtaining the Required Fields
+
+Obtain the following fields:
+
+- Instance
+- Glean Client API Token
+- Agent ID
+- Application ID
+
+To create an nstance:
+
+1. Sign in to the [Glean Admin console](https://app.glean.com/admin/about-glean).
+2. Go to **Admin > Settings**.
+3. Locate the **Server instance (QE**).
+4. Take the part before -be.glean.com (e.g., https://{your-glean-instance}-be.glean.com/...)
+
+To create a Glean Client API Token:
+
+1. Sign in to the [Glean Admin console](https://app.glean.com/admin/about-glean).
+2. Go to **Platform** > **API Tokens**.
+3. Select the **Client Tokens** tab.
+4. Click **Add token**.
+5. Choose the required scopes and set an expiry date and time.
+6. Create the token, then copy and securely store the token secret.
+
+To get an Agent ID:
+
+1. Sign in to the [Glean Admin console](https://app.glean.com/admin/about-glean).
+2. Click **Developers > Agents**.
+3. Open your specific agent, and from the **Configuration** settings copy the Agent ID.
+
+To get an Application ID:
+
+1. Sign in to the [Glean Admin console](https://app.glean.com/admin/about-glean).
+2. Click **Developers > Agents**.
+3. Open your specific agent, and in the **Configuration** settings locate and copy the **Application ID** (if your org uses multiple apps).
+
+This is the default chat type that connects users to the organization-wide Glean assistant. It provides generalized support for all users, leveraging Glean’s centralized resources. This type is ideal for scenarios where no specific agent or scoped application is required. Only the API Token and Instance Slug are necessary for configuration.
+
+- **API Token:** Client API token with chat scope.
+- **Instance:** The Glean instance slug (e.g., acme-prod from https://acme-prod-be.glean.com).
+- **Application ID (optional):** Scope the chat to a specific application.
+
+This chat type enables communication with a specific Glean Agent within your organization. It is suitable for scenarios where a targeted agent, and optionally a scoped application, is required to address a more specific use case. To configure this type, enter the following information:
+
+- **API Token:** Client API token with chat scope.
+- **Instance:** The Glean instance slug (e.g., acme-prod from https://acme-prod-be.glean.com).
+- **Agent ID:** The agent you want to target.
+- **Application ID (optional):** To restrict the interaction to a particular application.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-ai-guard-log-exports","lastmod":"2026-09-08T09:24Z","nid":"1541825"} -->
 ## Managing AI Guard Log Exports
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-log-exports
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Managing AI Guard Log Exports
-- Last modified: 2026-07-22T13:28Z
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > General > Managing AI Guard Log Exports
+- Last modified: 2026-09-08T09:24Z
 - Summary: Learn to manage and configure third-party integrations to export incident data from AI Guard.
 
 The AI Guard **Log Exports** page allows you to manage and configure third-party integrations to export incident data. You can do this through either Amazon Web Services (AWS), CrowdStrike (CRWD), AWS S3, or Splunk event exporting.
@@ -2002,16 +2160,37 @@ To add an ADX event export instance:
   - **Content Event Hub Connection String**: (Optional) Enter the SAS connection string for the content Event Hub (e.g. `aiguard-content`). Obtain via: `az eventhubs eventhub authorization-rule keys list`.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
   - **Export Blocked Prompts**: Select to export blocked prompts.
+  - **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **Azure ADX Event Export Integrations** page opens. Your integration appears on this page.
 
-## CRWD Event Export
+## CRWD SIEM Direct Export
+
+Use the CRWD integration to direct export event metadata to CrowdStrike HTTP Event Collector (HEC).
+
+To add a CRWD event export instance:
+
+1. Under **CRWD SIEM Direct Export**, click **Add Instance**. The **Add Integration** window appears. See image.
+2. In the **Add Integration** window:
+  - **Name**: Enter a name for your event export instance.
+  - **Enabled**: Select this option to activate the event report functionality.
+  - **CrowdStrike Metadata HEC Bearer Token**: The bearer token used to authenticate to the CrowdStrike HEC for the tenant's events.
+  - **CrowdStrike Metadata HEC URL**: The URL of the CrowdStrike HEC (raw endpoint) where tenant's events will be posted.
+  - **CrowdStrike HEC Bearer Token**: (Optional) Enter the bearer token to authenticate the CrowdStrike HEC.
+  - **CrowdStrike HEC URL**: (Optional) Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
+  - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
+  - **Export Blocked Prompts**: Select to export blocked prompts.
+  - **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
+3. Click **Validate Connection** to check whether the information you entered is accurate and working.
+4. Click **Save Integration**. The **CRWD Event Export Integrations** page opens. Your integration appears on this page.
+
+## CRWD SIEM Export (via S3)
 
 Use the CRWD integration to export event metadata to CrowdStrike HTTP Event Collector (HEC) and event contents to AWS S3.
 
 To add a CRWD event export instance:
 
-1. Under **CRWD Event Export**, click **Add Instance**. The **Add Integration** window appears. See image.
+1. Under **CRWD SIEM Export (via S3)**, click **Add Instance**. The **Add Integration** window appears. See image.
 2. In the **Add Integration** window:
   - **Name**: Enter a name for your event export instance.
   - **Enabled**: Select this option to activate the event report functionality.
@@ -2019,12 +2198,11 @@ To add a CRWD event export instance:
   - **Bucket Key Prefix**: (Optional) Enter the key prefix for objects created in the S3 bucket.
   - **Tags**: (Optional) Click **Add Tag** to enter the tag key and value to apply to the object put in the S3 bucket. To use this feature, the IAM role requires permissions for the "s3:PutObjectTagging" action.
   - **Region of Bucket**: Enter the region of the bucket.
-  - **IAM Cross-Account Role ARN**: Enter the Amazon Resource Name (ARN) of the IAM cross-account role created in the tenant's AWS account.
-  - **IAM Cross-Account Role External ID**: The external ID of the IAM cross-account role which is created in the tenant's AWS account. It should be filled in automatically.
   - **CrowdStrike HEC Bearer Token**: Enter the bearer token to authenticate the CrowdStrike HEC.
   - **CrowdStrike HEC URL**: Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
   - **Export Blocked Prompts**: Select to export blocked prompts.
+  - **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **CRWD Event Export Integrations** page opens. Your integration appears on this page.
 
@@ -2047,6 +2225,7 @@ To add an S3 event export instance:
   - **IAM Cross-Account Role External ID**: The external ID of the IAM cross-account role created in the tenant's AWS account. This field auto-populates.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
   - **Export Blocked Prompts**: Select to export blocked prompts.
+  - **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **S3 Event Export Integrations** page opens. Your integration appears on this page.
 
@@ -2062,10 +2241,13 @@ To add an S3 event export instance:
   6. **Splunk Content HEC URL**: (Optional) Enter the URL of the Splunk HEC (raw endpoint) where tenant's events (content) will be posted.
   7. **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
   8. **Export Blocked Prompts**: Select to export blocked prompts.
+  9. **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **Splunk Export Integrations** page opens. Your integration appears on this page.
 
 [Image: AI Guard Add Integration window for CRWD]
+
+[Image: Crowdstrike Direct]
 
 [Image: AI Guard Add Integration window for S3]
 
@@ -2076,13 +2258,13 @@ To add an S3 event export instance:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-ai-guard-policy-control","lastmod":"2026-07-24T10:34Z","nid":"1542026"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-ai-guard-policy-control","lastmod":"2026-08-06T15:10Z","nid":"1542026"} -->
 ## Managing AI Guard Policy Control
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-policy-control
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Managing AI Guard Policy Control
-- Last modified: 2026-07-24T10:34Z
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > General > Managing AI Guard Policy Control
+- Last modified: 2026-08-06T15:10Z
 - Summary: Learn to create and manage AI Guard policy control.
 
 After you create an AI Guard policy configuration, you can then attach it to an application by adding policy control. To learn more, see [Adding and Managing AI Guard Policies](https://help.zscaler.com/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations).
@@ -2136,61 +2318,13 @@ To delete a policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-llm-provider-credentials-ai-guard","lastmod":"2026-07-27T10:43Z","nid":"1541886"} -->
-## Managing LLM Provider Credentials in Proxy Mode
-
-- Source: https://help.zscaler.com/secure-ai-apps-infra/managing-llm-provider-credentials-ai-guard
-- Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Proxy Mode > Managing LLM Provider Credentials in Proxy Mode
-- Last modified: 2026-07-27T10:43Z
-- Summary: How to manage Large Language Model (LLM) provider credentials for AI Guard in Proxy mode.
-
-In AI Guard's Proxy mode, you must add the LLM provider credentials to authenticate with your LLM providers.
-
-## Prerequisites
-
-Before managing LLM provider credentials, access your LLM provider and copy the keys or IAM roles from your LLM provider dashboard.
-
-## Adding LLM Provider Credentials
-
-To add the credentials for an LLM provider:
-
-1. In the AI Security Admin Portal left-side navigation, go to **AI Guard** > **LLMs.** Click the **Credentials** tab. See image.
-2. On the **Credentials** page, click **Add More**. The **Add LLM Credentials**window appears.
-3. In the **Add LMM Credentials** window: See image.
-  - **Name**: Enter the name for the credential.
-  - **LLM Provider**: From the drop-down menu, select the LLM provider to associate with this credential.
-  - **Expires At**:(Optional) Select the date when the credential expires.
-  - **API Key**: Enter the LLM provider credentials that you copied from your LLM provider dashboard.
-4. Click **Submit**.
-
-## Editing LLM Provider Credentials
-
-To edit the credentials for an LLM provider:
-
-1. In the AI Security Admin Portal left-side navigation, go to **AI Guard** > **LLMs.** Click the **Credentials** tab. See image.
-2. On the **Credentials** page, in the **Action** column next to a credential, click the **Edit** icon. The **Add LLM Credentials**window appears.
-3. In the **Add LLM Credentials** window, modify any of the credential information. See image.
-4. Click **Submit**.
-
-[Image: LLM Provider Credentials page]
-
-[Image: LLM Provider Credentials page]
-
-[Image: Add LLM Provider window with Provider Name, Type, and Public/Private entered.]
-
-[Image: Add LLM Provider window with Provider Name, Type, and Public/Private entered.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-prompt-allowlist","lastmod":"2026-07-22T13:27Z","nid":"1541821"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-prompt-allowlist","lastmod":"2026-08-06T15:10Z","nid":"1541821"} -->
 ## Managing Prompt Allowlist
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/managing-prompt-allowlist
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Managing Prompt Allowlist
-- Last modified: 2026-07-22T13:27Z
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > General > Managing Prompt Allowlist
+- Last modified: 2026-08-06T15:10Z
 - Summary: Learn how to add blocked prompts to the AI Guard allowlist and manage the allowlist.
 
 The prompt allowlist for AI Guard allows you to track and manage any prompts that you wish to allow that may otherwise be blocked by an existing AI Guard policy. Prompts sent to the allowlist endpoint are fully encrypted, so the prompt content remains protected end-to-end.
@@ -2258,13 +2392,13 @@ The following instructions explain how to delete a prompt from the allowlist.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-role-based-access-control-ai-guard","lastmod":"2026-07-24T10:46Z","nid":"1541721"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-role-based-access-control-ai-guard","lastmod":"2026-08-06T15:08Z","nid":"1541721"} -->
 ## Managing Role-Based Access Control in AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/managing-role-based-access-control-ai-guard
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Managing Role-Based Access Control in AI Guard
-- Last modified: 2026-07-24T10:46Z
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > General > Managing Role-Based Access Control in AI Guard
+- Last modified: 2026-08-06T15:08Z
 - Summary: Learn to use AI Guard's Role-based access control (RBAC). This includes the ability to start with a predefined role template, or creating custom roles with granular levels of permissions.
 
 Role-Based Access Controls (RBAC) for AI Guard system users enables organizations to provide more granular control of administrative functions, such as the ability to create custom permissions to assign to system users.
@@ -2382,23 +2516,23 @@ To modify an existing AI App or connection setting, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-tenant-settings","lastmod":"2026-07-27T10:43Z","nid":"1541820"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-tenant-settings","lastmod":"2026-08-11T10:34Z","nid":"1541820"} -->
 ## Managing Tenant Settings
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/managing-tenant-settings
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Managing Tenant Settings
-- Last modified: 2026-07-27T10:43Z
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > General > Managing Tenant Settings
+- Last modified: 2026-08-11T10:34Z
 - Summary: Learn how to manage the following AI Guard tenant settings: Network Access Control Policy, Custom Request Headers, Security Settings, and Syncing ZIA End Users and Groups.
 
-From the AI Guard Tenant Settings page, you can view information and make additional customizations to your AI Guard tenant. In addition to basic tenant information, you can also configure your network access control policy to allow IPv4 CIDR ranges, add custom request headers, make changes to your security and encryption settings, and sync your Zscaler Internet Access (ZIA) end users, groups, and domains.
+From the AI Guard Tenant Settings page, you can view information and make additional customizations to your AI Guard tenant. In addition to basic tenant information, you can also configure your network access control policy to allow IPv4 CIDR ranges, add custom request headers, and make changes to your security and encryption settings.
 
 On the AI Guard **Tenant Settings** page (AI Guard > Tenant Settings), you can view the following basic information:
 
 - **Name**: Name of the tenant.
 - **Mode**: Lists whether AI Guard is in **Proxy** or **DaaS** mode.
 - **UUID**: Universally unique identifier for your tenant.
-- **Zscaler AWS Account ID**: Displays your AWS Account ID. This is used for optional AWS integrations such as log exports to AWS S3 buckets or optional AWS customer-managed keys for encryption.
+- **Zscaler AWS Account ID**: Displays Zscaler's Account ID. This is used for optional AWS integrations such as log exports to AWS S3 buckets or optional AWS customer-managed keys for encryption.
 
 See image.
 
@@ -2491,11 +2625,40 @@ To enable AI Red Teaming after integrating it with AI Guard:
 2. Go to the **Integrations** tab and find the **Red Teaming** section. See image.
 3. Enable the toggle next to **Enable Red Teaming Integration**.
 
+## Anthropic Webhook
+
+AI Guard can integrate with Anthropic Claude's inference hooks to inspect and evaluate prompts against a tenant's detection policy in real time. AI Guard responds with an "allow" or "deny" verdict, which determines whether Claude proceeds to generate a response or the prompt is blocked.
+
+To set up an inference hook between AI Guard and Claude:
+
+1. In the **Claude UI**, go to **Organization Settings** > **Data and Privacy** > **Inference Hooks**.
+2. Under **Inference hooks**, enable **Allow for your organization**. See image.
+3. In the **Inference hooks** section, do the following: See image.
+  1. **Enforce verdicts**: Enable.
+  2. **Inference hooks endpoint**: Set to `https://api.zseclipse.net/v1/webhook/execute`
+  3. **Prompt verdict timeout (ms)**: 1000ms
+  4. **Signing secret**: Copy this secret for use in AI Guard later. A signing secret is generated automatically on the first save and can be rotated at any time.
+  5. **(Optional) Custom blocked prompt message**: Enter a custom block message to show users when a prompt is blocked.
+4. Leave Claude and go to the **AI Security Admin Portal** > **AI Guard** > **Tenant Settings** > **Integrations** tab.
+5. In the **Anthropic Webhook** section, click **Add Secret**. See image.
+6. In the **Add Webhook Signing Secret** window, do the following: See image.
+  1. **Anthropic Org UUID**: Enter your organization’s Anthropic UUID.
+  2. **Signing Secret**: Enter the signing secret you copied earlier.
+  3. Click **Add Secret**.
+
+With the webhook integrated, create a policy to detect webhook traffic and create a policy control to set the match criteria so the policy applies to the traffic you intend. To learn more, see [Adding and Managing AI Guard Policy Configurations](https://help.zscaler.com/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations) and [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-policy-control).
+
+[Image: Anthropic Claude UI showing Inference hooks section]
+
+[Image: Anthropic Claude UI showing Inference hooks section][Image: Anthropic Claude UI showing Inference hooks section]
+
+[Image: AI Guard, Tenant Settings, Integration Tab, Anthropic Webhook section]
+
+[Image: Add Webhook Signing Secret window]
+
 [Image: Tenant Settings, Security tab, Organisation Settings with example entries added]
 
 [Image: AI Guard Red Teaming Integration setting]
-
-[Image: AI Guard Tenant Settings ZIA Information section showing Cloud Name and Organization ID fields]
 
 [Image: AI Guard Tenant Settings Basic Information which includes Name, Mode, UUID, and ZIdentity Enabled.]
 
@@ -2516,13 +2679,51 @@ To enable AI Red Teaming after integrating it with AI Guard:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/openai-rest-api","lastmod":"2026-05-29T21:06Z","nid":"1540734"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/microsoft-teams","lastmod":"2026-08-16T00:13Z","nid":"1542864"} -->
+## Microsoft Teams
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/microsoft-teams
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > Microsoft Teams
+- Last modified: 2026-08-16T00:13Z
+- Summary: Integration Setup information for Microsoft Teams is provided in this article
+
+After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details.
+
+Microsoft Teams chatbots are Azure bots connected to Microsoft Teams. Testing is performed directly on the Azure bot, as it contains all the functionalities of the bot within Microsoft Teams. Azure Bot integration uses the [Direct Line API](https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-concepts?view=azure-bot-service-4.0).
+
+To create the integration, enter the **Bot ID** and **Bot Secret** from the Bot Framework. To retrieve these, go to your bot in the [Microsoft Bot Framework](https://dev.botframework.com/bots).
+
+IMAGE PLACEHOLDER: Figure 1 &ndash; Microsoft Teams Connection Example
+
+- Bot ID
+- Bot Secret
+
+To obtain the Bot ID:
+
+1. Go to **My bots** in the [Microsoft Bot Framework](https://dev.botframework.com/bots) and select your bot. [Image: This is the My bots page]
+2. Click **Settings**. [Image: microsoft_bot_page]
+3. Copy the **Bot handle** value and enter it in the **Bot ID** field. [Image: microsoft_bot_handle]
+
+IMAGE PLACEHOLDER: Figure 4 &ndash; Microsoft Bot Handle
+
+To obtain the Bot Secret:
+
+1. On the bot page, click **Edit** in the **Direct Line** row. [Image: microsoft_bot_edit]
+2. Copy the **Secret key** and enter it in the **Bot Secret** field. [Image: microsoft_bot_secret_key]
+
+After you enter both fields, click **Continue** to test your connection and proceed.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/openai-rest-api","lastmod":"2026-08-10T19:44Z","nid":"1540734"} -->
 ## OpenAI REST API
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/openai-rest-api
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > OpenAI REST API
-- Last modified: 2026-05-29T21:06Z
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > API > OpenAI REST API
+- Last modified: 2026-08-10T19:44Z
 - Summary: Integration Setup information for OpenAI Rest API is provided in this article.
 
 After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details, as follows:
@@ -2540,13 +2741,65 @@ After you select your [connection type](https://help.zscaler.com/secure-ai-apps-
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/proxy-sdk","lastmod":"2026-06-08T03:24Z","nid":"1540722"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/prompting-guide-ai-red-teaming-onboarding-agent","lastmod":"2026-08-31T07:03Z","nid":"1542866"} -->
+## Prompting Guide for AI Red Teaming Onboarding Agent
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/prompting-guide-ai-red-teaming-onboarding-agent
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Prompting Guide for AI Red Teaming Onboarding Agent
+- Last modified: 2026-08-31T07:03Z
+- Summary: This article provides guidelines for prompting while using Red Teaming Onboarding agent in AI Security Admin Portal.
+
+The Onboarding Agent turns a conversation about a target chat or API into a working proxy forAI Red Teaming. This guide covers what to know before you start, how to prompt the agent effectively, and what to verify once it hands you code.
+
+The agent runs in two phases:
+
+1. Spec gathering: As you describe your target, the agent fills in a structured checklist covering connection type, authentication, multi-turn state handling, request and response shapes, and error behavior. It does not offer to generate code until every required field has a value. If something is missing or ambiguous, it asks rather than guessing.
+2. Code generation: After you approve the spec, the agent generates a single proxy file built from a library of known-good patterns, including REST, streaming, WebSocket, authentication handling, and retries. It then runs an automated check and resolves some issues before handing you the bundle. The automated check catches obvious mistakes such as bad imports and syntax errors; however, it does not validate behavioral correctness. Running the code yourself remains essential. You can continue the conversation after a generation to request changes. The agent applies a focused patch to the existing code rather than rewriting from scratch, which preserves behavior you have already confirmed.
+
+## Before You Start
+
+Gather the following information about your target before starting a session:
+
+- **Connection type and base URL:** Whether the target uses REST, SSE, or WebSocket, and where it is hosted.
+- **Authentication details:** Not just that a token exists, but the exact header name and format. `Authorization: Bearer <token>` produces a different build than a raw token or a custom `X-API-Key` header.
+- **Statefulness:**Whether every call is independent, or whether the target maintains a server-side state that must be referenced across turns. If the target is stateful, describe the creation step and what gets reused, e.g. creating a thread once and passing its ID on every subsequent message.
+- **Exact request and response field names:** The outgoing message field, the reply field, and any counters or IDs the proxy needs to handle. Do not leave these to be inferred.
+- **Error contract, per failure mode:**What the target returns on bad authentication, an unknown or invalid ID, rate limiting, and generic server errors and which of those should trigger a retry. This is the area most often left vague and most likely to be implemented incorrectly.
+- **Multimodal support:** Whether the target handles anything beyond text, such as images or files.
+- **Operational limits:** Rate limits, expected latency, retry preferences, and any content guardrail or refusal behavior the proxy needs to recognize.
+
+## How to Prompt the Agent
+
+Here's how you can prompt the agent:
+
+- Provide complete information upfront. State all known details organized by topic rather than one fact per message. A complete opening message can produce a ready-to-generate spec in a single turn.
+- Be honest about what you don't know. The agent asks targeted follow-up questions rather than guessing. It can also draft a precise question list for you to forward to whoever owns the integration. Honest uncertainty still produces a complete spec.
+- Confirm literal values explicitly. Specify the exact header prefix, the exact JSON field names, and whether an ID goes in the path, a header, or the request body. Ambiguity can result in creating incorrect or fragile code.
+- Be explicit with error handling one failure mode at a time. Specify what a bad-authentication response looks like, what an unknown-ID response looks like, and what a rate-limit response looks like. "Handle errors sensibly" is too vague.
+- Describe stateful behavior explicitly. For example: Create a thread once and reuse its ID on every following message in that conversation. Stated upfront, this is the detail the agent implements most reliably. Left implicit, it is the one most often implemented incorrectly.
+- Never paste real credentials or customer data into the chat. Refer to secrets by name and let the agent wire up an environment variable.
+- Request post-generation changes as a single focused delta. For example: Also send header X on every call. A focused request reliably produces a small patch. Restating the full spec risks a rewrite that can silently discard behavior you have already verified.
+
+## Verify the Code After Generation
+
+The chat summary describes what the agent intended to build, not verified behavior. Treat it as a changelog, not a test report.
+
+- Run the code against the real target or a sandbox environment. Test with two known-good tests and at least two failure modes, i.e., an authentication failure and a not-found or invalid-ID case, and confirm the returned status codes match what you specified.
+- Check error mapping specifically. Distinct upstream failures such as bad authentication, not-found, and rate-limiting have a tendency to collapse into a single generic error response, even when the summary states otherwise.
+- Verify stateful behavior end to end. If you request stateful behavior, send two messages in the same conversation and confirm that the target's own counter or history advances correctly.
+- Skim the generated file for unrequested behavior. Look for invented guardrail logic, extra retry paths, or unused fields that are not part of your spec.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/proxy-sdk","lastmod":"2026-08-10T19:43Z","nid":"1540722"} -->
 ## Proxy SDK
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/proxy-sdk
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > Proxy SDK
-- Last modified: 2026-06-08T03:24Z
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > API > Proxy SDK
+- Last modified: 2026-08-10T19:43Z
 - Summary: Integration Setup information for PROXY SDK is provided in this article.
 
 After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details, as follows:
@@ -2555,6 +2808,429 @@ After you select your [connection type](https://help.zscaler.com/secure-ai-apps-
 - **API Key**: The API Key for your application, used to ensure successful authentication with the Proxy SDK.
 - **Additional Parameters Payload**: This section allows you to define custom payload data for POST requests sent by the Proxy SDK to the AI app. The payload is described as a JSON object.
 - **Authentication Header**: Select **+ Add Header** button for HTTP header customization. Custom HTTP headers are optional but may be required by the target for additional security, tracking, or configuration purposes.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/quick-start-guide-dasapi-mode","lastmod":"2026-08-12T09:56Z","nid":"1542215"} -->
+## Quick Start Guide for DAS/API Mode
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/quick-start-guide-dasapi-mode
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Getting Started > Quick Start Guide for DAS/API Mode
+- Last modified: 2026-08-12T09:56Z
+- Summary: This guide takes you through the configuration steps you need to set up AI Guard in DAS/API mode, add an AI application and credentials, and set up the policies necessary to provide run-time protection for your AI applications.
+
+This guide takes you through the configuration steps you need to set up AI Guard in DAS/API mode, add your AI applications, generate API keys, and set up the policies necessary to provide run-time protection for your AI applications. To aid with explaining the configuration, this guide also assumes a fictitious internal application (Travel App).
+
+## Prerequisites
+
+Before you can configure AI Guard, ensure that you
+
+- Have an AI Guard subscription.
+- Have the ability to modify application code.
+
+In addition, Zscaler recommends reading the following articles:
+
+- [What Is AI Guard?](https://help.zscaler.com/secure-ai-apps-infra/what-ai-guard)
+- [About the AI Guard Dashboard](https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-dashboard)
+- [About AI Guard Insights](https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-insights)
+- [About AI Guard Usage](https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-usage)
+
+## Configuring AI Guard in DAS/API Mode
+
+To configure AI Guard in DAS/API mode, complete the following steps:
+
+- Step 1: Configuring AI Guard
+- Step 2: Configuring AI Application
+- Step 3: Configure Policy
+- Step 4: Testing and Validating
+
+This section will cover the baseline for configuring AI Guard for DAS/API mode.
+
+1. In the AI Security Admin Portal left navigation menu, go to **AI Guard** > **Tenant Settings** > **Security**.
+2. In the top right of the page, set the **Mode** to **DAS**.
+3. In the **Security** tab, enable **Store Prompts/Responses** to be able to view the data in AI Guard, otherwise all Prompt/Response fields will show No Data. See image.
+4. After enabling **Store Prompts/Responses**, the **Setting Store Prompts/Responses configuration** window appears. Read the information in the window and click **Yes**. See image.
+
+To add an AI Application to AI Guard for DAS/API mode:
+
+1. In the AI Security Admin Portal, go to **AI Guard** > **AI Applications**. The **AI Applications** page appears. See image.
+2. Click **Add More** to open the **Create Application** window. See image.
+3. Enter the following information:
+  1. **Name**: `Travel App`
+  2. **(Optional) Owner Email**: Enter the owner email address for the application.
+  3. **Store Events Content**: Enabled.
+  4. **Encrypt Events Content**: Leave disabled.
+4. Click **Create** to return to the **AI Application** page.
+5. Go to the **Add API Keys** tab. See image.
+6. Click **Add More**.
+7. Enter the following information:
+  1. **Name**: `Travel App`
+  2. **Application**: Select the AI application you previously created from the drop-down menu.
+  3. **Expires At**: (Optional) Enter an expiration date for the credentials.
+8. Click **Create** and the **Save your key** window appears. See image.
+9. Save your API key which can be shared with your application developers. For security reasons, you will not be able to view it again after closing the window. After copying and saving it, click **Done**.
+
+### Create Policy
+
+To add a new policy for your AI app in AI Guard:
+
+1. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy >** **Configurations**. See image.
+2. Click **Add More** to open the **Add New Configuration** page.
+3. Under **Basic Information**, enter: See image.
+  1. **Policy Name**: `Travel App Policy Configuration`
+  2. (Optional) **Description**
+4. Click **Continue to Detectors**. The **Prompt Detectors** tab opens.
+5. On the **Prompt Detectors** tab, click on the **Toxicity** detector, set the **Action** to **Block**, and then click on **Save Changes**. See image.
+6. Click Next. Skip the configuration of response detectors. Click **Next** again. The **Review** tab opens.
+7. The **Review** tab shows you a summary of the policy configuration you created. Click **Submit Policy** if everything looks correct.
+8. Note down the **Policy ID** after creating the policy.
+
+### Testing DAS/API Mode
+
+The following sample Python code demonstrates how to make the API call to AI Guard for prompts. Note that it does not send the response from the LLM provider to AI Guard for evaluation. It assumes two things:
+
+1. The httpx package has been installed.
+2. The API key created under AI Applications is stored under an environment variable called `AIG_DAS_API_KEY`.
+
+In the following, note the `direction` key-value pair. The value of `IN` refers to prompt and the value of `OUT` refers to response. Keep in mind that in DAS mode, AI Guard can only make recommendations to the application, but it cannot perform enforcement actions. Your application must check for the key-value pair of `action: ALLOW` or `action: BLOCK` in the response from AI Guard.
+
+```
+import httpx
+import json
+import os
+
+das_api_key = os.getenv('AIG_DAS_API_KEY')
+
+aig_das_url = "https://api.zseclipse.net/v1/detection/execute-policy"
+
+policy_id = <policy_id> # Retrieve policy ID from the UI e.g. 3712
+
+prompt_string = "which airlines fly to San Diego"
+
+das_header = {
+    "Authorization" : f"Bearer {das_api_key}”
+}
+
+das_payload = {
+    "direction" : "IN",
+    "policyId" : policy_id,
+    "content" : prompt_string
+}
+
+resp = httpx.request("POST", aig_das_url, headers=das_header, 
+                         json=das_payload)
+
+print(json.dumps(resp.json(), indent=2))
+```
+
+#### Allowed Response
+
+```
+{
+  "transactionId": "3bfb70cd-3947-4937-9da9-8eff39d33385",
+  "statusCode": 200,
+  "detectorErrorCount": 0,
+  "action": "ALLOW",
+  "direction": "IN",
+  "detectorResponses": {
+    "toxicity": {
+      "statusCode": 200,
+      "triggered": false,
+      "action": "ALLOW",
+      "latency": 43,
+      "deviceType": "cuda",
+      "details": {
+        "topLabel": null,
+        "topScore": 0.0,
+        "topScoreByLabel": {
+          "LABEL_1": 0.0
+        }
+      },
+      "contentHash": {
+        "hashType": "md5",
+        "hashValue": "b68a77dbab9544978609bf3f2f13199c"
+      },
+      "severity": "LOW"
+    }
+  },
+  "maskedContent": "which airlines fly to San Diego",
+  "sendToApplication": false
+}
+```
+
+#### Blocked Response
+
+```
+{
+  "transactionId": "15eaf15a-fea2-43c0-af49-cfa9cc9e40d9",
+  "statusCode": 200,
+  "detectorErrorCount": 0,
+  "action": "BLOCK",
+  "severity": "LOW",
+  "direction": "IN",
+  "detectorResponses": {
+    "toxicity": {
+      "statusCode": 200,
+      "triggered": true,
+      "action": "BLOCK",
+      "latency": 43,
+      "deviceType": "cuda",
+      "details": {
+        "topLabel": "LABEL_1",
+        "topScore": 1.0,
+        "topScoreByLabel": {
+          "LABEL_1": 1.0
+        }
+      },
+      "contentHash": {
+        "hashType": "md5",
+        "hashValue": "45b1719591fe117a5bebad17f8db3cc8"
+      },
+      "severity": "LOW"
+    }
+  },
+  "maskedContent": "how to create a hoax for an airline",
+  "sendToApplication": false
+}
+```
+
+### Validating Activity
+
+From the AI Guard Dashboard page (AI Guard > Dashboard), you can validate your AI application activity.
+
+After your application has performed several transactions after being configured with AI Guard, these transactions will now appear on the Dashboard page:
+
+1. Select your desired date range and filters. See image.
+2. Under the date range and filters, you can view the number of Apps, Detections, and Transactions AI Guard managed in that time.
+3. Select **Transactions** or **Conversation**s to view dashboard entries as individual prompt transactions, or view multi-prompt AI interactions as a single, connected conversation thread. See image.
+4. The dashboard table contains information on each transaction for you to view.
+5. Click the **Details** icon to open a window showing more detailed information about that specific transaction. See image.
+
+[Image: Setting Store Prompts/Responses configuration window]
+
+[Image: Dashboard date and information]
+
+[Image: Dashboard Transactions Conversations setting]
+
+[Image: Transactions Details page after clicking the Details icon]
+
+[Image: AI Guard Policies page with an example policy visible]
+
+[Image: Basic policy information fields which includes Policy Name and Description]
+
+[Image: Configuring detector window showing the common options available.]
+
+[Image: AI Guard Tenant Settings, Security Settings]
+
+[Image: AI Guard AI Applications page showing App Name, Last Updated, Owner Email, Store Contents, Encrypt Contents, and Action]
+
+[Image: Create Application window]
+
+[Image: AI Application Identity Broker page]
+
+[Image: Save your key window, you need to copy the key before closing the window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/quick-start-guide-proxy-mode","lastmod":"2026-08-12T09:57Z","nid":"1542208"} -->
+## Quick Start Guide for Proxy Mode
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/quick-start-guide-proxy-mode
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Getting Started > Quick Start Guide for Proxy Mode
+- Last modified: 2026-08-12T09:57Z
+- Summary: This guide takes you through the configuration steps you need to set up AI Guard in Proxy mode, add an AI application and credentials, and set up the policies necessary to provide run-time protection for your AI applications.
+
+This guide takes you through the configuration steps you need to set up AI Guard in Proxy mode, add your AI applications, generate API keys, and set up the policies necessary to provide run-time protection for your AI applications. This guide is geared towards Claude using their public API endpoint as an example, but can be adapted for other LLM providers. To aid with explaining the configuration, this guide also assumes a fictitious internal application (Travel App) that makes API calls to Claude.
+
+## Prerequisites
+
+Before you can configure AI Guard, ensure that you
+
+- Have an AI Guard subscription.
+- Have the ability to modify application code.
+- Have the API key from your LLM provider.
+
+In addition, Zscaler recommends reading the following articles:
+
+- [What Is AI Guard?](https://help.zscaler.com/secure-ai-apps-infra/what-ai-guard)
+- [About the AI Guard Dashboard](https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-dashboard)
+- [About AI Guard Insights](https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-insights)
+- [About AI Guard Usage](https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-usage)
+
+## Configuring AI Guard in Proxy Mode
+
+To configure AI Guard in Proxy mode, complete the following steps:
+
+- Step 1: Configuring AI Guard
+- Step 2: Configuring LLM Credentials
+- Step 3: Configuring AI Application and Identity Broker
+- Step 4: Configure Policy and Policy Control
+- Step 5: Testing and Validating
+
+This section will cover the baseline for configuring AI Guard for Proxy mode.
+
+1. In the AI Security Admin Portal left navigation menu, go to **AI Guard** > **Tenant Settings** > **Security**.
+2. In the top right of the page, set the **Mode** to **Proxy**.
+3. In the **Security** tab, enable **Store Prompts/Responses** to be able to view the data in AI Guard, otherwise all Prompt/Response fields will show No Data. See image.
+4. After enabling **Store Prompts/Responses**, the **Setting Store Prompts/Responses configuration** window appears. Read the information in the window and click **Yes**. See image.
+5. Leave all other settings disabled under **Security Settings**.
+
+1. Go to **AI Security Admin Portal** > **AI Guard** > **LLMs** > **Credentials**. See image.
+2. Click **Add More**. The **Add LLM Credentials** window opens.
+3. Enter the following: See image.
+  1. **Name**: `Anthropic credentials`
+  2. **LLM Provider**: Default Anthropic Provider
+  3. **(Optional) Expires At**: You can add an expiration date to your LLM provider credentials.
+  4. **API Key**: Enter the API key for your LLM provider.
+4. Click **Submit**.
+
+### Add AI Application
+
+To add an AI Application to AI Guard for Proxy mode:
+
+1. In the AI Security Admin Portal, go to **AI Guard** > **AI Applications**. The **AI Applications** page appears. See image.
+2. Click **Add More** to open the **Create Application** window. See image.
+3. Enter the following information:
+  1. **Name**: `Travel App`
+  2. **(Optional) Owner Email**: Enter the owner email address for the application.
+  3. **Store Events Content**: Enable.
+  4. **Encrypt Events Content**: Leave disabled.
+4. Click **Create** to return to the **AI Application** page.
+
+### Add Application Identity Broker
+
+Link your app to your LLM provider by creating an identity broker.
+
+1. Go to **AI Security Admin Portal** > **AI Guard** > **AI Applications** > **Application Identity Brokers**. See image.
+2. Click **Add More** to open the **Add Application Identity Broker** window. See image.
+3. Enter the following information:
+  1. **Name**: `Travel App-Anthropic`
+  2. **Application**: `Travel App`
+  3. **Expires At**: (Optional) Enter an expiration date for the credentials.
+  4. **LLM Provider**: `Default Anthropic Provider`
+  5. **LLM Provider Credentials**: `Anthropic credentials`
+4. Click **Create** and the **Save your key** window appears. See image.
+5. Save your API key which can be shared with your application developers. For security reasons, you will not be able to view it again after closing the window. After copying and saving it, click **Done**.
+
+### Create Policy
+
+To add a new policy for your AI app in AI Guard:
+
+1. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy >** **Configurations**. See image.
+2. Click **Add More** to open the **Add New Configuration** page.
+3. Under **Basic Information**, enter: See image.
+  1. **Policy Name**: `Travel App Policy Configuration`
+  2. (Optional) **Description**
+4. Click **Continue to Detectors**. The **Prompt Detectors** tab opens.
+5. On the **Prompt Detectors** tab, click on the **Toxicity** detector, set the **Action** to **Block**, and then click on **Save Changes**. See image.
+6. Click Next. Skip the configuration of response detectors. Click **Next** again. The **Review** tab opens.
+7. The **Review** tab shows you a summary of the policy configuration you created. Click **Submit Policy** if everything looks correct.
+
+### Create Policy Control
+
+After you create an AI Guard policy configuration, you can then apply it to your AI app by adding policy control. To create an AI application policy control:
+
+1. In the AI Security Admin Portal left-side navigation, go to **AI Guard** > **Policy** > **Controls**. The **Policy Control** page appears. See image.
+2. Click on the **AI Applications** tab.
+3. Click **Add More** to open the **Create Policy Match** window. See image.
+4. Enter the following required information:
+  - **Rule Name**: `Travel App Policy Control`
+  - **Policy Configuration**: `Travel App Policy Configuration`
+  - **Rule Order**: Do not modify.
+  - **Rule Status**: Enabled.
+  - **Match Criteria**: Click **Add More**:
+    - **Applications & Credentials**: Select `Travel App`.
+5. Click **Submit** to return to the **Policy Control** page.
+
+### Testing Proxy Mode
+
+The following sample Python code demonstrates how to make the API call to AI Guard. It assumes two things:
+
+1. The httpx package has been installed.
+2. The API key created under Application Identity Broker is stored under an environment variable called `AIG_PROXY_API_KEY`.
+
+Two key changes of note: the first is the URL. Instead of connecting directly to Claude, the application now makes the API calls to AI Guard. Second, authentication is done via the `X-ApiKey` header. The payload itself remains the same.
+
+The first test sends a prompt that should not trigger the Toxicity detector. To test the Toxicity detector, change the prompt string to: `how do I create a hoax for an airline`.
+
+Code block:
+
+```
+import httpx
+import os
+
+proxy_api_key = os.getenv('AIG_PROXY_API_KEY')
+
+# claude_native_url = "https://api.anthropic.com/v1/messages"
+claude_proxy_url = "https://proxy.zseclipse.net/v1/messages" 
+
+prompt_string = "which airlines fly to San Diego"
+
+claude_proxy_header = {
+    "X-ApiKey" : proxy_api_key,
+    "anthropic-version" : "2023-06-01"
+}
+
+claude_payload = {
+    "model" : "claude-opus-4-5-20251101",
+    "messages": [{"role" : "user",
+                 "content": prompt_string}
+                 ],
+    "max_tokens" : 1024
+}
+
+resp = httpx.request("POST", claude_proxy_url, headers=claude_proxy_header, 
+                         json=claude_payload)
+
+print(resp.json())
+```
+
+### Validating Activity
+
+From the AI Guard Dashboard page (**AI Guard** > **Dashboard**), you can validate your AI application activity.
+
+After your application has performed several transactions after being configured with AI Guard, these transactions will now appear on the Dashboard page:
+
+1. Select your desired date range and filters. See image.
+2. Under the date range and filters, you can view the number of Apps, Detections, and Transactions AI Guard managed in that time.
+3. The dashboard table contains information on each transaction for you to view.
+4. Click the **Details** icon to open a window showing more detailed information about that specific transaction. See image.
+
+[Image: Setting Store Prompts/Responses configuration window]
+
+[Image: AI Guard Dashboard for Proxy]
+
+[Image: Transaction Details menu]
+
+[Image: LLM Provider Credentials page with Add More button]
+
+[Image: Add LLM Credentials window]
+
+[Image: AI Guard Policies page with an example policy visible]
+
+[Image: Basic policy information fields which includes Policy Name and Description]
+
+[Image: Configuring detector window showing the common options available.]
+
+[Image: AI Guard Create Policy Control window]
+
+[Image: AI Guard Policy Match page with an example policy match and Add More button visible.]
+
+[Image: AI Guard Tenant Settings, Security Settings]
+
+[Image: AI Guard AI Applications page showing App Name, Last Updated, Owner Email, Store Contents, Encrypt Contents, and Action]
+
+[Image: Create Application window]
+
+[Image: AI Application Identity Broker page]
+
+[Image: Add Application Identity Broker window]
+
+[Image: Save your key window, you need to copy the key before closing the window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2587,13 +3263,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-05-25T01:45Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-09-08T11:30Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-05-25T01:45Z
+- Last modified: 2026-09-08T11:30Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -2601,13 +3277,13 @@ This article provides a summary of all new features and enhancements for Secure 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/rest-api","lastmod":"2026-05-29T21:06Z","nid":"1540063"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/rest-api","lastmod":"2026-08-10T19:42Z","nid":"1540063"} -->
 ## REST API
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/rest-api
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > REST API
-- Last modified: 2026-05-29T21:06Z
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Connections > API > REST API
+- Last modified: 2026-08-10T19:42Z
 - Summary: Integration Setup information for Rest API is provided in this article.
 
 After you select your [connection type](https://help.zscaler.com/secure-ai-apps-infra/connecting-ai-app), the **Configure your connection** page appears in the next step and prompts you to enter the required connection details, as follows:
@@ -2931,13 +3607,13 @@ Notes:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/test-llm-providers-ai-guard-proxy-mode","lastmod":"2026-07-27T10:44Z","nid":"1541882"} -->
-## Test LLM Providers in AI Guard Proxy Mode
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/test-llm-providers-ai-guard-proxy-mode","lastmod":"2026-08-06T14:49Z","nid":"1541882"} -->
+## Test LLM Provider Endpoints in AI Guard Proxy Mode
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/test-llm-providers-ai-guard-proxy-mode
 - Product: Secure AI Apps & Infrastructure
-- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Proxy Mode > Test LLM Providers in AI Guard Proxy Mode
-- Last modified: 2026-07-27T10:44Z
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Proxy Mode > Test LLM Provider Endpoints in AI Guard Proxy Mode
+- Last modified: 2026-08-06T14:49Z
 - Summary: The purpose of this article is to show, for each validated provider, the exact proxy URL path, required headers, and basic request body structure needed to successfully send a test prompt through the common Zscaler AI Guard proxy endpoint.
 
 This document provides a reference for testing supported Large Language Model (LLM) providers through AI Guard in proxy mode. Its purpose is to show, for each validated provider, the exact proxy URL path, required headers, and basic request body structure needed to successfully send a test prompt through the common AI Guard proxy endpoint. This is intended as a practical reference guide for administrators and engineers who need to configure or verify provider-specific proxy routing in AI Guard for services such as Anthropic, Azure Foundry, AWS Bedrock, Google Gemini, and Google Vertex, OpenAI, etc.
@@ -3330,6 +4006,140 @@ accept: application/json
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues","lastmod":"2026-08-10T19:19Z","nid":"1541957"} -->
+## Troubleshooting AI Red Teaming Broker Issues
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Brokers > Troubleshooting AI Red Teaming Broker Issues
+- Last modified: 2026-08-10T19:19Z
+- Summary: This Zscaler runbook outlines troubleshooting steps for AI Red Teaming Brokers.
+
+The AI Security Red Teaming Broker is a lightweight agent that you deploy inside your network to enable Red Teaming to reach private AI applications without opening inbound firewall ports. Use this article to diagnose and resolve common broker connectivity, authentication, and routing issues.
+
+### Running the Preflight Check
+
+For any broker issue, your first step is always to run the built-in diagnostic tool `airt-broker diagnose`. It checks connectivity, certificates, OAuth credentials, and DNS without disrupting a live broker.
+
+Run the following command within the container:
+
+`docker exec <broker-container> python``-m``airt_broker diagnose`
+
+An example of healthy output is shown here:
+
+[Image: An example of a healthy output is shown here.]
+
+### Quick Reference
+
+The following table lists the symptoms, the likely causes, and resolution:
+
+| Symptom | Likely Cause | Resolution |
+| --- | --- | --- |
+| Broker stays **Pending**or **Offline** Logs repeat `opening wss` with `no wss connected` | Cannot reach or authenticate to gateway | Check egress to `GATEWAY_URL:443` Run `diagnose` tool |
+| **Auth**token returns (`401 invalid_client`) | Incorrect `OAUTH_CLIENT_ID / OAUTH_CLIENT_SECRET` | Verify that the Client ID and Client Secret match the registered broker |
+| WSS rejected **4403**(`gateway_cidr_rejected`) | Broker’s egress IP is not in the source-IP allow-list | Add the broker’s public egress IP to the allow-list in the platform |
+| WSS rejected **4401**(`gateway_broker_unregistered / _revoked`) | BROKER_ID mismatch, or broker revoked/deleted | Confirm `BROKER_ID` Ensure the broker is not revoked (reinstate if needed) |
+| TLS errors (`certificate verify failed, unable to get local issuer`) | Corporate TLS inspection/private CA | Set `EXTRA_CA_CERTS` (add the corporate CA) Disable SSL inspection for the broker traffic Set `HTTPS_PROXY` if required |
+| Broker **Online**but tests return **403** | Target base URL not in the broker’s target allow-list | Add the target’s base URL to the broker’s allow-list, or correct `X-Target-Url`. |
+| Tests **time out (504)** or fail **502** | Target slow or unreachable from the broker’s network | Verify the broker can reach the target Raise `TARGET_REQUEST_TIMEOUT` for slow applications |
+| Broker disconnects periodically while idle (`close_code:null`) | An intermediary (proxy/ NAT/firewall) idle or max-connection timeout | Benign - the broker reconnects automatically Raise the intermediary’s idle timeout if frequent. |
+
+### Diagnosing and Resolving Common Issues
+
+This section describes common Broker issues and the steps to resolve them:
+
+- Broker Stays Pending or Offline
+- TLS Certificate Errors
+- Broker is Online but Tests Return 403
+- Tests Time Out (504) or Fail with 502
+- Broker Disconnects Periodically While Idle
+
+**Symptom:** The broker status does not change from **Pending**, or it repeatedly switches to **Offline**. The logs show repeated `opening wss` entries with no `wss connected` line.
+
+The following are the likely causes:
+
+- Cannot Reach the Gateway
+- Invalid OAuth Credentials (`diagnose` shows `401 invalid_client`)
+- Egress IP Not in the Allow-List (`4403 gateway_cidr_rejected`)
+- Broker ID Mismatch or Broker is Revoked (`4401 gateway_broker_unregistered or _revoked`)
+
+**Symptom:** Broker startup logs show certificate verify failed or unable to get local issuer certificate.
+
+**Cause:** A corporate TLS inspection proxy or a private Certificate Authority (CA) is intercepting the broker's outbound connection.
+
+To resolve this issue:
+
+1. Obtain the corporate CA certificate in PEM format.
+2. Set the `EXTRA_CA_CERTS` environment variable to the path of the PEM file and mount it into the container: `-e EXTRA_CA_CERTS="/etc/airt-broker/corp-intermediates.pem" \ -v "$PWD/certs:/etc/airt-broker:ro"`
+3. If an outbound proxy is required, also set: `-e HTTPS_PROXY="http://proxy.internal:8080"`Do not set `SSL_VERIFY` to false. Disabling certificate validation removes a critical security control and is not supported in production environments.
+
+**Symptom:** Requests hang and return `504 Gateway Timeout` or `502 Bad Gateway`.
+
+**Cause:**The target application is slow to respond or is unreachable from the broker host.
+
+To resolve this issue:
+
+1. From the broker host, verify that the broker can reach the target URL directly (for example, using `curl <target-url>`).
+2. If the target is reachable but responds slowly, increase the request timeout: `-e TARGET_REQUEST_TIMEOUT=120`
+3. Check that no firewall rule is blocking traffic from the broker host to the target application.
+
+**Symptom:** Logs show `wss disconnected` with `close_code: null` and `abnormal: true` after a period of inactivity, followed by automatic reconnection (opening wss).
+
+**Cause:** An intermediary (proxy, NAT gateway, or firewall) is closing idle connections due to a configured timeout.
+
+This behavior is benign. The broker reconnects automatically. If reconnections are frequent and affecting test reliability, work with your network team to increase the idle connection timeout on the intermediary.
+
+**Symptom:**The broker shows **Online**in AIRT, but test requests return a `403`error.
+
+**Cause:** The target's base URL is not in the broker's target allow-list.
+
+To resolve this issue:
+
+1. Go to **Administration > Red Teaming > Brokers** and open the broker's detail page.
+2. Select the **Allow-lists** tab, then select **Target URLs**.
+3. Add the target's base URL, or verify that the X-Target-Url header in your request is correct.
+
+### Collecting Logs for Support
+
+If you cannot resolve the issue, collect the following information before contacting Zscaler Support:
+
+Run these commands to export a redacted diagnostic report and recent broker logs:
+
+```
+docker
+exec <broker-container> python -m airt_broker diagnose
+--json
+> diag.json
+docker
+logs
+--tail 500
+<broker-container> > broker.log
+```
+
+Ensure you include the following information when you contact support:
+
+- `diag.json`
+- `broker.log`
+- Your `BROKER_ID`
+- The approximate date and time of the incident The `diag.json` output is automatically redacted and does not contain your `OAUTH_CLIENT_SECRET`. Do not share your client secret directly with support or include it in log files.
+
+1. Confirm that outbound TCP access to the `GATEWAY_URL` host on port **443**is open.
+2. Run the preflight check and review the DNS, TCP, and TLS rows.
+
+1. Go to **Administration > Red Teaming > Brokers** and open the broker's detail page.
+2. Compare the `OAUTH_CLIENT_ID` and`OAUTH_CLIENT_SECRET` values in your deployment against the Authentication Service credentials associated with this broker registration.
+3. If they do not match, re-copy the credentials from the Authentication Service API client and redeploy the broker container.
+
+1. Identify the broker container's public egress IP address.
+2. Go to **Administration > Red Teaming > Brokers** and open the broker's detail page.
+3. Under **Source-IP Allow-list**, add the broker's public egress IP. Allow-list changes apply immediately and no broker restart is required.
+
+1. Confirm that the `BROKER_ID` environment variable in your deployment matches the ID shown on the broker's detail page in AIRT.
+2. If the broker status shows **Revoked**, go to **Administration > Red Teaming > Brokers**, open the broker, and select **Reinstate**.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/understanding-ai-security-broker","lastmod":"2026-07-26T23:36Z","nid":"1541762"} -->
 ## Understanding the AI Security Broker
 
@@ -3383,6 +4193,78 @@ Download the run manifest file that contains the broker configuration. Use this 
 Confirm that the broker shows **Online**in the AI Security Admin Portal. An **Online**status indicates that the broker has successfully established an outbound WebSocket connection to the Zscaler cloud gateway.
 
 Add your private AI application as a target in the platform and associate it with the provisioned broker. This enables Zscaler AI Red Teaming workers to route test traffic through the broker to reach the application. To learn more, see [Connect an Asset](https://help.zscaler.com/secure-ai-apps-infra/connect-an-asset).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/understanding-onboarding-agent-with-use-cases","lastmod":"2026-08-31T07:35Z","nid":"1542710"} -->
+## Understanding Onboarding Agent with Use Cases
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/understanding-onboarding-agent-with-use-cases
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Connect an Asset > Understanding Onboarding Agent with Use Cases
+- Last modified: 2026-08-31T07:35Z
+- Summary: This article explains about how to create a proxy to bridge your AI Application to AI Security Admin Portal
+
+The AI Red Teaming Onboarding Agent simplifies the process of connecting your application to AI Red Teaming. Instead of manually building a proxy from scratch, you answer a series of guided questions about your application, such as connection type, authentication, and message format. The agent uses your responses, along with any API documentation you upload, to automatically generate a ready-to-use proxy project that you can download, configure, and deploy. This reduces integration time from weeks to minutes and eliminates the need to depend on the internal engineering team.
+
+## How it Works
+
+You can use the AI Red Teaming Onboarding Agent to connect your application to AI Red Teaming in a few steps.
+
+1. Create a session in the agent and assign it to a business unit.
+2. Upload API documentation and instruct the agent to review it.
+3. The agent asks clarifying questions to complete the technical specification.
+4. After the specification is complete, the agent generates the proxy code, which you can download.
+5. You configure the environment file and API keys, then access the application in a browser.
+6. You connect the application to the AI red teaming platform for testing.
+
+## Use Cases
+
+The following use case examples show how you can use the onboarding agent:
+
+- Guided Spec Collection
+- Proxy Code Generation and Download
+- Iterative Refinement and Regeneration
+- Agent Skill for Local Development
+
+The Onboarding Agent collects your proxy specification through a structured conversation. It guides you through the following topic groups:
+
+- **Basics:** Integration name, company, and description
+- **Connectivity:** Connection protocol and endpoints
+- **Authentication:** Authentication type and credentials flow
+- **Session behavior:** Stateless or persistent sessions
+- **Message handling:** Request and response format
+- **Multimodal support:** File or media input handling
+- **Rate limits:** Request throttling and retry behavior
+
+For each question, you can select a predefined answer or type a custom response. The agent adapts follow-up questions based on your previous answers and tracks spec completeness as a percentage. You cannot proceed to code generation until the spec is 100% complete. If you don't understand a question, ask the agent to explain it, and it responds in plain language before asking again.
+
+After your spec is complete, click **Generate Proxy**. The agent produces a full Python project built on the proxy SDK, containing:
+
+- `main.py`: A server subclass implementing open_session, send_message, and close_session
+- `pyproject.toml`: All required dependencies
+- `Dockerfile`: For containerized deployment
+- `.env / .env.example`: Environment configuration
+- `README.md`: Setup, testing, and deployment instructions
+- `.vscode/launch.json`: Local debug configuration
+
+Download the project as a ZIP, run it locally, and connect it to the AI Red Teaming by configuring a new connection with type Proxy SDK.
+
+After generating a proxy, you can continue the conversation to refine it. You can correct a spec field, add details you missed, ask questions about the generated code, or request changes to the proxy's behavior. The agent updates the spec and lets you regenerate at any time.
+
+Each generation creates a numbered version (v1, v2, v3...). You can view the full version history with timestamps and download any previous version as a ZIP, so you can roll back if a regeneration introduces issues.
+
+If you prefer working in your own editor, download and install the Onboarding Agent skill in Claude Code, Cursor, Copilot, or your preferred coding agent. The skill provides the same guided spec collection as the platform chatbot and runs entirely on your machine.
+
+After generating the proxy, the skill automatically:
+
+- Runs a test script to validate the proxy's three endpoints.
+- Checks authentication handling and response formatting.
+- Looks up common failures in a known-problems database if a test fails.
+- Fixes the code automatically or asks a targeted follow-up question.
+
+The skill can also help you build a Docker image, push it to a registry, and connect the proxy to AI Red Teaming.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4091,13 +4973,13 @@ If the Competition detector isn't triggering correctly, run through the followin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-topicoff-topic-detectors-1","lastmod":"2026-07-28T11:53Z","nid":"1541879"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-topicoff-topic-detectors-1","lastmod":"2026-08-24T08:57Z","nid":"1541879"} -->
 ## Best Practices Runbook: Topic/Off Topic Detectors
 
 - Source: https://help.zscaler.com/secure-ai-users/best-practices-runbook-topicoff-topic-detectors-1
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Best Practices > Best Practices Runbook: Topic/Off Topic Detectors
-- Last modified: 2026-07-28T11:53Z
+- Last modified: 2026-08-24T08:57Z
 - Summary: Learn the best practices for configuring the Topic and Off Topic prompt/response detectors for AI Guard as well as explanations on how it works, example customer scenarios, and troubleshooting.
 
 AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal.
@@ -4188,7 +5070,7 @@ After creating a policy and confirming it works as expected, the next step is to
 
 The **threshold** is a number between 0.0 and 1.0 that controls how confident the model must be before it calls a prompt a match. Similar to a volume knob; turning it up will trigger only very obvious mentions. Turn it down and more borderline cases trigger.
 
-The default is **0.75**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labeled prompts covering both real competitor mentions and tricky false-positive cases (city block, writer's block, out of stock, Times Square, Peter Pan, etc.).
+The default is **0.7**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labeled prompts covering both real competitor mentions and tricky false-positive cases (city block, writer's block, out of stock, Times Square, Peter Pan, etc.).
 
 Zscaler strongly recommends that you leave the threshold at **0.7**. We built and validated the detector around this default.
 
@@ -4360,13 +5242,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-07-28T11:59Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-09-09T16:04Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-07-28T11:59Z
+- Last modified: 2026-09-09T16:04Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -4377,9 +5259,10 @@ Before you can integrate ZIA with AI Guard, ensure that you:
 
 - Have an AI Guard subscription.
 - Have linked ZIA and AI Guard. Contact Zscaler Support to ensure they are linked.
+  - AI Guard can only be mapped to a single tenant and a single domain. For example, if `acme.com` exists in both the QA and Production tenant, AI Guard can map to either the QA or Production tenant, but not both.
 - Have Experience Center enabled for your tenant. Instructions for ZIA-related configuration assume that it will be performed via Experience Center.
 - Have the CA certificate of the AI Guard endpoint. Contact Zscaler Support if you need help getting it.
-- Are using a supported generative AI application. The following table lists the supported AI applications (last updated: July 02, 2026); use the page controls at the bottom-right of the table to view all providers:
+- Are using a supported generative AI application. The following table lists the supported AI applications (last updated: Sept. 02, 2026); use the page controls at the bottom-right of the table to view all providers:
   | Application | Client Types | Domains Required |
   | --- | --- | --- |
   | Anthropic (Claude) | Web Browsers; Claude Desktop; Claude CLI; Claude Code for VS Code; Claude MS Add-in (Excel/PPT) | `*.claude.ai` `*.api.anthropic.com` |
@@ -4399,13 +5282,15 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   | Grok (xAI) | Web Browsers | `*.grok.com` |
   | Lovable | Web Browsers | `api.lovable.dev` |
   | MaxAI | Web Browsers | `*.api.maxai.me` |
-  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot in Word (Desktop App and Web Browser); Copilot in Outlook (Web Browser) | `*.substrate.office.com` `*.substrate.svc.cloud.microsoft` `*.copilot.microsoft.com` `*.api.business.githubcopilot.com` `*.api.enterprise.githubcopilot.com` `*.api.individual.githubcopilot.com` |
+  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot.com (Web Browser); Copilot in Word (Desktop App and Web Browser); Copilot in Excel (Web Browser); Copilot in Outlook (Web Browser) | `substrate.office.com` `substrate.svc.cloud.microsoft` `copilot.microsoft.com` `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` `augloop.office.com` `www.copilot.com` |
   | Mistral AI | Mistral Vibe (formerly Le Chat) backend | `*.mistral.ai` |
   | Napkin AI | Web Browsers | `*.app.napkin.ai` |
   | NotebookLM | Web Browsers | `*.notebooklm.google.com` |
   | OpenAI (ChatGPT, Codex) | Web Browsers; Desktop App (Windows and Mac) | `*.chatgpt.com` `*.chat.openai.com` |
   | OpenCode | App; CLI | `*.opencode.ai` |
   | Perplexity | Web Browsers; Perplexity Desktop App; Comet Browser | `*.perplexity.ai` |
+  | Quillbot | Web Browsers | `quillbot.com` |
+  | Replit | Web Browsers | `sp.replit.com` |
   | Vertex AI | Web Browsers | `*.cloudconsole-pa.clients6.google.com` |
   | Windsurf | Desktop App (Proxy Mode Only).Custom Block Messages are not currently supported with this provider. | `server.self-serve.windsurf.com` `server.codeium.com` |
 
@@ -4509,13 +5394,13 @@ For traffic forwarding to work, users must have signed in to ZIA through mechani
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-log-exports","lastmod":"2026-07-21T12:01Z","nid":"1540889"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-log-exports","lastmod":"2026-09-08T09:22Z","nid":"1540889"} -->
 ## Managing AI Guard Log Exports
 
 - Source: https://help.zscaler.com/secure-ai-users/managing-ai-guard-log-exports
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Managing AI Guard Log Exports
-- Last modified: 2026-07-21T12:01Z
+- Last modified: 2026-09-08T09:22Z
 - Summary: Learn to manage and configure third-party integrations to export incident data from AI Guard.
 
 The AI Guard **Log Exports** page allows you to manage and configure third-party integrations to export incident data. You can do this through either Amazon Web Services (AWS), CrowdStrike (CRWD), Splunk, or AWS S3 event exporting.
@@ -4532,10 +5417,31 @@ To add an ADX event export instance:
   - **Content Event Hub Connection String**: (Optional) Enter the SAS connection string for the content Event Hub (e.g. `aiguard-content`). Obtain via: `az eventhubs eventhub authorization-rule keys list`.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
   - **Export Blocked Prompts**: Select to export blocked prompts.
+  - **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **Azure ADX Event Export Integrations** page opens. Your integration appears on this page.
 
-## CRWD Event Export
+## CRWD SIEM Direct Export
+
+Use the CRWD integration to direct export event metadata to CrowdStrike HTTP Event Collector (HEC).
+
+To add a CRWD event export instance:
+
+1. Under **CRWD SIEM Direct Export**, click **Add Instance**. The **Add Integration** window appears. See image.
+2. In the **Add Integration** window:
+  1. **Name**: Enter a name for your event export instance.
+  2. **Enabled**: Select this option to activate the event report functionality.
+  3. **CrowdStrike Metadata HEC Bearer Token**: The bearer token used to authenticate to the CrowdStrike HEC for the tenant's events.
+  4. **CrowdStrike Metadata HEC URL**: The URL of the CrowdStrike HEC (raw endpoint) where tenant's events will be posted.
+  5. **CrowdStrike HEC Bearer Token**: (Optional) Enter the bearer token to authenticate the CrowdStrike HEC.
+  6. **CrowdStrike HEC URL**: (Optional) Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
+  7. **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
+  8. **Export Blocked Prompts**: Select to export blocked prompts.
+  9. **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
+3. Click **Validate Connection** to check whether the information you entered is accurate and working.
+4. Click **Save Integration**. The **CRWD Event Export Integrations** page opens. Your integration appears on this page.
+
+## CRWD SIEM Export (via S3)
 
 Use the CRWD integration to export event metadata to CrowdStrike HTTP Event Collector (HEC) and event contents to AWS S3.
 
@@ -4549,18 +5455,17 @@ To add a CRWD event export instance:
   - **Bucket Key Prefix**: (Optional) Enter the key prefix for objects created in the S3 bucket.
   - **Tags**: (Optional) Click **Add Tag** to enter the tag key and value to apply to the object put in the S3 bucket. To use this feature, the IAM role requires permissions for the "s3:PutObjectTagging" action.
   - **Region of Bucket**: Enter the region of the bucket.
-  - **IAM Cross-Account Role ARN**: Enter the Amazon Resource Name (ARN) of the IAM cross-account role created in the tenant's AWS account.
-  - **IAM Cross-Account Role External ID**: The external ID of the IAM cross-account role which is created in the tenant's AWS account. It should be filled in automatically.
   - **CrowdStrike HEC Bearer Token**: Enter the bearer token to authenticate the CrowdStrike HEC.
   - **CrowdStrike HEC URL**: Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
   - **Export Blocked Prompts**: Select to export blocked prompts.
+  - **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **CRWD Event Export Integrations** page opens. Your integration appears on this page.
 
 ## S3 Event Export
 
-Use the S3 integration to export event metadata and contents to AWS S3. A cloud formation template to set the right roles and policies can be found on the Zscaler AI Guard portal.
+Use the S3 integration to export event metadata and contents to AWS S3.
 
 To add an S3 event export instance:
 
@@ -4577,10 +5482,13 @@ To add an S3 event export instance:
   - **IAM Cross-Account Role External ID**: The external ID of the IAM cross-account role created in the tenant's AWS account. This field auto-populates.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
   - **Export Blocked Prompts**: Select to export blocked prompts.
+  - **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **S3 Event Export Integrations** page opens. Your integration appears on this page.
 
 ## Splunk Event Export
+
+To add a Splunk event export instance:
 
 1. Under **Splunk Event Export**, click **Add Instance**. The **Add Integration** window appears. See image.
 2. In the **Add Integration** window:
@@ -4592,10 +5500,13 @@ To add an S3 event export instance:
   6. **Splunk Content HEC URL**: (Optional) Enter the URL of the Splunk HEC (raw endpoint) where tenant's events (content) will be posted.
   7. **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
   8. **Export Blocked Prompts**: Select to export blocked prompts.
+  9. **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **Splunk Export Integrations** page opens. Your integration appears on this page.
 
 [Image: AI Guard Add Integration window for CRWD]
+
+[Image: CRWD Direct image.]
 
 [Image: AI Guard Add Integration window for S3]
 
@@ -4606,13 +5517,13 @@ To add an S3 event export instance:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-policy-control","lastmod":"2026-07-28T11:18Z","nid":"1540883"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-policy-control","lastmod":"2026-08-17T11:24Z","nid":"1540883"} -->
 ## Managing AI Guard Policy Control
 
 - Source: https://help.zscaler.com/secure-ai-users/managing-ai-guard-policy-control
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Managing AI Guard Policy Control
-- Last modified: 2026-07-28T11:18Z
+- Last modified: 2026-08-17T11:24Z
 - Summary: Learn to create and manage AI Guard policy control.
 
 After you create an AI Guard policy configuration, you can then attach it to an LLM provider, user, or user group by adding policy control. Policies are evaluated from top-to-bottom and the evaluation will stop after matching the first policy. To learn more, see [Adding and Managing AI Guard Policies](https://help.zscaler.com/secure-ai-users/adding-and-managing-ai-guard-policy-configurations).
@@ -4630,7 +5541,10 @@ To create user policy control:
   - **Rule Order**: Enter a number for the order in which you want the policy match applied.
   - **Rule Status**: Select whether you want the rule to be enabled or disabled.
   - **Match Criteria**: At least one match criteria must be defined:
-    - **LLM Provider & Models**: Click **Add More** and click the drop-down menus to select at least one **LLM** and **Model**.
+    - **LLM Provider & Models**: Click **Add More**.
+      - **LLM**: Select an LLM provider.
+      - **Models**: Select an AI model.
+      - **Account Type**: If Organization Restrictions are enabled, select Enterprise, Personal, or Both. To learn more about Organization Restrictions, see [Managing Tenant Settings](https://help.zscaler.com/secure-ai-users/managing-tenant-settings).
     - **Users**: Click the drop-down menu and select the users you want to include with the match criteria.
     - **User Groups**: Click the drop-down to select the groups you want to include in the match criteria.
 5. Click **Submit** to return to the **Policy Control** page. The new policy control appears at the **Rule Order** number you entered.
@@ -4836,13 +5750,13 @@ To learn more about AI Guard System Users, see [Viewing AI Guard System Users](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-tenant-settings","lastmod":"2026-07-22T09:54Z","nid":"1540885"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-tenant-settings","lastmod":"2026-08-17T11:17Z","nid":"1540885"} -->
 ## Managing Tenant Settings
 
 - Source: https://help.zscaler.com/secure-ai-users/managing-tenant-settings
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Managing Tenant Settings
-- Last modified: 2026-07-22T09:54Z
+- Last modified: 2026-08-17T11:17Z
 - Summary: Learn how to manage the following AI Guard tenant settings: Network Access Control Policy, Custom Request Headers, Security Settings, and Syncing ZIA End Users and Groups.
 
 From the AI Guard **Tenant Settings** page, you can view information and make additional customizations to your AI Guard tenant. In addition to basic tenant information, you can also make changes to your security and encryption settings, and sync your Zscaler Internet Access (ZIA) end users, groups, and domains.
@@ -4898,7 +5812,7 @@ See image.
 
 After entering the block message, click **Save**.
 
-## Organization Settings
+## Organization Restrictions
 
 AI Guard's tenancy restriction feature allows you to restrict user traffic access either to personal accounts, enterprise accounts, or both, and apply different access-control rules to each. This feature is currently available for Anthropic and OpenAI.
 
@@ -4907,14 +5821,47 @@ User traffic is automatically tagged at runtime. Requests matching a registered 
 To enable this functionality:
 
 1. In the left-side navigation, click **Tenant Settings**. The **Tenant Settings** page appears.
-2. Go to the **Security** tab and find the **Organisation Restrictions** section. See image.
-3. Choose to enable the toggle for **Anthropic** or **OpenAI**.
+2. Go to the **Security** tab and find the **Organization Restrictions** section. See image.
+3. Choose to enable the toggle for **Anthropic** or **OpenAI**. It may take up to five minutes for the changes to take effect.
+  1. When enabled, AI Guard will permit the listed organizations and deny all others.
+  2. When disabled, AI Guard will allow all traffic through and treat the list of organizations as Enterprise accounts. For everything else, it will assume those are Personal accounts.
 4. Under the LLM providers you enabled, enter your organization's specific Anthropic Org IDs or OpenAI Workspace IDs.
 5. Click **Save Restrictions**.
 
 After enabling this functionality, within Policy Controls, administrators can select an "Account Type" (Personal, Enterprise, or Both) as a match criterion. This allows for specific policies (such as stricter data loss prevention or topic detection rules) to be applied to unmanaged personal traffic, while maintaining different standards for company-sanctioned workspaces.
 
 To learn more, see [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-users/managing-ai-guard-policy-control).
+
+## Anthropic Webhook
+
+AI Guard can integrate with Anthropic Claude's inference hooks to inspect and evaluate prompts against a tenant's detection policy in real time. AI Guard responds with an "allow" or "deny" verdict, which determines whether Claude proceeds to generate a response or the prompt is blocked.
+
+To set up an inference hook between AI Guard and Claude:
+
+1. In the **Claude UI**, go to **Organization Settings** > **Data and Privacy** > **Inference Hooks**.
+2. Under **Inference hooks**, enable **Allow for your organization**. See image.
+3. In the **Inference hooks** section, do the following: See image.
+  1. **Enforce verdicts**: Enable.
+  2. **Inference hooks endpoint**: Set to `https://api.zseclipse.net/v1/webhook/execute`
+  3. **Prompt verdict timeout (ms)**: 1000ms
+  4. **Signing secret**: Copy this secret for use in AI Guard later. A signing secret is generated automatically on the first save and can be rotated at any time.
+  5. **(Optional) Custom blocked prompt message**: Enter a custom block message to show users when a prompt is blocked.
+4. Leave Claude and go to the **AI Security Admin Portal** > **AI Guard** > **Tenant Settings** > **Integrations** tab.
+5. In the **Anthropic Webhook** section, click **Add Secret**. See image.
+6. In the **Add Webhook Signing Secret** window, do the following: See image.
+  1. **Anthropic Org UUID**: Enter your organization’s Anthropic UUID.
+  2. **Signing Secret**: Enter the signing secret you copied earlier.
+  3. Click **Add Secret**.
+
+With the webhook integrated, create a policy to detect webhook traffic and create a policy control to set the match criteria so the policy applies to the traffic you intend. To learn more, see [Adding and Managing AI Guard Policy Configurations](https://help.zscaler.com/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations) and [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-policy-control).
+
+[Image: Anthropic Claude UI showing Inference hooks section]
+
+[Image: Anthropic Claude UI showing Inference hooks section][Image: Anthropic Claude UI showing Inference hooks section]
+
+[Image: AI Guard, Tenant Settings, Integration Tab, Anthropic Webhook section]
+
+[Image: Add Webhook Signing Secret window]
 
 [Image: Tenant Settings, Security tab, Organisation Settings with example entries added]
 
@@ -5295,13 +6242,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-07-28T09:35Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-08T11:35Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-07-28T09:35Z
+- Last modified: 2026-09-08T11:35Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.
