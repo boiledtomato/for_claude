@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  認証コードのウィジェット。
+
+  updatePeriodMillis は 0 にしてある。システムの定期更新は最短でも 30 分で、30 秒ごとに
+  変わるコードには短すぎるうえ、置いてあるだけで 30 分おきに復号が走ることになる。
+  更新はタップされたときだけ、こちらのアラームで回す（TotpWidgetRenderer）。
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="31"
+    android:minWidth="110dp"
+    android:minHeight="110dp"
+    android:targetCellWidth="2"
+    android:targetCellHeight="2"
+    android:minResizeWidth="110dp"
+    android:minResizeHeight="70dp"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_totp"
+    android:previewLayout="@layout/widget_totp"
+    android:configure="com.example.zlauncher.ui.widgets.totp.TotpWidgetConfigActivity"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:widgetFeatures="reconfigurable"
+    android:description="@string/totp_widget_description" />

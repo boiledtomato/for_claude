@@ -1,0 +1,98 @@
+name: Android Debug Build
+
+# Android 端末のブラウザから直接ダウンロードできるよう、デバッグ APK を
+# Release「android-debug-latest」に添付し続ける。タグは据え置きで資材だけ差し替えるので、
+# ダウンロード URL は常に同じ。
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "android-app/**"
+      - ".github/workflows/android-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: assembleDebug + lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: android-app
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Install Android SDK packages
+        run: |
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
+          "$SDKMANAGER" "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Build debug APK
+        run: ./gradlew --no-daemon assembleDebug lintDebug
+
+      - name: Stage APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk zlauncher-debug.apk
+
+      # PR / 任意のブランチからでも取れるよう、artifact にも残す
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zlauncher-debug-apk
+          path: android-app/zlauncher-debug.apk
+          retention-days: 30
+
+      - name: Upload lint report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-report
+          path: android-app/app/build/reports/lint-results-debug.*
+          retention-days: 14
+
+      # 端末から直接落とせる固定 URL。main と claude/* ブランチ、手動実行のときだけ更新する
+      - name: Publish to rolling release
+        if: >-
+          github.event_name == 'workflow_dispatch' ||
+          github.ref == 'refs/heads/main' ||
+          startsWith(github.ref, 'refs/heads/claude/')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          NOTES=$(printf '%s\n' \
+            "ZLauncher のデバッグビルド（自動生成）。" \
+            "" \
+            "- コミット: \`${GITHUB_SHA}\`" \
+            "- ブランチ: \`${GITHUB_REF_NAME}\`" \
+            "- ビルド日時: $(date -u '+%Y-%m-%d %H:%M UTC')" \
+            "" \
+            "Android 端末のブラウザでこのページを開き、\`zlauncher-debug.apk\` をタップしてください。" \
+            "「不明なアプリのインストール」の許可を求められたら、ブラウザに許可を出します。" \
+            "" \
+            "applicationId は \`com.example.zlauncher.debug\` なので、既定のランチャーとは別アプリとして共存します。" \
+            "動作確認が済むまで、既定のホームアプリには設定しないでください。")
+          if gh release view android-debug-latest > /dev/null 2>&1; then
+            gh release upload android-debug-latest zlauncher-debug.apk --clobber
+            gh release edit android-debug-latest --notes "$NOTES"
+          else
+            gh release create android-debug-latest zlauncher-debug.apk \
+              --title "ZLauncher debug (latest)" \
+              --notes "$NOTES" \
+              --prerelease \
+              --target "$GITHUB_SHA"
+          fi

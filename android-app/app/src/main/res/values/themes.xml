@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ZLauncher" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <!-- ランチャーとして壁紙を透過表示する。実際の描画は Compose 側 -->
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <!-- ウィジェットの設定画面。ランチャー本体と違い壁紙は透かさない（独立した画面として開く） -->
+    <style name="Theme.ZLauncher.Config" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>
