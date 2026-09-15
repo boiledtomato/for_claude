@@ -21,6 +21,15 @@
         tools:ignore="ProtectedPermissions" />
 
     <!--
+      認証コードの QR を読むためだけに使う。実行時に確認を取り、断られても貼り付けと
+      手入力で登録できる。写した絵はどこにも保存しない。
+    -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- カメラの無い端末でも入る（読み取り以外は全部動く） -->
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+
+    <!--
       起動可能アプリの可視性。Android 11 以降はこれが無いと一覧が空になる。
       QUERY_ALL_PACKAGES は使わない（Play のポリシー宣言が不要な範囲で足りる）。
     -->

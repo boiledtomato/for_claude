@@ -72,6 +72,14 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.kotlinx.serialization.json)
 
+    // 認証コードの QR 読み取り。プレビューと解析は CameraX、復号は zxing core
+    // （pure Java・Play 開発者サービス非依存。ML Kit は端末側の実装を必要とする）
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.zxing.core)
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)

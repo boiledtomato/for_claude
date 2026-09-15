@@ -78,6 +78,7 @@ fun AuthPane(
     val status by viewModel.otpStatus.collectAsStateWithLifecycle()
     var query by remember { mutableStateOf("") }
     var importing by remember { mutableStateOf(false) }
+    var scanning by remember { mutableStateOf(false) }
     var editing by remember { mutableStateOf<OtpCodeUi?>(null) }
     var deleting by remember { mutableStateOf<OtpCodeUi?>(null) }
     var copied by remember { mutableStateOf<String?>(null) }
@@ -109,7 +110,9 @@ fun AuthPane(
                 onValueChange = { query = it },
                 modifier = Modifier.weight(1f),
             )
-            AuthChip("Add", accent = true, onClick = { importing = true })
+            // 移行の実作業は QR の読み直しなので、そちらを先に置く
+            AuthChip("Scan", accent = true, onClick = { scanning = true })
+            AuthChip("Add", accent = false, onClick = { importing = true })
         }
 
         when {
@@ -166,6 +169,16 @@ fun AuthPane(
             kotlinx.coroutines.delay(1_600)
             copied = null
         }
+    }
+
+    if (scanning) {
+        QrScanDialog(
+            onDismiss = { scanning = false },
+            onImport = { drafts ->
+                viewModel.addOtp(drafts)
+                scanning = false
+            },
+        )
     }
 
     if (importing) {

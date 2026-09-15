@@ -66,6 +66,9 @@ fun OtpImportDialog(
     }
 
     Dialog(onDismissRequest = onDismiss) {
+        // 貼り付けた文字列にも手入力の欄にも鍵がそのまま出る。ダイアログは別の窓なので、
+        // 面に立てた FLAG_SECURE は届かない
+        SecureDialogWindow()
         Column(
             Modifier
                 .clip(RoundedCornerShape(18.dp))
@@ -85,8 +88,9 @@ fun OtpImportDialog(
             }
 
             Text(
-                "Paste an otpauth:// link, several of them, or the otpauth-migration:// link from a " +
-                    "Google Authenticator export. Everything stays on this phone.",
+                "Scan the QR code instead if the service shows one. Here you can paste an otpauth:// " +
+                    "link, several of them, or a Google Authenticator otpauth-migration:// export. " +
+                    "Everything stays on this phone.",
                 style = ZType.Sub,
                 color = ZColors.TextSecondary,
             )
@@ -266,7 +270,7 @@ private fun Field(placeholder: String, value: String, onValueChange: (String) ->
 }
 
 @Composable
-private fun SmallAction(
+internal fun SmallAction(
     label: String,
     accent: Boolean = false,
     enabled: Boolean = true,
