@@ -38,6 +38,7 @@ import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZLauncherTheme
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.ui.springyClick
+import com.example.zlauncher.ui.console.ConsoleDeepLink
 import com.example.zlauncher.data.otp.OtpVault
 import com.example.zlauncher.data.otp.OtpWidgetRenderer
 import com.example.zlauncher.data.otp.OtpWidgetStore
@@ -139,6 +140,7 @@ class TotpWidgetConfigActivity : ComponentActivity() {
                     query = query,
                     onQueryChange = { query = it },
                     onPick = { pick(widgetId, it) },
+                    onOpenAuth = ::openAuthPane,
                 )
             }
         }
@@ -165,6 +167,16 @@ class TotpWidgetConfigActivity : ComponentActivity() {
         }
     }
 
+    /**
+     * 登録が 1 件も無いと、この画面はそこで行き止まりになる。登録する場所（コンソールの
+     * Auth）まで連れていく。ウィジェットの配置は取り消し扱いで閉じる ― 中身の無い枠を
+     * ホーム画面に残さない。
+     */
+    private fun openAuthPane() {
+        startActivity(ConsoleDeepLink.intent(this, ConsoleDeepLink.PANE_AUTH))
+        finish()
+    }
+
     @Composable
     private fun Screen(
         state: Load,
@@ -172,6 +184,7 @@ class TotpWidgetConfigActivity : ComponentActivity() {
         query: String,
         onQueryChange: (String) -> Unit,
         onPick: (PickItem) -> Unit,
+        onOpenAuth: () -> Unit,
     ) {
         val visible = remember(items, query) { items.filter { it.matches(query) } }
 
@@ -191,10 +204,21 @@ class TotpWidgetConfigActivity : ComponentActivity() {
 
             when (state) {
                 Load.LOADING -> Notice("Reading the vault…")
+
                 Load.LOCKED -> Notice("The vault is sealed while the device is locked. Unlock the phone and try again.")
-                Load.UNREADABLE -> Notice("The vault could not be read. Open ZLauncher → Console → Auth to repair it.")
+
+                Load.UNREADABLE -> {
+                    Notice("The vault could not be read.")
+                    OpenAuthButton("Open Auth", onOpenAuth)
+                }
+
                 Load.READY -> if (items.isEmpty()) {
-                    Notice("No codes yet. Add them in Console → Auth, then place this widget.")
+                    Notice(
+                        "No codes yet. This widget shows one account from ZLauncher\u2019s own vault, " +
+                            "so add the account there first \u2014 Auth \u2192 Add takes an otpauth:// link, " +
+                            "a Google Authenticator export, or the secret typed by hand.",
+                    )
+                    OpenAuthButton("Add a code in Auth", onOpenAuth)
                 } else {
                     if (items.size > SEARCH_THRESHOLD) {
                         SearchField(query, onQueryChange)
@@ -244,6 +268,21 @@ class TotpWidgetConfigActivity : ComponentActivity() {
                 style = ZType.Sub,
                 color = ZColors.TextDim,
             )
+        }
+    }
+
+    @Composable
+    private fun OpenAuthButton(label: String, onClick: () -> Unit) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(12.dp))
+                .background(ZColors.Accent)
+                .springyClick(onClick = onClick)
+                .padding(vertical = 12.dp),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text(label, style = ZType.Body, color = androidx.compose.ui.graphics.Color.White)
         }
     }
 

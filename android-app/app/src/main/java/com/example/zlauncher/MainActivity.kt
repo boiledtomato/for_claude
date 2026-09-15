@@ -16,6 +16,9 @@ import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.data.widgets.WidgetRepository
 import com.example.zlauncher.domain.model.ThemeMode
+import android.os.SystemClock
+import com.example.zlauncher.ui.console.ConsoleDeepLink
+import com.example.zlauncher.ui.console.PaneRequest
 import com.example.zlauncher.ui.navigation.ZLauncherNavHost
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -37,11 +40,16 @@ class MainActivity : ComponentActivity() {
 
     private val homeKeyPresses = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
 
+    /** 外から「この面を開いて」と言われたぶん（ウィジェットの設定画面など） */
+    private val paneRequests = MutableSharedFlow<PaneRequest>(extraBufferCapacity = 1, replay = 1)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         // Flow の組み立ては composition の外で 1 回だけ。中で map すると再構成のたびに
         // 新しい Flow ができ、collect がやり直しになる
+        consumePaneRequest(intent)
+
         val themeModeFlow = preferences.state.map { it.themeMode }
         setContent {
             // 保存済みの配色。読み込みが終わるまでは既定（端末の設定に従う）で描く
@@ -63,7 +71,7 @@ class MainActivity : ComponentActivity() {
             }
 
             ZLauncherTheme(mode = themeMode) {
-                ZLauncherNavHost(homeKeyPresses, widgetHost)
+                ZLauncherNavHost(homeKeyPresses, paneRequests, widgetHost)
             }
         }
     }
@@ -88,6 +96,17 @@ class MainActivity : ComponentActivity() {
      */
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        homeKeyPresses.tryEmit(Unit)
+        // 面の指定つきで来たときは HOME キーとして扱わない（指定した面まで行って止まる）
+        if (!consumePaneRequest(intent)) homeKeyPresses.tryEmit(Unit)
+    }
+
+    /**
+     * 付加情報は**一度使ったら消す**。残しておくと、プロセスが作り直されたときに
+     * 保存された Intent からもう一度同じ面へ飛ばされる。
+     */
+    private fun consumePaneRequest(intent: Intent?): Boolean {
+        val pane = intent?.getStringExtra(ConsoleDeepLink.EXTRA_PANE) ?: return false
+        intent.removeExtra(ConsoleDeepLink.EXTRA_PANE)
+        return paneRequests.tryEmit(PaneRequest(pane, SystemClock.uptimeMillis()))
     }
 }

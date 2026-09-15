@@ -48,10 +48,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -72,6 +74,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import kotlinx.coroutines.flow.Flow
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
@@ -92,6 +95,7 @@ private val RAIL_WIDTH = 84.dp
 
 @Composable
 fun ConsoleScreen(
+    paneRequests: Flow<PaneRequest>,
     onOpenApps: () -> Unit,
     onAddWidget: () -> Unit,
     widgetHost: WidgetHostController,
@@ -102,6 +106,17 @@ fun ConsoleScreen(
     val categories by viewModel.categories.collectAsStateWithLifecycle()
     val pinned by viewModel.pinnedApps.collectAsStateWithLifecycle()
     val allApps by viewModel.allApps.collectAsStateWithLifecycle()
+
+    // 外から指定された面へ移る（ウィジェットの設定画面の「Open Auth」など）。
+    // 済んだ依頼の id を覚えておく ― 覚えないと、ドロワーから戻るたびに同じ面へ戻される
+    var handledPaneRequest by rememberSaveable { mutableLongStateOf(0L) }
+    LaunchedEffect(paneRequests) {
+        paneRequests.collect { request ->
+            if (request.id == handledPaneRequest) return@collect
+            handledPaneRequest = request.id
+            if (request.pane == ConsoleDeepLink.PANE_AUTH) viewModel.select(ConsolePane.Auth)
+        }
+    }
 
     var showCreateDialog by remember { mutableStateOf(false) }
     var showCatalogDiff by remember { mutableStateOf(false) }
