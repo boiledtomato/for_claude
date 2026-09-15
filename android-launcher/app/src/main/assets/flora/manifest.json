@@ -1,0 +1,818 @@
+{
+ "plate": {
+  "width": 1100,
+  "height": 1800,
+  "paper": "#F6F3EC",
+  "caption": "Campanula latifolia",
+  "plateNo": "PL. I"
+ },
+ "stems": [
+  {
+   "id": "main",
+   "p": [
+    [
+     548,
+     1520
+    ],
+    [
+     532.1074470377667,
+     1106.3051526060028
+    ],
+    [
+     465.4756547755545,
+     696.1227443087918
+    ],
+    [
+     568.0702674028761,
+     370.17515057015
+    ]
+   ],
+   "w0": 12.0,
+   "w1": 3.4,
+   "tone": 1.0,
+   "depth": 1.0,
+   "sway": {
+    "amp": 63.25,
+    "speed": 2,
+    "phase": 5.975
+   }
+  },
+  {
+   "id": "side",
+   "p": [
+    [
+     398,
+     1536
+    ],
+    [
+     319.9016702344626,
+     1280.551873587154
+    ],
+    [
+     165.4821374713278,
+     1055.013699566092
+    ],
+    [
+     281.92562694014873,
+     803.1352512784077
+    ]
+   ],
+   "w0": 9.48,
+   "w1": 2.686,
+   "tone": 0.798,
+   "depth": 0.58,
+   "sway": {
+    "amp": 40.81,
+    "speed": 2,
+    "phase": 2.065
+   }
+  },
+  {
+   "id": "base",
+   "p": [
+    [
+     716,
+     1528
+    ],
+    [
+     777.5638362694627,
+     1351.2127434915435
+    ],
+    [
+     899.3387497248203,
+     1201.561241808912
+    ],
+    [
+     806.2970523868038,
+     1015.8999684336518
+    ]
+   ],
+   "w0": 8.040000000000001,
+   "w1": 2.278,
+   "tone": 0.683,
+   "depth": 0.34,
+   "sway": {
+    "amp": 28.6,
+    "speed": 2,
+    "phase": 4.944
+   }
+  }
+ ],
+ "organs": [
+  {
+   "id": "main.leaf0",
+   "stem": "main",
+   "t": 0.0609,
+   "image": "organs/main.leaf0.webp",
+   "off": [
+    225.9,
+    1201.6
+   ],
+   "pivot": [
+    544.6,
+    1444.5
+   ],
+   "restAngle": -92.95,
+   "sway": {
+    "amp": 5.66,
+    "speed": 8,
+    "phase": 1.563
+   },
+   "hit": {
+    "at": [
+     423.4,
+     1332.2
+    ],
+    "r": 135.0
+   },
+   "z": 1
+  },
+  {
+   "id": "main.leaf1",
+   "stem": "main",
+   "t": 0.1966,
+   "image": "organs/main.leaf1.webp",
+   "off": [
+    518.4,
+    1139.1
+   ],
+   "pivot": [
+    534.4,
+    1277.0
+   ],
+   "restAngle": -93.82,
+   "sway": {
+    "amp": 5.83,
+    "speed": 8,
+    "phase": 0.878
+   },
+   "hit": null,
+   "z": 2
+  },
+  {
+   "id": "main.leaf2",
+   "stem": "main",
+   "t": 0.3197,
+   "image": "organs/main.leaf2.webp",
+   "off": [
+    253.5,
+    980.4
+   ],
+   "pivot": [
+    524.4,
+    1127.0
+   ],
+   "restAngle": -93.67,
+   "sway": {
+    "amp": 5.74,
+    "speed": 8,
+    "phase": 1.942
+   },
+   "hit": null,
+   "z": 3
+  },
+  {
+   "id": "main.leaf3",
+   "stem": "main",
+   "t": 0.4153,
+   "image": "organs/main.leaf3.webp",
+   "off": [
+    501.7,
+    932.7
+   ],
+   "pivot": [
+    517.7,
+    1012.2
+   ],
+   "restAngle": -92.9,
+   "sway": {
+    "amp": 10.52,
+    "speed": 8,
+    "phase": 2.718
+   },
+   "hit": null,
+   "z": 4
+  },
+  {
+   "id": "main.leaf4",
+   "stem": "main",
+   "t": 0.5589,
+   "image": "organs/main.leaf4.webp",
+   "off": [
+    344.5,
+    643.8
+   ],
+   "pivot": [
+    512.2,
+    843.8
+   ],
+   "restAngle": -90.58,
+   "sway": {
+    "amp": 7.43,
+    "speed": 8,
+    "phase": 3.497
+   },
+   "hit": null,
+   "z": 5
+  },
+  {
+   "id": "main.leaf5",
+   "stem": "main",
+   "t": 0.6983,
+   "image": "organs/main.leaf5.webp",
+   "off": [
+    496.1,
+    542.5
+   ],
+   "pivot": [
+    515.4,
+    686.0
+   ],
+   "restAngle": -86.82,
+   "sway": {
+    "amp": 8.33,
+    "speed": 9,
+    "phase": 1.571
+   },
+   "hit": null,
+   "z": 6
+  },
+  {
+   "id": "main.flos0",
+   "stem": "main",
+   "t": 0.56,
+   "image": "organs/main.flos0.webp",
+   "off": [
+    393.0,
+    755.4
+   ],
+   "pivot": [
+    512.2,
+    842.5
+   ],
+   "restAngle": -90.56,
+   "sway": {
+    "amp": 7.66,
+    "speed": 7,
+    "phase": 3.632
+   },
+   "hit": {
+    "at": [
+     488.8,
+     851.9
+    ],
+    "r": 94.9
+   },
+   "z": 7
+  },
+  {
+   "id": "main.flos1",
+   "stem": "main",
+   "t": 0.66,
+   "image": "organs/main.flos1.webp",
+   "off": [
+    497.5,
+    660.7
+   ],
+   "pivot": [
+    513.5,
+    728.7
+   ],
+   "restAngle": -88.02,
+   "sway": {
+    "amp": 9.44,
+    "speed": 6,
+    "phase": 4.676
+   },
+   "hit": {
+    "at": [
+     639.3,
+     753.3
+    ],
+    "r": 75.6
+   },
+   "z": 8
+  },
+  {
+   "id": "main.flos2",
+   "stem": "main",
+   "t": 0.76,
+   "image": "organs/main.flos2.webp",
+   "off": [
+    434.5,
+    546.0
+   ],
+   "pivot": [
+    520.4,
+    618.3
+   ],
+   "restAngle": -84.62,
+   "sway": {
+    "amp": 8.81,
+    "speed": 7,
+    "phase": 6.197
+   },
+   "hit": {
+    "at": [
+     511.6,
+     625.4
+    ],
+    "r": 77.9
+   },
+   "z": 9
+  },
+  {
+   "id": "main.flos3",
+   "stem": "main",
+   "t": 0.86,
+   "image": "organs/main.flos3.webp",
+   "off": [
+    518.3,
+    465.7
+   ],
+   "pivot": [
+    534.3,
+    511.8
+   ],
+   "restAngle": -80.29,
+   "sway": {
+    "amp": 11.8,
+    "speed": 6,
+    "phase": 3.045
+   },
+   "hit": {
+    "at": [
+     644.4,
+     540.1
+    ],
+    "r": 80.0
+   },
+   "z": 10
+  },
+  {
+   "id": "side.leaf0",
+   "stem": "side",
+   "t": 0.0791,
+   "image": "organs/side.leaf0.webp",
+   "off": [
+    125.1,
+    1416.2
+   ],
+   "pivot": [
+    378.2,
+    1475.9
+   ],
+   "restAngle": -109.32,
+   "sway": {
+    "amp": 10.84,
+    "speed": 11,
+    "phase": 5.055
+   },
+   "hit": {
+    "at": [
+     265.7,
+     1498.0
+    ],
+    "r": 93.8
+   },
+   "z": 11
+  },
+  {
+   "id": "side.leaf1",
+   "stem": "side",
+   "t": 0.2318,
+   "image": "organs/side.leaf1.webp",
+   "off": [
+    280.6,
+    1141.2
+   ],
+   "pivot": [
+    335.7,
+    1362.5
+   ],
+   "restAngle": -111.19,
+   "sway": {
+    "amp": 7.42,
+    "speed": 8,
+    "phase": 3.405
+   },
+   "hit": null,
+   "z": 12
+  },
+  {
+   "id": "side.leaf2",
+   "stem": "side",
+   "t": 0.3717,
+   "image": "organs/side.leaf2.webp",
+   "off": [
+    84.1,
+    1167.9
+   ],
+   "pivot": [
+    297.1,
+    1260.6
+   ],
+   "restAngle": -109.82,
+   "sway": {
+    "amp": 8.52,
+    "speed": 13,
+    "phase": 1.397
+   },
+   "hit": null,
+   "z": 13
+  },
+  {
+   "id": "side.leaf3",
+   "stem": "side",
+   "t": 0.5213,
+   "image": "organs/side.leaf3.webp",
+   "off": [
+    233.7,
+    1024.0
+   ],
+   "pivot": [
+    262.8,
+    1152.9
+   ],
+   "restAngle": -104.81,
+   "sway": {
+    "amp": 8.59,
+    "speed": 13,
+    "phase": 0.337
+   },
+   "hit": null,
+   "z": 14
+  },
+  {
+   "id": "side.leaf4",
+   "stem": "side",
+   "t": 0.6933,
+   "image": "organs/side.leaf4.webp",
+   "off": [
+    121.2,
+    919.8
+   ],
+   "pivot": [
+    241.2,
+    1029.1
+   ],
+   "restAngle": -94.05,
+   "sway": {
+    "amp": 6.27,
+    "speed": 13,
+    "phase": 2.233
+   },
+   "hit": null,
+   "z": 15
+  },
+  {
+   "id": "side.flos0",
+   "stem": "side",
+   "t": 0.56,
+   "image": "organs/side.flos0.webp",
+   "off": [
+    137.9,
+    1066.5
+   ],
+   "pivot": [
+    256.0,
+    1125.1
+   ],
+   "restAngle": -102.86,
+   "sway": {
+    "amp": 8.34,
+    "speed": 7,
+    "phase": 5.643
+   },
+   "hit": {
+    "at": [
+     220.2,
+     1151.0
+    ],
+    "r": 96.0
+   },
+   "z": 16
+  },
+  {
+   "id": "side.flos1",
+   "stem": "side",
+   "t": 0.71,
+   "image": "organs/side.flos1.webp",
+   "off": [
+    224.5,
+    952.7
+   ],
+   "pivot": [
+    240.5,
+    1017.0
+   ],
+   "restAngle": -92.72,
+   "sway": {
+    "amp": 12.99,
+    "speed": 5,
+    "phase": 3.368
+   },
+   "hit": {
+    "at": [
+     345.4,
+     1025.5
+    ],
+    "r": 75.0
+   },
+   "z": 17
+  },
+  {
+   "id": "side.flos2",
+   "stem": "side",
+   "t": 0.86,
+   "image": "organs/side.flos2.webp",
+   "off": [
+    191.5,
+    851.1
+   ],
+   "pivot": [
+    248.0,
+    907.5
+   ],
+   "restAngle": -79.08,
+   "sway": {
+    "amp": 13.91,
+    "speed": 6,
+    "phase": 2.119
+   },
+   "hit": {
+    "at": [
+     244.5,
+     910.4
+    ],
+    "r": 78.0
+   },
+   "z": 18
+  },
+  {
+   "id": "base.leaf0",
+   "stem": "base",
+   "t": 0.0421,
+   "image": "organs/base.leaf0.webp",
+   "off": [
+    654.6,
+    1320.2
+   ],
+   "pivot": [
+    724.1,
+    1505.8
+   ],
+   "restAngle": -69.25,
+   "sway": {
+    "amp": 6.22,
+    "speed": 8,
+    "phase": 4.886
+   },
+   "hit": {
+    "at": [
+     712.8,
+     1427.0
+    ],
+    "r": 67.2
+   },
+   "z": 19
+  },
+  {
+   "id": "base.leaf1",
+   "stem": "base",
+   "t": 0.2795,
+   "image": "organs/base.leaf1.webp",
+   "off": [
+    759.7,
+    1346.9
+   ],
+   "pivot": [
+    775.7,
+    1384.8
+   ],
+   "restAngle": -66.12,
+   "sway": {
+    "amp": 7.4,
+    "speed": 8,
+    "phase": 2.689
+   },
+   "hit": null,
+   "z": 20
+  },
+  {
+   "id": "base.leaf2",
+   "stem": "base",
+   "t": 0.4557,
+   "image": "organs/base.leaf2.webp",
+   "off": [
+    737.6,
+    1181.9
+   ],
+   "pivot": [
+    811.6,
+    1297.3
+   ],
+   "restAngle": -70.24,
+   "sway": {
+    "amp": 10.85,
+    "speed": 13,
+    "phase": 5.733
+   },
+   "hit": null,
+   "z": 21
+  },
+  {
+   "id": "base.leaf3",
+   "stem": "base",
+   "t": 0.681,
+   "image": "organs/base.leaf3.webp",
+   "off": [
+    822.7,
+    1144.2
+   ],
+   "pivot": [
+    838.7,
+    1184.6
+   ],
+   "restAngle": -84.59,
+   "sway": {
+    "amp": 5.7,
+    "speed": 9,
+    "phase": 3.381
+   },
+   "hit": null,
+   "z": 22
+  },
+  {
+   "id": "base.flos0",
+   "stem": "base",
+   "t": 0.56,
+   "image": "organs/base.flos0.webp",
+   "off": [
+    746.6,
+    1163.9
+   ],
+   "pivot": [
+    827.8,
+    1245.4
+   ],
+   "restAngle": -75.57,
+   "sway": {
+    "amp": 7.87,
+    "speed": 5,
+    "phase": 0.463
+   },
+   "hit": {
+    "at": [
+     817.8,
+     1238.0
+    ],
+    "r": 102.3
+   },
+   "z": 23
+  },
+  {
+   "id": "base.flos1",
+   "stem": "base",
+   "t": 0.86,
+   "image": "organs/base.flos1.webp",
+   "off": [
+    817.5,
+    1031.9
+   ],
+   "pivot": [
+    833.5,
+    1091.9
+   ],
+   "restAngle": -102.22,
+   "sway": {
+    "amp": 7.9,
+    "speed": 7,
+    "phase": 6.183
+   },
+   "hit": {
+    "at": [
+     908.9,
+     1084.1
+    ],
+    "r": 72.9
+   },
+   "z": 24
+  }
+ ],
+ "gemma": {
+  "id": "gemma",
+  "stem": "main",
+  "t": 1.0,
+  "pivot": [
+   568.1,
+   370.2
+  ],
+  "restAngle": -72.53,
+  "frames": [
+   {
+    "image": "bloom/00.webp",
+    "off": [
+     532.2,
+     251.2
+    ]
+   },
+   {
+    "image": "bloom/01.webp",
+    "off": [
+     529.2,
+     248.8
+    ]
+   },
+   {
+    "image": "bloom/02.webp",
+    "off": [
+     519.3,
+     241.8
+    ]
+   },
+   {
+    "image": "bloom/03.webp",
+    "off": [
+     499.4,
+     232.5
+    ]
+   },
+   {
+    "image": "bloom/04.webp",
+    "off": [
+     465.3,
+     219.4
+    ]
+   },
+   {
+    "image": "bloom/05.webp",
+    "off": [
+     426.1,
+     204.6
+    ]
+   },
+   {
+    "image": "bloom/06.webp",
+    "off": [
+     393.0,
+     189.8
+    ]
+   },
+   {
+    "image": "bloom/07.webp",
+    "off": [
+     373.6,
+     176.1
+    ]
+   },
+   {
+    "image": "bloom/08.webp",
+    "off": [
+     370.4,
+     164.5
+    ]
+   },
+   {
+    "image": "bloom/09.webp",
+    "off": [
+     368.3,
+     155.6
+    ]
+   },
+   {
+    "image": "bloom/10.webp",
+    "off": [
+     355.1,
+     150.0
+    ]
+   },
+   {
+    "image": "bloom/11.webp",
+    "off": [
+     350.6,
+     148.0
+    ]
+   }
+  ],
+  "hit": {
+   "at": [
+    591.8,
+    294.6
+   ],
+   "r": 125.4
+  },
+  "sway": {
+   "amp": 9.0,
+   "speed": 6,
+   "phase": 0.7
+  }
+ },
+ "roots": {
+  "image": "roots.webp",
+  "off": [
+   158,
+   1500
+  ]
+ }
+}
