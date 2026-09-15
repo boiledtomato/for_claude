@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="totp_widget_label">Authentication code</string>
+    <string name="totp_widget_description">One account\'s code. Tap to show it for 30 seconds.</string>
+</resources>

@@ -25,6 +25,7 @@ import javax.inject.Singleton
 @Singleton
 class OtpRepository @Inject constructor(
     private val vault: OtpVault,
+    private val widgets: OtpWidgetRenderer,
 ) {
     private val _entries = MutableStateFlow<List<OtpEntry>>(emptyList())
     val entries: StateFlow<List<OtpEntry>> = _entries.asStateFlow()
@@ -65,7 +66,10 @@ class OtpRepository @Inject constructor(
      * 画面側で確認を取ってから呼ぶ。
      */
     suspend fun discardUnreadable() = mutex.withLock {
-        withContext(Dispatchers.IO) { vault.clear() }
+        withContext(Dispatchers.IO) {
+            vault.clear()
+            widgets.syncBindings(emptyList())
+        }
         _entries.value = emptyList()
         _status.value = Status.READY
         loaded = true
@@ -125,6 +129,9 @@ class OtpRepository @Inject constructor(
         _entries.value = entries
         withContext(Dispatchers.IO) {
             if (entries.isEmpty()) vault.clear() else vault.save(entries)
+            // ホーム画面に置いたぶんも同じ内容に揃える。伏せている間は保管庫を読まないので、
+            // ここで渡さないと名前の変更や削除が次にタップされるまで反映されない
+            widgets.syncBindings(entries)
         }
         _status.value = Status.READY
     }

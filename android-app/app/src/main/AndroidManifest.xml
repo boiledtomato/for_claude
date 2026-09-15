@@ -74,6 +74,47 @@
         </activity>
 
         <!--
+          ホーム画面に置く認証コード。1 つの登録につき 1 枚（TotpWidgetConfigActivity で
+          どの登録を映すか決める）。exported="true" はウィジェットの受け口として必須なので、
+          ここで受けるのはシステムからの APPWIDGET_* だけにしてある。
+        -->
+        <receiver
+            android:name=".ui.widgets.totp.TotpWidgetProvider"
+            android:exported="true"
+            android:label="@string/totp_widget_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/totp_widget_info" />
+        </receiver>
+
+        <!--
+          タップとアラームの受け口。こちらは非公開でよい（PendingIntent はこのアプリの
+          権限で送られる）。提供元と分けているのは、提供元が公開必須で、そこに自前の
+          action を足すと他アプリからコードを出させられるため。
+        -->
+        <receiver
+            android:name=".ui.widgets.totp.TotpWidgetActionReceiver"
+            android:exported="false" />
+
+        <!--
+          どの登録を映すか選ぶ画面。ウィジェットの設定 Activity はホスト（ランチャー）から
+          起動されるので exported="true" が要る。ウィジェット id が渡らない呼び出しでは
+          一覧を出さずにそのまま閉じる。
+        -->
+        <activity
+            android:name=".ui.widgets.totp.TotpWidgetConfigActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.ZLauncher.Config">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <!--
           WorkManager の自動初期化を止める。Hilt のファクトリを Application 側から渡すため。
           残したままだと Worker への注入ができず、生成時に落ちる。
         -->
