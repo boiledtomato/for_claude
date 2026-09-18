@@ -1,0 +1,133 @@
+name: Herbarium Launcher Build
+
+# ボタニカル・ランチャー（android-launcher/）をビルドして APK を配る。
+#
+#   - ブランチへの push … ビルドが通ることを確かめ、APK を成果物として置く（90 日）
+#   - 手動実行で release_tag を渡す … タグを打って Release を作り、APK を添付する
+#
+# タグ push を引き金にしないのは、paths フィルタと併用するとタグでは変更ファイルが
+# 拾えず発火しないことがあるため。手動実行なら確実に走る。
+#
+# 署名はデバッグ鍵のまま。個人の端末に入れる用途なのでこれで足りる。
+# 配布ストアに出すときは release 署名の鍵を Secrets に置いて署名する必要がある。
+
+on:
+  push:
+    branches:
+      - main
+      - "claude/**"
+    paths:
+      - "android-launcher/**"
+      - ".github/workflows/android-launcher.yml"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release を作るならタグ名（例: launcher-v0.1.0）。空ならビルドのみ"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-launcher-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      # ランナーには Android SDK が入っているが、必要な API は明示して入れておく
+      - name: Install Android SDK packages
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
+            "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('android-launcher/**/*.gradle.kts', 'android-launcher/gradle/libs.versions.toml') }}
+          restore-keys: gradle-${{ runner.os }}-
+
+      - name: Build debug APK
+        working-directory: android-launcher
+        run: ./gradlew --no-daemon assembleDebug
+
+      - name: Name the APK
+        id: apk
+        run: |
+          version="${{ inputs.release_tag }}"
+          if [ -z "$version" ]; then
+            version="$(date -u +%Y%m%d)-${GITHUB_SHA::7}"
+          fi
+          name="Herbarium-${version}.apk"
+          mkdir -p dist
+          cp android-launcher/app/build/outputs/apk/debug/app-debug.apk "dist/${name}"
+          echo "name=${name}" >> "$GITHUB_OUTPUT"
+          echo "path=dist/${name}" >> "$GITHUB_OUTPUT"
+          ls -la dist
+
+      - name: Upload APK as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.apk.outputs.name }}
+          path: ${{ steps.apk.outputs.path }}
+          retention-days: 90
+
+      - name: Summary
+        run: |
+          {
+            echo "### Herbarium Launcher"
+            echo
+            echo "- APK: \`${{ steps.apk.outputs.name }}\`"
+            echo "- 図版: $(ls android-launcher/app/src/main/assets/plates | grep -v index.json | tr '\n' ' ')"
+            echo
+            echo "インストール後、設定 → アプリ → デフォルトのアプリ → ホームアプリ で選ぶ。"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish release
+        if: inputs.release_tag != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.release_tag }}
+        run: |
+          gh release create "$TAG" "${{ steps.apk.outputs.path }}" \
+            --target "${GITHUB_SHA}" \
+            --title "Herbarium $TAG" \
+            --notes "$(cat <<'NOTES'
+          19 世紀の植物図版をそのままホーム画面にする Android ランチャー。
+
+          ### 入れかた
+
+          1. `Herbarium-*.apk` をダウンロードして開く
+          2. 「提供元不明のアプリ」を許可（初回のみ）
+          3. 設定 → アプリ → デフォルトのアプリ → ホームアプリ で `Herbarium` を選ぶ
+
+          戻すときは同じ画面で元のランチャーを選び直す。
+
+          ### 操作
+
+          | 操作 | 動き |
+          |---|---|
+          | 花・葉をタップ | 1 つなら起動、複数ならその場に束が開く。未割り当てならその場で割り当てへ |
+          | 花・葉を長押し | その部位にアプリを割り当てる（複数選択可） |
+          | 蕾をタップ | 花弁がほどけて開き、アプリ一覧が咲き広がる |
+          | 紙の余白を長押し | 図版の切り替え、学名の表示、タップ範囲の可視化 |
+
+          デバッグ署名のため、Play ストア経由ではなく手動での導入になる。
+          NOTES
+          )"
