@@ -16,10 +16,18 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.StartOffset
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -28,16 +36,41 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.zlauncher.core.designsystem.ZColors
+import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.interceptLongPress
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.domain.model.WidgetPlacement
 import kotlin.math.roundToInt
+
+/**
+ * 取り外し対象の印。カテゴリーの取り外しモードと同じ見た目にしてある ―
+ * 同じ意味の操作が画面ごとに違う形で出ると、そのつど覚え直すことになる。
+ */
+@Composable
+private fun MinusBadge(marked: Boolean, modifier: Modifier = Modifier) {
+    Box(
+        modifier
+            .size(20.dp)
+            .clip(CircleShape)
+            .background(if (marked) ZColors.Danger else ZColors.SurfaceHigh)
+            .border(1.dp, if (marked) ZColors.Danger else ZColors.OutlineStrong, CircleShape),
+        contentAlignment = Alignment.Center,
+    ) {
+        Box(
+            Modifier
+                .size(width = 10.dp, height = 2.dp)
+                .background(if (marked) ZColors.OnDanger else ZColors.TextSecondary),
+        )
+    }
+}
 
 /**
  * 置いたウィジェット 1 件。
@@ -65,6 +98,16 @@ fun PlacedWidgetItem(
     onSpanChange: (Int) -> Unit,
     dragHandle: Modifier,
     modifier: Modifier = Modifier,
+    /** 取り外しモード中か。中身には触らせず、選ぶだけの状態になる */
+    removing: Boolean = false,
+    /** このウィジェットが取り外し対象に選ばれているか */
+    marked: Boolean = false,
+    /** 揺れの位相をずらすための並び順。揃って揺れると画面全体が波打つ */
+    index: Int = 0,
+    /** 平常時の長押し。取り外しモードへ入る口 */
+    onLongPress: () -> Unit = {},
+    /** 取り外しモード中のタップ。対象の出し入れ */
+    onToggleMark: () -> Unit = {},
 ) {
     val density = LocalDensity.current
     val info = remember(placement.appWidgetId) { controller.providerInfo(placement.appWidgetId) }
@@ -75,18 +118,51 @@ fun PlacedWidgetItem(
     var resizing by remember { mutableStateOf(false) }
     val heightDp = if (resizing) WidgetPlacement.clampHeight(draftHeight.roundToInt()) else placement.heightDp
 
+    // 揺れは 1 枚ずつ位相をずらす。カテゴリーの取り外しモードと同じ作り
+    val transition = rememberInfiniteTransition(label = "widgetJiggle")
+    val angle by transition.animateFloat(
+        initialValue = -ZMotion.JIGGLE_DEGREES,
+        targetValue = ZMotion.JIGGLE_DEGREES,
+        animationSpec = infiniteRepeatable(
+            animation = tween(ZMotion.JIGGLE_MS),
+            repeatMode = RepeatMode.Reverse,
+            initialStartOffset = StartOffset((index % 4) * (ZMotion.JIGGLE_MS / 4)),
+        ),
+        label = "widgetJiggleAngle",
+    )
+
     Column(
         modifier
+            .graphicsLayer { rotationZ = if (removing) angle else 0f }
             .clip(shape)
-            .background(if (selected || lifted) ZColors.SurfaceHigh else ZColors.Surface.copy(alpha = 0.55f))
+            .background(
+                when {
+                    marked -> ZColors.Danger.copy(alpha = 0.16f)
+                    selected || lifted -> ZColors.SurfaceHigh
+                    else -> ZColors.Surface.copy(alpha = 0.55f)
+                }
+            )
             .border(
-                if (selected || lifted) 2.dp else 1.dp,
-                if (selected || lifted) ZColors.Accent else ZColors.Outline,
+                when {
+                    marked -> 2.dp
+                    selected || lifted -> 2.dp
+                    else -> 1.dp
+                },
+                when {
+                    marked -> ZColors.Danger
+                    selected || lifted -> ZColors.Accent
+                    else -> ZColors.Outline
+                },
                 shape,
             )
             .padding(3.dp),
     ) {
-        Box(Modifier.fillMaxWidth()) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                // 平常時だけ。長押しの瞬間までは提供元アプリにタッチを渡す
+                .interceptLongPress(enabled = !editing && !removing, onLongPress = onLongPress),
+        ) {
             if (info != null) {
                 // ウィジェットは与えられた寸法で描画を選ぶ。実測幅を渡さないと、
                 // 高さだけ変えても中身が前のレイアウトのまま伸び縮みする
@@ -113,6 +189,21 @@ fun PlacedWidgetItem(
                     onSelect = onSelect,
                     dragHandle = dragHandle,
                     modifier = Modifier.matchParentSize(),
+                )
+            }
+
+            if (removing) {
+                // 取り外しモードでも中身には触らせない。押せるのは「選ぶ / 外す」だけ
+                Box(
+                    Modifier
+                        .matchParentSize()
+                        .pointerInput(placement.appWidgetId) {
+                            detectTapGestures(onTap = { onToggleMark() })
+                        },
+                )
+                MinusBadge(
+                    marked = marked,
+                    modifier = Modifier.align(Alignment.TopStart).padding(2.dp),
                 )
             }
 

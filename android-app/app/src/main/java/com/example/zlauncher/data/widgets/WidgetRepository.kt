@@ -82,10 +82,21 @@ class WidgetRepository @Inject constructor(
         }
     }
 
-    suspend fun remove(appWidgetId: Int) {
-        host.deleteAppWidgetId(appWidgetId)
+    suspend fun remove(appWidgetId: Int) = remove(listOf(appWidgetId))
+
+    /**
+     * まとめて外す。
+     *
+     * **書き込みは 1 回。** 1 件ずつ [preferences] を更新すると、選んだ枚数だけ設定ファイルへ
+     * 書き込みが走り、そのたびに一覧が再構成されて画面が段階的に崩れていく。
+     * ホストへの id の返却は 1 件ずつでよい（こちらはファイルではない）。
+     */
+    suspend fun remove(appWidgetIds: Collection<Int>) {
+        if (appWidgetIds.isEmpty()) return
+        val drop = appWidgetIds.toSet()
+        drop.forEach { host.deleteAppWidgetId(it) }
         preferences.update { state ->
-            state.copy(widgets = state.widgets.filterNot { it.appWidgetId == appWidgetId })
+            state.copy(widgets = state.widgets.filterNot { it.appWidgetId in drop })
         }
     }
 

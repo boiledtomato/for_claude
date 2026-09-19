@@ -244,6 +244,11 @@ class ConsoleViewModel @Inject constructor(
         widgetRepository.moveTo(fromIndex, toIndex)
     }
 
+    /** 選んだぶんをまとめて外す。書き込みは 1 回 */
+    fun removeWidgets(appWidgetIds: Collection<Int>) = viewModelScope.launch {
+        widgetRepository.remove(appWidgetIds)
+    }
+
     fun removeWidget(appWidgetId: Int) = viewModelScope.launch {
         widgetRepository.remove(appWidgetId)
     }

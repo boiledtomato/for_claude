@@ -1,7 +1,13 @@
 package com.example.zlauncher.ui.console
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +24,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -68,6 +76,26 @@ fun WidgetsPane(
     var editing by remember { mutableStateOf(false) }
     var selectedId by remember { mutableStateOf<Int?>(null) }
 
+    // 取り外しモード。Layout を開かずに、長押しから直接入れる導線
+    var removing by remember { mutableStateOf(false) }
+    val marked = remember { mutableStateListOf<Int>() }
+    var confirming by remember { mutableStateOf(false) }
+
+    fun exitRemoval() {
+        removing = false
+        marked.clear()
+    }
+
+    // 取り外しモード中の戻るは、まずモードを抜ける
+    BackHandler(enabled = removing) { exitRemoval() }
+
+    // 消えたウィジェットを選んだままにしない（別経路で外されたときのため）
+    LaunchedEffect(widgets) {
+        val alive = widgets.map { it.appWidgetId }.toSet()
+        marked.retainAll { it in alive }
+        if (removing && widgets.isEmpty()) exitRemoval()
+    }
+
     val reorder = rememberListReorderState(onMove = viewModel::moveWidgetTo)
     reorder.count = widgets.size
 
@@ -76,9 +104,15 @@ fun WidgetsPane(
     val selected = widgets.firstOrNull { it.appWidgetId == selectedId }
     val selectedIndex = widgets.indexOfFirst { it.appWidgetId == selectedId }
 
+    Box(modifier.fillMaxSize()) {
     LazyColumn(
-        modifier.fillMaxSize(),
-        contentPadding = PaddingValues(start = 12.dp, end = 16.dp, bottom = 24.dp),
+        Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(
+            start = 12.dp,
+            end = 16.dp,
+            // ボタンが最後の 1 枚に重なると、そのウィジェットだけ選べなくなる
+            bottom = if (removing && marked.isNotEmpty()) 96.dp else 24.dp,
+        ),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         item(key = "actions") {
@@ -88,26 +122,33 @@ fun WidgetsPane(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 Text(
-                    text = when (widgets.size) {
-                        0 -> "No widgets yet"
-                        1 -> "1 widget"
+                    text = when {
+                        removing && marked.isEmpty() -> "Tap the widgets to remove"
+                        removing && marked.size == 1 -> "1 selected"
+                        removing -> "${marked.size} selected"
+                        widgets.isEmpty() -> "No widgets yet"
+                        widgets.size == 1 -> "1 widget"
                         else -> "${widgets.size} widgets"
                     },
                     style = ZType.Sub,
-                    color = ZColors.TextSecondary,
+                    color = if (removing) ZColors.Danger else ZColors.TextSecondary,
                     modifier = Modifier.weight(1f),
                 )
-                if (widgets.isNotEmpty()) {
-                    PillAction(
-                        label = if (editing) "Done" else "Layout",
-                        accent = editing,
-                        onClick = {
-                            editing = !editing
-                            selectedId = null
-                        },
-                    )
+                if (removing) {
+                    PillAction(label = "Cancel", accent = false, onClick = { exitRemoval() })
+                } else {
+                    if (widgets.isNotEmpty()) {
+                        PillAction(
+                            label = if (editing) "Done" else "Layout",
+                            accent = editing,
+                            onClick = {
+                                editing = !editing
+                                selectedId = null
+                            },
+                        )
+                    }
+                    PillAction(label = "Add widget", accent = !editing, onClick = onAddWidget)
                 }
-                PillAction(label = "Add widget", accent = !editing, onClick = onAddWidget)
             }
         }
 
@@ -172,7 +213,8 @@ fun WidgetsPane(
                         Text("Nothing placed yet", style = ZType.Body, color = ZColors.TextPrimary)
                         Text(
                             "Widgets arrive at the size their own app asks for and keep it, so two " +
-                                "narrow ones share a row. “Layout” changes width, height and order.",
+                                "narrow ones share a row. “Layout” changes width, height and order, " +
+                                "and a long press on a placed widget selects it for removal.",
                             style = ZType.Sub,
                             color = ZColors.TextSecondary,
                         )
@@ -199,6 +241,17 @@ fun WidgetsPane(
                         placement = placement,
                         controller = widgetHost,
                         editing = editing,
+                        removing = removing,
+                        marked = placement.appWidgetId in marked,
+                        index = index,
+                        onLongPress = {
+                            removing = true
+                            selectedId = null
+                            if (placement.appWidgetId !in marked) marked.add(placement.appWidgetId)
+                        },
+                        onToggleMark = {
+                            if (!marked.remove(placement.appWidgetId)) marked.add(placement.appWidgetId)
+                        },
                         selected = editing && placement.appWidgetId == selectedId,
                         lifted = dragging,
                         columnWidth = columnWidth,
@@ -232,6 +285,61 @@ fun WidgetsPane(
                 }
             }
         }
+    }
+
+        // 実行ボタンは**右下に浮かせる**。一覧は縦に長く、下のほうのウィジェットを
+        // 外すのに上のバーまで戻らせない、というのがこのモードの存在理由
+        AnimatedVisibility(
+            visible = removing && marked.isNotEmpty(),
+            modifier = Modifier.align(Alignment.BottomEnd).padding(end = 16.dp, bottom = 20.dp),
+            enter = scaleIn(initialScale = 0.85f) + fadeIn(),
+            exit = scaleOut(targetScale = 0.85f) + fadeOut(),
+        ) {
+            RemoveButton(count = marked.size, onClick = { confirming = true })
+        }
+    }
+
+    if (confirming) {
+        val count = marked.size
+        ConfirmDialog(
+            title = "Remove widgets",
+            message = if (count == 1) {
+                "Remove 1 widget from the console? The app it belongs to is not touched."
+            } else {
+                "Remove $count widgets from the console? The apps they belong to are not touched."
+            },
+            onConfirm = {
+                viewModel.removeWidgets(marked.toList())
+                confirming = false
+                exitRemoval()
+            },
+            onDismiss = { confirming = false },
+        )
+    }
+}
+
+/**
+ * 右下の実行ボタン。
+ *
+ * 押すと消えるものなので、面の中のチップとは色を分ける（暗い配色ではピンク地に白）。
+ * 幅いっぱいの帯にしないのは、一覧をスクロールしながら選べるようにするため ―
+ * 帯だと最下段のウィジェットが常に隠れる。
+ */
+@Composable
+private fun RemoveButton(count: Int, onClick: () -> Unit) {
+    Box(
+        Modifier
+            .clip(RoundedCornerShape(999.dp))
+            .background(ZColors.Danger)
+            .springyClick(onClick = onClick)
+            .padding(horizontal = 20.dp, vertical = 14.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text = if (count == 1) "Remove 1" else "Remove $count",
+            style = ZType.Body.copy(fontSize = 13.5.sp),
+            color = ZColors.OnDanger,
+        )
     }
 }
 
