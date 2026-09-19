@@ -86,6 +86,7 @@ fun ThemeMode.resolveDark(): Boolean = when (this) {
 fun ZLauncherTheme(
     mode: ThemeMode = ThemeMode.SYSTEM,
     adjust: ColorAdjust = ColorAdjust.NONE,
+    iconAdjust: ColorAdjust = ColorAdjust.NONE,
     content: @Composable () -> Unit,
 ) {
     val base = if (mode.resolveDark()) ZDarkColors else ZLightColors
@@ -98,6 +99,7 @@ fun ZLauncherTheme(
     CompositionLocalProvider(
         LocalZColors provides colors,
         LocalStatusColors provides status,
+        LocalIconAdjust provides iconAdjust,
     ) {
         MaterialTheme(
             colorScheme = materialScheme(colors),

@@ -21,9 +21,12 @@ app/src/main/java/com/example/zlauncher/
 ├── MainActivity.kt                    # HOME インテントフィルタを持つ唯一の Activity
 ├── ZLauncherApplication.kt            # Hilt エントリ、debug 時 StrictMode
 ├── core/
-│   ├── color/ColorMath.kt             # HSL・輝度・コントラスト比（Android に依存しない）
+│   ├── color/                         # 色の計算（Android に依存しない）
+│   │   ├── ColorMath.kt               # HSL・輝度・コントラスト比
+│   │   └── IconColorMatrix.kt         # アプリアイコンに掛ける 4x5 の色行列
 │   ├── designsystem/                  # カラートークン・タイポ・StatusColors・ZMotion
 │   │   ├── ColorAdjustments.kt        # 彩度・明度の適用と、文字のコントラスト保護
+│   │   ├── IconAdjust.kt              # アイコンの色味（LocalIconAdjust）
 │   │   └── component/                 # DashboardCardScaffold / StatusIndicator / MiniCharts
 │   └── ui/
 │       ├── DragReorder.kt             # 長押しドラッグ並べ替え（離した後の着地アニメ付き）
@@ -42,7 +45,6 @@ app/src/main/java/com/example/zlauncher/
     ├── apps/                          # アプリドロワー（グリッド＋ドック＋長押しメニュー）
     ├── console/                       # ホーム = コンソール。レール・ペイン・カード実装
     ├── widgets/                       # ウィジェットピッカーと配置済みウィジェットの部品
-    │   └── authenticator/             # Microsoft Authenticator を開く自前のウィジェット
     ├── navigation/                    # NavHost
     └── setup/DefaultLauncher.kt       # ROLE_HOME / ホームアプリ設定への導線
 ```
@@ -513,27 +515,19 @@ Web Insights にも出てこない。作れてしまうこと自体は残しつ�
 （`pruneMissing`）は listening 開始後にだけ走らせる — 開始前だと有効なウィジェットまで
 「提供元が無い」と誤判定しかねない。
 
-## Microsoft Authenticator を開く枠（ウィジェット）
+## 認証アプリ（Microsoft Authenticator）について
 
-**Widgets → Add widget** の `Authenticator`。相手のアイコン・名前と「Tap to open」だけを
-出し、押すと Microsoft Authenticator が開く。入っていなければ `Not installed` と出て、
-押しても何も起きない（押して無反応より理由が出ているほうがいい）。
+**このアプリからコードを出すことはできない。** 作れるものと作れないものを残しておく:
 
-**コードそのものは出せない。** ほかの認証アプリが持っている共有鍵は読めず（書き出しの口も
-他アプリ向けの API も無い）、他アプリの画面を埋め込む方法も Android には無い。ここで作れる
-のは「1 タップで開く口」までで、それ以上に見せかけない。
+| やりたいこと | 可否 | 理由 |
+|---|---|---|
+| ほかの認証アプリの画面をウィジェットに埋め込む | **不可** | Android に他アプリの画面を埋め込む API は無い。埋め込めるのは、相手が `AppWidget` として差し出したものだけ |
+| ほかの認証アプリのコードを読んで表示する | **不可** | 共有鍵は相手のサンドボックスの中。書き出しの口も他アプリ向けの API も無い |
+| 自分で TOTP を計算して出す | 可能だが**廃止済み** | 各サービスで登録し直す必要があり、利用者は Microsoft Authenticator を使い続けるため外した |
+| 1 タップで開くだけの枠 | 可能だが**廃止済み** | アプリのアイコンを置くのと変わらず、置く価値が無い |
 
-- 地と枠は `ImageView` に入れた図形（`widget_surface.xml`）で、色は描くときに
-  `setColorFilter` で流し込む。配色の調整（下記）を反映させるため ― `-night` リソースでは、
-  アプリ側で明暗を固定している利用者の選択とずれる
-- `updatePeriodMillis` は 0。中身は「入っているか」と配色だけで、時間では変わらない。
-  入れ直しと配色変更への追従は、ホームに戻るたびの描き直し（`MainActivity.onStart`）で足りる
-- 相手の名前は `PackageManager` から引く（地域化された表示名がそのまま出る）
-- アイコンはアダプティブアイコンだと `BitmapDrawable` ではないので、`Canvas` に描き写してから
-  `RemoteViews` へ渡す
-
-（以前あった自前の認証コードの面とウィジェット（TOTP・保管庫・QR 読み取り）は廃止した。
-利用者が Microsoft Authenticator を使い続けるため、こちらに鍵を入れ直す前提が無くなった。）
+Microsoft Authenticator 自身がウィジェットを提供していれば、**Widgets → Add widget** の
+一覧にそのまま出る（提供元アプリ名でも検索できる）。こちら側で足せるものは無い。
 
 ## 配色の調整（彩度・明度）
 
@@ -578,6 +572,27 @@ Web Insights にも出てこない。作れてしまうこと自体は残しつ�
 
 つまみを動かしている間は保存しない。DataStore へ書くのは指を離したときだけで、動かしている
 間はダイアログ内の見本で確かめる（1 ピクセルごとに書くと設定ファイルへの書き込みが数十回走る）。
+
+### アプリアイコンの色味（別枠）
+
+同じダイアログの **App icons** の 2 本。こちらが相手にするのは**自分で描いていない絵**
+（各アプリが配布しているアイコン）で、色の意味も明るさもばらばらなので、面や文字と同じ係数で
+動かす理由が無い。設定は配色と別に持つ。
+
+- 1 枚ずつ描き直すのではなく、**描画時の色行列**に載せる（`IconColorMatrix`）。GPU 側で済み、
+  元の画像にもアイコンのキャッシュにも触らない
+- 彩度は輝度への寄せ、明度は RGB の一様な拡大。一様な拡大はどの行列とも交換できるので、
+  掛ける順番を気にしなくてよい
+- **アルファには触らない。** 触ると角丸の縁やアダプティブアイコンの余白が濁る
+- アイコンを描く場所は `AppIconTile` に集まっているので、当てるのは 1 か所。値は
+  `LocalIconAdjust` で配るため、呼び出し側は変えていない
+- 見本は**実際に入っているアプリのアイコン**を 5 枚。効き具合は元の色に左右されるので、
+  作り物の見本では確かめられない。見本だけ `LocalIconAdjust` を差し替えて、保存前の値で描く
+- 素通し（100% / 100%）のときはフィルタ自体を付けない（`IconColorMatrix.of` が null を返す）。
+  何もしないフィルタでもレイヤーが 1 枚増える
+
+`IconColorMatrixTest` が行列の性質を固定している（素通しは単位行列、彩度 0 で灰色、灰色は
+彩度をどう振っても灰色のまま、明度は全チャンネル等倍、アルファ列は不変）。
 
 ## 仕事用プロファイル（Work Profile）
 

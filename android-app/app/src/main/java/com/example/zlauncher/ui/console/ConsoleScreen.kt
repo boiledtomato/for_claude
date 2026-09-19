@@ -113,6 +113,7 @@ fun ConsoleScreen(
     val categoriesExpanded by viewModel.categoriesExpanded.collectAsStateWithLifecycle()
     val themeMode by viewModel.themeMode.collectAsStateWithLifecycle()
     val colorAdjust by viewModel.colorAdjust.collectAsStateWithLifecycle()
+    val iconAdjust by viewModel.iconAdjust.collectAsStateWithLifecycle()
     var showAppearance by remember { mutableStateOf(false) }
 
     // カタログは初回だけ読む。ダイアログを開いた瞬間に空、という状態を作らない
@@ -263,8 +264,13 @@ fun ConsoleScreen(
         AppearanceDialog(
             themeMode = themeMode,
             adjust = colorAdjust,
+            iconAdjust = iconAdjust,
+            // 見本は実際に入っているアプリのアイコンで。効き具合は元の色に左右される
+            sampleApps = remember(allApps) { allApps.take(SAMPLE_ICONS) },
+            iconProvider = viewModel::icon,
             onThemeMode = viewModel::setThemeMode,
             onAdjust = viewModel::setColorAdjust,
+            onIconAdjust = viewModel::setIconAdjust,
             onDismiss = { showAppearance = false },
         )
     }
@@ -980,3 +986,6 @@ private fun LivePulse() {
 
 private fun formatClock(millis: Long): String =
     if (millis <= 0) "—" else SimpleDateFormat("H:mm:ss", Locale.getDefault()).format(Date(millis))
+
+/** 配色ダイアログの見本に出すアイコンの枚数。1 行に収まる範囲で */
+private const val SAMPLE_ICONS = 5

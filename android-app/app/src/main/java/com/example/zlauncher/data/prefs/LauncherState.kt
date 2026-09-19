@@ -50,6 +50,8 @@ data class LauncherState(
     val themeMode: ThemeMode = ThemeMode.SYSTEM,
     /** 配色の微調整（彩度・明度）。既定は素の配色そのまま */
     val colorAdjust: ColorAdjust = ColorAdjust(),
+    /** アプリアイコンの色味（彩度・明度）。配色とは別に持つ ― 相手は自分で描いていない絵 */
+    val iconAdjust: ColorAdjust = ColorAdjust(),
     /** 取り込み済み URL カテゴリー CSV のファイル名。空なら同梱版のまま */
     val catalogRevision: String = "",
     val catalogFetchedAtMillis: Long = 0L,

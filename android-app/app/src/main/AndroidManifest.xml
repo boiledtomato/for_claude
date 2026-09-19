@@ -29,8 +29,6 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent>
-        <!-- Authenticator のウィジェットから、相手のアイコン・名前・起動口を引くため -->
-        <package android:name="com.azure.authenticator" />
         <!-- 既定ホームアプリの判定に HOME インテントを解決するため -->
         <intent>
             <action android:name="android.intent.action.MAIN" />
@@ -74,24 +72,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--
-          Microsoft Authenticator を 1 タップで開く枠。中身のコードは出せない（他アプリの
-          鍵は読めない）ので、ここが持つのは相手のアイコン・名前と起動用の PendingIntent だけ。
-          exported="true" はウィジェットの受け口として必須で、飛んでくるのはシステムからの
-          APPWIDGET_UPDATE だけ。
-        -->
-        <receiver
-            android:name=".ui.widgets.authenticator.AuthenticatorWidgetProvider"
-            android:exported="true"
-            android:label="@string/authenticator_widget_label">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/authenticator_widget_info" />
-        </receiver>
 
         <!--
           WorkManager の自動初期化を止める。Hilt のファクトリを Application 側から渡すため。

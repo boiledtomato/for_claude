@@ -45,6 +45,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.designsystem.rememberIconColorFilter
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.ui.apps.component.AppSearchBar
 
@@ -343,7 +344,14 @@ private fun ProviderRow(
                 .background(ZColors.SurfaceHigh),
             contentAlignment = Alignment.Center,
         ) {
-            item.icon?.let { Image(bitmap = it, contentDescription = null, modifier = Modifier.size(26.dp)) }
+            item.icon?.let {
+                Image(
+                    bitmap = it,
+                    contentDescription = null,
+                    colorFilter = rememberIconColorFilter(),
+                    modifier = Modifier.size(26.dp),
+                )
+            }
         }
         Column(Modifier.weight(1f)) {
             Text(

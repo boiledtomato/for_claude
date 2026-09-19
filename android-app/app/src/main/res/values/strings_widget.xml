@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="authenticator_widget_label">Authenticator</string>
-    <string name="authenticator_widget_description">Opens Microsoft Authenticator in one tap.</string>
-</resources>

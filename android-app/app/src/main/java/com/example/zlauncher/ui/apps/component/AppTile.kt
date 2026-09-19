@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.ui.springyCombinedClick
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.designsystem.rememberIconColorFilter
 import com.example.zlauncher.domain.model.AppEntry
 
 /** ラベルは常にこの行数ぶんの高さを占める。行数が揺れるとグリッドの行が揃わない */
@@ -112,7 +113,13 @@ fun AppIconTile(
         contentAlignment = Alignment.Center,
     ) {
         if (icon != null) {
-            Image(bitmap = icon, contentDescription = null, modifier = Modifier.size(size * 0.66f))
+            // 色味の調整はここ 1 か所で当てる。アイコンを描く場所はすべてこの部品を通る
+            Image(
+                bitmap = icon,
+                contentDescription = null,
+                colorFilter = rememberIconColorFilter(),
+                modifier = Modifier.size(size * 0.66f),
+            )
         } else {
             Box(
                 Modifier

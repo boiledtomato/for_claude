@@ -297,9 +297,18 @@ class ConsoleViewModel @Inject constructor(
         preferences.update { it.copy(themeMode = mode) }
     }
 
+    /** アプリアイコンの色味。配色とは別に持つ */
+    val iconAdjust: StateFlow<ColorAdjust> = preferences.state
+        .map { it.iconAdjust }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), ColorAdjust.NONE)
+
     /** 範囲外の値は受け取らない。保存する前に丸める */
     fun setColorAdjust(adjust: ColorAdjust) = viewModelScope.launch {
         preferences.update { it.copy(colorAdjust = adjust.normalized()) }
+    }
+
+    fun setIconAdjust(adjust: ColorAdjust) = viewModelScope.launch {
+        preferences.update { it.copy(iconAdjust = adjust.normalized()) }
     }
 
     fun cycleThemeMode() = viewModelScope.launch {
