@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 11 以前のバックアップ設定。`allowBackup="false"` にしてあるので実際には使われない。
+  ここに書くものが無くてもファイル自体は残す ― マニフェストから参照している。
+-->
+<full-backup-content />
