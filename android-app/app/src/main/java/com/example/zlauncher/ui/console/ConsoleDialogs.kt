@@ -339,7 +339,7 @@ private fun SuggestionRow(
 }
 
 @Composable
-private fun DialogButton(label: String, accent: Boolean, onClick: () -> Unit) {
+internal fun DialogButton(label: String, accent: Boolean, onClick: () -> Unit) {
     Box(
         Modifier
             .clip(RoundedCornerShape(999.dp))

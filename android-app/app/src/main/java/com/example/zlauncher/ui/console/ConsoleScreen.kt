@@ -74,7 +74,6 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import kotlinx.coroutines.flow.Flow
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
@@ -95,7 +94,6 @@ private val RAIL_WIDTH = 84.dp
 
 @Composable
 fun ConsoleScreen(
-    paneRequests: Flow<PaneRequest>,
     onOpenApps: () -> Unit,
     onAddWidget: () -> Unit,
     widgetHost: WidgetHostController,
@@ -107,17 +105,6 @@ fun ConsoleScreen(
     val pinned by viewModel.pinnedApps.collectAsStateWithLifecycle()
     val allApps by viewModel.allApps.collectAsStateWithLifecycle()
 
-    // 外から指定された面へ移る（ウィジェットの設定画面の「Open Auth」など）。
-    // 済んだ依頼の id を覚えておく ― 覚えないと、ドロワーから戻るたびに同じ面へ戻される
-    var handledPaneRequest by rememberSaveable { mutableLongStateOf(0L) }
-    LaunchedEffect(paneRequests) {
-        paneRequests.collect { request ->
-            if (request.id == handledPaneRequest) return@collect
-            handledPaneRequest = request.id
-            if (request.pane == ConsoleDeepLink.PANE_AUTH) viewModel.select(ConsolePane.Auth)
-        }
-    }
-
     var showCreateDialog by remember { mutableStateOf(false) }
     var showCatalogDiff by remember { mutableStateOf(false) }
     val pendingDiff by viewModel.pendingCatalogDiff.collectAsStateWithLifecycle()
@@ -125,6 +112,8 @@ fun ConsoleScreen(
     val pinnedExpanded by viewModel.pinnedExpanded.collectAsStateWithLifecycle()
     val categoriesExpanded by viewModel.categoriesExpanded.collectAsStateWithLifecycle()
     val themeMode by viewModel.themeMode.collectAsStateWithLifecycle()
+    val colorAdjust by viewModel.colorAdjust.collectAsStateWithLifecycle()
+    var showAppearance by remember { mutableStateOf(false) }
 
     // カタログは初回だけ読む。ダイアログを開いた瞬間に空、という状態を作らない
     LaunchedEffect(Unit) { viewModel.loadCatalog() }
@@ -176,7 +165,7 @@ fun ConsoleScreen(
             },
             onMoveCategory = viewModel::moveCategory,
             themeMode = themeMode,
-            onCycleTheme = viewModel::cycleThemeMode,
+            onOpenAppearance = { showAppearance = true },
         )
 
         Column(
@@ -188,14 +177,12 @@ fun ConsoleScreen(
                 title = when {
                     selected is ConsolePane.Insights -> "Web Insights"
                     selected is ConsolePane.Widgets -> "Widgets"
-                    selected is ConsolePane.Auth -> "Auth"
                     selectedCategory != null -> selectedCategory.category.name
                     else -> "Overview"
                 },
                 subtitle = when {
                     selected is ConsolePane.Insights -> "Per-category traffic log"
                     selected is ConsolePane.Widgets -> "Placed on this screen"
-                    selected is ConsolePane.Auth -> "One-time codes · kept on this phone"
                     selectedCategory != null -> "${selectedCategory.apps.size} apps"
                     else -> "Live · updated ${formatClock(snapshot.metrics.sampledAtMillis)}"
                 },
@@ -243,7 +230,6 @@ fun ConsoleScreen(
                         onAddWidget = onAddWidget,
                     )
 
-                    ConsolePane.Auth -> AuthPane(viewModel = viewModel)
 
                     is ConsolePane.Category -> {
                         val pane = categories.firstOrNull { it.id == target.id }
@@ -271,6 +257,16 @@ fun ConsoleScreen(
                 }
             }
         }
+    }
+
+    if (showAppearance) {
+        AppearanceDialog(
+            themeMode = themeMode,
+            adjust = colorAdjust,
+            onThemeMode = viewModel::setThemeMode,
+            onAdjust = viewModel::setColorAdjust,
+            onDismiss = { showAppearance = false },
+        )
     }
 
     if (showCreateDialog) {
@@ -381,7 +377,7 @@ private fun ConsoleRail(
     onAddCategory: () -> Unit,
     onMoveCategory: (Int, Int) -> Unit,
     themeMode: ThemeMode,
-    onCycleTheme: () -> Unit,
+    onOpenAppearance: () -> Unit,
 ) {
     Column(
         Modifier
@@ -453,14 +449,6 @@ private fun ConsoleRail(
             onClick = { onSelect(ConsolePane.Widgets) },
         )
 
-        // 認証コード。認証アプリを開かずに済ませるための面
-        RailItem(
-            label = "Auth",
-            selected = selected is ConsolePane.Auth,
-            indicator = { RailKey(ZColors.AccentSoft) },
-            onClick = { onSelect(ConsolePane.Auth) },
-        )
-
         // Overview / Insights は据え置きの機能、以下は自分で作った URL カテゴリー。
         // 同じ見た目で続けると境目が消えるので、ピン留めと同じ区切り線と見出しを挟む
         RailDivider()
@@ -519,7 +507,7 @@ private fun ConsoleRail(
                     color = ZColors.TextSecondary,
                 )
             },
-            onClick = onCycleTheme,
+            onClick = onOpenAppearance,
         )
     }
 }

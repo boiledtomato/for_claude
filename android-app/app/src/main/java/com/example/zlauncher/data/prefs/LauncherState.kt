@@ -4,6 +4,7 @@ import com.example.zlauncher.domain.model.AppCategory
 import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CatalogDiff
 import com.example.zlauncher.domain.model.CardLayout
+import com.example.zlauncher.domain.model.ColorAdjust
 import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.domain.model.DEFAULT_CARD_LAYOUT
 import com.example.zlauncher.domain.model.WidgetPlacement
@@ -47,6 +48,8 @@ data class LauncherState(
     val themedIcons: Boolean = false,
     /** 配色。既定は端末の設定に従う */
     val themeMode: ThemeMode = ThemeMode.SYSTEM,
+    /** 配色の微調整（彩度・明度）。既定は素の配色そのまま */
+    val colorAdjust: ColorAdjust = ColorAdjust(),
     /** 取り込み済み URL カテゴリー CSV のファイル名。空なら同梱版のまま */
     val catalogRevision: String = "",
     val catalogFetchedAtMillis: Long = 0L,

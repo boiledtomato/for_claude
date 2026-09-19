@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import com.example.zlauncher.domain.model.CardStatus
+import com.example.zlauncher.domain.model.ColorAdjust
 import com.example.zlauncher.domain.model.ThemeMode
 
 /**
@@ -84,9 +85,12 @@ fun ThemeMode.resolveDark(): Boolean = when (this) {
 @Composable
 fun ZLauncherTheme(
     mode: ThemeMode = ThemeMode.SYSTEM,
+    adjust: ColorAdjust = ColorAdjust.NONE,
     content: @Composable () -> Unit,
 ) {
-    val colors = if (mode.resolveDark()) ZDarkColors else ZLightColors
+    val base = if (mode.resolveDark()) ZDarkColors else ZLightColors
+    // 係数を掛け直すのは指定が変わったときだけ。全トークンぶんの HSL 変換が走る
+    val colors = remember(base, adjust) { base.adjusted(adjust) }
     val status = remember(colors) {
         StatusColors(colors.statusGreen, colors.statusAmber, colors.statusRed, colors.statusNeutral)
     }

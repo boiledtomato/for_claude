@@ -15,7 +15,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.ui.console.ConsoleScreen
-import com.example.zlauncher.ui.console.PaneRequest
 import com.example.zlauncher.ui.apps.AppDrawerScreen
 import com.example.zlauncher.ui.widgets.WidgetPickerScreen
 import kotlinx.coroutines.flow.Flow
@@ -39,7 +38,6 @@ object Route {
 @Composable
 fun ZLauncherNavHost(
     homeKeyPresses: Flow<Unit>,
-    paneRequests: Flow<PaneRequest>,
     widgetHost: WidgetHostController,
 ) {
     val navController = rememberNavController()
@@ -53,11 +51,6 @@ fun ZLauncherNavHost(
             navController.popBackStack(Route.CONSOLE, inclusive = false)
             scope.launch { drawerGridState.animateScrollToItem(0) }
         }
-    }
-
-    // 外から面を指定して起動されたぶん。ドロワーやピッカーを開いていたらコンソールまで戻す
-    LaunchedEffect(Unit) {
-        paneRequests.collect { navController.popBackStack(Route.CONSOLE, inclusive = false) }
     }
 
     // 画面の入れ替わりも滑らせる。切り替わりが瞬間だと位置関係が分からなくなる
@@ -79,7 +72,6 @@ fun ZLauncherNavHost(
     ) {
         composable(Route.CONSOLE) {
             ConsoleScreen(
-                paneRequests = paneRequests,
                 onOpenApps = { navController.navigate(Route.APPS) },
                 onAddWidget = { navController.navigate(Route.WIDGETS) },
                 widgetHost = widgetHost,

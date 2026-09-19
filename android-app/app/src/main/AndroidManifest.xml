@@ -21,15 +21,6 @@
         tools:ignore="ProtectedPermissions" />
 
     <!--
-      認証コードの QR を読むためだけに使う。実行時に確認を取り、断られても貼り付けと
-      手入力で登録できる。写した絵はどこにも保存しない。
-    -->
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <!-- カメラの無い端末でも入る（読み取り以外は全部動く） -->
-    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
-
-    <!--
       起動可能アプリの可視性。Android 11 以降はこれが無いと一覧が空になる。
       QUERY_ALL_PACKAGES は使わない（Play のポリシー宣言が不要な範囲で足りる）。
     -->
@@ -38,6 +29,8 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent>
+        <!-- Authenticator のウィジェットから、相手のアイコン・名前・起動口を引くため -->
+        <package android:name="com.azure.authenticator" />
         <!-- 既定ホームアプリの判定に HOME インテントを解決するため -->
         <intent>
             <action android:name="android.intent.action.MAIN" />
@@ -83,45 +76,22 @@
         </activity>
 
         <!--
-          ホーム画面に置く認証コード。1 つの登録につき 1 枚（TotpWidgetConfigActivity で
-          どの登録を映すか決める）。exported="true" はウィジェットの受け口として必須なので、
-          ここで受けるのはシステムからの APPWIDGET_* だけにしてある。
+          Microsoft Authenticator を 1 タップで開く枠。中身のコードは出せない（他アプリの
+          鍵は読めない）ので、ここが持つのは相手のアイコン・名前と起動用の PendingIntent だけ。
+          exported="true" はウィジェットの受け口として必須で、飛んでくるのはシステムからの
+          APPWIDGET_UPDATE だけ。
         -->
         <receiver
-            android:name=".ui.widgets.totp.TotpWidgetProvider"
+            android:name=".ui.widgets.authenticator.AuthenticatorWidgetProvider"
             android:exported="true"
-            android:label="@string/totp_widget_label">
+            android:label="@string/authenticator_widget_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/totp_widget_info" />
+                android:resource="@xml/authenticator_widget_info" />
         </receiver>
-
-        <!--
-          タップとアラームの受け口。こちらは非公開でよい（PendingIntent はこのアプリの
-          権限で送られる）。提供元と分けているのは、提供元が公開必須で、そこに自前の
-          action を足すと他アプリからコードを出させられるため。
-        -->
-        <receiver
-            android:name=".ui.widgets.totp.TotpWidgetActionReceiver"
-            android:exported="false" />
-
-        <!--
-          どの登録を映すか選ぶ画面。ウィジェットの設定 Activity はホスト（ランチャー）から
-          起動されるので exported="true" が要る。ウィジェット id が渡らない呼び出しでは
-          一覧を出さずにそのまま閉じる。
-        -->
-        <activity
-            android:name=".ui.widgets.totp.TotpWidgetConfigActivity"
-            android:exported="true"
-            android:excludeFromRecents="true"
-            android:theme="@style/Theme.ZLauncher.Config">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
-            </intent-filter>
-        </activity>
 
         <!--
           WorkManager の自動初期化を止める。Hilt のファクトリを Application 側から渡すため。

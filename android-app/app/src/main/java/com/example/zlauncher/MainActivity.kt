@@ -15,11 +15,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.data.widgets.WidgetRepository
+import com.example.zlauncher.domain.model.ColorAdjust
 import com.example.zlauncher.domain.model.ThemeMode
-import android.os.SystemClock
-import com.example.zlauncher.ui.console.ConsoleDeepLink
-import com.example.zlauncher.ui.console.PaneRequest
 import com.example.zlauncher.ui.navigation.ZLauncherNavHost
+import com.example.zlauncher.ui.widgets.authenticator.AuthenticatorWidgetRenderer
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.map
@@ -38,22 +37,23 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var preferences: LauncherPreferencesRepository
 
+    @Inject
+    lateinit var authenticatorWidgets: AuthenticatorWidgetRenderer
+
     private val homeKeyPresses = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
 
-    /** 外から「この面を開いて」と言われたぶん（ウィジェットの設定画面など） */
-    private val paneRequests = MutableSharedFlow<PaneRequest>(extraBufferCapacity = 1, replay = 1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         // Flow の組み立ては composition の外で 1 回だけ。中で map すると再構成のたびに
         // 新しい Flow ができ、collect がやり直しになる
-        consumePaneRequest(intent)
-
         val themeModeFlow = preferences.state.map { it.themeMode }
+        val colorAdjustFlow = preferences.state.map { it.colorAdjust }
         setContent {
             // 保存済みの配色。読み込みが終わるまでは既定（端末の設定に従う）で描く
             val themeMode by themeModeFlow.collectAsStateWithLifecycle(initialValue = ThemeMode.SYSTEM)
+            val colorAdjust by colorAdjustFlow.collectAsStateWithLifecycle(initialValue = ColorAdjust.NONE)
 
             // ステータスバーのアイコンは配色に合わせて置き直す。端末が夜でも配色を明るい方に
             // 固定できるので、システム任せにすると白い地に白いアイコンが乗る
@@ -70,8 +70,8 @@ class MainActivity : ComponentActivity() {
                 enableEdgeToEdge(statusBarStyle = style, navigationBarStyle = style)
             }
 
-            ZLauncherTheme(mode = themeMode) {
-                ZLauncherNavHost(homeKeyPresses, paneRequests, widgetHost)
+            ZLauncherTheme(mode = themeMode, adjust = colorAdjust) {
+                ZLauncherNavHost(homeKeyPresses, widgetHost)
             }
         }
     }
@@ -83,6 +83,9 @@ class MainActivity : ComponentActivity() {
         // 掃除は listening 開始後に行う。開始前だと有効なウィジェットまで
         // 「提供元が無い」と判定して消しかねない
         lifecycleScope.launch { widgetRepository.pruneMissing() }
+        // Authenticator の枠は時間では変わらないが、配色を変えたときと相手のアプリを
+        // 入れ直したときに追従させる必要がある。ホームに戻るたびに描き直す
+        lifecycleScope.launch { authenticatorWidgets.renderAll() }
     }
 
     override fun onStop() {
@@ -96,17 +99,6 @@ class MainActivity : ComponentActivity() {
      */
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        // 面の指定つきで来たときは HOME キーとして扱わない（指定した面まで行って止まる）
-        if (!consumePaneRequest(intent)) homeKeyPresses.tryEmit(Unit)
-    }
-
-    /**
-     * 付加情報は**一度使ったら消す**。残しておくと、プロセスが作り直されたときに
-     * 保存された Intent からもう一度同じ面へ飛ばされる。
-     */
-    private fun consumePaneRequest(intent: Intent?): Boolean {
-        val pane = intent?.getStringExtra(ConsoleDeepLink.EXTRA_PANE) ?: return false
-        intent.removeExtra(ConsoleDeepLink.EXTRA_PANE)
-        return paneRequests.tryEmit(PaneRequest(pane, SystemClock.uptimeMillis()))
+        homeKeyPresses.tryEmit(Unit)
     }
 }

@@ -29,9 +29,7 @@ import com.example.zlauncher.domain.model.CardSpan
 import com.example.zlauncher.domain.model.CatalogDiff
 import com.example.zlauncher.domain.model.CatalogPick
 import com.example.zlauncher.domain.model.UrlCategoryGroup
-import com.example.zlauncher.core.otp.OtpDraft
-import com.example.zlauncher.core.otp.Totp
-import com.example.zlauncher.data.otp.OtpRepository
+import com.example.zlauncher.domain.model.ColorAdjust
 import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.domain.model.WidgetPlacement
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -59,7 +57,6 @@ class ConsoleViewModel @Inject constructor(
     private val classifier: AppClassifier,
     private val catalogUpdater: CatalogUpdater,
     private val widgetRepository: WidgetRepository,
-    private val otpRepository: OtpRepository,
     installedApps: InstalledAppRepository,
     metricsRepository: DeviceMetricsRepository,
 ) : ViewModel() {
@@ -224,66 +221,6 @@ class ConsoleViewModel @Inject constructor(
         categoryRepository.setPinned(slot, packageName)
     }
 
-    // ---- 認証コード（TOTP） -------------------------------------------------
-
-    /**
-     * 1 秒ごとの時刻。コードと残り秒はここから計算する。
-     *
-     * **Auth ペインを開いているときだけ流れる**（`WhileSubscribed`）。ホームに居る間ずっと
-     * 毎秒 HMAC を回す理由は無い。
-     */
-    private val otpTicker: Flow<Long> = flow {
-        while (true) {
-            emit(System.currentTimeMillis())
-            delay(1_000)
-        }
-    }
-
-    val otpStatus: StateFlow<OtpRepository.Status> = otpRepository.status
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), OtpRepository.Status.EMPTY)
-
-    val otpCodes: StateFlow<List<OtpCodeUi>> =
-        combine(otpRepository.entries, otpTicker) { entries, now ->
-            entries.mapIndexed { index, entry ->
-                OtpCodeUi(
-                    id = entry.id,
-                    issuer = entry.issuer,
-                    account = entry.account,
-                    grouped = Totp.group(
-                        Totp.code(entry.secret, now, entry.periodSeconds, entry.digits, entry.algorithm)
-                    ),
-                    raw = Totp.code(entry.secret, now, entry.periodSeconds, entry.digits, entry.algorithm),
-                    secondsRemaining = Totp.secondsRemaining(now, entry.periodSeconds),
-                    fraction = Totp.remainingFraction(now, entry.periodSeconds),
-                    colorIndex = index,
-                )
-            }
-        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(2_000), emptyList())
-
-    fun loadOtp() = viewModelScope.launch { otpRepository.ensureLoaded() }
-
-    /** 面を閉じたら鍵をメモリから落とす */
-    fun unloadOtp() = viewModelScope.launch { otpRepository.unload() }
-
-    /** 読めなくなった保管庫を捨てて作り直す。確認を取ってから呼ぶこと */
-    fun discardOtpVault() = viewModelScope.launch { otpRepository.discardUnreadable() }
-
-    fun addOtp(drafts: List<OtpDraft>, onDone: (Int) -> Unit = {}) = viewModelScope.launch {
-        onDone(otpRepository.add(drafts))
-    }
-
-    fun renameOtp(id: String, issuer: String, account: String) = viewModelScope.launch {
-        otpRepository.rename(id, issuer, account)
-    }
-
-    fun removeOtp(ids: Collection<String>) = viewModelScope.launch {
-        otpRepository.remove(ids)
-    }
-
-    fun moveOtp(fromIndex: Int, toIndex: Int) = viewModelScope.launch {
-        otpRepository.move(fromIndex, toIndex)
-    }
-
     // ---- ウィジェット -------------------------------------------------------
 
     val widgets: StateFlow<List<WidgetPlacement>> = widgetRepository.widgets
@@ -351,6 +288,20 @@ class ConsoleViewModel @Inject constructor(
      * 切り替えを 1 つのボタンで済ませるため。設定画面を持たないので、3 つの状態を
      * それぞれ選ばせるとレールに 3 つ並べることになる。
      */
+    /** 配色の微調整（彩度・明度）。既定は素の配色 */
+    val colorAdjust: StateFlow<ColorAdjust> = preferences.state
+        .map { it.colorAdjust }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), ColorAdjust.NONE)
+
+    fun setThemeMode(mode: ThemeMode) = viewModelScope.launch {
+        preferences.update { it.copy(themeMode = mode) }
+    }
+
+    /** 範囲外の値は受け取らない。保存する前に丸める */
+    fun setColorAdjust(adjust: ColorAdjust) = viewModelScope.launch {
+        preferences.update { it.copy(colorAdjust = adjust.normalized()) }
+    }
+
     fun cycleThemeMode() = viewModelScope.launch {
         preferences.update {
             it.copy(
