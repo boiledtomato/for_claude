@@ -1,10 +1,14 @@
 package com.example.zlauncher.data.widgets
 
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
+import com.example.zlauncher.data.prefs.LauncherState
 import com.example.zlauncher.domain.model.WidgetPlacement
+import com.example.zlauncher.domain.model.WidgetSheet
+import com.example.zlauncher.domain.model.WidgetSheets
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -15,18 +19,94 @@ class WidgetRepository @Inject constructor(
 ) {
     val widgets: Flow<List<WidgetPlacement>> = preferences.state.map { it.widgets }
 
+    /** 左右のフリックで行き来するシート */
+    val sheets: Flow<List<WidgetSheet>> = preferences.state.map { it.widgetSheets }
+
+    /** いま見ているシート。追加先でもある */
+    val activeSheet: Flow<String> = preferences.state.map { it.activeWidgetSheet }
+
+    /**
+     * 追加は**いま見ているシート**へ。シートが 1 枚も無ければ作る
+     * （ウィジェットだけ増えて置き場所が無い、という状態を作らない）。
+     */
     suspend fun add(appWidgetId: Int, heightDp: Int, widthSpan: Int) = preferences.update { state ->
         if (state.widgets.any { it.appWidgetId == appWidgetId }) {
             state
         } else {
+            val normalized = normalize(state)
+            val target = normalized.activeWidgetSheet.ifBlank { normalized.widgetSheets.firstOrNull()?.id }
+            val sheets = if (target == null) listOf(WidgetSheet(newId())) else normalized.widgetSheets
+            val sheetId = target ?: sheets.first().id
             val placement = WidgetPlacement(
                 appWidgetId = appWidgetId,
                 heightDp = WidgetPlacement.clampHeight(heightDp),
                 widthSpan = WidgetPlacement.clampSpan(widthSpan),
+                sheetId = sheetId,
             )
-            state.copy(widgets = state.widgets + placement)
+            normalized.copy(
+                widgetSheets = sheets,
+                activeWidgetSheet = sheetId,
+                widgets = normalized.widgets + placement,
+            )
         }
     }
+
+    /** 画面を開いたときに 1 度。旧データのウィジェットを 1 枚目へ寄せる */
+    suspend fun ensureSheets() = preferences.update { normalize(it) }
+
+    /** 新しいシートを足して、そこへ移る */
+    suspend fun addSheet() = preferences.update { state ->
+        val sheet = WidgetSheet(newId())
+        state.copy(
+            widgetSheets = state.widgetSheets + sheet,
+            activeWidgetSheet = sheet.id,
+        )
+    }
+
+    suspend fun setActiveSheet(sheetId: String) = preferences.update { state ->
+        if (state.activeWidgetSheet == sheetId) state else state.copy(activeWidgetSheet = sheetId)
+    }
+
+    /**
+     * 空のシートを片付ける。**いま居るシートだけは空でも残す** ―
+     * 追加した直後のシートがその場で消えないように。
+     */
+    suspend fun pruneEmptySheets(keep: String?) = preferences.update { state ->
+        val kept = WidgetSheets.pruneEmpty(state.widgetSheets, state.widgets, keep)
+        if (kept.size == state.widgetSheets.size) {
+            state
+        } else {
+            state.copy(
+                widgetSheets = kept,
+                activeWidgetSheet = kept.firstOrNull { it.id == state.activeWidgetSheet }?.id
+                    ?: kept.firstOrNull()?.id.orEmpty(),
+            )
+        }
+    }
+
+    private fun normalize(state: LauncherState): LauncherState {
+        val result = WidgetSheets.normalize(
+            sheets = state.widgetSheets,
+            widgets = state.widgets,
+            active = state.activeWidgetSheet,
+            newId = ::newId,
+        )
+        return if (
+            result.sheets == state.widgetSheets &&
+            result.widgets == state.widgets &&
+            result.active == state.activeWidgetSheet
+        ) {
+            state
+        } else {
+            state.copy(
+                widgetSheets = result.sheets,
+                widgets = result.widgets,
+                activeWidgetSheet = result.active,
+            )
+        }
+    }
+
+    private fun newId(): String = UUID.randomUUID().toString()
 
     /** 高さの変更。範囲外の値が入るとホームが描けなくなるので、必ず丸める */
     suspend fun setHeight(appWidgetId: Int, heightDp: Int) = preferences.update { state ->
@@ -60,26 +140,25 @@ class WidgetRepository @Inject constructor(
      * 行の詰め方は順序だけで決まるので、隣に並べたい 2 つを寄せる手段がこれになる。
      */
     suspend fun move(appWidgetId: Int, delta: Int) = preferences.update { state ->
-        val from = state.widgets.indexOfFirst { it.appWidgetId == appWidgetId }
+        val placement = state.widgets.firstOrNull { it.appWidgetId == appWidgetId } ?: return@update state
+        val onSheet = WidgetSheets.widgetsOn(state.widgets, placement.sheetId)
+        val from = onSheet.indexOfFirst { it.appWidgetId == appWidgetId }
         val to = from + delta
-        if (from < 0 || to !in state.widgets.indices) {
+        if (to !in onSheet.indices) {
             state
         } else {
-            val reordered = state.widgets.toMutableList()
-            reordered.add(to, reordered.removeAt(from))
-            state.copy(widgets = reordered)
+            state.copy(widgets = WidgetSheets.moveWithinSheet(state.widgets, placement.sheetId, from, to))
         }
     }
 
-    /** ドラッグ並べ替え用。位置そのものを指定する */
-    suspend fun moveTo(fromIndex: Int, toIndex: Int) = preferences.update { state ->
-        if (fromIndex !in state.widgets.indices || toIndex !in state.widgets.indices) {
-            state
-        } else {
-            val reordered = state.widgets.toMutableList()
-            reordered.add(toIndex, reordered.removeAt(fromIndex))
-            state.copy(widgets = reordered)
-        }
+    /**
+     * ドラッグ並べ替え用。位置そのものを指定する。
+     *
+     * **位置はシートの中での番号。** 保存しているのは 1 本の並びなので、
+     * [WidgetSheets.moveWithinSheet] が全体の何番目かに引き直す。
+     */
+    suspend fun moveTo(sheetId: String, fromIndex: Int, toIndex: Int) = preferences.update { state ->
+        state.copy(widgets = WidgetSheets.moveWithinSheet(state.widgets, sheetId, fromIndex, toIndex))
     }
 
     suspend fun remove(appWidgetId: Int) = remove(listOf(appWidgetId))

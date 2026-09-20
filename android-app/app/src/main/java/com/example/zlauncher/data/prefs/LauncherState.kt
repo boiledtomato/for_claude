@@ -8,6 +8,7 @@ import com.example.zlauncher.domain.model.ColorAdjust
 import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.domain.model.DEFAULT_CARD_LAYOUT
 import com.example.zlauncher.domain.model.WidgetPlacement
+import com.example.zlauncher.domain.model.WidgetSheet
 import kotlinx.serialization.Serializable
 
 /**
@@ -25,6 +26,10 @@ data class LauncherState(
     val cards: List<CardLayout> = DEFAULT_CARD_LAYOUT,
     /** ホーム上部に並べるウィジェット。既定値があるので旧バージョンの JSON もそのまま読める */
     val widgets: List<WidgetPlacement> = emptyList(),
+    /** ウィジェットを載せるシート。左右のフリックで行き来する */
+    val widgetSheets: List<WidgetSheet> = emptyList(),
+    /** いま見ているシート。ウィジェットの追加先でもある */
+    val activeWidgetSheet: String = "",
     /** コンソール左レールのカテゴリー（ユーザーが作る） */
     val categories: List<AppCategory> = emptyList(),
     /** レール上部にピン留めするアプリ。最大 [MAX_PINNED] 件 */

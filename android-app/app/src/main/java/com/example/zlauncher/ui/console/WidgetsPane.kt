@@ -20,6 +20,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,6 +30,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,6 +52,8 @@ import com.example.zlauncher.core.ui.reorderableSlot
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.domain.model.WidgetPlacement
+import com.example.zlauncher.domain.model.WidgetSheet
+import com.example.zlauncher.domain.model.WidgetSheets
 import com.example.zlauncher.ui.widgets.FreeWidgetSlot
 import com.example.zlauncher.ui.widgets.PlacedWidgetItem
 import com.example.zlauncher.ui.widgets.WidgetFlow
@@ -63,6 +68,11 @@ import kotlin.math.roundToInt
  * 並びは [WidgetPlacement.COLUMNS] 列のグリッドに左から流し込む。全幅固定をやめたのは、
  * 2×1 の時計に 1 行を丸ごと使わせる理由が無いため ― 空いた列には次のウィジェットが入る。
  * 大きさを変えるのは Layout のときだけで、操作は選んだ 1 件に対して上のバーから行う。
+ *
+ * **面はシートに分かれ、左右のフリックで移る。** 縦 1 本だと増えるほど下に伸び、
+ * 下のほうのウィジェットに触るまでが遠かった。末尾には常に追加用の 1 枚があり、
+ * 右へ流し続ければそのまま増やせる。離れたシートが空なら片付けるが、
+ * **いま居るシートは空でも残す** ― 作った直後に消えては追加のしようが無い。
  */
 @Composable
 fun WidgetsPane(
@@ -71,8 +81,10 @@ fun WidgetsPane(
     onAddWidget: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val context = LocalContext.current
     val widgets by viewModel.widgets.collectAsStateWithLifecycle()
+    val sheets by viewModel.widgetSheets.collectAsStateWithLifecycle()
+    val activeSheet by viewModel.activeWidgetSheet.collectAsStateWithLifecycle()
+
     var editing by remember { mutableStateOf(false) }
     var selectedId by remember { mutableStateOf<Int?>(null) }
 
@@ -96,15 +108,178 @@ fun WidgetsPane(
         if (removing && widgets.isEmpty()) exitRemoval()
     }
 
-    val reorder = rememberListReorderState(onMove = viewModel::moveWidgetTo)
+    // シートを持たない古いデータをここで吸収する（1 枚目へ寄せる）
+    LaunchedEffect(Unit) { viewModel.ensureWidgetSheets() }
+
+    // 1 枚も無いときだけ聞く。断られたら、この面に居るあいだは聞き直さない
+    var asked by remember { mutableStateOf(false) }
+    var asking by remember { mutableStateOf(false) }
+    val nothingAtAll = sheets.isEmpty() && widgets.isEmpty()
+    LaunchedEffect(nothingAtAll) {
+        if (nothingAtAll && !asked) {
+            asking = true
+            asked = true
+        }
+    }
+
+    Box(modifier.fillMaxSize()) {
+        when {
+            // ウィジェットはあるのにシートがまだ無い ＝ 移行中の 1 フレーム。何も出さない
+            sheets.isEmpty() && widgets.isNotEmpty() -> Unit
+
+            sheets.isEmpty() -> NoSheets(onAdd = { viewModel.addWidgetSheet() })
+
+            else -> {
+                val pagerState = rememberPagerState(
+                    initialPage = sheets.indexOfFirst { it.id == activeSheet }.coerceAtLeast(0),
+                ) { sheets.size + 1 }
+
+                // 落ち着いた先を「いまのシート」にして、離れたシートが空なら片付ける。
+                // **いま居るシートは空でも残す** ― 作った直後に消えてしまうため
+                LaunchedEffect(pagerState, sheets) {
+                    snapshotFlow { pagerState.settledPage }.collect { page ->
+                        val sheet = sheets.getOrNull(page) ?: return@collect
+                        viewModel.setActiveWidgetSheet(sheet.id)
+                        viewModel.pruneEmptyWidgetSheets(keep = sheet.id)
+                    }
+                }
+
+                val currentSheet = sheets.getOrNull(pagerState.currentPage)
+                val onSheet = remember(widgets, currentSheet) {
+                    currentSheet?.let { WidgetSheets.widgetsOn(widgets, it.id) }.orEmpty()
+                }
+
+                Column(Modifier.fillMaxSize()) {
+                    SheetHeader(
+                        onAddSheetPage = currentSheet == null,
+                        count = onSheet.size,
+                        removing = removing,
+                        markedCount = marked.size,
+                        editing = editing,
+                        onCancelRemoval = { exitRemoval() },
+                        onToggleLayout = {
+                            editing = !editing
+                            selectedId = null
+                        },
+                        onAddWidget = onAddWidget,
+                    )
+
+                    HorizontalPager(
+                        state = pagerState,
+                        modifier = Modifier.weight(1f),
+                        // ページを跨ぐ入れ替えはしないので、隣を先に組み立てる必要は無い。
+                        // ウィジェットは提供元アプリのビューなので、見えない枚数ぶん
+                        // 先に作ると無駄に描画が走る
+                        beyondViewportPageCount = 0,
+                        key = { page -> sheets.getOrNull(page)?.id ?: ADD_PAGE_KEY },
+                        userScrollEnabled = !editing,
+                    ) { page ->
+                        val sheet = sheets.getOrNull(page)
+                        if (sheet == null) {
+                            AddSheetPage(onAdd = { viewModel.addWidgetSheet() })
+                        } else {
+                            WidgetSheetPage(
+                                sheet = sheet,
+                                widgets = remember(widgets, sheet) { WidgetSheets.widgetsOn(widgets, sheet.id) },
+                                viewModel = viewModel,
+                                widgetHost = widgetHost,
+                                editing = editing,
+                                removing = removing,
+                                marked = marked,
+                                selectedId = selectedId,
+                                onSelect = { id -> selectedId = if (selectedId == id) null else id },
+                                onEnterRemoval = { id ->
+                                    removing = true
+                                    selectedId = null
+                                    if (id !in marked) marked.add(id)
+                                },
+                                onToggleMark = { id -> if (!marked.remove(id)) marked.add(id) },
+                            )
+                        }
+                    }
+
+                    SheetDots(
+                        count = sheets.size,
+                        current = pagerState.currentPage,
+                        onAddPage = pagerState.currentPage >= sheets.size,
+                    )
+                }
+            }
+        }
+
+        // 実行ボタンは**右下に浮かせる**。一覧は縦に長く、下のほうのウィジェットを
+        // 外すのに上のバーまで戻らせない、というのがこのモードの存在理由
+        AnimatedVisibility(
+            visible = removing && marked.isNotEmpty(),
+            modifier = Modifier.align(Alignment.BottomEnd).padding(end = 16.dp, bottom = 52.dp),
+            enter = scaleIn(initialScale = 0.85f) + fadeIn(),
+            exit = scaleOut(targetScale = 0.85f) + fadeOut(),
+        ) {
+            RemoveButton(count = marked.size, onClick = { confirming = true })
+        }
+    }
+
+    if (asking) {
+        ConfirmDialog(
+            title = "Add a widget sheet?",
+            message = "Widget sheets hold your widgets and you flick between them. " +
+                "There is no sheet yet — create the first one?",
+            confirmLabel = "Yes",
+            dismissLabel = "No",
+            onConfirm = {
+                viewModel.addWidgetSheet()
+                asking = false
+            },
+            onDismiss = { asking = false },
+        )
+    }
+
+    if (confirming) {
+        val count = marked.size
+        ConfirmDialog(
+            title = "Remove widgets",
+            message = if (count == 1) {
+                "Remove 1 widget from the console? The app it belongs to is not touched."
+            } else {
+                "Remove $count widgets from the console? The apps they belong to are not touched."
+            },
+            onConfirm = {
+                viewModel.removeWidgets(marked.toList())
+                confirming = false
+                exitRemoval()
+            },
+            onDismiss = { confirming = false },
+        )
+    }
+}
+
+/** 1 枚ぶんの中身。縦の並びはこれまでどおりで、そのシートに載っているものだけを描く */
+@Composable
+private fun WidgetSheetPage(
+    sheet: WidgetSheet,
+    widgets: List<WidgetPlacement>,
+    viewModel: ConsoleViewModel,
+    widgetHost: WidgetHostController,
+    editing: Boolean,
+    removing: Boolean,
+    marked: List<Int>,
+    selectedId: Int?,
+    onSelect: (Int) -> Unit,
+    onEnterRemoval: (Int) -> Unit,
+    onToggleMark: (Int) -> Unit,
+) {
+    val context = LocalContext.current
+
+    // 並べ替えはシートの中だけ。位置はこのシートでの番号で渡す
+    val reorder = rememberListReorderState(
+        onMove = { from, to -> viewModel.moveWidgetTo(sheet.id, from, to) },
+    )
     reorder.count = widgets.size
 
     val rows = remember(widgets) { WidgetFlow.rows(widgets) }
-    // 選択したウィジェットが消えた（削除した）ときは、バーを「未選択」に戻す
     val selected = widgets.firstOrNull { it.appWidgetId == selectedId }
     val selectedIndex = widgets.indexOfFirst { it.appWidgetId == selectedId }
 
-    Box(modifier.fillMaxSize()) {
     LazyColumn(
         Modifier.fillMaxSize(),
         contentPadding = PaddingValues(
@@ -115,43 +290,6 @@ fun WidgetsPane(
         ),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        item(key = "actions") {
-            Row(
-                Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                Text(
-                    text = when {
-                        removing && marked.isEmpty() -> "Tap the widgets to remove"
-                        removing && marked.size == 1 -> "1 selected"
-                        removing -> "${marked.size} selected"
-                        widgets.isEmpty() -> "No widgets yet"
-                        widgets.size == 1 -> "1 widget"
-                        else -> "${widgets.size} widgets"
-                    },
-                    style = ZType.Sub,
-                    color = if (removing) ZColors.Danger else ZColors.TextSecondary,
-                    modifier = Modifier.weight(1f),
-                )
-                if (removing) {
-                    PillAction(label = "Cancel", accent = false, onClick = { exitRemoval() })
-                } else {
-                    if (widgets.isNotEmpty()) {
-                        PillAction(
-                            label = if (editing) "Done" else "Layout",
-                            accent = editing,
-                            onClick = {
-                                editing = !editing
-                                selectedId = null
-                            },
-                        )
-                    }
-                    PillAction(label = "Add widget", accent = !editing, onClick = onAddWidget)
-                }
-            }
-        }
-
         if (editing) {
             item(key = "controls") {
                 val info = selected?.let { widgetHost.providerInfo(it.appWidgetId) }
@@ -193,7 +331,6 @@ fun WidgetsPane(
                     },
                     onRemove = {
                         selected?.let { viewModel.removeWidget(it.appWidgetId) }
-                        selectedId = null
                     },
                 )
             }
@@ -210,11 +347,11 @@ fun WidgetsPane(
                         .padding(horizontal = 14.dp, vertical = 22.dp),
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Text("Nothing placed yet", style = ZType.Body, color = ZColors.TextPrimary)
+                        Text("This sheet is empty", style = ZType.Body, color = ZColors.TextPrimary)
                         Text(
-                            "Widgets arrive at the size their own app asks for and keep it, so two " +
-                                "narrow ones share a row. “Layout” changes width, height and order, " +
-                                "and a long press on a placed widget selects it for removal.",
+                            "“Add widget” puts one here. Widgets keep the size their own app asks " +
+                                "for, so two narrow ones share a row. An empty sheet is dropped " +
+                                "once you flick away from it.",
                             style = ZType.Sub,
                             color = ZColors.TextSecondary,
                         )
@@ -233,98 +370,202 @@ fun WidgetsPane(
                     horizontalArrangement = Arrangement.spacedBy(ROW_GAP),
                     verticalAlignment = Alignment.Top,
                 ) {
-                row.widgets.forEachIndexed { indexInRow, placement ->
-                    val index = firstIndex + indexInRow
-                    val dragging = reorder.draggingIndex == index
-                    val active = reorder.isActive(index)
-                    PlacedWidgetItem(
-                        placement = placement,
-                        controller = widgetHost,
-                        editing = editing,
-                        removing = removing,
-                        marked = placement.appWidgetId in marked,
-                        index = index,
-                        onLongPress = {
-                            removing = true
-                            selectedId = null
-                            if (placement.appWidgetId !in marked) marked.add(placement.appWidgetId)
-                        },
-                        onToggleMark = {
-                            if (!marked.remove(placement.appWidgetId)) marked.add(placement.appWidgetId)
-                        },
-                        selected = editing && placement.appWidgetId == selectedId,
-                        lifted = dragging,
-                        columnWidth = columnWidth,
-                        onSelect = {
-                            selectedId = if (selectedId == placement.appWidgetId) null else placement.appWidgetId
-                        },
-                        onHeightChange = { viewModel.setWidgetHeight(placement.appWidgetId, it) },
-                        onSpanChange = { viewModel.setWidgetSpan(placement.appWidgetId, it) },
-                        dragHandle = Modifier.reorderableHandle(reorder, index, enabled = editing),
-                        modifier = Modifier
-                            .weight(WidgetPlacement.clampSpan(placement.widthSpan).toFloat())
-                            // つまみ上げた 1 枚は必ず手前に。奥に潜ると指の下から消える
-                            .zIndex(if (active) 1f else 0f)
-                            .graphicsLayer {
-                                translationX = if (active) reorder.dragOffset.x else 0f
-                                translationY = if (active) reorder.dragOffset.y else 0f
-                                val scale = if (dragging) ZMotion.LIFT_SCALE else 1f
-                                scaleX = scale
-                                scaleY = scale
-                            }
-                            .reorderableSlot(reorder, index),
-                    )
-                }
-                if (row.freeSpan > 0) {
-                    if (editing) {
-                        FreeWidgetSlot(span = row.freeSpan, modifier = Modifier.weight(row.freeSpan.toFloat()))
-                    } else {
-                        Box(Modifier.weight(row.freeSpan.toFloat()))
+                    row.widgets.forEachIndexed { indexInRow, placement ->
+                        val index = firstIndex + indexInRow
+                        val dragging = reorder.draggingIndex == index
+                        val active = reorder.isActive(index)
+                        PlacedWidgetItem(
+                            placement = placement,
+                            controller = widgetHost,
+                            editing = editing,
+                            removing = removing,
+                            marked = placement.appWidgetId in marked,
+                            index = index,
+                            onLongPress = { onEnterRemoval(placement.appWidgetId) },
+                            onToggleMark = { onToggleMark(placement.appWidgetId) },
+                            selected = editing && placement.appWidgetId == selectedId,
+                            lifted = dragging,
+                            columnWidth = columnWidth,
+                            onSelect = { onSelect(placement.appWidgetId) },
+                            onHeightChange = { viewModel.setWidgetHeight(placement.appWidgetId, it) },
+                            onSpanChange = { viewModel.setWidgetSpan(placement.appWidgetId, it) },
+                            dragHandle = Modifier.reorderableHandle(reorder, index, enabled = editing),
+                            modifier = Modifier
+                                .weight(WidgetPlacement.clampSpan(placement.widthSpan).toFloat())
+                                // つまみ上げた 1 枚は必ず手前に。奥に潜ると指の下から消える
+                                .zIndex(if (active) 1f else 0f)
+                                .graphicsLayer {
+                                    translationX = if (active) reorder.dragOffset.x else 0f
+                                    translationY = if (active) reorder.dragOffset.y else 0f
+                                    val scale = if (dragging) ZMotion.LIFT_SCALE else 1f
+                                    scaleX = scale
+                                    scaleY = scale
+                                }
+                                .reorderableSlot(reorder, index),
+                        )
                     }
-                }
+                    if (row.freeSpan > 0) {
+                        if (editing) {
+                            FreeWidgetSlot(span = row.freeSpan, modifier = Modifier.weight(row.freeSpan.toFloat()))
+                        } else {
+                            Box(Modifier.weight(row.freeSpan.toFloat()))
+                        }
+                    }
                 }
             }
         }
     }
+}
 
-        // 実行ボタンは**右下に浮かせる**。一覧は縦に長く、下のほうのウィジェットを
-        // 外すのに上のバーまで戻らせない、というのがこのモードの存在理由
-        AnimatedVisibility(
-            visible = removing && marked.isNotEmpty(),
-            modifier = Modifier.align(Alignment.BottomEnd).padding(end = 16.dp, bottom = 20.dp),
-            enter = scaleIn(initialScale = 0.85f) + fadeIn(),
-            exit = scaleOut(targetScale = 0.85f) + fadeOut(),
-        ) {
-            RemoveButton(count = marked.size, onClick = { confirming = true })
-        }
-    }
-
-    if (confirming) {
-        val count = marked.size
-        ConfirmDialog(
-            title = "Remove widgets",
-            message = if (count == 1) {
-                "Remove 1 widget from the console? The app it belongs to is not touched."
-            } else {
-                "Remove $count widgets from the console? The apps they belong to are not touched."
+/** 面の上の行。いまのシートの状態と操作の口 */
+@Composable
+private fun SheetHeader(
+    onAddSheetPage: Boolean,
+    count: Int,
+    removing: Boolean,
+    markedCount: Int,
+    editing: Boolean,
+    onCancelRemoval: () -> Unit,
+    onToggleLayout: () -> Unit,
+    onAddWidget: () -> Unit,
+) {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .padding(start = 12.dp, end = 16.dp, bottom = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Text(
+            text = when {
+                removing && markedCount == 0 -> "Tap the widgets to remove"
+                removing && markedCount == 1 -> "1 selected"
+                removing -> "$markedCount selected"
+                onAddSheetPage -> "New sheet"
+                count == 0 -> "Empty sheet"
+                count == 1 -> "1 widget"
+                else -> "$count widgets"
             },
-            onConfirm = {
-                viewModel.removeWidgets(marked.toList())
-                confirming = false
-                exitRemoval()
-            },
-            onDismiss = { confirming = false },
+            style = ZType.Sub,
+            color = if (removing) ZColors.Danger else ZColors.TextSecondary,
+            modifier = Modifier.weight(1f),
         )
+        when {
+            removing -> PillAction(label = "Cancel", accent = false, onClick = onCancelRemoval)
+            onAddSheetPage -> Unit
+            else -> {
+                if (count > 0) {
+                    PillAction(
+                        label = if (editing) "Done" else "Layout",
+                        accent = editing,
+                        onClick = onToggleLayout,
+                    )
+                }
+                PillAction(label = "Add widget", accent = !editing, onClick = onAddWidget)
+            }
+        }
     }
 }
 
 /**
- * 右下の実行ボタン。
- *
- * 押すと消えるものなので、面の中のチップとは色を分ける（暗い配色ではピンク地に白）。
- * 幅いっぱいの帯にしないのは、一覧をスクロールしながら選べるようにするため ―
- * 帯だと最下段のウィジェットが常に隠れる。
+ * 末尾の 1 枚。**フリックの延長で増やせる場所**にしてある ―
+ * 上のバーにボタンを足すより、いま指がある側で完結する。
  */
+@Composable
+private fun AddSheetPage(onAdd: () -> Unit) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .padding(start = 12.dp, end = 16.dp, bottom = 24.dp),
+        contentAlignment = Alignment.TopCenter,
+    ) {
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(14.dp))
+                .background(ZColors.Surface)
+                .border(1.dp, ZColors.Outline, RoundedCornerShape(14.dp))
+                .springyClick(onClick = onAdd)
+                .padding(horizontal = 14.dp, vertical = 26.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Text("＋", style = ZType.Title.copy(fontSize = 24.sp), color = ZColors.AccentSoft)
+            Text("Add a sheet", style = ZType.Body, color = ZColors.TextPrimary)
+            Text(
+                "Widgets you place here stay on their own sheet. Flick left and right to move " +
+                    "between them.",
+                style = ZType.Sub,
+                color = ZColors.TextSecondary,
+            )
+        }
+    }
+}
+
+/** シートが 1 枚も無いとき */
+@Composable
+private fun NoSheets(onAdd: () -> Unit) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .padding(start = 12.dp, end = 16.dp),
+        contentAlignment = Alignment.TopCenter,
+    ) {
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(14.dp))
+                .background(ZColors.Surface)
+                .border(1.dp, ZColors.Outline, RoundedCornerShape(14.dp))
+                .springyClick(onClick = onAdd)
+                .padding(horizontal = 14.dp, vertical = 22.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            Text("No widget sheet", style = ZType.Body, color = ZColors.TextPrimary)
+            Text(
+                "Tap to create one. Sheets hold your widgets and you flick left and right " +
+                    "between them; a sheet you leave empty is dropped again.",
+                style = ZType.Sub,
+                color = ZColors.TextSecondary,
+            )
+        }
+    }
+}
+
+/**
+ * ページの点。**末尾の 1 つは追加用**なので、他と違う形にしておく ―
+ * 同じ点にすると「空のシートがもう 1 枚ある」ように見える。
+ */
+@Composable
+private fun SheetDots(count: Int, current: Int, onAddPage: Boolean) {
+    Row(
+        Modifier.fillMaxWidth().padding(vertical = 10.dp),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        repeat(count) { index ->
+            Box(
+                Modifier
+                    .padding(horizontal = 3.dp)
+                    .size(if (index == current && !onAddPage) 8.dp else 6.dp)
+                    .clip(RoundedCornerShape(999.dp))
+                    .background(
+                        if (index == current && !onAddPage) ZColors.AccentSoft else ZColors.Outline
+                    ),
+            )
+        }
+        Text(
+            "＋",
+            style = ZType.Sub,
+            color = if (onAddPage) ZColors.AccentSoft else ZColors.TextDim,
+            modifier = Modifier.padding(start = 6.dp),
+        )
+    }
+}
+
+/** 追加用のページを表す鍵。シートの id とぶつからない値にしておく */
+private const val ADD_PAGE_KEY = "add-sheet-page"
+
 @Composable
 private fun RemoveButton(count: Int, onClick: () -> Unit) {
     Box(

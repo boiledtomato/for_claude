@@ -32,6 +32,7 @@ import com.example.zlauncher.domain.model.UrlCategoryGroup
 import com.example.zlauncher.domain.model.ColorAdjust
 import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.domain.model.WidgetPlacement
+import com.example.zlauncher.domain.model.WidgetSheet
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -240,8 +241,31 @@ class ConsoleViewModel @Inject constructor(
     }
 
     /** ドラッグ並べ替え。位置で指定する */
-    fun moveWidgetTo(fromIndex: Int, toIndex: Int) = viewModelScope.launch {
-        widgetRepository.moveTo(fromIndex, toIndex)
+    /** 位置はシートの中での番号 */
+    fun moveWidgetTo(sheetId: String, fromIndex: Int, toIndex: Int) = viewModelScope.launch {
+        widgetRepository.moveTo(sheetId, fromIndex, toIndex)
+    }
+
+    // ---- ウィジェットのシート -----------------------------------------------
+
+    val widgetSheets: StateFlow<List<WidgetSheet>> = widgetRepository.sheets
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    val activeWidgetSheet: StateFlow<String> = widgetRepository.activeSheet
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), "")
+
+    /** 画面を開いたときに 1 度。シートを持たない旧データを吸収する */
+    fun ensureWidgetSheets() = viewModelScope.launch { widgetRepository.ensureSheets() }
+
+    fun addWidgetSheet() = viewModelScope.launch { widgetRepository.addSheet() }
+
+    fun setActiveWidgetSheet(sheetId: String) = viewModelScope.launch {
+        widgetRepository.setActiveSheet(sheetId)
+    }
+
+    /** 空のシートの片付け。いま居るシートだけは残す */
+    fun pruneEmptyWidgetSheets(keep: String?) = viewModelScope.launch {
+        widgetRepository.pruneEmptySheets(keep)
     }
 
     /** 選んだぶんをまとめて外す。書き込みは 1 回 */

@@ -18,6 +18,13 @@ data class WidgetPlacement(
     val heightDp: Int,
     /** 占める列数（1..[COLUMNS]）。既存データには無いので、既定は従来どおり全幅 */
     val widthSpan: Int = COLUMNS,
+    /**
+     * どのシートに載っているか（[WidgetSheet.id]）。
+     *
+     * シートを入れる前のデータには無いので既定は空。空のものは
+     * [WidgetSheets.normalize] が 1 枚目へ寄せる ― 保存形式の版を上げずに移行できる。
+     */
+    val sheetId: String = "",
 ) {
     companion object {
         /**
