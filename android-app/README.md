@@ -680,11 +680,31 @@ Android には**アプリ名の読み仮名を取得する API が無い**。そ
 AOSP の Launcher3 も同じ挙動。回避策として「インストール日時順」を用意している
 （`AppSortOrder`、コンソール側から切替予定）。
 
+## 画面の向き
+
+ホームは**回転しない**（`MainActivity` の `screenOrientation="nosensor"`）。レール・
+コンソールのカード・ウィジェットのシートはどれも縦に積む前提の寸法で、横にすると
+1 画面に収まらないうえ、端末を持ち替えただけで並びが変わる。画面はこの 1 つの Activity が
+全部（コンソール・アプリ一覧・ウィジェット選択）を描くので、ここで止めれば全画面に効く。
+
+`portrait` ではなく `nosensor` にしてある。目的は「向きを固定する」であって「縦にする」
+ことではないので、端末本来の向き（タブレットなら横）をそのまま使う。
+
+`configChanges` の `orientation|screenSize` はそのまま残す。向きを止めても、分割画面や
+折りたたみ端末では構成変更が起きる — そこで Activity を作り直させない指定であって、
+回転の可否とは別の話。
+
+**大画面では効かない。** targetSdk 36 だと Android 16 は**短辺 600dp 以上の画面に限り**
+アプリの向き指定を無視する（lint の `DiscouragedApi` はこれを言っている）。電話機では
+今までどおり固定される。大画面で無視されるのは受け入れる — 横に開ける端末をこちらから
+縦に縛り返すのは、このアプリの目的から外れる。承知のうえなので `tools:ignore` で伏せてある。
+
 ## ランチャー特有の実装ポイント
 
 | 対処 | 場所 |
 |---|---|
 | `stateNotNeeded="true"` で復元時例外による起動不能を防ぐ | `AndroidManifest.xml` |
+| `screenOrientation="nosensor"` で向きを固定（`portrait` にはしない — 端末本来の向きを使う） | `AndroidManifest.xml` |
 | `launchMode="singleTask"`（`singleInstance` は不可） | `AndroidManifest.xml` |
 | HOME キー再押下は `onNewIntent` で拾う（拾わないと HOME が効かない） | `MainActivity` |
 | ホーム（コンソール）では戻る操作を無効化 | `ConsoleScreen` の `BackHandler` |

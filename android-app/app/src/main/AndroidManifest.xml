@@ -51,9 +51,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ZLauncher">
 
+        <!--
+          ホームは回さない。レール・カード・ウィジェットのシートはどれも縦に積む前提の
+          寸法で、横にすると 1 画面に収まらず、端末を持ち替えただけで並びが変わる。
+          portrait ではなく nosensor にしてあるのは、端末本来の向き（タブレットなら横）を
+          そのまま使うため ― 目的は「向きを固定する」であって「縦にする」ではない。
+
+          lint の DiscouragedApi は承知のうえで伏せる。targetSdk 36 では Android 16 が
+          **短辺 600dp 以上の画面に限って**向きの指定を無視するようになった、という警告で、
+          電話機では今までどおり効く。大画面で無視されるのは受け入れる ― 横に開ける端末を
+          縦に縛り返す回避策のほうが、このアプリの目的から外れる。
+        -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:screenOrientation="nosensor"
+            tools:ignore="DiscouragedApi"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:excludeFromRecents="true"
