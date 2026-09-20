@@ -60,6 +60,15 @@ android {
         compose = true
         buildConfig = true
     }
+
+    testOptions {
+        unitTests {
+            // Robolectric でジェスチャーを実機と同じ経路で試すため。
+            // エミュレータが無い環境でも、Compose とその中に載せた View の
+            // タッチのやりとりだけは確かめられる
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -89,4 +98,8 @@ dependencies {
     ksp(libs.androidx.hilt.compiler)
 
     testImplementation(libs.junit)
+    // ジェスチャーは実機と同じタッチの配り方でないと確かめられない。
+    // エミュレータの無い環境でも、View 階層へ本物の MotionEvent を流せるようにする
+    testImplementation(libs.robolectric)
+    testImplementation(libs.androidx.test.ext.junit)
 }

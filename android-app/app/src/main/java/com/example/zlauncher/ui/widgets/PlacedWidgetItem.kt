@@ -4,6 +4,7 @@ import android.appwidget.AppWidgetHostView
 import android.os.Build
 import android.os.Bundle
 import android.util.SizeF
+import android.widget.FrameLayout
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
@@ -45,7 +46,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
-import com.example.zlauncher.core.ui.interceptLongPress
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.domain.model.WidgetPlacement
 import kotlin.math.roundToInt
@@ -157,20 +157,32 @@ fun PlacedWidgetItem(
             )
             .padding(3.dp),
     ) {
-        Box(
-            Modifier
-                .fillMaxWidth()
-                // 平常時だけ。長押しの瞬間までは提供元アプリにタッチを渡す
-                .interceptLongPress(enabled = !editing && !removing, onLongPress = onLongPress),
-        ) {
+        Box(Modifier.fillMaxWidth()) {
             if (info != null) {
                 // ウィジェットは与えられた寸法で描画を選ぶ。実測幅を渡さないと、
                 // 高さだけ変えても中身が前のレイアウトのまま伸び縮みする
                 BoxWithConstraints(Modifier.fillMaxWidth()) {
                     val widthDp = maxWidth
                     AndroidView(
-                        factory = { ctx -> controller.createView(ctx, placement.appWidgetId, info) },
-                        update = { view -> view.applySize(widthDp, heightDp.dp) },
+                        // **長押しの判定は View 側で行う。** 中身は提供元アプリのビューで
+                        // タッチを自分で食べるので、Compose のジェスチャーでは端末によって
+                        // 取りこぼす。親の onInterceptTouchEvent なら子へ配る前に必ず通る
+                        factory = { ctx ->
+                            LongPressHostLayout(ctx).apply {
+                                addView(
+                                    controller.createView(ctx, placement.appWidgetId, info),
+                                    FrameLayout.LayoutParams(
+                                        FrameLayout.LayoutParams.MATCH_PARENT,
+                                        FrameLayout.LayoutParams.MATCH_PARENT,
+                                    ),
+                                )
+                            }
+                        },
+                        update = { host ->
+                            host.interceptEnabled = !editing && !removing
+                            host.onLongPress = onLongPress
+                            (host.getChildAt(0) as? AppWidgetHostView)?.applySize(widthDp, heightDp.dp)
+                        },
                         modifier = Modifier.fillMaxWidth().height(heightDp.dp),
                     )
                 }
