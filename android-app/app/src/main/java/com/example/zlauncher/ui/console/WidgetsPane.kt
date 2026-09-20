@@ -132,7 +132,19 @@ fun WidgetsPane(
             else -> {
                 val pagerState = rememberPagerState(
                     initialPage = sheets.indexOfFirst { it.id == activeSheet }.coerceAtLeast(0),
-                ) { sheets.size + 1 }
+                ) { sheets.size }
+
+                // 追加ボタンを押した時点の枚数 ＝ 新しいシートが入る位置。流れてくるのを待って送る。
+                // 押した瞬間の sheets はまだ古いので、位置を控えずに lastIndex を見ると今いる
+                // シートへ送り返してしまう
+                var jumpTarget by remember { mutableStateOf<Int?>(null) }
+                LaunchedEffect(sheets.size, jumpTarget) {
+                    val target = jumpTarget ?: return@LaunchedEffect
+                    if (target <= sheets.lastIndex) {
+                        pagerState.animateScrollToPage(target)
+                        jumpTarget = null
+                    }
+                }
 
                 // 落ち着いた先を「いまのシート」にして、離れたシートが空なら片付ける。
                 // **いま居るシートは空でも残す** ― 作った直後に消えてしまうため
@@ -151,7 +163,6 @@ fun WidgetsPane(
 
                 Column(Modifier.fillMaxSize()) {
                     SheetHeader(
-                        onAddSheetPage = currentSheet == null,
                         count = onSheet.size,
                         removing = removing,
                         markedCount = marked.size,
@@ -171,37 +182,40 @@ fun WidgetsPane(
                         // ウィジェットは提供元アプリのビューなので、見えない枚数ぶん
                         // 先に作ると無駄に描画が走る
                         beyondViewportPageCount = 0,
-                        key = { page -> sheets.getOrNull(page)?.id ?: ADD_PAGE_KEY },
+                        key = { page -> sheets[page].id },
                         userScrollEnabled = !editing,
                     ) { page ->
-                        val sheet = sheets.getOrNull(page)
-                        if (sheet == null) {
-                            AddSheetPage(onAdd = { viewModel.addWidgetSheet() })
-                        } else {
-                            WidgetSheetPage(
-                                sheet = sheet,
-                                widgets = remember(widgets, sheet) { WidgetSheets.widgetsOn(widgets, sheet.id) },
-                                viewModel = viewModel,
-                                widgetHost = widgetHost,
-                                editing = editing,
-                                removing = removing,
-                                marked = marked,
-                                selectedId = selectedId,
-                                onSelect = { id -> selectedId = if (selectedId == id) null else id },
-                                onEnterRemoval = { id ->
-                                    removing = true
-                                    selectedId = null
-                                    if (id !in marked) marked.add(id)
-                                },
-                                onToggleMark = { id -> if (!marked.remove(id)) marked.add(id) },
-                            )
-                        }
+                        val sheet = sheets.getOrNull(page) ?: return@HorizontalPager
+                        WidgetSheetPage(
+                            sheet = sheet,
+                            widgets = remember(widgets, sheet) { WidgetSheets.widgetsOn(widgets, sheet.id) },
+                            viewModel = viewModel,
+                            widgetHost = widgetHost,
+                            editing = editing,
+                            removing = removing,
+                            marked = marked,
+                            selectedId = selectedId,
+                            onSelect = { id -> selectedId = if (selectedId == id) null else id },
+                            onEnterRemoval = { id ->
+                                removing = true
+                                selectedId = null
+                                if (id !in marked) marked.add(id)
+                            },
+                            onToggleMark = { id -> if (!marked.remove(id)) marked.add(id) },
+                        )
                     }
 
-                    SheetDots(
+                    SheetBar(
                         count = sheets.size,
                         current = pagerState.currentPage,
-                        onAddPage = pagerState.currentPage >= sheets.size,
+                        // 今いるシートが空なら足しても意味が無い ― 離れた時点で片付けられるので、
+                        // 押しても空のシートに立ったままになる。押せる見た目のまま何も起きない
+                        // ほうが分かりにくいので、ここで止める
+                        canAdd = onSheet.isNotEmpty() && !removing,
+                        onAddSheet = {
+                            jumpTarget = sheets.size
+                            viewModel.addWidgetSheet()
+                        },
                     )
                 }
             }
@@ -350,8 +364,8 @@ private fun WidgetSheetPage(
                         Text("This sheet is empty", style = ZType.Body, color = ZColors.TextPrimary)
                         Text(
                             "“Add widget” puts one here. Widgets keep the size their own app asks " +
-                                "for, so two narrow ones share a row. An empty sheet is dropped " +
-                                "once you flick away from it.",
+                                "for, so two narrow ones share a row. “Add sheet” waits until this " +
+                                "one holds something — an empty sheet is dropped when you leave it.",
                             style = ZType.Sub,
                             color = ZColors.TextSecondary,
                         )
@@ -420,7 +434,6 @@ private fun WidgetSheetPage(
 /** 面の上の行。いまのシートの状態と操作の口 */
 @Composable
 private fun SheetHeader(
-    onAddSheetPage: Boolean,
     count: Int,
     removing: Boolean,
     markedCount: Int,
@@ -441,7 +454,6 @@ private fun SheetHeader(
                 removing && markedCount == 0 -> "Tap the widgets to remove"
                 removing && markedCount == 1 -> "1 selected"
                 removing -> "$markedCount selected"
-                onAddSheetPage -> "New sheet"
                 count == 0 -> "Empty sheet"
                 count == 1 -> "1 widget"
                 else -> "$count widgets"
@@ -450,54 +462,17 @@ private fun SheetHeader(
             color = if (removing) ZColors.Danger else ZColors.TextSecondary,
             modifier = Modifier.weight(1f),
         )
-        when {
-            removing -> PillAction(label = "Cancel", accent = false, onClick = onCancelRemoval)
-            onAddSheetPage -> Unit
-            else -> {
-                if (count > 0) {
-                    PillAction(
-                        label = if (editing) "Done" else "Layout",
-                        accent = editing,
-                        onClick = onToggleLayout,
-                    )
-                }
-                PillAction(label = "Add widget", accent = !editing, onClick = onAddWidget)
+        if (removing) {
+            PillAction(label = "Cancel", accent = false, onClick = onCancelRemoval)
+        } else {
+            if (count > 0) {
+                PillAction(
+                    label = if (editing) "Done" else "Layout",
+                    accent = editing,
+                    onClick = onToggleLayout,
+                )
             }
-        }
-    }
-}
-
-/**
- * 末尾の 1 枚。**フリックの延長で増やせる場所**にしてある ―
- * 上のバーにボタンを足すより、いま指がある側で完結する。
- */
-@Composable
-private fun AddSheetPage(onAdd: () -> Unit) {
-    Box(
-        Modifier
-            .fillMaxSize()
-            .padding(start = 12.dp, end = 16.dp, bottom = 24.dp),
-        contentAlignment = Alignment.TopCenter,
-    ) {
-        Column(
-            Modifier
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(14.dp))
-                .background(ZColors.Surface)
-                .border(1.dp, ZColors.Outline, RoundedCornerShape(14.dp))
-                .springyClick(onClick = onAdd)
-                .padding(horizontal = 14.dp, vertical = 26.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Text("＋", style = ZType.Title.copy(fontSize = 24.sp), color = ZColors.AccentSoft)
-            Text("Add a sheet", style = ZType.Body, color = ZColors.TextPrimary)
-            Text(
-                "Widgets you place here stay on their own sheet. Flick left and right to move " +
-                    "between them.",
-                style = ZType.Sub,
-                color = ZColors.TextSecondary,
-            )
+            PillAction(label = "Add widget", accent = !editing, onClick = onAddWidget)
         }
     }
 }
@@ -533,38 +508,38 @@ private fun NoSheets(onAdd: () -> Unit) {
 }
 
 /**
- * ページの点。**末尾の 1 つは追加用**なので、他と違う形にしておく ―
- * 同じ点にすると「空のシートがもう 1 枚ある」ように見える。
+ * 面の下の行。**シートを足すボタンはここ**に置く。
+ *
+ * 上のヘッダーには Layout と Add widget が既に居り、レールを引いた後のペインは 300dp 弱しか
+ * 無い ― 3 つ目のピルを並べると枚数の表示が潰れる。点の隣なら、増える対象のすぐ横で操作が
+ * 完結する。
  */
 @Composable
-private fun SheetDots(count: Int, current: Int, onAddPage: Boolean) {
+private fun SheetBar(count: Int, current: Int, canAdd: Boolean, onAddSheet: () -> Unit) {
     Row(
-        Modifier.fillMaxWidth().padding(vertical = 10.dp),
-        horizontalArrangement = Arrangement.Center,
+        Modifier.fillMaxWidth().padding(start = 12.dp, end = 16.dp, top = 6.dp, bottom = 10.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        repeat(count) { index ->
-            Box(
-                Modifier
-                    .padding(horizontal = 3.dp)
-                    .size(if (index == current && !onAddPage) 8.dp else 6.dp)
-                    .clip(RoundedCornerShape(999.dp))
-                    .background(
-                        if (index == current && !onAddPage) ZColors.AccentSoft else ZColors.Outline
-                    ),
-            )
+        Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
+            repeat(count) { index ->
+                Box(
+                    Modifier
+                        .padding(horizontal = 3.dp)
+                        .size(if (index == current) 8.dp else 6.dp)
+                        .clip(RoundedCornerShape(999.dp))
+                        .background(if (index == current) ZColors.AccentSoft else ZColors.Outline),
+                )
+            }
         }
-        Text(
-            "＋",
-            style = ZType.Sub,
-            color = if (onAddPage) ZColors.AccentSoft else ZColors.TextDim,
-            modifier = Modifier.padding(start = 6.dp),
+        PillAction(
+            label = "Add sheet",
+            accent = false,
+            enabled = canAdd,
+            onClick = onAddSheet,
         )
     }
 }
-
-/** 追加用のページを表す鍵。シートの id とぶつからない値にしておく */
-private const val ADD_PAGE_KEY = "add-sheet-page"
 
 @Composable
 private fun RemoveButton(count: Int, onClick: () -> Unit) {
@@ -710,20 +685,30 @@ private fun TextAction(label: String, onClick: () -> Unit) {
 }
 
 @Composable
-private fun PillAction(label: String, accent: Boolean, onClick: () -> Unit) {
+private fun PillAction(
+    label: String,
+    accent: Boolean,
+    onClick: () -> Unit,
+    enabled: Boolean = true,
+) {
+    // 押せないときは形を残したまま沈める。消すと押せる時だけ行の幅が変わって落ち着かない
     Text(
         label,
         style = ZType.Body.copy(fontSize = 12.5.sp),
-        color = if (accent) ZColors.AccentSoft else ZColors.TextSecondary,
+        color = when {
+            !enabled -> ZColors.TextDim
+            accent -> ZColors.AccentSoft
+            else -> ZColors.TextSecondary
+        },
         modifier = Modifier
             .clip(RoundedCornerShape(999.dp))
-            .background(if (accent) ZColors.Accent.copy(alpha = 0.14f) else ZColors.SurfaceHigh)
+            .background(if (accent && enabled) ZColors.Accent.copy(alpha = 0.14f) else ZColors.SurfaceHigh)
             .border(
                 1.dp,
-                if (accent) ZColors.Accent.copy(alpha = 0.5f) else ZColors.Outline,
+                if (accent && enabled) ZColors.Accent.copy(alpha = 0.5f) else ZColors.Outline,
                 RoundedCornerShape(999.dp),
             )
-            .springyClick(onClick = onClick)
+            .then(if (enabled) Modifier.springyClick(onClick = onClick) else Modifier)
             .padding(horizontal = 14.dp, vertical = 9.dp),
     )
 }
