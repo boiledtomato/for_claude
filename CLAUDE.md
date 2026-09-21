@@ -23,7 +23,8 @@ for_claude/
 │   ├── build_community_docs.py       # community.zscaler.com → NotebookLM Markdown builder
 │   ├── certs/
 │   │   └── community-zscaler-chain.pem   # Intermediate cert the community site omits
-│   └── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
+│   ├── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
+│   └── validate_repo.py              # Static checks run by pr-checks.yml
 ├── data/
 │   ├── articles.json                 # Generated output — do not hand-edit
 │   ├── help_docs_index.json          # Per-article state for build_help_docs.py
@@ -43,7 +44,8 @@ for_claude/
 │   └── workflows/
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy
 │       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
-│       └── community-weekly.yml      # Weekly community.zscaler.com doc refresh
+│       ├── community-weekly.yml      # Weekly community.zscaler.com doc refresh
+│       └── pr-checks.yml             # Required status check for PRs
 └── README.md
 ```
 
@@ -378,6 +380,31 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 - **Commit message format:** `docs: Zenith Community 週次更新 YYYY-MM-DD`
 - Syncs with `--docs-dir community_docs --state-file
   data/community_notebooklm_sync_state.json --notebook-title Zscaler_community`
+
+### `.github/workflows/pr-checks.yml`
+
+The only `pull_request`-triggered workflow, and the repository's single required
+status check. It exists so auto-merge has something to gate on — GitHub refuses to
+arm auto-merge on a PR that is already mergeable, so without a required check every
+PR is "clean" and auto-merge cannot be enabled at all.
+
+Runs `scripts/validate_repo.py`, which touches no network and finishes in under a
+minute:
+
+| Check | What it catches |
+|---|---|
+| Workflow YAML parses, has `on:` and `jobs:` | A malformed workflow that would silently never run |
+| `bash -n` on every `run:` block | Unbalanced `if`/`fi`, quotes, heredocs |
+| `py_compile` on `scripts/**/*.py` | Syntax errors |
+| `json.load` on `data/*.json` | A truncated or corrupt state file |
+
+`${{ … }}` expressions are substituted out before `bash -n`, since they are not valid
+shell. Generated directories (`notebooklm_docs/`, `community_docs/`) are deliberately
+not inspected — tens of MB, and their correctness belongs to the build scripts.
+
+**This is a syntax gate, not a review.** It cannot tell whether a change is correct,
+only whether it parses. Requiring it for auto-merge means a PR can reach `main`
+without anyone reading it.
 
 ## Development Workflows
 
