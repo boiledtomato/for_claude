@@ -451,9 +451,16 @@ Two limits it works around, both worth knowing before extending it:
 
 - The routine's sessions carry **no MCP connectors**, so they can do git over Bash but
   cannot reach Google Drive. Drive work is reported back rather than performed.
-- The Drive connector exposes no update or delete call, only `create_file`. New
-  philosophers can be added as new Docs; **an existing Doc whose content changed cannot be
-  rewritten**, so the routine lists what went stale instead of creating duplicates.
+- The Drive connector has `update_file` (parent and title only — i.e. a move or rename)
+  and `trash_file`, but **nothing that overwrites a document's body**. Updating a
+  philosopher's Doc therefore means `trash_file` then `create_file` under the same name
+  and parent, in that order, so two same-named files never coexist.
+
+The Drive tree now lives under **マイドライブ > 004_Philosophy**
+(`1Rod89GEfSjiwdBUwx7zVzVrxB3grgeK6`): the `哲学者リソース集（Podcast用）` folder sits
+inside it, and `▶ NotebookLM リンク集（4ノートブック）` sits directly in `004_Philosophy`
+as the jump-off point to the four notebooks — Drive shortcuts only point at Drive items,
+so a NotebookLM notebook cannot be shortcut-ed and a Doc of links stands in for one.
 
 ## Development Workflows
 
