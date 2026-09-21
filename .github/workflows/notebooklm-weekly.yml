@@ -2,8 +2,10 @@ name: NotebookLM Docs Weekly Update
 
 on:
   schedule:
-    # 毎週月曜 09:00 JST (月曜 00:00 UTC)
-    - cron: "0 0 * * 1"
+    # 毎週月曜 11:30 JST (月曜 02:30 UTC)
+    # 00:00 UTC は daily-update.yml と zscaler-monitor.yml も起動する時刻で、
+    # 3つが同時に main へ push して取りこぼしが出ていたため後ろへずらしている。
+    - cron: "30 2 * * 1"
   workflow_dispatch:
     inputs:
       mode:
@@ -68,6 +70,24 @@ jobs:
 
       - name: Commit updated docs
         run: |
+          # push が弾かれるのは、同時刻に走る他のワークフローが先に main を進めた
+          # ときで、単に再試行しても永久に通らない。origin/main に rebase してから
+          # 試し、4回とも駄目ならステップを失敗させる（握り潰すとコミットが黙って
+          # 失われ、次回の同期が全ファイル再アップロードになる）。
+          push_with_retry() {
+            for i in 1 2 3 4; do
+              if git push origin HEAD; then
+                return 0
+              fi
+              echo "push rejected (attempt $i) — rebasing onto origin/main"
+              sleep $((2 ** i))
+              git fetch origin main || continue
+              git rebase origin/main || { git rebase --abort || true; continue; }
+            done
+            echo "::error::4回試行しても push できませんでした。コミットが失われています。"
+            return 1
+          }
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add notebooklm_docs data/help_docs_index.json data/help_bulletins.json
@@ -75,11 +95,7 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "docs: Zscaler ヘルプドキュメント週次更新 $(date -u '+%Y-%m-%d')"
-            for i in 1 2 3 4; do
-              git push origin HEAD && break
-              echo "push failed, retrying in $((2 ** i))s"
-              sleep $((2 ** i))
-            done
+            push_with_retry
           fi
 
       # NOTEBOOKLM_STORAGE_STATE_JSON が未設定なら丸ごとスキップされる。
@@ -102,16 +118,30 @@ jobs:
         # schedule 実行では inputs が空になるため、"dry-run/skip でないこと" で判定する
         if: ${{ always() && env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && inputs.sync != 'dry-run' && inputs.sync != 'skip' }}
         run: |
+          # push が弾かれるのは、同時刻に走る他のワークフローが先に main を進めた
+          # ときで、単に再試行しても永久に通らない。origin/main に rebase してから
+          # 試し、4回とも駄目ならステップを失敗させる（握り潰すとコミットが黙って
+          # 失われ、次回の同期が全ファイル再アップロードになる）。
+          push_with_retry() {
+            for i in 1 2 3 4; do
+              if git push origin HEAD; then
+                return 0
+              fi
+              echo "push rejected (attempt $i) — rebasing onto origin/main"
+              sleep $((2 ** i))
+              git fetch origin main || continue
+              git rebase origin/main || { git rebase --abort || true; continue; }
+            done
+            echo "::error::4回試行しても push できませんでした。コミットが失われています。"
+            return 1
+          }
+
           git add data/notebooklm_sync_state.json
           if git diff --staged --quiet; then
             echo "No sync state changes"
           else
             git commit -m "chore: NotebookLM 同期状態を更新 $(date -u '+%Y-%m-%d')"
-            for i in 1 2 3 4; do
-              git push origin HEAD && break
-              echo "push failed, retrying in $((2 ** i))s"
-              sleep $((2 ** i))
-            done
+            push_with_retry
           fi
 
       - name: Notify that manual upload is needed
