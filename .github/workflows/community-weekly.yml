@@ -2,9 +2,9 @@ name: Zenith Community Docs Weekly Update
 
 on:
   schedule:
-    # 毎週月曜 10:00 JST (月曜 01:00 UTC)
-    # notebooklm-weekly.yml (00:00 UTC) と 1 時間ずらし、push の衝突を避ける
-    - cron: "0 1 * * 1"
+    # 毎週月曜 12:30 JST (月曜 03:30 UTC)
+    # notebooklm-weekly.yml (02:30 UTC) と 1 時間ずらし、push の衝突を避ける
+    - cron: "30 3 * * 1"
   workflow_dispatch:
     inputs:
       mode:
@@ -13,10 +13,14 @@ on:
         options: [incremental, full]
         default: incremental
       fetch_mode:
-        description: "api = Aura UI API（質問本文のみ） / prerender = 全文（クローラUAを名乗る）"
+        description: "prerender = 全文（クローラUAを名乗る） / api = Aura UI API（質問本文のみ）"
         type: choice
-        options: [api, prerender]
-        default: api
+        options: [prerender, api]
+        # api では回答本文と記事/ガイド/ブログ本文が取得できず、更新を検知しても
+        # 回答数のカウンタしか変わらないため prerender を既定にしている。
+        # ここを api に戻すとモード変更扱いで全件が取り直され、prerender で
+        # 収集した本文が失われる点に注意。
+        default: prerender
       categories:
         description: "対象カテゴリ（空欄で全て。例: zia zpa api）"
         type: string
@@ -79,6 +83,24 @@ jobs:
 
       - name: Commit updated docs
         run: |
+          # push が弾かれるのは、同時刻に走る他のワークフローが先に main を進めた
+          # ときで、単に再試行しても永久に通らない。origin/main に rebase してから
+          # 試し、4回とも駄目ならステップを失敗させる（握り潰すとコミットが黙って
+          # 失われ、次回の同期が全ファイル再アップロードになる）。
+          push_with_retry() {
+            for i in 1 2 3 4; do
+              if git push origin HEAD; then
+                return 0
+              fi
+              echo "push rejected (attempt $i) — rebasing onto origin/main"
+              sleep $((2 ** i))
+              git fetch origin main || continue
+              git rebase origin/main || { git rebase --abort || true; continue; }
+            done
+            echo "::error::4回試行しても push できませんでした。コミットが失われています。"
+            return 1
+          }
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add community_docs data/community_docs_index.json
@@ -86,11 +108,7 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "docs: Zenith Community 週次更新 $(date -u '+%Y-%m-%d')"
-            for i in 1 2 3 4; do
-              git push origin HEAD && break
-              echo "push failed, retrying in $((2 ** i))s"
-              sleep $((2 ** i))
-            done
+            push_with_retry
           fi
 
       # ヘルプドキュメントとは別のノートブック・別の状態ファイルを使う。
@@ -116,16 +134,30 @@ jobs:
         # schedule 実行では inputs が空になるため、"dry-run/skip でないこと" で判定する
         if: ${{ always() && env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && inputs.sync != 'dry-run' && inputs.sync != 'skip' }}
         run: |
+          # push が弾かれるのは、同時刻に走る他のワークフローが先に main を進めた
+          # ときで、単に再試行しても永久に通らない。origin/main に rebase してから
+          # 試し、4回とも駄目ならステップを失敗させる（握り潰すとコミットが黙って
+          # 失われ、次回の同期が全ファイル再アップロードになる）。
+          push_with_retry() {
+            for i in 1 2 3 4; do
+              if git push origin HEAD; then
+                return 0
+              fi
+              echo "push rejected (attempt $i) — rebasing onto origin/main"
+              sleep $((2 ** i))
+              git fetch origin main || continue
+              git rebase origin/main || { git rebase --abort || true; continue; }
+            done
+            echo "::error::4回試行しても push できませんでした。コミットが失われています。"
+            return 1
+          }
+
           git add data/community_notebooklm_sync_state.json
           if git diff --staged --quiet; then
             echo "No sync state changes"
           else
             git commit -m "chore: Zenith Community 同期状態を更新 $(date -u '+%Y-%m-%d')"
-            for i in 1 2 3 4; do
-              git push origin HEAD && break
-              echo "push failed, retrying in $((2 ** i))s"
-              sleep $((2 ** i))
-            done
+            push_with_retry
           fi
 
       - name: Notify that manual upload is needed

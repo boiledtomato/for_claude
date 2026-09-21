@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
+Generated: 2026-09-14 03:38 UTC
 Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-08-06T08:16Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-09-13T07:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-08-06T08:16Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -33,7 +33,7 @@ A restricted admin can only assign an incident to a super admin.
 
 ## Viewing Incidents
 
-On the Incidents page (Administration > Workflow Automation > Data Protection > Incidents), you can do the following:
+On the Incidents page (Data Security > Workflow Automation > Incidents), you can do the following:
 
 1. Export incidents to a CSV file.
 2. Refresh the page to display the latest information.
@@ -469,13 +469,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-integration-users","lastmod":"2026-04-10T09:46Z","nid":"1457436"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-integration-users","lastmod":"2026-09-08T11:50Z","nid":"1457436"} -->
 ## Managing Integration Users
 
 - Source: https://help.zscaler.com/workflow-automation/managing-integration-users
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Admin, User, & Role Management > Managing Integration Users
-- Last modified: 2026-04-10T09:46Z
+- Last modified: 2026-09-08T11:50Z
 - Summary: How to manage integration users in Workflow Automation.
 
 Adding integration users on the Integration Users page is required if you are integrating Workflow Automation with a ticketing integration application (e.g., ServiceNow or Jira Software). During the remediation of an incident on the Incident Details page in Workflow Automation, admins can perform a ticket action against an incident. This action creates and assigns a ticket in the ticketing integration application to a user and associates that ticket with the incident. When performing this ticket action, the admin must select a user who already exists on the Integration Users page. After the ticket is created in the ticketing integration application, the ticket information displays in the Ticket section on the Incident Details page. The Ticket section contains an incident link that enables the admins to access the ticketing integration application for that specific ticket if they have the appropriate credentials for the application.
@@ -486,7 +486,7 @@ The user assigned to the ticket can manage that ticket within the ticketing inte
 
 To add an integration user:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **Integration Users**. The **Integration Users** page appears, listing all the integration users who were added for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **Integration Users**. The **Integration Users** page appears, listing all the integration users who were added for your organization.
 2. On the **Integration Users** page, click **Add More**. The **Add User** window appears.
 3. In the **Add User** window: See image.
   1. **Integration**: From the drop-down menu, select the tenant ID associated with the ticketing integration application (e.g., ServiceNow or Jira Software).
@@ -497,7 +497,7 @@ To add an integration user:
 
 To view integration users:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **Integration Users**. The **Integration Users** page appears, listing all the integration users who were added for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **Integration Users**. The **Integration Users** page appears, listing all the integration users who were added for your organization.
 2. For each integration user, you can view the following information:
   - **Name**: The name of the user associated with the ticketing integration application.
   - **Email ID**: The email ID for the user.
@@ -513,34 +513,34 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-labels","lastmod":"2026-07-14T11:56Z","nid":"1450111"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-labels","lastmod":"2026-09-10T13:57Z","nid":"1450111"} -->
 ## Managing Labels
 
 - Source: https://help.zscaler.com/workflow-automation/managing-labels
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Labels
-- Last modified: 2026-07-14T11:56Z
+- Last modified: 2026-09-10T13:57Z
 - Summary: How to manage labels in Workflow Automation.
 
-Adding labels is optional when configuring Workflow Automation. Admins with access to Workflow Automation can manage custom labels and the values associated with those labels. After you add labels, you can assign those labels to the different incidents that have occurred in your organization on the Incidents page and the Incident Details page. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
+Adding labels is optional when configuring Workflow Automation. Admins with access to Workflow Automation can manage custom labels and the values associated with those labels. After you add labels, you can assign those labels to the different incidents that have occurred in your organization on the Incidents page and the Incident Details drawer. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
 
 ## Adding Labels
 
 To add a label:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Labels**. The **Labels** page appears, listing all the labels for your organization. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Labels**. The **Labels** page appears, listing all the labels for your organization. See image.
 2. On the **Labels** page, click **Add More**.The **Add Label** window appears. See image.
-3. In the **Add Label** window: See image.
+3. On the **Add Label** window: See image.
   1. **Label Name**: Enter the name for the label.
   2. (Optional) **Label** **Values**: Click **Add New** and enter a value for the label. Then press `Tab` or press `Enter`. The value is added to the label.
   3. (Optional) Click **Add More**to add another value to the label.
-4. Click **Add.**
+4. Click **Update.**
 
 ## Editing Labels
 
 To edit the label:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Labels**. The **Labels** page appears, listing all the labels for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Labels**. The **Labels** page appears, listing all the labels for your organization.
 2. (Optional) On the **Labels** page, use the **Search** field to locate the label for which you want to edit.
 3. Click the **Edit** icon next to the label. The **Edit Label** window appears.
 4. Change the **Label Name** field for the label or change the values for the label by doing one of these options:
@@ -554,11 +554,11 @@ See image.
 
 To delete the label along with its associated values, click the **Delete** icon next to the label on the **Labels** page.
 
-If you delete the entire label, there might still be incidents in Workflow Automation that were previously assigned to that label on the **Incidents** page or the **Incident Details** page. You need to manually find those incidents and remove the label that was deleted. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
+If you delete the entire label, there might still be incidents in Workflow Automation that were previously assigned to that label on the **Incidents** page or the **Incident Details** drawer. You need to manually find those incidents and remove the label that was deleted. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
 
 ## Viewing Labels
 
-To view labels, go to **Administration** > **Workflow Automation** > **Data Protection** > **Labels**. The **Labels** page appears, listing all the labels for your organization. For labels, you can view the following information:
+To view labels, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Labels**. The **Labels** page appears, listing all the labels for your organization. For labels, you can view the following information:
 
 - **Label Name**: The name of the label.
 - **Label Value**: The values associated with the label.
@@ -578,13 +578,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-notification-templates","lastmod":"2026-08-11T07:55Z","nid":"1419961"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-notification-templates","lastmod":"2026-09-09T12:09Z","nid":"1419961"} -->
 ## Managing Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Notification Templates
-- Last modified: 2026-08-11T07:55Z
+- Last modified: 2026-09-09T12:09Z
 - Summary: How to manage notification templates in Workflow Automation.
 
 Adding notification templates in Workflow Automation is one of the tasks in configuring Workflow Automation. Admins with access to Workflow Automation must add and map the notification templates. Notification templates provide:
@@ -634,7 +634,7 @@ On the Notification Templates page in the Zscaler Admin Console, admins can:
 
 To view notification templates:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates**page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates**page appears.
 2. (Optional) Filter the templates by status, type, template family, or language. You can also search for specific templates that you want to view.
 3. (Optional) Reset all the applied filters.
 4. View a list of notification templates configured for your organization. For each notification template, you can see: See image.
@@ -649,7 +649,7 @@ To view notification templates:
 
 To add a notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. Click **Add More**. The **Notification Template** page appears. See image.
 3. On the **Notification Template**page, you can create a custom notification template for the following types of notifications:
   - [Adding an Email Notification Template](https://help.zscaler.com/workflow-automation/adding-email-notification-templates)
@@ -660,7 +660,7 @@ To add a notification template:
 
 To preview a notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates**page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates**page appears.
 2. In the **Action** column next to a template, click the **View Template** icon. The **Notification Template** page appears, displaying the notification template. The following images show examples of an email notification template, a Slack notification template, and a Microsoft Teams notification template. See image.
 3. (Optional) Click **Edit Template**. You are redirected to a page where you can modify and publish the notification template. To learn more, see Add Notification Templates. See image.
 4. Click **Close**.
@@ -680,7 +680,7 @@ You can only edit draft and published notification templates. You cannot edit or
 
 To edit a draft notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a draft template, click the**Edit Template** icon. The **Notification Template** page appears, displaying the notification template. See image.
 3. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates. You cannot edit the template family for a template after the template is added.
 4. (Optional) Click **Save as Draft**. The edited template appears on the **Notification Templates** page with a draft status. You can come back later and continue to work on the template design.
@@ -692,7 +692,7 @@ To delete a draft notification template, click the **Delete Template** icon in t
 
 To edit a published notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a published template, click the**Edit Template** icon. The **Notification Template** page appears, displaying the notification template. See image.
 3. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates. You cannot edit the template family for a template after the template is added.
 4. Click **Update Template**. The published template is updated. The template still appears on the **Notification Templates** page with a published status.
@@ -703,7 +703,7 @@ To delete a published notification template, click the **Delete Template** icon 
 
 To translate a notification template into a different language:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a template, click the **Translate Template** icon. The **Notification Template** page appears, with the **Translate**dialogwindow. See image.
   1. In the **Translate** dialog window, from the **Translate To** drop-down menu, select a language to which you want to translate the template.
   2. To view the translated template, click **Preview**. The template displays in the selected language. See image.
@@ -719,7 +719,7 @@ To translate a notification template into a different language:
 
 To clone a notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a template, click the **Clone Template** icon. The **Notification Template**page appears. In the **Template Name** field, "Clone of" appears in front of the name of the notification template that you cloned. See image.
 3. (Optional) In the **Template Name** field, change the template name.
 4. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates.
@@ -739,13 +739,13 @@ You can only update the [template mappings](https://help.zscaler.com/workflow-au
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-priorities","lastmod":"2026-07-23T21:06Z","nid":"1418036"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-priorities","lastmod":"2026-09-10T13:23Z","nid":"1418036"} -->
 ## Managing Priorities
 
 - Source: https://help.zscaler.com/workflow-automation/managing-priorities
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Priorities
-- Last modified: 2026-07-23T21:06Z
+- Last modified: 2026-09-10T13:23Z
 - Summary: How to manage priorities in Workflow Automation.
 
 Adding priorities to incident groups in Workflow Automation is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation can add a priority to all the different incident groups for their organization. They can assign a priority of critical, high, medium, or low to an incident group.
@@ -760,7 +760,7 @@ Before managing priorities for incident groups, add incident groups on the Incid
 
 To add an incident group priority:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
 2. On the **Priorities** page, click **Add More**. A new row appears after the last incident group that is displayed. See image.
 3. In the new row:
   1. **Incident Group**: From the drop-down menu, select an incident group.
@@ -771,7 +771,7 @@ To add an incident group priority:
 
 To edit an incident group priority:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
 2. (Optional) On the **Priorities** page, use the **Search** field to locate the incident group for which you want to edit the priority.
 3. Next to the incident group, select a different **Priority**. You can also use the **Incident Group** drop-down menu to change the incident group. If you change the incident group, the priority is removed from the previous incident group and added to the new incident group.
 4. Click **Save**.
@@ -782,25 +782,25 @@ To delete an incident group priority configuration, click the **Delete** icon ne
 
 To view incident group priorities:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
 2. For each incident group, you can view: See image.
   - **Incident Group**: The name of the incident group.
   - **Priority**: The priority assigned to the incident group. Priorities are **Critical**, **High**, **Medium**, or **Low**.
 
 [Image: Adding a priority to an incident group on the Priorities page in the Zscaler Admin Console]
 
-[Image: Viewing incident groups and their assigned priorities on the Priorities Page in the Zscaler Admin Console]
+[Image: Viewing incident groups and their assigned priorities on the Priorities page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-roles-and-permissions","lastmod":"2026-04-10T09:22Z","nid":"1471471"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-roles-and-permissions","lastmod":"2026-09-08T09:01Z","nid":"1471471"} -->
 ## Managing Roles and Permissions
 
 - Source: https://help.zscaler.com/workflow-automation/managing-roles-and-permissions
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Admin, User, & Role Management > Managing Roles and Permissions
-- Last modified: 2026-04-10T09:22Z
+- Last modified: 2026-09-08T09:01Z
 - Summary: Information on how to configure Roles and Permissions for DLP admins in Workflow Automation.
 
 Workflow Automation enables you to create roles and assign permissions for the admins to access the various features of the Workflow Automation application. Doing so provides you with the flexibility to control admin permissions based on roles. Permissions allow you to control an admin's access to the major features of Workflow Automation in the Zscaler Admin Console.
@@ -830,7 +830,7 @@ On the Roles page, you can perform the following actions:
 
 To add a role and configure permissions:
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization, including the default roles.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization, including the default roles.
 2. On the **Roles** page, click **Add More**. The **Add Role** window appears.
 3. In the **Add Role** window:
   1. **Role**: Enter a name for the role.
@@ -859,7 +859,7 @@ When managing roles, you can view roles and the details for a role.
 - Viewing Roles
 - Viewing Role Details
 
-To view a role, go to **Administration** > **Admin Management** > **Role Based Access Control** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization, including the default roles. For each role, you can view the following information:
+To view a role, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization, including the default roles. For each role, you can view the following information:
 
 - **Role**: The name of the role.
 - **Edit Access**: The features for which edit access is enabled.
@@ -869,12 +869,12 @@ See image.
 
 To view role details:
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization.
 2. In the **Action** column next to the role you want to view, click the **View** icon. The **View Permissions**window appears, displaying the details for the role. See image.
 
 To edit a role:
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization.
 2. In the **Action** column next to the role you want to edit, click the **Edit** icon. The **Edit Permissions** window appears. See image.
 3. In the **Edit Permissions**window, modify permissions for any category.
 4. Click **Save**.
@@ -892,23 +892,25 @@ To delete a role, click the **Delete** icon in the **Action** column next to the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-survey-templates","lastmod":"2026-08-11T06:52Z","nid":"1420016"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-survey-templates","lastmod":"2026-09-09T12:06Z","nid":"1420016"} -->
 ## Managing Survey Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-survey-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Survey Templates
-- Last modified: 2026-08-11T06:52Z
+- Last modified: 2026-09-09T12:06Z
 - Summary: How to manage survey templates in Workflow Automation.
 
 Adding survey templates is one of the tasks in configuring Workflow Automation. Admins with access to Workflow Automation can add and map survey templates. A survey template provides the format for the survey that a user or approver must complete when responding to an incident notification from Workflow Automation. The survey includes questions that, when answered, provide the justification for the incident.
 
 When an admin configures a notification template, they can choose to format a link in the notification template that enables the user or approver to view the incident details and the survey template where they can enter the response to the notification. Then, when a user or approver receives a notification that is using that notification template, they can click that link, which opens the Incidents page and the survey that they must complete for the incident. The template settings on the Template Mappings page determine the notification template and the survey templates that Workflow Automation uses for the different source Data Loss Prevention (DLP) types and notification types. To learn more, see [Managing Incident and Digest Template Mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings).
 
-Workflow Automation provides the following system default survey template families:
+Workflow Automation provides the following system default survey template families and templates:
 
-- End-user Justification - Questionnaire Template
-- Escalation - Questionnaire Template
+| Notification Template Family | Notification Template |
+| --- | --- |
+| End-user Justification - Questionnaire Template | End-user Justification - Questionnaire Template |
+| Escalation - Questionnaire Template | Escalation - Questionnaire Template |
 
 For each template family, you can create only one template in each language. You cannot create two templates of the same language for a single template family.
 
@@ -925,7 +927,7 @@ On the Survey Templates page in the Zscaler Admin Console, admins can:
 
 To view existing survey templates:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. (Optional) Filter the templates by status, type, template family, or language. You can also search for specific templates that you want to view.
 3. (Optional) Click the **Reset** icon to reset all the applied filters.
 4. View a list of survey templates configured for your organization. For each survey template, you can see the following: See image.
@@ -938,7 +940,7 @@ To view existing survey templates:
 
 To add a survey template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. On the **Survey Templates** page, click **Add More**. The **Survey Template** page appears. See image.
 3. On the **Survey Template** page: After you select the template type, the survey creator section appears below the row. The survey creator section contains a **Designer** tab and a **Preview** tab and contains a placeholder drop-down type question titled Reason. Workflow Automation uses the Survey Creator component from SurveyJS. Using this drag-and-drop survey builder, you can create a survey template, change the content, include pictures, and link to files. In addition, you can change the template's structure and style. See image.
   - **Template Name**: Enter a name for the template.
@@ -986,7 +988,7 @@ To add a survey template:
 
 To preview a survey template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. In the **Action** column next to an existing template, click the **View Template** icon. The **Survey Template** page appears, displaying the survey template on the **Designer** tab. See image.
 3. On the **Survey Template** page, click the **Preview** tab to view the survey template in its rendered format. See image.
 4. (Optional) Click **Edit Template**. You are redirected to the **Designer** tab of the **Survey Template** page, where you can modify and publish the survey template.
@@ -994,7 +996,7 @@ To preview a survey template:
 
 To edit a survey template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. In the**Action** column next to an existing published or draft template, click the **Edit Template** icon. You cannot edit a system default template. The **Survey Template** page appears, displaying the survey template on the **Designer** tab. See image.
 3. Edit the survey template details or the survey template design using one or more of the question and panel types in the toolbox. You cannot edit the template family for a template after the template is added.
 4. (Optional) Click **Save as Draft**. You can come back later and continue to work on the template design. This button is not available for published templates.
@@ -1006,7 +1008,7 @@ You can translate a published, system default, or draft template.
 
 To translate a survey template into a different language:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. In the**Action** column next to a template, click the **Translate Template** icon. The **Survey Template** page appears, with the **Translate**window. See image.
   1. In the **Translate** window, from the **Translate To** drop-down menu, select a language to which you want to translate the template.
   2. To view the translated template, click **Preview**. The template displays in the selected language. See image.
@@ -1018,7 +1020,7 @@ You can clone a published, system default, or draft template.
 
 To clone a survey template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey** **Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey** **Templates** page appears.
 2. In the **Action** column next to a template, click the **Clone Template** icon. The **Survey Template** page appears. In the **Template Name** field, "Clone of" appears in front of the name of the survey template that you cloned. See image.
 3. (Optional) In the **Template Name** field, change the template name.
 4. Edit the template details or the survey template design using one or more of the question and panel types in the toolbox.
@@ -1031,36 +1033,36 @@ To clone a survey template:
 
 You can only update the [template mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings) with templates that are in a published status. You also receive notifications from Workflow Automation to update the template mappings to use this template.
 
-[Image: Survey Templates Page - Viewing Templates]
+[Image: Viewing survey templates on the Survey Templates page]
 
-[Image: Survey Templates Page - Add More Button]
+[Image: Viewing the Add More button on the Survey Templates page. The Add More button is highlighted.]
 
-[Image: Survey Template Page - Adding a Template]
+[Image: Adding a survey template on the Survey Template page]
 
-[Image: Survey Template Page - Viewing a Template]
+[Image: Viewing a survey template on the Survey Template page. The Designer tab is highlighted.]
 
-[Image: Survey Template Page - Previewing a Template]
+[Image: Previewing a survey template on the Survey Template page. The Preview tab is highlighted.]
 
-[Image: Survey Template Page - Editing a Template]
+[Image: Editing a survey template on the Survey Template page]
 
-[Image: Survey Template Page - Cloned Template]
+[Image: Cloned template on the Survey Template page. The Template Name is highlighted.]
 
-[Image: Survey Templates Page - Viewing a Survey Template with a Draft Status]
+[Image: Viewing a survey template with a Draft status on the Survey Templates page]
 
-[Image: Viewing the Translate Template Icons on the Survey Templates Page]
+[Image: Viewing the Translate Template icons on the Survey Templates page. The Translate Template icons are highlighted for each survey template.]
 
-[Image: Viewing the Language Drop-Down Menu and Preview Button in the Translate Window for Survey Templates]
+[Image: Viewing the Translate window with the translate to language selected and the Preview button highlighted.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-user-attributes","lastmod":"2026-04-10T09:44Z","nid":"1503486"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-user-attributes","lastmod":"2026-09-08T11:42Z","nid":"1503486"} -->
 ## Managing User Attributes
 
 - Source: https://help.zscaler.com/workflow-automation/managing-user-attributes
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Admin, User, & Role Management > Managing User Attributes
-- Last modified: 2026-04-10T09:44Z
+- Last modified: 2026-09-08T11:42Z
 - Summary: Information on how to use and manage the User Attributes page in Workflow Automation.
 
 Workflow Automation fetches the end user information (i.e., user attributes) that is displayed in the Zscaler Admin Console, such as the employee ID, email address, and manager's name, from the following two data sources:
@@ -1087,7 +1089,7 @@ Importing a CSV file with numerous user attributes takes time to complete. You r
 
 To import the user attributes as a CSV file:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **User Attributes**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **User Attributes**.
 2. Click **Import CSV**.
 3. On the**Import CSV** page, complete the following sections: See image.
   1. **Prerequisite**: Complete the prerequisites to import a CSV file.
@@ -1108,7 +1110,7 @@ For CSV file imports that are partially successful or failed, you can restart th
 
 To restart importing a CSV file:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **User Attributes**. The **User Attributes** page appears, listing all the CSV files uploaded.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **User Attributes**. The **User Attributes** page appears, listing all the CSV files uploaded.
 2. For a partially complete CSV file import, in the **Actions** column, click the **Resume** icon to restart the action. The import action restarts, and the progress is displayed in the **Status** column. See image.
 3. For a failed CSV file import, in the **Actions** column, click the **Retry** icon to restart the action. The import action restarts, and the progress is displayed in the **Status** column. See image.
 
@@ -1118,12 +1120,12 @@ See image.
 
 To download a previously uploaded CSV file:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **User Attributes**. The **User Attributes** page appears, listing all the CSV files uploaded.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **User Attributes**. The **User Attributes** page appears, listing all the CSV files uploaded.
 2. For the CSV file you want to download, in the **Actions** column, click the**Download** icon. The CSV file is downloaded onto your local system.
 
 See image.
 
-To view the user attributes CSV files, go to **Administration** > **Identity** > **Workflow Automation** > **User Attributes**. The **User Attributes** page appears.
+To view the user attributes CSV files, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **User Attributes**. The **User Attributes** page appears.
 
 On the **User Attributes** page, you can do the following:
 
@@ -1162,13 +1164,13 @@ On the **User Attributes** page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-api-keys","lastmod":"2026-05-01T06:17Z","nid":"1452006"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-api-keys","lastmod":"2026-09-10T06:05Z","nid":"1452006"} -->
 ## Managing Workflow Automation API Keys
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-api-keys
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > API Management > Managing Workflow Automation API Keys
-- Last modified: 2026-05-01T06:17Z
+- Last modified: 2026-09-10T06:05Z
 - Summary: Information on how to manage API keys in the Zscaler Admin Console.
 
 If you have a subscription to Workflow Automation, API Management is automatically accessible to an admin role. An admin can create and display the API key required for authenticating with the Workflow Automation API to make API calls.
@@ -1186,7 +1188,7 @@ The **Create API Key** action allows you to create API keys for an admin. An API
 
 To create a new API key:
 
-1. Go to **Administration**>**API Configuration**>**Legacy API**>**Workflow Automation API**.The **API Keys** page appears, listing the API keys.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**API**>**Workflow Automation API**.The **API Keys** page appears, listing the API keys.
 2. Click **Add More**. The **Create API Key** window appears.
 3. In the **Create API Key** window:
 
@@ -1211,7 +1213,7 @@ When created, the API key is enabled by default. You can use the blue toggle cor
 
 To disable an API key:
 
-1. Go to **Administration**>**API Configuration**>**Legacy API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**API**> **Workflow Automation API**. The **API Keys** page appears, listing the API keys.
 2. On the **API Keys** page, click the blue toggle in the **Action** column to disable a specific API key.
 
 See image.
@@ -1222,7 +1224,7 @@ You can generate a new key secret for the same admin and the key ID.
 
 To regenerate an API key:
 
-1. Go to **Administration**>**API Configuration**>**Legacy API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
 2. On the **API Keys** page, click the **Regenerate** icon corresponding to a specific API key.
 3. Click **Yes** in the pop-up window that appears.
 
@@ -1234,7 +1236,7 @@ The **Delete** action allows you to delete the specified API key.
 
 To delete an API key:
 
-1. Go to **Administration**>**API Configuration**>**Legacy API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
 2. On the **API Keys** page, click the **Delete** icon for a specific API key.
 3. Click **Yes**in the pop-up window that appears.
 
@@ -1788,13 +1790,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-mappings","lastmod":"2026-08-12T09:56Z","nid":"1455966"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-mappings","lastmod":"2026-09-09T06:43Z","nid":"1455966"} -->
 ## Managing Workflow Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Workflows > Managing Workflow Mappings
-- Last modified: 2026-08-12T09:56Z
+- Last modified: 2026-09-09T06:43Z
 - Summary: How to manage workflow mappings in Workflow Automation.
 
 A workflow mapping specifies the incidents that are associated with the workflow. Only admins with full access to Workflow Automation can map the workflows. Incidents are mapped to workflows, which are based on one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. Then, when an incident occurs in your organization that contains those attributes, the workflow automatically triggers and performs the actions that the workflow specifies.
@@ -1817,7 +1819,7 @@ In the Zscaler Admin Console, ensure that workflows have been added on the Workf
 
 To add a workflow mapping:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
 2. On the **Workflow Mappings** page, at the top left of the page, click **Add Statement**. A new expanded row appears after the last workflow mapping. The statement section appears within that row. See image. You can also access the **Workflow Mappings** page from the **Workflows** page. In the table, click the **Add Workflow Mapping** icon in the **Mapping** column for the workflow you want to map. See image.
 3. In the new row, from the **Workflow Name**drop-down menu, select the name of the workflow that you want to map. See image.
 4. Configure a basic or advanced incident property mapping for the workflow, as required.
@@ -2119,7 +2121,7 @@ To configure an advanced workflow mapping:
 
 To edit a workflow mapping:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
 2. (Optional) On the **Workflow Mappings** page, use the **Search** field to locate the workflow you want to edit the mappings for.
 3. At the end of the row next to the workflow you want to edit, click the **Expand** icon. The row expands to display the mappings in the statement section for the workflow. See image.
 4. In the statement section, edit any of the existing predicates and conditions for the statement. You can edit the properties, operations for the properties, and property values within the existing predicates and the function for the condition.
@@ -2130,12 +2132,12 @@ To delete a predicate or condition within a statement, click the **Delete** icon
 
 To view workflow mappings:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The**Workflow** **Mappings** page appears, listing all the workflows that have been mapped. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The**Workflow** **Mappings** page appears, listing all the workflows that have been mapped. See image.
 2. On the **Workflow Mappings** page, at the end of the row next to a workflow, click the **Expand** icon. The row expands to display the mappings in the statement section for that workflow. See image.
 
 To delete a workflow mapping:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
 2. On the **Workflow Mappings** page, click the **Delete** icon next to a workflow. A message appears asking whether you are sure that you want to delete this statement. See image.
 3. Click **OK**.
 
@@ -2143,7 +2145,7 @@ Rules equate to statements in Workflow Automation.
 
 To arrange workflow mapping rules:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
 2. On the **Workflow Mappings** page, click the down arrow or up arrow next to a workflow to arrange the order in which the rules are processed. Workflow Automation stops processing an incident after it finds its first rule match for the incident. See image.
 3. Click **Save**.
 
@@ -2178,13 +2180,13 @@ To arrange workflow mapping rules:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-templates","lastmod":"2026-04-08T13:17Z","nid":"1455806"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-templates","lastmod":"2026-09-09T06:34Z","nid":"1455806"} -->
 ## Managing Workflow Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Workflows > Managing Workflow Templates
-- Last modified: 2026-04-08T13:17Z
+- Last modified: 2026-09-09T06:34Z
 - Summary: How to manage workflow templates in Workflow Automation.
 
 Workflow templates are used as the basis for the workflows you add in Workflow Automation. Workflow Automation provides several different templates that address different scenarios. To add a workflow for your organization, you must select one of the templates provided. Admins use the workflows that are added and mapped to assist them with remediating the incidents that occur in your organization.
@@ -2211,7 +2213,7 @@ On the Workflow Templates page in the Zscaler Admin Console, admins can:
 
 To view workflow templates:
 
-Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides. For workflow templates, you can view:
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides. For workflow templates, you can view:
 
 - **Template Name**: The name of the template.
 - **Template Description**: The description for the template.
@@ -2221,7 +2223,7 @@ See image.
 
 To view workflow template definitions:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides.
 2. On the **Workflow Templates** page, click the **View Workflow Template** icon in the **Action** column next to the template for which you want to view the definition. The **Workflow Settings** page appears, displaying the workflow definition. On the left side of the page, a graphic representation of the workflow definition is displayed. On the right side of the page, the workflow definition fields that are required for this workflow definition are displayed. The graphic and workflow definition fields vary depending on the workflow template that you select. The **Notification Channel** fields are only available if you have integrated Workflow Automation with Slack or Microsoft Teams. If the **Notification Channel** fields are not available, the notifications are by email. The following image is an example of the Auto Notify User and Escalate template when Workflow Automation has been integrated with Slack or Microsoft Teams.
 
 See image.
@@ -2232,7 +2234,7 @@ To add a workflow:
 
 You can add workflows from the **Workflow Templates** page or the **Workflows** page.
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides.
 2. On the **Workflow Templates** page, click the **Add New Workflow Definition** icon in the **Action** column next to the template on which you want to base the workflow. The **Workflow Settings** page appears, displaying the workflow definition for that template. On the left side of the page, a graphic representation of the workflow definition is displayed.
 3. On the **Workflow Settings** page, on the right side of the page, enter values in the workflow definition fields required for that particular type of workflow.
 4. Click **Save**. The workflow is added. The **Workflows** page appears, listing the workflow.
@@ -2246,13 +2248,13 @@ To learn more about adding workflows, see [Managing Workflows](https://help.zsca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflows","lastmod":"2026-07-27T07:06Z","nid":"1455941"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflows","lastmod":"2026-09-09T06:40Z","nid":"1455941"} -->
 ## Managing Workflows
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflows
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Workflows > Managing Workflows
-- Last modified: 2026-07-27T07:06Z
+- Last modified: 2026-09-09T06:40Z
 - Summary: How to manage predefined and custom workflows in Workflow Automation.
 
 Workflows enable remediation actions to be performed against an incident that occurs in your organization without manual user intervention. You can add a predefined workflow in Workflow Automation based on a workflow template that specifies one or more actions and the order in which those actions are to be performed against an incident, or you can add a custom workflow where you choose and configure the different steps and actions required for the workflow without using a template. In either case, you must then map the workflow to one or more of the attributes available on an incident transaction. Then, when an incident occurs in your organization that contains those attributes, the workflow automatically triggers those actions specified in the workflow.
@@ -2277,7 +2279,7 @@ You can add predefined workflows from the **Workflows** page or the **Workflow T
 
 To add a predefined workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. On the **Workflows** page, click **Add Pre-defined Workflow**. The **Workflow Templates** page appears, listing all the available workflow templates.
 3. On the **Workflow Templates** page, in the **Action** column, click the **Add New Workflow Definition** icon next to the template on which you want to base the workflow. The **Workflow Settings** page appears, displaying the workflow definition for that template. The left side of the page displays a graphic representation of the workflow definition.
 4. On the **Workflow Settings** page, on the right side of the page, enter values in the workflow definition fields required for that particular type of workflow.
@@ -2445,7 +2447,7 @@ The custom workflow functionality in Workflow Automation is currently a preview 
 
 To add a custom workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. On the **Workflows** page, click **Add Custom Workflow**. The custom workflow builder page appears, displaying the following: See image.
   1. The custom workflow name field at the top left of the page. Use this field to name the custom workflow.
   2. The **Description** button at the top right of the page. Click this button to add a description for the custom workflow.
@@ -2656,7 +2658,7 @@ You can also delete a tile by clicking on the tile and then pressing `Backspace`
 
 To delete an edge connector, click the edge connector (i.e., connection line) that you want to delete in the custom workflow design area, and press `Backspace`.
 
-Go to **Administration** > **Workflow Automation**> **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows. For each workflow, you can view:
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows. For each workflow, you can view:
 
 - **Workflow Name**: The name of the workflow.
 - **Workflow Description**: The description of the workflow.
@@ -2673,7 +2675,7 @@ You can edit a predefined workflow that was configured using a template, and you
 
 To edit a predefined workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filtersto locate the workflow you want to edit. To apply filters:
   1. Click **Filters**. The **Filters** window appears, displaying all the available filters on the left side of the window.
   2. Select a filter and then select the filter values on the right side of the window. As you select the filter values, the number of values selected appears next to the filter. You can select multiple filters and their values. You can include or exclude all the filter values by selecting the **Select All** checkbox. To remove all the selected filters, click **Reset**.
@@ -2689,7 +2691,7 @@ To delete a workflow, click the **Delete**icon in the **Action** column next to 
 
 To edit a draft custom workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filtersto locate the workflow you want to edit. To apply filters:
   1. Click **Filters**. The **Filters** window appears, displaying all the available filters on the left side of the window.
   2. Select a filter and then select the filter values on the right side of the window. As you select the filter values, the number of values selected appears next to the filter. You can select multiple filters and their values. You can include or exclude all the filter values by selecting the **Select All** checkbox. To remove all the selected filters, click **Reset**.
@@ -2710,7 +2712,7 @@ To delete a draft custom workflow, click the **Delete**icon in the **Action** co
 
 To edit a published custom workflow:
 
-1. Go to **Administration** > **Workflow Automation**> **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filtersto locate the workflow you want to edit. To apply filters:
   1. Click **Filters**. The **Filters** window appears, displaying all the available filters on the left side of the window.
   2. Select a filter and then select the filter values on the right side of the window. As you select the filter values, the number of values selected appears next to the filter. You can select multiple filters and their values. You can include or exclude all the filter values by selecting the **Select All** checkbox. To remove all the selected filters, click **Reset**.
@@ -2737,7 +2739,7 @@ You can only clone custom workflows.
 
 To clone a draft custom workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filters or use the **Search** fieldto locate the custom workflow you want to clone.
 3. In the **Action** column next to a custom workflow, click the **Clone**icon. The custom workflow builder page appears. In the **Workflow Name** field, "Clone of" appears in front of the name of the custom workflow that you cloned. See image.
 4. (Optional) In the **Workflow Name** field, change the workflow name.
@@ -2750,7 +2752,7 @@ To clone a draft custom workflow:
 
 To clone a published custom workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filters or use the **Search** fieldto locate the custom workflow you want to clone.
 3. Click the **Clone**icon in the **Action** column next to a custom workflow. The custom workflow builder page appears. In the **Workflow Name** field, "Clone of" appears in front of the name of the custom workflow that you cloned. See image.
 4. (Optional) In the **Workflow Name** field, change the workflow name.
@@ -2766,16 +2768,18 @@ A custom workflow must be in a Published state before you can map it.
 
 To add a workflow mapping:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
-2. On the **Workflows** page, click the **Add**icon in the **Mapping**column next to a workflow. The **Workflow Mappings** page appears, displaying an expanded row for the workflow. See image.
-3. Add the workflow mapping for the workflow. To learn more, see [Managing Workflow Mappings](https://help.zscaler.com/workflow-automation/managing-workflow-mappings#add-workflow-mappings).
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+2. (Optional) On the **Workflows** page, apply filters or use the **Search** fieldto locate the workflow you want to map.
+3. Click the **Add**icon in the **Mapping**column next to a workflow. The **Workflow Mappings** page appears, displaying an expanded row for the workflow. See image.
+4. Add the workflow mapping for the workflow. To learn more, see [Managing Workflow Mappings](https://help.zscaler.com/workflow-automation/managing-workflow-mappings#add-workflow-mappings).
 
 Only admins with full access to Workflow Automation can map a workflow. You can add workflow mappings to a workflow from the **Workflows** page and the **Workflow Mappings** page.
 
 To view workflow mappings:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
-2. On the **Workflows** page, in the **Mapping**column, click the **View** icon next to a workflow. See image. The **Workflow Mappings** page appears, displaying the mapping for the workflow.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+2. (Optional) On the **Workflows** page, apply filters or use the **Search** fieldto locate the workflow you want to view the mappings for.
+3. Click the **View** icon in the **Mapping**column next to a workflow. See image. The **Workflow Mappings** page appears, displaying the mapping for the workflow.
 
 [Image: Workflow Settings Page - Add Auto Notify Workflow]
 
@@ -2904,13 +2908,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-08-14T10:16Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-09-08T12:00Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-14T10:16Z
+- Last modified: 2026-09-08T12:00Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2984,13 +2988,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-08-12T08:15Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-09-13T07:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-08-12T08:15Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4061,13 +4065,13 @@ On the Incidents page in the Zscaler Admin Console, you can see the total count 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/understanding-notification-reminders","lastmod":"2026-07-14T08:26Z","nid":"1535308"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/understanding-notification-reminders","lastmod":"2026-09-02T11:42Z","nid":"1535308"} -->
 ## Understanding Notification Reminders
 
 - Source: https://help.zscaler.com/workflow-automation/understanding-notification-reminders
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Understanding Notification Reminders
-- Last modified: 2026-07-14T08:26Z
+- Last modified: 2026-09-02T11:42Z
 - Summary: Information about notification reminders in Workflow Automation.
 
 Workflow Automation can send out notification reminders to those end users, managers, and approvers that have not responded to end user or escalation notifications that were previously sent to them. You must configure these notification reminders for your organization on the Account Settings page before they are sent.
@@ -4080,7 +4084,7 @@ On the Account Settings page, you can:
 
 See image.
 
-After you have enabled notification reminders, the system automatically sends these notification reminders at the frequency you configured. These notification reminders are identical to the notifications the end users, managers, and approvers previously received but have not yet responded to. Plus, the system updates the information (i.e., Number of Attempts) that appears for the incident in the User Notifications section on the Incident Details page, and it logs the reminder activity for the incident in the State Changes section for the incident on the Incident Details page.
+After you have enabled notification reminders, the system automatically sends these notification reminders at the frequency you configured. These notification reminders are identical to the notifications the end users, managers, and approvers previously received but have not yet responded to. Plus, the system updates the information (i.e., Number of Attempts) that appears for the incident in the User Notifications section on the Incident Details drawer, and it logs the reminder activity for the incident in the State Changes tab for the incident on the Incident Details drawer.
 
 See image.
 
@@ -4090,7 +4094,9 @@ To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow
 
 [Image: Viewing the Notification Reminder tab on the Account Settings page]
 
-[Image: Viewing the Incident Details page with the notification reminder information highlighted]
+[Image: Viewing the User Notifications section on the Incident Details drawer. The No. of Attempts field is highlighted for a couple of user notifications that are displayed in the section.]
+
+[Image: Viewing the State Changes tab on the Incident Details drawer.  Several reminder service entries are highlighted for the notification reminders.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4262,13 +4268,13 @@ To delete saved filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-alert-notifications","lastmod":"2026-04-10T11:28Z","nid":"1452701"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-alert-notifications","lastmod":"2026-09-09T12:52Z","nid":"1452701"} -->
 ## Viewing Alert Notifications
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-alert-notifications
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Viewing Alert Notifications
-- Last modified: 2026-04-10T11:28Z
+- Last modified: 2026-09-09T12:52Z
 - Summary: How to view alert notifications in Workflow Automation.
 
 The Notification Center page in Workflow Automation displays alerts that affect the operation of Workflow Automation. The following are the alert notifications that you might view on the Notification Center page:
@@ -4284,7 +4290,7 @@ The Notification Center page in Workflow Automation displays alerts that affect 
 
 To view alert notifications:
 
-Go to **Administration** > **Workflow Automation** > **Data Protection** > **Alerts**. The **Notification Center** page appears, listing all the alert notifications. For each alert notification, you can view:
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Alerts** > **Workflow Automation**. The **Notification Center** page appears, listing all the alert notifications. For each alert notification, you can view:
 
 - **ID**: The ID associated with the alert notification. It is a unique generated sequential ID.
 - **Module**: The feature area of Workflow Automation that is related to this alert notification. For example, Filewatcher, Integration, Notification, Incident Receiver, or Incident Group.
@@ -4295,18 +4301,18 @@ Go to **Administration** > **Workflow Automation** > **Data Protection** > **Ale
 
 See image.
 
-[Image: Viewing Alert Notifications on the Notification Center page]
+[Image: Viewing alert notifications on the Notification Center page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-08-16T07:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-09-13T07:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-08-16T07:06Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
@@ -4315,7 +4321,7 @@ You can access theIncident Details drawer from the [Incidents](https://help.zsca
 
 ## Viewing Incident Details
 
-You can view details about the incident in the following tabs:
+You can view details about the incident on the following tabs:
 
 - Overview
 - Violation Details
@@ -4324,7 +4330,7 @@ You can view details about the incident in the following tabs:
 
 See image.
 
-In the Overview tab, you can see:
+On the Overview tab, you can see:
 
 - Duplicate Incidents
 - Overview
@@ -4413,7 +4419,7 @@ In the Notessection, you can enter additional notes or information about the pro
 
 See image.
 
-In the Violation Details tab, you can see:
+On the Violation Details tab, you can see:
 
 - Originating User
 - Policy
@@ -4473,14 +4479,26 @@ In the Policy section, you can see:
   - **Filename** tab, **Dictionaries with Match Count**:The DLP dictionaries that are assigned to the DLP rules that triggered the incident because of the file name of the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
 - **Other Matched Rules**: Expand this field to display the rules that the incident violated, in addition to the primary DLP rules that triggered the incident. See image.
 
-- **Triggered Engines and Dictionaries**. Expand this heading to view the following fields:
-  - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident.
-  - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
-- **Non-Triggered Engines and Dictionaries**: Expand this heading to view the following fields:
-  - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident.
-  - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
-
-See image.
+- **Triggered Engines and Dictionaries**. Expand this heading to view the following policy fields:
+  - **Email Subject** tab: See image.
+    - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident because of the content in the email subject line.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Email Body** tab: See image.
+    - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident because of the content in the email body.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Email Attachments**tab: A subtab appears for each attachment that caused a violation. Click each attachment subtab to see: See image.
+    - **Engines**: The DLP engines that are assigned to the DLP rules that triggered the incident because of the email attachment.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+- **Non-Triggered Engines and Dictionaries**: Expand this heading to view the following policy fields:
+  - **Email Subject** tab: See image.
+    - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident because of the content in the email subject line.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Email Body** tab: See image.
+    - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident because of the content in the email body.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
+  - **Email Attachments** tab: A subtab appears for each attachment that caused a violation. Click each attachment subtab to see: See image.
+    - **Engines**: The DLP engines that are not assigned to the DLP rules that triggered the incident because of the email attachment.
+    - **Dictionaries with Match Count:**The DLP dictionaries that are not assigned to the DLP rules that triggered the incident. The number of times the end user's traffic violated a specific dictionary is displayed in brackets (e.g., Medical Information[2]).
 
 - **Rules**: The DLP rules that the end user violated (e.g., Block-HIPAA).
 - **Triggered Engines and Dictionaries**. Expand this heading to view the following fields:
@@ -4603,7 +4621,7 @@ The Other Recipients section displays the recipients associated with the inciden
 
 See image.
 
-In the Violation Content tab, you can see:
+On the Violation Content tab, you can see:
 
 - Generate Presigned Link
 - View Trigger Data
@@ -4626,11 +4644,18 @@ This field is available only if the **Hide Trigger Data - Admin** field is not s
 In the View Trigger Data section, you can see:
 
 - Inline Source DLP Type
-- Email, Endpoint, and SaaS Security Source DLP Types
+- Email Source DLP Type
+- Endpoint and SaaS Security Source DLP Types
 
 Expand the heading to display the data that triggered the incident. A File Content tab, a File Metadata tab, and a Filename tab appear. Click the different tabs to see the trigger data for those different types of violations triggered by the DLP dictionaries. The prefix and suffix for the trigger data are displayed along with the trigger data itself. The actual trigger data portion is highlighted. You can view the DLP dictionaries associated with the incident and the exact data that violated the DLP policies.
 
 The following images are examples of the File Content tab, the File Metadata tab, and the Filename tab.
+
+See image.
+
+Expand the heading to display the data that triggered the incident. An Email Subject tab, an Email Body tab, and an Email Attachments tab appear. If an incident has multiple attachments and one or more of those attachments caused a violation, then subtabs appear under the Email Attachments tab, one for each attachment that caused a violation. Click the different tabs and subtabs to see the trigger data for those different types of violations triggered by the DLP dictionaries. The prefix and suffix for the trigger data are displayed along with the trigger data itself. The actual trigger data portion is highlighted. You can view the DLP dictionaries associated with the incident and the exact data that violated the DLP policies.
+
+The following images are examples of the Email Subject tab, the Email Body tab, and the Email Attachments tab.
 
 See image.
 
@@ -4968,7 +4993,17 @@ To release the email to its recipients:
 
 [Image: Viewing the other rules that matched the Inline incident in the Other Matched Rules field in the Policy section]
 
-[Image: Viewing the Policy section for an incident with a source DLP type of Email]
+[Image: Viewing the Email Subject tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Body tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Attachments tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays subtabs for each attachment that caused a violation. Each attachment subtab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Subject tab in the Policy section for the non-triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Body tab in the Policy section for the non-triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
+
+[Image: Viewing the Email Attachments tab in the Policy section for the non-triggered engines and dictionaries associated to the incident. This tab displays subtabs for each attachment that caused a violation. Each attachment subtab displays the Engines field and the Dictionaries with Match Count field.]
 
 [Image: Viewing the Policy section for an incident with a source DLP type of Endpoint]
 
@@ -4997,6 +5032,12 @@ To release the email to its recipients:
 [Image: Viewing the trigger data for an incident of Source DLP type Inline in the File Metadata tab of the View Trigger Data field]
 
 [Image: Viewing the trigger data for an incident of Source DLP type Inline in the Filename tab of the View Trigger Data field]
+
+[Image: Viewing the trigger data for an incident of Source DLP type Email in the Email Subject tab of the View Trigger Data field]
+
+[Image: Viewing the trigger data for an incident of Source DLP type Email in the Email Body tab of the View Trigger Data field]
+
+[Image: Viewing the trigger data for an incident of Source DLP type Email in the File Attachments tab of the View Trigger Data field. This tab displays subtabs for each attachment that caused a violation. Each attachment subtab displays the trigger data for that attachment.]
 
 [Image: Viewing the trigger data in the View Trigger Data field on the Violation Content tab for an incident of Source DLP type Email]
 

@@ -1,1063 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 186
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-dashboards","lastmod":"2025-01-28T00:36Z","nid":"1503521"} -->
-## Understanding Dashboards
-
-- Source: https://help.zscaler.com/easm/understanding-dashboards
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Dashboards & Analytics > Understanding Dashboards
-- Last modified: 2025-01-28T00:36Z
-- Summary: Information on dashboards in Zscaler External Attack Surface Management (EASM), their features, and how they help in monitoring digital assets and assessing risk insights.
-
-Dashboards are essential tools for presenting key information from related data sources in a format that is easy to interpret, using various data visualization elements, such as graphs, tables, and charts. Zscaler EASM provides two dynamic and interactive dashboards, namely Assets Overview and Insights Overview. The Assets Overview dashboard provides a summary of the approved asset inventory that constitutes your organization's external attack surface, while the Insights Overview dashboard provides information on the vulnerabilities and risks associated with those assets. These dashboards are designed to aggregate and display key metrics related to assets and risk insights, helping you quickly identify areas of concern. By offering a near real-time view of your organization's evolving attack surface, these dashboards enable you to prioritize and address business-critical vulnerabilities, ensuring the protection of your internet-exposed asset infrastructure from potential threats.
-
-The Assets Overview and Insights Overview dashboards serve as valuable starting points for identifying and understanding the threat landscape of your digital assets. Each dashboard features a collection of widgets specifically designed to present key metrics relating to assets or risk findings. These dashboards are highly interactive, allowing you to perform various actions within each widget, such as adjusting time frames, hovering over data points to view detailed information, and clicking on specific data points to access a filtered view of relevant entities on a different page in EASM. After identifying the most critical threats in your infrastructure using the information presented on the dashboard, you can drill down on the assets or risk findings for further analysis.
-
-The following sections provide a detailed breakdown of each dashboard.
-
-## Insights Overview Dashboard
-
-The Insights Overview dashboard provides a comprehensive summary of risk findings within your organization's digital attack surface, using clear graphical representations to highlight critical risk metrics. These findings include undetected vulnerabilities, misconfigurations, and compliance violations across your internet-exposed digital assets, which have been discovered and inventoried by EASM.
-
-The dashboard presents key metrics across various parameters, such as risk trends, distribution of findings by risk levels and predefined categories, and the top locations with the highest concentration of risks. Additionally, it summarizes critical findings in specific areas, such as exposed sensitive services, VPN appliances, and risks associated with SSL/TLS certificate expiration and domain registration expiration. Specific examples of risk findings include Common Vulnerabilities and Exposures (CVEs), SSL/TLS misconfigurations or outdated versions, expired digital certificates, domain registration expiration, insecure HTTP headers, exposed VPN appliances, and sensitive services such as RDP, SSH, VNC, Telnet, and SNMP.
-
-The dashboard also monitors lookalike domains—fraudulent domains created by bad actors to resemble legitimate domain names associated with your organization, which are often used to deceive users into downloading malware, divulging sensitive information, and perpetrating other forms of cyberattacks.
-
-Each of these key metrics is displayed within an interactive widget on the dashboard, allowing you to drill down into specific data points for further analysis. You can easily switch between different EASM organizations by selecting the desired organization within the user interface, enabling you to effectively monitor and address the most critical threats to your infrastructure.
-
-See image.
-
-To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard).
-
-## Assets Overview Dashboard
-
-The Assets Overview dashboard provides a comprehensive summary of your organization's internet-facing digital assets, which have been verified as part of your digital infrastructure. This dashboard offers visibility into your external attack surface, presenting key metrics related to the risks and vulnerabilities associated with these assets. EASM uses advanced scanning techniques and intelligence-gathering tools to identify and analyze exposed assets across the internet, including unknown or forgotten assets. When discovered, these assets are inventoried, classified, and monitored through periodic scans. The latest data is then presented on the Assets Overview dashboard using graphical representations.
-
-This dashboard allows you to quickly assess the security posture of your asset infrastructure, providing real-time updates on vulnerabilities, misconfigurations, and compliance violations. By offering a high-level view of your organization's external attack surface, the dashboard enables timely identification of business-critical assets and the remediation of vulnerabilities, helping to prevent potential exploits.
-
-See image.
-
-To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
-
-[Image: Insights Overview dashboard that provides a summary of risks and vulnerabilities discovered in the digital attack surface]
-
-[Image: Assets Overview dashboard that provides a summary of most concerning assets discovered in the digital attack surface]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-finding-details","lastmod":"2025-12-16T03:22Z","nid":"1503596"} -->
-## Understanding Finding Details
-
-- Source: https://help.zscaler.com/easm/understanding-finding-details
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Findings > Understanding Finding Details
-- Last modified: 2025-12-16T03:22Z
-- Summary: Information on understanding and analyzing finding details in Zscaler External Attack Surface Management (EASM), including risk assessment, impacted assets, and remediation insights.
-
-EASM investigates the security risks (or findings) that are uncovered in your organization's digital attack surface and catalogs them on the [Findings page](https://help.zscaler.com/easm/about-findings) (Insights > Findings). This page features a highly customizable, tabulated list of findings, allowing you to click each record to access detailed information about the finding and perform specific actions on a per-finding basis. The details provided for each finding are crucial for assessing the severity of risks, prioritizing them, and planning mitigation strategies. Additionally, each finding is also mapped to the assets affected by the finding in a many-to-many relationship (i.e., one finding can impact multiple assets and vice-versa).
-
-The finding details are presented in two distinct views, offering users the flexibility to drill down on the finding details as required. When you click a row in the findings table, a quick view of essential information about the finding opens in a right-side drawer (referred to as "Finding Details drawer" henceforth). This drawer features a tabbed interface for finding details, impacted assets, status change history, and Jira tickets. To view more detailed finding information, from the Finding Details drawer, you can access a full-page view of comprehensive details about the finding (referred to as "Finding Details page" henceforth). To do this, you need to click the View More Details button on the Finding Details tab of the Finding Details drawer.
-
-See image.
-
-The Finding Details page provides extensive information about the finding and also mirrors the tabbed interface for finding details, impacted assets, and tickets as seen in the Finding Details drawer. The Finding Details drawer is essentially a limited version of the Finding Details page and allows you to easily switch between different findings to view their details from the list view. On the other hand, the Finding Details page is more useful when analyzing a specific finding, and you need to access the complete data available for the finding. When you are on the Finding Details page, you can go back to the findings list view to access details of other findings.
-
-See image.
-
-The next sections cover all the finding details that are available, following the presentation layout and the comprehensive information tracked on the Finding Details page. On the Finding Details page (Insights > [Finding] > Finding Details > View More Details), the finding name is displayed at the top along with the finding's overview, details, and impacted assets.
-
-Some of the following documented fields are only available on the Finding Details page and are not present in the Finding Details drawer. Additionally, the organization of the content differs between the two views.
-
-## Finding Overview
-
-This section contains high-level information about the finding to help users get a baseline of the finding at a glance. This section includes:
-
-- **Category/Type**: The classification of the finding as **Exposure**, **Vulnerability**, or **Misconfiguration**, which provides context about the finding instantly. Each category of findings is uniquely processed and has slightly varying information presented for the findings within that category based on relevance. For example, the NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are all most relevant to vulnerability findings rather than exposures or misconfigurations.
-- **Risk Level**: The risk level quantifies the amount of risk associated with a finding, and it is derived from the risk score computed for the finding. The risk level ranges from **Low**, **Medium**, **High**, and **Critical**. Risk levels help you with instant information about prioritizing business-critical findings. For example, a critical or high risk level indicates that the finding poses significant risk without mitigation controls, whereas a low risk level might indicate an acceptable risk. A medium risk level might indicate that the issue needs to be resolved to improve your security defenses but might have a lower priority compared to serious risks.
-- **Impacted Asset**: The asset impacted by the risk finding. Assets and findings can have many-to-many relationships (i.e., one finding can impact multiple assets and an asset can have multiple findings), and the complete list of assets impacted by the finding is listed under the **Other Impacted Assets** tab along with the count of assets displayed in the tab name.
-- **First Seen**: The timestamp of when the finding was first detected during scanning, adding more context to understanding the interaction with the finding.
-- **Last Seen**: The timestamp when the finding was last detected during scanning, adding more context to understanding the interaction with the finding.
-- **Finding Age**: The number of days elapsed since the first encounter with the finding until it was last seen, indicating how long the finding has been present in your asset infrastructure.
-- **Status**: Indicates the current stage in which the finding is present from discovery to closure. You can modify the status of the finding using the drop-down menu. List of Available Statuses
-
-See image.
-
-## Finding Details
-
-On the Details tab, you can find crucial information about the finding that provides more context about the finding to help you understand and analyze the finding more in depth. This section includes:
-
-- **Finding Risk Score**: A risk score computed for the finding based on multiple vectors such as threat severity, likelihood, and impact using a combination of open source intelligence (OSINT) on vulnerability risk computation and Zscaler's proprietary risk computation techniques. The risk score is a numerical value ranging from 1 to 100. The risk score is shown in a half donut chart with the risk score and risk level presented at the center and an indicator used to point towards the color-coded risk score meter in the donut chart.
-- **Scan Type**: The scanning service that was used to uncover the risk. The available scan types are **Web**, **Network**, **Certificate**, and **DNS** scans. For example, domain expiration is likely to be detected in a DNS scan, SSL/TLS outdated version might be detected in a web scan, and a CVE vulnerability might be detected in a web, DNS, or network scan.
-- **NVD CVSS Severity**: The Common Vulnerability Scoring System (CVSS) score that indicates the qualitative measure of severity of a vulnerability using a numerical value ranging from 1 to 10, if applicable.
-- **CISA KEV Likelihood**: Indicates whether a vulnerability is listed in the [Known Exploited Vulnerabilities (KEV) catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) using a Boolean value, if applicable.
-- **EPSS Likelihood**: The Exploit Prediction Scoring System (EPSS) likelihood indicates the probability that a vulnerability can be exploited in the wild, if applicable. The value is represented in a percentage.
-- **Description**: A detailed description of the finding gathered from an open-source intelligence, such as [National Vulnerability Database (NVD)](https://nvd.nist.gov/), and Zscaler's research team.
-- **[Scan Output]**: This section contains the complete output of the scan that was used to identify the finding. This section is labeled differently for assets depending on their type and the corresponding scan performed (e.g., HTTP Response, Nmap Response, and Certificate Response).
-- **Matched Evidence**: This section contains specific portions of the scan results that attest to the finding. This information provides attestation of detected findings and enables organizations to self-validate their findings using the investigative trail provided.
-
-See image.
-
-Specific finding details, such as NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are only applicable to vulnerability findings which group Common Vulnerabilities and Exposures (CVE). CVE is a list of publicly disclosed vulnerabilities maintained by MITRE.
-
-## Impacted Assets
-
-On the **Other Impacted Assets** tab, you can access the list of all assets that are impacted by the risk, excluding the asset that's already displayed in the Overview section. This section provides visibility into how widely the risk is spread within your asset infrastructure by aggregating the risk impact. The assets are tabulated, and the following information is available for each asset.
-
-Available Fields
-
-The number of assets that are impacted by the risk is included in the tab name. You can use the **Settings** icon to select the columns that must be shown or hidden from the asset table. In addition, you can sort the list by specific table columns using the **Sort** icon that appears in the column header.
-
-See image.
-
-## Tickets
-
-This tab is available if [Jira integration is enabled](https://help.zscaler.com/easm/configuring-jira-integration) for the organization with the finding is associated. On this tab, you can create and view Jira tickets for this finding. When creating the tickets, you can fill out a set of predefined Jira fields, such as Project, Issue Type, Component, Priority, and Assignee.
-
-Jira ticket creation in EASM and ticket synchronization between Jira and EASM requires an active connection established between your Jira instance and EASM organization through a valid personal access token retrieved from Jira.
-
-To add a new ticket, click **Create**, provide the required information, and submit the details. To learn more, see [Creating Jira Tickets for Findings](https://help.zscaler.com/easm/creating-jira-tickets-findings). After the ticket is created, the record is added to Jira along with data fetched from EASM such as the finding details and any attachment files. The Jira ticket ID and status are reflected in EASM immediately along with other information submitted. The ticket record details automatically synchronize between Jira and EASM.
-
-See image.
-
-- **Not Verified**: All the risk findings identified by EASM in your organization's attack surface are tagged with the label, Not Verified.
-- **Verified**: Risk findings are investigated manually and are verified to be present (e.g., verifying an open port flagged on a host).
-- **Risk Accepted**: Represents risk findings that are deemed acceptable. For example, a jump server with port 22 open and exposed to the internet might be for intended use.
-- **Resolved**: Risk findings for which remediation steps are taken or are planned can be marked as resolved. With the previous example, if the server is planned to be moved behind Zscaler Private Access (ZPA) as a resolution, then it could be marked as resolved. However, if the finding is discovered again in a subsequent scan, then it is marked as Not Verified.
-- **Disputed**: If the manual verification of the finding turns out different from the risk finding, the finding can be moved to the Disputed status, indicating that it might be a false positive.
-
-See image.
-
-The Insights Overview dashboard presents data on findings that are in Not Verified and Verified statuses to highlight risks that need to be addressed to eliminate threats and penetration by bad actors into your network. Findings that are in Risk Accepted, Resolved, or Disputed statuses are not presented in the dashboard, as these risks are considered as not requiring any further actions from your security team. However, risks in these statuses can be moved to Not Verified or Verified if they require further examination. To learn more, see [Modifying Finding Status](https://help.zscaler.com/easm/modifying-finding-status).
-
-- **Name**: The name of the asset.
-- **Risk Level**: The risk level assigned to the asset.
-- **Scan Type**: The type of scan through which the asset was discovered, such as Web, DNS, or Network type scans.
-- **Status**: The [status](https://help.zscaler.com/easm/changing-asset-status) of the asset from Approved, Candidate, or Archived.
-- **First Seen**: The timestamp when the finding was first detected in the asset.
-- **Last Seen**: The timestamp when the finding was last observed in the asset.
-
-You can access detailed information about each asset from the Assets page. To learn more, see [Understanding Asset Details](https://help.zscaler.com/easm/understanding-asset-details).
-
-[Image: Accessing finding details page from list view in EASM]
-
-[Image: Navigating to findings list view from details page in the EASM Admin Portal]
-
-[Image: Finding overview section in EASM showing basic information about the finding]
-
-[Image: Finding status drop-down menu in the finding details page in EASM Admin Portal]
-
-[Image: Finding details tab in EASM Admin Portal showing key information about the finding]
-
-[Image: List of assets impacted by a finding shown in the EASM Admin Portal]
-
-[Image: Creating and linking Jira ticket with EASM finding from the EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-lookalike-domain-details","lastmod":"2024-11-29T06:06Z","nid":"1508146"} -->
-## Understanding Lookalike Domain Details
-
-- Source: https://help.zscaler.com/easm/understanding-lookalike-domain-details
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Understanding Lookalike Domain Details
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on lookalike or phishing domains along with their details populated in EASM which can be analyzed for enforcing threat mitigation controls.
-
-The lookalike domains that are detected for your seed domains are investigated and cataloged on the [Lookalike Domains page](https://help.zscaler.com/easm/about-lookalike-domains) (Insights > Lookalike Domains). This page provides a customizable, tabulated list where you can click each domain entry to access more detailed information and take specific actions. The lookalike domain details consist of contextual information, helping you understand key aspects, such as the original domain forged by the lookalike domain, domain registration details, risk category and risk score, deception tactics used in the domain name, domain detection timeline, and status.
-
-To view comprehensive information about a lookalike domain, click on an entry in the table. A right-side drawer referred to as the Lookalike Domain Details drawer opens. In this drawer, you can access the following information about the lookalike domain:
-
-- **Original Domain**: The legitimate domain mimicked by the lookalike domain.
-- **Lookalike Domain Annotation**: A label for the lookalike domain.
-- **Risk Category**: The risk categorization of the lookalike domain. Available Risk Categories
-- **Risk Score**: A risk score assigned for the lookalike domain.
-- **Deception Method**: The deception tactic used in the lookalike domain name to impersonate a legitimate domain. Examples of deception techniques include the use of homograph (i.e., by exploiting similar-looking characters or homoglyphs), substituting letters with numbers, hyphenation, intentional typos, adding, removing, or transposing letters, etc.
-- **Lookalike Domain Registrar**: The internet company that was used to register the domain, if available. Popular registrars include GoDaddy, Namecheap, Bluehost, Domain.com, etc.
-- **Lookalike Domain Registered**: Indicates whether the domain is registered with a registrar or not.
-- **Lookalike Registrant Organization**: An individual or entity that owns the registered domain, if available.
-- **Lookalike Registration Expiration**: The domain registration expiration date, if available.
-- **First Seen**: The timestamp when the lookalike domain was first identified in a scan.
-- **Last Seen**: The timestamp when the lookalike domain was last observed in a scan.
-- **Status**: The status assigned to the lookalike domain entry from Not Verified, Verified, Risk Accepted, Resolved, and Disputed. You can modify the status using the drop-down menu as needed. Available Statuses
-- **Description**: A description of the lookalike domain, why it is suspicious, and the deception tactics used.
-
-See image.
-
-- **Verified Phishing**: Indicates that the domain is verified to be a phishing site by Zscaler's web risk analyzer service.
-- **Registered Lookalike**: Indicates that the domain is registered through an internet company that provides domain registration services (i.e., registrar).
-- **Preventative Lookalike**: Indicates that the domain is not registered with a registrar.
-
-- **Not Verified**: All lookalike domains initially detected by EASM for your legitimate seed domains are automatically tagged with the label "Not Verified".
-- **Verified**: Lookalike domains are manually investigated and verified for risks. An example could be a high-risk domain that is verified to be a phishing site.
-- **Risk Accepted**: Represents that the risk is deemed acceptable. An example could be a domain that is not registered yet and can be put on the watch list.
-- **Resolved**: Lookalike domains for which remediation steps are taken or are planned can be marked as resolved. For example, if a fake domain is taken offline or suspended by the registrar after reporting and the threat is eliminated, it can be marked as resolved. However, if the lookalike domain is discovered again in a subsequent scan, then it is marked as "Not Verified".
-- **Disputed**: If the manual verification of a lookalike domain turns out differently from the original detection, the lookalike domain can be moved to the Disputed status, indicating that it might be a false positive.
-
-See image.
-
-[Image: Lookalike domain details page showing key information in the EASM Admin Portal]
-
-[Image: Lookalike domain status change in the EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/what-zscaler-easm","lastmod":"2025-01-06T23:56Z","nid":"1503636"} -->
-## What Is Zscaler EASM?
-
-- Source: https://help.zscaler.com/easm/what-zscaler-easm
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Getting Started > What Is Zscaler EASM?
-- Last modified: 2025-01-06T23:56Z
-- Summary: Information on Zscaler External Attack Surface Management (EASM), its features, benefits, and use cases for securing internet-facing assets.
-
-In today's digital landscape, organizations face an ever-expanding attack surface due to rapid cloud adoption, the proliferation of shadow IT, and the continuous evolution of cyber threats. Zscaler External Attack Surface Management (EASM) addresses these challenges to help organizations gain visibility into and protect their internet-facing digital assets.
-
-External Attack Surface Management refers to the continuous discovery, inventory, classification, and monitoring of an organization's digital assets that are exposed to the internet. These assets include domains, IP addresses, subdomains, SSL/TLS certificates, and more. EASM tools are crucial because they provide a real-time view of the external attack surface, helping organizations identify and mitigate vulnerabilities before they can be exploited by malicious actors.
-
-Zscaler EASM distinguishes itself by integrating advanced scanning techniques and intelligence gathering with Zscaler's Zero Trust Exchange (ZTE) platform. This integration allows the tool to not only identify exposed assets but also prioritize vulnerabilities based on the likelihood of exploitation and the potential impact on the organization.
-
-## Key Features and Benefits
-
-The key features and benefits offered by EASM for managing and securing your external attack surface are as follows:
-
-- **Comprehensive Asset Discovery**: EASM uses both passive and active scanning methods to continuously discover and inventory all internet-facing assets. This includes not only known assets but also forgotten or unknown assets in your digital infrastructure that might have been overlooked.
-- **Risk-Based Prioritization**: Unlike traditional vulnerability management tools that focus solely on severity, EASM employs a risk-based approach. It considers factors such as exploit likelihood, derived from sources like the CISA KEV catalog, to prioritize remediation efforts.
-- **Real-Time Monitoring**: EASM continuously monitors the discovered assets for changes or new vulnerabilities, providing real-time alerts to security teams. This proactive approach ensures that organizations can respond swiftly to emerging threats.
-- **Actionable Insights**: EASM not only identifies vulnerabilities but also provides detailed remediation guidance. This includes suggestions for mitigating risks associated with misconfigurations, outdated software, and other security issues.
-
-## EASM Use Cases
-
-The following use cases highlight how EASM empowers organizations in different scenarios to enhance their security posture:
-
-- **Security Posture Management**: By providing a complete view of the external attack surface, EASM helps organizations manage their security posture effectively, ensuring that all internet-facing assets are secure and compliant.
-- **M&A Diligence**: During mergers and acquisitions, EASM can be used to assess the security posture of the target company's digital footprint, identifying any potential risks that need to be addressed.
-- **Continuous Compliance Monitoring**: EASM supports compliance efforts by continuously monitoring and reporting on the organization's external assets, helping to meet regulatory requirements.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-alerts","lastmod":"2026-07-12T07:06Z","nid":"1538787"} -->
-## About Alerts
-
-- Source: https://help.zscaler.com/identity-protection/about-alerts
-- Product: Identity Protection
-- Path: Identity Protection Help > Alerts > About Alerts
-- Last modified: 2026-07-12T07:06Z
-- Summary: Information on how the Alerts page in Identity Protection helps you monitor alert activity.
-
-Alerts are triggered to notify you about anomalous activities related to identities. Alerts provide details about the detected activity, associated user or entity, and the risk level. Alerts for similar kinds of anomalous activities are correlated and grouped into incidents to help security teams investigate potential threats and remediate issues. Alerts aggregate data from different sources such as [ITDR Change Detection AD](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [ITDR Change Detection Entra](https://help.zscaler.com/itdr/about-entra-id-change-detection).
-
-Alerts provide the following benefits and enable you to:
-
-- Review alerts aggregated from different sources to get in-depth insights about identity-related threats across your organization.
-- Review the alert details and remediate the issues.
-
-## About the Alerts Page
-
-On the Alerts page (Identities > Alerts), you can do the following:
-
-1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
-2. Search for an alert.
-3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
-4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the alert information.
-5. See the number of alerts triggered for each integrated product.
-6. View the distribution of alerts across different severity score ranges, and identify the overall risk level to prioritize high severity alerts and remediate the issue.
-7. View the number of alerts detected, the number of incidents created by grouping the alerts, and the number of active incidents. This overview depicts the alert volume versus the actual investigated incidents.
-8. Select alerts from the list, and click **Update**to change the following settings:
-  - **Severity**: Select the severity level for the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
-  - **Status**: Select the status for the alert (**Remediated**, **Acknowledged**, **Confirmed**, or **Discovered**).
-  - **Title**: Enter the title for the alert.
-  - **Verdict**: Select the verdict for the alert (**Accepted**, **Executed**, **Partial**, **Proposed**, **Scheduled**, **Success**, **Under Review**, or **Recommendation Status Unspecified**).
-9. Select alerts from the list, and click **Create Incident**to create an incident based on the selected alerts.
-10. Group the alerts by category (e.g., alert first seen, alert last seen, alert tags).
-11. Refresh the alerts table to reflect the most current information.
-12. Export the list of alerts and their associated details as a CSV file.
-13. Modify the columns displayed in the table.
-14. Click an alert to view its details. For each alert, you can see:
-  - **ID**: The unique identifier of the alert.
-  - **Severity**: The severity level of the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
-  - **Severity Score**: The severity score of the alert.
-  - **Title**: The title of the alert.
-  - **Created**: The date the alert was created.
-  - **Sources**: The source of the alert (e.g., alerts triggered by Zscaler have the Zscaler logo).
-  - **Tactic**: The MITRE ATT&CK tactic for which the alert is triggered.
-  - **Technique**: The MITRE ATT&CK technique for which the alert is triggered.
-
-[Image: The Alerts page in the Identities app]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-identity-findings","lastmod":"2026-05-17T07:06Z","nid":"1538792"} -->
-## About Identity Findings
-
-- Source: https://help.zscaler.com/identity-protection/about-identity-findings
-- Product: Identity Protection
-- Path: Identity Protection Help > Identity Findings > About Identity Findings
-- Last modified: 2026-05-17T07:06Z
-- Summary: Information about identity findings in Identity Protection.
-
-Identity Findings provide visibility into identity-related security issues detected across connected identity providers and directories. These findings highlight misconfigurations, insecure authentication methods, exposed credentials, and other identity risks that attackers could exploit. Security teams can review the security risks and prioritize remediation based on severity.
-
-Identity Findings provides the following benefits and enables you to:
-
-- Identify identity-related security risks such as exposed credentials, insecure authentication methods, and misconfigured settings.
-- Prioritize remediation based on severity.
-- Monitor identity security posture over time using severity trends and distribution insights.
-- Investigate affected identity entities such as users, groups, or applications associated with each finding.
-- Understand potential attack paths through mapped adversary tactics and techniques associated with identity risks.
-
-## About the Identity Findings Page
-
-On the Identity Findings page (Identities > Identity Findings), you can do the following:
-
-1. [Filter identity findings based on different parameters](https://help.zscaler.com/identity-protection/using-filters) (e.g., **Title**, **Tenant Name**, and **MITRE ATT&CK ID**).
-2. Search for an identity finding based on keywords.
-3. View the summary of identity findings in the following widgets:
-  - **Identity Findings Severity Over Time**: Displays the trend of identity findings across severity levels (**Critical**, **High**, **Medium**, or **Low**) over a period of time.
-  - **Identity Findings Severity**: Displays the distribution of identity findings by severity level (**Critical**, **High**, **Medium**, or **Low**).
-4. View the list of identity findings across tenants of identity providers and directories. For each finding, you can see:
-  - **ID:**The unique identifier for the identity finding.
-  - **Severity Score**: The risk level of the finding based on the severity score.
-  - **Title**: The title of the finding.
-  - **Tenant**: The tenant where the finding was detected.
-  - **Affected Entities**: The count and type of the impacted entities.
-  - **Vulnerability Exploit Ease**: How easily an attacker can exploit the vulnerability based on required skills, conditions, and available tools.
-  - **Techniques**: The relevant MITRE techniques associated with the risk.
-  - **Last Seen**: When the finding was first and most recently detected.
-  - **Vulnerability Remediate Ease**: How easily the vulnerability can be fixed based on required effort, changes, and potential impact on systems and operations.
-5. Group the list of identity findings based on specific parameters (e.g., **Identity Finding ID**, **Identity Finding First Seen**, **Identity Finding Last Seen**).
-6. Refresh the data in the identity findings list.
-7. Export the identity findings list as a CSV file.
-8. Customize the identity findings list by including or excluding specific columns.
-9. [View detailed information for each identity finding](https://help.zscaler.com/identity-protection/viewing-identity-finding-details).
-10. Display a different page of the identity findings list.
-
-[Image: About the Identity Findings page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-tenants","lastmod":"2026-05-17T07:06Z","nid":"1538950"} -->
-## About Tenants
-
-- Source: https://help.zscaler.com/identity-protection/about-tenants
-- Product: Identity Protection
-- Path: Identity Protection Help > Tenants > About Tenants
-- Last modified: 2026-05-17T07:06Z
-- Summary: Information on how the Tenants page helps you monitor a tenant's activity in Identity Protection.
-
-You can view a consolidated list of tenant accounts and their identities on the Tenants page. You can also review the [identity findings](https://help.zscaler.com/identity-protection/about-identity-findings) for each tenant and the total number of critical or high-severity findings so that you can take the necessary action. Only tenants in an active state are displayed on the Tenants page.
-
-Managing tenants provides the following benefits and enables you to:
-
-- Identify high-risk tenants and impacted identities.
-- View tenant details and identity findings for each tenant.
-
-## About the Tenants Page
-
-On the Tenants page (Identities > Tenants), you can do the following:
-
-1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
-2. Search for a tenant.
-3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
-4. Apply [filters](https://help.zscaler.com/identity-protection/using-filters) to view specific information.
-5. View the number of tenants grouped by severity level (**Critical**, **High**, **Medium**, and **Low**).
-6. View total identity findings across all tenants.
-7. View total active identity providers (IdP) with identity findings.
-8. Group tenants by category such as tenant first seen, tenant last seen, tenant tags, etc.
-9. Refresh the tenant table to reflect the most current information.
-10. Export the list of tenants and their associated details as a CSV file.
-11. Modify the columns displayed in the table.
-12. View the list of tenants. Click a tenant to [view detailed information](https://help.zscaler.com/identity-protection/viewing-tenant-details). For each tenant in the list, you can see:
-  - **ID**: The unique identifier of the tenant.
-  - **Name**: The name of the tenant.
-  - **Severity Score**: The severity score of the tenant.
-  - **Total Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the tenant.
-  - **Sources**: The source of the identity finding (e.g., **ITDR Change Detection AD**, **ITDR Domains AD**, etc.).
-  - **Last Seen**: The date of the most recent activity.
-  - **State**: The state of the tenant's account (**Active**or **Inactive**).
-  - **Identity Provider**: The IdP configured for the tenant (e.g., **AD**, **Entra ID**, etc.).
-  - **Next Scan**: The date and time of the next scan for a data sync.
-
-[Image: Tenants page in the Identities app.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-users","lastmod":"2026-05-17T07:06Z","nid":"1538887"} -->
-## About Users
-
-- Source: https://help.zscaler.com/identity-protection/about-users
-- Product: Identity Protection
-- Path: Identity Protection Help > Users > About Users
-- Last modified: 2026-05-17T07:06Z
-- Summary: Information on how the Users page in Identity Protection helps you monitor a user's activity.
-
-You can view a consolidated list of user accounts and their identity types on the Users page. You can also review the identity findings for each user and the total number of critical or high-severity findings so that you can take the necessary action. Only identities in an active state are displayed on the Users page.
-
-Managing users provide the following benefits and enable you to:
-
-- Aggregate users from different sources for a centralized view.
-- View user details and identity findings for each user.
-- Monitor internal and external users.
-
-## About the Users Page
-
-On the Users page (Identities > Users), you can do the following:
-
-1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
-2. Search for a user.
-3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
-4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the user information.
-5. View the distribution of identities based on the type (**User**, **Service Principa**l, or **Special Identities**).
-6. View the distribution of users based on the type (**Internal**or **External**).
-7. Group users by category such as user first seen, user last seen, user tags, etc.
-8. Refresh the user table to reflect the most current information.
-9. Export the list of users and their associated details as a CSV file.
-10. Modify the columns displayed in the table.
-11. View the list of users. Click a user to [view detailed information](https://help.zscaler.com/identity-protection/viewing-users-details). For each user in the list, you can see:
-  - **ID**: The unique identifier of the user.
-  - **Name**: The name of the user.
-  - **Is Admin**: The user's admin role status. If the user is an admin, this field shows `true`.
-  - **Total Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the user.
-  - **Sources**: The source of the user (e.g., **Active Directory**, **Microsoft Entra ID**, etc.).
-  - **Identity Type**: The type of identity (**User**, **Service Principa**l, or **Special Identities**).
-  - **Last Activity Date**: The date of most recent activity.
-  - **State**: The state of the user's account (**Active**or **Inactive**).
-  - **Type**: The type of user (**Internal**or **External**).
-
-[Image: Users page in the Identities app.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/configuring-entity-drawers-identities","lastmod":"2026-05-17T07:06Z","nid":"1539050"} -->
-## Configuring Entity Drawers
-
-- Source: https://help.zscaler.com/identity-protection/configuring-entity-drawers-identities
-- Product: Identity Protection
-- Path: Identity Protection Help > Settings > Configuring Entity Drawers
-- Last modified: 2026-05-17T07:06Z
-- Summary: How to configure entity drawers in Identity Protection.
-
-Identity Protection provides a default UI configuration for displaying the main entity drawers (users, tenants, and identity findings). You can customize the UI fields and organize the information layout within the entity drawer to meet your organization's specific needs.
-
-To configure a drawer:
-
-1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**> **UI Config**. See image.
-2. From the **Entity**drop-down menu, select the entity drawer you want to configure (**User**, **Tenant**, or **Identity Finding**). The available fields vary depending on the selected entity.
-3. (Optional) Select the **Severity** checkbox to display the severity level in the top panel of the entity drawer. See image.
-4. (Optional) Select the **Status Timeline** checkbox to display the status timeline in the top panel of the entity drawer.
-5. Save the settings in one of the following ways:
-  - Click **Save**to update the current configuration.
-  - Click **Save as New Type** to save the settings as a new type.
-
-## Creating Types
-
-You can create a new type for the different entities.
-
-To create a new type:
-
-1. From the **Entity**drop-down menu, select the entity you want to configure (e.g., **User**).
-2. From the **Type**drop-down menu, select the type of entity, and use it as a template to create a new type. The original types are not affected.
-3. Configure the fields and settings as needed.
-4. Click **Save as New Type**.
-5. Enter a name for the new type.
-6. Click **Apply**. The new type is added to the **Type** drop-down menu.
-
-## Creating and Managing Tabs
-
-For each entity drawer, you can manage system tabs and also create and configure custom tabs. Each tab corresponds to a configurable element in the entity drawer. You can perform the following actions when customizing an entity drawer:
-
-- Add Tabs
-- Rearrange Tabs
-- Delete Tabs
-- Restore System Tabs
-
-[Image: Configuring UI entity drawers in the Identities app]
-
-[Image: Severity score in Identity Finding drawer]
-
-To rearrange the order of tabs:
-
-1. Hover over the grid icon to drag the tab to the desired position. See image.
-2. Save the settings in one of the following ways:
-  - Click **Save**to update the current configuration.
-  - Click **Save as New Type** to save the settings as a new type.
-
-[Image: Hover and rearrange tabs]
-
-To add tabs to an entity drawer:
-
-1. Click **Add Tab**. See image.
-2. Click **Add Custom Tab**. See image. A dialog window appears.
-3. In the dialog window: See image.
-  1. **Tab Name**: Enter a name for the tab.
-  2. **Tab main projection**: Select the entity from the drop-down menu that the tab should display data from.
-  3. **Should show the tab by field**: (Optional) Select a field to set the tab visibility. This tab only appears when the selected field is populated.
-  4. **Type**: Select the tab type.
-    - **Fields**: Data is displayed as a list of fields.
-    - **2 Columns**: Data is displayed in two columns.
-    - **Table**: Data is displayed in a table.
-    - **Text**: Data is displayed as plain text.
-4. Click **Apply**.
-5. Save the settings in one of the following ways:
-  - Click **Save**to update the current configuration.
-  - Click **Save as New Type** to save the settings as a new type.
-
-To delete a tab, hover over the tab and click the **Delete**icon.
-
-See image.
-
-You can restore system tabs that were deleted.
-
-1. Click **Add Tab**. See image. A list of deleted system tabs appears.
-2. Select the deleted tab from the list.
-3. Save the settings in one of the following ways:
-  - Click **Save**to update the current configuration.
-  - Click **Save as New Type** to save the settings as a new type.
-
-[Image: UI Configuration page with an option to add a new tab]
-
-[Image: Adding a custom tab]
-
-[Image: Adding a new tab]
-
-[Image: Deleting a tab from an entity drawer]
-
-[Image: UI Configuration page with an option to add a new tab]
-
-## Customizing Fields in Tabs
-
-You can customize the presentation of information within each tab and add new fields to a tab.
-
-The following table lists the differences between configuring system tabs and custom tabs.
-
-| **Tab Type** | **Available Configurations** |
-| --- | --- |
-| System Tabs | Rearrange tabs by dragging them to a new position.; Add new fields.; Delete tabs.; Restore deleted tabs.; For the Details tab, you can specify whether fields appear on the left or right columns.; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
-| Custom Tabs | Edit tabs, sections, and fields.; Rearrange tabs by dragging them to a new position.; Add new fields.; Delete tabs (cannot be restored later).; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
-
-When customizing fields, you can perform the following actions:
-
-- Add Custom Fields
-- Rearrange Fields
-- Delete Fields
-- Edit Custom Fields
-
-After completing the configuration of the UI settings, click **Save**.
-
-To rearrange the order of fields on the tab or section, hover over the grid icon to drag the field to the desired position.
-
-See image.
-
-To delete a field, click the **Delete**icon.
-
-See image.
-
-You can add a new field to a system tab or to a custom tab.
-
-To add a new custom field:
-
-1. Click **Add Field**. See image. A dialog window appears.
-2. In the dialog window: See image.
-  1. **Display Name**: Enter a name for the field.
-  2. **Field Name**: Select a field from the drop-down menu.
-  3. **Link Field**: (Optional) Select a field from the drop-down menu. If a field contains a valid URL, the hyperlink is populated within the field on the ticket or asset. The **Field Name**text is displayed as a clickable hyperlink.
-  4. (Optional) Select the **Display When Empty**checkbox to display the field even if no value is present for the field.
-3. Click **Apply**.
-
-To edit a custom field:
-
-1. Hover over the tile of the field you want to edit.
-2. Click the **Edit**icon. See image.
-3. Make the necessary changes, and click **Apply**.
-
-You cannot edit a system tab, including the name, type, and default fields. These can only be rearranged or deleted.
-
-[Image: Moving a field within a tab]
-
-[Image: Delete option in a tab]
-
-[Image: Adding a field to a tab]
-
-[Image: Adding a new field in a tab]
-
-[Image: Editing a field in a tab]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/managing-itdr-configurations","lastmod":"2026-05-01T07:06Z","nid":"1538791"} -->
-## Managing ITDR Configurations
-
-- Source: https://help.zscaler.com/identity-protection/managing-itdr-configurations
-- Product: Identity Protection
-- Path: Identity Protection Help > Settings > Managing ITDR Configurations
-- Last modified: 2026-05-01T07:06Z
-- Summary: How to manage ITDR Configurations from the Zscaler Security Operations (SecOps) platform.
-
-You can access the ITDR settings for Identity Protection within the Zscaler Security Operations (SecOps) platform (Identities > ITDR Config). While the ITDR Config page is available on the SecOps platform, the detailed configuration is managed in the legacy Zscaler ITDR Admin Portal.
-
-The ITDR Config page is organized into the following sections:
-
-- ITDR Manage
-- ITDR Settings
-- Endpoint Settings
-- Server Agent Settings
-
-Configure identity scans and policies for posture, change detection, credential exposure, and identity threats across AD, Entra ID, and Okta.
-
-- **Active Directory (AD) Posture Scan**: You can configure AD posture scans by choosing attributes, selecting domain controllers, defining scan timeouts, and running scans on demand. To learn more, see [About Active Directory Posture Scan](https://help.zscaler.com/itdr/about-active-directory-posture-scan).
-- **Active Directory Privileged Account Tracking**: Track high-risk AD accounts by defining which privileged users to monitor for misuse and threats. This enables monitoring of sensitive accounts to detect suspicious activity or privilege abuse. To learn more, see [About Active Directory Privileged Account Tracking](https://help.zscaler.com/itdr/about-active-directory-privileged-account-tracking).
-- **Endpoint Credential Exposure Scan**: Scan endpoints for exposed credentials and secrets to uncover theft and privilege-escalation risks. This feature strengthens detection of credential harvesting from user systems. To learn more, see [About Endpoint Credential Exposure Scan](https://help.zscaler.com/itdr/about-endpoint-credential-exposure-scan).
-- **Entra ID Posture Scan**: Connect Entra ID tenants, deploy scanners, and run posture checks on identities and configurations. This provides visibility into misconfigurations and risky identity settings within Entra ID environments. To learn more, see [About Entra ID Posture Scan](https://help.zscaler.com/itdr/about-entra-id-posture-scan).
-- **Threat Detection Policies**: Configure and tune threat detection policies to monitor identity attacks, define detection scope, evaluate findings, and protect Active Directory. These policies determine how identity threats are identified and evaluated across the environment. To learn more, see [About Threat Detection Policies](https://help.zscaler.com/itdr/about-threat-detection-policies).
-- **Okta**: Integrate with Okta to enrich the identity metadata, identify real-time changes to an Okta identity, and perform actions on an Okta identity like activate user, suspend user, clear user sessions, etc. To learn more, see [Integrating with Okta](https://help.zscaler.com/itdr/integrating-itdr-okta).
-- **Active Directory Change Detection**: Configure and manage AD change detection policies to monitor critical directory changes and trigger security alerts. This helps track risky modifications in AD objects and configurations. To learn more, see [About Active Directory Change Detection Policies](https://help.zscaler.com/itdr/about-active-directory-change-detection-policies).
-- **Entra Change Detection**: Configure Entra ID change detection policies to track critical directory changes, apply custom rules, and trigger alerts on risky activities. This provides real-time visibility into high-impact changes within Entra ID. To learn more, see [About Entra ID Change Detection Policies](https://help.zscaler.com/itdr/about-entra-id-change-detection-policies).
-
-You can use the ITDR Settings section to configure safelists for AD and Entra ID issues and objects. Safelists allow you to exclude known, trusted, or accepted issues and objects from being accounted for risk scores and reduce alert noise.
-
-- **Active Directory Issue Safelist:** Exclude known, accepted AD issues from posture scans and alerts. To learn more, see [About the Active Directory Issue Safelist](https://help.zscaler.com/itdr/about-active-directory-issue-safelist).
-- **Active Directory Object Safelist**: Exclude trusted AD objects from identity issues, alerts, and posture findings. To learn more, see [About the Active Directory Object Safelist](https://help.zscaler.com/itdr/about-active-directory-object-safelist).
-- **Active Directory Change Detection Issue Safelist**: Add, view, and manage safelisted change-detection issues to suppress expected alerts and focus on real identity risks. To learn more, see [Adding a Change Detection Issue to the Safelist](https://help.zscaler.com/itdr/adding-change-detection-issue-safelist).
-- **Active Directory Change Detection Object Safelist**: Exclude specific AD objects from change detection issues to reduce alert noise. To learn more, see [About the AD Change Detection Object Safelist](https://help.zscaler.com/itdr/about-ad-change-detection-object-safelist).
-- **Entra ID Issue Safelist**: Suppress known Entra ID findings so change detection focuses on relevant identity risks. To learn more, see [About the Entra ID Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-issue-safelist).
-- **Entra ID Object Safelist**: Exclude known safe Entra ID objects from detection to reduce false positives. To learn more, see [About the Entra ID Object Safelist](https://help.zscaler.com/itdr/about-entra-id-object-safelist).
-- **Entra ID Change Detection Issue Safelist:** Suppress alerts for known Entra ID change-detection issues while maintaining visibility into real threats. To learn more, see [About the Entra ID Change Detection Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-issue-safelist).
-- **Entra ID Change Detection Object Safelist**: Exclude trusted objects from Entra ID change detection so expected changes do not trigger issues. To learn more, see [About the Entra ID Change Detection Object Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-object-safelist).
-
-You can use the Endpoint Settings section to configure and control endpoint agents, monitor user systems, run targeted scans, and detect identity threats.
-
-- Agents: Monitor and manage all endpoint agents. You can view device details, check policy status, review logs, and take action directly when needed.
-- Agent Configuration: Customize how agents behave by renaming services, adding descriptions, automatically cleaning up duplicates. This improves manageability of deployed agents.
-- Agent Update Groups: Control agent updates by, grouping endpoints, rolling out updates in phases, tracking update progress, and exporting update details. This allows controlled and phased deployment of endpoint agent updates.
-
-To learn more, see [About Endpoint Settings](https://help.zscaler.com/itdr/about-endpoint-settings).
-
-You can use the Server Agent Settings section to configure and control server agents, manage domain settings, monitor authentication activity, and detect identity threats.
-
-- **Domains**: Manage domains and controllers to track domain health, monitor logons, identify weak or compromised passwords. This provides centralized visibility into domain-level identity security.
-- **Agents**: Monitor and manage server agents. You can view system's status, review policies and logs, take action directly when needed.
-- **Agent Update Groups**: Control server agent updates by grouping servers, managing phased rollouts, monitoring update status, etc.
-- **Configuration**: Configure server agents to detect weak passwords, set custom keywords, simulate attacks, strengthen password security locally. This enhances detection capabilities within domain infrastructure.
-
-To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/about-server-agent-settings).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/managing-saved-views","lastmod":"2026-05-17T07:06Z","nid":"1538788"} -->
-## Managing Saved Views
-
-- Source: https://help.zscaler.com/identity-protection/managing-saved-views
-- Product: Identity Protection
-- Path: Identity Protection Help > Getting Started > Admin Portal > Managing Saved Views
-- Last modified: 2026-05-17T07:06Z
-- Summary: How to create and manage saved views in Identity Protection.
-
-Saved views are configurable, reusable views that apply filters, grouping, sorting, and field selections to data in Identity Protection. They improve data exploration and analysis by allowing users to return to specific data configurations without reapplying settings each time.
-
-See image.
-
-You can perform the following actions to manage saved views:
-
-- Default View
-- Favorite Views
-- Create a New View
-- Edit Views
-- Delete Views
-
-Your default view determines what you first see when opening a particular page. You can customize the default view at two levels:
-
-- **My Default View**: In the saved views drop-down menu, click the **Set My Default View** icon next to the view name. This sets the selected view as the default for your account only. See image.
-- **Account Default View**: In the saved views drop-down menu, click the **Set as Account Default View** icon next to the view name. This sets the selected view as the default for all users in the account. See image.
-
-[Image: Set My Default View icon]
-
-[Image: Set as Account Default View icon]
-
-To access frequently used views, you can add views to the favorites list.
-
-To add a view to the favorites list, click the **Add to Favorite** icon next to the view name.
-
-See image.
-
-[Image: Add to Favorite icon]
-
-To create a new saved view:
-
-1. Apply filters, sorting, and other settings to the table.
-2. Click **Save As View**. See image.
-3. In the dialog window: See image.
-  - **View Name**: Enter a name for the view.
-  - **View Permissions**: Set to either **Public** (i.e., visible to all users in the account) or **Private** (i.e., visible only to you).
-  - **Set as Account Default View**: Select the checkbox to set this view as the default view for all users in the account.
-4. Click **Save**.
-
-[Image: Click Save As View to save the configured view.]
-
-[Image: Save as new view window]
-
-You can edit custom views that you created to update the view's settings.
-
-You cannot edit the system views and views that are created by other users.
-
-To edit a custom saved view:
-
-1. Select the view from the saved views drop-down menu.
-2. Hover over the view, and click the **Edit**icon. See image. The **Edit Current View** window appears.
-3. In the**Edit Current View** window, apply your changes. See image.
-4. Click **Save**.
-
-You can delete custom views that you created to remove them from the available saved views.
-
-You cannot delete the system views and views that are created by other users.
-
-To delete a custom saved view:
-
-1. Select the view from the saved views drop-down menu.
-2. Hover over the view, and click the **Delete**icon. See image.
-
-The view is deleted immediately.
-
-[Image: Click Edit icon to edit the saved view.]
-
-[Image: Edit Current View window]
-
-[Image: Delete saved view]
-
-[Image: Saved views list on Users page.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/understanding-identity-protection-architecture","lastmod":"2026-07-01T21:06Z","nid":"1539481"} -->
-## Understanding Identity Protection Architecture
-
-- Source: https://help.zscaler.com/identity-protection/understanding-identity-protection-architecture
-- Product: Identity Protection
-- Path: Identity Protection Help > Getting Started > Understanding Identity Protection Architecture
-- Last modified: 2026-07-01T21:06Z
-- Summary: Information about the Identity Protection architecture.
-
-Identity Protection is an effective identity threat detection and response solution (ITDR) integrated with the Zscaler Security Operations (SecOps) platform. Identity Protection protects users with continuous visibility into identity misconfigurations, risky permissions, and exposed credentials. It detects and stops identity-based attacks such as credential theft, multi-factor authentication bypass, privilege escalation, etc
-
-The Identity Protection architecture includes the following key components:
-
-[Image: Identity Protection Architecture]
-
-- **Identities App**: Built into the SecOps platform and serves as the central point of management and analysis for the Identity Protection service. To learn more, see [What Is Identity Protection?](https://help.zscaler.com/identity-protection/what-identity-protection)
-- **ITDR Connector**: The data connector that serves as the source stream from the ITDR solution to the data fabric.
-- **Data Fabric Cluster**: The entire data fabric cluster responsible for processing raw data from various sources.
-- **Zscaler Zero Trust Exchange (ZTE)**: Identity Protection leverages the ZTE platform to mitigate risk with access policy controls that block compromised users when an identity attack is detected. Integration with Internet & SaaS (ZIA) and Private Access (ZPA) provides better visibility, enrichment, and containment capabilities.
-- **Identity Posture Scan**: Identity Protection provides the ability to assess identity infrastructures, such as Active Directory (AD), Entra ID, Okta, etc. to obtain a comprehensive view of your identity posture, risky identities, misconfigurations, and vulnerabilities. A MITRE ATT&CK mapping helps you locate blind spots, prioritize where to focus, and remediate risks.
-  - **AD Posture Scan**: You can configure an AD scan by specifying the AD domain you want to assess. For assessing the AD domain, Zscaler Client Connector must be installed on a domain-joined Windows machine. Identity Protection audits an AD domain by running LDAP queries to build a map of schema, users, computers, OUs, and other objects in your identity store. It then runs checks against these objects to find misconfigurations and vulnerabilities that exist in your AD domains. After the assessment is complete, the results are available in the Identities app. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) and [About Active Directory Posture Scan](https://help.zscaler.com/itdr/about-active-directory-posture).
-  - **Entra ID Posture Scan**: You can connect your organization's Entra ID tenants with Identity Protection to assess the posture of your Entra ID. The posture checks for Entra ID include identifying misconfigurations and potential risks across Entra ID users, service principals, and roles. Identity Protection uses a deployment script to set up all necessary resources such as resource group, app, storage account, service principal, etc. in the Entra ID tenant. Diagnostic settings are also enabled by the deployment script to enable change detection using logs. The audit logs are analyzed, and the results are available in the Identities app. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) and [About Entra ID Posture Scan](https://help.zscaler.com/itdr/about-entra-id-posture-scan).
-  - **Okta Integration**: Identity Protection integrates with Okta to enrich the identity metadata, identify real-time changes on an Okta identity, and perform actions on an Okta identity like activate user, suspend user, clear user sessions, etc. To learn more, see [Integrating ITDR with Okta](https://help.zscaler.com/itdr/integrating-itdr-okta).
-- **Identity Change Detection**: After you have visibility of your identity attack surface, you can build identity hygiene. Identity Protection provides real-time monitoring of critical changes in your AD domains and Entra ID tenants that introduce new risks and open pathways for attackers to escalate privileges and move laterally. In addition to real-time alerting, you also get remediation guidance in the form of video tutorials, commands, and scripts that can be used to resolve issues. To learn more, see [About Active Directory Change Detection](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [About Entra ID Change Detection](https://help.zscaler.com/itdr/about-entra-id-change-detection).
-- **Credential Exposure Scan**: Identity Protection scans endpoints to check for risky identity material, such as usernames, passwords, API keys, SSH keys, certificate files, and other credentials stored locally on endpoints. In post-compromise scenarios, the presence of such credentials on an endpoint is a critical source of risk and enables adversaries to escalate privileges and access sensitive data and applications. The exploitation of these local credentials has been observed in several publicly reported breaches. Visibility into these credentials presents an opportunity to clean them up and enforce policies for securely storing them, thereby reducing the post-compromise attack surface available to an adversary. To learn more, see [About Endpoint Credential Exposure Scan](https://help.zscaler.com/itdr/about-endpoint-credential-exposure-scan).
-- **Identity Threat Detection**: Identity Protection has a threat detection capability that alerts security teams and threat hunters of malicious activities directed toward potentially malicious misuse and theft of identities. Identity threat detection is enabled as an endpoint policy on designated machines with Zscaler Client Connector installed. Security teams can enable detectors (DCSync, DCShadow, Kerberoasting, etc.) via policies on designated endpoints. If a pattern is noticed, Zscaler Client Connector sends signals to Identity Protection indicating that a threat has been detected. Identity Protection enriches the threat signal with information relevant to the security team to perform an investigation. The security team can configure orchestration capabilities to perform automated actions. To learn more, see [About Threat Detection Policies](https://help.zscaler.com/itdr/about-threat-detection-policies).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/using-filters","lastmod":"2026-05-17T07:06Z","nid":"1538789"} -->
-## Using Filters
-
-- Source: https://help.zscaler.com/identity-protection/using-filters
-- Product: Identity Protection
-- Path: Identity Protection Help > Getting Started > Admin Portal > Using Filters
-- Last modified: 2026-05-17T07:06Z
-- Summary: How to use filters in Identity Protection.
-
-You can use filters to adjust and refine the data displayed in views in Identity Protection. By applying filters, you can focus on specific information relevant to your current task, such as reviewing vulnerabilities in a particular user or tenant, addressing critical policy violations, or identifying high-priority identity findings discovered last week. This helps you efficiently prioritize and focus on the most critical risks.
-
-Filters are applied using fields, including measurements and dimensions. Applying filters adjusts the displayed data, and this resets when you leave the page. Your applied filters can be saved as a set view. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/identity-protection/managing-saved-views).
-
-## Adding Filters
-
-To add a filter:
-
-1. Click **More**to open the list of available fields for filtering. See image. You can also use the search bar to search for the specific filter.
-2. Select a field from the list to add it to the list of filters. The filter dialog window appears for the selected field.
-3. Set the values you want to filter the field by:
-  - List
-  - Condition
-
-1. Select **List**in the filter dialog window.
-2. Select one or more options to include as filtering values.
-
-See image.
-
-Multiple selections apply a logical OR (e.g., selecting **User State Active and Empty**shows items matching either value).
-
-[Image: Adding filters to the Users page.]
-
-[Image: Adding list filters on the Users page.]
-
-Use conditional filters to apply rules that filter your data based on field values. Conditional filters are available depending on the field and the view you are filtering in. You can combine multiple conditions using AND or OR logic to create filtering rules for more granular control.
-
-To apply conditional filters:
-
-1. Select **Condition**in the filter dialog window.
-2. Configure the filter conditions: See image.
-  1. Select an operator (e.g., **Equals**, **Contains**). Available operators vary depending on the field type.
-  2. Enter the value that the rule should apply to. Filter conditions are case sensitive.
-  3. (Optional) Use **AND**/**OR**logic to define compound rules: For example, filter users based on the severity score of their identity findings to focus on high-risk users. To view users with a severity score between 20 and 50, add the **Identity Finding Severity Score** field to the filters, and configure the conditional filter `>=`20 and `<=`50. See image.
-    - **AND**includes records only if they meet all conditions in the rule.
-    - **OR**includes records if they meet any conditions in the rule.
-3. Click **Apply**.
-
-[Image: Configuring conditional filters for identity finding severity score of users.]
-
-[Image: Adding condition filters on the Users page.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-identity-finding-details","lastmod":"2026-05-17T07:06Z","nid":"1538793"} -->
-## Viewing Identity Finding Details
-
-- Source: https://help.zscaler.com/identity-protection/viewing-identity-finding-details
-- Product: Identity Protection
-- Path: Identity Protection Help > Identity Findings > Viewing Identity Finding Details
-- Last modified: 2026-05-17T07:06Z
-- Summary: How to view details of identity findings.
-
-You can view detailed information about identity security risks detected in your environment on the Identity Findings page. These findings help security teams identify misconfigurations, exposed credentials, and other identity-related risks across connected identity sources such as Active Directory or Entra ID. Each identity finding includes contextual information such as the risk description, severity, affected tenants, MITRE ATT&CK mapping, and recommended remediation steps. This information helps you quickly understand the potential impact and take appropriate action to mitigate the risk.
-
-To access detailed identity finding information:
-
-1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**>**Identity Findings**. See image.
-2. On the **Identity Findings**page, click an identity finding to view its details. The identity finding details drawer appears.
-3. In the identity finding details drawer, you can access the following tabs:
-  - Details
-  - Affected Identities
-  - Affected Tenants
-  - Remediation
-
-The Details tab provides an overview of the identity risk and its security context, helping you to review and decide which identity environments require investigation and remediation.
-
-This section typically includes:
-
-- **Identity Finding**: The name of the detected identity risk.
-- **Last Seen**: When the finding was first and most recently detected.
-- **Tactics**: The relevant MITRE tactic associated with the risk.
-- **Type of Risk**: The classification of the detected issue.
-- **Techniques**: The relevant MITRE techniques associated with the risk.
-- **Vulnerability Exploit Ease**: Indicates how easily an attacker can exploit the vulnerability based on required skills, conditions, and available tools.
-- **Sub Techniques**: The relevant MITRE sub-techniques associated with the risk.
-- **Vulnerability Remediate** **Ease**: Indicates how easily the vulnerability can be fixed based on required effort, changes, and potential impact on systems and operations.
-- **Sources**: The identity systems where the risk was detected (e.g., Active Directory or Entra ID).
-
-In addition, you can view details about the type of finding, its impact, and related reference documentation.
-
-See image.
-
-The Affected Identities tab lists all identities impacted by the finding. You can review and decide which identity requires investigation and remediation.
-
-You can also apply filters, download the list of tenants as a CSV file, or customize the columns displayed in the table.
-
-See image.
-
-The Affected Tenants tab lists all tenants or identity environments impacted by the finding. You can review and decide which identity environments require investigation and remediation.
-
-You can also apply filters, download the list of tenants as a CSV file, or customize the columns displayed in the table.
-
-See image.
-
-The Remediation tab provides recommended steps to resolve the detected issue. Depending on the environment and configuration, the remediation guidance can include actions or a remediation workflow that helps you to understand the recommended steps to address the detected identity risk. The workflow guides you through possible actions, such as evaluating whether the configuration is required, implementing alternative security controls, removing insecure configurations, or applying appropriate mitigations.
-
-See image.
-
-For each action, you can view detailed information, including videos, script, etc. to accomplish the action.
-
-See image.
-
-If the configuration cannot be changed immediately, admins can choose to safelist the finding after evaluating the associated risk.
-
-See image.
-
-[Image: Identity Findings page with the navigation highlighted]
-
-[Image: Viewing the Details tab]
-
-[Image: Viewing Affected Identities tab]
-
-[Image: Viewing the Affected Tenants tab]
-
-[Image: Viewing the Remediation tab]
-
-[Image: Viewing various remediation steps]
-
-[Image: Adding an object to safelist]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-tenant-details","lastmod":"2026-05-17T07:06Z","nid":"1539030"} -->
-## Viewing Tenant Details
-
-- Source: https://help.zscaler.com/identity-protection/viewing-tenant-details
-- Product: Identity Protection
-- Path: Identity Protection Help > Tenants > Viewing Tenant Details
-- Last modified: 2026-05-17T07:06Z
-- Summary: How to view a tenant's detailed information in Identity Protection.
-
-You can view detailed information about tenants and identity findings. This helps security teams to review the severity level of each tenant and details of these findings to understand the potential security risks and remediate the issues.
-
-To view tenant details:
-
-1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**> **Tenants**. See image.
-2. On the **Tenants**page, click a tenant. A tenant details drawer appears.
-3. In the tenant details drawer, you can access the following tabs:
-  - Details
-  - Identity Findings
-  - Identities
-  - MITRE ATT&CK
-
-On the **Details**tab, you can view:
-
-- **Tenant ID**: The unique identifier of the tenant.
-- **Last Scan**: The date and time of the last scan for a data sync.
-- **Scan Frequency**: The frequency of the scan (e.g., **Daily**, **Weekly**, etc.).
-- **Source**: The source of the identity finding (e.g., **ITDR Change Detection AD**, **ITDR Domains AD**, etc.). Hover over each icon to view the source.
-- **Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the tenant. See image.
-
-On the **Identity Findings** tab, you can do the following:
-
-- Click the **Export as CSV**icon to export the identity findings list for a tenant to a CSV file.
-- Click the **Settings**icon to modify the columns displayed in the table.
-- Apply filters to the identity findings list (e.g., filtering the findings by a particular state, title, or severity score). To learn more, see [Using Filters](https://help.zscaler.com/identity-protection/using-filters).
-- View the identity findings details: See image.
-  - **Severity**: The severity level (**Critical**, **High**, **Medium**, or **Low**). The **Critical**and **High**severity findings are prioritized.
-  - **Name**: The name of the identity finding.
-  - **Type of Risk**: The type of risk (e.g., **Kerberos Abuse**, **Account Management**, **Credential Exposure**, etc.).
-  - **MITRE Tactics**: The [MITRE ATT&CK tactic](https://attack.mitre.org/tactics/) ID.
-  - **MITRE Techniques**: The [MITRE ATT&CK technique](https://attack.mitre.org/techniques/enterprise/) that the adversary used.
-
-On the **Identities**tab, you can do the following:
-
-- Click the **Export as CSV**icon to export the identity findings list for a user to a CSV file.
-- Click the **Settings**icon to modify the columns displayed in the table.
-- Apply filters to the identity findings list (e.g., filtering the findings by a particular state, title, or severity score). To learn more, see [Using Filters](https://help.zscaler.com/identity-protection/using-filters).
-- View the identities details: See image.
-  - **Name**: The name of the user.
-  - **Identity Type**: The type of identity (**User**, **Service Principa**l, or **Special Identities**).
-  - **Is Admin**: The user's admin role status. If the user is an admin, this field shows `true`.
-  - **Type**: The type of user (**Internal**or **External**).
-
-On the MITRE ATT&CK tab, you can view the identity findings categorized in [MITRE ATT&CK tactics](https://attack.mitre.org/tactics/). Hover over the tactic to see the **Read more** icon, and click the icon to go to the MITRE tactics web page.
-
-See image.
-
-[Image: Tenants page displaying configured tenants.]
-
-[Image: The Details tab on Tenants page]
-
-[Image: The Identity Findings tab on Tenants page]
-
-[Image: The Identities tab on Tenants page.]
-
-[Image: The MITRE ATT&CK tab on Tenants page.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-user-details","lastmod":"2026-05-22T07:06Z","nid":"1538893"} -->
-## Viewing User Details
-
-- Source: https://help.zscaler.com/identity-protection/viewing-user-details
-- Product: Identity Protection
-- Path: Identity Protection Help > Users > Viewing User Details
-- Last modified: 2026-05-22T07:06Z
-- Summary: How to view a user's detailed information in Identity Protection.
-
-You can view detailed information about users and identity findings. This helps security teams to review the severity level of each user and details of these findings to understand the potential security risks and remediate the issues.
-
-To view user details:
-
-1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**> **Users**.
-2. On the **Users**page, click a user. A user details drawer appears.
-3. In the user details drawer, you can access the following tabs:
-  - Details
-  - Identity Findings
-
-On the **Details**tab, you can view:
-
-- **Name**: The name of the user.
-- **Type**: The type of the user (**Internal**or **External**).
-- **Email**: The email ID of the user.
-- **Is Admin**: The user's admin role status. If the user is an admin, this field shows `True`.
-- **Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the user. See image.
-
-On the **Identity Findings** tab, you can do the following:
-
-- Click the **Export as CSV**icon to export the identity findings list for a user to a CSV file.
-- Click the **Settings**icon to modify the columns displayed in the table.
-- Apply filters to the identity findings list (e.g., filtering the findings by a particular state, title, or severity score). To learn more, see [Using Filters](https://help.zscaler.com/identity-protection/using-filters).
-- View the identity findings details: See image.
-  - **Severity**: The severity level (**Critical**, **High**, **Medium**, or **Low**). The **Critical**and **High**severity findings are prioritized.
-  - **Name**: The name of the identity finding.
-  - **Type of Risk**: The type of risk (e.g., **Kerberos Abuse**, **Account Management**, **Credential Exposure**, etc.).
-  - **MITRE Tactics**: The [MITRE ATT&CK](https://attack.mitre.org/tactics/) tactic ID.
-
-[Image: Details tab on Users page displaying detailed information about user.]
-
-[Image: Identity findings tab displaying findings list for a user.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/what-identity-protection","lastmod":"2026-05-17T07:06Z","nid":"1535399"} -->
-## What Is Identity Protection?
-
-- Source: https://help.zscaler.com/identity-protection/what-identity-protection
-- Product: Identity Protection
-- Path: Identity Protection Help > Getting Started > What Is Identity Protection?
-- Last modified: 2026-05-17T07:06Z
-- Summary: Information on what Identity Protection is and why it is used.
-
-Identity has become the new target for attackers because human and non-human identities have permissions to access critical applications, assets, and sensitive data. Security teams are overwhelmed by fragmented findings and disconnected tools, and risks are increasing faster than the time it takes to resolve them. When an identity is compromised, security teams need more details, such as who the identity is, what it can access, whether it is over-privileged, whether its credentials are weak or exposed, and whether its behavior deviates from normal. This information can help security teams to prioritize, take immediate action, and reduce the risks.
-
-Identity Protection helps organizations move from fragmented visibility to actionable identity security. It detects anomalous activities such as compromised credentials, suspicious logins, sensitive data theft, etc., and provides continuous and unified visibility into identity risks.
-
-Identity Protection is part of the Zscaler Security Operations (SecOps) platform and works alongside Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and Security Operations Center (SOC) Workbench to deliver a cohesive security operations experience. This allows you to unify disparate identity data from multiple systems to get a complete view of users, understand their posture, dynamically measure identity risks, and mitigate identity attacks.
-
-## Key Features and Benefits
-
-Identity Protection includes the following features and benefits:
-
-- **Detect Risks Associated with Identities**: Detect compromised accounts, suspicious sign‑ins, leaked credentials, and anomalies in authentication activities to stop threats before they escalate.
-- **Mitigate Identity Attacks**: Detect and contain identity-based attacks before they can cause harm.
-- **Strengthen Identity Posture**: Find and fix weak passwords, exposed credentials, and excessive privileges.
-- **Single Identity View**: Unify identity data from disparate sources into one view. Correlates signals from sign‑ins, credentials, permissions, and behavior to display findings related to identities.
-- **Drive Broader SecOps Outcomes**: Prioritize threats and exposures associated with risky identities to accelerate response and reduce future risk.
-- **Reports and Dashboards**: Custom dashboards and reports to view specific results as required.
-
-## How Does Identity Protection Work?
-
-Identity Protection takes a proactive and integrated approach to secure user identities.
-
-Identity Protection consists of the core capabilities:
-
-- **Identity Risk Detection**: Detect anomalies in authentication activity, suspicious sign‑ins, and compromised credentials. The correlated signals are mapped into the SecOps platform, providing visibility into risks across assets, vulnerabilities, and exposures.
-- **Data Ingestion via Connectors:**Identity Protection uses connectors to ingest data from sources such as posture scans, change detections, alerts, and identity records. These connectors also integrate with identity providers like Okta and Microsoft Entra, enabling the system to consume identity data directly from the customer's IdP and bring it into the protection framework.
-- **Data Fabric as the Backbone:**Data Fabric is the backbone of the SecOps platform. It ensures that all incoming identity signals are normalized, correlated, and enriched. This allows the platform to unify disparate data streams and provide security teams with a coherent view of identity-related risks across the environment.
-- **Custom Configuration:** Manage and fine-tune identity protection through the SecOps platform. Within the Settings page, you can adjust scan configurations and review clear explanations for each option. When deeper configuration is required, certain links redirect you to the legacy ITDR experience, ensuring continuity for advanced tasks while maintaining a modern interface for routine adjustments.
-<!-- /ZS-ARTICLE -->
+Generated: 2026-09-14 03:38 UTC
+Articles in this file: 159
 
 ---
 
@@ -2635,13 +1580,13 @@ This article provides a summary of all new features and enhancements for Risk360
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-08-13T22:39Z","nid":"1534327"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-09-08T11:10Z","nid":"1534327"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/risk360/release-upgrade-summary-2026
 - Product: Risk360
 - Path: Risk360 Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-13T22:39Z
+- Last modified: 2026-09-08T11:10Z
 - Summary: Risk360 Advanced Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Risk360 Advanced.
@@ -3637,122 +2582,6 @@ The Tickets page includes system views with predefined filter selections, provid
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/accessing-and-navigating-security-operations-secops-platform","lastmod":"2026-07-13T21:06Z","nid":"1531068"} -->
-## Accessing and Navigating the Security Operations Platform
-
-- Source: https://help.zscaler.com/uvm/accessing-and-navigating-security-operations-secops-platform
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Admin Portal > Accessing and Navigating the Security Operations Platform
-- Last modified: 2026-07-13T21:06Z
-- Summary: How to sign in to and navigate the Security Operations Platform.
-
-This article covers the following topics to help you get started with the Security Operations Platform (SecOps Platform):
-
-- Signing In to the SecOps Platform
-- Accessing the Admin Settings
-- Navigating within the SecOps Platform
-
-After your organization is provisioned for the SecOps Platform, you receive an email with a username (this is your registered email address) and a password to sign in to the SecOps Platform. Go to the login page provided in the email (app.avalor.io).
-
-If your account is configured without single sign-on (SSO):
-
-1. Enter your email address.
-2. Click **Continue**. The **Login**page appears.
-3. Enter your email address and password.
-4. Click **Sign In**.
-
-If your account is configured to use SSO:
-
-1. Enter your email address.
-2. Click **Continue**. You are redirected to your IdP's login page.
-3. Log in with your credentials. If you are logged in successfully, you are redirected to the SecOps Platform.
-
-The SecOps Platform account admin can configure SSO, user management, and email notifications for data processing failures in the account.
-
-To access the Account Settings:
-
-1. Click the **Profile**menu in the top-right corner of the page.
-2. Click **Account Settings**. See image.
-3. In the left-side navigation:
-  - Click **Settings**to configure and manage SSO (e.g., Okta).
-  - Click **User Management**to configure and manage [users](https://help.zscaler.com/uvm/creating-managing-users).
-  - Click **Permissions**to configure and manage [roles permissions](https://help.zscaler.com/uvm/managing-system-and-custom-roles), [content permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions) and [email notifications](https://help.zscaler.com/uvm/enabling-email-notifications-source-run-failures).
-
-[Image: Account Settings page in the Security Operations Platform]
-
-The SecOps Platform has the following items in the top navigation bar:
-
-- Search
-- Apps
-- Explore
-- Configure
-- Knowledge Center
-- Support
-- Profile Menu
-
-You can click the Zscaler logo in the top left of the navigation bar to return to the main dashboard.
-
-The left-side navigation changes dynamically based on your current location within the SecOps Platform, and can be collapsed or expanded. To set the mode, hover over the menu and click the arrow icon.
-
-[Image: Security Operations Platform top navigation bar]
-
-You can search to locate pages, features, or tools within the SecOps Platform. Press `Ctrl+K` (Windows) or `Cmd+K` (Mac) to open the search bar, then enter keywords to find relevant results.
-
-Click the **Profile**menu to access various settings and account management options.
-
-To learn more about each component, see the following:
-
-Profile Settings >
-
-- Personal Info: Update personal details associated with your account.
-- [Content Permissions](https://help.zscaler.com/uvm/creating-managing-content-permissions)
-- [Email Notifications](https://help.zscaler.com/uvm/enabling-email-notifications-source-run-failures)
-
-Account Settings >
-
-- [Authenticate](https://help.zscaler.com/uvm/generating-saml-details)
-- [AI Capabilities](https://help.zscaler.com/uvm/managing-ai-capabilities-secops-platform)
-- [Audit Logs Export](https://help.zscaler.com/uvm/viewing-audit-logs)
-- [Zscaler Gateway](https://help.zscaler.com/uvm/configuring-zscaler-secops-platform-gateway)
-- [User Management](https://help.zscaler.com/uvm/creating-managing-users)
-- Permissions >
-  - [Roles](https://help.zscaler.com/uvm/managing-system-and-custom-roles)
-  - [Content](https://help.zscaler.com/uvm/creating-managing-content-permissions)
-
-Click **Log Out**to log out of the SecOps Platform. You can enable automatic logout after a period of inactivity in Account Settings > Authenticate, after an email domain is added.
-
-Click the **Contact Support**icon for assistance with technical issues, account configurations, or general inquiries regarding the SecOps Platform.
-
-Click the **Knowledge Center**icon to access the SecOps Platform's knowledge base directly within the interface, featuring resources such as configuration guides, deployment guides, and FAQs.
-
-Click **Configure**to access settings for customizing and managing the data in the SecOps Platform.
-
-To learn more about each component, see the following:
-
-- [Sources](https://help.zscaler.com/uvm/creating-data-sources)
-- [Authentications](https://help.zscaler.com/uvm/configuring-authentications)
-- [Outegrations](https://help.zscaler.com/uvm/creating-outegrations)
-- [Unification](https://help.zscaler.com/uvm/what-data-unification) >
-  - [Entities](https://help.zscaler.com/uvm/configuring-entity-unification)
-  - [Fields](https://help.zscaler.com/uvm/configuring-field-unification)
-- [Asset Aging](https://help.zscaler.com/uvm/aging-assets)
-
-Click **Explore**to access various data analysis and visualization tools.
-
-To learn more about each component, see the following:
-
-- [Entity Explorer](https://help.zscaler.com/uvm/using-entity-explorer)
-- [Logs](https://help.zscaler.com/uvm/building-queries-searching-logs)
-- [Reports](https://help.zscaler.com/uvm/creating-reports)
-- [Dashboards](https://help.zscaler.com/uvm/configuring-custom-dashboards)
-
-Click the **App Menu**icon to access SecOps applications included in your license, such as Unified Vulnerability Management (UVM) and Asset Exposure Management (AEM).
-
-To pin an app to the top navigation bar, click the **App Menu** icon, then click the **Add to Favorite** icon ([Image: app menu add to favorite star icon]) next to the app.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/configuring-apiiro-connector","lastmod":"2026-07-05T07:06Z","nid":"1528251"} -->
 ## Configuring the Apiiro Connector
 
@@ -4381,13 +3210,13 @@ Enter Axonius custom fields to include in the scope of the ingested data. Press 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-blob-connector","lastmod":"2026-03-26T12:19Z","nid":"1530972"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-blob-connector","lastmod":"2026-08-18T01:38Z","nid":"1530972"} -->
 ## Configuring the Azure Blob Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-azure-blob-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Azure Blob Connector
-- Last modified: 2026-03-26T12:19Z
+- Last modified: 2026-08-18T01:38Z
 - Summary: How to configure the Azure Blob connector, including setting up authentication and data retrieval filters and specifications.
 
 Azure Blob Storage is a cloud-based object storage solution provided by Microsoft Azure, allowing users to store and serve large amounts of unstructured data.
@@ -4418,7 +3247,7 @@ After you create the Azure Blob data source, enter the following information in 
 - Requested Containers List
 - Requested Tags
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 To retrieve the storage account connection string, see [Zscaler UVM and Microsoft Services Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-microsoft-services-deployment-guide).
 
@@ -4473,13 +3302,13 @@ The requested tags are a list of user-defined tags in the format key : value. Yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-cloud-assets-connector","lastmod":"2026-02-17T06:06Z","nid":"1533909"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-cloud-assets-connector","lastmod":"2026-08-18T01:46Z","nid":"1533909"} -->
 ## Configuring the Azure Cloud Assets Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-azure-cloud-assets-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Azure Cloud Assets Connector
-- Last modified: 2026-02-17T06:06Z
+- Last modified: 2026-08-18T01:46Z
 - Summary: How to configure the Azure Cloud Assets connector, including setting up authentication and data retrieval filters and specifications.
 
 Azure Cloud is a cloud computing platform that enables organizations to build, deploy, and manage cloud-based applications with scalable infrastructure and integrated services.
@@ -4561,7 +3390,7 @@ After you create the Azure Cloud Assets data source, enter the following informa
 - Specific Subscription IDs
 - All Subscription IDs in org
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 To configure authentication:
 
@@ -5397,13 +4226,13 @@ Enter the number of days that you want to retrieve data for during each run. Thi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-crowdstrike-connector","lastmod":"2026-07-05T07:06Z","nid":"1530822"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-crowdstrike-connector","lastmod":"2026-08-18T01:47Z","nid":"1530822"} -->
 ## Configuring the CrowdStrike Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-crowdstrike-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the CrowdStrike Connector
-- Last modified: 2026-07-05T07:06Z
+- Last modified: 2026-08-18T01:47Z
 - Summary: How to configure the CrowdStrike connector, including setting up authentication and data retrieval filters and specifications.
 
 CrowdStrike is a cybersecurity platform that communicates and shares information with other security tools and platforms, enhancing threat detection and response capabilities.
@@ -5452,7 +4281,7 @@ After you create the CrowdStrike data source, enter the following information in
 - CVE Severity
 - (Optional) Fetch vulnerabilities from the past selected days
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 To configure authentication:
 
@@ -5587,13 +4416,13 @@ Set the Cloud Provider drop-down menu filters and specifications. Select the clo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-crowdstrike-identity-protection-connector","lastmod":"2026-07-05T07:06Z","nid":"1530837"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-crowdstrike-identity-protection-connector","lastmod":"2026-08-18T01:49Z","nid":"1530837"} -->
 ## Configuring the CrowdStrike Identity Protection Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-crowdstrike-identity-protection-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the CrowdStrike Identity Protection Connector
-- Last modified: 2026-07-05T07:06Z
+- Last modified: 2026-08-18T01:49Z
 - Summary: How to configure the CrowdStrike Identity Protection connector, including setting up authentication and data retrieval filters and specifications.
 
 CrowdStrike is a cybersecurity platform that communicates and shares information with other security tools and platforms, enhancing threat detection and response capabilities. CrowdStrike Identity Protection provides identity threat detection and response (ITDR) and endpoint security.
@@ -5643,7 +4472,7 @@ After you create the CrowdStrike Identity Protection data source, enter the foll
 - Authentication
 - Fetch Only Active Directory Domains
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 To configure authentication:
 
@@ -6267,145 +5096,6 @@ This checkbox is available in the following streams:
 [Image: Endor Labs connector tiles]
 
 [Image: Endor Labs Authentication Window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-entity-drawers-uvm","lastmod":"2026-07-14T21:06Z","nid":"1527911"} -->
-## Configuring Entity Drawers in UVM
-
-- Source: https://help.zscaler.com/uvm/configuring-entity-drawers-uvm
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Settings for UVM > Configuring Entity Drawers in UVM
-- Last modified: 2026-07-14T21:06Z
-- Summary: How to configure entity drawers for the Unified Vulnerability Management (UVM) application in the SecOps Platform.
-
-Unified Vulnerability Management (UVM) provides a default UI configuration for displaying the main entity drawers (e.g., [tickets](https://help.zscaler.com/uvm/about-tickets), [assets](https://help.zscaler.com/uvm/about-assets-uvm), [findings](https://help.zscaler.com/uvm/about-findings), [exceptions](https://help.zscaler.com/uvm/understanding-exception-requests)). You can customize the UI fields and organize the information layout within the entity drawer to meet your organization's specific needs.
-
-To configure the drawer:
-
-1. Go to **Vulnerabilities** > **Settings** > **UI Config**. See image.
-2. From the **Entity**drop-down menu, select the entity drawer you want to configure (e.g., **Ticket**, **Asset**, **Finding**, **Exception**). The available fields vary depending on the selected entity. If you select **Ticket**or **Finding** from the **Type**drop-down menu, select the type of entity (e.g., **CVE**, **DEFAULT**, **MISCONFIG**).
-3. (Optional) Select the **Severity** checkbox to display the severity level in the top panel of the entity drawer.
-4. (Optional) Select the **Status Timeline** checkbox to display the status timeline in the top panel of the entity drawer. See image.
-5. Save the settings in one of the following ways:
-  - Click **Save**to update the current configuration.
-  - Click **Save as New Type** to save the settings as a new type.
-
-## Creating Types
-
-You can create a new type for the different entities.
-
-To create a new type:
-
-1. From the **Entity**drop-down menu, select the entity you want to configure (e.g., **Ticket**).
-2. From the **Type**drop-down menu, select the type of entity (e.g., **CVE**, **MISCONFIG**), and use it as a template to create a new type. The original types are not affected.
-3. Configure the fields and settings as needed.
-4. Click **Save as New Type**.
-5. Enter a name for the new type.
-6. Click **Apply**. The new type is added to the **Type** drop-down menu.
-
-## Creating and Managing Tabs
-
-For each entity drawer, you can manage system tabs, and also create and configure custom tabs. Each tab corresponds to a configurable element in the entity drawer. You can perform the following actions when customizing an entity drawer:
-
-- Rearrange Tabs
-- Add Tabs
-- Delete Tabs
-- Restore System Tabs
-
-[Image: The Ticket UI Configuration page in UVM]
-
-[Image: Severity and status in a ticket drawer]
-
-To rearrange the order of tabs:
-
-1. Hover over the grid icon to drag the tab to the desired position. See image.
-2. Save the settings in one of the following ways:
-  - Click **Save**to update the current configuration.
-  - Click **Save as new Type** to save the settings as a new type.
-
-[Image: The grid icon rearranges tabs]
-
-To add tabs to an entity drawer:
-
-1. Click **Add Tab**.
-2. Click **Add Custom Tab**. A dialog window appears.
-3. In the dialog window:
-  1. **Tab Name**: Enter a name for the tab.
-  2. **Tab Main Projection**: Select the entity from the drop-down menu that the tab should display data from.
-  3. **Should show the tab by field**: Select a field to set the tab visibility. The tab appears only when the selected field is populated.
-  4. **Type**: Select the tab type.
-    - **Fields**: Data is displayed as a list of fields.
-    - **2 Columns**: Data is displayed in two columns.
-    - **Table**: Data is displayed in a table.
-    - **Text**: Data is displayed as plain text.
-  5. Click **Apply**.
-4. For table tabs, select how the data should be displayed.
-  - **Visible**: Select to display all data by default.
-  - **On Expand**: Select to display data when expanding the table.
-5. Save the settings in one of the following ways:
-  - Click **Save**to update the current configuration.
-  - Click **Save as new Type** to save the settings as a new type.
-
-To delete a tab, hover over the tab and click the **Delete**icon.
-
-See image.
-
-You can restore system tabs that were deleted.
-
-1. Click **Add Tab**. A list of deleted system tabs appears.
-2. Select the deleted tab from the list. See image.
-3. Save the settings in one of the following ways:
-  - Click **Save**to update the current configuration.
-  - Click **Save as new Type** to save the settings as a new type.
-
-[Image: The Delete icon to delete a tab]
-
-[Image: The Add Tab button to restore a deleted tab]
-
-## Customizing Fields in Tabs
-
-You can customize the presentation of information within each tab and add new fields to a tab.
-
-The following table lists the differences between configuring system tabs and custom tabs.
-
-| **Tab Type** | **Available Configurations** |
-| --- | --- |
-| System Tabs | Rearrange by dragging to a new position.; Add new fields.; Delete tabs.; Restore deleted tabs.; For the Details tab, you can specify whether fields appear on the left or right columns.; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
-| Custom Tabs | Edit tabs, sections, and fields.; Rearrange by dragging to a new position.; Add new fields.; Delete tabs (cannot be restored later).; Configure data as fully visible or revealed only when expanding the respective table row (Visible/On Expand). |
-
-When customizing fields, you can do the following:
-
-- Rearrange Fields
-- Delete Fields
-- Add Custom Fields
-- Edit Custom Fields
-
-After completing the configuration of the UI settings, click **Save**.
-
-To rearrange the order of fields on the tab or section, hover over the grid icon to drag the field to the desired position.
-
-To delete a field, click the **Delete**icon.
-
-You can add a new field to a system tab or to a custom tab.
-
-To add a new custom field:
-
-1. Click **Add Field**. A dialog window appears.
-2. In the dialog window:
-  1. **Display Name**: Enter a name for the field.
-  2. **Field Name**: Select a field from the drop-down menu.
-  3. (Optional) **Link Field**: Select a field from the drop-down menu. If a field contains a valid URL, the hyperlink is populated within the field on the ticket or asset. The **Field Name**text is displayed as a clickable hyperlink.
-  4. Click **Apply**.
-
-To edit a custom field:
-
-1. Hover over the tile of the field you want to edit.
-2. Click the **Edit**icon.
-3. Make the necessary changes, and click **Apply**.
-
-You cannot edit a system tab, including the name, type, and default fields. These can only be rearranged or deleted.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7080,13 +5770,13 @@ For complete configuration instructions, see [Creating Data Sources](https://hel
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-github-repositories-connector","lastmod":"2026-07-09T08:01Z","nid":"1538516"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-github-repositories-connector","lastmod":"2026-08-29T07:06Z","nid":"1538516"} -->
 ## Configuring the GitHub Repositories Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-github-repositories-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the GitHub Repositories Connector
-- Last modified: 2026-07-09T08:01Z
+- Last modified: 2026-08-29T07:06Z
 - Summary: How to configure the GitHub Repositories connector, including setting up authentication and data retrieval filters and specifications.
 
 GitHub Repositories is GitHub's core workspace for hosting and managing code projects. It helps teams collaborate by tracking changes, reviewing work through pull requests, managing issues, and controlling access and workflows.
@@ -8148,13 +6838,13 @@ Select the checkbox to retrieve all fields, including any custom fields configur
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration","lastmod":"2026-08-16T00:57Z","nid":"1527961"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration","lastmod":"2026-08-18T02:06Z","nid":"1527961"} -->
 ## Configuring the Jira Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-jira-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Jira Outegration
-- Last modified: 2026-08-16T00:57Z
+- Last modified: 2026-08-18T02:06Z
 - Summary: How to configure the Jira outegration for disptaching tickets to the Jira Data Center or Jira Cloud work management systems.
 
 The Jira outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Jira project, creating a Jira issue that can then be tracked, assigned, and managed by your remediation teams working with Jira.
@@ -8215,7 +6905,7 @@ To generate an API key:
 6. Click**Confirm**.
 7. Copy and securely save the key to be used in the Connect step.
 
-Before proceeding, make sure a Zscaler Gateway has been configured. To learn more, see [Configuring the Zscaler SecOps Platform Gateway](https://help.zscaler.com/uvm/configuring-zscaler-secops-platform-gateway).
+Before proceeding, make sure a Zscaler Gateway has been configured. To learn more, see [Configuring the Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway).
 
 Obtain the following required parameters for the Jira Data Center outegration:
 
@@ -8503,13 +7193,13 @@ When the outegration setup is complete, you can begin dispatching SecOps tickets
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration-webhook","lastmod":"2026-08-16T00:58Z","nid":"1527986"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration-webhook","lastmod":"2026-08-18T02:07Z","nid":"1527986"} -->
 ## Configuring the Jira Outegration Webhook
 
 - Source: https://help.zscaler.com/uvm/configuring-jira-outegration-webhook
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Jira Outegration Webhook
-- Last modified: 2026-08-16T00:58Z
+- Last modified: 2026-08-18T02:07Z
 - Summary: How to configure the Jira outegration webhook for bidirectional sync when setting up the Jira outegration.
 
 The Jira outegration webhook enables automatic syncing of Jira issue updates such as Status or SLA changes to their corresponding tickets, reducing the need for manual changes. This step is required when configuring the Jira to ticket mapping to keep issues and tickets in sync. To learn more, see [Configuring the Jira Outegration](https://help.zscaler.com/uvm/configuring-jira-outegration).
@@ -8793,13 +7483,13 @@ This drop-down menu is available in the following streams:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-microsoft-defender-cloud-findings-connector","lastmod":"2026-07-05T07:06Z","nid":"1531041"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-microsoft-defender-cloud-findings-connector","lastmod":"2026-08-18T01:50Z","nid":"1531041"} -->
 ## Configuring the Microsoft Defender for Cloud Findings Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-microsoft-defender-cloud-findings-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Microsoft Defender for Cloud Findings Connector
-- Last modified: 2026-07-05T07:06Z
+- Last modified: 2026-08-18T01:50Z
 - Summary: How to configure the Microsoft Defender for Cloud connector, including setting up authentication and data retrieval filters and specifications.
 
 Microsoft Defender for Cloud is a cloud-native application protection platform (CNAPP) that safeguards cloud-based applications from cyber threats through unified security management, breach prevention, and workload protection.
@@ -8884,7 +7574,7 @@ After you create the Microsoft Defender for Cloud Findings data source, enter th
 - All Subscription IDs in org
 - Findings Types drop-down menu
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 To configure authentication:
 
@@ -8953,13 +7643,13 @@ Select the finding type that you want to include in the scope of data ingestion 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-microsoft-defender-endpoint-connector","lastmod":"2026-07-05T07:06Z","nid":"1530975"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-microsoft-defender-endpoint-connector","lastmod":"2026-08-18T01:52Z","nid":"1530975"} -->
 ## Configuring the Microsoft Defender for Endpoint Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-microsoft-defender-endpoint-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Microsoft Defender for Endpoint Connector
-- Last modified: 2026-07-05T07:06Z
+- Last modified: 2026-08-18T01:52Z
 - Summary: How to configure the Microsoft Defender for Endpoint connector, including setting up authentication and data retrieval filters and specifications.
 
 Microsoft Defender for Endpoint is an enterprise-grade endpoint security platform that helps detect, prevent, investigate, and respond to advanced cyber threats. It provides integrated threat protection across devices using behavioral monitoring, automated analysis, and real-time security insights.
@@ -9005,7 +7695,7 @@ After you create the Microsoft Defender for Endpoint data source, enter the foll
 - Severity
 - Ignore Resolved Incidents
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 In the Microsoft Azure portal, complete the app registration process. To learn more, see [Zscaler and Microsoft Defender Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-microsoft-defender-deployment-guide).
 
@@ -9080,13 +7770,13 @@ Select the Microsoft Threat Protection API and add the following permissions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-microsoft-entra-id-connector","lastmod":"2026-04-11T07:06Z","nid":"1532685"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-microsoft-entra-id-connector","lastmod":"2026-08-18T01:53Z","nid":"1532685"} -->
 ## Configuring the Microsoft Entra ID Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-microsoft-entra-id-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Microsoft Entra ID Connector
-- Last modified: 2026-04-11T07:06Z
+- Last modified: 2026-08-18T01:53Z
 - Summary: How to configure the Microsoft Entra ID connector, including setting up authentication and data retrieval filters and specifications.
 
 The Microsoft Entra ID connector is in limited availability. To learn more, contact Zscaler Support.
@@ -9134,7 +7824,7 @@ After you create the Entra ID data source, enter the authentication information 
 2. In the **Microsoft Entra ID Authentication** window, enter the information from the Prerequisites section. See image.
 3. Click **Create**.
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 You can locate the client ID on the Overview page. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application).
 
@@ -10248,13 +8938,13 @@ To learn more, see [Zscaler UVM and SecurityScorecard Deployment Guide](https://
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-sentinelone-connector","lastmod":"2026-07-05T07:06Z","nid":"1528041"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-sentinelone-connector","lastmod":"2026-08-18T01:54Z","nid":"1528041"} -->
 ## Configuring the SentinelOne Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-sentinelone-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the SentinelOne Connector
-- Last modified: 2026-07-05T07:06Z
+- Last modified: 2026-08-18T01:54Z
 - Summary: How to configure the SentinelOne connector, including setting up authentication and data retrieval filters and specifications.
 
 SentinelOne provides a range of products and services through its Singularity XDR platform, offering comprehensive protection against cyber threats such as malware, ransomware, and advanced persistent threats (APTs).
@@ -10297,7 +8987,7 @@ After you create the SentinelOne data source, enter the following information in
 - Findings Type
 - Severity
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 To learn more, see [Zscaler and SentinelOne Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-sentinelone-deployment-guide).
 
@@ -10406,31 +9096,32 @@ This menu is available in the SentinelOne CNS Findings stream.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-service-level-agreement-settings","lastmod":"2026-04-23T03:27Z","nid":"1534129"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-service-level-agreement-settings","lastmod":"2026-08-31T02:42Z","nid":"1534129"} -->
 ## Configuring Service Level Agreement Settings
 
 - Source: https://help.zscaler.com/uvm/configuring-service-level-agreement-settings
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Settings for UVM > Configuring Service Level Agreement Settings
-- Last modified: 2026-04-23T03:27Z
-- Summary: How to configure service level agreement (SLA) settings in the Zscaler SecOps UVM application.
+- Last modified: 2026-08-31T02:42Z
+- Summary: How to configure service level agreement (SLA) settings in UVM.
 
-Service level agreement (SLA) settings in Zscaler Unified Vulnerability Management (UVM) allow you to define and enforce resolution timelines for findings or tickets, helping your organization meet internal policies and compliance requirements. With customizable SLA rules, you can set timelines based on factors such as severity, asset criticality, vulnerability type, and other criteria. Additionally, you can enable dynamic SLA adjustments when key attributes change (e.g., severity or asset ownership), ensuring timelines stay accurate as conditions evolve.
+Service level agreement (SLA) settings in Unified Vulnerability Management (UVM) allow you to define and enforce resolution timelines for findings or tickets, helping your organization meet internal policies and compliance requirements. With customizable SLA rules, you can set timelines based on factors such as severity, asset criticality, vulnerability type, and other criteria. Additionally, you can enable dynamic SLA adjustments when key attributes change (e.g., severity or asset ownership), ensuring timelines stay accurate as conditions evolve.
 
 SLA settings rely on severity categories, which are mapped to severity scores on the Severity Settings page. These severity categories feed into your SLA rules, allowing you to set resolution timelines that align with the risk levels of findings or tickets in your environment. To learn more, see [Configuring Severity Scores](https://help.zscaler.com/uvm/configuring-severity-scores) and [Configuring Severity Categories](https://help.zscaler.com/uvm/configuring-severity-categories).
 
-For access to severity settings, your assigned role must include the Read, Create, and Edit permissions under the Vulnerabilities App - Ticket Settings resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/uvm/managing-user-roles). 
+For access to severity settings, your assigned role must include the Read, Create, and Edit permissions under the Vulnerabilities App - Ticket Settings resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles). 
 See image.
 
 To configure SLA settings:
 
-1. In the **Vulnerabilities**app, go to **Settings**>**Severity & SLA**. See image.
-2. Click **SLA Settings**. The **SLA Settings** page appears. If SLA is configured in the Data Model, you'll be prompted to unlink and override to configure the settings on the SLA Settings page.
-3. On the **SLA Settings** page, configure the setup in the following sections:
+1. In the SecOps Platform Admin Portal, click **Vulnerabilities** in the top navigation bar.
+2. In the left-side navigation, go to **Settings** > **Severity & SLA**. See image.
+3. Click **SLA Settings**. The **SLA Settings** page appears. If SLA is configured in the Data Model, you'll be prompted to unlink and override to configure the settings on the SLA Settings page.
+4. On the **SLA Settings** page, configure the setup in the following sections:
   - Configuration
   - Default SLA Rules
   - Custom SLA Rules
-4. Save the SLA settings in one of the following ways:
+5. Save the SLA settings in one of the following ways:
   - Click **Save**. The SLA settings apply the next time the finding or the ticket entity is processed.
   - In the **Save**drop-down menu, click **Save & Run**to save the settings and immediately apply them in your account.
 
@@ -10451,6 +9142,7 @@ To configure the SLA granularity and start date:
     - Select a ticket-related date field from the drop-down menu (e.g., **Ticket Last Seen**).
     - Select **Third-Party Issue Created** (i.e., when the ticket is dispatched to an external system). This option triggers the SLA countdown when the ticket is dispatched to an external system.
 3. (Optional) Select **Enable Dynamic SLA Updates**to allow SLA deadlines to automatically recalculate when key attributes change (e.g., severity or asset owner). Dynamic SLA updates are not available when **Third-Party Issue Created**is selected as the start date.
+4. (Optional) Select **Calculate ticket SLA based on active findings only** to calculate SLA based only on the active findings in the ticket. This helps teams focus remediation timelines on findings that still require action, and avoid SLA dates being driven by findings that are no longer active. If all findings are inactive, the SLA remains populated with its most recent value.
 
 See image.
 
@@ -11070,13 +9762,13 @@ The list of fields retrieved from the table.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-outegration","lastmod":"2026-08-16T00:59Z","nid":"1528026"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-outegration","lastmod":"2026-08-18T02:08Z","nid":"1528026"} -->
 ## Configuring the ServiceNow Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-servicenow-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the ServiceNow Outegration
-- Last modified: 2026-08-16T00:59Z
+- Last modified: 2026-08-18T02:08Z
 - Summary: How to configure the ServiceNow outegration for disptaching SecOps tickets to the ServiceNow work management system.
 
 The ServiceNow outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your ServiceNow tables, creating a ServiceNow ticket that can then be tracked, assigned, and managed by your remediation teams working with ServiceNow.
@@ -11485,13 +10177,13 @@ When the outegration setup is complete, you can begin dispatching SecOps tickets
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-outegration-webhook","lastmod":"2026-08-16T01:00Z","nid":"1528051"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-servicenow-outegration-webhook","lastmod":"2026-08-18T02:09Z","nid":"1528051"} -->
 ## Configuring the ServiceNow Outegration Webhook
 
 - Source: https://help.zscaler.com/uvm/configuring-servicenow-outegration-webhook
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the ServiceNow Outegration Webhook
-- Last modified: 2026-08-16T01:00Z
+- Last modified: 2026-08-18T02:09Z
 - Summary: How to configure the ServiceNow outegration webhook for bidirectional sync when setting up the ServiceNow outegration.
 
 The ServiceNow outegration webhook enables automatic syncing of ServiceNow ticket updates such as Status or SLA changes to their corresponding SecOps tickets, reducing the need for manual changes. This step is required when configuring the ServiceNow to SecOps ticket mapping to keep the tickets in the two systems in sync. To learn more, see [Configuring the ServiceNow Outegration](https://help.zscaler.com/uvm/configuring-servicenow-outegration).
@@ -11824,13 +10516,13 @@ Enter the files that the connector filters to monitor or ingest data.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-snyk-connector","lastmod":"2026-05-27T16:08Z","nid":"1530957"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-snyk-connector","lastmod":"2026-08-18T01:55Z","nid":"1530957"} -->
 ## Configuring the Snyk Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-snyk-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Snyk Connector
-- Last modified: 2026-05-27T16:08Z
+- Last modified: 2026-08-18T01:55Z
 - Summary: How to configure the Snyk connector, including setting up authentication and data retrieval filters and specifications.
 
 Snyk is a platform that helps developers find and fix vulnerabilities in open-source libraries and containers integrated into their workflows.
@@ -11862,7 +10554,7 @@ After you create the Snyk data source, enter the Authentication information in t
 
 To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications) and [Managing Authentications](https://help.zscaler.com/uvm/managing-authentications).
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 To learn more, see [Zscaler UVM and Snyk Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-snyk-deployment-guide).
 
@@ -11932,6 +10624,92 @@ In the field, optionally enter the sensor names. A sensor is a script that runs 
 [Image: The Tanium tiles in the SecOps platform]
 
 [Image: The Tanium Authentication window in the SecOps platform]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-teams-outegration","lastmod":"2026-09-03T12:06Z","nid":"1528061"} -->
+## Configuring the Teams Outegration
+
+- Source: https://help.zscaler.com/uvm/configuring-teams-outegration
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Teams Outegration
+- Last modified: 2026-09-03T12:06Z
+- Summary: How to configure the Microsoft Teams outegration in the Security Operations Platform.
+
+The Microsoft Teams outegration is used to send exposure and remediation notifications into Teams, enabling collaboration and efficiency between security and IT teams.
+
+This article explains how to set up the Teams outegration. The process involves setting up authentication and outegration visibility in the platform.
+
+## Prerequisites
+
+Before you configure the outegration, make sure you have the following parameters:
+
+- Client ID, Client Secret, and Tenant ID
+- Group ID and Channel ID
+
+## Creating a Microsoft Teams Outegration
+
+To configure the Microsoft Teams outegration:
+
+- Step 1: Authenticate the Teams Connection
+- Step 2: Configure Settings and Mapping
+
+1. In the SecOps Platform Admin Portal, go to **Configure** > **Outegrations**. See image.
+2. Click **Create**. The **Connect a New Outegration** page appears.
+3. On the **Connect a New Outegration** page, select **Teams**. The **Create Teams Outegration** page appears. See image.
+4. In the **Details** section: See image.
+  1. **Display Name**: Enter a name for the outegration.
+  2. **Active**: Enable or disable to use the outegration in automation workflows.
+  3. **Group ID**: Enter the group ID you retrieved from the Prerequisites section.
+  4. **Channel ID**: Enter the channel ID you retrieved from the Prerequisites section.
+  5. **Authentication**: Select an authentication source. If no authentication sources are available, click **Create New**. In the **Teams Authentication** window, enter the parameters you retrieved from the Prerequisites section. After the authentication is successful, the Authentication section shows a unique **Authentication ID**.
+5. **Click Test** to verify the connection.
+6. After the connection is verified, click **Next** to proceed to the **Settings** step.
+
+In the Settings step, configure your Teams outegration's visibility and behavior within Unified Vulnerability Management (UVM).
+
+In the Mapping step, configure the field mapping between your SecOps tickets and Teams account. This defines how data is exchanged and synchronized between the two systems upon initial dispatch and subsequent updates. The SecOps Platform's unique mapping capabilities allow for flexible mapping of any custom field or logic to any field in your Teams account, facilitating highly customized workflows that align with your organization's requirements.
+
+To retrieve the client ID and tenant ID:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the Azure portal, under **Azure Resources**, select **App registrations**.
+3. Click **New registration**, or select an existing registration.
+  - If you are creating a new registration, configure the following:
+    - **Name**: Enter a name for your app.
+    - **Supported account types**: Select **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)**.
+    - **Redirect URI (optional)**: Enter `https://app.avalor.io/oauth`.
+  - If you are using an existing registration, in the **Redirect URIs** section, in **Platform configurations**, select **Web** and enter `https://app.avalor.io/oauth` in the field. See image.
+4. In the application properties, locate the **Application (client) ID** and **Directory (tenant) ID**. Copy and save these values. See image.
+5. In the left-side navigation, go to **API Permissions**.
+6. Add the following permissions:
+  - `Microsoft Graph → Delegated permissions → ChannelMessage → ChannelMessage.Send`
+  - `Microsoft Graph → Delegated permissions → OpenId permissions → offline_access`
+  - `Microsoft Graph → Delegated permissions → Channel → Channel.ReadBasic.All`
+7. In the left-side navigation, go to **Certificates & Secrets**.
+8. Create a new client secret, select the expiration time, and save the value.
+9. In the left-side navigation, go to **Authentication** and authenticate Teams.
+10. Click **Save Authentication**.
+11. When the window appears, click **Accept**.
+
+To retrieve the group ID and channel ID:
+
+1. In the Teams application, open the channel that you want to integrate.
+2. Click the **More channel options** menu. See image.
+3. Select **Get link to channel**. The channel link containing the group ID and channel ID is generated. For example, in `https://teams.microsoft.com/l/channel/19%3A7mtmyDCaMAD1h1tFFlWACNkFhW_m3ga7_4GnTobaOVU1%40thread.tacv2/General?groupId=02ce587c-6d8b-4e69-87bd-8dfe827cadeb&tenantId=7a59ef4d-8896-44eb-aeb2-305ce132a3b6`, the channel ID is `19%3A7mtmyDCaMAD1h1tFFlWACNkFhW_m3ga7_4GnTobaOVU1%40thread.tacv2` and the group ID is `02ce587c-6d8b-4e69-87bd-8dfe827cadeb`.
+
+[Image: The Outegrations page]
+
+[Image: Selecting Teams on the Connect a New Outegration page]
+
+[Image: The Details page when configuring a Teams outegration]
+
+[Image: Copying and saving the Application (client) ID and Directory (tenant) ID]
+
+[Image: Entering https://app.avalor.io/oauth in the Redirect URIs section]
+
+[Image: Selecting More channel options]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12316,20 +11094,20 @@ This field is available in the Tenable Vulnerability Management - Vulnerabilitie
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-ticket-workflows","lastmod":"2026-07-09T00:51Z","nid":"1534318"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-ticket-workflows","lastmod":"2026-08-31T02:49Z","nid":"1534318"} -->
 ## Configuring Ticket Workflows
 
 - Source: https://help.zscaler.com/uvm/configuring-ticket-workflows
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Settings for UVM > Configuring Ticket Workflows
-- Last modified: 2026-07-09T00:51Z
+- Last modified: 2026-08-31T02:49Z
 - Summary: How to configure ticket workflows to automate ticket status transitions, lock ticket scopes, and dispatch tickets to external work management systems.
 
-Ticket workflows in Zscaler Unified Vulnerability Management (UVM) allow you to automate and standardize the ticket lifecycle according to your organization's operational requirements. By defining rule sets for status transitions, locking ticket scopes, and dispatching tickets to external systems, you can ensure that ticket states remain synchronized with the real-time status of underlying findings and third-party work management tools. These workflows reduce manual administrative effort and maintain data integrity throughout the remediation process.
+Ticket workflows in Unified Vulnerability Management (UVM) allow you to automate and standardize the ticket lifecycle according to your organization's operational requirements. By defining rule sets for status transitions, locking ticket scopes, and dispatching tickets to external systems, you can ensure that ticket states remain synchronized with the real-time status of underlying findings and third-party work management tools. These workflows reduce manual administrative effort and maintain data integrity throughout the remediation process.
 
 You can create and manage the list of available ticket statuses on the Ticket Statuses page. To learn more, see [Managing Ticket Statuses in UVM](https://help.zscaler.com/uvm/managing-ticket-status).
 
-On initial setup, the Ticket Workflows page displays default system logic. You can customize these rules to align with your organization's remediation policies across three primary categories:
+On initial setup of your Security Operations Platform (SecOps Platform) account, the Ticket Workflows page displays default system logic. You can customize these rules to align with your organization's remediation policies across three primary categories:
 
 - **Ticket Status Management**: Automate transitions based on finding activity, such as auto-closing tickets when findings are no longer detected or reopening them if they resurface.
 - **Lock Ticket Scope Triggers**: Define conditions to automatically lock a ticket's scope, preventing automated system logic from adding or removing findings after a ticket has been manually modified.
@@ -12339,21 +11117,20 @@ To learn more, see [About Tickets](https://help.zscaler.com/uvm/about-tickets) a
 
 ## Configuring Ticket Workflow Rule Sets
 
-For access to ticket workflows, your assigned role must include the **Read**, **Create**, **Edit**, and **Delete**permissions under the **Vulnerabilities App**- **Ticket Settings**resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/uvm/managing-user-roles).
+For access to ticket workflows, your assigned role must include the **Read**, **Create**, **Edit**, and **Delete**permissions under the **Vulnerabilities App**- **Ticket Settings**resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
 
 To configure ticket workflow rule sets:
 
-1. Go to the UVM app (**Vulnerabilities**).
-2. In the left-side navigation, click **Settings**> **Ticket Lifecycle**. The **Ticket Lifecycle** page appears. See image.
-3. Click **Ticket Workflows**. The **Ticket Workflows**page appears, displaying one of the following states: See image.
+1. In the SecOps Platform Admin Portal, go to **Vulnerabilities** > **Settings**> **Ticket Lifecycle**. The **Ticket Lifecycle** page appears. See image.
+2. Click **Ticket Workflows**. The **Ticket Workflows**page appears, displaying one of the following states: See image.
   - If no custom rules have been defined, the page displays the default system workflow logic.
-  - If workflows are currently managed through [data unification](https://help.zscaler.com/uvm/what-data-unification), click **Unlink & Override**to enable local rule configuration.
+  - If workflows are currently managed through [data unification](https://help.zscaler.com/unified/what-data-unification), click **Unlink & Override**to enable local rule configuration.
   - If rules have already been configured and saved, your existing workflow settings and rules are displayed.
-4. On the **Ticket Workflows**page, you can configure rules for the following workflow categories: For each of the**Ticket Status Management**and **Lock Ticket Scope Triggers**categories, rules are processed sequentially. When a ticket meets the criteria for multiple rules within the same category, the system applies only the first matching rule based on the list order. For the **Auto-Dispatch to External Systems**category, the system evaluates all rules. Every rule that matches the ticket's criteria is triggered, allowing a single ticket to trigger dispatches to multiple destinations if it meets the conditions for more than one rule.
+3. On the **Ticket Workflows**page, you can configure rules for the following workflow categories: For each of the**Ticket Status Management**and **Lock Ticket Scope Triggers**categories, rules are processed sequentially. When a ticket meets the criteria for multiple rules within the same category, the system applies only the first matching rule based on the list order. For the **Auto-Dispatch to External Systems**category, the system evaluates all rules. Every rule that matches the ticket's criteria is triggered, allowing a single ticket to trigger dispatches to multiple destinations if it meets the conditions for more than one rule.
   - Ticket Status Management
   - Lock Ticket Scope Triggers
   - Auto-Dispatch to External Systems
-5. Click **Done.**
+4. Click **Done.**
 
 You can view the activity log for all these actions on the Activity tab of a ticket. To learn more, see [Viewing & Managing Tickets in UVM](https://help.zscaler.com/uvm/viewing-managing-tickets-uvm#ticket-drawer-activity-tab).
 
@@ -12367,7 +11144,7 @@ Automated ticket status workflows take precedence over manual status updates to 
 
 To configure automated rules for tickets:
 
-1. Click **Ticket Status Management**. The **Ticket Status Management**drawer opens. See image. If the **Ticket Status Management**setting is configured through [data unification](https://help.zscaler.com/uvm/what-data-unification), you'll be prompted to unlink and override to configure ticket workflows on the Ticket Workflows page. If no rules have been configured yet, click **Create New Rule**.
+1. Click **Ticket Status Management**. The **Ticket Status Management**drawer opens. See image. If the **Ticket Status Management**setting is configured through [data unification](https://help.zscaler.com/unified/what-data-unification), you'll be prompted to unlink and override to configure ticket workflows on the Ticket Workflows page. If no rules have been configured yet, click **Create New Rule**.
 2. In the **Ticket Status Management** drawer, enter the following details: See image. You can't use the same ticket status as the input condition for both a **Resurface Finding - Create New Ticket**rule and any rule that performs a status transition (i.e., **Automatic Ticket Closure**, **Resurface Finding - Reopen Ticket**, or **Custom Status Transition**). This restriction ensures deterministic behavior, guaranteeing that a single trigger event results in one unambiguous outcome (e.g., when a finding resurfaces, the system either creates a new ticket or changes the status of the original one, but not both).
   - **NAME**: Enter a name for the rule.
   - **ACTIVE**: Enable to activate the rule. Keeping a rule inactive is useful when you want to save the rule without applying its logic during initial setup or while testing your workflow configuration.
@@ -12388,13 +11165,15 @@ Set the criteria:
 
 - **IF**:
   - **Ticket status is not**: Select the ticket statuses for which this rule should be applied. Available statuses are those configured in the Remediated or Closed buckets under [Ticket Statuses settings](https://help.zscaler.com/uvm/managing-ticket-status). This ensures the rule applies only to active tickets, so the automation does not attempt to process or close tickets that have already reached the specified closed statuses.
-  - **All findings are undetected for**: (Optional) Select the checkbox and enter the number of days that findings must remain undetected (not seen in a recent scan) before the ticket closes. If set to 0, the ticket is closed immediately when all findings are undetected. Findings are marked as Undetected based on the finding aging logic configured in the [Remediation Detection settings](https://help.zscaler.com/uvm/creating-data-sources#remediation-detection-settings) of a source and, if enabled, in the [Asset Aging](https://help.zscaler.com/uvm/aging-assets) settings. Make sure the specified number of days aligns with the expected aging cycles.
+  - **All findings are undetected for**: (Optional) Select the checkbox and enter the number of days that findings must remain undetected (not seen in a recent scan) before the ticket closes. If set to 0, the ticket is closed immediately when all findings are undetected. Findings are marked as Undetected based on the finding aging logic configured in the [Remediation Detection settings](https://help.zscaler.com/unified/creating-data-sources#remediation-detection-settings) of a source and, if enabled, in the [Asset Aging](https://help.zscaler.com/unified/aging-assets) settings. Make sure the specified number of days aligns with the expected aging cycles.
   - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules (e.g., specific ticket severities or assignment groups).
 - **THEN**: From the **Update ticket status to** drop-down menu, select the status that tickets that meet the IF conditions should move to (e.g., **Auto Closed**).
 
 See image.
 
-Configure rules to define when a resurfaced finding in a closed ticket should trigger creation of a new ticket. If your scanners detect the finding again (i.e., it transitions from Undetected to Active) and it remains active for the specified number of days, the system creates a new ticket that includes the resurfaced finding(s) so the recurrence can be tracked separately. This starts a new remediation cycle ensuring historical and MTTX measurements are tracked separately. If an [aged asset](https://help.zscaler.com/uvm/aging-assets) resurfaces, its associated findings also resurface.
+Configure rules to define when a resurfaced finding in a closed ticket should trigger creation of a new ticket. If your scanners detect the finding again (i.e., it transitions from Undetected to Active) and it remains active for the specified number of days, the system creates a new ticket that includes the resurfaced finding(s) so the recurrence can be tracked separately. This starts a new remediation cycle ensuring historical and MTTX measurements are tracked separately. If an [aged asset](https://help.zscaler.com/unified/aging-assets) resurfaces, its associated findings also resurface.
+
+This rule is automated and can create a new ticket even if the original ticket has an exception request. Exception requests only restrict manual split and merge actions. To learn more, see [Requesting Exceptions](https://help.zscaler.com/uvm/requesting-exceptions).
 
 Set the criteria:
 
@@ -12403,11 +11182,11 @@ Set the criteria:
   - **At least one finding is active for**: Enter the minimum number of days that a resurfaced finding must remain active before the rule is triggered. The rule is triggered even if one finding is active for the specified period.
   - **A third-party work management item is attached**: (Optional) Select the checkbox to apply the rule only to tickets linked to a third-party tool (e.g., a [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration) issue or a [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration) ticket).
   - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules.
-- **THEN**: The platform is set to open a new ticket with the resurfaced finding by default. This ensures the resurfaced findings are isolated for tracking and assignment.
+- **THEN**: The SecOps Platform is set to open a new ticket with the resurfaced finding by default. This ensures the resurfaced findings are isolated for tracking and assignment.
 
 See image.
 
-Configure rules to define when a resurfaced finding in a closed ticket should trigger reopening the existing ticket. If your scanners detect the finding again (i.e., it transitions from Undetected to Active) and it remains active for the specified number of days, the system reopens the ticket (i.e., moves it to the selected status) so remediation can be tracked in the same ticket. If an [aged asset](https://help.zscaler.com/uvm/aging-assets) resurfaces, its associated findings also resurface.
+Configure rules to define when a resurfaced finding in a closed ticket should trigger reopening the existing ticket. If your scanners detect the finding again (i.e., it transitions from Undetected to Active) and it remains active for the specified number of days, the system reopens the ticket (i.e., moves it to the selected status) so remediation can be tracked in the same ticket. If an [aged asset](https://help.zscaler.com/unified/aging-assets) resurfaces, its associated findings also resurface.
 
 Set the criteria:
 
@@ -12416,7 +11195,7 @@ Set the criteria:
   - **At least one finding is active for**: Enter the minimum number of days that a resurfaced finding must remain active before the rule is triggered. The rule is triggered even if one finding is active for the specified period.
   - **A third-party work management item is attached**: (Optional) Select the checkbox to apply the rule only to tickets linked to a third-party tool (e.g., a [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration) issue or a [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration) ticket).
   - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules.
-- **THEN**: From the **Move ticket to status** drop-down menu, select the status that the ticket should move to when reopened. The platform reopens the ticket with the resurfaced finding, ensuring the resurfaced findings are tracked on their original ticket with the original assignment.
+- **THEN**: From the **Move ticket to status** drop-down menu, select the status that the ticket should move to when reopened. The SecOps Platform reopens the ticket with the resurfaced finding, ensuring the resurfaced findings are tracked on their original ticket with the original assignment.
 
 See image.
 
@@ -12436,13 +11215,13 @@ Configure rules to define when to automatically lock a ticket's scope, which pre
 
 To configure automated rules to lock a ticket:
 
-1. Click **Lock Ticket Scope Triggers**. The **Lock Ticket Scope Triggers**drawer opens. If the **Lock Ticket Scope Triggers**setting is configured through [data unification](https://help.zscaler.com/uvm/what-data-unification), you'll be prompted to unlink and override to configure ticket workflows on the Ticket Workflows page. If no rules have been configured yet, click **Create New Rule**.
+1. Click **Lock Ticket Scope Triggers**. The **Lock Ticket Scope Triggers**drawer opens. If the **Lock Ticket Scope Triggers**setting is configured through [data unification](https://help.zscaler.com/unified/what-data-unification), you'll be prompted to unlink and override to configure ticket workflows on the Ticket Workflows page. If no rules have been configured yet, click **Create New Rule**.
 2. In the**Lock Ticket Scope Triggers** drawer, enter the following details: See image.
   - **NAME**: Enter a name for the rule.
   - **ACTIVE**: Enable to activate the rule. Keeping a rule inactive is useful when you want to save the rule without applying its logic during initial setup or while testing your workflow configuration.
   - Set the criteria:
     - **IF**:
-      - **Ticket is manually split or merged**: This checkbox is selected by default and cannot be changed. This ensures that when a user [splits or merges tickets](https://help.zscaler.com/uvm/managing-manual-ticket-grouping), the platform locks the scope of the resulting tickets so subsequent automated [grouping](https://help.zscaler.com/uvm/configuring-grouping-rules) or [data unification](https://help.zscaler.com/uvm/what-data-unification) logic doesn't adjust the findings in the ticket.
+      - **Ticket is manually split or merged**: This checkbox is selected by default and cannot be changed. This ensures that when a user [splits or merges tickets](https://help.zscaler.com/uvm/managing-manual-ticket-grouping), the SecOps Platform locks the scope of the resulting tickets so subsequent automated [grouping](https://help.zscaler.com/uvm/configuring-grouping-rules) or [data unification](https://help.zscaler.com/unified/what-data-unification) logic doesn't adjust the findings in the ticket.
       - **Ticket status is**: Select the ticket statuses for which this rule should be applied. Available statuses to select from are those configured in [Ticket Statuses](https://help.zscaler.com/uvm/managing-ticket-status) settings.
       - **A third-party work management item is attached**: (Optional) Select the checkbox to apply the rule only to tickets linked to a third-party tool (e.g., a [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration) issue or a [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration) ticket).
       - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules.
@@ -12468,7 +11247,7 @@ To configure automated rules for creating third-party work management items and 
       - (Optional) You can use the AND/OR operators to include additional criteria and create custom rules.
     - **THEN**:
       - **Create a third-party item on**: Select the outegration for the system you want to trigger. The drop-down menu lists the outegrations already configured in your account.
-      - **Create New Outegration**: If no outegration is configured for the destination you want to dispatch to, click to open the **Connect a New Outegration**page and [create one](https://help.zscaler.com/uvm/creating-outegrations). After you create an outegration, it appears in the **Create a third-party item on**drop-down menu.
+      - **Create New Outegration**: If no outegration is configured for the destination you want to dispatch to, click to open the **Connect a New Outegration**page and [create one](https://help.zscaler.com/unified/creating-outegrations). After you create an outegration, it appears in the **Create a third-party item on**drop-down menu.
 3. (Optional) Click **New Rule** to add a new rule.
 4. Save the rule set in one of the following ways: See image. If the save options are disabled, ensure you have completed the required configuration, including entering a name for every rule and configuring the THEN conditions.
   - Click **Save** for rules take effect when new data is ingested into your account.
@@ -12602,22 +11381,24 @@ This menu is available in the Veracode stream.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-wiz-connector","lastmod":"2026-03-26T12:29Z","nid":"1530953"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-wiz-connector","lastmod":"2026-08-24T10:31Z","nid":"1530953"} -->
 ## Configuring the Wiz Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-wiz-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Wiz Connector
-- Last modified: 2026-03-26T12:29Z
+- Last modified: 2026-08-24T10:31Z
 - Summary: How to configure the Wiz connector, including setting up authentication and data retrieval filters and specifications.
 
 Wiz analyzes all layers of the cloud stack to identify high-risk attack vectors to be prioritized and fixed.
 
-There are 4 Wiz streams. Select those that are based on your Wiz feature plan and use cases. The following is one of the available streams:
+There are three Wiz streams. Select those that are based on your Wiz feature plan and use cases. The following is one of the available streams:
 
-Wiz Assets: Retrieves detailed information about cloud resources, with optional enrichment for exposed resources data.
+- Wiz Assets: Retrieves detailed information about cloud resources, with optional enrichment for exposed resources data.
+- Wiz Issues: Retrieves details on active security threats (e.g., vulnerabilities, misconfigurations, or exposed secrets) including severity, affected resources, and remediation recommendations for each identified threat.
+- Wiz Configuration Findings: Retrieves details on configurations by identifying misconfigurations, compliance status, and potential vulnerabilities across various cloud resources.
 
-To learn more about the other available Wiz streams, see [Zscaler UVM and Wiz Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-wiz-deployment-guide).
+To learn more, see [Zscaler UVM and Wiz Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-wiz-deployment-guide).
 
 ## Prerequisites
 
@@ -12635,7 +11416,7 @@ To learn more about permissions for the other Wiz streams, see [Zscaler UVM and 
 
 ## Configuring the Connector
 
-To create the Wiz data source in the Zscaler Security Operations (SecOps) platform:
+To create the Wiz data source in the Security Operations Platform (SecOps Platform):
 
 1. Go to **Configure** > **Sources**.
 2. Click **Create**.
@@ -12649,17 +11430,19 @@ After you create the Wiz data source, enter the following information in the sou
 - Project ID
 - Asset Type
 - Fetch configuration findings from the past selected days
-- Findings Status
+- Finding Status
+- Finding Severity
 - Issue Type
 - Issue Severity
 - Issue Status
+- Retrieve detailed data (larger volume)
 - (Optional) Include Network Exposure Info
 
 For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
 
 ## Troubleshooting and FAQs
 
-The Wiz Issues stream might return fewer results than expected, or miss data due to a 50,000 row limit on full report runs enforced by Wiz. If your dataset exceeds this threshold, only the first 50,000 rows are included in the export. The export is the data exported from Wiz to the SecOps platform. The remainder is omitted. For larger datasets, use incremental exports, which support up to 500,000 rows to ensure full data coverage.
+The Wiz Issues stream might return fewer results than expected, or miss data due to a 50,000 row limit on full report runs enforced by Wiz. If your dataset exceeds this threshold, only the first 50,000 rows are included in the export. The export is the data exported from Wiz to the SecOps Platform. The remainder is omitted. For larger datasets, use incremental exports, which support up to 500,000 rows to ensure full data coverage.
 
 To configure authentication:
 
@@ -12668,6 +11451,8 @@ To configure authentication:
 3. Click **Create**.
 
 To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications) and [Managing Authentications](https://help.zscaler.com/uvm/managing-authentications).
+
+To retrieve all projects, you must have global permissions granted in Wiz; otherwise, the report generation fails.
 
 To retrieve the project ID, see [Zscaler UVM and Wiz Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-wiz-deployment-guide).
 
@@ -12688,6 +11473,10 @@ Select the statuses to include in the scope of the ingested data (i.e., Open, In
 
 This menu is available in the Wiz Configuration Findings stream.
 
+Select the severity level of vulnerabilities to include in the scope of the ingested data (i.e., Critical, Low, Severe, Informational, None, Moderate).
+
+This menu is available in the Wiz Configuration Findings stream.
+
 Select the types of issues to include in the scope of the ingested data (i.e., Toxic Combination, Threat Detection, Cloud Configuration).
 
 This menu is available in the Wiz Issues stream.
@@ -12700,9 +11489,13 @@ Select the status you want to include in the scope of the ingested data (i.e., O
 
 This menu is available in the Wiz Issues stream.
 
-Enable the Include Network Exposure Infocheckbox to add enrichment for exposed resources data. This data provides insights into which resources are exposed, how they are exposed (e.g., to the public internet, cross-account access, custom IP ranges), and details like IP ranges, ports, and protocols.
+Select the checkbox to retrieve additional metadata for each Wiz issue, resulting in large data ingestion volumes.
 
-This checkbox is available in the Assets stream.
+This checkbox is available in the Wiz Issues stream.
+
+Select thecheckbox to add enrichment for exposed resources data. This data provides insights into which resources are exposed, how they are exposed (e.g., to the public internet, cross-account access, custom IP ranges), and details like IP ranges, ports, and protocols.
+
+This checkbox is available in the Wiz Assets stream.
 
 [Image: The Wiz - Vulnerability Findings, Wiz - Issues, and Wiz - Configuration Findings tiles]
 
@@ -12711,13 +11504,13 @@ This checkbox is available in the Assets stream.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-zia-devices-and-users-connector","lastmod":"2026-03-26T12:29Z","nid":"1530878"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-zia-devices-and-users-connector","lastmod":"2026-08-18T02:00Z","nid":"1530878"} -->
 ## Configuring the ZIA Devices and Users Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-zia-devices-and-users-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the ZIA Devices and Users Connector
-- Last modified: 2026-03-26T12:29Z
+- Last modified: 2026-08-18T02:00Z
 - Summary: How to configure the ZIA Devices and Users connector, including setting up authentication and data retrieval filters and specifications.
 
 Zscaler Internet Access (ZIA) is a cloud-based security platform that provides secure internet access for users, protecting organizations from various online threats by enforcing security policies, filtering content, and ensuring secure connections to public applications and services on the internet.
@@ -12757,7 +11550,7 @@ After you create the ZIA Devices and Users data source, enter the Authentication
 
 To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications) and [Managing Authentications](https://help.zscaler.com/uvm/managing-authentications).
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 ## Troubleshooting and FAQs
 
@@ -12820,13 +11613,60 @@ Your cloud name is located in the URL that the admin uses to log in to the Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-zscaler-client-connector-devices-connector","lastmod":"2026-03-26T12:29Z","nid":"1530862"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-zscaler-advanced-detection-connector","lastmod":"2026-08-26T09:06Z","nid":"1543059"} -->
+## Configuring the Zscaler Advanced Detection Connector
+
+- Source: https://help.zscaler.com/uvm/configuring-zscaler-advanced-detection-connector
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Zscaler Advanced Detection Connector
+- Last modified: 2026-08-26T09:06Z
+- Summary: How to configure the Zscaler Advanced Detection connector.
+
+Zscaler Advanced Detections uses expert-driven Internet & SaaS (ZIA) detections to find behavioral patterns that match adversarial techniques within your Zscaler-specific threats. When an attacker infiltrates your security environment, Zscaler Advanced Detection analyzes the raw telemetry — not just alerts — using two primary classes of analytics:
+
+- **Indicators of compromise**: Every piece of telemetry is tested to determine if it matches a compromise indicator that we've seen or heard adversaries use. These are brittle and often short-lived analytics, but if an adversary is foolish enough to reuse infrastructure or tools, they are easy to catch.
+- **Behavioral detectors**: These analytics identify sequences of system activity that match techniques used by adversaries. These could be as simple as command and control, exfiltration, or a highly complex chain of behavior over a long period of time. We map every detector to MITRE ATT&CK® techniques so you can quantify your detection coverage.
+
+Zscaler's focused approach to security data has a direct influence on how and why we create our Zscaler Advanced Detections' security analytics, known as detectors. These detectors surface high-confidence atomic data points from Internet & SaaS telemetry that correlate into high-fidelity incidents. This helps detect the following Zscaler-specific threats earlier and stop them faster:
+
+- Unmanaged devices
+- Insider threats
+- Encrypted threats
+- "Living off the land" attacks
+- AI-driven and multi-stage attacks
+
+When a threat is detected, Zscaler Advanced Detections publishes an incident on the **Incidents** page with one source labeled `Zscaler Advanced Detections`. To learn more, see [About Incidents](https://help.zscaler.com/soc-workbench/about-incidents).
+
+See image.
+
+[Image: Zscaler Advanced Detections incident example]
+
+## Prerequisites
+
+To configure the Zscaler Advanced Detections connector, ensure you have active Internet & SaaS and SOC Workbench subscriptions. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
+
+## Configuring the Connector
+
+To create the Zscaler Advanced Detections data source in the Security Operations Platform (SecOps Platform):
+
+1. Go to **Configure** > **Sources**.
+2. Click **Create**. The **Create New Data Source**page appears.
+3. On the **Create New Data Source**page, search for and select the Zscaler Advanced Detections connector tile from the available data sources. See image. [Image: Zscaler Advanced Detections tile]
+
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
+
+Your Zscaler Account team sets up the Zscaler Advanced Detections connector on your behalf. You do not need to configure or adjust your user roles for SOC Workbench.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-zscaler-client-connector-devices-connector","lastmod":"2026-08-18T01:58Z","nid":"1530862"} -->
 ## Configuring the Zscaler Client Connector Devices Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-zscaler-client-connector-devices-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Zscaler Client Connector Devices Connector
-- Last modified: 2026-03-26T12:29Z
+- Last modified: 2026-08-18T01:58Z
 - Summary: How to configure the Zscaler Client Connector Devices connector, including setting up authentication and data retrieval filters and specifications.
 
 Zscaler Client Connector is an application deployed on an end user device that automatically forwards all user traffic through the Zscaler Zero Trust Exchange (ZTE) to enforce policy and access controls while improving performance.
@@ -12858,7 +11698,7 @@ After you create the Zscaler Client Connector Devices data source, enter the Aut
 
 To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications) and [Managing Authentications](https://help.zscaler.com/uvm/managing-authentications).
 
-For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
 Before getting started, you must enable the API for your organization to obtain access to the Zscaler Client Connector API by contacting Zscaler Support. To create an API token, the admin must be assigned a role with full access to the public API resource in the Zscaler Client Connector Portal (Administration > Administration Management > Role Management).
 
@@ -13260,279 +12100,6 @@ The File pattern field also allows better control over the files uploaded to a s
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/creating-formatting-rules","lastmod":"2026-08-07T04:47Z","nid":"1531110"} -->
-## Creating Formatting Rules
-
-- Source: https://help.zscaler.com/uvm/creating-formatting-rules
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Admin Portal > Creating Formatting Rules
-- Last modified: 2026-08-07T04:47Z
-- Summary: How to create and apply formatting rules to visually distinguish measurements using color-coded thresholds.
-
-Formatting rules allow you to apply coloring rules to [measurements and dimensions](https://help.zscaler.com/unified/understanding-measurements-and-dimensions), making data interpretation clear and intuitive. These rules help emphasize key measurements, highlight data based on dimension values, and track trends across dashboards and compliance policies.
-
-## Creating Formatting Rules
-
-To create a formatting rule:
-
-1. In the Zscaler Security Operations (SecOps) platform, go to **Configure**> **Formatting Rules**. The **Formatting Rules**page appears. See image.
-2. Click **New Rule**. The **Create Formatting Rule**drawer appears. See image.
-3. In the **Create Formatting Rule** drawer:
-  1. **Name**: Enter a name (e.g., Policy Compliance Threshold).
-  2. **Type**: Select the rule type:
-    - Numeric Rules
-    - Dimension-Based Rules
-  3. In the **Fallback Formatting Rule Logic** section, select the rule logic when data does not meet the defined conditions:
-    - **Back to Default**: Restores the default color assigned to the rule.
-    - **Customize**: Select a color for values that do not meet the conditions.
-  4. (Optional) Click **Reset to Default** to clear all custom inputs and revert the rule configuration to its original state.
-  5. Click **Save**.
-
-You can apply formatting rules to compliance policies or custom dashboards. To learn more, see [Configuring Asset Compliance Policies](https://help.zscaler.com/aem/configuring-asset-compliance-policies)and [Configuring Custom Dashboards](https://help.zscaler.com/unified/configuring-custom-dashboards).
-
-Numeric rules allow you to define custom coloring rules for measurements.
-
-1. Define the conditions:
-  1. Select an operator (e.g., **>**, **<**, **=**, **Between**).
-  2. Enter a threshold value for the condition. The **Between**operator requires both a starting and ending value for the numerical range.
-2. Assign a color for the condition (e.g., red for <25%).
-3. (Optional) Click the **Trash Can** icon to delete a rule. See image.
-4. (Optional) Click **Add**to add a new rule. See image.
-
-See image.
-
-Numeric rules are evaluated in the order they appear (from top to bottom). When there is an overlap between conditions, the color of the top condition takes priority.
-
-Dimension-based rules allow you to define custom coloring rules for dimensions. This is an effective way to visualize good versus bad indicators, such as Severity Levels or risk-based metrics like Asset Criticality.
-
-1. Select a value from the Dimension drop-down menu. The dimension values appear. See image. Rules can be configured for the top 25 dimension values.
-2. Assign a color to each dimension value.
-
-See image.
-
-- This rule applies only to pie, bar, and table charts.
-- [Repeated fields](https://help.zscaler.com/uvm/using-filters) are not currently supported.
-
-[Image: Create dimension-based rule]
-
-[Image: Delete icon]
-
-[Image: Add a new rule]
-
-[Image: List of dimension values]
-
-[Image: Create Formatting Rule drawer]
-
-[Image: Create Formatting Rule Drawer]
-
-[Image: Formatting Rules Page]
-
-## Applying Formatting Rules to a Widget
-
-To apply a formatting rule to a widget:
-
-1. In the SecOps platform, go to **Explore**> **Dashboards**. The **All Dashboards**page appears. See image.
-2. Click the dashboard you want to edit. The selected dashboard appears. See image.
-3. Click the **Edit Dashboard**icon.
-4. Hover over the desired widget, and click the **Edit**icon. See image.
-5. Click the **Style**tab. See image.
-6. Select a formatting rule from the **Formatting Rules**drop-down menu. See image. You can also click **New Rule** to create a new formatting rule.
-7. Click **Save**.
-8. Click **Save**on the dashboard to apply formatting rules to the widget.
-
-## Applying Formatting Rules to a Policy
-
-To apply a formatting rule (numeric rule) to an Asset Exposure Management (AEM) policy:
-
-1. Click **Assets**(the AEM app) in the top navigation bar.
-2. In the left-side navigation, click **Policies**. The **Policies**page appears. See image.
-3. Hover over the policy, and click the **Edit**icon. See image. The **Edit Policy**page appears. See image.
-4. In the **Formatting Rule**section, select the relevant formatting rule. You can also click **New Rule** to create a new formatting rule.
-5. Click **Save** to apply the rule to the policy.
-
-[Image: Policies page]
-
-[Image: Select the policy to edit]
-
-[Image: Edit the policy]
-
-[Image: All Dashboards page]
-
-[Image: Edit the dashboard]
-
-[Image: Edit the widget]
-
-[Image: Style Tab]
-
-[Image: Select a formatting rule from the Formatting Rules drop-down menu]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/creating-managing-saved-views","lastmod":"2026-01-08T07:24Z","nid":"1528016"} -->
-## Creating & Managing Saved Views
-
-- Source: https://help.zscaler.com/uvm/creating-managing-saved-views
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Admin Portal > Creating & Managing Saved Views
-- Last modified: 2026-01-08T07:24Z
-- Summary: How to create and manage saved views for entity pages and system dashboards.
-
-Saved views are configurable, reusable views that apply filters, grouping, sorting, and field selections to data. They improve data exploration and analysis by allowing users to return to specific data configurations without reapplying settings each time.
-
-Saved views are available in the following areas of the Zscaler Security Operations (SecOps) platform:
-
-- Entity pages
-  - UVM: [Tickets](https://help.zscaler.com/uvm/about-tickets), [Findings](https://help.zscaler.com/uvm/about-findings-operational-view-uvm), [Assets](https://help.zscaler.com/uvm/about-assets-operational-view-uvm), and [Exceptions](https://help.zscaler.com/uvm/understanding-exception-requests)
-  - AEM: Assets and [Policy Violations](https://help.zscaler.com/aem/about-policy-violations)
-- System dashboards
-  - UVM: [Risk](https://help.zscaler.com/uvm/viewing-risk-dashboard) and [Remediation History](https://help.zscaler.com/uvm/viewing-remediation-history-dashboard)
-  - AEM: Policy Compliance and Coverage and Gap
-- When [viewing items in a dashboard widget](https://help.zscaler.com/uvm/viewing-items-widget-segment)
-
-Your account is equipped with system-saved views, which are configured to reflect common use cases. You can create additional custom views that reflect your organization's specific workflows, investigation patterns, and reporting needs.
-
-Saved views are located in the drop-down menu above the entity table.
-
-See image.
-
-When managing saved views, you can perform the following actions:
-
-- Reset the Default View
-- Favorite Views
-- Create a New View
-- Edit Views
-- Delete Views
-
-[Image: Saved views drop-down menu]
-
-Your default view determines what you first see when opening a particular page. For example, the default view of the Tickets page in the UVM app is Active, which is set to display only active tickets.
-
-You can customize the default view at two levels:
-
-- Personal default view: In the saved views drop-down menu, click the **Set as my default view** icon next to the view name. This sets the selected view as the default for you only. See image.
-- Set the account-wide default view: In the saved views drop-down menu, click the **Set as Account Default View** icon next to the view name. This sets the selected view as the default for all users in the account. See image.
-
-[Image: Set My Default View icon]
-
-[Image: Set as Account Default View icon]
-
-To access frequently used views, you can add views to the favorites list. Favorited views are displayed at the top of the saved views list.
-
-To add a view to the favorites list, click the **Add to Favorite** icon next to the view name.
-
-See image.
-
-[Image: Add to Favorite icon]
-
-You can create a custom view by adjusting filters, displayed fields, grouping, and sorting.
-
-To create a new saved view:
-
-1. Apply filters, sorting, and other settings to the table.
-2. Click **Save as View**at the top-right corner of the page. See image.
-3. In the dialog window: See image.
-  - **View Name**: Enter a name for the view.
-  - **View Permissions**: Set to either **Public** (i.e., visible to all users in the account) or **Private** (i.e., visible only to you).
-  - **Set as Account Default View**: Select the checkbox to set this view as the default view for all users in the account.
-4. Click **Save**.
-
-[Image: Save as View option]
-
-[Image: Save as new view window]
-
-You can edit custom views that you created to update the view's settings (i.e., the view's name and permissions).
-
-You can't edit system views and views that were created by other users.
-
-To edit a custom saved view:
-
-1. Select the view from the saved views drop-down menu.
-2. Hover over the view and click the **Edit**icon. The **Edit Current View** window appears.
-3. In the**Edit Current View** window, apply your changes.
-4. Click **Save**.
-
-To edit the view's configuration (e.g., filtering, displayed fields, grouping), adjust the view as needed and click **Save View** at the top-right of the page.
-
-You can delete custom views that you created to remove them from the available saved views.
-
-You can't delete system views and views that were created by other users.
-
-To delete a custom saved view:
-
-1. Select the view from the saved views drop-down menu.
-2. Hover over the view and click the **Delete**icon.
-
-The view is deleted immediately.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/creating-managing-third-party-tickets","lastmod":"2025-08-25T22:49Z","nid":"1528131"} -->
-## Creating & Managing Third-Party Tickets
-
-- Source: https://help.zscaler.com/uvm/creating-managing-third-party-tickets
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Admin Portal > Creating & Managing Third-Party Tickets
-- Last modified: 2025-08-25T22:49Z
-- Summary: How to create and manage third-party tickets in the SecOps platform applications.
-
-Third-party outegrations allow organizations to create third-party tickets in external work management systems directly from the Zscaler Security Operations (SecOps) applications' tickets (e.g., Tickets in UVM, Violation Tickets in AEM) to facilitate a streamlined workflow. After a work management outegration is created and configured, third-party tickets can be dispatched and managed directly from the SecOps application's tickets to external systems (e.g., [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration), [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration), and other supported outegrations). To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-
-## Creating Third-Party Tickets
-
-To create a third-party ticket:
-
-1. Go to the SecOps app's tickets page (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, [Violation Tickets](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM).
-2. Click the ticket you want to dispatch to the external system. The ticket drawer appears.
-3. In the ticket drawer, click **Create**<Vendor> **Ticket**in the bottom-right corner. The SecOps ticket is dispatched to the external system, and is populated according to the mapping configuration you set up for the outegration.
-
-To create multiple third-party tickets:
-
-1. Select the checkboxes of the tickets you want to dispatch from the tickets table.
-2. Click **Create 3rd Party Issue**. See image. The SecOps tickets are dispatched to the external system, and are populated according to the mapping configuration you set up for the outegration.
-
-When dispatching multiple tickets in bulk, a separate external ticket is created for each SecOps ticket. The external ticket is created and populated based on the field mappings defined during the outegration setup. To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-
-SecOps tickets cannot be dispatched in bulk to different outegrations (e.g., Jira Bugs and Jira Tasks). Each ticket must be dispatched individually to ensure compatibility with their respective outegration configurations.
-
-If two-way sync from the external system to the SecOps platform is configured, creating a third-party ticket triggers the sync and updates the SecOps ticket based on the outegration's settings set by your account admin.
-
-## Managing Third-Party Tickets
-
-You can manage the connection between third-party tickets and SecOps tickets, including unlinking or manually linking tickets. To filter your tickets by whether they're linked to third-party tickets, you can add the Ticket External Issue Type field to the filters and select the desired integrations, or Empty to display tickets with no linked third-party tickets. To learn more, see [Using Filters](https://help.zscaler.com/uvm/using-filters).
-
-### Linking Existing Third-Party Tickets
-
-To link an existing third-party ticket to a SecOps ticket:
-
-1. Click the SecOps ticket you want to link. The ticket drawer opens.
-2. In the ticket drawer, click the **Create <**Outegration**> Ticket** drop-down menu, and select **Manually connect <**Outegration**>**. See image.
-3. Enter the third-party ticket ID. Enter only the third-party ticket ID (e.g., `INC0012345` for a ServiceNow ticket ID), not the ticket's URL or link.
-4. Click **Apply**.
-
-A third-party ticket can only be linked to one SecOps ticket.
-
-If two-way sync from the external system to SecOps is configured, linking a third-party ticket triggers the sync and updates the SecOps ticket based on the outegration's settings set by your account admin. To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
-
-### Unlinking Third-Party Tickets
-
-To unlink a third-party ticket from the SecOps ticket:
-
-1. Click the SecOps ticket you want to unlink. The ticket drawer opens.
-2. Click the **Create <**Outegration**> Ticket** drop-down menu, and select **Unlink <**Outegration**>**. See image.
-
-After the tickets are unlinked, updates between the third-party ticket and the SecOps ticket no longer sync.
-
-[Image: bulk create third party ticket button]
-
-[Image: create outegration dropdown menu open]
-
-[Image: unlink outegration dropdown menu open]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/exporting-reports-discovery-profiles","lastmod":"2026-05-17T07:06Z","nid":"1538692"} -->
 ## Exporting Reports for Discovery Profiles
 
@@ -13558,36 +12125,6 @@ To export a report:
 [Image: Exporting report for discovery profile from the EASM Settings page]
 
 [Image: Exporting report for EASM discovery profile]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/grouping-data-entity-pages","lastmod":"2025-08-25T22:52Z","nid":"1528096"} -->
-## Grouping Data on Entity Pages
-
-- Source: https://help.zscaler.com/uvm/grouping-data-entity-pages
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Admin Portal > Grouping Data on Entity Pages
-- Last modified: 2025-08-25T22:52Z
-- Summary: How to group data on entity pages by key attributes.
-
-You can use the grouping feature to organize the data on pages (e.g., Tickets, Assets, Findings for UVM; Assets, Violation Tickets, Violation Findings for AEM). Grouping your view creates collapsible sections based on the field you select. For example, grouping the UVM Tickets view by Ticket Severity categorizes the tickets into the different severity values (i.e., Critical, High, Medium, Low, Info).
-
-To add grouping to a page:
-
-1. Go to the SecOps app's entity page (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) or [Findings](https://help.zscaler.com/uvm/about-findings-operational-view-uvm) in UVM, [Violation Tickets](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) or [Policy Violations](https://help.zscaler.com/uvm/about-policy-violations-operational-view-aem) in AEM).
-2. Click the **Group By**drop-down menu. See image.
-3. Select the field you want to group the view by (e.g., **Assignee Tags**, **Assignee ID**, etc.).
-
-The view is updated by your selected grouping. To remove the grouping, click **Clear Selection**at the bottom of the **Group By**drop-down menu.
-
-See image.
-
-Your grouping preferences can be saved as a set view. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/uvm/creating-managing-saved-views).
-
-[Image: operational views group by]
-
-[Image: group by clear selection]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13868,18 +12405,18 @@ To delete a rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/managing-manual-ticket-grouping","lastmod":"2025-11-20T01:08Z","nid":"1533826"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/managing-manual-ticket-grouping","lastmod":"2026-08-31T02:46Z","nid":"1533826"} -->
 ## Managing Manual Ticket Grouping
 
 - Source: https://help.zscaler.com/uvm/managing-manual-ticket-grouping
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Managing Manual Ticket Grouping
-- Last modified: 2025-11-20T01:08Z
-- Summary: How to manage ticket grouping in the Vulnerabilities app.
+- Last modified: 2026-08-31T02:46Z
+- Summary: How to manage ticket grouping in UVM.
 
 An account's grouping rules automatically aggregate findings with similar attributes into tickets, facilitating a productive work process. In addition to automatic grouping rules, the system also offers manual grouping management, allowing isolated grouping adjustments when necessary.
 
-For access to manual ticket grouping, your assigned role must include the Read, Create, and Edit permissions under the Vulnerabilities App - Ticket Operational View resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles) and [Assigning Roles to Users](https://help.zscaler.com/uvm/assigning-roles-users).
+For access to manual ticket grouping, your assigned role must include the Read, Create, and Edit permissions under the Vulnerabilities App - Ticket Operational View resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
 See image.
 
 [Image: List of roles and their permissions]
@@ -13891,6 +12428,8 @@ There are two general use cases where manual grouping can be used:
   - Merging tickets into a single ticket
 - To launch a one-time remediation campaign, where manually grouping findings based on meaningful shared attributes into a single work unit can be assigned and tracked. For example, searching for instances of a particular CVE vulnerability located on multiple assets can be grouped into a single ticket for convenient remediation.
 
+Manual split and merge actions are unavailable for tickets that have [exception requests](https://help.zscaler.com/uvm/understanding-exception-requests). Users cannot split findings from these tickets, merge findings from these tickets with findings from other tickets, or merge these tickets with other tickets. If all exceptions requests for a ticket are closed or in a Closed status bucket, these actions become available again. Users with Exceptions - Audit permission can still split and merge findings and tickets.
+
 Ensure that automatic grouping rules in your account accurately group findings into tickets reflecting your business logic and vulnerability management efforts. Frequent use of manual ticket grouping might require you to revise your account's automatic grouping rules.
 
 ## Splitting Findings
@@ -13899,7 +12438,7 @@ You can split findings from a ticket into one or more new tickets. For example, 
 
 To split findings from an existing ticket into a new ticket:
 
-1. In the SecOps platform, go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears. See image.
+1. In the SecOps Platform Admin Portal, go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears. See image.
 2. Click the ticket you want to split. The ticket details drawer appears.
 3. Click the **Findings**tab.
 4. Select the findings you want to split, using filters if needed. To select all filtered findings, select the checkbox at the top of the list. To select more than 20 findings, click **Select all**<#>**rows**. See image. The **Split Into a New Ticket** drop-down menu appears.
@@ -13923,7 +12462,7 @@ Ticket merging is useful when you want to merge tickets with related findings in
 
 To merge multiple tickets into one single ticket:
 
-1. In the SecOps platform, go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears.
+1. Go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears.
 2. Select the ticket(s) you want to merge, using filters if needed. You can't merge tickets if more than one of them is linked to an external case management system (e.g., Jira issue) to ensure the dispatched task scope remains unchanged. To proceed with the action despite this restriction, unlink the ticket from the external issue.
 3. Click **Merge**. See image.
 4. Enter a name for the new ticket. See image.
@@ -13941,7 +12480,7 @@ Manual grouping allows you to manually curate findings into a single ticket. A c
 
 To manually group a set of related findings into one single ticket:
 
-1. In the SecOps platform, go to **Vulnerabilities**> **Findings**. The **Findings**page appears. See image.
+1. Go to **Vulnerabilities**> **Findings**. The **Findings**page appears. See image.
 2. Select the finding(s) you want to group, search for the CVE or keyword, or use filters if needed.
 3. Click **Create Ticket**. See image.
 4. Review the selected findings before proceeding, as this action can potentially affect multiple tickets and deselect irrelevant findings. See image. Removing all findings from a ticket is generally not recommended, and isn't permitted when a ticket is linked to an external case management system. To proceed with the action despite this restriction, unlink the ticket from the external issue.
@@ -13993,72 +12532,6 @@ When splitting findings from a ticket linked to an external case management issu
 #### Manually Grouping Findings
 
 Manually grouping findings into a new ticket can involve splitting findings from tickets that are linked to external case management issues. Splitting findings from such tickets is only possible if at least one finding remains in the linked ticket, or if the ticket link is detached from the external issue. If configured in your account, the external issue is updated to remove the split findings.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/managing-table-columns","lastmod":"2026-07-22T14:32Z","nid":"1529239"} -->
-## Managing Table Columns
-
-- Source: https://help.zscaler.com/uvm/managing-table-columns
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Admin Portal > Managing Table Columns
-- Last modified: 2026-07-22T14:32Z
-- Summary: How to adjust the displayed columns in tables across the platform, including Operational Views, Reports, and Runs.
-
-You can customize the displayed columns and their sorting settings in tables throughout the platform. This article explains how to add and remove the displayed columns, which include measurements (quantitative fields) and dimensions (categorical fields). The Tickets page in the Vulnerabilities app is shown as an example.
-
-To view the available fields that can be displayed as columns, click the **Settings** icon at the top right of the table. The **Manage Table Columns** window appears, displaying columns currently in use on the right, and columns that can be added on the left.
-
-See image.
-
-[Image: Managing table columns on the Tickets page]
-
-## Adding and Removing Columns
-
-To add and remove columns from the table:
-
-1. To add a column, click the **+** icon on the field you want to add. See image.
-2. To remove a column, click the **X** icon on the field you want to remove. See image.
-3. Click **Apply**after you add or remove a column to save the change.
-
-[Image: Add a column to display]
-
-[Image: Remove a currently displayed column]
-
-You can also add or remove columns by dragging and dropping them in the window.
-
-- To add a field, drag it to the **IN USE** list.
-- To remove a field, drag it back to the **AVAILABLE** list.
-
-See image.
-
-[Image: Drag and drop to add or remove columns]
-
-Use the search box to find specific columns that you want to add or remove.
-
-See image.
-
-[Image: Search for a field]
-
-## Arranging Columns
-
-To arrange the displayed columns to your desired order:
-
-1. In the **IN USE** list, drag the columns in the order you want them to appear. See image.
-2. Click **Apply**to save your changes.
-
-To sort a table by a column, click the column header you want to sort by. An arrow icon appears next to the column name, indicating the current sort direction (ascending or descending). Click the column header again to change the sort direction.
-
-[Image: Arrange the order of columns to be displayed]
-
-## Resetting to Default
-
-To undo the changes and revert to the default display, click **Reset to Default**and then click **Apply**.
-
-See image.
-
-[Image: Reset columns to their default order]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14246,13 +12719,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-08-11T08:33Z","nid":"1534299"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-09-08T11:45Z","nid":"1534299"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/uvm/release-upgrade-summary-2026
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-11T08:33Z
+- Last modified: 2026-09-08T11:45Z
 - Summary: Unified Vulnerability Management (UVM) Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Unified Vulnerability Management (UVM).
@@ -14260,13 +12733,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/requesting-exceptions","lastmod":"2025-11-20T01:20Z","nid":"1527636"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/requesting-exceptions","lastmod":"2026-08-31T02:50Z","nid":"1527636"} -->
 ## Requesting Exceptions
 
 - Source: https://help.zscaler.com/uvm/requesting-exceptions
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Requesting Exceptions
-- Last modified: 2025-11-20T01:20Z
+- Last modified: 2026-08-31T02:50Z
 - Summary: How to submit exception requests to extend the SLA date of UVM tickets.
 
 When a ticket cannot be remediated within its designated service level agreement (SLA) due to technical limitations, an unavailable fix, or unacceptable business impact, you can submit an exception request to temporarily exempt the ticket from published security policies. When initiating the exception request, you'll need to provide justification and submit necessary supporting evidence for review. The request is then assessed by a reviewer, who either approves or denies it. To learn more, see [Understanding Exception Requests](https://help.zscaler.com/uvm/understanding-exception-requests).
@@ -14282,9 +12755,11 @@ Before submitting an exception request, make sure the ticket contains only the f
 
 When your findings are grouped into a single ticket, you can request an exception.
 
+After you request an exception for a ticket, manual split and merge actions are disabled for that ticket. Users cannot split findings from the ticket, merge findings from the ticket with findings from other tickets, or merge the ticket with another ticket. If all exceptions for the ticket are closed or in a Closed status bucket, these actions become available again. Users with Exceptions - Audit permission can still split and merge findings and tickets. To learn more, see [Managing Manual Ticket Grouping](https://help.zscaler.com/uvm/managing-manual-ticket-grouping).
+
 To create an exception request:
 
-1. Go to **Vulnerabilities** > **Tickets**.
+1. In the SecOps Platform Admin Portal, go to **Vulnerabilities** > **Tickets**.
 2. In the table, click the ticket for which you want to request an exception. The **Ticket**drawer appears.
 3. On the **Details** tab, click **Request Exception**. See image. The **Request Exception**dialog window appears.
 4. In the **Request Exception**dialog window:
@@ -14312,13 +12787,15 @@ The status of your request reflects the reviewer's decision and is shown in the 
 
 ## Syncing Exceptions with External Systems
 
-If your organization uses an outegration (e.g., ServiceNow IRM) to track exceptions, you can sync your request. To learn more, see [Creating Outegrations](https://help.zscaler.com/uvm/creating-outegrations).
+If your organization uses an outegration (e.g., ServiceNow IRM) to track exceptions, you can sync your request. To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations).
 
 To sync an exception request with an external system:
 
 1. Go to **Vulnerabilities**> **Exceptions**.
 2. In the table, click the exception request you want to sync.
 3. Click **Create**<Outegration> **Ticket**.
+
+[Image: Request Exception on the Details tab in a ticket drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14405,31 +12882,6 @@ See image.
 [Image: exceptions by requester overview chart]
 
 [Image: exception request drawer details tab]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/supported-browsers-zscaler-secops","lastmod":"2025-08-17T08:38Z","nid":"1527766"} -->
-## Supported Browsers for Zscaler SecOps
-
-- Source: https://help.zscaler.com/uvm/supported-browsers-zscaler-secops
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Supported Browsers for Zscaler SecOps
-- Last modified: 2025-08-17T08:38Z
-- Summary: Information on browser compatibility with the Zscaler SecOps platform.
-
-Zscaler actively tests browser compatibility with the Zscaler Security Operations (SecOps) platform.
-
-The Zscaler SecOps platform supports the following browsers:
-
-- Apple Safari (two most recent versions)
-- Google Chrome (two most recent versions)
-- Microsoft Edge (two most recent versions)
-- Mozilla Firefox (two most recent versions)
-
-Older versions of these browsers should be compatible, but are no longer actively tested.
-
-Other browsers should be compatible, but are not actively tested.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14895,140 +13347,6 @@ The following use cases highlight how EASM capabilities empower organizations in
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/using-filters","lastmod":"2025-08-25T22:51Z","nid":"1528106"} -->
-## Using Filters
-
-- Source: https://help.zscaler.com/uvm/using-filters
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Admin Portal > Using Filters
-- Last modified: 2025-08-25T22:51Z
-- Summary: How to use filters to adjust the displayed data by the relevant scope.
-
-You can use filters to adjust and refine the data displayed in views across the platform, from dashboards and reports to operational views (e.g., Tickets, Assets). By applying filters, you can focus on specific information relevant to your current task, such as reviewing vulnerabilities on a particular asset, addressing critical policy violations, or identifying high-priority tickets discovered in the last week. This helps security teams efficiently prioritize their workload and focus on the most critical risks in their environment.
-
-Filters are applied using available fields, including measurements (e.g., counts, averages) and dimensions (e.g., Status or Severity categories). The specific fields available for filtering depend on where you are in the platform. For example, dashboards with data from multiple entities support filtering by dimensions but not measurements, while operational views typically allow filtering by both. To learn more, see [Understanding Measurements & Dimensions](https://help.zscaler.com/uvm/understanding-measurements-dimensions).
-
-## Adding Filters
-
-Different fields have filtering options that vary according to the field type (e.g., Boolean, Text, Number, Date, IP) and whether it can contain multiple values (i.e., repeated fields).
-
-To add a filter:
-
-1. At the top of the page, click **Add Filters** (if no filters are active) or **More**(if filters are already applied) to open the list of available fields for filtering in the current page. See image.
-2. Search for and select the field you want to filter by. Selecting a field adds it to the list of filters.
-3. Select the checkbox for the field you want to filter by. The field's filter dialog window appears.
-4. In the field's filter dialog window, set the values you want to filter the field by:
-  - List
-  - Date Selector
-  - Condition
-
-Applying filters adjusts the displayed data to what is included in the filter's scope. This resets when you leave the page. Your applied filters can be saved as a set view. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/uvm/creating-managing-saved-views).
-
-## Filtering Repeated Fields
-
-Repeated fields are fields that can store multiple values, such as the Asset or the Ticket Sources field. Filters applied to these fields allow you to focus on your data by including or excluding records based on one or more of the field's values.
-
-### Repeated Fields in List Filters
-
-When filtering repeated fields from the list of the field's values, selecting one or more values returns records containing at least one of the selected values.
-
-See image.
-
-For example, to view assets retrieved from specific sources, such as Qualys Vulns and ServiceNow Assets, select these values from the field filter drop-down menu. This returns assets that include either of these as a source, and not necessarily both. To exclude assets retrieved exclusively from a specific source (e.g., ServiceNow Assets), select all other values except the one you want to exclude. This excludes assets that list ServiceNow Assets as their only source, and includes assets that contain at least one of the selected sources (e.g., Qualys Vulns).
-
-Filtering repeated fields using the list of values functions similarly to the `Equals (Any)` operator in conditional filtering, checking the filter against any of the field's values.
-
-### Repeated Fields in Conditional Filters
-
-For more granular filtering, you can configure conditional filters on repeated fields to define specific rules for their values. When configuring conditional filters for these fields, you can specify whether the filter should be checked against any or against all the field's values.
-
-- All Operator
-- Any Operator
-
-The `Is Empty` and `Is Not Empty` operators are Boolean filters and do not have All or Any variations. These operators check whether a repeated field contains any values (i.e., `Is Not Empty`) or has no values at all (i.e., `Is Empty`). Unlike other conditional operators on repeated fields that evaluate individual values within the field, these operators apply to the field as a whole, making the distinction between All and Any unnecessary.
-
-## Managing Filters
-
-Filters can be adjusted, cleared, or reset as needed. When managing filters, you can perform the following actions:
-
-- To clear the values from an applied filter field without removing the field itself, click the field in the filters bar and click **Clear Selection**.
-- To remove a field from the filters bar, open the **More**drop-down menu and deselect the field from the list of active filters.
-- To reset the filters, click **Clear All Filters**. This removes all active filters and displays all available data.
-
-For fields with a set list of values (e.g., **Status**or **Severity**, or Boolean fields), select one or more options in the filter dialog window. For example, select **Opened** or **In Progress**for the **Status**filter to focus on active tickets. Use the search bar to locate values in long lists.
-
-See image.
-
-Multiple selections apply a logical OR (e.g., selecting **Opened** and **In Progress**shows items matching either value). If no values are selected, the filter will show all data for that field.
-
-[Image: tickets more filters dialog open]
-
-[Image: filters list status field]
-
-You can define time ranges or conditions in the date selector window to filter data. For example, you can filter records to display only upcoming deadlines within the next month, or identify entries that lack assigned dates.
-
-See image.
-
-Date filters can be configured using the following methods:
-
-- **Date Range**: Choose a method to filter records based on specific timeframes.
-  - **Preconfigured**: Select a preset option on the left to filter records based on common timeframes (e.g., **Last 7 Days**, **Next 14 Days**).
-  - **Custom**: Define a range to include only records within specific timeframes.
-    - **Fixed Date Range**: Select a fixed start and end date using the calendar display, or manually enter dates in the date field at the bottom left of the filter dialog window.
-    - **Dynamic Date Range**: Define relative timeframes that automatically update based on the current date (e.g., **Last 7 Days** or **Next 1 Month**).
-      1. Select a timeframe from the drop-down menu:
-        - **Next**: Displays records from today forward (e.g., **Next 1 Month**includes today + 31 days; **Next 1 Day**includes today + 1 day). This timeframe is often used for SLA and due-date fields. **Next**is not available for historical data.
-        - **Last**: Displays records from the start of the current time unit (calendar Month, Week, Day) to today (e.g., **Last 1 Month**includes the 1st of the current month to today, including today; **Last 1 Day**includes today).
-        - **Previous**: Displays records from the full previous time unit (calendar Month, Week, Day), not including the current time unit (e.g., **Previous 1 Month**in July includes the entire month of June; **Previous 1 Day**includes yesterday).
-        - **Before**: Displays all records up to and including the selected date (the default selected date is today).
-      2. Enter a value for the time unit.
-      3. Select a time unit (i.e., **Day**, **Week**, **Months**) from the drop-down menu to define how the range is calculated. Weekly filters follow a Monday-to-Sunday format.
-- **Is Empty**: Display records with no date assigned (e.g., records missing SLA deadlines).
-- **Is Not Empty**: Display records with a date assigned.
-
-[Image: filters date picker]
-
-Use conditional filters to apply rules that filter your data based on field values. Conditional filters are available depending on the field and the view you're filtering in, and are not available for Boolean and Date fields. You can combine multiple conditions using AND or OR to create compound filtering rules for more granular control.
-
-See image.
-
-To apply conditional filters:
-
-1. In the filter dialog window of the field you are filtering by, select **Condition**.
-2. Configure the filter conditions:
-  1. Select an operator (e.g., **Equals**, **>**). Available operators vary depending on the field type (i.e., Text, Number).
-  2. Enter the value that the rule should apply to. Filter conditions are case sensitive.
-  3. (Optional) Use **AND**/**OR**logic to define compound rules:
-    - **AND**includes records only if they meet all conditions in the rule.
-    - **OR**includes records if they meet any conditions in the rule.
-3. Click **Apply**.
-
-The following examples show conditional filters:
-
-- Ticket Severity Score: Filter tickets based on their severity score to focus on high-risk issues. For example, to view tickets with a severity score between 7 and 10, add the Ticket Severity Score field to the filters, and configure the conditional filter `>= 7`.
-- Asset Type: Filter assets by type to focus on related data and streamline your analysis. For example, to exclude Container assets, add the Asset Type to the filters, and configure the conditional filter `Not Equals Container`. This helps you concentrate on non-containerized assets, such as virtual machines or databases, when assessing infrastructure-level risks or vulnerabilities.
-
-[Image: filters conditions]
-
-[Image: filters list repeated fields asset sources]
-
-The All operator returns records only if all the values in the field meet the filter condition.
-
-Examples:
-
-- To include assets retrieved exclusively from the sources Qualys Assets and Wiz Assets, use the `Equals (All)` operator (i.e., `Asset Sources Equals (All) Qualys Assets AND Wiz Assets`). This displays assets where all listed sources are Qualys Assets and Wiz Assets, excluding any records with additional sources (e.g., ServiceNow Assets).
-- To exclude all assets retrieved from the ServiceNow Assets source, even if they were retrieved by other sources, use the `Not Equals (All)` operator (i.e., `Asset Sources Not Equals (All) ServiceNow Assets`). This excludes all assets retrieved from ServiceNow Assets, even those retrieved by additional sources (e.g., an asset retrieved by ServiceNow Assets and Qualys Assets is excluded).
-
-The Any operator returns records if at least one (i.e., any) value in the field meets the filter condition.
-
-Examples:
-
-- To view all assets retrieved from ServiceNow Assets, even if they were retrieved by additional sources, use the `Equals (Any)` operator (i.e., `Asset Sources Equals (Any) ServiceNow Assets`). Assets retrieved from ServiceNow Assets are retrieved, including those retrieved by other sources (e.g., an asset retrieved by ServiceNow Assets and Qualys Assets is included).
-- To exclude records retrieved only from ServiceNow Assets (and no other sources), use the `Not Equals (Any)` operator (i.e., `Asset Sources Not Equals (Any) ServiceNow Assets`). Assets retrieved from ServiceNow Assets but also from other sources are not excluded (e.g., an asset retrieved by ServiceNow Assets and Qualys Assets is not excluded).
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/using-remediation-copilot-uvm","lastmod":"2026-04-12T07:06Z","nid":"1533873"} -->
 ## Using Remediation Copilot in UVM
 
@@ -15373,22 +13691,24 @@ You can filter the feed by:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/viewing-overview-dashboard","lastmod":"2026-07-19T06:00Z","nid":"1540139"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-overview-dashboard","lastmod":"2026-08-31T02:36Z","nid":"1540139"} -->
 ## Viewing the Overview Dashboard
 
 - Source: https://help.zscaler.com/uvm/viewing-overview-dashboard
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Analyze for UVM > Viewing the Overview Dashboard
-- Last modified: 2026-07-19T06:00Z
+- Last modified: 2026-08-31T02:36Z
 - Summary: How to view and interpret the Overview dashboard in UVM.
 
-The Overview dashboard provides a comprehensive view of your Zscaler Unified Vulnerability Management (UVM) findings from ingestion to remediation. The dashboard demonstrates the data deduplication, normalization, and prioritization capabilities in the Zscaler Security Operations (SecOps) platform, allowing you to view how fragmented data points are transformed into a streamlined set of prioritized work items.
+The Overview dashboard provides a comprehensive view of your Unified Vulnerability Management (UVM) findings from ingestion to remediation. The dashboard demonstrates the data deduplication, normalization, and prioritization capabilities in the Security Operations Platform (SecOps Platform), allowing you to view how fragmented data points are transformed into a streamlined set of prioritized work items.
 
-To access the dashboard, go to **Vulnerabilities** > **Overview**.
+To access the dashboard in the SecOps Platform Admin Portal, go to **Vulnerabilities** > **Overview**.
+
+The dashboard initially displays a recent snapshot of your data while it loads the most current data.
 
 See image.
 
-You can adjust the data displayed in the dashboard by using the filters at the top of the page. To learn more, see [Using Filters](https://help.zscaler.com/uvm/using-filters). You can save the adjusted view to return to without reapplying the filters each time. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/uvm/creating-managing-saved-views).
+You can adjust the data displayed in the dashboard by using the filters at the top of the page. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). You can save the adjusted view to return to without reapplying the filters each time. To learn more, see [Creating & Managing Saved Views](https://help.zscaler.com/unified/creating-managing-saved-views).
 
 ## Tracking Discovery to Prioritization
 
@@ -15398,7 +13718,7 @@ See image.
 
 ### Source Findings and Assets
 
-On the left, the dashboard displays source findings and source assets for each of the [data sources configured in your account](https://help.zscaler.com/uvm/creating-data-sources) (e.g., Qualys, CrowdStrike, ServiceNow), after mapping but before unification.
+On the left, the dashboard displays source findings and source assets for each of the [data sources configured in your account](https://help.zscaler.com/unified/creating-data-sources) (e.g., Qualys, CrowdStrike, ServiceNow), after mapping but before unification.
 
 - Findings: The total number of findings reported by a specific source.
 - Assets: The number of assets that the source is reporting on.
@@ -15407,7 +13727,7 @@ See image.
 
 ### Unified Findings
 
-As you trace the flow toward the right, the source data is aggregated into the Findings node. The number of findings displayed in this node reflects the findings after they have been processed by the platform's [unification](https://help.zscaler.com/uvm/what-data-unification). UVM identifies when multiple different sources report the same vulnerability on the same machine and merges them into a single, unified record. Thus, you might see a lower number in the central Findings node than the sum of all raw source findings on the left. This provides you with an accurate count of unique findings in your environment without the duplication of overlapping scanner reports.
+As you trace the flow toward the right, the source data is aggregated into the Findings node. The number of findings displayed in this node reflects the findings after they have been processed by the platform's [unification](https://help.zscaler.com/unified/what-data-unification). UVM identifies when multiple different sources report the same vulnerability on the same machine and merges them into a single, unified record. Thus, you might see a lower number in the central Findings node than the sum of all raw source findings on the left. This provides you with an accurate count of unique findings in your environment without the duplication of overlapping scanner reports.
 
 The trend arrow indicates the percentage of increased or decreased deduplicated findings in the past 30 days.
 
@@ -15443,11 +13763,11 @@ The Total Unique CVE tile counts the number of distinct Common Vulnerabilities a
 
 ### % Assigned Tickets
 
-The % Assigned Tickets tile tracks how many currently active tickets have been assigned to a specific owner or remediation team. A low assignment percentage indicates that tickets are being created but are sitting in an unassigned queue. You can automate assignment with [data unification](https://help.zscaler.com/uvm/what-data-unification) rules.
+The % Assigned Tickets tile tracks how many currently active tickets have been assigned to a specific owner or remediation team. A low assignment percentage indicates that tickets are being created but are sitting in an unassigned queue. You can automate assignment with [data unification](https://help.zscaler.com/unified/what-data-unification) rules.
 
 ### % Third-Party Tickets
 
-The % Third-Party Tickets tile represents the percentage of tickets that have been dispatched to an external work management system using [outegrations](https://help.zscaler.com/uvm/creating-outegrations) (e.g., Jira or ServiceNow). A high percentage indicates a healthy, automated integration where security insights are being pushed directly into the existing workflows of your IT and development teams.
+The % Third-Party Tickets tile represents the percentage of tickets that have been dispatched to an external work management system using [outegrations](https://help.zscaler.com/unified/creating-outegrations) (e.g., Jira or ServiceNow). A high percentage indicates a healthy, automated integration where security insights are being pushed directly into the existing workflows of your IT and development teams.
 
 [Image: Vulnerabilities Overview dashboard]
 
@@ -15703,72 +14023,6 @@ Hovering over a specific bar shows a breakdown of the risk score by findings' se
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/viewing-zscaler-secops-status-board","lastmod":"2025-08-25T22:54Z","nid":"1527821"} -->
-## Viewing the Zscaler SecOps Status Board
-
-- Source: https://help.zscaler.com/uvm/viewing-zscaler-secops-status-board
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Viewing the Zscaler SecOps Status Board
-- Last modified: 2025-08-25T22:54Z
-- Summary: How to view information in the Zscaler SecOps status board.
-
-To view the Zscaler Security Operations (SecOps) status board, refer to the [status page](https://avalorstatus.statuspage.io/). The status board presents historic and current incidents in the SecOps platform.
-
-On the status board, you can perform the following actions:
-
-- Report Issues
-- Subscribe to Updates and Feeds
-- View Current Status
-- View Incident History and Historical Uptime
-
-If you're a SecOps user and you've encountered an issue with the platform or one of its apps, you can report it to the SecOps team.
-
-To report an issue, click **Submit a request** at the top right of the page.
-
-You can subscribe to incident updates by email, phone, and Slack, and to the status board's Atom and RSS feeds.
-
-To subscribe to updates:
-
-1. Click **Subscribe to Updates**at the top right of the page.
-2. Click the icon of your preferred update method, and follow the onscreen instructions. See image.
-
-The SecOps platform's current status presents incidents in the last 90 days by region (US, EU), and each region is broken down into additional components:
-
-- Platform
-- Data Ingestion
-- Query Engine
-- UVM App
-- Detections App (only for US)
-
-The SecOps platform reports past incidents and historical uptime.
-
-## Incidents
-
-You can view past incident descriptions in 90-day increments.
-
-To view incident history, choose one of the following methods:
-
-- On the **Current Status** page, scroll to the bottom of the page and click **Incident History**.
-- On the **Uptime** page, click the **Incident**tab.
-
-## Uptime
-
-You can view historical uptime in 90-day increments and by one of the following components:
-
-- Platform
-- Data Ingestion
-- Query Engine
-- UVM App
-- Detections App (only for US)
-
-To view uptime history, choose one of the following methods:
-
-- On the **Current Status** page, click **View historical uptime** in the top right.
-- On the **Incidents** page, click the **Uptime**tab.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/uvm/what-remediation-copilot","lastmod":"2026-04-12T07:06Z","nid":"1533882"} -->
 ## What Is Remediation Copilot?
 
@@ -15814,58 +14068,4 @@ Remediation Copilot operates within Zscaler services, and data shared with it is
 Use of AI-powered features in the Zscaler Security Operations (SecOps) platform is optional. Availability is controlled via admin opt-in in your account. To learn more, see [Managing AI Capabilities in the SecOps Platform](https://help.zscaler.com/uvm/managing-ai-capabilities-secops-platform).
 
 [Image: Remediation Copilot Chat and Fixes Tab]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/what-zscaler-security-operations","lastmod":"2026-05-22T07:06Z","nid":"1531027"} -->
-## What Is Zscaler Security Operations?
-
-- Source: https://help.zscaler.com/uvm/what-zscaler-security-operations
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > What Is Zscaler Security Operations?
-- Last modified: 2026-05-22T07:06Z
-- Summary: Information on the Zscaler Security Operations (SecOps) platform.
-
-Zscaler Security Operations (SecOps) is a unified approach to security that integrates proactive and reactive measures to enhance an organization's overall security posture. It focuses on bridging the gap between traditional exposure management and threat management, creating a cohesive strategy for identifying, prioritizing, and responding to cyber risks. This comprehensive view helps accelerate incident response, improve operational efficiency, and simplify compliance efforts.
-
-## Key Features and Benefits
-
-Zscaler SecOps provides the following benefits and enables you to:
-
-- Integrate Zscaler SecOps and third-party data for rich context, providing a comprehensive view of your security landscape.
-- Offer automated workflows for remediation and updates.
-- Provide real-time visibility into security posture and metrics.
-
-There are two applications in the Zscaler SecOps platform:
-
-- Asset Exposure Management (AEM) enables organizations to collect and manage asset data from various sources to track asset inventory and coverage. It allows organizations to understand their attack surface, create policies, and track and remediate policy violations to reduce overall risk.
-- Unified Vulnerability Management (UVM) provides a single platform for managing vulnerabilities, simplifying the process of identifying and remediating security risks.
-
-The Zscaler SecOps platform natively integrates External Attack Surface Management (EASM) capabilities to automatically discover, inventory, and monitor internet-facing assets and detect their associated risk findings. This scanned asset and finding information is automatically merged with the context-rich data and capabilities of AEM and UVM to provide comprehensive asset visibility and enriched security insights, helping organizations secure their assets and remediate risks.
-
-## How Does Zscaler SecOps Work?
-
-Zscaler SecOps operates on a robust data fabric for security that centralizes and transforms disparate security data. Supported by machine learning and AI, the fabric harmonizes, deduplicates, correlates, and enriches information from various sources, including Zscaler telemetry and third-party tools. The clean, contextualized data leads to more accurate and informative security outcomes. These insights power exposure management solutions, such as AEM and UVM, enabling organizations to understand and address asset risk, prioritize vulnerabilities, and effectively quantify overall cyber risk.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/uvm/zscaler-secops-public-ip-addresses","lastmod":"2025-08-17T08:31Z","nid":"1527781"} -->
-## Zscaler SecOps Public IP Addresses
-
-- Source: https://help.zscaler.com/uvm/zscaler-secops-public-ip-addresses
-- Product: Unified Vulnerability Management (UVM)
-- Path: Unified Vulnerability Management (UVM) Help > Getting Started > Zscaler SecOps Public IP Addresses
-- Last modified: 2025-08-17T08:31Z
-- Summary: A list of public IP addresses used by the Zscaler Security Operations platform and its applications (e.g., UVM, AEM) for allowlisting when configuring integrations with the platform.
-
-To ensure seamless connectivity and uninterrupted access to essential resources, you can allowlist the public IP addresses used by outgoing traffic from the Zscaler Security Operations (SecOps) platform and its applications (e.g., UVM, AEM). These IP addresses serve as the source for all egress traffic originating from the Zscaler tenant.
-
-Add the following IP addresses associated with your instance's region to your firewall's allowlist to ensure uninterrupted access to the required resources.
-
-| **Region** | **IP Addresses** |
-| --- | --- |
-| **US** | 3.137.47.190/32 3.15.110.62/32 3.129.232.141/32 |
-| **EU** | The recommended IP addresses listed in [Zscaler Hub IP Addresses](https://config.zscaler.com/zscalertwo.net/hubs) |
 <!-- /ZS-ARTICLE -->

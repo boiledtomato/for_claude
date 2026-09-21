@@ -1,0 +1,39 @@
+name: PR Checks
+
+# 自動マージの前提となる必須ステータスチェック。
+# 外部サイトへは一切アクセスせず、構文と形式だけを 1 分以内で検証する。
+# ロジックの妥当性は見ないので、レビューの代わりにはならない。
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-checks-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # 生成物込みで 30MB 超あるため履歴は取らない
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Validate repository
+        run: python scripts/validate_repo.py

@@ -23,7 +23,8 @@ for_claude/
 │   ├── build_community_docs.py       # community.zscaler.com → NotebookLM Markdown builder
 │   ├── certs/
 │   │   └── community-zscaler-chain.pem   # Intermediate cert the community site omits
-│   └── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
+│   ├── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
+│   └── validate_repo.py              # Static checks run by pr-checks.yml
 ├── data/
 │   ├── articles.json                 # Generated output — do not hand-edit
 │   ├── help_docs_index.json          # Per-article state for build_help_docs.py
@@ -47,7 +48,8 @@ for_claude/
 │       ├── android-build.yml         # Debug APK build + rolling pre-release
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy
 │       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
-│       └── community-weekly.yml      # Weekly community.zscaler.com doc refresh
+│       ├── community-weekly.yml      # Weekly community.zscaler.com doc refresh
+│       └── pr-checks.yml             # Required status check for PRs
 └── README.md
 ```
 
@@ -63,7 +65,7 @@ They share `sync_notebooklm.py` but nothing else. Keep them separate.
 | Index | `data/help_docs_index.json` | `data/community_docs_index.json` |
 | Sync state | `data/notebooklm_sync_state.json` | `data/community_notebooklm_sync_state.json` |
 | Notebook | `Zscaler_help_docs` | `Zscaler_community` |
-| Workflow | `notebooklm-weekly.yml` (Mon 00:00 UTC) | `community-weekly.yml` (Mon 01:00 UTC) |
+| Workflow | `notebooklm-weekly.yml` (Mon 02:30 UTC) | `community-weekly.yml` (Mon 03:30 UTC) |
 
 Official documentation is reviewed; forum posts are not. Mixing them into one
 notebook makes NotebookLM cite unvetted, sometimes years-old answers as
@@ -241,7 +243,7 @@ shell for `/s/` and for an individual question are byte-identical.
 
 **Two fetch modes** (`--fetch-mode`), because neither is strictly better:
 
-- **`api`** (default) — calls the Aura endpoint `/s/sfsites/aura` as a guest, the
+- **`api`** — calls the Aura endpoint `/s/sfsites/aura` as a guest, the
   same API the SPA uses. `fwuid` is re-read from the shell on every run because it
   changes with each Salesforce release; hardcoding it breaks silently.
   **Hard limits, all verified against the live site:**
@@ -253,12 +255,17 @@ shell for `/s/` and for an individual question are byte-identical.
 
   So this mode yields **question bodies and metadata only** — no answers, no
   articles/guides/blogs. Those are counted and reported as "本文取得不可".
-- **`prerender`** — reads the server-side-rendered page Salesforce returns to
+- **`prerender`** (default) — reads the server-side-rendered page Salesforce returns to
   search engines, which contains the question, every answer (with author role and
   date), and the custom-object bodies. It is only returned to recognised crawler
   UAs (Googlebot/bingbot verified; Chrome and a custom UA both get the empty
-  shell), so using it means **claiming to be Googlebot**. Off by default; the
-  script prints a warning when it is enabled.
+  shell), so using it means **claiming to be Googlebot**. The script prints a
+  warning on every run. It is the default because `api` mode collects no answer
+  text at all: when a reply lands, the incremental run refetches the thread and
+  the only thing that changes in the part file is `Answers: 2` → `Answers: 3`.
+
+  **Do not flip the default back to `api` casually.** A `--fetch-mode` change is
+  treated as a full refetch, so the next run would discard every prerendered body.
 
 **TLS gotcha:** `community.zscaler.com` serves its leaf certificate without the
 DigiCert intermediate. Browsers recover via AIA fetching; `requests`/OpenSSL do
@@ -350,7 +357,7 @@ personal one.
 
 ### `.github/workflows/notebooklm-weekly.yml`
 
-- **Trigger:** `cron: "0 0 * * 1"` (Monday 00:00 UTC = 09:00 JST) + `workflow_dispatch`
+- **Trigger:** `cron: "30 2 * * 1"` (Monday 02:30 UTC = 11:30 JST) + `workflow_dispatch`
   with `mode` (`incremental` / `full`) and `categories` inputs
 - **Trigger inputs:** also `sync` (`enabled` / `dry-run` / `skip`)
 - **Permissions:** `contents: write` only — this workflow does not deploy Pages
@@ -369,7 +376,7 @@ personal one.
 
 Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 
-- **Trigger:** `cron: "0 1 * * 1"` (Monday 01:00 UTC = 10:00 JST) + `workflow_dispatch`
+- **Trigger:** `cron: "30 3 * * 1"` (Monday 03:30 UTC = 12:30 JST) + `workflow_dispatch`
   with `mode`, `fetch_mode` (`api` / `prerender`), `categories`, `sync` inputs
 - **Deliberately one hour after `notebooklm-weekly.yml`** — both workflows commit and
   push to the same branch, so overlapping runs would collide on push
@@ -377,6 +384,31 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 - **Commit message format:** `docs: Zenith Community 週次更新 YYYY-MM-DD`
 - Syncs with `--docs-dir community_docs --state-file
   data/community_notebooklm_sync_state.json --notebook-title Zscaler_community`
+
+### `.github/workflows/pr-checks.yml`
+
+The only `pull_request`-triggered workflow, and the repository's single required
+status check. It exists so auto-merge has something to gate on — GitHub refuses to
+arm auto-merge on a PR that is already mergeable, so without a required check every
+PR is "clean" and auto-merge cannot be enabled at all.
+
+Runs `scripts/validate_repo.py`, which touches no network and finishes in under a
+minute:
+
+| Check | What it catches |
+|---|---|
+| Workflow YAML parses, has `on:` and `jobs:` | A malformed workflow that would silently never run |
+| `bash -n` on every `run:` block | Unbalanced `if`/`fi`, quotes, heredocs |
+| `py_compile` on `scripts/**/*.py` | Syntax errors |
+| `json.load` on `data/*.json` | A truncated or corrupt state file |
+
+`${{ … }}` expressions are substituted out before `bash -n`, since they are not valid
+shell. Generated directories (`notebooklm_docs/`, `community_docs/`) are deliberately
+not inspected — tens of MB, and their correctness belongs to the build scripts.
+
+**This is a syntax gate, not a review.** It cannot tell whether a change is correct,
+only whether it parses. Requiring it for auto-merge means a PR can reach `main`
+without anyone reading it.
 
 ## Android launcher app (`android-app/`)
 
@@ -567,6 +599,19 @@ Commit bodies may be written in Japanese.
   Zscaler's copyrighted documentation, and `community_docs` reproduces user posts
   including author display names. Neither may be served publicly. **Adding a new doc
   directory means adding a matching `--exclude` to that `tar` command.**
+- **Every workflow that commits must push through `push_with_retry`** — a bare
+  `git push` (or a retry loop whose last command is `sleep`) exits 0 when the push was
+  rejected, so the job stays green while the commit is silently dropped. The symptom is
+  indirect: the next sync sees a stale `notebooklm_sync_state.json`, every hash
+  mismatches, and all 34 sources are re-uploaded instead of none. `push_with_retry`
+  rebases onto `origin/main` between attempts (a rejection is almost always another
+  workflow having pushed first, which plain retries can never resolve) and returns 1
+  when it gives up. `zscaler-monitor.yml` still uses `git push || true` and has this
+  bug.
+- **Scheduled pushes must not share a start minute** — `daily-update.yml` and
+  `zscaler-monitor.yml` both fire at `0 0 * * *`, so the weeklies were moved to 02:30 /
+  03:30 UTC. GitHub also starts scheduled runs 1–4 hours late under load, so treat the
+  cron as "no earlier than", never as a guaranteed time.
 - **`notebooklm_docs/*.md` are machine-managed** — the `<!-- ZS-ARTICLE {…} -->` markers
   are how `build_help_docs.py` locates and replaces individual articles on an
   incremental run. Hand-editing a part file will be silently overwritten, and removing
@@ -576,7 +621,12 @@ Commit bodies may be written in Japanese.
   `FeedComment` and the custom objects' body fields from guest access. A question
   block will show `Answers: 5` with no answer text. This is a platform limit, not a
   bug; only `--fetch-mode prerender` closes it, at the cost of presenting a crawler
-  User-Agent.
+  User-Agent. `prerender` is therefore the default.
+- **Article/Guide/Blog pages return a generic `<title>`** (`Article Details`), so the
+  real title has to be read out of the rendered body — the line two after
+  `posted an Article`. Falling back to the slug loses Japanese titles.
+- **Sitemap slugs are percent-encoded** — `unquote()` them or Japanese titles arrive as
+  `%E5%B9%B4…` and neither `CATEGORIES` nor `EXCLUDE_PATTERNS` match them.
 - **`community.zscaler.com` omits its TLS intermediate** — certifi alone fails with
   `unable to get local issuer certificate`, in CI as well as locally. The fix is the
   committed `scripts/certs/community-zscaler-chain.pem`; do not work around it by

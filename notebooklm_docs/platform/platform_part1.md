@@ -1,8 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-08-17 01:14 UTC
-Articles in this file: 261
+Generated: 2026-09-14 03:38 UTC
+Articles in this file: 260
 
 ---
 
@@ -300,13 +300,13 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-authentication-service-admin-roles","lastmod":"2026-06-18T03:13Z","nid":"1499256"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-authentication-service-admin-roles","lastmod":"2026-09-09T20:33Z","nid":"1499256"} -->
 ## About Authentication Service Admin Roles
 
 - Source: https://help.zscaler.com/authentication-service/about-authentication-service-admin-roles
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Admins and Roles > About Authentication Service Admin Roles
-- Last modified: 2026-06-18T03:13Z
+- Last modified: 2026-09-09T20:33Z
 - Summary: Information about admin roles in the Zscaler Admin Console.
 
 Zscaler's role-based administration enables you to assign Authentication Service users or user groups with [admin roles and permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions) and control their level of access to the Zscaler Admin Console.
@@ -329,7 +329,7 @@ Role management provides the following benefits and enables you to:
 
 ## About the Roles Page
 
-On the Roles page (Administration > Admin Management > Role Based Access Control > Unified User Interface), you can do the following:
+On the Roles page (Administration > Admin Management > Role Based Access Control > Authentication Service), you can do the following:
 
 1. [Add an admin role](https://help.zscaler.com/zidentity/adding-zidentity-admin-roles).
 2. Search for a role.
@@ -1548,13 +1548,13 @@ To add a new group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-06-24T06:30Z","nid":"1499101"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-08-28T08:42Z","nid":"1499101"} -->
 ## Adding Users
 
 - Source: https://help.zscaler.com/authentication-service/adding-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Adding Users
-- Last modified: 2026-06-24T06:30Z
+- Last modified: 2026-08-28T08:42Z
 - Summary: How to add user accounts for Authentication Service.
 
 You can add individual user accounts in Authentication Service. A user account can belong to up to 1,024 groups. You can use a [CSV file to add multiple users](https://help.zscaler.com/zidentity/importing-user-details-csv-file) at once.
@@ -2104,20 +2104,20 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-levels","lastmod":"2026-06-24T05:18Z","nid":"1507491"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-levels","lastmod":"2026-09-10T22:11Z","nid":"1507491"} -->
 ## Configuring Authentication Levels
 
 - Source: https://help.zscaler.com/authentication-service/configuring-authentication-levels
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring Authentication Levels
-- Last modified: 2026-06-24T05:18Z
+- Last modified: 2026-09-10T22:11Z
 - Summary: How to configure Authentication Levels in Zscaler Admin Console.
 
 An authentication level represents a specific strength of authentication with hierarchical levels where higher levels represent stronger authentication methods. When users are authenticated at a higher level, their authentication level satisfies policies that require a sub-level of authentication. These authentication levels are mapped with access policies in supported Zscaler services to enable step-up authentication for resources.
 
 To configure an authentication level:
 
-1. Go to **Administration** >**Identity**>**Authentication Service**> **Authentication Levels**. The **Authentication Levels** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Settings** > **Authentication Levels**. The **Authentication Levels** page appears.
 2. On the **Authentication Levels** page: See image.
   1. Click **New Authentication Level**.
   2. **Level Name**: Enter a name for the level.
@@ -2137,28 +2137,28 @@ To configure an authentication level:
 
 After configuring authentication levels, you need to create access policies in the [supported Zscaler services](https://help.zscaler.com/zidentity/understanding-step-authentication).
 
-If you have configured external IdP for authentication via OIDC, you need to map the authentication levels to their respective `acr` values in the IdP. To learn more about external IdPs, see [About External Identity Providers](https://help.zscaler.com/zidentity/about-external-identity-providers).
+If you have configured an external IdP for authentication via OIDC, you need to map the authentication levels to their respective `acr` values in the IdP. To learn more about external IdPs, see [About External Identity Providers](https://help.zscaler.com/zidentity/about-external-identity-providers).
 
 [Image: Authentication Levels page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-session","lastmod":"2026-06-24T05:26Z","nid":"1499401"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-session","lastmod":"2026-09-10T22:06Z","nid":"1499401"} -->
 ## Configuring the Authentication Session
 
 - Source: https://help.zscaler.com/authentication-service/configuring-authentication-session
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring the Authentication Session
-- Last modified: 2026-06-24T05:26Z
+- Last modified: 2026-09-10T22:06Z
 - Summary: How to set up the authentication session for service enrollment in the Zscaler Admin Console.
 
 Authentication Service uses session-based authentication to keep track of the authenticated users or enrolled services.
 
 To configure the authentication session:
 
-1. Go to **Administration**>**Identity**>**Authentication Service**>**Authentication Session.**
-2. In the **Authentication Session**page: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Settings** > **Authentication Session**.
+2. On the **Authentication Session**page, click **Edit**and configure the following: See image.
   - **Administrator Inactivity Timeout Duration (in Minutes)**: Enter the timeout period after which the user is logged out of the Authentication Service session. You can set the timeout period from 5 to 600 minutes (10 hours).
   - **Authentication Session for Service Entitlement**: Enable to apply the authenticated session of Authentication Service to Zscaler services during user enrollment. This option is disabled by default, as Authentication Service sends users to the organization's identity provider (IdP) for authentication. If enabled, Authentication Service can locally verify active sessions based on the **Service Enrollment Session Timeout** value, instead of always redirecting users to the IdP. For example:
     - **Private Access (ZPA) reauthentication through Zscaler Client Connector**: During reauthentication, if the existing session is still valid, Authentication Service authenticates the user locally. If the session is expired, the user is redirected to the external IdP.
@@ -2558,13 +2558,13 @@ If you want to change this default behavior and have users redirected to Experie
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-08-09T23:14Z","nid":"1499421"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499421"} -->
 ## Configuring Microsoft Entra ID as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-microsoft-entra-id-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Microsoft Entra ID as an External IdP
-- Last modified: 2026-08-09T23:14Z
+- Last modified: 2026-08-24T21:06Z
 - Summary: How to configure Microsoft Entra ID as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Microsoft Entra ID as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Entra ID as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -3404,13 +3404,13 @@ To verify:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-08-09T23:46Z","nid":"1499411"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499411"} -->
 ## Configuring Okta as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-okta-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Okta as an External IdP
-- Last modified: 2026-08-09T23:46Z
+- Last modified: 2026-08-24T21:06Z
 - Summary: How to configure Okta as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Okta as an external Identity Provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Okta as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -4573,16 +4573,16 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-password-policy","lastmod":"2026-07-01T21:06Z","nid":"1499076"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-password-policy","lastmod":"2026-08-19T04:30Z","nid":"1499076"} -->
 ## Configuring the Password Policy
 
 - Source: https://help.zscaler.com/authentication-service/configuring-password-policy
 - Product: Authentication Service
 - Path: Authentication Service Help > Policies > Configuring the Password Policy
-- Last modified: 2026-07-01T21:06Z
+- Last modified: 2026-08-19T04:30Z
 - Summary: How to configure password policy for administrators logging in to the Zscaler Admin Console.
 
-The Password Policy page allows you to configure policies that users must follow while creating or resetting passwords to access the Zscaler Admin Console.
+The password policy is a set of rules that you can use to create or reset passwords for users accessing the Zscaler Admin Console.
 
 To configure the password policy:
 
@@ -4594,9 +4594,9 @@ To configure the password policy:
   - **Minimum No. of Numeric Characters**: Set the minimum number of numeric characters required in the password.
   - **Minimum No. of Special Characters**: Set the minimum number of special characters required in the password.
   - **Password must not include company name, username, first name, or last name**: Turn on to restrict the user from including their company name, username, first name, or last name in the password.
-  - **Reject reuse of last 5 passwords**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to restrict users from reusing their last 5 passwords. Passwords that are changed after a 24-hour gap fall under this criterion. Any password changes that occur within 24 hours are disregarded by Authentication Service. For example, if you reset your password 3 times (the second reset being after 24 hours of the first reset, and the third reset being within 24 hours of the second reset), the second password change is disregarded and can be used again as a new password. If the **Reject reuse of last 5 passwords** option is turned off, users can set any password regardless of what they used previously.
-  - **Deactivate user after 10 unsuccessful attempts**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to deactivate the user account after 10 unsuccessful login attempts.
-  - **Allow administrator to create or change user's password**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to allow the administrator to create or change user's password.
+  - **Reject reuse of last 5 passwords**: Turn on and set the number to restrict users from reusing their previous passwords. By default, the value is set to 5, but you can set the number between 3 and 10. If this option is turned off, users can reuse their old passwords. Passwords that are changed after a 24-hour gap fall under this criterion. Any password changed within 24 hours is ignored by Authentication Service. For example, if you reset your password 3 times (the second reset being after 24 hours of the first reset, and the third reset being within 24 hours of the second reset), the second password change is ignored and it can be reused.
+  - **Deactivate user after 10 unsuccessful attempts**: Turn on and set the number to deactivate the user account after unsuccessful login attempts. By default, the value is set to 10, but you can set the number between 3 and 10.
+  - **Allow administrator to create or change user's password**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to allow the administrator to create or change the user's password.
   - **Enforce password change after the initial login**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to prompt users to change their password after the initial login.
   - **Password expiration period (in days)**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Set the password expiration period after which users can reset their passwords. You can set the expiration period from 15 to 365 days.
 
@@ -4609,13 +4609,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-08-09T23:40Z","nid":"1499471"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499471"} -->
 ## Configuring PingFederate as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingfederate-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingFederate as an External IdP
-- Last modified: 2026-08-09T23:40Z
+- Last modified: 2026-08-24T21:06Z
 - Summary: How to configure PingFederate as an external IdP for Authentication Service.
 
 This guide provides information on how to configure PingFederate as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure PingFederate as an external IdP to enable SSO to Authentication Service using the Security Assertion Markup Language (SAML) authentication protocol. You can provision users to Authentication Service from PingFederate using System for Cross-domain Identity Management (SCIM) provisioning.
@@ -5256,13 +5256,13 @@ To change the default redirection, contact [Zscaler Support](https://help.zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-08-09T23:18Z","nid":"1499331"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499331"} -->
 ## Configuring PingOne as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingone-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingOne as an External IdP
-- Last modified: 2026-08-09T23:18Z
+- Last modified: 2026-08-24T21:06Z
 - Summary: This guide provides information on how to configure PingOne as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure PingOne as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -5609,13 +5609,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-step-authentication","lastmod":"2026-07-10T09:39Z","nid":"1531175"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-step-authentication","lastmod":"2026-09-10T22:43Z","nid":"1531175"} -->
 ## Configuring Step-Up Authentication
 
 - Source: https://help.zscaler.com/authentication-service/configuring-step-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring Step-Up Authentication
-- Last modified: 2026-07-10T09:39Z
+- Last modified: 2026-09-10T22:43Z
 - Summary: How to configure step-up authentication in the Zscaler Admin Console.
 
 The following article provides information on how to configure step-up authentication in the Zscaler Admin Console to allow dynamic requests for stronger authentication when users attempt to access sensitive resources or when risk signals indicate a potential threat.
@@ -5648,10 +5648,10 @@ The following list provides detailed steps for configuring ACR values and authen
 - [Enabling Step-Up Authentication in Entra ID](https://help.zscaler.com/zidentity/configuring-microsoft-entra-id-external-idp#enabling-step-up-authentication)
 - [Enabling Step-Up Authentication in PingOne](https://help.zscaler.com/zidentity/configuring-pingone-external-idp#enabling-step-up-authentication)
 
-1. Go to **Administration**>**Identity**>**Authentication Service**>**External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Identity Integration**> **External Identities**.
 2. Locate the IdP under the **Primary Identity Provider** (or **Secondary Identity Providers**) tab and click the **Edit**icon.
-3. In the **Edit Primary IdP** (or **Edit Secondary IdP**) drawer: See image.
-  1. Select the **Advanced** tab.
+3. In the **Edit Primary IdP** (or **Edit Secondary IdP**) tab: See image.
+  1. Select the **Advanced Configurations** tab.
   2. Under the **Levels to Authentication context mapping** section, enter the **ACR Claim** value for each authentication level. To learn more about the supported ACR claims in external IdP, refer to the respective product documentation. Ensure that you map proper ACR claims for each level depending on the hierarchy. The highest level of authentication must be mapped to the ACR value for the strongest context.
 4. Click **Update**.
 
@@ -6341,13 +6341,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2025","lastmod":"2026-08-11T03:03Z","nid":"1515736"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2025","lastmod":"2026-09-08T13:05Z","nid":"1515736"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2025
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-08-11T03:03Z
+- Last modified: 2026-09-08T13:05Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2025.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -6355,13 +6355,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-08-11T21:06Z","nid":"1534313"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-09-08T10:30Z","nid":"1534313"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2026
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-11T21:06Z
+- Last modified: 2026-09-08T10:30Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -7398,13 +7398,13 @@ The following table lists the SCIM operations supported by Zscaler SCIM servers.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/understanding-step-up-authentication","lastmod":"2026-06-30T21:06Z","nid":"1507486"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/understanding-step-up-authentication","lastmod":"2026-09-10T22:43Z","nid":"1507486"} -->
 ## Understanding Step-Up Authentication
 
 - Source: https://help.zscaler.com/authentication-service/understanding-step-up-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Understanding Step-Up Authentication
-- Last modified: 2026-06-30T21:06Z
+- Last modified: 2026-09-10T22:43Z
 - Summary: Information about step-up authentication in Authentication Service.
 
 Step-up authentication allows dynamic requests for stronger authentication when users attempt to access sensitive resources or when risk signals indicate a potential threat. This feature enhances the existing authentication process by requiring multi-factor authentication (MFA) when needed, ensuring that access to high-risk or sensitive data is protected. Step-up authentication is a method that prompts users to reauthenticate with a higher assurance level (e.g., using MFA) when accessing specific resources. This process helps organizations verify user identity with greater certainty, ensuring that only authorized users can access sensitive applications or data. For example, if a user logs in with a username and password (a lower assurance level), they might still be asked to verify their identity via MFA (a higher assurance level) when accessing a sensitive resource, such as financial information or critical applications.
@@ -7979,13 +7979,13 @@ On the Contract Tags page (Applications> Application Settings > Tag Management >
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-contracts","lastmod":"2025-06-12T23:58Z","nid":"1506071"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-contracts","lastmod":"2026-09-08T09:00Z","nid":"1506071"} -->
 ## About All Contracts
 
 - Source: https://help.zscaler.com/business-insights/about-contracts
 - Product: Business Insights
 - Path: Business Insights Help > Application Insights > About All Contracts
-- Last modified: 2025-06-12T23:58Z
+- Last modified: 2026-09-08T09:00Z
 - Summary: Information about contracts in the Business Insights Admin Portal.
 
 When an organization establishes a contract with vendors to subscribe to SaaS applications, you can upload that contract to the Business Insights Admin Portal. This assists in analyzing the contract for metadata such as the licensing models (i.e., per user, per GB of data, feature based, or an amalgamation of the preceding models), contract end, renewal date, etc. You can visualize each application's annual contract value (ACV) and total contract value (TCV) along with the overall ACV and TCV values from your entire SaaS application subscriptions. The All Contracts page gathers the contract insights in graphs and tables to provide a better SaaS spending overview. This equips you with the necessary insights to take informed actions for maintaining efficient SaaS spending.
@@ -12113,13 +12113,13 @@ If the usage exceeds the acceptable amount, contact Zscaler Sales or your Channe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/dspm-logs","lastmod":"2025-07-28T08:04Z","nid":"1483311"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/dspm-logs","lastmod":"2026-09-08T12:53Z","nid":"1483311"} -->
 ## DSPM Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/dspm-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > DSPM Logs
-- Last modified: 2025-07-28T08:04Z
+- Last modified: 2026-09-08T12:53Z
 - Summary: Information about Zscaler Data Security Posture Management (DSPM) logs.
 
 Cloud configuration data, Cloud Service Provider (CSP) activity audit logs, and cloud user directory information are processed by Zscaler in connection with your organization's use of Zscaler Data Security Posture Management (DSPM).
@@ -12132,6 +12132,10 @@ In addition, subject to customer configuration and enablement, the following log
 All logs that describe active cloud resources or issues are retained by Zscaler for the duration of the subscription. Once the resources are no longer present in the CSP, DSPM maintains the logs for a rolling period of 180 days during the term of the subscription. When the subscription term ends or expires, Zscaler deletes the logs after the 180-day retention cycle or earlier upon request. By accessing the DSPM service, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs.
 
 During the deployment process, you can choose to have the logs stored in either the United States or the European Union.
+
+###### Feature-Specific information
+
+- ZAgent: The DSPM Agent operates through the ZAgent service. To learn more, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12192,6 +12196,34 @@ Logs are stored in the United States.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zagent-logs","lastmod":"2026-09-08T12:57Z","nid":"1543201"} -->
+## ZAgent Logs
+
+- Source: https://help.zscaler.com/logs-fair-use/zagent-logs
+- Product: Logs & Fair Use
+- Path: Logs & Fair Use > Logs & Data > ZAgent Logs
+- Last modified: 2026-09-08T12:57Z
+- Summary: Information about ZAgent Logs.
+
+By using ZAgent, you grant Zscaler the right to process, use, reproduce, store, modify, and display information from logs as defined in this article.
+
+- **Definition:** For ZAgent, *logs* are defined as data collected in the form of prompts, responses, and metadata.
+- **Retention:** Zscaler retains Logs for a rolling period of 90 days during your subscription term. The most recent 14 days of logs are accessible through the Zscaler Admin Console. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles. ZAgent is not trained using any customer data.
+- **Storage Location:** During the deployment process, you can choose to have the logs stored in either the United States or European Union.
+
+###### Available Agents
+
+The following services include agents supported by the ZAgent framework:
+
+- DSPM
+- Knowledge Agent
+- Risk360
+- Zscaler Digital Experience (ZDX)
+- Zscaler Private Access (ZPA)
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/logs-fair-use/zdx-licensing-and-fair-use","lastmod":"2025-06-10T10:48Z","nid":"1390711"} -->
 ## ZDX Licensing and Fair Use
 
@@ -12212,13 +12244,13 @@ The usage of ZDX is expected to be in accordance with the [Acceptable Use Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zdx-logs","lastmod":"2026-06-26T10:32Z","nid":"1390936"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zdx-logs","lastmod":"2026-09-02T11:32Z","nid":"1390936"} -->
 ## ZDX Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zdx-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZDX Logs
-- Last modified: 2026-06-26T10:32Z
+- Last modified: 2026-09-02T11:32Z
 - Summary: Information about Zscaler Digital Experience (ZDX) logs.
 
 In order to provide the Zscaler Digital Experience (ZDX) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
@@ -12235,11 +12267,11 @@ In order to provide the Zscaler Digital Experience (ZDX) service, Zscaler has th
 
 ###### Feature-specific Information
 
-- **ZDX Snapshot:** The ZDX Snapshot feature captures the current state of a UI page, and provides a URL that admins can share with ZDX users or other admins for view-only access. ZDX Snapshots are retained by Zscaler for 90 days.
-- **ZDX Copilot:** ZDX Copilot prompts and responses are stored by Zscaler for 14 days as part of the session history. ZDX Copilot is not trained using any customer data.
-- **ZDX Network Intelligence:** Aggregated logs are retained by Zscaler for a period of one year.
+- **ZAgent:** The ZDX Agent operates through the ZAgent service. To learn more, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
 - **ZDX Managed Monitoring:** Logs are retained by Zscaler for a period of 30 days.
+- **ZDX Network Intelligence:** Aggregated logs are retained by Zscaler for a period of one year.
 - **ZDX Remediation:** ZDX Remediation allows for the execution of remote scripts on user devices. Enabling this feature allows the collection of script output and device telemetry data. All script results and telemetry collected through this feature are retained by Zscaler for 180 days. Authorized users can delete script results at any time via the ZDX Admin Portal.
+- **ZDX Snapshot:** The ZDX Snapshot feature captures the current state of a UI page, and provides a URL that admins can share with ZDX users or other admins for view-only access. ZDX Snapshots are retained by Zscaler for 90 days.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12346,13 +12378,13 @@ The usage of ZIA China Premium Plus is expected to be in accordance with the [Ac
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-licensing-and-fair-use","lastmod":"2026-02-27T07:45Z","nid":"1390816"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-licensing-and-fair-use","lastmod":"2026-08-18T08:17Z","nid":"1390816"} -->
 ## ZIA Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zia-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > ZIA Licensing and Fair Use
-- Last modified: 2026-02-27T07:45Z
+- Last modified: 2026-08-18T08:17Z
 - Summary: Information about Zscaler Internet Access (ZIA) licensing and fair use.
 
 Zscaler Internet Access (ZIA) is a Software as a Service (SaaS) product that can be licensed in various ways. This article includes information on licensing types, license renewal process, and Zscaler’s Fair Use Policy.
@@ -12444,13 +12476,13 @@ The usage of ZPA China Premium is expected to be in accordance with the [Accepta
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-licensing-and-fair-use","lastmod":"2026-03-09T08:37Z","nid":"1390801"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-licensing-and-fair-use","lastmod":"2026-08-18T08:19Z","nid":"1390801"} -->
 ## ZPA Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zpa-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > ZPA Licensing and Fair Use
-- Last modified: 2026-03-09T08:37Z
+- Last modified: 2026-08-18T08:19Z
 - Summary: Information about Zscaler Private Access (ZPA) licensing and fair use.
 
 Zscaler Private Access (ZPA) is a Software as a Service (SaaS) product that is licensed in various ways. This article includes information on licensing types, the license renewal process, and Zscaler’s Fair Use Policy.
@@ -12478,13 +12510,13 @@ The usage of ZPA is expected to be in accordance with the [Acceptable Use Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-logs","lastmod":"2025-11-24T11:42Z","nid":"1390951"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-logs","lastmod":"2026-09-02T11:40Z","nid":"1390951"} -->
 ## ZPA Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zpa-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZPA Logs
-- Last modified: 2025-11-24T11:42Z
+- Last modified: 2026-09-02T11:40Z
 - Summary: Information about Zscaler Private Access (ZPA) logs.
 
 In order to access the Zscaler Private Access (ZPA) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs. For ZPA, *logs* are defined as follows:
@@ -12500,7 +12532,7 @@ In order to access the Zscaler Private Access (ZPA) service, Zscaler has the rig
 
 Logs do not include your internal system logs.
 
-Zscaler retains User Activity, User Status, Inspection, and App Connector log information for a rolling period of at least 14 days during the subscription term. Zscaler retains audit log information for a rolling period of six months during the subscription term. If you subscribe to the Extended Retention feature, Zscaler retains User Activity, User Status, Inspection, and App Connector log information for a rolling period of six months during the subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to the applicable retention cycles. You can also view your logs or stream logs in real-time using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service).
+Zscaler retains User Activity, User Status, AppProtection, and App Connector log information for a rolling period of at least 14 days during the subscription term. Zscaler retains audit log information for a rolling period of six months during the subscription term. If you subscribe to the Extended Retention feature, Zscaler retains User Activity, User Status, Inspection, and App Connector log information for a rolling period of six months during the subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to the applicable retention cycles. You can also view your logs or stream logs in real-time using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service).
 
 During the deployment process, you can choose to have the logs stored in either the United States or the European Union.
 
@@ -12512,6 +12544,8 @@ If you order the VPN Connectivity service, logs also include:
 If you configure the Session Recording for PRA, session recordings will be retained by Zscaler for a period of one year during the term of subscription. When the subscription term ends or expires, these logs are deleted by Zscaler. For the PRA Session Recording service, the session recordings will be encrypted and stored in the geographical region in which your tenant is located.
 
 If you subscribe to Zscaler Microsegmentation machine-learning recommendations (and opt-in to receive these recommendations), Zscaler will store flow logs and resource inventory data for a rolling period of up to 180 days. This data will be used for generating recommendations. To learn more about flow logs, see [About Flow Logs](https://help.zscaler.com/zpa/about-flow-logs). To learn more about resource inventory data, see [About Resources](https://help.zscaler.com/zpa/about-resources).
+
+If you utilize the ZPA Agent, it operates through the ZAgent service. To learn more, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13228,34 +13262,47 @@ The usage of Risk360 is expected to be in accordance with the [Acceptable Use Po
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-risk360-logs","lastmod":"2025-02-13T11:46Z","nid":"1443216"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-risk360-logs","lastmod":"2026-09-08T12:53Z","nid":"1443216"} -->
 ## Zscaler Risk360 Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-risk360-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler Risk360 Logs
-- Last modified: 2025-02-13T11:46Z
+- Last modified: 2026-09-08T12:53Z
 - Summary: Information about Zscaler Risk360 logs.
 
-In order to provide the Risk360 service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article. For Risk360,*logs* are defined as duplicates of the configuration and transaction logs of other Zscaler SaaS products, such as Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA). Zscaler retains the logs on a rolling period up to a year during your subscription term, depending on your subscription. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
+In order to provide the Risk360 service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
 
-Logs are stored in either the United States or the European Union.
+- **Definition:** For Risk360,*logs* are defined as duplicates of the configuration and transaction logs of other Zscaler SaaS products, such as Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA).
+- **Retention:** Zscaler retains the logs on a rolling period of up to a year during your subscription term, depending on your subscription. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
+- **Storage:** During the deployment process, you can choose to have the logs stored in either the United States or the European Union.
+
+###### Feature-Specific information
+
+- ZAgent: The Risk360 Agent operates through the ZAgent service. To learn more, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-saas-security-posture-management-sspm-licensing-and-fair-use","lastmod":"2026-07-30T11:49Z","nid":"1541621"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-saas-security-posture-management-sspm-licensing-and-fair-use","lastmod":"2026-09-08T11:45Z","nid":"1541621"} -->
 ## Zscaler SaaS Security Posture Management (SSPM) Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-saas-security-posture-management-sspm-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > Zscaler SaaS Security Posture Management (SSPM) Licensing and Fair Use
-- Last modified: 2026-07-30T11:49Z
+- Last modified: 2026-09-08T11:45Z
 - Summary: Information about Zscaler SaaS Security Posture Management (SSPM) Licensing and Fair Use.
 
-Zscaler SaaS Security Posture Management (SSPM) is a Software as a Service (SaaS) product that is licensed according to the number of seats purchased for the subscription term in an order. A *seat* is a subscription to the SSPM SaaS for an individual authorized user. The number of seats required is determined by counting the total number of unique users accessing and/or using the SaaS over the previous rolling 90-day period.
+Zscaler SaaS Security Posture Management (SSPM) is a Software as a Service (SaaS) product that can be licensed in various ways. This article includes information on licensing types, license renewal process, and Zscaler's Fair Use Policy.
 
-Ensure that you order the correct number of seats. If you require additional seats, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of seats to ensure license compliance.
+## License Types
+
+Zscaler offers the following types of licenses:
+
+- Seat: A subscription license to the SSPM SaaS for an individual authorized user. The number of seats required is determined by counting the total number of unique users accessing and/or using the SaaS over the previous rolling 90-day period.
+- Application: A subscription license to the SSPM SaaS for a supported SaaS application. If you purchased the "2 Apps" subscription, you may onboard and monitor up to two supported SaaS applications, with one tenant per application.
+
+The seat-based licensing requirement continues to apply in conjunction with any application-based licenses. Ensure that you order the correct number of seats and applications. If you require additional seats or applications, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of seats and applications to ensure license compliance.
 
 ## Fair Use Policy
 
@@ -14740,13 +14787,13 @@ Zscaler partners are given insights into all of their customer and tenant accoun
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-adaptive-access-profiles","lastmod":"2026-02-11T06:46Z","nid":"1508391"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-adaptive-access-profiles","lastmod":"2026-09-07T05:01Z","nid":"1544665"} -->
 ## About Adaptive Access Profiles
 
 - Source: https://help.zscaler.com/unified/about-adaptive-access-profiles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > About Adaptive Access Profiles
-- Last modified: 2026-02-11T06:46Z
+- Last modified: 2026-09-07T05:01Z
 - Summary: Information about Adaptive Access profiles defined in the Experience Center.
 
 An [Adaptive Access profile](https://help.zscaler.com/unified/understanding-adaptive-access-engine) identifies user and device subjects with a set of conditions that combine context signals published by Zscaler and third-party sources using logical operators. These criteria include user and device context. The Adaptive Access profiles are made available to Internet & SaaS (Zscaler Internet Access (ZIA)) and Private Applications (Zscaler Private Access (ZPA)) that enforce policies to control user and device access to applications via Zscaler.
@@ -14777,13 +14824,13 @@ On the Profiles page (Policies > Common Configuration > Adaptive Access > Profil
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-alerts-risk360","lastmod":"2026-02-11T06:26Z","nid":"1533797"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-alerts-risk360","lastmod":"2026-09-07T05:01Z","nid":"1545139"} -->
 ## About Alerts in Risk360
 
 - Source: https://help.zscaler.com/unified/about-alerts-risk360
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Alerts > About Alerts in Risk360
-- Last modified: 2026-02-11T06:26Z
+- Last modified: 2026-09-07T05:01Z
 - Summary: Information on Alerting for Risk360.
 
 Alerting helps you meet your security compliance requirements and reduce potential financial losses by getting timely notifications when the configured criteria in the alert rule are met. This also helps take swift action towards events impacting your organization's risk exposure.
@@ -14912,55 +14959,50 @@ The drawer shows the following information about the alert:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-copilot","lastmod":"2026-05-26T21:06Z","nid":"1503881"} -->
-## About Copilot
+<!-- ZS-ARTICLE {"url":"/unified/about-automation-rules","lastmod":"2026-09-13T16:49Z","nid":"1545374"} -->
+## About Automation Rules
 
-- Source: https://help.zscaler.com/unified/about-copilot
+- Source: https://help.zscaler.com/unified/about-automation-rules
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Copilot > About Copilot
-- Last modified: 2026-05-26T21:06Z
-- Summary: Provides an overview of Copilot.
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Automations > Automation Rules > About Automation Rules
+- Last modified: 2026-09-13T16:49Z
+- Summary: Information on the Automation Rules page in the Security Operations Platform.
 
-Copilot is powered by AI/ML to become an interactive, conversational assistant to complement Digital Experience Monitoring. Admins can use Copilot to effectively combine a multitude of Digital Experience Monitoring features to optimize and compile users' details (e.g., data retrieval, summarization, or recognizing rising trends for an incident).
+An automation rule automatically triggers one or more playbooks when specific conditions are met on a selected entity, such as an [alert](https://help.zscaler.com/agentic-soc/about-alerts), or an [incident](https://help.zscaler.com/agentic-soc/about-incidents).
 
-Copilot provides the following benefits and enables you to:
+Automation rules provide the following benefits and enable you to:
 
-- Deliver relevant insights and graphs or chart visualizations.
-- Compress complex datasets into an intelligent summarization.
-- Discover the root causes of user experience issues and offer recommendations for troubleshooting.
+- Automate response, remediation, and orchestration workflows based on defined rules and conditions.
+- Apply consistent rules and conditions for automatically triggering playbooks.
+- Combine multiple playbooks to create multi-step automated responses.
 
-There are many different types of use cases for Copilot as it can interact with many Digital Experience Monitoring features. To learn more, see [Understanding Copilot with Use Cases](https://help.zscaler.com/unified/understanding-copilot-use-cases).
+## About the Automation Rules Page
 
-Copilot retains prompts and responses for a rolling period of 14 days as part of the session history. To learn more, see [ZDX Logs](https://help.zscaler.com/customer-logs-fair-use/zdx-customer-logs-and-data).
+On the Automation Rules page (Agentic SOC > Automations > Automation Rules), you can do the following:
 
-Copilot strives to assist with the most updated information, but can be incomplete, inaccurate, or inappropriate in certain instances due to the subjective nature of generative AI/ML models.
+1. [Create a new automation rule](https://help.zscaler.com/unified/creating-automation-rules).
+2. Search for an automation rules.
+3. [Filter](https://help.zscaler.com/unified/using-filters) automation rules by entity, status, or trigger.
+4. Show or hide the playbooks associated with automation rules.
+5. View all automation rules, including their related playbooks when displayed. For each automation rule, you can view:
+  - **Name**: The name of the automation rule.
+  - **Description**: The description of the automation rule.
+  - **Last Modified**: The date when the automation rule was last modified.
+  - **Active** or **Inactive**: The status of the automation rule.
+6. Unlink a playbook from an automation rule.
 
-## Prerequisites
-
-To access Copilot, you must have:
-
-- The appropriate Digital Experience Monitoring subscription level for Copilot. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#integrations-data-retention).
-- Full permission level to Copilot. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
-
-## About the Copilot Page
-
-On the Copilot page (Analytics > Copilot), you can do the following:
-
-1. Create a new Copilot session.
-2. Review chat session history. No data is shown if there were no chat sessions in the past 14 days.
-3. Select a topic based on your chat session history. If there is no chat session history, then the topics are defaulted to recommended topics.
-4. Ask a question with Copilot by entering text.
+[Image: Automation Rules page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-custom-dashboards","lastmod":"2026-02-26T08:28Z","nid":"1535218"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-custom-dashboards","lastmod":"2026-09-07T04:59Z","nid":"1545173"} -->
 ## About Custom Dashboards
 
 - Source: https://help.zscaler.com/unified/about-custom-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Custom Dashboards > About Custom Dashboards
-- Last modified: 2026-02-26T08:28Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: Information on viewing, filtering, and creating custom dashboards in Zscaler Admin Console.
 
 In addition to a robust set of preconfigured dashboards that allow you to monitor your organization's security profile at a glance using a variety of graphs and charts, you can also create customized dashboards so you can focus on the metrics most important to you.
@@ -15004,13 +15046,13 @@ On the Custom Dashboards page (Analytics> Custom Dashboards), you can do the fol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-08-07T02:10Z","nid":"1541896"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-09-07T04:59Z","nid":"1545219"} -->
 ## About Dashboards
 
 - Source: https://help.zscaler.com/unified/about-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > About Dashboards
-- Last modified: 2026-08-07T02:10Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: Information about the My Dashboards page in the Security Operations Platform.
 
 You can create, manage, and monitor custom dashboards in the Security Operations Platform. These dashboards provide visibility into identity findings, risks, and MITRE ATT&CK techniques across tenants.
@@ -15060,13 +15102,62 @@ On My Dashboards page (Explore > Dashboards), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-experience-center-audit-logs","lastmod":"2026-03-26T11:44Z","nid":"1500641"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-data-model-management","lastmod":"2026-09-07T05:01Z","nid":"1545268"} -->
+## About Data Model Management
+
+- Source: https://help.zscaler.com/unified/about-data-model-management
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > About Data Model Management
+- Last modified: 2026-09-07T05:01Z
+- Summary: Information about the Data Model Management page in the Security Operations Platform.
+
+You can view and manage entity and field schemas from the Data Model Management page in the Security Operations Platform (SecOps Platform).
+
+Data model management provides the following benefits and enables you to:
+
+- View all entity types and their fields within the SecOps Platform, which provides visibility into structured data and its consumption.
+- Process all entities or selected entities in the SecOps Platform, which manually applies unification rules and reconciliation logic for newly ingested data outside scheduled runs.
+- Change field visibility within a specific entity, which improves that entity's business context when viewed within SecOps Platform applications.
+
+By default, the data model provides a prescriptive schema that has been developed from years of Zscaler expertise and knowledge in the security landscape. It uses source mapping, unification rules, and entity relationships to support this canonical schema for the data needed by the SecOps Platform. To learn more, see [Understanding the Data Model in the Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-security-operations-platform).
+
+During account setup, your Zscaler Account team will help you customize and extend the data model to your security landscape and to meet your business objectives. To learn more, see [Adding and Managing Entities and Fields](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields).
+
+While the data model is designed to optimize flexibility and adaptability to meet your changing security needs, consult your Zscaler Account team prior to making any changes to preserve the integrity of your current and historical data.
+
+## About the Data Model Management Page
+
+On the Data Model Management page (Configure > Data Model), you can do the following:
+
+1. Search for specific entities or fields by entering keywords in the search bar.
+2. Click **Set Visibility** to display or hide the **Show** and **Hide** icons that allow you to [set visibility for multiple selected fields](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields).
+3. [Add an entity](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields).
+4. [Process all entities or selected entities](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields) in the SecOps Platform.
+5. [View aggregate data model runs](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields).
+6. View details of the entities and fields in your data model. You can sort each column. For each entity or field, you can see:
+  - **Entity/Field**: The name of the entity or field.
+  - **Entity Type**: The type of entity.
+  - **System Name**: The database name, which is used in [queries and field-value calculations](https://help.zscaler.com/unified/building-queries-and-searching-logs).
+  - **Type**: The field type classification. Available options are **Text**, **Number**, **Boolean**, **Date**, **Date & Time**, **Repeated Text**, **Repeated Number**, **Repeated Boolean**, **Repeated Date**, **Repeated Date & Time**.
+  - **Tags**: The tags assigned to the entity or field. Tags are defined by Zscaler and cannot be configured.
+  - **Visibility**: Indicates if the field is visible when the entity is viewed within the SecOps Platform.
+  - **Allow Manual Override**: Indicates if you can manually override the field's value. Some entities do not allow manual override of specific fields.
+7. [Add a field to an entity](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields).
+8. Expand an entity to see its fields. Click to see the field's details, edit its formulas and default values, preview its model, and review its audit log and usage. To learn more, see [Adding and Managing Entities and Fields](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields).
+9. Open the [Entity Explorer](https://help.zscaler.com/unified/using-entity-explorer) page for the selected entity.
+
+[Image: Data Model Management page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/about-experience-center-audit-logs","lastmod":"2026-09-07T05:01Z","nid":"1544561"} -->
 ## About Experience Center Audit Logs
 
 - Source: https://help.zscaler.com/unified/about-experience-center-audit-logs
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Audit Logs > About Experience Center Audit Logs
-- Last modified: 2026-03-26T11:44Z
+- Last modified: 2026-09-07T05:01Z
 - Summary: Information regarding Experience Center audit logs, including policy and configuration change logs, within the Zscaler Admin Console (i.e., the unified user interface).
 
 Zscaler records the session information for each admin that signs in to the Zscaler Admin Console. The audit log displays information related to sign-in or sign-out attempts (e.g., timestamps, actions, IP addresses, etc.) and any configuration changes that were completed during their session such as updates or deletes.
@@ -15082,7 +15173,7 @@ If an admin account makes five unsuccessful attempts to log in within one minute
 
 ## About the Experience Center Audit Logs Page
 
-On the Audit Logs page (Administration > Admin Management > Audit Logs > Experience Center), you can do the following:
+On the Audit Logs page (Data Explorer > Audit Logs > Experience Center), you can do the following:
 
 1. View or filter the list of actions that have occurred. For each action, you can see:
   - **Timestamp**: The date and local time the action occurred.
@@ -15097,11 +15188,13 @@ On the Audit Logs page (Administration > Admin Management > Audit Logs > Experie
     - **Success**
     - **Failure**
     - **Partially Failed**
-2. View configuration changes.
+2. Search for an audit log by resource, user, or client IP. The search only shows results starting with or completely matching the search string.
+3. Download a CSV file.
+4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+5. View configuration changes.
   - Viewing pre and post configuration changes for a log entry.
-3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-4. Search for an audit log by resource, user, or client IP. The search only shows results starting with or completely matching the search string.
-5. Download a CSV file.
+
+[Image: Experience Center Audit Logs Page]
 
 - Create
 - Delete
@@ -15117,6 +15210,7 @@ On the Audit Logs page (Administration > Admin Management > Audit Logs > Experie
 - Onboarding
 - Remote Assistance
 - Subsystem Clouds
+- Unified RBAC
 
 Click on the configuration changes you want to view. You'll be able to view visual differences between the pre-configuration and post-configuration changes.
 
@@ -15128,13 +15222,13 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-incident-analytics-dashboard","lastmod":"2026-03-23T10:02Z","nid":"1539024"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-incident-analytics-dashboard","lastmod":"2026-09-10T12:21Z","nid":"1545184"} -->
 ## About the Incident Analytics Dashboard
 
 - Source: https://help.zscaler.com/unified/about-incident-analytics-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Data Security > About the Incident Analytics Dashboard
-- Last modified: 2026-03-23T10:02Z
+- Last modified: 2026-09-10T12:21Z
 - Summary: Information about the DLP Incident Analytics dashboard.
 
 The Incident Analytics dashboard gives high-level visibility and insight into your organization's [Data Loss Prevention (DLP) incidents](https://help.zscaler.com/zia/about-incidents). It allows you to monitor and analyze incident data from a single location at an organizational level. This dashboard provides a variety of information about the incidents over a specified timeframe, such as the time taken to triage and resolve incidents, previous and current incident counts, and the cumulative number of new and resolved incidents, etc.
@@ -15150,7 +15244,7 @@ The Incident Analytics dashboard provides the following benefits and enables you
 
 ## About the Incident Analytics Dashboard
 
-On the Incident Analytics dashboard (Analytics > Data Security > Incidents Dashboard), you can do the following:
+On the Incident Analytics dashboard (Analytics > Data Security > Incidents), you can do the following:
 
 1. Export the incident analytics to a PDF file. You can export all incident analytics available on the page, or use the filter criteria to modify the incident analytics displayed on the page and then export that information.
 2. Select a time range for what to display on the Incident Analytics dashboard. By default, this page displays incident analytics for the current calendar week (Sunday through Saturday). The time range filter applies to all widgets. Time ranges are:
@@ -15237,7 +15331,7 @@ See image.
 
 This table is only available to admins with full workflow access permission.
 
-Displays a table listing the 10 DLP admins with the most incidents assigned to them. For each admin, you can view the following information:
+Displays a table listing the 10 DLP admins with the most incidents assigned to them. For each admin, you can view:
 
 - **Assigned Admin**: The login ID for the admin.
 - **New Incidents**: The number of incidents with new status assigned to the admin.
@@ -15254,7 +15348,7 @@ Displays a list of the 10 most violated DLP dictionaries with the DLP dictionary
 
 See image.
 
-Displays a table listing the 10 DLP end users with the most incidents associated with them. For each end user, you can view the following information:
+Displays a table listing the 10 DLP end users with the most incidents associated with them. For each end user, you can view:
 
 - **User Email**: The email ID of the end user. When you click the user email link, you are redirected to the Incidents page, which displays only the incidents created by that end user. The user filter is automatically applied in the Filters section. If you applied other filters before clicking the user email link, those filters remain applied, as well.
 - **Total Incidents**: The total number of incidents associated with the end user.
@@ -15273,23 +15367,23 @@ See image.
 
 [Image: Viewing the calendar and time columns after a date and time have been selected for the end date. The end date (January 15) is highlighted on the calendar, the time (6:30 AM) is highlighted in the time options, and the end date field (2026-01-15 06:30:00) is highlighted to show the date and time selected.]
 
-[Image: Viewing the Time to Triage/Resolve Widget on the Incident Analytics dashboard]
+[Image: Viewing the Time to Triage/Resolve widget on the Incident Analytics dashboard]
 
-[Image: Viewing the Incident by Status Widget on the Incident Analytics dashboard]
+[Image: Viewing the Incident by Status widget on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 False Positive Incidents By Rule Chart on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 False Positive Incidents by Rule chart on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 False Positive Incidents By Dictionary Chart on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 False Positive Incidents by Dictionary chart on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 Incidents By Rule Chart on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 Incidents by Rule chart on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 Incidents By Dictionary Chart on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 Incidents by Dictionary chart on the Incident Analytics dashboard]
 
-[Image: Viewing the New and Resolved Incidents Over Time Widget on the Incident Analytics dashboard]
+[Image: Viewing the New and Resolved Incidents Over Time widget on the Incident Analytics dashboard]
 
-[Image: Viewing the Top DLP Admins Table on the Incident Analytics dashboard]
+[Image: Viewing the Top DLP Admins table on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 Users Table on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 Users table on the Incident Analytics dashboard]
 
 [Image: Viewing information on the Incident Analytics dashboard]
 <!-- /ZS-ARTICLE -->
@@ -15330,13 +15424,58 @@ On the Linked Services page (Administration > Account Management > Linked Servic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-signal-history","lastmod":"2026-06-28T21:44Z","nid":"1508481"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-playbooks","lastmod":"2026-09-11T08:36Z","nid":"1545359"} -->
+## About Playbooks
+
+- Source: https://help.zscaler.com/unified/about-playbooks
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Automations > Playbooks > About Playbooks
+- Last modified: 2026-09-11T08:36Z
+- Summary: Information on the Playbooks feature in the Security Operations Platform
+
+Security Orchestration, Automation, and Response (SOAR) is a solution that enables automated responses to threats and security events. This helps security teams to quickly analyze and respond to security events and prevent future incidents, thereby improving the organization's overall security posture.
+
+Playbooks are a core component of SOAR. A playbook is a predefined set of actions that automate security investigation and response tasks. Actions are tasks that a playbook performs, such as sending notifications, blocking an IP address, isolating a host, resetting a password, or suspending a user in Okta or Microsoft Entra ID, etc. You can run playbooks manually or trigger them using automation rules.
+
+Playbooks provide the following benefits and enable you to:
+
+- Automate repetitive response actions for security threats and events.
+- Streamline and standardize incident response workflows across security teams.
+- Reduce manual effort and response time.
+
+## About the Playbooks Page
+
+On the Playbooks page (Agentic SOC> Automations > Playbooks), you can do the following:
+
+1. [Duplicate a playbook.](https://help.zscaler.com/unified/managing-playbooks)
+2. [Edit a playbook.](https://help.zscaler.com/unified/managing-playbooks)
+3. [Delete a playbook.](https://help.zscaler.com/unified/managing-playbooks)
+4. [Create a new playbook.](https://help.zscaler.com/unified/creating-playbooks)
+5. View the list of playbooks. For each playbook, you can see:
+  - **Name**: The name of the playbook.
+  - **Description**: The description of the playbook.
+  - **Entity Type**: The type of entity that triggers the playbook (**Alert** or **Incident**).
+  - **Owner**: The user who created the playbook.
+  - **Last Update**: The date when the playbook was last updated.
+  - **Number of Runs**: The number of times the playbook has been run.
+  - **Success/Failed**: The number of successful and failed playbook runs.
+  - **Status**: Whether the playbook is active or inactive.
+6. View the run history for each playbook, including status and triggering details.
+7. [Export a playbook.](https://help.zscaler.com/unified/managing-playbooks)
+8. Go to the [Template Gallery](https://help.zscaler.com/unified/creating-playbooks) page to view preconfigured playbook templates.
+
+[Image: Playbooks page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/about-signal-history","lastmod":"2026-09-07T04:59Z","nid":"1544667"} -->
 ## About Signal History
 
 - Source: https://help.zscaler.com/unified/about-signal-history
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > About Signal History
-- Last modified: 2026-06-28T21:44Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: Information on viewing the context signals received from different third-party tools that are integrated with the Adaptive Access Engine.
 
 You can view the history of context signals over time and investigate security incidents that happened in the past. You can view and analyze the context signals for each [Adaptive Access profile](https://help.zscaler.com/unified/about-adaptive-access-profiles).
@@ -15368,13 +15507,108 @@ On the Signal History page (Policies > Common Configuration > Adaptive Access > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/accessing-and-using-executive-insights-app","lastmod":"2026-06-09T04:25Z","nid":"1520566"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-users-security-operations-platform","lastmod":"2026-09-09T08:07Z","nid":"1545320"} -->
+## About Users in the Security Operations Platform
+
+- Source: https://help.zscaler.com/unified/about-users-security-operations-platform
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > User Management > About Users in the Security Operations Platform
+- Last modified: 2026-09-09T08:07Z
+- Summary: Information on the Users page in the Security Operations Platform.
+
+You can view a consolidated list of user accounts and their identity types, and review the identity findings and total number of critical or high-severity findings to take the necessary action. Only users in an active state are displayed on the Users page.
+
+Managing users provides the following benefits and enables you to:
+
+- Aggregate users from different sources for a centralized view.
+- View user details and identity findings for each user.
+- Monitor internal and external users.
+
+## About the Users Page
+
+On the Users page (Agentic SOC > Users, Identities > Users, or AEM > Users), you can do the following:
+
+1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/unified/creating-managing-saved-views).
+2. Search for a user by entering keywords in the search bar.
+3. [Save the current view](https://help.zscaler.com/unified/creating-managing-saved-views) for quick access after making adjustments to it (e.g., applying filters, adjusting columns, or grouping).
+4. [Filter](https://help.zscaler.com/unified/using-filters) assets by **Name**, **Type**, **Identity Type**, or **Sources**.
+5. View the distribution of identities based on the type (**User**, **Service Principa**l, or **Special Identities**).
+6. View the distribution of users based on the type (**Internal**or **External**).
+7. [Group users](https://help.zscaler.com/unified/grouping-data-entity-pages) by category (e.g., user first seen, user last seen, user tags, etc.).
+8. Refresh the page to reflect the most current information.
+9. Export the list of users and their associated details as a CSV file.
+10. [Modify the columns displayed in the table](https://help.zscaler.com/unified/managing-table-columns).
+11. View the list of users. Click a user to [view detailed information](https://help.zscaler.com/unified/viewing-user-details). For each user, you can see:
+  - **ID**: The unique identifier of the user.
+  - **Name**: The name of the user.
+  - **Is Admin**: The user's admin role status. If the user is an admin, this field shows **true**.
+  - **Total Identity Findings**: The total number of critical, high, medium, and lowidentity findings for the user.
+  - **Sources**: The source of the user (e.g., **Active Directory**, **Microsoft Entra ID**, etc.).
+  - **Identity Type**: The type of identity (**User**, **Service Principa**l, or **Special Identities**).
+  - **Last Activity Date**: The date of most recent activity.
+  - **State**: The state of the user's account (**Active**or **Inactive**).
+  - **Type**: The type of user (**Internal**or **External**).
+
+[Image: Users page in the Identities app.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/about-zagent","lastmod":"2026-09-07T05:01Z","nid":"1544587"} -->
+## About ZAgent
+
+- Source: https://help.zscaler.com/unified/about-zagent
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > ZAgent > About ZAgent
+- Last modified: 2026-09-07T05:01Z
+- Summary: Overview of ZAgent framework where you can ask questions or run predefined agents to analyze and automate systems for a comprehensive view of your organization's security and guardrails.
+
+This feature is in Limited Availability. To enable this feature, contact Zscaler Support.
+
+The ZAgent framework is Zscaler's architectural foundation and the first step for agentic AI operations across the Zero Trust Secure Access Service Edge (SASE) platform, a system where administrators can configure, monitor, troubleshoot, and optimize without logging in to a traditional interface. You can have an interactive conversational assistant, or you can select predefined agents to automate systems to analyze your organization's comprehensive security and guardrails. Admins can shift from an administrative workflow to an agentic AI workflow that allows them to focus on the details where they can monitor, configure, troubleshoot, or optimize tasks. ZAgent is complimentary with specified Zscaler subscriptions.
+
+ZAgent provide the following benefits and enable you to:
+
+- Rapidly onboard autonomous systems for complex tasks to improve operational efficiency.
+- Centralize management for a unified interface where you can monitor, manage, and view ZAgent performances.
+- Deliver relevant insight and graphical representations for troubleshooting.
+- Discover a comprehensive knowledge base of Zscaler for intelligent summarization.
+
+There are many different [use cases](https://help.zscaler.com/unified/understanding-zagent-use-cases) for ZAgent as it can interact with Zscaler features.
+
+ZAgent retains prompts and responses for a rolling period of 14 days as part of the session history. To learn more, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
+
+## About ZAgent
+
+To access ZAgent, click the Wand icon in your Zscaler Admin Console to open the ZAgent drawer.
+
+See image.
+
+In ZAgent (showing expanded window), you can:
+
+1. Create a new chat session.
+2. Minimize the ZAgent window to a drawer.
+3. Exit ZAgent when you are no longer using it.
+4. Review chat session history. No data is shown if there were no chat sessions in the past 14 days.
+5. Prompt or ask a question by entering text. Depending on what you prompted and what the ZAgent responds with, you might have additional actions available (e.g., run a diagnostics session, view device details).
+6. Select an agent and then select a skill to focus the prompt on. Optionally, you can enter `@` to select an agent and then enter `/` to select an agent's skill. See image.
+
+[Image: Overview of ZAgent]
+
+[Image: Click the Wand icon to open the ZAgent drawer]
+
+[Image: Select a skill for the selected agent]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/accessing-and-using-executive-insights-app","lastmod":"2026-09-07T04:59Z","nid":"1544882"} -->
 ## Accessing and Using the Executive Insights App
 
 - Source: https://help.zscaler.com/unified/accessing-and-using-executive-insights-app
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Executive Insights App > Accessing and Using the Executive Insights App
-- Last modified: 2026-06-09T04:25Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: Information on the Zscaler Executive Insights App.
 
 The Executive Insights App is designed to provide an executive summary of the key data points and valuable insights into your enterprise security environment on a mobile device. It provides you with a dynamic view of your operational performance and security posture.
@@ -15424,13 +15658,13 @@ To install the Executive Insights App on your iOS device:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/adding-adaptive-access-profile","lastmod":"2026-06-29T00:36Z","nid":"1508396"} -->
+<!-- ZS-ARTICLE {"url":"/unified/adding-adaptive-access-profile","lastmod":"2026-09-07T05:01Z","nid":"1544666"} -->
 ## Adding an Adaptive Access Profile
 
 - Source: https://help.zscaler.com/unified/adding-adaptive-access-profile
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > Adding an Adaptive Access Profile
-- Last modified: 2026-06-29T00:36Z
+- Last modified: 2026-09-07T05:01Z
 - Summary: How to add Adaptive Access profiles in the Experience Center and manage the entities' access control to sensitive applications.
 
 The Adaptive Access profile is a measure to calculate the risks associated with users and devices accessing applications via Zscaler. The Adaptive Access profile allows you to define how Zscaler detects any suspicious behavior or malicious activity and remediate the risk by enforcing adaptive policies.
@@ -15474,13 +15708,233 @@ The newly created profile is displayed on the **Profiles**page. The Adaptive Acc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/adding-your-company-logo","lastmod":"2026-08-12T12:20Z","nid":"1488046"} -->
+<!-- ZS-ARTICLE {"url":"/unified/adding-and-managing-entities-and-fields","lastmod":"2026-09-07T04:59Z","nid":"1545270"} -->
+## Adding and Managing Entities and Fields
+
+- Source: https://help.zscaler.com/unified/adding-and-managing-entities-and-fields
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Adding and Managing Entities and Fields
+- Last modified: 2026-09-07T04:59Z
+- Summary: Information about how to add and manage fields and entities in the Security Operations Platform data model.
+
+The Security Operations Platform (SecOps Platform) data model comes with many default entity types that define and describe the data created and needed by the applications in the SecOps Platform. You can manage those entities, their attributes (fields), and their relationships to ensure that business objectives are met. To learn more, see [Understanding Entity Types](https://help.zscaler.com/unified/understanding-entity-types) and [Understanding the Data Model in the Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-security-operations-platform).
+
+Consult your Zscaler Account team when making changes to the data model. Uninformed or well-meaning changes to the data model can affect data integrity and cause fragmented or duplicated data, which can result in operational inefficiencies or noncompliance.
+
+## Adding and Managing Entities
+
+For access to the data model, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-managing-role-permissions) and [Assigning Roles to Users](https://help.zscaler.com/unified/assigning-roles-users).
+See image.
+
+[Image: Model Management resource highlighted]
+
+You can add new entities when you need to track distinct objects, resources, or concepts in the SecOps Platform data model that are not otherwise covered by the default entities.
+
+Add an Entity
+
+To add an entity:
+
+1. In the SecOps Platform Admin Portal, go to **Configure**>**Data Model**.
+2. Click **Add Entity**. See image. This action is irreversible. You cannot delete entities from the SecOps Platform data model. To delete an existing entity, contact Zscaler Support.
+3. Enter a name for the entity, and click **Add**. An entity is created with the following default fields: `First Seen`, `Last Seen`, `Tags`, `Sources`, `ID`, `Locked`, `State`, `Created`, `Last Update`, `Last State Transition`, `Key`, `Name`, `Type`.
+4. Configure the entity's relationships, fields, unification rules, and usage within the SecOps Platform. Consult your Zscaler Account team for assistance.
+
+[Image: Add Entity button highlighted on Data Model Management page.]
+
+When managing entities, you can perform the following actions:
+
+Add a Field to an Entity
+
+To add a field to an entity:
+
+1. Go to **Configure** >**Data Model**.
+2. For the entity you want to add a new field to, click the **Add field** icon. See image. [Image: Add field icon highlighted on Data Model Management page] This action is irreversible. You cannot delete fields from the SecOps Platform data model. To delete an existing field from an entity, contact Zscaler Support.
+3. In the new field window that appears:
+  1. **Field Name**: Enter a name for the field.
+  2. **Field Type**: Select a field type from the drop-down menu. Available fields include **Text**, **Number**, **Boolean**, **Date**, **Date & Time**, **Repeated Text**, **Repeated Number**, **Repeated Boolean**, **Repeated Date**, and **Repeated Date & Tim**e.
+
+Investigate an Entity
+
+To view the Entity Explorer page for an entity:
+
+1. Go to **Configure**>**Data Model**.
+2. Hover over the entity you want to investigate, and click the**Investigate Entity**icon. See image. [Image: Investigate Entity icon highlighted on Alert entity in Data Model Management page] The **Entity Explorer** page appears. To learn more, see [Using the Entity Explorer](https://help.zscaler.com/unified/using-entity-explorer).
+
+Process Entities
+
+To run unification rules and other data manipulation functions:
+
+1. Go to **Configure**>**Data Model**.
+2. Choose one of the following options: See image. [Image: Process All and Process by entity button]
+  1. **Process All**: Click to process all entities.
+  2. **Process by entity**: Click the drop-down menu to select the entities you want to process, and click **Apply**. Select **Run selected and dependent projects**or **Run selected projections only**, and click **Process**.
+3. (Optional) If processing fails, click **Show Logs**to open the **Entity Management Runs** page and review the logs. See image [Image: Show Logs button highlighted on processing notification for failed run]
+
+View Entity Management Runs
+
+To view entity management runs:
+
+1. Go to **Configure**> **Data Model**.
+2. Click the **See Logs**icon. See image. [Image: See Logs icon highlighted on the Data Model Management page] The **Entity Management Runs** page appears.
+3. On the **Entity Management Runs** page, you can perform the following actions:
+  - View details of the entity management runs. You can sort each column. For each run, you can see:
+    - **Status**: The status column displays the outcome of each run:
+      - **Completed**: The run successfully completed without data manipulation issues.
+      - **Canceled**: The run was intentionally stopped by the user.
+      - **Failed**: The run encountered an error during data manipulation that prevented it from completing successfully.
+      - **Partially Completed**: The run encountered some errors during data manipulation. You should manually process this run again to ensure that all data manipulation is completed.
+    - **ID**: A unique identifier for the run that can be used for reference when troubleshooting run failures.
+    - **Category**: The run's category displays the processing type, indicating the level of processing applied to the ingested data. All Entity Management runs are categorized as**Aggregate**runs, where the SecOps Platform applies data unification rules and other data manipulation processes. To learn more about other run categories, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
+    - **Triggered by**: Displays who initiated the run:
+      - **System**: The run was triggered by its [configured schedule](https://help.zscaler.com/unified/2.0/creating-data-sources#scheduling-section).
+      - **User**: The run was triggered by a user clicking**Process** or **Process All**.
+    - **Run type**: Indicates how the run was performed: For a complete list of all run types, contact Zscaler Support.
+      - **Agg process:** A run manually initiated by a user by clicking **Process** or **Process All** on the [Data Unification - Entities page](https://help.zscaler.com/unified/managing-entity-unification), [Data Unification - Fields page](https://help.zscaler.com/unified/managing-field-unification), or Data Model Management page.
+      - **Batched**: A run initiated by its [configured schedule](https://help.zscaler.com/unified/creating-data-sources).
+      - **Auto-batched*****:***A run initiated as part of a [platform-managed batch process](https://help.zscaler.com/unified/managing-data-sources).
+      - **Post manual operation**: A run initiated by a user overriding a field value.
+    - **Duration**: The total amount of time the run took to complete.
+    - **Start Time**and**End Time:**The timestamps when the run started and ended. This information can reveal potential issues with data unification and assist during troubleshooting.
+  - Click to expand a run, and drill down into detailed logs about the completion status, duration, and start and end times for each entity processed. See image.
+  - (Optional) For in-progress runs, hover over the run, and click the **Cancel**icon to cancel the run. Confirm your choice to cancel the run instantly. See image.
+
+[Image: Entity management run expanded to show run activities.]
+
+[Image: Cancel icon highlighted on in-progress entity management run]
+
+View Entity Relationships
+
+Relationships between entities and their fields are defined on the Configure > Relationspage. Establishing proper relations prevents orphan records and preserves the integrity of your data. It also allows you to apply referential business logic.
+
+To learn more about establishing relations among entities and their fields, contact your Zscaler Account team.
+
+See image.
+
+[Image: Relations page]
+
+## Managing Fields
+
+When managing fields, you can perform the following actions:
+
+Change Field Visibility
+
+Field visibility determines whether a field is viewable within Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and other SecOps applications. The SecOps Platform still processes, aggregates, and runs unification rules for hidden fields.
+
+To change field visibility:
+
+1. Go to **Configure**>**Data Model**.
+2. Change a field's visibility by performing one of the following actions:
+  - Modify multiple fields:
+    1. Click **Set Visibility**. See image.
+    2. Select the fields you want to change visibility for. See image.
+    3. Click **Show** to enable visibility, or click **Hide** to disable visibility. See image.
+  - Modify a single field:
+    1. Click the field you want to change visibility for. The field details drawer opens.
+    2. Enable or disable **Visibility**. See image.
+
+[Image: Visibility toggle highlighted in field drawer]
+
+[Image: Multiple fields selected in the Data Model Management page]
+
+[Image: Show and Hide buttons highlighted in Data Model Management]
+
+[Image: Set Visibility button highlighted in Data Model Management]
+
+Manage Value Calculations
+
+Every field in the data model has a default formula that determines what values the field will contain when data is aggregated. You can see default formulas and calculations (i.e., Python script) for each field in the field drawer. You can also review the [default attribute reconciliation logic](https://help.zscaler.com/unified/attribute-reconciliation-default-functions) to understand how values for certain field types are calculated.
+
+To ensure the field uses value calculations that reflect your current security landscape, Zscaler recommends using [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). This provides an easy, intuitive way to modify field formulas and calculations. However, if you find that the field unification rules are limited and cannot fully define the field's value, you can modify the formulas and Python script directly within the Data Model Management page. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Understanding Field Unification, Data Model, and Application Settings](https://help.zscaler.com/unified/understanding-field-unification-data-model-and-application-settings).
+
+To modify the field's default data model logic:
+
+1. Go to **Configure > Data Model**.
+2. Click the field for which you want to manage its calculations. The field drawer opens. Field unification rules are the recommended way to specify field value logic, and they automatically override the default data model logic. If you have already configured field unification rules for this field, click **Unlink & Override**. This removes the field from [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). See image.
+3. On the **Calculation** tab:
+  1. (Optional) Click **Add formula**and select a formula from the list, or click **Create new** to add your own. See image. The formula is added to the `eval_first_seen` function in the Editor. See image.
+  2. (Optional) Enable **CEL** to use [Python's Common Expression Language (CEL)](https://python-common-expression-language.readthedocs.io/en/latest/).
+  3. In the **Editor** field, insert a Python script.
+  4. In the **Default values for exception & none cases**section:
+    1. Click the **If Null** drop-down menu and select how null values are handled:
+      - **Set Null**: Set empty or null values as `Null`. This option is default.
+      - **Set Value**: Enter what value should be given to the empty or null value.
+      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
+    2. Click the **If Error** drop-down menu and select how errors during value calculations are handled:
+      - **Set Null**: Set values as `Null`. This option is default.
+      - **Set Value**: Enter the value text.
+      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
+
+[Image: Add formula button highlighted in the Calculation tab.  The  individual formula and the Create New button are highlighted in the Add formula drop-down.]
+
+[Image: Formula added to the editor]
+
+Preview a Field or Entity Data Model
+
+Review a limited subset of rows to verify how data loads within your field, or inspect your data types and field properties for a given entity.
+
+To preview an entity or field data model:
+
+1. Go to **Configure**>**Data Model**.
+2. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
+3. Click **Preview**. See image. The **Model Preview** page appears.
+4. Use the filters to adjust the data model preview as needed.
+5. (Optional) Click the **Entity** button to view the associated entity's data model. You can [resize or sort the table columns and add filters](https://help.zscaler.com/unified/using-tables). See image.
+
+[Image: Field is configured through unification rules and displays a warning and an Unlink & Override button.]
+
+Allow Manual Updates
+
+Allow users to make manual changes to a field value after aggregation and unification rules have run. Manual updates might be required for flexible business use cases, and you can restrict updates to roles or resources, require rationale, or apply content verification.
+
+To allow manual updates:
+
+1. Go to **Configure**>**Data Model**.
+2. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
+3. Click the **Manual Updates**tab.
+4. Enable **Allow Manual Updates**. See image. Some fields and entities do not allow you to enable manual updates.
+5. Enable the following settings as necessary:
+  1. **Allowed Permissions**: Enable to determine whether manual updates are restricted to specific roles or certain resource permissions, then select an option:
+    - **Restrict to Roles**: Select which roles are allowed to manually update the field.
+    - **Restrict to Resources**: Select which resources are allowed to manually update the field.
+  2. **Require Reason on update**: Enableto require rationale when a manual update occurs, then select an option:
+    - **Always**: A reason is always required when a manual update occurs. This option is selected by default.
+    - **Specific**:Select conditions under which a reason is required.
+  3. **Content Validation**: Enable to apply validation logic when a manual update occurs, then select an option:
+    - **Manual**: Select and enter specific keywords to be checked against the manually added value.
+    - **Query**: Select and click the **Field** drop-down menu to select a field.
+
+[Image: Allow Manual Updates toggle highlighted in Manual Updates tab of a field drawer]
+
+View Field Usage
+
+To view field usage:
+
+1. Go to **Configure**>**Data Model**.
+2. Click the field for which you want to view its data model or its associated entity's data model. The field details drawer opens.
+3. Click the **Usage**tab.
+4. Click an item under each usage section to open its associated page: Sections are only displayed if the field is currently in use.
+  - **Reports**: All reports that include the field.
+  - **View**: All saved views that include the field.
+  - **Dashboards**: All dashboards that include the field.
+  - **Data Model Fields**: All data model fields that the field is included in.
+  - **Data Source Mapping**: All data sources that include mapping to the field.
+  - **UI Configuration**: All UI configurations that include the field.
+  - **Measurement**: All calculated measurements that include the field.
+
+[Image: Entity and field toggle highlighted on Model Preview page]
+
+[Image: Preview button highlighted on field details drawer in the Data Model Management page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/adding-your-company-logo","lastmod":"2026-09-07T04:59Z","nid":"1543379"} -->
 ## Adding Your Company Logo
 
 - Source: https://help.zscaler.com/unified/adding-your-company-logo
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Adding Your Company Logo
-- Last modified: 2026-08-12T12:20Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: How to add your company logo to banners, user notifications, and emails sent from Zscaler.
 
 You can customize the Zscaler Admin Console to include your logo in application banners, notifications, and emails sent to your users regarding security issues.
@@ -15505,13 +15959,13 @@ If you need to edit the logo later, you can go to **Administration** > **Account
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/aging-assets","lastmod":"2026-07-30T09:52Z","nid":"1541770"} -->
+<!-- ZS-ARTICLE {"url":"/unified/aging-assets","lastmod":"2026-09-07T04:59Z","nid":"1545208"} -->
 ## Aging Assets
 
 - Source: https://help.zscaler.com/unified/aging-assets
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Retention Management > Aging Assets
-- Last modified: 2026-07-30T09:52Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: How to configure asset aging rules by time or by value.
 
 Asset aging in the Security Operations Platform (SecOps Platform) enables organizations to automatically transition outdated or irrelevant assets to an inactive state. This enhances asset inventory accuracy and significantly reduces noise for security teams, ultimately improving operational efficiency and risk prioritization. You can also age associated entities (e.g., an asset's findings) when the linked asset becomes inactive to ensure data consistency and minimize manual cleanup.
@@ -15549,13 +16003,13 @@ The rules' order of appearance doesn't affect the order of their application. Ea
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/assessing-compliance","lastmod":"2026-05-17T07:06Z","nid":"1533795"} -->
+<!-- ZS-ARTICLE {"url":"/unified/assessing-compliance","lastmod":"2026-09-07T04:59Z","nid":"1545137"} -->
 ## Assessing Compliance
 
 - Source: https://help.zscaler.com/unified/assessing-compliance
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Assessing Compliance
-- Last modified: 2026-05-17T07:06Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: Information about risk frameworks and how Risk360 helps you identify and analyze your security stance in accordance with these frameworks.
 
 The integration of various risk frameworks with Risk360 helps you identify, assess, mitigate, and monitor risk, ensuring informed decision-making and abiding by regulatory compliance mandated or recommended based on your organization's geography and industry.
@@ -15686,13 +16140,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/assigning-content-permissions","lastmod":"2026-08-06T23:54Z","nid":"1541833"} -->
+<!-- ZS-ARTICLE {"url":"/unified/assigning-content-permissions","lastmod":"2026-09-07T04:59Z","nid":"1545213"} -->
 ## Assigning Content Permissions
 
 - Source: https://help.zscaler.com/unified/assigning-content-permissions
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > User Management > Assigning Content Permissions
-- Last modified: 2026-08-06T23:54Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: How to assign content permissions to users in the Security Operations Platform.
 
 Content permissions control access to data within the Security Operations Platform (SecOps Platform). To create content permission sets, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). After [creating users](https://help.zscaler.com/unified/creating-managing-users) in your account, you can assign content permissions to define the data they can access.
@@ -15760,13 +16214,13 @@ To remove multiple users' content permissions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-07-30T09:49Z","nid":"1541729"} -->
+<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-09-07T04:59Z","nid":"1545204"} -->
 ## Attribute Reconciliation Default Functions
 
 - Source: https://help.zscaler.com/unified/attribute-reconciliation-default-functions
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Attribute Reconciliation Default Functions
-- Last modified: 2026-07-30T09:49Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: Information about the attribute reconciliation default functions for reconciling conflicting values during data unification.
 
 Attribute reconciliation is the process of resolving conflicts that arise when merging duplicate entities during entity unification. This process ensures that the most accurate and up-to-date data is retained across your system, eliminating inconsistencies and inaccuracies. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification) and [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification).
@@ -15801,13 +16255,13 @@ The following table shows the default functions for commonly used fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/building-queries-and-searching-logs","lastmod":"2026-08-04T13:13Z","nid":"1541845"} -->
+<!-- ZS-ARTICLE {"url":"/unified/building-queries-and-searching-logs","lastmod":"2026-09-07T04:59Z","nid":"1545215"} -->
 ## Building Queries and Searching Logs
 
 - Source: https://help.zscaler.com/unified/building-queries-and-searching-logs
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Data Exploration > Building Queries and Searching Logs
-- Last modified: 2026-08-04T13:13Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: How to build queries and search for logs in the Security Operations Platform.
 
 You can search logs to view data collected by the Security Operations Platform (SecOps Platform) before it's processed and analyzed. This helps you to understand the raw data that's pulled from connected sources and subsequently pushed into the data model. You can search logs by building and using queries.
@@ -15898,401 +16352,4 @@ Select any number of slices to filter by their value. This also adds your select
 To remove a value from the filter created by the pie chart, deselect the slice on the chart itself or click the remove slicericon under the chart.
 
 [Image: Deselect a slice using the Remove Slicer icon in the Pie Chart]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-alert-rule-risk360","lastmod":"2026-02-11T06:27Z","nid":"1533798"} -->
-## Configuring an Alert Rule for Risk360
-
-- Source: https://help.zscaler.com/unified/configuring-alert-rule-risk360
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Alerts > Configuring an Alert Rule for Risk360
-- Last modified: 2026-02-11T06:27Z
-- Summary: How to configure alert rules in Risk360.
-
-You can configure alert rules for various criteria (i.e., financial loss or risk score changes at organization, category, factor group, or factor levels) that trigger an email or webhook notification to the recipients.
-
-To configure an alert rule:
-
-1. Go to **Analytics** > **Risk360** > **Alerts** > **Rules**.
-2. Click **Add Alert Rule**.
-3. Choose an existing rule template or start configuring from the beginning by clicking **Create New**. See image. The **Add Alert Rule** wizard appears.
-4. In the **Add Alert Rule** wizard, complete the following steps: The alert rule is successfully created.
-  - a. Define Criteria & Throttling
-  - b. Configure Delivery Method
-
-If you've selected a rule template, the service skips to the Configure Delivery Method section. However, you can click **Back**to edit the predefined values in the **Define Criteria &** **Throttling** section. In this section:
-
-- **Criteria**: Set the criteria for the alert rule to be triggered:
-  1. Select **All** or **Any** from the drop-down menu.
-  2. Select the item for which you want to trigger the alert from **Org**, **Category**, **Factor Group**, or**Factor**.
-  3. Based on your selection, the next drop-down menus are auto-populated. Select the required options.
-  4. Select the operator for the criteria, i.e., equal to (**=**), greater than (**>**), less than (**<**), greater than or equal to (**≥**), less than or equal to (**≤**), **increases by**, or **decreases by**.
-  5. Enter the value for the operator.
-  6. Click **Add** to add another criterion to the rule. For example, see the following GIF to understand how to set the criteria for an alert to be triggered when the risk score for the Data Loss category exceeds 55. See image.
-- **Expression Preview**: You can view a logical preview for the criteria set in the preceding fields. This field is uneditable.
-- **Minimum Alert Throttling Criteria**: Enter the number of days the criteria must persist before triggering the alert notification.
-- Click **Next**.
-
-See image.
-
-In the **Configure Delivery Method**section:
-
-- **Rule Name**: Enter a name to identify the rule.
-- **Severity**: Select the severity of the rule from **Critical**, **High**, **Medium**, or **Low**.
-- **Status**: Select **Enabled** or **Disabled** for the rule.
-- **Delivery Method**: Select the alert delivery methods from **Email**and**Webhook.**
-- **Webhooks**: Select from the existing configured webhooks or configure a new webhook by clicking **Configure Webhooks** to receive alerts via webhooks. To learn more, see [Configuring Alert Webhooks](https://help.zscaler.com/unified/configuring-alert-webhooks-risk360).
-- **Email Recipient**: Enter the email address to which you want the alerts to be sent. To learn more about the information sent, see [Understanding the Alert Email](https://help.zscaler.com/unified/understanding-alert-email-risk360).
-- **Custom Message**: Enter a custom message that is displayed within the alert notification when this alert is triggered. This message is applicable for both email and webhooks.
-- Click **Add**.
-
-See image.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-alert-webhooks-risk360","lastmod":"2026-02-11T06:27Z","nid":"1533799"} -->
-## Configuring Alert Webhooks for Risk360
-
-- Source: https://help.zscaler.com/unified/configuring-alert-webhooks-risk360
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Alerts > Configuring Alert Webhooks for Risk360
-- Last modified: 2026-02-11T06:27Z
-- Summary: Information on configuring webhooks to deliver alerts in Risk360.
-
-You can configure and use webhooks in an alert rule and assign multiple alert rules to the same webhook from your third-party provider for alert delivery.
-
-To configure a webhook:
-
-1. Go to **Analytics** > **Risk360** > **Alerts**> **Webhooks** > **Add Webhook**. The **Add New Webhook** drawer appears.
-2. In the **Add New Webhook** drawer:
-  - **Name**: Enter the name of the webhook.
-  - **Status**: Select **Enabled** or **Disabled**for the webhook.
-  - **URL**: Enter the URL of the webhook provider. Ensure the URL does not include any spaces.
-  - **Authentication Type**: Select the authentication type for the webhook from **Basic**or **Token**. The webhook provider determines the authentication type used. Refer to your provider for details. See image.
-    - Basic
-    - Token
-3. Click **Save** to save the webhook configuration. If the webhook is configured successfully, the [Alert Status](https://help.zscaler.com/unified/about-alerts-risk360) field on the Webhooks page displays **Active**. If not, the field displays **Error**. To resolve the error, check for issues in the **URL** or the **Authentication Type** fields.
-
-Enter a **Username**and**Password**. Password information is hidden by default. You can view it by clicking the **View** icon.
-
-Enter the bearer token. A bearer token is a unique alphanumeric string used for authentication. You can obtain the bearer token from your webhook provider.
-
-[Image: Add Webhook Drawer]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-authentication-data-sources-and-outegrations","lastmod":"2026-08-05T11:11Z","nid":"1542183"} -->
-## Configuring Authentication for Data Sources and Outegrations
-
-- Source: https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source & Outegration Authentication > Configuring Authentication for Data Sources and Outegrations
-- Last modified: 2026-08-05T11:11Z
-- Summary: How to configure API authentications for connecting data sources and outegrations in the Security Operations Platform.
-
-The Security Operations Platform (SecOps Platform) supports integration with a wide variety of third-party tools and services, and enables secure data exchange such as retrieving findings from external scanners or sending tickets to work management systems. To connect these tools, you must first configure API authentications. Authentication ensures the SecOps Platform can access external resources using valid credentials with the necessary permissions, supporting uninterrupted automation and continuous data flow.
-
-You can create a new authentication during the setup of a [data source](https://help.zscaler.com/unified/creating-data-sources) or [outegration](https://help.zscaler.com/unified/creating-outegrations), or directly from the Authentications page.
-
-- When setting up a source, the Authentication drop-down menu appears in the Retrieval section. See image.
-- When configuring an outegration, the Authentication drop-down menu appears in the Details section of the Connect step. See image.
-
-[Image: Authentication drop-down menu in source setup page with CrowdStrike options]
-
-[Image: The Authentication drop-down menu in the Details section]
-
-## Creating Authentications
-
-Before creating a new authentication, check whether a valid authentication method already exists for the third-party data source or outegration you plan to integrate.
-
-For access to authentications, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Authentications resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Creating & Managing Users](https://help.zscaler.com/unified/creating-managing-users). 
-See image.
-
-[Image: Select permissions for access to authentications]
-
-To create an authentication:
-
-1. In the SecOps Platform Admin Portal, go to **Configure**>**Authentications**. A list of all existing authentications appears.
-2. Click **Create**to add a new authentication.
-3. Select the vendor for which you want to configure authentication. You can also search for a vendor in the search field. The <Vendor Name> **Authentication** window appears.
-4. In the <Vendor Name> **Authentication** window:
-  1. **Name**: Enter an informativename for your authentication. This is the name displayed on the integration setup page, so it should clearly identify the specific authentication instance for the selected vendor. For example, enter `CrowdStrike Vulnerabilities` when creating an authentication for CrowdStrike to be used in the Vulnerabilities stream.
-  2. **Credentials**: Enter the required credentialsfor the API authentication. Each source or outegration has its own unique set of required parameters that must carry the appropriate scopes and permissions to ensure successful integration. Each vendor requires specific parameters with appropriate scopes and permissions. Refer to the vendor's [Sources Configuration Guide](https://help.zscaler.com/uvm/data-sources-outegration-configuration-guides/source-configuration-guides) or [Outegration Configuration Guide](https://help.zscaler.com/uvm/data-sources-outegration-configuration-guides/outegration-configuration-guides) for the exact requirements. If you plan to use the same authentication for multiple integrations (e.g., both Assets and Vulnerabilities streams for CrowdStrike), ensure that the provided credentials have all necessary permissions. Missing or insufficient scopes can result in failed authentication or incomplete data ingestion.
-5. Click **Create** to save the authentication.
-
-The newly created authentication appears in the Authentication drop-down menu on the corresponding vendor's data source or outegration setup page. You can reuse an authentication across multiple integrations, as long as it has the required access permissions.
-
-After authentications are created, ongoing management of them are done through the Authentications page. To learn more, see [Managing Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/managing-authentication-data-sources-and-outegrations).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-blocked-countries","lastmod":"2024-08-20T16:17Z","nid":"1488041"} -->
-## Configuring Blocked Countries
-
-- Source: https://help.zscaler.com/unified/configuring-blocked-countries
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Configuring Blocked Countries
-- Last modified: 2024-08-20T16:17Z
-- Summary: How to specify the countries from which you want to block internet traffic.
-
-You can block internet traffic to and from web servers based in specific countries.
-
-To block countries, on the Miscellaneous page, review the list of Zscaler-recommended blocked countries under **Block Countries**.
-
-- To add another blocked country, click the **Add**icon and search for the country you want to block.
-- To remove a blocked country, click the **Close**icon within the country you want to remove from the blocked list.
-
-You can review the list of blocked countries later in the Admin Portal.
-
-When you are done setting up blocked countries, you can [add your company logo to banners, emails, and user notifications sent from Zscaler](https://help.zscaler.com/unified/adding-your-company-logo) on the bottom of the Miscellaneous page.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-company-profile","lastmod":"2026-07-31T08:00Z","nid":"1488221"} -->
-## Configuring the Company Profile
-
-- Source: https://help.zscaler.com/unified/configuring-company-profile
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Account Management > Configuring the Company Profile
-- Last modified: 2026-07-31T08:00Z
-- Summary: How to configure the Company Profile page for your organization.
-
-The Internet & SaaS service automatically creates a profile for your organization. On the Company Profile page (Administration > Account Management > Organization), you can:
-
-1. Review your organization's information.
-  - The service automatically assigns your organization a **Company ID**. You may be asked to provide this ID when requesting Zscaler Support.
-  - The service displays the organization **Name** and **Domains** that you provided. Your organization name appears in the login form that the service displays:
-    - When users authenticate to the Zscaler service.
-    - In the user notifications, when policy violations occur.
-2. Enter the **Address** of your organization and **Primary Time Zone.**The time zones listed are those within the geographic location of your primary address. The primary time zone is used when your organization synchronizes user, group, and department information from a directory server.
-3. Upload a logo. The service supports JPG, GIF, and PNG image files of 10 KB size or smaller.
-  - Your company logo appears in the login form that the service displays:
-    - When users authenticate to the Zscaler service.
-    - In the user notifications, when policy violations occur.
-4. Update key contacts. Ensure that the key contacts are current so they can open support tickets for your organization. Enter the names, titles, email addresses and phone numbers of the following key contacts:
-  - **Technical Contacts:** Anyone listed here is authorized to open Support tickets with the Zscaler service.
-  - **Billing Contacts:** Anyone listed here is authorized to open Support tickets with the Zscaler service.
-  - **Business Contacts:** The service displays the primary contact information that you provided. You can edit the **Title** and **Phone**.
-5. Click **Save** and activate the change.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-custom-dashboards","lastmod":"2026-08-12T03:06Z","nid":"1541899"} -->
-## Configuring Custom Dashboards
-
-- Source: https://help.zscaler.com/unified/configuring-custom-dashboards
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > Configuring Custom Dashboards
-- Last modified: 2026-08-12T03:06Z
-- Summary: How to configure custom dashboards and add widgets to the dashboard.
-
-You can create a custom dashboard according to your organization's requirements in the Security Operations Platform (SecOps Platform). These dashboards provide the flexibility to add and customize various widgets as required. You must add at least one widget to configure a new custom dashboard. You can also use predefined dashboard templates to create a custom dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).
-
-## Creating a Custom Dashboard
-
-To create a custom dashboard:
-
-1. In the SecOps Platform Admin Portal, go to **Explore**> **Dashboards**. See image.
-2. Click **New**. The **Create New Dashboard** window appears.
-3. In the **Create New Dashboard** window: See image. You can also click **Import Template**to upload a dashboard template.
-  1. **Name**: Enter a name for the dashboard.
-  2. **Description**: (Optional) Enter a description for the dashboard.
-  3. **Viewers**: Select the users who can view the dashboard. To keep the dashboard private, leave the **Viewers**drop-down menu blank.
-    - **Public**: Select to grant view access to all users in the account.
-    - **Specific Users**: Select specific users that can view the dashboard.
-  4. **Editors**: Select the users who can edit the dashboard. To keep the dashboard private, leave the **Editors**drop-down menu blank.
-    - **Public**: Select to grant edit access to all users in the account.
-    - **Specific Users:** Select specific users that can edit the dashboard. The edit access overrides the view access.
-  5. **Pin to Apps**: (Optional) Select the application that you want to pin to the dashboard.
-  6. **Tags**: Enter a tag name, or select from existing tags. You can add one or more tags to a dashboard to categorize it.
-4. Click **Create**. The **Create New Widget** page appears.
-
-[Image: Create New Dashboard window]
-
-### Adding Widgets to Dashboards
-
-After creating the dashboard, you can add widgets to it by selecting the required [dimensions and measurements](https://help.zscaler.com/unified/understanding-measurements-and-dimensions). The dimension defines how data is grouped in a widget (e.g., by user, tenant, or severity, etc.) and the measurement defines the value to be calculated and displayed in the widget (e.g., count of alerts, number of users, or risk score, etc.).
-
-To add widgets to the dashboard:
-
-1. In the **Create New Widget**window:
-  1. Select a widget type in the left-side pane (e.g., **Bar**, **Line**, **Pie**). The widget type affects the number of measurements and dimensions you can add to the widget. To learn more, see [Understanding Dashboard Widget Types](https://help.zscaler.com/unified/understanding-dashboard-widget-types).
-  2. In the right pane, replace **Widget Title (Optional)**with a custom title. See image.
-  3. Customize the widget's displayed data, filters, style, and interactions:
-    - Configure the data displayed in the widget.
-    - (Optional) Apply filters to the widget.
-    - (Optional) Set the widget style.
-    - (Optional) Configure the widget drill-down hierarchy.
-  4. (Optional) Enable **Table View**to display the data in a table format.
-  5. Click **Save**to save the widget to the dashboard. To add more widgets, click **Widget**and repeat the process.
-2. Click **Save** in the top right of the page to add the widget to the dashboard.
-
-[Image: Updating widget title in the dashboard.]
-
-1. On the **Data** tab, select the **Main Entity** type from the drop-down menu.
-2. Add measurements and dimensions to the widget. See image. For example, to create a table widget to monitor the critical identity findings and impacted users across various tenants, you would perform the following steps: Select **Table**as widget type.; On the **Data** tab, select **Tenant**as the**Main Entity** type.; In the **Dimensions**section, select**Tenant ID** and **Tenant Name** to group the data for each tenant.; In the **Measurements**section, select **Critical Active Identity Findings** and **Total Users** to display their total count.; Click **Save**.See image.
-  - Click the **Measurements**icon to view the list of available measurements.
-  - Click the **Dimensions**icon to view the list of available dimensions.
-
-The selected measurements and dimensions appear in the left-side pane, you can drag and rearrange them to the desired position.
-
-See image.
-
-[Image: Measurements icon and Dimensions icon]
-
-[Image: Rearrange measurements and dimensions]
-
-[Image: Example of creating a new widget for tenant.]
-
-On the **Filters** tab, select filters to display specific data in the widgets:
-
-- Date
-- Sort & Top
-- Conditions Filters
-
-To set the date, select either of the following options for **Timeframe**:
-
-- **Current**: Select to generate a widget based on current data.
-- **Historical**: Select to generate a widget based on historical data in the selected date range.
-  - In the **Date range** drop-down menu, select the range of the data that the widget should display. You can choose either a fixed range (e.g., **Last 30 Days**) or a dynamic range that updates based on the current date.
-  - (Optional) In the **Break down by**drop-down menu, select a time interval to set a time-based granularity (e.g., **Day**, **Week**, or **Month**). This selection adds a time dimension to the widget, which counts toward the total number of dimensions. If you do not select anything in the **Break down by**drop-down menu, the widget does not include a time dimension.
-
-See image.
-
-[Image: Configure the time range of a dimension]
-
-To sort and reorder the data:
-
-- **Sort by**: Select the measurement or dimension to sort the data.
-- **Order**: Set the display order of data to either descending or ascending.
-- **Show Top**: Select the maximum number of values that the widget should display (e.g., if you enter 100, the widget displays a maximum of 100 values). Select the **Group Others** checkbox to group the remaining results into one group called **Other**.
-- **Exclude zero values**: Enable to exclude the zero values to be displayed in the widget.
-
-To apply condition filters:
-
-1. **Filter Evaluation Time**: If you selected **Historical**for the **Timeframe**setting, this drop-down menu appears. Select an evaluation time to specify how the filter applies to the data. To learn more, see [Understanding Historical Data](https://help.zscaler.com/unified/understanding-historical-data). See image. The selected date range and filter evaluation time appear when hovering over the widget's historical icon. See image.
-  - **Current State**: Evaluates filter conditions based on the current, most recent state of the data. For example, if the filter **Asset Owner Equals DevOps Team**is applied, the widget displays data for assets currently owned by the DevOps team, even if those assets weren't owned by the DevOps team during the selected date range.
-  - **Historical State**: Evaluates the filter conditions for each time bucket within the selected date range, based on the data's state at that specific point in time, even if it doesn't currently meet the condition. For example, when filtering **Asset Owner Equals DevOps Team**on a widget displaying **Total Critical Assets**for Jan 15 to Dec 15, broken down by week, the filter checks ownership for each week within the date range. For each week, it displays only the critical assets owned by the DevOps team during that week.
-2. **Select Field**: Select the field you want to filter from the drop-down menu.
-3. **Select Operator**: Select an operator. The available operators vary depending on the selected field type.
-4. **Type Value**: Enter the field value against which the filter is evaluated.
-
-Use the operators (**AND**, **OR**) and repeat this process to add multiple conditions filters to the widget. To remove a filter condition, click the **Delete** icon located to the right of the condition. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
-
-See image.
-
-[Image: Filter Evaluation Time drop-down menu]
-
-[Image: Hovering over the Historical icon in a widget]
-
-[Image: Filters conditions]
-
-On the **Style** tab, you can determine how the data is displayed in the widget.
-
-For example, you can configure the legend display for pie charts. The available options include:
-
-- **Table**: Displays the legend in a tabular format. See image.
-- **Aside**: Displays the legend in lines extending from each chart segment. See image.
-- **Basic**: Displays dimension values above the chart and measurement values when hovering over a segment. See image.
-- **Off**: Hides the legend.
-
-For the **Table** and **Aside** options, you can enable or disable **Show Values** and **Show Percentage** to control the display of corresponding measurements.
-
-See image.
-
-Apply formatting rules to set color-coded thresholds for measurements and dimensions, providing clear visual indicators in widgets.
-
-[Image: Table style for a chart legend]
-
-[Image: Aside legend for table data]
-
-[Image: Basic legend and hover data for a chart]
-
-[Image: Style tab Legend options]
-
-On the **Interactions** tab, you can add additional settings that allow you to click elements in the widget to view data at a more granular level.
-
-A drill-down hierarchy is available for **Bar**, **Pie**, and **Table** widgets that are configured with exactly one dimension.
-
-To set up a drill-down hierarchy:
-
-1. Click the **Interactions** tab. See image.
-2. Click **Add Level** to add the next dimension in the drill-down hierarchy. You can add up to three drill-down levels.
-
-After the drill-down hierarchy is configured, you can click the widget to drill down into the next level.
-
-[Image: Interactions tab]
-
-[Image: All Dashboards page in Security Operations platform]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-07-30T11:20Z","nid":"1541704"} -->
-## Configuring Entity Unification
-
-- Source: https://help.zscaler.com/unified/configuring-entity-unification
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Entity Unification
-- Last modified: 2026-07-30T11:20Z
-- Summary: How to configure entity unification rules to merge duplicate records.
-
-Ingesting data from multiple sources often leads to duplicate records that represent the same real-world entity. As part of the broader data unification process, entity unification focuses on data normalization by identifying and merging these duplicates to establish a single, trusted source of truth. You can create entity unification rules that specify how records are recognized as duplicates and the conditions under which they are merged. This step is especially critical for asset deduplication, and it serves as a foundation for consistent and reliable data across systems. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
-
-## Configuring Entity Unification Rule Sets
-
-An entity's unification rule set is a collection of individual rules designed to cluster duplicate entity records into a single merged entity based on specific conditions according to your organization's business logic. Within an entity unification rule set, you create the individual rules ("if-then" logic statements) that define how the source data should be clustered into a single entity. For example, you can create a rule to merge all Windows assets that share the same asset hostname into a single asset.
-
-For access to entity unification, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-managing-role-permissions) and [Assigning Roles to Users](https://help.zscaler.com/unified/assigning-roles-users).
-See image.
-
-[Image: The Model Management resource with all permissions enabled]
-
-To create a unification rule set:
-
-1. In the SecOps Platform Admin Portal, go to **Configure**> **Data Unification**> **Entities**. See image.
-2. Locate the entity you want to create the unification rule set for, and click **Merge**. See image. The **Merge**page appears.
-3. On the **Merge** page, click **New Rule**. The **Add Merge Rule** drawer opens.
-4. In the **Add Merge Rule** drawer:
-  - **Name**: Enter a name for the rule.
-  - **If**: Define the rule condition that determines which records the rule should apply to. See image.
-    1. Select a field from the drop-down menu on which the condition should be based. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. For example, when creating rules for the **Asset** entity, available fields include **Asset** fields (e.g., **Asset Name**, **Asset ID**), and fields with a relation to the **Asset** entity (e.g., **Application ID**, **Application Name**).
-    2. Select an operator from the drop-down menu. The available operators vary depending on the field type, indicated to the left of the field name.
-    3. Enter the value to which the rule should apply (e.g., `Windows`).
-    4. (Optional) Use **AND**/**OR** logic to define compound rules:
-      - **AND** merges entities only if they meet all conditions in the rule.
-      - **OR** merges entities if they meet any of the conditions in the rule.
-  - **Then**: Select at least one field according to which entities that meet your conditions should be merged. All entities with the same value are merged into a single entity. Available fields to filter by include the selected entity's fields and all fields with a relation to the entity. When merging entities based on multiple fields, the fields are evaluated using a logical **AND**relationship. This means that entities are merged only if the values in each of the specified fields match (e.g., the values in the **Asset ID** field must match, and the values in the **Asset Type** field must match for the record to merge). See image.
-  - (Recommended) Select the **Exclude Nulls from Merge** checkbox to avoid merging entities with null values in the defined fields.
-  - Click **Save** to save the rule. Repeat the process to add as many rules as necessary for the entity.
-5. Save the rule set to complete the process in one of the following ways: See image. A rule set that includes at least one conditional merging rule must also include a fallback rule, otherwise the rule set cannot be saved. The fallback rule specifies a single field to use for merging entities without applying any conditions. It ensures a default merging method is always in place, preventing data loss or conflicts.
-  - Click **Save** to save the rule set. Rules will apply the next time data is ingested into your account.
-  - From the **Save** drop-down menu, click **Save & Run** to save the rule set and immediately apply the rules to the data in your account.
-
-Your saved rule sets appear on the Data Unification - Entities page, where you can view, edit, and manage them as needed. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification).
-
-[Image: How to access the entities page]
-
-[Image: Merge button highlighted on entities page]
-
-## When Unification Rules Run
-
-Unification rules run when data related to the entity is ingested, directly processed, or indirectly impacted by a different processed entity. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
-
-## Rule Order in Entity Unification Rule Set
-
-The rules' order of appearance doesn't affect the order of their application. Each data point is evaluated against all rules, even if one rule has already been satisfied.
-
-[Image: Example if conditions in merge rule]
-
-[Image: Example then statements in merge rule]
-
-[Image: Click Save or Save and Run for your ruleset]
 <!-- /ZS-ARTICLE -->
