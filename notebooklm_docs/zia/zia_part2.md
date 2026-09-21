@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 110
 
 ---
@@ -4025,7 +4025,7 @@ The **Add macOS Application** window closes and the application appears in the l
 - Last modified: 2026-07-02T13:20Z
 - Summary: Information on how to add DLP and endpoint resources to prevent data loss on endpoints.
 
-The page for Data Loss Prevention (DLP) and Endpoint resources (Policies > Data Protection > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
+The page for Data Loss Prevention (DLP) and Endpoint resources (Data Security > Endpoint DLP > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
 
 - If your organization has licensed only Endpoint DLP, this page is called DLP Resources.
 - If your organization has licensed only [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context), this page is called Endpoint Resources.
@@ -4055,50 +4055,50 @@ You can use the following methods to add endpoint and DLP resources:
 - Add a Single Endpoint and DLP Resource
 - Import Multiple DLP and Endpoint Resources
 
-1. Go to **Policies**> **Data Protection**> **Policy**> **Endpoint DLP Resources**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint DLP Resources**.
 2. On the **DLP & Endpoint Resources** page:
   - Add a network share
-  - Add a network printer
+  - Add a printer
   - Add a removable storage device
   - Add an application
 3. [Activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) your changes.
 
-On the **Network Shares** page (Policies > Data Protection > Policy > Endpoint DLP Resources > Network Shares):
+On the **Network Shares** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Network Shares**):
 
 1. Click **Add Network Share**. The **Add Network Share** window appears.
 2. In the **Add Network Share** window:
   - Enter the following **Network Share Details**:
     - **Name**: The name of the network share
-    - **Server Name**: The server name where the network share resides (e.g., NetApp). You can also use regular expressions and CIDR ranges for advanced matching. For example: `filer8-dallas` (matches only the network server "filer8-dallas"); `regex:^(?i)srv*` (matches all network servers that start with "srv" and the match is case-insensitive); `regex:(?i).*\.domain$` (matches all network server names that end with ".domain"); `cidr:192.168.1.0/24` (matches network servers with an IP address starting with "192.168.1")
+    - **Server Name**: The server name where the network share resides (e.g., NetApp) You can also use regular expressions and CIDR ranges for advanced matching. For example: `filer8-dallas` (matches only the network server "filer8-dallas"); `regex:^(?i)srv*` (matches all network servers that start with "srv" and the match is case-insensitive); `regex:(?i).*\.domain$` (matches all network server names that end with ".domain"); `cidr:192.168.1.0/24` (matches network servers with an IP address starting with "192.168.1")
     - **Description**: (Optional) A description of the network share
   - Select one of the following **Directories** attributes:
     - **All files and directories on this server**: Select this option if you want to include all files and directories on the specified server.
-    - **Files in the following directories and subdirectories**: Select this option if you want to specify the directories and subdirectories to be included. If you select this option, the **Directory Paths** field appears. Add paths (e.g., `/<folder>/<subfolder>`) separated by line breaks, then click **Add Items**.
-3. Click **Add**.
+    - **Files in the following directories and subdirectories**: Select this option if you want to specify the directories and subdirectories to be included. If you select this option, the **Directory Paths** field appears. Add paths (e.g., `/<folder>/<subfolder>`) separated by line breaks, then click **Add**.
+3. Click **Save**.
 
 See image.
 
 [Image: Add Network Share window for Zscaler Endpoint DLP]
 
-On the **Printers** page (Policies > Data Protection > Endpoint DLP Resources > Printers):
+On the **Printers** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Printers**):
 
-1. Click **Add Printer**. The **Add Network Printer** window appears.
-2. In the **Add Network Share** window:
-  - **Name**: Enter a name for the network printer.
+1. Click **Add Printer**. The **Add Printer** drawer opens.
+2. In the **Add Printer** drawer:
+  - **Name**: Enter a name for the printer.
   - **Domain**: Enter the name of the domain where the printer is located.
   - **Printer Name**: Enter the name of the printer as it appears in the OS list of printers.
-  - **IP Address**: Enter the IP address for the network printer.
-  - **Description**: (Optional) Enter a description for the network printer.
-3. Click **Add**.
+  - **IP Address**: Enter the IP address for the printer.
+  - **Description**: (Optional) Enter a description for the printer.
+3. Click **Save**.
 
 See image.
 
-[Image: Add Network Printer window for Zscaler Endpoint DLP]
+[Image: Add Network Printer drawer for Zscaler Endpoint DLP]
 
-On the **Removable Storage Devices** page (Policies > Data Protection > Endpoint DLP Resources > Removable Storage Devices):
+On the **Removable Storage Devices** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Removable Storage Devices**):
 
-1. Click **Add a Removable Storage** device. The **Add Removable Storage Device** window appears.
-2. In the **Add Removable Storage Device** window:
+1. Click **Add Removable Storage Device**. The **Add Removable Storage Device** drawer opens.
+2. In the **Add Removable Storage Device** drawer:
   - Enter the following **Removable Storage Device Details**:
     - **Name**: The name of the removable storage device
     - **Description**: (Optional) A description of the removable storage device
@@ -4106,29 +4106,30 @@ On the **Removable Storage Devices** page (Policies > Data Protection > Endpoint
     - **Vendor ID**: The manufacturer of the removable storage device
     - **Product ID**: The product ID of the removable storage device
     - **Serial Number**: The serial number of the removable storage device
-3. Click **Add**.
+3. Click **Save**.
 
 See image.
 
-[Image: Add Network Printer window for Zscaler Endpoint DLP]
+[Image: Add Removable Storage Device drawer for Zscaler Endpoint DLP]
 
 You can import multiple resources at the same time using a CSV file. There is a sample template available to download for each resource type.
 
+The Zscaler service doesn't support importing multiple applications.
+
 To import multiple DLP and endpoint resources:
 
-1. Go to **Policies**> **Data Protection**> **Policy**> **Endpoint DLP Resources**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**Endpoint DLP**>**Endpoint DLP Resources**.
 2. On the **DLP & Endpoint Resources** page:
   - Import network shares
-  - Import network printers
+  - Import printers
   - Import removable storage devices
-  - Import applications
 3. [Activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) your changes.
 
-On the **Network Shares** page (Policies > Data Protection > Endpoint DLP Resources > Network Shares):
+On the **Network Shares** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Network Shares**):
 
 1. Click **Import Network Shares**. The **CSV Import - Network Shares** window appears.
 2. Click **Download csv template** to download the import network shares template.
-3. Enter your network shares in the CSV file tempate in the following format:
+3. Enter your network shares in the CSV file template in the following format:
 
 ```
 <name>,<description>,<server name>,<paths>
@@ -4140,29 +4141,19 @@ For example:
 Network share 1,imported network drive,Server 3234,"path1,path2,path3,path4,path5,path6,path7,path8"
 ```
 
-1. After you have the CSV file saved in the correct format, click **Choose a file**.
-2. Browse and select the CSV file you want to import, then click **Open**.
-3. Click **Next**.
-
-See image.
-
-1. In the **Preview** pane, confirm the details of the network shares you are importing.
-2. (Optional) Add the network shares to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time. Resource groups are available if your organization licenses Endpoint Data Loss Prevention (DLP) without [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). When your organization licenses Endpoint Context, any resource groups that you have already configured are automatically converted to [resource tag groups](https://help.zscaler.com/zia/adding-resource-tags). All policies that previously used resource groups are automatically updated to use the converted resource tag groups.
-  1. Select **Add the imported resources to a group** or **Add the imported resources to a tag**, depending on the products you have licensed for your organization. See image.
+1. After you have the CSV file saved in the correct format, drag and drop a file or click the upload icon to browse for a file.
+2. If you browse for a file, select the CSV file you want to import, then click **Open**. The **Preview** and **Total Resources**sections appear.
+3. In the **Preview** section, confirm the details of the network shares you are importing.
+4. (Optional) Add the network shares to a tag. Tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time.
+  1. Select **Add the imported resources to a tag**.
   2. Do one of the following:
-    - For groups:
-      1. To add the resources to a new group, click **New Group**, then specify a name and description for the group.
-      2. To add the resources to an existing group, click **Existing Group**, then select a group from the **Select Group** drop-down menu.
-    - For tags:
-      1. To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
-      2. To add the resources to an existing group, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
-3. Click **Import**. The network shares appear in the list in the **Network Shares** window.
+    - To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
+    - To add the resources to an existing tag, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
+5. Click **Import**. See image. The network shares appear in the list in the **Network Shares** window.
 
 [Image: A screenshot of the CSV Import Network Shares window for Zscaler Endpoint DLP]
 
-[Image: A screenshot of the CSV Import Network Shares window for Zscaler Endpoint DLP]
-
-On the **Printers** page (Policies > Data Protection > Endpoint DLP Resources > Printers):
+On the **Printers** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Printers**):
 
 1. Click **Import Printers**. The **CSV Import - Printers** window appears.
 2. Click **Download csv template** to download the import network printers template.
@@ -4178,29 +4169,19 @@ For example:
 Printer1,Printer outside Conference Room 1,blr/resources/folder1,1.1.1.1,printer.safemarch.com
 ```
 
-1. After you have the CSV file saved in the correct format, click **Choose a file**.
-2. Browse and select the CSV file you want to import, then click **Open**.
-3. Click **Next**.
-
-See image.
-
-1. In the **Preview** pane, confirm the details of the network printers you are importing.
-2. (Optional) Add the network printers to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time. Resource groups are available if your organization licenses Endpoint Data Loss Prevention (DLP) without [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). When your organization licenses Endpoint Context, any resource groups that you have already configured are automatically converted to [resource tag groups](https://help.zscaler.com/zia/adding-resource-tags). All policies that previously used resource groups are automatically updated to use the converted resource tag groups.
-  1. Select **Add the imported resources to a group** or **Add the imported resources to a tag**, depending on the products you have licensed for your organization. See image.
+1. After you have the CSV file saved in the correct format, drag and drop a file or click the upload icon to browse for a file.
+2. If you browse for a file, select the CSV file you want to import, then click **Open**. The **Preview** and **Total Resources**sections appear.
+3. In the **Preview** pane, confirm the details of the printers you are importing.
+4. (Optional) Add the printers to a tag. Tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time.
+  1. Select **Add the imported resources to a tag**.
   2. Do one of the following:
-    - For groups:
-      1. To add the resources to a new group, click **New Group**, then specify a name and description for the group.
-      2. To add the resources to an existing group, click **Existing Group**, then select a group from the **Select Group** drop-down menu.
-    - For tags:
-      1. To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
-      2. To add the resources to an existing group, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
-3. Click **Import**. The network printers appear in the list in the **Printers** window.
+    - To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
+    - To add the resources to an existing tag, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
+5. Click **Import**. See image. The printers appear in the list in the **Printers** window.
 
 [Image: A screenshot of the CSV Import Printers window for Zscaler Endpoint DLP]
 
-[Image: A screenshot of the CSV Import Printers window for Zscaler Endpoint DLP]
-
-On the **Removable Storage Devices**page (Policies > Data Protection > Endpoint DLP Resources > Removable Storage Devices):
+On the **Removable Storage Devices**page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Removable Storage Devices**):
 
 1. Click **Import Removable Storage Devices**. The **CSV Import - Removable Storage Devices** window appears.
 2. Click **Download csv template** to download the import removable storage devices template.
@@ -4216,86 +4197,40 @@ For example:
 Finance Department 1,Thumb drive for use by the Finance Deparment,11029,11926,59695
 ```
 
-1. After you have the CSV file saved in the correct format, click **Choose a file**.
-2. Browse and select the CSV file you want to import, then click **Open**.
-3. Click **Next**.
-
-See image.
-
-1. In the **Preview** pane, confirm the details of the removable storage devices you are importing.
-2. (Optional) Add the removable storage devices to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time. Resource groups are available if your organization licenses Endpoint Data Loss Prevention (DLP) without [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). When your organization licenses Endpoint Context, any resource groups that you have already configured are automatically converted to [resource tag groups](https://help.zscaler.com/zia/adding-resource-tags). All policies that previously used resource groups are automatically updated to use the converted resource tag groups.
-  1. Select **Add the imported resources to a group** or **Add the imported resources to a tag**, depending on the products you have licensed for your organization. See image.
+1. After you have the CSV file saved in the correct format, drag and drop a file or click the upload icon to browse for a file.
+2. If you browse for a file, select the CSV file you want to import, then click **Open**. The **Preview** and **Total Resources**sections appear.
+3. In the **Preview** pane, confirm the details of the removable storage devices you are importing.
+4. (Optional) Add the removable storage devices to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time.
+  1. Select **Add the imported resources to a tag**.
   2. Do one of the following:
-    - For groups:
-      1. To add the resources to a new group, click **New Group**, then specify a name and description for the group.
-      2. To add the resources to an existing group, click **Existing Group**, then select a group from the **Select Group** drop-down menu.
-    - For tags:
-      1. To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
-      2. To add the resources to an existing group, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
-3. Click **Import**. The removable storage devices appear in the list in the **Removable Storage Devices** window.
+    - To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
+    - To add the resources to an existing tag, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
+5. Click **Import**. See image. The removable storage devices appear in the list in the **Removable Storage Devices** window.
 
 [Image: A screenshot of the CSV Import Removable Storage Devices window for Zscaler Endpoint DLP]
 
-[Image: A screenshot of the CSV Import Removable Storage Devices window for Zscaler Endpoint DLP]
-
-If you have licensed [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context), the Zscaler service doesn't support importing multiple applications.
-
-On the **Applications**page (Policies > Data Protection > Endpoint DLP Resources > Applications):
-
-1. Click **Import Applications**. The **CSV Import - Applications** window appears.
-2. Click **Download csv template** to download the import applications template.
-3. Enter your applications in the CSV file template in the following format:
-
-```
-<Name>,<Description>,<OS Type>,<File Name>,<Original File Name>,<Bundle ID>,<Digitally Signed>
-```
-
-For example:
-
-```
-Custom CMS Application,In-house CMS Application,WINDOWS_OS,safemarchcms,safemarchcms.exe,,ANY
-```
-
-1. After you have the CSV file saved in the correct format, click **Choose a file**.
-2. Browse and select the CSV file you want to import, then click **Open**.
-3. Click **Next**.
-
-See image.
-
-1. In the **Preview** pane, confirm the details of the applications you are importing.
-2. (Optional) Add the applications to a group. Groups let you logically combine resources so that you can easily apply a rule to multiple resources at the same time.
-  1. Select **Add the imported resources to a group**. See image.
-  2. Do one of the following:
-    - To add the resources to a new group, click **New Group**, then specify a name and description for the group.
-    - To add the resources to an existing group, click **Existing Group**, then select a group from the **Select Group** drop-down menu.
-3. Click **Import**. The applications appear in the list in the **Applications** window.
-
-[Image: A screenshot of the CSV Import Applications window for Zscaler Endpoint DLP]
-
-[Image: A screenshot of the CSV Import Applications window for Zscaler Endpoint DLP]
-
-When you add an application as a DLP and resource, you can then use the application as part of your Endpoint DLP policy rules. You can then use applications to create rules that prevent users from copying sensitive content to their clipboard from the applications. Additionally, you can add endpoint application details as part of the endpoint-related telemetry available in Endpoint Context.
+When you add an application as a DLP and endpoint resource, you can then use the application as part of your Endpoint DLP policy rules. You can then use applications to create rules that prevent users from copying sensitive content to their clipboard from the applications. Additionally, you can add endpoint application details as part of the endpoint-related telemetry available in Endpoint Context.
 
 To learn more about accessing Endpoint Context for your organization, contact Zscaler Support.
 
-On the **Applications** page (Policies > Data Protection > Endpoint DLP Resources > Applications):
+On the **Endpoint Applications** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Endpoint Applications**):
 
 - Add a Windows application
 - Add a macOS application
 
-1. Click **Add Windows Application**. The **Add Windows Application** window appears.
-2. In the **Add Windows Application** window:
+1. Click **Add Windows Application**. The **Add Windows Application** drawer opens.
+2. In the **Add Windows Application** drawer:
   1. Enter the following **Application Details**:
     - **Name**: Enter a unique name for the application.
     - **Description:**(Optional) Enter additional notes or information about the application. The description cannot exceed 255 characters.
   2. Enter the following **Criteria**:
     - **Original File Name**: Enter the original file name of the executable. This name is located on the **Details**tab in the **Properties**for the executable file in Windows.
-    - **Process Name**: Enter the name of the executable that runs the application.
+    - **File Name**: Enter the name of the executable that runs the application.
     - **Digitally Signed**: Select an option for whether the application file must be digitally signed by a trusted provider:
       - **Any**: The Zscaler service does not check for a digital signature.
       - **Yes**: The Zscaler service requires a digital signature.
       - **No**: The Zscaler service does not require a digital signature.
-  3. Click **Add**.
+  3. Click **Save**.
 
 See image.
 
@@ -4303,19 +4238,19 @@ The **Add Windows Application** window closes and the application appears in the
 
 [Image: The Add Windows Application Window for Zscaler Endpoint DLP]
 
-1. Click **Add macOS Application**
-2. In the **Add macOS Application** window:
+1. Click **Add macOS Application**. The **Add macOS Application** drawer opens.
+2. In the **Add macOS Application** drawer:
   1. Enter the following **Application Details**:
     - **Name**: Enter a unique name for the application.
     - **Description:**(Optional) Enter additional notes or information about the application. The description cannot exceed 255 characters.
   2. Enter the following **Criteria**:
     - **Bundle ID**: Enter the bundle identifier that uniquely identifies the application.
-    - **Process Name**: Enter the name of the executable that runs the application.
+    - **File Name**: Enter the name of the executable that runs the application.
     - **Digitally Signed**: Select an option for whether the application file must be digitally signed by a trusted provider:
       - **Any**: The Zscaler service does not check for a digital signature.
       - **Yes**: The Zscaler service requires a digital signature.
       - **No**: The Zscaler service does not require a digital signature.
-  3. Click **Add**.
+  3. Click **Save**.
 
 See image.
 
@@ -4654,9 +4589,9 @@ In the Zscaler Admin Console, you can configure a list of EDNS Client Subnet (EC
 
 To add an ECS prefix:
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **EDNS Client Subnet Prefix Objects**.
-2. Click **Add ECS Prefix**. The **Add ECS Prefix** window appears.
-3. In the **Add ECS Prefix** window: See image.
+1. Go to **Internet Access**> **Resources**> **EDNS Client Subnet**.
+2. Click **Add ECS Prefix**. The **Add ECS Prefix** drawer appears.
+3. In the **Add ECS Prefix** drawer: See image.
   - **Name**: Enter a unique name for the ECS prefix. Only alphanumeric characters are allowed, and the name cannot exceed 255 characters.
   - **ECS Prefix**: Select how you want to configure the ECS prefix from the following options and specify a value:
     - **Prefix Length**: Select the length of the client’s IP address (IPv4) that can be specified for the ECS option in DNS queries. For example, if /24 is selected and the client’s IP address is 2.2.2.2, the Client Subnet value would be 2.2.2.0. The Zscaler service supports a prefix length range of /20 to /24 (the full IP address).

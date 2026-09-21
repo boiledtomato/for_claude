@@ -1,7 +1,7 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 53
 
 ---
@@ -290,7 +290,7 @@ You can email Zscaler Support with the Network Latency report attached and note 
 
 - Source: https://help.zscaler.com/zero-trust-browser/adding-banner-theme-isolation-end-user-notification-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Profiles > Banner Notifications > ZIA Banner Notifications > Adding a Banner Theme for the Isolation End-User Notification in Internet & SaaS
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Banner Notifications > Internet & SaaS Banner Notifications > Adding a Banner Theme for the Isolation End-User Notification in Internet & SaaS
 - Last modified: 2026-06-24T22:11Z
 - Summary: How to add a banner theme for isolation end-user notifications in Internet & SaaS.
 

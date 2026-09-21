@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 122
 
 ---
@@ -2077,8 +2077,7 @@ PATH=/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/games:/sc
 1. Run the following command:
 
 ```
-*/10 * * * * ntpdate
-<ntp-server-name>
+*/10 * * * * ntpdate -u <ntp-server-name>
 ```
 
 Replace <ntp-server-name> with your local NTP server's FQDN or IP address.
@@ -2217,6 +2216,8 @@ If the active NSS VM fails, you must perform failover activities, ideally within
 
 - **NSS to SIEM**: The NSS buffers the logs in the VM memory to increase its resiliency to transient network issues between the SIEM and the NSS. If the connection drops, the NSS replays logs from the buffer, according to the Duplicate Logs setting.
 - **Nanolog to SIEM**: If the connectivity between the Zscaler cloud and the NSS is interrupted, the NSS misses logs that arrived at the [Nanolog cluster](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) during the interruption, and they are not delivered to the SIEM. When the connection is restored, the NSS one-hour recovery allows the Nanolog to replay logs up to one hour back.
+
+Standby VM nodes are not configured for automatic ZSOS upgrades. Zscaler recommends redeploying a standby VM at least once a year to prevent outdated ZSOS settings.
 
 To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscriptions, contact Zscaler Support.
 <!-- /ZS-ARTICLE -->

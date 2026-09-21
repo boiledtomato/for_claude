@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 179
 
 ---
@@ -2951,7 +2951,7 @@ External routers provide the following benefits and enable you to:
 
 ## About the External Routers Page
 
-On the External Routers page (Private Access > VPN (for Legacy Apps) > Network Connectors > External Routers), you can do the following:
+On the External Routers page (Private Access > VPN (for Legacy Apps) > External Routers), you can do the following:
 
 1. [Add an external router](https://help.zscaler.com/zpa/configuring-external-routers).
 2. View a list of all configured external routers. For each external router, you can view:
@@ -4113,7 +4113,7 @@ The following is a Network Connector provisioning key example:
 
 ## About the Network Connector Provisioning Keys Page
 
-On the Network Connector Provisioning Keys page (Private Access > VPN (for Legacy Apps) > Network Connectors > Network Connector Provisioning Keys), you can do the following:
+On the Network Connector Provisioning Keys page (Private Access > VPN (for Legacy Apps) > Network Connector Provisioning Keys), you can do the following:
 
 1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
 2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to show the filters.
@@ -6812,7 +6812,7 @@ VPN support information provides the following benefits and enables you to:
 
 ## About the VPN Support Information Page
 
-On the VPN Support Information page (Private Access > VPN (for Legacy Apps) >Diagnostics > VPN Support Information), you can do the following:
+On the VPN Support Information page (Private Access > VPN (for Legacy Apps) > VPN Support Information), you can do the following:
 
 1. Select the time range to filter the VPN diagnostic sessions. You can select a preset date range, or specify a custom start and end date. If you use the **Custom Range**option, the start date must be within the last 6 months.
 2. View a list of applied filters available from the current and previous VPN diagnostic sessions (for VPN Service Edges, Network Connectors, and Network Connector groups). Applied filters must be saved to the VPN diagnostic session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
@@ -12117,7 +12117,7 @@ The following specifications are recommended by Zscaler for each App Connector:
 
 - Memory: 4 GB RAM
 
-For Zscaler Digital Experience (ZDX) deployments, Zscaler recommends App Connectors to have 8 GB of RAM. If the ZDX probes exceed a count of 2,000 at an interval of 5 minutes, further scaling should be considered. If alerts are observed that exceed a configured bandwidth of 250 Mbps on each App Connector, further scaling of 32 GB of RAM should be considered.
+For Digital Experience (ZDX) deployments, Zscaler recommends App Connectors to have 8 GB of RAM. If the ZDX probes exceed a count of 2,000 at an interval of 5 minutes, further scaling should be considered. If alerts are observed that exceed a configured bandwidth of 250 Mbps on each App Connector, further scaling of 32 GB of RAM should be considered.
 
 - CPU:
   - 2 CPU cores (Xeon E5 class) for physical machines without hyperthreading
@@ -12626,7 +12626,7 @@ After you have deployed a software component on a supported platform, you can co
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
-If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network ConnectorNetwork Connector.
+If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network Connector.
 
 1. Log in to the software component's console using your admin credentials.
 2. View the IP address. `$ ip addr show`
@@ -15813,7 +15813,7 @@ You can configure IP address objects to help organize network resources that can
 
 To configure an IP address object:
 
-1. Go to **Private Access**> **VPN (for Legacy Apps)**> **Policies**> **VPN Access Policy**>**IP Address Object**.
+1. Go to **Private Access**> **VPN (for Legacy Apps)**> **VPN Access Policy**>**IP Address Object**.
 2. Click **Add**. The **Add Address Object** page appears.
 3. On the**Add Address Object**page: See image.
   - **Networks**: Enter the IP address and Classless Inter-Domain Routing (CIDR) you want to group in this address object and click **Add**. Use a comma to separate multiple entries. A maximum of 64 IP addresses are allowed. Click **Import LAN/Client Subnets** to import networks.

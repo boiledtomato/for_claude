@@ -1,7 +1,7 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 159
 
 ---
@@ -5925,7 +5925,7 @@ This article provides information on how to configure a Virtual Desktop Infrastr
 To add a VDI forwarding profile:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Infrastructure** > **Connectors** > **Client** > **VDI Profile**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **VDI Forwarding Profile**.
 3. Click **Add VDI Forwarding Profile**.
 4. On the **Add VDI Forwarding Profile** page:
   - **Name**: Enter a name for the forwarding profile.
@@ -5973,7 +5973,7 @@ This article provides information on how to configure a dynamic Virtual Desktop 
 
 To add a VDI group:
 
-1. Go to **Infrastructure** > **Client Connector** > **VDI Device Management** > **VDI Groups**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Client Connector** > **VDI Device Management** > **VDI Groups**.
 2. Click **Add Dynamic VDI Group**.
 3. On the **Add Dynamic VDI Group** page:
   1. On the **General** tab:
@@ -12297,7 +12297,7 @@ Modifying Zscaler Zero Trust Gateway groups or viewing individual Zero Trust Gat
 
 To edit or view a Zero Trust Gateway:
 
-1. Go to **Infrastructure** > **Connectors** > **Cloud** > **Cloud Connector Groups**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Groups**.
 2. On the [Cloud Connector Groups](https://help.zscaler.com/cloud-branch-connector/about-cloud-connector-groups) page, locate the Zero Trust Gateway group or individual Zero Trust Gateway you want to modify or view and click the **Edit** or **View** icon. See image.
 
 - Zero Trust Gateway group

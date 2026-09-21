@@ -719,6 +719,19 @@ def parse_existing(stem: str) -> dict[str, str]:
     return blocks
 
 
+def purge_parts(stem: str) -> int:
+    """カテゴリの part ファイルを消す。記事が 1 件も残らなかったとき用。"""
+    out_dir = OUTPUT_DIR / stem
+    if not out_dir.is_dir():
+        return 0
+    paths = list(out_dir.glob(f"{stem}_part*.md"))
+    for path in paths:
+        path.unlink()
+    if not any(out_dir.iterdir()):
+        out_dir.rmdir()
+    return len(paths)
+
+
 def write_parts(stem: str, blocks: dict[str, str]) -> list[Path]:
     """{url_path: block} を part ファイルに詰め直して書き出す。"""
     out_dir = OUTPUT_DIR / stem
@@ -979,7 +992,13 @@ def main() -> int:
     # 恒常的に落ちているもの（deception は 2026-09 時点で 90 件が 403
     # "Help Article in Maintenance"）に紛れて新しい異常を見落とす。
     known_unavailable = index.get("unavailable") or {}
-    new_failures = [p for p in failed if p not in known_unavailable]
+    # この記録を持たない状態から始めた回は、既存の失敗がすべて「新規」に見えてしまう。
+    # 初回はベースラインを作るだけにして、警報は次回以降に回す。
+    baseline_run = "unavailable" not in index
+    new_failures = [] if baseline_run else [p for p in failed if p not in known_unavailable]
+    if baseline_run and failed:
+        print(f"[INFO] 取得失敗 {len(failed)} 件を既知のものとして記録します"
+              f"（初回のため新規判定は行いません）")
     recovered = [p for p in known_unavailable if p in fetched]
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     index["unavailable"] = {
@@ -1029,7 +1048,10 @@ def main() -> int:
                 blocks.pop(path, None)
 
         if not blocks:
-            print(f"[{stem}] 記事なし — スキップ")
+            # ここで continue すると古い part ファイルが消えずに残る。soc-workbench が
+            # sitemap から全記事消えたとき、取り残し 18 件がこれで生き延びていた。
+            gone = purge_parts(stem)
+            print(f"[{stem}] 記事が 1 件も残らないため part ファイル {gone} 件を削除")
             continue
 
         print(f"[{stem}] {category_name(stem)}: {len(blocks)} 記事")

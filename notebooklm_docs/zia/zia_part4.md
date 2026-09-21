@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 117
 
 ---
@@ -3632,7 +3632,7 @@ To group together applications that you want to manage in a Firewall policy rule
 
 You can create a maximum of 126 network application groups and add up to 8,000 network applications to a group. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet & SaaS**> **Resources** >**Network Application Groups**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources** >**Network Application Groups**.
 2. Click **Add Network Application Group**. The **Add Application Group** drawer appears.
 3. In the **Add Application Group** drawer: See image.
   - **Name**: Enter a name for the network application group.
@@ -4281,18 +4281,18 @@ To forward traffic through Private Access gateways, ensure that your Internet & 
 
 To configure a Private Access gateway:
 
-1. Go to **Infrastructure** >**Internet & SaaS** >**Network Policies**>**Zscaler Private Access**.
-2. Click **Add Gateway for ZPA**. See image The **Add Gateway for ZPA** window appears.
-3. In the **Add Gateway for ZPA** window: See image.
+1. Go to **Infrastructure** >**Internet & SaaS** >**Private Access GW**.
+2. Click **Add Gateway for ZPA**. See image. The **Add Gateway for ZPA** drawer appears.
+3. In the **Add Gateway for ZPA** drawer: See image.
   - **Gateway Name**: Enter a name for the gateway.
   - **Server Group**: From the drop-down menu, select the server group that you configured on Private Access for Source IP Anchoring.
-  - **Application Segment**: After you select the server group, all the application segments (with Source IP Anchoring enabled) associated with the server group appear in this field.
+  - **Application Segments**: After you select the server group, all the application segments (with Source IP Anchoring enabled) associated with the server group appear in this field.
   - **Description**: (Optional) Enter additional notes or information for the gateway.
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: The Add Gateway for ZPA option on the Zscaler Private Access page in the ZIA AdminPortal]
+[Image: The Add Gateway for Private Access (ZPA) option on the Private Access GW page in the Zscaler Admin Console]
 
-[Image: The Add ZPA Gateway window in the Zscaler Private Access page]
+[Image: The Add ZPA Gateway drawer in the Private Access  GW page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5972,10 +5972,10 @@ You can create up to 32 gateway objects.
 
 To configure a proxy gateway for the third-party proxy service:
 
-1. Go to **Infrastructure** > **Internet & SaaS** > **Network Policies** > **Forwarding Control** > **Proxies and Gateways**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Proxies and Gateways**.
 2. Select the **Proxy** **Gateways** tab.
-3. Click **Add Gateway for Proxies**. The **Add Gateway for Proxies** window appears.
-4. In the **Add Gateway for Proxies** window, configure the following fields: See image.
+3. Click **Add Gateway for Proxies**. The **Add Gateway for Proxies** drawer appears.
+4. In the **Add Gateway for Proxies** drawer, configure the following fields: See image.
   - **Gateway Name**: Enter a name for the gateway to be created for a third-party proxy service.
   - **Fail Close**: Choose how to handle the traffic when both primary and secondary proxies defined in this gateway are unreachable:
     - **Enable**: (Default) Drops the traffic when both proxies are unreachable.
@@ -5985,26 +5985,25 @@ To configure a proxy gateway for the third-party proxy service:
   - **Description**: (Optional) Enter additional notes or information. The description cannot exceed 256 characters.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: The Add Gateway for Proxies window for configuring gateways for third-party proxy chaining]
+[Image: The Add Gateway for Proxies drawer for configuring gateways for third-party proxy chaining]
 
 You can configure proxy objects using the IP address or FQDN of a third-party proxy service to which you want to forward the traffic using the [Third-Party Proxy Chaining](https://help.zscaler.com/zia/about-third-party-proxy-chaining) feature. You can configure up to 8 proxy objects.
 
 To configure a proxy:
 
-1. Go to **Infrastructure** > **Internet & SaaS** > **Network Policies** > **Forwarding Control** > **Proxies and Gateways**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Proxies and Gateways**.
 2. Select the **Proxies** tab.
-3. Click **Add Proxy**. The **Add Proxy** window appears.
-4. In the **Add Proxy** window, configure the following fields: See image.
+3. Click **Add Proxy**. The **Add Proxy** drawer appears.
+4. In the **Add Proxy** drawer, configure the following fields: See image.
   - **Proxy Name**:Enter a name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**:Enter the IP address or the FQDN of the third-party proxy service.
+  - **IP Address / FQDN**:Enter the IP address or the FQDN of the third-party proxy service.
   - **Port**: Enter the port number on which the third-party proxy service listens to the requests forwarded from Zscaler.
-  - **Proxy's Root Certificate**: (Optional) Select the root certificate used by the third-party proxy to perform SSL/TLS inspection. This root certificate is used by Zscaler to validate the SSL leaf certificates signed by the upstream proxy. The required root certificate appears in this drop-down list only if it is uploaded from the **Infrastructure** > **Internet & SaaS** > **Network Policies** > **Root Certificates** page. To learn more, see [About Root Certificates](https://help.zscaler.com/zia/about-root-certificates).
+  - **Proxy's Root Certificate**: (Optional) Select the root certificate used by the third-party proxy to perform SSL/TLS inspection. This root certificate is used by Zscaler to validate the SSL leaf certificates signed by the upstream proxy. The required root certificate appears in this drop-down list only if it is uploaded from the **Internet Access** > **Resources** > **Root Certificates** page. To learn more, see [About Root Certificates](https://help.zscaler.com/zia/about-root-certificates).
   - **Insert X-Authenticated-User**: Enable to automatically insert authenticated user ID to the HTTP header, X-Authenticated-User. This allows the upstream proxies to consume authenticated user ID information from the X-Authenticated-User header value, avoiding re-authentication of users. This field is disabled by default. For unauthenticated user traffic, the service inserts the value Unknown to the X-Authenticated-User header. Ensure that the third-party proxy servers are configured to reauthenticate the users if the user ID value is Unknown in the HTTP header request.
-  - **Enable Base64 Encoding for X-Authenticated-User Value**: If you enabled **Insert X-Authenticated-User**, select this option to encode the user ID using the Base64 encoding method.
   - **Description**: (Optional) Enter additional notes or information. The description cannot exceed 256 characters.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: The Add Proxy window for configuring third-party proxies]
+[Image: The Add Proxy drawer for configuring third-party proxies]
 
 You can use Forwarding policies to configure appropriate rules for traffic that needs to be forwarded to a third-party proxy service of your choice.
 
@@ -12729,7 +12728,7 @@ To deploy a Private Service Edge:
   - If authentication is enabled for your location, browse to an external site and verify that the Zscaler service requests your credentials before it allows access to the internet.
   - Ensure that your policies are enforced. Verify that the service blocks access to a site due to policy.
   - View and check the logs using the [dashboard](https://help.zscaler.com/zia/about-dashboards) in the Zscaler Admin Console.
-  - If you have a Zscaler Digital Experience (ZDX) subscription, check whether you can see your ZIA Private Service Edges' health information on the [ZIA PSE Health Dashboard](https://help.zscaler.com/zdx/monitoring-zia-private-service-edge-dashboard) page.
+  - If you have a Digital Experience (ZDX) subscription, check whether you can see your ZIA Private Service Edges' health information on the [ZIA PSE Health Dashboard](https://help.zscaler.com/zdx/monitoring-zia-private-service-edge-dashboard) page.
 7. (Optional) If your organization uses PAC files to forward traffic to the Zscaler service, edit the PAC files and ensure that the variables that point to the Private Service Edges specify the subcloud that Zscaler configured for your organization. To learn more, see [Using PAC Files: Private Service Edge for Internet & SaaS Deployments](https://help.zscaler.com/zia/using-pac-files-private-service-edge-internet-saas-deployments). Also, if applicable, ensure that your [firewall allows the devices from your internal network to reach the Zscaler PAC servers](https://help.zscaler.com/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments).
 8. (Optional) If your organization uses GRE tunnels to forward traffic to the Zscaler service, follow the standard procedure for [Self-Provisioning of GRE Tunnels](https://help.zscaler.com/zia/self-provisioning-gre-tunnels). Private Service Edge VIP addresses are available for selection on the GRE Tunnels page in the Zscaler Admin Console. Self-provisioning of GRE tunnels towards Private Service Edge clusters is only supported for clusters deployed on public IP space (i.e., a non-NAT environment). If you need to build a GRE tunnel toward a Private Service Edge cluster deployed within a NAT environment, submit a support ticket from your Zscaler Admin Console.
 

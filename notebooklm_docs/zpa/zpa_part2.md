@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 211
 
 ---
@@ -1007,7 +1007,7 @@ You can configure a BGP at a global level, or you can override the global BGP wh
 
 To configure global BGP settings for Network Connectors:
 
-1. Go to **Private Access > VPN (for Legacy Apps) > Network Connectors > BGP Connector Configuration**.
+1. Go to **Private Access > VPN (for Legacy Apps) > BGP Connector Configuration**.
 2. On the**BGP Configuration** page:
   - **Local AS Number**: Enter the local autonomous system number used by the router for bidirectional traffic for Network Connectors. The value of the Local AS Number must be different for VPN Service Edges and Network Connectors.
   - **Session Failure Detection**: Select one of the following options to detect connection loss: You must use the same session failure detection method for VPN Service Edges and Network Connectors for proper routing.
@@ -1037,7 +1037,7 @@ VPN Service Edges have the maximum path set to 256 and ECMP enabled to support B
 
 To configure BGP for VPN Service Edges:
 
-1. Go to **Private Access**>**VPN (for Legacy Apps)**>**VPN Service Edges** >**BGP Edge Configuration**.
+1. Go to **Private Access**>**VPN (for Legacy Apps)**>**BGP Edge Configuration**.
 2. On the**BGP Configuration** page:
   - **Local AS Number**: Enter the local autonomous system number used by the router for bidirectional traffic for VPN Service Edges. The value of the Local AS Number must be different for VPN Service Edges and Network Connectors.
   - **Session Failure Detection**: Select one of the following options to detect connection loss: You must use the same session failure detection method for VPN Service Edges and Network Connectors for proper routing.
@@ -3768,7 +3768,7 @@ You can enroll a Network Connector by associating it with an [OAuth enrollment t
 
 To add a Network Connector:
 
-1. Go to **Private Access**>**VPN (for Legacy Apps)**>**Network Connectors**>**Network Connectors**.
+1. Go to **Private Access**>**VPN (for Legacy Apps)**>**Network Connectors**.
 2. Click **Add**. The **Add Network Connector**page appears.
 3. On the **Add Network Connector**page: See image.
   1. **Group**: Select an existing Network Connector group from the drop-down menu.
@@ -6289,7 +6289,7 @@ You can create [VPN Service Edges](https://help.zscaler.com/zpa/about-vpn-servic
 
 To add a new VPN Service Edge:
 
-1. Go to **Private Access**>**VPN (for Legacy Apps)**>**VPN Service Edges**>**VPN Service Edges**.
+1. Go to **Private Access**>**VPN (for Legacy Apps)**>**VPN Service Edges**.
 2. Click **Add VPN Service Edge**. The **Add VPN Service Edge** drawer appears.
 3. In the **Add VPN Service Edge** drawer:
   1. **Name**: Enter a name for the VPN Service Edge. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores (_).
@@ -11611,7 +11611,7 @@ To edit a Network Connector group:
 
 To edit a Network Connector provisioning key:
 
-1. Go to **Private Access**>**VPN (for Legacy Apps)**>**Network Connectors**> **Network Connector Provisioning Keys**.
+1. Go to **Private Access**>**VPN (for Legacy Apps)**> **Network Connector Provisioning Keys**.
 2. Locate the Network Connector provisioning key you want to edit, and click the **Edit** icon. Only keys that can be viewed or exported after creation appear in the table. The **Edit Network Connector Provisioning Key**drawer appears.
 3. In the **Edit Network Connector** **Provisioning Key**drawer, you can modify any field. To learn more, see [About Network Connector Provisioning Keys](https://help.zscaler.com/zpa/about-network-connector-provisioning-keys). [Image: Edit Network Connector Provisioning Key Window in Zscaler Admin Console]
 4. Click **Save**.

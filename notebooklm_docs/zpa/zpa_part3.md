@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 111
 
 ---
@@ -2822,7 +2822,7 @@ Private Cloud Controllers are reachable over the internet for remote users in Bu
 
 In the scenario where a Private Cloud Controller is deployed behind a firewall, the firewall performs destination network address translation (DNAT) for the Private Cloud Controller's private IP address. In this case, the flow of traffic is from Zscaler Client Connector to the Private Cloud Controller. The firewall then translates the destination public IP address that Zscaler Client Connector connects to the private IP address of the Private Cloud Controller. The firewall advertises a public IP address on the internet. It is necessary to configure the public IP address advertised by the firewall as a publish IP address of the respective Private Cloud Controller. In the case of disaster recovery, you must add this IP address as the A record for that Private Cloud Controller.
 
-Your firewalls must be configured to let the Private Cloud Controller establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors, Private Service Edges, and Zscaler Client Connectors.
+Your firewalls must be configured to let the Private Cloud Controller establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors, Private Service Edges, and Zscaler Client Connector.
 
 The following conditions apply to each Private Cloud Controller that is placed behind a firewall:
 
@@ -2855,7 +2855,8 @@ Before you begin any procedures within the [Private Cloud Controller Deployment 
 - systemd
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
-- A [Private Cloud Controller provisioning key](https://help.zscaler.com/zpa/about-private-cloud-controller-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Cloud Controller version 25.47.3 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Cloud Controller [provisioning key](https://help.zscaler.com/zpa/about-private-cloud-controller-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Cloud Controller only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Cloud Controllers can be deployed in different ways, so the security features for each deployment type are slightly different.
@@ -2891,7 +2892,7 @@ After you have deployed a software component on a supported platform, you can co
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
-If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network ConnectorNetwork Connector.
+If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network Connector.
 
 1. Log in to the software component's console using your admin credentials.
 2. View the IP address. `$ ip addr show`
@@ -11341,6 +11342,8 @@ You can use Kubernetes clusters as an alternative option to VMs when configuring
 - Amazon Elastic Kubernetes Service (Amazon EKS)
 - Azure Kubernetes Solution (AKS)
 - Google Kubernetes Engine (GKE)
+
+Other container runtimes, such as Docker, are not supported.
 
 To learn more, see [About Kubernetes Clusters for Microsegmentation](https://help.zscaler.com/zpa/about-kubernetes-clusters-microsegmentation).
 <!-- /ZS-ARTICLE -->

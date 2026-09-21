@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
-Articles in this file: 138
+Generated: 2026-09-21 22:17 UTC
+Articles in this file: 139
 
 ---
 
@@ -2523,20 +2523,20 @@ For detailed information about the traffic your firewall must allow, see [https:
 
 You must define your DLP servers in the Zscaler Admin Console by providing the public IP address of your DLP server with the port number on which your network firewall initially accepts the secure ICAP traffic sent by the Zscaler service.
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **DLP Incident Receiver**.
-2. On the **ICAP Settings**tab, click **Add ICAP Receiver**.
-
-The **Add ICAP Receiver** window appears.
-
-1. In the **Add ICAP Receiver** window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** >**Common Resources** >**DLP Incident Receiver**.
+2. Select the **ICAP Settings** tab.
+3. Click **Add**. The **Add ICAP Receiver** drawer appears.
+4. In the **Add ICAP Receiver** drawer: See image.
   - **Name**: Enter a **Name** for the DLP server.
   - **Status**: Choose **Enable**to allow the service to send communications to the ICAP receiver. If you disable a receiver, the Service Edge cannot send information to that receiver.
-  - **Receiver URI**: Enter the **Receiver URI**. The URI must follow the format: icaps://<FQDN or IP address>:<port number>/<servicepath>
-    - By default, the Receiver URI field is prepopulated with icaps:// because Zscaler recommends sending transaction information via secure ICAP.
+  - **Receiver URI**: Enter the **Receiver URI**.The URI must follow the format: icap://<FQDN or IP address>:<port number>/<servicepath>
+    - By default, the Receiver URI field is prepopulated with icaps://because Zscaler recommends sending transaction information via secure ICAP. For scenarios where it is preferable to send unencrypted ICAP over plain text (for example, for debugging purposes), you can use icap://.
     - FQDNs and IP addresses of DLP servers and load balancers are accepted.
-    - A <port number> must be included and must match the port on which you’ve configured your network firewall to accept secure ICAP traffic from the Zscaler service. Zscaler recommends using port number 11344 for secure ICAP, per standard practice.
-    - The <servicepath> specifies whether the DLP server monitors outgoing traffic or incoming traffic. For example, if you are using Vontu, you would use the servicepath reqmod (for Request Mode) to indicate that the server monitors outgoing traffic. An example of a correctly formatted secure ICAP receiver URI for Vontu would be: icaps://10.10.130.87:11344/reqmod
-2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+    - A <port number> must be included and must match the port on which you’ve configured your network firewall to accept ICAP traffic from the service. Zscaler recommends using port number 1344 for ICAP, per standard practice.
+    - The <servicepath> specifies whether the DLP server monitors outgoing traffic or incoming traffic. For example, if you are using Vontu, you would use the servicepath reqmod (for Request Mode) to indicate that the server monitors outgoing traffic. An example of a correctly formatted unencrypted ICAP receiver URI for Vontu would be: icap://metascan.corp.safemarch.com:1344/reqmod
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
+
+[Image: Add ICAP Receiver drawer showing the required fields]
 
 [Image: Screenshot of stunnel application configuration window highlighting stunnel configuration file]
 <!-- /ZS-ARTICLE -->
@@ -2584,12 +2584,10 @@ For detailed information about the traffic your firewall must allow, see [https:
 
 You must define your DLP servers in the Zscaler Admin Console by providing the public IP address of your DLP server with the port number on which your network firewall initially accepts the secure ICAP traffic sent by the Zscaler service. You can configure as many DLP servers as you need. However, you only need to specify one server for each DLP policy. If your DLP server is behind a load balancer, you can configure the load balancers as well.
 
-1. Go to **Policies**> **Data Protection** >**Common Resources** >**DLP Incident Receiver**.
-2. Click **Add ICAP Receiver**.
-
-The **Add ICAP Receiver** window appears.
-
-1. In the **Add ICAP Receiver** window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** >**Common Resources** >**DLP Incident Receiver**.
+2. Select the **ICAP Settings** tab.
+3. Click **Add**. The **Add ICAP Receiver** drawer appears.
+4. In the **Add ICAP Receiver** drawer: See image.
   - **Name**: Enter a **Name** for the DLP server.
   - **Status**: Choose **Enable**to allow the service to send communications to the ICAP receiver. If you disable a receiver, the Service Edge cannot send information to that receiver.
   - **Receiver URI**: Enter the **Receiver URI**.The URI must follow the format: icap://<FQDN or IP address>:<port number>/<servicepath>
@@ -2597,7 +2595,9 @@ The **Add ICAP Receiver** window appears.
     - FQDNs and IP addresses of DLP servers and load balancers are accepted.
     - A <port number> must be included and must match the port on which you’ve configured your network firewall to accept ICAP traffic from the service. Zscaler recommends using port number 1344 for ICAP, per standard practice.
     - The <servicepath> specifies whether the DLP server monitors outgoing traffic or incoming traffic. For example, if you are using Vontu, you would use the servicepath reqmod (for Request Mode) to indicate that the server monitors outgoing traffic. An example of a correctly formatted unencrypted ICAP receiver URI for Vontu would be: icap://metascan.corp.safemarch.com:1344/reqmod
-2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
+
+[Image: Add ICAP Receiver drawer showing the required fields]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6585,6 +6585,157 @@ To install the LB:
 3. Connect the power cables according to your internal specifications. LBs use universal power supply adapters. The LB powers on automatically and the LED light at the front of the box turns green. If the LB does not power on, press the power button on the front panel. If the unit still does not power on, or the power light is yellow or red, contact the Zscaler Cloud Operations project manager for assistance.
 
 [Image: Load balancer port diagram]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/installing-private-service-edges-internet-saas","lastmod":"2026-09-16T04:48Z","nid":"1401246"} -->
+## Installing Private Service Edges for Internet & SaaS
+
+- Source: https://help.zscaler.com/zia/installing-private-service-edges-internet-saas
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Installing Private Service Edges for Internet & SaaS
+- Last modified: 2026-09-16T04:48Z
+- Summary: Instructions for properly installing Private Service Edge for Internet & SaaS (ZIA) within your organization.
+
+Upon receipt of the hardware, install your pair of Private Service Edges for Internet & SaaS (ZIA) according to the instructions provided. Both Private Service Edges must be installed in the same location.
+
+Zscaler also offers Advanced DLP Private Service Edges as a complementary dedicated hardware role within the Zscaler cloud that can be deployed to provide on-premises support for Private Service Edge customers who also require Advanced DLP product features, such as [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Data Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match). To learn more, see [Understanding Advanced DLP Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/understanding-advanced-dlp-private-service-edge) and [Installing Advanced DLP Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/installing-advanced-dlp-private-service-edge).
+
+## Installation Guides
+
+Only the ports labeled in the installation steps are used by Zscaler. Any unlabeled ports on the server are unused and can be ignored.
+
+- Private Service Edge 3 Installation Guide
+- Private Service Edge 5 Installation Guide
+- Private Service Edge 10 Installation Guide
+- Dedicated Load Balancer Installation Guide
+
+## After Installation
+
+After installation is complete, notify Zscaler by sending an email to your assigned project manager on the Zscaler Cloud Operations team.
+
+Your company name and Private Service Edge location must be included in the email.
+
+When we receive the email from your organization, Zscaler Cloud Operations:
+
+- Verifies remote connectivity.
+- Installs the Zscaler software.
+- Activates your Private Service Edges in the Zscaler cloud.
+- Activates the proactive monitoring capability.
+- Tests and ensures that the Private Service Edges are ready for service.
+
+After these actions are completed, you are notified via email.
+
+- Package Contents
+- Installation
+
+The package contains the following items:
+
+- 1 Private Service Edge 3
+- 1 set of snap in rails
+
+The following items are not included, but are required:
+
+- 2 power cables
+- Up to 7 CAT6 Ethernet cables
+
+To install the Private Service Edge 3:
+
+1. Rack the Private Service Edge using the included rail kit. Private Service Edge requires 1U of space and is 17.2" wide.
+2. Connect the CAT6 Ethernet network cables according to the following image. * indicates the preferred connection speed. However, both speeds are supported. Connecting at the higher speed does not change any provided capacity numbers.
+  - **1Gb (RJ45) IPMI Port (IPMI):**Used for out-of-band management.
+  - **1Gb* / 10Gb (RJ45) OS/Management Port (te0)**: Used for server management.
+  - **1Gb (RJ45) Service Ports (e0 through e3 indicated by LB 1, 2, and 3 in the image)**: Used by the Zscaler service for both incoming and outgoing web traffic. These ports host the IP address of a Private Service Edge instance.
+3. Connect the power cables according to your internal specifications. Private Service Edge uses universal power supply adapters. The Private Service Edge powers on automatically, and the LED light at the front of the box turns green. If the Private Service Edge does not power on, press the power button on the front panel. If the unit still does not power on, or the power light is yellow or red, contact the Zscaler Cloud Operations project manager for assistance.
+
+[Image: Diagram of Private Service Edge 3 service and installation ports.]
+
+- Package Contents
+- Installation
+
+The package contains the following items:
+
+- 1 Private Service Edge 5
+- 1 set of snap in rails
+
+The following items are not included, but are required:
+
+- 2 power cables
+- Up to 3 CAT6 Ethernet cables
+- 2 10G SFP+ / SFP Optic Modules or Direct Attach Cables To learn more about compatible cables and optics, refer to [Intel documentation](https://www.intel.com/content/www/us/en/support/articles/000007045/network-and-i-o/ethernet-products.html).
+
+To install the Private Service Edge 5:
+
+1. Rack the Private Service Edge using the included rail kit. Private Service Edge requires 1U of space and is 17.2" wide.
+2. Connect the network cables according to the following image.
+  - **1Gb (RJ45) IPMI Port (IPMI):**Used for out-of-band management.
+  - **1Gb* / 10Gb (RJ45) OS/Management Port (te0):**Used for server management.
+  - **1Gb* / 10Gb (RJ45) MTS Port (te1):**Used for Message Transport System.
+  - **10Gb (SFP) Service Ports (te4 and te5):**Used by the Zscaler service for both incoming and outgoing web traffic. These ports host the IP address of a Private Service Edge instance.
+
+* indicates the preferred connection speed. However, both speeds are supported. Connecting at the higher speed does not change any provided capacity numbers.
+
+1. Connect the power cables according to your internal specifications. Private Service Edge uses universal power supply adapters. The Private Service Edge powers on automatically, and the LED light at the front of the box turns green. If the Private Service Edge does not power on, press the power button on the front panel. If the unit still does not power on, or the power light is yellow or red, contact the Zscaler Cloud Operations project manager for assistance.
+
+[Image: Diagram of Private Service Edge 5 service and installation ports.]
+
+- Package Contents
+- Installation
+
+The following items are included:
+
+- 1 Dedicated Load Balancer (LB)
+- 1 set of snap in rails
+
+The following items are not included, but are required:
+
+- 2 power cables
+- 3 CAT6 Ethernet cables
+- Up to 6 10G SFP+ / SFP Optic Modules or Direct Attach Cables To learn more about compatible cables and optics, refer to [Intel documentation](https://compatibleproducts.intel.com/ProductDetails?activeModule=Intel%C2%AE%20Ethernet&prdName=Intel%C2%AE%20Ethernet%20Network%20Adapter%20E810-XXVDA2).
+
+To install the LB:
+
+1. Rack the LB using the included rail kit. LBs require 1U of space and are 17.2" wide.
+2. Connect the network cables according to the following image. * indicates preferred connection speed. However, both speeds are supported. Connecting at the higher speed does not change any provided capacity numbers.
+  - **1Gb (RJ45) IPMI Port (IPMI):**Used for out-of-band management.
+  - **1Gb* / 10Gb (RJ45) OS/Management Port (te0):**Used for server management.
+  - **1Gb* / 10Gb (RJ45) MTS Port (te1):**Used for Message Transport System.
+  - **10Gb* / 25Gb (SFP) Service Ports:**Bundled via Link Aggregation Control Protocol (LACP) depending on the design below:
+    - LB Instance 1 = twe0 + twe4
+    - LB Instance 2 (If Required) = twe1 + twe5
+    - LB Instance 3 (If Required) = twe2 + twe6
+    - LB Instance 4 (If Required) = twe3 + twe7
+3. Connect the power cables according to your internal specifications. LBs use universal power supply adapters. The LB powers on automatically, and the LED light at the front of the box turns green. If the LB does not power on, press the power button on the front panel. If the unit still does not power on, or the power light is yellow or red, contact the Zscaler Cloud Operations project manager for assistance.
+
+[Image: Load balancer port diagram]
+
+- Package Contents
+- Installation
+
+The package contains the following items:
+
+- 1 Private Service Edge 10
+- 1 set of snap in rails
+
+The following items are not included, but are required:
+
+- 2 power cables
+- 3 CAT6 Ethernet cables
+- 2 10G SFP+ / SFP Optic Modules or Direct Attach Cables To learn more about compatible cables and optics, refer to [Intel documentation](https://compatibleproducts.intel.com/ProductDetails?activeModule=Intel%C2%AE%20Ethernet&prdName=Intel%C2%AE%20Ethernet%20Network%20Adapter%20E810-XXVDA2).
+
+1. Rack the Private Service Edge using the included rail kit. Private Service Edge requires 1U of space and is 17.2" wide.
+2. Connect the network cables according to the following image.
+  - **1Gb (RJ45) IPMI Port (IPMI):**Used for out-of-band management.
+  - **1Gb* / 10Gb (RJ45) OS/Management Port (te0):**Used for server management.
+  - **1Gb* / 10Gb (RJ45) MTS Port (te1):**Used for Message Transport System.
+  - **10Gb* / 25 Gb (SFP) Service Ports (twe0 and twe1):**Used by the Zscaler service for both incoming and outgoing web traffic. These ports host the IP address of a Private Service Edge instance.
+
+* indicates the preferred connection speed. However, both speeds are supported. Connecting at the higher speed does not change any provided capacity numbers.
+
+1. Connect the power cables according to your internal specifications. Private Service Edge uses universal power supply adapters. The Private Service Edge powers on automatically, and the LED light at the front of the box turns green. If the Private Service Edge does not power on, press the power button on the front panel. If the unit still does not power on, or the power light is yellow or red, contact the Zscaler Cloud Operations project manager for assistance.
+
+[Image: Diagram of the Service Edge 10 ports]
 <!-- /ZS-ARTICLE -->
 
 ---
