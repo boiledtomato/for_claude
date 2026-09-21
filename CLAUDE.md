@@ -551,6 +551,14 @@ Commit bodies may be written in Japanese.
 - **NotebookLM cannot be automated** — it has no public API. The weekly workflow keeps
   the Markdown current; re-uploading the changed files into the notebook is a manual
   step. Read the job summary of `notebooklm-weekly.yml` to see which categories changed.
+- **The weekly workflows push to `main` from a long-running job** — a full rebuild takes
+  15 min to 2 h, and `daily-update.yml` / `url-lookup-update.yml` commit to `main` in the
+  meantime, so `git push` gets rejected as non-fast-forward. The retry loop therefore
+  **rebases onto `origin/$GITHUB_REF_NAME` between attempts** and **exits non-zero if
+  every attempt fails**. Do not revert it to a bare `git push … && break` retry: that
+  form retries the same doomed push, then leaves the step green because the loop's exit
+  status is `sleep`'s. Run 34985252168 (2026-09-15) lost a completed 14-minute prerender
+  rebuild that way and still reported success.
 - **`view_type` matters** — `/zapi/fetch-data` returns `status: 301` with a valid body for
   relocated articles (accept it), and `swagger_article` with an empty `content` for API
   reference pages (follow `file_url` to the OpenAPI JSON). Listing pages such as

@@ -90,11 +90,24 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "docs: Zenith Community 週次更新 $(date -u '+%Y-%m-%d')"
-            for i in 1 2 3 4; do
-              git push origin HEAD && break
-              echo "push failed, retrying in $((2 ** i))s"
+            # 長時間ジョブの間に別のワークフローが main を進めていることがある。
+            # リベースせずに同じ push を繰り返しても必ず弾かれるので、失敗する
+            # たびに最新を取り込み直す。全滅したら明示的に失敗させること —
+            # 黙って成功扱いにすると、取得済みデータが失われたことに気付けない。
+            pushed=""
+            for i in 1 2 3 4 5; do
+              if git push origin HEAD; then pushed=1; break; fi
+              echo "push rejected; rebasing onto origin/$GITHUB_REF_NAME and retrying in $((2 ** i))s"
               sleep $((2 ** i))
+              if ! git pull --rebase origin "$GITHUB_REF_NAME"; then
+                echo "::error::rebase に失敗しました。手動で解決してください"
+                exit 1
+              fi
             done
+            if [ -z "$pushed" ]; then
+              echo "::error::push が5回とも失敗しました。生成物はコミットされていません"
+              exit 1
+            fi
           fi
 
       # ヘルプドキュメントとは別のノートブック・別の状態ファイルを使う。
@@ -125,11 +138,24 @@ jobs:
             echo "No sync state changes"
           else
             git commit -m "chore: Zenith Community 同期状態を更新 $(date -u '+%Y-%m-%d')"
-            for i in 1 2 3 4; do
-              git push origin HEAD && break
-              echo "push failed, retrying in $((2 ** i))s"
+            # 長時間ジョブの間に別のワークフローが main を進めていることがある。
+            # リベースせずに同じ push を繰り返しても必ず弾かれるので、失敗する
+            # たびに最新を取り込み直す。全滅したら明示的に失敗させること —
+            # 黙って成功扱いにすると、取得済みデータが失われたことに気付けない。
+            pushed=""
+            for i in 1 2 3 4 5; do
+              if git push origin HEAD; then pushed=1; break; fi
+              echo "push rejected; rebasing onto origin/$GITHUB_REF_NAME and retrying in $((2 ** i))s"
               sleep $((2 ** i))
+              if ! git pull --rebase origin "$GITHUB_REF_NAME"; then
+                echo "::error::rebase に失敗しました。手動で解決してください"
+                exit 1
+              fi
             done
+            if [ -z "$pushed" ]; then
+              echo "::error::push が5回とも失敗しました。生成物はコミットされていません"
+              exit 1
+            fi
           fi
 
       - name: Notify that manual upload is needed
